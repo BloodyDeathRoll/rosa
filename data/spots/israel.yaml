@@ -46,10 +46,12 @@ spots:
   - { id: kontiki,           name: Kontiki (Netanya),      lat: 32.3022, lon: 34.8412, point: il_central, <<: *il }  # OSM (Argaman beach)
   - { id: poleg,             name: Poleg Beach,            lat: 32.2754, lon: 34.8333, point: il_central, <<: *il }  # OSM
   - { id: gaash,             name: Ga'ash,                 lat: 32.2330, lon: 34.8232, point: il_central, <<: *il }  # TODO verify
-  - { id: sidna-ali,         name: Sidna Ali,              lat: 32.1960, lon: 34.8000, point: il_central, <<: *il }  # TODO verify
-  - { id: acadia,            name: Acadia (Herzliya),      lat: 32.1682, lon: 34.7978, point: il_central, <<: *il }  # OSM
-  - { id: zvulun,            name: Zvulun (Herzliya),      lat: 32.1660, lon: 34.7974, point: il_central, <<: *il }  # OSM (Yordei Yam / sea scouts)
-  - { id: herzliya-marina,   name: The Marina (Herzliya),  lat: 32.1570, lon: 34.7950, point: il_central, <<: *il }  # OSM (south of marina wall)
+  - { id: sidna-ali,         name: Sidna Ali,              lat: 32.1960, lon: 34.8035, point: il_central, <<: *il }  # user-verified 2026-07-19
+  - { id: gazebbo,           name: Gazebbo (Herzliya),     lat: 32.1762, lon: 34.8000, point: il_central, <<: *il }  # user-verified 2026-07-19
+  - { id: zvulun,            name: Zvulun (Herzliya),      lat: 32.1730, lon: 34.7995, point: il_central, <<: *il }  # user-verified 2026-07-19 — north Herzliya Pituah, NOT the marina
+  - { id: acadia,            name: Acadia (Herzliya),      lat: 32.1663, lon: 34.7963, point: il_central, <<: *il }  # user-verified 2026-07-19 — Dan Accadia cape
+  - { id: herzliya-marina,   name: The Marina (Herzliya),  lat: 32.1642, lon: 34.7940, point: il_central, <<: *il }  # user-verified 2026-07-19 — cove N of harbor entrance
+  - { id: dromi,             name: Dromi (Herzliya),       lat: 32.1578, lon: 34.7936, point: il_central, <<: *il }  # user-verified 2026-07-19 — south of the marina
   - { id: tel-baruch,        name: Tel Baruch North,       lat: 32.1220, lon: 34.7825, point: il_central, <<: *il }  # OSM
   - { id: metzitzim,         name: Metzitzim (TLV),        lat: 32.0942, lon: 34.7708, point: il_central, <<: *il }  # OSM
   - { id: hilton,            name: Hilton Beach (TLV),     lat: 32.0899, lon: 34.7691, point: il_central, <<: *il }  # OSM
