@@ -1,0 +1,448 @@
+/* Rosa — pre-dawn sea. Dark-first; the five rating colors are the only accents. */
+
+:root {
+  --ink: #0b1220;
+  --surface: #131d31;
+  --surface-2: #1a2740;
+  --line: rgba(148, 163, 184, 0.14);
+  --text: #e7eef8;
+  --muted: #8b98ac;
+  --flat: #6b7280;
+  --poor: #f5a524;
+  --fair: #a8c63c;
+  --good: #2fc96c;
+  --firing: #28d8e8;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--text);
+  font: 16px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+.page {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 0.75rem 0.75rem calc(2rem + env(safe-area-inset-bottom));
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--firing);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.state {
+  color: var(--muted);
+  text-align: center;
+  padding: 3rem 0;
+}
+
+/* bucket color hooks */
+[data-bucket="FLAT"] { --bucket: var(--flat); }
+[data-bucket="POOR"] { --bucket: var(--poor); }
+[data-bucket="FAIR"] { --bucket: var(--fair); }
+[data-bucket="GOOD"] { --bucket: var(--good); }
+[data-bucket="FIRING"] { --bucket: var(--firing); }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 0.15em 0.55em;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  background: var(--bucket);
+  white-space: nowrap;
+}
+
+.chip b {
+  font-size: 0.85rem;
+}
+
+/* ---------- header ---------- */
+
+.home-head {
+  padding: 1.25rem 0.25rem 0.75rem;
+}
+
+.home-head h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  letter-spacing: -0.02em;
+}
+
+.home-head p {
+  margin: 0.15rem 0 0;
+  color: var(--muted);
+}
+
+.spot-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.75rem 0.25rem;
+}
+
+.spot-head h1 {
+  margin: 0;
+  font-size: 1.35rem;
+  letter-spacing: -0.01em;
+  flex: 1;
+}
+
+.back {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.star {
+  font-size: 1.35rem;
+  line-height: 1;
+  color: var(--muted);
+}
+
+.star[aria-pressed="true"] {
+  color: var(--poor);
+}
+
+/* ---------- current card: the verdict ---------- */
+
+.card.current {
+  background: linear-gradient(180deg, var(--surface-2), var(--surface));
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--bucket);
+  border-radius: 14px;
+  padding: 1rem 1rem 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.verdict {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.verdict h2 {
+  margin: 0;
+  font-size: clamp(2rem, 9vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.numbers {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 1.1rem;
+  margin: 0.65rem 0 0;
+  font-size: 0.95rem;
+}
+
+.numbers > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  white-space: nowrap;
+}
+
+.numbers > b {
+  font-size: 1.1rem;
+}
+
+.water {
+  display: flex;
+  gap: 1.1rem;
+  margin: 0.45rem 0 0.25rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.water .asof {
+  margin-left: auto;
+}
+
+/* why-this-rating */
+
+.why {
+  border-top: 1px solid var(--line);
+  margin-top: 0.6rem;
+}
+
+.why summary {
+  padding: 0.55rem 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.why summary::before {
+  content: "▸ ";
+}
+
+.why[open] summary::before {
+  content: "▾ ";
+}
+
+.why ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0.5rem;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.why li {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+}
+
+.why-label {
+  color: var(--muted);
+  text-transform: capitalize;
+}
+
+.meter {
+  height: 6px;
+  border-radius: 3px;
+  background: var(--surface-2);
+  overflow: hidden;
+}
+
+.meter i {
+  display: block;
+  height: 100%;
+  background: var(--bucket);
+  border-radius: 3px;
+}
+
+.why-note {
+  margin: 0 0 0.6rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+/* ---------- day sections ---------- */
+
+.day {
+  border-top: 1px solid var(--line);
+}
+
+.day summary {
+  display: grid;
+  grid-template-columns: 3.4rem 2.6rem 1fr auto;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.25rem;
+  cursor: pointer;
+  list-style: none;
+  min-height: 44px;
+}
+
+.day summary::-webkit-details-marker {
+  display: none;
+}
+
+.day-name {
+  font-weight: 700;
+}
+
+.day-date {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.day-max {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+/* the signature: a day as a strip of 3-hour color segments */
+.spine {
+  display: flex;
+  gap: 2px;
+  height: 8px;
+}
+
+.spine i {
+  flex: 1;
+  border-radius: 2px;
+  background: var(--bucket);
+  opacity: 0.85;
+  min-width: 6px;
+}
+
+/* hourly rows — density is the benchmark */
+
+.rows {
+  padding-bottom: 0.4rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 3.4rem 1fr 1fr 5.2rem 2rem;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.32rem 0.25rem;
+  border-left: 3px solid var(--bucket);
+  font-size: 0.85rem;
+}
+
+.row .t {
+  color: var(--muted);
+}
+
+.row .h b {
+  font-weight: 650;
+}
+
+.row .h small,
+.row .swell small,
+.wind small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.7rem;
+}
+
+.row .swell {
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.row .swell b {
+  font-weight: 650;
+}
+
+.row .r {
+  font-weight: 700;
+  color: var(--bucket);
+  text-align: right;
+}
+
+.wind {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.wind[data-windclass="offshore"] .arrow { color: var(--good); }
+.wind[data-windclass="cross-shore"] .arrow { color: var(--poor); }
+.wind[data-windclass="onshore"] .arrow { color: var(--flat); }
+
+.arrow svg {
+  width: 12px;
+  height: 12px;
+  display: block;
+}
+
+/* ---------- home list ---------- */
+
+.list-title {
+  margin: 1.1rem 0.25rem 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.spots {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.spot-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-top: 1px solid var(--line);
+}
+
+.spot-row:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.spot-row .star {
+  padding: 0.6rem 0.15rem 0.6rem 0.25rem;
+}
+
+.spot-row a {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.6rem 0.25rem 0.6rem 0;
+  min-height: 44px;
+}
+
+.spot-now {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* ---------- footer ---------- */
+
+.meta {
+  margin-top: 1.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.meta p {
+  margin: 0.2rem 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .day summary,
+  .spot-row a,
+  .chip {
+    transition: opacity 120ms ease;
+  }
+
+  .day summary:hover,
+  .spot-row a:hover {
+    opacity: 0.85;
+  }
+}
