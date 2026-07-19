@@ -738,11 +738,16 @@ button {
   flex: 1;
   position: relative;
   overflow: hidden;
-  min-height: 360px;
 }
+/* Explicit height ON the maplibre container (mock: calc(100vh - 110px), i.e.
+   52px header + 58px nav). Maplibre needs a definite size at init — its own
+   stylesheet forces `position: relative` on this element, so absolute/inset
+   or percentage sizing both collapse to 0. */
 .map-canvas {
-  position: absolute;
-  inset: 0;
+  width: 100%;
+  height: calc(100vh - 110px);
+  height: calc(100dvh - 110px - env(safe-area-inset-bottom));
+  min-height: 360px;
 }
 
 .spot-dot {
