@@ -135,24 +135,25 @@ class TestScoreHour:
 
 class TestCalibrationFix1:
     """Regression for 2026-07-19 Beit Yanai: 0.66 m @ 5.2 s windswell read waist-high
-    GOOD 56 (FIRING 73 at night); Surfline + camera showed 0-0.3 m POOR."""
+    GOOD 56 (FIRING 73 at night). Cam showed ankle-high; ISRAMAR Hadera buoy confirmed
+    the offshore input (Hs 0.56 m @ 6.5 s), pinning the error on the height transform."""
 
     WINDSWELL = (SwellPartition(0.66, 5.2, 290.0),)
 
     def test_windswell_height_discounted(self):
         s = score_hour(SPOT, hour(self.WINDSWELL, 12.9, 216.0))  # the audited conditions
-        assert s.phrase == "knee-high"  # was waist-high
-        assert s.h_break_mid < 0.4
+        assert s.phrase == "shin-high"  # was waist-high; cam said ankle at best
+        assert s.h_break_mid < 0.25
 
     def test_windswell_daytime_rating(self):
         s = score_hour(SPOT, hour(self.WINDSWELL, 12.9, 216.0))
-        assert s.bucket == "FAIR"  # was GOOD 56
-        assert s.rating < 40
+        assert s.bucket == "POOR"  # was GOOD 56; Surfline + cam said POOR
+        assert s.rating < 30
 
     def test_night_land_breeze_cannot_fire(self):
         # perfect light offshore on the same junk swell: was FIRING 77
         s = score_hour(SPOT, hour(self.WINDSWELL, 6.4, 90.0))
-        assert s.bucket != "FIRING"
+        assert s.bucket == "POOR"
         assert s.wind_score < 40  # gate applied: stored wind is the gated value
 
     def test_wind_gate_saturates_on_real_swell(self):

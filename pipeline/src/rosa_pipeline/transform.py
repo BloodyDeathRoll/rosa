@@ -43,9 +43,11 @@ def height_in_window(partitions: tuple[SwellPartition, ...], window: tuple[float
 
 
 def period_quality(period_s: float) -> float:
-    """q(T) = clamp(T/10, 0.4, 1.2): short-period windswell breaks far below its offshore
-    height; long-period groundswell shoals above it. Calibrate from docs/CALIBRATION.md."""
-    return min(1.2, max(0.4, period_s / 10.0))
+    """q(T) = clamp((T/10)^2, 0.15, 1.2): short-period windswell breaks far below its
+    offshore height; long-period groundswell shoals above it. Quadratic shape set by
+    calibration point #1 (buoy-confirmed 0.56 m @ 6.5 s = ankle-high faces).
+    Calibrate from docs/CALIBRATION.md."""
+    return min(1.2, max(0.15, (period_s / 10.0) ** 2))
 
 
 def effective_height_in_window(

@@ -19,7 +19,8 @@ is published in-app ("why this rating") and tuned only via the calibration log:
   only (a flat day with perfect offshore wind must read FLAT, not FAIR).
 
 Breaker height uses the period-adjusted effective height (transform.period_quality):
-a 0.66 m @ 5 s windswell surfs like ~0.35 m, not waist-high (calibration fix #1).
+a 0.66 m @ 5 s windswell surfs like ~0.18 m, not waist-high (calibration fix #1,
+quadratic q confirmed against ISRAMAR Hadera buoy + cam observation).
 """
 
 from __future__ import annotations
