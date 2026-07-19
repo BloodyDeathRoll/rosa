@@ -39,9 +39,13 @@ def payload(spot, raw):
     return build_payload(spot, scored, fetched_at=raw.fetched_at, now=now)
 
 
-def test_extract_full_horizon(raw):
+def test_extract_stops_at_marine_horizon(raw):
+    # The marine API pads to forecast_days with nulls beyond its ~10-day horizon;
+    # extraction must keep exactly the hours with real wave data, never fabricate flat.
     hours = extract_hours(raw)
-    assert len(hours) == 16 * 24
+    n_real = sum(1 for v in raw.marine["hourly"]["wave_height"] if v is not None)
+    assert 0 < n_real < 16 * 24  # the fixture really contains a null tail
+    assert len(hours) == n_real
     first = hours[0]
     assert first.time.tzinfo is not None
     assert first.wind_speed_kph >= 0
@@ -53,10 +57,21 @@ def test_payload_shape(payload):
     assert payload["fetched_at"]
     assert payload["attribution"].startswith("Weather data by Open-Meteo")
     assert len(payload["hours"]) == 7 * 8  # 7 days, 3-hourly
-    assert len(payload["days"]) == 16
+    assert 0 < len(payload["days"]) <= 16
     assert payload["current"]["bucket"] in BUCKETS
     assert payload["current"]["why"].keys() == {"size", "period", "wind"}
     assert payload["current"]["wetsuit"] is not None
+
+
+def test_no_fabricated_far_days(spot, raw, payload):
+    # the last published day must be a day that actually has marine data
+    from zoneinfo import ZoneInfo
+
+    hours = extract_hours(raw)
+    tz = ZoneInfo(spot.timezone)
+    last_real_date = max(h.time.astimezone(tz).date().isoformat() for h in hours)
+    assert payload["days"][-1]["date"] == last_real_date
+    assert len(payload["days"]) < 16  # this fixture's marine horizon ends around day 10
 
 
 def test_every_hour_scored(payload):

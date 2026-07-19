@@ -36,6 +36,10 @@ def extract_hours(raw: RawForecast) -> list[HourForecast]:
 
     hours: list[HourForecast] = []
     for i, t in enumerate(marine["time"]):
+        if marine["wave_height"][i] is None:
+            # Beyond the marine model's horizon (~day 10 the API pads with nulls to
+            # forecast_days). Publishing these as flat would fabricate a forecast.
+            continue
         j = weather_index.get(t)
         if j is None:
             continue
