@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import { fetchIndex } from "../api";
 import { getPosition } from "../geo";
+import type { Theme } from "../theme";
 
 const BUCKET_COLORS: Record<string, string> = {
   FLAT: "#6b7280",
@@ -10,8 +11,16 @@ const BUCKET_COLORS: Record<string, string> = {
   FIRING: "#28d8e8",
 };
 
+// CARTO raster basemaps (free tier, attribution required) — matches the dark app.
+// Swap to self-hosted vector tiles before public launch.
+const TILE_URLS: Record<Theme, string> = {
+  dark: "https://basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png",
+  light: "https://basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png",
+};
+const ATTRIBUTION = "© OpenStreetMap contributors © CARTO";
+
 /** maplibre-gl is ~70 KB gz — loaded only when the Map tab opens. */
-export function MapPage() {
+export function MapPage({ theme }: { theme: Theme }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -34,14 +43,14 @@ export function MapPage() {
           style: {
             version: 8,
             sources: {
-              osm: {
+              carto: {
                 type: "raster",
-                tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
+                tiles: [TILE_URLS[theme]],
                 tileSize: 256,
-                attribution: "© OpenStreetMap contributors",
+                attribution: ATTRIBUTION,
               },
             },
-            layers: [{ id: "osm", type: "raster", source: "osm" }],
+            layers: [{ id: "carto", type: "raster", source: "carto" }],
           },
           center: pos ? [pos.lon, pos.lat] : [34.8, 32.3],
           zoom: pos ? 9 : 7,
@@ -52,19 +61,19 @@ export function MapPage() {
         m.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
 
         for (const [id, e] of Object.entries(index.spots)) {
-          const popup = new maplibregl.Popup({ offset: 24, closeButton: false }).setHTML(
-            `<a class="map-popup" href="#/spot/${id}"><b>${e.name}</b><span>${e.bucket} ${e.rating}</span></a>`
+          const dot = document.createElement("div");
+          dot.className = "spot-dot";
+          dot.style.background = BUCKET_COLORS[e.bucket] ?? BUCKET_COLORS.FLAT ?? "";
+          const popup = new maplibregl.Popup({ offset: 14, closeButton: false }).setHTML(
+            `<a class="map-popup" href="#/spot/${id}"><b>${e.name}</b><span>${e.bucket} · ${e.h[0]}–${e.h[1]} m</span></a>`
           );
-          new maplibregl.Marker({ color: BUCKET_COLORS[e.bucket] ?? "#6b7280" })
-            .setLngLat([e.lon, e.lat])
-            .setPopup(popup)
-            .addTo(m);
+          new maplibregl.Marker({ element: dot }).setLngLat([e.lon, e.lat]).setPopup(popup).addTo(m);
         }
 
         if (pos) {
-          const dot = document.createElement("div");
-          dot.className = "you-dot";
-          new maplibregl.Marker({ element: dot }).setLngLat([pos.lon, pos.lat]).addTo(m);
+          const you = document.createElement("div");
+          you.className = "you-dot";
+          new maplibregl.Marker({ element: you }).setLngLat([pos.lon, pos.lat]).addTo(m);
         } else {
           const lons = Object.values(index.spots).map((e) => e.lon);
           const lats = Object.values(index.spots).map((e) => e.lat);
@@ -85,7 +94,7 @@ export function MapPage() {
       disposed = true;
       map?.remove();
     };
-  }, []);
+  }, [theme]);
 
   if (error) return <main class="page"><p class="state">{error}</p></main>;
   return (

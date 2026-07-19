@@ -2,7 +2,9 @@ import { useEffect, useState } from "preact/hooks";
 import { fetchSpot } from "../api";
 import { CurrentCard } from "../components/CurrentCard";
 import { ForecastTable } from "../components/ForecastTable";
+import { BackIcon, MoonIcon, SunIcon } from "../components/icons";
 import { getFavorites, toggleFavorite } from "../favorites";
+import { pushRecent } from "../recents";
 import type { SpotPayload } from "../types";
 import type { Theme } from "../theme";
 
@@ -22,13 +24,39 @@ export function SpotPage({
   useEffect(() => {
     setData(null);
     setError(null);
+    pushRecent(id);
     fetchSpot(id).then(setData, (e: Error) => setError(e.message));
   }, [id]);
+
+  const head = (
+    <header class="spot-head">
+      <a class="icon-btn" href="#/" aria-label="Back to spots">
+        <BackIcon />
+      </a>
+      <span class="head-actions">
+        <button
+          class="icon-btn"
+          onClick={onToggleTheme}
+          aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+        >
+          {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+        </button>
+        <button
+          class="star"
+          aria-pressed={favs.includes(id)}
+          aria-label={favs.includes(id) ? "Remove from favorites" : "Add to favorites"}
+          onClick={() => setFavs(toggleFavorite(id))}
+        >
+          {favs.includes(id) ? "★" : "☆"}
+        </button>
+      </span>
+    </header>
+  );
 
   if (error) {
     return (
       <main class="page">
-        <a class="back" href="#/">← Spots</a>
+        {head}
         <p class="state">{error}</p>
       </main>
     );
@@ -36,35 +64,16 @@ export function SpotPage({
   if (!data) {
     return (
       <main class="page">
-        <a class="back" href="#/">← Spots</a>
+        {head}
         <p class="state">Loading…</p>
       </main>
     );
   }
 
-  const isFav = favs.includes(id);
   return (
     <main class="page">
-      <header class="spot-head">
-        <a class="back" href="#/">← Spots</a>
-        <h1>{data.spot.name}</h1>
-        <button
-          class="theme-toggle"
-          onClick={onToggleTheme}
-          aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-        >
-          {theme === "dark" ? "☀" : "☾"}
-        </button>
-        <button
-          class="star"
-          aria-pressed={isFav}
-          aria-label={isFav ? "Remove from favorites" : "Add to favorites"}
-          onClick={() => setFavs(toggleFavorite(id))}
-        >
-          {isFav ? "★" : "☆"}
-        </button>
-      </header>
-      <CurrentCard cur={data.current} />
+      {head}
+      <CurrentCard name={data.spot.name} cur={data.current} />
       <ForecastTable hours={data.hours} days={data.days} />
       <footer class="meta">
         <p>

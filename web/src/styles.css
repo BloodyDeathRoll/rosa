@@ -1,5 +1,5 @@
 /* Rosa — pre-dawn sea (dark) / morning glass (light).
-   Roomy and cozy: generous spacing beats density. The five rating colors are the accents. */
+   Roomy and cozy. The five rating colors are the accents. */
 
 :root {
   --ink: #0b1220;
@@ -52,7 +52,7 @@ body {
 .page {
   max-width: 40rem;
   margin: 0 auto;
-  padding: 1rem 1.1rem calc(5.5rem + env(safe-area-inset-bottom));
+  padding: 0.75rem 1.1rem calc(6rem + env(safe-area-inset-bottom));
 }
 
 a {
@@ -78,7 +78,7 @@ button {
 .state {
   color: var(--muted);
   text-align: center;
-  padding: 4rem 0;
+  padding: 3.5rem 1rem;
 }
 
 /* bucket color hooks */
@@ -91,83 +91,97 @@ button {
 .chip {
   display: inline-flex;
   align-items: center;
-  gap: 0.4em;
-  padding: 0.25em 0.7em;
+  padding: 0.3em 0.75em;
   border-radius: 999px;
   font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
   color: var(--chip-text);
   background: var(--bucket);
   white-space: nowrap;
 }
 
-.chip b {
-  font-size: 0.85rem;
+.bucket-word {
+  color: var(--bucket);
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
 }
 
-/* ---------- headers ---------- */
+/* ---------- app header ---------- */
 
-.home-head {
+.app-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.75rem 0.25rem 1.25rem;
+  padding: 0.75rem 0.25rem 0.9rem;
 }
 
-.home-head h1 {
-  margin: 0;
-  font-size: 2rem;
-  letter-spacing: -0.02em;
-}
-
-.theme-toggle {
-  font-size: 1.15rem;
+.brand {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   color: var(--muted);
-  padding: 0.4rem 0.55rem;
-  border-radius: 10px;
+}
+
+.head-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 12px;
   border: 1px solid var(--line);
-  line-height: 1;
+  color: var(--muted);
+  background: var(--surface);
 }
 
 .spot-head {
   display: flex;
   align-items: center;
-  gap: 0.9rem;
-  padding: 1.1rem 0.25rem 1.25rem;
-}
-
-.spot-head h1 {
-  margin: 0;
-  font-size: 1.45rem;
-  letter-spacing: -0.01em;
-  flex: 1;
-}
-
-.back {
-  color: var(--muted);
-  font-size: 0.9rem;
+  justify-content: space-between;
+  padding: 0.75rem 0.25rem 1rem;
 }
 
 .star {
   font-size: 1.4rem;
   line-height: 1;
   color: var(--muted);
+  min-width: 2.2rem;
+  min-height: 2.2rem;
 }
 
 .star[aria-pressed="true"] {
   color: var(--poor);
 }
 
-/* ---------- search ---------- */
+/* ---------- search screen ---------- */
 
-.search {
-  position: relative;
-  margin-bottom: 1.5rem;
+.search-page {
+  padding-bottom: 2rem;
 }
 
-.search input {
-  width: 100%;
+.search-head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0 1rem;
+}
+
+.search-head .icon-btn {
+  border: 0;
+  background: none;
+  flex-shrink: 0;
+}
+
+.search-head input {
+  flex: 1;
   padding: 0.85rem 1.1rem;
   font: inherit;
   color: var(--text);
@@ -176,49 +190,128 @@ button {
   border-radius: 14px;
 }
 
-.search input::placeholder {
+.search-head input::placeholder {
   color: var(--muted);
 }
 
-.search-results {
-  position: absolute;
-  z-index: 10;
-  inset-inline: 0;
-  top: calc(100% + 0.4rem);
-  margin: 0;
-  padding: 0.4rem;
+.results {
   list-style: none;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  box-shadow: 0 12px 32px rgba(3, 8, 20, 0.35);
+  margin: 0;
+  padding: 0;
 }
 
-.search-results button {
+.result-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+}
+
+.result-row a {
+  flex: 1;
+  padding: 1rem 0.25rem;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+}
+
+.result-row small {
   display: block;
-  width: 100%;
-  text-align: left;
-  padding: 0.7rem 0.8rem;
-  border-radius: 10px;
+  color: var(--muted);
+  font-size: 0.75rem;
 }
 
-.search-results button:hover {
-  background: var(--surface-2);
+.result-row .star {
+  font-size: 1.2rem;
+  padding: 0 0.5rem;
 }
 
 .search-empty {
-  padding: 0.7rem 0.8rem;
+  padding: 1.2rem 0.25rem;
   color: var(--muted);
-  font-size: 0.9rem;
+}
+
+/* ---------- recent cards (home) ---------- */
+
+.recent-cards {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.recent-card {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 1.25rem 1.3rem 1.35rem;
+}
+
+.recent-name {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.recent-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 0.45rem;
+}
+
+.recent-rating .spine {
+  width: 9rem;
+}
+
+.recent-numbers {
+  display: flex;
+  gap: 2.2rem;
+  margin-top: 0.9rem;
+}
+
+.recent-numbers .big {
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.recent-numbers .big em {
+  font-style: normal;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-left: 0.25rem;
+}
+
+.recent-numbers .big small {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--muted);
 }
 
 /* ---------- current card: the verdict ---------- */
 
-.card.current {
+.card {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 18px;
-  padding: 1.6rem 1.5rem 1.1rem;
+  padding: 1.5rem 1.4rem;
+}
+
+.card.plain p {
+  margin: 0 0 0.8rem;
+}
+
+.muted-note {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.card.current {
+  padding-bottom: 1rem;
   margin-bottom: 1.75rem;
 }
 
@@ -231,36 +324,59 @@ button {
 
 .verdict h2 {
   margin: 0;
-  font-size: clamp(2rem, 9vw, 2.6rem);
+  font-size: 1.55rem;
   font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
 }
 
-.numbers {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.6rem 1.4rem;
-  margin: 1.1rem 0 0;
-  font-size: 0.95rem;
+/* stat grid: surf / swell / wind / energy / pressure */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  justify-content: space-between;
+  gap: 0.9rem 0.4rem;
+  margin-top: 1.2rem;
 }
 
-.numbers > b {
-  font-size: 1.1rem;
+.stat {
+  display: grid;
+  gap: 0.1rem;
+  justify-items: start;
 }
 
-.numbers > span {
+.stat b {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
-  white-space: nowrap;
+  gap: 0.25rem;
 }
+
+.stat small {
+  color: var(--text);
+  opacity: 0.75;
+  font-size: 0.8rem;
+}
+
+.stat em {
+  font-style: normal;
+  color: var(--muted);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.stat[data-windclass="offshore"] .arrow { color: var(--good); }
+.stat[data-windclass="cross-shore"] .arrow { color: var(--poor); }
+.stat[data-windclass="onshore"] .arrow { color: var(--flat); }
 
 .water {
   display: flex;
   gap: 1.4rem;
-  margin: 0.8rem 0 0.5rem;
+  margin: 1rem 0 0.4rem;
   color: var(--muted);
   font-size: 0.85rem;
 }
@@ -269,35 +385,20 @@ button {
   margin-left: auto;
 }
 
-/* why-this-rating */
+/* why-this-rating — always visible, no title */
 
 .why {
   border-top: 1px solid var(--line);
-  margin-top: 1rem;
-}
-
-.why summary {
-  padding: 0.85rem 0;
-  color: var(--muted);
-  font-size: 0.85rem;
-  cursor: pointer;
-  list-style: none;
-}
-
-.why summary::before {
-  content: "▸ ";
-}
-
-.why[open] summary::before {
-  content: "▾ ";
+  margin-top: 0.8rem;
+  padding-top: 0.9rem;
 }
 
 .why ul {
   list-style: none;
   margin: 0;
-  padding: 0.2rem 0 0.8rem;
+  padding: 0 0 0.4rem;
   display: grid;
-  gap: 0.7rem;
+  gap: 0.6rem;
 }
 
 .why li {
@@ -325,12 +426,6 @@ button {
   height: 100%;
   background: var(--bucket);
   border-radius: 3px;
-}
-
-.why-note {
-  margin: 0 0 0.9rem;
-  color: var(--muted);
-  font-size: 0.75rem;
 }
 
 /* ---------- day sections ---------- */
@@ -385,7 +480,7 @@ button {
   min-width: 6px;
 }
 
-/* hourly rows — roomy, scannable */
+/* hourly rows with the hour rail */
 
 .rows {
   padding: 0.25rem 0 0.9rem;
@@ -393,16 +488,11 @@ button {
 
 .row {
   display: grid;
-  grid-template-columns: 3.2rem minmax(5.2rem, 1.1fr) 1fr 5rem 2rem;
+  grid-template-columns: 4rem minmax(4.6rem, 1fr) 1fr 5rem 2rem;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.65rem 0.35rem;
+  padding: 0.6rem 0.35rem;
   font-size: 0.9rem;
-}
-
-.row .h b,
-.spot-now {
-  white-space: nowrap;
 }
 
 .row + .row {
@@ -411,6 +501,33 @@ button {
 
 .row .t {
   color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rail {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 5px;
+}
+
+.rail i {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--bucket);
+  opacity: 0.25;
+}
+
+.rail i.on {
+  opacity: 1;
+  width: 5px;
+}
+
+.row .h b,
+.spot-now {
+  white-space: nowrap;
 }
 
 .row .h b {
@@ -458,10 +575,10 @@ button {
   display: block;
 }
 
-/* ---------- home list ---------- */
+/* ---------- spot lists ---------- */
 
 .list-title {
-  margin: 1.75rem 0.25rem 0.6rem;
+  margin: 1.6rem 0.25rem 0.6rem;
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -515,7 +632,7 @@ button {
   gap: 0.7rem;
 }
 
-/* ---------- tabs ---------- */
+/* ---------- bottom tabs: icons + tiny labels ---------- */
 
 .tabs {
   position: fixed;
@@ -523,29 +640,31 @@ button {
   inset-inline: 0;
   z-index: 20;
   display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.55rem 1rem calc(0.55rem + env(safe-area-inset-bottom));
-  background: color-mix(in srgb, var(--ink) 82%, transparent);
+  justify-content: space-around;
+  padding: 0.45rem 0.5rem calc(0.5rem + env(safe-area-inset-bottom));
+  background: color-mix(in srgb, var(--ink) 86%, transparent);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-top: 1px solid var(--line);
 }
 
 .tabs a {
-  flex: 1;
-  max-width: 11rem;
-  text-align: center;
-  padding: 0.6rem 1rem;
+  display: grid;
+  justify-items: center;
+  gap: 0.15rem;
+  padding: 0.35rem 0.9rem;
   border-radius: 12px;
-  font-weight: 600;
   color: var(--muted);
+}
+
+.tabs a span {
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .tabs a[aria-current="page"] {
   color: var(--text);
-  background: var(--surface);
-  border: 1px solid var(--line);
 }
 
 /* ---------- map ---------- */
@@ -553,7 +672,7 @@ button {
 .map-wrap {
   position: fixed;
   inset: 0;
-  bottom: calc(3.4rem + env(safe-area-inset-bottom));
+  bottom: calc(3.9rem + env(safe-area-inset-bottom));
 }
 
 .map-wrap .map-canvas {
@@ -561,13 +680,22 @@ button {
   height: 100%;
 }
 
+.spot-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2.5px solid rgba(255, 255, 255, 0.92);
+  box-shadow: 0 1px 6px rgba(3, 8, 20, 0.45);
+  cursor: pointer;
+}
+
 .you-dot {
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: var(--firing);
+  background: #3b82f6;
   border: 3px solid #fff;
-  box-shadow: 0 0 0 2px rgba(40, 216, 232, 0.35);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.35);
 }
 
 .map-popup {
@@ -599,12 +727,14 @@ button {
 @media (prefers-reduced-motion: no-preference) {
   .day summary,
   .spot-row a,
-  .tabs a {
+  .tabs a,
+  .recent-card {
     transition: opacity 120ms ease, background 120ms ease;
   }
 
   .day summary:hover,
-  .spot-row a:hover {
-    opacity: 0.85;
+  .spot-row a:hover,
+  .recent-card:hover {
+    opacity: 0.88;
   }
 }

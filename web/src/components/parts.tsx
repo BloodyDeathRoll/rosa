@@ -1,10 +1,18 @@
 import type { Bucket, HourEntry, Wind } from "../types";
 import { arrowRotation } from "../format";
 
-export function RatingChip({ bucket, rating }: { bucket: Bucket; rating?: number }) {
+export function RatingChip({ bucket }: { bucket: Bucket }) {
   return (
     <span class="chip" data-bucket={bucket}>
-      {rating !== undefined && <b>{rating}</b>}
+      {bucket}
+    </span>
+  );
+}
+
+/** Rating word as colored text (hero usage, Surfline-style). */
+export function BucketWord({ bucket }: { bucket: Bucket }) {
+  return (
+    <span class="bucket-word" data-bucket={bucket}>
       {bucket}
     </span>
   );
@@ -36,6 +44,17 @@ export function DaySpine({ hours }: { hours: HourEntry[] }) {
     <span class="spine" aria-hidden="true">
       {hours.map((h) => (
         <i key={h.t} data-bucket={h.bucket} />
+      ))}
+    </span>
+  );
+}
+
+/** Vertical day strip for the hour rail — current row's slot emphasized. */
+export function HourRail({ dayHours, current }: { dayHours: HourEntry[]; current: string }) {
+  return (
+    <span class="rail" aria-hidden="true">
+      {dayHours.map((h) => (
+        <i key={h.t} data-bucket={h.bucket} class={h.t === current ? "on" : ""} />
       ))}
     </span>
   );

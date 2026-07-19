@@ -1,15 +1,17 @@
 import type { DayEntry, HourEntry } from "../types";
 import { dateOf, dayLabel, heightRange, hourOf } from "../format";
-import { DaySpine, RatingChip, WindCell } from "./parts";
+import { DaySpine, HourRail, RatingChip, WindCell } from "./parts";
 
-function HourRow({ h }: { h: HourEntry }) {
+function HourRow({ h, dayHours }: { h: HourEntry; dayHours: HourEntry[] }) {
   const swell = h.swells.find((s) => s.in_window) ?? h.swells[0];
   return (
     <div class="row" data-bucket={h.bucket}>
-      <span class="t">{hourOf(h.t)}</span>
+      <span class="t">
+        <HourRail dayHours={dayHours} current={h.t} />
+        {hourOf(h.t)}
+      </span>
       <span class="h">
         <b>{heightRange(h.h)}</b>
-        <small>{h.phrase}</small>
       </span>
       <span class="swell">
         {swell ? (
@@ -59,7 +61,7 @@ export function ForecastTable({ hours, days }: { hours: HourEntry[]; days: DayEn
             </summary>
             <div class="rows">
               {dayHours.map((h) => (
-                <HourRow key={h.t} h={h} />
+                <HourRow key={h.t} h={h} dayHours={dayHours} />
               ))}
             </div>
           </details>

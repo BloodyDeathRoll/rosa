@@ -51,7 +51,11 @@ def _hour_entry(spot: Spot, s: ScoredHour, tz: ZoneInfo) -> dict:
         "rating": s.rating,
         "bucket": s.bucket,
         "h": [s.h_break_lo, s.h_break_hi],
+        "h_mid": _r(s.h_break_mid, 1),
         "phrase": s.phrase,
+        # deep-water wave energy flux of in-window partitions: ~0.49 * sum(H^2 * T) kW/m
+        "energy": _r(0.49 * s.energy, 1),
+        "pressure": round(s.hour.pressure_msl) if s.hour.pressure_msl is not None else None,
         "wind": {
             "kph": _r(s.hour.wind_speed_kph, 1),
             "dir": s.hour.wind_dir_deg,

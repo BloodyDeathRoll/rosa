@@ -37,7 +37,7 @@ MARINE_HOURLY = [
     "tertiary_swell_wave_period",
     "sea_surface_temperature",
 ]
-WEATHER_HOURLY = ["wind_speed_10m", "wind_direction_10m", "wind_gusts_10m"]
+WEATHER_HOURLY = ["wind_speed_10m", "wind_direction_10m", "wind_gusts_10m", "pressure_msl"]
 
 
 @dataclass(frozen=True, slots=True)

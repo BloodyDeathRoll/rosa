@@ -23,7 +23,10 @@ export interface HourEntry {
   rating: number;
   bucket: Bucket;
   h: [number, number];
+  h_mid: number;
   phrase: string;
+  energy: number; // deep-water wave energy flux, kW/m
+  pressure: number | null; // mb
   wind: Wind;
   sst: number | null;
   swells: Swell[];

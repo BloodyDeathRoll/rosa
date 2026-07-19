@@ -24,3 +24,12 @@ export function heightRange(h: [number, number]): string {
 export function arrowRotation(fromDeg: number): number {
   return (fromDeg + 180) % 360;
 }
+
+const CARDINALS = [
+  "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE",
+  "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW",
+];
+
+export function cardinal(deg: number): string {
+  return CARDINALS[Math.round(((deg % 360) + 360) % 360 / 22.5) % 16] ?? "";
+}
