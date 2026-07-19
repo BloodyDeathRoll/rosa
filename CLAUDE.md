@@ -64,6 +64,7 @@ Git initialized 2026-07-19 (github.com/BloodyDeathRoll/rosa, private) — conven
 4. GitHub Action: cron pipeline → publish JSON to Pages/bucket.
 Stretch: 16-day strip; share-card edge function; swell-event detection wired to JSON output.
 Roadmap beyond: `docs/rosa-build-plan.md` §8.
+SESSION 2 (2026-07-19 PM) additions: Surfline-informed UI v3 (4 tabs, search screen, settings/units, map drawer), brand system applied (docs/rosa-conditions-color-system.md), per-hour energy+pressure+air in pipeline JSON, spot DB at 40 Israel spots (authority ladder in §Spot database; Herzliya user-verified), hosting on Vercel (CLI-only deploys). NEXT SESSION: (1) spot-DB strategy decision from docs/spot-db-research.md — recommended: build open ODbL surf-spot dataset seeded from OSM + email WannaSurf for license; user has ruled out relying on ad-hoc user corrections; (2) task 4 GitHub Actions cron (needs VERCEL_TOKEN secret; use run --all, one fetch per point, generous spacing — Open-Meteo throttles bursts); (3) July 25 GOOD-55 forecast at Beit Yanai = calibration watch item for quadratic q at longer periods.
 Update this section at the end of every working session before stopping.
 
 ## Calibration methodology (ongoing, log in docs/CALIBRATION.md)
