@@ -22,30 +22,30 @@ offshore_points:
 
 spots:
   # ---- north ----
-  - { id: betset,            name: Betset Beach,           lat: 33.0805, lon: 35.1062, point: il_north,   <<: *il }  # OSM
-  - { id: achziv,            name: Achziv Beach,           lat: 33.0441, lon: 35.1009, point: il_north,   <<: *il }  # OSM
-  - { id: nahariya,          name: Nahariya (Galei Galil), lat: 33.0060, lon: 35.0910, point: il_north,   <<: *il }  # TODO verify
-  - { id: shavei-tzion,      name: Shavei Tzion,           lat: 32.9847, lon: 35.0770, point: il_north,   <<: *il }  # TODO verify
-  - { id: akko-argaman,      name: Argaman (Akko),         lat: 32.9184, lon: 35.0788, point: il_north,   <<: *il }  # OSM
-  - { id: kiryat-yam,        name: Kiryat Yam (Zevulun),   lat: 32.8489, lon: 35.0616, point: il_north,   <<: *il }  # OSM
-  - { id: bat-galim,         name: Bat Galim,              lat: 32.8352, lon: 34.9788, point: il_north,   <<: *il, swell_window: [270, 360] }  # OSM
+  - { id: betset,            name: Betset Beach,           lat: 33.0805, lon: 35.1059, point: il_north,   <<: *il }  # google-geocoded
+  - { id: achziv,            name: Achziv Beach,           lat: 33.0438, lon: 35.1011, point: il_north,   <<: *il }  # google-geocoded
+  - { id: nahariya,          name: Nahariya (Galei Galil), lat: 33.0108, lon: 35.0887, point: il_north,   <<: *il }  # google-geocoded
+  - { id: shavei-tzion,      name: Shavei Tzion,           lat: 32.9821, lon: 35.0830, point: il_north,   <<: *il }  # google-geocoded
+  - { id: akko-argaman,      name: Argaman (Akko),         lat: 32.9162, lon: 35.0807, point: il_north,   <<: *il }  # google-geocoded
+  - { id: kiryat-yam,        name: Kiryat Yam (Zevulun),   lat: 32.8484, lon: 35.0652, point: il_north,   <<: *il }  # google-geocoded
+  - { id: bat-galim,         name: Bat Galim,              lat: 32.8321, lon: 34.9806, point: il_north,   <<: *il, swell_window: [270, 360] }  # google-geocoded
   - { id: backdoor-haifa,    name: Backdoor (Haifa),       lat: 32.8315, lon: 34.9696, point: il_north,   <<: *il, swell_window: [270, 360] }  # OSM surf marker
-  - { id: dado,              name: Dado (Haifa),           lat: 32.7969, lon: 34.9556, point: il_north,   <<: *il }  # OSM
-  - { id: atlit,             name: Atlit Beach,            lat: 32.7120, lon: 34.9370, point: il_north,   <<: *il }  # TODO verify
-  - { id: neve-yam,          name: Neve Yam,               lat: 32.6802, lon: 34.9280, point: il_north,   <<: *il }  # TODO verify
+  - { id: dado,              name: Dado (Haifa),           lat: 32.7935, lon: 34.9557, point: il_north,   <<: *il }  # google-geocoded
+  - { id: atlit,             name: Atlit Beach,            lat: 32.7084, lon: 34.9408, point: il_north,   <<: *il }  # google-geocoded
+  - { id: neve-yam,          name: Neve Yam,               lat: 32.6798, lon: 34.9319, point: il_north,   <<: *il }  # google-geocoded
   - { id: habonim,           name: HaBonim,                lat: 32.6566, lon: 34.9262, point: il_north,   <<: *il }  # OSM
-  - { id: nahsholim,         name: Nahsholim,              lat: 32.6130, lon: 34.9170, point: il_north,   <<: *il }  # OSM
-  - { id: dor,               name: Dor,                    lat: 32.6056, lon: 34.9172, point: il_north,   <<: *il }  # OSM
+  - { id: nahsholim,         name: Nahsholim,              lat: 32.6131, lon: 34.9222, point: il_north,   <<: *il }  # google-geocoded
+  - { id: dor,               name: Dor,                    lat: 32.6078, lon: 34.9233, point: il_north,   <<: *il }  # google-geocoded
   # ---- central ----
-  - { id: caesarea-aqueduct, name: Caesarea Aqueduct,      lat: 32.5142, lon: 34.8968, point: il_central, <<: *il }  # OSM
-  - { id: sdot-yam,          name: Sdot Yam / Caesarea,    lat: 32.4940, lon: 34.8810, point: il_central, <<: *il }  # TODO verify
+  - { id: caesarea-aqueduct, name: Caesarea Aqueduct,      lat: 32.5132, lon: 34.8967, point: il_central, <<: *il }  # google-geocoded
+  - { id: sdot-yam,          name: Sdot Yam / Caesarea,    lat: 32.4926, lon: 34.8931, point: il_central, <<: *il }  # google-geocoded
   - { id: olga,              name: Olga Beach,             lat: 32.4500, lon: 34.8660, point: il_central, <<: *il }  # TODO verify
-  - { id: michmoret,         name: Michmoret (Kushi),      lat: 32.4112, lon: 34.8694, point: il_central, <<: *il }  # OSM
-  - { id: beit-yanai,        name: Beit Yanai,             lat: 32.3884, lon: 34.8642, point: il_central, <<: *il }  # OSM
-  - { id: netanya-sironit,   name: Sironit (Netanya),      lat: 32.3265, lon: 34.8470, point: il_central, <<: *il }  # OSM
+  - { id: michmoret,         name: Michmoret (Kushi),      lat: 32.4065, lon: 34.8716, point: il_central, <<: *il }  # google-geocoded
+  - { id: beit-yanai,        name: Beit Yanai,             lat: 32.3817, lon: 34.8635, point: il_central, <<: *il }  # google-geocoded
+  - { id: netanya-sironit,   name: Sironit (Netanya),      lat: 32.3264, lon: 34.8466, point: il_central, <<: *il }  # google-geocoded
   - { id: kontiki,           name: Kontiki (Netanya),      lat: 32.3022, lon: 34.8412, point: il_central, <<: *il }  # OSM (Argaman beach)
-  - { id: poleg,             name: Poleg Beach,            lat: 32.2754, lon: 34.8333, point: il_central, <<: *il }  # OSM
-  - { id: gaash,             name: Ga'ash,                 lat: 32.2330, lon: 34.8232, point: il_central, <<: *il }  # TODO verify
+  - { id: poleg,             name: Poleg Beach,            lat: 32.2731, lon: 34.8331, point: il_central, <<: *il }  # google-geocoded
+  - { id: gaash,             name: Ga'ash,                 lat: 32.2285, lon: 34.8244, point: il_central, <<: *il }  # google-geocoded
   - { id: sidna-ali,         name: Sidna Ali,              lat: 32.1960, lon: 34.8035, point: il_central, <<: *il }  # user-verified 2026-07-19
   - { id: gazebbo,           name: Gazebbo (Herzliya),     lat: 32.1762, lon: 34.8000, point: il_central, <<: *il }  # user-verified 2026-07-19
   - { id: zvulun,            name: Zvulun (Herzliya),      lat: 32.1730, lon: 34.7995, point: il_central, <<: *il }  # user-verified 2026-07-19 — north Herzliya Pituah, NOT the marina
@@ -53,14 +53,14 @@ spots:
   - { id: herzliya-marina,   name: The Marina (Herzliya),  lat: 32.1642, lon: 34.7940, point: il_central, <<: *il }  # user-verified 2026-07-19 — cove N of harbor entrance
   - { id: dromi,             name: Dromi (Herzliya),       lat: 32.1578, lon: 34.7936, point: il_central, <<: *il }  # user-verified 2026-07-19 — south of the marina
   - { id: tel-baruch,        name: Tel Baruch North,       lat: 32.1220, lon: 34.7825, point: il_central, <<: *il }  # OSM
-  - { id: metzitzim,         name: Metzitzim (TLV),        lat: 32.0942, lon: 34.7708, point: il_central, <<: *il }  # OSM
-  - { id: hilton,            name: Hilton Beach (TLV),     lat: 32.0899, lon: 34.7691, point: il_central, <<: *il }  # OSM
-  - { id: gordon,            name: Gordon (TLV),           lat: 32.0832, lon: 34.7675, point: il_central, <<: *il }  # OSM
-  - { id: bugrashov,         name: Bugrashov (TLV),        lat: 32.0778, lon: 34.7657, point: il_central, <<: *il }  # OSM
-  - { id: dolphinarium,      name: Dolphinarium (TLV),     lat: 32.0690, lon: 34.7620, point: il_central, <<: *il }  # OSM (Aviv/Banana beach)
-  - { id: bat-yam,           name: Bat Yam (Riviera),      lat: 32.0139, lon: 34.7371, point: il_central, <<: *il }  # OSM
+  - { id: metzitzim,         name: Metzitzim (TLV),        lat: 32.0940, lon: 34.7717, point: il_central, <<: *il }  # google-geocoded
+  - { id: hilton,            name: Hilton Beach (TLV),     lat: 32.0901, lon: 34.7698, point: il_central, <<: *il }  # google-geocoded
+  - { id: gordon,            name: Gordon (TLV),           lat: 32.0855, lon: 34.7694, point: il_central, <<: *il }  # google-geocoded
+  - { id: bugrashov,         name: Bugrashov (TLV),        lat: 32.0777, lon: 34.7661, point: il_central, <<: *il }  # google-geocoded
+  - { id: dolphinarium,      name: Dolphinarium (TLV),     lat: 32.0675, lon: 34.7618, point: il_central, <<: *il }  # google-geocoded
+  - { id: bat-yam,           name: Bat Yam (Riviera),      lat: 32.0190, lon: 34.7387, point: il_central, <<: *il }  # google-geocoded
   # ---- south ----
   - { id: palmachim,         name: Palmachim,              lat: 31.9261, lon: 34.6963, point: il_south,   <<: *il }  # OSM
-  - { id: ashdod-lido,       name: Ashdod Lido,            lat: 31.8080, lon: 34.6366, point: il_south,   <<: *il }  # OSM
+  - { id: ashdod-lido,       name: Ashdod Lido,            lat: 31.8071, lon: 34.6376, point: il_south,   <<: *il }  # google-geocoded
   - { id: ashkelon,          name: Ashkelon (Delilah),     lat: 31.6640, lon: 34.5450, point: il_south,   <<: *il }  # TODO verify
   - { id: zikim,             name: Zikim,                  lat: 31.6125, lon: 34.5043, point: il_south,   <<: *il }  # OSM

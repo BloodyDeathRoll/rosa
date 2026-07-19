@@ -1,6 +1,11 @@
 # Local Claude Code settings
 .claude/
 
+# Secrets — API keys, tokens (never commit)
+.env
+.env.*
+!.env.example
+
 # Pipeline outputs are build artifacts — never committed (CLAUDE.md §Conventions)
 data/out/
 

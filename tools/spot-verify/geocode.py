@@ -63,13 +63,34 @@ def geocode_nominatim(name: str, region: str) -> tuple[float, float, str] | None
 
 
 def geocode_google(name: str, region: str) -> tuple[float, float, str] | None:
+    """Places API (New) Text Search — the legacy textsearch endpoint is deprecated."""
     key = os.environ["GOOGLE_MAPS_API_KEY"]
-    q = urllib.parse.urlencode({"query": f"{name}, {region}", "key": key})
-    res = _get(f"https://maps.googleapis.com/maps/api/place/textsearch/json?{q}")
-    hits = res.get("results", []) if isinstance(res, dict) else []
-    if hits:
-        loc = hits[0]["geometry"]["location"]
-        return loc["lat"], loc["lng"], hits[0].get("types", ["?"])[0]
+    body = json.dumps({"textQuery": f"{name}, {region}", "maxResultCount": 1}).encode()
+    req = urllib.request.Request(
+        "https://places.googleapis.com/v1/places:searchText",
+        data=body,
+        method="POST",
+        headers={
+            "Content-Type": "application/json",
+            "X-Goog-Api-Key": key,
+            "X-Goog-FieldMask": "places.location,places.displayName,places.primaryType",
+        },
+    )
+    for i in range(3):
+        try:
+            with urllib.request.urlopen(req, timeout=20, context=CTX) as r:
+                res = json.loads(r.read())
+            break
+        except urllib.error.HTTPError as e:
+            raise RuntimeError(f"{e.code} {e.read().decode()[:120]}") from e
+        except Exception:
+            if i == 2:
+                raise
+            time.sleep(2)
+    places = res.get("places", []) if isinstance(res, dict) else []
+    if places:
+        loc = places[0]["location"]
+        return loc["latitude"], loc["longitude"], places[0].get("primaryType", "?")
     return None
 
 
@@ -108,8 +129,19 @@ def main() -> int:
     text = args.yaml.read_text(encoding="utf-8")
     data = yaml.safe_load(text)
 
-    resolved = matched = shifted = flagged = 0
+    # Authority ladder (CLAUDE.md §Spot database): user-verified > everything.
+    # A geocoder must NEVER overwrite a coordinate a human placed by hand.
+    protected = set()
+    for line in text.splitlines():
+        if "user-verified" in line.lower() and "id:" in line:
+            protected.add(line.split("id:", 1)[1].split(",", 1)[0].strip())
+
+    resolved = matched = shifted = flagged = protected_n = 0
     for s in data["spots"]:
+        if s["id"] in protected:
+            print(f"  {s['id']:20} SKIP (user-verified — protected)")
+            protected_n += 1
+            continue
         cur = (float(s["lat"]), float(s["lon"]))
         try:
             hit = geocode(s["name"], args.region)
@@ -140,7 +172,8 @@ def main() -> int:
     if args.apply:
         args.yaml.write_text(text, encoding="utf-8")
     print(f"\n{args.provider}: resolved {resolved}/{len(data['spots'])}, "
-          f"applied {matched} (of which {shifted} moved >0.3km), flagged {flagged} for review.")
+          f"applied {matched} (of which {shifted} moved >0.3km), flagged {flagged} for review, "
+          f"{protected_n} protected (user-verified, untouched).")
     return 0
 
 
