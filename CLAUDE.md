@@ -44,7 +44,7 @@ Frontend never computes forecasts; it renders pipeline JSON. Keep the fetch laye
 - **Sun**: `astral` lib; show first light/sunrise/sunset/last light.
 
 ## Spot database
-`data/spots/*.yaml` — one file per region. Schema in `data/spots/israel.yaml` (38 spots N→S, expanded 2026-07-19: Herzliya trio Zvulun/Marina/Acadia untangled — Zvulun had sat on the Marina; TLV city beaches, Nahariya→Dor stretch, Palmachim/Zikim added; coordinates need field verification — marked TODO). This DB is the long-term moat: design every addition to be community-contributable. Derive `offshore_direction` from OSM coastline geometry when adding regions in bulk. Never import competitor spot data.
+`data/spots/*.yaml` — one file per region. Schema in `data/spots/israel.yaml` (38 spots N→S; coordinates sourced from OSM beach features 2026-07-19 — © OpenStreetMap contributors, ODbL — tagged OSM per spot; the few unmatched ones remain approximate, tagged TODO verify. Herzliya cluster per OSM: Acadia 32.168 > Zvulun/Yordei Yam 32.166 > Marina-south 32.157). This DB is the long-term moat: design every addition to be community-contributable. Derive `offshore_direction` from OSM coastline geometry when adding regions in bulk. Never import competitor spot data.
 
 ## UI (web/)
 **Colors/theming/voice: `docs/rosa-conditions-color-system.md` is authoritative** — raw/lo-fi zine, mono for all data, one signal red, 5-tier condition scale (FLAT=tier-1 RED "it's a lake" … FIRING=tier-5 deep green), tier colors ONLY in the condition layer (list dots, verdict rules, sparklines/rails, badges, strips), all hexes confined to the two theme blocks in styles.css, blunt rotating verdict copy per tier, OS-aware theme init before first paint.

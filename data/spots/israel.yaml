@@ -1,5 +1,6 @@
 # Rosa spot database — Israel (seed region)
-# NOTE: coordinates are approximate seeds — verify each in the field / satellite before launch (TODO tags).
+# Coordinates sourced from OpenStreetMap beach features (© OpenStreetMap contributors, ODbL)
+# where matched — tagged "OSM". Unmatched spots remain approximate — tagged "TODO verify".
 # offshore_direction convention: compass direction the OFFSHORE WIND blows FROM (Israel coast faces W → E wind = offshore → 90).
 # offshore_point: shared deep-water extraction point per coast segment.
 # swell_window: swell source directions that reach the break.
@@ -21,43 +22,43 @@ offshore_points:
 
 spots:
   # ---- north ----
-  - { id: betset,            name: Betset Beach,           lat: 33.080, lon: 35.106, point: il_north,   <<: *il }  # TODO verify
-  - { id: achziv,            name: Achziv Beach,           lat: 33.048, lon: 35.102, point: il_north,   <<: *il }  # TODO verify
-  - { id: nahariya,          name: Nahariya (Galei Galil), lat: 33.012, lon: 35.090, point: il_north,   <<: *il }  # TODO verify
-  - { id: shavei-tzion,      name: Shavei Tzion,           lat: 32.984, lon: 35.082, point: il_north,   <<: *il }  # TODO verify
-  - { id: akko-argaman,      name: Argaman (Akko),         lat: 32.918, lon: 35.070, point: il_north,   <<: *il }  # TODO verify
-  - { id: kiryat-yam,        name: Kiryat Yam,             lat: 32.849, lon: 35.066, point: il_north,   <<: *il }  # TODO verify
-  - { id: bat-galim,         name: Bat Galim,              lat: 32.833, lon: 34.978, point: il_north,   <<: *il, swell_window: [270, 360] }  # TODO verify — bay orientation differs
-  - { id: backdoor-haifa,    name: Backdoor (Haifa),       lat: 32.828, lon: 34.956, point: il_north,   <<: *il }  # TODO verify
-  - { id: dado,              name: Dado (Haifa),           lat: 32.793, lon: 34.955, point: il_north,   <<: *il }  # TODO verify
-  - { id: atlit,             name: Atlit Beach,            lat: 32.702, lon: 34.938, point: il_north,   <<: *il }  # TODO verify
-  - { id: neve-yam,          name: Neve Yam,               lat: 32.680, lon: 34.932, point: il_north,   <<: *il }  # TODO verify
-  - { id: habonim,           name: HaBonim,                lat: 32.641, lon: 34.921, point: il_north,   <<: *il }  # TODO verify
-  - { id: nahsholim,         name: Nahsholim,              lat: 32.614, lon: 34.917, point: il_north,   <<: *il }  # TODO verify
-  - { id: dor,               name: Dor,                    lat: 32.606, lon: 34.914, point: il_north,   <<: *il }  # TODO verify
+  - { id: betset,            name: Betset Beach,           lat: 33.0805, lon: 35.1062, point: il_north,   <<: *il }  # OSM
+  - { id: achziv,            name: Achziv Beach,           lat: 33.0441, lon: 35.1009, point: il_north,   <<: *il }  # OSM
+  - { id: nahariya,          name: Nahariya (Galei Galil), lat: 33.0060, lon: 35.0910, point: il_north,   <<: *il }  # TODO verify
+  - { id: shavei-tzion,      name: Shavei Tzion,           lat: 32.9847, lon: 35.0770, point: il_north,   <<: *il }  # TODO verify
+  - { id: akko-argaman,      name: Argaman (Akko),         lat: 32.9184, lon: 35.0788, point: il_north,   <<: *il }  # OSM
+  - { id: kiryat-yam,        name: Kiryat Yam (Zevulun),   lat: 32.8489, lon: 35.0616, point: il_north,   <<: *il }  # OSM
+  - { id: bat-galim,         name: Bat Galim,              lat: 32.8352, lon: 34.9788, point: il_north,   <<: *il, swell_window: [270, 360] }  # OSM
+  - { id: backdoor-haifa,    name: Backdoor (Haifa),       lat: 32.8315, lon: 34.9696, point: il_north,   <<: *il, swell_window: [270, 360] }  # OSM surf marker
+  - { id: dado,              name: Dado (Haifa),           lat: 32.7969, lon: 34.9556, point: il_north,   <<: *il }  # OSM
+  - { id: atlit,             name: Atlit Beach,            lat: 32.7120, lon: 34.9370, point: il_north,   <<: *il }  # TODO verify
+  - { id: neve-yam,          name: Neve Yam,               lat: 32.6802, lon: 34.9280, point: il_north,   <<: *il }  # TODO verify
+  - { id: habonim,           name: HaBonim,                lat: 32.6566, lon: 34.9262, point: il_north,   <<: *il }  # OSM
+  - { id: nahsholim,         name: Nahsholim,              lat: 32.6130, lon: 34.9170, point: il_north,   <<: *il }  # OSM
+  - { id: dor,               name: Dor,                    lat: 32.6056, lon: 34.9172, point: il_north,   <<: *il }  # OSM
   # ---- central ----
-  - { id: caesarea-aqueduct, name: Caesarea Aqueduct,      lat: 32.516, lon: 34.892, point: il_central, <<: *il }  # TODO verify
-  - { id: sdot-yam,          name: Sdot Yam / Caesarea,    lat: 32.494, lon: 34.884, point: il_central, <<: *il }  # TODO verify
-  - { id: olga,              name: Olga Beach,             lat: 32.433, lon: 34.869, point: il_central, <<: *il }  # TODO verify
-  - { id: michmoret,         name: Michmoret,              lat: 32.408, lon: 34.866, point: il_central, <<: *il }  # TODO verify
-  - { id: beit-yanai,        name: Beit Yanai,             lat: 32.391, lon: 34.862, point: il_central, <<: *il }  # verified (teardown)
-  - { id: netanya-sironit,   name: Sironit (Netanya),      lat: 32.327, lon: 34.849, point: il_central, <<: *il }  # TODO verify
-  - { id: kontiki,           name: Kontiki (Netanya),      lat: 32.303, lon: 34.842, point: il_central, <<: *il }  # TODO verify
-  - { id: poleg,             name: Poleg Beach,            lat: 32.268, lon: 34.834, point: il_central, <<: *il }  # TODO verify
-  - { id: gaash,             name: Ga'ash,                 lat: 32.238, lon: 34.825, point: il_central, <<: *il }  # TODO verify
-  - { id: sidna-ali,         name: Sidna Ali,              lat: 32.196, lon: 34.799, point: il_central, <<: *il }  # TODO verify
-  - { id: zvulun,            name: Zvulun (Herzliya),      lat: 32.170, lon: 34.797, point: il_central, <<: *il }  # TODO verify — corrected: was placed at the Marina
-  - { id: herzliya-marina,   name: The Marina (Herzliya),  lat: 32.161, lon: 34.790, point: il_central, <<: *il }  # TODO verify
-  - { id: acadia,            name: Acadia (Herzliya),      lat: 32.154, lon: 34.793, point: il_central, <<: *il }  # TODO verify
-  - { id: tel-baruch,        name: Tel Baruch North,       lat: 32.129, lon: 34.782, point: il_central, <<: *il }  # TODO verify
-  - { id: metzitzim,         name: Metzitzim (TLV),        lat: 32.097, lon: 34.771, point: il_central, <<: *il }  # TODO verify
-  - { id: hilton,            name: Hilton Beach (TLV),     lat: 32.089, lon: 34.769, point: il_central, <<: *il }  # TODO verify
-  - { id: gordon,            name: Gordon (TLV),           lat: 32.083, lon: 34.766, point: il_central, <<: *il }  # TODO verify
-  - { id: bugrashov,         name: Bugrashov (TLV),        lat: 32.076, lon: 34.764, point: il_central, <<: *il }  # TODO verify
-  - { id: dolphinarium,      name: Dolphinarium (TLV),     lat: 32.070, lon: 34.762, point: il_central, <<: *il }  # TODO verify
-  - { id: bat-yam,           name: Bat Yam,                lat: 32.017, lon: 34.736, point: il_central, <<: *il }  # TODO verify
+  - { id: caesarea-aqueduct, name: Caesarea Aqueduct,      lat: 32.5142, lon: 34.8968, point: il_central, <<: *il }  # OSM
+  - { id: sdot-yam,          name: Sdot Yam / Caesarea,    lat: 32.4940, lon: 34.8810, point: il_central, <<: *il }  # TODO verify
+  - { id: olga,              name: Olga Beach,             lat: 32.4500, lon: 34.8660, point: il_central, <<: *il }  # TODO verify
+  - { id: michmoret,         name: Michmoret (Kushi),      lat: 32.4112, lon: 34.8694, point: il_central, <<: *il }  # OSM
+  - { id: beit-yanai,        name: Beit Yanai,             lat: 32.3884, lon: 34.8642, point: il_central, <<: *il }  # OSM
+  - { id: netanya-sironit,   name: Sironit (Netanya),      lat: 32.3265, lon: 34.8470, point: il_central, <<: *il }  # OSM
+  - { id: kontiki,           name: Kontiki (Netanya),      lat: 32.3022, lon: 34.8412, point: il_central, <<: *il }  # OSM (Argaman beach)
+  - { id: poleg,             name: Poleg Beach,            lat: 32.2754, lon: 34.8333, point: il_central, <<: *il }  # OSM
+  - { id: gaash,             name: Ga'ash,                 lat: 32.2330, lon: 34.8232, point: il_central, <<: *il }  # TODO verify
+  - { id: sidna-ali,         name: Sidna Ali,              lat: 32.1960, lon: 34.8000, point: il_central, <<: *il }  # TODO verify
+  - { id: acadia,            name: Acadia (Herzliya),      lat: 32.1682, lon: 34.7978, point: il_central, <<: *il }  # OSM
+  - { id: zvulun,            name: Zvulun (Herzliya),      lat: 32.1660, lon: 34.7974, point: il_central, <<: *il }  # OSM (Yordei Yam / sea scouts)
+  - { id: herzliya-marina,   name: The Marina (Herzliya),  lat: 32.1570, lon: 34.7950, point: il_central, <<: *il }  # OSM (south of marina wall)
+  - { id: tel-baruch,        name: Tel Baruch North,       lat: 32.1220, lon: 34.7825, point: il_central, <<: *il }  # OSM
+  - { id: metzitzim,         name: Metzitzim (TLV),        lat: 32.0942, lon: 34.7708, point: il_central, <<: *il }  # OSM
+  - { id: hilton,            name: Hilton Beach (TLV),     lat: 32.0899, lon: 34.7691, point: il_central, <<: *il }  # OSM
+  - { id: gordon,            name: Gordon (TLV),           lat: 32.0832, lon: 34.7675, point: il_central, <<: *il }  # OSM
+  - { id: bugrashov,         name: Bugrashov (TLV),        lat: 32.0778, lon: 34.7657, point: il_central, <<: *il }  # OSM
+  - { id: dolphinarium,      name: Dolphinarium (TLV),     lat: 32.0690, lon: 34.7620, point: il_central, <<: *il }  # OSM (Aviv/Banana beach)
+  - { id: bat-yam,           name: Bat Yam (Riviera),      lat: 32.0139, lon: 34.7371, point: il_central, <<: *il }  # OSM
   # ---- south ----
-  - { id: palmachim,         name: Palmachim,              lat: 31.930, lon: 34.702, point: il_south,   <<: *il }  # TODO verify
-  - { id: ashdod-lido,       name: Ashdod Lido,            lat: 31.808, lon: 34.640, point: il_south,   <<: *il }  # TODO verify
-  - { id: ashkelon,          name: Ashkelon,               lat: 31.678, lon: 34.555, point: il_south,   <<: *il }  # TODO verify
-  - { id: zikim,             name: Zikim,                  lat: 31.607, lon: 34.517, point: il_south,   <<: *il }  # TODO verify
+  - { id: palmachim,         name: Palmachim,              lat: 31.9261, lon: 34.6963, point: il_south,   <<: *il }  # OSM
+  - { id: ashdod-lido,       name: Ashdod Lido,            lat: 31.8080, lon: 34.6366, point: il_south,   <<: *il }  # OSM
+  - { id: ashkelon,          name: Ashkelon (Delilah),     lat: 31.6640, lon: 34.5450, point: il_south,   <<: *il }  # TODO verify
+  - { id: zikim,             name: Zikim,                  lat: 31.6125, lon: 34.5043, point: il_south,   <<: *il }  # OSM
