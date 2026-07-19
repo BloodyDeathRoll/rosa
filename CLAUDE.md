@@ -11,6 +11,7 @@ Rosa is a **worldwide, mobile-first PWA surf forecast app**: free, lean, fast, s
 
 ## Legal red lines
 - NEVER fetch, proxy, or reproduce Surfline API output, spot guide text, cams, or their spot database. The teardown is for structural understanding only.
+- NEVER scrape third-party camera streams (any provider, not just Surfline). Cams enter Rosa only as officially embeddable/permitted public streams (per-spot `cam_url`, v0.3+) or via partnerships.
 - ISRAMAR (isramar.ocean.org.il) data/imagery is all-rights-reserved: use only for manual validation during calibration; pursue partnership before any integration.
 - Open-Meteo: free tier is non-commercial, attribution required — fine for a free app, add attribution in footer; re-verify terms before public launch.
 - CMEMS/Copernicus: free with registration; attribution required.
@@ -46,7 +47,7 @@ Frontend never computes forecasts; it renders pipeline JSON. Keep the fetch laye
 `data/spots/*.yaml` — one file per region. Schema in `data/spots/israel.yaml` (seeded, coordinates need field verification — marked TODO). This DB is the long-term moat: design every addition to be community-contributable. Derive `offshore_direction` from OSM coastline geometry when adding regions in bulk. Never import competitor spot data.
 
 ## UI (web/)
-Screens, in build order: SpotPage (hero: current card + 7-day 3-hourly collapsible table + tide/sun) → Home (favorites w/ rating chips, localStorage first, near-me via geolocation) → Search → 16-day outlook strip → SwellMap (v0.2: scrubbable animated basin map, frames pre-rendered by pipeline). Rating colors: FLAT gray, POOR amber, FAIR yellow-green, GOOD green, FIRING teal/cyan. Dark default. Surfline's table density is the benchmark — match its information density, drop its chrome/upsells/tabs.
+Shell: two tabs, **Spots** (default) | **Map**, bottom tab bar; no taglines anywhere. Screens: SpotPage (verdict hero + why-rating + 7-day 3-hourly collapsible table + tide/sun later) · Spots tab (search w/ autocomplete, Favorites, Near-you via geolocation, All spots **sorted north→south — never alphabetical**) · Map tab (MapLibre, lazy-loaded + excluded from PWA precache; OSM raster tiles for now — light-use policy, swap to vector/self-hosted before launch; markers colored by rating; centers on user location, world-zoomable) → 16-day outlook strip → SwellMap v0.2 (scrubbable animated basin map, frames pre-rendered by pipeline). Rating colors: FLAT gray, POOR amber, FAIR yellow-green, GOOD green, FIRING teal/cyan. **Design direction (user, 2026-07-19, supersedes the old "Surfline density benchmark"): roomy and cozy, generous spacing, no decorative borders on cards; dark AND light themes with in-app toggle, dark default.**
 
 ## Conventions
 - Python: uv, ruff, pytest; type hints everywhere; pipeline stages pure functions (input → output, no hidden state) so fixtures test everything offline.

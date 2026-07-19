@@ -4,8 +4,17 @@ import { CurrentCard } from "../components/CurrentCard";
 import { ForecastTable } from "../components/ForecastTable";
 import { getFavorites, toggleFavorite } from "../favorites";
 import type { SpotPayload } from "../types";
+import type { Theme } from "../theme";
 
-export function SpotPage({ id }: { id: string }) {
+export function SpotPage({
+  id,
+  theme,
+  onToggleTheme,
+}: {
+  id: string;
+  theme: Theme;
+  onToggleTheme: () => void;
+}) {
   const [data, setData] = useState<SpotPayload | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [favs, setFavs] = useState<string[]>(getFavorites);
@@ -39,6 +48,13 @@ export function SpotPage({ id }: { id: string }) {
       <header class="spot-head">
         <a class="back" href="#/">← Spots</a>
         <h1>{data.spot.name}</h1>
+        <button
+          class="theme-toggle"
+          onClick={onToggleTheme}
+          aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+        >
+          {theme === "dark" ? "☀" : "☾"}
+        </button>
         <button
           class="star"
           aria-pressed={isFav}

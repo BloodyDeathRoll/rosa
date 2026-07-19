@@ -20,9 +20,19 @@ export default defineConfig({
         ]
       },
       workbox: {
-        // app shell precached; forecast JSON served stale-while-revalidate so the
-        // last forecast is readable offline and refreshes in the background
+        // app shell precached; the heavy maplibre chunk is fetched (and then cached)
+        // only when the Map tab opens; forecast JSON served stale-while-revalidate so
+        // the last forecast is readable offline and refreshes in the background
+        globIgnores: ["**/maplibre-gl-*"],
         runtimeCaching: [
+          {
+            urlPattern: ({ url }) => /\/assets\/maplibre-gl-/.test(url.pathname),
+            handler: "CacheFirst",
+            options: {
+              cacheName: "rosa-map-lib",
+              expiration: { maxEntries: 4, maxAgeSeconds: 60 * 60 * 24 * 30 }
+            }
+          },
           {
             urlPattern: ({ url }) => url.pathname.startsWith("/data/"),
             handler: "StaleWhileRevalidate",

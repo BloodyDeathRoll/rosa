@@ -1,4 +1,5 @@
-/* Rosa — pre-dawn sea. Dark-first; the five rating colors are the only accents. */
+/* Rosa — pre-dawn sea (dark) / morning glass (light).
+   Roomy and cozy: generous spacing beats density. The five rating colors are the accents. */
 
 :root {
   --ink: #0b1220;
@@ -12,7 +13,24 @@
   --fair: #a8c63c;
   --good: #2fc96c;
   --firing: #28d8e8;
+  --chip-text: #0b1220;
   color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  --ink: #eef2f7;
+  --surface: #ffffff;
+  --surface-2: #f4f7fb;
+  --line: rgba(21, 36, 60, 0.1);
+  --text: #15243c;
+  --muted: #5c6b82;
+  --flat: #8a93a1;
+  --poor: #d98b06;
+  --fair: #7d9a1e;
+  --good: #17984d;
+  --firing: #0d9fb3;
+  --chip-text: #ffffff;
+  color-scheme: light;
 }
 
 * {
@@ -27,14 +45,14 @@ body {
   margin: 0;
   background: var(--ink);
   color: var(--text);
-  font: 16px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   font-variant-numeric: tabular-nums;
 }
 
 .page {
   max-width: 40rem;
   margin: 0 auto;
-  padding: 0.75rem 0.75rem calc(2rem + env(safe-area-inset-bottom));
+  padding: 1rem 1.1rem calc(5.5rem + env(safe-area-inset-bottom));
 }
 
 a {
@@ -54,13 +72,13 @@ button {
 :focus-visible {
   outline: 2px solid var(--firing);
   outline-offset: 2px;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 .state {
   color: var(--muted);
   text-align: center;
-  padding: 3rem 0;
+  padding: 4rem 0;
 }
 
 /* bucket color hooks */
@@ -73,13 +91,13 @@ button {
 .chip {
   display: inline-flex;
   align-items: center;
-  gap: 0.35em;
-  padding: 0.15em 0.55em;
+  gap: 0.4em;
+  padding: 0.25em 0.7em;
   border-radius: 999px;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.04em;
-  color: var(--ink);
+  color: var(--chip-text);
   background: var(--bucket);
   white-space: nowrap;
 }
@@ -88,33 +106,40 @@ button {
   font-size: 0.85rem;
 }
 
-/* ---------- header ---------- */
+/* ---------- headers ---------- */
 
 .home-head {
-  padding: 1.25rem 0.25rem 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.75rem 0.25rem 1.25rem;
 }
 
 .home-head h1 {
   margin: 0;
-  font-size: 1.9rem;
+  font-size: 2rem;
   letter-spacing: -0.02em;
 }
 
-.home-head p {
-  margin: 0.15rem 0 0;
+.theme-toggle {
+  font-size: 1.15rem;
   color: var(--muted);
+  padding: 0.4rem 0.55rem;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  line-height: 1;
 }
 
 .spot-head {
   display: flex;
-  align-items: baseline;
-  gap: 0.75rem;
-  padding: 0.75rem 0.25rem;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 1.1rem 0.25rem 1.25rem;
 }
 
 .spot-head h1 {
   margin: 0;
-  font-size: 1.35rem;
+  font-size: 1.45rem;
   letter-spacing: -0.01em;
   flex: 1;
 }
@@ -125,7 +150,7 @@ button {
 }
 
 .star {
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   line-height: 1;
   color: var(--muted);
 }
@@ -134,22 +159,74 @@ button {
   color: var(--poor);
 }
 
+/* ---------- search ---------- */
+
+.search {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.search input {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  font: inherit;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.search input::placeholder {
+  color: var(--muted);
+}
+
+.search-results {
+  position: absolute;
+  z-index: 10;
+  inset-inline: 0;
+  top: calc(100% + 0.4rem);
+  margin: 0;
+  padding: 0.4rem;
+  list-style: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(3, 8, 20, 0.35);
+}
+
+.search-results button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.7rem 0.8rem;
+  border-radius: 10px;
+}
+
+.search-results button:hover {
+  background: var(--surface-2);
+}
+
+.search-empty {
+  padding: 0.7rem 0.8rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
 /* ---------- current card: the verdict ---------- */
 
 .card.current {
-  background: linear-gradient(180deg, var(--surface-2), var(--surface));
+  background: var(--surface);
   border: 1px solid var(--line);
-  border-left: 4px solid var(--bucket);
-  border-radius: 14px;
-  padding: 1rem 1rem 0.75rem;
-  margin-bottom: 1rem;
+  border-radius: 18px;
+  padding: 1.6rem 1.5rem 1.1rem;
+  margin-bottom: 1.75rem;
 }
 
 .verdict {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 .verdict h2 {
@@ -164,9 +241,13 @@ button {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.4rem 1.1rem;
-  margin: 0.65rem 0 0;
+  gap: 0.6rem 1.4rem;
+  margin: 1.1rem 0 0;
   font-size: 0.95rem;
+}
+
+.numbers > b {
+  font-size: 1.1rem;
 }
 
 .numbers > span {
@@ -176,14 +257,10 @@ button {
   white-space: nowrap;
 }
 
-.numbers > b {
-  font-size: 1.1rem;
-}
-
 .water {
   display: flex;
-  gap: 1.1rem;
-  margin: 0.45rem 0 0.25rem;
+  gap: 1.4rem;
+  margin: 0.8rem 0 0.5rem;
   color: var(--muted);
   font-size: 0.85rem;
 }
@@ -196,11 +273,11 @@ button {
 
 .why {
   border-top: 1px solid var(--line);
-  margin-top: 0.6rem;
+  margin-top: 1rem;
 }
 
 .why summary {
-  padding: 0.55rem 0;
+  padding: 0.85rem 0;
   color: var(--muted);
   font-size: 0.85rem;
   cursor: pointer;
@@ -218,16 +295,16 @@ button {
 .why ul {
   list-style: none;
   margin: 0;
-  padding: 0 0 0.5rem;
+  padding: 0.2rem 0 0.8rem;
   display: grid;
-  gap: 0.4rem;
+  gap: 0.7rem;
 }
 
 .why li {
   display: grid;
   grid-template-columns: 7.5rem 1fr;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.8rem;
   font-size: 0.8rem;
 }
 
@@ -251,7 +328,7 @@ button {
 }
 
 .why-note {
-  margin: 0 0 0.6rem;
+  margin: 0 0 0.9rem;
   color: var(--muted);
   font-size: 0.75rem;
 }
@@ -264,13 +341,13 @@ button {
 
 .day summary {
   display: grid;
-  grid-template-columns: 3.4rem 2.6rem 1fr auto;
+  grid-template-columns: 3.6rem 2.6rem 1fr auto;
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.6rem 0.25rem;
+  gap: 0.8rem;
+  padding: 1rem 0.35rem;
   cursor: pointer;
   list-style: none;
-  min-height: 44px;
+  min-height: 54px;
 }
 
 .day summary::-webkit-details-marker {
@@ -289,39 +366,47 @@ button {
 .day-max {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
   font-size: 0.85rem;
 }
 
 /* the signature: a day as a strip of 3-hour color segments */
 .spine {
   display: flex;
-  gap: 2px;
+  gap: 3px;
   height: 8px;
 }
 
 .spine i {
   flex: 1;
-  border-radius: 2px;
+  border-radius: 3px;
   background: var(--bucket);
   opacity: 0.85;
   min-width: 6px;
 }
 
-/* hourly rows — density is the benchmark */
+/* hourly rows — roomy, scannable */
 
 .rows {
-  padding-bottom: 0.4rem;
+  padding: 0.25rem 0 0.9rem;
 }
 
 .row {
   display: grid;
-  grid-template-columns: 3.4rem 1fr 1fr 5.2rem 2rem;
+  grid-template-columns: 3.2rem minmax(5.2rem, 1.1fr) 1fr 5rem 2rem;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.32rem 0.25rem;
-  border-left: 3px solid var(--bucket);
-  font-size: 0.85rem;
+  padding: 0.65rem 0.35rem;
+  font-size: 0.9rem;
+}
+
+.row .h b,
+.spot-now {
+  white-space: nowrap;
+}
+
+.row + .row {
+  border-top: 1px solid color-mix(in srgb, var(--line) 55%, transparent);
 }
 
 .row .t {
@@ -337,7 +422,8 @@ button {
 .wind small {
   display: block;
   color: var(--muted);
-  font-size: 0.7rem;
+  font-size: 0.72rem;
+  margin-top: 0.1rem;
 }
 
 .row .swell {
@@ -358,7 +444,7 @@ button {
 .wind {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.35rem;
   flex-wrap: wrap;
 }
 
@@ -375,7 +461,7 @@ button {
 /* ---------- home list ---------- */
 
 .list-title {
-  margin: 1.1rem 0.25rem 0.35rem;
+  margin: 1.75rem 0.25rem 0.6rem;
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -386,22 +472,24 @@ button {
 .spots {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0.25rem 0.4rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
 }
 
 .spot-row {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.7rem;
+}
+
+.spot-row + .spot-row {
   border-top: 1px solid var(--line);
 }
 
-.spot-row:last-child {
-  border-bottom: 1px solid var(--line);
-}
-
 .spot-row .star {
-  padding: 0.6rem 0.15rem 0.6rem 0.25rem;
+  padding: 0.9rem 0.3rem 0.9rem 0.5rem;
 }
 
 .spot-row a {
@@ -409,36 +497,110 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.75rem;
-  padding: 0.6rem 0.25rem 0.6rem 0;
-  min-height: 44px;
+  gap: 1rem;
+  padding: 0.95rem 0.4rem 0.95rem 0;
+  min-height: 56px;
+}
+
+.spot-name small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin-top: 0.1rem;
 }
 
 .spot-now {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.7rem;
+}
+
+/* ---------- tabs ---------- */
+
+.tabs {
+  position: fixed;
+  bottom: 0;
+  inset-inline: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1rem calc(0.55rem + env(safe-area-inset-bottom));
+  background: color-mix(in srgb, var(--ink) 82%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid var(--line);
+}
+
+.tabs a {
+  flex: 1;
+  max-width: 11rem;
+  text-align: center;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.tabs a[aria-current="page"] {
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+
+/* ---------- map ---------- */
+
+.map-wrap {
+  position: fixed;
+  inset: 0;
+  bottom: calc(3.4rem + env(safe-area-inset-bottom));
+}
+
+.map-wrap .map-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.you-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--firing);
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 2px rgba(40, 216, 232, 0.35);
+}
+
+.map-popup {
+  display: grid;
+  gap: 0.15rem;
+  color: #15243c;
+  font: 14px/1.3 system-ui, sans-serif;
+}
+
+.map-popup span {
+  color: #5c6b82;
+  font-size: 12px;
 }
 
 /* ---------- footer ---------- */
 
 .meta {
-  margin-top: 1.5rem;
-  padding-top: 0.75rem;
+  margin-top: 2rem;
+  padding-top: 1rem;
   border-top: 1px solid var(--line);
   color: var(--muted);
   font-size: 0.72rem;
 }
 
 .meta p {
-  margin: 0.2rem 0;
+  margin: 0.25rem 0;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .day summary,
   .spot-row a,
-  .chip {
-    transition: opacity 120ms ease;
+  .tabs a {
+    transition: opacity 120ms ease, background 120ms ease;
   }
 
   .day summary:hover,
