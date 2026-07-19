@@ -7,7 +7,9 @@
     "sync-data": "rm -rf public/data && mkdir -p public/data && cp -r ../data/out/. public/data/",
     "dev": "npm run sync-data && vite",
     "build": "npm run sync-data && tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepare-output": "rm -rf .vercel/output && mkdir -p .vercel/output/static && echo '{\"version\":3}' > .vercel/output/config.json && cp -r dist/. .vercel/output/static/",
+    "deploy": "npm run build && npm run prepare-output && vercel deploy --prebuilt --prod"
   },
   "dependencies": {
     "preact": "^10.24.0"

@@ -20,8 +20,10 @@ Rosa is a **worldwide, mobile-first PWA surf forecast app**: free, lean, fast, s
 ```
 pipeline/ (Python 3.11+, uv)          web/ (Vite + React/Preact PWA, TS)
   fetch    → Open-Meteo Marine+Weather APIs (v1)   MapLibre GL for maps
-             (swap layer later: NOMADS GRIB via     Static hosting (CF Pages/Netlify)
-              xarray+cfgrib, ECMWF, CMEMS)          Reads /data/spots/{id}.json
+             (swap layer later: NOMADS GRIB via     Static hosting: Vercel (user choice
+              xarray+cfgrib, ECMWF, CMEMS)          2026-07-19; watch free-tier 100 GB/mo
+                                                    bandwidth cap as spots/maps scale)
+                                                    Reads /data/spots/{id}.json
   extract  → sample at spot's offshore_point
   transform→ swell-window filter, height_coeff
   score    → rating 0-100 → bucket
@@ -56,7 +58,7 @@ Screens, in build order: SpotPage (hero: current card + 7-day 3-hourly collapsib
 Git initialized 2026-07-19 (github.com/BloodyDeathRoll/rosa, private) — conventional commits. Session 1 (in order):
 1. ✅ DONE (2026-07-19) `pipeline/`: uv project scaffolded; fetch (Open-Meteo marine+weather, 16 d hourly, capture/replay via `--capture`/`--fixtures`) → extract → transform → score → publish; 41 unit tests green (`cd pipeline && uv run pytest`); CLI works: `uv run --project pipeline rosa-pipeline run --spot beit-yanai` (from repo root) → `data/out/spots/beit-yanai.json` + `index.json`. Fixture captured at `pipeline/tests/fixtures/32.2_34.55.json`. Underspecified formula choices (size taper w/ floor 10 @ 2×ideal-hi, wind v_max 40→25 kph by angle, flat gate h<0.15 m) documented in `pipeline/src/rosa_pipeline/score.py` docstring — tune via calibration log only. Wind-wave partition counts toward in-window energy (Med windswell matters); payload ~20 KB raw (2.5 KB gzipped — under the 5 KB target as served). Calibration fix #1 applied same day (see docs/CALIBRATION.md row 1): period-quality height transform, wind gate, daylight-only day max — 53 tests green.
 2. ✅ DONE (2026-07-19) Ran all 20 Israel spots live; Beit Yanai eyeballed vs. Surfline + cam + ISRAMAR Hadera buoy → calibration fix #1 (CALIBRATION.md row 1). Learnings baked in: Open-Meteo throttles rapid per-spot fetching → `run --all` fetches once per unique offshore point (3 fetches for 20 spots; the cron job must use this); marine API pads nulls beyond its ~10-day horizon → extract skips null hours, `days` truncates honestly (no fabricated FLAT). Watch item: 2026-07-25 forecast GOOD 55 @ Beit Yanai — verify quadratic q at longer periods when it arrives.
-3. ✅ DONE (2026-07-19) `web/`: Vite + Preact PWA (TS strict, no router lib, vite-plugin-pwa; app shell 8.3 KB gz JS + 1.8 KB CSS). SpotPage (verdict hero + why-rating + 7-day 3-hourly collapsible table with per-day color "spine" strips), Home favorites (localStorage). `npm run dev|build` in web/ (sync-data script copies data/out → public/data; both gitignored). Deployed to CF Pages: https://rosa-24e.pages.dev (redeploy: `cd web && npm run build && npx wrangler pages deploy dist --project-name rosa --branch main`). Data ships inside the deploy for now; task 4's cron should publish data separately from app deploys.
+3. ✅ DONE (2026-07-19) `web/`: Vite + Preact PWA (TS strict, no router lib, vite-plugin-pwa; app shell 8.3 KB gz JS + 1.8 KB CSS). SpotPage (verdict hero + why-rating + 7-day 3-hourly collapsible table with per-day color "spine" strips), Home favorites (localStorage). `npm run dev|build` in web/ (sync-data script copies data/out → public/data; both gitignored). Deployed to Vercel (moved off CF Pages same day, user choice; CF project deleted): https://rosa-rust.vercel.app — redeploy: `cd web && npm run deploy` (prebuilt static deploy; cloud builds would break on sync-data's ../data reference). Data ships inside the deploy for now; task 4's cron should publish data separately from app deploys (needs VERCEL_TOKEN secret in GitHub).
 4. GitHub Action: cron pipeline → publish JSON to Pages/bucket.
 Stretch: 16-day strip; share-card edge function; swell-event detection wired to JSON output.
 Roadmap beyond: `docs/rosa-build-plan.md` §8.
