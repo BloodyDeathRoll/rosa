@@ -34,10 +34,13 @@ export default defineConfig({
             }
           },
           {
+            // forecasts must be fresh when online — cache is the offline fallback,
+            // never a first answer (stale coords/forecasts looked like data bugs)
             urlPattern: ({ url }) => url.pathname.startsWith("/data/"),
-            handler: "StaleWhileRevalidate",
+            handler: "NetworkFirst",
             options: {
               cacheName: "rosa-data",
+              networkTimeoutSeconds: 4,
               expiration: { maxEntries: 64, maxAgeSeconds: 60 * 60 * 24 * 7 }
             }
           }

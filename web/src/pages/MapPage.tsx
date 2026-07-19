@@ -24,6 +24,25 @@ function condColor(bucket: Bucket): string {
     .trim();
 }
 
+function cardLeft(track: HTMLElement, i: number): number {
+  const el = track.children[i] as HTMLElement | undefined;
+  const first = track.children[0] as HTMLElement | undefined;
+  return el && first ? el.offsetLeft - first.offsetLeft : 0;
+}
+
+function nearestCard(track: HTMLElement): number {
+  let best = 0;
+  let bestDist = Infinity;
+  for (let i = 0; i < track.children.length; i++) {
+    const d = Math.abs(cardLeft(track, i) - track.scrollLeft);
+    if (d < bestDist) {
+      bestDist = d;
+      best = i;
+    }
+  }
+  return best;
+}
+
 interface MapHandle {
   easeTo(opts: { center: [number, number]; duration?: number }): void;
   remove(): void;
@@ -36,6 +55,7 @@ export function MapPage({ theme }: { theme: Theme }) {
   const mapRef = useRef<MapHandle | null>(null);
   const dotsRef = useRef<HTMLElement[]>([]);
   const scrollTimer = useRef<number | undefined>(undefined);
+  const suppressScroll = useRef(false);
   const [error, setError] = useState<string | null>(null);
   const [spots, setSpots] = useState<Entry[]>([]);
   const [open, setOpen] = useState<number | null>(null);
@@ -122,23 +142,34 @@ export function MapPage({ theme }: { theme: Theme }) {
     };
   }, [theme]);
 
-  // marker tap → scroll drawer to that card; highlight + center follow
+  // marker tap → scroll drawer to that card; highlight + center follow.
+  // The programmatic scroll must not feed back through the settle handler:
+  // on first open it runs before layout and would clamp + overwrite `open`
+  // with a wrong index (drawer showing the wrong spot).
   useEffect(() => {
     dotsRef.current.forEach((d, i) => d.classList.toggle("active", i === open));
     if (open === null) return;
     const entry = spots[open];
     if (entry) mapRef.current?.easeTo({ center: [entry[1].lon, entry[1].lat], duration: 400 });
-    const track = trackRef.current;
-    if (track) track.scrollTo({ left: open * track.clientWidth, behavior: "instant" as ScrollBehavior });
-  }, [open === null ? null : open, spots.length]);
+    suppressScroll.current = true;
+    requestAnimationFrame(() => {
+      const track = trackRef.current;
+      if (track) track.scrollTo({ left: cardLeft(track, open) });
+      window.setTimeout(() => {
+        suppressScroll.current = false;
+      }, 300);
+    });
+  }, [open, spots.length]);
 
   // swipe between adjacent spots: settle detection on the snap container
   const onTrackScroll = () => {
+    if (suppressScroll.current) return;
     const track = trackRef.current;
     if (!track) return;
     clearTimeout(scrollTimer.current);
     scrollTimer.current = window.setTimeout(() => {
-      const idx = Math.round(track.scrollLeft / track.clientWidth);
+      if (suppressScroll.current) return;
+      const idx = nearestCard(track);
       if (idx !== open && idx >= 0 && idx < spots.length) {
         setOpen(idx);
       }
