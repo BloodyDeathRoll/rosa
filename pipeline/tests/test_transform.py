@@ -145,8 +145,9 @@ class TestWetsuit:
     def test_boundaries(self):
         assert wetsuit(25.0) == "rashguard"
         assert wetsuit(24.0) == "spring / 2mm"
-        assert wetsuit(20.0) == "spring / 2mm"
-        assert wetsuit(19.0) == "3/2"
+        assert wetsuit(19.0) == "spring / 2mm"
+        assert wetsuit(18.0) == "3/2"
         assert wetsuit(16.0) == "4/3"
-        assert wetsuit(12.0) == "5/4 + boots"
-        assert wetsuit(9.0) == "6/5 hooded"
+        assert wetsuit(13.0) == "5/4 + boots"
+        assert wetsuit(10.0) == "5/4 hooded + gloves"
+        assert wetsuit(8.0) == "6/5 hooded"

@@ -1,11 +1,15 @@
 import type { CurrentEntry } from "../types";
-import { cardinal, heightRange, hourOf } from "../format";
+import { cardinal, hourOf } from "../format";
+import { fmtH, fmtRange, fmtTemp, heightUnit, useUnits } from "../units";
 import { DirArrow, RatingChip } from "./parts";
+import { ShirtIcon, WetsuitIcon } from "./icons";
 
 const WHY_MAX = { size: 40, period: 20, wind: 40 } as const;
 
 export function CurrentCard({ name, cur }: { name: string; cur: CurrentEntry }) {
+  const units = useUnits();
   const swell = cur.swells.find((s) => s.in_window) ?? cur.swells[0];
+  const isRashguard = cur.wetsuit?.includes("rashguard") ?? false;
   return (
     <section class="card current" data-bucket={cur.bucket} aria-label="Current conditions">
       <div class="verdict">
@@ -13,11 +17,11 @@ export function CurrentCard({ name, cur }: { name: string; cur: CurrentEntry }) 
         <RatingChip bucket={cur.bucket} />
       </div>
 
-      <div class="stats">
+      <div class="stats stats-3">
         <span class="stat">
-          <b>{cur.h_mid}</b>
-          <small>{heightRange(cur.h)}</small>
-          <em>surf m</em>
+          <b>{fmtH(cur.h_mid, units)}</b>
+          <small>{fmtRange(cur.h, units, false)}</small>
+          <em>surf {heightUnit(units)}</em>
         </span>
         <span class="stat">
           <b>{swell ? `${Math.round(swell.period)}s` : "—"}</b>
@@ -32,21 +36,17 @@ export function CurrentCard({ name, cur }: { name: string; cur: CurrentEntry }) 
           <small>{cur.wind.class === "cross-shore" ? "cross" : cur.wind.class}</small>
           <em>wind kph</em>
         </span>
-        <span class="stat">
-          <b>{cur.energy}</b>
-          <small>kW/m</small>
-          <em>energy</em>
-        </span>
-        <span class="stat">
-          <b>{cur.pressure ?? "—"}</b>
-          <small>mb</small>
-          <em>pressure</em>
-        </span>
       </div>
 
       <p class="water">
-        {cur.sst !== null && <span>{cur.sst}°C</span>}
-        {cur.wetsuit && <span>{cur.wetsuit}</span>}
+        {cur.air !== null && <span>{fmtTemp(cur.air, units)} air</span>}
+        {cur.sst !== null && <span>{fmtTemp(cur.sst, units)} water</span>}
+        {cur.wetsuit && (
+          <span class="suit">
+            {isRashguard ? <ShirtIcon /> : <WetsuitIcon />}
+            {cur.wetsuit}
+          </span>
+        )}
         <span class="asof">as of {hourOf(cur.t)}</span>
       </p>
 

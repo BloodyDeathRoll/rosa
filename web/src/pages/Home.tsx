@@ -4,7 +4,8 @@ import { AppHeader } from "../components/AppHeader";
 import { BucketWord, DaySpine, RatingChip } from "../components/parts";
 import { getFavorites, toggleFavorite } from "../favorites";
 import { distanceKm, getPosition, type LatLon } from "../geo";
-import { cardinal, dateOf, heightRange } from "../format";
+import { cardinal, dateOf } from "../format";
+import { fmtRange, useUnits } from "../units";
 import { getRecents } from "../recents";
 import type { SpotIndex, SpotPayload } from "../types";
 import type { Theme } from "../theme";
@@ -12,9 +13,11 @@ import type { Theme } from "../theme";
 type Entry = [string, SpotIndex["spots"][string]];
 
 const DETAIL_CARDS = 3;
+const NEAR_RADIUS_KM = 50;
 
 /** Rich card for a recently viewed spot (Surfline home style). */
 function RecentCard({ data }: { data: SpotPayload }) {
+  const units = useUnits();
   const cur = data.current;
   const today = data.hours.filter((h) => dateOf(h.t) === dateOf(data.hours[0]?.t ?? ""));
   return (
@@ -26,7 +29,7 @@ function RecentCard({ data }: { data: SpotPayload }) {
       </span>
       <span class="recent-numbers">
         <span class="big">
-          {heightRange(cur.h)}
+          {fmtRange(cur.h, units)}
           <small>{data.model.split(" ")[0]}</small>
         </span>
         <span class="big">
@@ -52,6 +55,7 @@ function SummaryRow({
   isFav: boolean;
   onToggle: (id: string) => void;
 }) {
+  const units = useUnits();
   return (
     <li class="spot-row">
       <button
@@ -68,7 +72,7 @@ function SummaryRow({
           {km !== undefined && <small>{Math.round(km)} km</small>}
         </span>
         <span class="spot-now">
-          <b>{heightRange(entry.h)}</b>
+          <b>{fmtRange(entry.h, units)}</b>
           <RatingChip bucket={entry.bucket} />
         </span>
       </a>
@@ -101,12 +105,13 @@ export function Home({ theme, onToggleTheme }: { theme: Theme; onToggleTheme: ()
 
   const recentIds = new Set(recentData.map((d) => d.spot.id));
   const km = (e: Entry[1]) => (pos ? distanceKm(pos, { lat: e.lat, lon: e.lon }) : undefined);
-  // nearby = closest first when located, else north→south
-  const nearby: Entry[] = Object.entries(index.spots)
-    .filter(([id]) => !recentIds.has(id))
-    .sort(([, a], [, b]) =>
-      pos ? (km(a) ?? 0) - (km(b) ?? 0) : b.lat - a.lat
-    );
+  // located: only spots within the 50 km radius, closest first; else full list north→south
+  const rest = Object.entries(index.spots).filter(([id]) => !recentIds.has(id));
+  const within = pos
+    ? rest.filter(([, e]) => (km(e) ?? Infinity) <= NEAR_RADIUS_KM).sort(([, a], [, b]) => (km(a) ?? 0) - (km(b) ?? 0))
+    : [];
+  const nearby: Entry[] = pos && within.length > 0 ? within : rest.sort(([, a], [, b]) => b.lat - a.lat);
+  const located = pos !== null && within.length > 0;
 
   return (
     <main class="page">
@@ -121,7 +126,7 @@ export function Home({ theme, onToggleTheme }: { theme: Theme; onToggleTheme: ()
           </div>
         </>
       )}
-      <h2 class="list-title">{pos ? "Spots near you" : "Spots · north to south"}</h2>
+      <h2 class="list-title">{located ? "Spots near you · 50 km" : "Spots · north to south"}</h2>
       <ul class="spots">
         {nearby.map(([id, e]) => (
           <SummaryRow key={id} id={id} entry={e} km={km(e)} isFav={favs.includes(id)} onToggle={onToggle} />

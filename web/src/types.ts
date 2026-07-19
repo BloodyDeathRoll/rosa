@@ -27,6 +27,7 @@ export interface HourEntry {
   phrase: string;
   energy: number; // deep-water wave energy flux, kW/m
   pressure: number | null; // mb
+  air: number | null; // °C
   wind: Wind;
   sst: number | null;
   swells: Swell[];

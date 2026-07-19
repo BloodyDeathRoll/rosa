@@ -1,8 +1,24 @@
 import type { DayEntry, HourEntry } from "../types";
-import { dateOf, dayLabel, heightRange, hourOf } from "../format";
-import { DaySpine, HourRail, RatingChip, WindCell } from "./parts";
+import { cardinal, dateOf, dayLabel, hourOf } from "../format";
+import { fmtH, fmtRange, heightUnit, useUnits, type Units } from "../units";
+import { DaySpine, DirArrow, HourRail, RatingChip } from "./parts";
 
-function HourRow({ h, dayHours }: { h: HourEntry; dayHours: HourEntry[] }) {
+function WindBlock({ h }: { h: HourEntry }) {
+  return (
+    <span class="wind-cell" data-windclass={h.wind.class}>
+      <b>{Math.round(h.wind.kph)}</b>
+      <span class="wind-block">
+        <span>
+          <DirArrow from={h.wind.dir} title={`wind from ${h.wind.dir}°`} />
+          {cardinal(h.wind.dir)}
+        </span>
+        <small>{h.wind.class === "cross-shore" ? "cross" : h.wind.class}</small>
+      </span>
+    </span>
+  );
+}
+
+function HourRow({ h, dayHours, units }: { h: HourEntry; dayHours: HourEntry[]; units: Units }) {
   const swell = h.swells.find((s) => s.in_window) ?? h.swells[0];
   return (
     <div class="row" data-bucket={h.bucket}>
@@ -11,21 +27,23 @@ function HourRow({ h, dayHours }: { h: HourEntry; dayHours: HourEntry[] }) {
         {hourOf(h.t)}
       </span>
       <span class="h">
-        <b>{heightRange(h.h)}</b>
+        <b>{fmtRange(h.h, units, false)}</b>
       </span>
       <span class="swell">
         {swell ? (
           <>
-            <b>{swell.h} m</b>
+            <b>{fmtH(swell.h, units)}</b>
             <small>
-              {swell.period} s{!swell.in_window && <span title="out of swell window"> · off-window</span>}
+              {swell.period} s · {Math.round(swell.dir)}°
             </small>
           </>
         ) : (
-          <small>no swell</small>
+          <small>—</small>
         )}
       </span>
-      <WindCell wind={h.wind} />
+      <WindBlock h={h} />
+      <span class="num">{h.energy}</span>
+      <span class="num">{h.pressure ?? "—"}</span>
       <span class="r" data-bucket={h.bucket}>
         {h.rating}
       </span>
@@ -33,7 +51,22 @@ function HourRow({ h, dayHours }: { h: HourEntry; dayHours: HourEntry[] }) {
   );
 }
 
+function HeaderRow({ units }: { units: Units }) {
+  return (
+    <div class="row head-row" aria-hidden="true">
+      <span />
+      <span>surf {heightUnit(units)}</span>
+      <span>swell</span>
+      <span>wind</span>
+      <span>kW/m</span>
+      <span>mb</span>
+      <span />
+    </div>
+  );
+}
+
 export function ForecastTable({ hours, days }: { hours: HourEntry[]; days: DayEntry[] }) {
+  const units = useUnits();
   const byDate = new Map<string, HourEntry[]>();
   for (const h of hours) {
     const d = dateOf(h.t);
@@ -54,14 +87,15 @@ export function ForecastTable({ hours, days }: { hours: HourEntry[]; days: DayEn
               <DaySpine hours={dayHours} />
               {meta && (
                 <span class="day-max">
-                  <b>{heightRange(meta.h_max)}</b>
+                  <b>{fmtRange(meta.h_max, units)}</b>
                   <RatingChip bucket={meta.bucket} />
                 </span>
               )}
             </summary>
             <div class="rows">
+              <HeaderRow units={units} />
               {dayHours.map((h) => (
-                <HourRow key={h.t} h={h} dayHours={dayHours} />
+                <HourRow key={h.t} h={h} dayHours={dayHours} units={units} />
               ))}
             </div>
           </details>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "preact/hooks";
-import { HomeIcon, MapIcon, StarIcon, UserIcon } from "./components/icons";
-import { AccountPage } from "./pages/AccountPage";
+import { GearIcon, HomeIcon, MapIcon, StarIcon } from "./components/icons";
+import { SettingsPage } from "./pages/SettingsPage";
 import { FavoritesPage } from "./pages/FavoritesPage";
 import { Home } from "./pages/Home";
 import { MapPage } from "./pages/MapPage";
@@ -13,7 +13,7 @@ type Route =
   | { page: "home" }
   | { page: "map" }
   | { page: "favorites" }
-  | { page: "account" }
+  | { page: "settings" }
   | { page: "search" }
   | { page: "spot"; id: string };
 
@@ -22,7 +22,7 @@ function parseRoute(hash: string): Route {
   if (spot?.[1]) return { page: "spot", id: spot[1] };
   if (hash.startsWith("#/map")) return { page: "map" };
   if (hash.startsWith("#/favorites")) return { page: "favorites" };
-  if (hash.startsWith("#/account")) return { page: "account" };
+  if (hash.startsWith("#/settings") || hash.startsWith("#/account")) return { page: "settings" };
   if (hash.startsWith("#/search")) return { page: "search" };
   return { page: "home" };
 }
@@ -31,7 +31,7 @@ const TABS: { tab: Tab; label: string; icon: typeof HomeIcon }[] = [
   { tab: "home", label: "Home", icon: HomeIcon },
   { tab: "map", label: "Map", icon: MapIcon },
   { tab: "favorites", label: "Favorites", icon: StarIcon },
-  { tab: "account", label: "Account", icon: UserIcon },
+  { tab: "settings", label: "Settings", icon: GearIcon },
 ];
 
 function TabBar({ active }: { active: Tab | null }) {
@@ -64,7 +64,7 @@ export function App() {
     const onHash = () => {
       const r = parseRoute(location.hash);
       setRoute(r);
-      if (r.page === "home" || r.page === "map" || r.page === "favorites" || r.page === "account")
+      if (r.page === "home" || r.page === "map" || r.page === "favorites" || r.page === "settings")
         saveLastTab(r.page);
       scrollTo(0, 0);
     };
@@ -91,8 +91,8 @@ export function App() {
         <MapPage theme={theme} />
       ) : route.page === "favorites" ? (
         <FavoritesPage theme={theme} onToggleTheme={toggleTheme} />
-      ) : route.page === "account" ? (
-        <AccountPage theme={theme} onToggleTheme={toggleTheme} />
+      ) : route.page === "settings" ? (
+        <SettingsPage theme={theme} onToggleTheme={toggleTheme} />
       ) : (
         <Home theme={theme} onToggleTheme={toggleTheme} />
       )}

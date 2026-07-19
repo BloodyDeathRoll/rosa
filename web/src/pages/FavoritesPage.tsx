@@ -3,7 +3,7 @@ import { fetchIndex } from "../api";
 import { AppHeader } from "../components/AppHeader";
 import { RatingChip } from "../components/parts";
 import { getFavorites, toggleFavorite } from "../favorites";
-import { heightRange } from "../format";
+import { fmtRange, useUnits } from "../units";
 import type { SpotIndex } from "../types";
 import type { Theme } from "../theme";
 
@@ -17,6 +17,7 @@ export function FavoritesPage({
   const [index, setIndex] = useState<SpotIndex | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [favs, setFavs] = useState<string[]>(getFavorites);
+  const units = useUnits();
 
   useEffect(() => {
     fetchIndex().then(setIndex, (e: Error) => setError(e.message));
@@ -54,7 +55,7 @@ export function FavoritesPage({
               <a href={`#/spot/${id}`}>
                 <span class="spot-name">{e.name}</span>
                 <span class="spot-now">
-                  <b>{heightRange(e.h)}</b>
+                  <b>{fmtRange(e.h, units)}</b>
                   <RatingChip bucket={e.bucket} />
                 </span>
               </a>

@@ -44,6 +44,7 @@ class HourForecast:
     wind_dir_deg: float
     wind_gusts_kph: float | None
     pressure_msl: float | None = None  # hPa (= mb)
+    air_c: float | None = None
 
 
 @dataclass(frozen=True, slots=True)

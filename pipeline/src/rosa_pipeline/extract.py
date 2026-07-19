@@ -56,8 +56,9 @@ def extract_hours(raw: RawForecast) -> list[HourForecast]:
                 wind_speed_kph=weather["wind_speed_10m"][j],
                 wind_dir_deg=weather["wind_direction_10m"][j],
                 wind_gusts_kph=weather["wind_gusts_10m"][j],
-                # .get: absent in captures made before pressure was added to the fetch
+                # .get: absent in captures made before these were added to the fetch
                 pressure_msl=(pm[j] if (pm := weather.get("pressure_msl")) else None),
+                air_c=(ta[j] if (ta := weather.get("temperature_2m")) else None),
             )
         )
     return hours

@@ -56,3 +56,23 @@ export const MoonIcon = ({ size = 19 }: IconProps) => (
     <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z" />
   </svg>
 );
+
+export const GearIcon = ({ size = 22 }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
+    <circle cx="12" cy="12" r="3.2" />
+    <path d="M19.2 12a7.2 7.2 0 0 0-.1-1.2l2-1.5-2-3.4-2.3 1a7.3 7.3 0 0 0-2.1-1.2L14.3 3h-4l-.4 2.5a7.3 7.3 0 0 0-2.1 1.2l-2.3-1-2 3.4 2 1.5a7.2 7.2 0 0 0 0 2.4l-2 1.5 2 3.4 2.3-1a7.3 7.3 0 0 0 2.1 1.2l.4 2.5h4l.4-2.5a7.3 7.3 0 0 0 2.1-1.2l2.3 1 2-3.4-2-1.5c.07-.4.1-.8.1-1.2Z" />
+  </svg>
+);
+
+export const ShirtIcon = ({ size = 18 }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
+    <path d="M8.5 4 4 7l2 3.5 1.5-1V20h9v-9.5l1.5 1L20 7l-4.5-3a3.5 3.5 0 0 1-7 0Z" />
+  </svg>
+);
+
+export const WetsuitIcon = ({ size = 18 }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
+    <path d="M9 3h6l.5 4 3 1.5-1.5 3-2-.8V21h-2.5l-.5-6-.5 6H9V10.7l-2 .8L5.5 8.5 8.5 7 9 3Z" />
+    <path d="M9 3a3 3 0 0 0 6 0" />
+  </svg>
+);

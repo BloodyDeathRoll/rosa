@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import { fetchIndex } from "../api";
 import { getPosition } from "../geo";
+import { fmtRange, getUnits } from "../units";
 import type { Theme } from "../theme";
 
 const BUCKET_COLORS: Record<string, string> = {
@@ -65,7 +66,7 @@ export function MapPage({ theme }: { theme: Theme }) {
           dot.className = "spot-dot";
           dot.style.background = BUCKET_COLORS[e.bucket] ?? BUCKET_COLORS.FLAT ?? "";
           const popup = new maplibregl.Popup({ offset: 14, closeButton: false }).setHTML(
-            `<a class="map-popup" href="#/spot/${id}"><b>${e.name}</b><span>${e.bucket} · ${e.h[0]}–${e.h[1]} m</span></a>`
+            `<a class="map-popup" href="#/spot/${id}"><b>${e.name}</b><span>${e.bucket} · ${fmtRange(e.h, getUnits())}</span></a>`
           );
           new maplibregl.Marker({ element: dot }).setLngLat([e.lon, e.lat]).setPopup(popup).addTo(m);
         }

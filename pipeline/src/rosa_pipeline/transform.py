@@ -101,14 +101,17 @@ def height_phrase(h_break_mid: float) -> str:
 
 
 def wetsuit(sst_c: float) -> str:
+    """Industry-standard wetsuit bands (surfspheres-style guide)."""
     if sst_c > 24:
         return "rashguard"
-    if sst_c >= 20:
+    if sst_c >= 19:
         return "spring / 2mm"
     if sst_c >= 17:
         return "3/2"
     if sst_c >= 14:
         return "4/3"
-    if sst_c >= 11:
+    if sst_c >= 12:
         return "5/4 + boots"
+    if sst_c >= 9:
+        return "5/4 hooded + gloves"
     return "6/5 hooded"
