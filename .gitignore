@@ -1,0 +1,5 @@
+# Local Claude Code settings
+.claude/
+
+# Pipeline outputs are build artifacts — never committed (CLAUDE.md §Conventions)
+data/out/

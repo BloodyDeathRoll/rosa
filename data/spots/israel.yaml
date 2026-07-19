@@ -1,0 +1,42 @@
+# Rosa spot database — Israel (seed region)
+# NOTE: coordinates are approximate seeds — verify each in the field / satellite before launch (TODO tags).
+# offshore_direction convention: compass direction the OFFSHORE WIND blows FROM (Israel coast faces W → E wind = offshore → 90).
+# offshore_point: shared deep-water extraction point per coast segment.
+# swell_window: swell source directions that reach the break.
+
+defaults: &il
+  timezone: Asia/Jerusalem
+  offshore_direction: 90
+  swell_window: [250, 340]
+  height_coeff: 1.0        # calibrate per spot
+  break_type: beach
+  ideal:
+    wind_dir: [45, 135]
+    size_m: [0.6, 1.5]
+
+offshore_points:
+  il_south: [31.9, 34.35]   # off Ashdod/Ashkelon
+  il_central: [32.2, 34.55] # off Tel Aviv–Netanya
+  il_north: [32.9, 34.85]   # off Haifa–Achziv
+
+spots:
+  - { id: ashkelon,        name: Ashkelon,              lat: 31.678, lon: 34.555, point: il_south,   <<: *il }  # TODO verify
+  - { id: ashdod-lido,     name: Ashdod Lido,           lat: 31.808, lon: 34.640, point: il_south,   <<: *il }  # TODO verify
+  - { id: bat-yam,         name: Bat Yam,               lat: 32.017, lon: 34.736, point: il_central, <<: *il }  # TODO verify
+  - { id: dolphinarium,    name: Dolphinarium (TLV),    lat: 32.070, lon: 34.762, point: il_central, <<: *il }  # TODO verify
+  - { id: hilton,          name: Hilton Beach (TLV),    lat: 32.089, lon: 34.769, point: il_central, <<: *il }  # TODO verify
+  - { id: tel-baruch,      name: Tel Baruch North,      lat: 32.129, lon: 34.782, point: il_central, <<: *il }  # TODO verify
+  - { id: zvulun,          name: Zvulun (Herzliya),     lat: 32.163, lon: 34.792, point: il_central, <<: *il }  # TODO verify
+  - { id: sidna-ali,       name: Sidna Ali,             lat: 32.196, lon: 34.799, point: il_central, <<: *il }  # TODO verify
+  - { id: poleg,           name: Poleg Beach,           lat: 32.268, lon: 34.834, point: il_central, <<: *il }  # TODO verify
+  - { id: netanya-sironit, name: Sironit (Netanya),     lat: 32.327, lon: 34.849, point: il_central, <<: *il }  # TODO verify
+  - { id: beit-yanai,      name: Beit Yanai,            lat: 32.391, lon: 34.862, point: il_central, <<: *il }  # verified (teardown)
+  - { id: olga,            name: Olga Beach,            lat: 32.433, lon: 34.869, point: il_central, <<: *il }  # TODO verify
+  - { id: sdot-yam,        name: Sdot Yam / Caesarea,   lat: 32.494, lon: 34.884, point: il_central, <<: *il }  # TODO verify
+  - { id: nahsholim,       name: Nahsholim,             lat: 32.614, lon: 34.917, point: il_north,   <<: *il }  # TODO verify
+  - { id: atlit,           name: Atlit Beach,           lat: 32.702, lon: 34.938, point: il_north,   <<: *il }  # TODO verify
+  - { id: backdoor-haifa,  name: Backdoor (Haifa),      lat: 32.828, lon: 34.956, point: il_north,   <<: *il }  # TODO verify
+  - { id: bat-galim,       name: Bat Galim,             lat: 32.833, lon: 34.978, point: il_north,   <<: *il, swell_window: [270, 360] }  # TODO verify — bay orientation differs
+  - { id: kiryat-yam,      name: Kiryat Yam,            lat: 32.849, lon: 35.066, point: il_north,   <<: *il }  # TODO verify
+  - { id: achziv,          name: Achziv Beach,          lat: 33.048, lon: 35.102, point: il_north,   <<: *il }  # TODO verify
+  - { id: betset,          name: Betset Beach,          lat: 33.080, lon: 35.106, point: il_north,   <<: *il }  # TODO verify
