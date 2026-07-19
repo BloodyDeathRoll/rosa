@@ -1,5 +1,7 @@
 /** Small formatting helpers. All times in payloads are already spot-local ISO strings. */
 
+import type { HourEntry } from "./types";
+
 export function hourOf(iso: string): string {
   return iso.slice(11, 16);
 }
@@ -14,10 +16,11 @@ export function dayLabel(date: string, today: string): string {
   return names[new Date(`${date}T12:00:00`).getDay()] ?? date;
 }
 
-export function heightRange(h: [number, number]): string {
-  const [lo, hi] = h;
-  if (hi === 0) return "flat";
-  return lo === hi ? `${lo} m` : `${lo}–${hi} m`;
+/** "Jul 20" style sub-label for a day pill title. */
+export function dayDate(date: string): string {
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const m = Number(date.slice(5, 7));
+  return `${months[m - 1] ?? ""} ${Number(date.slice(8, 10))}`;
 }
 
 /** Compass arrow rotation: met. directions are "coming FROM", arrow shows where it goes. */
@@ -32,4 +35,58 @@ const CARDINALS = [
 
 export function cardinal(deg: number): string {
   return CARDINALS[Math.round(((deg % 360) + 360) % 360 / 22.5) % 16] ?? "";
+}
+
+/** The design speaks knots. Pipeline publishes kph. */
+export function knots(kph: number): number {
+  return Math.round(kph / 1.852);
+}
+
+/** "E 4 kt offshore" — cardinal, speed, wind class per the design's spot line. */
+export function windLabel(h: Pick<HourEntry, "wind">): string {
+  const cls = h.wind.class === "cross-shore" ? "cross" : h.wind.class;
+  return `${cardinal(h.wind.dir)} ${knots(h.wind.kph)} kt ${cls}`;
+}
+
+/** Longest contiguous GOOD+ stretch of a day's (3-hourly) hours.
+    `end` is the close of the last good slot, i.e. its start + 3 h. */
+export interface BestWindow {
+  start: string;
+  end: string;
+}
+
+export function bestWindow(dayHours: HourEntry[], minRating = 50): BestWindow | null {
+  let best: [number, number] | null = null;
+  let cur: [number, number] | null = null;
+  const keep = (c: [number, number] | null) => {
+    if (c && (!best || c[1] - c[0] > best[1] - best[0])) best = c;
+  };
+  dayHours.forEach((h, i) => {
+    if (h.rating >= minRating) {
+      if (cur) cur[1] = i;
+      else cur = [i, i];
+    } else {
+      keep(cur);
+      cur = null;
+    }
+  });
+  keep(cur);
+  if (!best) return null;
+  const range = best as [number, number];
+  const first = dayHours[range[0]];
+  const last = dayHours[range[1]];
+  if (!first || !last) return null;
+  const endH = (Number(last.t.slice(11, 13)) + 3) % 24;
+  return { start: hourOf(first.t), end: `${String(endH).padStart(2, "0")}:00` };
+}
+
+/** Pipeline names carry the locality in parens or after a slash
+    ("Zvulun (Herzliya)", "Sdot Yam / Caesarea") — split for the
+    design's name + muted-region pairing. */
+export function splitName(full: string): { name: string; region: string | null } {
+  const paren = /^(.*?)\s*\(([^)]+)\)\s*$/.exec(full);
+  if (paren?.[1] && paren[2]) return { name: paren[1], region: paren[2] };
+  const slash = full.split(" / ");
+  if (slash.length === 2 && slash[0] && slash[1]) return { name: slash[0], region: slash[1] };
+  return { name: full, region: null };
 }

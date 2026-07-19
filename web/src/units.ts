@@ -36,10 +36,10 @@ export function useUnits(): Units {
   return units;
 }
 
-const toFt = (m: number) => Math.round(m * 3.28084 * 2) / 2; // nearest 0.5 ft
+const toFt = (m: number) => Math.max(1, Math.round(m * 3.28084)); // whole feet, floor 1 (design)
 
 export function fmtH(m: number, u: Units): string {
-  return u.height === "ft" ? String(toFt(m)) : String(Math.round(m * 10) / 10);
+  return u.height === "ft" ? String(toFt(m)) : (Math.round(m * 10) / 10).toFixed(1);
 }
 
 export function heightUnit(u: Units): string {
@@ -56,5 +56,5 @@ export function fmtRange(h: [number, number], u: Units, withUnit = true): string
 }
 
 export function fmtTemp(c: number, u: Units): string {
-  return u.temp === "f" ? `${Math.round(c * 1.8 + 32)}°` : `${Math.round(c)}°`;
+  return u.temp === "f" ? `${Math.round(c * 1.8 + 32)}°F` : `${Math.round(c)}°C`;
 }

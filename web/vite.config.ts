@@ -11,8 +11,8 @@ export default defineConfig({
         name: "Rosa — surf forecast",
         short_name: "Rosa",
         description: "Should I surf, when, where?",
-        theme_color: "#0b1220",
-        background_color: "#0b1220",
+        theme_color: "#1c1917",
+        background_color: "#1c1917",
         display: "standalone",
         icons: [
           { src: "/icon.svg", sizes: "any", type: "image/svg+xml", purpose: "any" },
@@ -23,6 +23,8 @@ export default defineConfig({
         // app shell precached; the heavy maplibre chunk is fetched (and then cached)
         // only when the Map tab opens; forecast JSON served stale-while-revalidate so
         // the last forecast is readable offline and refreshes in the background
+        // (latin Inter subset precached so the offline app keeps its typeface)
+        globPatterns: ["**/*.{js,css,html,svg}", "**/inter-latin-wght*.woff2"],
         globIgnores: ["**/maplibre-gl-*"],
         runtimeCaching: [
           {

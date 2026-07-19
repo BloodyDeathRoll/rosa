@@ -1,73 +1,97 @@
-import { AppHeader } from "../components/AppHeader";
-import { setUnits, useUnits, type Units } from "../units";
+import { ChevronRightIcon, MoonIcon, SunIcon } from "../components/icons";
+import { AppHeader } from "../components/parts";
+import { getFavorites } from "../favorites";
+import { setUnits, useUnits } from "../units";
 import type { Theme } from "../theme";
-
-function Segmented<T extends string>({
-  label,
-  value,
-  options,
-  onChange,
-}: {
-  label: string;
-  value: T;
-  options: { value: T; label: string }[];
-  onChange: (v: T) => void;
-}) {
-  return (
-    <div class="setting">
-      <span class="setting-label">{label}</span>
-      <div class="segmented" role="radiogroup" aria-label={label}>
-        {options.map((o) => (
-          <button
-            key={o.value}
-            role="radio"
-            aria-checked={value === o.value}
-            onClick={() => onChange(o.value)}
-          >
-            {o.label}
-          </button>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 export function SettingsPage({
   theme,
-  onToggleTheme,
+  onSetTheme,
 }: {
   theme: Theme;
-  onToggleTheme: () => void;
+  onSetTheme: (t: Theme) => void;
 }) {
   const units = useUnits();
-  const update = (patch: Partial<Units>) => setUnits({ ...units, ...patch });
+  const favCount = getFavorites().length;
+  const metric = units.height === "m";
 
   return (
     <main class="page">
-      <AppHeader theme={theme} onToggleTheme={onToggleTheme} />
-      <h2 class="list-title">Units</h2>
-      <Segmented
-        label="Temperature"
-        value={units.temp}
-        options={[
-          { value: "c", label: "°C" },
-          { value: "f", label: "°F" },
-        ]}
-        onChange={(temp) => update({ temp })}
-      />
-      <Segmented
-        label="Height"
-        value={units.height}
-        options={[
-          { value: "m", label: "meters" },
-          { value: "ft", label: "feet" },
-        ]}
-        onChange={(height) => update({ height })}
-      />
-      <p class="muted-note settings-note">
-        Settings live on this device. Accounts arrive with swell alerts and cross-device
-        sync — the forecast stays free either way.
-      </p>
+      <AppHeader right={<span class="head-note">settings</span>} />
+      <div class="settings-page">
+        <section class="settings-card">
+          <div class="card-title">
+            <span class="eyebrow">Preferences</span>
+          </div>
+          <div class="settings-row">
+            <span class="label">Units</span>
+            <div class="segmented" role="radiogroup" aria-label="Units">
+              <button
+                role="radio"
+                aria-checked={metric}
+                class={metric ? "on" : ""}
+                onClick={() => setUnits({ height: "m", temp: "c" })}
+              >
+                m
+              </button>
+              <button
+                role="radio"
+                aria-checked={!metric}
+                class={!metric ? "on" : ""}
+                onClick={() => setUnits({ height: "ft", temp: "f" })}
+              >
+                ft
+              </button>
+            </div>
+          </div>
+          <div class="settings-row">
+            <span class="label">Theme</span>
+            <div class="segmented" role="radiogroup" aria-label="Theme">
+              <button
+                role="radio"
+                aria-checked={theme === "light"}
+                class={theme === "light" ? "on" : ""}
+                onClick={() => onSetTheme("light")}
+              >
+                <SunIcon />
+                Light
+              </button>
+              <button
+                role="radio"
+                aria-checked={theme === "dark"}
+                class={theme === "dark" ? "on" : ""}
+                onClick={() => onSetTheme("dark")}
+              >
+                <MoonIcon />
+                Dark
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="settings-card">
+          <div class="card-title">
+            <span class="eyebrow">Spots</span>
+          </div>
+          <div class="settings-row tall">
+            <span class="label">Home region</span>
+            <span class="value">
+              Israel <ChevronRightIcon />
+            </span>
+          </div>
+          <button class="settings-row tall" onClick={() => (location.hash = "#/spots")}>
+            <span class="label">Favorites</span>
+            <span class="value tabular">
+              {favCount} {favCount === 1 ? "spot" : "spots"} <ChevronRightIcon />
+            </span>
+          </button>
+        </section>
+
+        <footer class="settings-foot">
+          <p>rosa 0.1 · forecasts are estimates — surf with your own eyes</p>
+          <p>Weather data by Open-Meteo.com (CC-BY 4.0)</p>
+        </footer>
+      </div>
     </main>
   );
 }

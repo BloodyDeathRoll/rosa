@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from "preact/hooks";
-import { fetchIndex } from "../api";
-import { tierOf } from "../conditions";
-import { getPosition } from "../geo";
-import { RatingChip } from "../components/parts";
-import { fmtRange, useUnits } from "../units";
-import type { Bucket, SpotIndex } from "../types";
+import { fetchIndex, fetchSpot } from "../api";
+import { AppHeader, Pill, SpotTitle } from "../components/parts";
+import { ratingVar, ratingWord } from "../conditions";
+import { bestWindow, cardinal, dateOf, splitName, windLabel } from "../format";
+import { distanceKm, getPosition } from "../geo";
+import { fmtH, fmtRange, heightUnit, useUnits } from "../units";
+import type { IndexEntry, SpotPayload } from "../types";
 import type { Theme } from "../theme";
 
-type Entry = [string, SpotIndex["spots"][string]];
+type Entry = [string, IndexEntry];
 
 // CARTO raster basemaps (free tier, attribution required) — swap to self-hosted
 // vector tiles before public launch.
@@ -17,30 +18,10 @@ const TILE_URLS: Record<Theme, string> = {
 };
 const ATTRIBUTION = "© OpenStreetMap contributors © CARTO";
 
-/** Tier colors come from the theme tokens — no hexes here. */
-function condColor(bucket: Bucket): string {
-  return getComputedStyle(document.documentElement)
-    .getPropertyValue(`--cond-${tierOf(bucket)}`)
-    .trim();
-}
-
-function cardLeft(track: HTMLElement, i: number): number {
-  const el = track.children[i] as HTMLElement | undefined;
-  const first = track.children[0] as HTMLElement | undefined;
-  return el && first ? el.offsetLeft - first.offsetLeft : 0;
-}
-
-function nearestCard(track: HTMLElement): number {
-  let best = 0;
-  let bestDist = Infinity;
-  for (let i = 0; i < track.children.length; i++) {
-    const d = Math.abs(cardLeft(track, i) - track.scrollLeft);
-    if (d < bestDist) {
-      bestDist = d;
-      best = i;
-    }
-  }
-  return best;
+/** "Show on map" hand-off from the spot screen: select this pin on next open. */
+let pendingPin: string | null = null;
+export function setPendingPin(id: string): void {
+  pendingPin = id;
 }
 
 interface MapHandle {
@@ -51,14 +32,12 @@ interface MapHandle {
 /** maplibre-gl is ~70 KB gz — loaded only when the Map tab opens. */
 export function MapPage({ theme }: { theme: Theme }) {
   const wrapRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapHandle | null>(null);
-  const dotsRef = useRef<HTMLElement[]>([]);
-  const scrollTimer = useRef<number | undefined>(undefined);
-  const suppressScroll = useRef(false);
+  const dotsRef = useRef<Record<string, HTMLElement>>({});
   const [error, setError] = useState<string | null>(null);
   const [spots, setSpots] = useState<Entry[]>([]);
-  const [open, setOpen] = useState<number | null>(null);
+  const [pin, setPin] = useState<string | null>(null);
+  const [payload, setPayload] = useState<SpotPayload | null>(null);
   const units = useUnits();
 
   useEffect(() => {
@@ -75,10 +54,21 @@ export function MapPage({ theme }: { theme: Theme }) {
         await import("maplibre-gl/dist/maplibre-gl.css");
         if (disposed || !wrapRef.current) return;
 
-        // north → south, the drawer's swipe order
         const ordered = Object.entries(index.spots).sort(([, a], [, b]) => b.lat - a.lat);
         setSpots(ordered);
 
+        // default pin: hand-off from a spot page > nearest to you > northernmost
+        const nearest = pos
+          ? [...ordered].sort(
+              ([, a], [, b]) =>
+                distanceKm(pos, { lat: a.lat, lon: a.lon }) - distanceKm(pos, { lat: b.lat, lon: b.lon })
+            )[0]?.[0]
+          : ordered[0]?.[0];
+        const start = pendingPin && index.spots[pendingPin] ? pendingPin : (nearest ?? null);
+        pendingPin = null;
+        setPin(start);
+
+        const startEntry = start ? index.spots[start] : undefined;
         const m = new maplibregl.Map({
           container: wrapRef.current,
           style: {
@@ -93,42 +83,36 @@ export function MapPage({ theme }: { theme: Theme }) {
             },
             layers: [{ id: "carto", type: "raster", source: "carto" }],
           },
-          center: pos ? [pos.lon, pos.lat] : [34.8, 32.3],
-          zoom: pos ? 9 : 7,
+          center: startEntry
+            ? [startEntry.lon, startEntry.lat]
+            : pos
+              ? [pos.lon, pos.lat]
+              : [34.8, 32.3],
+          zoom: 9,
           attributionControl: { compact: true },
         });
         map = m as unknown as MapHandle;
         mapRef.current = map;
 
         m.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
-        m.on("click", () => setOpen(null));
 
-        dotsRef.current = ordered.map(([, e], i) => {
+        dotsRef.current = {};
+        for (const [sid, e] of ordered) {
           const dot = document.createElement("div");
           dot.className = "spot-dot";
-          dot.style.background = condColor(e.bucket);
+          dot.style.background = ratingVar(e.bucket);
           dot.addEventListener("click", (ev) => {
             ev.stopPropagation();
-            setOpen(i);
+            setPin(sid);
           });
           new maplibregl.Marker({ element: dot }).setLngLat([e.lon, e.lat]).addTo(m);
-          return dot;
-        });
+          dotsRef.current[sid] = dot;
+        }
 
         if (pos) {
           const you = document.createElement("div");
           you.className = "you-dot";
           new maplibregl.Marker({ element: you }).setLngLat([pos.lon, pos.lat]).addTo(m);
-        } else {
-          const lons = ordered.map(([, e]) => e.lon);
-          const lats = ordered.map(([, e]) => e.lat);
-          m.fitBounds(
-            [
-              [Math.min(...lons), Math.min(...lats)],
-              [Math.max(...lons), Math.max(...lats)],
-            ],
-            { padding: 56, maxZoom: 9 }
-          );
         }
       } catch {
         if (!disposed) setError("The map couldn't load. Check your connection and retry.");
@@ -142,66 +126,73 @@ export function MapPage({ theme }: { theme: Theme }) {
     };
   }, [theme]);
 
-  // marker tap → scroll drawer to that card; highlight + center follow.
-  // The programmatic scroll must not feed back through the settle handler:
-  // on first open it runs before layout and would clamp + overwrite `open`
-  // with a wrong index (drawer showing the wrong spot).
+  // selected pin: ring + center + fetch its forecast for the sheet
   useEffect(() => {
-    dotsRef.current.forEach((d, i) => d.classList.toggle("active", i === open));
-    if (open === null) return;
-    const entry = spots[open];
+    for (const [sid, dot] of Object.entries(dotsRef.current))
+      dot.classList.toggle("active", sid === pin);
+    if (!pin) return;
+    const entry = spots.find(([sid]) => sid === pin);
     if (entry) mapRef.current?.easeTo({ center: [entry[1].lon, entry[1].lat], duration: 400 });
-    suppressScroll.current = true;
-    requestAnimationFrame(() => {
-      const track = trackRef.current;
-      if (track) track.scrollTo({ left: cardLeft(track, open) });
-      window.setTimeout(() => {
-        suppressScroll.current = false;
-      }, 300);
-    });
-  }, [open, spots.length]);
+    setPayload(null);
+    let disposed = false;
+    fetchSpot(pin).then(
+      (p) => {
+        if (!disposed) setPayload(p);
+      },
+      () => undefined
+    );
+    return () => {
+      disposed = true;
+    };
+  }, [pin, spots]);
 
-  // swipe between adjacent spots: settle detection on the snap container
-  const onTrackScroll = () => {
-    if (suppressScroll.current) return;
-    const track = trackRef.current;
-    if (!track) return;
-    clearTimeout(scrollTimer.current);
-    scrollTimer.current = window.setTimeout(() => {
-      if (suppressScroll.current) return;
-      const idx = nearestCard(track);
-      if (idx !== open && idx >= 0 && idx < spots.length) {
-        setOpen(idx);
-      }
-    }, 90);
-  };
+  if (error) {
+    return (
+      <main class="page">
+        <AppHeader right={<span class="head-note">Israel</span>} />
+        <p class="state">{error}</p>
+      </main>
+    );
+  }
 
-  if (error) return <main class="page"><p class="state">{error}</p></main>;
+  const entry = spots.find(([sid]) => sid === pin)?.[1];
+  const { name, region } = entry ? splitName(entry.name) : { name: "", region: null };
+  const cur = payload?.current;
+  const swell = cur?.swells.find((s) => s.in_window) ?? cur?.swells[0];
+  const today = payload
+    ? payload.hours.filter((h) => dateOf(h.t) === dateOf(payload.hours[0]?.t ?? ""))
+    : [];
+  const bw = bestWindow(today);
+
   return (
-    <>
-      <div class="map-wrap" aria-label="Spot map">
-        {/* inner div is maplibre's — its stylesheet overrides position on the container */}
+    <main class="page">
+      <AppHeader right={<span class="head-note">Israel</span>} />
+      <div class="map-page">
         <div class="map-canvas" ref={wrapRef} />
-      </div>
-      {open !== null && spots.length > 0 && (
-        <div class="drawer" aria-label="Spot preview">
-          <button class="drawer-close" onClick={() => setOpen(null)} aria-label="Close preview">
-            ×
-          </button>
-          <div class="drawer-track" ref={trackRef} onScroll={onTrackScroll}>
-            {spots.map(([id, e]) => (
-              <a class="drawer-card" href={`#/spot/${id}`} key={id}>
-                <span class="drawer-name">{e.name}</span>
-                <span class="drawer-meta">
-                  <RatingChip bucket={e.bucket} />
-                  <b>{fmtRange(e.h, units)}</b>
-                </span>
-                <span class="drawer-hint">open forecast →</span>
+        {entry && pin && (
+          <div class="map-sheet" aria-label="Spot preview">
+            <div class="top">
+              <SpotTitle name={name} region={region} />
+              <Pill bucket={entry.bucket} />
+            </div>
+            <div class="line tabular">
+              {cur
+                ? `${fmtH(cur.h_mid, units)} ${heightUnit(units)} · ${windLabel(cur)}${
+                    swell ? ` · ${Math.round(swell.period)} s ${cardinal(swell.dir)}` : ""
+                  }`
+                : `${fmtRange(entry.h, units)} · ${ratingWord(entry.bucket)}`}
+            </div>
+            <div class="foot">
+              <span class="window">
+                Best window <b>{payload ? (bw ? `${bw.start}–${bw.end}` : "none today") : "…"}</b>
+              </span>
+              <a class="accent-link" href={`#/spot/${pin}`}>
+                Open forecast →
               </a>
-            ))}
+            </div>
           </div>
-        </div>
-      )}
-    </>
+        )}
+      </div>
+    </main>
   );
 }

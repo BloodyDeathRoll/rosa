@@ -1,44 +1,48 @@
 import { useEffect, useState } from "preact/hooks";
 import { GearIcon, HomeIcon, MapIcon, StarIcon } from "./components/icons";
-import { SettingsPage } from "./pages/SettingsPage";
-import { FavoritesPage } from "./pages/FavoritesPage";
-import { Home } from "./pages/Home";
 import { MapPage } from "./pages/MapPage";
-import { SearchPage } from "./pages/SearchPage";
+import { SettingsPage } from "./pages/SettingsPage";
 import { SpotPage } from "./pages/SpotPage";
+import { SpotsPage } from "./pages/SpotsPage";
+import { TodayPage } from "./pages/TodayPage";
 import { applyTheme, initialTheme, saveTheme, type Theme } from "./theme";
 import { lastTab, saveLastTab, TAB_ROUTES, type Tab } from "./tabs";
 
 type Route =
-  | { page: "home" }
+  | { page: "today" }
+  | { page: "spots" }
   | { page: "map" }
-  | { page: "favorites" }
   | { page: "settings" }
-  | { page: "search" }
   | { page: "spot"; id: string };
 
 function parseRoute(hash: string): Route {
   const spot = /^#\/spot\/([\w-]+)/.exec(hash);
   if (spot?.[1]) return { page: "spot", id: spot[1] };
   if (hash.startsWith("#/map")) return { page: "map" };
-  if (hash.startsWith("#/favorites")) return { page: "favorites" };
+  // #/favorites and #/search are pre-handoff routes folded into Spots
+  if (hash.startsWith("#/spots") || hash.startsWith("#/favorites") || hash.startsWith("#/search"))
+    return { page: "spots" };
   if (hash.startsWith("#/settings") || hash.startsWith("#/account")) return { page: "settings" };
-  if (hash.startsWith("#/search")) return { page: "search" };
-  return { page: "home" };
+  return { page: "today" };
 }
 
 const TABS: { tab: Tab; label: string; icon: typeof HomeIcon }[] = [
-  { tab: "home", label: "Home", icon: HomeIcon },
+  { tab: "today", label: "Today", icon: HomeIcon },
+  { tab: "spots", label: "Spots", icon: StarIcon },
   { tab: "map", label: "Map", icon: MapIcon },
-  { tab: "favorites", label: "Favorites", icon: StarIcon },
   { tab: "settings", label: "Settings", icon: GearIcon },
 ];
 
-function TabBar({ active }: { active: Tab | null }) {
+function TabBar({ active }: { active: Tab }) {
   return (
     <nav class="tabs" aria-label="Main">
       {TABS.map(({ tab, label, icon: Icon }) => (
-        <a key={tab} href={TAB_ROUTES[tab]} aria-current={active === tab ? "page" : undefined}>
+        <a
+          key={tab}
+          class={active === tab ? "on" : ""}
+          href={TAB_ROUTES[tab]}
+          aria-current={active === tab ? "page" : undefined}
+        >
           <Icon />
           <span>{label}</span>
         </a>
@@ -50,7 +54,7 @@ function TabBar({ active }: { active: Tab | null }) {
 export function App() {
   const [route, setRoute] = useState<Route>(() => {
     // reopen on the last used tab (only when landing on the bare root)
-    if ((location.hash === "" || location.hash === "#/") && lastTab() !== "home") {
+    if ((location.hash === "" || location.hash === "#/") && lastTab() !== "today") {
       location.replace(TAB_ROUTES[lastTab()]);
       return parseRoute(TAB_ROUTES[lastTab()]);
     }
@@ -64,39 +68,32 @@ export function App() {
     const onHash = () => {
       const r = parseRoute(location.hash);
       setRoute(r);
-      if (r.page === "home" || r.page === "map" || r.page === "favorites" || r.page === "settings")
-        saveLastTab(r.page);
+      if (r.page !== "spot") saveLastTab(r.page);
       scrollTo(0, 0);
     };
     addEventListener("hashchange", onHash);
     return () => removeEventListener("hashchange", onHash);
   }, []);
 
-  const toggleTheme = () => {
-    const next: Theme = theme === "dark" ? "light" : "dark";
+  const onSetTheme = (next: Theme) => {
     setTheme(next);
     saveTheme(next);
   };
 
-  const activeTab: Tab | null =
-    route.page === "spot" || route.page === "search" ? null : route.page;
-
   return (
-    <>
+    <div class="app">
       {route.page === "spot" ? (
-        <SpotPage id={route.id} theme={theme} onToggleTheme={toggleTheme} />
-      ) : route.page === "search" ? (
-        <SearchPage />
+        <SpotPage id={route.id} />
       ) : route.page === "map" ? (
         <MapPage theme={theme} />
-      ) : route.page === "favorites" ? (
-        <FavoritesPage theme={theme} onToggleTheme={toggleTheme} />
+      ) : route.page === "spots" ? (
+        <SpotsPage />
       ) : route.page === "settings" ? (
-        <SettingsPage theme={theme} onToggleTheme={toggleTheme} />
+        <SettingsPage theme={theme} onSetTheme={onSetTheme} />
       ) : (
-        <Home theme={theme} onToggleTheme={toggleTheme} />
+        <TodayPage />
       )}
-      {route.page !== "search" && <TabBar active={activeTab} />}
-    </>
+      {route.page !== "spot" && <TabBar active={route.page} />}
+    </div>
   );
 }

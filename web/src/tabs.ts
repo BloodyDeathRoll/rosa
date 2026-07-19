@@ -1,10 +1,10 @@
-export type Tab = "home" | "map" | "favorites" | "settings";
+export type Tab = "today" | "spots" | "map" | "settings";
 
 const KEY = "rosa.lastTab";
 export const TAB_ROUTES: Record<Tab, string> = {
-  home: "#/",
+  today: "#/",
+  spots: "#/spots",
   map: "#/map",
-  favorites: "#/favorites",
   settings: "#/settings",
 };
 
@@ -14,5 +14,7 @@ export function saveLastTab(tab: Tab): void {
 
 export function lastTab(): Tab {
   const t = localStorage.getItem(KEY);
-  return t === "map" || t === "favorites" || t === "settings" ? t : "home";
+  if (t === "spots" || t === "map" || t === "settings") return t;
+  if (t === "favorites") return "spots"; // pre-handoff tab name
+  return "today";
 }

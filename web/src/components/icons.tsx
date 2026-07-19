@@ -1,91 +1,114 @@
+/** Icon set from the Rosa App design handoff (lucide-style, stroke 1.5). */
+
 interface IconProps {
   size?: number;
 }
 
-const base = { fill: "none", stroke: "currentColor", "stroke-width": 1.8, "stroke-linecap": "round", "stroke-linejoin": "round" } as const;
+const base = {
+  fill: "none",
+  stroke: "currentColor",
+  "stroke-width": 1.5,
+  "stroke-linecap": "round",
+  "stroke-linejoin": "round",
+} as const;
 
-export const HomeIcon = ({ size = 22 }: IconProps) => (
+export const HomeIcon = ({ size = 18 }: IconProps) => (
   <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
-    <path d="M3 10.5 12 3l9 7.5" />
-    <path d="M5.5 9.5V20h13V9.5" />
+    <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+    <path d="M9 22V12h6v10" />
   </svg>
 );
 
-export const MapIcon = ({ size = 22 }: IconProps) => (
+export const StarIcon = ({ size = 18 }: IconProps) => (
   <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
-    <path d="M9 4 3.5 6v14L9 18l6 2 5.5-2V4L15 6 9 4Z" />
-    <path d="M9 4v14M15 6v14" />
+    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
   </svg>
 );
 
-export const StarIcon = ({ size = 22 }: IconProps) => (
+export const MapIcon = ({ size = 18 }: IconProps) => (
   <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
-    <path d="m12 3 2.7 5.6 6.1.8-4.5 4.2 1.1 6L12 16.7l-5.4 2.9 1.1-6-4.5-4.2 6.1-.8L12 3Z" />
+    <path d="M9 3l6 3 6-3v15l-6 3-6-3-6 3V6l6-3z" />
+    <path d="M9 3v15" />
+    <path d="M15 6v15" />
   </svg>
 );
 
-export const UserIcon = ({ size = 22 }: IconProps) => (
+export const GearIcon = ({ size = 18 }: IconProps) => (
   <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
-    <circle cx="12" cy="8" r="3.6" />
-    <path d="M4.5 20.5c1.5-3.4 4.2-5 7.5-5s6 1.6 7.5 5" />
+    <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+    <circle cx="12" cy="12" r="3" />
   </svg>
 );
 
-export const SearchIcon = ({ size = 20 }: IconProps) => (
+export const SearchIcon = ({ size = 18 }: IconProps) => (
   <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
-    <circle cx="10.5" cy="10.5" r="6.5" />
-    <path d="m20 20-4.9-4.9" />
+    <circle cx="11" cy="11" r="8" />
+    <path d="m21 21-4.3-4.3" />
   </svg>
 );
 
-export const BackIcon = ({ size = 22 }: IconProps) => (
+export const ChevronLeftIcon = ({ size = 18 }: IconProps) => (
   <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
-    <path d="M19 12H5m6-7-7 7 7 7" />
+    <path d="m15 18-6-6 6-6" />
   </svg>
 );
 
-export const SunIcon = ({ size = 19 }: IconProps) => (
+export const ChevronRightIcon = ({ size = 14 }: IconProps) => (
   <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
-    <circle cx="12" cy="12" r="4.2" />
-    <path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5 5l1.7 1.7M17.3 17.3 19 19M19 5l-1.7 1.7M6.7 17.3 5 19" />
+    <path d="m9 18 6-6-6-6" />
   </svg>
 );
 
-export const MoonIcon = ({ size = 19 }: IconProps) => (
+export const SunIcon = ({ size = 12 }: IconProps) => (
   <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
-    <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z" />
+    <circle cx="12" cy="12" r="4" />
+    <path d="M12 2v2" />
+    <path d="M12 20v2" />
+    <path d="m4.93 4.93 1.41 1.41" />
+    <path d="m17.66 17.66 1.41 1.41" />
+    <path d="M2 12h2" />
+    <path d="M20 12h2" />
+    <path d="m6.34 17.66-1.41 1.41" />
+    <path d="m19.07 4.93-1.41 1.41" />
   </svg>
 );
 
-export const GearIcon = ({ size = 22 }: IconProps) => (
+export const MoonIcon = ({ size = 12 }: IconProps) => (
   <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
-    <circle cx="12" cy="12" r="3.2" />
-    <path d="M19.2 12a7.2 7.2 0 0 0-.1-1.2l2-1.5-2-3.4-2.3 1a7.3 7.3 0 0 0-2.1-1.2L14.3 3h-4l-.4 2.5a7.3 7.3 0 0 0-2.1 1.2l-2.3-1-2 3.4 2 1.5a7.2 7.2 0 0 0 0 2.4l-2 1.5 2 3.4 2.3-1a7.3 7.3 0 0 0 2.1 1.2l.4 2.5h4l.4-2.5a7.3 7.3 0 0 0 2.1-1.2l2.3 1 2-3.4-2-1.5c.07-.4.1-.8.1-1.2Z" />
+    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
   </svg>
 );
 
-export const ShirtIcon = ({ size = 18 }: IconProps) => (
+export const ThermometerIcon = ({ size = 15 }: IconProps) => (
   <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
-    <path d="M8.5 4 4 7l2 3.5 1.5-1V20h9v-9.5l1.5 1L20 7l-4.5-3a3.5 3.5 0 0 1-7 0Z" />
+    <path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z" />
   </svg>
 );
 
-export const WetsuitIcon = ({ size = 18 }: IconProps) => (
+export const WavesIcon = ({ size = 15 }: IconProps) => (
   <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
-    <path d="M9 3h6l.5 4 3 1.5-1.5 3-2-.8V21h-2.5l-.5-6-.5 6H9V10.7l-2 .8L5.5 8.5 8.5 7 9 3Z" />
-    <path d="M9 3a3 3 0 0 0 6 0" />
+    <path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" />
+    <path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" />
   </svg>
 );
 
-export const BoltIcon = ({ size = 13 }: IconProps) => (
+export const ShirtIcon = ({ size = 15 }: IconProps) => (
   <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
-    <path d="M13 3 5 13.5h5L10.5 21 19 10.5h-5.5L13 3Z" />
+    <path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z" />
   </svg>
 );
 
-export const GaugeIcon = ({ size = 13 }: IconProps) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
-    <circle cx="12" cy="13" r="8.5" />
-    <path d="m12 13 3.5-4M12 4.5V7" />
+/** Up arrow, rotated per direction of travel. */
+export const ArrowIcon = ({ size = 12, rotate = 0 }: IconProps & { rotate?: number }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    {...base}
+    stroke-width={2}
+    style={`transform:rotate(${rotate}deg)`}
+  >
+    <path d="M12 19V5" />
+    <path d="m5 12 7-7 7 7" />
   </svg>
 );
