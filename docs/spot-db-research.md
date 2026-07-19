@@ -67,6 +67,38 @@ spot DB is the long-term moat. The viable strategy is to build one — openly.
 4. Follow-up not yet investigated: Overture Maps places layer (likely POI-centric, low hope);
    national coastal-recreation open datasets (AU/NZ/US state GIS) for regional enrichment.
 
+## Round 2 — additional sources (2026-07-19, verified by fetch)
+
+### New clean options
+- **Overture Maps places** (docs.overturemaps.org) — **CDLA-Permissive 2.0 / Apache 2.0, no
+  share-alike** (the most permissive license found). 75M+ global POIs, GeoParquet, Meta/MS/AWS/
+  TomTom backed. TOP new candidate — needs an extraction pass to measure surf/beach coverage +
+  naming. [primary-source]
+- **OpenWaterAtlas** (Zenodo DOI 10.5281/zenodo.20668393) — CC-BY 4.0 bundle, 2,928 dive/kite/
+  surf/freedive spots, CSV/Parquet. Real license + DOI. CAVEAT: spot locations' own upstream
+  provenance not disclosed on the record page — read its README before trusting. [verified: license]
+- **Wikipedia/Wikivoyage** — Category:Surfing_locations_by_country (20 country subcats),
+  Wikivoyage guides. CC-BY-SA → scraping is FINE with attribution. Pull via MediaWiki API, not
+  HTML. Surfer names + linked Wikidata coords. [verified]
+- **Broader OSM query** — union sport=surfing + natural=reef/cape + surfing=yes; use
+  amenity=surf_school / shop=surf as proximity anchors to separate breaks from municipal beaches
+  (fixes the Herzliya-class gap). Our v1 pull only did natural=beach.
+- **National coastal open data** — AU ABSAMP (11k+ beaches, but contact-custodian, not open
+  download), NZ LINZ, FR data.gouv.fr, US state GIS. Regional enrichment, per-country effort.
+
+### TRAP — do not ingest
+- **naotokui gist "5,980 surf spots"** (gist.github.com/naotokui/01c384bf58ca43261eafe6a5e2ad6e85)
+  — ~6k spots, name/lat/lng/country, **NO provenance, NO license** (fetched & confirmed). Almost
+  certainly scraped from a proprietary atlas; all-rights-reserved by default; ingesting laundered
+  data == scraping it ourselves. Useful at most as an offline name-QA cross-check, never shipped.
+  Same rule kills any other no-provenance "surf spots dump."
+
+### Revised recommendation
+Open seed layer = **Overture + broad-OSM + Wikipedia (MediaWiki API)**, add **OpenWaterAtlas** if
+README provenance is clean; pursue a **WannaSurf license** for the one comprehensive surfer-named
+atlas. Scraping proprietary DBs (Surfline/MSW/WannaSurf) stays a hard no — legal + Rosa red line +
+poisons the licensing path.
+
 ## Ingestion sketch for #1 (next session)
 
 Overpass worldwide pull of `sport=surfing` + co-tagged beach/reef features → per-region YAML
