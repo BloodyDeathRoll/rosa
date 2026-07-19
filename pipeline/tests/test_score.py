@@ -102,6 +102,7 @@ class TestBucket:
 class TestScoreHour:
     def test_good_day(self):
         # chest-high 10s W swell, light offshore -> size 40 + period 10 + wind 40 = 90
+        # (q(10) = 1.0 so effective height == raw; wind gate saturated at (40+10)/30)
         s = score_hour(SPOT, hour((SwellPartition(1.0, 10.0, 290.0),)))
         assert s.rating == 90
         assert s.bucket == "FIRING"
@@ -130,3 +131,31 @@ class TestScoreHour:
         assert s.wind_score == 0
         assert s.rating == 50
         assert s.wind_class == "onshore"
+
+
+class TestCalibrationFix1:
+    """Regression for 2026-07-19 Beit Yanai: 0.66 m @ 5.2 s windswell read waist-high
+    GOOD 56 (FIRING 73 at night); Surfline + camera showed 0-0.3 m POOR."""
+
+    WINDSWELL = (SwellPartition(0.66, 5.2, 290.0),)
+
+    def test_windswell_height_discounted(self):
+        s = score_hour(SPOT, hour(self.WINDSWELL, 12.9, 216.0))  # the audited conditions
+        assert s.phrase == "knee-high"  # was waist-high
+        assert s.h_break_mid < 0.4
+
+    def test_windswell_daytime_rating(self):
+        s = score_hour(SPOT, hour(self.WINDSWELL, 12.9, 216.0))
+        assert s.bucket == "FAIR"  # was GOOD 56
+        assert s.rating < 40
+
+    def test_night_land_breeze_cannot_fire(self):
+        # perfect light offshore on the same junk swell: was FIRING 77
+        s = score_hour(SPOT, hour(self.WINDSWELL, 6.4, 90.0))
+        assert s.bucket != "FIRING"
+        assert s.wind_score < 40  # gate applied: stored wind is the gated value
+
+    def test_wind_gate_saturates_on_real_swell(self):
+        # size 40 + period 10 >= 30 -> gate is 1, wind untouched
+        s = score_hour(SPOT, hour((SwellPartition(1.0, 10.0, 290.0),)))
+        assert s.wind_score == 40

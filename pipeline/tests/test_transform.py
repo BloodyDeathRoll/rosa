@@ -1,13 +1,17 @@
+import pytest
+
 from rosa_pipeline.models import SwellPartition
 from rosa_pipeline.transform import (
     angle_diff,
     breaker_range,
     classify_wind,
     dominant_partition,
+    effective_height_in_window,
     energy_in_window,
     height_in_window,
     height_phrase,
     in_window,
+    period_quality,
     wetsuit,
 )
 
@@ -76,6 +80,33 @@ class TestHeightInWindow:
 
     def test_out_of_window_excluded(self):
         assert height_in_window((swell(2.0, 10, 100),), WINDOW) == 0
+
+
+class TestPeriodQuality:
+    def test_reference_period(self):
+        assert period_quality(10.0) == 1.0
+
+    def test_windswell_discounted(self):
+        assert period_quality(5.0) == 0.5
+
+    def test_clamps(self):
+        assert period_quality(2.0) == 0.4  # floor
+        assert period_quality(14.0) == 1.2  # groundswell cap
+        assert period_quality(20.0) == 1.2
+
+
+class TestEffectiveHeight:
+    def test_short_period_discounted(self):
+        # calibration fix #1: 0.66 m @ 5.2 s surfs like ~0.34 m, not 0.66 m
+        h = effective_height_in_window((swell(0.66, 5.2, 290),), WINDOW)
+        assert h == pytest.approx(0.66 * 0.52)
+
+    def test_long_period_boosted(self):
+        h = effective_height_in_window((swell(1.0, 14.0, 290),), WINDOW)
+        assert h == pytest.approx(1.2)
+
+    def test_out_of_window_excluded(self):
+        assert effective_height_in_window((swell(2.0, 12.0, 100),), WINDOW) == 0
 
 
 class TestDominant:

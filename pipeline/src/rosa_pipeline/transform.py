@@ -42,6 +42,25 @@ def height_in_window(partitions: tuple[SwellPartition, ...], window: tuple[float
     return math.sqrt(sum(p.height_m**2 for p in partitions if in_window(p.direction_deg, window)))
 
 
+def period_quality(period_s: float) -> float:
+    """q(T) = clamp(T/10, 0.4, 1.2): short-period windswell breaks far below its offshore
+    height; long-period groundswell shoals above it. Calibrate from docs/CALIBRATION.md."""
+    return min(1.2, max(0.4, period_s / 10.0))
+
+
+def effective_height_in_window(
+    partitions: tuple[SwellPartition, ...], window: tuple[float, float]
+) -> float:
+    """RMS combination of per-partition period-adjusted heights: sqrt(sum (H_i * q(T_i))^2)."""
+    return math.sqrt(
+        sum(
+            (p.height_m * period_quality(p.period_s)) ** 2
+            for p in partitions
+            if in_window(p.direction_deg, window)
+        )
+    )
+
+
 def dominant_partition(
     partitions: tuple[SwellPartition, ...], window: tuple[float, float]
 ) -> SwellPartition | None:

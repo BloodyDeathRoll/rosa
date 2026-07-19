@@ -12,8 +12,14 @@ is published in-app ("why this rating") and tuned only via the calibration log:
 - wind: score = 40 x angle_factor x speed_factor. angle_factor is 1 up to 45 deg off
   offshore, then linear to 0 at 180 deg. speed_factor is 1 up to 15 kph, then linear to 0
   at a max speed that shrinks with angle: 40 kph when offshore, 25 kph when onshore.
+- wind gate (calibration fix #1, 2026-07-19): wind points are scaled by
+  min(1, (size + period) / 30) before summing — offshore wind polishes waves that exist,
+  it never creates rating on its own. ScoredHour.wind_score holds the gated value.
 - flat gate: with no in-window partition or h_break_mid < 0.15 m, rating = size component
   only (a flat day with perfect offshore wind must read FLAT, not FAIR).
+
+Breaker height uses the period-adjusted effective height (transform.period_quality):
+a 0.66 m @ 5 s windswell surfs like ~0.35 m, not waist-high (calibration fix #1).
 """
 
 from __future__ import annotations
@@ -24,8 +30,8 @@ from .transform import (
     breaker_range,
     classify_wind,
     dominant_partition,
+    effective_height_in_window,
     energy_in_window,
-    height_in_window,
     height_phrase,
     wetsuit,
 )
@@ -35,6 +41,7 @@ PERIOD_MAX = 20.0
 WIND_MAX = 40.0
 FLAT_HEIGHT_M = 0.15
 OVERSIZE_FLOOR = 10.0
+WIND_GATE_PTS = 30.0
 
 
 def size_score(h_break_mid: float, ideal_size_m: tuple[float, float]) -> float:
@@ -82,14 +89,17 @@ def score_hour(spot: Spot, hour: HourForecast) -> ScoredHour:
     window = spot.swell_window
     dominant = dominant_partition(hour.partitions, window)
     energy = energy_in_window(hour.partitions, window)
-    h_lo, h_mid, h_hi = breaker_range(height_in_window(hour.partitions, window), spot.height_coeff)
+    h_lo, h_mid, h_hi = breaker_range(
+        effective_height_in_window(hour.partitions, window), spot.height_coeff
+    )
 
     size = size_score(h_mid, spot.ideal_size_m)
     period = period_score(dominant.period_s) if dominant else 0.0
     wind = wind_score(hour.wind_speed_kph, hour.wind_dir_deg, spot.offshore_direction)
+    wind_gated = wind * min(1.0, (size + period) / WIND_GATE_PTS)
 
     flat = dominant is None or h_mid < FLAT_HEIGHT_M
-    rating = round(size if flat else size + period + wind)
+    rating = round(size if flat else size + period + wind_gated)
 
     return ScoredHour(
         hour=hour,
@@ -102,7 +112,7 @@ def score_hour(spot: Spot, hour: HourForecast) -> ScoredHour:
         dominant=dominant,
         size_score=size,
         period_score=period,
-        wind_score=wind,
+        wind_score=wind_gated,
         rating=rating,
         bucket=bucket(rating),
         wetsuit=wetsuit(hour.sst_c) if hour.sst_c is not None else None,

@@ -3,9 +3,12 @@
 from __future__ import annotations
 
 import json
-from datetime import datetime
+from datetime import date, datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
+
+from astral import Observer
+from astral.sun import sun
 
 from .models import ScoredHour, Spot
 from .transform import in_window
@@ -27,6 +30,19 @@ def _confidence(day_index: int) -> str:
 
 def _r(x: float, digits: int = 2) -> float:
     return round(x, digits)
+
+
+def _daylight(
+    spot: Spot, day_hours: list[ScoredHour], date_str: str, tz: ZoneInfo
+) -> list[ScoredHour]:
+    """Hours between dawn and dusk — the day summary must not be driven by a 1 am land
+    breeze nobody can surf. Falls back to all hours if the sun never rises/sets (polar)."""
+    try:
+        s = sun(Observer(spot.lat, spot.lon), date=date.fromisoformat(date_str), tzinfo=tz)
+    except ValueError:
+        return day_hours
+    lit = [h for h in day_hours if s["dawn"] <= h.hour.time.astimezone(tz) <= s["dusk"]]
+    return lit or day_hours
 
 
 def _hour_entry(spot: Spot, s: ScoredHour, tz: ZoneInfo) -> dict:
@@ -76,13 +92,15 @@ def build_payload(spot: Spot, scored: list[ScoredHour], *, fetched_at: str, now:
         by_date.setdefault(s.hour.time.astimezone(tz).date().isoformat(), []).append(s)
     days = [
         {
-            "date": date,
-            "rating_max": (best := max(day_hours, key=lambda s: s.rating)).rating,
+            "date": date_str,
+            "rating_max": (
+                best := max(_daylight(spot, day_hours, date_str, tz), key=lambda s: s.rating)
+            ).rating,
             "bucket": best.bucket,
             "h_max": [best.h_break_lo, best.h_break_hi],
             "confidence": _confidence(day_index),
         }
-        for day_index, (date, day_hours) in enumerate(sorted(by_date.items())[:OUTLOOK_DAYS])
+        for day_index, (date_str, day_hours) in enumerate(sorted(by_date.items())[:OUTLOOK_DAYS])
     ]
 
     return {
