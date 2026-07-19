@@ -1,7 +1,7 @@
 import { useEffect, useState } from "preact/hooks";
 import { fetchIndex } from "../api";
 import { AppHeader } from "../components/AppHeader";
-import { RatingChip } from "../components/parts";
+import { Dot, TierLabel } from "../components/parts";
 import { getFavorites, toggleFavorite } from "../favorites";
 import { fmtRange, useUnits } from "../units";
 import type { SpotIndex } from "../types";
@@ -53,10 +53,11 @@ export function FavoritesPage({
                 ★
               </button>
               <a href={`#/spot/${id}`}>
+                <Dot bucket={e.bucket} />
                 <span class="spot-name">{e.name}</span>
                 <span class="spot-now">
                   <b>{fmtRange(e.h, units)}</b>
-                  <RatingChip bucket={e.bucket} />
+                  <TierLabel bucket={e.bucket} />
                 </span>
               </a>
             </li>

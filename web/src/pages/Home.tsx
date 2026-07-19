@@ -1,7 +1,7 @@
 import { useEffect, useState } from "preact/hooks";
 import { fetchIndex, fetchSpot } from "../api";
 import { AppHeader } from "../components/AppHeader";
-import { BucketWord, DaySpine, RatingChip } from "../components/parts";
+import { DaySpine, Dot, RatingChip, TierLabel } from "../components/parts";
 import { getFavorites, toggleFavorite } from "../favorites";
 import { distanceKm, getPosition, type LatLon } from "../geo";
 import { cardinal, dateOf } from "../format";
@@ -24,7 +24,7 @@ function RecentCard({ data }: { data: SpotPayload }) {
     <a class="recent-card" href={`#/spot/${data.spot.id}`}>
       <span class="recent-name">{data.spot.name}</span>
       <span class="recent-rating">
-        <BucketWord bucket={cur.bucket} />
+        <RatingChip bucket={cur.bucket} />
         <DaySpine hours={today} />
       </span>
       <span class="recent-numbers">
@@ -67,13 +67,14 @@ function SummaryRow({
         {isFav ? "★" : "☆"}
       </button>
       <a href={`#/spot/${id}`}>
+        <Dot bucket={entry.bucket} />
         <span class="spot-name">
           {entry.name}
           {km !== undefined && <small>{Math.round(km)} km</small>}
         </span>
         <span class="spot-now">
           <b>{fmtRange(entry.h, units)}</b>
-          <RatingChip bucket={entry.bucket} />
+          <TierLabel bucket={entry.bucket} />
         </span>
       </a>
     </li>

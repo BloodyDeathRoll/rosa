@@ -76,3 +76,16 @@ export const WetsuitIcon = ({ size = 18 }: IconProps) => (
     <path d="M9 3a3 3 0 0 0 6 0" />
   </svg>
 );
+
+export const BoltIcon = ({ size = 13 }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
+    <path d="M13 3 5 13.5h5L10.5 21 19 10.5h-5.5L13 3Z" />
+  </svg>
+);
+
+export const GaugeIcon = ({ size = 13 }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
+    <circle cx="12" cy="13" r="8.5" />
+    <path d="m12 13 3.5-4M12 4.5V7" />
+  </svg>
+);

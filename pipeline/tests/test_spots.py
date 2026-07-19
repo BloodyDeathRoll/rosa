@@ -7,7 +7,7 @@ SPOTS_DIR = Path(__file__).resolve().parents[2] / "data" / "spots"
 
 def test_loads_israel_seed():
     spots = load_spots_file(SPOTS_DIR / "israel.yaml")
-    assert len(spots) == 20
+    assert len(spots) == 38
 
 
 def test_beit_yanai_fields():

@@ -7,6 +7,19 @@
     <meta name="description" content="Rosa — free surf forecast. Should I surf, when, where?" />
     <link rel="icon" href="/icon.svg" type="image/svg+xml" />
     <title>Rosa</title>
+    <script>
+      // set theme before first paint: stored override > OS preference > dark
+      (function () {
+        try {
+          var t = localStorage.getItem("rosa.theme");
+          if (t !== "dark" && t !== "light")
+            t = matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+          document.documentElement.dataset.theme = t;
+        } catch (e) {
+          document.documentElement.dataset.theme = "dark";
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="app"></div>

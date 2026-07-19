@@ -1,4 +1,5 @@
 import type { CurrentEntry } from "../types";
+import { verdictFor } from "../conditions";
 import { cardinal, hourOf } from "../format";
 import { fmtH, fmtRange, fmtTemp, heightUnit, useUnits } from "../units";
 import { DirArrow, RatingChip } from "./parts";
@@ -16,6 +17,10 @@ export function CurrentCard({ name, cur }: { name: string; cur: CurrentEntry }) 
         <h2>{name}</h2>
         <RatingChip bucket={cur.bucket} />
       </div>
+
+      <p class="verdict-line" data-bucket={cur.bucket}>
+        {verdictFor(cur.bucket, `${name}${cur.t.slice(0, 10)}`)}
+      </p>
 
       <div class="stats stats-3">
         <span class="stat">

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "preact/hooks";
 import { fetchIndex } from "../api";
 import { BackIcon } from "../components/icons";
+import { Dot } from "../components/parts";
 import { getFavorites, toggleFavorite } from "../favorites";
 import { distanceKm, getPosition, type LatLon } from "../geo";
 import { getRecents } from "../recents";
@@ -11,12 +12,14 @@ type Entry = [string, SpotIndex["spots"][string]];
 function ResultRow({
   id,
   name,
+  bucket,
   km,
   isFav,
   onToggle,
 }: {
   id: string;
   name: string;
+  bucket: import("../types").Bucket;
   km?: number;
   isFav: boolean;
   onToggle: (id: string) => void;
@@ -24,6 +27,7 @@ function ResultRow({
   return (
     <li class="result-row">
       <a href={`#/spot/${id}`}>
+        <Dot bucket={bucket} />
         <span>
           {name}
           {km !== undefined && <small>{Math.round(km)} km</small>}
@@ -94,7 +98,7 @@ export function SearchPage() {
       {matches ? (
         <ul class="results">
           {matches.map(([id, e]) => (
-            <ResultRow key={id} id={id} name={e.name} km={km(e)} isFav={favs.includes(id)} onToggle={onToggle} />
+            <ResultRow key={id} id={id} name={e.name} bucket={e.bucket} km={km(e)} isFav={favs.includes(id)} onToggle={onToggle} />
           ))}
           {matches.length === 0 && <li class="search-empty">No spots match "{query}" yet</li>}
         </ul>
@@ -105,7 +109,7 @@ export function SearchPage() {
               <h2 class="list-title">Recents</h2>
               <ul class="results">
                 {recents.map(([id, e]) => (
-                  <ResultRow key={id} id={id} name={e.name} km={km(e)} isFav={favs.includes(id)} onToggle={onToggle} />
+                  <ResultRow key={id} id={id} name={e.name} bucket={e.bucket} km={km(e)} isFav={favs.includes(id)} onToggle={onToggle} />
                 ))}
               </ul>
             </>
@@ -113,7 +117,7 @@ export function SearchPage() {
           <h2 class="list-title">{pos ? "Nearby" : "Spots"}</h2>
           <ul class="results">
             {nearby.map(([id, e]) => (
-              <ResultRow key={id} id={id} name={e.name} km={km(e)} isFav={favs.includes(id)} onToggle={onToggle} />
+              <ResultRow key={id} id={id} name={e.name} bucket={e.bucket} km={km(e)} isFav={favs.includes(id)} onToggle={onToggle} />
             ))}
           </ul>
         </>

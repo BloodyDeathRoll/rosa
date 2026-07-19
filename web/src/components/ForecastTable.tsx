@@ -1,19 +1,19 @@
 import type { DayEntry, HourEntry } from "../types";
 import { cardinal, dateOf, dayLabel, hourOf } from "../format";
 import { fmtH, fmtRange, heightUnit, useUnits, type Units } from "../units";
+import { BoltIcon, GaugeIcon } from "./icons";
 import { DaySpine, DirArrow, HourRail, RatingChip } from "./parts";
 
+/** Wind as one block: value / arrow+cardinal / class. */
 function WindBlock({ h }: { h: HourEntry }) {
   return (
-    <span class="wind-cell" data-windclass={h.wind.class}>
+    <span class="wind-block">
       <b>{Math.round(h.wind.kph)}</b>
-      <span class="wind-block">
-        <span>
-          <DirArrow from={h.wind.dir} title={`wind from ${h.wind.dir}°`} />
-          {cardinal(h.wind.dir)}
-        </span>
-        <small>{h.wind.class === "cross-shore" ? "cross" : h.wind.class}</small>
+      <span>
+        <DirArrow from={h.wind.dir} title={`wind from ${h.wind.dir}°`} />
+        {cardinal(h.wind.dir)}
       </span>
+      <small>{h.wind.class === "cross-shore" ? "cross" : h.wind.class}</small>
     </span>
   );
 }
@@ -23,8 +23,8 @@ function HourRow({ h, dayHours, units }: { h: HourEntry; dayHours: HourEntry[]; 
   return (
     <div class="row" data-bucket={h.bucket}>
       <span class="t">
+        <span class="tlabel">{hourOf(h.t)}</span>
         <HourRail dayHours={dayHours} current={h.t} />
-        {hourOf(h.t)}
       </span>
       <span class="h">
         <b>{fmtRange(h.h, units, false)}</b>
@@ -44,9 +44,6 @@ function HourRow({ h, dayHours, units }: { h: HourEntry; dayHours: HourEntry[]; 
       <WindBlock h={h} />
       <span class="num">{h.energy}</span>
       <span class="num">{h.pressure ?? "—"}</span>
-      <span class="r" data-bucket={h.bucket}>
-        {h.rating}
-      </span>
     </div>
   );
 }
@@ -58,9 +55,12 @@ function HeaderRow({ units }: { units: Units }) {
       <span>surf {heightUnit(units)}</span>
       <span>swell</span>
       <span>wind</span>
-      <span>kW/m</span>
-      <span>mb</span>
-      <span />
+      <span class="num-h" title="wave power, kW/m">
+        <BoltIcon />
+      </span>
+      <span class="num-h" title="pressure, mb">
+        <GaugeIcon />
+      </span>
     </div>
   );
 }

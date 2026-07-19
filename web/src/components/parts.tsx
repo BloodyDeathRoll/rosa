@@ -1,21 +1,25 @@
-import type { Bucket, HourEntry, Wind } from "../types";
+import type { Bucket, HourEntry } from "../types";
 import { arrowRotation } from "../format";
+import { tierOf } from "../conditions";
 
+/** Badge: tier background + glyph pairing on tiers 1 and 5 (never color alone). */
 export function RatingChip({ bucket }: { bucket: Bucket }) {
   return (
     <span class="chip" data-bucket={bucket}>
+      {bucket === "FLAT" && "×"}
+      {bucket === "FIRING" && "✓"}
       {bucket}
     </span>
   );
 }
 
-/** Rating word as colored text (hero usage, Surfline-style). */
-export function BucketWord({ bucket }: { bucket: Bucket }) {
-  return (
-    <span class="bucket-word" data-bucket={bucket}>
-      {bucket}
-    </span>
-  );
+/** 8px condition dot — pair with TierLabel or bucket text nearby. */
+export function Dot({ bucket }: { bucket: Bucket }) {
+  return <i class="dot" data-bucket={bucket} aria-hidden="true" />;
+}
+
+export function TierLabel({ bucket }: { bucket: Bucket }) {
+  return <span class="tier-label">{tierOf(bucket)}/5</span>;
 }
 
 export function DirArrow({ from, title }: { from: number; title: string }) {
@@ -28,17 +32,7 @@ export function DirArrow({ from, title }: { from: number; title: string }) {
   );
 }
 
-export function WindCell({ wind }: { wind: Wind }) {
-  return (
-    <span class="wind" data-windclass={wind.class}>
-      <DirArrow from={wind.dir} title={`wind from ${wind.dir}°`} />
-      {Math.round(wind.kph)}
-      <small>{wind.class === "cross-shore" ? "cross" : wind.class}</small>
-    </span>
-  );
-}
-
-/** The signature: a day rendered as a strip of 3-hour color segments. */
+/** Sparkline strip: a day as 3-hour tier segments. */
 export function DaySpine({ hours }: { hours: HourEntry[] }) {
   return (
     <span class="spine" aria-hidden="true">
@@ -49,7 +43,7 @@ export function DaySpine({ hours }: { hours: HourEntry[] }) {
   );
 }
 
-/** Vertical day strip for the hour rail — current row's slot emphasized. */
+/** Vertical day strip for the hour rail — current slot at full tier color, rest dim. */
 export function HourRail({ dayHours, current }: { dayHours: HourEntry[]; current: string }) {
   return (
     <span class="rail" aria-hidden="true">
