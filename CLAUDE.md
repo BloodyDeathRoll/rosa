@@ -53,8 +53,8 @@ Screens, in build order: SpotPage (hero: current card + 7-day 3-hourly collapsib
 - Commits small, conventional (feat:/fix:/data:). Data outputs are build artifacts — never committed to main repo.
 
 ## Current state & session-1 tasks
-Nothing built yet. Repo starts from this kit. Git initialized 2026-07-19 — conventional commits from the very first scaffold commit. Session 1 (in order):
-1. `pipeline/`: scaffold uv project; Open-Meteo fetch module (marine + weather, hourly, 16 d) with on-disk fixture capture; transform + score per spec above; unit tests; CLI: `rosa-pipeline run --spot beit-yanai` → writes `data/out/spots/beit-yanai.json`.
+Git initialized 2026-07-19 (github.com/BloodyDeathRoll/rosa, private) — conventional commits. Session 1 (in order):
+1. ✅ DONE (2026-07-19) `pipeline/`: uv project scaffolded; fetch (Open-Meteo marine+weather, 16 d hourly, capture/replay via `--capture`/`--fixtures`) → extract → transform → score → publish; 41 unit tests green (`cd pipeline && uv run pytest`); CLI works: `uv run --project pipeline rosa-pipeline run --spot beit-yanai` (from repo root) → `data/out/spots/beit-yanai.json` + `index.json`. Fixture captured at `pipeline/tests/fixtures/32.2_34.55.json`. Underspecified formula choices (size taper w/ floor 10 @ 2×ideal-hi, wind v_max 40→25 kph by angle, flat gate h<0.15 m) documented in `pipeline/src/rosa_pipeline/score.py` docstring — tune via calibration log only. Wind-wave partition counts toward in-window energy (Med windswell matters); payload ~20 KB raw (2.5 KB gzipped — under the 5 KB target as served).
 2. Run live for all Israel seed spots; eyeball Beit Yanai output vs. surfline.com and isramar.ocean.org.il (manual check only) — record discrepancies in `docs/CALIBRATION.md`.
 3. `web/`: Vite PWA scaffold, SpotPage rendering the JSON (current card + forecast table), Home favorites. Deploy preview to CF Pages.
 4. GitHub Action: cron pipeline → publish JSON to Pages/bucket.

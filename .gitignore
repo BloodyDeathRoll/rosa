@@ -3,3 +3,10 @@
 
 # Pipeline outputs are build artifacts — never committed (CLAUDE.md §Conventions)
 data/out/
+
+# Python
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/

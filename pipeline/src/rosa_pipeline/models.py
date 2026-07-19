@@ -1,0 +1,63 @@
+"""Core datatypes shared across pipeline stages."""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+from datetime import datetime
+from typing import Literal
+
+PartitionKind = Literal["swell", "wind"]
+WindClass = Literal["offshore", "cross-shore", "onshore"]
+Bucket = Literal["FLAT", "POOR", "FAIR", "GOOD", "FIRING"]
+
+
+@dataclass(frozen=True, slots=True)
+class SwellPartition:
+    height_m: float
+    period_s: float
+    direction_deg: float
+    kind: PartitionKind = "swell"
+
+
+@dataclass(frozen=True, slots=True)
+class Spot:
+    id: str
+    name: str
+    lat: float
+    lon: float
+    timezone: str
+    offshore_point: tuple[float, float]  # (lat, lon) deep-water extraction point
+    offshore_direction: float  # compass direction the offshore WIND blows FROM
+    swell_window: tuple[float, float]  # (lo, hi) degrees; may wrap through 360
+    height_coeff: float
+    break_type: str
+    ideal_wind_dir: tuple[float, float]
+    ideal_size_m: tuple[float, float]
+
+
+@dataclass(frozen=True, slots=True)
+class HourForecast:
+    time: datetime  # tz-aware UTC
+    partitions: tuple[SwellPartition, ...]
+    sst_c: float | None
+    wind_speed_kph: float
+    wind_dir_deg: float
+    wind_gusts_kph: float | None
+
+
+@dataclass(frozen=True, slots=True)
+class ScoredHour:
+    hour: HourForecast
+    h_break_lo: float
+    h_break_mid: float
+    h_break_hi: float
+    phrase: str
+    wind_class: WindClass
+    energy: float  # sum(H^2 * T) of in-window partitions
+    dominant: SwellPartition | None
+    size_score: float
+    period_score: float
+    wind_score: float
+    rating: int
+    bucket: Bucket
+    wetsuit: str | None
