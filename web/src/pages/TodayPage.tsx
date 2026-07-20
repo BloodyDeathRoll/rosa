@@ -1,4 +1,4 @@
-import { useEffect, useState } from "preact/hooks";
+import { useCallback, useEffect, useMemo, useState } from "preact/hooks";
 import { fetchIndex, fetchSpot } from "../api";
 import { DateBar } from "../components/DateBar";
 import { DayCarousel } from "../components/DayCarousel";
@@ -152,6 +152,12 @@ export function TodayPage() {
   const [error, setError] = useState<string | null>(null);
   const [favs, setFavs] = useState<string[]>(getFavorites);
   const [daySel, setDaySel] = useState(0);
+  const [liveDay, setLiveDay] = useState(0);
+  // commit a day: settle both the highlight (live) and the content (daySel)
+  const commitDay = useCallback((i: number) => {
+    setDaySel(i);
+    setLiveDay(i);
+  }, []);
 
   useEffect(() => {
     let disposed = false;
@@ -214,6 +220,40 @@ export function TodayPage() {
   const days = (detail ?? cards?.[0])?.days ?? [];
   const today = days[0]?.date ?? "";
   const sel = Math.min(daySel, Math.max(0, days.length - 1));
+  const liveSel = Math.min(liveDay, Math.max(0, days.length - 1));
+
+  const dayStack = (dateStr: string) => (
+    <div class="rank-list">
+      {detail && <DetailCard data={detail} date={dateStr} />}
+      {cards?.map((d) => (
+        <SpotCard
+          key={d.spot.id}
+          data={d}
+          date={dateStr}
+          km={dists[d.spot.id]}
+          isFav={favs.includes(d.spot.id)}
+          onToggle={() => setFavs(toggleFavorite(d.spot.id))}
+        />
+      ))}
+    </div>
+  );
+
+  // Memoize the carousel vnode: live scrubs re-render the parent (to move the date
+  // highlight) but must not re-render the heavy day cards. A stable vnode reference
+  // lets Preact skip diffing the carousel subtree while only `liveDay` changed.
+  const carousel = useMemo(
+    () => (
+      <DayCarousel
+        count={days.length}
+        selected={sel}
+        onSelect={commitDay}
+        onScrub={setLiveDay}
+        renderPanel={(i) => dayStack(days[i]?.date ?? today)}
+      />
+    ),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [days, detail, cards, dists, favs, today, sel, commitDay]
+  );
 
   if (error) {
     return (
@@ -232,22 +272,6 @@ export function TodayPage() {
     );
   }
 
-  const dayStack = (dateStr: string) => (
-    <div class="rank-list">
-      {detail && <DetailCard data={detail} date={dateStr} />}
-      {cards.map((d) => (
-        <SpotCard
-          key={d.spot.id}
-          data={d}
-          date={dateStr}
-          km={dists[d.spot.id]}
-          isFav={favs.includes(d.spot.id)}
-          onToggle={() => setFavs(toggleFavorite(d.spot.id))}
-        />
-      ))}
-    </div>
-  );
-
   return (
     <main class="page">
       <AppHeader right={search} />
@@ -259,16 +283,12 @@ export function TodayPage() {
           <DateBar
             dates={days.map((d) => d.date)}
             selected={sel}
+            live={liveSel}
             today={today}
-            onSelect={setDaySel}
+            onSelect={commitDay}
           />
         )}
-        <DayCarousel
-          count={days.length}
-          selected={sel}
-          onSelect={setDaySel}
-          renderPanel={(i) => dayStack(days[i]?.date ?? today)}
-        />
+        {carousel}
       </div>
     </main>
   );

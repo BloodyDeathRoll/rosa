@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "preact/hooks";
+import { useCallback, useEffect, useMemo, useRef, useState } from "preact/hooks";
 import { fetchIndex, fetchSpot } from "../api";
 import {
   ArrowIcon,
@@ -174,13 +174,20 @@ export function SpotPage({ id }: { id: string }) {
   const [error, setError] = useState<string | null>(null);
   const [favs, setFavs] = useState<string[]>(getFavorites);
   const [daySel, setDaySel] = useState(0);
+  const [liveDay, setLiveDay] = useState(0);
   const [spots, setSpots] = useState<[string, IndexEntry][]>([]);
   const units = useUnits();
+  // commit a day: settle both the highlight (live) and the content (daySel)
+  const commitDay = useCallback((i: number) => {
+    setDaySel(i);
+    setLiveDay(i);
+  }, []);
 
   useEffect(() => {
     setData(null);
     setError(null);
     setDaySel(0);
+    setLiveDay(0);
     pushRecent(id);
     fetchSpot(id).then(setData, (e: Error) => setError(e.message));
   }, [id]);
@@ -216,6 +223,137 @@ export function SpotPage({ id }: { id: string }) {
   // the date bar + carousel both drive the selected day
   const allDays = data?.days ?? [];
   const daySelClamped = Math.min(daySel, Math.max(0, allDays.length - 1));
+  const liveClamped = Math.min(liveDay, Math.max(0, allDays.length - 1));
+
+  // Memoize the carousel vnode: a live scrub re-renders the parent to move the date
+  // highlight, but the identical vnode reference lets Preact skip re-diffing the heavy
+  // day panels (hour grid, tide, sun) — only the committed `daySelClamped` rebuilds it.
+  const carousel = useMemo(() => {
+    if (!data) return null;
+    const days = data.days;
+    const cur = data.current;
+    const today = data.hours[0] ? dateOf(data.hours[0].t) : "";
+    // one full-width panel per day; the carousel drags between them
+    const dayPanel = (i: number) => {
+      const day = days[i];
+      if (!day) return null;
+      const dayHours = data.hours.filter((h) => dateOf(h.t) === day.date);
+      const chips = sessionChips(dayHours);
+      const sun = sunTimes(new Date(`${day.date}T12:00:00Z`), data.spot.lat, data.spot.lon);
+      return (
+        <div class="spot-main">
+          <section class="spot-card">
+            <div class="inner">
+              <div class="pill-row">
+                <Pill bucket={day.bucket} />
+                <span class="est-note tabular">
+                  estimated · {fmtClock(new Date(data.generated_at), data.spot.timezone)}
+                </span>
+              </div>
+              <DayBars day={day} hours={dayHours} />
+              <div class="sessions">
+                <span class="eyebrow">Best sessions</span>
+                {chips.length > 0 ? (
+                  <span class="chips">
+                    {chips.map((h) => (
+                      <span class="session-chip pill tabular" data-bucket={h.bucket} key={h.t}>
+                        {hourOf(h.t)}–{chipEnd(h)}
+                      </span>
+                    ))}
+                  </span>
+                ) : (
+                  <span class="none">none worth the paddle</span>
+                )}
+              </div>
+              <div class="temps-row">
+                <span>
+                  <ThermometerIcon />
+                  <span class="tabular">air {cur.air !== null ? fmtTemp(cur.air, units) : "—"}</span>
+                </span>
+                <span>
+                  <WavesIcon />
+                  <span class="tabular">
+                    water {cur.sst !== null ? fmtTemp(cur.sst, units) : "—"}
+                  </span>
+                </span>
+                {cur.wetsuit && (
+                  <span>
+                    <ShirtIcon />
+                    <span class="suit">{cur.wetsuit}</span>
+                  </span>
+                )}
+              </div>
+            </div>
+            <div class="card-foot">
+              <button
+                class="accent-link"
+                onClick={() => {
+                  setPendingPin(id);
+                  location.hash = "#/map";
+                }}
+              >
+                <MapIcon size={14} />
+                Show on map →
+              </button>
+            </div>
+          </section>
+
+          <div class="day-title">
+            <b>
+              {dayLabel(day.date, today)} · {dayDate(day.date)}
+            </b>
+            <span>{dayNote(days, i, dayHours)}</span>
+          </div>
+          <div class="hour-grid head" aria-hidden="true">
+            <span />
+            <span />
+            <span>surf {heightUnit(units)}</span>
+            <span>swell</span>
+            <span>wind kt</span>
+            <span>kW/m</span>
+            <span>hPa</span>
+          </div>
+          {dayHours.map((h) => (
+            <HourRow key={h.t} h={h} units={units} />
+          ))}
+          {dayHours.length === 0 && (
+            <p class="state">Beyond the model horizon — no hourly detail yet.</p>
+          )}
+
+          <TideSection nowT={cur.t} metric={units.height === "m"} />
+
+          <div class="sun-row">
+            <span>
+              <span class="eyebrow">First light</span>
+              <b class="tabular">{fmtClock(sun.firstLight, data.spot.timezone)}</b>
+            </span>
+            <span>
+              <span class="eyebrow">Sunrise</span>
+              <b class="tabular">{fmtClock(sun.sunrise, data.spot.timezone)}</b>
+            </span>
+            <span>
+              <span class="eyebrow">Sunset</span>
+              <b class="tabular">{fmtClock(sun.sunset, data.spot.timezone)}</b>
+            </span>
+            <span>
+              <span class="eyebrow">Last light</span>
+              <b class="tabular">{fmtClock(sun.lastLight, data.spot.timezone)}</b>
+            </span>
+          </div>
+        </div>
+      );
+    };
+    return (
+      <DayCarousel
+        count={days.length}
+        selected={daySelClamped}
+        onSelect={commitDay}
+        onScrub={setLiveDay}
+        renderPanel={dayPanel}
+      />
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data, units, daySelClamped, commitDay]);
 
   const header = (
     <header class="app-head spot-head-min">
@@ -242,120 +380,8 @@ export function SpotPage({ id }: { id: string }) {
     );
   }
 
-  const cur = data.current;
   const days = data.days;
   const today = data.hours[0] ? dateOf(data.hours[0].t) : "";
-
-  // one full-width panel per day; the carousel drags between them
-  const dayPanel = (i: number) => {
-    const day = days[i];
-    if (!day) return null;
-    const dayHours = data.hours.filter((h) => dateOf(h.t) === day.date);
-    const chips = sessionChips(dayHours);
-    const sun = sunTimes(new Date(`${day.date}T12:00:00Z`), data.spot.lat, data.spot.lon);
-    return (
-      <div class="spot-main">
-        <section class="spot-card">
-          <div class="inner">
-            <div class="pill-row">
-              <Pill bucket={day.bucket} />
-              <span class="est-note tabular">
-                estimated · {fmtClock(new Date(data.generated_at), data.spot.timezone)}
-              </span>
-            </div>
-            <DayBars day={day} hours={dayHours} />
-            <div class="sessions">
-              <span class="eyebrow">Best sessions</span>
-              {chips.length > 0 ? (
-                <span class="chips">
-                  {chips.map((h) => (
-                    <span class="session-chip pill tabular" data-bucket={h.bucket} key={h.t}>
-                      {hourOf(h.t)}–{chipEnd(h)}
-                    </span>
-                  ))}
-                </span>
-              ) : (
-                <span class="none">none worth the paddle</span>
-              )}
-            </div>
-            <div class="temps-row">
-              <span>
-                <ThermometerIcon />
-                <span class="tabular">air {cur.air !== null ? fmtTemp(cur.air, units) : "—"}</span>
-              </span>
-              <span>
-                <WavesIcon />
-                <span class="tabular">
-                  water {cur.sst !== null ? fmtTemp(cur.sst, units) : "—"}
-                </span>
-              </span>
-              {cur.wetsuit && (
-                <span>
-                  <ShirtIcon />
-                  <span class="suit">{cur.wetsuit}</span>
-                </span>
-              )}
-            </div>
-          </div>
-          <div class="card-foot">
-            <button
-              class="accent-link"
-              onClick={() => {
-                setPendingPin(id);
-                location.hash = "#/map";
-              }}
-            >
-              <MapIcon size={14} />
-              Show on map →
-            </button>
-          </div>
-        </section>
-
-        <div class="day-title">
-          <b>
-            {dayLabel(day.date, today)} · {dayDate(day.date)}
-          </b>
-          <span>{dayNote(days, i, dayHours)}</span>
-        </div>
-        <div class="hour-grid head" aria-hidden="true">
-          <span />
-          <span />
-          <span>surf {heightUnit(units)}</span>
-          <span>swell</span>
-          <span>wind kt</span>
-          <span>kW/m</span>
-          <span>hPa</span>
-        </div>
-        {dayHours.map((h) => (
-          <HourRow key={h.t} h={h} units={units} />
-        ))}
-        {dayHours.length === 0 && (
-          <p class="state">Beyond the model horizon — no hourly detail yet.</p>
-        )}
-
-        <TideSection nowT={cur.t} metric={units.height === "m"} />
-
-        <div class="sun-row">
-          <span>
-            <span class="eyebrow">First light</span>
-            <b class="tabular">{fmtClock(sun.firstLight, data.spot.timezone)}</b>
-          </span>
-          <span>
-            <span class="eyebrow">Sunrise</span>
-            <b class="tabular">{fmtClock(sun.sunrise, data.spot.timezone)}</b>
-          </span>
-          <span>
-            <span class="eyebrow">Sunset</span>
-            <b class="tabular">{fmtClock(sun.sunset, data.spot.timezone)}</b>
-          </span>
-          <span>
-            <span class="eyebrow">Last light</span>
-            <b class="tabular">{fmtClock(sun.lastLight, data.spot.timezone)}</b>
-          </span>
-        </div>
-      </div>
-    );
-  };
 
   return (
     <main class="page">
@@ -365,16 +391,12 @@ export function SpotPage({ id }: { id: string }) {
         <DateBar
           dates={days.map((d) => d.date)}
           selected={daySelClamped}
+          live={liveClamped}
           today={today}
-          onSelect={setDaySel}
+          onSelect={commitDay}
         />
       </div>
-      <DayCarousel
-        count={days.length}
-        selected={daySelClamped}
-        onSelect={setDaySel}
-        renderPanel={dayPanel}
-      />
+      {carousel}
     </main>
   );
 }

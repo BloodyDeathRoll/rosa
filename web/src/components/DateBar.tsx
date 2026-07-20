@@ -7,11 +7,14 @@ import { dayLabel, dayNum } from "../format";
 export function DateBar({
   dates,
   selected,
+  live,
   today,
   onSelect,
 }: {
   dates: string[];
   selected: number;
+  /** index to highlight while a drag is in flight; falls back to `selected` */
+  live?: number;
   today: string;
   onSelect: (i: number) => void;
 }) {
@@ -54,6 +57,7 @@ export function DateBar({
     return () => track.removeEventListener("scrollend", onScrollEnd);
   }, [selected, onSelect]);
 
+  const hi = live ?? selected;
   return (
     <div class="date-bar">
       <div class="track" ref={trackRef}>
@@ -61,8 +65,8 @@ export function DateBar({
           <button
             key={date}
             ref={i === selected ? selRef : undefined}
-            class={`date-chip${i === selected ? " on" : ""}`}
-            aria-current={i === selected ? "date" : undefined}
+            class={`date-chip${i === hi ? " on" : ""}`}
+            aria-current={i === hi ? "date" : undefined}
             onClick={() => onSelect(i)}
           >
             <span class="dow">{dayLabel(date, today)}</span>

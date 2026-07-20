@@ -10,16 +10,20 @@ export function DayCarousel({
   count,
   selected,
   onSelect,
+  onScrub,
   renderPanel,
 }: {
   count: number;
   selected: number;
   onSelect: (i: number) => void;
+  /** live nearest-day index during a user drag (fires before it settles) */
+  onScrub?: (i: number) => void;
   renderPanel: (i: number) => ComponentChildren;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const programmatic = useRef(false);
   const clearTimer = useRef<number | undefined>(undefined);
+  const lastScrub = useRef(selected);
 
   // scroll to the selected day when it changes from outside a drag (date-bar tap)
   useEffect(() => {
@@ -34,6 +38,26 @@ export function DayCarousel({
     clearTimeout(clearTimer.current);
     clearTimer.current = window.setTimeout(() => (programmatic.current = false), 500);
   }, [selected]);
+
+  // during a user drag, report the nearest panel live so the date bar highlight
+  // tracks the finger instead of waiting for the drag to settle
+  useEffect(() => {
+    lastScrub.current = selected;
+  }, [selected]);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !onScrub) return;
+    const onScroll = () => {
+      if (programmatic.current) return; // a tap/center animation, not a drag
+      const i = Math.round(el.scrollLeft / (el.clientWidth || 1));
+      if (i !== lastScrub.current && i >= 0 && i < count) {
+        lastScrub.current = i;
+        onScrub(i);
+      }
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, [count, onScrub]);
 
   // when a user drag settles, adopt the snapped panel as the selected day
   useEffect(() => {
