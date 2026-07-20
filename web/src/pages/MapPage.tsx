@@ -11,10 +11,11 @@ import type { Theme } from "../theme";
 type Entry = [string, IndexEntry];
 
 // CARTO raster basemaps (free tier, attribution required) — swap to self-hosted
-// vector tiles before public launch.
+// vector tiles before public launch. Voyager mimics the Google Maps street look
+// (cream land, blue water, green parks); dark_matter for the dark theme.
 const TILE_URLS: Record<Theme, string> = {
   dark: "https://basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png",
-  light: "https://basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png",
+  light: "https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png",
 };
 const ATTRIBUTION = "© OpenStreetMap contributors © CARTO";
 

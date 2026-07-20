@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 
-/** Surfline-style satellite header for the featured spot: ESRI World Imagery
-    tiles centered on the spot with a single pin. Static <img> mosaic (no
-    maplibre) so the home page stays light. */
+/** Street-map header for the featured spot: CARTO Voyager tiles (Google-Maps-style
+    cream land + blue water) centered on the spot with a single pin. Static <img>
+    mosaic (no maplibre) so the home page stays light. */
 
 const TILE = 256;
 const Z = 15;
@@ -40,7 +40,7 @@ export function SatMap({ lat, lon, height = 176 }: { lat: number; lon: number; h
         {tiles.map((t) => (
           <img
             key={`${t.x}-${t.y}`}
-            src={`https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${Z}/${wrap(t.y)}/${wrap(t.x)}`}
+            src={`https://basemaps.cartocdn.com/rastertiles/voyager/${Z}/${wrap(t.x)}/${wrap(t.y)}@2x.png`}
             style={`left:${t.px}px;top:${t.py}px`}
             width={TILE}
             height={TILE}
@@ -58,7 +58,7 @@ export function SatMap({ lat, lon, height = 176 }: { lat: number; lon: number; h
         />
         <circle cx="12" cy="9" r="2.4" fill="#fff" />
       </svg>
-      <span class="sm-attr">Imagery © Esri</span>
+      <span class="sm-attr">© OpenStreetMap © CARTO</span>
     </span>
   );
 }
