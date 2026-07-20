@@ -11,13 +11,11 @@ from rosa_pipeline.spots import load_spots
 
 FIXTURES = Path(__file__).parent / "fixtures"
 
+# both spots pinned to the same explicit offshore_point → one group, served by the
+# single captured fixture (fixture_key 32.3817_34.8035)
 SPOTS_YAML = """\
-offshore_points:
-  central: [32.2, 34.55]
-
 defaults: &d
   timezone: Asia/Jerusalem
-  offshore_direction: 90
   swell_window: [250, 340]
   height_coeff: 1.0
   break_type: beach
@@ -26,8 +24,8 @@ defaults: &d
     size_m: [0.6, 1.5]
 
 spots:
-  - { id: spot-a, name: Spot A, lat: 32.39, lon: 34.86, point: central, <<: *d }
-  - { id: spot-b, name: Spot B, lat: 32.43, lon: 34.87, point: central, <<: *d }
+  - { id: spot-a, name: Spot A, lat: 32.39, lon: 34.86, offshore_point: [32.3817, 34.8035], <<: *d }
+  - { id: spot-b, name: Spot B, lat: 32.43, lon: 34.87, offshore_point: [32.3817, 34.8035], <<: *d }
 """
 
 
@@ -108,6 +106,6 @@ def test_spot_and_all_are_mutually_exclusive():
 
 
 def test_real_db_loads_for_all():
-    # sanity: the real Israel DB groups 20 spots into 3 unique points
+    # each spot now samples its own offshore point → ~one group per spot (was 3 shared)
     spots = list(load_spots(Path(__file__).resolve().parents[2] / "data" / "spots").values())
-    assert len(group_by_point(spots)) == 3
+    assert len(group_by_point(spots)) == len(spots)

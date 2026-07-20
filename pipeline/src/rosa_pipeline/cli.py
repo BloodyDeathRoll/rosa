@@ -4,16 +4,15 @@ Run from the repo root so the default data paths resolve:
     uv run --project pipeline rosa-pipeline run --spot beit-yanai
     uv run --project pipeline rosa-pipeline run --all
 
---all fetches each unique offshore point exactly once and publishes every spot
-from it: 20 Israel spots share 3 points, so a full run is 3 fetches, not 20
-(Open-Meteo throttles rapid per-spot fetching).
+--all samples each spot's own offshore point and publishes it. Every unique point
+is fetched in a single batched request (fetch_many), so a full 40-spot run is 2
+requests, not 80 — no per-spot throttling.
 """
 
 from __future__ import annotations
 
 import argparse
 import sys
-import time
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -23,8 +22,6 @@ from .models import Spot
 from .publish import build_payload, update_index, write_spot_json
 from .score import score_hour
 from .spots import load_spots
-
-POINT_FETCH_DELAY_S = 2.0  # politeness gap between live fetches of distinct points
 
 
 def _build_parser() -> argparse.ArgumentParser:
@@ -69,27 +66,36 @@ def main(argv: list[str] | None = None) -> int:
         if args.fixtures is not None
         else OpenMeteoSource(capture_dir=args.capture)
     )
-    live = args.fixtures is None
     now = datetime.now(UTC)
 
-    for i, (point, group) in enumerate(group_by_point(targets).items()):
-        if live and i > 0:
-            time.sleep(POINT_FETCH_DELAY_S)
-        raw = source.fetch(*point)
+    # one deep-water sample per unique offshore point; each spot may have its own, so a
+    # full run fetches them all in a single batched request (fetch_many) — no throttling.
+    groups = group_by_point(targets)
+    points = list(groups)
+    raws = source.fetch_many(points)
+
+    published = 0
+    for point, raw in zip(points, raws, strict=True):
         hours = extract_hours(raw)
         if not hours:
-            print(f"no forecast hours extracted for point {point}", file=sys.stderr)
-            return 1
-        for spot in group:
+            # a derived point that landed on a dry grid cell — skip its spots, keep going
+            ids = ", ".join(s.id for s in groups[point])
+            print(f"warning: no forecast at point {point} — skipping {ids}", file=sys.stderr)
+            continue
+        for spot in groups[point]:
             scored = [score_hour(spot, h) for h in hours]
             payload = build_payload(spot, scored, fetched_at=raw.fetched_at, now=now)
             path = write_spot_json(payload, args.out)
             update_index(payload, args.out)
             current = payload["current"]
+            published += 1
             print(
                 f"{spot.id}: {current['bucket']} {current['rating']}/100 · {current['phrase']} "
                 f"· wind {current['wind']['class']} {current['wind']['kph']} kph → {path}"
             )
+    if published == 0:
+        print("no spots published", file=sys.stderr)
+        return 1
     return 0
 
 

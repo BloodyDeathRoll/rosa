@@ -60,6 +60,8 @@ class RawForecast:
 class ForecastSource(Protocol):
     def fetch(self, lat: float, lon: float) -> RawForecast: ...
 
+    def fetch_many(self, coords: list[tuple[float, float]]) -> list[RawForecast]: ...
+
 
 def fixture_key(lat: float, lon: float) -> str:
     return f"{lat:g}_{lon:g}"
@@ -71,7 +73,19 @@ class OpenMeteoSource:
         self.timeout_s = timeout_s
 
     def fetch(self, lat: float, lon: float) -> RawForecast:
-        common = {"latitude": lat, "longitude": lon, "forecast_days": FORECAST_DAYS}
+        return self.fetch_many([(lat, lon)])[0]
+
+    def fetch_many(self, coords: list[tuple[float, float]]) -> list[RawForecast]:
+        """Fetch every point in ONE marine + ONE weather request. Open-Meteo accepts
+        comma-separated coordinates and returns a per-location array (a single object
+        for one coord), so a whole coast is 2 requests — no per-spot throttling."""
+        if not coords:
+            return []
+        common = {
+            "latitude": ",".join(f"{lat:g}" for lat, _ in coords),
+            "longitude": ",".join(f"{lon:g}" for _, lon in coords),
+            "forecast_days": FORECAST_DAYS,
+        }
         with httpx.Client(timeout=self.timeout_s) as client:
             marine = client.get(
                 MARINE_URL,
@@ -84,21 +98,23 @@ class OpenMeteoSource:
             marine.raise_for_status()
             weather = client.get(WEATHER_URL, params={**common, "hourly": ",".join(WEATHER_HOURLY)})
             weather.raise_for_status()
-        raw = RawForecast(
-            fetched_at=datetime.now(UTC).isoformat(timespec="seconds"),
-            marine=marine.json(),
-            weather=weather.json(),
-        )
-        if self.capture_dir is not None:
-            self.capture_dir.mkdir(parents=True, exist_ok=True)
-            path = self.capture_dir / f"{fixture_key(lat, lon)}.json"
-            path.write_text(
-                json.dumps(
-                    {"fetched_at": raw.fetched_at, "marine": raw.marine, "weather": raw.weather}
-                ),
-                encoding="utf-8",
-            )
-        return raw
+        fetched_at = datetime.now(UTC).isoformat(timespec="seconds")
+        mj, wj = marine.json(), weather.json()
+        marine_list = mj if isinstance(mj, list) else [mj]
+        weather_list = wj if isinstance(wj, list) else [wj]
+        out: list[RawForecast] = []
+        for (lat, lon), m, w in zip(coords, marine_list, weather_list, strict=True):
+            raw = RawForecast(fetched_at=fetched_at, marine=m, weather=w)
+            if self.capture_dir is not None:
+                self.capture_dir.mkdir(parents=True, exist_ok=True)
+                (self.capture_dir / f"{fixture_key(lat, lon)}.json").write_text(
+                    json.dumps(
+                        {"fetched_at": raw.fetched_at, "marine": raw.marine, "weather": raw.weather}
+                    ),
+                    encoding="utf-8",
+                )
+            out.append(raw)
+        return out
 
 
 class FixtureSource:
@@ -111,3 +127,6 @@ class FixtureSource:
         return RawForecast(
             fetched_at=data["fetched_at"], marine=data["marine"], weather=data["weather"]
         )
+
+    def fetch_many(self, coords: list[tuple[float, float]]) -> list[RawForecast]:
+        return [self.fetch(lat, lon) for lat, lon in coords]
