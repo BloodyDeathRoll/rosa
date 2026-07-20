@@ -1,9 +1,11 @@
 import { useEffect, useMemo, useState } from "preact/hooks";
 import { fetchIndex, fetchSpot } from "../api";
-import { SearchIcon, StarIcon } from "../components/icons";
-import { AppHeader, SpotTitle, TierDot } from "../components/parts";
+import { SearchIcon } from "../components/icons";
+import { AppHeader, SpotTitle, StarButton, TierDot } from "../components/parts";
+import { SpotCard } from "../components/SpotCard";
 import { ratingWord } from "../conditions";
-import { getFavorites } from "../favorites";
+import { getFavorites, toggleFavorite } from "../favorites";
+import { signalReady } from "../splash";
 import { bestWindow, dateOf, splitName, windLabel } from "../format";
 import { distanceKm, getPosition, type LatLon } from "../geo";
 import { fmtH, fmtRange, heightUnit, useUnits, type Units } from "../units";
@@ -23,16 +25,19 @@ function Row({
   entry,
   payload,
   isFav,
+  onToggle,
 }: {
   id: string;
   entry: IndexEntry;
   payload: SpotPayload | undefined;
   isFav: boolean;
+  onToggle: () => void;
 }) {
   const units = useUnits();
   const { name, region } = splitName(entry.name);
+  // whole row navigates to the spot; the star swallows its own click (favorites)
   return (
-    <button class="spot-row-card" onClick={() => (location.hash = `#/spot/${id}`)}>
+    <a class="spot-row-card" href={`#/spot/${id}`}>
       <TierDot bucket={entry.bucket} />
       <span class="mid">
         <SpotTitle name={name} region={region} />
@@ -40,14 +45,8 @@ function Row({
           {payload ? payloadLine(payload, units) : `${fmtRange(entry.h, units)} · ${ratingWord(entry.bucket)}`}
         </span>
       </span>
-      <span
-        class={`star-btn${isFav ? " on" : ""}`}
-        style="width:auto;height:auto"
-        aria-hidden="true"
-      >
-        <StarIcon size={16} />
-      </span>
-    </button>
+      <StarButton on={isFav} name={name} size={16} onToggle={onToggle} />
+    </a>
   );
 }
 
@@ -57,7 +56,8 @@ export function SpotsPage() {
   const [error, setError] = useState<string | null>(null);
   const [pos, setPos] = useState<LatLon | null>(null);
   const [query, setQuery] = useState("");
-  const favs = getFavorites();
+  const [favs, setFavs] = useState<string[]>(getFavorites);
+  const onToggle = (id: string) => setFavs(toggleFavorite(id));
 
   useEffect(() => {
     let disposed = false;
@@ -76,6 +76,8 @@ export function SpotsPage() {
         setPayloads(loaded);
       } catch (e) {
         if (!disposed) setError((e as Error).message);
+      } finally {
+        signalReady();
       }
     })();
     return () => {
@@ -128,10 +130,22 @@ export function SpotsPage() {
           {favRows.length > 0 && (
             <div>
               <span class="eyebrow">Favorites</span>
-              <div class="spot-group-list">
-                {favRows.map(([id, e]) => (
-                  <Row key={id} id={id} entry={e} payload={payloads[id]} isFav />
-                ))}
+              <div class="rank-list">
+                {favRows.map(([id, e]) => {
+                  const p = payloads[id];
+                  return p ? (
+                    <SpotCard
+                      key={id}
+                      data={p}
+                      date={p.days[0]?.date ?? ""}
+                      km={pos ? distanceKm(pos, { lat: e.lat, lon: e.lon }) : undefined}
+                      isFav
+                      onToggle={() => onToggle(id)}
+                    />
+                  ) : (
+                    <Row key={id} id={id} entry={e} payload={undefined} isFav onToggle={() => onToggle(id)} />
+                  );
+                })}
               </div>
             </div>
           )}
@@ -139,7 +153,14 @@ export function SpotsPage() {
             <span class="eyebrow">Nearby</span>
             <div class="spot-group-list">
               {nearRows.map(([id, e]) => (
-                <Row key={id} id={id} entry={e} payload={payloads[id]} isFav={false} />
+                <Row
+                  key={id}
+                  id={id}
+                  entry={e}
+                  payload={payloads[id]}
+                  isFav={false}
+                  onToggle={() => onToggle(id)}
+                />
               ))}
               {nearRows.length === 0 && <p class="search-empty">No spots match “{query}”.</p>}
             </div>

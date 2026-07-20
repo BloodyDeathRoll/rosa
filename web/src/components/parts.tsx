@@ -109,7 +109,10 @@ export function AppHeader({ right }: { right?: ComponentChildren }) {
   return (
     <header class="app-head">
       <span class="brand">
-        rosa<i>.</i>
+        <img class="brand-mark" src="/favicon.svg" alt="" />
+        <span class="brand-word">
+          rosa<span class="brand-dot" aria-hidden="true" />
+        </span>
       </span>
       {right}
     </header>

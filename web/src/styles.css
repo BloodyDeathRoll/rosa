@@ -154,15 +154,36 @@ button {
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
+/* Brand lockup: icon · rosa · dot. The dot's width is the spacing unit — one dot
+   between the icon and the word, one between the word and the dot. The icon is a
+   little taller than the text and vertically centered against the word+dot block;
+   the word and dot are bottom-aligned (baseline) so the dot reads as a period. */
 .brand {
+  --brand-dot: 2.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--brand-dot);
   font-family: var(--font-heading);
   font-weight: 700;
   font-size: 17px;
   color: var(--foreground);
 }
-.brand i {
-  font-style: normal;
-  color: var(--accent);
+.brand-mark {
+  height: 0.72em; /* just a little more than the text's height */
+  width: auto;
+  display: block;
+}
+.brand-word {
+  line-height: 1;
+}
+.brand-dot {
+  display: inline-block;
+  vertical-align: baseline; /* empty inline-block's bottom edge rests on the baseline */
+  width: var(--brand-dot);
+  height: var(--brand-dot);
+  margin-left: var(--brand-dot); /* one dot width between the text and the dot */
+  border-radius: 50%;
+  background: #d82619; /* the same red as the icon */
 }
 
 .head-note {
@@ -458,7 +479,6 @@ button {
   height: 6px;
   border-radius: 9999px;
   margin-top: 3px;
-  box-shadow: 0 0 0 1.5px color-mix(in srgb, var(--card) 70%, transparent);
 }
 .date-chip:active {
   transform: scale(0.95);
@@ -723,6 +743,15 @@ a.rank-card:hover {
 .spot-group-list {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Favorites reuse the Home compact cards (.rank-list), but .spots-page already
+   supplies the horizontal inset — drop the list's own so the cards line up with
+   the search box and Nearby rows. */
+.spots-page .rank-list {
+  padding: 0;
   gap: 10px;
   margin-top: 10px;
 }

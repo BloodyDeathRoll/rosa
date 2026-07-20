@@ -1,6 +1,8 @@
+import { useEffect } from "preact/hooks";
 import { ChevronRightIcon, MoonIcon, SunIcon } from "../components/icons";
 import { AppHeader } from "../components/parts";
 import { getFavorites } from "../favorites";
+import { signalReady } from "../splash";
 import { setUnits, useUnits } from "../units";
 import type { Theme } from "../theme";
 
@@ -14,6 +16,8 @@ export function SettingsPage({
   const units = useUnits();
   const favCount = getFavorites().length;
   const metric = units.height === "m";
+  // no async data — ready as soon as it mounts (lets the splash lift promptly)
+  useEffect(signalReady, []);
 
   return (
     <main class="page">

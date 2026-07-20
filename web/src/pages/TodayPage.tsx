@@ -11,6 +11,7 @@ import { getFavorites, toggleFavorite } from "../favorites";
 import { cardinal, splitName, windLabel } from "../format";
 import { distanceKm, getPosition } from "../geo";
 import { getRecents } from "../recents";
+import { signalReady } from "../splash";
 import { fmtRange, fmtTemp, useUnits } from "../units";
 import type { SpotPayload } from "../types";
 
@@ -139,6 +140,8 @@ export function TodayPage() {
         setCards(listIds.map((id) => byId.get(id)).filter((d): d is SpotPayload => !!d));
       } catch (e) {
         if (!disposed) setError((e as Error).message);
+      } finally {
+        signalReady(); // home is populated (or errored) — the splash may lift
       }
     })();
     return () => {
@@ -220,7 +223,6 @@ export function TodayPage() {
         {days.length > 0 && (
           <DateBar
             dates={days.map((d) => d.date)}
-            buckets={days.map((d) => d.bucket)}
             selected={sel}
             live={liveSel}
             today={today}

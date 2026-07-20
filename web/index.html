@@ -7,7 +7,76 @@
     <meta name="theme-color" content="#1c1917" media="(prefers-color-scheme: dark)" />
     <meta name="description" content="Rosa — free surf forecast. Should I surf, when, where?" />
     <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/icon-maskable.svg" />
     <title>Rosa</title>
+    <style>
+      /* Branded loading splash — painted before the JS bundle, dismissed by main.tsx
+         (min 1 s, or longer while the app is still loading). The wave mark is the
+         red favicon recolored to white via a mask so we never inline its path. */
+      #splash {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background: #d82619;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 1;
+        transition: opacity 0.45s ease;
+      }
+      #splash.hide {
+        opacity: 0;
+        pointer-events: none;
+      }
+      #splash .splash-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+      #splash .splash-mark {
+        width: 112px;
+        height: 105px;
+        background: #fff;
+        -webkit-mask: url(/favicon.svg) center / contain no-repeat;
+        mask: url(/favicon.svg) center / contain no-repeat;
+      }
+      #splash .splash-word {
+        font-family: "Inter Variable", system-ui, -apple-system, sans-serif;
+        font-weight: 700;
+        font-size: 34px;
+        letter-spacing: -0.02em;
+        color: #fff;
+        line-height: 1;
+      }
+      #splash .splash-loading {
+        margin-top: -6px; /* sits just under the wordmark (offsets the column gap) */
+        font-family: "Inter Variable", system-ui, -apple-system, sans-serif;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        color: #fff;
+        animation: splashBlink 1.8s ease-in-out infinite;
+      }
+      @keyframes splashBlink {
+        0%,
+        100% {
+          opacity: 0.85;
+        }
+        50% {
+          opacity: 0.2;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #splash {
+          transition: none;
+        }
+        #splash .splash-loading {
+          animation: none;
+          opacity: 0.7;
+        }
+      }
+    </style>
     <script>
       // set theme before first paint: stored override > light (Rosa's default)
       (function () {
@@ -22,7 +91,17 @@
     </script>
   </head>
   <body>
+    <div id="splash" role="status" aria-label="Loading Rosa">
+      <div class="splash-inner">
+        <div class="splash-mark"></div>
+        <span class="splash-word">rosa</span>
+        <span class="splash-loading">loading</span>
+      </div>
+    </div>
     <div id="app"></div>
+    <script>
+      window.__ROSA_SPLASH_T = Date.now();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

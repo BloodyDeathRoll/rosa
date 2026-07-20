@@ -15,8 +15,10 @@ export default defineConfig({
         background_color: "#ffffff",
         display: "standalone",
         icons: [
-          { src: "/icon.svg", sizes: "any", type: "image/svg+xml", purpose: "any" },
-          { src: "/icon-maskable.svg", sizes: "any", type: "image/svg+xml", purpose: "maskable" }
+          // the full-bleed maskable tile IS the installed app icon (raw + OS-masked);
+          // the rounded icon.svg stays as a plain-"any" fallback for contexts that want it
+          { src: "/icon-maskable.svg", sizes: "any", type: "image/svg+xml", purpose: "any maskable" },
+          { src: "/icon.svg", sizes: "any", type: "image/svg+xml", purpose: "any" }
         ]
       },
       workbox: {

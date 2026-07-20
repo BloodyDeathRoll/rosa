@@ -16,6 +16,7 @@ import { AppHeader, Pill, StarButton } from "../components/parts";
 import { ratingVar } from "../conditions";
 import { getFavorites, toggleFavorite } from "../favorites";
 import { pushRecent } from "../recents";
+import { signalReady } from "../splash";
 import {
   arrowRotation,
   cardinal,
@@ -89,10 +90,24 @@ function dayNote(days: DayEntry[], i: number, hours: HourEntry[]): string {
   return "Workable windows";
 }
 
-/** Top three GOOD-or-better slots of the selected day, chronological. */
-function sessionChips(dayHours: HourEntry[]): HourEntry[] {
+/** Minutes-of-day (spot-local) of an hourly slot's start, e.g. "…T03:00" → 180. */
+const slotStartMin = (h: HourEntry) =>
+  Number(h.t.slice(11, 13)) * 60 + Number(h.t.slice(14, 16));
+
+/** Top three GOOD-or-better slots of the selected day, chronological — restricted
+    to slots that begin in daylight (first light → last light), so we never call a
+    pre-dawn or post-dusk hour a "best session". Bounds are minutes-of-day, spot-local. */
+function sessionChips(
+  dayHours: HourEntry[],
+  firstLightMin: number,
+  lastLightMin: number
+): HourEntry[] {
   return dayHours
     .filter((h) => h.rating >= 50)
+    .filter((h) => {
+      const m = slotStartMin(h);
+      return m >= firstLightMin && m < lastLightMin;
+    })
     .sort((a, b) => b.rating - a.rating || b.h_mid - a.h_mid)
     .slice(0, 3)
     .sort((a, b) => (a.t < b.t ? -1 : 1));
@@ -229,7 +244,9 @@ export function SpotPage({ id }: { id: string }) {
     setDaySel(0);
     setLiveDay(0);
     pushRecent(id);
-    fetchSpot(id).then(setData, (e: Error) => setError(e.message));
+    fetchSpot(id)
+      .then(setData, (e: Error) => setError(e.message))
+      .finally(signalReady);
   }, [id]);
 
   useEffect(() => {
@@ -278,8 +295,13 @@ export function SpotPage({ id }: { id: string }) {
       const day = days[i];
       if (!day) return null;
       const dayHours = data.hours.filter((h) => dateOf(h.t) === day.date);
-      const chips = sessionChips(dayHours);
       const sun = sunTimes(new Date(`${day.date}T12:00:00Z`), data.spot.lat, data.spot.lon);
+      // daylight bounds in spot-local minutes so pre-dawn/post-dusk slots are excluded
+      const toMin = (d: Date) => {
+        const [hh, mm] = fmtClock(d, data.spot.timezone).split(":");
+        return Number(hh) * 60 + Number(mm);
+      };
+      const chips = sessionChips(dayHours, toMin(sun.firstLight), toMin(sun.lastLight));
       return (
         <div class="spot-main">
           <section class="spot-card">

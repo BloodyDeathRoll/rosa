@@ -5,6 +5,7 @@ import { SpotCard } from "../components/SpotCard";
 import { ratingVar } from "../conditions";
 import { dateOf, splitName } from "../format";
 import { distanceKm, getPosition } from "../geo";
+import { signalReady } from "../splash";
 import type { IndexEntry, SpotPayload } from "../types";
 import type { Theme } from "../theme";
 
@@ -115,6 +116,8 @@ export function MapPage({ theme }: { theme: Theme }) {
         }
       } catch {
         if (!disposed) setError("The map couldn't load. Check your connection and retry.");
+      } finally {
+        signalReady();
       }
     })();
 
