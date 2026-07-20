@@ -4,14 +4,15 @@ import { DateBar } from "../components/DateBar";
 import { DayCarousel } from "../components/DayCarousel";
 import { SatMap } from "../components/MiniMap";
 import { SearchIcon, ShirtIcon, ThermometerIcon, WavesIcon } from "../components/icons";
-import { AppHeader, Pill, Spark, SpotTitle, StarButton } from "../components/parts";
+import { AppHeader, Pill, Spark, SpotTitle } from "../components/parts";
+import { SpotCard, dayView } from "../components/SpotCard";
 import { TideSection } from "../components/TideSection";
 import { getFavorites, toggleFavorite } from "../favorites";
-import { bestWindow, cardinal, dateOf, splitName, windLabel } from "../format";
+import { cardinal, splitName, windLabel } from "../format";
 import { distanceKm, getPosition } from "../geo";
 import { getRecents } from "../recents";
 import { fmtRange, fmtTemp, useUnits } from "../units";
-import type { HourEntry, SpotPayload } from "../types";
+import type { SpotPayload } from "../types";
 
 const LIST_COUNT = 3; // 3 spots under the extended card = 4 latest-viewed total
 
@@ -22,29 +23,6 @@ function greeting(): string {
   if (h < 17) return "Good afternoon";
   if (h < 21) return "Good evening";
   return "Good night";
-}
-
-interface DayView {
-  bucket: HourEntry["bucket"];
-  range: [number, number];
-  rep: HourEntry;
-  hrs: HourEntry[];
-  bw: ReturnType<typeof bestWindow>;
-}
-
-/** A spot's conditions for one calendar day: the day's peak-rating hour drives
-    the wind/temp readout, the day summary drives the pill + surf range. */
-function dayView(data: SpotPayload, date: string): DayView {
-  const day = data.days.find((d) => d.date === date);
-  const hrs = data.hours.filter((h) => dateOf(h.t) === date);
-  const rep = [...hrs].sort((a, b) => b.rating - a.rating || b.h_mid - a.h_mid)[0] ?? data.current;
-  return {
-    bucket: day?.bucket ?? rep.bucket,
-    range: day?.h_max ?? data.current.h,
-    rep,
-    hrs,
-    bw: bestWindow(hrs),
-  };
 }
 
 function DetailCard({ data, date }: { data: SpotPayload; date: string }) {
@@ -99,48 +77,6 @@ function DetailCard({ data, date }: { data: SpotPayload; date: string }) {
         <TideSection nowT={dv.rep.t} metric={units.height === "m"} />
         </div>
       </button>
-    </div>
-  );
-}
-
-function SpotCard({
-  data,
-  date,
-  km,
-  isFav,
-  onToggle,
-}: {
-  data: SpotPayload;
-  date: string;
-  km: number | undefined;
-  isFav: boolean;
-  onToggle: () => void;
-}) {
-  const units = useUnits();
-  const { name, region } = splitName(data.spot.name);
-  const dv = dayView(data, date);
-  const href = `#/spot/${data.spot.id}`;
-  return (
-    <div class="rank-card">
-      <div class="mid">
-        <div class="title-row">
-          <StarButton on={isFav} name={name} size={16} onToggle={onToggle} />
-          <a class="name-link" href={href}>
-            <SpotTitle name={name} region={region} />
-          </a>
-        </div>
-        <a class="open" href={href}>
-          <span class="range-row">
-            <span class="surf-range tabular">{fmtRange(dv.range, units)}</span>
-            <Spark hours={dv.hrs} bucket={dv.bucket} w={110} h={26} />
-          </span>
-          <span class="line tabular">{windLabel(dv.rep)}</span>
-        </a>
-      </div>
-      <div class="side">
-        <Pill bucket={dv.bucket} />
-        {km !== undefined && <span class="rank-n tabular">{Math.round(km)} km</span>}
-      </div>
     </div>
   );
 }
@@ -210,8 +146,10 @@ export function TodayPage() {
     </a>
   );
 
-  // full 16-day strip from the featured spot (all spots share the date range)
-  const days = (detail ?? cards?.[0])?.days ?? [];
+  // full 16-day strip from the featured spot (all spots share the date range);
+  // its per-day bucket also colors the date-bar dots
+  const featured = detail ?? cards?.[0];
+  const days = featured?.days ?? [];
   const today = days[0]?.date ?? "";
   const sel = Math.min(daySel, Math.max(0, days.length - 1));
 
@@ -258,6 +196,7 @@ export function TodayPage() {
         {days.length > 0 && (
           <DateBar
             dates={days.map((d) => d.date)}
+            buckets={days.map((d) => d.bucket)}
             selected={sel}
             today={today}
             onSelect={setDaySel}

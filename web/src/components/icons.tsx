@@ -98,7 +98,8 @@ export const ShirtIcon = ({ size = 15 }: IconProps) => (
   </svg>
 );
 
-/** Up arrow, rotated per direction of travel. */
+/** Up arrow, rotated per direction of travel. Kept for anywhere still using
+    the generic pointer; the hourly grid uses the distinct WindDirIcon/SwellDirIcon. */
 export const ArrowIcon = ({ size = 12, rotate = 0 }: IconProps & { rotate?: number }) => (
   <svg
     width={size}
@@ -110,5 +111,46 @@ export const ArrowIcon = ({ size = 12, rotate = 0 }: IconProps & { rotate?: numb
   >
     <path d="M12 19V5" />
     <path d="m5 12 7-7 7 7" />
+  </svg>
+);
+
+/** Wind direction — solid paper-plane pointer with a notched base.
+    Distinct from swell: hard, unambiguous vane. */
+export const WindDirIcon = ({ size = 14, rotate = 0 }: IconProps & { rotate?: number }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    style={`transform:rotate(${rotate}deg);display:block`}
+    aria-hidden="true"
+  >
+    <path
+      d="M12 3 L20 20 L12 16 L4 20 Z"
+      fill="currentColor"
+      stroke="currentColor"
+      stroke-width="1"
+      stroke-linejoin="round"
+    />
+  </svg>
+);
+
+/** Swell direction — outlined arrow with a small trailing dot (wave source).
+    Deliberately different silhouette from the wind vane. */
+export const SwellDirIcon = ({ size = 14, rotate = 0 }: IconProps & { rotate?: number }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    style={`transform:rotate(${rotate}deg);display:block`}
+    aria-hidden="true"
+  >
+    <path d="M12 21V6" />
+    <path d="m6 11 6-6 6 6" />
+    <circle cx="12" cy="21" r="1" fill="currentColor" stroke="none" />
   </svg>
 );

@@ -1,16 +1,18 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import { fetchIndex, fetchSpot } from "../api";
 import {
-  ArrowIcon,
   ChevronLeftIcon,
   MapIcon,
+  SearchIcon,
   ShirtIcon,
+  SwellDirIcon,
   ThermometerIcon,
   WavesIcon,
+  WindDirIcon,
 } from "../components/icons";
 import { DateBar } from "../components/DateBar";
 import { DayCarousel } from "../components/DayCarousel";
-import { Pill, StarButton } from "../components/parts";
+import { AppHeader, Pill, StarButton } from "../components/parts";
 import { ratingVar } from "../conditions";
 import { getFavorites, toggleFavorite } from "../favorites";
 import { pushRecent } from "../recents";
@@ -23,6 +25,7 @@ import {
   hourOf,
   knots,
   splitName,
+  windClassWord,
 } from "../format";
 import { distanceKm } from "../geo";
 import { TideSection } from "../components/TideSection";
@@ -114,21 +117,26 @@ function HourRow({ h, units }: { h: HourEntry; units: Units }) {
         </b>
         <small class="tabular">{fmtH(h.h_mid, units)}</small>
       </span>
-      <span class="vec">
+      <span class="vec swell-cell">
         {swell ? (
           <>
-            <ArrowIcon rotate={arrowRotation(swell.dir)} />
-            <span class="tabular">{Math.round(swell.period)}s</span>
+            <span class="top">
+              <SwellDirIcon rotate={arrowRotation(swell.dir)} />
+              <b class="tabular">{Math.round(swell.period)}s</b>
+            </span>
+            <small class="tabular">{cardinal(swell.dir)}</small>
           </>
         ) : (
           <small>—</small>
         )}
       </span>
-      <span class="vec">
-        <ArrowIcon rotate={arrowRotation(h.wind.dir)} />
-        <span class="tabular">
-          {knots(h.wind.kph)} <small>{cardinal(h.wind.dir)}</small>
+      <span class={`wind-cell wc-${h.wind.class}`}>
+        <span class="top">
+          <WindDirIcon rotate={arrowRotation(h.wind.dir)} />
+          <b class="tabular">{knots(h.wind.kph)}</b>
         </span>
+        <small class="cardinal tabular">{cardinal(h.wind.dir)}</small>
+        <small class="wclass">{windClassWord(h.wind.class)}</small>
       </span>
       <span class="power tabular">{h.energy.toFixed(1)}</span>
       <span class="press tabular">{h.pressure ?? "—"}</span>
@@ -136,26 +144,58 @@ function HourRow({ h, units }: { h: HourEntry; units: Units }) {
   );
 }
 
-/** Horizontal spot chips (design 1a): selected in the dark accent, centered;
-    tap to jump. Swiping is handled at the screen level in SpotPage. */
+/** Horizontal spot chips (design 1a): freely draggable — touch scroll native,
+    mouse drag via pointer events. Never auto-scrolls: tapping a chip changes
+    the spot but leaves the strip where the user left it. */
 function SpotSwitcher({ spots, currentId }: { spots: [string, IndexEntry][]; currentId: string }) {
-  const selRef = useRef<HTMLAnchorElement>(null);
-  useEffect(() => {
-    // pin the selected spot to the left edge of the strip
-    selRef.current?.scrollIntoView({ inline: "start", block: "nearest", behavior: "smooth" });
-  }, [currentId]);
+  const trackRef = useRef<HTMLDivElement>(null);
+  // pointer drag state — mouse only; touch uses native overflow-x pan
+  const drag = useRef({ down: false, startX: 0, startScroll: 0, moved: false });
+
+  const onPointerDown = (e: PointerEvent) => {
+    if (e.pointerType !== "mouse") return;
+    const t = trackRef.current;
+    if (!t) return;
+    drag.current = { down: true, startX: e.clientX, startScroll: t.scrollLeft, moved: false };
+  };
+  const onPointerMove = (e: PointerEvent) => {
+    if (!drag.current.down) return;
+    const t = trackRef.current;
+    if (!t) return;
+    const dx = e.clientX - drag.current.startX;
+    if (Math.abs(dx) > 3) drag.current.moved = true;
+    t.scrollLeft = drag.current.startScroll - dx;
+  };
+  const onPointerUp = () => {
+    drag.current.down = false;
+    // clear moved on next tick so the click handler can still see it
+    setTimeout(() => {
+      drag.current.moved = false;
+    }, 0);
+  };
+
   return (
     <div class="spot-switch">
-      <div class="track">
+      <div
+        class="track"
+        ref={trackRef}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        onPointerCancel={onPointerUp}
+        onPointerLeave={onPointerUp}
+      >
         {spots.map(([sid, e]) => {
           const on = sid === currentId;
           return (
             <a
               key={sid}
-              ref={on ? selRef : undefined}
               class={`schip${on ? " on" : ""}`}
               href={`#/spot/${sid}`}
               aria-current={on ? "page" : undefined}
+              onClick={(ev) => {
+                if (drag.current.moved) ev.preventDefault();
+              }}
             >
               {splitName(e.name).name}
             </a>
@@ -217,19 +257,27 @@ export function SpotPage({ id }: { id: string }) {
   const allDays = data?.days ?? [];
   const daySelClamped = Math.min(daySel, Math.max(0, allDays.length - 1));
 
+  const search = (
+    <a class="icon-btn" href="#/spots" aria-label="Search spots">
+      <SearchIcon />
+    </a>
+  );
   const header = (
-    <header class="app-head spot-head-min">
-      <button class="spot-back" onClick={goBack} aria-label="Back">
-        <ChevronLeftIcon />
-      </button>
-      {data && (
-        <StarButton
-          on={favs.includes(id)}
-          name={splitName(data.spot.name).name}
-          onToggle={() => setFavs(toggleFavorite(id))}
-        />
-      )}
-    </header>
+    <>
+      <AppHeader right={search} />
+      <div class="spot-back-row">
+        <button class="spot-back" onClick={goBack} aria-label="Back">
+          <ChevronLeftIcon />
+        </button>
+        {data && (
+          <StarButton
+            on={favs.includes(id)}
+            name={splitName(data.spot.name).name}
+            onToggle={() => setFavs(toggleFavorite(id))}
+          />
+        )}
+      </div>
+    </>
   );
 
   if (error || !data) {
@@ -364,6 +412,7 @@ export function SpotPage({ id }: { id: string }) {
         {nearSpots.length > 1 && <SpotSwitcher spots={nearSpots} currentId={id} />}
         <DateBar
           dates={days.map((d) => d.date)}
+          buckets={days.map((d) => d.bucket)}
           selected={daySelClamped}
           today={today}
           onSelect={setDaySel}

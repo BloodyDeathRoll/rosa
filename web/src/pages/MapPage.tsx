@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import { fetchIndex, fetchSpot } from "../api";
 import { AppHeader, Pill, SpotTitle } from "../components/parts";
-import { ratingVar, ratingWord } from "../conditions";
-import { bestWindow, cardinal, dateOf, splitName, windLabel } from "../format";
+import { SpotCard } from "../components/SpotCard";
+import { ratingVar } from "../conditions";
+import { dateOf, splitName } from "../format";
 import { distanceKm, getPosition } from "../geo";
-import { fmtH, fmtRange, heightUnit, useUnits } from "../units";
 import type { IndexEntry, SpotPayload } from "../types";
 import type { Theme } from "../theme";
 
@@ -38,7 +38,6 @@ export function MapPage({ theme }: { theme: Theme }) {
   const [spots, setSpots] = useState<Entry[]>([]);
   const [pin, setPin] = useState<string | null>(null);
   const [payload, setPayload] = useState<SpotPayload | null>(null);
-  const units = useUnits();
 
   useEffect(() => {
     let disposed = false;
@@ -156,13 +155,9 @@ export function MapPage({ theme }: { theme: Theme }) {
   }
 
   const entry = spots.find(([sid]) => sid === pin)?.[1];
-  const { name, region } = entry ? splitName(entry.name) : { name: "", region: null };
-  const cur = payload?.current;
-  const swell = cur?.swells.find((s) => s.in_window) ?? cur?.swells[0];
   const today = payload
-    ? payload.hours.filter((h) => dateOf(h.t) === dateOf(payload.hours[0]?.t ?? ""))
-    : [];
-  const bw = bestWindow(today);
+    ? dateOf(payload.hours[0]?.t ?? payload.days[0]?.date ?? "")
+    : "";
 
   return (
     <main class="page">
@@ -171,28 +166,33 @@ export function MapPage({ theme }: { theme: Theme }) {
         <div class="map-canvas" ref={wrapRef} />
         {entry && pin && (
           <div class="map-sheet" aria-label="Spot preview">
-            <div class="top">
-              <SpotTitle name={name} region={region} />
-              <Pill bucket={entry.bucket} />
-            </div>
-            <div class="line tabular">
-              {cur
-                ? `${fmtH(cur.h_mid, units)} ${heightUnit(units)} · ${windLabel(cur)}${
-                    swell ? ` · ${Math.round(swell.period)} s ${cardinal(swell.dir)}` : ""
-                  }`
-                : `${fmtRange(entry.h, units)} · ${ratingWord(entry.bucket)}`}
-            </div>
-            <div class="foot">
-              <span class="window">
-                Best window <b>{payload ? (bw ? `${bw.start}–${bw.end}` : "none today") : "…"}</b>
-              </span>
-              <a class="accent-link" href={`#/spot/${pin}`}>
-                Open forecast →
-              </a>
-            </div>
+            {payload ? (
+              <SpotCard data={payload} date={today} />
+            ) : (
+              <MapSheetSkeleton entry={entry} />
+            )}
           </div>
         )}
       </div>
     </main>
+  );
+}
+
+/** Minimal card shown while the pinned spot's payload is loading — same shape
+    as SpotCard so the sheet doesn't reflow when the data arrives. */
+function MapSheetSkeleton({ entry }: { entry: IndexEntry }) {
+  const { name, region } = splitName(entry.name);
+  return (
+    <div class="rank-card map-skel">
+      <div class="mid">
+        <div class="title-row">
+          <SpotTitle name={name} region={region} />
+        </div>
+        <span class="line tabular">Loading…</span>
+      </div>
+      <div class="side">
+        <Pill bucket={entry.bucket} />
+      </div>
+    </div>
   );
 }

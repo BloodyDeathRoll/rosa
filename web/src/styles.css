@@ -180,9 +180,13 @@ button {
   color: var(--muted-foreground);
 }
 
-/* Spot header — back arrow only (identity lives in the switcher chips) */
-.spot-head-min {
-  padding: 0 12px;
+/* Spot screen back-row — sits directly under the app header (logo + search).
+   Non-sticky: it scrolls away, leaving the switcher + date bar under the header. */
+.spot-back-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 12px 6px;
 }
 .spot-back {
   display: inline-flex;
@@ -230,8 +234,10 @@ button {
   overflow-x: auto;
   scrollbar-width: none;
   padding: 8px 16px 10px;
-  /* let the screen-level swipe own horizontal gestures; keep vertical scroll */
-  touch-action: pan-y;
+  /* freely draggable strip — native touch pan; mouse drag handled in TS */
+  touch-action: pan-x;
+  user-select: none;
+  -webkit-user-select: none;
 }
 .spot-switch .track::-webkit-scrollbar {
   display: none;
@@ -447,6 +453,13 @@ button {
 .date-chip.on .dnum {
   color: var(--primary-foreground);
 }
+.date-chip .day-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  margin-top: 3px;
+  box-shadow: 0 0 0 1.5px color-mix(in srgb, var(--card) 70%, transparent);
+}
 .date-chip:active {
   transform: scale(0.95);
 }
@@ -572,9 +585,14 @@ button {
   grid-template-columns: 1fr auto;
   gap: 12px;
   align-items: center;
+  color: var(--foreground);
+  text-decoration: none;
   transition:
     transform 0.15s ease,
     box-shadow 0.15s ease;
+}
+a.rank-card:hover {
+  color: var(--foreground);
 }
 .rank-card .mid {
   min-width: 0;
@@ -939,10 +957,10 @@ button {
 /* Hourly table */
 .hour-grid {
   display: grid;
-  grid-template-columns: 26px 6px 1.1fr 0.9fr 1.1fr 0.7fr 0.8fr;
+  grid-template-columns: 26px 6px 1fr 0.9fr 1.25fr 0.6fr 0.7fr;
   gap: 6px;
   align-items: center;
-  padding: 6px 10px 6px 6px;
+  padding: 8px 10px 8px 6px;
 }
 .hour-grid.head {
   padding: 6px 10px 5px 6px;
@@ -966,7 +984,8 @@ button {
   color: var(--muted-foreground);
 }
 .hour-grid .bar {
-  height: 32px;
+  align-self: stretch;
+  min-height: 40px;
   border-radius: 2px;
 }
 .hour-grid .surf {
@@ -1000,6 +1019,85 @@ button {
   font-size: 9.5px;
   color: var(--muted-foreground);
 }
+
+/* Swell direction cell: distinct outlined arrow icon + period on top, cardinal below */
+.hour-grid .swell-cell {
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1.15;
+}
+.hour-grid .swell-cell .top {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.hour-grid .swell-cell .top b {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--foreground);
+}
+.hour-grid .swell-cell .top svg {
+  color: var(--foreground);
+}
+.hour-grid .swell-cell small {
+  font-size: 9.5px;
+  color: var(--muted-foreground);
+}
+
+/* Wind direction cell: filled vane icon + speed, then cardinal + class word.
+   Wrapped in a soft container so the whole wind reading reads as one thing. */
+.hour-grid .wind-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  line-height: 1.15;
+  padding: 4px 4px;
+  border-radius: 8px;
+  background: var(--emphasis-bg);
+}
+.hour-grid .wind-cell .top {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.hour-grid .wind-cell .top b {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--foreground);
+  font-variant-numeric: tabular-nums;
+}
+.hour-grid .wind-cell .cardinal {
+  font-size: 9.5px;
+  color: var(--muted-foreground);
+}
+.hour-grid .wind-cell .wclass {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+/* Class-tinted wording so onshore/offshore reads at a glance */
+.hour-grid .wind-cell.wc-offshore .wclass {
+  color: var(--rating-good);
+}
+.hour-grid .wind-cell.wc-offshore .top svg {
+  color: var(--rating-good);
+}
+.hour-grid .wind-cell.wc-cross-shore .wclass {
+  color: var(--warn-orange);
+}
+.hour-grid .wind-cell.wc-cross-shore .top svg {
+  color: var(--warn-orange);
+}
+.hour-grid .wind-cell.wc-onshore .wclass {
+  color: var(--rating-flat);
+}
+.hour-grid .wind-cell.wc-onshore .top svg {
+  color: var(--rating-flat);
+}
+
 .hour-grid .power {
   text-align: center;
   font-size: 11px;
@@ -1119,46 +1217,26 @@ button {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
 }
 
+/* Map bottom sheet — hosts a SpotCard (same compact card as Today).
+   The card owns its own background/padding; the sheet just positions + shadows it. */
 .map-sheet {
   position: absolute;
   left: 12px;
   right: 12px;
   bottom: 12px;
   z-index: 10;
-  background: var(--card);
   border-radius: 16px;
   box-shadow: var(--sheet-shadow);
-  padding: 14px 16px;
+  overflow: hidden;
 }
-.map-sheet .top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.map-sheet .rank-card {
+  border-radius: 16px;
+  box-shadow: none;
 }
-.map-sheet .spot-title b {
-  font-size: 15px;
-}
-.map-sheet .line {
+.map-sheet .map-skel .line {
   font-size: 12px;
   color: var(--muted-foreground);
   margin-top: 5px;
-}
-.map-sheet .foot {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px solid var(--border);
-}
-.map-sheet .window {
-  font-size: 11.5px;
-  color: var(--muted-foreground);
-}
-.map-sheet .window b {
-  color: var(--foreground);
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
 }
 
 /* maplibre chrome, kept subtle */
