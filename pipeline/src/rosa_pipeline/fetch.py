@@ -18,6 +18,10 @@ import httpx
 MARINE_URL = "https://marine-api.open-meteo.com/v1/marine"
 WEATHER_URL = "https://api.open-meteo.com/v1/forecast"
 FORECAST_DAYS = 16
+# best_match is Open-Meteo's per-location blend but only reaches ~9 days; NOAA GFS-Wave
+# runs the full 16. Request both — extract prefers best_match, falls back to GFS-Wave for
+# the extended tail (per-hour, so each hour stays internally consistent).
+MARINE_MODELS = ["best_match", "ncep_gfswave016"]
 
 MARINE_HOURLY = [
     "wave_height",
@@ -69,7 +73,14 @@ class OpenMeteoSource:
     def fetch(self, lat: float, lon: float) -> RawForecast:
         common = {"latitude": lat, "longitude": lon, "forecast_days": FORECAST_DAYS}
         with httpx.Client(timeout=self.timeout_s) as client:
-            marine = client.get(MARINE_URL, params={**common, "hourly": ",".join(MARINE_HOURLY)})
+            marine = client.get(
+                MARINE_URL,
+                params={
+                    **common,
+                    "hourly": ",".join(MARINE_HOURLY),
+                    "models": ",".join(MARINE_MODELS),
+                },
+            )
             marine.raise_for_status()
             weather = client.get(WEATHER_URL, params={**common, "hourly": ",".join(WEATHER_HOURLY)})
             weather.raise_for_status()

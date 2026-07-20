@@ -198,6 +198,23 @@ button {
   background: var(--secondary);
 }
 
+/* Spot screen sticky head: switcher chips + date bar move as one block */
+.spot-sticky {
+  position: sticky;
+  top: 52px;
+  z-index: 19;
+  background: color-mix(in srgb, var(--card) 88%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.spot-sticky .spot-switch,
+.spot-sticky .date-bar {
+  position: static;
+  top: auto;
+  background: transparent;
+  backdrop-filter: none;
+}
+
 /* Spot switcher chips (design 1a) */
 .spot-switch {
   position: sticky;
@@ -377,28 +394,84 @@ button {
   letter-spacing: -0.01em;
   color: var(--foreground);
 }
-.home-days {
-  margin: 14px 16px 0;
+/* Draggable date strip (Home + Spot) */
+.date-bar {
+  position: sticky;
+  top: 52px;
+  z-index: 18;
+  background: color-mix(in srgb, var(--card) 85%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.date-bar .track {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 8px 16px 10px;
+  scroll-snap-type: x proximity;
+  overscroll-behavior-x: contain;
+}
+.date-bar .track::-webkit-scrollbar {
+  display: none;
+}
+.date-chip {
+  flex: none;
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  min-width: 46px;
+  padding: 6px 10px;
+  border-radius: 11px;
+  color: var(--muted-foreground);
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+.date-chip .dow {
+  font-size: 10.5px;
+  font-weight: 600;
+}
+.date-chip .dnum {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--foreground);
+}
+.date-chip.on {
+  background: var(--primary);
+}
+.date-chip.on .dow,
+.date-chip.on .dnum {
+  color: var(--primary-foreground);
+}
+.date-chip:active {
+  transform: scale(0.95);
 }
 
-/* Selected-day fade for the Home card stack */
-.day-view {
-  animation: day-fade 0.24s ease both;
+/* Day carousel: full-width panels the whole card block drags through, snapping
+   per day. Horizontal scroll only — vertical pans fall through to the page. */
+.day-carousel {
+  display: flex;
+  align-items: flex-start;
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
 }
-@keyframes day-fade {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+.day-carousel::-webkit-scrollbar {
+  display: none;
 }
-@media (prefers-reduced-motion: reduce) {
-  .day-view {
-    animation: none;
-  }
+.day-panel {
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 100%;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 /* Satellite header (Surfline-style) */

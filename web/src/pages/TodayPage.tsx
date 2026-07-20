@@ -1,18 +1,19 @@
 import { useEffect, useState } from "preact/hooks";
 import { fetchIndex, fetchSpot } from "../api";
+import { DateBar } from "../components/DateBar";
+import { DayCarousel } from "../components/DayCarousel";
 import { SatMap } from "../components/MiniMap";
 import { SearchIcon, ShirtIcon, ThermometerIcon, WavesIcon } from "../components/icons";
 import { AppHeader, Pill, Spark, SpotTitle, StarButton } from "../components/parts";
 import { TideSection } from "../components/TideSection";
-import { ratingVar } from "../conditions";
 import { getFavorites, toggleFavorite } from "../favorites";
-import { bestWindow, cardinal, dateOf, dayLabel, splitName, windLabel } from "../format";
+import { bestWindow, cardinal, dateOf, splitName, windLabel } from "../format";
 import { distanceKm, getPosition } from "../geo";
 import { getRecents } from "../recents";
 import { fmtRange, fmtTemp, useUnits } from "../units";
 import type { HourEntry, SpotPayload } from "../types";
 
-const NEAR_COUNT = 3;
+const LIST_COUNT = 3; // 3 spots under the extended card = 4 latest-viewed total
 
 function greeting(): string {
   const h = new Date().getHours();
@@ -171,21 +172,29 @@ export function TodayPage() {
         for (const [id, e] of entries) km[id] = distanceKm(at, { lat: e.lat, lon: e.lon });
         setDists(km);
         const byDist = [...entries].sort(([a], [b]) => (km[a] ?? 0) - (km[b] ?? 0));
-        const detailId = lastEntry ? lastId : byDist[0]?.[0];
-        const listIds = byDist
-          .map(([id]) => id)
-          .filter((id) => id !== detailId)
-          .slice(0, NEAR_COUNT);
-        const results = await Promise.allSettled([
-          ...(detailId !== undefined ? [fetchSpot(detailId)] : []),
-          ...listIds.map(fetchSpot),
-        ]);
+
+        // the 4 latest-viewed spots: newest is the extended card, next 3 are the list;
+        // if fewer than 4 have been viewed, fill the rest with the nearest spots
+        const recents = getRecents().filter((id) => index.spots[id]);
+        const detailId = recents[0] ?? byDist[0]?.[0];
+        const chosen = new Set<string>(detailId ? [detailId] : []);
+        const listIds: string[] = [];
+        const consider = (id: string) => {
+          if (listIds.length < LIST_COUNT && !chosen.has(id)) {
+            listIds.push(id);
+            chosen.add(id);
+          }
+        };
+        recents.slice(1).forEach(consider);
+        byDist.forEach(([id]) => consider(id));
+
+        const orderedIds = [...(detailId ? [detailId] : []), ...listIds];
+        const results = await Promise.allSettled(orderedIds.map(fetchSpot));
         if (disposed) return;
-        const loaded = results
-          .filter((r): r is PromiseFulfilledResult<SpotPayload> => r.status === "fulfilled")
-          .map((r) => r.value);
-        setDetail(loaded.find((d) => d.spot.id === detailId) ?? null);
-        setCards(loaded.filter((d) => d.spot.id !== detailId));
+        const byId = new Map<string, SpotPayload>();
+        for (const r of results) if (r.status === "fulfilled") byId.set(r.value.spot.id, r.value);
+        setDetail(detailId ? (byId.get(detailId) ?? null) : null);
+        setCards(listIds.map((id) => byId.get(id)).filter((d): d is SpotPayload => !!d));
       } catch (e) {
         if (!disposed) setError((e as Error).message);
       }
@@ -200,6 +209,11 @@ export function TodayPage() {
       <SearchIcon />
     </a>
   );
+
+  // full 16-day strip from the featured spot (all spots share the date range)
+  const days = (detail ?? cards?.[0])?.days ?? [];
+  const today = days[0]?.date ?? "";
+  const sel = Math.min(daySel, Math.max(0, days.length - 1));
 
   if (error) {
     return (
@@ -218,10 +232,21 @@ export function TodayPage() {
     );
   }
 
-  // day strip comes from the featured spot (all spots share the date range)
-  const days = (detail ?? cards[0])?.days.slice(0, 7) ?? [];
-  const today = days[0]?.date ?? "";
-  const selDate = days[daySel]?.date ?? today;
+  const dayStack = (dateStr: string) => (
+    <div class="rank-list">
+      {detail && <DetailCard data={detail} date={dateStr} />}
+      {cards.map((d) => (
+        <SpotCard
+          key={d.spot.id}
+          data={d}
+          date={dateStr}
+          km={dists[d.spot.id]}
+          isFav={favs.includes(d.spot.id)}
+          onToggle={() => setFavs(toggleFavorite(d.spot.id))}
+        />
+      ))}
+    </div>
+  );
 
   return (
     <main class="page">
@@ -231,28 +256,19 @@ export function TodayPage() {
           <h2>{greeting()}</h2>
         </div>
         {days.length > 0 && (
-          <div class="day-pills home-days">
-            {days.map((d, i) => (
-              <button key={d.date} class={i === daySel ? "on" : ""} onClick={() => setDaySel(i)}>
-                <span class="l">{dayLabel(d.date, today)}</span>
-                <span class="dot" style={`background:${ratingVar(d.bucket)}`} />
-              </button>
-            ))}
-          </div>
+          <DateBar
+            dates={days.map((d) => d.date)}
+            selected={sel}
+            today={today}
+            onSelect={setDaySel}
+          />
         )}
-        <div class="day-view rank-list" key={daySel}>
-          {detail && <DetailCard data={detail} date={selDate} />}
-          {cards.map((d) => (
-            <SpotCard
-              key={d.spot.id}
-              data={d}
-              date={selDate}
-              km={dists[d.spot.id]}
-              isFav={favs.includes(d.spot.id)}
-              onToggle={() => setFavs(toggleFavorite(d.spot.id))}
-            />
-          ))}
-        </div>
+        <DayCarousel
+          count={days.length}
+          selected={sel}
+          onSelect={setDaySel}
+          renderPanel={(i) => dayStack(days[i]?.date ?? today)}
+        />
       </div>
     </main>
   );

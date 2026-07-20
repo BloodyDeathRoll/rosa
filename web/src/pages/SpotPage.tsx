@@ -8,6 +8,8 @@ import {
   ThermometerIcon,
   WavesIcon,
 } from "../components/icons";
+import { DateBar } from "../components/DateBar";
+import { DayCarousel } from "../components/DayCarousel";
 import { Pill, StarButton } from "../components/parts";
 import { ratingVar } from "../conditions";
 import { getFavorites, toggleFavorite } from "../favorites";
@@ -164,8 +166,7 @@ function SpotSwitcher({ spots, currentId }: { spots: [string, IndexEntry][]; cur
   );
 }
 
-const SWIPE_MIN = 45; // px of horizontal travel before a swipe changes spot
-const NEAR_RADIUS_KM = 20; // switcher + swipe outer bound
+const NEAR_RADIUS_KM = 20; // switcher outer bound
 const NEAR_MAX = 8; // ...capped to this many nearest spots
 
 export function SpotPage({ id }: { id: string }) {
@@ -174,8 +175,6 @@ export function SpotPage({ id }: { id: string }) {
   const [favs, setFavs] = useState<string[]>(getFavorites);
   const [daySel, setDaySel] = useState(0);
   const [spots, setSpots] = useState<[string, IndexEntry][]>([]);
-  const swipeStart = useRef<{ x: number; y: number } | null>(null);
-  const navDir = useRef(0); // -1 north / +1 south — drives the slide-in direction
   const units = useUnits();
 
   useEffect(() => {
@@ -213,26 +212,10 @@ export function SpotPage({ id }: { id: string }) {
         .map(({ entry }) => entry)
         .sort(([, a], [, b]) => b.lat - a.lat)
     : [];
-  const idx = nearSpots.findIndex(([sid]) => sid === id);
-  const step = (delta: number) => {
-    const next = nearSpots[idx + delta];
-    if (!next) return;
-    navDir.current = delta;
-    location.hash = `#/spot/${next[0]}`;
-  };
 
-  const onPointerDown = (e: PointerEvent) => {
-    swipeStart.current = { x: e.clientX, y: e.clientY };
-  };
-  const onPointerUp = (e: PointerEvent) => {
-    const s = swipeStart.current;
-    swipeStart.current = null;
-    if (!s) return;
-    const dx = e.clientX - s.x;
-    const dy = e.clientY - s.y;
-    if (Math.abs(dx) < SWIPE_MIN || Math.abs(dx) <= Math.abs(dy)) return;
-    step(dx < 0 ? 1 : -1); // swipe left → next (south), right → prev (north)
-  };
+  // the date bar + carousel both drive the selected day
+  const allDays = data?.days ?? [];
+  const daySelClamped = Math.min(daySel, Math.max(0, allDays.length - 1));
 
   const header = (
     <header class="app-head spot-head-min">
@@ -260,32 +243,27 @@ export function SpotPage({ id }: { id: string }) {
   }
 
   const cur = data.current;
-  const days = data.days.slice(0, 7);
-  const day = days[daySel] ?? days[0];
-  const dayHours = day ? data.hours.filter((h) => dateOf(h.t) === day.date) : [];
-  const chips = sessionChips(dayHours);
+  const days = data.days;
   const today = data.hours[0] ? dateOf(data.hours[0].t) : "";
-  const sun = day
-    ? sunTimes(new Date(`${day.date}T12:00:00Z`), data.spot.lat, data.spot.lon)
-    : null;
-  const dirClass =
-    navDir.current === 1 ? "from-right" : navDir.current === -1 ? "from-left" : "";
 
-  return (
-    <main class="page">
-      {header}
-      {nearSpots.length > 1 && <SpotSwitcher spots={nearSpots} currentId={id} />}
-      <div class="spot-swipe" onPointerDown={onPointerDown} onPointerUp={onPointerUp}>
-        <div class={`spot-main spot-view ${dirClass}`} key={id}>
+  // one full-width panel per day; the carousel drags between them
+  const dayPanel = (i: number) => {
+    const day = days[i];
+    if (!day) return null;
+    const dayHours = data.hours.filter((h) => dateOf(h.t) === day.date);
+    const chips = sessionChips(dayHours);
+    const sun = sunTimes(new Date(`${day.date}T12:00:00Z`), data.spot.lat, data.spot.lon);
+    return (
+      <div class="spot-main">
         <section class="spot-card">
           <div class="inner">
             <div class="pill-row">
-              <Pill bucket={day?.bucket ?? cur.bucket} />
+              <Pill bucket={day.bucket} />
               <span class="est-note tabular">
                 estimated · {fmtClock(new Date(data.generated_at), data.spot.timezone)}
               </span>
             </div>
-            {day && <DayBars day={day} hours={dayHours} />}
+            <DayBars day={day} hours={dayHours} />
             <div class="sessions">
               <span class="eyebrow">Best sessions</span>
               {chips.length > 0 ? (
@@ -333,65 +311,70 @@ export function SpotPage({ id }: { id: string }) {
           </div>
         </section>
 
-        <div class="day-pills">
-          {days.map((d, i) => (
-            <button key={d.date} class={i === daySel ? "on" : ""} onClick={() => setDaySel(i)}>
-              <span class="l">{dayLabel(d.date, today)}</span>
-              <span class="dot" style={`background:${ratingVar(d.bucket)}`} />
-            </button>
-          ))}
+        <div class="day-title">
+          <b>
+            {dayLabel(day.date, today)} · {dayDate(day.date)}
+          </b>
+          <span>{dayNote(days, i, dayHours)}</span>
         </div>
-
-        {day && (
-          <>
-            <div class="day-title">
-              <b>
-                {dayLabel(day.date, today)} · {dayDate(day.date)}
-              </b>
-              <span>{dayNote(days, daySel, dayHours)}</span>
-            </div>
-            <div class="hour-grid head" aria-hidden="true">
-              <span />
-              <span />
-              <span>surf {heightUnit(units)}</span>
-              <span>swell</span>
-              <span>wind kt</span>
-              <span>kW/m</span>
-              <span>hPa</span>
-            </div>
-            {dayHours.map((h) => (
-              <HourRow key={h.t} h={h} units={units} />
-            ))}
-            {dayHours.length === 0 && (
-              <p class="state">Beyond the model horizon — no hourly detail yet.</p>
-            )}
-          </>
+        <div class="hour-grid head" aria-hidden="true">
+          <span />
+          <span />
+          <span>surf {heightUnit(units)}</span>
+          <span>swell</span>
+          <span>wind kt</span>
+          <span>kW/m</span>
+          <span>hPa</span>
+        </div>
+        {dayHours.map((h) => (
+          <HourRow key={h.t} h={h} units={units} />
+        ))}
+        {dayHours.length === 0 && (
+          <p class="state">Beyond the model horizon — no hourly detail yet.</p>
         )}
 
         <TideSection nowT={cur.t} metric={units.height === "m"} />
 
-        {sun && (
-          <div class="sun-row">
-            <span>
-              <span class="eyebrow">First light</span>
-              <b class="tabular">{fmtClock(sun.firstLight, data.spot.timezone)}</b>
-            </span>
-            <span>
-              <span class="eyebrow">Sunrise</span>
-              <b class="tabular">{fmtClock(sun.sunrise, data.spot.timezone)}</b>
-            </span>
-            <span>
-              <span class="eyebrow">Sunset</span>
-              <b class="tabular">{fmtClock(sun.sunset, data.spot.timezone)}</b>
-            </span>
-            <span>
-              <span class="eyebrow">Last light</span>
-              <b class="tabular">{fmtClock(sun.lastLight, data.spot.timezone)}</b>
-            </span>
-          </div>
-        )}
+        <div class="sun-row">
+          <span>
+            <span class="eyebrow">First light</span>
+            <b class="tabular">{fmtClock(sun.firstLight, data.spot.timezone)}</b>
+          </span>
+          <span>
+            <span class="eyebrow">Sunrise</span>
+            <b class="tabular">{fmtClock(sun.sunrise, data.spot.timezone)}</b>
+          </span>
+          <span>
+            <span class="eyebrow">Sunset</span>
+            <b class="tabular">{fmtClock(sun.sunset, data.spot.timezone)}</b>
+          </span>
+          <span>
+            <span class="eyebrow">Last light</span>
+            <b class="tabular">{fmtClock(sun.lastLight, data.spot.timezone)}</b>
+          </span>
         </div>
       </div>
+    );
+  };
+
+  return (
+    <main class="page">
+      {header}
+      <div class="spot-sticky">
+        {nearSpots.length > 1 && <SpotSwitcher spots={nearSpots} currentId={id} />}
+        <DateBar
+          dates={days.map((d) => d.date)}
+          selected={daySelClamped}
+          today={today}
+          onSelect={setDaySel}
+        />
+      </div>
+      <DayCarousel
+        count={days.length}
+        selected={daySelClamped}
+        onSelect={setDaySel}
+        renderPanel={dayPanel}
+      />
     </main>
   );
 }

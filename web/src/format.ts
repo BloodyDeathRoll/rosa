@@ -23,6 +23,11 @@ export function dayDate(date: string): string {
   return `${months[m - 1] ?? ""} ${Number(date.slice(8, 10))}`;
 }
 
+/** Day-of-month number without leading zero, e.g. "20", "3". */
+export function dayNum(date: string): string {
+  return String(Number(date.slice(8, 10)));
+}
+
 /** Compass arrow rotation: met. directions are "coming FROM", arrow shows where it goes. */
 export function arrowRotation(fromDeg: number): number {
   return (fromDeg + 180) % 360;

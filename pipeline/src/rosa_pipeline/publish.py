@@ -15,15 +15,16 @@ from .transform import in_window
 
 MODEL_NAME = "open-meteo:best_match (marine + forecast v1)"
 ATTRIBUTION = "Weather data by Open-Meteo.com (CC-BY 4.0)"
-TABLE_DAYS = 7
+TABLE_DAYS = 16
 TABLE_STEP_H = 3
 OUTLOOK_DAYS = 16
 
 
 def _confidence(day_index: int) -> str:
+    # days 0-9 are best_match (skilful); 10-15 are the GFS-Wave extended outlook
     if day_index <= 3:
         return "high"
-    if day_index <= 7:
+    if day_index <= 9:
         return "medium"
     return "low"
 
