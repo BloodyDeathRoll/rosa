@@ -93,7 +93,7 @@ export function App() {
       ) : (
         <TodayPage />
       )}
-      {route.page !== "spot" && <TabBar active={route.page} />}
+      <TabBar active={route.page === "spot" ? lastTab() : route.page} />
     </div>
   );
 }

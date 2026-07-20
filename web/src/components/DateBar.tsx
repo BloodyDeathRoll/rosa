@@ -1,17 +1,22 @@
 import { useEffect, useRef } from "preact/hooks";
+import { ratingVar } from "../conditions";
 import { dayLabel, dayNum } from "../format";
+import type { Bucket } from "../types";
 
 /** Draggable date strip: day-of-week over date number, up to 16 days. Tap a date
     or drag and let it settle → onSelect. The selected date scrolls to center. Pairs
-    with a content-swipe (see useDaySwipe) so both stay in sync. */
+    with a content-swipe (see useDaySwipe) so both stay in sync. Optional per-day
+    buckets render a small colored dot marking the day's average conditions. */
 export function DateBar({
   dates,
+  buckets,
   selected,
   live,
   today,
   onSelect,
 }: {
   dates: string[];
+  buckets?: Bucket[];
   selected: number;
   /** index to highlight while a drag is in flight; falls back to `selected` */
   live?: number;
@@ -61,18 +66,28 @@ export function DateBar({
   return (
     <div class="date-bar">
       <div class="track" ref={trackRef}>
-        {dates.map((date, i) => (
-          <button
-            key={date}
-            ref={i === selected ? selRef : undefined}
-            class={`date-chip${i === hi ? " on" : ""}`}
-            aria-current={i === hi ? "date" : undefined}
-            onClick={() => onSelect(i)}
-          >
-            <span class="dow">{dayLabel(date, today)}</span>
-            <span class="dnum tabular">{dayNum(date)}</span>
-          </button>
-        ))}
+        {dates.map((date, i) => {
+          const bucket = buckets?.[i];
+          return (
+            <button
+              key={date}
+              ref={i === selected ? selRef : undefined}
+              class={`date-chip${i === hi ? " on" : ""}`}
+              aria-current={i === hi ? "date" : undefined}
+              onClick={() => onSelect(i)}
+            >
+              <span class="dow">{dayLabel(date, today)}</span>
+              <span class="dnum tabular">{dayNum(date)}</span>
+              {bucket && (
+                <span
+                  class="day-dot"
+                  style={`background:${ratingVar(bucket)}`}
+                  aria-hidden="true"
+                />
+              )}
+            </button>
+          );
+        })}
       </div>
     </div>
   );

@@ -33,7 +33,12 @@ export function StarButton({
       class={`star-btn${on ? " on" : ""}`}
       aria-pressed={on}
       aria-label={on ? `Remove ${name} from favorites` : `Add ${name} to favorites`}
-      onClick={onToggle}
+      onClick={(e) => {
+        // when nested inside a clickable card, favoriting must never navigate
+        e.preventDefault();
+        e.stopPropagation();
+        onToggle();
+      }}
     >
       <StarIcon size={size} />
     </button>

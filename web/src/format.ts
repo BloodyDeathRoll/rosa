@@ -49,8 +49,12 @@ export function knots(kph: number): number {
 
 /** "E 4 kt offshore" — cardinal, speed, wind class per the design's spot line. */
 export function windLabel(h: Pick<HourEntry, "wind">): string {
-  const cls = h.wind.class === "cross-shore" ? "cross" : h.wind.class;
-  return `${cardinal(h.wind.dir)} ${knots(h.wind.kph)} kt ${cls}`;
+  return `${cardinal(h.wind.dir)} ${knots(h.wind.kph)} kt ${windClassWord(h.wind.class)}`;
+}
+
+/** Short word for the wind class, e.g. "cross-shore" → "cross". */
+export function windClassWord(cls: HourEntry["wind"]["class"]): string {
+  return cls === "cross-shore" ? "cross" : cls;
 }
 
 /** Longest contiguous GOOD+ stretch of a day's (3-hourly) hours.
