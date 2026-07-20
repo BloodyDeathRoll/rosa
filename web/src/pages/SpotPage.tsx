@@ -165,7 +165,8 @@ function SpotSwitcher({ spots, currentId }: { spots: [string, IndexEntry][]; cur
 }
 
 const SWIPE_MIN = 45; // px of horizontal travel before a swipe changes spot
-const NEAR_RADIUS_KM = 20; // switcher + swipe reach
+const NEAR_RADIUS_KM = 20; // switcher + swipe outer bound
+const NEAR_MAX = 8; // ...capped to this many nearest spots
 
 export function SpotPage({ id }: { id: string }) {
   const [data, setData] = useState<SpotPayload | null>(null);
@@ -197,14 +198,20 @@ export function SpotPage({ id }: { id: string }) {
     location.hash = "#/";
   };
 
-  // switcher + swipe are limited to spots within 20 km of the current one
+  // switcher + swipe: the 8 spots nearest the current one (within 20 km),
+  // shown north→south
   const curEntry = spots.find(([sid]) => sid === id)?.[1];
   const nearSpots = curEntry
-    ? spots.filter(
-        ([, e]) =>
-          distanceKm({ lat: curEntry.lat, lon: curEntry.lon }, { lat: e.lat, lon: e.lon }) <=
-          NEAR_RADIUS_KM
-      )
+    ? spots
+        .map(([sid, e]) => ({
+          entry: [sid, e] as [string, IndexEntry],
+          km: distanceKm({ lat: curEntry.lat, lon: curEntry.lon }, { lat: e.lat, lon: e.lon }),
+        }))
+        .filter(({ km }) => km <= NEAR_RADIUS_KM)
+        .sort((a, b) => a.km - b.km)
+        .slice(0, NEAR_MAX)
+        .map(({ entry }) => entry)
+        .sort(([, a], [, b]) => b.lat - a.lat)
     : [];
   const idx = nearSpots.findIndex(([sid]) => sid === id);
   const step = (delta: number) => {
