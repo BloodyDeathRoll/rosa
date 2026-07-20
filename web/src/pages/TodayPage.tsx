@@ -1,38 +1,79 @@
 import { useEffect, useState } from "preact/hooks";
 import { fetchIndex, fetchSpot } from "../api";
-import { SearchIcon } from "../components/icons";
+import { SearchIcon, ShirtIcon, ThermometerIcon, WavesIcon } from "../components/icons";
 import { AppHeader, Pill, Spark, SpotTitle, StarButton } from "../components/parts";
 import { getFavorites, toggleFavorite } from "../favorites";
-import { dateOf, splitName, windLabel } from "../format";
+import { bestWindow, cardinal, dateOf, splitName, windLabel } from "../format";
 import { distanceKm, getPosition } from "../geo";
-import { fmtH, heightUnit, useUnits } from "../units";
+import { getRecents } from "../recents";
+import { fmtH, fmtTemp, heightUnit, useUnits } from "../units";
 import type { SpotPayload } from "../types";
 
 const NEAR_RADIUS_KM = 50;
 
-function estClock(iso: string): string {
-  return new Intl.DateTimeFormat("en-GB", {
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false,
-  }).format(new Date(iso));
+function todayHours(data: SpotPayload) {
+  return data.hours.filter((h) => dateOf(h.t) === dateOf(data.hours[0]?.t ?? ""));
 }
 
-function RankCard({
+/** Rich card for the last spot the user opened. */
+function DetailCard({ data }: { data: SpotPayload }) {
+  const units = useUnits();
+  const cur = data.current;
+  const { name, region } = splitName(data.spot.name);
+  const swell = cur.swells.find((s) => s.in_window) ?? cur.swells[0];
+  const hrs = todayHours(data);
+  const bw = bestWindow(hrs);
+  return (
+    <button class="detail-card" onClick={() => (location.hash = `#/spot/${data.spot.id}`)}>
+      <span class="top">
+        <SpotTitle name={name} region={region} />
+        <Pill bucket={cur.bucket} />
+      </span>
+      <span class="line tabular">
+        {fmtH(cur.h_mid, units)} {heightUnit(units)} · {windLabel(cur)}
+        {swell ? ` · ${Math.round(swell.period)} s ${cardinal(swell.dir)}` : ""}
+      </span>
+      <Spark hours={hrs} bucket={cur.bucket} w={326} h={36} stretch />
+      <span class="temps-row">
+        <span>
+          <ThermometerIcon />
+          <span class="tabular">air {cur.air !== null ? fmtTemp(cur.air, units) : "—"}</span>
+        </span>
+        <span>
+          <WavesIcon />
+          <span class="tabular">water {cur.sst !== null ? fmtTemp(cur.sst, units) : "—"}</span>
+        </span>
+        {cur.wetsuit && (
+          <span>
+            <ShirtIcon />
+            <span class="suit">{cur.wetsuit}</span>
+          </span>
+        )}
+      </span>
+      <span class="foot">
+        <span class="window">
+          Best window <b>{bw ? `${bw.start}–${bw.end}` : "none today"}</b>
+        </span>
+        <span class="accent-link">Open forecast →</span>
+      </span>
+    </button>
+  );
+}
+
+function SpotCard({
   data,
-  rank,
+  km,
   isFav,
   onToggle,
 }: {
   data: SpotPayload;
-  rank: number;
+  km: number | undefined;
   isFav: boolean;
   onToggle: () => void;
 }) {
   const units = useUnits();
   const cur = data.current;
   const { name, region } = splitName(data.spot.name);
-  const today = data.hours.filter((h) => dateOf(h.t) === dateOf(data.hours[0]?.t ?? ""));
   return (
     <div class="rank-card">
       <StarButton on={isFav} name={name} onToggle={onToggle} />
@@ -41,19 +82,20 @@ function RankCard({
         <span class="line tabular">
           {fmtH(cur.h_mid, units)} {heightUnit(units)} · {windLabel(cur)}
         </span>
-        <Spark hours={today} bucket={cur.bucket} />
+        <Spark hours={todayHours(data)} bucket={cur.bucket} />
       </button>
       <div class="side">
         <Pill bucket={cur.bucket} />
-        <span class="rank-n tabular">#{rank}</span>
+        {km !== undefined && <span class="rank-n tabular">{Math.round(km)} km</span>}
       </div>
     </div>
   );
 }
 
 export function TodayPage() {
+  const [detail, setDetail] = useState<SpotPayload | null>(null);
   const [cards, setCards] = useState<SpotPayload[] | null>(null);
-  const [estAt, setEstAt] = useState<string | null>(null);
+  const [dists, setDists] = useState<Record<string, number>>({});
   const [error, setError] = useState<string | null>(null);
   const [favs, setFavs] = useState<string[]>(getFavorites);
 
@@ -64,22 +106,30 @@ export function TodayPage() {
         const [index, pos] = await Promise.all([fetchIndex(), getPosition()]);
         if (disposed) return;
         const entries = Object.entries(index.spots);
-        // "your coast": within 50 km when located, the whole region otherwise
+        const lastId = getRecents()[0];
+        const km: Record<string, number> = {};
+        if (pos) for (const [id, e] of entries) km[id] = distanceKm(pos, { lat: e.lat, lon: e.lon });
+        setDists(km);
+        // nearest spots within 50 km, closest first; full list north→south
+        // when location is denied or nothing is in range
         const near = pos
-          ? entries.filter(([, e]) => distanceKm(pos, { lat: e.lat, lon: e.lon }) <= NEAR_RADIUS_KM)
+          ? entries
+              .filter(([id]) => (km[id] ?? Infinity) <= NEAR_RADIUS_KM)
+              .sort(([a], [b]) => (km[a] ?? 0) - (km[b] ?? 0))
           : [];
-        const pool = near.length > 0 ? near : entries;
-        // every spot on the coast, ranked — the cards' wind + spark lines
-        // come from the (small, CDN-cached) per-spot payloads
-        const ranked = pool.sort(([, a], [, b]) => b.rating - a.rating || b.h[1] - a.h[1]);
-        setEstAt(ranked[0]?.[1].generated_at ?? null);
-        const results = await Promise.allSettled(ranked.map(([id]) => fetchSpot(id)));
+        const pool = near.length > 0 ? near : [...entries].sort(([, a], [, b]) => b.lat - a.lat);
+        const listIds = pool.map(([id]) => id).filter((id) => id !== lastId);
+        const wantDetail = lastId !== undefined && index.spots[lastId] !== undefined;
+        const results = await Promise.allSettled([
+          ...(wantDetail ? [fetchSpot(lastId)] : []),
+          ...listIds.map(fetchSpot),
+        ]);
         if (disposed) return;
-        setCards(
-          results
-            .filter((r): r is PromiseFulfilledResult<SpotPayload> => r.status === "fulfilled")
-            .map((r) => r.value)
-        );
+        const loaded = results
+          .filter((r): r is PromiseFulfilledResult<SpotPayload> => r.status === "fulfilled")
+          .map((r) => r.value);
+        setDetail(wantDetail ? (loaded.find((d) => d.spot.id === lastId) ?? null) : null);
+        setCards(loaded.filter((d) => d.spot.id !== lastId));
       } catch (e) {
         if (!disposed) setError((e as Error).message);
       }
@@ -103,22 +153,17 @@ export function TodayPage() {
       ) : !cards ? (
         <p class="state">Loading…</p>
       ) : (
-        <div style="flex:1">
-          <div class="rank-head">
-            <span class="eyebrow">Your coast, ranked</span>
-            {estAt && <span class="est-note tabular">estimated · {estClock(estAt)}</span>}
-          </div>
-          <div class="rank-list">
-            {cards.map((d, i) => (
-              <RankCard
-                key={d.spot.id}
-                data={d}
-                rank={i + 1}
-                isFav={favs.includes(d.spot.id)}
-                onToggle={() => setFavs(toggleFavorite(d.spot.id))}
-              />
-            ))}
-          </div>
+        <div class="rank-list" style="flex:1">
+          {detail && <DetailCard data={detail} />}
+          {cards.map((d) => (
+            <SpotCard
+              key={d.spot.id}
+              data={d}
+              km={dists[d.spot.id]}
+              isFav={favs.includes(d.spot.id)}
+              onToggle={() => setFavs(toggleFavorite(d.spot.id))}
+            />
+          ))}
         </div>
       )}
     </main>

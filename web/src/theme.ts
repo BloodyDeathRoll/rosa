@@ -7,8 +7,8 @@ export function initialTheme(): Theme {
   if (fromUrl === "light" || fromUrl === "dark") return fromUrl;
   const stored = localStorage.getItem(KEY);
   if (stored === "light" || stored === "dark") return stored;
-  // respect the OS; Rosa's default when it expresses no preference is dark
-  return matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+  // Rosa defaults to light (user decision 2026-07-20); Settings stores an override
+  return "light";
 }
 
 export function applyTheme(theme: Theme): void {

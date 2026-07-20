@@ -40,15 +40,35 @@ export function StarButton({
   );
 }
 
-/** 110×26 sparkline of a day's surf heights, per the design's ranked card. */
-export function Spark({ hours, bucket }: { hours: HourEntry[]; bucket: Bucket }) {
+/** Sparkline of a day's surf heights (design's ranked-card proportions,
+    110×26 by default; `stretch` fills the container width). */
+export function Spark({
+  hours,
+  bucket,
+  w = 110,
+  h = 26,
+  stretch = false,
+}: {
+  hours: HourEntry[];
+  bucket: Bucket;
+  w?: number;
+  h?: number;
+  stretch?: boolean;
+}) {
   if (hours.length < 2) return null;
   const pts = hours.map(
-    (h, i) =>
-      `${((i / (hours.length - 1)) * 110).toFixed(1)},${(24 - Math.min(1, h.h_mid / 1.3) * 20).toFixed(1)}`
+    (x, i) =>
+      `${((i / (hours.length - 1)) * w).toFixed(1)},${(h - 2 - Math.min(1, x.h_mid / 1.3) * (h - 6)).toFixed(1)}`
   );
   return (
-    <svg class="spark" width="110" height="26" viewBox="0 0 110 26" aria-hidden="true">
+    <svg
+      class="spark"
+      width={stretch ? "100%" : w}
+      height={h}
+      viewBox={`0 0 ${w} ${h}`}
+      preserveAspectRatio={stretch ? "none" : undefined}
+      aria-hidden="true"
+    >
       <path
         d={`M${pts.join(" L")}`}
         fill="none"

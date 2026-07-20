@@ -11,6 +11,7 @@ import {
 import { Pill, StarButton } from "../components/parts";
 import { ratingVar } from "../conditions";
 import { getFavorites, toggleFavorite } from "../favorites";
+import { pushRecent } from "../recents";
 import {
   arrowRotation,
   cardinal,
@@ -183,6 +184,7 @@ export function SpotPage({ id }: { id: string }) {
     setData(null);
     setError(null);
     setDaySel(0);
+    pushRecent(id);
     fetchSpot(id).then(setData, (e: Error) => setError(e.message));
   }, [id]);
 

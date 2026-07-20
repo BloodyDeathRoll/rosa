@@ -11,8 +11,8 @@ export default defineConfig({
         name: "Rosa — surf forecast",
         short_name: "Rosa",
         description: "Should I surf, when, where?",
-        theme_color: "#1c1917",
-        background_color: "#1c1917",
+        theme_color: "#ffffff",
+        background_color: "#ffffff",
         display: "standalone",
         icons: [
           { src: "/icon.svg", sizes: "any", type: "image/svg+xml", purpose: "any" },
