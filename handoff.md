@@ -1,116 +1,90 @@
-# Session Handoff — 2026-07-20 (evening)
+# Session Handoff — 2026-07-20
 
 ## Goal
-Polish the spot screen and map drawer per user feedback: bring back the
-persistent header + drawer on the spot page, drop the back arrow onto its own
-line, make the nearby-spots switcher freely draggable (no auto-scroll), add
-stronger direction indicators + wind-class wording in the hourly grid, add a
-day-average colored dot to the DateBar, and swap the map bottom sheet for the
-same compact SpotCard used on Home (whole card clickable, no CTA).
+Polish the Rosa PWA (splash screen, header brand lockup, Spots tab favorites/star,
+daylight sessions) and — the big one — make per-spot forecasts actually differ:
+neighbouring spots were showing byte-identical data. Then gather + record Surfline-informed
+algorithm improvements for tomorrow.
 
 ## Current State
-Committed (`b89f578`) and pushed to `origin/main`. **Not deployed** — this
-session ran without Node on PATH so `cd web && npm run deploy` couldn't run;
-user to deploy locally. Vercel Git integration remains deliberately disconnected
-(CLAUDE.md context), so the push does not trigger a cloud build.
-
-Working after this session:
-- Spot screen keeps the app header (rosa. + search) and the bottom drawer; back
-  arrow sits on its own row under the logo, star button on its right.
-- Bottom `TabBar` now renders on every route, including the spot page. On the
-  spot page the active tab reflects `lastTab()` (the last non-spot tab).
-- Nearby-spots switcher: `touch-action: pan-x` for native touch pan + pointer
-  drag for mouse. `scrollIntoView`-on-selection removed. Click nav is suppressed
-  if pointer moved > 3 px.
-- Distinct direction icons: `WindDirIcon` (filled vane, class-tinted) and
-  `SwellDirIcon` (outlined arrow with tail dot). Hourly wind cell wrapped in a
-  soft `--emphasis-bg` container: `arrow + kts` / `cardinal` / `class` (offshore =
-  green, cross = orange, onshore = red).
-- `DateBar` accepts optional `buckets` and paints a 6 px tier-colored dot per
-  date; Today passes the featured spot's daily buckets, Spot passes its own.
-- Map bottom sheet renders the shared `SpotCard` (extracted from TodayPage)
-  once the payload arrives; a `MapSheetSkeleton` preserves shape while loading.
-  Card is a full `<a>` — tap anywhere on it opens the forecast.
-
-Carried over from the earlier session (2026-07-20 morning): 16-day pipeline,
-draggable DateBar, DayCarousel, Home latest-4 layout, 58 pipeline tests green.
-**4 southern spots (zikim, ashkelon, palmachim, ashdod-lido) are still
-10-day** — their shared `il_south` offshore point keeps timing out on
-`api.open-meteo.com` (weather fetch); retry later.
+All committed, pushed, and deployed to https://rosa-rust.vercel.app (verified live:
+hilton ≠ kontiki data now differs). 60 pipeline tests + web tsc green. Nothing dangling.
+- **Per-spot forecasts differ** (root fix): each spot samples its own offshore point and
+  orients to its own coastline shore-normal. Whole coast currently FLAT (real summer Med),
+  but wind/class/rating vary per spot; heights differ across marine-grid cells.
+- **4 headland/peninsula angles are flagged `TODO-verify`** in israel.yaml (akko-argaman 70,
+  kiryat-yam 114, bat-galim 164, backdoor-haifa 163) — coastline averaging is unreliable
+  where the shore curves ~90°. Need user's local values to pin. UNRESOLVED.
+- **Splash** holds until initial data loads (no empty "Loading…" flash), min 1s, blinking
+  "loading" text under the wordmark.
+- Surfline improvement report saved at `rosa-forecast-improvements.md` (untracked) — the
+  plan for tomorrow. Not yet acted on.
+- `todo.md` (untracked) is the user's scratch list — deliberately NOT committed.
 
 ## Active Files
-- `web/src/app.tsx` — `TabBar` now always rendered; on spot page it shows
-  `lastTab()` as active.
-- `web/src/pages/SpotPage.tsx` — `AppHeader` + new `.spot-back-row`;
-  `SpotSwitcher` rewritten (pointer-drag + no auto-scroll); `HourRow` uses
-  `WindDirIcon`/`SwellDirIcon` and a new `.wind-cell` container with class word;
-  buckets forwarded to `DateBar`.
-- `web/src/pages/TodayPage.tsx` — old inline `SpotCard`/`dayView` removed
-  (now imported from `components/SpotCard.tsx`); buckets forwarded to `DateBar`.
-- `web/src/pages/MapPage.tsx` — bottom sheet now hosts `SpotCard` (or the
-  skeleton) instead of the bespoke line + "Open forecast →" CTA; removed
-  `bestWindow`, `windLabel`, unit imports no longer needed.
-- `web/src/components/SpotCard.tsx` (**new**) — shared compact card + `dayView`
-  helper; renders as `<a class="rank-card">` so the whole card is clickable.
-- `web/src/components/DateBar.tsx` — optional `buckets` prop; renders a
-  `.day-dot` on each chip.
-- `web/src/components/icons.tsx` — added `WindDirIcon`, `SwellDirIcon`.
-- `web/src/components/parts.tsx` — `StarButton` now calls `preventDefault +
-  stopPropagation` in its onClick so it can be nested inside a clickable card.
-- `web/src/format.ts` — new `windClassWord()` helper (folds "cross-shore" to
-  "cross").
-- `web/src/styles.css` — `.spot-back-row`, `.date-chip .day-dot`,
-  `.hour-grid .swell-cell`, `.hour-grid .wind-cell` (+ `wc-{offshore,cross-shore,
-  onshore}` variants), rewritten `.map-sheet` (hosts a rank-card),
-  `a.rank-card` link styles, `.spot-switch .track` switched to `touch-action:
-  pan-x` + `user-select: none`.
+- `data/spots/israel.yaml` — dropped shared offshore_points/point + uniform 90°; per-spot
+  explicit `offshore_direction` (82–126° coastline-derived); 4 spots flagged TODO-verify.
+- `pipeline/src/rosa_pipeline/fetch.py` — added `fetch_many()` batched multi-location fetch
+  (Open-Meteo returns per-location array; full run = 2 requests).
+- `pipeline/src/rosa_pipeline/spots.py` — per-spot offshore_point (own coord − 0.06° lon);
+  offshore_direction explicit-else-neighbour-tangent fallback.
+- `pipeline/src/rosa_pipeline/cli.py` — batched fetch of unique points; skip-and-warn dry cells.
+- `pipeline/tests/{test_cli,test_spots}.py`, fixture renamed → `32.3817_34.8035.json` (beit-yanai pt).
+- `web/index.html`, `web/src/main.tsx`, `web/src/splash.ts` — splash + readiness signal.
+- `web/src/components/parts.tsx`, `web/src/styles.css` — header brand lockup, dot, favorites width.
+- `web/src/pages/{SpotsPage,TodayPage,SpotPage,MapPage,SettingsPage}.tsx` — star toggle,
+  favorites cards, date-bar dots, daylight sessions, per-page signalReady().
+- `web/vite.config.ts` — PWA icon = icon-maskable (any maskable).
+- `rosa-forecast-improvements.md` — Surfline-methodology-derived improvement plan (untracked).
 
 ## Changes Made This Session
-1. **Header + drawer on spot page**: dropped the old `spot-head-min` header;
-   spot page now uses the standard `AppHeader` and adds a non-sticky
-   `.spot-back-row` beneath it (back arrow left, star right). `TabBar` gated
-   removed in `app.tsx` so the drawer stays visible on `/spot/:id`.
-2. **Draggable spot switcher**: removed `scrollIntoView` on the current chip;
-   added pointer-event drag for mouse users; CSS `touch-action: pan-x` unblocks
-   native horizontal touch scroll (was `pan-y`, which prevented it). Drag
-   suppresses the subsequent chip click.
-3. **Direction indicators + wind wording**: two new SVG icons; hourly wind
-   cell now stacks `arrow + kts` / `cardinal` / small uppercase class word,
-   colored per class; container has soft background + 8 px radius so the wind
-   reading reads as one block. Swell column also stacks period + cardinal with
-   the new outlined arrow.
-4. **DateBar colored dot**: optional `buckets` prop; 6 px tier-colored dot at
-   the bottom of each chip with a subtle ring so it survives the dark `.on`
-   pill.
-5. **Map compact card**: extracted `SpotCard` + `dayView` into
-   `web/src/components/SpotCard.tsx`; `SpotCard` is now a full `<a>` (star
-   inside stops propagation), map sheet renders it directly; skeleton keeps
-   layout while payload loads.
-
-Not committed in this session (pre-existing local changes to preserve for the
-user): `web/public/icon.svg`, `web/public/icon-maskable.svg`,
-`web/public/favicon.svg`.
+1. Live-drag date highlight (committed earlier d97cb8c) + merged a divergent parallel branch
+   (spot polish + refreshed icons) — resolved DateBar conflict keeping both dots + live highlight.
+2. Date-bar dots: removed on Home (multiple spots = misleading), kept borderless on spot screen.
+3. Spots tab: rows → `<a>` links with real StarButton (tap star = fav, tap row = open);
+   Favorites now render the same compact SpotCard as Home; fixed double-inset width via
+   `.spots-page .rank-list { padding:0 }`.
+4. Daylight sessions: `sessionChips` in SpotPage.tsx gated to slots between first/last light
+   (spot-local minutes via fmtClock) — killed the pre-dawn 03:00 "best session".
+5. Splash screen (index.html/main.tsx/splash.ts): red bg + white mark (favicon as CSS mask) +
+   wordmark; holds until appReady (each page fires signalReady on data-load/err, 10s cap) +
+   fonts + min 1s; blinking "loading" under wordmark.
+6. Header brand lockup: red favicon mark + "rosa" + baseline circular dot (icon red #d82619),
+   icon 0.72em (a bit taller than text), spacing = one dot-width via --brand-dot (2.5px).
+7. PWA app icon → icon-maskable (any maskable) + apple-touch-icon.
+8. **Per-spot differentiation** (the main work): diagnosed that ~22 spots shared offshore point
+   `il_central` + identical params → byte-identical forecasts (proved via CDP DOM read; frontend
+   was NOT the bug). Implemented per-spot sampling (batched fetch, validated Open-Meteo array
+   response) + coastline-derived offshore_direction (pulled full OSM coastline in 1 Overpass query,
+   computed shore-normal per spot with land-on-left convention, length-weighted over ~600m to
+   outvote jetties/marinas). Baked explicit into DB. Regenerated all 40 spots live, synced to web.
+9. Committed in 2 groups (d1c0c40 pipeline, 97dea12 web), pushed, deployed.
+10. Produced a Surfline-research prompt for the user's Claude Chrome extension; results saved
+    to rosa-forecast-improvements.md.
 
 ## Failed Attempts
-- **Local dev/build/deploy**: Node.js isn't installed on the current machine
-  (`node`, `npm`, `bun`, `pnpm`, `yarn` all missing from PATH; `winget install
-  OpenJS.NodeJS.LTS` needed). Could not run `tsc --noEmit`, `npm run dev`, or
-  `npm run deploy` — user to run locally.
+- **Neighbour-spot bearing for offshore_direction** — first approach derived coast tangent from
+  bearing between adjacent spots in the N→S list. Fails at Haifa Bay: sparse spots + ~90° coast
+  bend → the spot-to-spot vector cuts across the bay mouth (bat-galim came out 168°). Replaced
+  with OSM coastline shore-normal.
+- **Coastline nearest-segment, inverse-distance weighted** — over-favours a 3m marina/jetty
+  segment (tel-baruch 157°, herzliya-marina 57°). Fixed with length-weighted average over a
+  ~600–1300m window so short man-made features get outvoted.
+- **Flex `align-items:baseline` for the header dot** — empty flex-item baseline synthesis put the
+  dot mid-height, not on the text baseline. Switched to inline-block + `vertical-align:baseline`.
+- **Flex `gap` on `.brand`** — spaced "rosa" from its accent dot ("rosa ."). Wrapped word+dot in
+  a sub-span so gap only separates mark from word.
+- Coastline averaging still can't resolve true headlands/peninsulas (Carmel tip, Akko) — those 4
+  spots left flagged for local knowledge (not a fixable-by-geometry problem).
 
 ## Next Step
-1. **Deploy**: `cd web && npm install && npm run deploy` once Node is
-   available.
-2. **Verify in browser**:
-   - Spot page: header + drawer visible; back arrow on its own row.
-   - Nearby switcher: drag with mouse and touch; tapping a spot does NOT jerk
-     the strip.
-   - Hourly grid: swell arrow ≠ wind arrow; wind column shows
-     offshore/cross/onshore class in color.
-   - DateBar dots on Today + Spot.
-   - Map: tap a pin → compact card in the sheet; the whole card opens the
-     forecast (no CTA button).
-3. **Carried forward**: top up the 4 south spots to 16 days when
-   `api.open-meteo.com` is reachable, then redeploy. GitHub Actions cron for
-   `run --all` (task 4) still pending; needs `VERCEL_TOKEN` secret.
-4. **Watch**: does GFS-Wave's absolute height agree with `best_match` at the
-   day-9 seam across spots (0.10 m mean diff measured at beit-yanai).
+1. **Pin the 4 flagged angles** once the user gives correct offshore_direction for akko-argaman,
+   kiryat-yam, bat-galim, backdoor-haifa — edit israel.yaml, `run --all`, `cd web && npm run deploy`.
+2. **Start the algorithm improvements** in `rosa-forecast-improvements.md` (build order: #1+#2+#3
+   first — they target Med windswell and unlock the rest). FIRST concrete move: a ~10-min probe of
+   what spectral/directional-spread fields Open-Meteo Marine + NOAA GFS-Wave actually expose —
+   that decides how far #2 (spectral bands, "missed swell" fix) and #3 (directional-spread quality
+   term) can go before touching code. #1 = GEBCO shoaling+refraction in transform.py (replaces the
+   single height_coeff; needs a bathymetry ray per spot + dispersion relation).
+3. Watch item: #5 in the report notes the current `q(T)=clamp((T/10)^1.4,…)` may double-count
+   period once #1 (physics-based) lands — fold period into the energy/shoaling path, don't stack.
