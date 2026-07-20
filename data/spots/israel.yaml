@@ -39,7 +39,7 @@ spots:
   # ---- central ----
   - { id: caesarea-aqueduct, name: Caesarea Aqueduct,      lat: 32.5132, lon: 34.8967, point: il_central, <<: *il }  # google-geocoded
   - { id: sdot-yam,          name: Sdot Yam / Caesarea,    lat: 32.4926, lon: 34.8931, point: il_central, <<: *il }  # google-geocoded
-  - { id: olga,              name: Olga Beach,             lat: 32.4500, lon: 34.8660, point: il_central, <<: *il }  # TODO verify
+  - { id: olga,              name: Olga Beach,             lat: 32.4391, lon: 34.8780, point: il_central, <<: *il }  # sat-verified 2026-07-20 (current was offshore; google beach POI on coast)
   - { id: michmoret,         name: Michmoret (Kushi),      lat: 32.4065, lon: 34.8716, point: il_central, <<: *il }  # google-geocoded
   - { id: beit-yanai,        name: Beit Yanai,             lat: 32.3817, lon: 34.8635, point: il_central, <<: *il }  # google-geocoded
   - { id: netanya-sironit,   name: Sironit (Netanya),      lat: 32.3264, lon: 34.8466, point: il_central, <<: *il }  # google-geocoded
