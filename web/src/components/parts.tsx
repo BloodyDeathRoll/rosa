@@ -56,10 +56,20 @@ export function Spark({
   stretch?: boolean;
 }) {
   if (hours.length < 2) return null;
-  const pts = hours.map(
-    (x, i) =>
-      `${((i / (hours.length - 1)) * w).toFixed(1)},${(h - 2 - Math.min(1, x.h_mid / 1.3) * (h - 6)).toFixed(1)}`
-  );
+  // auto-scale to the day's own min/max so intraday shape is visible even on
+  // small Med days; the range label beside it carries absolute magnitude. A
+  // floor keeps near-flat days from amplifying noise into fake swings.
+  const vals = hours.map((x) => x.h_mid);
+  const lo = Math.min(...vals);
+  const hi = Math.max(...vals);
+  const span = Math.max(hi - lo, 0.15);
+  const pad = 3;
+  const usable = h - 2 * pad;
+  const pts = hours.map((x, i) => {
+    const px = ((i / (hours.length - 1)) * w).toFixed(1);
+    const py = (hi === lo ? h / 2 : pad + ((hi - x.h_mid) / span) * usable).toFixed(1);
+    return `${px},${py}`;
+  });
   return (
     <svg
       class="spark"

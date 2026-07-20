@@ -1,5 +1,5 @@
-import { useEffect, useState } from "preact/hooks";
-import { fetchSpot } from "../api";
+import { useEffect, useRef, useState } from "preact/hooks";
+import { fetchIndex, fetchSpot } from "../api";
 import {
   ArrowIcon,
   ChevronLeftIcon,
@@ -22,10 +22,12 @@ import {
   knots,
   splitName,
 } from "../format";
+import { distanceKm } from "../geo";
+import { TideSection } from "../components/TideSection";
 import { setPendingPin } from "./MapPage";
 import { fmtClock, sunTimes } from "../sun";
 import { fmtH, fmtTemp, heightUnit, useUnits, type Units } from "../units";
-import type { DayEntry, HourEntry, SpotPayload } from "../types";
+import type { DayEntry, HourEntry, IndexEntry, SpotPayload } from "../types";
 
 function qClass(q: number): string {
   return q >= 0.7 ? "q-good" : q >= 0.45 ? "q-fair" : q >= 0.25 ? "q-warn" : "q-poor";
@@ -95,47 +97,6 @@ function chipEnd(h: HourEntry): string {
   return `${String((Number(h.t.slice(11, 13)) + 3) % 24).padStart(2, "0")}:00`;
 }
 
-/** Micro-tidal placeholder curve exactly as mocked (M2 sine) — the pipeline
-    doesn't publish tides yet; Med spots are sparkline-only by design. */
-function TideSection({ nowT, metric }: { nowT: string; metric: boolean }) {
-  const pts: string[] = [];
-  for (let t = 0; t <= 48; t++) {
-    const hr = t / 2;
-    const y = 35 - 20 * Math.sin(((hr - 8.2) / 12.42) * 2 * Math.PI);
-    pts.push(`${((hr / 24) * 326).toFixed(1)},${y.toFixed(1)}`);
-  }
-  const line = `M${pts.join(" L")}`;
-  const nowX = (
-    ((Number(nowT.slice(11, 13)) + Number(nowT.slice(14, 16)) / 60) / 24) *
-    326
-  ).toFixed(1);
-  return (
-    <div class="tide-sec">
-      <div class="head">
-        <span class="eyebrow">Tide</span>
-        <span class="note">~0.3 m range — barely matters here</span>
-      </div>
-      <svg width="358" height="52" viewBox="0 0 326 70" preserveAspectRatio="none">
-        <path d={`${line} L326,70 L0,70 Z`} fill="rgba(217,119,86,0.10)" stroke="none" />
-        <path d={line} fill="none" stroke="var(--accent)" stroke-width="1.5" />
-        <line
-          x1={nowX}
-          y1="6"
-          x2={nowX}
-          y2="64"
-          stroke="var(--foreground)"
-          stroke-width="1"
-          stroke-dasharray="2 3"
-        />
-      </svg>
-      <div class="lohi tabular">
-        <span class="hi">High 14:20 · {metric ? "0.4 m" : "1.3 ft"}</span>
-        <span class="lo">Low 21:05 · {metric ? "0.2 m" : "0.7 ft"}</span>
-      </div>
-    </div>
-  );
-}
-
 function HourRow({ h, units }: { h: HourEntry; units: Units }) {
   const swell = h.swells.find((s) => s.in_window) ?? h.swells[0];
   return (
@@ -146,10 +107,10 @@ function HourRow({ h, units }: { h: HourEntry; units: Units }) {
         style={`background:${h.bucket === "FLAT" ? "var(--border)" : ratingVar(h.bucket)}`}
       />
       <span class="surf">
-        <b class="tabular">{fmtH(h.h_mid, units)}</b>
-        <small class="tabular">
+        <b class="tabular">
           {fmtH(h.h[0], units)}–{fmtH(h.h[1], units)}
-        </small>
+        </b>
+        <small class="tabular">{fmtH(h.h_mid, units)}</small>
       </span>
       <span class="vec">
         {swell ? (
@@ -173,11 +134,47 @@ function HourRow({ h, units }: { h: HourEntry; units: Units }) {
   );
 }
 
+/** Horizontal spot chips (design 1a): selected in the dark accent, centered;
+    tap to jump. Swiping is handled at the screen level in SpotPage. */
+function SpotSwitcher({ spots, currentId }: { spots: [string, IndexEntry][]; currentId: string }) {
+  const selRef = useRef<HTMLAnchorElement>(null);
+  useEffect(() => {
+    // pin the selected spot to the left edge of the strip
+    selRef.current?.scrollIntoView({ inline: "start", block: "nearest", behavior: "smooth" });
+  }, [currentId]);
+  return (
+    <div class="spot-switch">
+      <div class="track">
+        {spots.map(([sid, e]) => {
+          const on = sid === currentId;
+          return (
+            <a
+              key={sid}
+              ref={on ? selRef : undefined}
+              class={`schip${on ? " on" : ""}`}
+              href={`#/spot/${sid}`}
+              aria-current={on ? "page" : undefined}
+            >
+              {splitName(e.name).name}
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+const SWIPE_MIN = 45; // px of horizontal travel before a swipe changes spot
+const NEAR_RADIUS_KM = 20; // switcher + swipe reach
+
 export function SpotPage({ id }: { id: string }) {
   const [data, setData] = useState<SpotPayload | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [favs, setFavs] = useState<string[]>(getFavorites);
   const [daySel, setDaySel] = useState(0);
+  const [spots, setSpots] = useState<[string, IndexEntry][]>([]);
+  const swipeStart = useRef<{ x: number; y: number } | null>(null);
+  const navDir = useRef(0); // -1 north / +1 south — drives the slide-in direction
   const units = useUnits();
 
   useEffect(() => {
@@ -188,50 +185,91 @@ export function SpotPage({ id }: { id: string }) {
     fetchSpot(id).then(setData, (e: Error) => setError(e.message));
   }, [id]);
 
+  useEffect(() => {
+    // north→south ordering, same as the map drawer's swipe order
+    fetchIndex().then(
+      (idx) => setSpots(Object.entries(idx.spots).sort(([, a], [, b]) => b.lat - a.lat)),
+      () => undefined
+    );
+  }, []);
+
   const goBack = () => {
-    if (history.length > 1) history.back();
-    else location.hash = "#/";
+    location.hash = "#/";
   };
+
+  // switcher + swipe are limited to spots within 20 km of the current one
+  const curEntry = spots.find(([sid]) => sid === id)?.[1];
+  const nearSpots = curEntry
+    ? spots.filter(
+        ([, e]) =>
+          distanceKm({ lat: curEntry.lat, lon: curEntry.lon }, { lat: e.lat, lon: e.lon }) <=
+          NEAR_RADIUS_KM
+      )
+    : [];
+  const idx = nearSpots.findIndex(([sid]) => sid === id);
+  const step = (delta: number) => {
+    const next = nearSpots[idx + delta];
+    if (!next) return;
+    navDir.current = delta;
+    location.hash = `#/spot/${next[0]}`;
+  };
+
+  const onPointerDown = (e: PointerEvent) => {
+    swipeStart.current = { x: e.clientX, y: e.clientY };
+  };
+  const onPointerUp = (e: PointerEvent) => {
+    const s = swipeStart.current;
+    swipeStart.current = null;
+    if (!s) return;
+    const dx = e.clientX - s.x;
+    const dy = e.clientY - s.y;
+    if (Math.abs(dx) < SWIPE_MIN || Math.abs(dx) <= Math.abs(dy)) return;
+    step(dx < 0 ? 1 : -1); // swipe left → next (south), right → prev (north)
+  };
+
+  const header = (
+    <header class="app-head spot-head-min">
+      <button class="spot-back" onClick={goBack} aria-label="Back">
+        <ChevronLeftIcon />
+      </button>
+      {data && (
+        <StarButton
+          on={favs.includes(id)}
+          name={splitName(data.spot.name).name}
+          onToggle={() => setFavs(toggleFavorite(id))}
+        />
+      )}
+    </header>
+  );
 
   if (error || !data) {
     return (
       <main class="page">
-        <header class="app-head">
-          <button class="spot-back" onClick={goBack} aria-label="Back">
-            <ChevronLeftIcon />
-            <span class="name">…</span>
-          </button>
-        </header>
+        {header}
+        {nearSpots.length > 1 && <SpotSwitcher spots={nearSpots} currentId={id} />}
         <p class="state">{error ?? "Loading…"}</p>
       </main>
     );
   }
 
-  const { name, region } = splitName(data.spot.name);
   const cur = data.current;
   const days = data.days.slice(0, 7);
   const day = days[daySel] ?? days[0];
   const dayHours = day ? data.hours.filter((h) => dateOf(h.t) === day.date) : [];
   const chips = sessionChips(dayHours);
   const today = data.hours[0] ? dateOf(data.hours[0].t) : "";
-  const isFav = favs.includes(id);
   const sun = day
     ? sunTimes(new Date(`${day.date}T12:00:00Z`), data.spot.lat, data.spot.lon)
     : null;
+  const dirClass =
+    navDir.current === 1 ? "from-right" : navDir.current === -1 ? "from-left" : "";
 
   return (
     <main class="page">
-      <header class="app-head" style="padding:0 12px">
-        <button class="spot-back" onClick={goBack} aria-label="Back">
-          <ChevronLeftIcon />
-          <span class="name">
-            {name} {region && <span class="region">· {region}</span>}
-          </span>
-        </button>
-        <StarButton on={isFav} name={name} onToggle={() => setFavs(toggleFavorite(id))} />
-      </header>
-
-      <div class="spot-main">
+      {header}
+      {nearSpots.length > 1 && <SpotSwitcher spots={nearSpots} currentId={id} />}
+      <div class="spot-swipe" onPointerDown={onPointerDown} onPointerUp={onPointerUp}>
+        <div class={`spot-main spot-view ${dirClass}`} key={id}>
         <section class="spot-card">
           <div class="inner">
             <div class="pill-row">
@@ -345,6 +383,7 @@ export function SpotPage({ id }: { id: string }) {
             </span>
           </div>
         )}
+        </div>
       </div>
     </main>
   );

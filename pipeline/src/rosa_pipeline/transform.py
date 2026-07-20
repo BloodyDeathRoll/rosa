@@ -42,12 +42,16 @@ def height_in_window(partitions: tuple[SwellPartition, ...], window: tuple[float
     return math.sqrt(sum(p.height_m**2 for p in partitions if in_window(p.direction_deg, window)))
 
 
+PERIOD_EXP = 1.4  # calibration knob: 2.0 = old quadratic (too cold), 1.0 = linear (too hot)
+
+
 def period_quality(period_s: float) -> float:
-    """q(T) = clamp((T/10)^2, 0.15, 1.2): short-period windswell breaks far below its
-    offshore height; long-period groundswell shoals above it. Quadratic shape set by
-    calibration point #1 (buoy-confirmed 0.56 m @ 6.5 s = ankle-high faces).
-    Calibrate from docs/CALIBRATION.md."""
-    return min(1.2, max(0.15, (period_s / 10.0) ** 2))
+    """q(T) = clamp((T/10)^1.4, 0.3, 1.2): short-period windswell breaks below its offshore
+    height; long-period groundswell shoals above it. Exponent set by calibration row 2
+    (2026-07-20): the quadratic under-called Med windswell 2-3x vs Surfline; pure linear
+    over-called it to FAIR. 1.4 keeps a ~5 s, ~0.9 m windswell day at 0.3-0.4 m POOR
+    (poor-to-fair) while a flat 0.5 m day stays 0.1-0.2 m. Calibrate from docs/CALIBRATION.md."""
+    return min(1.2, max(0.3, (period_s / 10.0) ** PERIOD_EXP))
 
 
 def effective_height_in_window(
@@ -77,9 +81,14 @@ def _snap(x: float) -> float:
 
 
 def breaker_range(h_in_window: float, height_coeff: float) -> tuple[float, float, float]:
-    """(lo, mid, hi): h_break = H_in_window x height_coeff, displayed as +/-20% snapped to 0.1 m."""
+    """(lo, mid, hi): h_break = H_in_window x height_coeff, displayed as +/-20% snapped to
+    0.1 m, with the band widened to a real >=0.1 m spread ("0.1-0.1" isn't a range)."""
     mid = h_in_window * height_coeff
-    return _snap(mid * 0.8), mid, _snap(mid * 1.2)
+    lo = _snap(mid * 0.8)
+    hi = _snap(mid * 1.2)
+    if hi - lo < 0.1:
+        hi = round(lo + 0.1, 1)
+    return lo, mid, hi
 
 
 _PHRASES: tuple[tuple[float, str], ...] = (

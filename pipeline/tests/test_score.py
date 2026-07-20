@@ -101,10 +101,10 @@ class TestBucket:
 
 class TestScoreHour:
     def test_good_day(self):
-        # chest-high 10s W swell, light offshore -> size 40 + period 10 + wind 40 = 90
-        # (q(10) = 1.0 so effective height == raw; wind gate saturated at (40+10)/30)
+        # chest-high 10s W swell, light offshore -> size 40 + period 10 + wind 33 = 83
+        # (q(10) = 1.0 so effective height == raw; wind gate (40+10)/60 = 0.83, not saturated)
         s = score_hour(SPOT, hour((SwellPartition(1.0, 10.0, 290.0),)))
-        assert s.rating == 90
+        assert s.rating == 83
         assert s.bucket == "FIRING"
         assert s.wind_class == "offshore"
         assert s.phrase == "chest-high"
@@ -134,29 +134,28 @@ class TestScoreHour:
 
 
 class TestCalibrationFix1:
-    """Regression for 2026-07-19 Beit Yanai: 0.66 m @ 5.2 s windswell read waist-high
-    GOOD 56 (FIRING 73 at night). Cam showed ankle-high; ISRAMAR Hadera buoy confirmed
-    the offshore input (Hs 0.56 m @ 6.5 s), pinning the error on the height transform."""
+    """Regression for the two failure modes fix #1 caught, held under the row-2 (linear q,
+    2026-07-20) recalibration: a cross-shore daytime windswell stays POOR, and a perfect
+    night land breeze on the same swell can't inflate past FAIR (it was FIRING 77).
+    Row 2 (q exp 1.4) reads the height moderately higher than the old quadratic to match
+    Surfline LOTUS without over-calling — this windswell stays shin-high POOR. See
+    docs/CALIBRATION.md."""
 
     WINDSWELL = (SwellPartition(0.66, 5.2, 290.0),)
 
-    def test_windswell_height_discounted(self):
-        s = score_hour(SPOT, hour(self.WINDSWELL, 12.9, 216.0))  # the audited conditions
-        assert s.phrase == "shin-high"  # was waist-high; cam said ankle at best
-        assert s.h_break_mid < 0.25
-
     def test_windswell_daytime_rating(self):
-        s = score_hour(SPOT, hour(self.WINDSWELL, 12.9, 216.0))
-        assert s.bucket == "POOR"  # was GOOD 56; Surfline + cam said POOR
+        s = score_hour(SPOT, hour(self.WINDSWELL, 12.9, 216.0))  # the audited conditions
+        assert s.phrase == "shin-high"  # row 2 exp 1.4 reads ~0.26 m
+        assert s.bucket == "POOR"  # cross-shore wind keeps it POOR (rating 22)
         assert s.rating < 30
 
     def test_night_land_breeze_cannot_fire(self):
-        # perfect light offshore on the same junk swell: was FIRING 77
+        # perfect light offshore on the same swell: was FIRING 77, must never fire
         s = score_hour(SPOT, hour(self.WINDSWELL, 6.4, 90.0))
-        assert s.bucket == "POOR"
-        assert s.wind_score < 40  # gate applied: stored wind is the gated value
+        assert s.bucket == "POOR"  # never GOOD/FIRING off wind alone (rating 29)
+        assert s.wind_score < 40  # wind gate (denom 60) still clamps the stored value
 
     def test_wind_gate_saturates_on_real_swell(self):
-        # size 40 + period 10 >= 30 -> gate is 1, wind untouched
-        s = score_hour(SPOT, hour((SwellPartition(1.0, 10.0, 290.0),)))
+        # size 40 + period 20 >= 60 -> gate is 1, wind untouched
+        s = score_hour(SPOT, hour((SwellPartition(1.0, 14.0, 290.0),)))
         assert s.wind_score == 40

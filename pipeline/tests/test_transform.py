@@ -86,20 +86,20 @@ class TestPeriodQuality:
     def test_reference_period(self):
         assert period_quality(10.0) == 1.0
 
-    def test_windswell_discounted_quadratically(self):
-        assert period_quality(5.0) == pytest.approx(0.25)
+    def test_windswell_discounted(self):
+        assert period_quality(5.0) == pytest.approx(0.5**1.4)  # exp 1.4 (calibration row 2)
 
     def test_clamps(self):
-        assert period_quality(3.0) == 0.15  # floor
-        assert period_quality(12.0) == 1.2  # groundswell cap (1.44 clamped)
+        assert period_quality(3.0) == 0.3  # floor
+        assert period_quality(12.0) == 1.2  # groundswell cap (1.2 clamped)
         assert period_quality(20.0) == 1.2
 
 
 class TestEffectiveHeight:
     def test_short_period_discounted(self):
-        # calibration fix #1 (buoy-confirmed): 0.66 m @ 5.2 s surfs ankle-high ~0.18 m
+        # calibration row 2 (q exp 1.4): 0.66 m @ 5.2 s surfs shin-high ~0.26 m
         h = effective_height_in_window((swell(0.66, 5.2, 290),), WINDOW)
-        assert h == pytest.approx(0.66 * 0.52**2)
+        assert h == pytest.approx(0.66 * 0.52**1.4)
 
     def test_long_period_boosted(self):
         h = effective_height_in_window((swell(1.0, 14.0, 290),), WINDOW)

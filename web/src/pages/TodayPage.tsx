@@ -1,91 +1,143 @@
 import { useEffect, useState } from "preact/hooks";
 import { fetchIndex, fetchSpot } from "../api";
+import { SatMap } from "../components/MiniMap";
 import { SearchIcon, ShirtIcon, ThermometerIcon, WavesIcon } from "../components/icons";
 import { AppHeader, Pill, Spark, SpotTitle, StarButton } from "../components/parts";
+import { TideSection } from "../components/TideSection";
+import { ratingVar } from "../conditions";
 import { getFavorites, toggleFavorite } from "../favorites";
-import { bestWindow, cardinal, dateOf, splitName, windLabel } from "../format";
+import { bestWindow, cardinal, dateOf, dayLabel, splitName, windLabel } from "../format";
 import { distanceKm, getPosition } from "../geo";
 import { getRecents } from "../recents";
-import { fmtH, fmtTemp, heightUnit, useUnits } from "../units";
-import type { SpotPayload } from "../types";
+import { fmtRange, fmtTemp, useUnits } from "../units";
+import type { HourEntry, SpotPayload } from "../types";
 
-const NEAR_RADIUS_KM = 50;
+const NEAR_COUNT = 3;
 
-function todayHours(data: SpotPayload) {
-  return data.hours.filter((h) => dateOf(h.t) === dateOf(data.hours[0]?.t ?? ""));
+function greeting(): string {
+  const h = new Date().getHours();
+  if (h < 5) return "Good night";
+  if (h < 12) return "Good morning";
+  if (h < 17) return "Good afternoon";
+  if (h < 21) return "Good evening";
+  return "Good night";
 }
 
-/** Rich card for the last spot the user opened. */
-function DetailCard({ data }: { data: SpotPayload }) {
+interface DayView {
+  bucket: HourEntry["bucket"];
+  range: [number, number];
+  rep: HourEntry;
+  hrs: HourEntry[];
+  bw: ReturnType<typeof bestWindow>;
+}
+
+/** A spot's conditions for one calendar day: the day's peak-rating hour drives
+    the wind/temp readout, the day summary drives the pill + surf range. */
+function dayView(data: SpotPayload, date: string): DayView {
+  const day = data.days.find((d) => d.date === date);
+  const hrs = data.hours.filter((h) => dateOf(h.t) === date);
+  const rep = [...hrs].sort((a, b) => b.rating - a.rating || b.h_mid - a.h_mid)[0] ?? data.current;
+  return {
+    bucket: day?.bucket ?? rep.bucket,
+    range: day?.h_max ?? data.current.h,
+    rep,
+    hrs,
+    bw: bestWindow(hrs),
+  };
+}
+
+function DetailCard({ data, date }: { data: SpotPayload; date: string }) {
   const units = useUnits();
-  const cur = data.current;
   const { name, region } = splitName(data.spot.name);
-  const swell = cur.swells.find((s) => s.in_window) ?? cur.swells[0];
-  const hrs = todayHours(data);
-  const bw = bestWindow(hrs);
+  const dv = dayView(data, date);
+  const swell = dv.rep.swells.find((s) => s.in_window) ?? dv.rep.swells[0];
+  const open = () => (location.hash = `#/spot/${data.spot.id}`);
   return (
-    <button class="detail-card" onClick={() => (location.hash = `#/spot/${data.spot.id}`)}>
-      <span class="top">
-        <SpotTitle name={name} region={region} />
-        <Pill bucket={cur.bucket} />
-      </span>
-      <span class="line tabular">
-        {fmtH(cur.h_mid, units)} {heightUnit(units)} · {windLabel(cur)}
-        {swell ? ` · ${Math.round(swell.period)} s ${cardinal(swell.dir)}` : ""}
-      </span>
-      <Spark hours={hrs} bucket={cur.bucket} w={326} h={36} stretch />
-      <span class="temps-row">
-        <span>
-          <ThermometerIcon />
-          <span class="tabular">air {cur.air !== null ? fmtTemp(cur.air, units) : "—"}</span>
+    <div class="detail-card">
+      <button class="open" onClick={open}>
+        <SatMap lat={data.spot.lat} lon={data.spot.lon} height={88} />
+        <div class="dc-body">
+        <span class="top">
+          <SpotTitle name={name} region={region} />
+          <Pill bucket={dv.bucket} />
         </span>
-        <span>
-          <WavesIcon />
-          <span class="tabular">water {cur.sst !== null ? fmtTemp(cur.sst, units) : "—"}</span>
+        <span class="range-row">
+          <span class="surf-range tabular">{fmtRange(dv.range, units)}</span>
+          <Spark hours={dv.hrs} bucket={dv.bucket} w={132} h={34} />
         </span>
-        {cur.wetsuit && (
+        <span class="line tabular">
+          {windLabel(dv.rep)}
+          {swell ? ` · ${Math.round(swell.period)} s ${cardinal(swell.dir)}` : ""}
+        </span>
+        <span class="temps-row">
           <span>
-            <ShirtIcon />
-            <span class="suit">{cur.wetsuit}</span>
+            <ThermometerIcon />
+            <span class="tabular">
+              air {dv.rep.air !== null ? fmtTemp(dv.rep.air, units) : "—"}
+            </span>
           </span>
-        )}
-      </span>
-      <span class="foot">
-        <span class="window">
-          Best window <b>{bw ? `${bw.start}–${bw.end}` : "none today"}</b>
+          <span>
+            <WavesIcon />
+            <span class="tabular">
+              water {dv.rep.sst !== null ? fmtTemp(dv.rep.sst, units) : "—"}
+            </span>
+          </span>
+          {data.current.wetsuit && (
+            <span>
+              <ShirtIcon />
+              <span class="suit">{data.current.wetsuit}</span>
+            </span>
+          )}
         </span>
-        <span class="accent-link">Open forecast →</span>
-      </span>
-    </button>
+        <span class="foot">
+          <span class="window">
+            Best window <b>{dv.bw ? `${dv.bw.start}–${dv.bw.end}` : "none"}</b>
+          </span>
+          <span class="accent-link">Open forecast →</span>
+        </span>
+        <TideSection nowT={dv.rep.t} metric={units.height === "m"} />
+        </div>
+      </button>
+    </div>
   );
 }
 
 function SpotCard({
   data,
+  date,
   km,
   isFav,
   onToggle,
 }: {
   data: SpotPayload;
+  date: string;
   km: number | undefined;
   isFav: boolean;
   onToggle: () => void;
 }) {
   const units = useUnits();
-  const cur = data.current;
   const { name, region } = splitName(data.spot.name);
+  const dv = dayView(data, date);
+  const href = `#/spot/${data.spot.id}`;
   return (
     <div class="rank-card">
-      <StarButton on={isFav} name={name} onToggle={onToggle} />
-      <button class="open" onClick={() => (location.hash = `#/spot/${data.spot.id}`)}>
-        <SpotTitle name={name} region={region} />
-        <span class="line tabular">
-          {fmtH(cur.h_mid, units)} {heightUnit(units)} · {windLabel(cur)}
-        </span>
-        <Spark hours={todayHours(data)} bucket={cur.bucket} />
-      </button>
+      <div class="mid">
+        <div class="title-row">
+          <StarButton on={isFav} name={name} size={16} onToggle={onToggle} />
+          <a class="name-link" href={href}>
+            <SpotTitle name={name} region={region} />
+          </a>
+        </div>
+        <a class="open" href={href}>
+          <span class="range-row">
+            <span class="surf-range tabular">{fmtRange(dv.range, units)}</span>
+            <Spark hours={dv.hrs} bucket={dv.bucket} w={110} h={26} />
+          </span>
+          <span class="line tabular">{windLabel(dv.rep)}</span>
+        </a>
+      </div>
       <div class="side">
-        <Pill bucket={cur.bucket} />
+        <Pill bucket={dv.bucket} />
         {km !== undefined && <span class="rank-n tabular">{Math.round(km)} km</span>}
       </div>
     </div>
@@ -98,6 +150,7 @@ export function TodayPage() {
   const [dists, setDists] = useState<Record<string, number>>({});
   const [error, setError] = useState<string | null>(null);
   const [favs, setFavs] = useState<string[]>(getFavorites);
+  const [daySel, setDaySel] = useState(0);
 
   useEffect(() => {
     let disposed = false;
@@ -107,29 +160,32 @@ export function TodayPage() {
         if (disposed) return;
         const entries = Object.entries(index.spots);
         const lastId = getRecents()[0];
+        const lastEntry = lastId !== undefined ? index.spots[lastId] : undefined;
+        const mid = (xs: number[]) => [...xs].sort((a, b) => a - b)[Math.floor(xs.length / 2)] ?? 0;
+        const at =
+          pos ??
+          (lastEntry
+            ? { lat: lastEntry.lat, lon: lastEntry.lon }
+            : { lat: mid(entries.map(([, e]) => e.lat)), lon: mid(entries.map(([, e]) => e.lon)) });
         const km: Record<string, number> = {};
-        if (pos) for (const [id, e] of entries) km[id] = distanceKm(pos, { lat: e.lat, lon: e.lon });
+        for (const [id, e] of entries) km[id] = distanceKm(at, { lat: e.lat, lon: e.lon });
         setDists(km);
-        // nearest spots within 50 km, closest first; full list north→south
-        // when location is denied or nothing is in range
-        const near = pos
-          ? entries
-              .filter(([id]) => (km[id] ?? Infinity) <= NEAR_RADIUS_KM)
-              .sort(([a], [b]) => (km[a] ?? 0) - (km[b] ?? 0))
-          : [];
-        const pool = near.length > 0 ? near : [...entries].sort(([, a], [, b]) => b.lat - a.lat);
-        const listIds = pool.map(([id]) => id).filter((id) => id !== lastId);
-        const wantDetail = lastId !== undefined && index.spots[lastId] !== undefined;
+        const byDist = [...entries].sort(([a], [b]) => (km[a] ?? 0) - (km[b] ?? 0));
+        const detailId = lastEntry ? lastId : byDist[0]?.[0];
+        const listIds = byDist
+          .map(([id]) => id)
+          .filter((id) => id !== detailId)
+          .slice(0, NEAR_COUNT);
         const results = await Promise.allSettled([
-          ...(wantDetail ? [fetchSpot(lastId)] : []),
+          ...(detailId !== undefined ? [fetchSpot(detailId)] : []),
           ...listIds.map(fetchSpot),
         ]);
         if (disposed) return;
         const loaded = results
           .filter((r): r is PromiseFulfilledResult<SpotPayload> => r.status === "fulfilled")
           .map((r) => r.value);
-        setDetail(wantDetail ? (loaded.find((d) => d.spot.id === lastId) ?? null) : null);
-        setCards(loaded.filter((d) => d.spot.id !== lastId));
+        setDetail(loaded.find((d) => d.spot.id === detailId) ?? null);
+        setCards(loaded.filter((d) => d.spot.id !== detailId));
       } catch (e) {
         if (!disposed) setError((e as Error).message);
       }
@@ -139,33 +195,65 @@ export function TodayPage() {
     };
   }, []);
 
+  const search = (
+    <a class="icon-btn" href="#/spots" aria-label="Search spots">
+      <SearchIcon />
+    </a>
+  );
+
+  if (error) {
+    return (
+      <main class="page">
+        <AppHeader right={search} />
+        <p class="state">{error}</p>
+      </main>
+    );
+  }
+  if (!cards) {
+    return (
+      <main class="page">
+        <AppHeader right={search} />
+        <p class="state">Loading…</p>
+      </main>
+    );
+  }
+
+  // day strip comes from the featured spot (all spots share the date range)
+  const days = (detail ?? cards[0])?.days.slice(0, 7) ?? [];
+  const today = days[0]?.date ?? "";
+  const selDate = days[daySel]?.date ?? today;
+
   return (
     <main class="page">
-      <AppHeader
-        right={
-          <a class="icon-btn" href="#/spots" aria-label="Search spots">
-            <SearchIcon />
-          </a>
-        }
-      />
-      {error ? (
-        <p class="state">{error}</p>
-      ) : !cards ? (
-        <p class="state">Loading…</p>
-      ) : (
-        <div class="rank-list" style="flex:1">
-          {detail && <DetailCard data={detail} />}
+      <AppHeader right={search} />
+      <div class="home">
+        <div class="greeting">
+          <h2>{greeting()}</h2>
+        </div>
+        {days.length > 0 && (
+          <div class="day-pills home-days">
+            {days.map((d, i) => (
+              <button key={d.date} class={i === daySel ? "on" : ""} onClick={() => setDaySel(i)}>
+                <span class="l">{dayLabel(d.date, today)}</span>
+                <span class="dot" style={`background:${ratingVar(d.bucket)}`} />
+              </button>
+            ))}
+          </div>
+        )}
+        <div class="day-view rank-list" key={daySel}>
+          {detail && <DetailCard data={detail} date={selDate} />}
           {cards.map((d) => (
             <SpotCard
               key={d.spot.id}
               data={d}
+              date={selDate}
               km={dists[d.spot.id]}
               isFav={favs.includes(d.spot.id)}
               onToggle={() => setFavs(toggleFavorite(d.spot.id))}
             />
           ))}
         </div>
-      )}
+      </div>
     </main>
   );
 }

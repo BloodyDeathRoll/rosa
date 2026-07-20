@@ -42,7 +42,7 @@ PERIOD_MAX = 20.0
 WIND_MAX = 40.0
 FLAT_HEIGHT_M = 0.15
 OVERSIZE_FLOOR = 10.0
-WIND_GATE_PTS = 30.0
+WIND_GATE_PTS = 60.0
 
 
 def size_score(h_break_mid: float, ideal_size_m: tuple[float, float]) -> float:
