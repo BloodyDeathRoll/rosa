@@ -424,12 +424,10 @@ button {
 .sat-map .sm-attr {
   position: absolute;
   right: 6px;
-  bottom: 3px;
+  bottom: 4px;
   font-size: 8px;
-  color: #5b5b5b;
-  background: rgba(255, 255, 255, 0.6);
-  padding: 0 3px;
-  border-radius: 3px;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 /* Rich last-viewed card at the top of Home */
