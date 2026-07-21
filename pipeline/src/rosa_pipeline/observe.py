@@ -43,6 +43,16 @@ def _num(token: str) -> float | None:
     return None if token == "MM" else float(token)
 
 
+def _csv_num(parts: list[str], i: int) -> float | None:
+    """A comma-column value, or None if absent/blank/placeholder."""
+    if i >= len(parts) or parts[i] in ("", "-", "MM"):
+        return None
+    try:
+        return float(parts[i])
+    except ValueError:
+        return None
+
+
 def parse_ndbc_txt(text: str, station: str) -> list[BuoyObs]:
     """Parse an NDBC standard-met file into observations, oldest-first.
 
@@ -104,3 +114,58 @@ class NDBCFixtureSource:
     def fetch(self, buoy: Buoy) -> list[BuoyObs]:
         path = self.fixtures_dir / f"ndbc_{buoy.id}.txt"
         return parse_ndbc_txt(path.read_text(encoding="utf-8"), buoy.id)
+
+
+def parse_isramar_csv(text: str, station: str) -> list[BuoyObs]:
+    """Parse a manual-import ISRAMAR csv into observations, oldest-first.
+
+    Columns: ``time_utc, hs_m, period_s, dir_deg[, wtmp_c]`` — blank/`-`/`MM` = missing,
+    `#` lines ignored. NOTE: ISRAMAR usually displays *peak* period; it's stored in the
+    period slot the harness compares to the model's MEAN wave_period, so expect the same
+    peak-vs-mean offset seen at NDBC (a known, documented bias, not an error)."""
+    obs: list[BuoyObs] = []
+    for line in text.splitlines():
+        line = line.strip()
+        if not line or line.startswith("#"):
+            continue
+        parts = [p.strip() for p in line.split(",")]
+        if len(parts) < 2:
+            continue
+        try:
+            t = datetime.fromisoformat(parts[0])
+        except ValueError:
+            continue
+        if t.tzinfo is None:
+            t = t.replace(tzinfo=UTC)
+        obs.append(
+            BuoyObs(
+                station=station,
+                time=t,
+                hs_m=_csv_num(parts, 1),
+                dpd_s=None,
+                apd_s=_csv_num(parts, 2),
+                mwd_deg=_csv_num(parts, 3),
+                wtmp_c=_csv_num(parts, 4),
+            )
+        )
+    obs.sort(key=lambda o: o.time)
+    return obs
+
+
+class ISRAMARLocalSource:
+    """ISRAMAR truth, MANUAL-IMPORT ONLY — Rosa never fetches ISRAMAR.
+
+    ISRAMAR data is all-rights-reserved and its download endpoints are robots-disallowed, so
+    there is no automated fetch here by design (CLAUDE.md red line: manual validation during
+    calibration; partnership before any integration). The operator reads the ISRAMAR real-time
+    display and pastes rows into ``data/verify/isramar/<station>.csv`` — gitignored, never
+    shipped, never committed. This just reads that local file."""
+
+    def __init__(self, root: Path) -> None:
+        self.root = root
+
+    def fetch(self, buoy: Buoy) -> list[BuoyObs]:
+        path = self.root / f"{buoy.id}.csv"
+        if not path.exists():
+            return []
+        return parse_isramar_csv(path.read_text(encoding="utf-8"), buoy.id)

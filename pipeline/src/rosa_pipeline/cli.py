@@ -23,11 +23,11 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 from .archive import FileArchiveStore, rows_from_model
-from .buoys import Buoy, load_buoys, nearest_buoys
+from .buoys import Buoy, load_all_buoys, nearest_buoys
 from .extract import extract_hours
 from .fetch import FixtureSource, ForecastSource, OpenMeteoSource, fetch_marine_waves
 from .models import Spot
-from .observe import NDBCFixtureSource, NDBCSource
+from .observe import ISRAMARLocalSource, NDBCFixtureSource, NDBCSource
 from .publish import build_payload, update_index, write_spot_json
 from .score import score_hour
 from .spots import load_spots
@@ -40,6 +40,7 @@ from .verify import (
 )
 
 ARCHIVE_DIR = Path("data/verify/archive")
+ISRAMAR_DIR = Path("data/verify/isramar")  # local-only, gitignored (all-rights-reserved)
 
 
 def _build_parser() -> argparse.ArgumentParser:
@@ -66,6 +67,7 @@ def _build_parser() -> argparse.ArgumentParser:
     verify.add_argument("--radius-km", type=float, default=150.0, help="--near search radius")
     verify.add_argument("--limit", type=int, default=1, help="--near: max buoys to score")
     verify.add_argument("--tol-min", type=int, default=30, help="model/obs time-match tolerance")
+    verify.add_argument("--isramar-dir", type=Path, default=ISRAMAR_DIR)
     verify.add_argument(
         "--archive",
         action="store_true",
@@ -81,6 +83,7 @@ def _build_parser() -> argparse.ArgumentParser:
     )
     archive.add_argument("--buoy", help="one buoy id; default = every buoy in the registry")
     archive.add_argument("--buoys-dir", type=Path, default=Path("data/buoys"))
+    archive.add_argument("--isramar-dir", type=Path, default=ISRAMAR_DIR)
     archive.add_argument("--archive-dir", type=Path, default=ARCHIVE_DIR)
     archive.add_argument("--fixtures", type=Path, default=None, help="replay marine json (offline)")
     archive.add_argument("--capture", type=Path, default=None, help="capture responses to this dir")
@@ -144,7 +147,10 @@ def _cmd_run(args: argparse.Namespace) -> int:
 
 
 def _obs_for(buoy: Buoy, args: argparse.Namespace):
-    if args.obs_fixtures is not None:
+    if buoy.source == "isramar":
+        # never fetched — reads the local manual-import csv only (all-rights-reserved)
+        return ISRAMARLocalSource(args.isramar_dir).fetch(buoy)
+    if getattr(args, "obs_fixtures", None) is not None:
         return NDBCFixtureSource(args.obs_fixtures).fetch(buoy)
     return NDBCSource(capture_dir=args.capture).fetch(buoy)
 
@@ -163,7 +169,7 @@ def _model_for(buoy: Buoy, args: argparse.Namespace):
 
 
 def _cmd_verify(args: argparse.Namespace) -> int:
-    buoys = load_buoys(args.buoys_dir)
+    buoys = load_all_buoys(args.buoys_dir, args.isramar_dir)
 
     targets: list[tuple[Buoy, float | None]]
     if args.buoy:
@@ -204,7 +210,7 @@ def _cmd_verify(args: argparse.Namespace) -> int:
 
 
 def _cmd_archive(args: argparse.Namespace) -> int:
-    buoys = load_buoys(args.buoys_dir)
+    buoys = load_all_buoys(args.buoys_dir, args.isramar_dir)
     if args.buoy:
         buoy = buoys.get(str(args.buoy))
         if buoy is None:

@@ -213,6 +213,14 @@ tide (Stage 2) and Stage 4 pay off most as the app goes worldwide.
   to ~1 h/run → cents/day. Users still pay nothing; serving is still static CDN. This is the only
   new operating expense and it is small and bounded. Regional grids keep SWAN tractable.
 
+**Scheduling host — DECIDED 2026-07-21: Oracle Cloud Always Free VM** (skip the GitHub-Actions
+interim; go straight to the lasting home). Rationale: it runs *every* stage including the heavy
+GRIB + SWAN work, and its **persistent disk holds the forecast archive directly** — so no
+fresh-checkout wipe and no R2 round-trip needed for accumulation (R2 stays the option for serving
+static output later). System cron / systemd timers fire `run --all` + `archive` on schedule.
+Caveats to handle at setup: Oracle's Always Free ARM was halved to 2 OCPU / 12 GB (June 2026) and
+provisioning capacity can be scarce — keep SWAN grids regional; self-hosted runner is the fallback.
+
 ## 7. Open spikes (resolve at each stage's kickoff, don't front-load)
 
 1. Exact NOAA product for 2-D spectra vs. partitioned GRIB (grid coverage over the Med; NOMADS vs.

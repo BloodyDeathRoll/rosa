@@ -53,6 +53,19 @@ def load_buoys(buoys_dir: Path) -> dict[str, Buoy]:
     return buoys
 
 
+def load_all_buoys(buoys_dir: Path, isramar_dir: Path | None = None) -> dict[str, Buoy]:
+    """Committed NDBC registry, plus the LOCAL-only ISRAMAR stations if present.
+
+    ISRAMAR stations live under the gitignored ``data/verify/isramar/`` (never committed) so
+    the eastern Med gets validation truth without shipping ISRAMAR's all-rights-reserved data.
+    Its ``stations.yaml`` is loaded the same way; obs come from ISRAMARLocalSource (manual csv)."""
+    buoys = load_buoys(buoys_dir)
+    if isramar_dir is not None and isramar_dir.exists() and any(isramar_dir.glob("*.yaml")):
+        for bid, buoy in load_buoys(isramar_dir).items():
+            buoys[bid] = buoy
+    return buoys
+
+
 def nearest_buoys(
     lat: float, lon: float, buoys: dict[str, Buoy], *, radius_km: float, limit: int = 3
 ) -> list[tuple[Buoy, float]]:
