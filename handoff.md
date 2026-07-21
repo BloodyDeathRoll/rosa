@@ -1,83 +1,91 @@
-# Session Handoff — 2026-07-21
+# Session Handoff — 2026-07-21 (accuracy + Oracle track)
+
+> This is the **algorithm/infra** session (accuracy roadmap, pipeline Stages 0–1, Oracle
+> scheduling). A separate **UI-polish** session works `web/` independently — see "Parallel
+> track" at the bottom; do not touch `web/`.
 
 ## Goal
-UI-only polish pass on the web/ PWA (algorithm work happening in a parallel
-session): strip chrome from the spot screen, move "Best session" onto the hourly
-data, and compact the spot rating card. Then deploy to production.
+Make Rosa the most accurate free surf forecast. This session: authored the full staged
+roadmap, built the entire Stage-0 verification backbone + most of Stage 1, produced a
+turnkey Oracle deploy kit, and walked through provisioning the Oracle VM (stuck on ARM
+capacity — see Oracle state).
 
-## Current State
-- All UI changes done, `npx tsc --noEmit` clean, `npm run build` clean.
-- **Deployed live** to production: https://rosa-rust.vercel.app serves this build
-  (verified serving `index-BRDk1Kc6.js`). Correct Vercel project is named **`rosa`**
-  (not `rosa-rust`) and owns the `rosa-rust.vercel.app` domain.
-- **Not committed** — the 5 modified web files are still uncommitted working changes.
-- Not visually verified in a browser this session (Chrome browser tools were off;
-  couldn't screenshot). Judged from code + build only. Worth an on-device glance,
-  especially the two-column card on narrow phones and the "Best session" overlay
-  sitting just above the kW/m·hPa numbers.
+## Read first
+`docs/rosa-accuracy-roadmap.md` — the authoritative plan (§1 accuracy definition, §2 source
+keep/join/replace, §3 architecture, §4 the 6 stages, §5 sequencing, §6 compute+Oracle
+decision, §7 spikes, §8 legal, §9 scale posture + verified free-tier stack). Everything below
+implements it.
 
-## Active Files (this session's changes, all uncommitted)
-- `web/src/app.tsx` — hide footer TabBar on spot route.
-- `web/src/pages/TodayPage.tsx` — removed Home date selector + carousel; today-only.
-- `web/src/pages/SpotPage.tsx` — header removed, top bar restructured, Best-session
-  moved to inline overlay, timestamp removed, two-column rating card.
-- `web/src/styles.css` — all matching CSS (.spot-top, .best-tag, two-col .spot-card, etc).
-- `.gitignore` — modified (NOT by me this session; pre-existing/parallel).
-- `pipeline/src/rosa_pipeline/feedback.py`, `todo.md` — untracked, from the parallel
-  algorithm session, NOT this session's work. Leave for that session.
+## Current state (all committed + PUSHED to origin/main)
+- **Stage 0 COMPLETE** — the verification harness ("most accurate" is now a *measured* number):
+  - `verify.py` + `observe.py` + `buoys.py`: NDBC nowcast skill (bias/MAE/RMSE/scatter-index/
+    circular dir error). `verify --buoy 46042` or `--near <spot>`.
+  - `archive.py`: forecast archive → lead-time skill (`archive` cmd + `verify --archive`).
+    R2-ready store behind an interface; accrues over time (clock that can't be back-filled).
+  - ISRAMAR **manual-import** adapter (local-only, never fetched/committed — robots-disallowed
+    + all-rights-reserved). `--near beit-yanai` finds Hadera (10 km).
+  - `feedback.py`: surfer 👍👎 loop (rating/height vs eyes) → bucket-bias signal + CALIBRATION
+    rows. `feedback --spot X --verdict up|down` / `feedback --report --markdown`.
+- **Stage 1 PARTIAL** (committed):
+  - `confidence.py`: REAL multi-model agreement (4 members: ncep_gfswave016/ewam/gwam/
+    meteofrance_wave) via a separate lightweight ensemble fetch → per-hour confidence capped by
+    horizon. Replaced the placeholder. Live: beit-yanai current 0.95/4 models.
+  - Peak period: additive display field (mean period still drives scoring — calibration intact).
+  - **DEFERRED**: bias-correction (#Stage1) + Stage-1 validation — both need accumulated archive
+    data, i.e. the Oracle cron running for ~a week. Not speculative-coding it before data exists.
+- **Oracle deploy kit COMMITTED** (`deploy/oracle/`): `setup.sh` (one-command bootstrap),
+  `run-cycle.sh` (archive + run --all), `rosa-cycle.{service,timer}` (systemd --user, 4×/day at
+  05/11/17/23 UTC), `README.md` (runbook). No secrets needed (Open-Meteo + NDBC keyless).
+- **Tests**: `cd pipeline && uv run pytest` → **96 green**; `ruff check` clean. Standard is
+  ample tests per stage (unit + offline fixture + live smoke) — keep it.
 
-## Changes Made This Session (in order)
-1. **Home (TodayPage): removed the date selector "completely."** Deleted `DateBar`
-   AND the coupled `DayCarousel` — the carousel was purely a date navigator, so
-   without the bar it'd be a silent unlabeled selector. Home now renders today's
-   ranked stack directly via `dayStack(today)`. Removed daySel/liveDay/commitDay
-   state and now-unused imports.
-2. **Spot screen: lost header + footer.** Removed `AppHeader` (logo+search) from
-   SpotPage; `app.tsx` skips `<TabBar>` when `route.page === "spot"`.
-3. **Spot screen: combined top row** `[back] · [SpotSwitcher] · [star]` (`.spot-top`).
-   Switcher is `flex:1`, edge-masked with a `mask-image` gradient so chips fade
-   under the back arrow and star. Star has `margin-left:auto` to pin right when the
-   switcher is absent. `.spot-sticky` now `top:0` (no header above); DateBar stays.
-   `.spot-main` gained `env(safe-area-inset-bottom)` since footer is gone.
-4. **"Best session" moved onto the data.** Was a chips block in the card, then a
-   band above rows; final form is an absolutely-positioned `.best-tag` label in the
-   **top-right corner of the first best row**, `top:4px` (just below the row's top
-   border). Best rows keep their `--border` top divider (do NOT blank it — user
-   caught that regression) + a light **4%** `--rating-good` green tint, rounded outer
-   corners via `.best-first`/`.best-last` (per-corner radius so a single row rounds
-   all four). Color: green `--rating-good` NOT clay `--accent` (user: red is wrong
-   for "best"). Tint went 15%->7%->4% per "much lighter, keep text readable."
-5. **Removed the "estimated · HH:MM" timestamp** from the card pill-row.
-6. **Two-column rating card.** `.spot-card` is now `display:flex`: left col
-   (`.rc-left`) = rating Pill + Size/Period/Wind bars; right col (`.rc-right`, left
-   divider) = "Show on map" button + air/water/rashguard stacked (`.rc-temps`).
-   Dropped old `.inner`, `.pill-row`, `.card-foot` markup+CSS. Kept `.temps-row` CSS
-   (TodayPage DetailCard still uses it). Added `white-space:nowrap` to `.accent-link`.
-7. Removed now-dead `chipEnd()` fn (was flagged by `noUnusedLocals`).
+## Oracle VM state (IN PROGRESS — the active blocker)
+- Account: **Individual, Free Trial**. Home region **Israel Central (Jerusalem)** — PERMANENT,
+  can't change for free tier.
+- **Network fully built** (done, via the standalone VCN flow — inline instance-wizard networking
+  was broken): VCN `rosa-vcn` (10.0.0.0/16) → Internet Gateway `rosa-igw` → route `0.0.0.0/0 →
+  rosa-igw` → public subnet `public-subnet` (10.0.0.0/24, Default Security List = SSH open).
+- **Instance**: Ubuntu 24.04, shape **VM.Standard.A1.Flex (ARM)**. Tried 2 OCPU/12 GB then
+  **1 OCPU/6 GB** → both fail with **"Out of capacity for A1.Flex in AD-1."** SSH: chose "Generate
+  a key pair for me" and **downloaded the private key** (need it: `ssh -i <key> ubuntu@<ip>`).
+- **BLOCKER = ARM free capacity in Jerusalem.** Jerusalem offers **no free AMD micro** (only paid
+  E4/E5 Flex, ~€1.85 est). So the free path is A1.Flex ARM only. Capacity fluctuates —
+  retry off-peak (late-night Jerusalem) or use an **auto-retry** (OCI CLI loop, ~15 min setup,
+  grabs the instance the moment capacity opens). User chose to WAIT for now.
 
-## Failed Attempts
-- **Deploy: wrong project name.** First linked with `vercel link --project rosa-rust`
-  -> CLI printed "**Created**" and created a DUPLICATE project, aliased
-  `rosa-rust-ivory.vercel.app`, because the real project is named `rosa` and the
-  `rosa-rust.vercel.app` domain was already taken. Fix: `rm .vercel/project.json`,
-  relink `--project rosa` (prints "Linked", not "Created"), redeploy, then delete the
-  stray project. **Lesson: the Vercel project is `rosa`, not `rosa-rust`.**
-- **`vercel project rm rosa-rust --yes`** -> "unknown option --yes". Removal needs an
-  interactive y/N. `yes | npx vercel project rm rosa-rust` worked but flooded the
-  prompt to 60MB of output — ugly but it did remove it. Better: `printf 'y\n' | ...`.
-- **`npm run deploy` fails** — its script calls a global `vercel` binary not installed
-  on this machine (`sh: vercel: not found`). Used `npx --yes vercel` throughout.
-- Couldn't screenshot to verify — Chrome browser tools disabled this session
-  (`/chrome` to enable, or restart for the one-time prompt).
+## Next step (resume here on the other machine)
+1. **Land the Oracle ARM VM** (retry off-peak, or set up the auto-retry). Then per
+   `deploy/oracle/README.md`: add a read-only **deploy key** for the private repo (§2) →
+   `git clone` → run `deploy/oracle/setup.sh`. Cron then accumulates the archive 4×/day.
+   *(Optional: `scp -r data/verify/isramar` to the VM to also archive Hadera/Ashdod.)*
+2. After ~1 week of accumulation → build **Stage-1 bias-correction** + **validate confidence**
+   against real buoy error (both were deferred waiting on this data).
+3. **OR, data-independent (no waiting) — start Stage 2**: bathymetry physics (GEBCO/EMODnet
+   shoaling + refraction + depth-limited breaking) replacing the single `height_coeff`. Biggest
+   accuracy win for the Med; recommended if you don't want to wait on the cron.
 
-## Next Step
-1. **Commit the UI work** (still uncommitted): `web/src/{app.tsx,pages/SpotPage.tsx,
-   pages/TodayPage.tsx,styles.css}`. Suggested: `feat(web): compact spot card (2-col),
-   inline best-session tag, strip spot-screen chrome, today-only home`. Do NOT stage
-   `.gitignore`, `pipeline/`, or `todo.md` — those belong to the parallel session.
-2. **Visually verify on device** (dev server was up on :5173): two-column card width
-   on narrow phones (bars can get tight), and the `.best-tag` overlap with kW/m·hPa.
-   If cramped, cap `.rc-right` width or move the map button inline with the rating.
-3. Future deploys on this machine: `cd web && npm run build && npm run prepare-output
-   && npx vercel deploy --prebuilt --prod` (link already persisted to project `rosa`
-   in `web/.vercel/project.json`). Or `npm i -g vercel` to make `npm run deploy` work.
+## Failed attempts / lessons (don't repeat)
+- Oracle **inline** networking in the instance wizard: public-IP toggle greys out, subnet-prefix
+  dropdown not clickable → build VCN/IGW/route/subnet separately (now done). Always "Select
+  existing" in the instance wizard afterward.
+- A1.Flex **2 OCPU** capacity is worse than 1 OCPU → use 1/6 for the current pipeline (heavy SWAN
+  box is a later concern; AMD micro + ARM are separate free quotas and can coexist).
+- "Too many requests" on Create = transient API rate-limit from rapid clicks, not capacity.
+- Cost estimator shows €1.85 for A1.Flex but the **"Always Free-eligible" badge** is the truth —
+  actual bill €0 (estimator ignores the free-tier discount).
+- Bias-correction & Stage-1 validation are **data-gated** — don't build them before the archive
+  has real history.
+
+## Parallel track (separate UI session — leave alone)
+A UI-polish session independently edited/committed `web/` (commits `a5d6561`, `754e7ca`): compact
+2-col spot card, inline best-session tag, stripped spot-screen chrome, today-only Home; deployed
+to https://rosa-rust.vercel.app (Vercel project is named **`rosa`**, not `rosa-rust`). Not our
+work — don't touch `web/`.
+
+## Git / housekeeping
+- All work committed AND pushed to `origin/main` (12 commits this session + the 2 UI commits).
+- `.gitignore` updated to ignore `.vercel` + `.env*` (committed). `env.local` no longer exists.
+- `todo.md` left **untracked** (user scratch — per established convention, not committed).
+- Gitignored build artifacts on THIS machine only (won't travel via git): `data/out/`,
+  `data/verify/` (archive + local ISRAMAR csvs + feedback), `web/public/data/`. On the other
+  machine, regenerate with `uv run --project pipeline rosa-pipeline run --all`.

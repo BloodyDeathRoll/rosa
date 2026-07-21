@@ -24,3 +24,5 @@ web/public/data/
 
 # verification harness archive (accumulated forecasts vs buoy obs) — build artifact
 data/verify/
+.vercel
+.env*
