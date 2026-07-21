@@ -22,6 +22,7 @@ import sys
 from datetime import UTC, datetime
 from pathlib import Path
 
+from .archive import FileArchiveStore, rows_from_model
 from .buoys import Buoy, load_buoys, nearest_buoys
 from .extract import extract_hours
 from .fetch import FixtureSource, ForecastSource, OpenMeteoSource, fetch_marine_waves
@@ -30,7 +31,15 @@ from .observe import NDBCFixtureSource, NDBCSource
 from .publish import build_payload, update_index, write_spot_json
 from .score import score_hour
 from .spots import load_spots
-from .verify import build_scorecard, parse_marine_waves, render_scorecard
+from .verify import (
+    build_scorecard,
+    lead_time_scorecard,
+    parse_marine_waves,
+    render_lead_scorecard,
+    render_scorecard,
+)
+
+ARCHIVE_DIR = Path("data/verify/archive")
 
 
 def _build_parser() -> argparse.ArgumentParser:
@@ -57,9 +66,24 @@ def _build_parser() -> argparse.ArgumentParser:
     verify.add_argument("--radius-km", type=float, default=150.0, help="--near search radius")
     verify.add_argument("--limit", type=int, default=1, help="--near: max buoys to score")
     verify.add_argument("--tol-min", type=int, default=30, help="model/obs time-match tolerance")
+    verify.add_argument(
+        "--archive",
+        action="store_true",
+        help="score archived forecasts by lead time (instead of the live nowcast)",
+    )
+    verify.add_argument("--archive-dir", type=Path, default=ARCHIVE_DIR)
     verify.add_argument("--fixtures", type=Path, default=None, help="replay marine json (offline)")
     verify.add_argument("--obs-fixtures", type=Path, default=None, help="replay NDBC txt (offline)")
     verify.add_argument("--capture", type=Path, default=None, help="capture responses to this dir")
+
+    archive = sub.add_parser(
+        "archive", help="append the current forecast at buoys to the lead-time archive"
+    )
+    archive.add_argument("--buoy", help="one buoy id; default = every buoy in the registry")
+    archive.add_argument("--buoys-dir", type=Path, default=Path("data/buoys"))
+    archive.add_argument("--archive-dir", type=Path, default=ARCHIVE_DIR)
+    archive.add_argument("--fixtures", type=Path, default=None, help="replay marine json (offline)")
+    archive.add_argument("--capture", type=Path, default=None, help="capture responses to this dir")
     return parser
 
 
@@ -168,9 +192,38 @@ def _cmd_verify(args: argparse.Namespace) -> int:
 
     for buoy, dist in targets:
         obs = _obs_for(buoy, args)
+        if args.archive:
+            rows = FileArchiveStore(args.archive_dir).read(buoy.id)
+            by_lead = lead_time_scorecard(rows, obs, tol_min=args.tol_min)
+            print(render_lead_scorecard(buoy, by_lead))
+        else:
+            model = _model_for(buoy, args)
+            scores = build_scorecard(model, obs, tol_min=args.tol_min)
+            print(render_scorecard(buoy, dist, scores))
+    return 0
+
+
+def _cmd_archive(args: argparse.Namespace) -> int:
+    buoys = load_buoys(args.buoys_dir)
+    if args.buoy:
+        buoy = buoys.get(str(args.buoy))
+        if buoy is None:
+            print(f"unknown buoy {args.buoy!r}; known: {', '.join(sorted(buoys))}", file=sys.stderr)
+            return 2
+        targets = [buoy]
+    else:
+        targets = list(buoys.values())
+
+    store = FileArchiveStore(args.archive_dir)
+    now = datetime.now(UTC)
+    for buoy in targets:
         model = _model_for(buoy, args)
-        scores = build_scorecard(model, obs, tol_min=args.tol_min)
-        print(render_scorecard(buoy, dist, scores))
+        rows = rows_from_model(now, model)
+        store.append(buoy.id, rows)
+        print(
+            f"{buoy.id}: archived {len(rows)} forecast rows @ {now.isoformat(timespec='seconds')}"
+            f" → {args.archive_dir / (buoy.id + '.jsonl')}"
+        )
     return 0
 
 
@@ -178,6 +231,8 @@ def main(argv: list[str] | None = None) -> int:
     args = _build_parser().parse_args(argv)
     if args.command == "verify":
         return _cmd_verify(args)
+    if args.command == "archive":
+        return _cmd_archive(args)
     return _cmd_run(args)
 
 

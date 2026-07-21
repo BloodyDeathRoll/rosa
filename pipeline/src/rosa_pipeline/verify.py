@@ -136,6 +136,79 @@ def build_scorecard(
     }
 
 
+# lead-time buckets (hours): label, lo (inclusive), hi (exclusive)
+LEAD_BUCKETS: tuple[tuple[str, float, float], ...] = (
+    ("0-1d", 0.0, 24.0),
+    ("1-3d", 24.0, 72.0),
+    ("3-5d", 72.0, 120.0),
+    ("5-7d", 120.0, 168.0),
+    ("7d+", 168.0, float("inf")),
+)
+
+
+def _bucket_for(lead_h: float, buckets: tuple[tuple[str, float, float], ...]) -> str | None:
+    for label, lo, hi in buckets:
+        if lo <= lead_h < hi:
+            return label
+    return None
+
+
+def lead_time_scorecard(
+    rows: list[dict],
+    obs: list[BuoyObs],
+    *,
+    buckets: tuple[tuple[str, float, float], ...] = LEAD_BUCKETS,
+    tol_min: int = 30,
+) -> dict[str, dict[str, VarScore]]:
+    """Skill by forecast lead time, from archived forecasts vs observations.
+
+    Each archived row (forecast for ``valid``, made at ``run``) is bucketed by lead
+    (valid-run) and paired to the nearest observation reporting that variable. Answers
+    "does our day-5 forecast still hold up, or is only the nowcast any good?" """
+    tol = timedelta(minutes=tol_min)
+    valid_obs = {
+        o_attr: [o for o in obs if getattr(o, o_attr) is not None]
+        for *_head, o_attr, _circ in VARIABLES
+    }
+    pairs: dict[str, dict[str, list[tuple[float, float]]]] = {
+        label: {key: [] for key, *_ in VARIABLES} for label, _lo, _hi in buckets
+    }
+    for row in rows:
+        run = datetime.fromisoformat(row["run"])
+        valid = datetime.fromisoformat(row["valid"])
+        lead_h = (valid - run).total_seconds() / 3600.0
+        label = _bucket_for(lead_h, buckets)
+        if label is None:
+            continue
+        for key, _label, _unit, _m_attr, o_attr, _circ in VARIABLES:
+            mv = row.get(key)
+            if mv is None:
+                continue
+            o = _nearest_obs(valid, valid_obs[o_attr], tol)
+            if o is not None:
+                pairs[label][key].append((mv, getattr(o, o_attr)))
+    return {
+        label: {
+            key: _score_var(key, lbl, unit, pairs[label][key], circ)
+            for key, lbl, unit, _m, _o, circ in VARIABLES
+        }
+        for label, _lo, _hi in buckets
+    }
+
+
+def render_lead_scorecard(buoy: Buoy, by_lead: dict[str, dict[str, VarScore]]) -> str:
+    lines = [f"lead-time skill vs buoy {buoy.id} — {buoy.name}"]
+    for lead_label, scores in by_lead.items():
+        cells = []
+        for key, *_ in VARIABLES:
+            s = scores[key]
+            cells.append(f"{s.label.split()[0].lower()} n={s.n} rmse={s.rmse:.2f}{s.unit}")
+        n_any = any(scores[k].n for k, *_ in VARIABLES)
+        suffix = "  ·  ".join(cells) if n_any else "(no matured forecasts yet)"
+        lines.append(f"  {lead_label:<5} {suffix}")
+    return "\n".join(lines)
+
+
 def render_scorecard(
     buoy: Buoy, dist_km: float | None, scores: dict[str, VarScore]
 ) -> str:
