@@ -73,6 +73,10 @@ we never regress a region while improving another.
   and a spot without that falls back to Open-Meteo. Accuracy improves in waves, never all-or-nothing.
 - **Everything attributed, nothing scraped.** NOAA/ECMWF/EMODnet/GEBCO/EOT20 are open with
   attribution; ISRAMAR stays validation-only until partnership; no competitor data ever. §8 tracks it.
+- **Always consider scale — separate the read-path from the write-path.** Forecast serving stays
+  static/CDN and gets *cheaper per user* as it grows; dynamic per-user/community data (accounts,
+  alerts, feedback, contributed spots) is what earns a managed database. Never cross the two. This
+  is a standing design lens for every addition — full posture in §9.
 
 ---
 
@@ -235,6 +239,65 @@ tide (Stage 2) and Stage 4 pay off most as the app goes worldwide.
 - **ISRAMAR**: all-rights-reserved — **manual validation only**; pursue partnership before any
   integration. Never shipped. 🚫→🤝
 - **Never**: Surfline API/spots/cams/guide text, or any scraped third-party cam. 🚫
+
+---
+
+## 9. Scale posture — always consider scale
+
+*Standing direction: every addition is judged against "what does this do at 10,000 spots and
+100,000 users?" The answer is not one store — it's **splitting the system by access pattern**.
+Scale pulls the two halves in opposite directions, so treat them as two planes.*
+
+### The read-path (forecasts) — static gets *stronger* at scale, not weaker
+Forecast JSON, map frames, spot pages: **read-heavy, identical for every viewer, precomputed.**
+A CDN serving static files is the *ideal* shape for this — it scales to millions of readers at
+~zero marginal cost, no rate limit, global edge latency. Putting forecasts behind a database at
+scale would be strictly worse: request-time compute, egress/query cost per read, a bottleneck to
+shard, and **it's exactly what would make Rosa stop being free.** So scale does not weaken the
+precompute-static rule — it is the *reason* for it. Worldwide just means *more files* (10k spots ≈
+10k small JSON + a precomputed spatial-index tile set for "spots near me"); files scale flat.
+
+### The write-path (users + community) — this is where a database earns its place
+Static files genuinely *cannot* do the things "thousands of users" implies, and no amount of
+precompute fixes that. These are dynamic, per-user, authenticated, write-ish:
+- accounts + favorites **synced across devices** (localStorage only covers one anonymous device)
+- **alert subscriptions** ("notify me when Beit Yanai hits GOOD") + push tokens
+- the **👍👎 accuracy feedback** stream (feeds the Stage-0 calibration loop)
+- **community spot contributions** + edits + moderation (the long-term spot-DB moat)
+
+This plane wants a managed **Postgres + Auth**, and **Supabase is a sensible default pick** —
+Postgres + **PostGIS** (geo "nearby spots" at 10k+ scale), Row-Level Security, Auth, Realtime, and
+Edge Functions, with a free tier and nothing to run. It fits the lean/free ethos *precisely because
+it stays off the forecast read-path* — it serves the (far lower-volume) user-write traffic only.
+
+### The worldwide spot catalog — DB as source-of-truth, compiled to static for serving
+At 40 hand-authored YAML spots, files are fine. At 10k+ contributed, moderated, geo-queried,
+versioned spots the catalog is a *writable dataset* → **Postgres/PostGIS is the source of truth**,
+and the pipeline **compiles it to static `index.json` + spatial tiles** at build time. Best of both:
+DB where you write and query, static where the world reads.
+
+### The verification/forecast archive — object storage, *not* a transactional DB
+The archive (roadmap Stage 0) is append-only time-series, internal, low-QPS analytics. It does
+**not** belong in Supabase — it belongs in **object storage as Parquet/JSONL + DuckDB** for cheap,
+flat-scaling time-series queries. (Even if Supabase is adopted for the write-path, the archive stays
+in object storage; only the small 👍👎 feedback rows live in the DB.) This reinforces last call:
+the durable archive store is an S3-compatible bucket, not a database.
+
+### Data-plane map (the whole system at scale)
+| Data | Access pattern | Store at scale |
+|------|---------------|----------------|
+| Forecast JSON / map frames / spot pages | read-heavy, identical per user, precomputed | **Static files on CDN** — never a DB |
+| Spot catalog (worldwide, contributed, geo-queried) | writable + moderated; read via compiled artifact | **Postgres + PostGIS** (Supabase) → compiled to static index/tiles |
+| Accounts, favorites-sync, alert subscriptions | per-user, dynamic, authenticated | **Managed DB + Auth** (Supabase) |
+| 👍👎 feedback / calibration rows | append, low-QPS, feeds pipeline | Small DB table (Supabase) *or* object storage |
+| Verification / forecast archive | append-only time-series, internal analytics | **Object storage (Parquet/JSONL) + DuckDB** — not a transactional DB |
+| Precompute (fetch → … → publish, incl. SWAN) | batch, scheduled | GitHub Actions → **scheduled VM/runner** (§6) |
+
+**Verdict on "would Supabase be better?":** yes — as the **write-plane backbone** (auth, user data,
+spot catalog, feedback) once the product grows past anonymous single-device use. **No** — for
+forecast serving and the archive, where static-CDN and object-storage scale better *and* cheaper.
+The principle that keeps Rosa free at scale is not "avoid databases," it's **"never put the
+read-path behind one."**
 
 ---
 
