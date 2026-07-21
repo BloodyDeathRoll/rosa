@@ -1,90 +1,83 @@
-# Session Handoff — 2026-07-20
+# Session Handoff — 2026-07-21
 
 ## Goal
-Polish the Rosa PWA (splash screen, header brand lockup, Spots tab favorites/star,
-daylight sessions) and — the big one — make per-spot forecasts actually differ:
-neighbouring spots were showing byte-identical data. Then gather + record Surfline-informed
-algorithm improvements for tomorrow.
+UI-only polish pass on the web/ PWA (algorithm work happening in a parallel
+session): strip chrome from the spot screen, move "Best session" onto the hourly
+data, and compact the spot rating card. Then deploy to production.
 
 ## Current State
-All committed, pushed, and deployed to https://rosa-rust.vercel.app (verified live:
-hilton ≠ kontiki data now differs). 60 pipeline tests + web tsc green. Nothing dangling.
-- **Per-spot forecasts differ** (root fix): each spot samples its own offshore point and
-  orients to its own coastline shore-normal. Whole coast currently FLAT (real summer Med),
-  but wind/class/rating vary per spot; heights differ across marine-grid cells.
-- **4 headland/peninsula angles are flagged `TODO-verify`** in israel.yaml (akko-argaman 70,
-  kiryat-yam 114, bat-galim 164, backdoor-haifa 163) — coastline averaging is unreliable
-  where the shore curves ~90°. Need user's local values to pin. UNRESOLVED.
-- **Splash** holds until initial data loads (no empty "Loading…" flash), min 1s, blinking
-  "loading" text under the wordmark.
-- Surfline improvement report saved at `rosa-forecast-improvements.md` (untracked) — the
-  plan for tomorrow. Not yet acted on.
-- `todo.md` (untracked) is the user's scratch list — deliberately NOT committed.
+- All UI changes done, `npx tsc --noEmit` clean, `npm run build` clean.
+- **Deployed live** to production: https://rosa-rust.vercel.app serves this build
+  (verified serving `index-BRDk1Kc6.js`). Correct Vercel project is named **`rosa`**
+  (not `rosa-rust`) and owns the `rosa-rust.vercel.app` domain.
+- **Not committed** — the 5 modified web files are still uncommitted working changes.
+- Not visually verified in a browser this session (Chrome browser tools were off;
+  couldn't screenshot). Judged from code + build only. Worth an on-device glance,
+  especially the two-column card on narrow phones and the "Best session" overlay
+  sitting just above the kW/m·hPa numbers.
 
-## Active Files
-- `data/spots/israel.yaml` — dropped shared offshore_points/point + uniform 90°; per-spot
-  explicit `offshore_direction` (82–126° coastline-derived); 4 spots flagged TODO-verify.
-- `pipeline/src/rosa_pipeline/fetch.py` — added `fetch_many()` batched multi-location fetch
-  (Open-Meteo returns per-location array; full run = 2 requests).
-- `pipeline/src/rosa_pipeline/spots.py` — per-spot offshore_point (own coord − 0.06° lon);
-  offshore_direction explicit-else-neighbour-tangent fallback.
-- `pipeline/src/rosa_pipeline/cli.py` — batched fetch of unique points; skip-and-warn dry cells.
-- `pipeline/tests/{test_cli,test_spots}.py`, fixture renamed → `32.3817_34.8035.json` (beit-yanai pt).
-- `web/index.html`, `web/src/main.tsx`, `web/src/splash.ts` — splash + readiness signal.
-- `web/src/components/parts.tsx`, `web/src/styles.css` — header brand lockup, dot, favorites width.
-- `web/src/pages/{SpotsPage,TodayPage,SpotPage,MapPage,SettingsPage}.tsx` — star toggle,
-  favorites cards, date-bar dots, daylight sessions, per-page signalReady().
-- `web/vite.config.ts` — PWA icon = icon-maskable (any maskable).
-- `rosa-forecast-improvements.md` — Surfline-methodology-derived improvement plan (untracked).
+## Active Files (this session's changes, all uncommitted)
+- `web/src/app.tsx` — hide footer TabBar on spot route.
+- `web/src/pages/TodayPage.tsx` — removed Home date selector + carousel; today-only.
+- `web/src/pages/SpotPage.tsx` — header removed, top bar restructured, Best-session
+  moved to inline overlay, timestamp removed, two-column rating card.
+- `web/src/styles.css` — all matching CSS (.spot-top, .best-tag, two-col .spot-card, etc).
+- `.gitignore` — modified (NOT by me this session; pre-existing/parallel).
+- `pipeline/src/rosa_pipeline/feedback.py`, `todo.md` — untracked, from the parallel
+  algorithm session, NOT this session's work. Leave for that session.
 
-## Changes Made This Session
-1. Live-drag date highlight (committed earlier d97cb8c) + merged a divergent parallel branch
-   (spot polish + refreshed icons) — resolved DateBar conflict keeping both dots + live highlight.
-2. Date-bar dots: removed on Home (multiple spots = misleading), kept borderless on spot screen.
-3. Spots tab: rows → `<a>` links with real StarButton (tap star = fav, tap row = open);
-   Favorites now render the same compact SpotCard as Home; fixed double-inset width via
-   `.spots-page .rank-list { padding:0 }`.
-4. Daylight sessions: `sessionChips` in SpotPage.tsx gated to slots between first/last light
-   (spot-local minutes via fmtClock) — killed the pre-dawn 03:00 "best session".
-5. Splash screen (index.html/main.tsx/splash.ts): red bg + white mark (favicon as CSS mask) +
-   wordmark; holds until appReady (each page fires signalReady on data-load/err, 10s cap) +
-   fonts + min 1s; blinking "loading" under wordmark.
-6. Header brand lockup: red favicon mark + "rosa" + baseline circular dot (icon red #d82619),
-   icon 0.72em (a bit taller than text), spacing = one dot-width via --brand-dot (2.5px).
-7. PWA app icon → icon-maskable (any maskable) + apple-touch-icon.
-8. **Per-spot differentiation** (the main work): diagnosed that ~22 spots shared offshore point
-   `il_central` + identical params → byte-identical forecasts (proved via CDP DOM read; frontend
-   was NOT the bug). Implemented per-spot sampling (batched fetch, validated Open-Meteo array
-   response) + coastline-derived offshore_direction (pulled full OSM coastline in 1 Overpass query,
-   computed shore-normal per spot with land-on-left convention, length-weighted over ~600m to
-   outvote jetties/marinas). Baked explicit into DB. Regenerated all 40 spots live, synced to web.
-9. Committed in 2 groups (d1c0c40 pipeline, 97dea12 web), pushed, deployed.
-10. Produced a Surfline-research prompt for the user's Claude Chrome extension; results saved
-    to rosa-forecast-improvements.md.
+## Changes Made This Session (in order)
+1. **Home (TodayPage): removed the date selector "completely."** Deleted `DateBar`
+   AND the coupled `DayCarousel` — the carousel was purely a date navigator, so
+   without the bar it'd be a silent unlabeled selector. Home now renders today's
+   ranked stack directly via `dayStack(today)`. Removed daySel/liveDay/commitDay
+   state and now-unused imports.
+2. **Spot screen: lost header + footer.** Removed `AppHeader` (logo+search) from
+   SpotPage; `app.tsx` skips `<TabBar>` when `route.page === "spot"`.
+3. **Spot screen: combined top row** `[back] · [SpotSwitcher] · [star]` (`.spot-top`).
+   Switcher is `flex:1`, edge-masked with a `mask-image` gradient so chips fade
+   under the back arrow and star. Star has `margin-left:auto` to pin right when the
+   switcher is absent. `.spot-sticky` now `top:0` (no header above); DateBar stays.
+   `.spot-main` gained `env(safe-area-inset-bottom)` since footer is gone.
+4. **"Best session" moved onto the data.** Was a chips block in the card, then a
+   band above rows; final form is an absolutely-positioned `.best-tag` label in the
+   **top-right corner of the first best row**, `top:4px` (just below the row's top
+   border). Best rows keep their `--border` top divider (do NOT blank it — user
+   caught that regression) + a light **4%** `--rating-good` green tint, rounded outer
+   corners via `.best-first`/`.best-last` (per-corner radius so a single row rounds
+   all four). Color: green `--rating-good` NOT clay `--accent` (user: red is wrong
+   for "best"). Tint went 15%->7%->4% per "much lighter, keep text readable."
+5. **Removed the "estimated · HH:MM" timestamp** from the card pill-row.
+6. **Two-column rating card.** `.spot-card` is now `display:flex`: left col
+   (`.rc-left`) = rating Pill + Size/Period/Wind bars; right col (`.rc-right`, left
+   divider) = "Show on map" button + air/water/rashguard stacked (`.rc-temps`).
+   Dropped old `.inner`, `.pill-row`, `.card-foot` markup+CSS. Kept `.temps-row` CSS
+   (TodayPage DetailCard still uses it). Added `white-space:nowrap` to `.accent-link`.
+7. Removed now-dead `chipEnd()` fn (was flagged by `noUnusedLocals`).
 
 ## Failed Attempts
-- **Neighbour-spot bearing for offshore_direction** — first approach derived coast tangent from
-  bearing between adjacent spots in the N→S list. Fails at Haifa Bay: sparse spots + ~90° coast
-  bend → the spot-to-spot vector cuts across the bay mouth (bat-galim came out 168°). Replaced
-  with OSM coastline shore-normal.
-- **Coastline nearest-segment, inverse-distance weighted** — over-favours a 3m marina/jetty
-  segment (tel-baruch 157°, herzliya-marina 57°). Fixed with length-weighted average over a
-  ~600–1300m window so short man-made features get outvoted.
-- **Flex `align-items:baseline` for the header dot** — empty flex-item baseline synthesis put the
-  dot mid-height, not on the text baseline. Switched to inline-block + `vertical-align:baseline`.
-- **Flex `gap` on `.brand`** — spaced "rosa" from its accent dot ("rosa ."). Wrapped word+dot in
-  a sub-span so gap only separates mark from word.
-- Coastline averaging still can't resolve true headlands/peninsulas (Carmel tip, Akko) — those 4
-  spots left flagged for local knowledge (not a fixable-by-geometry problem).
+- **Deploy: wrong project name.** First linked with `vercel link --project rosa-rust`
+  -> CLI printed "**Created**" and created a DUPLICATE project, aliased
+  `rosa-rust-ivory.vercel.app`, because the real project is named `rosa` and the
+  `rosa-rust.vercel.app` domain was already taken. Fix: `rm .vercel/project.json`,
+  relink `--project rosa` (prints "Linked", not "Created"), redeploy, then delete the
+  stray project. **Lesson: the Vercel project is `rosa`, not `rosa-rust`.**
+- **`vercel project rm rosa-rust --yes`** -> "unknown option --yes". Removal needs an
+  interactive y/N. `yes | npx vercel project rm rosa-rust` worked but flooded the
+  prompt to 60MB of output — ugly but it did remove it. Better: `printf 'y\n' | ...`.
+- **`npm run deploy` fails** — its script calls a global `vercel` binary not installed
+  on this machine (`sh: vercel: not found`). Used `npx --yes vercel` throughout.
+- Couldn't screenshot to verify — Chrome browser tools disabled this session
+  (`/chrome` to enable, or restart for the one-time prompt).
 
 ## Next Step
-1. **Pin the 4 flagged angles** once the user gives correct offshore_direction for akko-argaman,
-   kiryat-yam, bat-galim, backdoor-haifa — edit israel.yaml, `run --all`, `cd web && npm run deploy`.
-2. **Start the algorithm improvements** in `rosa-forecast-improvements.md` (build order: #1+#2+#3
-   first — they target Med windswell and unlock the rest). FIRST concrete move: a ~10-min probe of
-   what spectral/directional-spread fields Open-Meteo Marine + NOAA GFS-Wave actually expose —
-   that decides how far #2 (spectral bands, "missed swell" fix) and #3 (directional-spread quality
-   term) can go before touching code. #1 = GEBCO shoaling+refraction in transform.py (replaces the
-   single height_coeff; needs a bathymetry ray per spot + dispersion relation).
-3. Watch item: #5 in the report notes the current `q(T)=clamp((T/10)^1.4,…)` may double-count
-   period once #1 (physics-based) lands — fold period into the energy/shoaling path, don't stack.
+1. **Commit the UI work** (still uncommitted): `web/src/{app.tsx,pages/SpotPage.tsx,
+   pages/TodayPage.tsx,styles.css}`. Suggested: `feat(web): compact spot card (2-col),
+   inline best-session tag, strip spot-screen chrome, today-only home`. Do NOT stage
+   `.gitignore`, `pipeline/`, or `todo.md` — those belong to the parallel session.
+2. **Visually verify on device** (dev server was up on :5173): two-column card width
+   on narrow phones (bars can get tight), and the `.best-tag` overlap with kW/m·hPa.
+   If cramped, cap `.rc-right` width or move the map button inline with the rating.
+3. Future deploys on this machine: `cd web && npm run build && npm run prepare-output
+   && npx vercel deploy --prebuilt --prod` (link already persisted to project `rosa`
+   in `web/.vercel/project.json`). Or `npm i -g vercel` to make `npm run deploy` work.
