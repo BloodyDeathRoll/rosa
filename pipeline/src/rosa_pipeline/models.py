@@ -14,9 +14,12 @@ Bucket = Literal["FLAT", "POOR", "FAIR", "GOOD", "FIRING"]
 @dataclass(frozen=True, slots=True)
 class SwellPartition:
     height_m: float
-    period_s: float
+    period_s: float  # MEAN period — scoring/calibration uses this
     direction_deg: float
     kind: PartitionKind = "swell"
+    # peak period (surf reports quote this, e.g. "6ft @ 14s") — display only for now,
+    # None where the API doesn't expose it (secondary/tertiary swells, old fixtures)
+    peak_period_s: float | None = None
 
 
 @dataclass(frozen=True, slots=True)

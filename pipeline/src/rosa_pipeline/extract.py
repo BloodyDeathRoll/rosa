@@ -52,11 +52,16 @@ def _partition(hourly: dict, prefix: str, kind: str, i: int) -> SwellPartition |
     period = hourly[f"{prefix}_period"][i]
     if height is None or direction is None or period is None or height <= 0:
         return None
+    # peak period is only published for the total/primary-swell/wind-wave (not sec/tert),
+    # and absent from pre-Stage-1 fixtures — .get keeps those partitions valid with None
+    peak_arr = hourly.get(f"{prefix}_peak_period")
+    peak = peak_arr[i] if peak_arr is not None and i < len(peak_arr) else None
     return SwellPartition(
         height_m=height,
         period_s=period,
         direction_deg=direction,
         kind=kind,  # type: ignore[arg-type]
+        peak_period_s=peak,
     )
 
 

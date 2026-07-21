@@ -84,6 +84,7 @@ def _hour_entry(spot: Spot, s: ScoredHour, tz: ZoneInfo) -> dict:
             {
                 "h": _r(p.height_m),
                 "period": _r(p.period_s, 1),
+                "peak_period": _r(p.peak_period_s, 1) if p.peak_period_s is not None else None,
                 "dir": p.direction_deg,
                 "kind": p.kind,
                 "in_window": in_window(p.direction_deg, spot.swell_window),
