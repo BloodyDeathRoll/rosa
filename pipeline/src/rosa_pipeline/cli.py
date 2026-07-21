@@ -25,6 +25,15 @@ from pathlib import Path
 from .archive import FileArchiveStore, rows_from_model
 from .buoys import Buoy, load_all_buoys, nearest_buoys
 from .extract import extract_hours
+from .feedback import (
+    BUCKET_ORDER,
+    FeedbackRecord,
+    bucket_delta,
+    markdown_rows,
+    predicted_from_payload,
+    render_report,
+    summarize,
+)
 from .fetch import FixtureSource, ForecastSource, OpenMeteoSource, fetch_marine_waves
 from .models import Spot
 from .observe import ISRAMARLocalSource, NDBCFixtureSource, NDBCSource
@@ -41,6 +50,7 @@ from .verify import (
 
 ARCHIVE_DIR = Path("data/verify/archive")
 ISRAMAR_DIR = Path("data/verify/isramar")  # local-only, gitignored (all-rights-reserved)
+FEEDBACK_DIR = Path("data/verify/feedback")
 
 
 def _build_parser() -> argparse.ArgumentParser:
@@ -87,6 +97,19 @@ def _build_parser() -> argparse.ArgumentParser:
     archive.add_argument("--archive-dir", type=Path, default=ARCHIVE_DIR)
     archive.add_argument("--fixtures", type=Path, default=None, help="replay marine json (offline)")
     archive.add_argument("--capture", type=Path, default=None, help="capture responses to this dir")
+
+    fb = sub.add_parser("feedback", help="record/report surfer 👍👎 vs the published rating")
+    fb.add_argument("--report", action="store_true", help="summarise instead of adding")
+    fb.add_argument("--markdown", action="store_true", help="with --report: emit CALIBRATION rows")
+    fb.add_argument("--spot", help="spot id (required when adding)")
+    fb.add_argument("--verdict", choices=["up", "down"], help="👍/👎 (required when adding)")
+    fb.add_argument("--observed-bucket", choices=list(BUCKET_ORDER))
+    fb.add_argument("--observed-h", type=float, help="observed breaker height midpoint, m")
+    fb.add_argument("--observed-phrase")
+    fb.add_argument("--note")
+    fb.add_argument("--at", help="ISO time of the observation (default: now)")
+    fb.add_argument("--out", type=Path, default=Path("data/out"), help="published payload dir")
+    fb.add_argument("--feedback-dir", type=Path, default=FEEDBACK_DIR)
     return parser
 
 
@@ -233,12 +256,60 @@ def _cmd_archive(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_feedback(args: argparse.Namespace) -> int:
+    store = FileArchiveStore(args.feedback_dir)
+    if args.report:
+        records = [FeedbackRecord.from_row(r) for r in store.read("feedback")]
+        print(render_report(summarize(records)))
+        if args.markdown and records:
+            print("\n" + markdown_rows(records))
+        return 0
+
+    if not args.spot or not args.verdict:
+        print("adding feedback needs --spot and --verdict (or use --report)", file=sys.stderr)
+        return 2
+    payload_path = args.out / "spots" / f"{args.spot}.json"
+    if not payload_path.exists():
+        print(f"no published forecast at {payload_path} — run the pipeline first", file=sys.stderr)
+        return 2
+    payload = json.loads(payload_path.read_text(encoding="utf-8"))
+    at = datetime.fromisoformat(args.at) if args.at else datetime.now(UTC)
+    if at.tzinfo is None:
+        at = at.replace(tzinfo=UTC)
+
+    predicted = predicted_from_payload(payload, at)
+    observed: dict = {}
+    if args.observed_bucket:
+        observed["bucket"] = args.observed_bucket
+    if args.observed_h is not None:
+        observed["h_mid"] = args.observed_h
+    if args.observed_phrase:
+        observed["phrase"] = args.observed_phrase
+    if args.note:
+        observed["note"] = args.note
+
+    record = FeedbackRecord(spot=args.spot, at=at, verdict=args.verdict, predicted=predicted,
+                            observed=observed, source="cli")
+    store.append("feedback", [record.to_row()])
+
+    icon = "👍" if args.verdict == "up" else "👎"
+    delta = bucket_delta(predicted.get("bucket"), observed.get("bucket"))
+    drift = f" · bucket {delta:+d} vs observed" if delta is not None else ""
+    print(
+        f"{icon} {args.spot}: Rosa said {predicted.get('bucket')} {predicted.get('rating')} "
+        f"({predicted.get('phrase')}){drift} → recorded"
+    )
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     args = _build_parser().parse_args(argv)
     if args.command == "verify":
         return _cmd_verify(args)
     if args.command == "archive":
         return _cmd_archive(args)
+    if args.command == "feedback":
+        return _cmd_feedback(args)
     return _cmd_run(args)
 
 
