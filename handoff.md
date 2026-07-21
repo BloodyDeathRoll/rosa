@@ -52,6 +52,15 @@ implements it.
   E4/E5 Flex, ~€1.85 est). So the free path is A1.Flex ARM only. Capacity fluctuates —
   retry off-peak (late-night Jerusalem) or use an **auto-retry** (OCI CLI loop, ~15 min setup,
   grabs the instance the moment capacity opens). User chose to WAIT for now.
+- **Capacity tooling ADDED (2026-07-21, committed):** `deploy/oracle/check-arm-capacity.sh` polls
+  OCI's Compute Capacity Report API and (with `--launch`) fires the LaunchInstance the instant
+  capacity opens — replaces the manual click loop. `deploy/oracle/beep-reminder.sh` = simple
+  audible nudge if hunting by hand. Acquiring the box is a **one-time** fight; once up, Always-Free
+  A1 runs 24/7 and never re-fights capacity.
+- **Recommended de-risk (discussed, NOT yet built):** don't gate the roadmap on the ARM lottery.
+  **GitHub Actions cron** (the original Session-1 task #4) needs zero capacity and can accumulate
+  the Stage-0 archive now (commit to a data branch or push to R2). Oracle can still be the eventual
+  "forever home" if/when it lands. If the wait drags, build the Actions workflow to unblock Stage-1.
 
 ## Next step (resume here on the other machine)
 1. **Land the Oracle ARM VM** (retry off-peak, or set up the auto-retry). Then per
@@ -76,16 +85,33 @@ implements it.
 - Bias-correction & Stage-1 validation are **data-gated** — don't build them before the archive
   has real history.
 
-## Parallel track (separate UI session — leave alone)
-A UI-polish session independently edited/committed `web/` (commits `a5d6561`, `754e7ca`): compact
-2-col spot card, inline best-session tag, stripped spot-screen chrome, today-only Home; deployed
-to https://rosa-rust.vercel.app (Vercel project is named **`rosa`**, not `rosa-rust`). Not our
-work — don't touch `web/`.
+## Parallel track (separate UI session)
+A UI-polish session works `web/` independently (accuracy track: don't touch `web/`). Latest UI
+session (2026-07-21 PM) — all committed + pushed, **deployed** to https://rosa-rust.vercel.app
+(Vercel project is named **`rosa`**; deploys are CLI-only via `cd web && npm run deploy`):
+- **Header:** icon-only brand + time-of-day greeting on Home; "rosa" wordmark kept on other tabs.
+- **Home redesign:** extended card (last-opened spot) = bigger map (+60%), no spark, no tide,
+  bigger rating tag, best-window line only when one exists, no "Open forecast" button. Below it a
+  **Surfline-style coast grid** (`web/src/components/CoastGrid.tsx`): a shared horizontally-drag
+  date axis (our date chips, no dot) + one row per spot, each day-cell = surf range over 3 daypart
+  bars (morning/midday/evening); all strips scroll in lock-step. Order: last-viewed first, then all
+  favorites (nearest-6 fallback if none).
+- **Spot screen:** switcher bar = favorites (nearest fallback); selected date persists across
+  spot→spot nav; "Map" button; Map hand-off opens zoomed-in.
+- **Hourly grid:** larger surf/swell/wind/power type; power+pressure merged to one stacked column;
+  wind cell → 2 rows (cardinal inline with speed), tighter.
+- **Tabs:** 2px icon strokes, darker light-theme icons, larger labels, bold active tab, user icon
+  for Settings.
+- **Type scale +10% global; dark theme re-skinned** to a Webull-style near-black page + cool
+  blue-neutral cards (user tuned `--primary`/`--emphasis` further by hand).
+- Commits this UI session on `origin/main`: `eb4cae0` (UI polish pass) + the Home-redesign commit.
 
 ## Git / housekeeping
-- All work committed AND pushed to `origin/main` (12 commits this session + the 2 UI commits).
+- All work committed AND pushed to `origin/main` (accuracy: 12 commits + Oracle capacity scripts;
+  UI: `eb4cae0` + Home-redesign commit; both tracks live on `main`).
 - `.gitignore` updated to ignore `.vercel` + `.env*` (committed). `env.local` no longer exists.
 - `todo.md` left **untracked** (user scratch — per established convention, not committed).
+- Stray `web/,oracle/` path in the tree is an accidental filename — **untracked, ignore it.**
 - Gitignored build artifacts on THIS machine only (won't travel via git): `data/out/`,
   `data/verify/` (archive + local ISRAMAR csvs + feedback), `web/public/data/`. On the other
   machine, regenerate with `uv run --project pipeline rosa-pipeline run --all`.
