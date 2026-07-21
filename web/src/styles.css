@@ -625,6 +625,105 @@ button {
   font-weight: 600;
   font-variant-numeric: tabular-nums;
 }
+/* Bigger rating tag on the extended card */
+.detail-card .pill {
+  height: 26px;
+  padding: 0 13px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* ---------- Home: extended-card wrapper + coast grid ---------- */
+.home-hero {
+  padding: 14px 16px 10px;
+}
+
+/* Surfline-style multi-day grid: a shared date axis + one row per spot, all
+   horizontally scrollable in lock-step across the forecast period. */
+.coast {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 20px;
+}
+.coast .track {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.coast .track::-webkit-scrollbar {
+  display: none;
+}
+/* shared date axis — sticky under the app header, scrolls with the rows.
+   Left inset (32px) = spot-row margin (16) + cells padding (16) so columns line up. */
+.coast-head {
+  position: sticky;
+  top: 52px;
+  z-index: 10;
+  padding: 6px 32px 8px;
+  background: var(--body-bg);
+  border-bottom: 1px solid var(--border);
+}
+.coast-day {
+  flex: none;
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  color: var(--muted-foreground);
+}
+.coast-day .dow {
+  font-size: 11.6px;
+  font-weight: 600;
+}
+.coast-day .dnum {
+  font-size: 16.5px;
+  font-weight: 700;
+  color: var(--foreground);
+}
+.coast-row {
+  display: block;
+  margin: 0 16px;
+  padding: 14px 0 16px;
+  background: var(--card);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  color: var(--foreground);
+  text-decoration: none;
+}
+.coast-name {
+  display: block;
+  padding: 0 16px 12px;
+  font-size: 16.5px;
+  font-weight: 700;
+}
+.coast-cells {
+  padding: 0 16px;
+}
+.coast-cell {
+  flex: none;
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+}
+.coast-h {
+  font-size: 15px;
+  font-weight: 700;
+}
+.coast-bars {
+  display: flex;
+  gap: 4px;
+  width: 62px;
+}
+.coast-bar {
+  flex: 1;
+  height: 5px;
+  border-radius: 3px;
+}
 
 .rank-card {
   background: var(--card);

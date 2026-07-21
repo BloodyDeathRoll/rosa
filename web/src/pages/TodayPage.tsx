@@ -1,11 +1,11 @@
 import { useEffect, useState } from "preact/hooks";
 import { fetchIndex, fetchSpot } from "../api";
+import { CoastGrid } from "../components/CoastGrid";
 import { SatMap } from "../components/MiniMap";
 import { SearchIcon, ShirtIcon, ThermometerIcon, WavesIcon } from "../components/icons";
-import { AppHeader, Pill, Spark, SpotTitle } from "../components/parts";
-import { SpotCard, dayView } from "../components/SpotCard";
-import { TideSection } from "../components/TideSection";
-import { getFavorites, toggleFavorite } from "../favorites";
+import { AppHeader, Pill, SpotTitle } from "../components/parts";
+import { dayView } from "../components/SpotCard";
+import { getFavorites } from "../favorites";
 import { cardinal, splitName, windLabel } from "../format";
 import { distanceKm, getPosition } from "../geo";
 import { getRecents } from "../recents";
@@ -13,7 +13,7 @@ import { signalReady } from "../splash";
 import { fmtRange, fmtTemp, useUnits } from "../units";
 import type { SpotPayload } from "../types";
 
-const LIST_COUNT = 3; // 3 spots under the extended card = 4 latest-viewed total
+const FALLBACK_COUNT = 6; // nearest spots shown when no favorites are saved
 
 function greeting(): string {
   const h = new Date().getHours();
@@ -33,47 +33,46 @@ function DetailCard({ data, date }: { data: SpotPayload; date: string }) {
   return (
     <div class="detail-card">
       <button class="open" onClick={open}>
-        <SatMap lat={data.spot.lat} lon={data.spot.lon} height={88} />
+        <SatMap lat={data.spot.lat} lon={data.spot.lon} height={141} />
         <div class="dc-body">
-        <span class="top">
-          <SpotTitle name={name} region={region} />
-          <Pill bucket={dv.bucket} />
-        </span>
-        <span class="range-row">
-          <span class="surf-range tabular">{fmtRange(dv.range, units)}</span>
-          <Spark hours={dv.hrs} bucket={dv.bucket} w={132} h={34} />
-        </span>
-        <span class="line tabular">
-          {windLabel(dv.rep)}
-          {swell ? ` · ${Math.round(swell.period)} s ${cardinal(swell.dir)}` : ""}
-        </span>
-        <span class="temps-row">
-          <span>
-            <ThermometerIcon />
-            <span class="tabular">
-              air {dv.rep.air !== null ? fmtTemp(dv.rep.air, units) : "—"}
-            </span>
+          <span class="top">
+            <SpotTitle name={name} region={region} />
+            <Pill bucket={dv.bucket} />
           </span>
-          <span>
-            <WavesIcon />
-            <span class="tabular">
-              water {dv.rep.sst !== null ? fmtTemp(dv.rep.sst, units) : "—"}
-            </span>
+          <span class="range-row">
+            <span class="surf-range tabular">{fmtRange(dv.range, units)}</span>
           </span>
-          {data.current.wetsuit && (
+          <span class="line tabular">
+            {windLabel(dv.rep)}
+            {swell ? ` · ${Math.round(swell.period)} s ${cardinal(swell.dir)}` : ""}
+          </span>
+          <span class="temps-row">
             <span>
-              <ShirtIcon />
-              <span class="suit">{data.current.wetsuit}</span>
+              <ThermometerIcon />
+              <span class="tabular">
+                air {dv.rep.air !== null ? fmtTemp(dv.rep.air, units) : "—"}
+              </span>
+            </span>
+            <span>
+              <WavesIcon />
+              <span class="tabular">
+                water {dv.rep.sst !== null ? fmtTemp(dv.rep.sst, units) : "—"}
+              </span>
+            </span>
+            {data.current.wetsuit && (
+              <span>
+                <ShirtIcon />
+                <span class="suit">{data.current.wetsuit}</span>
+              </span>
+            )}
+          </span>
+          {dv.bw && (
+            <span class="foot">
+              <span class="window">
+                Best window <b>{`${dv.bw.start}–${dv.bw.end}`}</b>
+              </span>
             </span>
           )}
-        </span>
-        <span class="foot">
-          <span class="window">
-            Best window <b>{dv.bw ? `${dv.bw.start}–${dv.bw.end}` : "none"}</b>
-          </span>
-          <span class="accent-link">Open forecast →</span>
-        </span>
-        <TideSection nowT={dv.rep.t} metric={units.height === "m"} />
         </div>
       </button>
     </div>
@@ -82,10 +81,8 @@ function DetailCard({ data, date }: { data: SpotPayload; date: string }) {
 
 export function TodayPage() {
   const [detail, setDetail] = useState<SpotPayload | null>(null);
-  const [cards, setCards] = useState<SpotPayload[] | null>(null);
-  const [dists, setDists] = useState<Record<string, number>>({});
+  const [grid, setGrid] = useState<SpotPayload[] | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [favs, setFavs] = useState<string[]>(getFavorites);
 
   useEffect(() => {
     let disposed = false;
@@ -104,13 +101,11 @@ export function TodayPage() {
             : { lat: mid(entries.map(([, e]) => e.lat)), lon: mid(entries.map(([, e]) => e.lon)) });
         const km: Record<string, number> = {};
         for (const [id, e] of entries) km[id] = distanceKm(at, { lat: e.lat, lon: e.lon });
-        setDists(km);
         const byDist = [...entries].sort(([a], [b]) => (km[a] ?? 0) - (km[b] ?? 0));
 
         // extended card = the last opened spot (fall back to nearest for a fresh
-        // user); compact list = the user's favorites (north→south), minus the
-        // extended spot. If no favorites are saved, fall back to nearest spots so
-        // Home isn't empty.
+        // user). The grid below lists that same spot first, then every favorite
+        // (north→south); with no favorites saved it falls back to nearest spots.
         const recents = getRecents().filter((id) => index.spots[id]);
         const detailId = recents[0] ?? byDist[0]?.[0];
         const favIds = getFavorites()
@@ -122,7 +117,7 @@ export function TodayPage() {
             : byDist
                 .map(([id]) => id)
                 .filter((id) => id !== detailId)
-                .slice(0, LIST_COUNT);
+                .slice(0, FALLBACK_COUNT);
 
         const orderedIds = [...(detailId ? [detailId] : []), ...listIds];
         const results = await Promise.allSettled(orderedIds.map(fetchSpot));
@@ -130,7 +125,7 @@ export function TodayPage() {
         const byId = new Map<string, SpotPayload>();
         for (const r of results) if (r.status === "fulfilled") byId.set(r.value.spot.id, r.value);
         setDetail(detailId ? (byId.get(detailId) ?? null) : null);
-        setCards(listIds.map((id) => byId.get(id)).filter((d): d is SpotPayload => !!d));
+        setGrid(orderedIds.map((id) => byId.get(id)).filter((d): d is SpotPayload => !!d));
       } catch (e) {
         if (!disposed) setError((e as Error).message);
       } finally {
@@ -148,39 +143,23 @@ export function TodayPage() {
     </a>
   );
 
-  // all spots share the date range; the Home stack shows today only
-  const featured = detail ?? cards?.[0];
-  const days = featured?.days ?? [];
-  const today = days[0]?.date ?? "";
-
-  const dayStack = (dateStr: string) => (
-    <div class="rank-list">
-      {detail && <DetailCard data={detail} date={dateStr} />}
-      {cards?.map((d) => (
-        <SpotCard
-          key={d.spot.id}
-          data={d}
-          date={dateStr}
-          km={dists[d.spot.id]}
-          isFav={favs.includes(d.spot.id)}
-          onToggle={() => setFavs(toggleFavorite(d.spot.id))}
-        />
-      ))}
-    </div>
-  );
+  // all spots share the date range; use the featured spot's days as the axis
+  const featured = detail ?? grid?.[0];
+  const dates = featured?.days.map((d) => d.date) ?? [];
+  const today = dates[0] ?? "";
 
   if (error) {
     return (
       <main class="page">
-        <AppHeader right={search} />
+        <AppHeader lead={greeting()} right={search} />
         <p class="state">{error}</p>
       </main>
     );
   }
-  if (!cards) {
+  if (!grid) {
     return (
       <main class="page">
-        <AppHeader right={search} />
+        <AppHeader lead={greeting()} right={search} />
         <p class="state">Loading…</p>
       </main>
     );
@@ -189,7 +168,14 @@ export function TodayPage() {
   return (
     <main class="page">
       <AppHeader lead={greeting()} right={search} />
-      <div class="home">{dayStack(today)}</div>
+      <div class="home">
+        {detail && (
+          <div class="home-hero">
+            <DetailCard data={detail} date={today} />
+          </div>
+        )}
+        <CoastGrid spots={grid} dates={dates} today={today} />
+      </div>
     </main>
   );
 }
