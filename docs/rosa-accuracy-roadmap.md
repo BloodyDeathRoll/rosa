@@ -299,6 +299,25 @@ forecast serving and the archive, where static-CDN and object-storage scale bett
 The principle that keeps Rosa free at scale is not "avoid databases," it's **"never put the
 read-path behind one."**
 
+### Free-tier stack (the concrete plan to stay free) — verified 2026-07-21
+| Need | Free option | Ceiling / watch-item |
+|------|-------------|----------------------|
+| Data sources | NOAA (public domain), ECMWF/EMODnet/EOT20/GEBCO (CC-BY), NDBC/CDIP, OSM, SWAN/WW3 | Open-Meteo free tier is non-commercial → Stage 3 raw-NOAA/ECMWF migration is the commercial-clean exit; ECMWF 9 km delivery may carry service charges, 25 km stays free |
+| **Read-path serving** (forecast JSON, maps, spot pages) | **Cloudflare Pages (unlimited bandwidth, soft) + R2 (10 GB, $0 egress always)** | Vercel Hobby caps at 100 GB/mo bandwidth — the known scaling wall; Cloudflare is the free migration target, not a paid Vercel plan |
+| Basemap tiles | MapLibre + **Protomaps PMTiles self-hosted on R2** (one file, no tile server) | CARTO free tier fine now; self-host before it bites |
+| Light pipeline (Stages 0–2) | **GitHub Actions cron** (2,000 min/mo private; unlimited if repo public) | Fine at 4×/day short runs |
+| Heavy pipeline (Stages 3–4: GRIB + SWAN) | **Oracle Always Free ARM (now 2 OCPU / 12 GB)** or a **self-hosted runner** (home box) | Oracle *halved* the free ARM tier June 2026 + capacity can be scarce → self-hosted runner is the fallback; keep SWAN grids regional |
+| Forecast/verification archive | **R2 as Parquet/JSONL + DuckDB** | 10 GB free covers years (archive self-prunes to scored rollups) |
+| **Write-plane** (accounts, favorites-sync, feedback, spot catalog) | **Supabase free** (500 MB DB, 50k MAU, 1 GB storage, 5 GB egress, PostGIS) | Pauses after **7 days inactivity** → a cron keep-alive ping fixes it; 500 MB DB → Pro ($25/mo) only once real user/community data grows |
+| Alerts / push | **Web Push (VAPID)** — standards-based, no vendor; alert evaluation runs in the free pipeline | none meaningful |
+| Domain | — | the one unavoidable cost (~$10–15/yr) |
+
+**Through-line:** with the Cloudflare ecosystem (Pages + R2 + Workers) + open data + open-source
+models, the **read-path is free at essentially any scale** — R2's zero egress is the linchpin, since
+egress is what detonates most free tiers. The *only* place Rosa eventually pays is the **write-plane**
+(Supabase Pro), and only once it has enough users/community data that paying is proportional — never
+for serving forecasts.
+
 ---
 
 *Bottom line: the fast wins (Stage 1) are worth taking, but the accuracy the user is asking for
