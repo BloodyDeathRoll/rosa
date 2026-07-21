@@ -1,0 +1,12 @@
+[Unit]
+Description=Run the Rosa forecast cycle 4x/day, shortly after each NOAA model run
+
+[Timer]
+# NOAA GFS/GFS-Wave run at 00/06/12/18Z and publish ~4-5 h later — fire just after.
+OnCalendar=*-*-* 05,11,17,23:00:00 UTC
+# catch up a missed slot if the VM was asleep; jitter to avoid hammering on the dot
+Persistent=true
+RandomizedDelaySec=180
+
+[Install]
+WantedBy=timers.target

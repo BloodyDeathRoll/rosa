@@ -1,0 +1,11 @@
+[Unit]
+Description=Rosa forecast cycle (archive + run --all)
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+# %h = the user's home; repo is cloned to ~/rosa (override with ROSA_REPO in the env)
+ExecStart=%h/rosa/deploy/oracle/run-cycle.sh
+# a cycle is a handful of HTTP requests — should finish in well under a minute
+TimeoutStartSec=600
