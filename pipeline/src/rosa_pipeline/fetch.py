@@ -50,6 +50,28 @@ WEATHER_HOURLY = [
 ]
 
 
+# verification harness samples the total sea-state at a buoy — no models suffix, so the
+# hourly keys stay plain (wave_height/period/direction), tiny payload
+MARINE_WAVE_FIELDS = ["wave_height", "wave_period", "wave_direction"]
+
+
+def fetch_marine_waves(lat: float, lon: float, *, timeout_s: float = 30.0) -> dict:
+    """Total sea-state marine forecast at one point, for buoy validation (roadmap Stage 0).
+    Single best_match model (plain hourly keys); caller handles any capture/replay."""
+    with httpx.Client(timeout=timeout_s) as client:
+        resp = client.get(
+            MARINE_URL,
+            params={
+                "latitude": f"{lat:g}",
+                "longitude": f"{lon:g}",
+                "hourly": ",".join(MARINE_WAVE_FIELDS),
+                "forecast_days": FORECAST_DAYS,
+            },
+        )
+        resp.raise_for_status()
+    return resp.json()
+
+
 @dataclass(frozen=True, slots=True)
 class RawForecast:
     fetched_at: str  # ISO-8601 UTC

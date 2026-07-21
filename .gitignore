@@ -21,3 +21,6 @@ node_modules/
 web/dist/
 web/dev-dist/
 web/public/data/
+
+# verification harness archive (accumulated forecasts vs buoy obs) — build artifact
+data/verify/

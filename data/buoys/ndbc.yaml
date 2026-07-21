@@ -1,0 +1,54 @@
+# NDBC buoy registry — validation ground-truth for the accuracy harness (roadmap Stage 0).
+# NOAA data is public domain. Each buoy validates the OFFSHORE wave field (Hs / period /
+# direction) at its own location; the harness samples the model there and scores it against
+# these observations. Seed set of well-known active wave buoys — extend as spots go worldwide.
+#
+# NOTE: there are NO NDBC stations in the eastern Mediterranean, so this registry gives Israel
+# no coverage. Israel's wave truth is ISRAMAR (isramar.ocean.org.il) — all-rights-reserved,
+# so it stays LOCAL-VALIDATION-ONLY (never shipped, never committed) plus the surfer 👍👎 loop.
+buoys:
+  - id: "46042"
+    name: "Monterey — 27NM WNW of Monterey, CA"
+    lat: 36.785
+    lon: -122.408
+    source: ndbc
+  - id: "46026"
+    name: "San Francisco — 18NM West of SF, CA"
+    lat: 37.759
+    lon: -122.833
+    source: ndbc
+  - id: "46022"
+    name: "Eel River — 17NM WSW of Eureka, CA"
+    lat: 40.720
+    lon: -124.531
+    source: ndbc
+  - id: "46059"
+    name: "West California — 357NM West of SF"
+    lat: 38.094
+    lon: -129.951
+    source: ndbc
+  - id: "41008"
+    name: "Grays Reef — 40NM SE of Savannah, GA"
+    lat: 31.400
+    lon: -80.866
+    source: ndbc
+  - id: "41013"
+    name: "Frying Pan Shoals, NC"
+    lat: 33.436
+    lon: -77.764
+    source: ndbc
+  - id: "44013"
+    name: "Boston — 16NM East of Boston, MA"
+    lat: 42.346
+    lon: -70.651
+    source: ndbc
+  - id: "51201"
+    name: "Waimea Bay — Oahu, HI"
+    lat: 21.671
+    lon: -158.119
+    source: ndbc
+  - id: "51101"
+    name: "NW Hawaii — 190NM NW of Kauai"
+    lat: 24.359
+    lon: -162.081
+    source: ndbc

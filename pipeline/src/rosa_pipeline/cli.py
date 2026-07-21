@@ -3,25 +3,34 @@
 Run from the repo root so the default data paths resolve:
     uv run --project pipeline rosa-pipeline run --spot beit-yanai
     uv run --project pipeline rosa-pipeline run --all
+    uv run --project pipeline rosa-pipeline verify --buoy 46042
+    uv run --project pipeline rosa-pipeline verify --near beit-yanai
 
---all samples each spot's own offshore point and publishes it. Every unique point
-is fetched in a single batched request (fetch_many), so a full 40-spot run is 2
-requests, not 80 — no per-spot throttling.
+`run --all` samples each spot's own offshore point and publishes it. Every unique point
+is fetched in a single batched request (fetch_many), so a full 40-spot run is 2 requests.
+
+`verify` scores the offshore model at a buoy against that buoy's observations (roadmap
+Stage 0) — the accuracy backbone. Israel has no NDBC buoy in range; `--near` says so
+honestly (its truth is ISRAMAR, local-only, plus the surfer 👍👎 loop).
 """
 
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 from datetime import UTC, datetime
 from pathlib import Path
 
+from .buoys import Buoy, load_buoys, nearest_buoys
 from .extract import extract_hours
-from .fetch import FixtureSource, ForecastSource, OpenMeteoSource
+from .fetch import FixtureSource, ForecastSource, OpenMeteoSource, fetch_marine_waves
 from .models import Spot
+from .observe import NDBCFixtureSource, NDBCSource
 from .publish import build_payload, update_index, write_spot_json
 from .score import score_hour
 from .spots import load_spots
+from .verify import build_scorecard, parse_marine_waves, render_scorecard
 
 
 def _build_parser() -> argparse.ArgumentParser:
@@ -38,6 +47,19 @@ def _build_parser() -> argparse.ArgumentParser:
         "--fixtures", type=Path, default=None, help="replay captured responses (offline)"
     )
     run.add_argument("--capture", type=Path, default=None, help="capture raw responses to this dir")
+
+    verify = sub.add_parser("verify", help="score the offshore model against buoy observations")
+    target = verify.add_mutually_exclusive_group(required=True)
+    target.add_argument("--buoy", help="buoy id from the registry, e.g. 46042")
+    target.add_argument("--near", help="spot id — score the nearest in-range buoy(s)")
+    verify.add_argument("--buoys-dir", type=Path, default=Path("data/buoys"))
+    verify.add_argument("--spots-dir", type=Path, default=Path("data/spots"))
+    verify.add_argument("--radius-km", type=float, default=150.0, help="--near search radius")
+    verify.add_argument("--limit", type=int, default=1, help="--near: max buoys to score")
+    verify.add_argument("--tol-min", type=int, default=30, help="model/obs time-match tolerance")
+    verify.add_argument("--fixtures", type=Path, default=None, help="replay marine json (offline)")
+    verify.add_argument("--obs-fixtures", type=Path, default=None, help="replay NDBC txt (offline)")
+    verify.add_argument("--capture", type=Path, default=None, help="capture responses to this dir")
     return parser
 
 
@@ -48,9 +70,7 @@ def group_by_point(spots: list[Spot]) -> dict[tuple[float, float], list[Spot]]:
     return groups
 
 
-def main(argv: list[str] | None = None) -> int:
-    args = _build_parser().parse_args(argv)
-
+def _cmd_run(args: argparse.Namespace) -> int:
     spots = load_spots(args.spots_dir)
     if args.all:
         targets = list(spots.values())
@@ -97,6 +117,68 @@ def main(argv: list[str] | None = None) -> int:
         print("no spots published", file=sys.stderr)
         return 1
     return 0
+
+
+def _obs_for(buoy: Buoy, args: argparse.Namespace):
+    if args.obs_fixtures is not None:
+        return NDBCFixtureSource(args.obs_fixtures).fetch(buoy)
+    return NDBCSource(capture_dir=args.capture).fetch(buoy)
+
+
+def _model_for(buoy: Buoy, args: argparse.Namespace):
+    if args.fixtures is not None:
+        marine = json.loads((args.fixtures / f"marine_{buoy.id}.json").read_text(encoding="utf-8"))
+    else:
+        marine = fetch_marine_waves(buoy.lat, buoy.lon)
+        if args.capture is not None:
+            args.capture.mkdir(parents=True, exist_ok=True)
+            (args.capture / f"marine_{buoy.id}.json").write_text(
+                json.dumps(marine), encoding="utf-8"
+            )
+    return parse_marine_waves(marine)
+
+
+def _cmd_verify(args: argparse.Namespace) -> int:
+    buoys = load_buoys(args.buoys_dir)
+
+    targets: list[tuple[Buoy, float | None]]
+    if args.buoy:
+        buoy = buoys.get(str(args.buoy))
+        if buoy is None:
+            print(f"unknown buoy {args.buoy!r}; known: {', '.join(sorted(buoys))}", file=sys.stderr)
+            return 2
+        targets = [(buoy, None)]
+    else:
+        spots = load_spots(args.spots_dir)
+        spot = spots.get(args.near)
+        if spot is None:
+            print(f"unknown spot {args.near!r}", file=sys.stderr)
+            return 2
+        near = nearest_buoys(
+            spot.lat, spot.lon, buoys, radius_km=args.radius_km, limit=args.limit
+        )
+        if not near:
+            print(
+                f"no buoy within {args.radius_km:.0f} km of {spot.name} — "
+                "no open wave truth here.\n  (eastern-Med spots are validated via "
+                "ISRAMAR, local-only, + the surfer 👍👎 loop)"
+            )
+            return 0
+        targets = list(near)
+
+    for buoy, dist in targets:
+        obs = _obs_for(buoy, args)
+        model = _model_for(buoy, args)
+        scores = build_scorecard(model, obs, tol_min=args.tol_min)
+        print(render_scorecard(buoy, dist, scores))
+    return 0
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = _build_parser().parse_args(argv)
+    if args.command == "verify":
+        return _cmd_verify(args)
+    return _cmd_run(args)
 
 
 if __name__ == "__main__":
