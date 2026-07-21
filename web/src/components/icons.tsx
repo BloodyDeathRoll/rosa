@@ -40,6 +40,13 @@ export const GearIcon = ({ size = 18 }: IconProps) => (
   </svg>
 );
 
+export const UserIcon = ({ size = 18 }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
+    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+    <circle cx="12" cy="7" r="4" />
+  </svg>
+);
+
 export const SearchIcon = ({ size = 18 }: IconProps) => (
   <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
     <circle cx="11" cy="11" r="8" />

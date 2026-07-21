@@ -64,7 +64,8 @@ export function MapPage({ theme }: { theme: Theme }) {
                 distanceKm(pos, { lat: a.lat, lon: a.lon }) - distanceKm(pos, { lat: b.lat, lon: b.lon })
             )[0]?.[0]
           : ordered[0]?.[0];
-        const start = pendingPin && index.spots[pendingPin] ? pendingPin : (nearest ?? null);
+        const handoff = !!(pendingPin && index.spots[pendingPin]);
+        const start = handoff ? pendingPin : (nearest ?? null);
         pendingPin = null;
         setPin(start);
 
@@ -88,7 +89,8 @@ export function MapPage({ theme }: { theme: Theme }) {
             : pos
               ? [pos.lon, pos.lat]
               : [34.8, 32.3],
-          zoom: 9,
+          // "Show on map" hand-off zooms in on the spot; a cold open stays wide
+          zoom: handoff ? 13 : 9,
           attributionControl: { compact: true },
         });
         map = m as unknown as MapHandle;

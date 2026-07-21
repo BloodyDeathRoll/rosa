@@ -165,12 +165,14 @@ function HourRow({
         <span class="top">
           <WindDirIcon rotate={arrowRotation(h.wind.dir)} />
           <b class="tabular">{knots(h.wind.kph)}</b>
+          <small class="cardinal tabular">{cardinal(h.wind.dir)}</small>
         </span>
-        <small class="cardinal tabular">{cardinal(h.wind.dir)}</small>
         <small class="wclass">{windClassWord(h.wind.class)}</small>
       </span>
-      <span class="power tabular">{h.energy.toFixed(1)}</span>
-      <span class="press tabular">{h.pressure ?? "—"}</span>
+      <span class="pp">
+        <b class="power tabular">{h.energy.toFixed(1)}</b>
+        <small class="press tabular">{h.pressure ?? "—"}</small>
+      </span>
     </div>
   );
 }
@@ -240,6 +242,11 @@ function SpotSwitcher({ spots, currentId }: { spots: [string, IndexEntry][]; cur
 const NEAR_RADIUS_KM = 20; // switcher outer bound
 const NEAR_MAX = 8; // ...capped to this many nearest spots
 
+// Selected date carried across spot→spot navigation (the switcher chips keep
+// SpotPage mounted, so this survives the id change). Cleared on unmount, so
+// arriving fresh from Home/Map/Favorites still opens on today.
+let stickyDate: string | null = null;
+
 export function SpotPage({ id }: { id: string }) {
   const [data, setData] = useState<SpotPayload | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -257,13 +264,31 @@ export function SpotPage({ id }: { id: string }) {
   useEffect(() => {
     setData(null);
     setError(null);
-    setDaySel(0);
-    setLiveDay(0);
     pushRecent(id);
     fetchSpot(id)
-      .then(setData, (e: Error) => setError(e.message))
+      .then((d) => {
+        setData(d);
+        // keep the previously selected date if it exists in this spot's range,
+        // otherwise fall back to today
+        const idx = stickyDate ? d.days.findIndex((day) => day.date === stickyDate) : -1;
+        const start = idx >= 0 ? idx : 0;
+        setDaySel(start);
+        setLiveDay(start);
+      }, (e: Error) => setError(e.message))
       .finally(signalReady);
   }, [id]);
+
+  // remember the committed date so it carries to the next spot; forget it when
+  // leaving the spot screen entirely (unmount) so Home/Map open on today
+  useEffect(() => {
+    const days = data?.days;
+    if (!days || days.length === 0) return;
+    const i = Math.min(Math.max(daySel, 0), days.length - 1);
+    stickyDate = days[i]?.date ?? stickyDate;
+  }, [daySel, data]);
+  useEffect(() => () => {
+    stickyDate = null;
+  }, []);
 
   useEffect(() => {
     // north→south ordering, same as the map drawer's swipe order
@@ -277,9 +302,12 @@ export function SpotPage({ id }: { id: string }) {
     location.hash = "#/";
   };
 
-  // switcher + swipe: the 8 spots nearest the current one (within 20 km),
-  // shown north→south
+  // switcher: the user's favorites (north→south); if none are recorded, fall
+  // back to the 8 spots nearest the current one (within 20 km).
   const curEntry = spots.find(([sid]) => sid === id)?.[1];
+  const favSpots = spots
+    .filter(([sid]) => favs.includes(sid))
+    .sort(([, a], [, b]) => b.lat - a.lat);
   const nearSpots = curEntry
     ? spots
         .map(([sid, e]) => ({
@@ -292,6 +320,7 @@ export function SpotPage({ id }: { id: string }) {
         .map(({ entry }) => entry)
         .sort(([, a], [, b]) => b.lat - a.lat)
     : [];
+  const switcherSpots = favSpots.length > 0 ? favSpots : nearSpots;
 
   // the date bar + carousel both drive the selected day
   const allDays = data?.days ?? [];
@@ -355,7 +384,7 @@ export function SpotPage({ id }: { id: string }) {
                 }}
               >
                 <MapIcon size={14} />
-                Show on map →
+                Map
               </button>
               <div class="rc-temps">
                 <span>
@@ -390,8 +419,9 @@ export function SpotPage({ id }: { id: string }) {
             <span>surf {heightUnit(units)}</span>
             <span>swell</span>
             <span>wind kt</span>
-            <span>kW/m</span>
-            <span>hPa</span>
+            <span class="pp-head">
+              kW/m<small>hPa</small>
+            </span>
           </div>
           {hourRows}
           {dayHours.length === 0 && (
@@ -439,7 +469,7 @@ export function SpotPage({ id }: { id: string }) {
       <button class="spot-back" onClick={goBack} aria-label="Back">
         <ChevronLeftIcon />
       </button>
-      {nearSpots.length > 1 && <SpotSwitcher spots={nearSpots} currentId={id} />}
+      {switcherSpots.length > 1 && <SpotSwitcher spots={switcherSpots} currentId={id} />}
       {data && (
         <StarButton
           on={favs.includes(id)}

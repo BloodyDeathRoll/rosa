@@ -1,5 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
-import { GearIcon, HomeIcon, MapIcon, StarIcon } from "./components/icons";
+import { HomeIcon, MapIcon, StarIcon, UserIcon } from "./components/icons";
 import { MapPage } from "./pages/MapPage";
 import { SettingsPage } from "./pages/SettingsPage";
 import { SpotPage } from "./pages/SpotPage";
@@ -30,7 +30,7 @@ const TABS: { tab: Tab; label: string; icon: typeof HomeIcon }[] = [
   { tab: "today", label: "Today", icon: HomeIcon },
   { tab: "spots", label: "Spots", icon: StarIcon },
   { tab: "map", label: "Map", icon: MapIcon },
-  { tab: "settings", label: "Settings", icon: GearIcon },
+  { tab: "settings", label: "Settings", icon: UserIcon },
 ];
 
 function TabBar({ active }: { active: Tab }) {

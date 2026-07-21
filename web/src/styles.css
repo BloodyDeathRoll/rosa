@@ -9,21 +9,21 @@
 
   /* ----- Light palette */
   color-scheme: light;
-  --background: rgba(215, 209, 201, 0.1);
+  --background: #17171c01;
   --body-bg: #ffffff;
   --foreground: #1c1917;
   --card: #ffffff;
-  --primary: #4a4540;
+  --primary: #0a0b0f;
   --primary-foreground: #faf9f7;
-  --secondary: #eae5df;
-  --muted-foreground: #78716c;
+  --secondary: #17171c0d;
+  --muted-foreground: #17171c80;
   --accent: #d97756;
   --accent-hover: #c05f3e;
-  --border: #d6d0cb;
+  --border: #17171c1a;
   --input-bg: #ffffff;
-  --input-border: #c8c0b8;
+  --input-border: #17171c0d;
   --input-shadow: 0px 1px 3px rgba(0, 0, 0, 0.07), 0px 1px 2px rgba(0, 0, 0, 0.05);
-  --emphasis-bg: rgba(171, 148, 124, 0.1);
+  --emphasis-bg: #0a0b0f08;
   --card-shadow: 0px 2px 5px rgba(0, 0, 0, 0.06), 0px 1px 2px rgba(0, 0, 0, 0.04);
   --sheet-shadow: 0 6px 20px rgba(0, 0, 0, 0.14);
   --seg-active-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
@@ -47,19 +47,21 @@
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --background: #1c1917;
-  --body-bg: #1c1917;
+  /* Dark backgrounds sampled from the Webull-style reference: near-black page,
+     cool blue-neutral dark-grey cards. */
+  --background: #0a0b0f;
+  --body-bg: #000000;
   --foreground: #f5f0e8;
-  --card: #292524;
-  --primary: #4a4540;
+  --card: #121418;
+  --primary: #292934;
   --primary-foreground: #f5f0e8;
-  --secondary: #3c3835;
+  --secondary: #22262f;
   --muted-foreground: #a8a29e;
-  --border: #3d3833;
-  --input-bg: #292524;
-  --input-border: #3d3833;
+  --border: #282d36;
+  --input-bg: #181b21;
+  --input-border: #282d36;
   --input-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3), 0px 1px 2px rgba(0, 0, 0, 0.2);
-  --emphasis-bg: rgba(255, 255, 255, 0.08);
+  --emphasis-bg: #ffffff0c;
   --card-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3), 0px 1px 2px rgba(0, 0, 0, 0.2);
   --sheet-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
   --seg-active-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
@@ -106,7 +108,7 @@ button {
 }
 
 .eyebrow {
-  font-size: 12px;
+  font-size: 13.2px;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -133,7 +135,7 @@ button {
 
 .state {
   padding: 24px 16px;
-  font-size: 13px;
+  font-size: 14.3px;
   color: var(--muted-foreground);
 }
 
@@ -154,26 +156,31 @@ button {
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
-/* Brand lockup: icon · rosa · dot. The dot's width is the spacing unit — one dot
-   between the icon and the word, one between the word and the dot. The icon is a
-   little taller than the text and vertically centered against the word+dot block;
-   the word and dot are bottom-aligned (baseline) so the dot reads as a period. */
+/* Brand lockup: icon mark · either the time-of-day greeting (Home) or the
+   "rosa" wordmark + dot (other tabs). */
 .brand {
   --brand-dot: 2.5px;
   display: inline-flex;
   align-items: center;
-  gap: var(--brand-dot);
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 17px;
+  gap: 9px;
   color: var(--foreground);
 }
 .brand-mark {
-  height: 0.72em; /* just a little more than the text's height */
+  height: 17.6px; /* 20% smaller than the standalone 22px mark */
   width: auto;
   display: block;
 }
+.brand-lead {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 18.7px;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
 .brand-word {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 18.7px;
   line-height: 1;
 }
 .brand-dot {
@@ -187,7 +194,7 @@ button {
 }
 
 .head-note {
-  font-size: 12px;
+  font-size: 13.2px;
   color: var(--muted-foreground);
 }
 
@@ -303,7 +310,7 @@ button {
   border-radius: 9999px;
   border: 1px solid var(--input-border);
   background: var(--card);
-  font-size: 13px;
+  font-size: 14.3px;
   font-weight: 600;
   color: var(--foreground);
   white-space: nowrap;
@@ -386,7 +393,7 @@ button {
   align-items: center;
   padding: 0 10px;
   border-radius: 9999px;
-  font-size: 11.5px;
+  font-size: 12.7px;
   font-weight: 600;
 }
 .pill[data-bucket="FLAT"] {
@@ -436,25 +443,14 @@ button {
   line-height: 1.1;
 }
 .rank-card .surf-range {
-  font-size: 19px;
+  font-size: 20.9px;
   margin-top: 4px;
 }
 .detail-card .surf-range {
-  font-size: 24px;
+  font-size: 26.4px;
   margin-top: 8px;
 }
 
-/* Home greeting + layout */
-.greeting {
-  padding: 14px 16px 2px;
-}
-.greeting h2 {
-  margin: 0;
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--foreground);
-}
 /* Draggable date strip (Home + Spot) */
 .date-bar {
   position: sticky;
@@ -493,11 +489,11 @@ button {
     transform 0.18s ease;
 }
 .date-chip .dow {
-  font-size: 10.5px;
+  font-size: 11.6px;
   font-weight: 600;
 }
 .date-chip .dnum {
-  font-size: 15px;
+  font-size: 16.5px;
   font-weight: 700;
   color: var(--foreground);
 }
@@ -565,7 +561,7 @@ button {
   position: absolute;
   right: 6px;
   bottom: 4px;
-  font-size: 8px;
+  font-size: 8.8px;
   color: #fff;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
 }
@@ -593,11 +589,11 @@ button {
   justify-content: space-between;
 }
 .detail-card .top .spot-title b {
-  font-size: 15px;
+  font-size: 16.5px;
 }
 .detail-card .line {
   display: block;
-  font-size: 12px;
+  font-size: 13.2px;
   color: var(--muted-foreground);
   margin-top: 5px;
 }
@@ -621,7 +617,7 @@ button {
   padding-top: 10px;
 }
 .detail-card .window {
-  font-size: 11.5px;
+  font-size: 12.7px;
   color: var(--muted-foreground);
 }
 .detail-card .window b {
@@ -707,19 +703,19 @@ a.rank-card:hover {
   gap: 6px;
 }
 .spot-title b {
-  font-size: 14.5px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--foreground);
 }
 .spot-title small {
-  font-size: 11px;
+  font-size: 12.1px;
   font-weight: 400;
   color: var(--muted-foreground);
 }
 
 .rank-card .line {
   display: block;
-  font-size: 12px;
+  font-size: 13.2px;
   color: var(--muted-foreground);
   margin-top: 3px;
 }
@@ -735,7 +731,7 @@ a.rank-card:hover {
   gap: 6px;
 }
 .rank-card .rank-n {
-  font-size: 10.5px;
+  font-size: 11.6px;
   color: var(--muted-foreground);
 }
 
@@ -765,7 +761,7 @@ a.rank-card:hover {
   border: 1px solid var(--input-border);
   background: var(--input-bg);
   color: var(--foreground);
-  font-size: 13.5px;
+  font-size: 14.9px;
   font-family: inherit;
   box-shadow: var(--input-shadow);
   width: 100%;
@@ -812,11 +808,11 @@ a.rank-card:hover {
   min-width: 0;
 }
 .spot-row-card .mid .spot-title b {
-  font-size: 14px;
+  font-size: 15.4px;
 }
 .spot-row-card .line {
   display: block;
-  font-size: 11.5px;
+  font-size: 12.7px;
   color: var(--muted-foreground);
   margin-top: 2px;
 }
@@ -825,7 +821,7 @@ a.rank-card:hover {
 }
 
 .search-empty {
-  font-size: 12px;
+  font-size: 13.2px;
   color: var(--muted-foreground);
   padding: 4px 2px;
 }
@@ -877,7 +873,7 @@ a.rank-card:hover {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 12px;
+  font-size: 13.2px;
   color: var(--foreground);
 }
 .spot-card .rc-temps svg {
@@ -902,7 +898,7 @@ a.rank-card:hover {
 }
 .why-bars .bar > span:first-child {
   width: 48px;
-  font-size: 11px;
+  font-size: 12.1px;
   font-weight: 500;
   color: var(--muted-foreground);
 }
@@ -948,7 +944,7 @@ a.rank-card:hover {
   position: absolute;
   top: 4px;
   right: 10px;
-  font-size: 9px;
+  font-size: 9.9px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -968,7 +964,7 @@ a.rank-card:hover {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 12px;
+  font-size: 13.2px;
   color: var(--foreground);
 }
 .temps-row svg {
@@ -983,7 +979,7 @@ a.rank-card:hover {
   align-items: center;
   gap: 6px;
   white-space: nowrap;
-  font-size: 12px;
+  font-size: 13.2px;
   font-weight: 600;
   color: var(--accent);
 }
@@ -1009,7 +1005,7 @@ a.rank-card:hover {
   color: var(--primary-foreground);
 }
 .day-pills .l {
-  font-size: 10.5px;
+  font-size: 11.6px;
   font-weight: 600;
 }
 .day-pills .dot {
@@ -1025,28 +1021,28 @@ a.rank-card:hover {
   align-items: baseline;
 }
 .day-title b {
-  font-size: 13px;
+  font-size: 14.3px;
   font-weight: 600;
   color: var(--foreground);
 }
 .day-title span {
-  font-size: 11.5px;
+  font-size: 12.7px;
   color: var(--muted-foreground);
 }
 
 /* Hourly table */
 .hour-grid {
   display: grid;
-  grid-template-columns: 26px 6px 1fr 0.9fr 1.25fr 0.6fr 0.7fr;
+  grid-template-columns: 26px 6px 1fr 0.9fr 1fr 0.7fr;
   gap: 6px;
   align-items: center;
-  padding: 8px 10px 8px 6px;
+  padding: 10px 10px 10px 6px;
 }
 .hour-grid.head {
   padding: 6px 10px 5px 6px;
 }
 .hour-grid.head span {
-  font-size: 9px;
+  font-size: 9.9px;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -1061,7 +1057,7 @@ a.rank-card:hover {
   justify-self: center;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  font-size: 10px;
+  font-size: 11px;
   color: var(--muted-foreground);
 }
 .hour-grid .bar {
@@ -1076,12 +1072,13 @@ a.rank-card:hover {
   line-height: 1.25;
 }
 .hour-grid .surf b {
-  font-size: 12.5px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 700;
   color: var(--foreground);
 }
 .hour-grid .surf small {
-  font-size: 10px;
+  font-size: 14px;
+  font-weight: 600;
   color: var(--muted-foreground);
 }
 .hour-grid .vec {
@@ -1089,7 +1086,7 @@ a.rank-card:hover {
   align-items: center;
   justify-content: center;
   gap: 4px;
-  font-size: 13px;
+  font-size: 14.3px;
   color: var(--foreground);
 }
 .hour-grid .vec svg {
@@ -1097,7 +1094,7 @@ a.rank-card:hover {
   flex: none;
 }
 .hour-grid .vec small {
-  font-size: 9.5px;
+  font-size: 10.5px;
   color: var(--muted-foreground);
 }
 
@@ -1113,7 +1110,7 @@ a.rank-card:hover {
   gap: 4px;
 }
 .hour-grid .swell-cell .top b {
-  font-size: 12px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--foreground);
 }
@@ -1121,7 +1118,7 @@ a.rank-card:hover {
   color: var(--foreground);
 }
 .hour-grid .swell-cell small {
-  font-size: 9.5px;
+  font-size: 12px;
   color: var(--muted-foreground);
 }
 
@@ -1132,9 +1129,9 @@ a.rank-card:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2px;
+  gap: 4px;
   line-height: 1.15;
-  padding: 4px 4px;
+  padding: 4px 2px;
   border-radius: 8px;
   background: var(--emphasis-bg);
 }
@@ -1144,17 +1141,17 @@ a.rank-card:hover {
   gap: 4px;
 }
 .hour-grid .wind-cell .top b {
-  font-size: 12.5px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--foreground);
   font-variant-numeric: tabular-nums;
 }
 .hour-grid .wind-cell .cardinal {
-  font-size: 9.5px;
+  font-size: 10.5px;
   color: var(--muted-foreground);
 }
 .hour-grid .wind-cell .wclass {
-  font-size: 9px;
+  font-size: 9.9px;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -1179,15 +1176,31 @@ a.rank-card:hover {
   color: var(--rating-flat);
 }
 
-.hour-grid .power {
-  text-align: center;
-  font-size: 11px;
+/* Power + pressure share one stacked column: power on top (heavier), pressure below. */
+.hour-grid .pp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.5;
+}
+.hour-grid .pp .power {
+  font-size: 14px;
+  font-weight: 700;
   color: var(--foreground);
 }
-.hour-grid .press {
-  text-align: center;
-  font-size: 10px;
+.hour-grid .pp .press {
+  font-size: 11px;
   color: var(--muted-foreground);
+}
+/* Header cell for the merged column: two stacked unit labels. */
+.hour-grid.head .pp-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.3;
+}
+.hour-grid.head .pp-head small {
+  font-size: inherit;
 }
 
 /* Tide */
@@ -1201,10 +1214,10 @@ a.rank-card:hover {
   align-items: baseline;
 }
 .tide-sec .head .eyebrow {
-  font-size: 10px;
+  font-size: 11px;
 }
 .tide-sec .note {
-  font-size: 10px;
+  font-size: 11px;
   color: var(--muted-foreground);
 }
 .tide-sec svg {
@@ -1216,7 +1229,7 @@ a.rank-card:hover {
   display: flex;
   justify-content: space-between;
   margin-top: 4px;
-  font-size: 10.5px;
+  font-size: 11.6px;
 }
 .tide-sec .hi {
   color: var(--foreground);
@@ -1248,10 +1261,10 @@ a.rank-card:hover {
   align-items: center;
 }
 .sun-row .eyebrow {
-  font-size: 9px;
+  font-size: 9.9px;
 }
 .sun-row b {
-  font-size: 11.5px;
+  font-size: 12.7px;
   font-weight: 500;
   color: var(--foreground);
 }
@@ -1315,14 +1328,14 @@ a.rank-card:hover {
   box-shadow: none;
 }
 .map-sheet .map-skel .line {
-  font-size: 12px;
+  font-size: 13.2px;
   color: var(--muted-foreground);
   margin-top: 5px;
 }
 
 /* maplibre chrome, kept subtle */
 .maplibregl-ctrl-attrib {
-  font-size: 9px;
+  font-size: 9.9px;
 }
 
 /* ---------- Settings ---------- */
@@ -1356,7 +1369,7 @@ a.rank-card:hover {
   padding: 12px 0;
 }
 .settings-row .label {
-  font-size: 13.5px;
+  font-size: 14.9px;
   font-weight: 500;
   color: var(--foreground);
 }
@@ -1364,7 +1377,7 @@ a.rank-card:hover {
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 12.5px;
+  font-size: 13.8px;
   color: var(--muted-foreground);
 }
 
@@ -1381,7 +1394,7 @@ a.rank-card:hover {
   gap: 5px;
   padding: 5px 14px;
   border-radius: 6px;
-  font-size: 12.5px;
+  font-size: 13.8px;
   font-weight: 500;
   color: var(--muted-foreground);
 }
@@ -1393,7 +1406,7 @@ a.rank-card:hover {
 
 .settings-foot {
   text-align: center;
-  font-size: 11px;
+  font-size: 12.1px;
   color: var(--muted-foreground);
   padding: 4px 0;
 }
@@ -1422,9 +1435,16 @@ a.rank-card:hover {
   align-items: center;
   justify-content: center;
   gap: 4px;
-  font-size: 9.5px;
+  font-size: 11.6px;
   font-weight: 500;
   color: var(--muted-foreground);
+}
+.tabs a svg {
+  stroke-width: 2;
+}
+/* Light theme: darker tab icons so they don't read as faint. */
+:root:not([data-theme="dark"]) .tabs a:not(.on) svg {
+  color: #57534e;
 }
 .tabs a:hover {
   color: var(--muted-foreground);
@@ -1432,4 +1452,5 @@ a.rank-card:hover {
 .tabs a.on,
 .tabs a.on:hover {
   color: var(--foreground);
+  font-weight: 700;
 }

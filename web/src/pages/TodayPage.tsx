@@ -107,20 +107,22 @@ export function TodayPage() {
         setDists(km);
         const byDist = [...entries].sort(([a], [b]) => (km[a] ?? 0) - (km[b] ?? 0));
 
-        // the 4 latest-viewed spots: newest is the extended card, next 3 are the list;
-        // if fewer than 4 have been viewed, fill the rest with the nearest spots
+        // extended card = the last opened spot (fall back to nearest for a fresh
+        // user); compact list = the user's favorites (north→south), minus the
+        // extended spot. If no favorites are saved, fall back to nearest spots so
+        // Home isn't empty.
         const recents = getRecents().filter((id) => index.spots[id]);
         const detailId = recents[0] ?? byDist[0]?.[0];
-        const chosen = new Set<string>(detailId ? [detailId] : []);
-        const listIds: string[] = [];
-        const consider = (id: string) => {
-          if (listIds.length < LIST_COUNT && !chosen.has(id)) {
-            listIds.push(id);
-            chosen.add(id);
-          }
-        };
-        recents.slice(1).forEach(consider);
-        byDist.forEach(([id]) => consider(id));
+        const favIds = getFavorites()
+          .filter((fid) => index.spots[fid] && fid !== detailId)
+          .sort((a, b) => (index.spots[b]?.lat ?? 0) - (index.spots[a]?.lat ?? 0));
+        const listIds =
+          favIds.length > 0
+            ? favIds
+            : byDist
+                .map(([id]) => id)
+                .filter((id) => id !== detailId)
+                .slice(0, LIST_COUNT);
 
         const orderedIds = [...(detailId ? [detailId] : []), ...listIds];
         const results = await Promise.allSettled(orderedIds.map(fetchSpot));
@@ -186,13 +188,8 @@ export function TodayPage() {
 
   return (
     <main class="page">
-      <AppHeader right={search} />
-      <div class="home">
-        <div class="greeting">
-          <h2>{greeting()}</h2>
-        </div>
-        {dayStack(today)}
-      </div>
+      <AppHeader lead={greeting()} right={search} />
+      <div class="home">{dayStack(today)}</div>
     </main>
   );
 }

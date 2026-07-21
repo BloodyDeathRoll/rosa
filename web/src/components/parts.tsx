@@ -105,14 +105,18 @@ export function SpotTitle({ name, region }: { name: string; region: string | nul
   );
 }
 
-export function AppHeader({ right }: { right?: ComponentChildren }) {
+export function AppHeader({ lead, right }: { lead?: ComponentChildren; right?: ComponentChildren }) {
   return (
     <header class="app-head">
       <span class="brand">
-        <img class="brand-mark" src="/favicon.svg" alt="" />
-        <span class="brand-word">
-          rosa<span class="brand-dot" aria-hidden="true" />
-        </span>
+        <img class="brand-mark" src="/favicon.svg" alt="Rosa" />
+        {lead ? (
+          <span class="brand-lead">{lead}</span>
+        ) : (
+          <span class="brand-word">
+            rosa<span class="brand-dot" aria-hidden="true" />
+          </span>
+        )}
       </span>
       {right}
     </header>
