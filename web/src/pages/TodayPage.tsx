@@ -1,7 +1,5 @@
-import { useCallback, useEffect, useMemo, useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import { fetchIndex, fetchSpot } from "../api";
-import { DateBar } from "../components/DateBar";
-import { DayCarousel } from "../components/DayCarousel";
 import { SatMap } from "../components/MiniMap";
 import { SearchIcon, ShirtIcon, ThermometerIcon, WavesIcon } from "../components/icons";
 import { AppHeader, Pill, Spark, SpotTitle } from "../components/parts";
@@ -88,13 +86,6 @@ export function TodayPage() {
   const [dists, setDists] = useState<Record<string, number>>({});
   const [error, setError] = useState<string | null>(null);
   const [favs, setFavs] = useState<string[]>(getFavorites);
-  const [daySel, setDaySel] = useState(0);
-  const [liveDay, setLiveDay] = useState(0);
-  // commit a day: settle both the highlight (live) and the content (daySel)
-  const commitDay = useCallback((i: number) => {
-    setDaySel(i);
-    setLiveDay(i);
-  }, []);
 
   useEffect(() => {
     let disposed = false;
@@ -155,13 +146,10 @@ export function TodayPage() {
     </a>
   );
 
-  // full 16-day strip from the featured spot (all spots share the date range);
-  // its per-day bucket also colors the date-bar dots
+  // all spots share the date range; the Home stack shows today only
   const featured = detail ?? cards?.[0];
   const days = featured?.days ?? [];
   const today = days[0]?.date ?? "";
-  const sel = Math.min(daySel, Math.max(0, days.length - 1));
-  const liveSel = Math.min(liveDay, Math.max(0, days.length - 1));
 
   const dayStack = (dateStr: string) => (
     <div class="rank-list">
@@ -177,23 +165,6 @@ export function TodayPage() {
         />
       ))}
     </div>
-  );
-
-  // Memoize the carousel vnode: live scrubs re-render the parent (to move the date
-  // highlight) but must not re-render the heavy day cards. A stable vnode reference
-  // lets Preact skip diffing the carousel subtree while only `liveDay` changed.
-  const carousel = useMemo(
-    () => (
-      <DayCarousel
-        count={days.length}
-        selected={sel}
-        onSelect={commitDay}
-        onScrub={setLiveDay}
-        renderPanel={(i) => dayStack(days[i]?.date ?? today)}
-      />
-    ),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [days, detail, cards, dists, favs, today, sel, commitDay]
   );
 
   if (error) {
@@ -220,16 +191,7 @@ export function TodayPage() {
         <div class="greeting">
           <h2>{greeting()}</h2>
         </div>
-        {days.length > 0 && (
-          <DateBar
-            dates={days.map((d) => d.date)}
-            selected={sel}
-            live={liveSel}
-            today={today}
-            onSelect={commitDay}
-          />
-        )}
-        {carousel}
+        {dayStack(today)}
       </div>
     </main>
   );

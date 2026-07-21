@@ -1,9 +1,9 @@
+import type { VNode } from "preact";
 import { useCallback, useEffect, useMemo, useRef, useState } from "preact/hooks";
 import { fetchIndex, fetchSpot } from "../api";
 import {
   ChevronLeftIcon,
   MapIcon,
-  SearchIcon,
   ShirtIcon,
   SwellDirIcon,
   ThermometerIcon,
@@ -12,7 +12,7 @@ import {
 } from "../components/icons";
 import { DateBar } from "../components/DateBar";
 import { DayCarousel } from "../components/DayCarousel";
-import { AppHeader, Pill, StarButton } from "../components/parts";
+import { Pill, StarButton } from "../components/parts";
 import { ratingVar } from "../conditions";
 import { getFavorites, toggleFavorite } from "../favorites";
 import { pushRecent } from "../recents";
@@ -113,14 +113,30 @@ function sessionChips(
     .sort((a, b) => (a.t < b.t ? -1 : 1));
 }
 
-function chipEnd(h: HourEntry): string {
-  return `${String((Number(h.t.slice(11, 13)) + 3) % 24).padStart(2, "0")}:00`;
-}
 
-function HourRow({ h, units }: { h: HourEntry; units: Units }) {
+function HourRow({
+  h,
+  units,
+  best,
+  first,
+  last,
+  label,
+}: {
+  h: HourEntry;
+  units: Units;
+  best?: boolean;
+  first?: boolean;
+  last?: boolean;
+  label?: string;
+}) {
   const swell = h.swells.find((s) => s.in_window) ?? h.swells[0];
   return (
-    <div class="hour-grid row">
+    <div
+      class={`hour-grid row${best ? " best" : ""}${first ? " best-first" : ""}${
+        last ? " best-last" : ""
+      }`}
+    >
+      {label && <span class="best-tag">{label}</span>}
       <span class="t tabular">{hourOf(h.t)}</span>
       <span
         class="bar"
@@ -302,32 +318,46 @@ export function SpotPage({ id }: { id: string }) {
         return Number(hh) * 60 + Number(mm);
       };
       const chips = sessionChips(dayHours, toMin(sun.firstLight), toMin(sun.lastLight));
+      // best-session slots → tinted rows, with a "Best session" tag overlaid on the
+      // first row of each contiguous run (top-right, just under the row's top border)
+      const bestSet = new Set(chips.map((c) => c.t));
+      const hourRows: VNode[] = [];
+      for (let i = 0; i < dayHours.length; i++) {
+        const h = dayHours[i]!;
+        const isBest = bestSet.has(h.t);
+        const prevBest = i > 0 && bestSet.has(dayHours[i - 1]!.t);
+        const nextBest = i + 1 < dayHours.length && bestSet.has(dayHours[i + 1]!.t);
+        hourRows.push(
+          <HourRow
+            key={h.t}
+            h={h}
+            units={units}
+            best={isBest}
+            first={isBest && !prevBest}
+            last={isBest && !nextBest}
+            label={isBest && !prevBest ? "Best session" : undefined}
+          />
+        );
+      }
       return (
         <div class="spot-main">
           <section class="spot-card">
-            <div class="inner">
-              <div class="pill-row">
-                <Pill bucket={day.bucket} />
-                <span class="est-note tabular">
-                  estimated · {fmtClock(new Date(data.generated_at), data.spot.timezone)}
-                </span>
-              </div>
+            <div class="rc-left">
+              <Pill bucket={day.bucket} />
               <DayBars day={day} hours={dayHours} />
-              <div class="sessions">
-                <span class="eyebrow">Best sessions</span>
-                {chips.length > 0 ? (
-                  <span class="chips">
-                    {chips.map((h) => (
-                      <span class="session-chip pill tabular" data-bucket={h.bucket} key={h.t}>
-                        {hourOf(h.t)}–{chipEnd(h)}
-                      </span>
-                    ))}
-                  </span>
-                ) : (
-                  <span class="none">none worth the paddle</span>
-                )}
-              </div>
-              <div class="temps-row">
+            </div>
+            <div class="rc-right">
+              <button
+                class="accent-link"
+                onClick={() => {
+                  setPendingPin(id);
+                  location.hash = "#/map";
+                }}
+              >
+                <MapIcon size={14} />
+                Show on map →
+              </button>
+              <div class="rc-temps">
                 <span>
                   <ThermometerIcon />
                   <span class="tabular">air {cur.air !== null ? fmtTemp(cur.air, units) : "—"}</span>
@@ -346,18 +376,6 @@ export function SpotPage({ id }: { id: string }) {
                 )}
               </div>
             </div>
-            <div class="card-foot">
-              <button
-                class="accent-link"
-                onClick={() => {
-                  setPendingPin(id);
-                  location.hash = "#/map";
-                }}
-              >
-                <MapIcon size={14} />
-                Show on map →
-              </button>
-            </div>
           </section>
 
           <div class="day-title">
@@ -375,9 +393,7 @@ export function SpotPage({ id }: { id: string }) {
             <span>kW/m</span>
             <span>hPa</span>
           </div>
-          {dayHours.map((h) => (
-            <HourRow key={h.t} h={h} units={units} />
-          ))}
+          {hourRows}
           {dayHours.length === 0 && (
             <p class="state">Beyond the model horizon — no hourly detail yet.</p>
           )}
@@ -417,34 +433,27 @@ export function SpotPage({ id }: { id: string }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, units, daySelClamped, commitDay]);
 
-  const search = (
-    <a class="icon-btn" href="#/spots" aria-label="Search spots">
-      <SearchIcon />
-    </a>
-  );
-  const header = (
-    <>
-      <AppHeader right={search} />
-      <div class="spot-back-row">
-        <button class="spot-back" onClick={goBack} aria-label="Back">
-          <ChevronLeftIcon />
-        </button>
-        {data && (
-          <StarButton
-            on={favs.includes(id)}
-            name={splitName(data.spot.name).name}
-            onToggle={() => setFavs(toggleFavorite(id))}
-          />
-        )}
-      </div>
-    </>
+  // Top bar: back arrow · spot switcher (masked, fills the middle) · fav star.
+  const topBar = (
+    <div class="spot-top">
+      <button class="spot-back" onClick={goBack} aria-label="Back">
+        <ChevronLeftIcon />
+      </button>
+      {nearSpots.length > 1 && <SpotSwitcher spots={nearSpots} currentId={id} />}
+      {data && (
+        <StarButton
+          on={favs.includes(id)}
+          name={splitName(data.spot.name).name}
+          onToggle={() => setFavs(toggleFavorite(id))}
+        />
+      )}
+    </div>
   );
 
   if (error || !data) {
     return (
       <main class="page">
-        {header}
-        {nearSpots.length > 1 && <SpotSwitcher spots={nearSpots} currentId={id} />}
+        <div class="spot-sticky">{topBar}</div>
         <p class="state">{error ?? "Loading…"}</p>
       </main>
     );
@@ -455,9 +464,8 @@ export function SpotPage({ id }: { id: string }) {
 
   return (
     <main class="page">
-      {header}
       <div class="spot-sticky">
-        {nearSpots.length > 1 && <SpotSwitcher spots={nearSpots} currentId={id} />}
+        {topBar}
         <DateBar
           dates={days.map((d) => d.date)}
           buckets={days.map((d) => d.bucket)}

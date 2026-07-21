@@ -201,38 +201,72 @@ button {
   color: var(--muted-foreground);
 }
 
-/* Spot screen back-row — sits directly under the app header (logo + search).
-   Non-sticky: it scrolls away, leaving the switcher + date bar under the header. */
-.spot-back-row {
+/* Spot screen top bar — back arrow · spot switcher · fav star, all one row.
+   The back arrow and star get generous, fixed tap targets at each edge; the
+   switcher fills the middle and is edge-masked so chips fade out beneath both
+   rather than colliding with them. */
+.spot-top {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 4px 12px 6px;
+  gap: 6px;
+  padding: 6px 10px;
 }
 .spot-back {
+  flex: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
   color: var(--muted-foreground);
   transition: background 0.15s;
 }
 .spot-back:active {
   background: var(--secondary);
 }
+.spot-top .star-btn {
+  flex: none;
+  margin-left: auto; /* pin right even when the switcher is absent */
+}
+.spot-top .spot-switch {
+  flex: 1;
+  min-width: 0;
+  position: static;
+  top: auto;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 14px,
+    #000 calc(100% - 14px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 14px,
+    #000 calc(100% - 14px),
+    transparent 100%
+  );
+}
+.spot-top .spot-switch .track {
+  padding: 2px 10px;
+}
 
-/* Spot screen sticky head: switcher chips + date bar move as one block */
+/* Spot screen sticky head: top bar + date bar move as one block, pinned to the
+   very top — this screen has no app header above it. */
 .spot-sticky {
   position: sticky;
-  top: 52px;
+  top: 0;
   z-index: 19;
+  padding-top: env(safe-area-inset-top);
   background: color-mix(in srgb, var(--card) 88%, transparent);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
-.spot-sticky .spot-switch,
 .spot-sticky .date-bar {
   position: static;
   top: auto;
@@ -802,28 +836,56 @@ a.rank-card:hover {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 14px 0 32px;
+  /* no footer tab bar on this screen — clear the home indicator ourselves */
+  padding: 14px 0 calc(32px + env(safe-area-inset-bottom));
 }
 
 .spot-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
   margin: 0 16px;
+  padding: 16px;
   background: var(--card);
   border-radius: 16px;
   box-shadow: var(--card-shadow);
   overflow: hidden;
 }
-.spot-card .inner {
-  padding: 16px 16px 0;
+/* Left column: total rating on top, quality bars beneath */
+.spot-card .rc-left {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
-
-.spot-card .pill-row {
+/* Right column: show-on-map, then air / water / rashguard stacked */
+.spot-card .rc-right {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-left: 16px;
+  border-left: 1px solid var(--border);
+}
+.spot-card .rc-temps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.spot-card .rc-temps > span {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--foreground);
 }
-.est-note {
-  font-size: 11px;
+.spot-card .rc-temps svg {
   color: var(--muted-foreground);
+  flex: none;
+}
+.spot-card .rc-temps .suit {
+  font-weight: 500;
 }
 
 .why-bars {
@@ -831,6 +893,7 @@ a.rank-card:hover {
   flex-direction: column;
   gap: 8px;
   margin-top: 14px;
+  align-self: stretch;
 }
 .why-bars .bar {
   display: flex;
@@ -867,37 +930,30 @@ a.rank-card:hover {
   background: var(--rating-poor);
 }
 
-.sessions {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  margin-top: 14px;
-  padding-top: 12px;
-  border-top: 1px solid var(--border);
+/* Best-session rows — subtly tinted; the first row of a run carries a small
+   "Best session" tag overlaid in its top-right corner, just below the divider. */
+.hour-grid.row.best {
+  background: color-mix(in srgb, var(--rating-good) 4%, transparent);
+  /* keep the row's normal top divider — don't blank it out */
 }
-.sessions .eyebrow {
-  font-size: 10px;
-  flex: none;
+.hour-grid.row.best-first {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
-.sessions .chips {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
+.hour-grid.row.best-last {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
-.session-chip {
-  height: 22px;
-  display: inline-flex;
-  align-items: center;
-  padding: 0 9px;
-  border-radius: 9999px;
-  font-size: 10.5px;
-  font-weight: 600;
-}
-.sessions .none {
-  font-size: 11.5px;
-  color: var(--muted-foreground);
+.best-tag {
+  position: absolute;
+  top: 4px;
+  right: 10px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rating-good);
+  pointer-events: none;
 }
 
 .temps-row {
@@ -922,16 +978,11 @@ a.rank-card:hover {
   font-weight: 500;
 }
 
-.spot-card .card-foot {
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px 16px;
-  border-top: 1px solid var(--border);
-}
 .accent-link {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  white-space: nowrap;
   font-size: 12px;
   font-weight: 600;
   color: var(--accent);
@@ -1003,6 +1054,7 @@ a.rank-card:hover {
   text-align: center;
 }
 .hour-grid.row {
+  position: relative;
   border-top: 1px solid var(--border);
 }
 .hour-grid .t {

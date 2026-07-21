@@ -93,7 +93,8 @@ export function App() {
       ) : (
         <TodayPage />
       )}
-      <TabBar active={route.page === "spot" ? lastTab() : route.page} />
+      {/* Spot screen is a focused, full-bleed view: no footer tab bar. */}
+      {route.page !== "spot" && <TabBar active={route.page} />}
     </div>
   );
 }
