@@ -22,6 +22,11 @@ FORECAST_DAYS = 16
 # runs the full 16. Request both — extract prefers best_match, falls back to GFS-Wave for
 # the extended tail (per-hour, so each hour stays internally consistent).
 MARINE_MODELS = ["best_match", "ncep_gfswave016"]
+# independent members for the confidence ensemble (Stage 1) — fetched in a separate,
+# lightweight request (Hs/period/dir only) so the primary path + fixtures stay untouched.
+# best_match is a blend, so it's excluded here; these disagree independently.
+MARINE_ENSEMBLE_MODELS = ["ncep_gfswave016", "ewam", "gwam", "meteofrance_wave"]
+ENSEMBLE_HOURLY = ["wave_height", "wave_period", "wave_direction"]
 
 MARINE_HOURLY = [
     "wave_height",
@@ -77,6 +82,7 @@ class RawForecast:
     fetched_at: str  # ISO-8601 UTC
     marine: dict
     weather: dict
+    ensemble: dict | None = None  # multi-model Hs/period/dir for confidence (Stage 1)
 
 
 class ForecastSource(Protocol):
@@ -98,9 +104,10 @@ class OpenMeteoSource:
         return self.fetch_many([(lat, lon)])[0]
 
     def fetch_many(self, coords: list[tuple[float, float]]) -> list[RawForecast]:
-        """Fetch every point in ONE marine + ONE weather request. Open-Meteo accepts
-        comma-separated coordinates and returns a per-location array (a single object
-        for one coord), so a whole coast is 2 requests — no per-spot throttling."""
+        """Fetch every point in ONE marine + ONE weather + ONE ensemble request. Open-Meteo
+        accepts comma-separated coordinates and returns a per-location array (a single object
+        for one coord), so a whole coast is 3 requests — no per-spot throttling. The ensemble
+        request (independent members, Hs/period/dir only) feeds Stage-1 confidence."""
         if not coords:
             return []
         common = {
@@ -120,18 +127,35 @@ class OpenMeteoSource:
             marine.raise_for_status()
             weather = client.get(WEATHER_URL, params={**common, "hourly": ",".join(WEATHER_HOURLY)})
             weather.raise_for_status()
+            ensemble = client.get(
+                MARINE_URL,
+                params={
+                    **common,
+                    "hourly": ",".join(ENSEMBLE_HOURLY),
+                    "models": ",".join(MARINE_ENSEMBLE_MODELS),
+                },
+            )
+            ensemble.raise_for_status()
         fetched_at = datetime.now(UTC).isoformat(timespec="seconds")
-        mj, wj = marine.json(), weather.json()
+        mj, wj, ej = marine.json(), weather.json(), ensemble.json()
         marine_list = mj if isinstance(mj, list) else [mj]
         weather_list = wj if isinstance(wj, list) else [wj]
+        ensemble_list = ej if isinstance(ej, list) else [ej]
         out: list[RawForecast] = []
-        for (lat, lon), m, w in zip(coords, marine_list, weather_list, strict=True):
-            raw = RawForecast(fetched_at=fetched_at, marine=m, weather=w)
+        for (lat, lon), m, w, e in zip(
+            coords, marine_list, weather_list, ensemble_list, strict=True
+        ):
+            raw = RawForecast(fetched_at=fetched_at, marine=m, weather=w, ensemble=e)
             if self.capture_dir is not None:
                 self.capture_dir.mkdir(parents=True, exist_ok=True)
                 (self.capture_dir / f"{fixture_key(lat, lon)}.json").write_text(
                     json.dumps(
-                        {"fetched_at": raw.fetched_at, "marine": raw.marine, "weather": raw.weather}
+                        {
+                            "fetched_at": raw.fetched_at,
+                            "marine": raw.marine,
+                            "weather": raw.weather,
+                            "ensemble": raw.ensemble,
+                        }
                     ),
                     encoding="utf-8",
                 )
@@ -147,7 +171,10 @@ class FixtureSource:
         path = self.fixtures_dir / f"{fixture_key(lat, lon)}.json"
         data = json.loads(path.read_text(encoding="utf-8"))
         return RawForecast(
-            fetched_at=data["fetched_at"], marine=data["marine"], weather=data["weather"]
+            fetched_at=data["fetched_at"],
+            marine=data["marine"],
+            weather=data["weather"],
+            ensemble=data.get("ensemble"),  # absent in captures made before Stage 1
         )
 
     def fetch_many(self, coords: list[tuple[float, float]]) -> list[RawForecast]:

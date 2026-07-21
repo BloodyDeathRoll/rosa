@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from datetime import UTC, datetime
 
+from .confidence import agreement_at
 from .fetch import RawForecast
 from .models import HourForecast, SwellPartition
 
@@ -63,6 +64,10 @@ def extract_hours(raw: RawForecast) -> list[HourForecast]:
     marine = _merge_models(raw.marine["hourly"])
     weather = raw.weather["hourly"]
     weather_index = {t: i for i, t in enumerate(weather["time"])}
+    # ensemble (independent members) drives per-hour confidence; aligned by timestamp so a
+    # different horizon/ordering can't misalign it. Absent in pre-Stage-1 fixtures → None.
+    ens = raw.ensemble["hourly"] if raw.ensemble else None
+    ens_index = {t: i for i, t in enumerate(ens["time"])} if ens else {}
     # SST comes only from best_match (~9 days); carry the last real reading into the
     # GFS-Wave tail so extended days still show a water temp (it drifts ~1 C/week).
     last_sst: float | None = None
@@ -84,6 +89,7 @@ def extract_hours(raw: RawForecast) -> list[HourForecast]:
         sst = marine["sea_surface_temperature"][i]
         if sst is not None:
             last_sst = sst
+        agreement = agreement_at(ens, ens_index[t]) if ens is not None and t in ens_index else None
         hours.append(
             HourForecast(
                 time=datetime.fromisoformat(t).replace(tzinfo=UTC),
@@ -95,6 +101,8 @@ def extract_hours(raw: RawForecast) -> list[HourForecast]:
                 # .get: absent in captures made before these were added to the fetch
                 pressure_msl=(pm[j] if (pm := weather.get("pressure_msl")) else None),
                 air_c=(ta[j] if (ta := weather.get("temperature_2m")) else None),
+                agreement_score=agreement.score if agreement else None,
+                n_models=agreement.n_models if agreement else 0,
             )
         )
     return hours

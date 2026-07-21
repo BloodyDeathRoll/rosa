@@ -20,13 +20,24 @@ TABLE_STEP_H = 3
 OUTLOOK_DAYS = 16
 
 
-def _confidence(day_index: int) -> str:
-    # days 0-9 are best_match (skilful); 10-15 are the GFS-Wave extended outlook
+def _horizon_ceiling(day_index: int) -> float:
+    """Confidence a forecast this far out can earn even if every model agrees — skill
+    degrades with lead time, and the day 10+ tail is GFS-Wave-only."""
     if day_index <= 3:
-        return "high"
+        return 1.0
     if day_index <= 9:
-        return "medium"
-    return "low"
+        return 0.85
+    return 0.4
+
+
+def _confidence(day_index: int, agreement_score: float | None) -> tuple[str, float]:
+    """Combine multi-model agreement with the horizon ceiling → (label, 0-1 score).
+    No ensemble (agreement None) → fall back to the horizon proxy alone."""
+    ceiling = _horizon_ceiling(day_index)
+    base = agreement_score if agreement_score is not None else ceiling
+    score = min(base, ceiling)
+    label = "high" if score >= 0.7 else "medium" if score >= 0.45 else "low"
+    return label, round(score, 2)
 
 
 def _r(x: float, digits: int = 2) -> float:
@@ -44,6 +55,11 @@ def _daylight(
         return day_hours
     lit = [h for h in day_hours if s["dawn"] <= h.hour.time.astimezone(tz) <= s["dusk"]]
     return lit or day_hours
+
+
+def _day_agreement(day_hours: list[ScoredHour]) -> float | None:
+    scores = [s.hour.agreement_score for s in day_hours if s.hour.agreement_score is not None]
+    return sum(scores) / len(scores) if scores else None
 
 
 def _hour_entry(spot: Spot, s: ScoredHour, tz: ZoneInfo) -> dict:
@@ -80,6 +96,16 @@ def _hour_entry(spot: Spot, s: ScoredHour, tz: ZoneInfo) -> dict:
 def build_payload(spot: Spot, scored: list[ScoredHour], *, fetched_at: str, now: datetime) -> dict:
     tz = ZoneInfo(spot.timezone)
 
+    table_hours = [
+        s for s in scored[: TABLE_DAYS * 24] if s.hour.time.astimezone(tz).hour % TABLE_STEP_H == 0
+    ]
+
+    by_date: dict[str, list[ScoredHour]] = {}
+    for s in scored:
+        by_date.setdefault(s.hour.time.astimezone(tz).date().isoformat(), []).append(s)
+    sorted_dates = sorted(by_date.items())
+    date_index = {date_str: i for i, (date_str, _) in enumerate(sorted_dates)}
+
     current = next((s for s in scored if s.hour.time >= now), scored[-1])
     current_entry = _hour_entry(spot, current, tz)
     current_entry["wetsuit"] = current.wetsuit
@@ -88,26 +114,28 @@ def build_payload(spot: Spot, scored: list[ScoredHour], *, fetched_at: str, now:
         "period": _r(current.period_score, 1),
         "wind": _r(current.wind_score, 1),
     }
+    cur_date = current.hour.time.astimezone(tz).date().isoformat()
+    cur_label, cur_score = _confidence(date_index.get(cur_date, 0), current.hour.agreement_score)
+    current_entry["confidence"] = {
+        "label": cur_label,
+        "score": cur_score,
+        "models": current.hour.n_models,
+    }
 
-    table_hours = [
-        s for s in scored[: TABLE_DAYS * 24] if s.hour.time.astimezone(tz).hour % TABLE_STEP_H == 0
-    ]
-
-    by_date: dict[str, list[ScoredHour]] = {}
-    for s in scored:
-        by_date.setdefault(s.hour.time.astimezone(tz).date().isoformat(), []).append(s)
-    days = [
-        {
-            "date": date_str,
-            "rating_max": (
-                best := max(_daylight(spot, day_hours, date_str, tz), key=lambda s: s.rating)
-            ).rating,
-            "bucket": best.bucket,
-            "h_max": [best.h_break_lo, best.h_break_hi],
-            "confidence": _confidence(day_index),
-        }
-        for day_index, (date_str, day_hours) in enumerate(sorted(by_date.items())[:OUTLOOK_DAYS])
-    ]
+    days = []
+    for day_index, (date_str, day_hours) in enumerate(sorted_dates[:OUTLOOK_DAYS]):
+        best = max(_daylight(spot, day_hours, date_str, tz), key=lambda s: s.rating)
+        label, score = _confidence(day_index, _day_agreement(day_hours))
+        days.append(
+            {
+                "date": date_str,
+                "rating_max": best.rating,
+                "bucket": best.bucket,
+                "h_max": [best.h_break_lo, best.h_break_hi],
+                "confidence": label,
+                "confidence_score": score,
+            }
+        )
 
     return {
         "spot": {
