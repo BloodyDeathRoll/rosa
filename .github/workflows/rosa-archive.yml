@@ -58,8 +58,12 @@ jobs:
             git push origin data
           fi
 
-      - name: Set up uv
-        uses: astral-sh/setup-uv@v6
+      - name: Install uv
+        # Official installer instead of astral-sh/setup-uv: that action still bundles the
+        # deprecated Node 20 runtime; a plain script has no JS runtime, so no deprecation.
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
 
       - name: Sync pipeline deps
         run: uv sync --project pipeline
