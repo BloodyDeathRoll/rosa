@@ -1,0 +1,55 @@
+# Rosa spot database — Sri Lanka (worldwide expansion)
+#
+# TWO coasts with opposite exposure AND opposite seasons:
+#   * South (&sl_s):  S-facing; S/SW Indian-Ocean groundswell window; offshore wind from the
+#                     N/NE. Cleanest Nov–Apr. Sample pushed SOUTH to open water.
+#   * East (&sl_e):   E/SE-facing (Arugam Bay cluster); S/SE wrap-around swell; offshore wind
+#                     from the W/NW. Season May–Sep. Sample pushed EAST to open water.
+#
+# offshore_direction = compass bearing the OFFSHORE wind blows FROM (= inland-pointing shore
+#   normal = seaward-facing azimuth + 180). Set explicitly per spot.
+# offshore_point = deep-water sample point. NOTE: the loader's default pushes 0.06° WEST, which
+#   is WRONG for every Sri Lankan spot (none face west) — so EACH carries an explicit
+#   offshore_point: south-coast spots pushed south, east-coast spots pushed east.
+#
+# CONFIDENCE: coordinates approximate (well-known-spot knowledge, ~3-4 dp, tagged "approx —
+# TODO verify"); orientations reasoned from coastal facing, not surveyed. Calibration starting
+# point, same as the israel.yaml + costa-rica.yaml seeds.
+
+south: &sl_s
+  timezone: Asia/Colombo
+  swell_window: [150, 230]     # SSE → SW
+  height_coeff: 1.0            # calibrate per spot
+  break_type: beach
+  ideal:
+    wind_dir: [0, 90]          # metadata only (scorer uses offshore_direction)
+    size_m: [0.6, 2.0]
+
+east: &sl_e
+  timezone: Asia/Colombo
+  swell_window: [120, 200]     # ESE → SSW wrap
+  height_coeff: 1.0
+  break_type: point
+  ideal:
+    wind_dir: [250, 330]
+    size_m: [0.6, 2.2]
+
+spots:
+  # ==== SOUTH COAST (W→E; sample pushed SOUTH) ====
+  - { id: hikkaduwa,        name: "Hikkaduwa",              lat: 6.140, lon: 80.103, offshore_direction: 35,  offshore_point: [6.08, 80.103],  break_type: reef, <<: *sl_s }  # approx — TODO verify
+  - { id: unawatuna,        name: "Unawatuna",              lat: 6.010, lon: 80.249, offshore_direction: 20,  offshore_point: [5.95, 80.249],  swell_window: [160, 220], <<: *sl_s }  # approx — TODO verify (sheltered bay)
+  - { id: koggala,          name: "Koggala",                lat: 5.994, lon: 80.328, offshore_direction: 5,   offshore_point: [5.934, 80.328], break_type: reef, <<: *sl_s }  # approx — TODO verify
+  - { id: ahangama-kabalana, name: "Ahangama (Kabalana)",   lat: 5.973, lon: 80.363, offshore_direction: 5,   offshore_point: [5.913, 80.363], <<: *sl_s }  # approx — TODO verify (The Rock)
+  - { id: midigama,         name: "Midigama",               lat: 5.970, lon: 80.390, offshore_direction: 15,  offshore_point: [5.91, 80.390],  break_type: reef, <<: *sl_s }  # approx — TODO verify (Ram's Right / Lazy Left)
+  - { id: weligama,         name: "Weligama",               lat: 5.970, lon: 80.429, offshore_direction: 5,   offshore_point: [5.91, 80.429],  <<: *sl_s }  # approx — TODO verify (beginner beachbreak)
+  - { id: mirissa,          name: "Mirissa",                lat: 5.945, lon: 80.459, offshore_direction: 5,   offshore_point: [5.885, 80.459], <<: *sl_s }  # approx — TODO verify
+  - { id: polhena,          name: "Polhena (Matara)",       lat: 5.933, lon: 80.538, offshore_direction: 5,   offshore_point: [5.873, 80.538], break_type: reef, <<: *sl_s }  # approx — TODO verify
+  - { id: hiriketiya,       name: "Hiriketiya",             lat: 5.965, lon: 80.690, offshore_direction: 350, offshore_point: [5.905, 80.690], swell_window: [150, 210], <<: *sl_s }  # approx — TODO verify (horseshoe bay)
+  - { id: tangalle,         name: "Tangalle",               lat: 6.023, lon: 80.794, offshore_direction: 355, offshore_point: [5.963, 80.794], <<: *sl_s }  # approx — TODO verify
+  # ==== EAST COAST (Arugam Bay cluster, S→N; sample pushed EAST) ====
+  - { id: okanda,           name: "Okanda",                 lat: 6.650, lon: 81.780, offshore_direction: 240, offshore_point: [6.65, 81.840],  <<: *sl_e }  # approx — TODO verify (remote, S of Arugam) — SW-monsoon offshore
+  - { id: peanut-farm,      name: "Peanut Farm",            lat: 6.780, lon: 81.850, offshore_direction: 240, offshore_point: [6.78, 81.910],  <<: *sl_e }  # approx — TODO verify — SW-monsoon offshore
+  - { id: elephant-rock,    name: "Elephant Rock",          lat: 6.800, lon: 81.848, offshore_direction: 240, offshore_point: [6.80, 81.908],  <<: *sl_e }  # approx — TODO verify — SW-monsoon offshore
+  - { id: arugam-bay,       name: "Arugam Bay (Main Point)", lat: 6.840, lon: 81.836, offshore_direction: 245, offshore_point: [6.84, 81.896], <<: *sl_e }  # approx — TODO verify (world-class right point) — SW-monsoon offshore is what makes the season
+  - { id: pottuvil-point,   name: "Pottuvil Point",         lat: 6.887, lon: 81.834, offshore_direction: 240, offshore_point: [6.887, 81.894], <<: *sl_e }  # approx — TODO verify — SW-monsoon offshore
+  - { id: whiskey-point,    name: "Whiskey Point",          lat: 6.920, lon: 81.820, offshore_direction: 250, offshore_point: [6.92, 81.880],  <<: *sl_e }  # approx — TODO verify — SW-monsoon offshore
