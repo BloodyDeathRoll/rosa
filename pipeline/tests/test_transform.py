@@ -4,6 +4,7 @@ import pytest
 
 from rosa_pipeline.models import SwellPartition
 from rosa_pipeline.transform import (
+    EXPOSURE_SHOULDER_DEG,
     angle_diff,
     breaker_height_from_profile,
     breaker_range,
@@ -11,6 +12,7 @@ from rosa_pipeline.transform import (
     dominant_partition,
     effective_height_in_window,
     energy_in_window,
+    exposure_weight,
     height_in_window,
     height_phrase,
     in_window,
@@ -40,6 +42,25 @@ class TestPeriodRideability:
         assert 0.3 < period_rideability(6.0) < 1.0
 
 
+class TestExposureWeight:
+    def test_full_inside_window_including_edges(self):
+        assert exposure_weight(295.0, WINDOW) == 1.0
+        assert exposure_weight(250.0, WINDOW) == 1.0  # edges are inside
+        assert exposure_weight(340.0, WINDOW) == 1.0
+
+    def test_cosine_taper_just_beyond_edge(self):
+        w = exposure_weight(350.0, WINDOW)  # 10° past the 340 edge
+        assert w == pytest.approx(math.cos((10.0 / EXPOSURE_SHOULDER_DEG) * (math.pi / 2)))
+        assert 0.0 < w < 1.0
+
+    def test_symmetric_either_side(self):
+        assert exposure_weight(240.0, WINDOW) == pytest.approx(exposure_weight(350.0, WINDOW))
+
+    def test_zero_beyond_shoulder(self):
+        assert exposure_weight(340.0 + EXPOSURE_SHOULDER_DEG + 5, WINDOW) == 0.0
+        assert exposure_weight(100.0, WINDOW) == 0.0
+
+
 # deep -> shallow depth profile for the transform tests (straight-in when shore_normal == dir)
 PROFILE_FIX = [180.0, 50.0, 20.0, 8.0, 3.0, 1.5]
 
@@ -57,6 +78,16 @@ class TestBreakerHeightFromProfile:
     def test_out_of_window_partition_excluded(self):
         h = breaker_height_from_profile((swell(1.5, 12.0, 100.0),), WINDOW, 290.0, PROFILE_FIX)
         assert h == 0.0
+
+    def test_soft_shoulder_contributes_but_attenuated(self):
+        # a swell 10° outside the window still contributes (Stage 2C), below an in-window one,
+        # while one well outside the shoulder is still fully dropped
+        fx, sn = PROFILE_FIX, 295.0
+        inside = breaker_height_from_profile((swell(1.0, 12.0, 295.0),), WINDOW, sn, fx)
+        shoulder = breaker_height_from_profile((swell(1.0, 12.0, 350.0),), WINDOW, sn, fx)
+        far = breaker_height_from_profile((swell(1.0, 12.0, 20.0),), WINDOW, sn, fx)
+        assert 0.0 < shoulder < inside
+        assert far == 0.0
 
     def test_rms_combines_partitions(self):
         one = breaker_height_from_profile((swell(0.8, 12.0, 290.0),), WINDOW, 290.0, PROFILE_FIX)

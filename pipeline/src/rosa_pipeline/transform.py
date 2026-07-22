@@ -34,6 +34,28 @@ def in_window(direction_deg: float, window: tuple[float, float]) -> bool:
     return d >= lo or d <= hi  # window wraps through 360
 
 
+EXPOSURE_SHOULDER_DEG = 25.0  # cosine taper beyond the swell-window edges (Stage 2C soft window)
+
+
+def exposure_weight(
+    direction_deg: float,
+    window: tuple[float, float],
+    shoulder_deg: float = EXPOSURE_SHOULDER_DEG,
+) -> float:
+    """Soft exposure response (Stage 2C): 1.0 for a swell inside the spot's ``swell_window``,
+    then a cosine taper to 0 over ``shoulder_deg`` just beyond each edge — so a swell a few
+    degrees outside the hand-tuned arc still contributes instead of being hard-dropped. Staying
+    flat inside the arc keeps the existing per-spot tuning (and its calibration) intact."""
+    if in_window(direction_deg, window):
+        return 1.0
+    lo, hi = window
+    d = direction_deg % 360
+    beyond = min(angle_diff(d, lo), angle_diff(d, hi))  # distance past the nearest edge
+    if beyond >= shoulder_deg:
+        return 0.0
+    return math.cos((beyond / shoulder_deg) * (math.pi / 2.0))
+
+
 def energy_in_window(partitions: tuple[SwellPartition, ...], window: tuple[float, float]) -> float:
     return sum(p.height_m**2 * p.period_s for p in partitions if in_window(p.direction_deg, window))
 
@@ -98,11 +120,12 @@ def breaker_height_from_profile(
     physics march zeroes anything arriving from behind it (>= 90 deg)."""
     total_sq = 0.0
     for p in partitions:
-        if not in_window(p.direction_deg, window):
+        w = exposure_weight(p.direction_deg, window)
+        if w <= 0.0:
             continue
         incidence = angle_diff(p.direction_deg, shore_normal)
         hb = breaker_height_over_profile(p.height_m, p.period_s, incidence, wet_depths)
-        hb *= period_rideability(p.period_s)
+        hb *= period_rideability(p.period_s) * w
         total_sq += hb * hb
     return math.sqrt(total_sq)
 
@@ -110,10 +133,17 @@ def breaker_height_from_profile(
 def dominant_partition(
     partitions: tuple[SwellPartition, ...], window: tuple[float, float]
 ) -> SwellPartition | None:
-    candidates = [p for p in partitions if in_window(p.direction_deg, window)]
-    if not candidates:
+    """The exposure-weighted dominant partition — includes swells within the soft-window
+    shoulder so a just-outside swell can drive period/flat-gating consistently with the
+    breaker height (Stage 2C)."""
+    scored = [
+        (p, p.height_m**2 * p.period_s * exposure_weight(p.direction_deg, window))
+        for p in partitions
+    ]
+    scored = [(p, s) for p, s in scored if s > 0]
+    if not scored:
         return None
-    return max(candidates, key=lambda p: p.height_m**2 * p.period_s)
+    return max(scored, key=lambda ps: ps[1])[0]
 
 
 def _snap(x: float) -> float:

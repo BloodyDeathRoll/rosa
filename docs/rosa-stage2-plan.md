@@ -55,15 +55,21 @@ automatically.
 - **STILL TODO (folds into 2E):** breaker-height bias/RMSE vs. ISRAMAR + NDBC-derived across spots;
   tune γ, residual `height_coeff`, and the rideability exponent from the scorecard.
 
-## 2C — Soft exposure window *(falls out of 2B)*
-- Replace the hard `in_window` boolean (`transform.py`) with a cosine-power angular response
-  centred on the spot's optimal direction — refraction Kr already encodes angular loss, so nearly
-  free.
-- Touches `transform.py` (weighted energy/height), `score.py`, `publish.py` (`in_window` badge →
-  soft exposure weight). Spot schema: `optimal_dir` + `exposure_power` (default `optimal_dir` =
-  window centre → back-compatible across israel/costa-rica/sri-lanka YAMLs).
-- **Validate:** real energy just outside the old arc no longer fully dropped; scorecard
-  neutral-or-better.
+## 2C — Soft exposure window *(falls out of 2B)* — DONE
+- **Design change from the sketch:** instead of a pure cosine-power lobe centred on an
+  `optimal_dir` (which would re-weight *in-arc* swells and churn the per-spot calibration), the
+  soft response is **flat 1.0 inside the existing `swell_window` with a cosine taper to 0 over a
+  `EXPOSURE_SHOULDER_DEG` (25°) shoulder just beyond each edge**. Back-compatible: in-arc
+  behaviour is unchanged, so no regression — it only stops the *hard drop* of just-outside energy.
+  **No schema change** (no `optimal_dir`/`exposure_power` fields; a global shoulder constant),
+  keeping the diff small.
+- `transform.py` (DONE): `exposure_weight(direction, window, shoulder)`; `breaker_height_from_profile`
+  multiplies each partition by it; `dominant_partition` is exposure-weighted so a shoulder swell
+  drives period/flat-gating consistently with the breaker height.
+- `publish.py` `in_window` badge left as the hard boolean for now (UI-consumed field; softening it
+  is a later UI-coordinated change). Energy display left hard (secondary metric).
+- **Validated:** a swell 10° outside the arc now contributes (attenuated), one >25° out still
+  dropped; 154 tests green, ruff clean, spot runs unchanged in-arc.
 
 ## 2D — Tide (EOT20 / pyTMD)
 - **New `tides.py`**: pyTMD + EOT20 → precompute per-spot harmonic constants at build
