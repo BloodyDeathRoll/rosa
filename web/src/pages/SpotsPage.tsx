@@ -15,6 +15,21 @@ import { setPendingArea } from "./MapPage";
 
 type Entry = [string, IndexEntry];
 
+/** Spots shown under "Nearby" before the user searches — keeps the initial view scannable. */
+const NEARBY_LIMIT = 5;
+
+/** Group entries by their map area (region), preserving the incoming (N→S / nearest) order. */
+function groupByRegion(rows: Entry[]): [string, Entry[]][] {
+  const groups = new Map<string, Entry[]>();
+  for (const row of rows) {
+    const region = row[1].region?.trim() || "Other";
+    const list = groups.get(region);
+    if (list) list.push(row);
+    else groups.set(region, [row]);
+  }
+  return [...groups.entries()];
+}
+
 function payloadLine(data: SpotPayload, units: Units): string {
   const cur = data.current;
   const today = data.hours.filter((h) => dateOf(h.t) === dateOf(data.hours[0]?.t ?? ""));
@@ -136,6 +151,8 @@ export function SpotsPage() {
         distanceKm(pos, { lat: a.lat, lon: a.lon }) - distanceKm(pos, { lat: b.lat, lon: b.lon })
     );
   }
+  // Initial state (no search text) shows only the closest handful; typing reveals all matches.
+  if (!q) nearRows = nearRows.slice(0, NEARBY_LIMIT);
 
   // Map areas: regions whose name matches the query (only while searching).
   const regionMatches = q && index ? regionsFrom(index).filter((r) => r.name.toLowerCase().includes(q)) : [];
@@ -170,23 +187,28 @@ export function SpotsPage() {
           {favRows.length > 0 && (
             <div>
               <span class="eyebrow">Favorites</span>
-              <div class="rank-list">
-                {favRows.map(([id, e]) => {
-                  const p = payloads[id];
-                  return p ? (
-                    <SpotCard
-                      key={id}
-                      data={p}
-                      date={p.days[0]?.date ?? ""}
-                      km={pos ? distanceKm(pos, { lat: e.lat, lon: e.lon }) : undefined}
-                      isFav
-                      onToggle={() => onToggle(id)}
-                    />
-                  ) : (
-                    <Row key={id} id={id} entry={e} payload={undefined} isFav onToggle={() => onToggle(id)} />
-                  );
-                })}
-              </div>
+              {groupByRegion(favRows).map(([region, rows]) => (
+                <div key={region} class="fav-region">
+                  <span class="fav-region-head">{region}</span>
+                  <div class="rank-list">
+                    {rows.map(([id, e]) => {
+                      const p = payloads[id];
+                      return p ? (
+                        <SpotCard
+                          key={id}
+                          data={p}
+                          date={p.days[0]?.date ?? ""}
+                          km={pos ? distanceKm(pos, { lat: e.lat, lon: e.lon }) : undefined}
+                          isFav
+                          onToggle={() => onToggle(id)}
+                        />
+                      ) : (
+                        <Row key={id} id={id} entry={e} payload={undefined} isFav onToggle={() => onToggle(id)} />
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
             </div>
           )}
           <div>

@@ -885,6 +885,16 @@ a.rank-card:hover {
   margin-top: 10px;
 }
 
+/* Favorites are grouped by map area (region): a light subheader per group,
+   subordinate to the uppercase "Favorites" eyebrow above it. */
+.fav-region-head {
+  display: block;
+  margin-top: 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--muted-foreground);
+}
+
 .spot-row-card {
   background: var(--card);
   border-radius: 16px;
