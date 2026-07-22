@@ -22,6 +22,11 @@ export default defineConfig({
         ]
       },
       workbox: {
+        // a new build's SW takes over immediately and deletes prior precaches, so a
+        // stale app shell / forecast can't linger on a device across deploys
+        skipWaiting: true,
+        clientsClaim: true,
+        cleanupOutdatedCaches: true,
         // app shell precached; the heavy maplibre chunk is fetched (and then cached)
         // only when the Map tab opens; forecast JSON served stale-while-revalidate so
         // the last forecast is readable offline and refreshes in the background
@@ -43,7 +48,8 @@ export default defineConfig({
             urlPattern: ({ url }) => url.pathname.startsWith("/data/"),
             handler: "NetworkFirst",
             options: {
-              cacheName: "rosa-data",
+              // bump the version to orphan any previously-cached forecast payloads
+              cacheName: "rosa-data-v2",
               networkTimeoutSeconds: 4,
               expiration: { maxEntries: 64, maxAgeSeconds: 60 * 60 * 24 * 7 }
             }
