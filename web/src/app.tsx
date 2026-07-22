@@ -1,5 +1,6 @@
 import { useEffect, useState } from "preact/hooks";
 import { HomeIcon, MapIcon, StarIcon, UserIcon } from "./components/icons";
+import { AboutPage, type AboutDoc } from "./pages/AboutPage";
 import { MapPage } from "./pages/MapPage";
 import { SettingsPage } from "./pages/SettingsPage";
 import { SpotPage } from "./pages/SpotPage";
@@ -13,6 +14,7 @@ type Route =
   | { page: "spots" }
   | { page: "map" }
   | { page: "settings" }
+  | { page: "about"; doc: AboutDoc }
   | { page: "spot"; id: string };
 
 function parseRoute(hash: string): Route {
@@ -22,6 +24,8 @@ function parseRoute(hash: string): Route {
   // #/favorites and #/search are pre-handoff routes folded into Spots
   if (hash.startsWith("#/spots") || hash.startsWith("#/favorites") || hash.startsWith("#/search"))
     return { page: "spots" };
+  const about = /^#\/about\/(how|terms|privacy)/.exec(hash);
+  if (about?.[1]) return { page: "about", doc: about[1] as AboutDoc };
   if (hash.startsWith("#/settings") || hash.startsWith("#/account")) return { page: "settings" };
   return { page: "today" };
 }
@@ -30,7 +34,7 @@ const TABS: { tab: Tab; label: string; icon: typeof HomeIcon }[] = [
   { tab: "today", label: "Today", icon: HomeIcon },
   { tab: "spots", label: "Spots", icon: StarIcon },
   { tab: "map", label: "Map", icon: MapIcon },
-  { tab: "settings", label: "Settings", icon: UserIcon },
+  { tab: "settings", label: "Profile", icon: UserIcon },
 ];
 
 function TabBar({ active }: { active: Tab }) {
@@ -68,7 +72,7 @@ export function App() {
     const onHash = () => {
       const r = parseRoute(location.hash);
       setRoute(r);
-      if (r.page !== "spot") saveLastTab(r.page);
+      if (r.page !== "spot" && r.page !== "about") saveLastTab(r.page);
       scrollTo(0, 0);
     };
     addEventListener("hashchange", onHash);
@@ -90,11 +94,16 @@ export function App() {
         <SpotsPage />
       ) : route.page === "settings" ? (
         <SettingsPage theme={theme} onSetTheme={onSetTheme} />
+      ) : route.page === "about" ? (
+        <AboutPage doc={route.doc} />
       ) : (
         <TodayPage />
       )}
       {/* Spot screen is a focused, full-bleed view: no footer tab bar. */}
-      {route.page !== "spot" && <TabBar active={route.page} />}
+      {/* About pages live under Profile, so keep that tab lit. */}
+      {route.page !== "spot" && (
+        <TabBar active={route.page === "about" ? "settings" : route.page} />
+      )}
     </div>
   );
 }

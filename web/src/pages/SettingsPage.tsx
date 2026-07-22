@@ -21,7 +21,7 @@ export function SettingsPage({
 
   return (
     <main class="page">
-      <AppHeader right={<span class="head-note">settings</span>} />
+      <AppHeader right={<span class="head-note">profile</span>} />
       <div class="settings-page">
         <section class="settings-card">
           <div class="card-title">
@@ -87,6 +87,30 @@ export function SettingsPage({
             <span class="label">Favorites</span>
             <span class="value tabular">
               {favCount} {favCount === 1 ? "spot" : "spots"} <ChevronRightIcon />
+            </span>
+          </button>
+        </section>
+
+        <section class="settings-card">
+          <div class="card-title">
+            <span class="eyebrow">About Rosa</span>
+          </div>
+          <button class="settings-row tall" onClick={() => (location.hash = "#/about/how")}>
+            <span class="label">How it works</span>
+            <span class="value">
+              <ChevronRightIcon />
+            </span>
+          </button>
+          <button class="settings-row tall" onClick={() => (location.hash = "#/about/terms")}>
+            <span class="label">Terms of Use</span>
+            <span class="value">
+              <ChevronRightIcon />
+            </span>
+          </button>
+          <button class="settings-row tall" onClick={() => (location.hash = "#/about/privacy")}>
+            <span class="label">Privacy Policy</span>
+            <span class="value">
+              <ChevronRightIcon />
             </span>
           </button>
         </section>

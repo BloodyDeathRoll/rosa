@@ -1533,6 +1533,67 @@ a.rank-card:hover {
   margin: 2px 0;
 }
 
+/* ---------- About / legal pages ---------- */
+
+.about-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px 4px;
+}
+.about-head h1 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--foreground);
+}
+.about-body {
+  flex: 1;
+  padding: 8px 20px 28px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--foreground);
+}
+.about-body h2 {
+  font-size: 15.5px;
+  font-weight: 700;
+  margin: 22px 0 6px;
+  color: var(--foreground);
+}
+.about-body p {
+  margin: 10px 0;
+  color: var(--muted-foreground);
+}
+.about-body .about-lead {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--foreground);
+  margin-top: 4px;
+}
+.about-body .about-muted {
+  font-size: 12.5px;
+}
+.about-steps {
+  margin: 12px 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.about-steps li {
+  color: var(--muted-foreground);
+  line-height: 1.55;
+}
+.about-steps b {
+  color: var(--foreground);
+}
+.about-body .about-note {
+  margin-top: 20px;
+  padding: 12px 14px;
+  background: var(--secondary);
+  border-radius: 12px;
+  font-size: 13.8px;
+}
+
 /* ---------- Bottom nav ---------- */
 
 .tabs {
