@@ -1,0 +1,65 @@
+{
+  "spot": "netanya-sironit",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 282.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 171.0,
+  "mean_slope_m_per_km": 9.07,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.32687,
+      "lon": 34.844,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.32733,
+      "lon": 34.84139,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.32827,
+      "lon": 34.83619,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.33014,
+      "lon": 34.82578,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.33201,
+      "lon": 34.81537,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.33574,
+      "lon": 34.79454,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.34133,
+      "lon": 34.76331,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.34878,
+      "lon": 34.72165,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.35992,
+      "lon": 34.65915,
+      "depth_m": 171.0
+    }
+  ]
+}

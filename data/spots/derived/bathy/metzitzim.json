@@ -1,0 +1,65 @@
+{
+  "spot": "metzitzim",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 287.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 156.0,
+  "mean_slope_m_per_km": 8.51,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.09466,
+      "lon": 34.76916,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.09531,
+      "lon": 34.76662,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.09663,
+      "lon": 34.76155,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.09926,
+      "lon": 34.7514,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.10188,
+      "lon": 34.74124,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.10714,
+      "lon": 34.72093,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.11501,
+      "lon": 34.69047,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.12549,
+      "lon": 34.64984,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.1412,
+      "lon": 34.58888,
+      "depth_m": 156.0
+    }
+  ]
+}

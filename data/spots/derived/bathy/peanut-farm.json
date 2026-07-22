@@ -1,0 +1,65 @@
+{
+  "spot": "peanut-farm",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 125.0,
+  "nearshore_depth_m": 74.0,
+  "offshore_depth_m": 496.0,
+  "mean_slope_m_per_km": 23.77,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 6.77871,
+      "lon": 81.85185,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 6.77742,
+      "lon": 81.85371,
+      "depth_m": 76.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 6.77484,
+      "lon": 81.85742,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 6.76968,
+      "lon": 81.86484,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 6.76452,
+      "lon": 81.87226,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 6.75421,
+      "lon": 81.88709,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 6.73873,
+      "lon": 81.90934,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 6.71809,
+      "lon": 81.93901,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 6.68713,
+      "lon": 81.98351,
+      "depth_m": 496.0
+    }
+  ]
+}

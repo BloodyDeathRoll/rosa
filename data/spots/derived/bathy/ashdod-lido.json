@@ -1,0 +1,65 @@
+{
+  "spot": "ashdod-lido",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 292.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 103.0,
+  "mean_slope_m_per_km": 5.92,
+  "land_samples": 1,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 31.80794,
+      "lon": 34.63515,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 31.80878,
+      "lon": 34.63269,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 31.81047,
+      "lon": 34.62779,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 31.81384,
+      "lon": 34.61797,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 31.8172,
+      "lon": 34.60816,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 31.82394,
+      "lon": 34.58853,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 31.83403,
+      "lon": 34.55908,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 31.84747,
+      "lon": 34.51981,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 31.86762,
+      "lon": 34.46087,
+      "depth_m": 103.0
+    }
+  ]
+}

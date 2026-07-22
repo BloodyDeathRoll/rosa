@@ -1,0 +1,65 @@
+{
+  "spot": "punta-banco",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 235.0,
+  "nearshore_depth_m": 22.0,
+  "offshore_depth_m": 980.0,
+  "mean_slope_m_per_km": 53.97,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 8.35171,
+      "lon": -83.14386,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 8.35042,
+      "lon": -83.14572,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 8.34784,
+      "lon": -83.14945,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 8.34268,
+      "lon": -83.15689,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 8.33752,
+      "lon": -83.16434,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 8.32721,
+      "lon": -83.17923,
+      "depth_m": 277.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 8.31173,
+      "lon": -83.20156,
+      "depth_m": 1260.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 8.29109,
+      "lon": -83.23134,
+      "depth_m": 1241.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 8.26013,
+      "lon": -83.27599,
+      "depth_m": 980.0
+    }
+  ]
+}

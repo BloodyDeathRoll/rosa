@@ -10,6 +10,9 @@ Two per-spot fields are derived when not given explicitly, so a straight coast o
   the OSM coastline shore-normal). When absent, falls back to the local tangent
   between the neighbouring spots (file order is N→S) minus 90° for this W-facing
   coast — a coarse proxy that misreads sharp bends, so prefer the explicit value.
+* ``shore_normal`` — seaward-facing azimuth for wave geometry (bathymetry ray,
+  refraction). Defaults to ``offshore_direction + 180`` (the seaward normal for a spot
+  whose best wind is straight offshore); override where they diverge (point breaks).
 """
 
 from __future__ import annotations
@@ -75,6 +78,14 @@ def load_spots_file(path: Path) -> list[Spot]:
             if "offshore_direction" in raw
             else _derive_offshore_direction(rows, i)
         )
+        # Seaward normal for wave geometry (bathymetry ray, refraction). Defaults to the
+        # opposite of the offshore wind direction; override where the two diverge (point
+        # breaks whose best wind isn't simply opposite the coast, e.g. Arugam Bay).
+        shore_normal = (
+            float(raw["shore_normal"])
+            if "shore_normal" in raw
+            else (offshore_direction + 180.0) % 360.0
+        )
         spots.append(
             Spot(
                 id=raw["id"],
@@ -84,6 +95,7 @@ def load_spots_file(path: Path) -> list[Spot]:
                 timezone=raw["timezone"],
                 offshore_point=offshore_point,
                 offshore_direction=offshore_direction,
+                shore_normal=shore_normal,
                 swell_window=_pair(raw["swell_window"]),
                 height_coeff=float(raw["height_coeff"]),
                 break_type=raw["break_type"],

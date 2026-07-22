@@ -1,0 +1,65 @@
+{
+  "spot": "mal-pais",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 250.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 387.0,
+  "mean_slope_m_per_km": 21.13,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 9.59623,
+      "lon": -85.14714,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 9.59546,
+      "lon": -85.14929,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 9.59392,
+      "lon": -85.15357,
+      "depth_m": 103.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 9.59085,
+      "lon": -85.16214,
+      "depth_m": 150.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 9.58777,
+      "lon": -85.17071,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 9.58162,
+      "lon": -85.18785,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 9.57239,
+      "lon": -85.21356,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 9.56007,
+      "lon": -85.24784,
+      "depth_m": 101.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 9.5416,
+      "lon": -85.29925,
+      "depth_m": 387.0
+    }
+  ]
+}

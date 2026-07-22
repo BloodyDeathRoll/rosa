@@ -1,0 +1,65 @@
+{
+  "spot": "playa-negra",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 270.0,
+  "nearshore_depth_m": 236.0,
+  "offshore_depth_m": 399.0,
+  "mean_slope_m_per_km": 9.18,
+  "land_samples": 1,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.17,
+      "lon": -85.82428,
+      "depth_m": 236.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.17,
+      "lon": -85.82657,
+      "depth_m": 212.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.17,
+      "lon": -85.83114,
+      "depth_m": 141.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.17,
+      "lon": -85.84027,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.17,
+      "lon": -85.84941,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.17,
+      "lon": -85.86768,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.16999,
+      "lon": -85.89509,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.16998,
+      "lon": -85.93164,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.16996,
+      "lon": -85.98646,
+      "depth_m": 399.0
+    }
+  ]
+}

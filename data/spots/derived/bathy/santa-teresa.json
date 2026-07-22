@@ -1,0 +1,65 @@
+{
+  "spot": "santa-teresa",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 250.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 157.0,
+  "mean_slope_m_per_km": 8.51,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 9.64223,
+      "lon": -85.17014,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 9.64146,
+      "lon": -85.17229,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 9.63992,
+      "lon": -85.17657,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 9.63685,
+      "lon": -85.18514,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 9.63377,
+      "lon": -85.19372,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 9.62762,
+      "lon": -85.21086,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 9.61839,
+      "lon": -85.23657,
+      "depth_m": 105.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 9.60607,
+      "lon": -85.27085,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 9.5876,
+      "lon": -85.32227,
+      "depth_m": 157.0
+    }
+  ]
+}

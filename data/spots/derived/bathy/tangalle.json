@@ -1,0 +1,65 @@
+{
+  "spot": "tangalle",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 175.0,
+  "nearshore_depth_m": -19.0,
+  "offshore_depth_m": 88.0,
+  "mean_slope_m_per_km": 6.03,
+  "land_samples": 2,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 6.02076,
+      "lon": 80.7942,
+      "depth_m": -19.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 6.01852,
+      "lon": 80.79439,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 6.01404,
+      "lon": 80.79479,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 6.00508,
+      "lon": 80.79558,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 5.99612,
+      "lon": 80.79636,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 5.97821,
+      "lon": 80.79794,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 5.95133,
+      "lon": 80.8003,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 5.91549,
+      "lon": 80.80346,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 5.86174,
+      "lon": 80.80818,
+      "depth_m": 88.0
+    }
+  ]
+}

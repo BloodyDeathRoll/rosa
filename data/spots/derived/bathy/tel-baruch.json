@@ -1,0 +1,65 @@
+{
+  "spot": "tel-baruch",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 289.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 155.0,
+  "mean_slope_m_per_km": 8.39,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.12273,
+      "lon": 34.77999,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.12346,
+      "lon": 34.77748,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.12493,
+      "lon": 34.77246,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.12785,
+      "lon": 34.76242,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.13078,
+      "lon": 34.75238,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.13663,
+      "lon": 34.73229,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.1454,
+      "lon": 34.70216,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.15708,
+      "lon": 34.66197,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.17457,
+      "lon": 34.60167,
+      "depth_m": 155.0
+    }
+  ]
+}

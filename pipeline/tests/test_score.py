@@ -11,6 +11,7 @@ SPOT = Spot(
     timezone="Asia/Jerusalem",
     offshore_point=(32.2, 34.55),
     offshore_direction=90.0,
+    shore_normal=270.0,
     swell_window=(250.0, 340.0),
     height_coeff=1.0,
     break_type="beach",

@@ -1,0 +1,65 @@
+{
+  "spot": "zvulun",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 288.0,
+  "nearshore_depth_m": 247.0,
+  "offshore_depth_m": 161.0,
+  "mean_slope_m_per_km": -4.85,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.17369,
+      "lon": 34.79697,
+      "depth_m": 247.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.17439,
+      "lon": 34.79445,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.17578,
+      "lon": 34.7894,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.17856,
+      "lon": 34.77929,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.18133,
+      "lon": 34.76918,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.18689,
+      "lon": 34.74897,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.19521,
+      "lon": 34.71864,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.20629,
+      "lon": 34.6782,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.22289,
+      "lon": 34.61752,
+      "depth_m": 161.0
+    }
+  ]
+}

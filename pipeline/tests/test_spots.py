@@ -29,6 +29,21 @@ def test_per_spot_override_survives_merge():
     assert spots["bat-galim"].swell_window == (270, 360)  # bay orientation override
 
 
+def test_shore_normal_defaults_to_opposite_offshore_wind():
+    spots = load_spots(SPOTS_DIR)
+    by = spots["beit-yanai"]  # no explicit shore_normal → derived
+    assert by.shore_normal == (by.offshore_direction + 180) % 360
+
+
+def test_shore_normal_override_decouples_from_wind():
+    # Arugam Bay: best wind is the SW monsoon (offshore_direction ~245) but the coast faces
+    # E/SE — shore_normal is set explicitly and must NOT be offshore_direction + 180.
+    spots = load_spots(SPOTS_DIR)
+    ab = spots["arugam-bay"]
+    assert ab.offshore_direction == 245
+    assert ab.shore_normal == 115
+
+
 def test_per_spot_points_are_distinct():
     # neighbours no longer collapse onto one shared sample point (the identical-forecast bug)
     spots = load_spots(SPOTS_DIR)

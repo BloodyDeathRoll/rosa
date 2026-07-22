@@ -1,0 +1,65 @@
+{
+  "spot": "backdoor-haifa",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 343.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 198.0,
+  "mean_slope_m_per_km": 11.77,
+  "land_samples": 1,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.83365,
+      "lon": 34.96882,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.8358,
+      "lon": 34.96804,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.8401,
+      "lon": 34.96647,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.8487,
+      "lon": 34.96334,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.8573,
+      "lon": 34.96021,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.8745,
+      "lon": 34.95395,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.9003,
+      "lon": 34.94455,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.9347,
+      "lon": 34.93201,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.98629,
+      "lon": 34.91318,
+      "depth_m": 198.0
+    }
+  ]
+}

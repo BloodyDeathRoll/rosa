@@ -1,0 +1,65 @@
+{
+  "spot": "hikkaduwa",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 215.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 67.0,
+  "mean_slope_m_per_km": 4.45,
+  "land_samples": 3,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 6.13816,
+      "lon": 80.1017,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 6.13632,
+      "lon": 80.10041,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 6.13263,
+      "lon": 80.09781,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 6.12527,
+      "lon": 80.09262,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 6.1179,
+      "lon": 80.08744,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 6.10317,
+      "lon": 80.07706,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 6.08106,
+      "lon": 80.0615,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 6.05159,
+      "lon": 80.04075,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 6.00739,
+      "lon": 80.00964,
+      "depth_m": 67.0
+    }
+  ]
+}

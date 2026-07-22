@@ -47,9 +47,11 @@ spots:
   - { id: hiriketiya,       name: "Hiriketiya",             lat: 5.965, lon: 80.690, offshore_direction: 350, offshore_point: [5.905, 80.690], swell_window: [150, 210], <<: *sl_s }  # approx — TODO verify (horseshoe bay)
   - { id: tangalle,         name: "Tangalle",               lat: 6.023, lon: 80.794, offshore_direction: 355, offshore_point: [5.963, 80.794], <<: *sl_s }  # approx — TODO verify
   # ==== EAST COAST (Arugam Bay cluster, S→N; sample pushed EAST) ====
-  - { id: okanda,           name: "Okanda",                 lat: 6.650, lon: 81.780, offshore_direction: 240, offshore_point: [6.65, 81.840],  <<: *sl_e }  # approx — TODO verify (remote, S of Arugam) — SW-monsoon offshore
-  - { id: peanut-farm,      name: "Peanut Farm",            lat: 6.780, lon: 81.850, offshore_direction: 240, offshore_point: [6.78, 81.910],  <<: *sl_e }  # approx — TODO verify — SW-monsoon offshore
-  - { id: elephant-rock,    name: "Elephant Rock",          lat: 6.800, lon: 81.848, offshore_direction: 240, offshore_point: [6.80, 81.908],  <<: *sl_e }  # approx — TODO verify — SW-monsoon offshore
-  - { id: arugam-bay,       name: "Arugam Bay (Main Point)", lat: 6.840, lon: 81.836, offshore_direction: 245, offshore_point: [6.84, 81.896], <<: *sl_e }  # approx — TODO verify (world-class right point) — SW-monsoon offshore is what makes the season
-  - { id: pottuvil-point,   name: "Pottuvil Point",         lat: 6.887, lon: 81.834, offshore_direction: 240, offshore_point: [6.887, 81.894], <<: *sl_e }  # approx — TODO verify — SW-monsoon offshore
-  - { id: whiskey-point,    name: "Whiskey Point",          lat: 6.920, lon: 81.820, offshore_direction: 250, offshore_point: [6.92, 81.880],  <<: *sl_e }  # approx — TODO verify — SW-monsoon offshore
+  # shore_normal (seaward, E/SE) is set explicitly — the coast faces the ocean E/SE while the
+  # best wind (offshore_direction) is the SW monsoon, so the two genuinely diverge here.
+  - { id: okanda,           name: "Okanda",                 lat: 6.650, lon: 81.780, offshore_direction: 240, shore_normal: 130, offshore_point: [6.65, 81.840],  <<: *sl_e }  # approx — TODO verify (remote, S of Arugam) — SW-monsoon offshore
+  - { id: peanut-farm,      name: "Peanut Farm",            lat: 6.780, lon: 81.850, offshore_direction: 240, shore_normal: 125, offshore_point: [6.78, 81.910],  <<: *sl_e }  # approx — TODO verify — SW-monsoon offshore
+  - { id: elephant-rock,    name: "Elephant Rock",          lat: 6.800, lon: 81.848, offshore_direction: 240, shore_normal: 120, offshore_point: [6.80, 81.908],  <<: *sl_e }  # approx — TODO verify — SW-monsoon offshore
+  - { id: arugam-bay,       name: "Arugam Bay (Main Point)", lat: 6.840, lon: 81.836, offshore_direction: 245, shore_normal: 115, offshore_point: [6.84, 81.896], <<: *sl_e }  # approx — TODO verify (world-class right point) — SW-monsoon offshore is what makes the season
+  - { id: pottuvil-point,   name: "Pottuvil Point",         lat: 6.887, lon: 81.834, offshore_direction: 240, shore_normal: 95,  offshore_point: [6.887, 81.894], <<: *sl_e }  # approx — TODO verify — SW-monsoon offshore
+  - { id: whiskey-point,    name: "Whiskey Point",          lat: 6.920, lon: 81.820, offshore_direction: 250, shore_normal: 80,  offshore_point: [6.92, 81.880],  <<: *sl_e }  # approx — TODO verify — SW-monsoon offshore

@@ -1,0 +1,65 @@
+{
+  "spot": "caesarea-aqueduct",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 286.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 429.0,
+  "mean_slope_m_per_km": 24.17,
+  "land_samples": 1,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.51382,
+      "lon": 34.89414,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.51444,
+      "lon": 34.89157,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.51568,
+      "lon": 34.88645,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.51816,
+      "lon": 34.8762,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.52063,
+      "lon": 34.86594,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.52558,
+      "lon": 34.84544,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.533,
+      "lon": 34.81467,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.54289,
+      "lon": 34.77364,
+      "depth_m": 114.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.55768,
+      "lon": 34.71208,
+      "depth_m": 429.0
+    }
+  ]
+}

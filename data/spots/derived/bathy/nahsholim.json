@@ -1,0 +1,65 @@
+{
+  "spot": "nahsholim",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 275.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 616.0,
+  "mean_slope_m_per_km": 34.87,
+  "land_samples": 2,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.6133,
+      "lon": 34.91954,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.61349,
+      "lon": 34.91688,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.61388,
+      "lon": 34.91156,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.61467,
+      "lon": 34.90093,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.61545,
+      "lon": 34.89029,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.61701,
+      "lon": 34.86902,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.61934,
+      "lon": 34.83711,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.62244,
+      "lon": 34.79456,
+      "depth_m": 124.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.62706,
+      "lon": 34.73072,
+      "depth_m": 616.0
+    }
+  ]
+}

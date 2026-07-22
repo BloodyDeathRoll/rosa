@@ -1,0 +1,65 @@
+{
+  "spot": "polhena",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 185.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 2051.0,
+  "mean_slope_m_per_km": 115.21,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 5.93076,
+      "lon": 80.5378,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 5.92852,
+      "lon": 80.53761,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 5.92404,
+      "lon": 80.53721,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 5.91508,
+      "lon": 80.53642,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 5.90612,
+      "lon": 80.53564,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 5.88821,
+      "lon": 80.53406,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 5.86133,
+      "lon": 80.5317,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 5.82549,
+      "lon": 80.52855,
+      "depth_m": 1470.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 5.77174,
+      "lon": 80.52382,
+      "depth_m": 2051.0
+    }
+  ]
+}

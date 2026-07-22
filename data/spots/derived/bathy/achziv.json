@@ -1,0 +1,65 @@
+{
+  "spot": "achziv",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 286.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 850.0,
+  "mean_slope_m_per_km": 47.72,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.04442,
+      "lon": 35.09852,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.04504,
+      "lon": 35.09594,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.04628,
+      "lon": 35.09079,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.04876,
+      "lon": 35.08047,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.05123,
+      "lon": 35.07016,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.05618,
+      "lon": 35.04953,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.0636,
+      "lon": 35.01858,
+      "depth_m": 400.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.07349,
+      "lon": 34.9773,
+      "depth_m": 266.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.08828,
+      "lon": 34.91537,
+      "depth_m": 850.0
+    }
+  ]
+}

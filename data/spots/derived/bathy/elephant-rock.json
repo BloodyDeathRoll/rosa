@@ -1,0 +1,65 @@
+{
+  "spot": "elephant-rock",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 120.0,
+  "nearshore_depth_m": 46.0,
+  "offshore_depth_m": 220.0,
+  "mean_slope_m_per_km": 9.8,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 6.79888,
+      "lon": 81.84996,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 6.79775,
+      "lon": 81.85192,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 6.7955,
+      "lon": 81.85584,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 6.79101,
+      "lon": 81.86369,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 6.78651,
+      "lon": 81.87153,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 6.77752,
+      "lon": 81.88722,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 6.76402,
+      "lon": 81.91074,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 6.74603,
+      "lon": 81.94211,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 6.71904,
+      "lon": 81.98916,
+      "depth_m": 220.0
+    }
+  ]
+}

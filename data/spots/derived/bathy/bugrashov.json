@@ -1,0 +1,65 @@
+{
+  "spot": "bugrashov",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 286.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 154.0,
+  "mean_slope_m_per_km": 8.34,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.07832,
+      "lon": 34.76355,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.07894,
+      "lon": 34.761,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.08018,
+      "lon": 34.7559,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.08266,
+      "lon": 34.74569,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.08513,
+      "lon": 34.73549,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.09008,
+      "lon": 34.71508,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.0975,
+      "lon": 34.68446,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.10739,
+      "lon": 34.64363,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.12219,
+      "lon": 34.58237,
+      "depth_m": 154.0
+    }
+  ]
+}

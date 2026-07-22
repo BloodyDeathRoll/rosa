@@ -26,6 +26,7 @@ def make_spot(**kw) -> Spot:
         timezone="UTC",
         offshore_point=(32.0, 34.74),
         offshore_direction=90.0,
+        shore_normal=270.0,
         swell_window=(250.0, 340.0),
         height_coeff=1.0,
         break_type="beach",
@@ -107,10 +108,11 @@ class TestFixtureSource:
 
 
 class TestBuildProfile:
-    def test_seaward_bearing_is_offshore_plus_180(self):
-        spot = make_spot(offshore_direction=90.0)
+    def test_seaward_bearing_is_shore_normal_not_offshore(self):
+        # shore_normal drives the ray, decoupled from the offshore wind direction (point breaks)
+        spot = make_spot(offshore_direction=245.0, shore_normal=115.0)
         profile = build_profile(StubSource([-10.0] * 9), spot)
-        assert profile.bearing_seaward_deg == 270.0
+        assert profile.bearing_seaward_deg == 115.0
 
     def test_depth_is_negative_elevation_deep_end_last(self):
         elevs = [-2.0, -5.0, -10.0, -20.0, -30.0, -50.0, -80.0, -120.0, -180.0]

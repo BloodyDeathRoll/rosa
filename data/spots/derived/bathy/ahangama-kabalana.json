@@ -1,0 +1,65 @@
+{
+  "spot": "ahangama-kabalana",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 185.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 471.0,
+  "mean_slope_m_per_km": 27.15,
+  "land_samples": 2,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 5.97076,
+      "lon": 80.3628,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 5.96852,
+      "lon": 80.36261,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 5.96404,
+      "lon": 80.36221,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 5.95508,
+      "lon": 80.36142,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 5.94612,
+      "lon": 80.36064,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 5.92821,
+      "lon": 80.35906,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 5.90133,
+      "lon": 80.3567,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 5.86549,
+      "lon": 80.35354,
+      "depth_m": 208.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 5.81174,
+      "lon": 80.34882,
+      "depth_m": 471.0
+    }
+  ]
+}

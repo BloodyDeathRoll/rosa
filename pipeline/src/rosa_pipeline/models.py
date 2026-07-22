@@ -30,7 +30,10 @@ class Spot:
     lon: float
     timezone: str
     offshore_point: tuple[float, float]  # (lat, lon) deep-water extraction point
-    offshore_direction: float  # compass direction the offshore WIND blows FROM
+    offshore_direction: float  # compass direction the offshore WIND blows FROM (wind scoring)
+    shore_normal: float  # seaward-facing azimuth (WAVE geometry: bathymetry ray, refraction).
+    # Distinct from offshore_direction: at point breaks the ideal wind can differ from the
+    # coast's true seaward normal (e.g. Arugam Bay faces ~E while its best wind is SW).
     swell_window: tuple[float, float]  # (lo, hi) degrees; may wrap through 360
     height_coeff: float
     break_type: str

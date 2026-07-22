@@ -1,0 +1,65 @@
+{
+  "spot": "witchs-rock",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 255.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 82.0,
+  "mean_slope_m_per_km": 4.23,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.80242,
+      "lon": -85.72521,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.80184,
+      "lon": -85.72742,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.80067,
+      "lon": -85.73184,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.79834,
+      "lon": -85.74069,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.79602,
+      "lon": -85.74953,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.79136,
+      "lon": -85.76722,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.78437,
+      "lon": -85.79374,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.77505,
+      "lon": -85.82911,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.76106,
+      "lon": -85.88216,
+      "depth_m": 82.0
+    }
+  ]
+}

@@ -10,7 +10,7 @@ download) and a local GEBCO 2024 / EMODnet grid (later) are the same code path �
 interface discipline the forecast fetch layer uses.
 
 Convention: ``depth_m`` is metres **positive down** (= ``-elevation``); land / above-MSL is
-negative. The ray runs SEAWARD (``offshore_direction`` + 180°), so ``samples[0]`` is the
+negative. The ray runs SEAWARD along the spot's ``shore_normal``, so ``samples[0]`` is the
 nearshore/break end and ``samples[-1]`` is the deep-water reference.
 
 Attribution (legal §8): GEBCO Compilation Group (open); served via OpenTopoData. When a local
@@ -210,8 +210,8 @@ class FixtureBathymetrySource:
 
 
 def build_profile(source: BathymetrySource, spot: Spot) -> DepthProfile:
-    """Sample the seabed along the spot's shore-normal, deep-water end last."""
-    seaward = (spot.offshore_direction + 180.0) % 360.0
+    """Sample the seabed along the spot's shore-normal (seaward), deep-water end last."""
+    seaward = spot.shore_normal % 360.0
     pts = ray_points(spot.lat, spot.lon, seaward)
     elevations = source.elevations([(lat, lon) for lat, lon, _ in pts])
     samples = tuple(

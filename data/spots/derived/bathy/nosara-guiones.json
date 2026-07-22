@@ -1,0 +1,65 @@
+{
+  "spot": "nosara-guiones",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 250.0,
+  "nearshore_depth_m": 16.0,
+  "offshore_depth_m": 571.0,
+  "mean_slope_m_per_km": 31.27,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 9.94623,
+      "lon": -85.68914,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 9.94546,
+      "lon": -85.69129,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 9.94392,
+      "lon": -85.69558,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 9.94085,
+      "lon": -85.70416,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 9.93777,
+      "lon": -85.71274,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 9.93162,
+      "lon": -85.7299,
+      "depth_m": 96.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 9.92239,
+      "lon": -85.75563,
+      "depth_m": 95.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 9.91007,
+      "lon": -85.78995,
+      "depth_m": 230.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 9.8916,
+      "lon": -85.84141,
+      "depth_m": 571.0
+    }
+  ]
+}

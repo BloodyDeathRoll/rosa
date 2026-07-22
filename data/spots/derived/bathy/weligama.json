@@ -1,0 +1,65 @@
+{
+  "spot": "weligama",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 185.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 1502.0,
+  "mean_slope_m_per_km": 84.96,
+  "land_samples": 1,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 5.96776,
+      "lon": 80.4288,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 5.96552,
+      "lon": 80.42861,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 5.96104,
+      "lon": 80.42821,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 5.95208,
+      "lon": 80.42742,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 5.94312,
+      "lon": 80.42664,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 5.92521,
+      "lon": 80.42506,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 5.89833,
+      "lon": 80.4227,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 5.86249,
+      "lon": 80.41954,
+      "depth_m": 507.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 5.80874,
+      "lon": 80.41482,
+      "depth_m": 1502.0
+    }
+  ]
+}

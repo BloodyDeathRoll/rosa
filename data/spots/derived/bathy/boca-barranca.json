@@ -1,0 +1,65 @@
+{
+  "spot": "boca-barranca",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 205.0,
+  "nearshore_depth_m": -17.0,
+  "offshore_depth_m": 41.0,
+  "mean_slope_m_per_km": 3.27,
+  "land_samples": 5,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 9.96996,
+      "lon": -84.72096,
+      "depth_m": -17.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 9.96792,
+      "lon": -84.72193,
+      "depth_m": -16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 9.96385,
+      "lon": -84.72386,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 9.9557,
+      "lon": -84.72772,
+      "depth_m": -25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 9.94755,
+      "lon": -84.73158,
+      "depth_m": -58.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 9.93125,
+      "lon": -84.73929,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 9.90679,
+      "lon": -84.75087,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 9.87419,
+      "lon": -84.76629,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 9.82528,
+      "lon": -84.78943,
+      "depth_m": 41.0
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "spot": "olga",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 283.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 272.0,
+  "mean_slope_m_per_km": 15.1,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.43961,
+      "lon": 34.8754,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.44011,
+      "lon": 34.87281,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.44112,
+      "lon": 34.86762,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.44314,
+      "lon": 34.85723,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.44517,
+      "lon": 34.84685,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.4492,
+      "lon": 34.82608,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.45526,
+      "lon": 34.79492,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.46332,
+      "lon": 34.75337,
+      "depth_m": 90.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.47538,
+      "lon": 34.69103,
+      "depth_m": 272.0
+    }
+  ]
+}

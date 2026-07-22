@@ -1,0 +1,65 @@
+{
+  "spot": "playa-bejuco",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 230.0,
+  "nearshore_depth_m": 28.0,
+  "offshore_depth_m": 80.0,
+  "mean_slope_m_per_km": 2.93,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 9.46155,
+      "lon": -84.44175,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 9.46011,
+      "lon": -84.44349,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 9.45722,
+      "lon": -84.44698,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 9.45144,
+      "lon": -84.45397,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 9.44566,
+      "lon": -84.46095,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 9.43409,
+      "lon": -84.47492,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 9.41675,
+      "lon": -84.49587,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 9.39362,
+      "lon": -84.52379,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 9.35892,
+      "lon": -84.56568,
+      "depth_m": 80.0
+    }
+  ]
+}
