@@ -32,7 +32,7 @@ jobs:
       GIT_COMMITTER_EMAIL: rosa-bot@users.noreply.github.com
     steps:
       - name: Checkout pipeline code (main)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Check out (or bootstrap) the data branch -> ./_archive
         run: |
@@ -59,7 +59,7 @@ jobs:
           fi
 
       - name: Set up uv
-        uses: astral-sh/setup-uv@v5
+        uses: astral-sh/setup-uv@v6
 
       - name: Sync pipeline deps
         run: uv sync --project pipeline
