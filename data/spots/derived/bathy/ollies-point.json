@@ -2,64 +2,64 @@
   "spot": "ollies-point",
   "source": "gebco2020 via opentopodata",
   "bearing_seaward_deg": 250.0,
-  "nearshore_depth_m": -43.0,
-  "offshore_depth_m": 81.0,
-  "mean_slope_m_per_km": 6.99,
-  "land_samples": 6,
+  "nearshore_depth_m": 30.0,
+  "offshore_depth_m": 99.0,
+  "mean_slope_m_per_km": 3.89,
+  "land_samples": 0,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 10.86423,
-      "lon": -85.77715,
-      "depth_m": -43.0
+      "lat": 10.84173,
+      "lon": -85.81675,
+      "depth_m": 30.0
     },
     {
       "dist_km": 0.5,
-      "lat": 10.86346,
-      "lon": -85.7793,
-      "depth_m": -36.0
+      "lat": 10.84096,
+      "lon": -85.8189,
+      "depth_m": 31.0
     },
     {
       "dist_km": 1.0,
-      "lat": 10.86192,
-      "lon": -85.78361,
-      "depth_m": -61.0
+      "lat": 10.83942,
+      "lon": -85.8232,
+      "depth_m": 34.0
     },
     {
       "dist_km": 2.0,
-      "lat": 10.85885,
-      "lon": -85.79221,
-      "depth_m": -16.0
+      "lat": 10.83635,
+      "lon": -85.83181,
+      "depth_m": 35.0
     },
     {
       "dist_km": 3.0,
-      "lat": 10.85577,
-      "lon": -85.80081,
-      "depth_m": -33.0
+      "lat": 10.83327,
+      "lon": -85.84041,
+      "depth_m": 47.0
     },
     {
       "dist_km": 5.0,
-      "lat": 10.84962,
-      "lon": -85.81802,
-      "depth_m": -13.0
+      "lat": 10.82712,
+      "lon": -85.85762,
+      "depth_m": 147.0
     },
     {
       "dist_km": 8.0,
-      "lat": 10.84039,
-      "lon": -85.84384,
-      "depth_m": 21.0
+      "lat": 10.81789,
+      "lon": -85.88343,
+      "depth_m": 48.0
     },
     {
       "dist_km": 12.0,
-      "lat": 10.82807,
-      "lon": -85.87825,
-      "depth_m": 32.0
+      "lat": 10.80557,
+      "lon": -85.91784,
+      "depth_m": 84.0
     },
     {
       "dist_km": 18.0,
-      "lat": 10.8096,
-      "lon": -85.92986,
-      "depth_m": 81.0
+      "lat": 10.7871,
+      "lon": -85.96945,
+      "depth_m": 99.0
     }
   ]
 }

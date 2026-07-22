@@ -2,64 +2,64 @@
   "spot": "whiskey-point",
   "source": "gebco2020 via opentopodata",
   "bearing_seaward_deg": 80.0,
-  "nearshore_depth_m": -5.0,
-  "offshore_depth_m": 53.0,
-  "mean_slope_m_per_km": 3.27,
-  "land_samples": 5,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 736.0,
+  "mean_slope_m_per_km": 41.13,
+  "land_samples": 0,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 6.92039,
-      "lon": 81.82223,
-      "depth_m": -5.0
+      "lat": 6.90469,
+      "lon": 81.84973,
+      "depth_m": 6.0
     },
     {
       "dist_km": 0.5,
-      "lat": 6.92078,
-      "lon": 81.82446,
-      "depth_m": -4.0
+      "lat": 6.90508,
+      "lon": 81.85196,
+      "depth_m": 7.0
     },
     {
       "dist_km": 1.0,
-      "lat": 6.92156,
-      "lon": 81.82892,
-      "depth_m": -2.0
+      "lat": 6.90586,
+      "lon": 81.85642,
+      "depth_m": 7.0
     },
     {
       "dist_km": 2.0,
-      "lat": 6.92312,
-      "lon": 81.83784,
-      "depth_m": -2.0
-    },
-    {
-      "dist_km": 3.0,
-      "lat": 6.92468,
-      "lon": 81.84676,
-      "depth_m": -10.0
-    },
-    {
-      "dist_km": 5.0,
-      "lat": 6.92781,
-      "lon": 81.86461,
+      "lat": 6.90742,
+      "lon": 81.86534,
       "depth_m": 10.0
     },
     {
+      "dist_km": 3.0,
+      "lat": 6.90898,
+      "lon": 81.87426,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 6.91211,
+      "lon": 81.89211,
+      "depth_m": 14.0
+    },
+    {
       "dist_km": 8.0,
-      "lat": 6.93249,
-      "lon": 81.89137,
-      "depth_m": 15.0
+      "lat": 6.91679,
+      "lon": 81.91887,
+      "depth_m": 14.0
     },
     {
       "dist_km": 12.0,
-      "lat": 6.93873,
-      "lon": 81.92706,
-      "depth_m": 18.0
+      "lat": 6.92303,
+      "lon": 81.95456,
+      "depth_m": 31.0
     },
     {
       "dist_km": 18.0,
-      "lat": 6.94808,
-      "lon": 81.9806,
-      "depth_m": 53.0
+      "lat": 6.93238,
+      "lon": 82.00809,
+      "depth_m": 736.0
     }
   ]
 }

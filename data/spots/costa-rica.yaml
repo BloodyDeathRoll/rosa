@@ -42,7 +42,7 @@ caribbean: &carib
 spots:
   # ==== PACIFIC ====
   # ---- Guanacaste / North Nicoya (N→S) ----
-  - { id: ollies-point,       name: "Ollie's Point",          lat: 10.865, lon: -85.775, offshore_direction: 105, shore_normal: 250, break_type: point, <<: *pac }  # approx — TODO verify (Santa Rosa NP, boat access; coord nudged seaward off the headland)
+  - { id: ollies-point,       name: "Ollie's Point",          lat: 10.8425, lon: -85.8146, offshore_direction: 105, shore_normal: 250, break_type: point, <<: *pac }  # approx — TODO verify (Santa Rosa NP, boat access; coord nudged seaward off the headland)
   - { id: witchs-rock,        name: "Witch's Rock (Naranjo)", lat: 10.803, lon: -85.723, offshore_direction: 75,  <<: *pac }  # approx — TODO verify (Santa Rosa NP, boat access)
   - { id: playa-grande,       name: "Playa Grande",           lat: 10.328, lon: -85.8477, offshore_direction: 90,  <<: *pac }  # approx — TODO verify
   - { id: tamarindo,          name: "Tamarindo",              lat: 10.2941, lon: -85.8537, offshore_direction: 70,  <<: *pac }  # approx — TODO verify
@@ -54,7 +54,7 @@ spots:
   - { id: santa-teresa,       name: "Santa Teresa",           lat: 9.6424,  lon: -85.1697, offshore_direction: 70,  <<: *pac }  # approx — TODO verify
   - { id: mal-pais,           name: "Mal País",               lat: 9.597,  lon: -85.145, offshore_direction: 70,  break_type: reef, <<: *pac }  # approx — TODO verify
   # ---- Central Pacific (Puntarenas / Jacó) ----
-  - { id: boca-barranca,      name: "Boca Barranca",          lat: 9.972,  lon: -84.720, offshore_direction: 50,  shore_normal: 205, break_type: point, <<: *pac }  # approx — TODO verify (rivermouth long left; head of Gulf of Nicoya — shallow shelf, sample stays gulf-side)
+  - { id: boca-barranca,      name: "Boca Barranca",          lat: 9.9563,  lon: -84.7477, offshore_direction: 50,  shore_normal: 205, break_type: point, <<: *pac }  # approx — TODO verify (rivermouth long left; head of Gulf of Nicoya — shallow shelf, sample stays gulf-side)
   - { id: jaco,               name: "Jacó",                   lat: 9.610,  lon: -84.632, offshore_direction: 55,  <<: *pac }  # approx — TODO verify
   - { id: playa-hermosa-jaco, name: "Playa Hermosa (Jacó)",   lat: 9.5715,  lon: -84.6042, offshore_direction: 55,  <<: *pac }  # approx — TODO verify (powerful beachbreak)
   - { id: esterillos,         name: "Esterillos",             lat: 9.5155,  lon: -84.5175, offshore_direction: 50,  <<: *pac }  # approx — TODO verify

@@ -54,4 +54,4 @@ spots:
   - { id: elephant-rock,    name: "Elephant Rock",          lat: 6.800, lon: 81.848, offshore_direction: 240, shore_normal: 120, offshore_point: [6.80, 81.908],  <<: *sl_e }  # approx — TODO verify — SW-monsoon offshore
   - { id: arugam-bay,       name: "Arugam Bay (Main Point)", lat: 6.840, lon: 81.836, offshore_direction: 245, shore_normal: 115, offshore_point: [6.84, 81.896], <<: *sl_e }  # approx — TODO verify (world-class right point) — SW-monsoon offshore is what makes the season
   - { id: pottuvil-point,   name: "Pottuvil Point",         lat: 6.887, lon: 81.834, offshore_direction: 240, shore_normal: 95,  offshore_point: [6.887, 81.894], <<: *sl_e }  # approx — TODO verify — SW-monsoon offshore
-  - { id: whiskey-point,    name: "Whiskey Point",          lat: 6.920, lon: 81.820, offshore_direction: 250, shore_normal: 80,  offshore_point: [6.92, 81.880],  <<: *sl_e }  # approx — TODO verify — SW-monsoon offshore
+  - { id: whiskey-point,    name: "Whiskey Point",          lat: 6.9043, lon: 81.8475, offshore_direction: 250, shore_normal: 80,  offshore_point: [6.92, 81.880],  <<: *sl_e }  # approx — TODO verify — SW-monsoon offshore
