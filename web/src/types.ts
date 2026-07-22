@@ -47,7 +47,7 @@ export interface DayEntry {
 }
 
 export interface SpotPayload {
-  spot: { id: string; name: string; lat: number; lon: number; timezone: string };
+  spot: { id: string; name: string; region?: string; lat: number; lon: number; timezone: string };
   model: string;
   fetched_at: string;
   generated_at: string;
@@ -59,6 +59,7 @@ export interface SpotPayload {
 
 export interface IndexEntry {
   name: string;
+  region?: string;
   lat: number;
   lon: number;
   rating: number;

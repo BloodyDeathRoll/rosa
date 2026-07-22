@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "preact/hooks";
 import { fetchIndex, fetchSpot } from "../api";
-import { SearchIcon } from "../components/icons";
+import { ChevronRightIcon, MapPinIcon, SearchIcon } from "../components/icons";
 import { AppHeader, SpotTitle, StarButton, TierDot } from "../components/parts";
 import { SpotCard } from "../components/SpotCard";
 import { ratingWord } from "../conditions";
@@ -8,8 +8,10 @@ import { getFavorites, toggleFavorite } from "../favorites";
 import { signalReady } from "../splash";
 import { bestWindow, dateOf, splitName, windLabel } from "../format";
 import { distanceKm, getPosition, type LatLon } from "../geo";
+import { regionsFrom, type RegionInfo } from "../regions";
 import { fmtH, fmtRange, heightUnit, useUnits, type Units } from "../units";
 import type { IndexEntry, SpotPayload } from "../types";
+import { setPendingArea } from "./MapPage";
 
 type Entry = [string, IndexEntry];
 
@@ -46,6 +48,26 @@ function Row({
         </span>
       </span>
       <StarButton on={isFav} name={name} size={16} onToggle={onToggle} />
+    </a>
+  );
+}
+
+/** A searchable "map area": tapping frames the whole region on the Map tab. */
+function RegionRow({ region }: { region: RegionInfo }) {
+  return (
+    <a class="spot-row-card area-row" href="#/map" onClick={() => setPendingArea(region.name)}>
+      <span class="area-pin">
+        <MapPinIcon size={18} />
+      </span>
+      <span class="mid">
+        <span class="spot-title">
+          <b>{region.name}</b>
+        </span>
+        <span class="line">
+          {region.count} spot{region.count === 1 ? "" : "s"} · view on map
+        </span>
+      </span>
+      <ChevronRightIcon size={16} />
     </a>
   );
 }
@@ -100,7 +122,11 @@ export function SpotsPage() {
   }
 
   const q = query.trim().toLowerCase();
-  const match = ([id, e]: Entry) => !q || e.name.toLowerCase().includes(q) || id.includes(q);
+  const match = ([id, e]: Entry) =>
+    !q ||
+    e.name.toLowerCase().includes(q) ||
+    (e.region ?? "").toLowerCase().includes(q) ||
+    id.includes(q);
 
   const favRows = all.filter(([id]) => favs.includes(id)).filter(match);
   let nearRows = all.filter(([id]) => !favs.includes(id)).filter(match);
@@ -110,6 +136,10 @@ export function SpotsPage() {
         distanceKm(pos, { lat: a.lat, lon: a.lon }) - distanceKm(pos, { lat: b.lat, lon: b.lon })
     );
   }
+
+  // Map areas: regions whose name matches the query (only while searching).
+  const regionMatches = q && index ? regionsFrom(index).filter((r) => r.name.toLowerCase().includes(q)) : [];
+  const noResults = regionMatches.length === 0 && favRows.length === 0 && nearRows.length === 0;
 
   return (
     <main class="page">
@@ -121,12 +151,22 @@ export function SpotsPage() {
           <div class="search-box">
             <SearchIcon size={16} />
             <input
-              placeholder="Search spots"
-              aria-label="Search spots"
+              placeholder="Search spots or regions"
+              aria-label="Search spots or regions"
               value={query}
               onInput={(e) => setQuery((e.target as HTMLInputElement).value)}
             />
           </div>
+          {regionMatches.length > 0 && (
+            <div>
+              <span class="eyebrow">Map areas</span>
+              <div class="spot-group-list">
+                {regionMatches.map((r) => (
+                  <RegionRow key={r.name} region={r} />
+                ))}
+              </div>
+            </div>
+          )}
           {favRows.length > 0 && (
             <div>
               <span class="eyebrow">Favorites</span>
@@ -150,7 +190,7 @@ export function SpotsPage() {
             </div>
           )}
           <div>
-            <span class="eyebrow">Nearby</span>
+            {nearRows.length > 0 && <span class="eyebrow">{q ? "Spots" : "Nearby"}</span>}
             <div class="spot-group-list">
               {nearRows.map(([id, e]) => (
                 <Row
@@ -162,7 +202,7 @@ export function SpotsPage() {
                   onToggle={() => onToggle(id)}
                 />
               ))}
-              {nearRows.length === 0 && <p class="search-empty">No spots match “{query}”.</p>}
+              {noResults && <p class="search-empty">No spots or regions match “{query}”.</p>}
             </div>
           </div>
         </div>

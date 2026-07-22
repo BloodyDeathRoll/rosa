@@ -6,6 +6,7 @@ import { ratingVar } from "../conditions";
 import { dateOf, splitName } from "../format";
 import { distanceKm, getPosition } from "../geo";
 import { signalReady } from "../splash";
+import { boundsCenter, findRegion } from "../regions";
 import type { IndexEntry, SpotPayload } from "../types";
 import type { Theme } from "../theme";
 
@@ -25,8 +26,18 @@ export function setPendingPin(id: string): void {
   pendingPin = id;
 }
 
+/** "Map area" hand-off from search: frame this region on next open. */
+let pendingArea: string | null = null;
+export function setPendingArea(region: string): void {
+  pendingArea = region;
+}
+
 interface MapHandle {
   easeTo(opts: { center: [number, number]; duration?: number }): void;
+  fitBounds(
+    bounds: [[number, number], [number, number]],
+    opts?: { padding?: number; maxZoom?: number; duration?: number }
+  ): void;
   remove(): void;
 }
 
@@ -38,6 +49,7 @@ export function MapPage({ theme }: { theme: Theme }) {
   const [error, setError] = useState<string | null>(null);
   const [spots, setSpots] = useState<Entry[]>([]);
   const [pin, setPin] = useState<string | null>(null);
+  const [areaName, setAreaName] = useState<string | null>(null);
   const [payload, setPayload] = useState<SpotPayload | null>(null);
 
   useEffect(() => {
@@ -57,6 +69,10 @@ export function MapPage({ theme }: { theme: Theme }) {
         const ordered = Object.entries(index.spots).sort(([, a], [, b]) => b.lat - a.lat);
         setSpots(ordered);
 
+        // Search "map area" hand-off wins: frame the whole region, no pin selected.
+        const area = pendingArea ? findRegion(index.spots, pendingArea) : undefined;
+        pendingArea = null;
+
         // default pin: hand-off from a spot page > nearest to you > northernmost
         const nearest = pos
           ? [...ordered].sort(
@@ -65,9 +81,10 @@ export function MapPage({ theme }: { theme: Theme }) {
             )[0]?.[0]
           : ordered[0]?.[0];
         const handoff = !!(pendingPin && index.spots[pendingPin]);
-        const start = handoff ? pendingPin : (nearest ?? null);
+        const start = area ? null : handoff ? pendingPin : (nearest ?? null);
         pendingPin = null;
         setPin(start);
+        setAreaName(area?.name ?? null);
 
         const startEntry = start ? index.spots[start] : undefined;
         const m = new maplibregl.Map({
@@ -84,17 +101,21 @@ export function MapPage({ theme }: { theme: Theme }) {
             },
             layers: [{ id: "carto", type: "raster", source: "carto" }],
           },
-          center: startEntry
-            ? [startEntry.lon, startEntry.lat]
-            : pos
-              ? [pos.lon, pos.lat]
-              : [34.8, 32.3],
-          // "Show on map" hand-off zooms in on the spot; a cold open stays wide
+          center: area
+            ? boundsCenter(area.bounds)
+            : startEntry
+              ? [startEntry.lon, startEntry.lat]
+              : pos
+                ? [pos.lon, pos.lat]
+                : [34.8, 32.3],
+          // area frames via fitBounds below; spot hand-off zooms in; cold open stays wide
           zoom: handoff ? 13 : 9,
           attributionControl: { compact: true },
         });
         map = m as unknown as MapHandle;
         mapRef.current = map;
+
+        if (area) m.fitBounds(area.bounds, { padding: 56, maxZoom: 11, duration: 0 });
 
         m.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
 
@@ -153,20 +174,21 @@ export function MapPage({ theme }: { theme: Theme }) {
   if (error) {
     return (
       <main class="page">
-        <AppHeader right={<span class="head-note">Israel</span>} />
+        <AppHeader right={<span class="head-note">{areaName ?? "Map"}</span>} />
         <p class="state">{error}</p>
       </main>
     );
   }
 
   const entry = spots.find(([sid]) => sid === pin)?.[1];
+  const headNote = entry?.region || areaName || "Map";
   const today = payload
     ? dateOf(payload.hours[0]?.t ?? payload.days[0]?.date ?? "")
     : "";
 
   return (
     <main class="page">
-      <AppHeader right={<span class="head-note">Israel</span>} />
+      <AppHeader right={<span class="head-note">{headNote}</span>} />
       <div class="map-page">
         <div class="map-canvas" ref={wrapRef} />
         {entry && pin && (

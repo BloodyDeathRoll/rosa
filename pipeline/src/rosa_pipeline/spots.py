@@ -52,9 +52,15 @@ def _derive_offshore_direction(rows: list[dict], i: int) -> float:
     return round((tangent - 90.0) % 360.0, 1)
 
 
+def _region_from_stem(stem: str) -> str:
+    """Filename "sri-lanka" -> display region "Sri Lanka"."""
+    return stem.replace("-", " ").title()
+
+
 def load_spots_file(path: Path) -> list[Spot]:
     data = yaml.safe_load(path.read_text(encoding="utf-8"))
     rows: list[dict] = data["spots"]
+    region = data.get("region") or _region_from_stem(path.stem)
     spots: list[Spot] = []
     for i, raw in enumerate(rows):
         ideal = raw["ideal"]
@@ -83,6 +89,7 @@ def load_spots_file(path: Path) -> list[Spot]:
                 break_type=raw["break_type"],
                 ideal_wind_dir=_pair(ideal["wind_dir"]),
                 ideal_size_m=_pair(ideal["size_m"]),
+                region=region,
             )
         )
     return spots

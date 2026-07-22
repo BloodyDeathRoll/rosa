@@ -21,7 +21,7 @@
   --accent-hover: #c05f3e;
   --border: #17171c1a;
   --input-bg: #ffffff;
-  --input-border: #17171c0d;
+  --input-border: #38384b66;
   --input-shadow: 0px 1px 3px rgba(0, 0, 0, 0.07), 0px 1px 2px rgba(0, 0, 0, 0.05);
   --emphasis-bg: #0a0b0f08;
   --card-shadow: 0px 2px 5px rgba(0, 0, 0, 0.06), 0px 1px 2px rgba(0, 0, 0, 0.04);
@@ -917,6 +917,16 @@ a.rank-card:hover {
 }
 .spot-row-card > svg {
   flex: none;
+}
+
+/* Map-area row: a region locator that opens the Map framed on the region. */
+.area-row .area-pin {
+  display: inline-flex;
+  flex: none;
+  color: var(--accent);
+}
+.area-row > svg {
+  color: var(--muted-foreground);
 }
 
 .search-empty {

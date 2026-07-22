@@ -142,6 +142,7 @@ def build_payload(spot: Spot, scored: list[ScoredHour], *, fetched_at: str, now:
         "spot": {
             "id": spot.id,
             "name": spot.name,
+            "region": spot.region,
             "lat": spot.lat,
             "lon": spot.lon,
             "timezone": spot.timezone,
@@ -171,6 +172,7 @@ def update_index(payload: dict, out_dir: Path) -> Path:
     index: dict = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {"spots": {}}
     index["spots"][payload["spot"]["id"]] = {
         "name": payload["spot"]["name"],
+        "region": payload["spot"].get("region", ""),
         "lat": payload["spot"]["lat"],
         "lon": payload["spot"]["lon"],
         "rating": payload["current"]["rating"],
