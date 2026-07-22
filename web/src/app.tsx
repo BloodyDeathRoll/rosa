@@ -3,6 +3,7 @@ import { HomeIcon, MapIcon, StarIcon, UserIcon } from "./components/icons";
 import { AboutPage, type AboutDoc } from "./pages/AboutPage";
 import { MapPage } from "./pages/MapPage";
 import { SettingsPage } from "./pages/SettingsPage";
+import { SearchPage } from "./pages/SearchPage";
 import { SpotPage } from "./pages/SpotPage";
 import { SpotsPage } from "./pages/SpotsPage";
 import { TodayPage } from "./pages/TodayPage";
@@ -12,6 +13,7 @@ import { lastTab, saveLastTab, TAB_ROUTES, type Tab } from "./tabs";
 type Route =
   | { page: "today" }
   | { page: "spots" }
+  | { page: "search" }
   | { page: "map" }
   | { page: "settings" }
   | { page: "about"; doc: AboutDoc }
@@ -21,9 +23,9 @@ function parseRoute(hash: string): Route {
   const spot = /^#\/spot\/([\w-]+)/.exec(hash);
   if (spot?.[1]) return { page: "spot", id: spot[1] };
   if (hash.startsWith("#/map")) return { page: "map" };
-  // #/favorites and #/search are pre-handoff routes folded into Spots
-  if (hash.startsWith("#/spots") || hash.startsWith("#/favorites") || hash.startsWith("#/search"))
-    return { page: "spots" };
+  if (hash.startsWith("#/search")) return { page: "search" };
+  // #/favorites is a pre-handoff route folded into Spots
+  if (hash.startsWith("#/spots") || hash.startsWith("#/favorites")) return { page: "spots" };
   const about = /^#\/about\/(how|terms|privacy)/.exec(hash);
   if (about?.[1]) return { page: "about", doc: about[1] as AboutDoc };
   if (hash.startsWith("#/settings") || hash.startsWith("#/account")) return { page: "settings" };
@@ -37,7 +39,7 @@ const TABS: { tab: Tab; label: string; icon: typeof HomeIcon }[] = [
   { tab: "settings", label: "Profile", icon: UserIcon },
 ];
 
-function TabBar({ active }: { active: Tab }) {
+function TabBar({ active }: { active: Tab | null }) {
   return (
     <nav class="tabs" aria-label="Main">
       {TABS.map(({ tab, label, icon: Icon }) => (
@@ -72,7 +74,7 @@ export function App() {
     const onHash = () => {
       const r = parseRoute(location.hash);
       setRoute(r);
-      if (r.page !== "spot" && r.page !== "about") saveLastTab(r.page);
+      if (r.page !== "spot" && r.page !== "about" && r.page !== "search") saveLastTab(r.page);
       scrollTo(0, 0);
     };
     addEventListener("hashchange", onHash);
@@ -92,6 +94,8 @@ export function App() {
         <MapPage theme={theme} />
       ) : route.page === "spots" ? (
         <SpotsPage />
+      ) : route.page === "search" ? (
+        <SearchPage />
       ) : route.page === "settings" ? (
         <SettingsPage theme={theme} onSetTheme={onSetTheme} />
       ) : route.page === "about" ? (
@@ -99,10 +103,14 @@ export function App() {
       ) : (
         <TodayPage />
       )}
-      {/* Spot screen is a focused, full-bleed view: no footer tab bar. */}
-      {/* About pages live under Profile, so keep that tab lit. */}
-      {route.page !== "spot" && (
-        <TabBar active={route.page === "about" ? "settings" : route.page} />
+      {/* Search stays focused (no nav). Spot pages show the nav but light no tab
+          (you're deeper than any section). About lives under Profile. */}
+      {route.page !== "search" && (
+        <TabBar
+          active={
+            route.page === "spot" ? null : route.page === "about" ? "settings" : route.page
+          }
+        />
       )}
     </div>
   );

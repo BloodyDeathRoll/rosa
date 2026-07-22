@@ -1,6 +1,6 @@
 import { useEffect, useState } from "preact/hooks";
 import { fetchIndex, fetchSpot } from "../api";
-import { CoastGrid } from "../components/CoastGrid";
+import { CoastChart } from "../components/CoastChart";
 import { SatMap } from "../components/MiniMap";
 import { SearchIcon, ShirtIcon, ThermometerIcon, WavesIcon } from "../components/icons";
 import { AppHeader, Pill, SpotTitle } from "../components/parts";
@@ -138,7 +138,7 @@ export function TodayPage() {
   }, []);
 
   const search = (
-    <a class="icon-btn" href="#/spots" aria-label="Search spots">
+    <a class="icon-btn" href="#/search" aria-label="Search spots">
       <SearchIcon />
     </a>
   );
@@ -174,7 +174,7 @@ export function TodayPage() {
             <DetailCard data={detail} date={today} />
           </div>
         )}
-        <CoastGrid spots={grid} dates={dates} today={today} />
+        <CoastChart spots={grid} dates={dates} today={today} />
       </div>
     </main>
   );

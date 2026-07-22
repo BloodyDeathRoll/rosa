@@ -1,5 +1,5 @@
-import { Pill, Spark, SpotTitle, StarButton } from "./parts";
-import { bestWindow, cardinal, dateOf, splitName, windLabel } from "../format";
+import { Pill, SpotTitle, StarButton } from "./parts";
+import { bestWindow, dateOf, splitName, windLabel } from "../format";
 import { fmtRange, useUnits } from "../units";
 import type { DayEntry, HourEntry, SpotPayload } from "../types";
 
@@ -26,56 +26,37 @@ export function dayView(data: SpotPayload, date: string): DayView {
   };
 }
 
-/** Compact spot card shown on Today (under the featured card) and inside the
-    map's bottom sheet. The whole card is one anchor — tapping anywhere on it
-    opens the spot forecast. Star toggle sits inline and swallows the click. */
+/** Compact spot card (Spots/Favorites list): title + rating pill on one line,
+    surf range + wind on the next, favorite star pinned right (matching the map
+    rows). The whole card is one anchor; the star swallows its own click. */
 export function SpotCard({
   data,
   date,
-  km,
   isFav,
   onToggle,
 }: {
   data: SpotPayload;
   date: string;
-  km?: number;
   isFav?: boolean;
   onToggle?: () => void;
 }) {
   const units = useUnits();
   const { name, region } = splitName(data.spot.name);
   const dv = dayView(data, date);
-  const swell = dv.rep.swells.find((s) => s.in_window) ?? dv.rep.swells[0];
   const href = `#/spot/${data.spot.id}`;
   return (
     <a class="rank-card" href={href}>
       <div class="mid">
-        <div class="title-row">
-          {onToggle && (
-            <StarButton
-              on={!!isFav}
-              name={name}
-              size={16}
-              onToggle={() => {
-                onToggle();
-              }}
-            />
-          )}
+        <div class="card-top">
           <SpotTitle name={name} region={region} />
+          <Pill bucket={dv.bucket} />
         </div>
-        <span class="range-row">
-          <span class="surf-range tabular">{fmtRange(dv.range, units)}</span>
-          <Spark hours={dv.hrs} bucket={dv.bucket} w={110} h={26} />
-        </span>
-        <span class="line tabular">
-          {windLabel(dv.rep)}
-          {swell ? ` · ${Math.round(swell.period)} s ${cardinal(swell.dir)}` : ""}
-        </span>
+        <div class="card-stats tabular">
+          <span class="surf-range">{fmtRange(dv.range, units)}</span>
+          <span class="wind-stat">{windLabel(dv.rep)}</span>
+        </div>
       </div>
-      <div class="side">
-        <Pill bucket={dv.bucket} />
-        {km !== undefined && <span class="rank-n tabular">{Math.round(km)} km</span>}
-      </div>
+      {onToggle && <StarButton on={!!isFav} name={name} size={18} onToggle={onToggle} />}
     </a>
   );
 }

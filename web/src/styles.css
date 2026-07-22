@@ -17,7 +17,7 @@
   --primary-foreground: #faf9f7;
   --secondary: #17171c0d;
   --muted-foreground: #17171c80;
-  --accent: #d97756;
+  --accent: #Splash image not mirrored;
   --accent-hover: #c05f3e;
   --border: #17171c1a;
   --input-bg: #ffffff;
@@ -37,6 +37,10 @@
   --rating-good: #22c55e;
   --rating-firing: #15803d;
   --warn-orange: #f97316;
+
+  /* Chart bars are a single neutral teal; the day's condition color is carried
+     by a rule beneath the column, not the bars themselves. */
+  --chart-bar: #186a83;
 
   /* ----- Typography */
   --font-sans: "Inter Variable", "Inter", system-ui, sans-serif;
@@ -643,7 +647,6 @@ button {
 .coast {
   display: flex;
   flex-direction: column;
-  gap: 12px;
   padding-bottom: 20px;
 }
 .coast .track {
@@ -656,18 +659,17 @@ button {
   display: none;
 }
 /* shared date axis — sticky under the app header, scrolls with the rows.
-   Left inset (32px) = spot-row margin (16) + cells padding (16) so columns line up. */
+   Left inset (12px) matches the cells padding so columns line up. */
 .coast-head {
   position: sticky;
   top: 52px;
   z-index: 10;
-  padding: 6px 32px 8px;
+  padding: 6px 12px 8px;
   background: var(--body-bg);
-  border-bottom: 1px solid var(--border);
 }
 .coast-day {
   flex: none;
-  width: 80px;
+  width: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -675,54 +677,135 @@ button {
   color: var(--muted-foreground);
 }
 .coast-day .dow {
-  font-size: 11.6px;
+  font-size: 10.5px;
   font-weight: 600;
 }
 .coast-day .dnum {
-  font-size: 16.5px;
+  font-size: 13.5px;
   font-weight: 700;
   color: var(--foreground);
 }
 .coast-row {
   display: block;
-  margin: 0 16px;
-  padding: 14px 0 16px;
-  background: var(--card);
-  border-radius: 16px;
-  box-shadow: var(--card-shadow);
+  padding: 10px 0 12px;
   color: var(--foreground);
   text-decoration: none;
+  border-bottom: 1px solid var(--border);
 }
 .coast-name {
   display: block;
-  padding: 0 16px 12px;
-  font-size: 16.5px;
+  padding: 0 12px 10px;
+  font-size: 16px;
   font-weight: 700;
 }
 .coast-cells {
-  padding: 0 16px;
+  padding: 0 12px;
 }
 .coast-cell {
   flex: none;
-  width: 80px;
+  width: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 9px;
+  gap: 8px;
 }
 .coast-h {
-  font-size: 15px;
+  font-size: 11.5px;
   font-weight: 700;
 }
 .coast-bars {
   display: flex;
-  gap: 4px;
-  width: 62px;
+  gap: 3px;
+  width: 42px;
 }
 .coast-bar {
   flex: 1;
   height: 5px;
   border-radius: 3px;
+}
+
+/* MSW-style chart columns (CoastChart) — reuse the 50px grid so the date axis
+   lines up with the list view. Bars grow up from a shared baseline. */
+.chart-col {
+  flex: none;
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+.chart-wind {
+  height: 14px;
+  color: var(--muted-foreground);
+  display: flex;
+  align-items: center;
+}
+.chart-plot {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  width: 42px;
+}
+.chart-bar {
+  flex: 1;
+  min-width: 0;
+  border-radius: 2px 2px 0 0;
+  background: var(--chart-bar);
+}
+.chart-bar.stub {
+  background: var(--border);
+}
+/* dominant-condition rule beneath the teal bars — the only tier color in a column */
+.chart-rule {
+  width: 42px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--border);
+}
+.chart-empty {
+  flex: 1;
+  align-self: stretch;
+  border-radius: 3px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--border) 0,
+    var(--border) 2px,
+    transparent 2px,
+    transparent 5px
+  );
+  opacity: 0.5;
+}
+.chart-val {
+  width: 50px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--foreground);
+  white-space: nowrap;
+}
+
+/* First spot row carries the chart↔list toggle across from its title, right-aligned.
+   The row's title and cells are separate links so the toggle buttons aren't nested
+   inside an anchor. */
+.coast-name-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 0 12px 10px;
+}
+.coast-name-row .coast-name {
+  padding: 0;
+  color: inherit;
+  text-decoration: none;
+}
+.coast-cells-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.segmented.compact button {
+  padding: 5px 10px;
 }
 
 .rank-card {
@@ -834,6 +917,58 @@ a.rank-card:hover {
   color: var(--muted-foreground);
 }
 
+/* Compact card layout: title + rating pill (line 1), surf + wind (line 2). */
+.rank-card .card-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.rank-card .card-stats {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-top: 5px;
+}
+.rank-card .card-stats .surf-range {
+  margin-top: 0;
+}
+.rank-card .wind-stat {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--muted-foreground);
+}
+
+/* Surfline-style region group bar (Spots + Map favorites). */
+.group-chips {
+  display: flex;
+  flex: none;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 8px 12px;
+}
+.group-chips::-webkit-scrollbar {
+  display: none;
+}
+.spots-page .group-chips {
+  margin: 0 -16px;
+}
+.group-chip {
+  flex: none;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  white-space: nowrap;
+}
+.group-chip.on {
+  background: var(--foreground);
+  color: var(--body-bg);
+  border-color: var(--foreground);
+}
+
 /* ---------- Spots tab ---------- */
 
 .spots-page {
@@ -867,6 +1002,47 @@ a.rank-card:hover {
 }
 .search-box input::placeholder {
   color: var(--muted-foreground);
+}
+
+/* Search screen header: back arrow + an open, full-width search field. */
+.search-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: color-mix(in srgb, var(--card) 85%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.search-box.grow {
+  flex: 1;
+  min-width: 0;
+  animation: search-open 0.28s ease-out both;
+}
+/* Opened search field is borderless — a soft filled pill on the header. */
+.search-box.grow input {
+  border-color: transparent;
+  box-shadow: none;
+  background: var(--secondary);
+}
+/* Wipe the field open right→left, keeping rounded corners. */
+@keyframes search-open {
+  from {
+    clip-path: inset(0 0 0 100% round 8px);
+    opacity: 0;
+  }
+  to {
+    clip-path: inset(0 0 0 0 round 8px);
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .search-box.grow {
+    animation: none;
+  }
 }
 
 .spot-group-list {
@@ -927,6 +1103,13 @@ a.rank-card:hover {
 }
 .spot-row-card > svg {
   flex: none;
+}
+/* Card-less variant (search results): plain rows, no card chrome. */
+.spot-row-card.plain {
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 8px 4px;
 }
 
 /* Map-area row: a region locator that opens the Map framed on the region. */
@@ -1390,20 +1573,44 @@ a.rank-card:hover {
 
 /* ---------- Map ---------- */
 
-.map-page {
-  flex: 1;
-  position: relative;
+/* Map screen: header · Favourites/Nearby tabs · map (upper ~half) · spot list.
+   Maplibre needs a definite height on its container — hence the vh on .map-canvas. */
+/* Bound the map screen to the viewport (minus the 52px header + 58px bottom nav)
+   so the map + tabs stay put and only .map-locations scrolls inside its half. */
+.map-screen {
+  height: calc(100dvh - 110px - env(safe-area-inset-bottom));
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
 }
-/* Explicit height ON the maplibre container (mock: calc(100vh - 110px), i.e.
-   52px header + 58px nav). Maplibre needs a definite size at init — its own
-   stylesheet forces `position: relative` on this element, so absolute/inset
-   or percentage sizing both collapse to 0. */
+.map-tabbar {
+  display: flex;
+  flex: none;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.map-tabbar button {
+  flex: 1;
+  padding: 12px 0;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+.map-tabbar button.on {
+  color: var(--foreground);
+  border-bottom-color: var(--accent);
+}
+/* Half of the space below the header/nav (the tab strip + list get the other half). */
 .map-canvas {
+  flex: none;
   width: 100%;
-  height: calc(100vh - 110px);
-  height: calc(100dvh - 110px - env(safe-area-inset-bottom));
-  min-height: 360px;
+  height: calc(50dvh - 78px);
+  min-height: 200px;
 }
 
 .spot-dot {
@@ -1430,26 +1637,51 @@ a.rank-card:hover {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
 }
 
-/* Map bottom sheet — hosts a SpotCard (same compact card as Today).
-   The card owns its own background/padding; the sheet just positions + shadows it. */
-.map-sheet {
-  position: absolute;
-  left: 12px;
-  right: 12px;
-  bottom: 12px;
-  z-index: 10;
-  border-radius: 16px;
-  box-shadow: var(--sheet-shadow);
-  overflow: hidden;
+/* Spot list under the map — selecting a row centers/rings the pin (never navigates). */
+.map-locations {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 0 12px 12px;
+  -webkit-overflow-scrolling: touch;
 }
-.map-sheet .rank-card {
-  border-radius: 16px;
-  box-shadow: none;
+.map-loc {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 4px;
+  border-bottom: 1px solid var(--border);
 }
-.map-sheet .map-skel .line {
-  font-size: 13.2px;
+.map-loc-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  padding: 6px 0;
+}
+.map-loc .tier-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  flex: none;
+}
+.map-loc .mid {
+  flex: 1;
+  min-width: 0;
+}
+.map-loc .mid .spot-title b {
+  font-size: 15px;
+}
+.map-loc .line {
+  display: block;
+  font-size: 12.5px;
   color: var(--muted-foreground);
-  margin-top: 5px;
+  margin-top: 2px;
+}
+.map-loc.active {
+  background: var(--secondary);
 }
 
 /* maplibre chrome, kept subtle */
