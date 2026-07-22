@@ -6,6 +6,9 @@
 .env.*
 !.env.example
 
+# Oracle A1.Flex grabber SSH keypair — private key, never commit
+web/,oracle/
+
 # Pipeline outputs are build artifacts — never committed (CLAUDE.md §Conventions)
 data/out/
 
@@ -21,6 +24,7 @@ node_modules/
 web/dist/
 web/dev-dist/
 web/public/data/
+web/public/olderIcons.zip
 
 # verification harness archive (accumulated forecasts vs buoy obs) — build artifact
 data/verify/

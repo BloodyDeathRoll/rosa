@@ -95,23 +95,14 @@ export function SettingsPage({
           <div class="card-title">
             <span class="eyebrow">About Rosa</span>
           </div>
-          <button class="settings-row tall" onClick={() => (location.hash = "#/about/how")}>
+          <button class="settings-row tall about-link" onClick={() => (location.hash = "#/about/how")}>
             <span class="label">How it works</span>
-            <span class="value">
-              <ChevronRightIcon />
-            </span>
           </button>
-          <button class="settings-row tall" onClick={() => (location.hash = "#/about/terms")}>
+          <button class="settings-row tall about-link" onClick={() => (location.hash = "#/about/terms")}>
             <span class="label">Terms of Use</span>
-            <span class="value">
-              <ChevronRightIcon />
-            </span>
           </button>
-          <button class="settings-row tall" onClick={() => (location.hash = "#/about/privacy")}>
+          <button class="settings-row tall about-link" onClick={() => (location.hash = "#/about/privacy")}>
             <span class="label">Privacy Policy</span>
-            <span class="value">
-              <ChevronRightIcon />
-            </span>
           </button>
         </section>
 

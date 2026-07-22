@@ -17,34 +17,50 @@
         position: fixed;
         inset: 0;
         z-index: 9999;
-        background: #d82619;
+        background: #1a0f0c url(/splash.jpg) center / cover no-repeat;
         display: flex;
         align-items: center;
         justify-content: center;
         opacity: 1;
         transition: opacity 0.45s ease;
       }
+      #splash::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.42);
+      }
       #splash.hide {
         opacity: 0;
         pointer-events: none;
       }
       #splash .splash-inner {
+        position: relative; /* above the scrim */
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 20px;
+        gap: 10px;
       }
       #splash .splash-mark {
-        width: 112px;
-        height: 105px;
+        width: 56px;
+        height: 52px;
         background: #fff;
         -webkit-mask: url(/favicon.svg) center / contain no-repeat;
         mask: url(/favicon.svg) center / contain no-repeat;
       }
+      #splash .splash-dot {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        margin-left: 8px;
+        border-radius: 50%;
+        background: #d82619;
+        vertical-align: baseline;
+      }
       #splash .splash-word {
         font-family: "Inter Variable", system-ui, -apple-system, sans-serif;
         font-weight: 700;
-        font-size: 34px;
+        font-size: 58px;
         letter-spacing: -0.02em;
         color: #fff;
         line-height: 1;
@@ -52,7 +68,7 @@
       #splash .splash-loading {
         margin-top: -6px; /* sits just under the wordmark (offsets the column gap) */
         font-family: "Inter Variable", system-ui, -apple-system, sans-serif;
-        font-size: 11px;
+        font-size: 13px;
         font-weight: 500;
         letter-spacing: 0.08em;
         color: #fff;
@@ -94,7 +110,7 @@
     <div id="splash" role="status" aria-label="Loading Rosa">
       <div class="splash-inner">
         <div class="splash-mark"></div>
-        <span class="splash-word">rosa</span>
+        <span class="splash-word">rosa<i class="splash-dot"></i></span>
         <span class="splash-loading">loading</span>
       </div>
     </div>
