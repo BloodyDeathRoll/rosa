@@ -80,6 +80,8 @@ def _hour_entry(spot: Spot, s: ScoredHour, tz: ZoneInfo) -> dict:
             "class": s.wind_class,
         },
         "sst": _r(s.hour.sst_c, 1) if s.hour.sst_c is not None else None,
+        # tide / total water level rel. MSL, m (Stage 2D) — real series replacing the web mock
+        "tide": _r(s.hour.tide_m, 2) if s.hour.tide_m is not None else None,
         "swells": [
             {
                 "h": _r(p.height_m),

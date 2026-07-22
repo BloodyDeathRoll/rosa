@@ -97,7 +97,12 @@ def score_hour(
     # (shoaling + refraction + depth-limited breaking). Falls back to the q(T) transform
     # when no profile is available (retired fully in Stage 2E once physics is recalibrated).
     if wet_depths:
-        h_eff = breaker_height_from_profile(hour.partitions, window, spot.shore_normal, wet_depths)
+        # tide raises/lowers the water column, so the wave breaks at a deeper/shallower point
+        # (Stage 2D). Micro-tidal Med barely moves; macro-tidal spots (Costa Rica) shift a lot.
+        depths = wet_depths
+        if hour.tide_m:
+            depths = [d + hour.tide_m for d in wet_depths if d + hour.tide_m > 0]
+        h_eff = breaker_height_from_profile(hour.partitions, window, spot.shore_normal, depths)
     else:
         h_eff = effective_height_in_window(hour.partitions, window)
     h_lo, h_mid, h_hi = breaker_range(h_eff, spot.height_coeff)

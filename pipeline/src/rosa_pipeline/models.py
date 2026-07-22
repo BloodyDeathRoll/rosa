@@ -52,6 +52,7 @@ class HourForecast:
     wind_gusts_kph: float | None
     pressure_msl: float | None = None  # hPa (= mb)
     air_c: float | None = None
+    tide_m: float | None = None  # total water level rel. MSL (Stage 2D); None beyond its horizon
     # multi-model agreement at this hour (Stage 1): 0 = models disagree, 1 = tight;
     # None when no ensemble was fetched (older fixtures) → confidence falls back to horizon
     agreement_score: float | None = None

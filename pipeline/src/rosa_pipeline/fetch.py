@@ -48,6 +48,9 @@ MARINE_HOURLY = [
     "tertiary_swell_wave_direction",
     "tertiary_swell_wave_period",
     "sea_surface_temperature",
+    # tide / total water level (Stage 2D) — from MeteoFrance SMOC, so it returns under the
+    # best_match suffix only (null under the wave model); _merge_models picks it up for days 0-9
+    "sea_level_height_msl",
 ]
 WEATHER_HOURLY = [
     "wind_speed_10m",

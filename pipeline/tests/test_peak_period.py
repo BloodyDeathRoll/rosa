@@ -63,3 +63,15 @@ def test_missing_peak_column_is_none_not_error() -> None:
     hour = extract_hours(raw)[0]
     swell = next(p for p in hour.partitions if p.kind == "swell")
     assert swell.period_s == 9.0 and swell.peak_period_s is None  # graceful
+
+
+def test_tide_carried_onto_hours() -> None:
+    marine = _marine(11.0)
+    marine["hourly"]["sea_level_height_msl"] = [0.5, 1.2]  # Stage 2D
+    raw = RawForecast(fetched_at="x", marine=marine, weather=_weather())
+    assert [h.tide_m for h in extract_hours(raw)] == [0.5, 1.2]
+
+
+def test_missing_tide_column_is_none() -> None:
+    raw = RawForecast(fetched_at="x", marine=_marine(11.0), weather=_weather())
+    assert all(h.tide_m is None for h in extract_hours(raw))

@@ -71,16 +71,20 @@ automatically.
 - **Validated:** a swell 10° outside the arc now contributes (attenuated), one >25° out still
   dropped; 154 tests green, ruff clean, spot runs unchanged in-arc.
 
-## 2D — Tide (EOT20 / pyTMD)
-- **New `tides.py`**: pyTMD + EOT20 → precompute per-spot harmonic constants at build
-  (`data/spots/derived/tides/{id}.json`); cheap runtime `tide_height(spot, t)` → m rel. MSL + stage.
-- **Wire in:** breaking depth `d_break = bathy_depth + tide` (2B consumes it); per-spot
-  `ideal_tide_window` multiplier on rating, **gated by tidal range** (EOT20 amplitude) so micro-tidal
-  Med barely moves but macro-tidal **CR** does. `HourForecast` gains `tide_m`; `publish.py` emits a
-  real tide series — **replaces the web's mock M2 sine** (emit data only; UI session consumes it).
-- **Deps:** `pyTMD` + EOT20 constituents (CC-BY, vendor/document).
-- **Validate:** improves skill at a macro-tidal test spot (CR near a CO-OPS gauge) without harming
-  Med; tide heights checked vs a known gauge.
+## 2D — Tide — DONE (Open-Meteo, not EOT20)
+- **Approach changed (2026-07-22, user-approved):** dropped EOT20/pyTMD for **Open-Meteo Marine
+  `sea_level_height_msl`** (MeteoFrance SMOC, ~8 km hourly) — fetched *with the waves*, so no
+  multi-GB download, no `pyTMD`/`netCDF4` dep, auto-updating, behind the existing fetch interface.
+  It's **total** water level (tide + surge), comparable quality to EOT20 (finer grid + surge; same
+  coastal-accuracy ceiling). Swap to EOT20 later if independence is wanted.
+- DONE: `fetch.py` adds the variable (SMOC returns it under the best_match suffix → `_merge_models`
+  picks it up for days 0–9); `models.py` `HourForecast.tide_m`; `extract.py` reads it (`.get`,
+  fixture-tolerant); `score.py` feeds it into breaking depth (`d + tide` over the profile);
+  `publish.py` emits a per-hour `tide` series — **replaces the web's mock M2 sine**.
+- Verified: real semidiurnal curve; Med ~0.15 m (negligible), Costa Rica ~1.8 m (moves the
+  forecast); 157 tests green. `tide_m` is None beyond the SMOC/best_match horizon (~day 9).
+- **DEFERRED:** the per-spot `ideal_tide_window` rating multiplier (some spots work best at
+  low/high tide) — needs per-spot local input; a Stage 2E / community item.
 
 ## 2E — Recalibration
 - Re-tune γ, residual coeff, `exposure_power`, `ideal_size_m` over the new transform from

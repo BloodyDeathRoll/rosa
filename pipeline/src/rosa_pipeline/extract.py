@@ -106,6 +106,8 @@ def extract_hours(raw: RawForecast) -> list[HourForecast]:
                 # .get: absent in captures made before these were added to the fetch
                 pressure_msl=(pm[j] if (pm := weather.get("pressure_msl")) else None),
                 air_c=(ta[j] if (ta := weather.get("temperature_2m")) else None),
+                # tide/water level (Stage 2D); .get tolerates fixtures captured before it existed
+                tide_m=(sl[i] if (sl := marine.get("sea_level_height_msl")) is not None else None),
                 agreement_score=agreement.score if agreement else None,
                 n_models=agreement.n_models if agreement else 0,
             )

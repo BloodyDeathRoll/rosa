@@ -133,6 +133,17 @@ class TestScoreHour:
         assert s.rating == 50
         assert s.wind_class == "onshore"
 
+    def test_tide_shifts_breaker_height(self):
+        # Stage 2D: with a depth profile, higher water breaks the (depth-limited) wave at a
+        # deeper point -> a bigger breaker. Micro-tidal spots barely move; this is a big swing.
+        from dataclasses import replace
+
+        wet = [30.0, 12.0, 5.0, 2.0]
+        parts = (SwellPartition(2.0, 14.0, 290.0),)
+        low = score_hour(SPOT, hour(parts), wet)  # tide_m None
+        high = score_hour(SPOT, replace(hour(parts), tide_m=1.5), wet)
+        assert high.h_break_mid > low.h_break_mid
+
 
 class TestCalibrationFix1:
     """Regression for the two failure modes fix #1 caught, held under the row-2 (linear q,
