@@ -2,64 +2,64 @@
   "spot": "neve-yam",
   "source": "gebco2020 via opentopodata",
   "bearing_seaward_deg": 262.0,
-  "nearshore_depth_m": -3.0,
-  "offshore_depth_m": 527.0,
-  "mean_slope_m_per_km": 29.86,
-  "land_samples": 1,
+  "nearshore_depth_m": 25.0,
+  "offshore_depth_m": 545.0,
+  "mean_slope_m_per_km": 29.3,
+  "land_samples": 0,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 32.67949,
-      "lon": 34.92925,
-      "depth_m": -3.0
+      "lat": 32.67869,
+      "lon": 34.92295,
+      "depth_m": 25.0
     },
     {
       "dist_km": 0.5,
-      "lat": 32.67917,
-      "lon": 34.92661,
-      "depth_m": 1.0
+      "lat": 32.67837,
+      "lon": 34.92031,
+      "depth_m": 26.0
     },
     {
       "dist_km": 1.0,
-      "lat": 32.67855,
-      "lon": 34.92132,
+      "lat": 32.67775,
+      "lon": 34.91502,
       "depth_m": 25.0
     },
     {
       "dist_km": 2.0,
-      "lat": 32.6773,
-      "lon": 34.91074,
-      "depth_m": 25.0
+      "lat": 32.6765,
+      "lon": 34.90444,
+      "depth_m": 37.0
     },
     {
       "dist_km": 3.0,
-      "lat": 32.67604,
-      "lon": 34.90016,
-      "depth_m": 38.0
+      "lat": 32.67524,
+      "lon": 34.89386,
+      "depth_m": 39.0
     },
     {
       "dist_km": 5.0,
-      "lat": 32.67353,
-      "lon": 34.879,
-      "depth_m": 52.0
+      "lat": 32.67273,
+      "lon": 34.8727,
+      "depth_m": 54.0
     },
     {
       "dist_km": 8.0,
-      "lat": 32.66976,
-      "lon": 34.84726,
-      "depth_m": 63.0
+      "lat": 32.66896,
+      "lon": 34.84097,
+      "depth_m": 67.0
     },
     {
       "dist_km": 12.0,
-      "lat": 32.66472,
-      "lon": 34.80495,
-      "depth_m": 248.0
+      "lat": 32.66392,
+      "lon": 34.79866,
+      "depth_m": 312.0
     },
     {
       "dist_km": 18.0,
-      "lat": 32.65713,
-      "lon": 34.7415,
-      "depth_m": 527.0
+      "lat": 32.65633,
+      "lon": 34.7352,
+      "depth_m": 545.0
     }
   ]
 }

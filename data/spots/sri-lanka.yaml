@@ -36,16 +36,16 @@ east: &sl_e
 
 spots:
   # ==== SOUTH COAST (W→E; sample pushed SOUTH) ====
-  - { id: hikkaduwa,        name: "Hikkaduwa",              lat: 6.140, lon: 80.103, offshore_direction: 35,  offshore_point: [6.08, 80.103],  break_type: reef, <<: *sl_s }  # approx — TODO verify
-  - { id: unawatuna,        name: "Unawatuna",              lat: 6.010, lon: 80.249, offshore_direction: 20,  offshore_point: [5.95, 80.249],  swell_window: [160, 220], <<: *sl_s }  # approx — TODO verify (sheltered bay)
-  - { id: koggala,          name: "Koggala",                lat: 5.994, lon: 80.328, offshore_direction: 5,   offshore_point: [5.934, 80.328], break_type: reef, <<: *sl_s }  # approx — TODO verify
-  - { id: ahangama-kabalana, name: "Ahangama (Kabalana)",   lat: 5.973, lon: 80.363, offshore_direction: 5,   offshore_point: [5.913, 80.363], <<: *sl_s }  # approx — TODO verify (The Rock)
-  - { id: midigama,         name: "Midigama",               lat: 5.970, lon: 80.390, offshore_direction: 15,  offshore_point: [5.91, 80.390],  break_type: reef, <<: *sl_s }  # approx — TODO verify (Ram's Right / Lazy Left)
-  - { id: weligama,         name: "Weligama",               lat: 5.970, lon: 80.429, offshore_direction: 5,   offshore_point: [5.91, 80.429],  <<: *sl_s }  # approx — TODO verify (beginner beachbreak)
-  - { id: mirissa,          name: "Mirissa",                lat: 5.945, lon: 80.459, offshore_direction: 5,   offshore_point: [5.885, 80.459], <<: *sl_s }  # approx — TODO verify
+  - { id: hikkaduwa,        name: "Hikkaduwa",              lat: 6.1304, lon: 80.0963, offshore_direction: 35,  offshore_point: [6.08, 80.103],  break_type: reef, <<: *sl_s }  # approx — TODO verify
+  - { id: unawatuna,        name: "Unawatuna",              lat: 6.0015, lon: 80.2459, offshore_direction: 20,  offshore_point: [5.95, 80.249],  swell_window: [160, 220], <<: *sl_s }  # approx — TODO verify (sheltered bay)
+  - { id: koggala,          name: "Koggala",                lat: 5.9824, lon: 80.327, offshore_direction: 5,   offshore_point: [5.934, 80.328], break_type: reef, <<: *sl_s }  # approx — TODO verify
+  - { id: ahangama-kabalana, name: "Ahangama (Kabalana)",   lat: 5.9658, lon: 80.3624, offshore_direction: 5,   offshore_point: [5.913, 80.363], <<: *sl_s }  # approx — TODO verify (The Rock)
+  - { id: midigama,         name: "Midigama",               lat: 5.9587, lon: 80.387, offshore_direction: 15,  offshore_point: [5.91, 80.390],  break_type: reef, <<: *sl_s }  # approx — TODO verify (Ram's Right / Lazy Left)
+  - { id: weligama,         name: "Weligama",               lat: 5.9646, lon: 80.4285, offshore_direction: 5,   offshore_point: [5.91, 80.429],  <<: *sl_s }  # approx — TODO verify (beginner beachbreak)
+  - { id: mirissa,          name: "Mirissa",                lat: 5.9396, lon: 80.4585, offshore_direction: 5,   offshore_point: [5.885, 80.459], <<: *sl_s }  # approx — TODO verify
   - { id: polhena,          name: "Polhena (Matara)",       lat: 5.933, lon: 80.538, offshore_direction: 5,   offshore_point: [5.873, 80.538], break_type: reef, <<: *sl_s }  # approx — TODO verify
-  - { id: hiriketiya,       name: "Hiriketiya",             lat: 5.965, lon: 80.690, offshore_direction: 350, offshore_point: [5.905, 80.690], swell_window: [150, 210], <<: *sl_s }  # approx — TODO verify (horseshoe bay)
-  - { id: tangalle,         name: "Tangalle",               lat: 6.023, lon: 80.794, offshore_direction: 355, offshore_point: [5.963, 80.794], <<: *sl_s }  # approx — TODO verify
+  - { id: hiriketiya,       name: "Hiriketiya",             lat: 5.9579, lon: 80.6913, offshore_direction: 350, offshore_point: [5.905, 80.690], swell_window: [150, 210], <<: *sl_s }  # approx — TODO verify (horseshoe bay)
+  - { id: tangalle,         name: "Tangalle",               lat: 6.0158, lon: 80.7946, offshore_direction: 355, offshore_point: [5.963, 80.794], <<: *sl_s }  # approx — TODO verify
   # ==== EAST COAST (Arugam Bay cluster, S→N; sample pushed EAST) ====
   # shore_normal (seaward, E/SE) is set explicitly — the coast faces the ocean E/SE while the
   # best wind (offshore_direction) is the SW monsoon, so the two genuinely diverge here.

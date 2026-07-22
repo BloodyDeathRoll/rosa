@@ -2,64 +2,64 @@
   "spot": "pavones",
   "source": "gebco2020 via opentopodata",
   "bearing_seaward_deg": 250.0,
-  "nearshore_depth_m": -16.0,
-  "offshore_depth_m": 335.0,
-  "mean_slope_m_per_km": 19.77,
-  "land_samples": 3,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 451.0,
+  "mean_slope_m_per_km": 25.01,
+  "land_samples": 0,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 8.39923,
-      "lon": -83.13214,
-      "depth_m": -16.0
+      "lat": 8.39523,
+      "lon": -83.14324,
+      "depth_m": 7.0
     },
     {
       "dist_km": 0.5,
-      "lat": 8.39846,
-      "lon": -83.13427,
-      "depth_m": -12.0
+      "lat": 8.39446,
+      "lon": -83.14537,
+      "depth_m": 10.0
     },
     {
       "dist_km": 1.0,
-      "lat": 8.39692,
-      "lon": -83.13854,
-      "depth_m": -4.0
+      "lat": 8.39292,
+      "lon": -83.14964,
+      "depth_m": 13.0
     },
     {
       "dist_km": 2.0,
-      "lat": 8.39385,
-      "lon": -83.14708,
-      "depth_m": 12.0
+      "lat": 8.38985,
+      "lon": -83.15818,
+      "depth_m": 19.0
     },
     {
       "dist_km": 3.0,
-      "lat": 8.39077,
-      "lon": -83.15563,
-      "depth_m": 17.0
+      "lat": 8.38677,
+      "lon": -83.16673,
+      "depth_m": 25.0
     },
     {
       "dist_km": 5.0,
-      "lat": 8.38462,
-      "lon": -83.17271,
-      "depth_m": 29.0
+      "lat": 8.38062,
+      "lon": -83.18381,
+      "depth_m": 47.0
     },
     {
       "dist_km": 8.0,
-      "lat": 8.37539,
-      "lon": -83.19834,
-      "depth_m": 91.0
+      "lat": 8.37139,
+      "lon": -83.20943,
+      "depth_m": 119.0
     },
     {
       "dist_km": 12.0,
-      "lat": 8.36308,
-      "lon": -83.2325,
-      "depth_m": 148.0
+      "lat": 8.35908,
+      "lon": -83.2436,
+      "depth_m": 254.0
     },
     {
       "dist_km": 18.0,
-      "lat": 8.3446,
-      "lon": -83.28374,
-      "depth_m": 335.0
+      "lat": 8.3406,
+      "lon": -83.29484,
+      "depth_m": 451.0
     }
   ]
 }

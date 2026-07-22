@@ -2,64 +2,64 @@
   "spot": "mirissa",
   "source": "gebco2020 via opentopodata",
   "bearing_seaward_deg": 185.0,
-  "nearshore_depth_m": -13.0,
-  "offshore_depth_m": 1787.0,
-  "mean_slope_m_per_km": 101.41,
-  "land_samples": 2,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 1895.0,
+  "mean_slope_m_per_km": 106.59,
+  "land_samples": 0,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 5.94276,
-      "lon": 80.4588,
-      "depth_m": -13.0
+      "lat": 5.93736,
+      "lon": 80.4583,
+      "depth_m": 3.0
     },
     {
       "dist_km": 0.5,
-      "lat": 5.94052,
-      "lon": 80.45861,
-      "depth_m": -3.0
+      "lat": 5.93512,
+      "lon": 80.45811,
+      "depth_m": 6.0
     },
     {
       "dist_km": 1.0,
-      "lat": 5.93604,
-      "lon": 80.45821,
-      "depth_m": 5.0
+      "lat": 5.93064,
+      "lon": 80.45771,
+      "depth_m": 10.0
     },
     {
       "dist_km": 2.0,
-      "lat": 5.92708,
-      "lon": 80.45742,
-      "depth_m": 13.0
+      "lat": 5.92168,
+      "lon": 80.45692,
+      "depth_m": 18.0
     },
     {
       "dist_km": 3.0,
-      "lat": 5.91812,
-      "lon": 80.45664,
-      "depth_m": 19.0
+      "lat": 5.91272,
+      "lon": 80.45614,
+      "depth_m": 29.0
     },
     {
       "dist_km": 5.0,
-      "lat": 5.90021,
-      "lon": 80.45506,
-      "depth_m": 60.0
+      "lat": 5.89481,
+      "lon": 80.45456,
+      "depth_m": 38.0
     },
     {
       "dist_km": 8.0,
-      "lat": 5.87333,
-      "lon": 80.4527,
-      "depth_m": 377.0
+      "lat": 5.86793,
+      "lon": 80.4522,
+      "depth_m": 745.0
     },
     {
       "dist_km": 12.0,
-      "lat": 5.83749,
-      "lon": 80.44955,
-      "depth_m": 1148.0
+      "lat": 5.83209,
+      "lon": 80.44905,
+      "depth_m": 1112.0
     },
     {
       "dist_km": 18.0,
-      "lat": 5.78374,
-      "lon": 80.44482,
-      "depth_m": 1787.0
+      "lat": 5.77834,
+      "lon": 80.44432,
+      "depth_m": 1895.0
     }
   ]
 }

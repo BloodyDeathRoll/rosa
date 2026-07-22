@@ -2,64 +2,64 @@
   "spot": "unawatuna",
   "source": "gebco2020 via opentopodata",
   "bearing_seaward_deg": 200.0,
-  "nearshore_depth_m": -13.0,
-  "offshore_depth_m": 59.0,
-  "mean_slope_m_per_km": 4.06,
-  "land_samples": 3,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 63.0,
+  "mean_slope_m_per_km": 3.04,
+  "land_samples": 0,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 6.00789,
-      "lon": 80.24823,
-      "depth_m": -13.0
+      "lat": 5.99939,
+      "lon": 80.24513,
+      "depth_m": 9.0
     },
     {
       "dist_km": 0.5,
-      "lat": 6.00577,
-      "lon": 80.24745,
-      "depth_m": -8.0
+      "lat": 5.99727,
+      "lon": 80.24435,
+      "depth_m": 19.0
     },
     {
       "dist_km": 1.0,
-      "lat": 6.00155,
-      "lon": 80.24591,
-      "depth_m": -0.0
-    },
-    {
-      "dist_km": 2.0,
-      "lat": 5.9931,
+      "lat": 5.99305,
       "lon": 80.24281,
       "depth_m": 28.0
     },
     {
-      "dist_km": 3.0,
-      "lat": 5.98465,
-      "lon": 80.23972,
+      "dist_km": 2.0,
+      "lat": 5.9846,
+      "lon": 80.23971,
       "depth_m": 41.0
     },
     {
+      "dist_km": 3.0,
+      "lat": 5.97615,
+      "lon": 80.23662,
+      "depth_m": 49.0
+    },
+    {
       "dist_km": 5.0,
-      "lat": 5.96775,
-      "lon": 80.23354,
-      "depth_m": 55.0
+      "lat": 5.95925,
+      "lon": 80.23044,
+      "depth_m": 58.0
     },
     {
       "dist_km": 8.0,
-      "lat": 5.94239,
-      "lon": 80.22426,
-      "depth_m": 62.0
+      "lat": 5.93389,
+      "lon": 80.22116,
+      "depth_m": 63.0
     },
     {
       "dist_km": 12.0,
-      "lat": 5.90859,
-      "lon": 80.21189,
-      "depth_m": 65.0
+      "lat": 5.90009,
+      "lon": 80.20879,
+      "depth_m": 62.0
     },
     {
       "dist_km": 18.0,
-      "lat": 5.85788,
-      "lon": 80.19334,
-      "depth_m": 59.0
+      "lat": 5.84938,
+      "lon": 80.19024,
+      "depth_m": 63.0
     }
   ]
 }

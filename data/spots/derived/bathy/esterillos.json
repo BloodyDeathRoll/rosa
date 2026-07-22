@@ -2,64 +2,64 @@
   "spot": "esterillos",
   "source": "gebco2020 via opentopodata",
   "bearing_seaward_deg": 230.0,
-  "nearshore_depth_m": -16.0,
-  "offshore_depth_m": 53.0,
-  "mean_slope_m_per_km": 3.89,
-  "land_samples": 4,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 49.0,
+  "mean_slope_m_per_km": 2.48,
+  "land_samples": 0,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 9.52855,
-      "lon": -84.50175,
-      "depth_m": -16.0
+      "lat": 9.51405,
+      "lon": -84.51925,
+      "depth_m": 5.0
     },
     {
       "dist_km": 0.5,
-      "lat": 9.52711,
-      "lon": -84.50349,
-      "depth_m": -18.0
-    },
-    {
-      "dist_km": 1.0,
-      "lat": 9.52422,
-      "lon": -84.50699,
-      "depth_m": -14.0
-    },
-    {
-      "dist_km": 2.0,
-      "lat": 9.51844,
-      "lon": -84.51397,
-      "depth_m": -1.0
-    },
-    {
-      "dist_km": 3.0,
-      "lat": 9.51266,
-      "lon": -84.52096,
+      "lat": 9.51261,
+      "lon": -84.52099,
       "depth_m": 6.0
     },
     {
-      "dist_km": 5.0,
-      "lat": 9.50109,
-      "lon": -84.53493,
-      "depth_m": 15.0
+      "dist_km": 1.0,
+      "lat": 9.50972,
+      "lon": -84.52449,
+      "depth_m": 8.0
     },
     {
-      "dist_km": 8.0,
-      "lat": 9.48375,
-      "lon": -84.55588,
+      "dist_km": 2.0,
+      "lat": 9.50394,
+      "lon": -84.53147,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 9.49816,
+      "lon": -84.53845,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 9.48659,
+      "lon": -84.55242,
       "depth_m": 23.0
     },
     {
+      "dist_km": 8.0,
+      "lat": 9.46925,
+      "lon": -84.57337,
+      "depth_m": 25.0
+    },
+    {
       "dist_km": 12.0,
-      "lat": 9.46062,
-      "lon": -84.58381,
-      "depth_m": 30.0
+      "lat": 9.44612,
+      "lon": -84.60131,
+      "depth_m": 64.0
     },
     {
       "dist_km": 18.0,
-      "lat": 9.42592,
-      "lon": -84.6257,
-      "depth_m": 53.0
+      "lat": 9.41142,
+      "lon": -84.6432,
+      "depth_m": 49.0
     }
   ]
 }

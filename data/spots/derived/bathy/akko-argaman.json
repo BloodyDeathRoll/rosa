@@ -2,63 +2,63 @@
   "spot": "akko-argaman",
   "source": "gebco2020 via opentopodata",
   "bearing_seaward_deg": 250.0,
-  "nearshore_depth_m": 2.0,
+  "nearshore_depth_m": 7.0,
   "offshore_depth_m": 43.0,
-  "mean_slope_m_per_km": 2.31,
+  "mean_slope_m_per_km": 2.03,
   "land_samples": 0,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 32.91543,
-      "lon": 35.07818,
-      "depth_m": 2.0
+      "lat": 32.91483,
+      "lon": 35.07618,
+      "depth_m": 7.0
     },
     {
       "dist_km": 0.5,
-      "lat": 32.91466,
-      "lon": 35.07567,
-      "depth_m": 8.0
-    },
-    {
-      "dist_km": 1.0,
-      "lat": 32.91312,
-      "lon": 35.07063,
+      "lat": 32.91406,
+      "lon": 35.07367,
       "depth_m": 10.0
     },
     {
+      "dist_km": 1.0,
+      "lat": 32.91252,
+      "lon": 35.06863,
+      "depth_m": 9.0
+    },
+    {
       "dist_km": 2.0,
-      "lat": 32.91005,
-      "lon": 35.06057,
-      "depth_m": 12.0
+      "lat": 32.90945,
+      "lon": 35.05857,
+      "depth_m": 13.0
     },
     {
       "dist_km": 3.0,
-      "lat": 32.90697,
-      "lon": 35.0505,
-      "depth_m": 18.0
+      "lat": 32.90637,
+      "lon": 35.0485,
+      "depth_m": 20.0
     },
     {
       "dist_km": 5.0,
-      "lat": 32.90081,
-      "lon": 35.03037,
-      "depth_m": 23.0
+      "lat": 32.90021,
+      "lon": 35.02837,
+      "depth_m": 24.0
     },
     {
       "dist_km": 8.0,
-      "lat": 32.89157,
-      "lon": 35.00019,
+      "lat": 32.89097,
+      "lon": 34.99819,
       "depth_m": 32.0
     },
     {
       "dist_km": 12.0,
-      "lat": 32.87923,
-      "lon": 34.95995,
-      "depth_m": 29.0
+      "lat": 32.87863,
+      "lon": 34.95795,
+      "depth_m": 30.0
     },
     {
       "dist_km": 18.0,
-      "lat": 32.8607,
-      "lon": 34.89961,
+      "lat": 32.8601,
+      "lon": 34.89761,
       "depth_m": 43.0
     }
   ]

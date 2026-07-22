@@ -2,64 +2,64 @@
   "spot": "playa-hermosa-jaco",
   "source": "gebco2020 via opentopodata",
   "bearing_seaward_deg": 235.0,
-  "nearshore_depth_m": -1.0,
-  "offshore_depth_m": 185.0,
-  "mean_slope_m_per_km": 10.48,
-  "land_samples": 1,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 178.0,
+  "mean_slope_m_per_km": 9.3,
+  "land_samples": 0,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 9.57171,
-      "lon": -84.60387,
-      "depth_m": -1.0
+      "lat": 9.57021,
+      "lon": -84.60607,
+      "depth_m": 13.0
     },
     {
       "dist_km": 0.5,
-      "lat": 9.57042,
-      "lon": -84.60574,
-      "depth_m": 11.0
+      "lat": 9.56892,
+      "lon": -84.60794,
+      "depth_m": 21.0
     },
     {
       "dist_km": 1.0,
-      "lat": 9.56784,
-      "lon": -84.60947,
-      "depth_m": 24.0
+      "lat": 9.56634,
+      "lon": -84.61167,
+      "depth_m": 27.0
     },
     {
       "dist_km": 2.0,
-      "lat": 9.56268,
-      "lon": -84.61694,
-      "depth_m": 30.0
+      "lat": 9.56118,
+      "lon": -84.61914,
+      "depth_m": 32.0
     },
     {
       "dist_km": 3.0,
-      "lat": 9.55752,
-      "lon": -84.62441,
-      "depth_m": 36.0
+      "lat": 9.55602,
+      "lon": -84.62661,
+      "depth_m": 37.0
     },
     {
       "dist_km": 5.0,
-      "lat": 9.54721,
-      "lon": -84.63935,
-      "depth_m": 42.0
+      "lat": 9.54571,
+      "lon": -84.64155,
+      "depth_m": 43.0
     },
     {
       "dist_km": 8.0,
-      "lat": 9.53173,
-      "lon": -84.66176,
-      "depth_m": 59.0
+      "lat": 9.53023,
+      "lon": -84.66396,
+      "depth_m": 61.0
     },
     {
       "dist_km": 12.0,
-      "lat": 9.51109,
-      "lon": -84.69163,
-      "depth_m": 77.0
+      "lat": 9.50959,
+      "lon": -84.69383,
+      "depth_m": 79.0
     },
     {
       "dist_km": 18.0,
-      "lat": 9.48012,
-      "lon": -84.73644,
-      "depth_m": 185.0
+      "lat": 9.47863,
+      "lon": -84.73864,
+      "depth_m": 178.0
     }
   ]
 }

@@ -2,64 +2,64 @@
   "spot": "playa-cocles",
   "source": "gebco2020 via opentopodata",
   "bearing_seaward_deg": 60.0,
-  "nearshore_depth_m": -20.0,
-  "offshore_depth_m": 990.0,
-  "mean_slope_m_per_km": 56.9,
-  "land_samples": 3,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 972.0,
+  "mean_slope_m_per_km": 54.31,
+  "land_samples": 0,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 9.64412,
-      "lon": -82.73203,
-      "depth_m": -20.0
+      "lat": 9.64992,
+      "lon": -82.72172,
+      "depth_m": 8.0
     },
     {
       "dist_km": 0.5,
-      "lat": 9.64525,
-      "lon": -82.73005,
-      "depth_m": -17.0
+      "lat": 9.65105,
+      "lon": -82.71975,
+      "depth_m": 10.0
     },
     {
       "dist_km": 1.0,
-      "lat": 9.6475,
-      "lon": -82.7261,
-      "depth_m": -3.0
+      "lat": 9.6533,
+      "lon": -82.7158,
+      "depth_m": 16.0
     },
     {
       "dist_km": 2.0,
-      "lat": 9.65199,
-      "lon": -82.7182,
-      "depth_m": 12.0
+      "lat": 9.65779,
+      "lon": -82.7079,
+      "depth_m": 27.0
     },
     {
       "dist_km": 3.0,
-      "lat": 9.65649,
-      "lon": -82.7103,
-      "depth_m": 25.0
+      "lat": 9.66229,
+      "lon": -82.7,
+      "depth_m": 19.0
     },
     {
       "dist_km": 5.0,
-      "lat": 9.66548,
-      "lon": -82.6945,
-      "depth_m": 13.0
+      "lat": 9.67128,
+      "lon": -82.6842,
+      "depth_m": 35.0
     },
     {
       "dist_km": 8.0,
-      "lat": 9.67897,
-      "lon": -82.67079,
-      "depth_m": 114.0
+      "lat": 9.68477,
+      "lon": -82.66049,
+      "depth_m": 231.0
     },
     {
       "dist_km": 12.0,
-      "lat": 9.69695,
-      "lon": -82.63919,
-      "depth_m": 553.0
+      "lat": 9.70275,
+      "lon": -82.62888,
+      "depth_m": 593.0
     },
     {
       "dist_km": 18.0,
-      "lat": 9.72391,
-      "lon": -82.59177,
-      "depth_m": 990.0
+      "lat": 9.72971,
+      "lon": -82.58146,
+      "depth_m": 972.0
     }
   ]
 }

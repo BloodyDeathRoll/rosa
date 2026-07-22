@@ -2,64 +2,64 @@
   "spot": "tamarindo",
   "source": "gebco2020 via opentopodata",
   "bearing_seaward_deg": 250.0,
-  "nearshore_depth_m": -12.0,
-  "offshore_depth_m": 106.0,
-  "mean_slope_m_per_km": 6.65,
-  "land_samples": 3,
+  "nearshore_depth_m": 29.0,
+  "offshore_depth_m": 127.0,
+  "mean_slope_m_per_km": 5.52,
+  "land_samples": 0,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 10.29823,
-      "lon": -85.84215,
-      "depth_m": -12.0
+      "lat": 10.29333,
+      "lon": -85.85585,
+      "depth_m": 29.0
     },
     {
       "dist_km": 0.5,
-      "lat": 10.29746,
-      "lon": -85.84429,
-      "depth_m": -9.0
+      "lat": 10.29256,
+      "lon": -85.85799,
+      "depth_m": 36.0
     },
     {
       "dist_km": 1.0,
-      "lat": 10.29592,
-      "lon": -85.84859,
-      "depth_m": -8.0
+      "lat": 10.29102,
+      "lon": -85.86229,
+      "depth_m": 37.0
     },
     {
       "dist_km": 2.0,
-      "lat": 10.29285,
-      "lon": -85.85718,
-      "depth_m": 35.0
-    },
-    {
-      "dist_km": 3.0,
-      "lat": 10.28977,
-      "lon": -85.86577,
-      "depth_m": 30.0
-    },
-    {
-      "dist_km": 5.0,
-      "lat": 10.28362,
-      "lon": -85.88294,
+      "lat": 10.28795,
+      "lon": -85.87088,
       "depth_m": 15.0
     },
     {
+      "dist_km": 3.0,
+      "lat": 10.28487,
+      "lon": -85.87947,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.27872,
+      "lon": -85.89664,
+      "depth_m": 40.0
+    },
+    {
       "dist_km": 8.0,
-      "lat": 10.27439,
-      "lon": -85.90871,
-      "depth_m": 65.0
+      "lat": 10.26949,
+      "lon": -85.92241,
+      "depth_m": 56.0
     },
     {
       "dist_km": 12.0,
-      "lat": 10.26207,
-      "lon": -85.94306,
-      "depth_m": 62.0
+      "lat": 10.25717,
+      "lon": -85.95676,
+      "depth_m": 74.0
     },
     {
       "dist_km": 18.0,
-      "lat": 10.2436,
-      "lon": -85.99458,
-      "depth_m": 106.0
+      "lat": 10.2387,
+      "lon": -86.00828,
+      "depth_m": 127.0
     }
   ]
 }

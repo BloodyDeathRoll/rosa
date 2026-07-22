@@ -2,64 +2,64 @@
   "spot": "backdoor-haifa",
   "source": "gebco2020 via opentopodata",
   "bearing_seaward_deg": 343.0,
-  "nearshore_depth_m": -11.0,
-  "offshore_depth_m": 198.0,
-  "mean_slope_m_per_km": 11.77,
-  "land_samples": 1,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 201.0,
+  "mean_slope_m_per_km": 10.87,
+  "land_samples": 0,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 32.83365,
-      "lon": 34.96882,
-      "depth_m": -11.0
+      "lat": 32.83705,
+      "lon": 34.96752,
+      "depth_m": 8.0
     },
     {
       "dist_km": 0.5,
-      "lat": 32.8358,
-      "lon": 34.96804,
+      "lat": 32.8392,
+      "lon": 34.96674,
       "depth_m": 8.0
     },
     {
       "dist_km": 1.0,
-      "lat": 32.8401,
-      "lon": 34.96647,
-      "depth_m": 8.0
+      "lat": 32.8435,
+      "lon": 34.96517,
+      "depth_m": 9.0
     },
     {
       "dist_km": 2.0,
-      "lat": 32.8487,
-      "lon": 34.96334,
-      "depth_m": 13.0
+      "lat": 32.8521,
+      "lon": 34.96204,
+      "depth_m": 18.0
     },
     {
       "dist_km": 3.0,
-      "lat": 32.8573,
-      "lon": 34.96021,
-      "depth_m": 22.0
+      "lat": 32.8607,
+      "lon": 34.95891,
+      "depth_m": 24.0
     },
     {
       "dist_km": 5.0,
-      "lat": 32.8745,
-      "lon": 34.95395,
-      "depth_m": 30.0
+      "lat": 32.8779,
+      "lon": 34.95265,
+      "depth_m": 32.0
     },
     {
       "dist_km": 8.0,
-      "lat": 32.9003,
-      "lon": 34.94455,
+      "lat": 32.9037,
+      "lon": 34.94325,
       "depth_m": 38.0
     },
     {
       "dist_km": 12.0,
-      "lat": 32.9347,
-      "lon": 34.93201,
-      "depth_m": 53.0
+      "lat": 32.9381,
+      "lon": 34.9307,
+      "depth_m": 57.0
     },
     {
       "dist_km": 18.0,
-      "lat": 32.98629,
-      "lon": 34.91318,
-      "depth_m": 198.0
+      "lat": 32.98969,
+      "lon": 34.91187,
+      "depth_m": 201.0
     }
   ]
 }

@@ -2,64 +2,64 @@
   "spot": "playa-bonita",
   "source": "gebco2020 via opentopodata",
   "bearing_seaward_deg": 45.0,
-  "nearshore_depth_m": -3.0,
-  "offshore_depth_m": 906.0,
-  "mean_slope_m_per_km": 51.21,
-  "land_samples": 1,
+  "nearshore_depth_m": 15.0,
+  "offshore_depth_m": 913.0,
+  "mean_slope_m_per_km": 50.59,
+  "land_samples": 0,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 10.01159,
-      "lon": -83.04639,
-      "depth_m": -3.0
+      "lat": 10.01349,
+      "lon": -83.04449,
+      "depth_m": 15.0
     },
     {
       "dist_km": 0.5,
-      "lat": 10.01318,
-      "lon": -83.04477,
-      "depth_m": 13.0
+      "lat": 10.01508,
+      "lon": -83.04287,
+      "depth_m": 21.0
     },
     {
       "dist_km": 1.0,
-      "lat": 10.01636,
-      "lon": -83.04154,
-      "depth_m": 23.0
+      "lat": 10.01826,
+      "lon": -83.03964,
+      "depth_m": 26.0
     },
     {
       "dist_km": 2.0,
-      "lat": 10.02272,
-      "lon": -83.03508,
-      "depth_m": 37.0
+      "lat": 10.02462,
+      "lon": -83.03318,
+      "depth_m": 44.0
     },
     {
       "dist_km": 3.0,
-      "lat": 10.02908,
-      "lon": -83.02863,
-      "depth_m": 63.0
+      "lat": 10.03098,
+      "lon": -83.02673,
+      "depth_m": 73.0
     },
     {
       "dist_km": 5.0,
-      "lat": 10.04179,
-      "lon": -83.01571,
-      "depth_m": 130.0
+      "lat": 10.04369,
+      "lon": -83.01381,
+      "depth_m": 143.0
     },
     {
       "dist_km": 8.0,
-      "lat": 10.06087,
-      "lon": -82.99633,
-      "depth_m": 347.0
+      "lat": 10.06277,
+      "lon": -82.99443,
+      "depth_m": 371.0
     },
     {
       "dist_km": 12.0,
-      "lat": 10.0863,
-      "lon": -82.97049,
-      "depth_m": 690.0
+      "lat": 10.0882,
+      "lon": -82.96859,
+      "depth_m": 707.0
     },
     {
       "dist_km": 18.0,
-      "lat": 10.12444,
-      "lon": -82.93172,
-      "depth_m": 906.0
+      "lat": 10.12634,
+      "lon": -82.92982,
+      "depth_m": 913.0
     }
   ]
 }

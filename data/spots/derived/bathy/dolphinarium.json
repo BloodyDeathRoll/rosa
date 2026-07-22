@@ -2,64 +2,64 @@
   "spot": "dolphinarium",
   "source": "gebco2020 via opentopodata",
   "bearing_seaward_deg": 286.0,
-  "nearshore_depth_m": 5.0,
-  "offshore_depth_m": 159.0,
-  "mean_slope_m_per_km": 8.68,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 162.0,
+  "mean_slope_m_per_km": 8.73,
   "land_samples": 0,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 32.06812,
-      "lon": 34.75925,
-      "depth_m": 5.0
+      "lat": 32.06832,
+      "lon": 34.75825,
+      "depth_m": 7.0
     },
     {
       "dist_km": 0.5,
-      "lat": 32.06874,
-      "lon": 34.7567,
+      "lat": 32.06894,
+      "lon": 34.7557,
       "depth_m": 9.0
     },
     {
       "dist_km": 1.0,
-      "lat": 32.06998,
-      "lon": 34.7516,
-      "depth_m": 13.0
+      "lat": 32.07018,
+      "lon": 34.7506,
+      "depth_m": 14.0
     },
     {
       "dist_km": 2.0,
-      "lat": 32.07246,
-      "lon": 34.7414,
-      "depth_m": 25.0
+      "lat": 32.07266,
+      "lon": 34.7404,
+      "depth_m": 26.0
     },
     {
       "dist_km": 3.0,
-      "lat": 32.07493,
-      "lon": 34.73119,
-      "depth_m": 33.0
+      "lat": 32.07513,
+      "lon": 34.73019,
+      "depth_m": 34.0
     },
     {
       "dist_km": 5.0,
-      "lat": 32.07988,
-      "lon": 34.71079,
+      "lat": 32.08008,
+      "lon": 34.70979,
       "depth_m": 40.0
     },
     {
       "dist_km": 8.0,
-      "lat": 32.0873,
-      "lon": 34.68017,
+      "lat": 32.0875,
+      "lon": 34.67917,
       "depth_m": 44.0
     },
     {
       "dist_km": 12.0,
-      "lat": 32.09719,
-      "lon": 34.63934,
-      "depth_m": 71.0
+      "lat": 32.09739,
+      "lon": 34.63834,
+      "depth_m": 72.0
     },
     {
       "dist_km": 18.0,
-      "lat": 32.11199,
-      "lon": 34.57809,
-      "depth_m": 159.0
+      "lat": 32.11219,
+      "lon": 34.57709,
+      "depth_m": 162.0
     }
   ]
 }
