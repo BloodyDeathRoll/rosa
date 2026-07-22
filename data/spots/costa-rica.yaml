@@ -1,0 +1,72 @@
+# Rosa spot database — Costa Rica (worldwide expansion, first non-Med region)
+#
+# TWO coasts with opposite exposure, so two default anchors instead of one:
+#   * Pacific (&pac):    W/SW-facing; swell window SSW→NW (S groundswell in the
+#                        boreal summer + NW winter swell). Morning offshore wind
+#                        comes from the E/NE (trades over the cordillera).
+#   * Caribbean (&carib): E/NE-facing; swell window N→E (Caribbean trade + winter
+#                         N-Atlantic swell). Offshore wind comes from the W/SW.
+#
+# offshore_direction = compass bearing the OFFSHORE wind blows FROM (= inland-pointing
+#   shore normal = seaward-facing azimuth + 180). Set explicitly per spot.
+# offshore_point = deep-water sample point. The loader's default pushes 0.06° WEST,
+#   which is correct for the open Pacific coast but WRONG for the Caribbean (would sample
+#   land) and for the Golfo Dulce spots (Pavones/Matapalo/Punta Banco sit inside a gulf) —
+#   those carry an explicit offshore_point pushing toward real open water.
+# swell_window = source-direction arc that reaches the break; override the south-facing
+#   and gulf-sheltered spots inline.
+#
+# CONFIDENCE: coordinates are approximate (well-known-spot knowledge, ~3-4 dp) and tagged
+# "approx — TODO verify"; orientations are reasoned from coastal facing, not surveyed —
+# treat as a calibration starting point, same as the israel.yaml seed. ideal.size_m bumped
+# for the more powerful Pacific coast (calibrate per spot from the log, don't trust blindly).
+
+pacific: &pac
+  timezone: America/Costa_Rica
+  swell_window: [190, 310]     # SSW → NW
+  height_coeff: 1.0            # calibrate per spot
+  break_type: beach
+  ideal:
+    wind_dir: [30, 120]        # metadata only (scorer uses offshore_direction)
+    size_m: [0.8, 2.5]
+
+caribbean: &carib
+  timezone: America/Costa_Rica
+  swell_window: [10, 90]       # N → E
+  height_coeff: 1.0
+  break_type: reef
+  ideal:
+    wind_dir: [200, 290]
+    size_m: [0.6, 2.0]
+
+spots:
+  # ==== PACIFIC ====
+  # ---- Guanacaste / North Nicoya (N→S) ----
+  - { id: ollies-point,       name: "Ollie's Point",          lat: 10.858, lon: -85.752, offshore_direction: 105, break_type: point, <<: *pac }  # approx — TODO verify (Santa Rosa NP, boat access)
+  - { id: witchs-rock,        name: "Witch's Rock (Naranjo)", lat: 10.803, lon: -85.723, offshore_direction: 75,  <<: *pac }  # approx — TODO verify (Santa Rosa NP, boat access)
+  - { id: playa-grande,       name: "Playa Grande",           lat: 10.328, lon: -85.844, offshore_direction: 90,  <<: *pac }  # approx — TODO verify
+  - { id: tamarindo,          name: "Tamarindo",              lat: 10.299, lon: -85.840, offshore_direction: 70,  <<: *pac }  # approx — TODO verify
+  - { id: playa-avellanas,    name: "Playa Avellanas",        lat: 10.212, lon: -85.837, offshore_direction: 80,  <<: *pac }  # approx — TODO verify
+  - { id: playa-negra,        name: "Playa Negra",            lat: 10.170, lon: -85.822, offshore_direction: 90,  break_type: reef, <<: *pac }  # approx — TODO verify (reef)
+  - { id: marbella,           name: "Marbella",               lat: 9.900,  lon: -85.755, offshore_direction: 75,  <<: *pac }  # approx — TODO verify
+  - { id: ostional,           name: "Playa Ostional",         lat: 9.995,  lon: -85.702, offshore_direction: 70,  <<: *pac }  # approx — TODO verify
+  - { id: nosara-guiones,     name: "Nosara (Playa Guiones)", lat: 9.947,  lon: -85.687, offshore_direction: 70,  <<: *pac }  # approx — TODO verify
+  - { id: santa-teresa,       name: "Santa Teresa",           lat: 9.643,  lon: -85.168, offshore_direction: 70,  <<: *pac }  # approx — TODO verify
+  - { id: mal-pais,           name: "Mal País",               lat: 9.597,  lon: -85.145, offshore_direction: 70,  break_type: reef, <<: *pac }  # approx — TODO verify
+  # ---- Central Pacific (Puntarenas / Jacó) ----
+  - { id: boca-barranca,      name: "Boca Barranca",          lat: 9.972,  lon: -84.720, offshore_direction: 50,  break_type: point, <<: *pac }  # approx — TODO verify (rivermouth long left)
+  - { id: jaco,               name: "Jacó",                   lat: 9.610,  lon: -84.632, offshore_direction: 55,  <<: *pac }  # approx — TODO verify
+  - { id: playa-hermosa-jaco, name: "Playa Hermosa (Jacó)",   lat: 9.573,  lon: -84.602, offshore_direction: 55,  <<: *pac }  # approx — TODO verify (powerful beachbreak)
+  - { id: esterillos,         name: "Esterillos",             lat: 9.530,  lon: -84.500, offshore_direction: 50,  <<: *pac }  # approx — TODO verify
+  - { id: playa-bejuco,       name: "Playa Bejuco",           lat: 9.463,  lon: -84.440, offshore_direction: 50,  <<: *pac }  # approx — TODO verify
+  - { id: manuel-antonio,     name: "Manuel Antonio (Playitas)", lat: 9.392, lon: -84.150, offshore_direction: 35, swell_window: [180, 260], <<: *pac }  # approx — TODO verify (more S-facing)
+  # ---- South Pacific (Dominical / Osa / Golfo Dulce) ----
+  - { id: dominical,          name: "Dominical",              lat: 9.253,  lon: -83.858, offshore_direction: 40,  swell_window: [180, 260], <<: *pac }  # approx — TODO verify
+  - { id: matapalo-osa,       name: "Matapalo (Cabo Matapalo)", lat: 8.370, lon: -83.283, offshore_direction: 330, swell_window: [170, 230], offshore_point: [8.30, -83.35], break_type: point, <<: *pac }  # approx — TODO verify (SE tip of Osa; sample pushed SW to open Pacific)
+  - { id: pavones,            name: "Pavones",                lat: 8.400,  lon: -83.130, offshore_direction: 70,  swell_window: [175, 220], offshore_point: [8.28, -83.20], break_type: point, <<: *pac }  # approx — TODO verify (world-class long left inside Golfo Dulce; sample pushed to gulf mouth)
+  - { id: punta-banco,        name: "Punta Banco",            lat: 8.353,  lon: -83.142, offshore_direction: 55,  swell_window: [175, 220], offshore_point: [8.27, -83.20], break_type: reef, <<: *pac }  # approx — TODO verify (just S of Pavones)
+  # ==== CARIBBEAN (E/NE-facing; offshore_point pushed EAST into the sea) ====
+  - { id: playa-bonita,       name: "Playa Bonita (Limón)",   lat: 10.010, lon: -83.048, offshore_direction: 225, offshore_point: [10.02, -82.98], break_type: beach, <<: *carib }  # approx — TODO verify
+  - { id: isla-uvita,         name: "Isla Uvita (Limón)",     lat: 10.002, lon: -83.020, offshore_direction: 240, offshore_point: [10.00, -82.95], <<: *carib }  # approx — TODO verify (island reef, boat access)
+  - { id: salsa-brava,        name: "Salsa Brava (Puerto Viejo)", lat: 9.655, lon: -82.754, offshore_direction: 235, offshore_point: [9.66, -82.69], <<: *carib }  # approx — TODO verify (heavy shallow reef)
+  - { id: playa-cocles,       name: "Playa Cocles",           lat: 9.643,  lon: -82.734, offshore_direction: 240, offshore_point: [9.64, -82.67], break_type: beach, <<: *carib }  # approx — TODO verify
