@@ -28,6 +28,7 @@ from __future__ import annotations
 from .models import Bucket, HourForecast, ScoredHour, Spot
 from .transform import (
     angle_diff,
+    breaker_height_from_profile,
     breaker_range,
     classify_wind,
     dominant_partition,
@@ -86,13 +87,20 @@ def bucket(rating: int) -> Bucket:
     return "FIRING"
 
 
-def score_hour(spot: Spot, hour: HourForecast) -> ScoredHour:
+def score_hour(
+    spot: Spot, hour: HourForecast, wet_depths: list[float] | None = None
+) -> ScoredHour:
     window = spot.swell_window
     dominant = dominant_partition(hour.partitions, window)
     energy = energy_in_window(hour.partitions, window)
-    h_lo, h_mid, h_hi = breaker_range(
-        effective_height_in_window(hour.partitions, window), spot.height_coeff
-    )
+    # Stage 2B: with the spot's bathymetry profile, breaker height comes from real physics
+    # (shoaling + refraction + depth-limited breaking). Falls back to the q(T) transform
+    # when no profile is available (retired fully in Stage 2E once physics is recalibrated).
+    if wet_depths:
+        h_eff = breaker_height_from_profile(hour.partitions, window, spot.shore_normal, wet_depths)
+    else:
+        h_eff = effective_height_in_window(hour.partitions, window)
+    h_lo, h_mid, h_hi = breaker_range(h_eff, spot.height_coeff)
 
     size = size_score(h_mid, spot.ideal_size_m)
     period = period_score(dominant.period_s) if dominant else 0.0

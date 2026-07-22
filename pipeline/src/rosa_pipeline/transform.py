@@ -8,6 +8,7 @@ from __future__ import annotations
 import math
 
 from .models import SwellPartition, WindClass
+from .physics import breaker_height_over_profile
 
 
 def angle_diff(a: float, b: float) -> float:
@@ -65,6 +66,45 @@ def effective_height_in_window(
             if in_window(p.direction_deg, window)
         )
     )
+
+
+RIDEABILITY_EXP = 1.4  # period-power exponent (was the q(T) exponent, calibration row 2)
+
+
+def period_rideability(period_s: float) -> float:
+    """Rideable fraction of a partition's physical breaker height (Stage 2B period-power factor).
+
+    The physics gives the roughly-correct *physical* breaker height, but short-period windswell
+    carries far less energy flux (P ~ H^2 * T) and is fast and directionally spread, so it
+    "surfs" well below that height; long-period groundswell rides at full height. This is the
+    grounded reframing of the old ``q(T)``: because the physics now does the shoaling, this
+    factor only ATTENUATES (cap 1.0) — it can never push a wave past its depth-limited break.
+    A proxy for wave power / cleanliness; retired at Stage 3 when spectral directional spread
+    and power replace it. Tune the exponent from docs/CALIBRATION.md only."""
+    return min(1.0, max(0.3, (period_s / 10.0) ** RIDEABILITY_EXP))
+
+
+def breaker_height_from_profile(
+    partitions: tuple[SwellPartition, ...],
+    window: tuple[float, float],
+    shore_normal: float,
+    wet_depths: list[float],
+) -> float:
+    """RMS combine of each in-window partition's breaker height (Stage 2B, hybrid): real
+    physics for the geometry (shoaling + refraction + depth-limited breaking over the spot's
+    bathymetry) times a period-power rideability factor for windswell quality.
+
+    Incidence is the partition's approach angle relative to the spot's shore normal; the
+    physics march zeroes anything arriving from behind it (>= 90 deg)."""
+    total_sq = 0.0
+    for p in partitions:
+        if not in_window(p.direction_deg, window):
+            continue
+        incidence = angle_diff(p.direction_deg, shore_normal)
+        hb = breaker_height_over_profile(p.height_m, p.period_s, incidence, wet_depths)
+        hb *= period_rideability(p.period_s)
+        total_sq += hb * hb
+    return math.sqrt(total_sq)
 
 
 def dominant_partition(

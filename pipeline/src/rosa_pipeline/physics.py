@@ -108,7 +108,12 @@ def breaker_height_over_profile(
     height reached (a per-spot residual coefficient absorbs that sub-grid surf-zone gap).
 
     Swell arriving from behind the shore normal (incidence ≥ 90°) contributes nothing."""
-    if offshore_height_m <= 0 or not depths_deep_to_shallow or incidence_deg >= 90.0:
+    if (
+        offshore_height_m <= 0
+        or period_s <= 0  # a padded/empty partition (no period) transforms to nothing
+        or not depths_deep_to_shallow
+        or incidence_deg >= 90.0
+    ):
         return 0.0
     d_ref = depths_deep_to_shallow[0]
     cg_ref = group_speed(period_s, d_ref)

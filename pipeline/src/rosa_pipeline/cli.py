@@ -28,6 +28,7 @@ from .bathymetry import (
     FixtureBathymetrySource,
     OpenTopoDataSource,
     build_profile,
+    load_profile,
 )
 from .buoys import Buoy, load_all_buoys, nearest_buoys
 from .extract import extract_hours
@@ -178,7 +179,9 @@ def _cmd_run(args: argparse.Namespace) -> int:
             print(f"warning: no forecast at point {point} — skipping {ids}", file=sys.stderr)
             continue
         for spot in groups[point]:
-            scored = [score_hour(spot, h) for h in hours]
+            profile = load_profile(spot.id, BATHY_DIR)
+            wet_depths = profile.wet_depths_deep_to_shallow() if profile else None
+            scored = [score_hour(spot, h, wet_depths) for h in hours]
             payload = build_payload(spot, scored, fetched_at=raw.fetched_at, now=now)
             path = write_spot_json(payload, args.out)
             update_index(payload, args.out)

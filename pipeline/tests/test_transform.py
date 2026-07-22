@@ -1,8 +1,11 @@
+import math
+
 import pytest
 
 from rosa_pipeline.models import SwellPartition
 from rosa_pipeline.transform import (
     angle_diff,
+    breaker_height_from_profile,
     breaker_range,
     classify_wind,
     dominant_partition,
@@ -12,6 +15,7 @@ from rosa_pipeline.transform import (
     height_phrase,
     in_window,
     period_quality,
+    period_rideability,
     wetsuit,
 )
 
@@ -20,6 +24,46 @@ WINDOW = (250.0, 340.0)
 
 def swell(h: float, t: float, d: float) -> SwellPartition:
     return SwellPartition(height_m=h, period_s=t, direction_deg=d)
+
+
+class TestPeriodRideability:
+    def test_groundswell_rides_full(self):
+        assert period_rideability(10.0) == 1.0
+        assert period_rideability(14.0) == 1.0  # capped at 1.0, never amplifies
+
+    def test_windswell_attenuated_to_floor(self):
+        assert period_rideability(4.0) == 0.3  # (0.4)^1.4 ≈ 0.28 -> floored
+        assert period_rideability(2.0) == 0.3
+
+    def test_midrange_between_floor_and_one(self):
+        assert period_rideability(6.0) == pytest.approx((0.6) ** 1.4)
+        assert 0.3 < period_rideability(6.0) < 1.0
+
+
+# deep -> shallow depth profile for the transform tests (straight-in when shore_normal == dir)
+PROFILE_FIX = [180.0, 50.0, 20.0, 8.0, 3.0, 1.5]
+
+
+class TestBreakerHeightFromProfile:
+    def test_windswell_rides_well_below_physical_height(self):
+        h = breaker_height_from_profile((swell(0.6, 4.0, 290.0),), WINDOW, 290.0, PROFILE_FIX)
+        assert 0.0 < h < 0.3  # short period pulled down by the rideability floor
+
+    def test_groundswell_bigger_than_windswell_same_height(self):
+        wind = breaker_height_from_profile((swell(1.0, 4.0, 290.0),), WINDOW, 290.0, PROFILE_FIX)
+        ground = breaker_height_from_profile((swell(1.0, 14.0, 290.0),), WINDOW, 290.0, PROFILE_FIX)
+        assert ground > wind
+
+    def test_out_of_window_partition_excluded(self):
+        h = breaker_height_from_profile((swell(1.5, 12.0, 100.0),), WINDOW, 290.0, PROFILE_FIX)
+        assert h == 0.0
+
+    def test_rms_combines_partitions(self):
+        one = breaker_height_from_profile((swell(0.8, 12.0, 290.0),), WINDOW, 290.0, PROFILE_FIX)
+        two = breaker_height_from_profile(
+            (swell(0.8, 12.0, 290.0), swell(0.8, 12.0, 300.0)), WINDOW, 290.0, PROFILE_FIX
+        )
+        assert two == pytest.approx(one * math.sqrt(2), rel=1e-6)
 
 
 class TestAngleDiff:

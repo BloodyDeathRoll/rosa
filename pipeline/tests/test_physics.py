@@ -112,6 +112,10 @@ class TestBreakerOverProfile:
     def test_empty_profile_is_zero(self):
         assert breaker_height_over_profile(2.0, 12.0, 0.0, []) == 0.0
 
+    def test_zero_period_partition_is_zero(self):
+        # padded/empty partitions arrive with period 0 — must not hit the dispersion solver
+        assert breaker_height_over_profile(1.0, 0.0, 0.0, [50.0, 10.0, 3.0]) == 0.0
+
     def test_small_swell_does_not_break_deep(self):
         # a tiny swell over an all-deep profile never reaches gamma*d -> returns a shoaled height
         hb = breaker_height_over_profile(0.3, 12.0, 0.0, [200.0, 150.0, 100.0])

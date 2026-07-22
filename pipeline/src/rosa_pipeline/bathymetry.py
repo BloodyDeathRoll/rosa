@@ -72,6 +72,21 @@ class DepthProfile:
         span = far.dist_km - near.dist_km
         return (far.depth_m - near.depth_m) / span if span else 0.0
 
+    def wet_depths_deep_to_shallow(self) -> list[float]:
+        """Wet-sample depths ordered deep -> shallow, the input the physics shoaling march
+        wants (samples are stored nearshore-first, so reverse and drop dry/land points)."""
+        return [s.depth_m for s in reversed(self.samples) if s.depth_m > 0]
+
+    @classmethod
+    def from_dict(cls, d: dict) -> DepthProfile:
+        samples = tuple(
+            DepthSample(dist_km=s["dist_km"], lat=s["lat"], lon=s["lon"], depth_m=s["depth_m"])
+            for s in d["samples"]
+        )
+        return cls(
+            spot_id=d["spot"], bearing_seaward_deg=d["bearing_seaward_deg"], samples=samples
+        )
+
     def to_dict(self) -> dict:
         return {
             "spot": self.spot_id,
@@ -207,6 +222,14 @@ class FixtureBathymetrySource:
                 raise KeyError(f"no captured elevation for {key}")
             out.append(self.mapping[key])
         return out
+
+
+def load_profile(spot_id: str, bathy_dir: Path) -> DepthProfile | None:
+    """Read a committed per-spot depth profile back (Stage 2B). None if not yet generated."""
+    path = bathy_dir / f"{spot_id}.json"
+    if not path.exists():
+        return None
+    return DepthProfile.from_dict(json.loads(path.read_text(encoding="utf-8")))
 
 
 def build_profile(source: BathymetrySource, spot: Spot) -> DepthProfile:

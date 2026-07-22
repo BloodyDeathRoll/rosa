@@ -28,22 +28,32 @@ automatically.
   flag for UI session).
 - **Validate:** depths sane (monotonic-ish shoreward); spot-check a steep reef vs a shelving beach.
 
-## 2B — Analytic nearshore transform *(the headline accuracy lever)*
-- **New `physics.py`**: dispersion solver (k from T,d via ω²=gk·tanh kd, Newton), group celerity
-  Cg(T,d), **shoaling** Ks=√(Cg_off/Cg_near), **refraction** (Snell, Kr from approach angle =
-  partition dir vs shore-normal), **depth-limited breaking** H_break≈min(H_shoaled, γ·d_break),
-  γ≈0.78 tunable.
-- **Rewrite `transform.py`**: `effective_height_in_window` → per-partition physical transform over
-  the depth profile. **Delete `period_quality`/`PERIOD_EXP`** — period now enters once, physically,
-  via Cg. `height_coeff` shrinks to a small per-spot *residual* (sandbar-scale error).
-- **`score.py`**: `size_score` curve unchanged; it just receives a physically-derived `h_break_mid`.
-  Update the "why this rating" docstring.
-- **`models.py`**: `Spot` gains depth-profile ref; partition transform reads approach angle from
-  `offshore_direction`.
-- **Validate:** breaker-height bias/RMSE vs. ISRAMAR + NDBC-derived must beat the `height_coeff`
-  baseline **across** spots (not just the one it was tuned on). Unit tests: deep/shallow-limit Cg
-  (Cg→gT/4π deep, →√(gd) shallow), monotonic shoaling, breaking cap. Kills the Med "windswell
-  over-call" and gives CR's refracting points real behaviour.
+## 2B — Analytic nearshore transform *(the headline accuracy lever)* — DONE (hybrid)
+- **New `physics.py`** (DONE): dispersion solver (k from T,d via ω²=gk·tanh kd, Newton), group
+  celerity Cg(T,d), **shoaling** Ks=√(Cg_ref/Cg), **refraction** (Snell, Kr from approach angle =
+  partition dir vs `shore_normal`), **depth-limited breaking** — a march over the depth profile
+  breaking at the first depth where the transformed height reaches γ·d (γ=0.78). Unit-tested
+  against the deep/shallow-water limits.
+- **CORRECTION (2026-07-22): q(T) is NOT fully retired — it's reframed.** Naive linear
+  shoaling + depth-limited breaking *over-calls* short-period Med windswell ~3× (0.6 m/4 s →
+  0.58 m physics vs 0.17 m field truth), reproducing the exact problem `q(T)` was built to fix.
+  Bottom friction is the wrong sign (it dissipates *long*-period groundswell more). The real
+  cause is **wave power / rideability** (P ~ H²·T): short windswell is weak and disorganised,
+  "surfs" far below its physical height. So the transform is a **HYBRID**: physics for the
+  *geometry* (retires the single `height_coeff` — now a small residual), times a **period-power
+  rideability factor** (`transform.period_rideability`, the grounded reframing of `q(T)`, capped
+  at 1.0 so it only attenuates, never amplifies past the depth-limited break). Fully retired at
+  **Stage 3** when spectral directional-spread + power replace the proxy.
+- **`transform.py`** (DONE): `breaker_height_from_profile(partitions, window, shore_normal,
+  wet_depths)` = RMS of per-partition (physics × rideability). `period_quality`/`effective_height`
+  kept as the no-profile fallback.
+- **`bathymetry.py`** (DONE): `DepthProfile.from_dict` + `load_profile` + `wet_depths_deep_to_shallow`.
+- **`score.py` / `cli.py`** (DONE): `score_hour(spot, hour, wet_depths=None)` — physics path when the
+  spot's profile loads, q(T) fallback otherwise; `run` loads each spot's committed profile.
+- **Validated:** Beit Yanai 0.6 m/4 s windswell back to 0.17 m POOR (matches CALIBRATION.md);
+  groundswell/CR points now physics-shaped; 81-spot run clean. 145 tests green.
+- **STILL TODO (folds into 2E):** breaker-height bias/RMSE vs. ISRAMAR + NDBC-derived across spots;
+  tune γ, residual `height_coeff`, and the rideability exponent from the scorecard.
 
 ## 2C — Soft exposure window *(falls out of 2B)*
 - Replace the hard `in_window` boolean (`transform.py`) with a cosine-power angular response

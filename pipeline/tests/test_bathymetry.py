@@ -1,3 +1,4 @@
+import json
 import math
 
 import httpx
@@ -12,6 +13,7 @@ from rosa_pipeline.bathymetry import (
     _round_key,
     build_profile,
     destination,
+    load_profile,
     ray_points,
 )
 from rosa_pipeline.models import Spot
@@ -148,6 +150,42 @@ class TestDepthProfileDict:
         assert d["bearing_seaward_deg"] == 270.0
         assert len(d["samples"]) == len(RAY_DISTANCES_KM)
         assert set(d["samples"][0]) == {"dist_km", "lat", "lon", "depth_m"}
+
+
+class TestProfileLoad:
+    def test_from_dict_roundtrips(self):
+        prof = DepthProfile(
+            spot_id="x",
+            bearing_seaward_deg=270.0,
+            samples=(DepthSample(0.25, 32.0, 34.8, 15.0), DepthSample(1.0, 32.0, 34.7, 50.0)),
+        )
+        again = DepthProfile.from_dict(prof.to_dict())
+        assert again.spot_id == "x"
+        assert again.bearing_seaward_deg == 270.0
+        assert [s.depth_m for s in again.samples] == [15.0, 50.0]
+
+    def test_wet_depths_deep_to_shallow_reverses_and_drops_land(self):
+        prof = DepthProfile(
+            "x",
+            270.0,
+            (
+                DepthSample(0.25, 0.0, 0.0, -3.0),  # land — dropped
+                DepthSample(1.0, 0.0, 0.0, 15.0),
+                DepthSample(2.0, 0.0, 0.0, 50.0),
+            ),
+        )
+        assert prof.wet_depths_deep_to_shallow() == [50.0, 15.0]
+
+    def test_load_profile_missing_returns_none(self, tmp_path):
+        assert load_profile("nope", tmp_path) is None
+
+    def test_load_profile_reads_committed_shape(self, tmp_path):
+        prof = DepthProfile("beit", 282.0, (DepthSample(0.25, 32.0, 34.8, 15.0),))
+        (tmp_path / "beit.json").write_text(json.dumps(prof.to_dict()), encoding="utf-8")
+        loaded = load_profile("beit", tmp_path)
+        assert loaded is not None
+        assert loaded.spot_id == "beit"
+        assert loaded.samples[0].depth_m == 15.0
 
 
 class TestOpenTopoDataGuard:
