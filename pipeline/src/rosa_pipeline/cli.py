@@ -23,6 +23,12 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 from .archive import FileArchiveStore, rows_from_model
+from .bathymetry import (
+    BathymetrySource,
+    FixtureBathymetrySource,
+    OpenTopoDataSource,
+    build_profile,
+)
 from .buoys import Buoy, load_all_buoys, nearest_buoys
 from .extract import extract_hours
 from .feedback import (
@@ -51,6 +57,7 @@ from .verify import (
 ARCHIVE_DIR = Path("data/verify/archive")
 ISRAMAR_DIR = Path("data/verify/isramar")  # local-only, gitignored (all-rights-reserved)
 FEEDBACK_DIR = Path("data/verify/feedback")
+BATHY_DIR = Path("data/spots/derived/bathy")  # committed per-spot depth profiles (Stage 2A)
 
 
 def _build_parser() -> argparse.ArgumentParser:
@@ -110,6 +117,24 @@ def _build_parser() -> argparse.ArgumentParser:
     fb.add_argument("--at", help="ISO time of the observation (default: now)")
     fb.add_argument("--out", type=Path, default=Path("data/out"), help="published payload dir")
     fb.add_argument("--feedback-dir", type=Path, default=FEEDBACK_DIR)
+
+    bathy = sub.add_parser(
+        "bathy", help="sample each spot's shore-normal seabed depth profile (Stage 2A)"
+    )
+    which_b = bathy.add_mutually_exclusive_group(required=True)
+    which_b.add_argument("--spot", help="spot id, e.g. beit-yanai")
+    which_b.add_argument("--all", action="store_true", help="every spot in the DB")
+    bathy.add_argument("--spots-dir", type=Path, default=Path("data/spots"))
+    bathy.add_argument("--out", type=Path, default=BATHY_DIR, help="derived profile output dir")
+    bathy.add_argument(
+        "--fixtures", type=Path, default=None, help="replay a captured elevations map (offline)"
+    )
+    bathy.add_argument(
+        "--capture", type=Path, default=None, help="capture the elevations map to this dir"
+    )
+    bathy.add_argument(
+        "--sleep", type=float, default=1.0, help="seconds between spots (OpenTopoData rate limit)"
+    )
     return parser
 
 
@@ -302,6 +327,47 @@ def _cmd_feedback(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_bathy(args: argparse.Namespace) -> int:
+    import time
+
+    spots = load_spots(args.spots_dir)
+    if args.all:
+        targets = list(spots.values())
+    else:
+        target = spots.get(args.spot)
+        if target is None:
+            print(f"unknown spot {args.spot!r}; known: {', '.join(sorted(spots))}", file=sys.stderr)
+            return 2
+        targets = [target]
+
+    source: BathymetrySource = (
+        FixtureBathymetrySource.from_file(args.fixtures / "bathy_elevations.json")
+        if args.fixtures is not None
+        else OpenTopoDataSource(capture_dir=args.capture)
+    )
+
+    args.out.mkdir(parents=True, exist_ok=True)
+    written = 0
+    for i, spot in enumerate(targets):
+        profile = build_profile(source, spot)
+        path = args.out / f"{spot.id}.json"
+        path.write_text(json.dumps(profile.to_dict(), indent=2) + "\n", encoding="utf-8")
+        written += 1
+        warn = ""
+        if profile.land_samples:
+            warn = f"  ⚠ {profile.land_samples} land sample(s) — check shore-normal"
+        print(
+            f"{spot.id}: near {profile.nearshore_depth_m:.0f} m → offshore "
+            f"{profile.offshore_depth_m:.0f} m (slope {profile.mean_slope_m_per_km:.1f} m/km) "
+            f"→ {path}{warn}"
+        )
+        # OpenTopoData rate-limits to ~1 req/s; skip the wait on replay and after the last spot.
+        if args.fixtures is None and i < len(targets) - 1 and args.sleep > 0:
+            time.sleep(args.sleep)
+    print(f"wrote {written} depth profile(s) → {args.out}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     args = _build_parser().parse_args(argv)
     if args.command == "verify":
@@ -310,6 +376,8 @@ def main(argv: list[str] | None = None) -> int:
         return _cmd_archive(args)
     if args.command == "feedback":
         return _cmd_feedback(args)
+    if args.command == "bathy":
+        return _cmd_bathy(args)
     return _cmd_run(args)
 
 

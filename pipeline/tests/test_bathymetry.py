@@ -1,0 +1,185 @@
+import math
+
+import httpx
+import pytest
+
+from rosa_pipeline.bathymetry import (
+    RAY_DISTANCES_KM,
+    DepthProfile,
+    DepthSample,
+    FixtureBathymetrySource,
+    OpenTopoDataSource,
+    _round_key,
+    build_profile,
+    destination,
+    ray_points,
+)
+from rosa_pipeline.models import Spot
+
+
+def make_spot(**kw) -> Spot:
+    base = dict(
+        id="test",
+        name="Test",
+        lat=32.0,
+        lon=34.8,
+        timezone="UTC",
+        offshore_point=(32.0, 34.74),
+        offshore_direction=90.0,
+        swell_window=(250.0, 340.0),
+        height_coeff=1.0,
+        break_type="beach",
+        ideal_wind_dir=(45.0, 135.0),
+        ideal_size_m=(0.6, 1.5),
+    )
+    base.update(kw)
+    return Spot(**base)
+
+
+class StubSource:
+    """Returns canned elevations and records the points it was asked about."""
+
+    def __init__(self, elevations: list[float | None]) -> None:
+        self._elevations = elevations
+        self.seen: list[tuple[float, float]] = []
+
+    def elevations(self, points: list[tuple[float, float]]) -> list[float | None]:
+        self.seen = points
+        return self._elevations[: len(points)]
+
+
+def _haversine_km(a: tuple[float, float], b: tuple[float, float]) -> float:
+    r = 6371.0088
+    lat1, lon1, lat2, lon2 = map(math.radians, (*a, *b))
+    dlat, dlon = lat2 - lat1, lon2 - lon1
+    h = math.sin(dlat / 2) ** 2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon / 2) ** 2
+    return 2 * r * math.asin(math.sqrt(h))
+
+
+class TestDestination:
+    def test_north_moves_up_one_degree(self):
+        lat, lon = destination(0.0, 0.0, 0.0, 111.195)  # ~1° of latitude
+        assert lat == pytest.approx(1.0, abs=0.01)
+        assert lon == pytest.approx(0.0, abs=1e-6)
+
+    def test_east_moves_right_at_equator(self):
+        lat, lon = destination(0.0, 0.0, 90.0, 111.195)
+        assert lon == pytest.approx(1.0, abs=0.01)
+        assert lat == pytest.approx(0.0, abs=0.01)
+
+    def test_distance_is_preserved(self):
+        origin = (32.0, 34.8)
+        dest = destination(*origin, 250.0, 12.0)
+        assert _haversine_km(origin, dest) == pytest.approx(12.0, abs=0.05)
+
+    def test_longitude_wraps_to_180_range(self):
+        _, lon = destination(0.0, 179.9, 90.0, 111.195)
+        assert -180.0 <= lon <= 180.0
+
+
+class TestRayPoints:
+    def test_count_and_distances(self):
+        pts = ray_points(32.0, 34.8, 270.0)
+        assert len(pts) == len(RAY_DISTANCES_KM)
+        assert [d for *_, d in pts] == list(RAY_DISTANCES_KM)
+
+    def test_marches_monotonically_seaward(self):
+        origin = (32.0, 34.8)
+        pts = ray_points(*origin, 270.0)
+        dists = [_haversine_km(origin, (lat, lon)) for lat, lon, _ in pts]
+        assert dists == sorted(dists)
+        assert dists[-1] == pytest.approx(RAY_DISTANCES_KM[-1], abs=0.1)
+
+
+class TestFixtureSource:
+    def test_lookup_by_rounded_key(self):
+        src = FixtureBathymetrySource({"32.0000,34.7400": -50.0})
+        assert src.elevations([(32.0, 34.74)]) == [-50.0]
+
+    def test_missing_point_raises(self):
+        src = FixtureBathymetrySource({})
+        with pytest.raises(KeyError):
+            src.elevations([(1.0, 2.0)])
+
+    def test_passes_through_none(self):
+        src = FixtureBathymetrySource({"0.0000,0.0000": None})
+        assert src.elevations([(0.0, 0.0)]) == [None]
+
+
+class TestBuildProfile:
+    def test_seaward_bearing_is_offshore_plus_180(self):
+        spot = make_spot(offshore_direction=90.0)
+        profile = build_profile(StubSource([-10.0] * 9), spot)
+        assert profile.bearing_seaward_deg == 270.0
+
+    def test_depth_is_negative_elevation_deep_end_last(self):
+        elevs = [-2.0, -5.0, -10.0, -20.0, -30.0, -50.0, -80.0, -120.0, -180.0]
+        profile = build_profile(StubSource(elevs), make_spot())
+        depths = [s.depth_m for s in profile.samples]
+        assert depths == [2.0, 5.0, 10.0, 20.0, 30.0, 50.0, 80.0, 120.0, 180.0]
+        assert profile.nearshore_depth_m == 2.0
+        assert profile.offshore_depth_m == 180.0
+        assert profile.land_samples == 0
+        assert profile.mean_slope_m_per_km > 0
+
+    def test_land_samples_counted(self):
+        elevs = [5.0, 1.0, -3.0, -10.0, -20.0, -40.0, -60.0, -90.0, -140.0]
+        profile = build_profile(StubSource(elevs), make_spot())
+        assert profile.land_samples == 2  # the two positive-elevation (above-MSL) points
+
+    def test_nan_for_missing_elevation(self):
+        elevs = [None, -5.0, -10.0, -20.0, -30.0, -50.0, -80.0, -120.0, -180.0]
+        profile = build_profile(StubSource(elevs), make_spot())
+        assert math.isnan(profile.samples[0].depth_m)
+
+
+class TestDepthProfileDict:
+    def test_to_dict_shape(self):
+        samples = tuple(
+            DepthSample(dist_km=d, lat=32.0, lon=34.8 - d * 0.01, depth_m=d * 10)
+            for d in RAY_DISTANCES_KM
+        )
+        profile = DepthProfile(spot_id="x", bearing_seaward_deg=270.0, samples=samples)
+        d = profile.to_dict()
+        assert d["spot"] == "x"
+        assert d["source"] == "gebco2020 via opentopodata"
+        assert d["bearing_seaward_deg"] == 270.0
+        assert len(d["samples"]) == len(RAY_DISTANCES_KM)
+        assert set(d["samples"][0]) == {"dist_km", "lat", "lon", "depth_m"}
+
+
+class TestOpenTopoDataGuard:
+    def test_rejects_over_100_locations_before_network(self):
+        src = OpenTopoDataSource()
+        with pytest.raises(ValueError, match="100 locations"):
+            src.elevations([(0.0, float(i)) for i in range(101)])
+
+
+class TestOpenTopoDataBackoff:
+    def test_retries_on_429_then_succeeds(self, monkeypatch):
+        monkeypatch.setattr("rosa_pipeline.bathymetry.time.sleep", lambda *_: None)
+        calls = {"n": 0}
+
+        def handler(request: httpx.Request) -> httpx.Response:
+            calls["n"] += 1
+            if calls["n"] <= 2:
+                return httpx.Response(429, headers={"retry-after": "0"})
+            return httpx.Response(200, json={"status": "OK", "results": [{"elevation": -50.0}]})
+
+        src = OpenTopoDataSource(transport=httpx.MockTransport(handler))
+        assert src.elevations([(32.0, 34.8)]) == [-50.0]
+        assert calls["n"] == 3
+
+    def test_raises_after_exhausting_retries(self, monkeypatch):
+        monkeypatch.setattr("rosa_pipeline.bathymetry.time.sleep", lambda *_: None)
+
+        def handler(request: httpx.Request) -> httpx.Response:
+            return httpx.Response(429, headers={"retry-after": "0"})
+
+        src = OpenTopoDataSource(max_retries=2, transport=httpx.MockTransport(handler))
+        with pytest.raises(httpx.HTTPStatusError):
+            src.elevations([(32.0, 34.8)])
+
+
+def test_round_key_format():
+    assert _round_key(32.38173, 34.80351) == "32.3817,34.8035"
