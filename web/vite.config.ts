@@ -34,7 +34,10 @@ export default defineConfig({
         // only when the Map tab opens; forecast JSON served stale-while-revalidate so
         // the last forecast is readable offline and refreshes in the background
         // (latin Inter subset precached so the offline app keeps its typeface)
-        globPatterns: ["**/*.{js,css,html,svg}", "**/inter-latin-wght*.woff2"],
+        // splash.jpg precached explicitly: the branded splash paints before the JS
+        // bundle, so on an installed-PWA cold start it must come from the SW cache
+        // or it never appears (about/*.jpg deliberately excluded — secondary pages)
+        globPatterns: ["**/*.{js,css,html,svg}", "**/inter-latin-wght*.woff2", "splash.jpg"],
         globIgnores: ["**/maplibre-gl-*"],
         runtimeCaching: [
           {

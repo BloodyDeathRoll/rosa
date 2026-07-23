@@ -1080,6 +1080,12 @@ a.rank-card:hover {
 .search-box input::placeholder {
   color: var(--muted-foreground);
 }
+/* No focus ring on the search field — the open keyboard + caret already mark
+   focus; mobile browsers draw a heavy black outline on the auto-focused input. */
+.search-box input:focus,
+.search-box input:focus-visible {
+  outline: none;
+}
 
 /* Search screen header: back arrow + an open, full-width search field. */
 .search-head {
