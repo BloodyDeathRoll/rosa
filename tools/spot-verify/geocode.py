@@ -51,10 +51,7 @@ def _get(url: str, headers: dict | None = None, retries: int = 3) -> dict | list
 
 
 def geocode_nominatim(name: str, region: str) -> tuple[float, float, str] | None:
-    q = urllib.parse.urlencode(
-        {"q": f"{name}, {region}", "format": "jsonv2", "limit": 1,
-         "viewbox": "34.40,33.10,35.15,31.50", "bounded": 1}
-    )
+    q = urllib.parse.urlencode({"q": f"{name}, {region}", "format": "jsonv2", "limit": 1})
     res = _get(f"https://nominatim.openstreetmap.org/search?{q}")
     if res:
         t = res[0]
@@ -62,35 +59,58 @@ def geocode_nominatim(name: str, region: str) -> tuple[float, float, str] | None
     return None
 
 
+_GOOGLE_NEW_BLOCKED = False  # set on first 403 so we don't retry the New API per spot
+
+
 def geocode_google(name: str, region: str) -> tuple[float, float, str] | None:
-    """Places API (New) Text Search — the legacy textsearch endpoint is deprecated."""
+    """Places Text Search. Tries the Places API (New) first; on 403
+    (API_KEY_SERVICE_BLOCKED — key restricted to the legacy APIs) falls back to
+    legacy textsearch, which is deprecated by Google but still served and is the
+    one enabled for our key (verified 2026-07-23)."""
+    global _GOOGLE_NEW_BLOCKED
     key = os.environ["GOOGLE_MAPS_API_KEY"]
-    body = json.dumps({"textQuery": f"{name}, {region}", "maxResultCount": 1}).encode()
-    req = urllib.request.Request(
-        "https://places.googleapis.com/v1/places:searchText",
-        data=body,
-        method="POST",
-        headers={
-            "Content-Type": "application/json",
-            "X-Goog-Api-Key": key,
-            "X-Goog-FieldMask": "places.location,places.displayName,places.primaryType",
-        },
-    )
-    for i in range(3):
+    if not _GOOGLE_NEW_BLOCKED:
+        body = json.dumps({"textQuery": f"{name}, {region}", "maxResultCount": 1}).encode()
+        req = urllib.request.Request(
+            "https://places.googleapis.com/v1/places:searchText",
+            data=body,
+            method="POST",
+            headers={
+                "Content-Type": "application/json",
+                "X-Goog-Api-Key": key,
+                "X-Goog-FieldMask": "places.location,places.displayName,places.primaryType",
+            },
+        )
         try:
-            with urllib.request.urlopen(req, timeout=20, context=CTX) as r:
-                res = json.loads(r.read())
-            break
+            for i in range(3):
+                try:
+                    with urllib.request.urlopen(req, timeout=20, context=CTX) as r:
+                        res = json.loads(r.read())
+                    break
+                except urllib.error.HTTPError:
+                    raise
+                except Exception:
+                    if i == 2:
+                        raise
+                    time.sleep(2)
+            places = res.get("places", []) if isinstance(res, dict) else []
+            if places:
+                loc = places[0]["location"]
+                return loc["latitude"], loc["longitude"], places[0].get("primaryType", "?")
+            return None
         except urllib.error.HTTPError as e:
-            raise RuntimeError(f"{e.code} {e.read().decode()[:120]}") from e
-        except Exception:
-            if i == 2:
-                raise
-            time.sleep(2)
-    places = res.get("places", []) if isinstance(res, dict) else []
-    if places:
-        loc = places[0]["location"]
-        return loc["latitude"], loc["longitude"], places[0].get("primaryType", "?")
+            if e.code != 403:
+                raise RuntimeError(f"{e.code} {e.read().decode()[:120]}") from e
+            _GOOGLE_NEW_BLOCKED = True  # fall through to legacy
+    q = urllib.parse.urlencode({"query": f"{name}, {region}", "key": key})
+    res = _get(f"https://maps.googleapis.com/maps/api/place/textsearch/json?{q}")
+    if not isinstance(res, dict) or res.get("status") not in ("OK", "ZERO_RESULTS"):
+        raise RuntimeError(f"textsearch {res.get('status')}: {res.get('error_message', '')[:80]}")
+    results = res.get("results", [])
+    if results:
+        loc = results[0]["geometry"]["location"]
+        types = results[0].get("types") or ["?"]
+        return loc["lat"], loc["lng"], types[0]
     return None
 
 
@@ -119,13 +139,16 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("yaml", type=Path)
     ap.add_argument("--provider", choices=PROVIDERS, default="nominatim")
-    ap.add_argument("--region", default="Israel")
+    ap.add_argument("--region", default=None,
+                    help="country/region suffix for queries (default: from the YAML filename)")
     ap.add_argument("--apply", action="store_true", help="patch lat/lon for gated matches")
     ap.add_argument("--max-shift-km", type=float, default=6.0,
                     help="reject a geocode that moves a spot more than this (likely wrong feature)")
     args = ap.parse_args()
 
     geocode = PROVIDERS[args.provider]
+    if args.region is None:
+        args.region = args.yaml.stem.replace("-", " ").title()  # "sri-lanka" -> "Sri Lanka"
     text = args.yaml.read_text(encoding="utf-8")
     data = yaml.safe_load(text)
 
@@ -184,8 +207,11 @@ def _patch_coord(text: str, spot_id: str, lat: float, lon: float, provider: str)
         if f"id: {spot_id}," in line:
             line = re.sub(r"lat:\s*-?\d+\.?\d*", f"lat: {lat:.4f}", line)
             line = re.sub(r"lon:\s*-?\d+\.?\d*", f"lon: {lon:.4f}", line)
-            line = re.sub(r"#.*$", f"# {provider}-geocoded", line.rstrip()) + "\n" \
-                if "#" in line else line.rstrip() + f"  # {provider}-geocoded\n"
+            # Retag the source, keep any curated note: "approx — TODO verify (x)" -> "google-geocoded (x)"
+            if "approx — TODO verify" in line:
+                line = line.replace("approx — TODO verify", f"{provider}-geocoded")
+            elif "#" not in line:
+                line = line.rstrip() + f"  # {provider}-geocoded\n"
         out.append(line)
     return "".join(out)
 
