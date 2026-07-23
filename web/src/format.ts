@@ -16,6 +16,16 @@ export function dayLabel(date: string, today: string): string {
   return names[new Date(`${date}T12:00:00`).getDay()] ?? date;
 }
 
+/** Current calendar date (YYYY-MM-DD) in an IANA timezone — the spot's "today",
+    independent of when the pipeline last ran. */
+export function todayIn(tz: string): string {
+  try {
+    return new Intl.DateTimeFormat("en-CA", { timeZone: tz }).format(new Date());
+  } catch {
+    return new Intl.DateTimeFormat("en-CA").format(new Date());
+  }
+}
+
 /** "Jul 20" style sub-label for a day pill title. */
 export function dayDate(date: string): string {
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];

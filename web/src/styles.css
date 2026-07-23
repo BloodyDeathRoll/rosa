@@ -724,6 +724,86 @@ button {
   border-radius: 3px;
 }
 
+/* Spot-screen day selector: date label + its bars stacked in one column, one
+   track — date and bars drag together and always align. Edge-to-edge (today
+   flush left, no blank gutters); the day at the left reading edge is selected
+   and the columns snap to that edge. */
+.day-scrub .track {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px 12px 8px;
+  scroll-snap-type: x proximity;
+  scroll-padding-left: 12px;
+  overscroll-behavior-x: contain;
+}
+.day-scrub .track::-webkit-scrollbar {
+  display: none;
+}
+.day-col {
+  flex: none;
+  width: 56px;
+  min-width: 0;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding-bottom: 3px;
+  color: var(--muted-foreground);
+}
+.dcol-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 4px 9px 5px;
+  border-radius: 11px;
+  transition: background 0.18s ease;
+}
+.day-col.on .dcol-head {
+  background: var(--primary);
+}
+.dcol-head .dow {
+  font-size: 11px;
+  font-weight: 600;
+}
+.dcol-head .dnum {
+  font-size: 15.5px;
+  font-weight: 700;
+  color: var(--foreground);
+}
+.day-col.on .dcol-head .dow,
+.day-col.on .dcol-head .dnum {
+  color: var(--primary-foreground);
+}
+.dcol-head .day-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  margin-top: 2px;
+}
+/* Wind + bars + range collapse together when the page scrolls into the forecast,
+   leaving just the date row pinned. */
+.dcol-bars {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  max-height: 90px;
+  overflow: hidden;
+  transition:
+    max-height 0.22s ease,
+    opacity 0.18s ease,
+    margin-top 0.22s ease;
+}
+.spot-sticky.condensed .dcol-bars {
+  max-height: 0;
+  opacity: 0;
+  margin-top: -6px; /* absorb the column's gap so the date row sits tight */
+}
+
 /* MSW-style chart columns (CoastChart) — reuse the 50px grid so the date axis
    lines up with the list view. Bars grow up from a shared baseline. */
 .chart-col {
@@ -1573,59 +1653,232 @@ a.rank-card:hover {
 
 /* ---------- Map ---------- */
 
-/* Map screen: header · Favourites/Nearby tabs · map (upper ~half) · spot list.
-   Maplibre needs a definite height on its container — hence the vh on .map-canvas. */
-/* Bound the map screen to the viewport (minus the 52px header + 58px bottom nav)
-   so the map + tabs stay put and only .map-locations scrolls inside its half. */
-.map-screen {
-  height: calc(100dvh - 110px - env(safe-area-inset-bottom));
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
+/* Map screen: a full-bleed map with floating controls (back · search) and a
+   bottom sheet (centered spot-card carousel) overlaid on top. The map fills all
+   space between the (absent) header and the bottom nav.
+   Maplibre needs its container to have a definite size at init, so .map-screen
+   carries an explicit height (viewport minus the 58px bottom nav) rather than
+   relying on flex — an absolute/flex-only canvas measured 0 and rendered blank. */
+.map-page {
   overflow: hidden;
 }
-.map-tabbar {
-  display: flex;
-  flex: none;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+.map-screen {
+  position: relative;
+  overflow: hidden;
 }
-.map-tabbar button {
-  flex: 1;
-  padding: 12px 0;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--muted-foreground);
-  border-bottom: 2px solid transparent;
-  margin-bottom: -1px;
-}
-.map-tabbar button.on {
-  color: var(--foreground);
-  border-bottom-color: var(--accent);
-}
-/* Half of the space below the header/nav (the tab strip + list get the other half). */
 .map-canvas {
-  flex: none;
   width: 100%;
-  height: calc(50dvh - 78px);
-  min-height: 200px;
+  height: calc(100dvh - 58px - env(safe-area-inset-bottom, 0px));
 }
 
+/* Floating circular controls over the map (back top-left, search top-right). */
+.map-fab {
+  position: absolute;
+  top: 12px;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--card) 88%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.22);
+}
+.map-fab.back {
+  left: 12px;
+}
+.map-fab.search {
+  right: 12px;
+}
+.map-fab:active {
+  background: var(--secondary);
+}
+
+/* Bottom sheet overlaying the map. */
+.map-sheet {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  padding: 6px 0 12px;
+  background: var(--card);
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.18);
+}
+.sheet-grip {
+  display: block;
+  width: 36px;
+  height: 4px;
+  margin: 4px auto 8px;
+  border-radius: 9999px;
+  background: var(--border);
+}
+/* Centered spot-card carousel: one card sits in the middle (the focused spot),
+   neighbours peek at the edges. The side padding is what lets the first/last
+   card snap to center. --cw is the card width as a share of the sheet. */
+.map-cards {
+  --cw: 74%;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+  padding: 2px calc((100% - var(--cw)) / 2);
+  -webkit-overflow-scrolling: touch;
+}
+.map-cards::-webkit-scrollbar {
+  display: none;
+}
+.map-card {
+  position: relative;
+  flex: none;
+  width: var(--cw);
+  height: 118px;
+  scroll-snap-align: center;
+  display: block;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--secondary);
+  opacity: 0.55;
+  transition: opacity 0.2s;
+}
+.map-card.center {
+  opacity: 1;
+}
+/* Satellite imagery fills the card behind everything. */
+.map-card-bg {
+  position: absolute;
+  inset: 0;
+}
+.map-card-bg .sat-map {
+  width: 100%;
+}
+.map-card-bg .sm-attr {
+  font-size: 8px;
+  opacity: 0.7;
+}
+/* Flat scrim over the imagery so the readout stays legible — white in light,
+   black in dark. */
+.map-card-shade {
+  position: absolute;
+  inset: 0;
+  background: #ffffffdd;
+}
+:root[data-theme="dark"] .map-card-shade {
+  background: #000000cc;
+}
+.map-card-body {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 14px;
+  color: var(--foreground);
+}
+.map-card-head {
+  display: flex;
+  justify-content: flex-end;
+}
+/* Name sits just above the surf value; the auto margin pushes the name/value/sub
+   group to the bottom of the card. */
+.map-card-name {
+  margin-top: auto;
+}
+.map-card-name .spot-title b {
+  font-size: 15px;
+  color: var(--foreground);
+}
+.map-card-h {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.55);
+}
+:root[data-theme="dark"] .map-card-h {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+.map-card-sub {
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
+
+/* Attribution is pinned top-left; clear the floating back control above it. */
+.map-screen .maplibregl-ctrl-top-left {
+  margin-top: 52px;
+}
+
+/* Search layers over the live map (map stays mounted so easeTo/pick work). */
+.map-search {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  background: var(--background);
+}
+
+/* Spot pins. A plain tier dot by default; the focused pin morphs into a pill
+   showing the surf range (Surfline-style), lifted above its neighbours. */
 .spot-dot {
   width: 13px;
   height: 13px;
   border-radius: 9999px;
-  border: 2px solid var(--card);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  background: var(--tier);
   cursor: pointer;
   box-sizing: content-box;
+  display: grid;
+  place-items: center;
 }
-.spot-dot.active {
-  width: 18px;
-  height: 18px;
-  border-color: var(--foreground);
+.spot-dot .dot-label {
+  display: none;
+}
+.spot-dot.focus {
+  width: auto;
+  height: auto;
+  padding: 4px 9px;
+  border-radius: 9999px;
+  z-index: 3;
+}
+.spot-dot.focus .dot-label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 700;
+  line-height: 1;
+  color: #14110f;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Overlapping pins collapse into a count bubble (tap to zoom in). The ring is a
+   conic blend of the members' tier colors, set inline per cluster; the inner
+   disc carries the count. */
+.map-cluster {
+  padding: 3px;
+  border-radius: 9999px;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+.map-cluster-inner {
+  min-width: 28px;
+  height: 28px;
+  padding: 0 6px;
+  border-radius: 9999px;
+  background: var(--card);
+  color: var(--foreground);
+  font-size: 13.5px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  display: grid;
+  place-items: center;
 }
 
 .you-dot {

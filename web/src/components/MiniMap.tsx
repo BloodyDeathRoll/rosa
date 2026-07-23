@@ -14,7 +14,17 @@ const latToY = (lat: number) => {
 };
 const wrap = (n: number) => ((n % 2 ** Z) + 2 ** Z) % 2 ** Z;
 
-export function SatMap({ lat, lon, height = 176 }: { lat: number; lon: number; height?: number }) {
+export function SatMap({
+  lat,
+  lon,
+  height = 176,
+  pin = true,
+}: {
+  lat: number;
+  lon: number;
+  height?: number;
+  pin?: boolean;
+}) {
   const ref = useRef<HTMLSpanElement>(null);
   const [w, setW] = useState(398);
   const H = height;
@@ -49,15 +59,17 @@ export function SatMap({ lat, lon, height = 176 }: { lat: number; lon: number; h
           />
         ))}
       </span>
-      <svg class="sm-pin" width="30" height="30" viewBox="0 0 24 24" aria-hidden="true">
-        <path
-          d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"
-          fill="var(--accent)"
-          stroke="#fff"
-          stroke-width="1.5"
-        />
-        <circle cx="12" cy="9" r="2.4" fill="#fff" />
-      </svg>
+      {pin && (
+        <svg class="sm-pin" width="30" height="30" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"
+            fill="var(--accent)"
+            stroke="#fff"
+            stroke-width="1.5"
+          />
+          <circle cx="12" cy="9" r="2.4" fill="#fff" />
+        </svg>
+      )}
       <span class="sm-attr">Imagery © Esri</span>
     </span>
   );

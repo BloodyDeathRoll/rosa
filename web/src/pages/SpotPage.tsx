@@ -10,8 +10,7 @@ import {
   WavesIcon,
   WindDirIcon,
 } from "../components/icons";
-import { DateBar } from "../components/DateBar";
-import { DayCarousel } from "../components/DayCarousel";
+import { DayScrubber } from "../components/CoastChart";
 import { Pill, StarButton } from "../components/parts";
 import { ratingVar } from "../conditions";
 import { getFavorites, toggleFavorite } from "../favorites";
@@ -26,6 +25,7 @@ import {
   hourOf,
   knots,
   splitName,
+  todayIn,
   windClassWord,
 } from "../format";
 import { distanceKm } from "../geo";
@@ -253,6 +253,7 @@ export function SpotPage({ id }: { id: string }) {
   const [favs, setFavs] = useState<string[]>(getFavorites);
   const [daySel, setDaySel] = useState(0);
   const [liveDay, setLiveDay] = useState(0);
+  const [condensed, setCondensed] = useState(false);
   const [spots, setSpots] = useState<[string, IndexEntry][]>([]);
   const units = useUnits();
   // commit a day: settle both the highlight (live) and the content (daySel)
@@ -267,10 +268,15 @@ export function SpotPage({ id }: { id: string }) {
     pushRecent(id);
     fetchSpot(id)
       .then((d) => {
-        setData(d);
+        // The date bar always starts at the spot's current date — never show days
+        // that are already in the past (the payload may be a run or two stale).
+        const today = todayIn(d.spot.timezone);
+        const future = d.days.filter((day) => day.date >= today);
+        const data = future.length ? { ...d, days: future } : d;
+        setData(data);
         // keep the previously selected date if it exists in this spot's range,
         // otherwise fall back to today
-        const idx = stickyDate ? d.days.findIndex((day) => day.date === stickyDate) : -1;
+        const idx = stickyDate ? data.days.findIndex((day) => day.date === stickyDate) : -1;
         const start = idx >= 0 ? idx : 0;
         setDaySel(start);
         setLiveDay(start);
@@ -288,6 +294,19 @@ export function SpotPage({ id }: { id: string }) {
   }, [daySel, data]);
   useEffect(() => () => {
     stickyDate = null;
+  }, []);
+
+  // Collapse the scrubber's bars once the page scrolls into the forecast, leaving
+  // just the compact date row pinned. Hysteresis (collapse at 72, expand under 24)
+  // keeps it from flickering around the threshold.
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY || document.documentElement.scrollTop;
+      setCondensed((c) => (c ? y > 24 : y > 72));
+    };
+    onScroll();
+    addEventListener("scroll", onScroll, { passive: true });
+    return () => removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
@@ -322,24 +341,23 @@ export function SpotPage({ id }: { id: string }) {
     : [];
   const switcherSpots = favSpots.length > 0 ? favSpots : nearSpots;
 
-  // the date bar + carousel both drive the selected day
+  // the day scrubber drives the selected/live day; the panel below follows liveDay
   const allDays = data?.days ?? [];
   const daySelClamped = Math.min(daySel, Math.max(0, allDays.length - 1));
   const liveClamped = Math.min(liveDay, Math.max(0, allDays.length - 1));
 
-  // Memoize the carousel vnode: a live scrub re-renders the parent to move the date
-  // highlight, but the identical vnode reference lets Preact skip re-diffing the heavy
-  // day panels (hour grid, tide, sun) — only the committed `daySelClamped` rebuilds it.
-  const carousel = useMemo(() => {
+  // The forecast for the live-scrubbed day. It rebuilds the instant the strip's
+  // centered column changes (keyed on liveDay) — no second scroller and no
+  // animation, so the data can't lag behind the date/bars or desync from them.
+  const panel = useMemo(() => {
     if (!data) return null;
     const days = data.days;
     const cur = data.current;
-    const today = data.hours[0] ? dateOf(data.hours[0].t) : "";
-    // one full-width panel per day; the carousel drags between them
-    const dayPanel = (i: number) => {
-      const day = days[i];
-      if (!day) return null;
-      const dayHours = data.hours.filter((h) => dateOf(h.t) === day.date);
+    const today = todayIn(data.spot.timezone);
+    const i = Math.min(Math.max(liveDay, 0), days.length - 1);
+    const day = days[i];
+    if (!day) return null;
+    const dayHours = data.hours.filter((h) => dateOf(h.t) === day.date);
       const sun = sunTimes(new Date(`${day.date}T12:00:00Z`), data.spot.lat, data.spot.lon);
       // daylight bounds in spot-local minutes so pre-dawn/post-dusk slots are excluded
       const toMin = (d: Date) => {
@@ -450,18 +468,8 @@ export function SpotPage({ id }: { id: string }) {
           </div>
         </div>
       );
-    };
-    return (
-      <DayCarousel
-        count={days.length}
-        selected={daySelClamped}
-        onSelect={commitDay}
-        onScrub={setLiveDay}
-        renderPanel={dayPanel}
-      />
-    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data, units, daySelClamped, commitDay]);
+  }, [data, units, liveDay, id]);
 
   // Top bar: back arrow · spot switcher (masked, fills the middle) · fav star.
   const topBar = (
@@ -490,22 +498,23 @@ export function SpotPage({ id }: { id: string }) {
   }
 
   const days = data.days;
-  const today = data.hours[0] ? dateOf(data.hours[0].t) : "";
+  const today = todayIn(data.spot.timezone);
 
   return (
     <main class="page">
-      <div class="spot-sticky">
+      <div class={`spot-sticky${condensed ? " condensed" : ""}`}>
         {topBar}
-        <DateBar
-          dates={days.map((d) => d.date)}
-          buckets={days.map((d) => d.bucket)}
+        <DayScrubber
+          data={data}
+          days={days}
           selected={daySelClamped}
           live={liveClamped}
           today={today}
           onSelect={commitDay}
+          onScrub={setLiveDay}
         />
       </div>
-      {carousel}
+      {panel}
     </main>
   );
 }

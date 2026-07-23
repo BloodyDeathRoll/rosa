@@ -6,7 +6,7 @@ import { SearchIcon, ShirtIcon, ThermometerIcon, WavesIcon } from "../components
 import { AppHeader, Pill, SpotTitle } from "../components/parts";
 import { dayView } from "../components/SpotCard";
 import { getFavorites } from "../favorites";
-import { cardinal, splitName, windLabel } from "../format";
+import { cardinal, splitName, todayIn, windLabel } from "../format";
 import { distanceKm, getPosition } from "../geo";
 import { getRecents } from "../recents";
 import { signalReady } from "../splash";
@@ -143,10 +143,14 @@ export function TodayPage() {
     </a>
   );
 
-  // all spots share the date range; use the featured spot's days as the axis
+  // all spots share the date range; use the featured spot's days as the axis.
+  // Anchor to the spot's real current date and drop any past days, so the strip
+  // never leads with a stale day from an older pipeline run.
   const featured = detail ?? grid?.[0];
-  const dates = featured?.days.map((d) => d.date) ?? [];
-  const today = dates[0] ?? "";
+  const allDates = featured?.days.map((d) => d.date) ?? [];
+  const today = featured ? todayIn(featured.spot.timezone) : (allDates[0] ?? "");
+  const future = allDates.filter((d) => d >= today);
+  const dates = future.length ? future : allDates;
 
   if (error) {
     return (

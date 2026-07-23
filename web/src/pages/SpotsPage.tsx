@@ -7,7 +7,7 @@ import { SpotCard } from "../components/SpotCard";
 import { ratingWord } from "../conditions";
 import { getFavorites, toggleFavorite } from "../favorites";
 import { signalReady } from "../splash";
-import { bestWindow, dateOf, splitName, windLabel } from "../format";
+import { bestWindow, dateOf, splitName, todayIn, windLabel } from "../format";
 import { fmtH, fmtRange, heightUnit, useUnits, type Units } from "../units";
 import type { IndexEntry, SpotPayload } from "../types";
 
@@ -131,7 +131,13 @@ export function SpotsPage() {
             {shown.map(([id, e]) => {
               const p = payloads[id];
               return p ? (
-                <SpotCard key={id} data={p} date={p.days[0]?.date ?? ""} isFav onToggle={() => onToggle(id)} />
+                <SpotCard
+                  key={id}
+                  data={p}
+                  date={todayIn(p.spot.timezone)}
+                  isFav
+                  onToggle={() => onToggle(id)}
+                />
               ) : (
                 <Row key={id} id={id} entry={e} payload={undefined} onToggle={() => onToggle(id)} />
               );

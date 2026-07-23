@@ -7,7 +7,7 @@
 !.env.example
 
 # Oracle A1.Flex grabber SSH keypair — private key, never commit
-web/,oracle/
+web/.oracle/
 
 # Pipeline outputs are build artifacts — never committed (CLAUDE.md §Conventions)
 data/out/
