@@ -291,7 +291,7 @@ export function SpotPage({ id }: { id: string }) {
         const data = future.length ? { ...d, days: future } : d;
         setData(data);
         // keep the previously selected date if it exists in this spot's range,
-        // otherwise fall back to today
+        // otherwise fall back to today (a ?ev= story link overrides below)
         const idx = stickyDate ? data.days.findIndex((day) => day.date === stickyDate) : -1;
         const start = idx >= 0 ? idx : 0;
         setDaySel(start);
@@ -299,6 +299,21 @@ export function SpotPage({ id }: { id: string }) {
       }, (e: Error) => setError(e.message))
       .finally(signalReady);
   }, [id]);
+
+  // A push notification's link (#/spot/id?ev=YYYY-MM-DD) opens on the swell's
+  // peak day. Reacts to hashchange too: landing in an already-open app is a
+  // hash-only change — no reload, no remount — and must still jump the day.
+  useEffect(() => {
+    const apply = () => {
+      const evDate = /[?&]ev=(\d{4}-\d{2}-\d{2})/.exec(location.hash)?.[1];
+      if (!evDate || !data) return;
+      const i = data.days.findIndex((day) => day.date === evDate);
+      if (i >= 0) commitDay(i);
+    };
+    apply();
+    addEventListener("hashchange", apply);
+    return () => removeEventListener("hashchange", apply);
+  }, [data, commitDay]);
 
   // remember the committed date so it carries to the next spot; forget it when
   // leaving the spot screen entirely (unmount) so Home/Map open on today

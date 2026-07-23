@@ -1,10 +1,85 @@
-import { useEffect } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import { ChevronRightIcon, MoonIcon, SunIcon } from "../components/icons";
 import { AppHeader } from "../components/parts";
 import { getFavorites } from "../favorites";
+import { disablePush, enablePush, pushState, type PushState } from "../push";
 import { signalReady } from "../splash";
 import { setUnits, useUnits } from "../units";
 import type { Theme } from "../theme";
+
+/** Swell-alert opt-in/out — one obvious switch, helper text explains the state. */
+function NotificationsCard() {
+  const [state, setState] = useState<PushState | null>(null);
+  const [busy, setBusy] = useState(false);
+  const [failed, setFailed] = useState(false);
+  useEffect(() => {
+    void pushState().then(setState);
+  }, []);
+  if (state === null) return null;
+
+  const turnOn = async () => {
+    setBusy(true);
+    setFailed(false);
+    try {
+      setState(await enablePush());
+    } catch {
+      // permission granted but registering with the alert service failed —
+      // say so instead of silently snapping back to Off
+      setState("off");
+      setFailed(true);
+    }
+    setBusy(false);
+  };
+  const turnOff = async () => {
+    setBusy(true);
+    setFailed(false);
+    await disablePush().catch(() => undefined);
+    setState("off");
+    setBusy(false);
+  };
+
+  const note = failed
+    ? "Couldn't reach the alert service — check your connection and try again."
+    : state === "unsupported"
+      ? "Not available in this browser. On iPhone, add Rosa to your home screen first."
+      : state === "denied"
+        ? "Notifications are blocked for Rosa in your browser settings — allow them there, then try again."
+        : state === "on"
+          ? "One heads-up when a new swell is on the way to your favorite spots. Never more than one per swell."
+          : "Get a heads-up when a new swell is on the way to your favorite spots.";
+
+  return (
+    <section class="settings-card">
+      <div class="card-title">
+        <span class="eyebrow">Notifications</span>
+      </div>
+      <div class="settings-row">
+        <span class="label">Swell alerts</span>
+        <div class="segmented" role="radiogroup" aria-label="Swell alerts">
+          <button
+            role="radio"
+            aria-checked={state === "on"}
+            class={state === "on" ? "on" : ""}
+            disabled={busy || state === "unsupported" || state === "denied"}
+            onClick={() => void turnOn()}
+          >
+            On
+          </button>
+          <button
+            role="radio"
+            aria-checked={state !== "on"}
+            class={state !== "on" ? "on" : ""}
+            disabled={busy}
+            onClick={() => void turnOff()}
+          >
+            Off
+          </button>
+        </div>
+      </div>
+      <p class="settings-note">{note}</p>
+    </section>
+  );
+}
 
 export function SettingsPage({
   theme,
@@ -72,6 +147,8 @@ export function SettingsPage({
             </div>
           </div>
         </section>
+
+        <NotificationsCard />
 
         <section class="settings-card">
           <div class="card-title">

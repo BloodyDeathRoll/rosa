@@ -22,6 +22,9 @@ export default defineConfig({
         ]
       },
       workbox: {
+        // swell-alert push/notificationclick handlers ride along inside the
+        // generated SW (public/push-sw.js) — generateSW strategy kept intact
+        importScripts: ["push-sw.js"],
         // a new build's SW takes over immediately and deletes prior precaches, so a
         // stale app shell / forecast can't linger on a device across deploys
         skipWaiting: true,

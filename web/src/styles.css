@@ -2254,3 +2254,13 @@ a.rank-card:hover {
   font-size: 12.7px;
   color: var(--warn-orange);
 }
+
+/* ----- Notifications settings note */
+
+.settings-note {
+  margin: 0;
+  padding: 10px 16px 14px;
+  font-size: 12.7px;
+  line-height: 1.45;
+  color: var(--muted-foreground);
+}

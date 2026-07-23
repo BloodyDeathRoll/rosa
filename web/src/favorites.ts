@@ -14,5 +14,7 @@ export function toggleFavorite(id: string): string[] {
   const current = getFavorites();
   const next = current.includes(id) ? current.filter((x) => x !== id) : [...current, id];
   localStorage.setItem(KEY, JSON.stringify(next));
+  // push alerts follow favorites; dynamic import avoids a load-time cycle
+  void import("./push").then((m) => m.syncPushSpots()).catch(() => undefined);
   return next;
 }
