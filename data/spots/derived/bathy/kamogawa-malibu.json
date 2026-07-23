@@ -1,0 +1,65 @@
+{
+  "spot": "kamogawa-malibu",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 150.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 1072.0,
+  "mean_slope_m_per_km": 60.23,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.09655,
+      "lon": 140.10587,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.09461,
+      "lon": 140.10725,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.09071,
+      "lon": 140.11,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.08292,
+      "lon": 140.11549,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.07513,
+      "lon": 140.12098,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.05956,
+      "lon": 140.13197,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.03619,
+      "lon": 140.14843,
+      "depth_m": 133.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.00502,
+      "lon": 140.17038,
+      "depth_m": 438.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.95827,
+      "lon": 140.20326,
+      "depth_m": 1072.0
+    }
+  ]
+}

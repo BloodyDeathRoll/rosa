@@ -1,0 +1,65 @@
+{
+  "spot": "el-transito",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 235.0,
+  "nearshore_depth_m": 14.0,
+  "offshore_depth_m": 71.0,
+  "mean_slope_m_per_km": 3.21,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 12.02221,
+      "lon": -86.69688,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 12.02092,
+      "lon": -86.69877,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 12.01834,
+      "lon": -86.70253,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 12.01318,
+      "lon": -86.71006,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 12.00802,
+      "lon": -86.71759,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.99771,
+      "lon": -86.73266,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.98223,
+      "lon": -86.75525,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.96159,
+      "lon": -86.78536,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.93062,
+      "lon": -86.83053,
+      "depth_m": 71.0
+    }
+  ]
+}

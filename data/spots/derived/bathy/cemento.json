@@ -1,0 +1,65 @@
+{
+  "spot": "cemento",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 40.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 202.0,
+  "mean_slope_m_per_km": 10.99,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 15.75182,
+      "lon": 121.6383,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 15.75354,
+      "lon": 121.6398,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 15.75699,
+      "lon": 121.64281,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 15.76388,
+      "lon": 121.64881,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 15.77077,
+      "lon": 121.65482,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 15.78454,
+      "lon": 121.66684,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 15.80521,
+      "lon": 121.68486,
+      "depth_m": 83.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 15.83276,
+      "lon": 121.7089,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 15.87408,
+      "lon": 121.74498,
+      "depth_m": 202.0
+    }
+  ]
+}

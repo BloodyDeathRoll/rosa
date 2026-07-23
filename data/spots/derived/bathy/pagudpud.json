@@ -1,0 +1,65 @@
+{
+  "spot": "pagudpud",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 30.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 2295.0,
+  "mean_slope_m_per_km": 129.63,
+  "land_samples": 1,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.62545,
+      "lon": 120.86469,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.62739,
+      "lon": 120.86587,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.63129,
+      "lon": 120.86825,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.63908,
+      "lon": 120.87299,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.64686,
+      "lon": 120.87774,
+      "depth_m": 108.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.66244,
+      "lon": 120.88723,
+      "depth_m": 212.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.6858,
+      "lon": 120.90147,
+      "depth_m": 490.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.71695,
+      "lon": 120.92047,
+      "depth_m": 1029.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.76367,
+      "lon": 120.94898,
+      "depth_m": 2295.0
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "spot": "supertubos",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 235.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 65.0,
+  "mean_slope_m_per_km": 3.27,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 39.34171,
+      "lon": -9.36438,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 39.34042,
+      "lon": -9.36676,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 39.33784,
+      "lon": -9.37152,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 39.33268,
+      "lon": -9.38105,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 39.32752,
+      "lon": -9.39057,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 39.3172,
+      "lon": -9.40961,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 39.30171,
+      "lon": -9.43816,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 39.28104,
+      "lon": -9.47621,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 39.25003,
+      "lon": -9.53323,
+      "depth_m": 65.0
+    }
+  ]
+}

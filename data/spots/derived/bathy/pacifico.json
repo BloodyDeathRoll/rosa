@@ -1,0 +1,65 @@
+{
+  "spot": "pacifico",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 70.0,
+  "nearshore_depth_m": 96.0,
+  "offshore_depth_m": 2516.0,
+  "mean_slope_m_per_km": 136.34,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 9.87227,
+      "lon": 126.11864,
+      "depth_m": 96.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 9.87304,
+      "lon": 126.12079,
+      "depth_m": 123.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 9.87458,
+      "lon": 126.12508,
+      "depth_m": 181.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 9.87765,
+      "lon": 126.13366,
+      "depth_m": 362.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 9.88073,
+      "lon": 126.14223,
+      "depth_m": 545.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 9.88688,
+      "lon": 126.15939,
+      "depth_m": 563.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 9.8961,
+      "lon": 126.18513,
+      "depth_m": 890.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 9.90839,
+      "lon": 126.21945,
+      "depth_m": 1611.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 9.92683,
+      "lon": 126.27093,
+      "depth_m": 2516.0
+    }
+  ]
+}

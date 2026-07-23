@@ -1,0 +1,65 @@
+{
+  "spot": "shishikui",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 120.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 288.0,
+  "mean_slope_m_per_km": 16.17,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.56588,
+      "lon": 134.31184,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.56475,
+      "lon": 134.31417,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.5625,
+      "lon": 134.31885,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.55801,
+      "lon": 134.32819,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.55351,
+      "lon": 134.33754,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.54451,
+      "lon": 134.35622,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.531,
+      "lon": 134.38425,
+      "depth_m": 121.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.51299,
+      "lon": 134.42159,
+      "depth_m": 143.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.48595,
+      "lon": 134.47759,
+      "depth_m": 288.0
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "spot": "crystal-beach",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 260.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 1239.0,
+  "mean_slope_m_per_km": 69.69,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 15.02111,
+      "lon": 120.06071,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 15.02072,
+      "lon": 120.05842,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 15.01994,
+      "lon": 120.05383,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 15.01838,
+      "lon": 120.04466,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 15.01681,
+      "lon": 120.03549,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 15.01369,
+      "lon": 120.01715,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 15.009,
+      "lon": 119.98964,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 15.00273,
+      "lon": 119.95297,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 14.99333,
+      "lon": 119.89796,
+      "depth_m": 1239.0
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "spot": "lanuza",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 10.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 67.0,
+  "mean_slope_m_per_km": 4.06,
+  "land_samples": 2,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 9.23771,
+      "lon": 126.0604,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 9.23993,
+      "lon": 126.06079,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 9.24436,
+      "lon": 126.06158,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 9.25321,
+      "lon": 126.06316,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 9.26207,
+      "lon": 126.06475,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 9.27978,
+      "lon": 126.06791,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 9.30635,
+      "lon": 126.07266,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 9.34178,
+      "lon": 126.07899,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 9.39492,
+      "lon": 126.08849,
+      "depth_m": 67.0
+    }
+  ]
+}

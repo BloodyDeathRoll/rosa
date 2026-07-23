@@ -1,0 +1,65 @@
+{
+  "spot": "kugenuma",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 185.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 1010.0,
+  "mean_slope_m_per_km": 56.73,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.31226,
+      "lon": 139.46976,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.31002,
+      "lon": 139.46952,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.30554,
+      "lon": 139.46904,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.29658,
+      "lon": 139.46808,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.28762,
+      "lon": 139.46712,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.2697,
+      "lon": 139.4652,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.24283,
+      "lon": 139.46232,
+      "depth_m": 116.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.20699,
+      "lon": 139.45849,
+      "depth_m": 801.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.15324,
+      "lon": 139.45274,
+      "depth_m": 1010.0
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+# Rosa spot database — Portugal (worldwide expansion, first Atlantic region)
+#
+# Europe's most consistent coast: NW N-Atlantic groundswell nearly year-round,
+# offshore = E–NE land breeze / winter high-pressure easterlies. W-facing spots
+# use the loader's default offshore_point (0.06° W = seaward here); the S-facing
+# Lisbon/Algarve-south spots override it (a west push would hug the coast).
+#
+# File order: N→S down the west coast, then E along the Algarve south coast.
+#
+# CONFIDENCE: coordinates are approximate (well-known-spot knowledge, ~3 dp) and
+# tagged "approx — TODO verify"; orientations reasoned from coastal facing, not
+# surveyed. Same seed quality as costa-rica.yaml — calibrate before trusting.
+
+defaults: &pt
+  timezone: Europe/Lisbon
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [235, 340]     # WSW → NNW Atlantic
+  ideal:
+    wind_dir: [45, 135]        # metadata only (scorer uses offshore_direction)
+    size_m: [0.8, 2.5]
+
+spots:
+  # ---- Norte / Centro ----
+  - { id: matosinhos,         name: "Matosinhos (Porto)",       lat: 41.171, lon: -8.692, offshore_direction: 90,  <<: *pt }  # sat-verified 2026-07-23 (city beach, sheltered by the harbour mole)
+  - { id: espinho,            name: "Espinho",                  lat: 41.008, lon: -8.647, offshore_direction: 85,  <<: *pt }  # sat-verified 2026-07-23 (jetty rights)
+  - { id: figueira-cabedelo,  name: "Cabedelo (Figueira da Foz)", lat: 40.138, lon: -8.868, offshore_direction: 120, <<: *pt }  # approx — TODO verify (long sandbar rights S of the Mondego mouth)
+  - { id: nazare-norte,       name: "Nazaré (Praia do Norte)",  lat: 39.606, lon: -9.085, offshore_direction: 120, ideal: { wind_dir: [90, 160], size_m: [1.0, 3.0] }, <<: *pt }  # sat-verified 2026-07-23 (canyon focus; giant in winter — rating tuned for surfable days, not tow days)
+  # ---- Peniche ----
+  - { id: baleal-lagide,      name: "Lagide (Baleal)",          lat: 39.3775, lon: -9.34, offshore_direction: 140, swell_window: [260, 350], break_type: reef, <<: *pt }  # approx — TODO verify
+  - { id: supertubos,         name: "Supertubos (Peniche)",     lat: 39.343, lon: -9.362, offshore_direction: 55,  swell_window: [180, 290], offshore_point: [39.31, -9.42], <<: *pt }  # sat-verified 2026-07-23 (SW-facing; Europe's heaviest beachbreak)
+  # ---- Ericeira (World Surfing Reserve) ----
+  - { id: coxos,              name: "Coxos (Ericeira)",         lat: 39.0068, lon: -9.4225, offshore_direction: 120, swell_window: [250, 345], break_type: point, <<: *pt }  # approx — TODO verify (Portugal's best right)
+  - { id: ribeira-dilhas,     name: "Ribeira d'Ilhas (Ericeira)", lat: 38.9885, lon: -9.4225, offshore_direction: 110, swell_window: [250, 345], break_type: reef, <<: *pt }  # sat-verified 2026-07-23
+  # ---- Sintra / Cascais / Lisboa ----
+  - { id: praia-grande,       name: "Praia Grande (Sintra)",    lat: 38.817, lon: -9.479, offshore_direction: 95,  <<: *pt }  # sat-verified 2026-07-23
+  - { id: guincho,            name: "Guincho (Cascais)",        lat: 38.733, lon: -9.474, offshore_direction: 100, <<: *pt }  # sat-verified 2026-07-23 (windy — nortada afternoons)
+  - { id: carcavelos,         name: "Carcavelos",               lat: 38.678, lon: -9.336, offshore_direction: 10,  swell_window: [170, 270], offshore_point: [38.62, -9.34], <<: *pt }  # sat-verified 2026-07-23 (S-facing Tagus-mouth beach; needs W swell wrap)
+  - { id: costa-caparica,     name: "Costa da Caparica (CDS)",  lat: 38.635, lon: -9.2365, offshore_direction: 80,  <<: *pt }  # sat-verified 2026-07-23 (jetty peaks)
+  # ---- Algarve west coast ----
+  - { id: arrifana,           name: "Arrifana (Aljezur)",       lat: 37.2925, lon: -8.8675, offshore_direction: 125, swell_window: [235, 345], <<: *pt }  # approx — TODO verify (cliff-backed bay + right point)
+  - { id: praia-do-amado,     name: "Praia do Amado (Carrapateira)", lat: 37.166, lon: -8.903, offshore_direction: 100, <<: *pt }  # sat-verified 2026-07-23
+  - { id: tonel,              name: "Tonel (Sagres)",           lat: 37.007, lon: -8.946, offshore_direction: 45,  swell_window: [190, 300], <<: *pt }  # approx — TODO verify (works when the west coast is blown out)
+  # ---- Algarve south coast ----
+  - { id: zavial,             name: "Zavial",                   lat: 37.046, lon: -8.8675, offshore_direction: 5,   swell_window: [160, 260], offshore_point: [36.99, -8.87], break_type: point, <<: *pt }  # approx — TODO verify (S-coast right point; needs SW groundswell or big W wrap)

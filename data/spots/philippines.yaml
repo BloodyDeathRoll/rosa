@@ -1,0 +1,54 @@
+# Rosa spot database — Philippines (worldwide expansion)
+#
+# TWO exposures, opposite seasons:
+#   * West / South China Sea (&phw): W-facing; SW-monsoon (habagat, Jun–Oct)
+#     windswell + W typhoon swell; offshore wind from the E (amihan season).
+#   * East / Pacific (&phe): NE–E-facing; NE-monsoon (amihan, Nov–Mar) + Pacific
+#     typhoon groundswell; offshore wind from the W–SW. Includes Siargao.
+#
+# ⚠ offshore_point: the loader default pushes 0.06° WEST — INLAND for the whole
+# Pacific side, so every &phe spot carries an explicit seaward offshore_point.
+# North-facing spots (Pagudpud, Bagasbas, Lanuza) use wrap-through-0 swell
+# windows (supported by transform.in_window).
+#
+# File order: N→S down the west/north coast, then N→S down the Pacific coast.
+#
+# CONFIDENCE: coordinates are approximate (well-known-spot knowledge, ~3 dp) and
+# tagged "approx — TODO verify"; orientations reasoned from coastal facing, not
+# surveyed. Same seed quality as costa-rica.yaml — calibrate before trusting.
+
+west: &phw
+  timezone: Asia/Manila
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [200, 330]     # SSW → NW (monsoon windswell + typhoon W)
+  ideal:
+    wind_dir: [45, 135]        # metadata only (scorer uses offshore_direction)
+    size_m: [0.6, 2.0]
+
+east: &phe
+  timezone: Asia/Manila
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [20, 150]      # NNE → SE Pacific
+  ideal:
+    wind_dir: [225, 315]
+    size_m: [0.8, 2.2]
+
+spots:
+  # ---- Luzon north tip ----
+  - { id: pagudpud,           name: "Pagudpud (Blue Lagoon)",   lat: 18.6235, lon: 120.8635, offshore_direction: 210, swell_window: [330, 90], offshore_point: [18.68, 120.88], <<: *phe }  # sat-verified 2026-07-23 (N-facing; amihan NE swell)
+  # ---- Luzon west coast ----
+  - { id: san-juan-la-union,  name: "San Juan (La Union)",      lat: 16.666, lon: 120.322, offshore_direction: 90,  break_type: point, <<: *phw }  # sat-verified 2026-07-23 (Monaliza/Urbiztondo; PH's surf-school capital)
+  - { id: liwliwa,            name: "Liwliwa (San Felipe)",     lat: 15.0614, lon: 120.0606, offshore_direction: 85,  <<: *phw }  # sat-verified 2026-07-23 (Zambales)
+  - { id: crystal-beach,      name: "Crystal Beach (San Narciso)", lat: 15.0215, lon: 120.063, offshore_direction: 80,  <<: *phw }  # sat-verified 2026-07-23
+  # ---- Luzon Pacific coast ----
+  - { id: sabang-baler,       name: "Sabang Beach (Baler)",     lat: 15.762, lon: 121.567, offshore_direction: 230, swell_window: [10, 120], offshore_point: [15.81, 121.62], break_type: beach, <<: *phe }  # sat-verified 2026-07-23 (NE-opening bay)
+  - { id: cemento,            name: "Cemento Reef (Baler)",     lat: 15.7501, lon: 121.6368, offshore_direction: 220, swell_window: [0, 130],  offshore_point: [15.79, 121.69], <<: *phe }  # sat-verified 2026-07-23 (shallow right reef)
+  - { id: bagasbas,           name: "Bagasbas (Daet)",          lat: 14.134, lon: 122.9855, offshore_direction: 210, swell_window: [340, 110], offshore_point: [14.19, 123.02], break_type: beach, <<: *phe }  # sat-verified 2026-07-23 (mellow N-facing beachbreak)
+  - { id: puraran,            name: "Puraran (Catanduanes)",    lat: 13.656, lon: 124.4045, offshore_direction: 260, offshore_point: [13.66, 124.46], <<: *phe }  # sat-verified 2026-07-23 ("Majestics" — hollow right; Baras E coast)
+  # ---- Visayas / Mindanao Pacific ----
+  - { id: calicoan-abcd,      name: "ABCD (Calicoan, Guiuan)",  lat: 10.979, lon: 125.778, offshore_direction: 310, swell_window: [40, 160], offshore_point: [10.95, 125.85], <<: *phe }  # sat-verified 2026-07-23
+  - { id: pacifico,           name: "Pacifico (Siargao)",       lat: 9.8715, lon: 126.1165, offshore_direction: 250, swell_window: [0, 130],  offshore_point: [9.89, 126.17], <<: *phe }  # sat-verified 2026-07-23 (quieter N-Siargao reef)
+  - { id: cloud-9,            name: "Cloud 9 (Siargao)",        lat: 9.815, lon: 126.169, offshore_direction: 270, swell_window: [30, 160], offshore_point: [9.81, 126.24], <<: *phe }  # sat-verified 2026-07-23 (the PH wave; boardwalk tower)
+  - { id: lanuza,             name: "Lanuza (Doot Poktoy)",     lat: 9.2355, lon: 126.06, offshore_direction: 190, swell_window: [350, 120], offshore_point: [9.29, 126.07], break_type: point, <<: *phe }  # sat-verified 2026-07-23 (Surigao del Sur left point)

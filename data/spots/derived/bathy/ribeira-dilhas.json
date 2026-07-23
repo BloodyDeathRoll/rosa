@@ -1,0 +1,65 @@
+{
+  "spot": "ribeira-dilhas",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 290.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 96.0,
+  "mean_slope_m_per_km": 4.9,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.98927,
+      "lon": -9.42522,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.99004,
+      "lon": -9.42794,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.99158,
+      "lon": -9.43337,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.99465,
+      "lon": -9.44425,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.99772,
+      "lon": -9.45512,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 39.00387,
+      "lon": -9.47687,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 39.01307,
+      "lon": -9.50951,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 39.02534,
+      "lon": -9.55304,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 39.0437,
+      "lon": -9.61836,
+      "depth_m": 96.0
+    }
+  ]
+}

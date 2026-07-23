@@ -1,0 +1,65 @@
+{
+  "spot": "hebara",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 135.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 150.0,
+  "mean_slope_m_per_km": 8.23,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.15991,
+      "lon": 140.33644,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.15832,
+      "lon": 140.33839,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.15514,
+      "lon": 140.34228,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.14878,
+      "lon": 140.35005,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.14242,
+      "lon": 140.35783,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.1297,
+      "lon": 140.37338,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.11061,
+      "lon": 140.39669,
+      "depth_m": 83.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.08515,
+      "lon": 140.42775,
+      "depth_m": 114.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.04695,
+      "lon": 140.47432,
+      "depth_m": 150.0
+    }
+  ]
+}

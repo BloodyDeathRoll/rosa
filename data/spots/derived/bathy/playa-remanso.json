@@ -1,0 +1,65 @@
+{
+  "spot": "playa-remanso",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 240.0,
+  "nearshore_depth_m": -14.0,
+  "offshore_depth_m": 90.0,
+  "mean_slope_m_per_km": 5.86,
+  "land_samples": 1,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.22138,
+      "lon": -85.84949,
+      "depth_m": -14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.22025,
+      "lon": -85.85147,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.218,
+      "lon": -85.85544,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.21351,
+      "lon": -85.86338,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.20901,
+      "lon": -85.87132,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.20001,
+      "lon": -85.8872,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.18652,
+      "lon": -85.91101,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.16853,
+      "lon": -85.94276,
+      "depth_m": 76.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.14153,
+      "lon": -85.99038,
+      "depth_m": 90.0
+    }
+  ]
+}

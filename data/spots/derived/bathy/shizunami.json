@@ -1,0 +1,65 @@
+{
+  "spot": "shizunami",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 130.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 366.0,
+  "mean_slope_m_per_km": 20.23,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.72805,
+      "lon": 138.2366,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.72661,
+      "lon": 138.23869,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.72372,
+      "lon": 138.24288,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.71794,
+      "lon": 138.25126,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.71216,
+      "lon": 138.25964,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.70059,
+      "lon": 138.2764,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.68324,
+      "lon": 138.30152,
+      "depth_m": 94.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.66009,
+      "lon": 138.33501,
+      "depth_m": 345.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.62535,
+      "lon": 138.3852,
+      "depth_m": 366.0
+    }
+  ]
+}

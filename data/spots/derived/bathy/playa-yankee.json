@@ -1,0 +1,65 @@
+{
+  "spot": "playa-yankee",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 235.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 63.0,
+  "mean_slope_m_per_km": 3.72,
+  "land_samples": 1,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.17771,
+      "lon": -85.81988,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.17642,
+      "lon": -85.82175,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.17384,
+      "lon": -85.82551,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.16868,
+      "lon": -85.83302,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.16352,
+      "lon": -85.84053,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.15321,
+      "lon": -85.85554,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.13773,
+      "lon": -85.87807,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.11709,
+      "lon": -85.90809,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.08612,
+      "lon": -85.95312,
+      "depth_m": 63.0
+    }
+  ]
+}

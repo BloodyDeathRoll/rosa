@@ -1,0 +1,65 @@
+{
+  "spot": "guincho",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 280.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 65.0,
+  "mean_slope_m_per_km": 3.38,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.73339,
+      "lon": -9.47684,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.73378,
+      "lon": -9.47968,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.73456,
+      "lon": -9.48535,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.73612,
+      "lon": -9.49671,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.73768,
+      "lon": -9.50806,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.74079,
+      "lon": -9.53077,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.74546,
+      "lon": -9.56484,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.75166,
+      "lon": -9.61028,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.76093,
+      "lon": -9.67844,
+      "depth_m": 65.0
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "spot": "san-juan-la-union",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 270.0,
+  "nearshore_depth_m": 14.0,
+  "offshore_depth_m": 544.0,
+  "mean_slope_m_per_km": 29.86,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 16.666,
+      "lon": 120.31965,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 16.666,
+      "lon": 120.31731,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 16.666,
+      "lon": 120.31261,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 16.666,
+      "lon": 120.30322,
+      "depth_m": 113.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 16.666,
+      "lon": 120.29384,
+      "depth_m": 169.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.66599,
+      "lon": 120.27506,
+      "depth_m": 205.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.66599,
+      "lon": 120.2469,
+      "depth_m": 215.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.66597,
+      "lon": 120.20935,
+      "depth_m": 408.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.66593,
+      "lon": 120.15302,
+      "depth_m": 544.0
+    }
+  ]
+}

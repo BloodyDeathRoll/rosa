@@ -1,0 +1,65 @@
+{
+  "spot": "onjuku",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 160.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 220.0,
+  "mean_slope_m_per_km": 12.56,
+  "land_samples": 1,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.18239,
+      "lon": 140.35344,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.18027,
+      "lon": 140.35438,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.17605,
+      "lon": 140.35626,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.1676,
+      "lon": 140.36003,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.15915,
+      "lon": 140.36379,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.14224,
+      "lon": 140.37131,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.11689,
+      "lon": 140.38258,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.08308,
+      "lon": 140.3976,
+      "depth_m": 119.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.03237,
+      "lon": 140.42012,
+      "depth_m": 220.0
+    }
+  ]
+}

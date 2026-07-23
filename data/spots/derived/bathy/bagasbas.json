@@ -1,0 +1,65 @@
+{
+  "spot": "bagasbas",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 30.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 44.0,
+  "mean_slope_m_per_km": 2.31,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 14.13595,
+      "lon": 122.98666,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 14.13789,
+      "lon": 122.98782,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 14.14179,
+      "lon": 122.99014,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 14.14958,
+      "lon": 122.99477,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 14.15736,
+      "lon": 122.99941,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 14.17294,
+      "lon": 123.00869,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 14.1963,
+      "lon": 123.02261,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 14.22745,
+      "lon": 123.04117,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 14.27418,
+      "lon": 123.06902,
+      "depth_m": 44.0
+    }
+  ]
+}

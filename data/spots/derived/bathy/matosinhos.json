@@ -1,0 +1,65 @@
+{
+  "spot": "matosinhos",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 270.0,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 58.0,
+  "mean_slope_m_per_km": 2.65,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.171,
+      "lon": -8.69499,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.171,
+      "lon": -8.69797,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.171,
+      "lon": -8.70395,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.171,
+      "lon": -8.71589,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.17099,
+      "lon": -8.72784,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.17098,
+      "lon": -8.75174,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.17096,
+      "lon": -8.78758,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.17091,
+      "lon": -8.83537,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.1708,
+      "lon": -8.90705,
+      "depth_m": 58.0
+    }
+  ]
+}

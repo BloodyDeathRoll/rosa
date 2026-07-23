@@ -1,0 +1,65 @@
+{
+  "spot": "el-astillero",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 230.0,
+  "nearshore_depth_m": 41.0,
+  "offshore_depth_m": 70.0,
+  "mean_slope_m_per_km": 1.63,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.51105,
+      "lon": -86.16976,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.50961,
+      "lon": -86.17152,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.50672,
+      "lon": -86.17503,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.50094,
+      "lon": -86.18206,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.49516,
+      "lon": -86.18909,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.48359,
+      "lon": -86.20315,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.46625,
+      "lon": -86.22424,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.44312,
+      "lon": -86.25235,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.40842,
+      "lon": -86.2945,
+      "depth_m": 70.0
+    }
+  ]
+}

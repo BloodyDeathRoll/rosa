@@ -1,0 +1,65 @@
+{
+  "spot": "miramar",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 250.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 52.0,
+  "mean_slope_m_per_km": 3.21,
+  "land_samples": 3,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 12.14423,
+      "lon": -86.75216,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 12.14346,
+      "lon": -86.75432,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 12.14192,
+      "lon": -86.75864,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 12.13885,
+      "lon": -86.76729,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 12.13577,
+      "lon": -86.77593,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 12.12962,
+      "lon": -86.79322,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 12.12038,
+      "lon": -86.81915,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 12.10807,
+      "lon": -86.85372,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 12.08959,
+      "lon": -86.90557,
+      "depth_m": 52.0
+    }
+  ]
+}
