@@ -189,6 +189,32 @@ def _build_parser() -> argparse.ArgumentParser:
     bathy.add_argument(
         "--sleep", type=float, default=1.0, help="seconds between spots (OpenTopoData rate limit)"
     )
+
+    notify = sub.add_parser(
+        "notify", help="send grouped swell-alert Web Pushes for new events (VM cron step)"
+    )
+    notify.add_argument("--out", type=Path, default=Path("data/out"), help="published payload dir")
+    notify.add_argument(
+        "--state",
+        type=Path,
+        default=Path("data/verify/push-state.json"),
+        help="sent-event bookkeeping (VM-local, gitignored)",
+    )
+    notify.add_argument(
+        "--subs-url", default=None, help="push API admin endpoint (default: $PUSH_SUBS_URL)"
+    )
+    notify.add_argument(
+        "--vapid-key",
+        type=Path,
+        default=None,
+        help="VAPID private key PEM (default: $VAPID_PRIVATE_KEY)",
+    )
+    notify.add_argument(
+        "--vapid-sub", default=None, help="VAPID contact claim (default: $VAPID_SUB)"
+    )
+    notify.add_argument(
+        "--dry-run", action="store_true", help="plan and print, send nothing"
+    )
     return parser
 
 
@@ -500,6 +526,43 @@ def _cmd_bathy(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_notify(args: argparse.Namespace) -> int:
+    import os
+
+    from .notify import send_notifications
+
+    subs_url = args.subs_url or os.environ.get("PUSH_SUBS_URL")
+    admin_secret = os.environ.get("PUSH_ADMIN_SECRET")
+    vapid_key = args.vapid_key or (
+        Path(os.environ["VAPID_PRIVATE_KEY"]) if os.environ.get("VAPID_PRIVATE_KEY") else None
+    )
+    vapid_sub = args.vapid_sub or os.environ.get("VAPID_SUB")
+    missing = [
+        name
+        for name, val in [
+            ("PUSH_SUBS_URL/--subs-url", subs_url),
+            ("PUSH_ADMIN_SECRET", admin_secret),
+            ("VAPID_PRIVATE_KEY/--vapid-key", vapid_key),
+            ("VAPID_SUB/--vapid-sub", vapid_sub),
+        ]
+        if not val
+    ]
+    if missing:
+        print(f"notify: missing {', '.join(missing)}", file=sys.stderr)
+        return 2
+    assert subs_url and admin_secret and vapid_key and vapid_sub
+    send_notifications(
+        out_dir=args.out,
+        state_path=args.state,
+        subs_url=subs_url,
+        admin_secret=admin_secret,
+        vapid_private_key=vapid_key,
+        vapid_sub=vapid_sub,
+        dry_run=args.dry_run,
+    )
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     args = _build_parser().parse_args(argv)
     if args.command == "verify":
@@ -510,6 +573,8 @@ def main(argv: list[str] | None = None) -> int:
         return _cmd_feedback(args)
     if args.command == "bathy":
         return _cmd_bathy(args)
+    if args.command == "notify":
+        return _cmd_notify(args)
     return _cmd_run(args)
 
 
