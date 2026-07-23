@@ -430,15 +430,12 @@ button {
   padding: 14px 16px 20px;
 }
 
-/* Surf range + sparkline on one row: range left, spark right-aligned */
+/* Surf range row */
 .range-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-}
-.range-row .spark {
-  flex: none;
 }
 .surf-range {
   display: block;

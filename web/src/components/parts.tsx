@@ -1,5 +1,5 @@
 import type { ComponentChildren } from "preact";
-import type { Bucket, HourEntry } from "../types";
+import type { Bucket } from "../types";
 import { ratingVar, ratingWord } from "../conditions";
 import { StarIcon } from "./icons";
 
@@ -42,56 +42,6 @@ export function StarButton({
     >
       <StarIcon size={size} />
     </button>
-  );
-}
-
-/** Sparkline of a day's surf heights (design's ranked-card proportions,
-    110×26 by default; `stretch` fills the container width). */
-export function Spark({
-  hours,
-  bucket,
-  w = 110,
-  h = 26,
-  stretch = false,
-}: {
-  hours: HourEntry[];
-  bucket: Bucket;
-  w?: number;
-  h?: number;
-  stretch?: boolean;
-}) {
-  if (hours.length < 2) return null;
-  // auto-scale to the day's own min/max so intraday shape is visible even on
-  // small Med days; the range label beside it carries absolute magnitude. A
-  // floor keeps near-flat days from amplifying noise into fake swings.
-  const vals = hours.map((x) => x.h_mid);
-  const lo = Math.min(...vals);
-  const hi = Math.max(...vals);
-  const span = Math.max(hi - lo, 0.15);
-  const pad = 3;
-  const usable = h - 2 * pad;
-  const pts = hours.map((x, i) => {
-    const px = ((i / (hours.length - 1)) * w).toFixed(1);
-    const py = (hi === lo ? h / 2 : pad + ((hi - x.h_mid) / span) * usable).toFixed(1);
-    return `${px},${py}`;
-  });
-  return (
-    <svg
-      class="spark"
-      width={stretch ? "100%" : w}
-      height={h}
-      viewBox={`0 0 ${w} ${h}`}
-      preserveAspectRatio={stretch ? "none" : undefined}
-      aria-hidden="true"
-    >
-      <path
-        d={`M${pts.join(" L")}`}
-        fill="none"
-        stroke={ratingVar(bucket)}
-        stroke-width="1.5"
-        stroke-linecap="round"
-      />
-    </svg>
   );
 }
 
