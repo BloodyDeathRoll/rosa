@@ -119,9 +119,7 @@ export function SpotsPage() {
       {!index ? (
         <p class="state">Loading…</p>
       ) : favRows.length === 0 ? (
-        <p class="search-empty">
-          No favorites yet. <a href="#/search">Search for spots</a> and tap ★ to save them.
-        </p>
+        <p class="empty-center">No favorites yet</p>
       ) : (
         <div class="spots-page">
           {groups.length > 1 && (

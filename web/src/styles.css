@@ -1205,6 +1205,32 @@ a.rank-card:hover {
   padding: 4px 2px;
 }
 
+/* Full-page empty state (e.g. Spots with no favorites): dead-center of the
+   space between header and bottom nav. */
+.empty-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  font-size: 14.3px;
+  color: var(--muted-foreground);
+  text-align: center;
+}
+
+/* Map-sheet empty state: same height as the card carousel row, so the sheet
+   doesn't shrink when the viewport has no spots; text centered both ways. */
+.sheet-empty {
+  height: 120px; /* card 118px + the row's 2px top padding */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  font-size: 14.3px;
+  color: var(--muted-foreground);
+  text-align: center;
+}
+
 /* ---------- Spot screen ---------- */
 
 .spot-main {

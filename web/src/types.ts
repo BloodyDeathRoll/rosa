@@ -30,6 +30,7 @@ export interface HourEntry {
   air: number | null; // °C
   wind: Wind;
   sst: number | null;
+  tide: number | null; // total water level vs MSL, m (null beyond the ~day-9 SMOC horizon)
   swells: Swell[];
 }
 

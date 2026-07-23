@@ -446,7 +446,12 @@ export function SpotPage({ id }: { id: string }) {
             <p class="state">Beyond the model horizon — no hourly detail yet.</p>
           )}
 
-          <TideSection nowT={cur.t} metric={units.height === "m"} />
+          <TideSection
+            hours={data.hours}
+            date={day.date}
+            nowT={day.date === today ? cur.t : null}
+            metric={units.height === "m"}
+          />
 
           <div class="sun-row">
             <span>

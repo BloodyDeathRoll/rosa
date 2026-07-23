@@ -390,7 +390,7 @@ export function MapPage({ theme }: { theme: Theme }) {
               })}
             </div>
           ) : (
-            <p class="search-empty">Pan or zoom out to find spots.</p>
+            <p class="sheet-empty">Pan or zoom out to find spots.</p>
           )}
         </div>
 
