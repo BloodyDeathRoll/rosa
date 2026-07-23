@@ -157,9 +157,16 @@ Shipped today (`4aea2e5`, `df834fe`):
    `archive --wave-source both` is the DEFAULT (VM picks it up via git pull, no cron change) —
    GFS-Wave rows at `<buoy>.gfswave.jsonl`; `verify --archive --source gfswave` pairs peak
    period with buoy DPD (GFSWAVE_VARIABLES — pairing peak-vs-mean would fabricate bias).
-   Live-smoked at Waimea (65 rows). ~5 min/box on NOMADS ⇒ ~15 min/cycle for 3 boxes — the
-   VM cycle got slower, watch publish.log. REMAINING 3a: after ~a week, A/B verdict per region
-   → promote GFS-Wave to primary where it wins (full ForecastSource swap for run --all).
+   Live-smoked at Waimea (65 rows). **VM dual cycle VERIFIED 2026-07-23 10:16Z** (forced run):
+   exit 0, all 9 buoys wrote .gfswave.jsonl (248 rows), publish still aliased; cycle ~11 min.
+   Note: the forced run caught the 06z cycle mid-upload → 26-30/65 steps (missing steps skip
+   gracefully); scheduled runs at HH+2:20 hit complete cycles → full 65. REMAINING 3a: after
+   ~a week, A/B verdict per region → promote GFS-Wave to primary where it wins (full
+   ForecastSource swap for run --all).
+   **NEXT SESSION = Stage 3b** (user decision): ECMWF spectral-lite per
+   docs/rosa-stage3-plan.md — fetch the wave member (params incl. h1012…h2530 period bands;
+   index URL pattern in the plan), missed-swell guard, consistency proxy, parametric-spread
+   bound; consider archiving ECMWF as a third A/B member at the buoys.
 2. **Stage 2E tuning** — still blocked until the VM archive matures (~2026-07-30); by then the
    dual-source A/B (if 3a lands) doubles the value of the same wait. Don't tune earlier.
 3. Stage 3b (ECMWF spectral-lite: period bands / missed-swell guard / consistency proxy /
