@@ -39,5 +39,12 @@ JSON
 
   cd "$STAGE"
   vercel deploy --prebuilt --prod --yes --token="$VERCEL_TOKEN"
+
+  # 4) swell-alert pushes (grouped: one swell = one notification). Only runs
+  #    when the push secrets are present in ~/rosa/.env; never fails the cycle.
+  if [ -n "${PUSH_SUBS_URL:-}" ]; then
+    cd "$HOME/rosa"
+    uv run --project pipeline rosa-pipeline notify || echo "warn: notify failed"
+  fi
   echo "=== $(date -u +%FT%TZ) done ==="
 } >> "$LOG" 2>&1

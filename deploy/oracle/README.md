@@ -12,9 +12,14 @@ shortly after each NOAA run publishes). No GitHub Actions.
 4. `vercel deploy --prebuilt` of `data/out` → the **rosa-data** project
    (https://rosa-data-opal.vercel.app, `/data/*` with permissive CORS; the app fetches it via
    `VITE_DATA_BASE`). Logs to `~/rosa/publish.log`.
+5. `rosa-pipeline notify` — grouped swell-alert Web Pushes (one swell = one notification)
+   to every subscription stored by https://rosa-push.vercel.app. Skipped silently unless the
+   push secrets are in `~/rosa/.env`; sent-state lives in `data/verify/push-state.json`.
 
-**Secrets:** only `VERCEL_TOKEN`, in `~/rosa/.env` (chmod 600, gitignored). Open-Meteo and
-NDBC are keyless.
+**Secrets** in `~/rosa/.env` (chmod 600, gitignored): `VERCEL_TOKEN`, plus for pushes
+`PUSH_SUBS_URL=https://rosa-push.vercel.app/api/subs`, `PUSH_ADMIN_SECRET=...` (matches the
+rosa-push Vercel project env), `VAPID_PRIVATE_KEY=$HOME/rosa-push/vapid_private.pem`,
+`VAPID_SUB=mailto:...`. Open-Meteo and NDBC are keyless.
 
 ## Bootstrap a fresh VM
 1. Create the instance (Oracle console), note the public IP; `ssh ubuntu@<ip>`.
