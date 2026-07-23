@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import { fetchIndex } from "../api";
-import { ChevronLeftIcon, SearchIcon } from "../components/icons";
+import { ChevronLeftIcon, CompassNorthIcon, LocateIcon, SearchIcon } from "../components/icons";
 import { SatMap } from "../components/MiniMap";
 import { Pill, SpotTitle } from "../components/parts";
 import { ratingVar } from "../conditions";
 import { splitName } from "../format";
-import { distanceKm, getPosition, type LatLon } from "../geo";
+import { distanceKm, getPosition, refreshPosition, type LatLon } from "../geo";
 import { signalReady } from "../splash";
 import { boundsCenter, findRegion } from "../regions";
 import { fmtRange, getUnits, useUnits } from "../units";
@@ -69,6 +69,9 @@ export function MapPage({ theme }: { theme: Theme }) {
   const [visible, setVisible] = useState<string[]>([]);
   const [focus, setFocus] = useState<string | null>(null);
   const [pos, setPos] = useState<LatLon | null>(null);
+  const [locState, setLocState] = useState<"idle" | "busy" | "fail">("idle");
+  const [bearing, setBearing] = useState(0);
+  const ensureYouRef = useRef<((p: LatLon) => void) | null>(null);
   const [searching, setSearching] = useState(false);
   const [query, setQuery] = useState("");
 
@@ -153,17 +156,37 @@ export function MapPage({ theme }: { theme: Theme }) {
         map = m;
         mapRef.current = m;
 
-        // Attribution is required (CARTO/OSM); pin it top-left so the bottom sheet
-        // never covers it. No zoom buttons — pinch + the floating controls.
-        m.addControl(new maplibregl.AttributionControl({ compact: true }), "top-left");
+        // Attribution is required (CARTO/OSM). Bottom-left, riding just above the
+        // sheet (--sheet-h), themed via CSS; collapsed to the (i) by default —
+        // it expands on tap, which satisfies the license terms. No zoom buttons.
+        m.addControl(new maplibregl.AttributionControl({ compact: true }), "bottom-left");
+        const collapseAttrib = () => {
+          const d = m.getContainer().querySelector("details.maplibregl-ctrl-attrib");
+          d?.removeAttribute("open");
+          d?.classList.remove("maplibregl-compact-show");
+        };
+        collapseAttrib();
+        m.once("load", collapseAttrib); // maplibre re-opens the compact control on load
 
         if (area) m.fitBounds(area.bounds, { padding: 56, maxZoom: 11, duration: 0 });
 
-        if (gpos) {
+        let youMarker: MLMarker | null = null;
+        const ensureYou = (p: LatLon) => {
+          if (youMarker) {
+            youMarker.setLngLat([p.lon, p.lat]);
+            return;
+          }
           const you = document.createElement("div");
           you.className = "you-dot";
-          new maplibregl.Marker({ element: you }).setLngLat([gpos.lon, gpos.lat]).addTo(m);
-        }
+          youMarker = new maplibregl.Marker({ element: you })
+            .setLngLat([p.lon, p.lat])
+            .addTo(m);
+        };
+        ensureYouRef.current = ensureYou;
+        if (gpos) ensureYou(gpos);
+
+        // the north fab counter-rotates with the map and resets it on tap
+        m.on("rotate", () => setBearing(m.getBearing()));
 
         // Re-cluster the visible pins and rebuild the carousel list. Runs at rest
         // (load + moveend); markers auto-follow the map during a live pan.
@@ -316,6 +339,37 @@ export function MapPage({ theme }: { theme: Theme }) {
     });
   };
 
+  // The locate fab: geolocation can fail on first load (and getPosition caches
+  // even that failure) — this forces a fresh fix and recenters on it.
+  const locate = async () => {
+    setLocState("busy");
+    const p = await refreshPosition();
+    const m = mapRef.current;
+    if (!p || !m) {
+      setLocState("fail");
+      setTimeout(() => setLocState("idle"), 1800);
+      return;
+    }
+    posRef.current = p;
+    setPos(p);
+    ensureYouRef.current?.(p);
+    m.flyTo({ center: [p.lon, p.lat], zoom: Math.max(m.getZoom(), 10) });
+    setLocState("idle");
+  };
+
+  // publish the sheet's live height so the attribution chip sits just above it
+  const sheetObs = useRef<ResizeObserver | null>(null);
+  const sheetRef = (el: HTMLElement | null) => {
+    sheetObs.current?.disconnect();
+    if (!el) return;
+    const wrap = el.closest(".map-screen") as HTMLElement | null;
+    if (!wrap) return;
+    const apply = () => wrap.style.setProperty("--sheet-h", `${el.offsetHeight}px`);
+    apply();
+    sheetObs.current = new ResizeObserver(apply);
+    sheetObs.current.observe(el);
+  };
+
   const goBack = () => {
     if (history.length > 1) history.back();
     else location.hash = "#/today";
@@ -374,7 +428,23 @@ export function MapPage({ theme }: { theme: Theme }) {
         <button class="map-fab search" onClick={() => setSearching(true)} aria-label="Search spots">
           <SearchIcon />
         </button>
-        <div class="map-sheet">
+        <button
+          class={`map-fab locate${locState === "fail" ? " err" : ""}`}
+          onClick={() => void locate()}
+          disabled={locState === "busy"}
+          aria-label="Go to my location"
+        >
+          <LocateIcon />
+        </button>
+        <button
+          class="map-fab north"
+          style={`--brg:${-bearing}deg`}
+          onClick={() => mapRef.current?.resetNorth()}
+          aria-label="Point north"
+        >
+          <CompassNorthIcon />
+        </button>
+        <div class="map-sheet" ref={sheetRef}>
           <span class="sheet-grip" aria-hidden="true" />
           {visible.length ? (
             <div class="map-cards" ref={cardsRef} onScroll={onCardsScroll}>

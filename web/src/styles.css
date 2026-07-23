@@ -1625,21 +1625,32 @@ a.rank-card:hover {
   font-size: 11px;
   color: var(--muted-foreground);
 }
-.tide-sec svg {
-  display: block;
+.tide-chart {
+  position: relative;
   margin-top: 6px;
-  width: 100%;
 }
-.tide-sec .lohi {
+.tide-chart svg {
+  display: block;
+  width: 100%;
+  height: 96px;
+}
+/* Surfline-style extreme labels: time over height, centered on the curve's
+   highs/lows in a strip reserved above the water line */
+.tide-ext {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
   display: flex;
-  justify-content: space-between;
-  margin-top: 4px;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  white-space: nowrap;
+}
+.tide-ext b {
   font-size: 11.6px;
 }
-.tide-sec .hi {
-  color: var(--foreground);
-}
-.tide-sec .lo {
+.tide-ext small {
+  font-size: 10.6px;
   color: var(--muted-foreground);
 }
 
@@ -1832,9 +1843,27 @@ a.rank-card:hover {
   color: var(--muted-foreground);
 }
 
-/* Attribution is pinned top-left; clear the floating back control above it. */
-.map-screen .maplibregl-ctrl-top-left {
-  margin-top: 52px;
+/* Attribution: themed chip bottom-left, riding just above the live sheet
+   height (--sheet-h set from a ResizeObserver), diagonal from the fabs. */
+.map-screen .maplibregl-ctrl-bottom-left {
+  left: 6px;
+  bottom: calc(var(--sheet-h, 150px) + 8px);
+}
+.map-screen .maplibregl-ctrl-attrib.maplibregl-compact {
+  /* out-specify maplibre's hardcoded white pill */
+  background: color-mix(in srgb, var(--card) 92%, transparent);
+  color: var(--muted-foreground);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.map-screen .maplibregl-ctrl-attrib a {
+  color: var(--foreground);
+}
+.map-screen .maplibregl-ctrl-attrib summary.maplibregl-ctrl-attrib-button {
+  background-color: transparent;
+}
+:root[data-theme="dark"] .map-screen .maplibregl-ctrl-attrib-button {
+  filter: invert(1); /* maplibre's (i) glyph is a black background-image svg */
 }
 
 /* Search layers over the live map (map stays mounted so easeTo/pick work). */
@@ -2249,12 +2278,6 @@ a.rank-card:hover {
 }
 
 /* Stage-3b missed-swell hint — quiet amber note under the day title */
-.missed-note {
-  padding: 0 16px 8px;
-  font-size: 12.7px;
-  color: var(--warn-orange);
-}
-
 /* ----- Notifications settings note */
 
 .settings-note {
@@ -2262,5 +2285,76 @@ a.rank-card:hover {
   padding: 10px 16px 14px;
   font-size: 12.7px;
   line-height: 1.45;
+  color: var(--muted-foreground);
+}
+
+/* ----- Retro feedback row (Today): one tap grades yesterday's call */
+
+.fb-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 16px;
+  padding: 12px 10px 12px 16px;
+  background: var(--card);
+  border-radius: 14px;
+  box-shadow: var(--card-shadow);
+}
+.fb-row .fb-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.fb-row b {
+  font-size: 14px;
+}
+.fb-row small {
+  font-size: 12.7px;
+  color: var(--muted-foreground);
+}
+.fb-row .fb-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.fb-row .fb-actions button {
+  font-size: 17px;
+  padding: 8px 9px;
+  border-radius: 10px;
+}
+.fb-row .fb-actions button:active {
+  background: var(--secondary);
+}
+.fb-row .fb-x {
+  color: var(--muted-foreground);
+  font-size: 13px;
+}
+
+/* Map fabs: north under the search glass; locate bottom-right, its center
+   aligned with the attribution chip across the map (both ride --sheet-h). */
+.map-fab.locate {
+  right: 12px;
+  top: auto;
+  /* center-align with the attribution chip: chip bottom = sheet + 10 (container)
+     + 10 (maplibre's own margin), chip h 24, fab h 40 → fab bottom = sheet + 12 */
+  bottom: calc(var(--sheet-h, 150px) + 12px);
+}
+.map-fab.locate.err {
+  color: var(--rating-flat);
+}
+.map-fab.north {
+  right: 12px;
+  top: 60px;
+}
+.map-fab.north svg {
+  transform: rotate(var(--brg, 0deg));
+  transition: transform 0.2s;
+}
+
+.tide-sec .tide-best {
+  margin: 6px 0 0;
+  font-size: 12px;
   color: var(--muted-foreground);
 }

@@ -5,16 +5,28 @@ export interface LatLon {
 
 let cached: Promise<LatLon | null> | null = null;
 
-/** One geolocation request per session; resolves null on denial/timeout/unsupported. */
-export function getPosition(): Promise<LatLon | null> {
-  cached ??= new Promise((resolve) => {
+function request(maximumAge: number): Promise<LatLon | null> {
+  return new Promise((resolve) => {
     if (!("geolocation" in navigator)) return resolve(null);
     navigator.geolocation.getCurrentPosition(
       (p) => resolve({ lat: p.coords.latitude, lon: p.coords.longitude }),
       () => resolve(null),
-      { timeout: 8000, maximumAge: 5 * 60_000 }
+      { timeout: 8000, maximumAge }
     );
   });
+}
+
+/** One geolocation request per session; resolves null on denial/timeout/unsupported.
+    NOTE: a failed fix caches null for the whole session — the map's locate button
+    calls refreshPosition() to bust it. */
+export function getPosition(): Promise<LatLon | null> {
+  cached ??= request(5 * 60_000);
+  return cached;
+}
+
+/** Force a fresh fix (no cache) and make it the new session answer. */
+export function refreshPosition(): Promise<LatLon | null> {
+  cached = request(0);
   return cached;
 }
 

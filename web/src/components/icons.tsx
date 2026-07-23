@@ -168,3 +168,33 @@ export const SwellDirIcon = ({ size = 14, rotate = 0 }: IconProps & { rotate?: n
     <circle cx="12" cy="21" r="1" fill="currentColor" stroke="none" />
   </svg>
 );
+
+/** Crosshair locate — circle, center dot, four ticks. */
+export const LocateIcon = ({ size = 17 }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
+    <circle cx="12" cy="12" r="7" />
+    <circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none" />
+    <path d="M12 2v3" />
+    <path d="M12 19v3" />
+    <path d="M2 12h3" />
+    <path d="M19 12h3" />
+  </svg>
+);
+
+/** North needle + N — rotated by the map bearing so it always points north. */
+export const CompassNorthIcon = ({ size = 17 }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
+    <path d="M12 3.5l3.6 8.5-3.6-1.8-3.6 1.8z" fill="currentColor" stroke="none" />
+    <text
+      x="12"
+      y="21.5"
+      text-anchor="middle"
+      font-size="9"
+      font-weight="700"
+      fill="currentColor"
+      stroke="none"
+    >
+      N
+    </text>
+  </svg>
+);
