@@ -86,10 +86,16 @@ automatically.
 - **DEFERRED:** the per-spot `ideal_tide_window` rating multiplier (some spots work best at
   low/high tide) — needs per-spot local input; a Stage 2E / community item.
 
-## 2E — Recalibration
-- Re-tune γ, residual coeff, `exposure_power`, `ideal_size_m` over the new transform from
+## 2E — Recalibration — OPEN (blocked on data, 2026-07-23)
+- Re-tune γ, residual coeff, rideability exponent, `ideal_size_m` over the new transform from
   `docs/CALIBRATION.md` + Stage 0 scorecard + 👍👎. Update the public "why this rating" numbers
   (CLAUDE.md principle #3).
+- **Status 2026-07-23:** first multi-region buoy sweep logged (CALIBRATION.md) — Open-Meteo runs
+  hot on Hs everywhere (worst Pacific) and ~+3 s on Pacific period ⇒ CR over-called on both
+  axes; Sri Lanka has no buoy truth. Deliberately NO knob changes at n=6. Gate: the VM's
+  lead-time archive (cron 4×/day since 2026-07-23, GH-seed merged) matures ~1 week → confirm
+  bias per lead-time → input-side de-bias in extract **refit simultaneously with Israel** (its
+  constants were tuned against the hot input; de-biasing alone would double-correct it).
 
 ---
 

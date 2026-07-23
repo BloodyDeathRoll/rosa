@@ -85,7 +85,11 @@ we never regress a region while improving another.
 Each stage is independently shippable, measured against Stage 0's harness, and ordered so
 dependencies come first and the biggest early accuracy per unit effort lands soonest.
 
-### Stage 0 — Verification & calibration harness *(measure first — unlocks everything)*
+### Stage 0 — Verification & calibration harness *(measure first — unlocks everything)* — ✅ BUILT (2026-07-22/23)
+*Status: `verify` (nowcast + `--archive` lead-time), `archive`, `feedback`, NDBC registry all
+live; the archive accumulates 4×/day on the Oracle VM (seeded with the retired GH-Actions rows,
+2026-07-23). First multi-region sweep logged in CALIBRATION.md (OM hot in the Pacific).
+Remaining: let the archive mature (~1 week), then the backtest scorecard becomes meaningful.*
 **Accuracy lever:** none directly; makes every later lever *provable*. Do not skip.
 - Ingest buoy observations near spots: **NDBC** realtime `.spec`/`.swdir`/`.txt` (Hs, Tp, Dir,
   directional spread), **CDIP**, and **ISRAMAR** (Hadera/Ashdod — validation only, never shipped).
@@ -113,7 +117,11 @@ stage's PR includes a before/after scorecard diff. *(This is the gate for callin
 confidence correlates with observed error (high confidence ⇒ lower error).
 **Effort:** M · **Compute:** low (a few more API calls) · **Data:** Open-Meteo, free non-commercial.
 
-### Stage 2 — Spot-transform overhaul: bathymetry physics + tide + soft exposure *(the biggest transform win)*
+### Stage 2 — Spot-transform overhaul: bathymetry physics + tide + soft exposure *(the biggest transform win)* — ✅ MOSTLY DONE (2026-07-22; see docs/rosa-stage2-plan.md)
+*Status: 2A bathy profiles, 2B hybrid physics breaker (q(T) reframed as capped
+`period_rideability`, NOT fully retired until Stage 3), 2C soft window, 2D tide (Open-Meteo
+`sea_level_height_msl`, NOT EOT20 — approach changed) all DONE. 2E recalibration OPEN —
+blocked on Stage-0 archive maturity.*
 **Accuracy lever:** replaces the single `height_coeff` with real physics; activates tide worldwide.
 This is where a spot's *own coastline* finally shapes its forecast.
 - **Bathymetry ingest:** EMODnet (~115 m, Med/Europe) with GEBCO 2024 (~450 m) global fallback;
@@ -213,13 +221,14 @@ tide (Stage 2) and Stage 4 pay off most as the app goes worldwide.
   to ~1 h/run → cents/day. Users still pay nothing; serving is still static CDN. This is the only
   new operating expense and it is small and bounded. Regional grids keep SWAN tractable.
 
-**Scheduling host — DECIDED 2026-07-21: Oracle Cloud Always Free VM** (skip the GitHub-Actions
-interim; go straight to the lasting home). Rationale: it runs *every* stage including the heavy
-GRIB + SWAN work, and its **persistent disk holds the forecast archive directly** — so no
-fresh-checkout wipe and no R2 round-trip needed for accumulation (R2 stays the option for serving
-static output later). System cron / systemd timers fire `run --all` + `archive` on schedule.
-Caveats to handle at setup: Oracle's Always Free ARM was halved to 2 OCPU / 12 GB (June 2026) and
-provisioning capacity can be scarce — keep SWAN grids regional; self-hosted runner is the fallback.
+**Scheduling host — LIVE 2026-07-23: Oracle VM `rosa-instance` (x86_64, il-jerusalem-1).**
+ARM A1.Flex capacity never materialized (Frankfurt grabber retired); the x86 box runs the whole
+cycle via **cron 4×/day → `deploy/oracle/publish.sh`** (git pull → buoy archive → `run --all` →
+prebuilt Vercel deploy to the `rosa-data` project). The persistent disk holds the archive
+(seeded with the retired GH-Actions rows). **GitHub Actions and systemd variants were removed —
+the VM cron is the single scheduler** (see deploy/oracle/README.md). Watch-item for Stages 3–4:
+the x86 free shape is small (~1 GB RAM) — heavy GRIB/SWAN work may need a bigger box or a
+self-hosted runner when those stages start.
 
 ## 7. Open spikes (resolve at each stage's kickoff, don't front-load)
 
