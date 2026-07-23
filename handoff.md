@@ -1,104 +1,101 @@
-# Session Handoff — 2026-07-23 (session 7, PM)
+# Session Handoff — 2026-07-23 (session 8)
 
 ## Goal
-Build accuracy-roadmap Stage 3b (ECMWF spectral-lite: second wave member, missed-swell
-guard, consistency proxy, parametric spread + measured validation), then parallel tracks
-while VM archives mature: swell-event detection, web rendering of the new fields, CDIP
-spread arbitration, and free-tier infra expansion (backup micro + A1 hunt).
+Surface pipeline `events[]` to users. Ended (after live user review) as **push-first**:
+real Web Push swell alerts + a 👍👎 feedback loop, with ALL in-app event chrome removed.
+Then a run of UI corrections (map fabs, themed attribution, Surfline-style tide times,
+`tide_best` spot field).
 
 ## Current State
-Everything built this session is committed, pushed, and deployed. 203 pipeline tests
-green, ruff clean, web TS clean. Standing rule (from a real incident): on any infra
-task, inspect the live system first (SSH/console) — never trust this snapshot for IPs
-or machine state.
-
-- **3b member live in production**: `ecmwf.py` fetches ECMWF open data by index +
-  byte-range (11 params ≈ one ~10 MB range/step, 41 six-hourly steps to 240 h, 00z/12z
-  cycles, 9 h lag). Payload carries per-hour `spectral{consistency,missed[]}`, per-swell
-  `spread`, `spectral_meta`, ECMWF CC-BY attribution; ECMWF swh = 5th agreement member.
-  Guard already caught a real unaccounted 10–12 s band on 2026-07-25 at Beit Yanai
-  (the old calibration watch-item date). `run` is ~2 min slower (shared global fetch).
-- **3-way buoy A/B running**: `archive --wave-source all` (VM default via git pull,
-  verified live 11:09 UTC cycle) writes `<buoy>.ecmwf.jsonl` (hs / tp=pp1d↔DPD / mwd
-  + mwp/mp2 for the consistency model-leg). `verify --archive --source ecmwf` works.
-- **Spectra harness done + first verdicts** (`spectra.py`, `verify --spectra`):
-  NDBC `.data_spec`/`.swr1` → moments (Tp/Tm-1,0/Tm02, Goda Qp), σ=√(2(1−r1))@peak.
-  12-station ~22k-hr sweep (CALIBRATION.md, two entries dated 2026-07-23): discus-hull
-  σ is instrument-broadened (39–64°) — never tune from it; Waverider truth moved
-  `SPREAD_LONG_SWELL_DEG` 15→24 (only knob changed); proxy↔Qp positive at all 12
-  stations (+0.34…+0.72). 4 CDIP Waverider stations added (`data/buoys/cdip.yaml`).
-- **Swell events**: `events.py` (spec-exact + floored median + GOOD-at-peak gates) →
-  payload `events[]`. In production data from the 14:20 UTC VM cycle onward. NOT yet
-  rendered in the web UI.
-- **Web deployed** (rosa-rust.vercel.app): "Sets" 4th quality bar (day-mean
-  consistency) + amber missed-swell note under the day title; `types.ts` mirrors all
-  new payload fields. Verified headless on the Jul-25 day (screenshot, 0 console errors).
-- **Infra** (VM design unchanged: rosa-instance 82.70.218.149, cron 4×/day publish.sh —
-  see CLAUDE.md + memory): NEW `rosa-backup` micro claimed (public 82.70.222.233,
-  private 10.0.0.11); nightly 03:40 UTC rsync of `data/verify/` from rosa-instance
-  (first sync verified, 27 files). A1 4/24 capacity watcher running on rosa-instance
-  (`~/arm-watch.log`, auto-launches `rosa-arm` on capacity; OUT_OF_HOST_CAPACITY all
-  session). Two OCI accounts: local `~/.oci/config` [DEFAULT]=Frankfurt (abandoned),
-  [ISRAEL]=live infra (key `~/.oci/israel_api_key.pem`); VM's DEFAULT = Israeli.
-  Watcher and backup-cron are NOT reboot-persistent.
+- **Web Push is LIVE end-to-end and verified on the user's Samsung phone** (real
+  FCM sends from this machine). rosa-push.vercel.app (Vercel project `rosa-push`,
+  private Blob store `rosa-push-subs`) stores subscriptions; `rosa-pipeline notify`
+  groups events (one swell = ONE push; region + peaks ≤12 h + dirs ≤45°) and sends
+  via pywebpush. Committed & pushed through 52340b4; VM pulled it and a dry-run
+  found 85 real events → 7 groups → 2 pushes planned for the user's favorites.
+  From the 20:20 UTC cron cycle on, the VM sends real swell pushes by itself.
+- **DESIGN RULE (user, memory + CLAUDE.md): events surface ONLY as push.** Banner,
+  Today alert strips, canvas share card were built, reviewed, and deleted. Also
+  removed on review: Stage-3b "Sets" bar, amber missed-swell note, Profile "Spots"
+  card. Do not rebuild any of these.
+- **UNCOMMITTED batch (working tree, ~744 lines — user knows, says "commit" to ship):**
+  feedback loop (evening 👍👎 push w/ lock-screen actions + next-open retro prompt +
+  Profile "Spot feedback" toggle + `/api/feedback` + VM pull into
+  data/verify/feedback), map locate/north fabs + geo cache-bust, themed bottom-left
+  attribution, tide extreme time labels, `tide_best` field. All tested (230 pipeline
+  tests, tsc clean) and DEPLOYED to rosa-rust.vercel.app + rosa-push — but the VM
+  runs committed code only, so evening feedback asks + `tide_best` in payloads are
+  INERT until commit+push.
+- Notification icon anatomy (tested on One UI): left tile = Android app identity
+  (uncontrollable), right slot NEVER stays empty (icon → image; none → "R" monogram;
+  transparent PNG → still monogram). Shipped: waves badge in the right slot on
+  Android, brand tile on desktop, waves as status-bar badge.
+- Secrets: VAPID private key VM-only (`~/rosa-push/vapid_private.pem`), backup +
+  admin secret in gitignored `web/.oracle/` (also in scratchpad, dies with session).
+  VM `~/rosa/.env` has PUSH_SUBS_URL/PUSH_ADMIN_SECRET/VAPID_* (5 vars).
+- rosa-demo.vercel.app = public throwaway deploy w/ synthetic events (CORS-allowed
+  at the push API) for look-and-feel testing. LAN review server was
+  `npm run dev -- --host --port 5173` from web/ (background task, dies with session).
+- Fixed in prod: `--accent` CSS token was corrupted ("#Splash image not mirrored").
 
 ## Active Files
-- `pipeline/src/rosa_pipeline/ecmwf.py` — NEW: ECMWF open-data source (index+range, capture/replay)
-- `pipeline/src/rosa_pipeline/spectral.py` — NEW: missed-swell / consistency / spread (+ calibrated constant)
-- `pipeline/src/rosa_pipeline/spectra.py` — NEW: NDBC measured-spectra harness
-- `pipeline/src/rosa_pipeline/events.py` — NEW: swell-event detection
-- `pipeline/src/rosa_pipeline/{models,extract,publish,verify,archive,cli}.py` — wiring (SpectralSea,
-  hour join ≤3 h, payload blocks, events[], `.ecmwf` keys, `--spectra`, `--wave-source all`)
-- `pipeline/tests/test_{ecmwf,spectral,spectra,events}.py` + fixtures `tests/fixtures/{ecmwf,spectra}/`
-  (real captures; the ecmwf grib fixture is 4.4 MB — flagged, user accepted)
-- `data/buoys/cdip.yaml` — NEW: 4 Waverider stations
-- `web/src/types.ts`, `web/src/pages/SpotPage.tsx`, `web/src/styles.css` — spectral UI
-- `docs/CALIBRATION.md`, `docs/rosa-stage3-plan.md`, `CLAUDE.md` — synced to all of the above
+- pipeline/src/rosa_pipeline/notify.py — sender: event grouping + feedback-ask planning + pull_feedback (uncommitted half)
+- pipeline/tests/test_notify.py — 27 tests incl. feedback planning/dedupe-merge
+- pipeline/src/rosa_pipeline/{models,spots,publish}.py — `tide_best` low|mid|high passthrough (validated, never derived)
+- pipeline/src/rosa_pipeline/cli.py — `notify` cmd (+feedback_dir wiring)
+- deploy/push-api/api/{sub,subs,feedback}.js — subscription store + admin + feedback drop-box (private Blob)
+- deploy/oracle/publish.sh — step 4: notify (guarded by env presence) [committed]
+- web/src/push.ts — subscribe/unsubscribe/sync (+feedback pref rides on sub record)
+- web/src/feedback.ts — NEW: stash day's promise on spot view → next-open 👍👎 prompt → POST
+- web/public/push-sw.js — push/notificationclick handlers, 👍👎 actions POST from SW, per-platform icons
+- web/src/pages/SettingsPage.tsx — Swell alerts + Spot feedback toggles (Spots card removed)
+- web/src/pages/{TodayPage,SpotPage}.tsx — FeedbackRow; `?ev=` deep link (hashchange-reactive); stashView
+- web/src/pages/MapPage.tsx — locate fab (refreshPosition), north compass fab, attribution bottom-left collapsed
+- web/src/geo.ts — refreshPosition() busts the session null-cache (the "location not picked up" bug)
+- web/src/components/TideSection.tsx — Surfline-style time+height labels at tide extremes; tide_best line
 
 ## Changes Made This Session
-1. Live spikes first: ECMWF index format/lag (00z fully published by ~10:15 UTC; 06/18z
-   skipped — 90 h horizon only), pygrib shortNames (`h1012`…), NDBC spectral file formats.
-2. Built 3b member + spectral-lite pure functions; joined per published hour (nearest
-   6-hourly step ≤3 h); consistency anchors from JONSWAP/PM ratios (documented proxies).
-3. Missed-swell accounting is deliberately conservative: a partition's FULL height
-   credits a (±1 s padded) band — a guard must not cry wolf; residual RMS ≥0.3 m surfaces.
-4. Committed e9ed2d2; built spectra harness (2502517); ARCHIVE_PARAMS gained mwp/mp2
-   (`rows_from_spectral`) so the model-side consistency leg matures in the archive.
-5. Pushed; manually ran the VM publish cycle; verified `.ecmwf` keys + spectral fields
-   in deployed rosa-data payloads.
-6. OCI: generated a dedicated Israeli-account API key (user uploaded via console; user
-   REJECTED reusing the Frankfurt keypair — keep accounts separate), discovered OCIDs
-   from rosa-instance, installed oci-cli on the VM (`uv tool install oci-cli`), started
-   the 4/24 watcher. First auth attempt 401'd — IAM propagation (~20 s), not a bug.
-7. User picked all 4 parallel tracks (micro, web, events, CDIP) → built in that order;
-   committed d6c7359 / 9e5b460 / 606de76; pushed; web deployed.
-8. Spread knob 15→24 justified as measured-truth calibration (1,471 Waverider ≥14 s
-   hours, two independent instruments) — logged in CALIBRATION.md before changing.
+1. Built alerts 3 ways (banner/strips/share-card) → user killed all in-app chrome →
+   push-first rule saved to memory. `?ev=` deep link kept (notification landing).
+2. Web Push infra: VAPID keypair, rosa-push project + private Blob, SW handlers via
+   workbox `importScripts` (generateSW kept), Profile toggle w/ surfaced errors.
+   Committed as 5 commits (e92db54..52340b4), pushed, VM rolled out + dry-run verified.
+3. Real push test loop with user: SW updates need app force-close+reopen on Android;
+   CORS allowlist needed rosa-demo; icon probe rounds (see anatomy above).
+4. Feedback loop (user: "Love it" + demanded "Spot feedback" toggle): evening ask
+   17:00–22:00 spot-local, GOOD+ days, favorites only, hard 1/day/device;
+   lock-screen 👍👎 answered by SW POST; retro prompt next open; VM pulls rows into
+   the `feedback --report` store then prunes server-side.
+5. UI corrections one-by-one (each deployed): Spots card removed; map locate+north
+   fabs; attribution themed/bottom-left/collapsed (out-specify
+   `.maplibregl-ctrl-attrib.maplibregl-compact`, collapse again on map `load`);
+   locate aligned w/ attribution chip (+10px maplibre margin quirk); tide extreme
+   labels (HTML overlay — svg is stretch-scaled); `tide_best` end-to-end (no data
+   filled yet — local knowledge only, user fills YAML).
 
 ## Failed Attempts
-- `tests/test_events.py` importing `from tests.test_spectral import SPOT` —
-  ModuleNotFoundError (tests aren't a package). Inline the fixture Spot instead.
-- First ssh nohup of publish.sh held the session open ~25 min (stdin not redirected);
-  `< /dev/null` fixes detachment.
-- 51101 has no `.data_spec` → harness crashed on 404 mid-sweep; now returns an honest
-  "no spectral files" message (fixed in d6c7359).
-- Headless "today" screenshot caught the splash overlay despite waiting for
-  `.why-bars` — wait for the splash fade (or screenshot after an interaction) instead.
-- Frankfurt grabber path is dead: local [DEFAULT] creds authenticate but that tenancy
-  is only subscribed to eu-frankfurt-1; Always-Free compute is home-region-only.
+- Payload-side icon removal on Android: omitting `icon` → "R" monogram; fully
+  transparent PNG → still monogram. The right slot cannot be blanked on One UI.
+- `vercel blob store add` (wrong syntax → `create-store`); PATCH project API for
+  preview protection → 403, CLI has no raw token (plugin auth) → used a throwaway
+  prod project (rosa-demo) instead of protected previews.
+- Geolocation on the LAN dev URL can never work (http = insecure origin) — locate
+  button only works on https (prod).
+- Vite 6 dev server loses `public/data` when sync-data rm-rf's it mid-session →
+  serves index.html for /data/* → "JSON.parse unexpected character" — fix: restart
+  dev server after any `npm run build` while it runs.
+- `tests/` imports between test files fail (not a package) — inline fixtures.
+- Background tasks / new shells reset cwd to repo root — `cd web` explicitly.
 
 ## Next Step
-Check the A1 watcher: `ssh -i web/.oracle/ssh-key-2026-07-23.key ubuntu@82.70.218.149
-'tail ~/arm-watch.log'` — if `rosa-arm` landed, bootstrap it (aarch64; earmarked for
-Stage 4 + heavy verify jobs, NOT the publish cron; smoke pygrib wheels first).
-
-Then, in order:
-1. ~2026-07-30 (archives mature): Stage 2E tuning (input de-bias + Israel refit
-   together) AND the 3-way source verdict — `verify --buoy <id> --archive --source
-   om|gfswave|ecmwf` per region; promote GFS-Wave where it wins (full ForecastSource
-   swap per docs/rosa-stage3-plan.md §3a).
-2. 3b acceptance leftovers (archive-gated): missed-swell backtest; model-side
-   consistency check (archived mwp/mp2/tp vs `verify --spectra` measured Qp).
-3. Web: render `events[]` (alerts/swell-stories surface).
-4. If the 4/24 watcher stays dry for days: drop to `OCPUS=2 MEM_GB=12` (sometimes
-   launchable when 4/24 isn't).
+1. User says "commit" → commit the uncommitted batch (suggest: feat(pipeline) notify
+   feedback loop; feat(push-api) feedback endpoint; feat(web) feedback UI + map fixes
+   + tide labels + tide_best; conventional, small) → push → VM picks up next cycle;
+   then check `~/rosa/publish.log` after 20:20 UTC for "notify:" lines (swell pushes
+   + `notify: N feedback rows pulled`).
+2. Watch item: tonight's first autonomous pushes incl. "Epic at Zvulun ~0.8 m WNW"
+   (calibration-suspect — Stage 2E fodder).
+3. ~2026-07-30 archives mature: Stage 2E tuning + 3-way source verdict
+   (`verify --buoy <id> --archive --source om|gfswave|ecmwf`) + 3b acceptance.
+4. Parked: spot-DB ODbL seed; A1 watcher reboot-persistence; user fills `tide_best`
+   values in data/spots/*.yaml.
