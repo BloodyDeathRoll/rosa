@@ -2247,3 +2247,10 @@ a.rank-card:hover {
   color: var(--foreground);
   font-weight: 700;
 }
+
+/* Stage-3b missed-swell hint — quiet amber note under the day title */
+.missed-note {
+  padding: 0 16px 8px;
+  font-size: 12.7px;
+  color: var(--warn-orange);
+}

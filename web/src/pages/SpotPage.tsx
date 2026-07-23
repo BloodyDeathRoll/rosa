@@ -45,16 +45,24 @@ const pmOf = (hours: HourEntry[]) =>
     return H >= 12 && H <= 18;
   });
 
-/** Size / Period / Wind quality bars for the selected day (mock's bars3). */
+/** Size / Period / Wind quality bars for the selected day (mock's bars3), plus a
+    "Sets" bar from the ECMWF consistency proxy (setty 100 … lully 0) when the day
+    is inside the spectral member's horizon. */
 function DayBars({ day, hours }: { day: DayEntry; hours: HourEntry[] }) {
   const per = Math.max(0, ...hours.map((h) => h.swells.find((s) => s.in_window)?.period ?? 0));
   const pm = pmOf(hours);
   const pmKts = pm.length > 0 ? Math.max(...pm.map((h) => knots(h.wind.kph))) : 0;
+  const cons = hours
+    .map((h) => h.spectral?.consistency)
+    .filter((v): v is number => v !== undefined);
   const bars = [
     { l: "Size", q: Math.min(1, day.h_max[1] / 1.3) },
     { l: "Period", q: Math.min(1, per / 9) },
     { l: "Wind", q: hours.length > 0 ? Math.max(0.12, 1 - pmKts / 22) : 0 },
   ];
+  if (cons.length > 0) {
+    bars.push({ l: "Sets", q: cons.reduce((a, b) => a + b, 0) / cons.length / 100 });
+  }
   return (
     <div class="why-bars">
       {bars.map((b) => (
@@ -88,6 +96,14 @@ function dayNote(days: DayEntry[], i: number, hours: HourEntry[]): string {
   if (amClean && pmBlown) return "Clean early, blown out by noon";
   if (d.bucket === "POOR") return "Barely waves";
   return "Workable windows";
+}
+
+/** The day's biggest unaccounted period-band energy (Stage-3b missed-swell guard),
+    or null when every band is explained by the listed swells. */
+function missedOf(hours: HourEntry[]) {
+  const all = hours.flatMap((h) => h.spectral?.missed ?? []);
+  if (all.length === 0) return null;
+  return all.reduce((a, b) => (b.h > a.h ? b : a));
 }
 
 /** Minutes-of-day (spot-local) of an hourly slot's start, e.g. "…T03:00" → 180. */
@@ -431,6 +447,15 @@ export function SpotPage({ id }: { id: string }) {
             </b>
             <span>{dayNote(days, i, dayHours)}</span>
           </div>
+          {(() => {
+            const missed = missedOf(dayHours);
+            return missed ? (
+              <div class="missed-note">
+                Extra {missed.t[0]}–{missed.t[1]} s swell energy (~{fmtH(missed.h, units)}{" "}
+                {heightUnit(units)}) the listed swells don't explain
+              </div>
+            ) : null;
+          })()}
           <div class="hour-grid head" aria-hidden="true">
             <span />
             <span />
