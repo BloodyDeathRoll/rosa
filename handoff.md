@@ -151,15 +151,17 @@ Shipped today (`4aea2e5`, `df834fe`):
 - `docs/spot-db-research.md` / `docs/spot-mapping-approach.md` — spot-DB strategy + sat loop.
 - `docs/rosa-surfline-teardown.md` / `docs/rosa-build-plan.md` — original blueprints.
 
-## WHAT'S NEXT (agreed at session end)
-1. **Wait for the VM archive to mature (~1 week from 2026-07-23)**, then
-   `verify --buoy <id> --archive` → confirm the Pacific hot-bias per lead-time → the real
-   tuning pass (input de-bias + Israel refit + γ/rideability/residual, i.e. Stage 2E). This is
-   deliberately blocked on data, not effort — don't "tune" earlier.
-2. **Web: wire the real tide series** into TideSection (types.ts + component + high/low).
-3. Worldwide spot-DB scale-up (ODbL seed) — sequenced AFTER calibration per user decision;
-   automation (its prerequisite) is now done.
-4. Update CLAUDE.md's algorithm section + session log to Stage-2 reality (flagged above).
+## WHAT'S NEXT (updated 2026-07-23 PM)
+1. **Build Stage 3a** — raw GFS-Wave ForecastSource + dual-source (OM vs NOAA) buoy archive
+   A/B. Plan + live-verified spikes: `docs/rosa-stage3-plan.md`. Start this in a FRESH session
+   off that plan. (User asked "Fable or Opus?" → Fable 5 recommended.)
+2. **Stage 2E tuning** — still blocked until the VM archive matures (~2026-07-30); by then the
+   dual-source A/B (if 3a lands) doubles the value of the same wait. Don't tune earlier.
+3. Stage 3b (ECMWF spectral-lite: period bands / missed-swell guard / consistency proxy /
+   parametric-spread bound) — after 3a. Stage 4 (own SWAN/WW3) after 3; VM size is the flag.
+4. Worldwide spot-DB scale-up (ODbL seed) — after calibration, per user decision.
+5. ✅ DONE 2026-07-23 PM: real tide wired into web (mock M2 sine gone); centered empty
+   states (Spots favorites / map sheet constant height). Deployed (f1ec68e).
 
 ## PROCESS LESSONS — the reason this file is exhaustive. DO NOT REPEAT.
 1. **2026-07-23 incident**: this session designed and shipped a systemd + GitHub-Actions
