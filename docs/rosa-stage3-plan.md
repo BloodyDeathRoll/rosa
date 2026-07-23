@@ -49,6 +49,17 @@ when Stage 4 runs WW3/SWAN ourselves.
   before it becomes primary anywhere; OM stays the global fallback + the day-10–16 tail.
 
 ## 3b — Spectral-lite via ECMWF *(reduced, honest scope)*
+> **BUILT 2026-07-23** (`ecmwf.py` + `spectral.py`): index-driven byte-range fetches (our
+> 11 params coalesce to ONE ~10 MB range/step; 41×6-hourly steps to 240 h; 00z/12z cycles,
+> 9 h lag) → `SpectralSea` joined per published hour (nearest ≤3 h). Missed-swell guard,
+> consistency proxy and parametric spread live in the payload (`spectral` per hour,
+> `spread` per swell, `spectral_meta` labels spread modeled); ECMWF swh joins the Stage-1
+> agreement pool (5 members); `archive --wave-source all` (new default — VM auto-adopts)
+> writes `<buoy>.ecmwf.jsonl` (hs/pp1d/mwd, ~46 s/cycle) and `verify --archive --source
+> ecmwf` scores it (pp1d↔DPD). Live-smoked at Beit Yanai (+~2 min/run; guard already
+> surfaced an unaccounted 10–12 s band on 07-25) and Waimea. **Remaining for 3b
+> acceptance:** the NDBC measured-spectra harness (spread error bound + consistency
+> correlation) and the missed-swell backtest once archives mature.
 - **Second member:** fetch ECMWF wave stream (swh/mwp/mwd/pp1d/mp2 + period bands) at the
   offshore points — this is also the Stage-1 multi-model confidence axis (two birds).
 - **Missed-swell guard:** if a period band ≥10 s carries height that no partition accounts

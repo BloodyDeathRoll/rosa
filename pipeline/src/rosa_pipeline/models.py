@@ -43,6 +43,24 @@ class Spot:
 
 
 @dataclass(frozen=True, slots=True)
+class SpectralSea:
+    """ECMWF open-data wave fields at a point/hour (Stage 3b spectral-lite).
+
+    Periods are three different integral measures of the 1-D spectrum — their ratios
+    estimate spectral narrowness (the consistency proxy). ``bands`` holds the six
+    period-banded significant heights (h1012..h2530), a coarse 1-D spectrum over the
+    groundswell range that neither Open-Meteo nor NOAA gridded expose."""
+
+    time: datetime  # tz-aware UTC
+    swh: float | None = None  # combined significant wave height, m
+    mwd: float | None = None  # mean wave direction, deg
+    mwp: float | None = None  # mean period Tm-1,0, s (energy period)
+    pp1d: float | None = None  # peak period Tp, s
+    mp2: float | None = None  # mean zero-crossing period Tm02, s
+    bands: tuple[tuple[str, float], ...] = ()  # (param, Hs m), e.g. ("h1417", 0.4)
+
+
+@dataclass(frozen=True, slots=True)
 class HourForecast:
     time: datetime  # tz-aware UTC
     partitions: tuple[SwellPartition, ...]
@@ -57,6 +75,9 @@ class HourForecast:
     # None when no ensemble was fetched (older fixtures) → confidence falls back to horizon
     agreement_score: float | None = None
     n_models: int = 0
+    # ECMWF spectral-lite member joined to this hour (Stage 3b); None when the member
+    # wasn't fetched or the hour is beyond its 240 h horizon
+    spectral: SpectralSea | None = None
 
 
 @dataclass(frozen=True, slots=True)

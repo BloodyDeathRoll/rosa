@@ -38,6 +38,9 @@ GFSWAVE_VARIABLES = (
     ("dir", "Wave direction", "°", "dir", "mwd_deg", True),
 )
 
+# ECMWF archive rows store pp1d — also a peak period, same DPD pairing (Stage 3b).
+ECMWF_VARIABLES = GFSWAVE_VARIABLES
+
 
 @dataclass(frozen=True, slots=True)
 class WavePoint:

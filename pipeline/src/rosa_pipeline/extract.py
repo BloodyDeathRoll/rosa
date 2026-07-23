@@ -2,11 +2,16 @@
 
 from __future__ import annotations
 
-from datetime import UTC, datetime
+from bisect import bisect_left
+from datetime import UTC, datetime, timedelta
 
-from .confidence import agreement_at
+from .confidence import agreement_from_heights, member_heights_at
 from .fetch import RawForecast
-from .models import HourForecast, SwellPartition
+from .models import HourForecast, SpectralSea, SwellPartition
+
+# a 3-hourly published hour joins the nearest 6-hourly ECMWF step within this — the
+# spectral-shape quantities it feeds vary over hours, not minutes
+SPECTRAL_JOIN_TOL_H = 3.0
 
 _SWELL_PREFIXES: tuple[tuple[str, str], ...] = (
     ("swell_wave", "swell"),
@@ -65,7 +70,26 @@ def _partition(hourly: dict, prefix: str, kind: str, i: int) -> SwellPartition |
     )
 
 
-def extract_hours(raw: RawForecast) -> list[HourForecast]:
+def _nearest_spectral(
+    t: datetime, spectral: list[SpectralSea], times: list[datetime]
+) -> SpectralSea | None:
+    """Nearest ECMWF step within SPECTRAL_JOIN_TOL_H (``times`` = sorted spectral times)."""
+    if not spectral:
+        return None
+    i = bisect_left(times, t)
+    best: SpectralSea | None = None
+    best_gap = timedelta(hours=SPECTRAL_JOIN_TOL_H)
+    for j in (i - 1, i):
+        if 0 <= j < len(spectral):
+            gap = abs(spectral[j].time - t)
+            if gap <= best_gap:
+                best, best_gap = spectral[j], gap
+    return best
+
+
+def extract_hours(
+    raw: RawForecast, spectral: list[SpectralSea] | None = None
+) -> list[HourForecast]:
     marine = _merge_models(raw.marine["hourly"])
     weather = raw.weather["hourly"]
     weather_index = {t: i for i, t in enumerate(weather["time"])}
@@ -73,6 +97,9 @@ def extract_hours(raw: RawForecast) -> list[HourForecast]:
     # different horizon/ordering can't misalign it. Absent in pre-Stage-1 fixtures → None.
     ens = raw.ensemble["hourly"] if raw.ensemble else None
     ens_index = {t: i for i, t in enumerate(ens["time"])} if ens else {}
+    # ECMWF spectral-lite member (Stage 3b), joined per hour by nearest step
+    sp_series = sorted(spectral or [], key=lambda s: s.time)
+    sp_times = [s.time for s in sp_series]
     # SST comes only from best_match (~9 days); carry the last real reading into the
     # GFS-Wave tail so extended days still show a water temp (it drifts ~1 C/week).
     last_sst: float | None = None
@@ -94,10 +121,19 @@ def extract_hours(raw: RawForecast) -> list[HourForecast]:
         sst = marine["sea_surface_temperature"][i]
         if sst is not None:
             last_sst = sst
-        agreement = agreement_at(ens, ens_index[t]) if ens is not None and t in ens_index else None
+        time = datetime.fromisoformat(t).replace(tzinfo=UTC)
+        sp = _nearest_spectral(time, sp_series, sp_times)
+        # the ECMWF member joins the OM ensemble as one more independent voice in the
+        # per-hour agreement (Stage 1 confidence axis — the plan's "two birds")
+        member_hs = (
+            member_heights_at(ens, ens_index[t]) if ens is not None and t in ens_index else []
+        )
+        if sp is not None and sp.swh is not None:
+            member_hs = [*member_hs, sp.swh]
+        agreement = agreement_from_heights(member_hs)
         hours.append(
             HourForecast(
-                time=datetime.fromisoformat(t).replace(tzinfo=UTC),
+                time=time,
                 partitions=partitions,
                 sst_c=sst if sst is not None else last_sst,
                 wind_speed_kph=weather["wind_speed_10m"][j],
@@ -110,6 +146,7 @@ def extract_hours(raw: RawForecast) -> list[HourForecast]:
                 tide_m=(sl[i] if (sl := marine.get("sea_level_height_msl")) is not None else None),
                 agreement_score=agreement.score if agreement else None,
                 n_models=agreement.n_models if agreement else 0,
+                spectral=sp,
             )
         )
     return hours

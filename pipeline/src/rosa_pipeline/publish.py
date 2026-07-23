@@ -11,10 +11,12 @@ from astral import Observer
 from astral.sun import sun
 
 from .models import ScoredHour, Spot
+from .spectral import consistency_score, missed_swells, parametric_spread_deg
 from .transform import in_window
 
 MODEL_NAME = "open-meteo:best_match (marine + forecast v1)"
 ATTRIBUTION = "Weather data by Open-Meteo.com (CC-BY 4.0)"
+ATTRIBUTION_ECMWF = "Wave spectra: ECMWF open data (CC-BY 4.0)"
 TABLE_DAYS = 16
 TABLE_STEP_H = 3
 OUTLOOK_DAYS = 16
@@ -62,8 +64,33 @@ def _day_agreement(day_hours: list[ScoredHour]) -> float | None:
     return sum(scores) / len(scores) if scores else None
 
 
+def _spectral_entry(s: ScoredHour) -> dict | None:
+    """ECMWF spectral-lite block (Stage 3b): consistency 0-100 + any missed swells.
+    Omitted entirely when the member wasn't joined to this hour (beyond its 240 h
+    horizon, or the fetch failed) — an absent key is honest, a fabricated one isn't."""
+    sea = s.hour.spectral
+    if sea is None:
+        return None
+    out: dict = {}
+    consistency = consistency_score(sea)
+    if consistency is not None:
+        out["consistency"] = consistency
+    missed = [
+        {
+            "t": [m.period_lo_s, m.period_hi_s],
+            "h": _r(m.height_m, 1),
+            # deep-water energy flux of the unaccounted band, kW/m (mid-band period)
+            "energy": _r(0.49 * m.height_m**2 * (m.period_lo_s + m.period_hi_s) / 2.0, 1),
+        }
+        for m in missed_swells(sea, s.hour.partitions)
+    ]
+    if missed:
+        out["missed"] = missed
+    return out or None
+
+
 def _hour_entry(spot: Spot, s: ScoredHour, tz: ZoneInfo) -> dict:
-    return {
+    entry = {
         "t": s.hour.time.astimezone(tz).isoformat(timespec="minutes"),
         "rating": s.rating,
         "bucket": s.bucket,
@@ -90,10 +117,17 @@ def _hour_entry(spot: Spot, s: ScoredHour, tz: ZoneInfo) -> dict:
                 "dir": p.direction_deg,
                 "kind": p.kind,
                 "in_window": in_window(p.direction_deg, spot.swell_window),
+                # assumed directional spread by partition class — modeled, not observed
+                # (see payload spectral_meta); replaced by measured spread at Stage 4
+                "spread": round(parametric_spread_deg(p)),
             }
             for p in s.hour.partitions
         ],
     }
+    spectral = _spectral_entry(s)
+    if spectral is not None:
+        entry["spectral"] = spectral
+    return entry
 
 
 def build_payload(spot: Spot, scored: list[ScoredHour], *, fetched_at: str, now: datetime) -> dict:
@@ -140,6 +174,7 @@ def build_payload(spot: Spot, scored: list[ScoredHour], *, fetched_at: str, now:
             }
         )
 
+    has_spectral = any(s.hour.spectral is not None for s in scored)
     return {
         "spot": {
             "id": spot.id,
@@ -152,7 +187,15 @@ def build_payload(spot: Spot, scored: list[ScoredHour], *, fetched_at: str, now:
         "model": MODEL_NAME,
         "fetched_at": fetched_at,
         "generated_at": now.isoformat(timespec="seconds"),
-        "attribution": ATTRIBUTION,
+        "attribution": (
+            f"{ATTRIBUTION} · {ATTRIBUTION_ECMWF}" if has_spectral else ATTRIBUTION
+        ),
+        # transparency labels for the Stage-3b fields ("why this rating" principle):
+        # swell spread is a per-class assumption until validated against buoy spectra
+        "spectral_meta": {
+            "member": "ecmwf-ifs-0p25 (open data)" if has_spectral else None,
+            "spread": "parametric (modeled)",
+        },
         "current": current_entry,
         "hours": [_hour_entry(spot, s, tz) for s in table_hours],
         "days": days,

@@ -31,6 +31,7 @@ from .bathymetry import (
     load_profile,
 )
 from .buoys import Buoy, load_all_buoys, nearest_buoys
+from .ecmwf import ARCHIVE_PARAMS, EcmwfFixtureSource, EcmwfSource, EcmwfWaves
 from .extract import extract_hours
 from .feedback import (
     BUCKET_ORDER,
@@ -49,8 +50,10 @@ from .publish import build_payload, update_index, write_spot_json
 from .score import score_hour
 from .spots import load_spots
 from .verify import (
+    ECMWF_VARIABLES,
     GFSWAVE_VARIABLES,
     VARIABLES,
+    WavePoint,
     build_scorecard,
     lead_time_scorecard,
     parse_marine_waves,
@@ -58,8 +61,12 @@ from .verify import (
     render_scorecard,
 )
 
-# dual-source archive keys: OM rows live at "<buoy>", GFS-Wave rows at "<buoy>.gfswave"
+# multi-source archive keys: OM rows live at "<buoy>", GFS-Wave at "<buoy>.gfswave",
+# ECMWF at "<buoy>.ecmwf"
 GFSWAVE_KEY_SUFFIX = ".gfswave"
+ECMWF_KEY_SUFFIX = ".ecmwf"
+SOURCE_KEY_SUFFIX = {"om": "", "gfswave": GFSWAVE_KEY_SUFFIX, "ecmwf": ECMWF_KEY_SUFFIX}
+SOURCE_VARIABLES = {"om": VARIABLES, "gfswave": GFSWAVE_VARIABLES, "ecmwf": ECMWF_VARIABLES}
 
 ARCHIVE_DIR = Path("data/verify/archive")
 ISRAMAR_DIR = Path("data/verify/isramar")  # local-only, gitignored (all-rights-reserved)
@@ -81,6 +88,13 @@ def _build_parser() -> argparse.ArgumentParser:
         "--fixtures", type=Path, default=None, help="replay captured responses (offline)"
     )
     run.add_argument("--capture", type=Path, default=None, help="capture raw responses to this dir")
+    run.add_argument(
+        "--ecmwf-fixtures",
+        type=Path,
+        default=None,
+        help="replay captured ECMWF gribs (offline); with --fixtures alone the spectral "
+        "member is skipped",
+    )
 
     verify = sub.add_parser("verify", help="score the offshore model against buoy observations")
     target = verify.add_mutually_exclusive_group(required=True)
@@ -100,10 +114,10 @@ def _build_parser() -> argparse.ArgumentParser:
     verify.add_argument("--archive-dir", type=Path, default=ARCHIVE_DIR)
     verify.add_argument(
         "--source",
-        choices=["om", "gfswave"],
+        choices=["om", "gfswave", "ecmwf"],
         default="om",
-        help="with --archive: which archived source to score (Stage 3a A/B). "
-        "gfswave pairs its peak period with buoy DPD",
+        help="with --archive: which archived source to score (Stage 3a/3b A/B). "
+        "gfswave/ecmwf pair their peak period with buoy DPD",
     )
     verify.add_argument("--fixtures", type=Path, default=None, help="replay marine json (offline)")
     verify.add_argument("--obs-fixtures", type=Path, default=None, help="replay NDBC txt (offline)")
@@ -118,13 +132,17 @@ def _build_parser() -> argparse.ArgumentParser:
     archive.add_argument("--archive-dir", type=Path, default=ARCHIVE_DIR)
     archive.add_argument(
         "--wave-source",
-        choices=["om", "gfswave", "both"],
-        default="both",
-        help="which offshore sources to archive (Stage 3a dual-source A/B; default both)",
+        choices=["om", "gfswave", "ecmwf", "both", "all"],
+        default="all",
+        help="which offshore sources to archive (Stage 3a/3b multi-source A/B; "
+        "default all = om + gfswave + ecmwf, both = om + gfswave)",
     )
     archive.add_argument("--fixtures", type=Path, default=None, help="replay marine json (offline)")
     archive.add_argument(
         "--gfs-fixtures", type=Path, default=None, help="replay captured gribs (offline)"
+    )
+    archive.add_argument(
+        "--ecmwf-fixtures", type=Path, default=None, help="replay captured ECMWF gribs (offline)"
     )
     archive.add_argument("--capture", type=Path, default=None, help="capture responses to this dir")
 
@@ -192,9 +210,23 @@ def _cmd_run(args: argparse.Namespace) -> int:
     points = list(groups)
     raws = source.fetch_many(points)
 
+    # ECMWF spectral-lite member (Stage 3b) — guarded: an ECMWF outage must never sink
+    # the forecast run. Offline replay (--fixtures) skips it unless --ecmwf-fixtures.
+    spectral_series = [[] for _ in points]
+    ecmwf_src: EcmwfWaves | None = None
+    if args.ecmwf_fixtures is not None:
+        ecmwf_src = EcmwfFixtureSource(args.ecmwf_fixtures)
+    elif args.fixtures is None:
+        ecmwf_src = EcmwfSource(capture_dir=args.capture)
+    if ecmwf_src is not None:
+        try:
+            spectral_series = ecmwf_src.fetch_series(points)
+        except Exception as e:
+            print(f"warn: ecmwf spectral member skipped: {e}", file=sys.stderr)
+
     published = 0
-    for point, raw in zip(points, raws, strict=True):
-        hours = extract_hours(raw)
+    for point, raw, spectral in zip(points, raws, spectral_series, strict=True):
+        hours = extract_hours(raw, spectral=spectral)
         if not hours:
             # a derived point that landed on a dry grid cell — skip its spots, keep going
             ids = ", ".join(s.id for s in groups[point])
@@ -272,14 +304,13 @@ def _cmd_verify(args: argparse.Namespace) -> int:
     for buoy, dist in targets:
         obs = _obs_for(buoy, args)
         if args.archive:
-            gfs = args.source == "gfswave"
-            key = buoy.id + (GFSWAVE_KEY_SUFFIX if gfs else "")
+            key = buoy.id + SOURCE_KEY_SUFFIX[args.source]
             rows = FileArchiveStore(args.archive_dir).read(key)
             by_lead = lead_time_scorecard(
                 rows,
                 obs,
                 tol_min=args.tol_min,
-                variables=GFSWAVE_VARIABLES if gfs else VARIABLES,
+                variables=SOURCE_VARIABLES[args.source],
             )
             print(render_lead_scorecard(buoy, by_lead))
         else:
@@ -302,7 +333,7 @@ def _cmd_archive(args: argparse.Namespace) -> int:
 
     store = FileArchiveStore(args.archive_dir)
     now = datetime.now(UTC)
-    if args.wave_source in ("om", "both"):
+    if args.wave_source in ("om", "both", "all"):
         for buoy in targets:
             model = _model_for(buoy, args)
             rows = rows_from_model(now, model)
@@ -312,7 +343,7 @@ def _cmd_archive(args: argparse.Namespace) -> int:
                 f"{buoy.id}: archived {len(rows)} forecast rows @ {stamp}"
                 f" → {args.archive_dir / (buoy.id + '.jsonl')}"
             )
-    if args.wave_source in ("gfswave", "both"):
+    if args.wave_source in ("gfswave", "both", "all"):
         # Stage 3a A/B member. Guarded so a NOMADS outage never breaks OM archiving.
         try:
             src = (
@@ -331,6 +362,26 @@ def _cmd_archive(args: argparse.Namespace) -> int:
                 )
         except Exception as e:  # A/B member must never sink the essential archive
             print(f"warn: gfswave archive skipped: {e}", file=sys.stderr)
+    if args.wave_source in ("ecmwf", "all"):
+        # Stage 3b member — hs + peak period (pp1d ↔ DPD) + direction. Same guard.
+        try:
+            esrc: EcmwfWaves = (
+                EcmwfFixtureSource(args.ecmwf_fixtures, params=ARCHIVE_PARAMS)
+                if args.ecmwf_fixtures is not None
+                else EcmwfSource(capture_dir=args.capture, params=ARCHIVE_PARAMS)
+            )
+            points = [(b.lat, b.lon) for b in targets]
+            for buoy, series in zip(targets, esrc.fetch_series(points), strict=True):
+                model = [WavePoint(time=s.time, hs=s.swh, tp=s.pp1d, dir=s.mwd) for s in series]
+                rows = rows_from_model(now, model)
+                key = buoy.id + ECMWF_KEY_SUFFIX
+                store.append(key, rows)
+                print(
+                    f"{buoy.id}: archived {len(rows)} ecmwf rows"
+                    f" → {args.archive_dir / (key + '.jsonl')}"
+                )
+        except Exception as e:
+            print(f"warn: ecmwf archive skipped: {e}", file=sys.stderr)
     return 0
 
 
