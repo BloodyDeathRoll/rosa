@@ -10,6 +10,7 @@ from zoneinfo import ZoneInfo
 from astral import Observer
 from astral.sun import sun
 
+from .events import detect_events
 from .models import ScoredHour, Spot
 from .spectral import consistency_score, missed_swells, parametric_spread_deg
 from .transform import in_window
@@ -175,6 +176,20 @@ def build_payload(spot: Spot, scored: list[ScoredHour], *, fetched_at: str, now:
         )
 
     has_spectral = any(s.hour.spectral is not None for s in scored)
+    # swell events (CLAUDE.md spec): >= 12 h of >= 2x-baseline energy, GOOD+ at peak —
+    # the alerts/swell-stories seed; local-time ISO like every other timestamp here
+    events = [
+        {
+            "start": e.start.astimezone(tz).isoformat(timespec="minutes"),
+            "peak": e.peak.astimezone(tz).isoformat(timespec="minutes"),
+            "end": e.end.astimezone(tz).isoformat(timespec="minutes"),
+            "h_peak": e.peak_height_m,
+            "dir": e.direction_deg,
+            "rating": e.peak_rating,
+            "bucket": e.peak_bucket,
+        }
+        for e in detect_events(scored)
+    ]
     return {
         "spot": {
             "id": spot.id,
@@ -199,6 +214,7 @@ def build_payload(spot: Spot, scored: list[ScoredHour], *, fetched_at: str, now:
         "current": current_entry,
         "hours": [_hour_entry(spot, s, tz) for s in table_hours],
         "days": days,
+        "events": events,
     }
 
 
