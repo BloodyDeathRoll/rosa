@@ -4,11 +4,14 @@ The lasting scheduling home (roadmap §6). A small always-on VM runs the pipelin
 **persistent disk holds the forecast archive**, so Stage-0 skill accumulates and bias-correction
 gets unblocked — no fresh-checkout wipe, no R2 round-trip needed to accumulate.
 
+This VM is the **single scheduling home** — no GitHub Actions.
+
 **What the cron does:** `archive` (append the model's forecast at every buoy — the essential
-lead-time clock) + `run --all` (refresh per-spot forecasts). **No secrets required** — Open-Meteo
-and NDBC are keyless.
-**What it does *not* do (yet):** publish forecasts to users. That stays a CLI deploy from your
-machine for now; publishing from the VM (R2/Vercel) is a later follow-up.
+lead-time clock) + `run --all` (refresh per-spot forecasts) + **publish** (prebuilt deploy of
+`data/out` to the `rosa-data` Vercel project, served at `/data/**` — what the app fetches).
+**Secrets:** archive + run are keyless (Open-Meteo, NDBC). Publishing needs `VERCEL_TOKEN`,
+`VERCEL_ORG_ID`, and `VERCEL_PROJECT_ID` (the rosa-data project) in `~/.config/rosa/env`; until
+that file exists the cycle still archives + runs and just skips publishing.
 
 Split of work: **§1–2 are Oracle-console + auth steps only you can do; §3 is one command.**
 
