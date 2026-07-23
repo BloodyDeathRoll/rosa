@@ -1,189 +1,104 @@
-# Rosa — Session Handoff (rewritten 2026-07-23 after full project review)
+# Session Handoff — 2026-07-23 (session 7, PM)
 
-> **READ THIS WHOLE FILE, THEN CLAUDE.md, BEFORE ACTING. On any infra task, inspect the live
-> system FIRST (SSH/curl/console) — never trust snapshots, including this one, for IPs or
-> machine state.** This file was rewritten from scratch because a stale handoff caused a real
-> incident (see "Process lessons" at the bottom).
+## Goal
+Build accuracy-roadmap Stage 3b (ECMWF spectral-lite: second wave member, missed-swell
+guard, consistency proxy, parametric spread + measured validation), then parallel tracks
+while VM archives mature: swell-event detection, web rendering of the new fields, CDIP
+spread arbitration, and free-tier infra expansion (backup micro + A1 hunt).
 
-## What Rosa is (one line)
-Worldwide mobile-first PWA surf forecast: precompute everything on a schedule → static JSON on
-a CDN → thin Preact client. Free forever. Product truth: `CLAUDE.md`; blueprints:
-`docs/rosa-build-plan.md`, `docs/rosa-surfline-teardown.md`.
+## Current State
+Everything built this session is committed, pushed, and deployed. 203 pipeline tests
+green, ruff clean, web TS clean. Standing rule (from a real incident): on any infra
+task, inspect the live system first (SSH/console) — never trust this snapshot for IPs
+or machine state.
 
----
+- **3b member live in production**: `ecmwf.py` fetches ECMWF open data by index +
+  byte-range (11 params ≈ one ~10 MB range/step, 41 six-hourly steps to 240 h, 00z/12z
+  cycles, 9 h lag). Payload carries per-hour `spectral{consistency,missed[]}`, per-swell
+  `spread`, `spectral_meta`, ECMWF CC-BY attribution; ECMWF swh = 5th agreement member.
+  Guard already caught a real unaccounted 10–12 s band on 2026-07-25 at Beit Yanai
+  (the old calibration watch-item date). `run` is ~2 min slower (shared global fetch).
+- **3-way buoy A/B running**: `archive --wave-source all` (VM default via git pull,
+  verified live 11:09 UTC cycle) writes `<buoy>.ecmwf.jsonl` (hs / tp=pp1d↔DPD / mwd
+  + mwp/mp2 for the consistency model-leg). `verify --archive --source ecmwf` works.
+- **Spectra harness done + first verdicts** (`spectra.py`, `verify --spectra`):
+  NDBC `.data_spec`/`.swr1` → moments (Tp/Tm-1,0/Tm02, Goda Qp), σ=√(2(1−r1))@peak.
+  12-station ~22k-hr sweep (CALIBRATION.md, two entries dated 2026-07-23): discus-hull
+  σ is instrument-broadened (39–64°) — never tune from it; Waverider truth moved
+  `SPREAD_LONG_SWELL_DEG` 15→24 (only knob changed); proxy↔Qp positive at all 12
+  stations (+0.34…+0.72). 4 CDIP Waverider stations added (`data/buoys/cdip.yaml`).
+- **Swell events**: `events.py` (spec-exact + floored median + GOOD-at-peak gates) →
+  payload `events[]`. In production data from the 14:20 UTC VM cycle onward. NOT yet
+  rendered in the web UI.
+- **Web deployed** (rosa-rust.vercel.app): "Sets" 4th quality bar (day-mean
+  consistency) + amber missed-swell note under the day title; `types.ts` mirrors all
+  new payload fields. Verified headless on the Jul-25 day (screenshot, 0 console errors).
+- **Infra** (VM design unchanged: rosa-instance 82.70.218.149, cron 4×/day publish.sh —
+  see CLAUDE.md + memory): NEW `rosa-backup` micro claimed (public 82.70.222.233,
+  private 10.0.0.11); nightly 03:40 UTC rsync of `data/verify/` from rosa-instance
+  (first sync verified, 27 files). A1 4/24 capacity watcher running on rosa-instance
+  (`~/arm-watch.log`, auto-launches `rosa-arm` on capacity; OUT_OF_HOST_CAPACITY all
+  session). Two OCI accounts: local `~/.oci/config` [DEFAULT]=Frankfurt (abandoned),
+  [ISRAEL]=live infra (key `~/.oci/israel_api_key.pem`); VM's DEFAULT = Israeli.
+  Watcher and backup-cron are NOT reboot-persistent.
 
-## INFRASTRUCTURE — live systems (all verified working 2026-07-23 ~09:00 UTC)
+## Active Files
+- `pipeline/src/rosa_pipeline/ecmwf.py` — NEW: ECMWF open-data source (index+range, capture/replay)
+- `pipeline/src/rosa_pipeline/spectral.py` — NEW: missed-swell / consistency / spread (+ calibrated constant)
+- `pipeline/src/rosa_pipeline/spectra.py` — NEW: NDBC measured-spectra harness
+- `pipeline/src/rosa_pipeline/events.py` — NEW: swell-event detection
+- `pipeline/src/rosa_pipeline/{models,extract,publish,verify,archive,cli}.py` — wiring (SpectralSea,
+  hour join ≤3 h, payload blocks, events[], `.ecmwf` keys, `--spectra`, `--wave-source all`)
+- `pipeline/tests/test_{ecmwf,spectral,spectra,events}.py` + fixtures `tests/fixtures/{ecmwf,spectra}/`
+  (real captures; the ecmwf grib fixture is 4.4 MB — flagged, user accepted)
+- `data/buoys/cdip.yaml` — NEW: 4 Waverider stations
+- `web/src/types.ts`, `web/src/pages/SpotPage.tsx`, `web/src/styles.css` — spectral UI
+- `docs/CALIBRATION.md`, `docs/rosa-stage3-plan.md`, `CLAUDE.md` — synced to all of the above
 
-### Oracle VM — THE single scheduler (no GitHub Actions, no systemd — do not re-add either)
-- Instance **`rosa-instance`**, il-jerusalem-1, Ubuntu 24.04 **x86_64**, account "einhanamer".
-- **Public IP `82.70.218.149`** — the older `82.70.217.50` is **DEAD, never use it**. If SSH
-  times out, check the Oracle console for state/current IP before concluding anything.
-- SSH (from repo root): `ssh -i web/.oracle/ssh-key-2026-07-23.key ubuntu@82.70.218.149`
-- **Converged design** (2026-07-23, after two parallel sessions built competing variants):
-  - crontab: `20 2,8,14,20 * * * /home/ubuntu/rosa/deploy/oracle/publish.sh`
-  - `deploy/oracle/publish.sh` (canonical, in-repo) = `git pull` → `uv sync` →
-    `rosa-pipeline archive` (buoy lead-time truth → `~/rosa/data/verify/archive/*.jsonl`,
-    seeded 2026-07-23 with the 20,736 rows from the retired GH-Actions archive) →
-    `rosa-pipeline run --all` (81 spots) → prebuilt Vercel deploy of `data/out` to
-    **rosa-data** (CORS + 5-min cache on `/data/*`). Appends to `~/rosa/publish.log`.
-  - `~/rosa` is a **git clone of main** (read-only deploy key `rosa-oracle-vm`) — pushes reach
-    the box on its next cycle; `data/` + `.env` are gitignored so pulls never touch them.
-  - `~/rosa/.env` (chmod 600): `VERCEL_TOKEN`. `~/rosa/publish.sh.pre-git` = retired copy, ignore.
-  - Verified end-to-end 08:50Z: archive +3,456 rows, publish aliased, CDN advanced.
-- Frankfurt ARM grabber (`deploy/oracle/grab-arm-frankfurt.sh`, laptop `~/grab.log`): **stopped**
-  (last attempt 03:06Z, out of capacity). Moot now the x86 box works.
-- Still-open nicety: move `web/.oracle/` keypair to `~/.ssh/` (gitignored + outside web/public,
-  so not urgent).
+## Changes Made This Session
+1. Live spikes first: ECMWF index format/lag (00z fully published by ~10:15 UTC; 06/18z
+   skipped — 90 h horizon only), pygrib shortNames (`h1012`…), NDBC spectral file formats.
+2. Built 3b member + spectral-lite pure functions; joined per published hour (nearest
+   6-hourly step ≤3 h); consistency anchors from JONSWAP/PM ratios (documented proxies).
+3. Missed-swell accounting is deliberately conservative: a partition's FULL height
+   credits a (±1 s padded) band — a guard must not cry wolf; residual RMS ≥0.3 m surfaces.
+4. Committed e9ed2d2; built spectra harness (2502517); ARCHIVE_PARAMS gained mwp/mp2
+   (`rows_from_spectral`) so the model-side consistency leg matures in the archive.
+5. Pushed; manually ran the VM publish cycle; verified `.ecmwf` keys + spectral fields
+   in deployed rosa-data payloads.
+6. OCI: generated a dedicated Israeli-account API key (user uploaded via console; user
+   REJECTED reusing the Frankfurt keypair — keep accounts separate), discovered OCIDs
+   from rosa-instance, installed oci-cli on the VM (`uv tool install oci-cli`), started
+   the 4/24 watcher. First auth attempt 401'd — IAM propagation (~20 s), not a bug.
+7. User picked all 4 parallel tracks (micro, web, events, CDIP) → built in that order;
+   committed d6c7359 / 9e5b460 / 606de76; pushed; web deployed.
+8. Spread knob 15→24 justified as measured-truth calibration (1,471 Waverider ≥14 s
+   hours, two independent instruments) — logged in CALIBRATION.md before changing.
 
-### Vercel (account `bloodydeathroll`, org `team_jeHaUEFEe9q9CoUA71Vij1Kr`)
-- **`rosa`** (`prj_byWctijqaVdOWxFOi5s0Z2E9I5kf`) — the app, https://rosa-rust.vercel.app.
-  Deploy ONLY via CLI: `cd web && npm run deploy`. Git integration deliberately DISCONNECTED.
-- **`rosa-data`** (`prj_yYmy2goOnyzwPquNauvg96zxkOhD`) — forecast CDN,
-  https://rosa-data-opal.vercel.app — published by the VM cron. App reads it via
-  `VITE_DATA_BASE` (`web/.env.production`, committed on purpose). Local dev serves same-origin
-  `/data/` via sync-data.
-- Freshness check: `curl -s https://rosa-data-opal.vercel.app/data/index.json | python3 -c "import json,sys; print(next(iter(json.load(sys.stdin)['spots'].values()))['generated_at'])"`
+## Failed Attempts
+- `tests/test_events.py` importing `from tests.test_spectral import SPOT` —
+  ModuleNotFoundError (tests aren't a package). Inline the fixture Spot instead.
+- First ssh nohup of publish.sh held the session open ~25 min (stdin not redirected);
+  `< /dev/null` fixes detachment.
+- 51101 has no `.data_spec` → harness crashed on 404 mid-sweep; now returns an honest
+  "no spectral files" message (fixed in d6c7359).
+- Headless "today" screenshot caught the splash overlay despite waiting for
+  `.why-bars` — wait for the splash fade (or screenshot after an interaction) instead.
+- Frankfurt grabber path is dead: local [DEFAULT] creds authenticate but that tenancy
+  is only subscribed to eu-frankfurt-1; Always-Free compute is home-region-only.
 
-### Secrets (all gitignored — `git check-ignore` anything doubtful before staging)
-- Root `.env.local`: **`VERCEL_TOKEN`** (real API token, validated), `GOOGLE_MAPS_API_KEY`.
-- `web/.env.local`: only a stale `VERCEL_OIDC_TOKEN` — NOT an API token, don't use.
-- VM `~/rosa/.env`: `VERCEL_TOKEN`. — SSH key: `web/.oracle/ssh-key-2026-07-23.key`.
+## Next Step
+Check the A1 watcher: `ssh -i web/.oracle/ssh-key-2026-07-23.key ubuntu@82.70.218.149
+'tail ~/arm-watch.log'` — if `rosa-arm` landed, bootstrap it (aarch64; earmarked for
+Stage 4 + heavy verify jobs, NOT the publish cron; smoke pygrib wheels first).
 
-### GitHub (`github.com/BloodyDeathRoll/rosa`, private)
-- **Zero workflows** — `.github/` deleted 2026-07-23; scheduling is VM-only.
-- Branch `data` = the retired GH-archive seed (Jul 22–23), already merged onto the VM disk;
-  kept only as a backup copy. `gh` CLI is authenticated on the laptop.
-
----
-
-## PIPELINE (`pipeline/`, Python/uv) — further along than CLAUDE.md admits
-**157 tests green** (`cd pipeline && uv run pytest`). CLI:
-`uv run --project pipeline rosa-pipeline <run|verify|archive|feedback|bathy>`.
-
-- **Accuracy-roadmap Stage 2 is mostly DONE** (truth: `docs/rosa-stage2-plan.md`): hybrid
-  physics transform (`physics.py`: dispersion → shoaling Ks → Snell refraction Kr → γ=0.78
-  depth-limited breaking, marched over per-spot depth profiles in `data/spots/derived/bathy/`
-  [82 committed] × `period_rideability`, the grounded reframing of q(T)); soft exposure window
-  (25° cosine shoulder past `swell_window`); **tide from Open-Meteo `sea_level_height_msl`**
-  (NOT EOT20 — approach changed 2026-07-22), feeding breaking depth AND published per-hour.
-- **⚠️ CLAUDE.md IS STALE HERE**: its algorithm section still presents plain q(T) as the
-  transform and says nearshore physics is "v2 — don't start"; its session log ends at
-  SESSION 3 (2026-07-20). For the transform, `rosa-stage2-plan.md` + code are the truth.
-  Update CLAUDE.md rather than "implementing" its old spec. (Flagged, not yet done.)
-- `verify --buoy <id>` = nowcast skill vs NDBC obs; `--archive` = lead-time skill (needs the VM
-  archive to mature — ~1 week from 2026-07-23). `archive` = what the cron appends.
-- Fetch = Open-Meteo Marine+Weather, ONE fetch per unique offshore point (OM throttles
-  per-spot bursts). Fixtures in `pipeline/tests/fixtures/` keep tests offline.
-
-### Calibration (log: `docs/CALIBRATION.md` — READ before touching any constant)
-- Rows 1–2 (Jul 19–20, Israel/Med): q exponent → 1.4, wind-gate denominator → 60.
-- **2026-07-23 first multi-region buoy sweep** (6 NDBC stations): Open-Meteo Hs runs HOT
-  everywhere, worst in the Pacific (+0.23–0.41 m, SI to 0.37); Pacific period ~+3 s hot →
-  **Costa Rica over-called on BOTH axes (compounding — explains the generous "Epic" at
-  Tamarindo)**; Atlantic tight; **Sri Lanka has no buoy anywhere — unvalidatable**. NO knobs
-  changed (n=6–7, July = Pacific flat season; per methodology, constants move only on
-  accumulated evidence). Pre-registered plan: archive matures → confirm bias per lead-time →
-  input-side de-bias in extract, refitting Israel simultaneously (its constants were tuned WITH
-  the hot input — de-biasing alone would double-correct it). Interim per-spot `height_coeff`
-  on CR allowed but deliberately not applied.
-
----
-
-## WEB (`web/`, Vite+Preact PWA, TS strict) — after the 2026-07-23 UI session
-Prod deployed at `df834fe`; `tsc --noEmit` clean; dev server currently stopped
-(`cd web && npm run dev` — add `-- --host` for phone testing on LAN).
-
-Shipped today (`4aea2e5`, `df834fe`):
-- **Map tab, Surfline-style rebuild**: full-bleed maplibre (⚠️ the canvas MUST have an explicit
-  CSS height — a flex/absolute-only canvas measures 0 and renders blank; this bit us twice),
-  floating back/search FABs, attribution top-left, no zoom buttons. **Viewport-synced
-  carousel**: cards = spots visible on the map MINUS those hidden under the bottom sheet
-  (`SHEET_H = 156` const in MapPage must track the sheet's real height). Screen-space
-  clustering (46 px) with conic tier-blend rings; the focused spot's dot becomes a surf-range
-  pill; card tap → spot page; carousel scroll ↔ map focus both ways. Satellite imagery on
-  cards capped to focus ±2 (`IMG_WINDOW`). Search OVERLAYS the live map — unmounting the map
-  orphans the maplibre instance (was a real bug). Cards: flat scrim `#ffffffcc` light /
-  `#000000cc` dark, themed text, spot name directly above the surf value.
-- **Spot page**: `DayScrubber` (in `components/CoastChart.tsx`) replaced DateBar + DayCarousel
-  (both DELETED) — each column = date label stacked over that day's 3 bars in ONE track, so
-  they drag as a unit; edge-to-edge, `COL = 56` must equal `.day-col` CSS width; leftmost
-  day = selected; live `onScrub` re-renders the forecast panel instantly (no second scroller —
-  the two-scroller design caused the lag/desync the user rejected). Bars condense to a
-  date-only row on page scroll (hysteresis 72/24 px). Last ~6 days are tap-only (can't reach
-  the left edge) — accepted trade-off.
-- **Dates anchor to the spot's real today** via `todayIn(tz)` (`format.ts`) in THREE places —
-  TodayPage, SpotPage, SpotsPage — dropping past days from stale runs. Keep any new date strip
-  on the same helper.
-- Deleted dead code: DateBar.tsx, DayCarousel.tsx, `Spark` (parts.tsx), `.range-row .spark` CSS.
-
-### Open web TODOs
-1. **TIDE IS STILL THE MOCK** (`components/TideSection.tsx`: hardcoded M2 sine + "High 14:20").
-   The pipeline now publishes a real per-hour `tide` series (verified in payloads) but
-   `web/src/types.ts` doesn't declare it. Wiring real tide (+ real high/low extraction) is the
-   obvious next web task; the "keep the mock" instruction predates real data and is void.
-2. Leftover dead CSS: `.coast-bars`, `.rank-n` (0 usages). Consider kph/short wind on SpotCard.
-3. ⚠️ After any `npm run build`/`deploy`, RESTART a running dev server — sync-data wipes
-   `web/public/data` under vite and the app then serves the SPA-fallback HTML for
-   `/data/index.json` → "JSON.parse: unexpected character" (this happened; that's the cause).
-4. Design system: the session-3 "Uptake" handoff (warm cream/clay, Inter, FIRING→"Epic") is
-   CURRENT; `docs/rosa-conditions-color-system.md` is historical.
-
-## SPOT DB (`data/spots/*.yaml`) — 81 spots: Israel 40, Costa Rica 25, Sri Lanka 16
-- Spots are inline-map lists (`- { id: ..., <<: *anchor }`) — count with `grep -c "id:"` care.
-- Authority ladder (tags per spot): user-verified > sat-verified > OSM > google-geocoded >
-  approximation. Herzliya cluster is user-verified gospel. Never import competitor data.
-- Sat-verification tooling exists: `tools/spot-verify/` (ESRI crosshair tiles, headless shots;
-  method + planned Dream assignment in `docs/spot-mapping-approach.md`).
-- Worldwide strategy (decided, `docs/spot-db-research.md`): open ODbL dataset seeded from
-  Overture + broad-OSM + Wikipedia; WannaSurf = licensing target; the naotokui 6k-spot gist is
-  a TRAP (no provenance — never ingest).
-
-## DOCS INDEX (which doc is authoritative for what)
-- `CLAUDE.md` — product principles, legal red lines, conventions (⚠️ algorithm + session-log
-  sections stale, see PIPELINE).
-- `docs/rosa-accuracy-roadmap.md` — THE staged accuracy plan. Stage 0 harness ✅, Stage 2
-  mostly ✅, Stages 1/3/4/5 open. Also: scale posture (read-path stays static/CDN forever;
-  write-path → Supabase when users demand it; archive → object storage) + free-tier stack.
-- `docs/rosa-stage2-plan.md` — Stage-2 implementation truth (2A–2D DONE, 2E recalibration open).
-- `docs/CALIBRATION.md` — calibration log + buoy-only methodology. Append, never tune silently.
-- `rosa-forecast-improvements.md` (repo root) — Surfline-methodology study; superseded by the
-  roadmap but its #1–#8 item numbers are referenced there.
-- `docs/spot-db-research.md` / `docs/spot-mapping-approach.md` — spot-DB strategy + sat loop.
-- `docs/rosa-surfline-teardown.md` / `docs/rosa-build-plan.md` — original blueprints.
-
-## WHAT'S NEXT (updated 2026-07-23 PM)
-1. ✅ **Stage 3a fetch + A/B BUILT** (2026-07-23 PM): `gfswave.py` (NOMADS grib-filter regional
-   subsets → pygrib → WavePoint; cluster boxes, cycle lag 4 h, capture/replay fixtures);
-   `archive --wave-source both` is the DEFAULT (VM picks it up via git pull, no cron change) —
-   GFS-Wave rows at `<buoy>.gfswave.jsonl`; `verify --archive --source gfswave` pairs peak
-   period with buoy DPD (GFSWAVE_VARIABLES — pairing peak-vs-mean would fabricate bias).
-   Live-smoked at Waimea (65 rows). **VM dual cycle VERIFIED 2026-07-23 10:16Z** (forced run):
-   exit 0, all 9 buoys wrote .gfswave.jsonl (248 rows), publish still aliased; cycle ~11 min.
-   Note: the forced run caught the 06z cycle mid-upload → 26-30/65 steps (missing steps skip
-   gracefully); scheduled runs at HH+2:20 hit complete cycles → full 65. REMAINING 3a: after
-   ~a week, A/B verdict per region → promote GFS-Wave to primary where it wins (full
-   ForecastSource swap for run --all).
-   **NEXT SESSION = Stage 3b** (user decision): ECMWF spectral-lite per
-   docs/rosa-stage3-plan.md — fetch the wave member (params incl. h1012…h2530 period bands;
-   index URL pattern in the plan), missed-swell guard, consistency proxy, parametric-spread
-   bound; consider archiving ECMWF as a third A/B member at the buoys.
-2. **Stage 2E tuning** — still blocked until the VM archive matures (~2026-07-30); by then the
-   dual-source A/B (if 3a lands) doubles the value of the same wait. Don't tune earlier.
-3. Stage 3b (ECMWF spectral-lite: period bands / missed-swell guard / consistency proxy /
-   parametric-spread bound) — after 3a. Stage 4 (own SWAN/WW3) after 3; VM size is the flag.
-4. Worldwide spot-DB scale-up (ODbL seed) — after calibration, per user decision.
-5. ✅ DONE 2026-07-23 PM: real tide wired into web (mock M2 sine gone); centered empty
-   states (Spots favorites / map sheet constant height). Deployed (f1ec68e).
-
-## PROCESS LESSONS — the reason this file is exhaustive. DO NOT REPEAT.
-1. **2026-07-23 incident**: this session designed and shipped a systemd + GitHub-Actions
-   automation for the Oracle box from a stale handoff (dead IP, "bare Ubuntu") while the
-   user's PARALLEL session had already provisioned a working cron on the real box. Claude
-   contradicted Claude; the user was rightly angry. Rule: **inspect live infra before designing
-   for it; "unreachable + stale snapshot" means STOP AND ASK, not build.**
-2. The user runs **parallel Claude sessions**. `git log`, the VM, and the CDN can all have
-   moved under you — check them, and treat this file as a lead, not gospel.
-3. Auto-memory `oracle-vm.md` holds the VM facts — update it whenever infra changes.
-4. Environment-shape bugs to remember: maplibre needs an explicitly-sized container (blank map
-   ×2); sync-data under a live dev server serves HTML as JSON. Check the environment before
-   debugging the code.
+Then, in order:
+1. ~2026-07-30 (archives mature): Stage 2E tuning (input de-bias + Israel refit
+   together) AND the 3-way source verdict — `verify --buoy <id> --archive --source
+   om|gfswave|ecmwf` per region; promote GFS-Wave where it wins (full ForecastSource
+   swap per docs/rosa-stage3-plan.md §3a).
+2. 3b acceptance leftovers (archive-gated): missed-swell backtest; model-side
+   consistency check (archived mwp/mp2/tp vs `verify --spectra` measured Qp).
+3. Web: render `events[]` (alerts/swell-stories surface).
+4. If the 4/24 watcher stays dry for days: drop to `OCPUS=2 MEM_GB=12` (sometimes
+   launchable when 4/24 isn't).
