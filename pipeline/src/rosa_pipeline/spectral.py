@@ -95,6 +95,16 @@ def _clamp01(x: float) -> float:
     return max(0.0, min(1.0, x))
 
 
+def consistency_from_periods(pp1d: float, mwp: float, mp2: float) -> int:
+    """The consistency formula on bare periods — shared by the model member and the
+    buoy-spectra validation harness (which feeds it MEASURED Tp/Tm-1,0/Tm02)."""
+    w1 = pp1d / mp2 - 1.0
+    w2 = mwp / mp2 - 1.0
+    s1 = _clamp01((W1_BROAD - w1) / (W1_BROAD - W1_NARROW))
+    s2 = _clamp01((W2_BROAD - w2) / (W2_BROAD - W2_NARROW))
+    return round(100.0 * (s1 + s2) / 2.0)
+
+
 def consistency_score(sea: SpectralSea) -> int | None:
     """Groundswell consistency ("setty vs. lully") 0-100 from spectral narrowness.
 
@@ -105,11 +115,7 @@ def consistency_score(sea: SpectralSea) -> int | None:
     Tm-1,0/Tm02 ratio carries equal weight. None when the member lacks any of the periods."""
     if sea.pp1d is None or sea.mp2 is None or sea.mwp is None or sea.mp2 <= 0:
         return None
-    w1 = sea.pp1d / sea.mp2 - 1.0
-    w2 = sea.mwp / sea.mp2 - 1.0
-    s1 = _clamp01((W1_BROAD - w1) / (W1_BROAD - W1_NARROW))
-    s2 = _clamp01((W2_BROAD - w2) / (W2_BROAD - W2_NARROW))
-    return round(100.0 * (s1 + s2) / 2.0)
+    return consistency_from_periods(sea.pp1d, sea.mwp, sea.mp2)
 
 
 def parametric_spread_deg(p: SwellPartition) -> float:

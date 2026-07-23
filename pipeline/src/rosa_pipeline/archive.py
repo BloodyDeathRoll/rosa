@@ -20,6 +20,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Protocol
 
+from .models import SpectralSea
 from .verify import WavePoint
 
 
@@ -35,6 +36,25 @@ def rows_from_model(run_time: datetime, model: list[WavePoint]) -> list[dict]:
             "dir": p.dir,
         }
         for p in model
+    ]
+
+
+def rows_from_spectral(run_time: datetime, series: list[SpectralSea]) -> list[dict]:
+    """ECMWF-member archive rows: the scorecard triple (tp = pp1d, a PEAK period) plus
+    the consistency-proxy inputs mwp/mp2 — extra keys the scorecard simply ignores, but
+    the Stage-3b model-vs-measured-spectra validation needs (verify --spectra)."""
+    run_iso = run_time.isoformat(timespec="seconds")
+    return [
+        {
+            "run": run_iso,
+            "valid": s.time.isoformat(timespec="seconds"),
+            "hs": s.swh,
+            "tp": s.pp1d,
+            "dir": s.mwd,
+            "mwp": s.mwp,
+            "mp2": s.mp2,
+        }
+        for s in series
     ]
 
 

@@ -32,8 +32,10 @@ BASE_URL = "https://data.ecmwf.int/forecasts"
 SPECTRAL_PARAMS: tuple[str, ...] = ("swh", "mwd", "mwp", "pp1d", "mp2")
 BAND_PARAMS: tuple[str, ...] = ("h1012", "h1214", "h1417", "h1721", "h2125", "h2530")
 DEFAULT_PARAMS: tuple[str, ...] = SPECTRAL_PARAMS + BAND_PARAMS
-# buoy-archive member needs only what the lead-time scorecard scores (peak period ↔ DPD)
-ARCHIVE_PARAMS: tuple[str, ...] = ("swh", "mwd", "pp1d")
+# buoy-archive member: what the lead-time scorecard scores (hs, peak period ↔ DPD, dir)
+# + the consistency-proxy inputs (mwp/mp2), so model-vs-measured-spectra correlation
+# matures with the archive (Stage 3b acceptance)
+ARCHIVE_PARAMS: tuple[str, ...] = ("swh", "mwd", "pp1d", "mwp", "mp2")
 # 6-hourly to the full 240 h horizon (41 steps); native output is 3-hourly to 144 h
 DEFAULT_STEPS: tuple[int, ...] = tuple(range(0, 241, 6))
 CYCLE_HOURS: tuple[int, ...] = (0, 12)  # only these run the wave stream to 240 h

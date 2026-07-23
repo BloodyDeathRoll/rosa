@@ -57,9 +57,17 @@ when Stage 4 runs WW3/SWAN ourselves.
 > agreement pool (5 members); `archive --wave-source all` (new default — VM auto-adopts)
 > writes `<buoy>.ecmwf.jsonl` (hs/pp1d/mwd, ~46 s/cycle) and `verify --archive --source
 > ecmwf` scores it (pp1d↔DPD). Live-smoked at Beit Yanai (+~2 min/run; guard already
-> surfaced an unaccounted 10–12 s band on 07-25) and Waimea. **Remaining for 3b
-> acceptance:** the NDBC measured-spectra harness (spread error bound + consistency
-> correlation) and the missed-swell backtest once archives mature.
+> surfaced an unaccounted 10–12 s band on 07-25) and Waimea.
+>
+> **Spectra harness BUILT same day** (`spectra.py`, `verify --spectra`): NDBC
+> `.data_spec`/`.swr1` → moments (Tp/Tm-1,0/Tm02, Qp) + σ=√(2(1−r1))@peak; reports the
+> spread error bound per class and the proxy↔Qp Spearman. First pass (51201 + 46042,
+> CALIBRATION.md 2026-07-23): short-swell spread assumption excellent (±1.5°), ≥14 s
+> assumption unreliable (measured 36–46° — r1 noise vs wrong table, unresolved), proxy↔Qp
+> r=+0.38/+0.49. ECMWF archive rows now carry mwp/mp2 for the model-side leg.
+> **Remaining for 3b acceptance:** the missed-swell backtest + the model-side consistency
+> check once archives mature; more buoys (ideally CDIP) to arbitrate the ≥14 s spread
+> question before touching SPREAD_* constants.
 - **Second member:** fetch ECMWF wave stream (swh/mwp/mwd/pp1d/mp2 + period bands) at the
   offshore points — this is also the Stage-1 multi-model confidence axis (two birds).
 - **Missed-swell guard:** if a period band ≥10 s carries height that no partition accounts

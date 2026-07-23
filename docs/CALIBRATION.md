@@ -77,3 +77,38 @@ not a single sweep.
    so de-biasing globally would double-correct Israel unless its knobs are refit together.
 3. Interim allowed local override: a per-spot `height_coeff < 1.0` on the Costa Rica spots
    (local refinement only — must not drive the global knobs).
+
+## 2026-07-23 — Stage-3b spectra validation, first pass (measured spectra vs assumptions)
+
+New harness (`verify --spectra`, this session): NDBC realtime2 1-D spectra (`.data_spec`)
++ directional r1 (`.swr1`), ~45 days hourly per buoy. Measured σ = √(2(1−r1)) at the
+spectral peak; narrowness truth = Goda peakedness Qp; the consistency formula is fed the
+*measured* Tp/Tm-1,0/Tm02 and rank-correlated against Qp.
+
+| Buoy | n hrs | proxy↔Qp (Spearman) | windsea σ (asm 35°) | <10s σ (asm 25°) | 10–14s σ (asm 20°) | ≥14s σ (asm 15°) |
+|------|-------|---------------------|---------------------|------------------|--------------------|------------------|
+| 51201 (HI) | 1091 | +0.38 | 22.5° (n=559) | 24.5° (n=415) | 30.8° (n=49) | 35.9° (n=68) |
+| 46042 (CA) | 2178 | +0.49 | 22.9° (n=194) | 23.5° (n=710) | 31.4° (n=528) | 45.9° (n=746) |
+
+**Findings:**
+- **`swell <10s` assumption is excellent** (bias +0.5°/+1.5°, MAE 5–7°).
+- **Long-swell (≥14 s) measured σ@peak is 36–46°, NOT the ~15° literature value** — the
+  measured ordering *inverts* the parametric table (long swell reads broadest). Two candidate
+  explanations, unresolved: (a) buoy r1 spread estimates are noise-broadened, worst at
+  low-frequency bins (known NDBC/CDIP caveat), so σ@peak overstates true spread for
+  groundswell; (b) the table is simply wrong for these climates. Single-bin σ@peak is the
+  simplest defensible metric; an energy-weighted peak-region σ may be more stable — candidate
+  refinement, only alongside evidence it tracks truth better.
+- **Windsea measures narrower than assumed** (~22.5° vs 35°) — at the *peak* of a windsea
+  spectrum, which is its most organized region; the 30–40° literature number describes the
+  spectrum overall/high-frequency tail, not the peak bin.
+- **Consistency proxy correlates positively with Qp (+0.38/+0.49)** — right direction,
+  moderate strength. Good enough for a displayed 0–100 that never touches the rating; not
+  good enough to call validated. Model-side leg (are ECMWF's pp1d/mwp/mp2 right at the buoy)
+  now accumulates in `<buoy>.ecmwf.jsonl` (mwp/mp2 added to rows this session).
+
+**Decision: no knob change; label stands.** The payload already labels spread
+"parametric (modeled)" (`spectral_meta`). Publishable bound from this pass: **spread MAE
+5–13° for windsea/short-swell classes, up to 21–31° for ≥14 s groundswell (assumption
+unreliable there)**. Re-run across more buoys (Atlantic set has fewer long-period peaks;
+CDIP stations would arbitrate the r1-noise question) before touching SPREAD_* constants.

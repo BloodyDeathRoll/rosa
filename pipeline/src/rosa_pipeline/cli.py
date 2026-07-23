@@ -22,7 +22,7 @@ import sys
 from datetime import UTC, datetime
 from pathlib import Path
 
-from .archive import FileArchiveStore, rows_from_model
+from .archive import FileArchiveStore, rows_from_model, rows_from_spectral
 from .bathymetry import (
     BathymetrySource,
     FixtureBathymetrySource,
@@ -48,12 +48,19 @@ from .models import Spot
 from .observe import ISRAMARLocalSource, NDBCFixtureSource, NDBCSource
 from .publish import build_payload, update_index, write_spot_json
 from .score import score_hour
+from .spectra import (
+    NDBCSpectraSource,
+    SpectraFixtureSource,
+    build_report,
+)
+from .spectra import (
+    render_report as render_spectra_report,
+)
 from .spots import load_spots
 from .verify import (
     ECMWF_VARIABLES,
     GFSWAVE_VARIABLES,
     VARIABLES,
-    WavePoint,
     build_scorecard,
     lead_time_scorecard,
     parse_marine_waves,
@@ -112,6 +119,12 @@ def _build_parser() -> argparse.ArgumentParser:
         help="score archived forecasts by lead time (instead of the live nowcast)",
     )
     verify.add_argument("--archive-dir", type=Path, default=ARCHIVE_DIR)
+    verify.add_argument(
+        "--spectra",
+        action="store_true",
+        help="validate the Stage-3b assumptions against the buoy's measured spectra "
+        "(consistency proxy vs Qp, parametric spread vs sigma from r1)",
+    )
     verify.add_argument(
         "--source",
         choices=["om", "gfswave", "ecmwf"],
@@ -302,6 +315,19 @@ def _cmd_verify(args: argparse.Namespace) -> int:
         targets = list(near)
 
     for buoy, dist in targets:
+        if args.spectra:
+            # measured-spectra validation needs NDBC spectral files, which only NDBC has
+            if buoy.source != "ndbc":
+                print(f"{buoy.id}: no public spectral files for source {buoy.source!r} — skipped")
+                continue
+            src = (
+                SpectraFixtureSource(args.obs_fixtures)
+                if args.obs_fixtures is not None
+                else NDBCSpectraSource(capture_dir=args.capture)
+            )
+            specs = src.fetch(buoy)
+            print(render_spectra_report(buoy, build_report(specs)))
+            continue
         obs = _obs_for(buoy, args)
         if args.archive:
             key = buoy.id + SOURCE_KEY_SUFFIX[args.source]
@@ -372,8 +398,7 @@ def _cmd_archive(args: argparse.Namespace) -> int:
             )
             points = [(b.lat, b.lon) for b in targets]
             for buoy, series in zip(targets, esrc.fetch_series(points), strict=True):
-                model = [WavePoint(time=s.time, hs=s.swh, tp=s.pp1d, dir=s.mwd) for s in series]
-                rows = rows_from_model(now, model)
+                rows = rows_from_spectral(now, series)
                 key = buoy.id + ECMWF_KEY_SUFFIX
                 store.append(key, rows)
                 print(
