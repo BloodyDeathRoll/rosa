@@ -64,6 +64,9 @@ export default async function handler(req, res) {
       endpoint,
       keys: { p256dh: keys.p256dh, auth: keys.auth },
       spots,
+      // "Spot feedback" Profile toggle — the sender skips the evening 👍👎
+      // ask for subs that turned it off
+      feedback: body.feedback !== false,
       updated: new Date().toISOString(),
     };
     await put(pathOf(endpoint), JSON.stringify(record), {

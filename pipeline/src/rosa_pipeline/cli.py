@@ -559,6 +559,7 @@ def _cmd_notify(args: argparse.Namespace) -> int:
         vapid_private_key=vapid_key,
         vapid_sub=vapid_sub,
         dry_run=args.dry_run,
+        feedback_dir=FEEDBACK_DIR,
     )
     return 0
 

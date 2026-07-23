@@ -6,6 +6,7 @@ import { SearchIcon, ShirtIcon, ThermometerIcon, WavesIcon } from "../components
 import { AppHeader, Pill, SpotTitle } from "../components/parts";
 import { dayView } from "../components/SpotCard";
 import { getFavorites } from "../favorites";
+import { pendingPrompt, resolvePrompt, type FbPrompt } from "../feedback";
 import { cardinal, splitName, todayIn, windLabel } from "../format";
 import { distanceKm, getPosition } from "../geo";
 import { getRecents } from "../recents";
@@ -79,9 +80,42 @@ function DetailCard({ data, date }: { data: SpotPayload; date: string }) {
   );
 }
 
+/** The retro 👍👎 row: one tap grades yesterday's call, then it's gone.
+    Never asks in the moment — only about a day already surfed. */
+function FeedbackRow({ p, onDone }: { p: FbPrompt; onDone: () => void }) {
+  const units = useUnits();
+  const { predicted } = p.view;
+  const answer = (verdict: "up" | "down" | null) => {
+    void resolvePrompt(p, verdict);
+    onDone();
+  };
+  return (
+    <div class="fb-row">
+      <span class="fb-text">
+        <b>Surfed {p.view.name} yesterday?</b>
+        <small class="tabular">
+          Rosa called {fmtRange(predicted.h, units)} — was it right?
+        </small>
+      </span>
+      <span class="fb-actions">
+        <button onClick={() => answer("up")} aria-label="Forecast was right">
+          👍
+        </button>
+        <button onClick={() => answer("down")} aria-label="Forecast was off">
+          👎
+        </button>
+        <button class="fb-x" onClick={() => answer(null)} aria-label="Dismiss">
+          ✕
+        </button>
+      </span>
+    </div>
+  );
+}
+
 export function TodayPage() {
   const [detail, setDetail] = useState<SpotPayload | null>(null);
   const [grid, setGrid] = useState<SpotPayload[] | null>(null);
+  const [prompt, setPrompt] = useState<FbPrompt | null>(pendingPrompt);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -173,6 +207,7 @@ export function TodayPage() {
     <main class="page">
       <AppHeader lead={greeting()} right={search} />
       <div class="home">
+        {prompt && <FeedbackRow p={prompt} onDone={() => setPrompt(null)} />}
         {detail && (
           <div class="home-hero">
             <DetailCard data={detail} date={today} />

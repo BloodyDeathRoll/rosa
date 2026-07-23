@@ -208,3 +208,136 @@ class TestLoad:
         assert e.region == "Israel"
         assert e.h_peak == 1.6
         assert e.peak.isoformat() == "2026-07-25T11:00:00+03:00"
+
+
+# ---------------------------------------------------------------- feedback
+
+
+from zoneinfo import ZoneInfo  # noqa: E402
+
+from rosa_pipeline.notify import (  # noqa: E402
+    FeedbackCandidate,
+    feedback_key,
+    feedback_payload,
+    load_feedback_candidates,
+    plan_feedback_push,
+)
+
+IL = ZoneInfo("Asia/Jerusalem")
+# 2026-07-23 19:00 Israel — inside the evening ask window
+EVENING = datetime(2026, 7, 23, 16, 0, tzinfo=UTC)
+
+
+def cand(spot_id: str, *, rating: int = 62, date: str = "2026-07-23") -> FeedbackCandidate:
+    return FeedbackCandidate(
+        spot_id=spot_id,
+        spot_name=spot_id,
+        date=date,
+        rating=rating,
+        bucket="GOOD",
+        h=(0.6, 0.9),
+        at=f"{date}T09:00+03:00",
+        predicted={"rating": rating, "bucket": "GOOD", "h": [0.6, 0.9], "phrase": "waist-high"},
+    )
+
+
+def _payload_dir(tmp_path: Path, rating_max: int, date: str = "2026-07-23") -> Path:
+    spots = tmp_path / "spots"
+    spots.mkdir(exist_ok=True)
+    payload = {
+        "spot": {"id": "zvulun", "name": "Zvulun (Herzliya)", "timezone": "Asia/Jerusalem"},
+        "days": [{"date": date, "rating_max": rating_max, "bucket": "GOOD", "h_max": [0.6, 0.9]}],
+        "hours": [
+            {"t": f"{date}T09:00+03:00", "rating": rating_max, "bucket": "GOOD",
+             "h": [0.6, 0.9], "phrase": "waist-high"},
+            {"t": f"{date}T15:00+03:00", "rating": 40, "bucket": "FAIR",
+             "h": [0.4, 0.6], "phrase": "knee-high"},
+        ],
+    }
+    (spots / "zvulun.json").write_text(json.dumps(payload))
+    return tmp_path
+
+
+class TestFeedbackCandidates:
+    def test_good_day_in_evening_window(self, tmp_path: Path):
+        cands = load_feedback_candidates(_payload_dir(tmp_path, 62), EVENING)
+        assert len(cands) == 1
+        c = cands[0]
+        assert c.spot_id == "zvulun"
+        assert c.date == "2026-07-23"
+        assert c.at == "2026-07-23T09:00+03:00"  # the best-rated hour = the session graded
+        assert c.predicted["bucket"] == "GOOD"
+
+    def test_below_good_day_skipped(self, tmp_path: Path):
+        assert load_feedback_candidates(_payload_dir(tmp_path, 45), EVENING) == []
+
+    def test_outside_evening_window_skipped(self, tmp_path: Path):
+        noon = datetime(2026, 7, 23, 9, 0, tzinfo=UTC)  # 12:00 Israel
+        assert load_feedback_candidates(_payload_dir(tmp_path, 62), noon) == []
+
+
+class TestFeedbackPlanning:
+    def test_one_ask_best_favorite(self):
+        got = plan_feedback_push([cand("a", rating=55), cand("b", rating=70)], ["a", "b"], set())
+        assert got is not None
+        n, c = got
+        assert c.spot_id == "b"
+        assert n.title == "How was b today?"
+        assert n.keys == (feedback_key("b", "2026-07-23"),)
+
+    def test_non_favorite_skipped(self):
+        assert plan_feedback_push([cand("a")], ["other"], set()) is None
+
+    def test_one_per_day_even_across_spots(self):
+        # yesterday's cycle asked about spot a; a later cycle the same evening
+        # must not ask about spot b
+        sent = {feedback_key("a", "2026-07-23")}
+        assert plan_feedback_push([cand("a"), cand("b")], ["a", "b"], sent) is None
+
+    def test_payload_carries_actions_and_row(self):
+        n, c = plan_feedback_push([cand("a")], ["a"], set())
+        p = feedback_payload(n, c)
+        assert [a["action"] for a in p["actions"]] == ["up", "down"]
+        assert p["feedback"]["spot"] == "a"
+        assert p["feedback"]["source"] == "push"
+        assert p["feedback"]["predicted"]["bucket"] == "GOOD"
+
+
+class TestFeedbackPull:
+    def test_merge_dedupes_by_id(self, tmp_path: Path, monkeypatch):
+        from rosa_pipeline import notify as mod
+        from rosa_pipeline.archive import FileArchiveStore
+
+        store = FileArchiveStore(tmp_path)
+        store.append(
+            "feedback", [{"id": "feedback/x.json", "spot": "a", "at": "t", "verdict": "up"}]
+        )
+
+        class FakeResp:
+            def raise_for_status(self):
+                pass
+
+            def json(self):
+                return [
+                    {"id": "feedback/x.json", "spot": "a", "at": "t", "verdict": "up"},
+                    {"id": "feedback/y.json", "spot": "b", "at": "t", "verdict": "down"},
+                ]
+
+        deleted = {}
+
+        class FakeHttpx:
+            @staticmethod
+            def get(url, headers=None, timeout=None):
+                return FakeResp()
+
+            @staticmethod
+            def request(method, url, headers=None, json=None, timeout=None):
+                deleted.update(json or {})
+                return FakeResp()
+
+        monkeypatch.setitem(__import__("sys").modules, "httpx", FakeHttpx)
+        fresh = mod.pull_feedback("https://x/api/feedback", "s", tmp_path)
+        assert fresh == 1  # only y was new
+        rows = store.read("feedback")
+        assert [r["id"] for r in rows] == ["feedback/x.json", "feedback/y.json"]
+        assert set(deleted["ids"]) == {"feedback/x.json", "feedback/y.json"}  # both pruned

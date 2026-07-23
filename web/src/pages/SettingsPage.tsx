@@ -1,8 +1,8 @@
 import { useEffect, useState } from "preact/hooks";
-import { ChevronRightIcon, MoonIcon, SunIcon } from "../components/icons";
+import { MoonIcon, SunIcon } from "../components/icons";
 import { AppHeader } from "../components/parts";
-import { getFavorites } from "../favorites";
-import { disablePush, enablePush, pushState, type PushState } from "../push";
+import { feedbackPref, setFeedbackPref } from "../feedback";
+import { disablePush, enablePush, pushState, syncPushSpots, type PushState } from "../push";
 import { signalReady } from "../splash";
 import { setUnits, useUnits } from "../units";
 import type { Theme } from "../theme";
@@ -12,10 +12,17 @@ function NotificationsCard() {
   const [state, setState] = useState<PushState | null>(null);
   const [busy, setBusy] = useState(false);
   const [failed, setFailed] = useState(false);
+  const [fb, setFbState] = useState(feedbackPref);
   useEffect(() => {
     void pushState().then(setState);
   }, []);
   if (state === null) return null;
+
+  const setFb = (on: boolean) => {
+    setFeedbackPref(on);
+    setFbState(on);
+    void syncPushSpots(); // the pref rides on the subscription for the evening ask
+  };
 
   const turnOn = async () => {
     setBusy(true);
@@ -77,6 +84,26 @@ function NotificationsCard() {
         </div>
       </div>
       <p class="settings-note">{note}</p>
+      <div class="settings-row">
+        <span class="label">Spot feedback</span>
+        <div class="segmented" role="radiogroup" aria-label="Spot feedback">
+          <button role="radio" aria-checked={fb} class={fb ? "on" : ""} onClick={() => setFb(true)}>
+            On
+          </button>
+          <button
+            role="radio"
+            aria-checked={!fb}
+            class={!fb ? "on" : ""}
+            onClick={() => setFb(false)}
+          >
+            Off
+          </button>
+        </div>
+      </div>
+      <p class="settings-note">
+        A one-tap "was the call right?" the day after you check a spot — in the app, plus an
+        evening notification when alerts are on. It tunes the forecast.
+      </p>
     </section>
   );
 }
@@ -89,7 +116,6 @@ export function SettingsPage({
   onSetTheme: (t: Theme) => void;
 }) {
   const units = useUnits();
-  const favCount = getFavorites().length;
   const metric = units.height === "m";
   // no async data — ready as soon as it mounts (lets the splash lift promptly)
   useEffect(signalReady, []);
@@ -149,24 +175,6 @@ export function SettingsPage({
         </section>
 
         <NotificationsCard />
-
-        <section class="settings-card">
-          <div class="card-title">
-            <span class="eyebrow">Spots</span>
-          </div>
-          <div class="settings-row tall">
-            <span class="label">Home region</span>
-            <span class="value">
-              Israel <ChevronRightIcon />
-            </span>
-          </div>
-          <button class="settings-row tall" onClick={() => (location.hash = "#/spots")}>
-            <span class="label">Favorites</span>
-            <span class="value tabular">
-              {favCount} {favCount === 1 ? "spot" : "spots"} <ChevronRightIcon />
-            </span>
-          </button>
-        </section>
 
         <section class="settings-card">
           <div class="card-title">

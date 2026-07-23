@@ -3,6 +3,7 @@
     the pipeline VM sends grouped pushes after each publish cycle. */
 
 import { getFavorites } from "./favorites";
+import { feedbackPref } from "./feedback";
 
 const API = (import.meta.env.VITE_PUSH_API as string | undefined) ?? "";
 const VAPID_PUBLIC = (import.meta.env.VITE_VAPID_PUBLIC as string | undefined) ?? "";
@@ -43,7 +44,12 @@ async function post(sub: PushSubscription, spots: string[]): Promise<void> {
   const res = await fetch(`${API}/api/sub`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ endpoint: json.endpoint, keys: json.keys, spots }),
+    body: JSON.stringify({
+      endpoint: json.endpoint,
+      keys: json.keys,
+      spots,
+      feedback: feedbackPref(), // "Spot feedback" toggle → evening 👍👎 ask on/off
+    }),
   });
   if (!res.ok) throw new Error(`push api ${res.status}`);
 }

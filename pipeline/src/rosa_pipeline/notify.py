@@ -249,45 +249,212 @@ def send_notifications(
     vapid_sub: str,
     now: datetime | None = None,
     dry_run: bool = False,
+    feedback_dir: Path | None = None,
 ) -> int:
-    """Plan and send per subscription; returns the number of pushes sent."""
+    """Plan and send per subscription; returns the number of pushes sent.
+
+    Also pulls crowd 👍👎 rows into the calibration store (feedback_dir) — same
+    cycle, same secrets."""
     now = now or datetime.now(UTC)
     groups = group_events(load_spot_events(out_dir, now))
-    if not groups:
-        print("notify: no active events")
-        return 0
-    subs = fetch_subscriptions(subs_url, admin_secret)
-    print(f"notify: {sum(len(g) for g in groups)} events in {len(groups)} groups, {len(subs)} subs")
-    state = load_state(state_path)
-    sent_count = 0
-    for sub in subs:
-        ehash = endpoint_hash(sub["endpoint"])
-        plans = plan_notifications(groups, sub.get("spots", []), sent_for(state, ehash), now)
-        for n in plans:
-            if dry_run:
-                print(f"  DRY {ehash}: {n.title} | {n.body}")
-                continue
-            try:
-                from pywebpush import WebPushException, webpush
+    candidates = load_feedback_candidates(out_dir, now)
+    if not groups and not candidates:
+        print("notify: no active events, no feedback candidates")
+    else:
+        subs = fetch_subscriptions(subs_url, admin_secret)
+        print(
+            f"notify: {sum(len(g) for g in groups)} events in {len(groups)} groups, "
+            f"{len(candidates)} feedback candidates, {len(subs)} subs"
+        )
+        state = load_state(state_path)
+        sent_count = 0
+        for sub in subs:
+            ehash = endpoint_hash(sub["endpoint"])
+            sent_keys = sent_for(state, ehash)
+            spots = sub.get("spots", [])
+            plans: list[tuple[Notification, dict]] = [
+                (n, {"title": n.title, "body": n.body, "url": n.url, "tag": n.tag})
+                for n in plan_notifications(groups, spots, sent_keys, now)
+            ]
+            # evening 👍👎 ask — only for subs that keep "Spot feedback" on
+            if sub.get("feedback", True):
+                fb = plan_feedback_push(candidates, spots, sent_keys)
+                if fb is not None:
+                    plans.append((fb[0], feedback_payload(fb[0], fb[1])))
+            for n, payload in plans:
+                if dry_run:
+                    print(f"  DRY {ehash}: {n.title} | {n.body}")
+                    continue
+                try:
+                    from pywebpush import WebPushException, webpush
 
-                webpush(
-                    subscription_info={"endpoint": sub["endpoint"], "keys": sub["keys"]},
-                    data=json.dumps(
-                        {"title": n.title, "body": n.body, "url": n.url, "tag": n.tag}
-                    ),
-                    vapid_private_key=str(vapid_private_key),
-                    vapid_claims={"sub": vapid_sub},
-                )
-            except WebPushException as exc:
-                status = exc.response.status_code if exc.response is not None else None
-                print(f"  push failed ({status}) for {ehash}: {exc}")
-                if status in (404, 410):  # endpoint gone — forget the device
-                    prune_subscription(subs_url, admin_secret, sub["endpoint"])
-                continue
-            mark_sent(state, ehash, n.keys, now)
-            sent_count += 1
-            print(f"  sent {ehash}: {n.title} | {n.body}")
-    if not dry_run:
-        save_state(state_path, state, now)
-    print(f"notify: {sent_count} pushes sent")
-    return sent_count
+                    webpush(
+                        subscription_info={"endpoint": sub["endpoint"], "keys": sub["keys"]},
+                        data=json.dumps(payload),
+                        vapid_private_key=str(vapid_private_key),
+                        vapid_claims={"sub": vapid_sub},
+                    )
+                except WebPushException as exc:
+                    status = exc.response.status_code if exc.response is not None else None
+                    print(f"  push failed ({status}) for {ehash}: {exc}")
+                    if status in (404, 410):  # endpoint gone — forget the device
+                        prune_subscription(subs_url, admin_secret, sub["endpoint"])
+                    continue
+                mark_sent(state, ehash, n.keys, now)
+                sent_count += 1
+                print(f"  sent {ehash}: {n.title} | {n.body}")
+        if not dry_run:
+            save_state(state_path, state, now)
+        print(f"notify: {sent_count} pushes sent")
+
+    if feedback_dir is not None and not dry_run:
+        try:
+            pulled = pull_feedback(
+                subs_url.replace("/api/subs", "/api/feedback"), admin_secret, feedback_dir
+            )
+            print(f"notify: {pulled} feedback rows pulled")
+        except Exception as exc:  # the pull must never sink the send cycle
+            print(f"warn: feedback pull failed: {exc}")
+    return 0 if (not groups and not candidates) else sent_count
+
+
+# ------------------------------------------------------- feedback loop (v0.2)
+
+
+FEEDBACK_MIN_RATING = 50  # only ask about days Rosa called GOOD+
+FEEDBACK_LOCAL_HOUR = (17, 22)  # spot-local evening window for the ask
+
+
+@dataclass(frozen=True, slots=True)
+class FeedbackCandidate:
+    """A favorited-spot day worth grading: today, spot-local evening, GOOD+."""
+
+    spot_id: str
+    spot_name: str
+    date: str  # spot-local YYYY-MM-DD
+    rating: int
+    bucket: str
+    h: tuple[float, float] | None
+    at: str  # best hour's spot-local ISO — the session being graded
+    predicted: dict
+
+
+def load_feedback_candidates(out_dir: Path, now: datetime) -> list[FeedbackCandidate]:
+    """Spots whose local clock is in the evening window and whose today was GOOD+."""
+    from zoneinfo import ZoneInfo
+
+    out: list[FeedbackCandidate] = []
+    for path in sorted((out_dir / "spots").glob("*.json")):
+        payload = json.loads(path.read_text())
+        spot = payload.get("spot", {})
+        try:
+            local = now.astimezone(ZoneInfo(spot.get("timezone", "UTC")))
+        except (KeyError, ValueError):
+            continue
+        if not (FEEDBACK_LOCAL_HOUR[0] <= local.hour <= FEEDBACK_LOCAL_HOUR[1]):
+            continue
+        today = local.date().isoformat()
+        day = next((d for d in payload.get("days", []) if d.get("date") == today), None)
+        if day is None or int(day.get("rating_max", 0)) < FEEDBACK_MIN_RATING:
+            continue
+        hours = [h for h in payload.get("hours", []) if h.get("t", "").startswith(today)]
+        if not hours:
+            continue
+        best = max(hours, key=lambda h: h.get("rating", 0))
+        out.append(
+            FeedbackCandidate(
+                spot_id=spot["id"],
+                spot_name=spot.get("name", spot["id"]),
+                date=today,
+                rating=int(day.get("rating_max", 0)),
+                bucket=day.get("bucket", ""),
+                h=tuple(day["h_max"]) if day.get("h_max") else None,
+                at=best.get("t", f"{today}T12:00"),
+                predicted={
+                    "rating": best.get("rating"),
+                    "bucket": best.get("bucket"),
+                    "h": best.get("h"),
+                    "phrase": best.get("phrase"),
+                },
+            )
+        )
+    return out
+
+
+def feedback_key(spot_id: str, date: str) -> str:
+    return f"fb:{spot_id}:{date}"
+
+
+def plan_feedback_push(
+    candidates: list[FeedbackCandidate],
+    favorites: list[str],
+    sent: set[str],
+) -> tuple[Notification, FeedbackCandidate] | None:
+    """At most ONE evening ask per subscription per day (anti-spam rule)."""
+    mine = [c for c in candidates if c.spot_id in favorites]
+    if not mine:
+        return None
+    # a feedback ask already went out for any of today's candidate dates → quiet
+    if any(feedback_key(c.spot_id, c.date) in sent for c in mine) or any(
+        k.startswith("fb:") and k.endswith(c.date) for c in mine for k in sent
+    ):
+        return None
+    best = max(mine, key=lambda c: (c.rating, c.h or (0.0, 0.0)))
+    name = best.spot_name.split(" (")[0].split(" / ")[0]
+    word = BUCKET_WORD.get(best.bucket, best.bucket)
+    h_txt = f" {best.h[0]:.1f}-{best.h[1]:.1f} m" if best.h else ""
+    n = Notification(
+        title=f"How was {name} today?",
+        body=f"Rosa called {word} ·{h_txt} — nailed it or off?",
+        url=f"{APP_ORIGIN}/#/spot/{best.spot_id}",
+        tag=f"rosa-fb-{best.spot_id}-{best.date}",
+        keys=(feedback_key(best.spot_id, best.date),),
+    )
+    return n, best
+
+
+# the extra payload block a feedback push carries: lock-screen 👍/👎 actions the
+# service worker answers by POSTing straight to the feedback API (no app open)
+def feedback_payload(n: Notification, c: FeedbackCandidate) -> dict:
+    return {
+        "title": n.title,
+        "body": n.body,
+        "url": n.url,
+        "tag": n.tag,
+        "actions": [
+            {"action": "up", "title": "👍 Nailed it"},
+            {"action": "down", "title": "👎 Off"},
+        ],
+        "feedback": {
+            "spot": c.spot_id,
+            "at": c.at,
+            "predicted": c.predicted,
+            "source": "push",
+        },
+    }
+
+
+def pull_feedback(feedback_url: str, admin_secret: str, feedback_dir: Path) -> int:
+    """Merge crowd 👍👎 rows from the API into the local calibration store, then
+    prune the pulled blobs server-side. Dedupe by the API-side row id."""
+    import httpx
+
+    from .archive import FileArchiveStore
+
+    r = httpx.get(feedback_url, headers={"x-admin-secret": admin_secret}, timeout=30)
+    r.raise_for_status()
+    rows = [x for x in r.json() if isinstance(x, dict) and "id" in x and "spot" in x]
+    if not rows:
+        return 0
+    store = FileArchiveStore(feedback_dir)
+    seen_ids = {row.get("id") for row in store.read("feedback")}
+    fresh = [row for row in rows if row["id"] not in seen_ids]
+    store.append("feedback", fresh)
+    httpx.request(
+        "DELETE",
+        feedback_url,
+        headers={"x-admin-secret": admin_secret},
+        json={"ids": [row["id"] for row in rows]},
+        timeout=30,
+    )
+    return len(fresh)

@@ -22,14 +22,34 @@ self.addEventListener("push", (event) => {
       tag: d.tag || "rosa-swell",
       icon: android ? "/notify-badge.png" : "/notify-icon.png",
       badge: "/notify-badge.png", // monochrome status-bar glyph
-      data: { url: d.url || "/" },
+      // feedback asks carry 👍/👎 action buttons answerable from the lock screen
+      actions: Array.isArray(d.actions) ? d.actions : [],
+      data: { url: d.url || "/", feedback: d.feedback || null },
     })
   );
 });
 
+// SW is a static file — no build-time env; same origin the app is built with
+var FEEDBACK_API = "https://rosa-push.vercel.app/api/feedback";
+
 self.addEventListener("notificationclick", (event) => {
   event.notification.close();
-  const url = (event.notification.data && event.notification.data.url) || "/";
+  const data = event.notification.data || {};
+  // 👍/👎 tapped on a feedback ask: POST the verdict right from the worker —
+  // the app never needs to open
+  if ((event.action === "up" || event.action === "down") && data.feedback) {
+    event.waitUntil(
+      fetch(FEEDBACK_API, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(
+          Object.assign({}, data.feedback, { verdict: event.action })
+        ),
+      }).catch(() => undefined)
+    );
+    return;
+  }
+  const url = data.url || "/";
   event.waitUntil(
     self.clients.matchAll({ type: "window", includeUncontrolled: true }).then((wins) => {
       for (const w of wins) {
