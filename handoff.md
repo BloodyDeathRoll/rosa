@@ -152,9 +152,14 @@ Shipped today (`4aea2e5`, `df834fe`):
 - `docs/rosa-surfline-teardown.md` / `docs/rosa-build-plan.md` — original blueprints.
 
 ## WHAT'S NEXT (updated 2026-07-23 PM)
-1. **Build Stage 3a** — raw GFS-Wave ForecastSource + dual-source (OM vs NOAA) buoy archive
-   A/B. Plan + live-verified spikes: `docs/rosa-stage3-plan.md`. Start this in a FRESH session
-   off that plan. (User asked "Fable or Opus?" → Fable 5 recommended.)
+1. ✅ **Stage 3a fetch + A/B BUILT** (2026-07-23 PM): `gfswave.py` (NOMADS grib-filter regional
+   subsets → pygrib → WavePoint; cluster boxes, cycle lag 4 h, capture/replay fixtures);
+   `archive --wave-source both` is the DEFAULT (VM picks it up via git pull, no cron change) —
+   GFS-Wave rows at `<buoy>.gfswave.jsonl`; `verify --archive --source gfswave` pairs peak
+   period with buoy DPD (GFSWAVE_VARIABLES — pairing peak-vs-mean would fabricate bias).
+   Live-smoked at Waimea (65 rows). ~5 min/box on NOMADS ⇒ ~15 min/cycle for 3 boxes — the
+   VM cycle got slower, watch publish.log. REMAINING 3a: after ~a week, A/B verdict per region
+   → promote GFS-Wave to primary where it wins (full ForecastSource swap for run --all).
 2. **Stage 2E tuning** — still blocked until the VM archive matures (~2026-07-30); by then the
    dual-source A/B (if 3a lands) doubles the value of the same wait. Don't tune earlier.
 3. Stage 3b (ECMWF spectral-lite: period bands / missed-swell guard / consistency proxy /

@@ -42,18 +42,24 @@ from .feedback import (
     summarize,
 )
 from .fetch import FixtureSource, ForecastSource, OpenMeteoSource, fetch_marine_waves
+from .gfswave import GFSWaveFixtureSource, GFSWaveSource
 from .models import Spot
 from .observe import ISRAMARLocalSource, NDBCFixtureSource, NDBCSource
 from .publish import build_payload, update_index, write_spot_json
 from .score import score_hour
 from .spots import load_spots
 from .verify import (
+    GFSWAVE_VARIABLES,
+    VARIABLES,
     build_scorecard,
     lead_time_scorecard,
     parse_marine_waves,
     render_lead_scorecard,
     render_scorecard,
 )
+
+# dual-source archive keys: OM rows live at "<buoy>", GFS-Wave rows at "<buoy>.gfswave"
+GFSWAVE_KEY_SUFFIX = ".gfswave"
 
 ARCHIVE_DIR = Path("data/verify/archive")
 ISRAMAR_DIR = Path("data/verify/isramar")  # local-only, gitignored (all-rights-reserved)
@@ -92,6 +98,13 @@ def _build_parser() -> argparse.ArgumentParser:
         help="score archived forecasts by lead time (instead of the live nowcast)",
     )
     verify.add_argument("--archive-dir", type=Path, default=ARCHIVE_DIR)
+    verify.add_argument(
+        "--source",
+        choices=["om", "gfswave"],
+        default="om",
+        help="with --archive: which archived source to score (Stage 3a A/B). "
+        "gfswave pairs its peak period with buoy DPD",
+    )
     verify.add_argument("--fixtures", type=Path, default=None, help="replay marine json (offline)")
     verify.add_argument("--obs-fixtures", type=Path, default=None, help="replay NDBC txt (offline)")
     verify.add_argument("--capture", type=Path, default=None, help="capture responses to this dir")
@@ -103,7 +116,16 @@ def _build_parser() -> argparse.ArgumentParser:
     archive.add_argument("--buoys-dir", type=Path, default=Path("data/buoys"))
     archive.add_argument("--isramar-dir", type=Path, default=ISRAMAR_DIR)
     archive.add_argument("--archive-dir", type=Path, default=ARCHIVE_DIR)
+    archive.add_argument(
+        "--wave-source",
+        choices=["om", "gfswave", "both"],
+        default="both",
+        help="which offshore sources to archive (Stage 3a dual-source A/B; default both)",
+    )
     archive.add_argument("--fixtures", type=Path, default=None, help="replay marine json (offline)")
+    archive.add_argument(
+        "--gfs-fixtures", type=Path, default=None, help="replay captured gribs (offline)"
+    )
     archive.add_argument("--capture", type=Path, default=None, help="capture responses to this dir")
 
     fb = sub.add_parser("feedback", help="record/report surfer 👍👎 vs the published rating")
@@ -250,8 +272,15 @@ def _cmd_verify(args: argparse.Namespace) -> int:
     for buoy, dist in targets:
         obs = _obs_for(buoy, args)
         if args.archive:
-            rows = FileArchiveStore(args.archive_dir).read(buoy.id)
-            by_lead = lead_time_scorecard(rows, obs, tol_min=args.tol_min)
+            gfs = args.source == "gfswave"
+            key = buoy.id + (GFSWAVE_KEY_SUFFIX if gfs else "")
+            rows = FileArchiveStore(args.archive_dir).read(key)
+            by_lead = lead_time_scorecard(
+                rows,
+                obs,
+                tol_min=args.tol_min,
+                variables=GFSWAVE_VARIABLES if gfs else VARIABLES,
+            )
             print(render_lead_scorecard(buoy, by_lead))
         else:
             model = _model_for(buoy, args)
@@ -273,14 +302,35 @@ def _cmd_archive(args: argparse.Namespace) -> int:
 
     store = FileArchiveStore(args.archive_dir)
     now = datetime.now(UTC)
-    for buoy in targets:
-        model = _model_for(buoy, args)
-        rows = rows_from_model(now, model)
-        store.append(buoy.id, rows)
-        print(
-            f"{buoy.id}: archived {len(rows)} forecast rows @ {now.isoformat(timespec='seconds')}"
-            f" → {args.archive_dir / (buoy.id + '.jsonl')}"
-        )
+    if args.wave_source in ("om", "both"):
+        for buoy in targets:
+            model = _model_for(buoy, args)
+            rows = rows_from_model(now, model)
+            store.append(buoy.id, rows)
+            stamp = now.isoformat(timespec="seconds")
+            print(
+                f"{buoy.id}: archived {len(rows)} forecast rows @ {stamp}"
+                f" → {args.archive_dir / (buoy.id + '.jsonl')}"
+            )
+    if args.wave_source in ("gfswave", "both"):
+        # Stage 3a A/B member. Guarded so a NOMADS outage never breaks OM archiving.
+        try:
+            src = (
+                GFSWaveFixtureSource(args.gfs_fixtures)
+                if args.gfs_fixtures is not None
+                else GFSWaveSource(capture_dir=args.capture)
+            )
+            points = [(b.lat, b.lon) for b in targets]
+            for buoy, series in zip(targets, src.fetch_series(points), strict=True):
+                rows = rows_from_model(now, series)
+                key = buoy.id + GFSWAVE_KEY_SUFFIX
+                store.append(key, rows)
+                print(
+                    f"{buoy.id}: archived {len(rows)} gfswave rows"
+                    f" → {args.archive_dir / (key + '.jsonl')}"
+                )
+        except Exception as e:  # A/B member must never sink the essential archive
+            print(f"warn: gfswave archive skipped: {e}", file=sys.stderr)
     return 0
 
 

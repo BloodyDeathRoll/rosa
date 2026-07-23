@@ -30,6 +30,14 @@ VARIABLES = (
     ("dir", "Wave direction", "°", "dir", "mwd_deg", True),
 )
 
+# GFS-Wave archive rows carry a PEAK period (perpw), so tp pairs with the buoy's DPD
+# (dominant period), not APD — pairing mean-vs-dominant would fabricate a bias (Stage 3a).
+GFSWAVE_VARIABLES = (
+    ("hs", "Sig. wave height", "m", "hs", "hs_m", False),
+    ("tp", "Peak period", "s", "tp", "dpd_s", False),
+    ("dir", "Wave direction", "°", "dir", "mwd_deg", True),
+)
+
 
 @dataclass(frozen=True, slots=True)
 class WavePoint:
@@ -159,19 +167,22 @@ def lead_time_scorecard(
     *,
     buckets: tuple[tuple[str, float, float], ...] = LEAD_BUCKETS,
     tol_min: int = 30,
+    variables: tuple = VARIABLES,
 ) -> dict[str, dict[str, VarScore]]:
     """Skill by forecast lead time, from archived forecasts vs observations.
 
     Each archived row (forecast for ``valid``, made at ``run``) is bucketed by lead
     (valid-run) and paired to the nearest observation reporting that variable. Answers
-    "does our day-5 forecast still hold up, or is only the nowcast any good?" """
+    "does our day-5 forecast still hold up, or is only the nowcast any good?"
+    ``variables`` picks the model↔obs pairing (VARIABLES for Open-Meteo mean period,
+    GFSWAVE_VARIABLES for GFS-Wave peak period)."""
     tol = timedelta(minutes=tol_min)
     valid_obs = {
         o_attr: [o for o in obs if getattr(o, o_attr) is not None]
-        for *_head, o_attr, _circ in VARIABLES
+        for *_head, o_attr, _circ in variables
     }
     pairs: dict[str, dict[str, list[tuple[float, float]]]] = {
-        label: {key: [] for key, *_ in VARIABLES} for label, _lo, _hi in buckets
+        label: {key: [] for key, *_ in variables} for label, _lo, _hi in buckets
     }
     for row in rows:
         run = datetime.fromisoformat(row["run"])
@@ -180,7 +191,7 @@ def lead_time_scorecard(
         label = _bucket_for(lead_h, buckets)
         if label is None:
             continue
-        for key, _label, _unit, _m_attr, o_attr, _circ in VARIABLES:
+        for key, _label, _unit, _m_attr, o_attr, _circ in variables:
             mv = row.get(key)
             if mv is None:
                 continue
@@ -190,7 +201,7 @@ def lead_time_scorecard(
     return {
         label: {
             key: _score_var(key, lbl, unit, pairs[label][key], circ)
-            for key, lbl, unit, _m, _o, circ in VARIABLES
+            for key, lbl, unit, _m, _o, circ in variables
         }
         for label, _lo, _hi in buckets
     }
