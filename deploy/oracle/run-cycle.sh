@@ -31,7 +31,7 @@ if [ -n "${VERCEL_TOKEN:-}" ] && [ -n "${VERCEL_ORG_ID:-}" ] && [ -n "${VERCEL_P
     stage="$REPO/.data-publish"
     rm -rf "$stage"
     mkdir -p "$stage/.vercel/output/static/data"
-    printf '{"version":3}\n' > "$stage/.vercel/output/static/config.json"
+    printf '{"version":3}\n' > "$stage/.vercel/output/config.json"
     cp -r "$REPO/data/out/." "$stage/.vercel/output/static/data/"
     ( cd "$stage" && vercel deploy --prebuilt --prod --yes --token "$VERCEL_TOKEN" )
     echo "published forecasts to the data CDN"
