@@ -91,7 +91,7 @@ def test_parametric_spread_by_class() -> None:
     assert parametric_spread_deg(_swell(1.0, 5.0, kind="wind")) == 35.0
     assert parametric_spread_deg(_swell(1.0, 8.0)) == 25.0
     assert parametric_spread_deg(_swell(1.0, 12.0)) == 20.0
-    assert parametric_spread_deg(_swell(1.0, 12.0, peak=16.0)) == 15.0  # peak wins
+    assert parametric_spread_deg(_swell(1.0, 12.0, peak=16.0)) == 24.0  # peak wins
 
 
 # --- extract join + agreement ---

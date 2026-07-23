@@ -1,0 +1,27 @@
+# CDIP-operated Datawell Waverider stations (served via NDBC realtime2, public domain).
+# Added 2026-07-23 for the Stage-3b spread arbitration (docs/CALIBRATION.md): Datawell
+# hulls measure directional spread (r1) much more cleanly than 3-m discus buoys, so
+# comparing their sigma@peak against the discus stations separates "r1 noise" from
+# "the parametric spread table is wrong" for >=14 s groundswell. July = Southern
+# Hemisphere season: SoCal + Hawaii south-facing stations see real long-period peaks.
+buoys:
+  - id: "46218"
+    name: "Harvest, CA (CDIP 071, Waverider)"
+    lat: 34.452
+    lon: -120.780
+    source: ndbc
+  - id: "46225"
+    name: "Torrey Pines Outer, CA (CDIP 100, Waverider)"
+    lat: 32.933
+    lon: -117.391
+    source: ndbc
+  - id: "51202"
+    name: "Mokapu Point, HI (CDIP 098, Waverider)"
+    lat: 21.414
+    lon: -157.681
+    source: ndbc
+  - id: "51205"
+    name: "Pauwela, Maui, HI (CDIP 187, Waverider)"
+    lat: 21.018
+    lon: -156.421
+    source: ndbc

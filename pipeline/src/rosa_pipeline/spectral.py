@@ -44,12 +44,18 @@ MISSED_MIN_HS_M = 0.3
 W1_NARROW, W1_BROAD = 0.15, 0.50  # w1 = Tp/Tm02 - 1
 W2_NARROW, W2_BROAD = 0.03, 0.15  # w2 = Tm-1,0/Tm02 - 1
 
-# assumed directional spread (one-sided sigma, degrees) — typical measured values:
-# windsea 30-40 deg, mid-period swell ~20, long groundswell 10-15 (Ewans/Forristall)
+# assumed directional spread (one-sided sigma, degrees). Seeded from literature
+# (windsea 30-40, long groundswell 10-15 per Ewans/Forristall), then CALIBRATED against
+# measured buoy sigma@peak (CALIBRATION.md 2026-07-23 spectra sweep, 12 stations,
+# ~22k hrs): the Datawell Waverider stations — the clean directional instruments —
+# converge on ~24 deg for >=14 s peaks (Harvest n=534: 25.4, Torrey Pines n=937: 23.5),
+# so the long-swell value moved 15 -> 24; the other classes measured within a few
+# degrees of their assumptions and stand. Discus-hull sigma reads 39-64 deg for the
+# same class — instrument broadening, not truth; never tune from those.
 SPREAD_WINDSEA_DEG = 35.0
 SPREAD_SHORT_SWELL_DEG = 25.0  # T < 10 s
 SPREAD_MID_SWELL_DEG = 20.0  # 10-14 s
-SPREAD_LONG_SWELL_DEG = 15.0  # >= 14 s
+SPREAD_LONG_SWELL_DEG = 24.0  # >= 14 s (measured, was 15 from literature)
 
 
 @dataclass(frozen=True, slots=True)

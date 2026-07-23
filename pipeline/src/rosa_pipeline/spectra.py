@@ -332,6 +332,8 @@ class NDBCSpectraSource:
     def fetch(self, buoy: Buoy) -> list[SpectrumObs]:
         with httpx.Client(timeout=self.timeout_s) as client:
             data_spec = client.get(f"{NDBC_REALTIME}/{buoy.id}.data_spec")
+            if data_spec.status_code == 404:
+                return []  # met-only / non-spectral station — honest empty, not a crash
             data_spec.raise_for_status()
             # r1 is optional kit — a station without it still validates consistency
             swr1 = client.get(f"{NDBC_REALTIME}/{buoy.id}.swr1")

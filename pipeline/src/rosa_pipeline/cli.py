@@ -326,6 +326,9 @@ def _cmd_verify(args: argparse.Namespace) -> int:
                 else NDBCSpectraSource(capture_dir=args.capture)
             )
             specs = src.fetch(buoy)
+            if not specs:
+                print(f"{buoy.id}: no spectral files published — met-only or non-spectral buoy")
+                continue
             print(render_spectra_report(buoy, build_report(specs)))
             continue
         obs = _obs_for(buoy, args)

@@ -112,3 +112,35 @@ spectral peak; narrowness truth = Goda peakedness Qp; the consistency formula is
 5–13° for windsea/short-swell classes, up to 21–31° for ≥14 s groundswell (assumption
 unreliable there)**. Re-run across more buoys (Atlantic set has fewer long-period peaks;
 CDIP stations would arbitrate the r1-noise question) before touching SPREAD_* constants.
+
+## 2026-07-23 — Stage-3b spectra sweep #2: CDIP arbitration (12 stations, ~22k hrs)
+
+Added 4 CDIP Datawell Waverider stations (46218 Harvest, 46225 Torrey Pines, 51202
+Mokapu, 51205 Pauwela — `data/buoys/cdip.yaml`) and swept `verify --spectra` across the
+whole registry. Waverider vs discus-hull comparison resolves the ≥14 s question from
+this morning's entry:
+
+| Station (hull) | n ≥14s | measured σ ≥14s | proxy↔Qp r |
+|---|---|---|---|
+| 46225 Torrey Pines (**Waverider**) | 937 | **23.5°** | +0.36 |
+| 46218 Harvest (**Waverider**) | 534 | **25.4°** | +0.48 |
+| 51201 Waimea (Waverider) | 68 | 35.9° (weak summer N-Pac peaks, small n) | +0.38 |
+| 46042 Monterey (discus) | 747 | 45.9° | +0.49 |
+| 46026 SF (discus) | 699 | 38.9° | +0.41 |
+| 46059 W-CA (discus) | 469 | 60.4° | +0.51 |
+| 46022 Eel River (discus) | 255 | 61.7° | +0.72 |
+| 44013 / 41008 / 41013 (discus, Atlantic) | 5–34 | 50–64° (tiny n) | +0.47–0.72 |
+
+**Verdict — both hypotheses were partly right:**
+- **Discus σ is instrument-broadened** (39–64° vs Waverider 23–26° for the same class):
+  never tune spread from discus stations.
+- **The literature 15° was still too narrow**: clean Waverider truth converges on ~24°
+  for ≥14 s peaks. → `SPREAD_LONG_SWELL_DEG` 15 → **24** (the one knob moved; the sweep
+  IS the accumulated evidence: two independent instruments, 1471 hrs of ≥14 s peaks).
+- Other classes measured within a few degrees of assumptions on Waveriders
+  (10–14 s: 19.8–25.5° vs 20; <10 s: 23–32° vs 25; HI trade windsea 32–34° vs 35) — stand.
+- **Consistency proxy↔Qp positive at every one of 12 stations** (+0.34…+0.72, median
+  ~+0.48). Good enough for the displayed, non-rating 0–100; formula-level validation done.
+  Model-side leg (ECMWF periods at buoys) still accumulates in the `.ecmwf` archive.
+- Ops fix: 51101 publishes no spectral files → harness now reports that honestly
+  instead of crashing (404 → "met-only or non-spectral buoy").
