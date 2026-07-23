@@ -195,6 +195,7 @@ def build_payload(spot: Spot, scored: list[ScoredHour], *, fetched_at: str, now:
             "id": spot.id,
             "name": spot.name,
             "region": spot.region,
+            "tide_best": spot.tide_best,
             "lat": spot.lat,
             "lon": spot.lon,
             "timezone": spot.timezone,

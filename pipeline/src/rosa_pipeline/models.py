@@ -40,6 +40,7 @@ class Spot:
     ideal_wind_dir: tuple[float, float]
     ideal_size_m: tuple[float, float]
     region: str = ""  # display country/area (e.g. "Israel"); used for search
+    tide_best: str | None = None  # local knowledge: "low" | "mid" | "high" (never derived)
 
 
 @dataclass(frozen=True, slots=True)

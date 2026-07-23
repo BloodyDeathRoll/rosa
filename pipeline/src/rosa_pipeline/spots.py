@@ -86,6 +86,9 @@ def load_spots_file(path: Path) -> list[Spot]:
             if "shore_normal" in raw
             else (offshore_direction + 180.0) % 360.0
         )
+        tide_best = raw.get("tide_best")
+        if tide_best is not None and tide_best not in ("low", "mid", "high"):
+            raise ValueError(f"{raw['id']}: tide_best must be low|mid|high, got {tide_best!r}")
         spots.append(
             Spot(
                 id=raw["id"],
@@ -102,6 +105,7 @@ def load_spots_file(path: Path) -> list[Spot]:
                 ideal_wind_dir=_pair(ideal["wind_dir"]),
                 ideal_size_m=_pair(ideal["size_m"]),
                 region=region,
+                tide_best=tide_best,
             )
         )
     return spots

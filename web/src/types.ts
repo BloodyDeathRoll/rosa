@@ -72,7 +72,15 @@ export interface SwellEventEntry {
 }
 
 export interface SpotPayload {
-  spot: { id: string; name: string; region?: string; lat: number; lon: number; timezone: string };
+  spot: {
+    id: string;
+    name: string;
+    region?: string;
+    tide_best?: "low" | "mid" | "high" | null;
+    lat: number;
+    lon: number;
+    timezone: string;
+  };
   model: string;
   fetched_at: string;
   generated_at: string;
