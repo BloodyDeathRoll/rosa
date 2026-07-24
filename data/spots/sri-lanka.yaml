@@ -38,9 +38,9 @@ spots:
   # ==== SOUTH COAST (W→E; sample pushed SOUTH) ====
   - { id: hikkaduwa,        name: "Hikkaduwa",              lat: 6.1304, lon: 80.0963, offshore_direction: 35,  offshore_point: [6.08, 80.103],  break_type: reef, <<: *sl_s }  # approx — TODO verify
   - { id: unawatuna,        name: "Unawatuna",              lat: 6.0015, lon: 80.2459, offshore_direction: 20,  offshore_point: [5.95, 80.249],  swell_window: [160, 220], <<: *sl_s }  # approx — TODO verify (sheltered bay)
-  - { id: koggala,          name: "Koggala",                lat: 5.9824, lon: 80.327, offshore_direction: 5,   offshore_point: [5.934, 80.328], break_type: reef, <<: *sl_s }  # approx — TODO verify
+  - { id: koggala,          name: "Koggala",                lat: 5.98283, lon: 80.33502, offshore_direction: 5,   offshore_point: [5.938, 80.335], break_type: reef, <<: *sl_s }  # osm-corrected 2026-07-24 (was 5.9824,80.327)
   - { id: ahangama-kabalana, name: "Ahangama (Kabalana)",   lat: 5.9658, lon: 80.3624, offshore_direction: 5,   offshore_point: [5.913, 80.363], <<: *sl_s }  # approx — TODO verify (The Rock)
-  - { id: midigama,         name: "Midigama",               lat: 5.9587, lon: 80.387, offshore_direction: 15,  offshore_point: [5.91, 80.390],  break_type: reef, <<: *sl_s }  # approx — TODO verify (Ram's Right / Lazy Left)
+  - { id: midigama,         name: "Midigama",               lat: 5.96501, lon: 80.38891, offshore_direction: 15,  offshore_point: [5.920, 80.389],  break_type: reef, <<: *sl_s }  # osm-corrected 2026-07-24 (was 5.9587,80.387) — Ram's Right / Lazy Left
   - { id: weligama,         name: "Weligama",               lat: 5.9646, lon: 80.4285, offshore_direction: 5,   offshore_point: [5.91, 80.429],  <<: *sl_s }  # approx — TODO verify (beginner beachbreak)
   - { id: mirissa,          name: "Mirissa",                lat: 5.9396, lon: 80.4585, offshore_direction: 5,   offshore_point: [5.885, 80.459], <<: *sl_s }  # approx — TODO verify
   - { id: polhena,          name: "Polhena (Matara)",       lat: 5.933, lon: 80.538, offshore_direction: 5,   offshore_point: [5.873, 80.538], break_type: reef, <<: *sl_s }  # approx — TODO verify
@@ -50,8 +50,30 @@ spots:
   # shore_normal (seaward, E/SE) is set explicitly — the coast faces the ocean E/SE while the
   # best wind (offshore_direction) is the SW monsoon, so the two genuinely diverge here.
   - { id: okanda,           name: "Okanda",                 lat: 6.650, lon: 81.780, offshore_direction: 240, shore_normal: 130, offshore_point: [6.65, 81.840],  <<: *sl_e }  # approx — TODO verify (remote, S of Arugam) — SW-monsoon offshore
-  - { id: peanut-farm,      name: "Peanut Farm",            lat: 6.780, lon: 81.850, offshore_direction: 240, shore_normal: 125, offshore_point: [6.78, 81.910],  <<: *sl_e }  # approx — TODO verify — SW-monsoon offshore
-  - { id: elephant-rock,    name: "Elephant Rock",          lat: 6.800, lon: 81.848, offshore_direction: 240, shore_normal: 120, offshore_point: [6.80, 81.908],  <<: *sl_e }  # approx — TODO verify — SW-monsoon offshore
-  - { id: arugam-bay,       name: "Arugam Bay (Main Point)", lat: 6.840, lon: 81.836, offshore_direction: 245, shore_normal: 115, offshore_point: [6.84, 81.896], <<: *sl_e }  # approx — TODO verify (world-class right point) — SW-monsoon offshore is what makes the season
+  - { id: peanut-farm,      name: "Peanut Farm",            lat: 6.78236, lon: 81.82250, offshore_direction: 240, shore_normal: 125, offshore_point: [6.782, 81.882],  <<: *sl_e }  # osm-corrected 2026-07-24 (was 6.780,81.850) — SW-monsoon offshore
+  - { id: elephant-rock,    name: "Elephant Rock",          lat: 6.81060, lon: 81.82318, offshore_direction: 240, shore_normal: 120, offshore_point: [6.811, 81.883],  <<: *sl_e }  # osm-corrected 2026-07-24 (was 6.800,81.848) — SW-monsoon offshore
+  - { id: arugam-bay,       name: "Arugam Bay (Main Point)", lat: 6.83605, lon: 81.83991, offshore_direction: 245, shore_normal: 115, offshore_point: [6.836, 81.900], <<: *sl_e }  # osm-corrected 2026-07-24 (was 6.840,81.836) — SW-monsoon offshore
   - { id: pottuvil-point,   name: "Pottuvil Point",         lat: 6.887, lon: 81.834, offshore_direction: 240, shore_normal: 95,  offshore_point: [6.887, 81.894], <<: *sl_e }  # approx — TODO verify — SW-monsoon offshore
   - { id: whiskey-point,    name: "Whiskey Point",          lat: 6.9043, lon: 81.8475, offshore_direction: 250, shore_normal: 80,  offshore_point: [6.92, 81.880],  <<: *sl_e }  # approx — TODO verify — SW-monsoon offshore
+
+  # ==== OSM-SEEDED (2026-07-24, © OpenStreetMap contributors, ODbL) ====
+  # Generated from the coastline (tools/spot-seed: coastline → bathy prune → OSM-name confirm).
+  # offshore_direction derived from OSM coastline geometry; offshore_point pushed south to open
+  # water. SOURCE = osm-seeded (below sat-/user-verified on the authority ladder) — sat-verify
+  # coords + break_type + swell_window before trusting. Ordered W→E along the south coast.
+  - { id: hikkaduwa-south, name: "Hikkaduwa South", lat: 6.1288, lon: 80.1031, offshore_direction: 25,  offshore_point: [6.0838, 80.1031], break_type: reef, <<: *sl_s }  # osm-seeded — TODO verify (Hikkaduwa reef; OSM "Surf Control")
+  - { id: momos,        name: "Momo's",         lat: 5.9776, lon: 80.3484, offshore_direction: 358, offshore_point: [5.9327, 80.3484], <<: *sl_s }  # osm-seeded — TODO verify
+  - { id: marshmallow,  name: "Marshmallow",    lat: 5.9739, lon: 80.3586, offshore_direction: 34,  offshore_point: [5.9290, 80.3586], <<: *sl_s }  # osm-seeded — TODO verify
+  - { id: crust,        name: "Crust",          lat: 5.9711, lon: 80.3651, offshore_direction: 29,  offshore_point: [5.9261, 80.3651], <<: *sl_s }  # osm-seeded — TODO verify
+  - { id: cove,         name: "The Cove",       lat: 5.9676, lon: 80.3731, offshore_direction: 343, offshore_point: [5.9226, 80.3731], <<: *sl_s }  # osm-seeded — TODO verify
+  - { id: weligama-west, name: "Weligama West",  lat: 5.9601, lon: 80.4017, offshore_direction: 12,  offshore_point: [5.9151, 80.4017], break_type: reef, <<: *sl_s }  # osm-seeded — TODO verify (unnamed OSM "Surf Spot")
+  - { id: kapparatota,  name: "Kapparatota",    lat: 5.9582, lon: 80.4086, offshore_direction: 19,  offshore_point: [5.9132, 80.4086], <<: *sl_s }  # osm-seeded — TODO verify
+  - { id: jungle,       name: "Jungle Beach",   lat: 5.9587, lon: 80.4129, offshore_direction: 41,  offshore_point: [5.9137, 80.4129], <<: *sl_s }  # osm-seeded — TODO verify
+  - { id: fishermen,    name: "Fishermen Bay",  lat: 5.9585, lon: 80.4201, offshore_direction: 258, offshore_point: [5.9135, 80.4201], <<: *sl_s }  # osm-seeded — TODO verify (bay-facing)
+  - { id: thalaramba,   name: "Thalaramba",     lat: 5.9374, lon: 80.4749, offshore_direction: 1,   offshore_point: [5.8925, 80.4749], <<: *sl_s }  # osm-seeded — TODO verify
+  - { id: madiha,       name: "Madiha",         lat: 5.9371, lon: 80.5065, offshore_direction: 357, offshore_point: [5.8922, 80.5065], <<: *sl_s }  # osm-seeded — TODO verify
+  - { id: weddawata,    name: "Weddawata",      lat: 5.9399, lon: 80.5650, offshore_direction: 345, offshore_point: [5.8949, 80.5650], <<: *sl_s }  # osm-seeded — TODO verify
+  - { id: wellamadama,  name: "Wellamadama",    lat: 5.9358, lon: 80.5752, offshore_direction: 4,   offshore_point: [5.8908, 80.5752], <<: *sl_s }  # osm-seeded — TODO verify
+  - { id: unakuruwa,    name: "Unakuruwa",      lat: 6.0013, lon: 80.7651, offshore_direction: 5,   offshore_point: [5.9563, 80.7651], <<: *sl_s }  # osm-seeded — TODO verify
+  # east coast (Arugam) osm-seeded:
+  - { id: coconut-beach, name: "Coconut Beach (Arugam)", lat: 6.8842, lon: 81.8431, offshore_direction: 245, shore_normal: 90, offshore_point: [6.884, 81.895], break_type: point, <<: *sl_e }  # osm-seeded — TODO verify

@@ -46,3 +46,15 @@ spots:
   # ---- Kyushu (Miyazaki — E-facing, most consistent in Japan) ----
   - { id: okuragahama,        name: "Okuragahama (Hyuga)",      lat: 32.4045, lon: 131.6455, offshore_direction: 290, swell_window: [30, 160],   offshore_point: [32.39, 131.71], <<: *jp }  # approx — TODO verify (NE-opening bay)
   - { id: kisakihama,         name: "Kisakihama (Miyazaki)",    lat: 31.794, lon: 131.4795, offshore_direction: 280, swell_window: [40, 170],  offshore_point: [31.78, 131.53], <<: *jp }  # sat-verified 2026-07-23 (pro-tour beachbreak S of Aoshima)
+
+  # ==== OSM-SEEDED (2026-07-24, © OpenStreetMap contributors, ODbL) ====
+  # coastline-generated → bathy-pruned → OSM-name confirmed; offshore_direction from
+  # coastline geometry; offshore_point pushed seaward. SOURCE = osm-seeded (below
+  # sat/user-verified). sat-verify coords + break_type + swell_window before trusting.
+  - { id: tsujido, name: "Tsujido (辻堂海岸)", lat: 35.3167, lon: 139.46, offshore_direction: 9, swell_window: [124, 254], offshore_point: [35.2723, 139.4514], <<: *jp }  # osm-seeded 2026-07-24 — TODO verify
+  - { id: katase-eastside, name: "Katase Eastside Beach", lat: 35.3075, lon: 139.4873, offshore_direction: 344, swell_window: [99, 229], offshore_point: [35.2643, 139.5025], <<: *jp }  # osm-seeded 2026-07-24 — TODO verify
+  - { id: kabune, name: "Kabune", lat: 35.2943, lon: 139.5537, offshore_direction: 10, swell_window: [125, 255], offshore_point: [35.25, 139.5441], <<: *jp }  # osm-seeded 2026-07-24 — TODO verify
+
+  # ==== WEB-SEARCH-SEEDED (2026-07-24) — surf-guide discovery, Google/Nominatim/Photon
+  # geocode cross-checked + ESRI sat-verified. Locations verified; params TODO-tune. ====
+  - { id: aoshima, name: "Aoshima (Miyazaki)", lat: 31.8028, lon: 131.4701, offshore_direction: 270, swell_window: [25, 155], offshore_point: [31.8028, 131.523], <<: *jp }  # websearch-seeded 2026-07-24 (geocoded+sat-verified) — TODO verify
