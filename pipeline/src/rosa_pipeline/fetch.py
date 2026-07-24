@@ -8,6 +8,8 @@ FixtureSource replays a captured file so tests and offline runs never touch the 
 from __future__ import annotations
 
 import json
+import sys
+import time
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path
@@ -18,6 +20,12 @@ import httpx
 MARINE_URL = "https://marine-api.open-meteo.com/v1/marine"
 WEATHER_URL = "https://api.open-meteo.com/v1/forecast"
 FORECAST_DAYS = 16
+# Open-Meteo caps calls at 600/min PER API HOST, billed by weight
+# (max(1, vars/10) x max(1, days/14) per location). The marine host carries both the marine
+# request (~4.57/point) and the ensemble (~1.37/point) = ~5.94/point, so 600 / 5.94 ~= 101
+# points fit in one minute bucket. Batch the coords under that and pause past a minute
+# boundary between batches so each lands in a fresh window; keeps the whole coast in-quota.
+MARINE_BATCH_SIZE = 100
 # best_match is Open-Meteo's per-location blend but only reaches ~9 days; NOAA GFS-Wave
 # runs the full 16. Request both — extract prefers best_match, falls back to GFS-Wave for
 # the extended tail (per-hour, so each hour stays internally consistent).
@@ -102,26 +110,53 @@ def fixture_key(lat: float, lon: float) -> str:
 
 
 class OpenMeteoSource:
-    def __init__(self, capture_dir: Path | None = None, timeout_s: float = 30.0) -> None:
+    def __init__(
+        self,
+        capture_dir: Path | None = None,
+        timeout_s: float = 30.0,
+        transport: httpx.BaseTransport | None = None,
+        sleep_between_batches_s: float = 60.0,
+    ) -> None:
         self.capture_dir = capture_dir
         self.timeout_s = timeout_s
+        self._transport = transport  # injectable for offline tests
+        self.sleep_between_batches_s = sleep_between_batches_s  # 0 to disable (tests)
 
     def fetch(self, lat: float, lon: float) -> RawForecast:
         return self.fetch_many([(lat, lon)])[0]
 
     def fetch_many(self, coords: list[tuple[float, float]]) -> list[RawForecast]:
-        """Fetch every point in ONE marine + ONE weather + ONE ensemble request. Open-Meteo
-        accepts comma-separated coordinates and returns a per-location array (a single object
-        for one coord), so a whole coast is 3 requests — no per-spot throttling. The ensemble
-        request (independent members, Hs/period/dir only) feeds Stage-1 confidence."""
+        """Fetch every point in batches of <=MARINE_BATCH_SIZE, each batch being ONE marine +
+        ONE weather + ONE ensemble request. Open-Meteo accepts comma-separated coordinates and
+        returns a per-location array (a single object for one coord), so a batch is 3 requests.
+        Batches beyond the first pause past a minute boundary to stay under the marine host's
+        600 calls/min cap (see MARINE_BATCH_SIZE). The ensemble request (independent members,
+        Hs/period/dir only) feeds Stage-1 confidence, and is the one request allowed to fail:
+        see the 429 note below."""
         if not coords:
             return []
+        out: list[RawForecast] = []
+        batches = [
+            coords[i : i + MARINE_BATCH_SIZE] for i in range(0, len(coords), MARINE_BATCH_SIZE)
+        ]
+        for bi, batch in enumerate(batches):
+            if bi > 0 and self.sleep_between_batches_s > 0:
+                print(
+                    f"info: open-meteo batch {bi + 1}/{len(batches)} — pausing "
+                    f"{self.sleep_between_batches_s:g}s for the marine-host minute cap",
+                    file=sys.stderr,
+                )
+                time.sleep(self.sleep_between_batches_s)
+            out.extend(self._fetch_batch(batch))
+        return out
+
+    def _fetch_batch(self, coords: list[tuple[float, float]]) -> list[RawForecast]:
         common = {
             "latitude": ",".join(f"{lat:g}" for lat, _ in coords),
             "longitude": ",".join(f"{lon:g}" for _, lon in coords),
             "forecast_days": FORECAST_DAYS,
         }
-        with httpx.Client(timeout=self.timeout_s) as client:
+        with httpx.Client(timeout=self.timeout_s, transport=self._transport) as client:
             marine = client.get(
                 MARINE_URL,
                 params={
@@ -133,7 +168,7 @@ class OpenMeteoSource:
             marine.raise_for_status()
             weather = client.get(WEATHER_URL, params={**common, "hourly": ",".join(WEATHER_HOURLY)})
             weather.raise_for_status()
-            ensemble = client.get(
+            ensemble: httpx.Response | None = client.get(
                 MARINE_URL,
                 params={
                     **common,
@@ -141,12 +176,29 @@ class OpenMeteoSource:
                     "models": ",".join(MARINE_ENSEMBLE_MODELS),
                 },
             )
-            ensemble.raise_for_status()
+            # Open-Meteo bills call weight (locations x variables x days) against hourly and
+            # daily buckets, so a big run can drain them. The ensemble is the last and most
+            # expendable of the three requests: on 429 drop it and let confidence fall back to
+            # the horizon proxy, rather than throwing away the marine + weather data already
+            # fetched and publishing nothing at all.
+            if ensemble.status_code == 429:
+                print(
+                    "warn: open-meteo 429 on the ensemble request — publishing without the "
+                    "confidence ensemble (horizon proxy only)",
+                    file=sys.stderr,
+                )
+                ensemble = None
+            else:
+                ensemble.raise_for_status()
         fetched_at = datetime.now(UTC).isoformat(timespec="seconds")
-        mj, wj, ej = marine.json(), weather.json(), ensemble.json()
+        mj, wj = marine.json(), weather.json()
         marine_list = mj if isinstance(mj, list) else [mj]
         weather_list = wj if isinstance(wj, list) else [wj]
-        ensemble_list = ej if isinstance(ej, list) else [ej]
+        if ensemble is None:
+            ensemble_list: list[dict | None] = [None] * len(coords)
+        else:
+            ej = ensemble.json()
+            ensemble_list = ej if isinstance(ej, list) else [ej]
         out: list[RawForecast] = []
         for (lat, lon), m, w, e in zip(
             coords, marine_list, weather_list, ensemble_list, strict=True
