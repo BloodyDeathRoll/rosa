@@ -30,3 +30,15 @@ web/public/olderIcons.zip
 data/verify/
 .vercel
 .env*
+
+# local bathymetry grids (large, downloaded once — never commit)
+data/bathy/
+
+# local OSM extracts (downloaded once)
+data/osm/
+
+# spot-seed working outputs (caches, tiles, geocode results — regenerated)
+tools/spot-seed/work/
+tools/spot-seed/candidates/
+tools/spot-seed/geocode_gaps.json
+__pycache__/
