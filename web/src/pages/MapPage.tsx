@@ -238,14 +238,16 @@ export function MapPage({ theme }: { theme: Theme }) {
           }
 
           // Carousel = spots actually visible on the map: on screen AND not hidden
-          // behind the bottom sheet (a dot under the cards isn't "showing"), N→S.
+          // behind the bottom sheet (a dot under the cards isn't "showing"). Ordered
+          // S→N, so scrolling the cards to the right travels north up the coast the
+          // same way the map does. spotsRef stays N→S for everything else.
           const visH = H - SHEET_H;
           const onScreen = (e: IndexEntry) => {
             const p = m.project([e.lon, e.lat]);
             return p.x >= 0 && p.x <= W && p.y >= 0 && p.y <= visH;
           };
           const inView = spotsRef.current.filter(([, e]) => onScreen(e));
-          setVisible(inView.map(([id]) => id));
+          setVisible(inView.map(([id]) => id).reverse());
 
           // Keep the focus if still visible; else focus the spot nearest the
           // center of the *visible* strip (above the sheet).
