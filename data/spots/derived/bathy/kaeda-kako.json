@@ -1,0 +1,65 @@
+{
+  "spot": "kaeda-kako",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 95.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 79.0,
+  "mean_slope_m_per_km": 4.56,
+  "land_samples": 1,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 31.82052,
+      "lon": 131.45767,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 31.82033,
+      "lon": 131.4603,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 31.81994,
+      "lon": 131.46557,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 31.81915,
+      "lon": 131.47612,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 31.81836,
+      "lon": 131.48666,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 31.81679,
+      "lon": 131.50775,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 31.81442,
+      "lon": 131.53937,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 31.81125,
+      "lon": 131.58154,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 31.80647,
+      "lon": 131.64479,
+      "depth_m": 79.0
+    }
+  ]
+}

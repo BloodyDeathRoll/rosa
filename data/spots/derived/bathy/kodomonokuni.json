@@ -1,0 +1,65 @@
+{
+  "spot": "kodomonokuni",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 95.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 83.0,
+  "mean_slope_m_per_km": 5.07,
+  "land_samples": 3,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 31.80852,
+      "lon": 131.46464,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 31.80833,
+      "lon": 131.46727,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 31.80794,
+      "lon": 131.47254,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 31.80715,
+      "lon": 131.48308,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 31.80636,
+      "lon": 131.49363,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 31.80479,
+      "lon": 131.51471,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 31.80242,
+      "lon": 131.54633,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 31.79925,
+      "lon": 131.58849,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 31.79447,
+      "lon": 131.65173,
+      "depth_m": 83.0
+    }
+  ]
+}

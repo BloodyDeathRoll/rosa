@@ -1,0 +1,65 @@
+{
+  "spot": "kabalana",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 185.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 821.0,
+  "mean_slope_m_per_km": 46.59,
+  "land_samples": 1,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 5.97523,
+      "lon": 80.34822,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 5.97299,
+      "lon": 80.34803,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 5.96851,
+      "lon": 80.34763,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 5.95955,
+      "lon": 80.34684,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 5.95059,
+      "lon": 80.34606,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 5.93268,
+      "lon": 80.34448,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 5.9058,
+      "lon": 80.34212,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 5.86996,
+      "lon": 80.33896,
+      "depth_m": 185.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 5.81621,
+      "lon": 80.33424,
+      "depth_m": 821.0
+    }
+  ]
+}

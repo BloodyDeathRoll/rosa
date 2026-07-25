@@ -1,0 +1,65 @@
+{
+  "spot": "maaravi",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 284.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 180.0,
+  "mean_slope_m_per_km": 10.03,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.05879,
+      "lon": 34.75446,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.05934,
+      "lon": 34.75188,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.06043,
+      "lon": 34.74673,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.0626,
+      "lon": 34.73644,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.06477,
+      "lon": 34.72614,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.06912,
+      "lon": 34.70554,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.07563,
+      "lon": 34.67465,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.0843,
+      "lon": 34.63344,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.09728,
+      "lon": 34.57162,
+      "depth_m": 180.0
+    }
+  ]
+}

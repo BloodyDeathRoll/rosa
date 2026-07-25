@@ -1,0 +1,65 @@
+{
+  "spot": "gas-station",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 185.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 699.0,
+  "mean_slope_m_per_km": 39.89,
+  "land_samples": 2,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 5.96643,
+      "lon": 80.36822,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 5.96419,
+      "lon": 80.36803,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 5.95971,
+      "lon": 80.36763,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 5.95075,
+      "lon": 80.36684,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 5.94179,
+      "lon": 80.36606,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 5.92388,
+      "lon": 80.36448,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 5.897,
+      "lon": 80.36212,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 5.86116,
+      "lon": 80.35896,
+      "depth_m": 219.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 5.80741,
+      "lon": 80.35424,
+      "depth_m": 699.0
+    }
+  ]
+}

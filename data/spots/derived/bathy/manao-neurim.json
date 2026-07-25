@@ -1,0 +1,65 @@
+{
+  "spot": "manao-neurim",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 282.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 185.0,
+  "mean_slope_m_per_km": 10.08,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.36636,
+      "lon": 34.85476,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.36682,
+      "lon": 34.85215,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.36776,
+      "lon": 34.84695,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.36963,
+      "lon": 34.83653,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.3715,
+      "lon": 34.82611,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.37523,
+      "lon": 34.80528,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.38082,
+      "lon": 34.77403,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.38827,
+      "lon": 34.73235,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.39941,
+      "lon": 34.66983,
+      "depth_m": 185.0
+    }
+  ]
+}

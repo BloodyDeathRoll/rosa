@@ -1,0 +1,65 @@
+{
+  "spot": "marshmallow",
+  "source": "gebco2020 via opentopodata",
+  "bearing_seaward_deg": 214.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 161.0,
+  "mean_slope_m_per_km": 9.24,
+  "land_samples": 1,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 5.9705,
+      "lon": 80.35793,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 5.96863,
+      "lon": 80.35666,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 5.9649,
+      "lon": 80.35413,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 5.95745,
+      "lon": 80.34908,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 5.94999,
+      "lon": 80.34402,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 5.93508,
+      "lon": 80.33391,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 5.91271,
+      "lon": 80.31874,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 5.88289,
+      "lon": 80.29852,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 5.83815,
+      "lon": 80.2682,
+      "depth_m": 161.0
+    }
+  ]
+}
