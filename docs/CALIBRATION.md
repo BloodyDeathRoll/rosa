@@ -144,3 +144,25 @@ this morning's entry:
   Model-side leg (ECMWF periods at buoys) still accumulates in the `.ecmwf` archive.
 - Ops fix: 51101 publishes no spectral files → harness now reports that honestly
   instead of crashing (404 → "met-only or non-spectral buoy").
+
+## 2026-07-25 — dogfood: Hilton (TLV), Stage-2 hybrid **under**-called
+
+First eye-check of an autonomously-pushed swell (the swell-event push flagged as
+calibration-suspect in the handoff).
+
+| Date | Time | Spot | Rosa pred (h, rating) | Observed (eyes) | Buoy | Notes |
+|------|------|------|------------------------|-----------------|------|-------|
+| 2026-07-25 | day (hour not recorded) | hilton | 0.5–0.8 m, GOOD 50–53 (run 2026-07-25T02:36Z; the 07-23 run that fired the push said 0.5–0.9 m, GOOD 61) | **1.0–1.2 m** (user) | — (ISRAMAR not pulled) | Under-call ≈ **1.6×** on the range midpoint (0.65 m vs ~1.1 m). Model input at the offshore point: in-window swell **Hs 1.4–1.5 m, Tm 5.8–6.0 s, Tp 8.4 s, dir ~291°**, wind 11–15 kph cross-shore. So the hybrid transform attenuated 1.5 m → 0.65 m (≈0.43×) — the suspect term is `period_rideability`, which is doing most of that work at Tm ~6 s despite a genuine 8.4 s peak. |
+
+**Reading:** this is the *opposite* sign to rows 1–2 (which over-called Med windswell and
+drove `PERIOD_EXP` up to 1.4 / the quadratic-then-1.4 saga). Those rows were small,
+short-period days; this is a real 1.5 m / 8.4 s Med swell. Working hypothesis: the
+rideability attenuation is tuned on the flat end and is too aggressive once actual swell
+energy shows up — i.e. Rosa may be compressing the whole Med height range toward the
+middle. One observation is not evidence; **no knob touched.**
+
+**Pre-registered for Stage 2E (~07-30, when the VM archive matures):** check whether
+rideability keyed on **Tm** (5.9 s) rather than **Tp** (8.4 s) is the under-call mechanism
+at Hilton, and whether a Tp-aware (or spectral-band-aware) rideability fixes this day
+*without* re-inflating the 2026-07-19/20 flat-day frames. Both regimes must be satisfied
+by whatever lands — do not fit one and break the other.
