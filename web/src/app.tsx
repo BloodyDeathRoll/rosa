@@ -1,5 +1,6 @@
 import { useEffect, useState } from "preact/hooks";
 import { HomeIcon, MapIcon, StarIcon, UserIcon } from "./components/icons";
+import { InstallPrompt } from "./components/InstallPrompt";
 import { AboutPage, type AboutDoc } from "./pages/AboutPage";
 import { MapPage } from "./pages/MapPage";
 import { SettingsPage } from "./pages/SettingsPage";
@@ -112,6 +113,7 @@ export function App() {
           }
         />
       )}
+      <InstallPrompt />
     </div>
   );
 }

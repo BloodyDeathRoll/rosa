@@ -94,6 +94,19 @@
       }
     </style>
     <script>
+      // Stash Chrome's install offer. It can fire before the JS bundle parses, and
+      // it is only usable later if preventDefault() runs synchronously here, so the
+      // listener has to live inline - install.ts reads what this caught.
+      (function () {
+        window.__ROSA_BIP = null;
+        addEventListener("beforeinstallprompt", function (e) {
+          e.preventDefault();
+          window.__ROSA_BIP = e;
+          dispatchEvent(new Event("rosa:installable"));
+        });
+      })();
+    </script>
+    <script>
       // set theme before first paint: stored override > light (Rosa's default)
       (function () {
         try {
