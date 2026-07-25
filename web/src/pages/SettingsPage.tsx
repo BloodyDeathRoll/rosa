@@ -183,6 +183,12 @@ export function SettingsPage({
           <button class="settings-row tall about-link" onClick={() => (location.hash = "#/about/how")}>
             <span class="label">How it works</span>
           </button>
+          <button
+            class="settings-row tall about-link"
+            onClick={() => (location.hash = "#/about/reading")}
+          >
+            <span class="label">Reading the forecast</span>
+          </button>
           <button class="settings-row tall about-link" onClick={() => (location.hash = "#/about/terms")}>
             <span class="label">Terms of Use</span>
           </button>

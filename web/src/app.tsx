@@ -26,7 +26,7 @@ function parseRoute(hash: string): Route {
   if (hash.startsWith("#/search")) return { page: "search" };
   // #/favorites is a pre-handoff route folded into Spots
   if (hash.startsWith("#/spots") || hash.startsWith("#/favorites")) return { page: "spots" };
-  const about = /^#\/about\/(how|terms|privacy)/.exec(hash);
+  const about = /^#\/about\/(how|reading|terms|privacy)/.exec(hash);
   if (about?.[1]) return { page: "about", doc: about[1] as AboutDoc };
   if (hash.startsWith("#/settings") || hash.startsWith("#/account")) return { page: "settings" };
   return { page: "today" };

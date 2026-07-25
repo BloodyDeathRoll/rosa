@@ -1465,6 +1465,21 @@ a.rank-card:hover {
   color: var(--muted-foreground);
   text-align: center;
 }
+/* Glossary link in the header's empty time cell. Quiet by default — it is a way out
+   for someone who is stuck, not a thing to notice every time you read the table. */
+.hour-grid.head .grid-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding buys a real tap target out of a 26px column without moving the row */
+  margin: -8px -4px;
+  padding: 8px 4px;
+  color: var(--muted-foreground);
+  opacity: 0.65;
+}
+.hour-grid.head .grid-info:active {
+  opacity: 1;
+}
 .hour-grid.row {
   position: relative;
   border-top: 1px solid var(--border);
@@ -2215,6 +2230,12 @@ a.rank-card:hover {
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+/* A bullet list used on its own (not nested in .about-steps) reads as body copy. */
+.about-body > .about-sub {
+  color: var(--muted-foreground);
+  margin: 10px 0;
+  gap: 8px;
 }
 .about-body .about-note {
   margin-top: 20px;

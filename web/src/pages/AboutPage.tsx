@@ -2,10 +2,11 @@ import { useEffect } from "preact/hooks";
 import { ChevronLeftIcon } from "../components/icons";
 import { signalReady } from "../splash";
 
-export type AboutDoc = "how" | "terms" | "privacy";
+export type AboutDoc = "how" | "reading" | "terms" | "privacy";
 
 const DOCS: Record<AboutDoc, { title: string; img: string }> = {
   how: { title: "How it works", img: "/about/how.jpg" },
+  reading: { title: "Reading the forecast", img: "/about/reading.jpg" },
   terms: { title: "Terms of Use", img: "/about/terms.jpg" },
   privacy: { title: "Privacy Policy", img: "/about/privacy.jpg" },
 };
@@ -49,6 +50,190 @@ function HowItWorks() {
       <p class="about-note">
         We refresh the forecast several times a day, and always show which model it came from and
         when it last ran, so you know how fresh it is.
+      </p>
+    </>
+  );
+}
+
+/** Glossary for every number the app shows. Written for a surfer, not a forecaster:
+    plain words first, the honest caveat second, never a formula. */
+function ReadingTheForecast() {
+  return (
+    <>
+      <p class="about-lead">Every number in Rosa, in plain terms.</p>
+      <p>
+        Nothing here is secret. If a figure looks wrong to you, your eyes win — and we would rather
+        you knew exactly what we are claiming than trusted it blindly.
+      </p>
+
+      <h2>The word: Flat, Poor, Fair, Good, Epic</h2>
+      <p>
+        The one-word verdict on each hour, from a score out of 100. Three things feed it: the{" "}
+        <b>size</b> of the surf, the <b>period</b> of the swell, and the <b>wind</b>. Good size and
+        long period with light or offshore wind scores high; small, short, or blown-out scores low.
+      </p>
+      <p>
+        Wind can only ever <i>polish</i> waves that already exist. A glassy offshore morning with no
+        swell stays Poor — it cannot be talked up into Good by the wind alone.
+      </p>
+
+      <h2>Surf — the range, and the number under it</h2>
+      <p>
+        This is the height of the <b>breaking wave at the spot</b>, not the wave height out at sea.
+        Rosa takes the open-ocean swell and walks it into the beach over the real shape of the
+        seabed, so it grows, bends, and finally breaks the way it actually would there.
+      </p>
+      <p>
+        We show a range because no forecast is precise to the centimetre. The smaller number
+        underneath is the middle of that range — the single figure to quote if you want one. Words
+        like <i>waist-high</i> or <i>overhead</i> are the same number said out loud.
+      </p>
+
+      <h2>Swell — where the energy is coming from</h2>
+      <p>
+        A swell is one train of waves travelling from one storm. There are usually several at once,
+        so Rosa lists them separately rather than mashing them into one figure.
+      </p>
+      <p>
+        The direction is where the swell is coming <b>from</b>. Each spot faces a certain way and
+        only picks up swell from a band of directions — swell arriving outside that band still shows
+        in the list, but it does not count toward the score, because the headland or the coast
+        blocks it.
+      </p>
+
+      <h2>Period — and why it says 8s when the maths uses 6s</h2>
+      <p>
+        Period is the gap in seconds between waves, and it matters as much as height: long-period
+        swell carries far more energy and stands up taller when it hits shallow water. Short-period
+        windswell is weaker than its height suggests.
+      </p>
+      <p>
+        The models publish two of them. The <b>peak period</b> is the dominant rhythm of the swell —
+        the number surf reports quote, as in "3ft at 8 seconds". The <b>mean period</b> is the
+        average across the whole sea state, and it always reads lower because short, choppy waves
+        drag it down.
+      </p>
+      <p>
+        Rosa <b>displays the peak period</b>, because that is the convention you already know and
+        the honest description of the swell. The <b>rating and the surf height are still computed
+        from the mean period</b>, which is what our scoring was calibrated against. So the seconds
+        on screen can sit a little above the seconds doing the work behind it. We would rather show
+        you the number surfers use and say this plainly than quietly show the lower one.
+      </p>
+
+      <h2>Wind</h2>
+      <p>
+        Shown in knots, with the direction it is blowing <b>from</b>, and a word for what that means
+        at this particular spot:
+      </p>
+      <ul class="about-sub">
+        <li>
+          <b>Offshore</b> — blowing from the land out to sea. Holds the wave face up and grooms it.
+          The good one.
+        </li>
+        <li>
+          <b>Cross-shore</b> — along the beach. Tolerable when light, messy when not.
+        </li>
+        <li>
+          <b>Onshore</b> — blowing in from the sea. Crumbles the waves and turns the surface to
+          chop.
+        </li>
+      </ul>
+      <p>
+        The same wind direction is offshore at one beach and onshore at the next, so the word is
+        worked out per spot, not per region.
+      </p>
+
+      <h2>kJ — how much punch the swell carries</h2>
+      <p>
+        Wave energy, in kilojoules per metre of wave crest. Height alone does not tell you whether a
+        swell is serious: energy grows with the <i>square</i> of the height and the{" "}
+        <i>square</i> of the period, so a long-period swell can carry several times the punch of a
+        wind chop of the same height.
+      </p>
+      <p>
+        Use it to compare days. Two mornings both listed at chest-high are not the same session if
+        one reads 40 kJ and the other 300 kJ. Only swell the spot actually faces is counted.
+      </p>
+
+      <h2>hPa — air pressure</h2>
+      <p>
+        Sea-level air pressure, the same units a barometer uses. It is a weather signal, not a surf
+        one: falling pressure means a system moving in — wind and, a day or two later, swell.
+        Steady high pressure usually means settled, lighter mornings.
+      </p>
+
+      <h2>Water and air temperature, and the wetsuit</h2>
+      <p>
+        The wetsuit suggestion comes from the water temperature alone, using the industry-standard
+        bands. It is a starting point — if you run cold, or the wind is up, go thicker.
+      </p>
+
+      <h2>Tide</h2>
+      <p>
+        The height of the water against its average level, hour by hour, with the high and low
+        marked. This is the <b>total</b> water level: the astronomical tide plus whatever the
+        weather is pushing on top of it.
+      </p>
+      <p>
+        How much it matters depends entirely on where you are. On the Mediterranean the tide moves
+        maybe fifteen centimetres and is barely worth a glance. In Costa Rica it swings a metre and
+        a half or more, and it changes everything.
+      </p>
+
+      <h2>Light</h2>
+      <p>
+        First light, sunrise, sunset and last light for that spot's own date and location. First and
+        last light are the useful ones — you can usually surf a good half hour before the sun is up.
+      </p>
+
+      <h2>Confidence, and how fresh this is</h2>
+      <p>
+        Rosa runs several times a day and always shows which model it came from and when it last
+        ran. Confidence reflects two things: how far ahead the forecast is looking, and how much the
+        different weather models agree with each other right now. Tomorrow is worth trusting; day
+        twelve is a hint about a trend, nothing more.
+      </p>
+
+      <h2>The day strip and the three bars</h2>
+      <p>
+        Each day shows its best few hours as coloured bars, so you can find the good day without
+        opening every one. The Size, Period and Wind bars break the chosen day's rating into its
+        three ingredients — a quick way to see <i>why</i> a day scored what it did, and which of the
+        three is letting it down.
+      </p>
+      <p>
+        Day ratings only count daylight hours. A perfect 3am is not a session.
+      </p>
+
+      <h2>Colours</h2>
+      <p>
+        The coloured rail down the left of each hour is the rating, in visual form — the same scale
+        as the words, so you can scan a day without reading a single number.
+      </p>
+
+      <h2>Units</h2>
+      <p>
+        Metres or feet, and Celsius or Fahrenheit, are yours to set in Profile. Wind is always in
+        knots and period always in seconds, because that is what surf forecasts everywhere use.
+      </p>
+
+      <h2>Swell alerts</h2>
+      <p>
+        If you turn them on, Rosa notifies you when a real swell is lining up for a spot you follow
+        — a sustained run of well-above-normal energy that peaks at Good or better. One swell gets
+        one notification, not one per spot per hour.
+      </p>
+
+      <h2>What Rosa does not know</h2>
+      <p>
+        It does not know the sandbank shifted last week, that the river mouth is closed out, that
+        the car park fills at seven, or that the peak works on a dropping tide only. Local knowledge
+        beats every model, including ours.
+      </p>
+      <p class="about-note">
+        Forecasts are estimates. Check the conditions with your own eyes before you paddle out, and
+        never let a green number talk you into water you would not otherwise enter.
       </p>
     </>
   );
@@ -151,7 +336,15 @@ export function AboutPage({ doc }: { doc: AboutDoc }) {
         </div>
       </div>
       <div class="about-body">
-        {doc === "how" ? <HowItWorks /> : doc === "terms" ? <Terms /> : <Privacy />}
+        {doc === "how" ? (
+          <HowItWorks />
+        ) : doc === "reading" ? (
+          <ReadingTheForecast />
+        ) : doc === "terms" ? (
+          <Terms />
+        ) : (
+          <Privacy />
+        )}
       </div>
     </main>
   );

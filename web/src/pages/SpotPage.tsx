@@ -3,6 +3,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "preact/hooks"
 import { fetchIndex, fetchSpot } from "../api";
 import {
   ChevronLeftIcon,
+  InfoIcon,
   MapIcon,
   ShirtIcon,
   SwellDirIcon,
@@ -48,6 +49,9 @@ const pmOf = (hours: HourEntry[]) =>
 
 /** Size / Period / Wind quality bars for the selected day (mock's bars3). */
 function DayBars({ day, hours }: { day: DayEntry; hours: HourEntry[] }) {
+  // PEAK period, matching every other swell readout (see CLAUDE.md §UI "display != scoring").
+  // Caveat: the `per / 9` scale below was set against MEAN periods, so it now saturates on
+  // ordinary days — rescale (~/13) before reading much into a full Period bar.
   const per = Math.max(
     0,
     ...hours.map((h) => {
@@ -461,13 +465,16 @@ export function SpotPage({ id }: { id: string }) {
             </b>
             <span>{dayNote(days, i, dayHours)}</span>
           </div>
-          <div class="hour-grid head" aria-hidden="true">
-            <span />
-            <span />
-            <span>surf {heightUnit(units)}</span>
-            <span>swell</span>
-            <span>wind kt</span>
-            <span class="pp-head">
+          <div class="hour-grid head">
+            {/* Sits over the time column — the one always-empty header cell. */}
+            <a class="grid-info" href="#/about/reading" aria-label="What these numbers mean">
+              <InfoIcon />
+            </a>
+            <span aria-hidden="true" />
+            <span aria-hidden="true">surf {heightUnit(units)}</span>
+            <span aria-hidden="true">swell</span>
+            <span aria-hidden="true">wind kt</span>
+            <span class="pp-head" aria-hidden="true">
               kJ<small>hPa</small>
             </span>
           </div>
