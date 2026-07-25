@@ -1,19 +1,19 @@
-"""ECMWF open-data wave member (Stage 3b) — index-driven byte-range GRIB fetches.
+"""ECMWF open-data wave member (Stage 3b) - index-driven byte-range GRIB fetches.
 
 Live-verified 2026-07-23 (docs/rosa-stage3-plan.md): the IFS 0p25 ``wave`` stream ships a
 newline-JSON ``.index`` per step with ``_offset``/``_length`` per parameter, so we fetch ONLY
 the messages we need via HTTP Range requests. Our params (swh/mwd/mwp/pp1d/mp2 + the six
-period-banded heights h1012..h2530) sit nearly contiguous in the file — one coalesced range
+period-banded heights h1012..h2530) sit nearly contiguous in the file - one coalesced range
 of ~10 MB per step (the fields are global; ECMWF offers no regional subsetting). pygrib
 identifies every message by shortName, masked over land, on a regular 0.25 deg grid
 (lat 90..-90, lon -180..179.75).
 
-Cycle policy: only 00z/12z run the full 240 h wave horizon (06z/18z stop at 90 h — skipped);
+Cycle policy: only 00z/12z run the full 240 h wave horizon (06z/18z stop at 90 h - skipped);
 a cycle is fully published ~8 h after cycle time, so we lag 9 h and fall back one cycle on a
 first-step miss. Steps are 6-hourly: the spectral-shape quantities this member feeds
 (consistency, band heights) vary slowly, and it halves the download (~400 MB/cycle).
 
-License: ECMWF open data is CC-BY-4.0 — attributed in the published payload (roadmap §8).
+License: ECMWF open data is CC-BY-4.0 - attributed in the published payload (roadmap §8).
 """
 
 from __future__ import annotations
@@ -87,7 +87,7 @@ def parse_index(text: str, params: tuple[str, ...]) -> list[tuple[int, int]]:
 
 def coalesce(spans: list[tuple[int, int]], max_gap: int = RANGE_GAP_MAX) -> list[tuple[int, int]]:
     """Merge (offset, length) spans into (start, end-inclusive) byte ranges, bridging
-    gaps up to ``max_gap`` — fewer requests at the cost of a few unwanted bytes."""
+    gaps up to ``max_gap`` - fewer requests at the cost of a few unwanted bytes."""
     if not spans:
         return []
     ranges: list[tuple[int, int]] = []
@@ -106,7 +106,7 @@ def _nearest_wet(vals, lats, lons, lat: float, lon: float) -> float | None:
     """Value at the nearest unmasked node within NEAREST_MAX_DEG, else None.
 
     The grid is regular global 0.25 deg, so we search a small window around the direct
-    index instead of scanning 1M nodes per (message, point) — this runs 41 steps x 11
+    index instead of scanning 1M nodes per (message, point) - this runs 41 steps x 11
     params x every point on a 1-core VM."""
     import numpy as np
 
@@ -116,7 +116,7 @@ def _nearest_wet(vals, lats, lons, lat: float, lon: float) -> float | None:
     j0 = int(np.argmin(np.abs(lons[0, :] - lon)))
     n_i, n_j = vals.shape
     if j0 - r < 0 or j0 + r + 1 > n_j:
-        i_sl, j_sl = slice(0, n_i), slice(0, n_j)  # date-line seam — fall back to full scan
+        i_sl, j_sl = slice(0, n_i), slice(0, n_j)  # date-line seam - fall back to full scan
     else:
         i_sl = slice(max(0, i0 - r), min(n_i, i0 + r + 1))
         j_sl = slice(j0 - r, j0 + r + 1)
@@ -212,7 +212,7 @@ class EcmwfSource:
             for step in self.steps:
                 data = self._get_step(client, cycle, step)
                 if data is None and step == self.steps[0]:
-                    # cycle not fully published yet — drop back one and retry
+                    # cycle not fully published yet - drop back one and retry
                     cycle = cycle - timedelta(hours=12)
                     data = self._get_step(client, cycle, step)
                 if data is None:

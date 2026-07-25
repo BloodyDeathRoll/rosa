@@ -3,7 +3,7 @@
 Pure primitives for transforming an offshore swell partition to its breaker height over a
 depth profile: the dispersion relation, phase/group celerity, shoaling, refraction (Snell),
 and depth-limited breaking. This is what retires the single ``height_coeff`` and the ``q(T)``
-period fudge — period now enters the height once, physically, through the group celerity.
+period fudge - period now enters the height once, physically, through the group celerity.
 
 Conventions:
 * depth ``d`` in metres, positive down; period ``T`` in seconds; heights in metres.
@@ -42,7 +42,7 @@ def wavenumber(period_s: float, depth_m: float, *, iterations: int = 12) -> floa
         fprime = GRAVITY * tanh + GRAVITY * k * depth_m * sech2
         step = f / fprime
         k -= step
-        if k <= 0:  # overshoot guard — fall back toward the deep-water value
+        if k <= 0:  # overshoot guard - fall back toward the deep-water value
             k = omega2 / GRAVITY
     return k
 
@@ -57,14 +57,14 @@ def group_speed(period_s: float, depth_m: float) -> float:
     k = wavenumber(period_s, depth_m)
     kd = k * depth_m
     c = angular_frequency(period_s) / k
-    if 2.0 * kd > 350.0:  # sinh overflows and the ratio vanishes — deep-water n = 1/2
+    if 2.0 * kd > 350.0:  # sinh overflows and the ratio vanishes - deep-water n = 1/2
         return 0.5 * c
     n = 0.5 * (1.0 + 2.0 * kd / math.sinh(2.0 * kd))
     return n * c
 
 
 def shoaling_coeff(period_s: float, depth_ref_m: float, depth_m: float) -> float:
-    """Ks = √(Cg_ref / Cg) — conservation of energy flux from the reference depth inward."""
+    """Ks = √(Cg_ref / Cg) - conservation of energy flux from the reference depth inward."""
     return math.sqrt(group_speed(period_s, depth_ref_m) / group_speed(period_s, depth_m))
 
 
@@ -82,7 +82,7 @@ def refracted_angle(
 
 
 def refraction_coeff(incidence_ref_deg: float, incidence_deg: float) -> float:
-    """Kr = sqrt(cos(a_ref) / cos(a)) — crest-spreading loss as the ray bends toward normal."""
+    """Kr = sqrt(cos(a_ref) / cos(a)) - crest-spreading loss as the ray bends toward normal."""
     a_ref = math.radians(incidence_ref_deg)
     a = math.radians(incidence_deg)
     cos_a = math.cos(a)
@@ -125,7 +125,7 @@ def breaker_height_over_profile(
         c = angular_frequency(period_s) / wavenumber(period_s, d)
         sin_a = sin_a_ref * c / c_ref
         if sin_a >= 1.0:
-            continue  # refracted to grazing at this depth — skip
+            continue  # refracted to grazing at this depth - skip
         alpha = math.asin(sin_a)
         ks = math.sqrt(cg_ref / group_speed(period_s, d))
         kr = math.sqrt(math.cos(a_ref) / math.cos(alpha))

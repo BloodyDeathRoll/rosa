@@ -5,7 +5,7 @@ Resolves each spot's name to a real coordinate via a geocoding provider. Runs
 over the whole spot DB unattended. Provider is pluggable:
 
   nominatim  free, no key, OSM data      (default; misses surf-vocabulary names)
-  google     GOOGLE_MAPS_API_KEY in env  (best POI coverage — has "Handicap Beach")
+  google     GOOGLE_MAPS_API_KEY in env  (best POI coverage - has "Handicap Beach")
   mapbox     MAPBOX_TOKEN in env         (rich POI coverage too)
 
 Usage:
@@ -15,7 +15,7 @@ Usage:
 --apply patches lat/lon in place for matches that pass the sanity gate (result is
 near the coast and within `max_shift_km` of the current coordinate). Everything is
 git-versioned, so a bad geocode is one revert. Matches that fail the gate are left
-alone and listed as needs-review — the automated exception queue, not a human gate.
+alone and listed as needs-review - the automated exception queue, not a human gate.
 """
 
 from __future__ import annotations
@@ -64,7 +64,7 @@ _GOOGLE_NEW_BLOCKED = False  # set on first 403 so we don't retry the New API pe
 
 def geocode_google(name: str, region: str) -> tuple[float, float, str] | None:
     """Places Text Search. Tries the Places API (New) first; on 403
-    (API_KEY_SERVICE_BLOCKED — key restricted to the legacy APIs) falls back to
+    (API_KEY_SERVICE_BLOCKED - key restricted to the legacy APIs) falls back to
     legacy textsearch, which is deprecated by Google but still served and is the
     one enabled for our key (verified 2026-07-23)."""
     global _GOOGLE_NEW_BLOCKED
@@ -162,7 +162,7 @@ def main() -> int:
     resolved = matched = shifted = flagged = protected_n = 0
     for s in data["spots"]:
         if s["id"] in protected:
-            print(f"  {s['id']:20} SKIP (user-verified — protected)")
+            print(f"  {s['id']:20} SKIP (user-verified - protected)")
             protected_n += 1
             continue
         cur = (float(s["lat"]), float(s["lon"]))
@@ -207,9 +207,9 @@ def _patch_coord(text: str, spot_id: str, lat: float, lon: float, provider: str)
         if f"id: {spot_id}," in line:
             line = re.sub(r"lat:\s*-?\d+\.?\d*", f"lat: {lat:.4f}", line)
             line = re.sub(r"lon:\s*-?\d+\.?\d*", f"lon: {lon:.4f}", line)
-            # Retag the source, keep any curated note: "approx — TODO verify (x)" -> "google-geocoded (x)"
-            if "approx — TODO verify" in line:
-                line = line.replace("approx — TODO verify", f"{provider}-geocoded")
+            # Retag the source, keep any curated note: "approx - TODO verify (x)" -> "google-geocoded (x)"
+            if "approx - TODO verify" in line:
+                line = line.replace("approx - TODO verify", f"{provider}-geocoded")
             elif "#" not in line:
                 line = line.rstrip() + f"  # {provider}-geocoded\n"
         out.append(line)

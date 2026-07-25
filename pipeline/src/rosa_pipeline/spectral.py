@@ -1,17 +1,17 @@
-"""Spectral-lite derivations from the ECMWF wave member (Stage 3b) — pure functions.
+"""Spectral-lite derivations from the ECMWF wave member (Stage 3b) - pure functions.
 
 Three honest, bounded recoveries of spectral information from what the free world
 publishes (docs/rosa-stage3-plan.md §3b; full 2-D spectra arrive only when Stage 4 runs
 WW3/SWAN ourselves):
 
 - **Missed-swell guard**: the six period-banded heights (h1012..h2530) are a coarse 1-D
-  spectrum over the whole groundswell range — if a band carries height that no reported
+  spectrum over the whole groundswell range - if a band carries height that no reported
   partition accounts for, the sorter dropped or merged a swell, and we surface it.
 - **Consistency proxy**: spectral narrowness estimated from the ratios of three integral
   periods (Tp/Tm02, Tm-1,0/Tm02) → the "setty vs. lully" 0-100. Displayed, never folded
   into the rating (orthogonal axis, roadmap improvement).
 - **Parametric spread**: an ASSUMED directional spread per partition class (windsea wide,
-  long swell narrow) — modeled, not observed; the validation against NDBC measured
+  long swell narrow) - modeled, not observed; the validation against NDBC measured
   spectra publishes its error bound (plan acceptance), until then label it modeled.
 """
 
@@ -22,7 +22,7 @@ from dataclasses import dataclass
 
 from .models import SpectralSea, SwellPartition
 
-# (param, period lo, period hi) — ECMWF h<lo><hi>: Hs of all waves with T in [lo, hi] s
+# (param, period lo, period hi) - ECMWF h<lo><hi>: Hs of all waves with T in [lo, hi] s
 BANDS: tuple[tuple[str, float, float], ...] = (
     ("h1012", 10.0, 12.0),
     ("h1214", 12.0, 14.0),
@@ -31,7 +31,7 @@ BANDS: tuple[tuple[str, float, float], ...] = (
     ("h2125", 21.0, 25.0),
     ("h2530", 25.0, 30.0),
 )
-# a partition credits a band if its period falls within this pad of the band's edges —
+# a partition credits a band if its period falls within this pad of the band's edges -
 # partition peaks are quantized and a real swell's energy straddles band boundaries
 BAND_MATCH_PAD_S = 1.0
 # unaccounted band height below this is spectral noise, not a missed swell
@@ -39,7 +39,7 @@ MISSED_MIN_HS_M = 0.3
 
 # consistency anchors: period-ratio widths for reference spectra. Narrow anchors are an
 # old clean groundswell (all three periods converge); broad anchors are a PM/JONSWAP-wide
-# windsea (Tp/Tm02 ~ 1.3-1.4, Tm-1,0/Tm02 ~ 1.1-1.15). Proxy constants — validate against
+# windsea (Tp/Tm02 ~ 1.3-1.4, Tm-1,0/Tm02 ~ 1.1-1.15). Proxy constants - validate against
 # buoy spectra (plan acceptance) and tune from the calibration log only.
 W1_NARROW, W1_BROAD = 0.15, 0.50  # w1 = Tp/Tm02 - 1
 W2_NARROW, W2_BROAD = 0.03, 0.15  # w2 = Tm-1,0/Tm02 - 1
@@ -47,11 +47,11 @@ W2_NARROW, W2_BROAD = 0.03, 0.15  # w2 = Tm-1,0/Tm02 - 1
 # assumed directional spread (one-sided sigma, degrees). Seeded from literature
 # (windsea 30-40, long groundswell 10-15 per Ewans/Forristall), then CALIBRATED against
 # measured buoy sigma@peak (CALIBRATION.md 2026-07-23 spectra sweep, 12 stations,
-# ~22k hrs): the Datawell Waverider stations — the clean directional instruments —
+# ~22k hrs): the Datawell Waverider stations - the clean directional instruments -
 # converge on ~24 deg for >=14 s peaks (Harvest n=534: 25.4, Torrey Pines n=937: 23.5),
 # so the long-swell value moved 15 -> 24; the other classes measured within a few
 # degrees of their assumptions and stand. Discus-hull sigma reads 39-64 deg for the
-# same class — instrument broadening, not truth; never tune from those.
+# same class - instrument broadening, not truth; never tune from those.
 SPREAD_WINDSEA_DEG = 35.0
 SPREAD_SHORT_SWELL_DEG = 25.0  # T < 10 s
 SPREAD_MID_SWELL_DEG = 20.0  # 10-14 s
@@ -74,11 +74,11 @@ def _partition_period(p: SwellPartition) -> float:
 def missed_swells(
     sea: SpectralSea, partitions: tuple[SwellPartition, ...]
 ) -> list[MissedSwell]:
-    """Band energy the partitions can't explain — banded height cannot hide from the sorter.
+    """Band energy the partitions can't explain - banded height cannot hide from the sorter.
 
     Per band, the accounted height is the RMS of partitions whose period falls inside the
     (padded) band; crediting each partition's FULL height to its band is deliberately
-    conservative — a guard must not cry wolf when a long swell's energy merely straddles
+    conservative - a guard must not cry wolf when a long swell's energy merely straddles
     band edges. The residual sqrt(band^2 - accounted^2) above MISSED_MIN_HS_M is surfaced."""
     bands = dict(sea.bands)
     out: list[MissedSwell] = []
@@ -102,7 +102,7 @@ def _clamp01(x: float) -> float:
 
 
 def consistency_from_periods(pp1d: float, mwp: float, mp2: float) -> int:
-    """The consistency formula on bare periods — shared by the model member and the
+    """The consistency formula on bare periods - shared by the model member and the
     buoy-spectra validation harness (which feeds it MEASURED Tp/Tm-1,0/Tm02)."""
     w1 = pp1d / mp2 - 1.0
     w2 = mwp / mp2 - 1.0
@@ -116,7 +116,7 @@ def consistency_score(sea: SpectralSea) -> int | None:
 
     For a narrow spectrum the three integral periods converge (ratios → 1): energy arrives
     in organized long-crested sets. A broad or mixed spectrum spreads them apart: lully,
-    disorganized. Two ratio widths are scored against reference anchors and averaged —
+    disorganized. Two ratio widths are scored against reference anchors and averaged -
     pp1d alone is noisy in bimodal seas (the peak jumps between partitions), so the stable
     Tm-1,0/Tm02 ratio carries equal weight. None when the member lacks any of the periods."""
     if sea.pp1d is None or sea.mp2 is None or sea.mwp is None or sea.mp2 <= 0:
@@ -125,7 +125,7 @@ def consistency_score(sea: SpectralSea) -> int | None:
 
 
 def parametric_spread_deg(p: SwellPartition) -> float:
-    """Assumed directional spread for a partition class — MODELED, not observed."""
+    """Assumed directional spread for a partition class - MODELED, not observed."""
     if p.kind == "wind":
         return SPREAD_WINDSEA_DEG
     t = _partition_period(p)

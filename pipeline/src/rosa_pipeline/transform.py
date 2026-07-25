@@ -43,7 +43,7 @@ def exposure_weight(
     shoulder_deg: float = EXPOSURE_SHOULDER_DEG,
 ) -> float:
     """Soft exposure response (Stage 2C): 1.0 for a swell inside the spot's ``swell_window``,
-    then a cosine taper to 0 over ``shoulder_deg`` just beyond each edge — so a swell a few
+    then a cosine taper to 0 over ``shoulder_deg`` just beyond each edge - so a swell a few
     degrees outside the hand-tuned arc still contributes instead of being hard-dropped. Staying
     flat inside the arc keeps the existing per-spot tuning (and its calibration) intact."""
     if in_window(direction_deg, window):
@@ -68,7 +68,7 @@ def height_in_window(partitions: tuple[SwellPartition, ...], window: tuple[float
 TE_OVER_TP = 0.9  # Te ≈ 0.9·Tp for a JONSWAP-ish spectrum (standard ocean-engineering ratio)
 # Energy in one wavelength per metre of crest: E*L = (rho*g/16)*H^2 * (g*Te^2/2pi), which is
 # ~0.98*H^2*Te^2 kJ/m for rho = 1025 kg/m3, g = 9.81. Identical physics to the deep-water flux
-# P = 0.49*H^2*Te kW/m, since E*L = 2*P*Te — energy is just how surf forecasts quote it.
+# P = 0.49*H^2*Te kW/m, since E*L = 2*P*Te - energy is just how surf forecasts quote it.
 KJ_PER_M_COEFF = 0.98
 
 
@@ -85,7 +85,7 @@ def energy_period(p: SwellPartition) -> float:
 
 
 def energy_kj_per_m(partitions: tuple[SwellPartition, ...], window: tuple[float, float]) -> float:
-    """Deep-water wave energy of the in-window partitions, kJ per metre of crest — the kJ
+    """Deep-water wave energy of the in-window partitions, kJ per metre of crest - the kJ
     figure surf forecasts quote. Partitions outside the window contribute 0 (they still
     display), matching ``energy_in_window``."""
     return sum(
@@ -130,7 +130,7 @@ def period_rideability(period_s: float) -> float:
     carries far less energy flux (P ~ H^2 * T) and is fast and directionally spread, so it
     "surfs" well below that height; long-period groundswell rides at full height. This is the
     grounded reframing of the old ``q(T)``: because the physics now does the shoaling, this
-    factor only ATTENUATES (cap 1.0) — it can never push a wave past its depth-limited break.
+    factor only ATTENUATES (cap 1.0) - it can never push a wave past its depth-limited break.
     A proxy for wave power / cleanliness; retired at Stage 3 when spectral directional spread
     and power replace it. Tune the exponent from docs/CALIBRATION.md only."""
     return min(1.0, max(0.3, (period_s / 10.0) ** RIDEABILITY_EXP))
@@ -163,7 +163,7 @@ def breaker_height_from_profile(
 def dominant_partition(
     partitions: tuple[SwellPartition, ...], window: tuple[float, float]
 ) -> SwellPartition | None:
-    """The exposure-weighted dominant partition — includes swells within the soft-window
+    """The exposure-weighted dominant partition - includes swells within the soft-window
     shoulder so a just-outside swell can drive period/flat-gating consistently with the
     breaker height (Stage 2C)."""
     scored = [

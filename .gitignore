@@ -1,15 +1,15 @@
 # Local Claude Code settings
 .claude/
 
-# Secrets — API keys, tokens (never commit)
+# Secrets - API keys, tokens (never commit)
 .env
 .env.*
 !.env.example
 
-# Oracle A1.Flex grabber SSH keypair — private key, never commit
+# Oracle A1.Flex grabber SSH keypair - private key, never commit
 web/.oracle/
 
-# Pipeline outputs are build artifacts — never committed (CLAUDE.md §Conventions)
+# Pipeline outputs are build artifacts - never committed (CLAUDE.md §Conventions)
 data/out/
 
 # Python
@@ -26,18 +26,18 @@ web/dev-dist/
 web/public/data/
 web/public/olderIcons.zip
 
-# verification harness archive (accumulated forecasts vs buoy obs) — build artifact
+# verification harness archive (accumulated forecasts vs buoy obs) - build artifact
 data/verify/
 .vercel
 .env*
 
-# local bathymetry grids (large, downloaded once — never commit)
+# local bathymetry grids (large, downloaded once - never commit)
 data/bathy/
 
 # local OSM extracts (downloaded once)
 data/osm/
 
-# spot-seed working outputs (caches, tiles, geocode results — regenerated)
+# spot-seed working outputs (caches, tiles, geocode results - regenerated)
 tools/spot-seed/work/
 tools/spot-seed/candidates/
 tools/spot-seed/geocode_gaps.json

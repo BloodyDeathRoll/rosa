@@ -1,4 +1,4 @@
-"""Stage 3b — spectral-lite pure functions (missed-swell guard, consistency proxy,
+"""Stage 3b - spectral-lite pure functions (missed-swell guard, consistency proxy,
 parametric spread) and their wiring through extract (join + agreement) and publish."""
 
 from __future__ import annotations
@@ -57,7 +57,7 @@ def test_missed_swell_residual_is_rms() -> None:
 
 
 def test_missed_swell_ignores_noise_bands() -> None:
-    # below MISSED_MIN_HS_M — spectral noise, not a missed swell
+    # below MISSED_MIN_HS_M - spectral noise, not a missed swell
     sea = _sea(bands=(("h2530", 0.2),))
     assert missed_swells(sea, ()) == []
 
@@ -143,7 +143,7 @@ def test_extract_joins_nearest_spectral_within_tolerance() -> None:
     spectral = [_sea(swh=1.0, mwp=7.0)]
     h0, h1 = extract_hours(_raw(2), spectral=spectral)
     assert h0.spectral is spectral[0]  # exact hour
-    assert h1.spectral is spectral[0]  # 1 h gap — within the 3 h join tolerance
+    assert h1.spectral is spectral[0]  # 1 h gap - within the 3 h join tolerance
 
 
 def test_extract_leaves_spectral_none_beyond_tolerance() -> None:

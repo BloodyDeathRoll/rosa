@@ -18,7 +18,7 @@ OVERPASS = ["https://overpass-api.de/api/interpreter",
             "https://overpass.kumi.systems/api/interpreter",
             "https://overpass.private.coffee/api/interpreter"]
 CACHE = Path(__file__).resolve().parent / "candidates" / "ahangama-kept.json"
-BBOX = (5.950, 80.350, 5.980, 80.390)     # S, W, N, E — Kabalana → Marshmallow
+BBOX = (5.950, 80.350, 5.980, 80.390)     # S, W, N, E - Kabalana → Marshmallow
 SPACING_M = 250
 CLUSTER_M = 300
 NAME_MATCH_M = 400                          # OSM beacon within this = confirmed + named

@@ -36,5 +36,5 @@ def test_nearest_orders_by_distance_and_caps() -> None:
 
 def test_nearest_empty_when_out_of_range() -> None:
     buoys = _registry()
-    # Israel — no NDBC buoy within 150 km (the honest coverage gap)
+    # Israel - no NDBC buoy within 150 km (the honest coverage gap)
     assert nearest_buoys(32.38, 34.80, buoys, radius_km=150) == []

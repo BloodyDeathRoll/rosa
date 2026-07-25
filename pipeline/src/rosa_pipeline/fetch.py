@@ -27,10 +27,10 @@ FORECAST_DAYS = 16
 # boundary between batches so each lands in a fresh window; keeps the whole coast in-quota.
 MARINE_BATCH_SIZE = 100
 # best_match is Open-Meteo's per-location blend but only reaches ~9 days; NOAA GFS-Wave
-# runs the full 16. Request both — extract prefers best_match, falls back to GFS-Wave for
+# runs the full 16. Request both - extract prefers best_match, falls back to GFS-Wave for
 # the extended tail (per-hour, so each hour stays internally consistent).
 MARINE_MODELS = ["best_match", "ncep_gfswave016"]
-# independent members for the confidence ensemble (Stage 1) — fetched in a separate,
+# independent members for the confidence ensemble (Stage 1) - fetched in a separate,
 # lightweight request (Hs/period/dir only) so the primary path + fixtures stay untouched.
 # best_match is a blend, so it's excluded here; these disagree independently.
 MARINE_ENSEMBLE_MODELS = ["ncep_gfswave016", "ewam", "gwam", "meteofrance_wave"]
@@ -56,7 +56,7 @@ MARINE_HOURLY = [
     "tertiary_swell_wave_direction",
     "tertiary_swell_wave_period",
     "sea_surface_temperature",
-    # tide / total water level (Stage 2D) — from MeteoFrance SMOC, so it returns under the
+    # tide / total water level (Stage 2D) - from MeteoFrance SMOC, so it returns under the
     # best_match suffix only (null under the wave model); _merge_models picks it up for days 0-9
     "sea_level_height_msl",
 ]
@@ -69,7 +69,7 @@ WEATHER_HOURLY = [
 ]
 
 
-# verification harness samples the total sea-state at a buoy — no models suffix, so the
+# verification harness samples the total sea-state at a buoy - no models suffix, so the
 # hourly keys stay plain (wave_height/period/direction), tiny payload
 MARINE_WAVE_FIELDS = ["wave_height", "wave_period", "wave_direction"]
 
@@ -142,7 +142,7 @@ class OpenMeteoSource:
         for bi, batch in enumerate(batches):
             if bi > 0 and self.sleep_between_batches_s > 0:
                 print(
-                    f"info: open-meteo batch {bi + 1}/{len(batches)} — pausing "
+                    f"info: open-meteo batch {bi + 1}/{len(batches)} - pausing "
                     f"{self.sleep_between_batches_s:g}s for the marine-host minute cap",
                     file=sys.stderr,
                 )
@@ -183,7 +183,7 @@ class OpenMeteoSource:
             # fetched and publishing nothing at all.
             if ensemble.status_code == 429:
                 print(
-                    "warn: open-meteo 429 on the ensemble request — publishing without the "
+                    "warn: open-meteo 429 on the ensemble request - publishing without the "
                     "confidence ensemble (horizon proxy only)",
                     file=sys.stderr,
                 )

@@ -16,7 +16,7 @@ export function dayLabel(date: string, today: string): string {
   return names[new Date(`${date}T12:00:00`).getDay()] ?? date;
 }
 
-/** Current calendar date (YYYY-MM-DD) in an IANA timezone — the spot's "today",
+/** Current calendar date (YYYY-MM-DD) in an IANA timezone - the spot's "today",
     independent of when the pipeline last ran. */
 export function todayIn(tz: string): string {
   try {
@@ -57,7 +57,7 @@ export function knots(kph: number): number {
   return Math.round(kph / 1.852);
 }
 
-/** "E 4 kt offshore" — cardinal, speed, wind class per the design's spot line. */
+/** "E 4 kt offshore" - cardinal, speed, wind class per the design's spot line. */
 export function windLabel(h: Pick<HourEntry, "wind">): string {
   return `${cardinal(h.wind.dir)} ${knots(h.wind.kph)} kt ${windClassWord(h.wind.class)}`;
 }
@@ -100,7 +100,7 @@ export function bestWindow(dayHours: HourEntry[], minRating = 50): BestWindow | 
 }
 
 /** Pipeline names carry the locality in parens or after a slash
-    ("Zvulun (Herzliya)", "Sdot Yam / Caesarea") — split for the
+    ("Zvulun (Herzliya)", "Sdot Yam / Caesarea") - split for the
     design's name + muted-region pairing. */
 export function splitName(full: string): { name: string; region: string | null } {
   const paren = /^(.*?)\s*\(([^)]+)\)\s*$/.exec(full);

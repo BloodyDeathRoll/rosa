@@ -13,7 +13,7 @@ export function groupsOf(rows: [string, IndexEntry][]): string[] {
   return [ALL_GROUP, ...seen];
 }
 
-/** Horizontal, scrollable group pills — the selected one is filled. */
+/** Horizontal, scrollable group pills - the selected one is filled. */
 export function GroupChips({
   groups,
   selected,

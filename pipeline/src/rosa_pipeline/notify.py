@@ -1,10 +1,10 @@
-"""Swell-alert Web Push sender — runs on the VM after each publish cycle.
+"""Swell-alert Web Push sender - runs on the VM after each publish cycle.
 
 Hard requirement (user, 2026-07-23): one swell = ONE notification. The same event
 seen from many adjacent spots (same region, peaks within GROUP_PEAK_H hours,
 directions within GROUP_DIR_DEG) is grouped, and each subscription gets a single
 push per group, spoken in the name of its best favorited spot ("+N more spots").
-The grouping rule mirrors web/src/events.ts (client-side alerts) — keep in sync.
+The grouping rule mirrors web/src/events.ts (client-side alerts) - keep in sync.
 
 Layers:
 - pure planning (unit-tested, offline): load_spot_events / group_events /
@@ -153,7 +153,7 @@ def plan_notifications(
         if not mine:
             continue
         best = max(mine, key=lambda e: (e.rating, e.h_peak))
-        if best.peak <= now:  # already peaked — too late to be a heads-up
+        if best.peak <= now:  # already peaked - too late to be a heads-up
             continue
         if any(_was_sent(sent, e) for e in group):
             continue
@@ -170,7 +170,7 @@ def plan_notifications(
             body += f" +{more} more {'spot' if more == 1 else 'spots'}"
         out.append(
             Notification(
-                title=f"New swell — {where}",
+                title=f"New swell - {where}",
                 body=body,
                 url=f"{APP_ORIGIN}/#/spot/{best.spot_id}?ev={best.peak.date().isoformat()}",
                 # the browser collapses same-tag notifications: a second safety
@@ -253,7 +253,7 @@ def send_notifications(
 ) -> int:
     """Plan and send per subscription; returns the number of pushes sent.
 
-    Also pulls crowd 👍👎 rows into the calibration store (feedback_dir) — same
+    Also pulls crowd 👍👎 rows into the calibration store (feedback_dir) - same
     cycle, same secrets."""
     now = now or datetime.now(UTC)
     groups = group_events(load_spot_events(out_dir, now))
@@ -276,7 +276,7 @@ def send_notifications(
                 (n, {"title": n.title, "body": n.body, "url": n.url, "tag": n.tag})
                 for n in plan_notifications(groups, spots, sent_keys, now)
             ]
-            # evening 👍👎 ask — only for subs that keep "Spot feedback" on
+            # evening 👍👎 ask - only for subs that keep "Spot feedback" on
             if sub.get("feedback", True):
                 fb = plan_feedback_push(candidates, spots, sent_keys)
                 if fb is not None:
@@ -297,7 +297,7 @@ def send_notifications(
                 except WebPushException as exc:
                     status = exc.response.status_code if exc.response is not None else None
                     print(f"  push failed ({status}) for {ehash}: {exc}")
-                    if status in (404, 410):  # endpoint gone — forget the device
+                    if status in (404, 410):  # endpoint gone - forget the device
                         prune_subscription(subs_url, admin_secret, sub["endpoint"])
                     continue
                 mark_sent(state, ehash, n.keys, now)
@@ -335,7 +335,7 @@ class FeedbackCandidate:
     rating: int
     bucket: str
     h: tuple[float, float] | None
-    at: str  # best hour's spot-local ISO — the session being graded
+    at: str  # best hour's spot-local ISO - the session being graded
     predicted: dict
 
 
@@ -405,7 +405,7 @@ def plan_feedback_push(
     h_txt = f" {best.h[0]:.1f}-{best.h[1]:.1f} m" if best.h else ""
     n = Notification(
         title=f"How was {name} today?",
-        body=f"Rosa called {word} ·{h_txt} — nailed it or off?",
+        body=f"Rosa called {word} ·{h_txt} - nailed it or off?",
         url=f"{APP_ORIGIN}/#/spot/{best.spot_id}",
         tag=f"rosa-fb-{best.spot_id}-{best.date}",
         keys=(feedback_key(best.spot_id, best.date),),

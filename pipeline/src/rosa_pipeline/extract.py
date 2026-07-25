@@ -9,7 +9,7 @@ from .confidence import agreement_from_heights, member_heights_at
 from .fetch import RawForecast
 from .models import HourForecast, SpectralSea, SwellPartition
 
-# a 3-hourly published hour joins the nearest 6-hourly ECMWF step within this — the
+# a 3-hourly published hour joins the nearest 6-hourly ECMWF step within this - the
 # spectral-shape quantities it feeds vary over hours, not minutes
 SPECTRAL_JOIN_TOL_H = 3.0
 
@@ -27,7 +27,7 @@ def _merge_models(hourly: dict) -> dict:
     it has data (days 0-9), else GFS-Wave (days 10-16). Anchored on wave_height so every
     field in an hour comes from one model. A single-model / fixture response passes through
     unchanged."""
-    if "wave_height" in hourly:  # single model (or fixture) — nothing to merge
+    if "wave_height" in hourly:  # single model (or fixture) - nothing to merge
         return hourly
     suffixes = {k[len("wave_height_") :] for k in hourly if k.startswith("wave_height_")}
     if not suffixes:
@@ -58,7 +58,7 @@ def _partition(hourly: dict, prefix: str, kind: str, i: int) -> SwellPartition |
     if height is None or direction is None or period is None or height <= 0:
         return None
     # peak period is only published for the total/primary-swell/wind-wave (not sec/tert),
-    # and absent from pre-Stage-1 fixtures — .get keeps those partitions valid with None
+    # and absent from pre-Stage-1 fixtures - .get keeps those partitions valid with None
     peak_arr = hourly.get(f"{prefix}_peak_period")
     peak = peak_arr[i] if peak_arr is not None and i < len(peak_arr) else None
     return SwellPartition(
@@ -124,7 +124,7 @@ def extract_hours(
         time = datetime.fromisoformat(t).replace(tzinfo=UTC)
         sp = _nearest_spectral(time, sp_series, sp_times)
         # the ECMWF member joins the OM ensemble as one more independent voice in the
-        # per-hour agreement (Stage 1 confidence axis — the plan's "two birds")
+        # per-hour agreement (Stage 1 confidence axis - the plan's "two birds")
         member_hs = (
             member_heights_at(ens, ens_index[t]) if ens is not None and t in ens_index else []
         )

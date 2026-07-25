@@ -169,7 +169,7 @@ class TestEnergyKjPerM:
         assert energy_kj_per_m((swell(2.0, 12, 100),), WINDOW) == 0
 
     def test_matches_the_flux_identity(self):
-        """E·L = 2·P·Te — the kJ figure and the old 0.49·H²·Te kW/m flux are the same physics."""
+        """E·L = 2·P·Te - the kJ figure and the old 0.49·H²·Te kW/m flux are the same physics."""
         p = swell(1.2, 9.0, 290)
         flux_kw_per_m = 0.49 * p.height_m**2 * p.period_s
         expected = 2 * flux_kw_per_m * p.period_s

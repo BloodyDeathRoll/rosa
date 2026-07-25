@@ -3,7 +3,7 @@ import type { Bucket } from "../types";
 import { ratingVar, ratingWord } from "../conditions";
 import { StarIcon } from "./icons";
 
-/** Rating pill — bucket word on a translucent tint of the tier color. */
+/** Rating pill - bucket word on a translucent tint of the tier color. */
 export function Pill({ bucket }: { bucket: Bucket }) {
   return (
     <span class="pill" data-bucket={bucket}>

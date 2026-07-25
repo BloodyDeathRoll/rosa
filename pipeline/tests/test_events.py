@@ -90,7 +90,7 @@ def test_short_pulse_is_not_an_event() -> None:
 
 
 def test_poor_peak_is_not_an_event() -> None:
-    # elevated energy but never surfable — windswell mush stays un-evented
+    # elevated energy but never surfable - windswell mush stays un-evented
     scored = _series(pulse_start=72, pulse_len=18, pulse_energy=6.0, peak_rating=35)
     assert detect_events(scored) == []
 

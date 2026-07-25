@@ -53,13 +53,13 @@ function DetailCard({ data, date }: { data: SpotPayload; date: string }) {
             <span>
               <ThermometerIcon />
               <span class="tabular">
-                air {dv.rep.air !== null ? fmtTemp(dv.rep.air, units) : "—"}
+                air {dv.rep.air !== null ? fmtTemp(dv.rep.air, units) : "-"}
               </span>
             </span>
             <span>
               <WavesIcon />
               <span class="tabular">
-                water {dv.rep.sst !== null ? fmtTemp(dv.rep.sst, units) : "—"}
+                water {dv.rep.sst !== null ? fmtTemp(dv.rep.sst, units) : "-"}
               </span>
             </span>
             {data.current.wetsuit && (
@@ -72,7 +72,7 @@ function DetailCard({ data, date }: { data: SpotPayload; date: string }) {
           {dv.bw && (
             <span class="foot">
               <span class="window">
-                Best window <b>{`${dv.bw.start}–${dv.bw.end}`}</b>
+                Best window <b>{`${dv.bw.start}-${dv.bw.end}`}</b>
               </span>
             </span>
           )}
@@ -83,7 +83,7 @@ function DetailCard({ data, date }: { data: SpotPayload; date: string }) {
 }
 
 /** The retro 👍👎 row: one tap grades yesterday's call, then it's gone.
-    Never asks in the moment — only about a day already surfed. */
+    Never asks in the moment - only about a day already surfed. */
 function FeedbackRow({ p, onDone }: { p: FbPrompt; onDone: () => void }) {
   const units = useUnits();
   const { predicted } = p.view;
@@ -96,7 +96,7 @@ function FeedbackRow({ p, onDone }: { p: FbPrompt; onDone: () => void }) {
       <span class="fb-text">
         <b>Surfed {p.view.name} yesterday?</b>
         <small class="tabular">
-          Rosa called {fmtRange(predicted.h, units)} — was it right?
+          Rosa called {fmtRange(predicted.h, units)} - was it right?
         </small>
       </span>
       <span class="fb-actions">
@@ -165,7 +165,7 @@ export function TodayPage() {
       } catch (e) {
         if (!disposed) setError((e as Error).message);
       } finally {
-        signalReady(); // home is populated (or errored) — the splash may lift
+        signalReady(); // home is populated (or errored) - the splash may lift
       }
     })();
     return () => {

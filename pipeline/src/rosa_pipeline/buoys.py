@@ -2,7 +2,7 @@
 
 A ``Buoy`` is a validation ground-truth point: the harness samples the offshore model at
 its coordinate and scores the forecast against the buoy's observations. Registry lives in
-``data/buoys/*.yaml`` (NOAA/NDBC is public domain). Sparse by design — the eastern Med has
+``data/buoys/*.yaml`` (NOAA/NDBC is public domain). Sparse by design - the eastern Med has
 no NDBC coverage, so Israel is validated locally via ISRAMAR, not from this registry.
 """
 
@@ -70,7 +70,7 @@ def nearest_buoys(
     lat: float, lon: float, buoys: dict[str, Buoy], *, radius_km: float, limit: int = 3
 ) -> list[tuple[Buoy, float]]:
     """Buoys within ``radius_km`` of (lat, lon), closest first, capped at ``limit``.
-    Empty when nothing is in range — the honest answer for a spot with no nearby truth."""
+    Empty when nothing is in range - the honest answer for a spot with no nearby truth."""
     hits = [
         (b, haversine_km(lat, lon, b.lat, b.lon)) for b in buoys.values()
     ]

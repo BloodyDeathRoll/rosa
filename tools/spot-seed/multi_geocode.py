@@ -2,7 +2,7 @@
 """Multi-provider geocoder for the web-search gap spots. Queries Google Places
 (POI coverage), Nominatim and Photon (free/keyless, OSM), cross-checks their
 agreement, and prints a best candidate per spot for sat-verify before adding.
-Google needs GOOGLE_MAPS_API_KEY in env. Coords still go through sat-verify —
+Google needs GOOGLE_MAPS_API_KEY in env. Coords still go through sat-verify -
 this only gets us onto the right stretch of coast, never straight into the DB."""
 from __future__ import annotations
 import json, math, sys, time, urllib.parse, urllib.request

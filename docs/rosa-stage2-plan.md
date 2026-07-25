@@ -1,11 +1,11 @@
-# Stage 2 Plan — Bathymetry physics + tide + soft window
+# Stage 2 Plan - Bathymetry physics + tide + soft window
 
 > Implementation plan for accuracy-roadmap Stage 2 (`docs/rosa-accuracy-roadmap.md` §4).
-> File-level design + validation approach. No code yet — build order agreed at kickoff.
+> File-level design + validation approach. No code yet - build order agreed at kickoff.
 > Authored 2026-07-22.
 
-**Goal:** retire the two biggest transform hacks — the single per-spot `height_coeff` and the
-`q(T)` period fudge (`transform.py` `period_quality`/`PERIOD_EXP`, which double-counts period) —
+**Goal:** retire the two biggest transform hacks - the single per-spot `height_coeff` and the
+`q(T)` period fudge (`transform.py` `period_quality`/`PERIOD_EXP`, which double-counts period) -
 replacing them with real nearshore physics, then add tide and soften the hard swell window. Every
 sub-step is gated by a **Stage 0 scorecard diff** (`rosa-pipeline verify`).
 
@@ -16,10 +16,10 @@ automatically.
 
 ---
 
-## 2A — Bathymetry ingest *(foundation)*
+## 2A - Bathymetry ingest *(foundation)*
 - **New `bathymetry.py`**: load GEBCO 2024 (~450 m global) + EMODnet (~115 m, Med/Europe overlay);
   `depth_profile(offshore_point, bearing_to_shore)` samples depth along the approach ray. Ray
-  bearing = `offshore_direction` (already the inland-pointing normal — reuse it).
+  bearing = `offshore_direction` (already the inland-pointing normal - reuse it).
 - **New build command** `rosa-pipeline bathy --all`: per spot, sample the profile → compact derived
   record (`offshore_depth`, nearshore breaking-depth reference / slope) at
   `data/spots/derived/bathy/{id}.json`. Deterministic + small → commit it; raw GEBCO/EMODnet tiles
@@ -28,19 +28,19 @@ automatically.
   flag for UI session).
 - **Validate:** depths sane (monotonic-ish shoreward); spot-check a steep reef vs a shelving beach.
 
-## 2B — Analytic nearshore transform *(the headline accuracy lever)* — DONE (hybrid)
+## 2B - Analytic nearshore transform *(the headline accuracy lever)* - DONE (hybrid)
 - **New `physics.py`** (DONE): dispersion solver (k from T,d via ω²=gk·tanh kd, Newton), group
   celerity Cg(T,d), **shoaling** Ks=√(Cg_ref/Cg), **refraction** (Snell, Kr from approach angle =
-  partition dir vs `shore_normal`), **depth-limited breaking** — a march over the depth profile
+  partition dir vs `shore_normal`), **depth-limited breaking** - a march over the depth profile
   breaking at the first depth where the transformed height reaches γ·d (γ=0.78). Unit-tested
   against the deep/shallow-water limits.
-- **CORRECTION (2026-07-22): q(T) is NOT fully retired — it's reframed.** Naive linear
+- **CORRECTION (2026-07-22): q(T) is NOT fully retired - it's reframed.** Naive linear
   shoaling + depth-limited breaking *over-calls* short-period Med windswell ~3× (0.6 m/4 s →
   0.58 m physics vs 0.17 m field truth), reproducing the exact problem `q(T)` was built to fix.
   Bottom friction is the wrong sign (it dissipates *long*-period groundswell more). The real
   cause is **wave power / rideability** (P ~ H²·T): short windswell is weak and disorganised,
   "surfs" far below its physical height. So the transform is a **HYBRID**: physics for the
-  *geometry* (retires the single `height_coeff` — now a small residual), times a **period-power
+  *geometry* (retires the single `height_coeff` - now a small residual), times a **period-power
   rideability factor** (`transform.period_rideability`, the grounded reframing of `q(T)`, capped
   at 1.0 so it only attenuates, never amplifies past the depth-limited break). Fully retired at
   **Stage 3** when spectral directional-spread + power replace the proxy.
@@ -48,19 +48,19 @@ automatically.
   wet_depths)` = RMS of per-partition (physics × rideability). `period_quality`/`effective_height`
   kept as the no-profile fallback.
 - **`bathymetry.py`** (DONE): `DepthProfile.from_dict` + `load_profile` + `wet_depths_deep_to_shallow`.
-- **`score.py` / `cli.py`** (DONE): `score_hour(spot, hour, wet_depths=None)` — physics path when the
+- **`score.py` / `cli.py`** (DONE): `score_hour(spot, hour, wet_depths=None)` - physics path when the
   spot's profile loads, q(T) fallback otherwise; `run` loads each spot's committed profile.
 - **Validated:** Beit Yanai 0.6 m/4 s windswell back to 0.17 m POOR (matches CALIBRATION.md);
   groundswell/CR points now physics-shaped; 81-spot run clean. 145 tests green.
 - **STILL TODO (folds into 2E):** breaker-height bias/RMSE vs. ISRAMAR + NDBC-derived across spots;
   tune γ, residual `height_coeff`, and the rideability exponent from the scorecard.
 
-## 2C — Soft exposure window *(falls out of 2B)* — DONE
+## 2C - Soft exposure window *(falls out of 2B)* - DONE
 - **Design change from the sketch:** instead of a pure cosine-power lobe centred on an
   `optimal_dir` (which would re-weight *in-arc* swells and churn the per-spot calibration), the
   soft response is **flat 1.0 inside the existing `swell_window` with a cosine taper to 0 over a
   `EXPOSURE_SHOULDER_DEG` (25°) shoulder just beyond each edge**. Back-compatible: in-arc
-  behaviour is unchanged, so no regression — it only stops the *hard drop* of just-outside energy.
+  behaviour is unchanged, so no regression - it only stops the *hard drop* of just-outside energy.
   **No schema change** (no `optimal_dir`/`exposure_power` fields; a global shoulder constant),
   keeping the diff small.
 - `transform.py` (DONE): `exposure_weight(direction, window, shoulder)`; `breaker_height_from_profile`
@@ -71,26 +71,26 @@ automatically.
 - **Validated:** a swell 10° outside the arc now contributes (attenuated), one >25° out still
   dropped; 154 tests green, ruff clean, spot runs unchanged in-arc.
 
-## 2D — Tide — DONE (Open-Meteo, not EOT20)
+## 2D - Tide - DONE (Open-Meteo, not EOT20)
 - **Approach changed (2026-07-22, user-approved):** dropped EOT20/pyTMD for **Open-Meteo Marine
-  `sea_level_height_msl`** (MeteoFrance SMOC, ~8 km hourly) — fetched *with the waves*, so no
+  `sea_level_height_msl`** (MeteoFrance SMOC, ~8 km hourly) - fetched *with the waves*, so no
   multi-GB download, no `pyTMD`/`netCDF4` dep, auto-updating, behind the existing fetch interface.
   It's **total** water level (tide + surge), comparable quality to EOT20 (finer grid + surge; same
   coastal-accuracy ceiling). Swap to EOT20 later if independence is wanted.
 - DONE: `fetch.py` adds the variable (SMOC returns it under the best_match suffix → `_merge_models`
-  picks it up for days 0–9); `models.py` `HourForecast.tide_m`; `extract.py` reads it (`.get`,
+  picks it up for days 0-9); `models.py` `HourForecast.tide_m`; `extract.py` reads it (`.get`,
   fixture-tolerant); `score.py` feeds it into breaking depth (`d + tide` over the profile);
-  `publish.py` emits a per-hour `tide` series — **replaces the web's mock M2 sine**.
+  `publish.py` emits a per-hour `tide` series - **replaces the web's mock M2 sine**.
 - Verified: real semidiurnal curve; Med ~0.15 m (negligible), Costa Rica ~1.8 m (moves the
   forecast); 157 tests green. `tide_m` is None beyond the SMOC/best_match horizon (~day 9).
 - **DEFERRED:** the per-spot `ideal_tide_window` rating multiplier (some spots work best at
-  low/high tide) — needs per-spot local input; a Stage 2E / community item.
+  low/high tide) - needs per-spot local input; a Stage 2E / community item.
 
-## 2E — Recalibration — OPEN (blocked on data, 2026-07-23)
+## 2E - Recalibration - OPEN (blocked on data, 2026-07-23)
 - Re-tune γ, residual coeff, rideability exponent, `ideal_size_m` over the new transform from
   `docs/CALIBRATION.md` + Stage 0 scorecard + 👍👎. Update the public "why this rating" numbers
   (CLAUDE.md principle #3).
-- **Status 2026-07-23:** first multi-region buoy sweep logged (CALIBRATION.md) — Open-Meteo runs
+- **Status 2026-07-23:** first multi-region buoy sweep logged (CALIBRATION.md) - Open-Meteo runs
   hot on Hs everywhere (worst Pacific) and ~+3 s on Pacific period ⇒ CR over-called on both
   axes; Sri Lanka has no buoy truth. Deliberately NO knob changes at n=6. Gate: the VM's
   lead-time archive (cron 4×/day since 2026-07-23, GH-seed merged) matures ~1 week → confirm
@@ -100,9 +100,9 @@ automatically.
 ---
 
 ## Cross-cutting
-- **"Precompute, serve static" preserved** — all bathy/tide work is one-time offline per spot;
+- **"Precompute, serve static" preserved** - all bathy/tide work is one-time offline per spot;
   runtime stays cheap.
-- **Test standard held** — unit + offline fixture + live smoke (bathy/tide fixtures keep tests
+- **Test standard held** - unit + offline fixture + live smoke (bathy/tide fixtures keep tests
   offline); currently 96 green.
 - **Data artifacts:** derived per-spot bathy + tide files are small & deterministic → commit under
   `data/spots/derived/`. Raw GEBCO/EMODnet/EOT20 sources are large → gitignore + download README.
@@ -111,7 +111,7 @@ automatically.
   artifacts; EOT20 file size/vendoring.
 
 ## Proposed build order
-**2A → 2B → 2C → 2D → 2E** — physics foundation first (the accuracy thesis), soft window rides on
+**2A → 2B → 2C → 2D → 2E** - physics foundation first (the accuracy thesis), soft window rides on
 it, tide next (biggest CR payoff + kills the web mock), recalibrate last.
 - Alt: pull **2D tide forward** for a fast, visible CR win + mock-replacement before the heavier
   transform work.

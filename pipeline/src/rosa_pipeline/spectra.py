@@ -1,10 +1,10 @@
-"""Measured-spectra validation harness (Stage 3b acceptance) — NDBC 1-D spectra + r1.
+"""Measured-spectra validation harness (Stage 3b acceptance) - NDBC 1-D spectra + r1.
 
 The spectral-lite proxies (``spectral.py``) are assumptions until measured against real
 spectra. NDBC realtime2 publishes, per station, ~45 days of hourly:
-  ``<id>.data_spec`` — spectral energy density E(f), m^2/Hz, plus the windsea/swell
+  ``<id>.data_spec`` - spectral energy density E(f), m^2/Hz, plus the windsea/swell
       separation frequency (9.999 = not computed);
-  ``<id>.swr1``      — r1, the first normalized directional Fourier coefficient (0-1),
+  ``<id>.swr1``      - r1, the first normalized directional Fourier coefficient (0-1),
       from which directional spread sigma = sqrt(2 * (1 - r1)).
 
 Two validations, both runnable today from that history (`verify --spectra`):
@@ -13,7 +13,7 @@ Two validations, both runnable today from that history (`verify --spectra`):
   error bound for the "modeled" spread label.
 - **Consistency correlation**: the proxy formula fed MEASURED periods (Tp, Tm-1,0, Tm02
   from spectral moments) vs an independent narrowness truth, Goda's peakedness
-  Qp = (2/m0^2) * ∫ f E(f)^2 df — Spearman rank correlation. This validates the
+  Qp = (2/m0^2) * ∫ f E(f)^2 df - Spearman rank correlation. This validates the
   formula itself; whether ECMWF's *periods* are right at a buoy accumulates separately
   in the ``<buoy>.ecmwf`` archive (mwp/mp2 now stored per row).
 
@@ -38,7 +38,7 @@ from .spectral import consistency_from_periods, parametric_spread_deg
 SEP_FREQ_MISSING = 9.0  # NDBC writes 9.999 when the separation frequency isn't computed
 HS_FLOOR_M = 0.2  # spectra below this carry too little energy to validate against
 # with no separation frequency, a peak this short is windsea, not swell (Med windsea
-# runs 4-7 s, trade-wind seas ~7-8 s) — heuristic, stated in the report
+# runs 4-7 s, trade-wind seas ~7-8 s) - heuristic, stated in the report
 WINDSEA_TP_MAX_S = 8.0
 
 
@@ -142,9 +142,9 @@ class SpectrumMeasures:
     time: datetime
     hs_m: float
     tp_s: float  # 1 / peak frequency
-    tm_m10_s: float  # m-1/m0 — pairs with ECMWF mwp
-    tm02_s: float  # sqrt(m0/m2) — pairs with ECMWF mp2
-    qp: float  # Goda peakedness — independent narrowness truth
+    tm_m10_s: float  # m-1/m0 - pairs with ECMWF mwp
+    tm02_s: float  # sqrt(m0/m2) - pairs with ECMWF mp2
+    qp: float  # Goda peakedness - independent narrowness truth
     consistency: int  # the proxy formula fed these measured periods
     sigma_peak_deg: float | None  # measured directional spread at the peak
     windsea: bool  # peak classified as windsea (sep_freq, else short-Tp heuristic)
@@ -291,7 +291,7 @@ def build_report(specs: list[SpectrumObs]) -> SpectraReport:
 
 def render_report(buoy: Buoy, report: SpectraReport) -> str:
     lines = [
-        f"measured spectra vs Stage-3b assumptions — buoy {buoy.id} — {buoy.name}",
+        f"measured spectra vs Stage-3b assumptions - buoy {buoy.id} - {buoy.name}",
         f"  usable spectra: {report.n_hours} hrs (Hs >= {HS_FLOOR_M} m)",
     ]
     r = report.consistency_spearman
@@ -303,7 +303,7 @@ def render_report(buoy: Buoy, report: SpectraReport) -> str:
     else:
         lines.append("  consistency proxy vs Qp narrowness: (not enough spectra)")
     if report.spread:
-        lines.append("  directional spread — parametric assumption vs measured sigma@peak:")
+        lines.append("  directional spread - parametric assumption vs measured sigma@peak:")
         lines.append(
             f"    {'class':<14}{'n':>5}  {'assumed':>8}  {'measured':>9}  {'bias':>7}  {'mae':>6}"
         )
@@ -333,9 +333,9 @@ class NDBCSpectraSource:
         with httpx.Client(timeout=self.timeout_s) as client:
             data_spec = client.get(f"{NDBC_REALTIME}/{buoy.id}.data_spec")
             if data_spec.status_code == 404:
-                return []  # met-only / non-spectral station — honest empty, not a crash
+                return []  # met-only / non-spectral station - honest empty, not a crash
             data_spec.raise_for_status()
-            # r1 is optional kit — a station without it still validates consistency
+            # r1 is optional kit - a station without it still validates consistency
             swr1 = client.get(f"{NDBC_REALTIME}/{buoy.id}.swr1")
             swr1_text = swr1.text if swr1.status_code == 200 else ""
         if self.capture_dir is not None:

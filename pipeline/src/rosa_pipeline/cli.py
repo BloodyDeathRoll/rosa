@@ -10,7 +10,7 @@ Run from the repo root so the default data paths resolve:
 is fetched in a single batched request (fetch_many), so a full 40-spot run is 2 requests.
 
 `verify` scores the offshore model at a buoy against that buoy's observations (roadmap
-Stage 0) — the accuracy backbone. Israel has no NDBC buoy in range; `--near` says so
+Stage 0) - the accuracy backbone. Israel has no NDBC buoy in range; `--near` says so
 honestly (its truth is ISRAMAR, local-only, plus the surfer 👍👎 loop).
 """
 
@@ -106,7 +106,7 @@ def _build_parser() -> argparse.ArgumentParser:
     verify = sub.add_parser("verify", help="score the offshore model against buoy observations")
     target = verify.add_mutually_exclusive_group(required=True)
     target.add_argument("--buoy", help="buoy id from the registry, e.g. 46042")
-    target.add_argument("--near", help="spot id — score the nearest in-range buoy(s)")
+    target.add_argument("--near", help="spot id - score the nearest in-range buoy(s)")
     verify.add_argument("--buoys-dir", type=Path, default=Path("data/buoys"))
     verify.add_argument("--spots-dir", type=Path, default=Path("data/spots"))
     verify.add_argument("--radius-km", type=float, default=150.0, help="--near search radius")
@@ -244,12 +244,12 @@ def _cmd_run(args: argparse.Namespace) -> int:
     now = datetime.now(UTC)
 
     # one deep-water sample per unique offshore point; each spot may have its own, so a
-    # full run fetches them all in a single batched request (fetch_many) — no throttling.
+    # full run fetches them all in a single batched request (fetch_many) - no throttling.
     groups = group_by_point(targets)
     points = list(groups)
     raws = source.fetch_many(points)
 
-    # ECMWF spectral-lite member (Stage 3b) — guarded: an ECMWF outage must never sink
+    # ECMWF spectral-lite member (Stage 3b) - guarded: an ECMWF outage must never sink
     # the forecast run. Offline replay (--fixtures) skips it unless --ecmwf-fixtures.
     spectral_series = [[] for _ in points]
     ecmwf_src: EcmwfWaves | None = None
@@ -267,9 +267,9 @@ def _cmd_run(args: argparse.Namespace) -> int:
     for point, raw, spectral in zip(points, raws, spectral_series, strict=True):
         hours = extract_hours(raw, spectral=spectral)
         if not hours:
-            # a derived point that landed on a dry grid cell — skip its spots, keep going
+            # a derived point that landed on a dry grid cell - skip its spots, keep going
             ids = ", ".join(s.id for s in groups[point])
-            print(f"warning: no forecast at point {point} — skipping {ids}", file=sys.stderr)
+            print(f"warning: no forecast at point {point} - skipping {ids}", file=sys.stderr)
             continue
         for spot in groups[point]:
             profile = load_profile(spot.id, BATHY_DIR)
@@ -292,7 +292,7 @@ def _cmd_run(args: argparse.Namespace) -> int:
 
 def _obs_for(buoy: Buoy, args: argparse.Namespace):
     if buoy.source == "isramar":
-        # never fetched — reads the local manual-import csv only (all-rights-reserved)
+        # never fetched - reads the local manual-import csv only (all-rights-reserved)
         return ISRAMARLocalSource(args.isramar_dir).fetch(buoy)
     if getattr(args, "obs_fixtures", None) is not None:
         return NDBCFixtureSource(args.obs_fixtures).fetch(buoy)
@@ -333,7 +333,7 @@ def _cmd_verify(args: argparse.Namespace) -> int:
         )
         if not near:
             print(
-                f"no buoy within {args.radius_km:.0f} km of {spot.name} — "
+                f"no buoy within {args.radius_km:.0f} km of {spot.name} - "
                 "no open wave truth here.\n  (eastern-Med spots are validated via "
                 "ISRAMAR, local-only, + the surfer 👍👎 loop)"
             )
@@ -344,7 +344,7 @@ def _cmd_verify(args: argparse.Namespace) -> int:
         if args.spectra:
             # measured-spectra validation needs NDBC spectral files, which only NDBC has
             if buoy.source != "ndbc":
-                print(f"{buoy.id}: no public spectral files for source {buoy.source!r} — skipped")
+                print(f"{buoy.id}: no public spectral files for source {buoy.source!r} - skipped")
                 continue
             src = (
                 SpectraFixtureSource(args.obs_fixtures)
@@ -353,7 +353,7 @@ def _cmd_verify(args: argparse.Namespace) -> int:
             )
             specs = src.fetch(buoy)
             if not specs:
-                print(f"{buoy.id}: no spectral files published — met-only or non-spectral buoy")
+                print(f"{buoy.id}: no spectral files published - met-only or non-spectral buoy")
                 continue
             print(render_spectra_report(buoy, build_report(specs)))
             continue
@@ -418,7 +418,7 @@ def _cmd_archive(args: argparse.Namespace) -> int:
         except Exception as e:  # A/B member must never sink the essential archive
             print(f"warn: gfswave archive skipped: {e}", file=sys.stderr)
     if args.wave_source in ("ecmwf", "all"):
-        # Stage 3b member — hs + peak period (pp1d ↔ DPD) + direction. Same guard.
+        # Stage 3b member - hs + peak period (pp1d ↔ DPD) + direction. Same guard.
         try:
             esrc: EcmwfWaves = (
                 EcmwfFixtureSource(args.ecmwf_fixtures, params=ARCHIVE_PARAMS)
@@ -453,7 +453,7 @@ def _cmd_feedback(args: argparse.Namespace) -> int:
         return 2
     payload_path = args.out / "spots" / f"{args.spot}.json"
     if not payload_path.exists():
-        print(f"no published forecast at {payload_path} — run the pipeline first", file=sys.stderr)
+        print(f"no published forecast at {payload_path} - run the pipeline first", file=sys.stderr)
         return 2
     payload = json.loads(payload_path.read_text(encoding="utf-8"))
     at = datetime.fromisoformat(args.at) if args.at else datetime.now(UTC)
@@ -513,7 +513,7 @@ def _cmd_bathy(args: argparse.Namespace) -> int:
         written += 1
         warn = ""
         if profile.land_samples:
-            warn = f"  ⚠ {profile.land_samples} land sample(s) — check shore-normal"
+            warn = f"  ⚠ {profile.land_samples} land sample(s) - check shore-normal"
         print(
             f"{spot.id}: near {profile.nearshore_depth_m:.0f} m → offshore "
             f"{profile.offshore_depth_m:.0f} m (slope {profile.mean_slope_m_per_km:.1f} m/km) "

@@ -1,9 +1,9 @@
-"""Stage 3b — ECMWF open-data wave member: cycle picking, index parsing, range
+"""Stage 3b - ECMWF open-data wave member: cycle picking, index parsing, range
 coalescing, GRIB parsing, replay, and the archive/verify wiring.
 
 Both fixtures are REAL captures (2026-07-22 00z step 0): ``wave-fc.index`` is the full
 13-param index, ``ecmwf_f000.grib2`` is the swh + pp1d + mp2 + mwp + h1012 messages
-(4.4 MB, byte-ranged; mwd deliberately absent) — parsing runs fully offline against
+(4.4 MB, byte-ranged; mwd deliberately absent) - parsing runs fully offline against
 real global masked fields."""
 
 from __future__ import annotations
@@ -26,13 +26,13 @@ from rosa_pipeline.ecmwf import (
 FIXTURES = Path(__file__).parent / "fixtures" / "ecmwf"
 GRIB = FIXTURES / "ecmwf_f000.grib2"
 INDEX = FIXTURES / "wave-fc.index"
-# open water off the Israeli coast / deep inland (E Syria) — no wet node within reach
+# open water off the Israeli coast / deep inland (E Syria) - no wet node within reach
 SEA_POINT = (32.2, 34.55)
 LAND_POINT = (33.0, 36.9)
 
 
 def test_pick_cycle_uses_only_full_horizon_cycles() -> None:
-    # 10:00Z: 00z (10 h old, fully published) is the pick — 06z never qualifies
+    # 10:00Z: 00z (10 h old, fully published) is the pick - 06z never qualifies
     assert pick_cycle(datetime(2026, 7, 23, 10, 0, tzinfo=UTC)).hour == 0
     # 22:00Z: 12z is 10 h old → ready
     assert pick_cycle(datetime(2026, 7, 23, 22, 0, tzinfo=UTC)).hour == 12
@@ -51,7 +51,7 @@ def test_urls_shape() -> None:
 
 
 def test_parse_index_and_coalesce_single_range() -> None:
-    """Our 11 params sit nearly contiguous in the file — the ~0.5 MB wmb gap is bridged,
+    """Our 11 params sit nearly contiguous in the file - the ~0.5 MB wmb gap is bridged,
     the trailing cdww is excluded, and the whole step is ONE range request."""
     spans = parse_index(INDEX.read_text(encoding="utf-8"), DEFAULT_PARAMS)
     assert len(spans) == 11
@@ -76,7 +76,7 @@ def test_parse_grib_points_sea_land_and_missing_params() -> None:
     assert sea.mwp is not None and 0.0 < sea.mwp < 10.0
     assert sea.mp2 is not None and sea.pp1d is not None
     assert sea.pp1d >= sea.mwp >= sea.mp2
-    # h1012 present (near-zero — no 10-12 s energy in the summer Med)
+    # h1012 present (near-zero - no 10-12 s energy in the summer Med)
     bands = dict(sea.bands)
     assert "h1012" in bands and 0.0 <= bands["h1012"] < 0.5
     # a param not in the fixture bytes (mwd) is honestly None, not fabricated
@@ -109,7 +109,7 @@ def test_fixture_source_replays_steps(tmp_path) -> None:
 BUOYS_YAML = """\
 buoys:
   - id: "TEST1"
-    name: "Test — off Beit Yanai"
+    name: "Test - off Beit Yanai"
     lat: 32.2
     lon: 34.55
     source: ndbc
@@ -148,6 +148,6 @@ def test_cli_archive_ecmwf_writes_suffixed_key(tmp_path) -> None:
     ]
     assert len(rows) == 1
     assert rows[0]["hs"] is not None and rows[0]["tp"] is not None
-    assert rows[0]["dir"] is None  # mwd absent from the fixture — honest gap
+    assert rows[0]["dir"] is None  # mwd absent from the fixture - honest gap
     assert not (archive_dir / "TEST1.jsonl").exists()
     assert not (archive_dir / "TEST1.gfswave.jsonl").exists()

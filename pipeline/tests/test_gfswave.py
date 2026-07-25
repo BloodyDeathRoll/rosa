@@ -1,8 +1,8 @@
-"""Stage 3a — raw GFS-Wave source: clustering, cycle picking, GRIB parsing, replay,
+"""Stage 3a - raw GFS-Wave source: clustering, cycle picking, GRIB parsing, replay,
 and the peak-period↔DPD pairing that keeps the A/B honest.
 
 The grib fixture is a REAL NOMADS grib-filter capture (2026-07-23 00z f000, Med box
-30-35N / 30-37E, 9.5 KB) — parsing runs fully offline against it."""
+30-35N / 30-37E, 9.5 KB) - parsing runs fully offline against it."""
 
 from __future__ import annotations
 
@@ -24,7 +24,7 @@ from rosa_pipeline.verify import GFSWAVE_VARIABLES, lead_time_scorecard
 FIXTURE = Path(__file__).parent / "fixtures" / "gfswave" / "med_f000.grib2"
 # a point inside the fixture box, in open water off the Israeli coast
 SEA_POINT = (32.2, 34.55)
-# inside the box but deep inland (E Syria) — no wet node within reach
+# inside the box but deep inland (E Syria) - no wet node within reach
 LAND_POINT = (33.0, 36.9)
 
 
@@ -44,7 +44,7 @@ def test_pick_cycle_respects_publication_lag() -> None:
     # 12:00Z: 06z run is ~6 h old → ready; 12z (0 h old) is not on NOMADS yet
     now = datetime(2026, 7, 23, 12, 0, tzinfo=UTC)
     assert pick_cycle(now).hour == 6
-    # 03:00Z: even 00z (3 h old) isn't ready — fall back to yesterday's 18z
+    # 03:00Z: even 00z (3 h old) isn't ready - fall back to yesterday's 18z
     now = datetime(2026, 7, 23, 3, 0, tzinfo=UTC)
     c = pick_cycle(now)
     assert (c.day, c.hour) == (22, 18)
@@ -91,7 +91,7 @@ def _obs(t: datetime, **kw) -> BuoyObs:
 
 
 def test_gfswave_scoring_pairs_peak_period_with_dpd() -> None:
-    """perpw is a PEAK period: it must score against the buoy's DPD, never APD —
+    """perpw is a PEAK period: it must score against the buoy's DPD, never APD -
     pairing mean-vs-dominant would fabricate a phantom bias."""
     valid = datetime(2026, 7, 22, 12, 0, tzinfo=UTC)
     rows = [
@@ -108,7 +108,7 @@ def test_gfswave_scoring_pairs_peak_period_with_dpd() -> None:
 BUOYS_YAML = """\
 buoys:
   - id: "TEST1"
-    name: "Test — off Beit Yanai"
+    name: "Test - off Beit Yanai"
     lat: 32.2
     lon: 34.55
     source: ndbc

@@ -15,7 +15,7 @@ import type { Map as MLMap, Marker as MLMarker } from "maplibre-gl";
 
 type Entry = [string, IndexEntry];
 
-// CARTO raster basemaps (free tier, attribution required) — swap to self-hosted
+// CARTO raster basemaps (free tier, attribution required) - swap to self-hosted
 // vector tiles before public launch.
 const TILE_URLS: Record<Theme, string> = {
   dark: "https://basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png",
@@ -46,7 +46,7 @@ export function setPendingArea(region: string): void {
   pendingArea = region;
 }
 
-/** maplibre-gl is ~70 KB gz — loaded only when the Map tab opens. */
+/** maplibre-gl is ~70 KB gz - loaded only when the Map tab opens. */
 export function MapPage({ theme }: { theme: Theme }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
@@ -157,7 +157,7 @@ export function MapPage({ theme }: { theme: Theme }) {
         mapRef.current = m;
 
         // Attribution is required (CARTO/OSM). Bottom-left, riding just above the
-        // sheet (--sheet-h), themed via CSS; collapsed to the (i) by default —
+        // sheet (--sheet-h), themed via CSS; collapsed to the (i) by default -
         // it expands on tap, which satisfies the license terms. No zoom buttons.
         m.addControl(new maplibregl.AttributionControl({ compact: true }), "bottom-left");
         const collapseAttrib = () => {
@@ -281,7 +281,7 @@ export function MapPage({ theme }: { theme: Theme }) {
         };
 
         m.on("load", () => {
-          m.resize(); // the container sizes via flex/absolute — measure once it's laid out
+          m.resize(); // the container sizes via flex/absolute - measure once it's laid out
           recluster();
         });
         m.on("moveend", recluster);
@@ -299,7 +299,7 @@ export function MapPage({ theme }: { theme: Theme }) {
     };
   }, [theme]);
 
-  // Center the focused card in the carousel — unless the focus came from the user
+  // Center the focused card in the carousel - unless the focus came from the user
   // scrolling that same carousel.
   useEffect(() => {
     if (skipCenterRef.current) {
@@ -340,7 +340,7 @@ export function MapPage({ theme }: { theme: Theme }) {
   };
 
   // The locate fab: geolocation can fail on first load (and getPosition caches
-  // even that failure) — this forces a fresh fix and recenters on it.
+  // even that failure) - this forces a fresh fix and recenters on it.
   const locate = async () => {
     setLocState("busy");
     const p = await refreshPosition();
@@ -492,7 +492,7 @@ export function MapPage({ theme }: { theme: Theme }) {
                   <p class="search-empty">No spots match “{query}”.</p>
                 )
               ) : (
-                <p class="search-empty">Search for a spot — the map opens to it.</p>
+                <p class="search-empty">Search for a spot - the map opens to it.</p>
               )}
             </div>
           </div>
@@ -590,7 +590,7 @@ function MapCard({
   );
 }
 
-/** Compact spot row used only in the search overlay — frames the spot. */
+/** Compact spot row used only in the search overlay - frames the spot. */
 function MapRow({
   entry,
   dist,

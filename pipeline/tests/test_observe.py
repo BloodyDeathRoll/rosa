@@ -10,7 +10,7 @@ from rosa_pipeline.observe import NDBCFixtureSource, parse_ndbc_txt
 
 FIX = Path(__file__).resolve().parent / "fixtures" / "verify"
 
-# trailing DEWP/VIS/PTDY/TIDE columns dropped — the parser reads through WTMP (index 14)
+# trailing DEWP/VIS/PTDY/TIDE columns dropped - the parser reads through WTMP (index 14)
 SAMPLE = """#YY  MM DD hh mm WDIR WSPD GST  WVHT   DPD   APD MWD   PRES  ATMP  WTMP
 #yr  mo dy hr mn degT m/s  m/s     m   sec   sec degT   hPa  degC  degC
 2026 07 21 07 40 320  5.0  6.0    MM    MM    MM  MM 1012.7  14.2  15.5
@@ -27,7 +27,7 @@ def test_parse_handles_missing_and_values() -> None:
     wave, met_only = obs
     assert wave.hs_m == 1.3 and wave.dpd_s == 14.0 and wave.apd_s == 7.5 and wave.mwd_deg == 244.0
     assert wave.wtmp_c == 15.5
-    # the 07:40 row has no wave data — all wave fields None, met still parsed
+    # the 07:40 row has no wave data - all wave fields None, met still parsed
     assert met_only.hs_m is None and met_only.apd_s is None and met_only.mwd_deg is None
     assert met_only.wtmp_c == 15.5
 

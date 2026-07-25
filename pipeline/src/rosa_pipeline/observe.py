@@ -3,7 +3,7 @@
 Mirrors ``fetch.py``: a live source that can capture responses, and a fixture source that
 replays them so tests never touch the network. NDBC is the first adapter (public domain);
 ISRAMAR/CDIP slot in behind the same ``ObservationSource`` protocol later. ISRAMAR stays
-local-validation-only (all-rights-reserved) — it must never be committed or shipped.
+local-validation-only (all-rights-reserved) - it must never be committed or shipped.
 
 Parses the NDBC ``realtime2/<id>.txt`` standard-meteorological file. Wave columns:
     WVHT = significant wave height (m)   -> hs_m
@@ -56,7 +56,7 @@ def _csv_num(parts: list[str], i: int) -> float | None:
 def parse_ndbc_txt(text: str, station: str) -> list[BuoyObs]:
     """Parse an NDBC standard-met file into observations, oldest-first.
 
-    Rows with no wave height at all (WVHT missing) are still kept — the harness filters;
+    Rows with no wave height at all (WVHT missing) are still kept - the harness filters;
     a buoy that reports only met is simply unusable for wave scoring, not an error here."""
     obs: list[BuoyObs] = []
     for line in text.splitlines():
@@ -119,7 +119,7 @@ class NDBCFixtureSource:
 def parse_isramar_csv(text: str, station: str) -> list[BuoyObs]:
     """Parse a manual-import ISRAMAR csv into observations, oldest-first.
 
-    Columns: ``time_utc, hs_m, period_s, dir_deg[, wtmp_c]`` — blank/`-`/`MM` = missing,
+    Columns: ``time_utc, hs_m, period_s, dir_deg[, wtmp_c]`` - blank/`-`/`MM` = missing,
     `#` lines ignored. NOTE: ISRAMAR usually displays *peak* period; it's stored in the
     period slot the harness compares to the model's MEAN wave_period, so expect the same
     peak-vs-mean offset seen at NDBC (a known, documented bias, not an error)."""
@@ -153,12 +153,12 @@ def parse_isramar_csv(text: str, station: str) -> list[BuoyObs]:
 
 
 class ISRAMARLocalSource:
-    """ISRAMAR truth, MANUAL-IMPORT ONLY — Rosa never fetches ISRAMAR.
+    """ISRAMAR truth, MANUAL-IMPORT ONLY - Rosa never fetches ISRAMAR.
 
     ISRAMAR data is all-rights-reserved and its download endpoints are robots-disallowed, so
     there is no automated fetch here by design (CLAUDE.md red line: manual validation during
     calibration; partnership before any integration). The operator reads the ISRAMAR real-time
-    display and pastes rows into ``data/verify/isramar/<station>.csv`` — gitignored, never
+    display and pastes rows into ``data/verify/isramar/<station>.csv`` - gitignored, never
     shipped, never committed. This just reads that local file."""
 
     def __init__(self, root: Path) -> None:

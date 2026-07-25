@@ -7,7 +7,7 @@ EWAM, GWAM and MeteoFrance-WAM = trustworthy; wide spread = a coin toss the UI s
 We measure agreement on significant wave height (what surfers care about most), as the
 coefficient of variation across members, floored so tiny absolute differences at near-flat
 seas don't read as disagreement. `publish` then caps it by the forecast horizon (even
-perfect agreement at day 14 isn't high confidence) — the two signals combine, honestly.
+perfect agreement at day 14 isn't high confidence) - the two signals combine, honestly.
 """
 
 from __future__ import annotations

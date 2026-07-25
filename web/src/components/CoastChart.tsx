@@ -11,8 +11,8 @@ import type { DayEntry, SpotPayload } from "../types";
     a prevailing-wind arrow above, and a tier-colored range pill below. All
     strips scroll in lock-step. */
 
-const CHART_H = 42; // px — tallest bar
-const BAR_MIN = 3; // px — a real but tiny day still shows a stub
+const CHART_H = 42; // px - tallest bar
+const BAR_MIN = 3; // px - a real but tiny day still shows a stub
 
 // Spot-local daypart windows: morning · midday · evening.
 const PERIODS: [number, number][] = [
@@ -46,10 +46,10 @@ function dayColumn(data: SpotPayload, date: string) {
   return { bars, hasAny: hrs.length > 0, wind: noon?.wind.dir ?? null, day };
 }
 
-const COL = 56; // .day-col width in px — keep in sync with styles.css
+const COL = 56; // .day-col width in px - keep in sync with styles.css
 
 /** The spot screen's date selector: one horizontal track where each column is a
-    day — its label/number/condition-dot stacked directly over that day's bars —
+    day - its label/number/condition-dot stacked directly over that day's bars -
     so date and bars drag as one and always line up. Edge-to-edge: the day at the
     left reading edge drives the rest of the screen live (`onScrub`) and commits
     on release (`onSelect`); a tap selects directly. `live` highlights a day
@@ -81,7 +81,7 @@ export function DayScrubber({
   const maxH = Math.max(0.1, ...data.hours.map((h) => h.h_mid));
 
   // Bring the selected day to the left reading edge, but only when it isn't
-  // already on screen — so a tap on a visible day doesn't yank the strip, and a
+  // already on screen - so a tap on a visible day doesn't yank the strip, and a
   // drag commit (which lands flush-left already) is a no-op. Off-screen jumps
   // (spot switch) scroll it into view.
   useEffect(() => {
@@ -263,7 +263,7 @@ export function CoastChart({
                     )}
                   </span>
                   <span class="chart-val tabular">
-                    {day ? fmtRange(day.h_max, units, false) : "—"}
+                    {day ? fmtRange(day.h_max, units, false) : "-"}
                   </span>
                 </span>
               );

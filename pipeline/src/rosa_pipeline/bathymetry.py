@@ -1,4 +1,4 @@
-"""Bathymetry ingest — seabed depth profile per spot (accuracy roadmap Stage 2A).
+"""Bathymetry ingest - seabed depth profile per spot (accuracy roadmap Stage 2A).
 
 The Stage-2 transform replaces the single per-spot ``height_coeff`` with real shoaling +
 refraction + depth-limited breaking. To do that it needs the depth the swell crosses on its
@@ -6,7 +6,7 @@ way in. This module samples that: a ray along the spot's shore-normal, from the 
 deep water, at GEBCO resolution.
 
 Source is behind ``BathymetrySource`` so the build-time GEBCO point API (today, no data
-download) and a local GEBCO 2024 / EMODnet grid (later) are the same code path — the same
+download) and a local GEBCO 2024 / EMODnet grid (later) are the same code path - the same
 interface discipline the forecast fetch layer uses.
 
 Convention: ``depth_m`` is metres **positive down** (= ``-elevation``); land / above-MSL is
@@ -63,7 +63,7 @@ class DepthProfile:
 
     @property
     def land_samples(self) -> int:
-        """Count of ray points on land — > 0 in the offshore half flags a bad shore-normal."""
+        """Count of ray points on land - > 0 in the offshore half flags a bad shore-normal."""
         return sum(1 for s in self.samples if s.depth_m <= 0)
 
     @property
@@ -148,7 +148,7 @@ class OpenTopoDataSource:
     """GEBCO 2020 via the OpenTopoData point API (<= 100 locations/request, ~1 req/s).
 
     Optionally captures the raw {("lat,lon"): elevation} map to a single JSON fixture so the
-    build and its tests can run fully offline afterwards — mirrors ``fetch.py``'s capture flow.
+    build and its tests can run fully offline afterwards - mirrors ``fetch.py``'s capture flow.
     """
 
     dataset = "gebco2020"
@@ -205,7 +205,7 @@ class OpenTopoDataSource:
 
 
 class FixtureBathymetrySource:
-    """Replays a captured {("lat,lon"): elevation} map — offline tests + reproducible builds."""
+    """Replays a captured {("lat,lon"): elevation} map - offline tests + reproducible builds."""
 
     def __init__(self, mapping: dict[str, float | None]) -> None:
         self.mapping = mapping

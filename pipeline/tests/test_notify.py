@@ -1,5 +1,5 @@
 """Swell-alert planning: grouping (one swell = one push), favorites filter,
-sent-state tolerance, payload loading. Pure functions — no network."""
+sent-state tolerance, payload loading. Pure functions - no network."""
 
 import json
 from datetime import UTC, datetime, timedelta
@@ -94,7 +94,7 @@ class TestPlanning:
         )
         assert len(plans) == 1
         n = plans[0]
-        assert n.title == "New swell — Israel"
+        assert n.title == "New swell - Israel"
         assert "Beit Yanai" in n.body
         assert "+2 more spots" in n.body
         assert n.url.endswith(f"#/spot/beit-yanai?ev={events[0].peak.date().isoformat()}")
@@ -141,7 +141,7 @@ class TestPlanning:
         plans = plan_notifications(
             group_events([ev("a", region=None, name="Lonely Reef")]), ["a"], set(), NOW
         )
-        assert plans[0].title == "New swell — Lonely Reef"
+        assert plans[0].title == "New swell - Lonely Reef"
 
 
 class TestState:
@@ -224,7 +224,7 @@ from rosa_pipeline.notify import (  # noqa: E402
 )
 
 IL = ZoneInfo("Asia/Jerusalem")
-# 2026-07-23 19:00 Israel — inside the evening ask window
+# 2026-07-23 19:00 Israel - inside the evening ask window
 EVENING = datetime(2026, 7, 23, 16, 0, tzinfo=UTC)
 
 

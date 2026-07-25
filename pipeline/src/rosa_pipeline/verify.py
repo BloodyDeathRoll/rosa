@@ -1,13 +1,13 @@
 """Forecast-skill scoring against buoy truth (roadmap Stage 0).
 
-Scores the OFFSHORE model field (link 1 of the forecast chain) — significant wave height,
-period, and direction — sampled at a buoy against that buoy's observations. Pure functions
+Scores the OFFSHORE model field (link 1 of the forecast chain) - significant wave height,
+period, and direction - sampled at a buoy against that buoy's observations. Pure functions
 over paired series; the CLI wires live/fixture I/O around them.
 
 Two comparison notes baked in:
 - Open-Meteo ``wave_period`` is a MEAN period, so it pairs with the buoy's APD (average),
   not DPD (dominant/peak).
-- Direction is circular — errors wrap at ±180°, and scatter-index is undefined for it.
+- Direction is circular - errors wrap at ±180°, and scatter-index is undefined for it.
 
 The nowcast path (compare today's forecast hours to the buoy's recent obs) needs no stored
 history and works immediately; the archive path (Stage 0 next increment) extends this to
@@ -31,14 +31,14 @@ VARIABLES = (
 )
 
 # GFS-Wave archive rows carry a PEAK period (perpw), so tp pairs with the buoy's DPD
-# (dominant period), not APD — pairing mean-vs-dominant would fabricate a bias (Stage 3a).
+# (dominant period), not APD - pairing mean-vs-dominant would fabricate a bias (Stage 3a).
 GFSWAVE_VARIABLES = (
     ("hs", "Sig. wave height", "m", "hs", "hs_m", False),
     ("tp", "Peak period", "s", "tp", "dpd_s", False),
     ("dir", "Wave direction", "°", "dir", "mwd_deg", True),
 )
 
-# ECMWF archive rows store pp1d — also a peak period, same DPD pairing (Stage 3b).
+# ECMWF archive rows store pp1d - also a peak period, same DPD pairing (Stage 3b).
 ECMWF_VARIABLES = GFSWAVE_VARIABLES
 
 
@@ -100,7 +100,7 @@ def _nearest_obs(t: datetime, obs: list[BuoyObs], tol: timedelta) -> BuoyObs | N
 def pair_series(
     model: list[WavePoint], obs: list[BuoyObs], *, tol_min: int = 30
 ) -> dict[str, list[tuple[float, float]]]:
-    """(model, obs) value pairs per variable — each forecast hour matched to the nearest
+    """(model, obs) value pairs per variable - each forecast hour matched to the nearest
     observation *that actually reports that variable* within ``tol_min``.
 
     Matching is per-variable, not per-row: many buoys log met every 10 min but waves only
@@ -211,7 +211,7 @@ def lead_time_scorecard(
 
 
 def render_lead_scorecard(buoy: Buoy, by_lead: dict[str, dict[str, VarScore]]) -> str:
-    lines = [f"lead-time skill vs buoy {buoy.id} — {buoy.name}"]
+    lines = [f"lead-time skill vs buoy {buoy.id} - {buoy.name}"]
     for lead_label, scores in by_lead.items():
         cells = []
         for key, *_ in VARIABLES:
@@ -226,7 +226,7 @@ def render_lead_scorecard(buoy: Buoy, by_lead: dict[str, dict[str, VarScore]]) -
 def render_scorecard(
     buoy: Buoy, dist_km: float | None, scores: dict[str, VarScore]
 ) -> str:
-    where = f"{buoy.id} — {buoy.name}"
+    where = f"{buoy.id} - {buoy.name}"
     if dist_km is not None:
         where += f"  ({dist_km:.0f} km from spot)"
     lines = [
@@ -242,5 +242,5 @@ def render_scorecard(
             f"{s.rmse:>7.2f}{unit}  {si:>6}"
         )
     if all(scores[k].n == 0 for k, *_ in VARIABLES):
-        lines.append("  (no overlapping model/obs hours — buoy may be met-only or offline)")
+        lines.append("  (no overlapping model/obs hours - buoy may be met-only or offline)")
     return "\n".join(lines)

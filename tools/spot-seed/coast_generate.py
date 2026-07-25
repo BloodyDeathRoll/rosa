@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Coastline break GENERATOR — proof (Israel Mediterranean coast).
+"""Coastline break GENERATOR - proof (Israel Mediterranean coast).
 
 Instead of harvesting a list of named spots (all such lists are tiny-open or
 proprietary), this generates the candidate-break universe from the coast itself:
 pull OSM natural=coastline (ODbL), resample it, and at each point derive the
 shore-normal orientation → offshore_direction + swell exposure. Comprehensive by
-construction — bounded by the length of coast, not by who mapped a spot.
+construction - bounded by the length of coast, not by who mapped a spot.
 
 This proof does the geometric core (segment → orientation → openness gate →
 cluster) and validates against the 40 spots already in israel.yaml. The bathy +
@@ -25,7 +25,7 @@ ROOT = Path(__file__).resolve().parents[2]
 YAML = ROOT / "data" / "spots" / "israel.yaml"
 OUT = Path(__file__).resolve().parent / "candidates" / "israel-generated.json"
 
-# Israel Mediterranean coast bbox (S,W,N,E) — excludes Dead Sea / Galilee / Eilat
+# Israel Mediterranean coast bbox (S,W,N,E) - excludes Dead Sea / Galilee / Eilat
 BBOX = (31.40, 34.20, 33.25, 35.20)
 # open-Med seaward facing: keep points whose seaward normal points roughly W (±70°)
 OPEN_MIN, OPEN_MAX = 200.0, 340.0
@@ -118,7 +118,7 @@ def main():
         if d <= 1500:
             found += 1
 
-    print("\n=== Israel Mediterranean coast — break generator (proof) ===")
+    print("\n=== Israel Mediterranean coast - break generator (proof) ===")
     print(f"coastline ways (OSM)      : {len(ways)}")
     print(f"coastline length          : {total_m/1000:.1f} km")
     print(f"sample points @ {spacing:.0f} m    : {len(raw)}")

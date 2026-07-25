@@ -1,7 +1,7 @@
 // Admin surface for the pipeline VM's sender (rosa-pipeline notify).
 // GET    → every stored subscription record, JSON array
 // DELETE {endpoint} → prune a dead subscription (sender saw 404/410)
-// Auth: x-admin-secret header must equal PUSH_ADMIN_SECRET. No CORS — this is
+// Auth: x-admin-secret header must equal PUSH_ADMIN_SECRET. No CORS - this is
 // server-to-server only.
 
 import { del, get, list } from "@vercel/blob";

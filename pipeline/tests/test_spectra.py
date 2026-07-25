@@ -1,8 +1,8 @@
-"""Stage 3b acceptance harness — NDBC measured spectra: parsing, moments, derived
+"""Stage 3b acceptance harness - NDBC measured spectra: parsing, moments, derived
 measures, the spread/consistency validation report, and the CLI wiring.
 
 The fixtures are REAL realtime2 captures (buoy 51201 Waimea, 2026-07-23, first 6 hourly
-rows of .data_spec and .swr1) — parsing and the report run fully offline against them."""
+rows of .data_spec and .swr1) - parsing and the report run fully offline against them."""
 
 from __future__ import annotations
 
@@ -128,13 +128,13 @@ def test_build_and_render_report() -> None:
     specs = parse_spectra(DATA_SPEC, SWR1, "51201")
     report = build_report(specs)
     assert report.n_hours == 6
-    # 6 hours of the same Hawaiian summer sea — every class present has sane stats
+    # 6 hours of the same Hawaiian summer sea - every class present has sane stats
     assert report.spread, "r1 present in fixture → spread stats expected"
     for s in report.spread:
         assert s.n > 0
         assert 0.0 < s.measured_mean_deg < 90.0
         assert s.mae_deg >= abs(s.bias_deg) - 1e-9
-    buoy = Buoy(id="51201", name="Waimea Bay — Oahu, HI", lat=21.67, lon=-158.12, source="ndbc")
+    buoy = Buoy(id="51201", name="Waimea Bay - Oahu, HI", lat=21.67, lon=-158.12, source="ndbc")
     text = render_report(buoy, report)
     assert "measured spectra vs Stage-3b assumptions" in text
     assert "directional spread" in text
@@ -145,7 +145,7 @@ def test_build_and_render_report() -> None:
 BUOYS_YAML = """\
 buoys:
   - id: "51201"
-    name: "Waimea Bay — Oahu, HI"
+    name: "Waimea Bay - Oahu, HI"
     lat: 21.67
     lon: -158.12
     source: ndbc
@@ -175,5 +175,5 @@ def test_cli_verify_spectra_offline(tmp_path, capsys) -> None:
     )
     assert rc == 0
     out = capsys.readouterr().out
-    assert "measured spectra vs Stage-3b assumptions — buoy 51201" in out
+    assert "measured spectra vs Stage-3b assumptions - buoy 51201" in out
     assert "usable spectra: 6 hrs" in out

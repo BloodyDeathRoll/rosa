@@ -4,7 +4,7 @@
 Not a scraper of a spot-list (all such lists are tiny-open or proprietary). It
 generates the candidate-break universe from the coast itself, prunes with seabed
 physics, then confirms + names candidates against OSM surf features. Comprehensive
-by construction; OSM is used only to CONFIRM/name (never to reject — its absence
+by construction; OSM is used only to CONFIRM/name (never to reject - its absence
 is not evidence of absence).
 
 Output tiers:
@@ -26,7 +26,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from coast_generate import bearing, hav_m
 from bathy_gate import destination, gebco_elevations, classify, XSECT_KM, SHELF_MIN_KM
-from osm_seed import BIZ_NAME_RE  # school/shop/rental/... — exclude from surf naming
+from osm_seed import BIZ_NAME_RE  # school/shop/rental/... - exclude from surf naming
 
 # stopwords stripped before name-matching: surf vocabulary + PT/ES/generic geo words that
 # would otherwise become match-everything tokens ("Praia", "Playa", "de", ...)
@@ -176,7 +176,7 @@ def fetch_beacons(bbox):
         if lat is None:
             continue
         is_surf = t.get("sport") == "surfing" or (nm and "surf" in nm.lower())
-        # a surf SCHOOL/SHOP marks a break but is a bad spot NAME — exclude from naming
+        # a surf SCHOOL/SHOP marks a break but is a bad spot NAME - exclude from naming
         if nm and BIZ_NAME_RE.search(nm):
             is_surf = False
         out.append({"name": nm, "lat": lat, "lon": lon, "surf": bool(is_surf)})
@@ -252,7 +252,7 @@ def main():
     print(f"1) coastline ({osrc}): {len(ways)} ways", file=sys.stderr)
     cands = cached(a.region, "candidates", fresh | ({"generate"} if fresh else set()),
                    lambda: generate(ways, a.spacing, a.cluster))
-    if use_local_osm:  # local coastline is whole-country — scope to the region's surf bbox
+    if use_local_osm:  # local coastline is whole-country - scope to the region's surf bbox
         s, w, n, e = bbox
         cands = [c for c in cands if s <= c["lat"] <= n and w <= c["lon"] <= e]
     print(f"2) generate: {len(cands)} candidates @ {a.spacing:.0f} m", file=sys.stderr)
@@ -301,7 +301,7 @@ def main():
         while sid in taken:
             sid = f"{base}-{k}"; k += 1
         taken.add(sid)
-        # coast side is GEOGRAPHIC (Arugam cluster is lon>81.3), not local facing —
+        # coast side is GEOGRAPHIC (Arugam cluster is lon>81.3), not local facing -
         # a bay spot can face E on the south coast. Offshore sample pushes to the open
         # basin: straight S for the south coast, straight E for the east coast.
         east = c["lon"] > 81.30

@@ -1,4 +1,4 @@
-# Rosa — Build Plan v1
+# Rosa - Build Plan v1
 
 **Product:** Worldwide, mobile-first web app (PWA) for surf forecasting. Free, lean, slick, shareable. Daily-use tool for dedicated surfers. No paywall, no bloat.
 
@@ -6,22 +6,22 @@
 
 ## 1. Product Principles
 
-1. **Answer the question** — "Should I surf, when, and where?" Every screen serves that; anything that doesn't is out.
-2. **Speed is a feature** — first load < 2 s on 4G, forecast visible instantly from cache while fresh data loads. A surfer checks Rosa 3× a day for 20 seconds; respect that.
-3. **Honest data** — always show model, run time, and confidence. No fake precision, no forecaster theater.
-4. **Shareable by design** — every forecast state and every swell animation has a URL and an auto-generated share card.
-5. **Free forever core** — sustained by near-zero infra cost (static data on CDN, no per-request backend). If revenue is ever needed: donations/partnerships, never a forecast paywall.
+1. **Answer the question** - "Should I surf, when, and where?" Every screen serves that; anything that doesn't is out.
+2. **Speed is a feature** - first load < 2 s on 4G, forecast visible instantly from cache while fresh data loads. A surfer checks Rosa 3× a day for 20 seconds; respect that.
+3. **Honest data** - always show model, run time, and confidence. No fake precision, no forecaster theater.
+4. **Shareable by design** - every forecast state and every swell animation has a URL and an auto-generated share card.
+5. **Free forever core** - sustained by near-zero infra cost (static data on CDN, no per-request backend). If revenue is ever needed: donations/partnerships, never a forecast paywall.
 
 ## 2. Feature Set
 
-### MVP (v0.1 — one region to calibrate, but architecture worldwide from day 1)
+### MVP (v0.1 - one region to calibrate, but architecture worldwide from day 1)
 - **Spot page** (the product): current summary card (rating, height phrase, swell, wind + offshore/onshore tag, water temp) → 7-day forecast table, 3-hourly, collapsible days: height range, rating color, primary+secondary swell, wind. Tide sparkline + sun times below.
 - **Home = favorites list** with live rating chip, height, wind tag per spot; geolocated "spots near me" for first-time users.
 - **Search** (spot name, region).
-- **16-day outlook strip** (daily bars) — free, because it costs nothing; degrade gracefully with confidence shading.
+- **16-day outlook strip** (daily bars) - free, because it costs nothing; degrade gracefully with confidence shading.
 - **PWA**: installable, offline-cached last forecast.
 
-### v0.2 — the signature
+### v0.2 - the signature
 - **Swell time-lapse** (the ISRAMAR-inspired feature): animated basin map of wave height/period/direction, scrubbable Now→+7d, auto-playable. Per-spot "swell story" mode: when a swell event is detected in the forecast, generate a shareable animated clip (map animation + arrival ETA + predicted peak at the spot). This is the growth loop: surfers share the incoming swell, the clip is branded Rosa.
 - **Alerts**: "swell alert" (rating ≥ threshold at a favorite in next N days), web push.
 
@@ -60,11 +60,11 @@ EOT20 tides (offline harmonics, computed at build per spot)
 | Waves (partitioned swells) | NOAA WW3 0.25° / ECMWF-WAM 0.25° (open) | CMEMS MEDSEA WAM ~2.5 km (Med), CMEMS IBI/other regional wave models (Atlantic Europe), PacIOOS (Hawaii) |
 | Wind/weather/pressure | GFS 0.25° / ECMWF IFS open | National meteo open data where better |
 | Tides | EOT20 harmonics via pyTMD (offline, global) | NOAA CO-OPS stations (US) for exactness |
-| SST → wetsuit | NOAA OISST / CMEMS | — |
-| Sun times | computed (astral) | — |
+| SST → wetsuit | NOAA OISST / CMEMS | - |
+| Sun times | computed (astral) | - |
 | Observations (validation) | NDBC buoy network | ISRAMAR buoys (partnership), CDIP (US West), EMODnet |
 | Bathymetry (later, nearshore v2) | GEBCO 2024 | EMODnet (Europe) |
-| Basemap | OSM vector tiles (MapLibre) | — |
+| Basemap | OSM vector tiles (MapLibre) | - |
 
 ## 5. Spot Model (per-spot config = the product's real database)
 
@@ -77,7 +77,7 @@ offshore_point: [32.0, 34.4]        # deep-water extraction point (shared per co
 offshore_direction: 90              # direction the offshore WIND blows FROM (Israel coast faces W → E wind = offshore → 90)
 swell_window: [250, 340]            # directions that reach the break
 height_coeff: 1.0                   # offshore→breaker calibration (v1 scalar)
-# Example only — canonical values always live in data/spots/*.yaml.
+# Example only - canonical values always live in data/spots/*.yaml.
 ideal:
   swell_dir: [280, 320]
   wind_dir: [60, 120]               # offshore = E sector
@@ -91,28 +91,28 @@ Seed strategy: start from open spot lists (OSM `sport=surfing` nodes, Wikipedia/
 
 ```
 energy_in_window = Σ over swell partitions within swell_window of (H² × T)
-size_score  = clamp01(ramp(energy vs. spot ideal size))        # 0–40 pts
-period_bonus = scaled T of dominant partition                  # 0–20 pts
-wind_score  = f(angle to offshore_direction, speed)            # 0–40 pts
+size_score  = clamp01(ramp(energy vs. spot ideal size))        # 0-40 pts
+period_bonus = scaled T of dominant partition                  # 0-20 pts
+wind_score  = f(angle to offshore_direction, speed)            # 0-40 pts
               offshore light = max; onshore >25 kph = 0
 score = size + period + wind → buckets: FLAT / POOR / FAIR / GOOD / FIRING
 ```
-Tunable per break type; publish the formula in-app ("why this rating") — transparency is a differentiator against LOTUS's black box and builds trust.
+Tunable per break type; publish the formula in-app ("why this rating") - transparency is a differentiator against LOTUS's black box and builds trust.
 
 ## 7. Design Direction
 
-Dark-first (surfers check pre-dawn), one accent color per rating scale, generous type, thumb-reachable day navigation, zero interstitials. The forecast table is the hero — Surfline's table layout is genuinely good; keep the information density, lose the chrome, upsells, and tab sprawl. Target: everything a surfer needs within two taps of open.
+Dark-first (surfers check pre-dawn), one accent color per rating scale, generous type, thumb-reachable day navigation, zero interstitials. The forecast table is the hero - Surfline's table layout is genuinely good; keep the information density, lose the chrome, upsells, and tab sprawl. Target: everything a surfer needs within two taps of open.
 
 ## 8. Milestones
 
-1. **Week 1–2 — Skeleton**: pipeline on Open-Meteo for ~20 Israeli+Med spots, spot JSON on CDN, PWA with spot page + favorites. Internal daily use begins (dogfood at Beit Yanai).
-2. **Week 3–4 — Calibrate**: compare vs. ISRAMAR buoys + your own eyes; tune height_coeff and score; add tide (EOT20) + sun; polish table UI.
-3. **Week 5–8 — Signature + scale**: swell time-lapse map (render frames from WW3/ECMWF grids), share cards, search, expand spot DB to first worldwide batch (Med, Portugal, Sri Lanka, Central America — where you have contacts to validate), soft launch to local crew.
+1. **Week 1-2 - Skeleton**: pipeline on Open-Meteo for ~20 Israeli+Med spots, spot JSON on CDN, PWA with spot page + favorites. Internal daily use begins (dogfood at Beit Yanai).
+2. **Week 3-4 - Calibrate**: compare vs. ISRAMAR buoys + your own eyes; tune height_coeff and score; add tide (EOT20) + sun; polish table UI.
+3. **Week 5-8 - Signature + scale**: swell time-lapse map (render frames from WW3/ECMWF grids), share cards, search, expand spot DB to first worldwide batch (Med, Portugal, Sri Lanka, Central America - where you have contacts to validate), soft launch to local crew.
 4. **Quarter 2**: alerts + push, per-swell graphs, community guide fields, migrate pipeline off Open-Meteo to raw grids, regional model upgrades, public launch.
 
 ## 9. Risks & Watch-outs
 
-- **Licensing**: Open-Meteo attribution/commercial terms; CMEMS requires registration + attribution (fine); ISRAMAR data is all-rights-reserved — partner, don't scrape; never reproduce Surfline content, spot text, or their processed API output.
-- **Nearshore accuracy** on reefs/points (coefficient model is crude there) — mitigate with per-spot community calibration feedback ("was this accurate?" one-tap, like Surfline's prompt).
-- **Spot DB quality** is the long-term moat and the long-term grind — design the contribution flow early.
+- **Licensing**: Open-Meteo attribution/commercial terms; CMEMS requires registration + attribution (fine); ISRAMAR data is all-rights-reserved - partner, don't scrape; never reproduce Surfline content, spot text, or their processed API output.
+- **Nearshore accuracy** on reefs/points (coefficient model is crude there) - mitigate with per-spot community calibration feedback ("was this accurate?" one-tap, like Surfline's prompt).
+- **Spot DB quality** is the long-term moat and the long-term grind - design the contribution flow early.
 - **Cost creep**: map frame rendering is the only expensive step; pre-render at fixed zooms per basin, WebP, aggressive CDN caching.

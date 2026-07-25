@@ -14,10 +14,10 @@ Bucket = Literal["FLAT", "POOR", "FAIR", "GOOD", "FIRING"]
 @dataclass(frozen=True, slots=True)
 class SwellPartition:
     height_m: float
-    period_s: float  # MEAN period — scoring/calibration uses this
+    period_s: float  # MEAN period - scoring/calibration uses this
     direction_deg: float
     kind: PartitionKind = "swell"
-    # peak period (surf reports quote this, e.g. "6ft @ 14s") — display only for now,
+    # peak period (surf reports quote this, e.g. "6ft @ 14s") - display only for now,
     # None where the API doesn't expose it (secondary/tertiary swells, old fixtures)
     peak_period_s: float | None = None
 
@@ -47,7 +47,7 @@ class Spot:
 class SpectralSea:
     """ECMWF open-data wave fields at a point/hour (Stage 3b spectral-lite).
 
-    Periods are three different integral measures of the 1-D spectrum — their ratios
+    Periods are three different integral measures of the 1-D spectrum - their ratios
     estimate spectral narrowness (the consistency proxy). ``bands`` holds the six
     period-banded significant heights (h1012..h2530), a coarse 1-D spectrum over the
     groundswell range that neither Open-Meteo nor NOAA gridded expose."""

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# beep-reminder.sh — audible nudge every N seconds to go refresh the Oracle
+# beep-reminder.sh - audible nudge every N seconds to go refresh the Oracle
 # console and re-click "Create" while hunting A1.Flex ARM capacity.
 #
 # Usage:
@@ -21,11 +21,11 @@ beep() {
   printf '\a'; sleep 0.3; printf '\a'; sleep 0.3; printf '\a'
 }
 
-echo "Beeping every ${INTERVAL}s — go refresh Oracle console & re-click Create. Ctrl-C to stop."
+echo "Beeping every ${INTERVAL}s - go refresh Oracle console & re-click Create. Ctrl-C to stop."
 count=0
 while :; do
   count=$((count + 1))
-  printf '\r[%s]  reminder #%d — refresh & retry Create   ' "$(date +%H:%M:%S)" "$count"
+  printf '\r[%s]  reminder #%d - refresh & retry Create   ' "$(date +%H:%M:%S)" "$count"
   beep
   sleep "$INTERVAL"
 done

@@ -3,7 +3,7 @@
 // DELETE {endpoint}                                 → forget this device
 //
 // Records live in a PRIVATE Vercel Blob store at push/subs/<sha256(endpoint)>.json
-// — readable only with the store token (the admin surface in subs.js), never via
+// - readable only with the store token (the admin surface in subs.js), never via
 // a public URL.
 
 import { del, put } from "@vercel/blob";
@@ -64,7 +64,7 @@ export default async function handler(req, res) {
       endpoint,
       keys: { p256dh: keys.p256dh, auth: keys.auth },
       spots,
-      // "Spot feedback" Profile toggle — the sender skips the evening 👍👎
+      // "Spot feedback" Profile toggle - the sender skips the evening 👍👎
       // ask for subs that turned it off
       feedback: body.feedback !== false,
       updated: new Date().toISOString(),

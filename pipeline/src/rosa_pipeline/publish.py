@@ -24,7 +24,7 @@ OUTLOOK_DAYS = 16
 
 
 def _horizon_ceiling(day_index: int) -> float:
-    """Confidence a forecast this far out can earn even if every model agrees — skill
+    """Confidence a forecast this far out can earn even if every model agrees - skill
     degrades with lead time, and the day 10+ tail is GFS-Wave-only."""
     if day_index <= 3:
         return 1.0
@@ -50,7 +50,7 @@ def _r(x: float, digits: int = 2) -> float:
 def _daylight(
     spot: Spot, day_hours: list[ScoredHour], date_str: str, tz: ZoneInfo
 ) -> list[ScoredHour]:
-    """Hours between dawn and dusk — the day summary must not be driven by a 1 am land
+    """Hours between dawn and dusk - the day summary must not be driven by a 1 am land
     breeze nobody can surf. Falls back to all hours if the sun never rises/sets (polar)."""
     try:
         s = sun(Observer(spot.lat, spot.lon), date=date.fromisoformat(date_str), tzinfo=tz)
@@ -68,7 +68,7 @@ def _day_agreement(day_hours: list[ScoredHour]) -> float | None:
 def _spectral_entry(s: ScoredHour) -> dict | None:
     """ECMWF spectral-lite block (Stage 3b): consistency 0-100 + any missed swells.
     Omitted entirely when the member wasn't joined to this hour (beyond its 240 h
-    horizon, or the fetch failed) — an absent key is honest, a fabricated one isn't."""
+    horizon, or the fetch failed) - an absent key is honest, a fabricated one isn't."""
     sea = s.hour.spectral
     if sea is None:
         return None
@@ -81,7 +81,7 @@ def _spectral_entry(s: ScoredHour) -> dict | None:
             "t": [m.period_lo_s, m.period_hi_s],
             "h": _r(m.height_m, 1),
             # deep-water energy FLUX of the unaccounted band, kW per metre of crest
-            # (mid-band period) — a different quantity to the hour's energy_kj, hence the unit
+            # (mid-band period) - a different quantity to the hour's energy_kj, hence the unit
             # in the key: nothing here should ever be read as interchangeable with it
             "energy_kw": _r(0.49 * m.height_m**2 * (m.period_lo_s + m.period_hi_s) / 2.0, 1),
         }
@@ -111,7 +111,7 @@ def _hour_entry(spot: Spot, s: ScoredHour, tz: ZoneInfo) -> dict:
             "class": s.wind_class,
         },
         "sst": _r(s.hour.sst_c, 1) if s.hour.sst_c is not None else None,
-        # tide / total water level rel. MSL, m (Stage 2D) — real series replacing the web mock
+        # tide / total water level rel. MSL, m (Stage 2D) - real series replacing the web mock
         "tide": _r(s.hour.tide_m, 2) if s.hour.tide_m is not None else None,
         "swells": [
             {
@@ -121,7 +121,7 @@ def _hour_entry(spot: Spot, s: ScoredHour, tz: ZoneInfo) -> dict:
                 "dir": p.direction_deg,
                 "kind": p.kind,
                 "in_window": in_window(p.direction_deg, spot.swell_window),
-                # assumed directional spread by partition class — modeled, not observed
+                # assumed directional spread by partition class - modeled, not observed
                 # (see payload spectral_meta); replaced by measured spread at Stage 4
                 "spread": round(parametric_spread_deg(p)),
             }
@@ -179,7 +179,7 @@ def build_payload(spot: Spot, scored: list[ScoredHour], *, fetched_at: str, now:
         )
 
     has_spectral = any(s.hour.spectral is not None for s in scored)
-    # swell events (CLAUDE.md spec): >= 12 h of >= 2x-baseline energy, GOOD+ at peak —
+    # swell events (CLAUDE.md spec): >= 12 h of >= 2x-baseline energy, GOOD+ at peak -
     # the alerts/swell-stories seed; local-time ISO like every other timestamp here
     events = [
         {

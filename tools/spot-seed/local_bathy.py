@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Local GEBCO sampler — reads seabed elevation from the GEBCO_2024 grid on disk
+"""Local GEBCO sampler - reads seabed elevation from the GEBCO_2024 grid on disk
 instead of the rate-capped OpenTopoData API. Download once (data/bathy/GEBCO_2024.nc,
-~7.5 GB, gitignored), then bathy sampling is free, offline, and unlimited — which is
+~7.5 GB, gitignored), then bathy sampling is free, offline, and unlimited - which is
 what lets the spot-seed pipeline scale worldwide.
 
 elevations(points) returns GEBCO elevation in metres (negative = underwater), the
@@ -44,7 +44,7 @@ class LocalGebco:
         lo = np.array([p[1] for p in points], dtype="float64")
         ii = np.clip(np.round((la - self.lat0) / self.dlat).astype(int), 0, self.nlat - 1)
         jj = np.clip(np.round((lo - self.lon0) / self.dlon).astype(int), 0, self.nlon - 1)
-        # one bounding-box read, then local indexing — far faster than per-point disk hits
+        # one bounding-box read, then local indexing - far faster than per-point disk hits
         i0, i1 = int(ii.min()), int(ii.max())
         j0, j1 = int(jj.min()), int(jj.max())
         sub = np.asarray(self.elev[i0:i1 + 1, j0:j1 + 1], dtype="float64")

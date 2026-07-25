@@ -2,10 +2,10 @@ import { dateOf } from "../format";
 import type { HourEntry } from "../types";
 
 /** Real tide curve for the selected day, from the pipeline's per-hour `tide`
-    series (total water level vs MSL — Open-Meteo SMOC; null beyond ~day 9).
+    series (total water level vs MSL - Open-Meteo SMOC; null beyond ~day 9).
     Replaces the session-3 mock M2 sine. Samples are 3-hourly, so the curve is
     Catmull-Rom-smoothed and high/low times are parabolically refined between
-    neighbours. Med spots are micro-tidal (~0.15 m) — the header says so bluntly;
+    neighbours. Med spots are micro-tidal (~0.15 m) - the header says so bluntly;
     macro-tidal spots (Costa Rica ~1.8 m) get real High/Low readouts. */
 
 const W = 326;
@@ -90,10 +90,10 @@ export function TideSection({
   hours: HourEntry[];
   /** the selected day (YYYY-MM-DD, spot-local) */
   date: string;
-  /** spot-local "now" ISO — set only when the selected day is today */
+  /** spot-local "now" ISO - set only when the selected day is today */
   nowT?: string | null;
   metric: boolean;
-  /** spot-DB local knowledge — "low" | "mid" | "high" when known */
+  /** spot-DB local knowledge - "low" | "mid" | "high" when known */
   tideBest?: string | null;
 }) {
   // day's samples ± one neighbour on each side for edge continuity
@@ -115,7 +115,7 @@ export function TideSection({
       <div class="tide-sec">
         <div class="head">
           <span class="eyebrow">Tide</span>
-          <span class="note">beyond the tide-model horizon — no data yet</span>
+          <span class="note">beyond the tide-model horizon - no data yet</span>
         </div>
       </div>
     );
@@ -140,7 +140,7 @@ export function TideSection({
 
   const micro = range < 0.4;
   const note = micro
-    ? `~${Math.max(range, 0.1).toFixed(1)} m range — barely matters here`
+    ? `~${Math.max(range, 0.1).toFixed(1)} m range - barely matters here`
     : `${fmtTide(lo, metric)} to ${fmtTide(hi, metric)}`;
 
   return (
@@ -176,7 +176,7 @@ export function TideSection({
             />
           )}
         </svg>
-        {/* Surfline-style: time + height pinned at each high/low (HTML overlay —
+        {/* Surfline-style: time + height pinned at each high/low (HTML overlay -
             the svg is stretch-scaled, text inside it would distort) */}
         {extremes.map((e) => (
           <span

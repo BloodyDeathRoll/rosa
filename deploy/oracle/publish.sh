@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # One Rosa cycle on the Oracle VM, fired by cron 4x/day (see README).
-# archive (buoy lead-time truth — the calibration clock) + run --all + publish
+# archive (buoy lead-time truth - the calibration clock) + run --all + publish
 # data/out to the rosa-data Vercel project as a prebuilt static site with
 # permissive CORS on /data/*.
 set -euo pipefail
@@ -19,10 +19,10 @@ STAGE="$HOME/rosa-data"   # dir basename becomes the Vercel project name
 
   # stay current with main (code pushes reach the box on the next cycle);
   # data/ and .env are gitignored, so a pull never touches archive/forecasts
-  git pull --ff-only origin main || echo "warn: git pull skipped — running local code"
+  git pull --ff-only origin main || echo "warn: git pull skipped - running local code"
   uv sync --project pipeline --quiet
 
-  # 1) ESSENTIAL — append the model's forecast at every registered buoy
+  # 1) ESSENTIAL - append the model's forecast at every registered buoy
   #    (lead-time archive on this disk; the clock that can't be back-filled)
   uv run --project pipeline rosa-pipeline archive
 

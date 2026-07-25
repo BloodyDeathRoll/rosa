@@ -62,7 +62,7 @@ export default async function handler(req, res) {
     return res.status(200).json({ ok: true });
   }
 
-  // admin surface below — server-to-server only
+  // admin surface below - server-to-server only
   const secret = process.env.PUSH_ADMIN_SECRET;
   if (!secret || req.headers["x-admin-secret"] !== secret) {
     return res.status(401).json({ error: "auth" });

@@ -135,7 +135,7 @@ export const ArrowIcon = ({ size = 12, rotate = 0 }: IconProps & { rotate?: numb
   </svg>
 );
 
-/** Wind direction — solid paper-plane pointer with a notched base.
+/** Wind direction - solid paper-plane pointer with a notched base.
     Distinct from swell: hard, unambiguous vane. */
 export const WindDirIcon = ({ size = 14, rotate = 0 }: IconProps & { rotate?: number }) => (
   <svg
@@ -155,7 +155,7 @@ export const WindDirIcon = ({ size = 14, rotate = 0 }: IconProps & { rotate?: nu
   </svg>
 );
 
-/** Swell direction — outlined arrow with a small trailing dot (wave source).
+/** Swell direction - outlined arrow with a small trailing dot (wave source).
     Deliberately different silhouette from the wind vane. */
 export const SwellDirIcon = ({ size = 14, rotate = 0 }: IconProps & { rotate?: number }) => (
   <svg
@@ -176,7 +176,7 @@ export const SwellDirIcon = ({ size = 14, rotate = 0 }: IconProps & { rotate?: n
   </svg>
 );
 
-/** Crosshair locate — circle, center dot, four ticks. */
+/** Crosshair locate - circle, center dot, four ticks. */
 export const LocateIcon = ({ size = 17 }: IconProps) => (
   <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
     <circle cx="12" cy="12" r="7" />
@@ -188,7 +188,7 @@ export const LocateIcon = ({ size = 17 }: IconProps) => (
   </svg>
 );
 
-/** North needle + N — rotated by the map bearing so it always points north. */
+/** North needle + N - rotated by the map bearing so it always points north. */
 export const CompassNorthIcon = ({ size = 17 }: IconProps) => (
   <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
     <path d="M12 3.5l3.6 8.5-3.6-1.8-3.6 1.8z" fill="currentColor" stroke="none" />

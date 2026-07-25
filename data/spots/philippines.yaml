@@ -1,12 +1,12 @@
-# Rosa spot database — Philippines (worldwide expansion)
+# Rosa spot database - Philippines (worldwide expansion)
 #
 # TWO exposures, opposite seasons:
-#   * West / South China Sea (&phw): W-facing; SW-monsoon (habagat, Jun–Oct)
+#   * West / South China Sea (&phw): W-facing; SW-monsoon (habagat, Jun-Oct)
 #     windswell + W typhoon swell; offshore wind from the E (amihan season).
-#   * East / Pacific (&phe): NE–E-facing; NE-monsoon (amihan, Nov–Mar) + Pacific
-#     typhoon groundswell; offshore wind from the W–SW. Includes Siargao.
+#   * East / Pacific (&phe): NE-E-facing; NE-monsoon (amihan, Nov-Mar) + Pacific
+#     typhoon groundswell; offshore wind from the W-SW. Includes Siargao.
 #
-# ⚠ offshore_point: the loader default pushes 0.06° WEST — INLAND for the whole
+# ⚠ offshore_point: the loader default pushes 0.06° WEST - INLAND for the whole
 # Pacific side, so every &phe spot carries an explicit seaward offshore_point.
 # North-facing spots (Pagudpud, Bagasbas, Lanuza) use wrap-through-0 swell
 # windows (supported by transform.in_window).
@@ -14,8 +14,8 @@
 # File order: N→S down the west/north coast, then N→S down the Pacific coast.
 #
 # CONFIDENCE: coordinates are approximate (well-known-spot knowledge, ~3 dp) and
-# tagged "approx — TODO verify"; orientations reasoned from coastal facing, not
-# surveyed. Same seed quality as costa-rica.yaml — calibrate before trusting.
+# tagged "approx - TODO verify"; orientations reasoned from coastal facing, not
+# surveyed. Same seed quality as costa-rica.yaml - calibrate before trusting.
 
 west: &phw
   timezone: Asia/Manila
@@ -46,7 +46,7 @@ spots:
   - { id: sabang-baler,       name: "Sabang Beach (Baler)",     lat: 15.762, lon: 121.567, offshore_direction: 230, swell_window: [10, 120], offshore_point: [15.81, 121.62], break_type: beach, <<: *phe }  # sat-verified 2026-07-23 (NE-opening bay)
   - { id: cemento,            name: "Cemento Reef (Baler)",     lat: 15.7501, lon: 121.6368, offshore_direction: 220, swell_window: [0, 130],  offshore_point: [15.79, 121.69], <<: *phe }  # sat-verified 2026-07-23 (shallow right reef)
   - { id: bagasbas,           name: "Bagasbas (Daet)",          lat: 14.134, lon: 122.9855, offshore_direction: 210, swell_window: [340, 110], offshore_point: [14.19, 123.02], break_type: beach, <<: *phe }  # sat-verified 2026-07-23 (mellow N-facing beachbreak)
-  - { id: puraran,            name: "Puraran (Catanduanes)",    lat: 13.656, lon: 124.4045, offshore_direction: 260, offshore_point: [13.66, 124.46], <<: *phe }  # sat-verified 2026-07-23 ("Majestics" — hollow right; Baras E coast)
+  - { id: puraran,            name: "Puraran (Catanduanes)",    lat: 13.656, lon: 124.4045, offshore_direction: 260, offshore_point: [13.66, 124.46], <<: *phe }  # sat-verified 2026-07-23 ("Majestics" - hollow right; Baras E coast)
   # ---- Visayas / Mindanao Pacific ----
   - { id: calicoan-abcd,      name: "ABCD (Calicoan, Guiuan)",  lat: 10.979, lon: 125.778, offshore_direction: 310, swell_window: [40, 160], offshore_point: [10.95, 125.85], <<: *phe }  # sat-verified 2026-07-23
   - { id: pacifico,           name: "Pacifico (Siargao)",       lat: 9.8715, lon: 126.1165, offshore_direction: 250, swell_window: [0, 130],  offshore_point: [9.89, 126.17], <<: *phe }  # sat-verified 2026-07-23 (quieter N-Siargao reef)
@@ -57,10 +57,10 @@ spots:
   # coastline-generated → bathy-pruned → OSM-name confirmed; offshore_direction from
   # coastline geometry; offshore_point pushed seaward. SOURCE = osm-seeded (below
   # sat/user-verified). sat-verify coords + break_type + swell_window before trusting.
-  - { id: sentinela, name: "Sentinela Beach", lat: 18.6245, lon: 121.097, offshore_direction: 108, swell_window: [223, 353], offshore_point: [18.6384, 121.0519], <<: *phe }  # osm-seeded 2026-07-24 — TODO verify
-  - { id: ph-surfing, name: "Surfing spot", lat: 6.3228, lon: 125.6533, offshore_direction: 285, swell_window: [40, 170], offshore_point: [6.3112, 125.697], <<: *phe }  # osm-seeded 2026-07-24 — TODO verify
+  - { id: sentinela, name: "Sentinela Beach", lat: 18.6245, lon: 121.097, offshore_direction: 108, swell_window: [223, 353], offshore_point: [18.6384, 121.0519], <<: *phe }  # osm-seeded 2026-07-24 - TODO verify
+  - { id: ph-surfing, name: "Surfing spot", lat: 6.3228, lon: 125.6533, offshore_direction: 285, swell_window: [40, 170], offshore_point: [6.3112, 125.697], <<: *phe }  # osm-seeded 2026-07-24 - TODO verify
 
-  # ==== WEB-SEARCH-SEEDED (2026-07-24) — surf-guide discovery, Google/Nominatim/Photon
+  # ==== WEB-SEARCH-SEEDED (2026-07-24) - surf-guide discovery, Google/Nominatim/Photon
   # geocode cross-checked + ESRI sat-verified. Locations verified; params TODO-tune. ====
-  - { id: charlies-point, name: "Charlie's Point (Baler)", lat: 15.7693, lon: 121.5634, offshore_direction: 270, swell_window: [20, 150], offshore_point: [15.7693, 121.6101], <<: *phe }  # websearch-seeded 2026-07-24 (geocoded+sat-verified) — TODO verify
-  - { id: magic-left, name: "Magic Left (Pundaquit)", lat: 14.9213, lon: 120.0613, offshore_direction: 90, swell_window: [200, 330], offshore_point: [14.9213, 120.0148], <<: *phw }  # websearch-seeded 2026-07-24 (geocoded+sat-verified) — TODO verify
+  - { id: charlies-point, name: "Charlie's Point (Baler)", lat: 15.7693, lon: 121.5634, offshore_direction: 270, swell_window: [20, 150], offshore_point: [15.7693, 121.6101], <<: *phe }  # websearch-seeded 2026-07-24 (geocoded+sat-verified) - TODO verify
+  - { id: magic-left, name: "Magic Left (Pundaquit)", lat: 14.9213, lon: 120.0613, offshore_direction: 90, swell_window: [200, 330], offshore_point: [14.9213, 120.0148], <<: *phw }  # websearch-seeded 2026-07-24 (geocoded+sat-verified) - TODO verify

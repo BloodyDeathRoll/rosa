@@ -1,4 +1,4 @@
-"""Swell-event detection (CLAUDE.md algorithm spec) — feeds alerts + swell stories.
+"""Swell-event detection (CLAUDE.md algorithm spec) - feeds alerts + swell stories.
 
 An event is a contiguous >= 12 h window where in-window energy is >= 2x the trailing
 48 h median, with rating >= GOOD at the peak. Emitted as {start, peak, end, peak_height,
@@ -6,7 +6,7 @@ direction} into the published payload; the frontend/alerts layer renders it.
 
 Implementation choices (documented, not in the spec):
 - The trailing median needs >= MIN_TRAILING_H hours of history, so an event already in
-  progress at the very start of the series can't be detected — honest: with no baseline
+  progress at the very start of the series can't be detected - honest: with no baseline
   there is no "2x baseline".
 - The median is floored (MEDIAN_FLOOR) so a dead-flat spell doesn't make 2x-nothing
   qualify every ripple; the GOOD-at-peak gate does the rest.
@@ -24,7 +24,7 @@ MIN_EVENT_H = 12.0  # contiguous elevated window must span at least this
 TRAILING_H = 48.0  # baseline window
 MIN_TRAILING_H = 12  # need at least this many trailing hours to call a baseline
 ENERGY_FACTOR = 2.0  # elevated = energy >= factor x trailing median
-MEDIAN_FLOOR = 0.5  # m^2*s — 2x a dead-flat baseline is still nothing
+MEDIAN_FLOOR = 0.5  # m^2*s - 2x a dead-flat baseline is still nothing
 GOOD_RATING = 50
 
 

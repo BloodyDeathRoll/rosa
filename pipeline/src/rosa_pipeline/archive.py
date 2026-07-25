@@ -1,16 +1,16 @@
-"""Forecast archive — the memory that makes lead-time skill measurable (roadmap Stage 0).
+"""Forecast archive - the memory that makes lead-time skill measurable (roadmap Stage 0).
 
 The nowcast check in ``verify`` only scores ~0-lead skill (today's forecast vs recent obs).
 To answer "how good is our *day-5* forecast?" we must have SAVED the forecast we made 5 days
 ago, then compare it to what the buoy actually observed. This module is that store.
 
 Each scheduled ``archive`` run appends, per buoy, the model's offshore field for every
-forecast hour, stamped with the run time — one JSONL row per (run, valid) pair:
+forecast hour, stamped with the run time - one JSONL row per (run, valid) pair:
     {"run": "<iso>", "valid": "<iso>", "hs": float|None, "tp": float|None, "dir": float|None}
 Lead time = valid - run. The clock can't be back-filled, so this starts accumulating now.
 
 Storage is behind ``ArchiveStore`` so the local filesystem (today) and an S3-compatible
-bucket (R2, when the pipeline moves off GitHub Actions) are the same code path — no rework.
+bucket (R2, when the pipeline moves off GitHub Actions) are the same code path - no rework.
 """
 
 from __future__ import annotations
@@ -41,7 +41,7 @@ def rows_from_model(run_time: datetime, model: list[WavePoint]) -> list[dict]:
 
 def rows_from_spectral(run_time: datetime, series: list[SpectralSea]) -> list[dict]:
     """ECMWF-member archive rows: the scorecard triple (tp = pp1d, a PEAK period) plus
-    the consistency-proxy inputs mwp/mp2 — extra keys the scorecard simply ignores, but
+    the consistency-proxy inputs mwp/mp2 - extra keys the scorecard simply ignores, but
     the Stage-3b model-vs-measured-spectra validation needs (verify --spectra)."""
     run_iso = run_time.isoformat(timespec="seconds")
     return [
@@ -67,7 +67,7 @@ class ArchiveStore(Protocol):
 class FileArchiveStore:
     """JSONL-per-key on the local filesystem. ``key`` is the buoy id.
 
-    Append-only and newline-delimited so a run only ever adds bytes — cheap, and an
+    Append-only and newline-delimited so a run only ever adds bytes - cheap, and an
     interrupted write can at worst leave a trailing partial line, which ``read`` skips."""
 
     def __init__(self, root: Path) -> None:

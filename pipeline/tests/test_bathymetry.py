@@ -169,7 +169,7 @@ class TestProfileLoad:
             "x",
             270.0,
             (
-                DepthSample(0.25, 0.0, 0.0, -3.0),  # land — dropped
+                DepthSample(0.25, 0.0, 0.0, -3.0),  # land - dropped
                 DepthSample(1.0, 0.0, 0.0, 15.0),
                 DepthSample(2.0, 0.0, 0.0, 50.0),
             ),

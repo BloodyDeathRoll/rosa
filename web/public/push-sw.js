@@ -1,4 +1,4 @@
-/* Swell-alert push handlers — imported into the generated Workbox service
+/* Swell-alert push handlers - imported into the generated Workbox service
    worker via workbox.importScripts (vite.config.ts). Plain JS, SW scope. */
 
 self.addEventListener("push", (event) => {
@@ -6,11 +6,11 @@ self.addEventListener("push", (event) => {
   try {
     d = event.data ? event.data.json() : {};
   } catch {
-    /* non-JSON push — show the fallback title */
+    /* non-JSON push - show the fallback title */
   }
   // Android shows the installed app's identity icon on its own, so the brand
   // tile as payload icon duplicates it; an omitted or transparent icon draws
-  // an auto-generated letter monogram — the slot never stays empty (tested on
+  // an auto-generated letter monogram - the slot never stays empty (tested on
   // One UI, 2026-07-23). Quietest option that renders: the wave-lines glyph,
   // matching the status-bar badge. Desktop has no identity icon, so there the
   // brand tile is the only icon shown.
@@ -29,13 +29,13 @@ self.addEventListener("push", (event) => {
   );
 });
 
-// SW is a static file — no build-time env; same origin the app is built with
+// SW is a static file - no build-time env; same origin the app is built with
 var FEEDBACK_API = "https://rosa-push.vercel.app/api/feedback";
 
 self.addEventListener("notificationclick", (event) => {
   event.notification.close();
   const data = event.notification.data || {};
-  // 👍/👎 tapped on a feedback ask: POST the verdict right from the worker —
+  // 👍/👎 tapped on a feedback ask: POST the verdict right from the worker -
   // the app never needs to open
   if ((event.action === "up" || event.action === "down") && data.feedback) {
     event.waitUntil(

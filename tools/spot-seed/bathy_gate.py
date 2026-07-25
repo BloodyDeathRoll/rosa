@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Bathymetry gate — prunes generated coastline candidates using seabed depth.
+"""Bathymetry gate - prunes generated coastline candidates using seabed depth.
 
 Coastline generation (coast_generate.py) over-produces: harbor walls, river
 mouths, enclosed lagoons, and normals that point inland all survive the pure
@@ -13,7 +13,7 @@ rideable break:
 
 CAVEAT: GEBCO 2020 is ~450 m resolution and unreliable in the first ~500 m, so
 this gate uses the 1-3 km SHELF band + land detection, not fine near-shore slope.
-A higher-res source (EMODnet in EU, national LIDAR) would sharpen it — that's the
+A higher-res source (EMODnet in EU, national LIDAR) would sharpen it - that's the
 production upgrade. The gate is deliberately conservative: it must not drop real
 spots (validated against the 40 hand-verified Israel spots below).
 

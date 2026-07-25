@@ -17,7 +17,7 @@ function request(maximumAge: number): Promise<LatLon | null> {
 }
 
 /** One geolocation request per session; resolves null on denial/timeout/unsupported.
-    NOTE: a failed fix caches null for the whole session — the map's locate button
+    NOTE: a failed fix caches null for the whole session - the map's locate button
     calls refreshPosition() to bust it. */
 export function getPosition(): Promise<LatLon | null> {
   cached ??= request(5 * 60_000);

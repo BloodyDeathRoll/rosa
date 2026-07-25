@@ -12,7 +12,7 @@ COORDS = [(32.38, 34.80), (9.61, -84.63)]
 
 
 def _is_ensemble(request: httpx.Request) -> bool:
-    """The ensemble hits the marine URL too — it asks for the 3 ensemble variables only."""
+    """The ensemble hits the marine URL too - it asks for the 3 ensemble variables only."""
     return str(request.url).startswith(MARINE_URL) and "wave_peak_period" not in str(request.url)
 
 

@@ -51,7 +51,7 @@ export function fmtRange(h: [number, number], u: Units, withUnit = true): string
   if (hi === 0) return "flat";
   const a = fmtH(lo, u);
   const b = fmtH(hi, u);
-  const range = a === b ? a : `${a}–${b}`;
+  const range = a === b ? a : `${a}-${b}`;
   return withUnit ? `${range} ${heightUnit(u)}` : range;
 }
 

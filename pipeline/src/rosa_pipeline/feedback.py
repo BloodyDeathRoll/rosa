@@ -1,7 +1,7 @@
-"""Surfer 👍👎 feedback — the truth no buoy can give (roadmap Stage 0, link 4-5).
+"""Surfer 👍👎 feedback - the truth no buoy can give (roadmap Stage 0, link 4-5).
 
 Buoys score the offshore model; only a human on the beach can score the *rating* and
-*breaker height* — "you said GOOD waist-high, it was shin-high POOR". This captures that
+*breaker height* - "you said GOOD waist-high, it was shin-high POOR". This captures that
 as structured rows so calibration runs on evidence, not one-off memory, and it surfaces the
 one number that drives tuning: **bucket bias** (are we systematically hot or cold?).
 
@@ -60,7 +60,7 @@ class FeedbackRecord:
 
 
 def predicted_from_payload(payload: dict, at: datetime) -> dict:
-    """Snapshot what Rosa showed for a spot at time ``at`` — the hour entry nearest ``at``,
+    """Snapshot what Rosa showed for a spot at time ``at`` - the hour entry nearest ``at``,
     falling back to ``current``. This is what the human's eyes are being compared against."""
     best: dict | None = None
     best_gap = float("inf")
@@ -120,7 +120,7 @@ def summarize(records: list[FeedbackRecord]) -> dict:
 def render_report(summary: dict) -> str:
     n = summary["n"]
     if n == 0:
-        return "feedback: no records yet — add one with `feedback --spot <id> --verdict up|down`"
+        return "feedback: no records yet - add one with `feedback --spot <id> --verdict up|down`"
     lines = [f"surfer feedback ({n} record{'s' if n != 1 else ''})"]
     if summary["agreement"] is not None:
         lines.append(f"  agreement 👍: {summary['agreement'] * 100:.0f}%")
@@ -145,8 +145,8 @@ def markdown_rows(records: list[FeedbackRecord]) -> str:
         pred = f"{p.get('bucket')} {p.get('rating')}, {p.get('h')} m {phrase}".strip()
         obs = " ".join(
             s for s in [o.get("bucket"), o.get("phrase"), o.get("note")] if s
-        ) or "—"
+        ) or "-"
         icon = "👍" if r.verdict == "up" else "👎"
         d, t = r.at.date().isoformat(), r.at.strftime("%H:%M")
-        out.append(f"| {d} | {t} | {r.spot} | {pred} | {obs} | — | {icon} feedback |")
+        out.append(f"| {d} | {t} | {r.spot} | {pred} | {obs} | - | {icon} feedback |")
     return "\n".join(out)

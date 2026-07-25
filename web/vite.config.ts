@@ -8,7 +8,7 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate",
       manifest: {
-        name: "Rosa — surf forecast",
+        name: "Rosa - surf forecast",
         short_name: "Rosa",
         description: "Should I surf, when, where?",
         theme_color: "#ffffff",
@@ -23,7 +23,7 @@ export default defineConfig({
       },
       workbox: {
         // swell-alert push/notificationclick handlers ride along inside the
-        // generated SW (public/push-sw.js) — generateSW strategy kept intact
+        // generated SW (public/push-sw.js) - generateSW strategy kept intact
         importScripts: ["push-sw.js"],
         // a new build's SW takes over immediately and deletes prior precaches, so a
         // stale app shell / forecast can't linger on a device across deploys
@@ -36,7 +36,7 @@ export default defineConfig({
         // (latin Inter subset precached so the offline app keeps its typeface)
         // splash.jpg precached explicitly: the branded splash paints before the JS
         // bundle, so on an installed-PWA cold start it must come from the SW cache
-        // or it never appears (about/*.jpg deliberately excluded — secondary pages)
+        // or it never appears (about/*.jpg deliberately excluded - secondary pages)
         globPatterns: ["**/*.{js,css,html,svg}", "**/inter-latin-wght*.woff2", "splash.jpg"],
         globIgnores: ["**/maplibre-gl-*"],
         runtimeCaching: [
@@ -49,7 +49,7 @@ export default defineConfig({
             }
           },
           {
-            // forecasts must be fresh when online — cache is the offline fallback,
+            // forecasts must be fresh when online - cache is the offline fallback,
             // never a first answer (stale coords/forecasts looked like data bugs)
             urlPattern: ({ url }) => url.pathname.startsWith("/data/"),
             handler: "NetworkFirst",

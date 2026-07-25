@@ -1,5 +1,5 @@
 /** Sunrise/sunset + civil twilight, computed client-side (standard NOAA/astronomical
-    formulas — the pipeline doesn't publish sun times yet). Accuracy ±1–2 min. */
+    formulas - the pipeline doesn't publish sun times yet). Accuracy ±1-2 min. */
 
 const DAY_MS = 86_400_000;
 const J1970 = 2440588;

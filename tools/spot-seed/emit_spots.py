@@ -51,7 +51,7 @@ def main():
             parts.append(f"swell_window: [{wrap(seaward-65)}, {wrap(seaward+65)}]")
         parts.append(f"offshore_point: [{round(oplat,4)}, {round(oplon,4)}]")
         parts.append(f"<<: *{anchor}")
-        lines.append("  - { " + ", ".join(parts) + " }  # osm-seeded 2026-07-24 — TODO verify")
+        lines.append("  - { " + ", ".join(parts) + " }  # osm-seeded 2026-07-24 - TODO verify")
 
     block = ("\n  # ==== OSM-SEEDED (2026-07-24, © OpenStreetMap contributors, ODbL) ====\n"
              "  # coastline-generated → bathy-pruned → OSM-name confirmed; offshore_direction from\n"

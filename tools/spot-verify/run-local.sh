@@ -2,7 +2,7 @@
 # Render satellite crosshair screenshots for every spot in a YAML file.
 #   ./run-local.sh ../../data/spots/israel.yaml /tmp/spot-shots [zoom]
 # Starts a static server + headless Chrome, extracts spots, shoots, tears down.
-# Zero model quota — pure network + rendering. Look at the PNGs (or feed them to
+# Zero model quota - pure network + rendering. Look at the PNGs (or feed them to
 # a vision model) to spot pins that land in open water / inland / off the break.
 set -euo pipefail
 

@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 #
-# grab-arm-frankfurt.sh — background auto-grabber for an Always-Free VM.Standard.A1.Flex
+# grab-arm-frankfurt.sh - background auto-grabber for an Always-Free VM.Standard.A1.Flex
 # (Ampere ARM) instance in Frankfurt (eu-frankfurt-1). Frankfurt has THREE availability
 # domains; this loops all of them, firing a real LaunchInstance in each and retrying on
 # "Out of host capacity" / 429, until one succeeds. The moment it lands, it prints the SSH
 # line and exits.
 #
-# Why direct-launch (not the capacity-report checker): the report lags reality — a launch can
+# Why direct-launch (not the capacity-report checker): the report lags reality - a launch can
 # succeed when the report says "unavailable" and vice-versa. Hammering LaunchInstance across
 # the 3 ADs is what actually grabs the box. (check-arm-capacity.sh remains the cheap "is there
 # capacity right now?" spot-check.)
@@ -44,10 +44,10 @@ ts()  { date -u +'%Y-%m-%dT%H:%M:%SZ'; }
 log() { echo "[$(ts)] $*"; }
 die() { echo "error: $*" >&2; exit 2; }
 
-command -v oci >/dev/null || die "oci CLI not found — install & 'oci setup config' first"
-command -v jq  >/dev/null || die "jq not found — 'sudo apt install jq'"
+command -v oci >/dev/null || die "oci CLI not found - install & 'oci setup config' first"
+command -v jq  >/dev/null || die "jq not found - 'sudo apt install jq'"
 for v in COMPARTMENT_ID IMAGE_ID SUBNET_ID; do
-  [[ -n "${!v}" ]] || die "$v is empty — fill the CONFIG block or export it"
+  [[ -n "${!v}" ]] || die "$v is empty - fill the CONFIG block or export it"
 done
 [[ -f "$SSH_PUBLIC_KEY_FILE" ]] || die "SSH public key not found at $SSH_PUBLIC_KEY_FILE"
 
@@ -72,7 +72,7 @@ launch_in() {  # $1 = AD name; echoes CLI output, returns oci's exit code
 
 on_success() {  # $1 = instance OCID
   local ocid="$1" ip
-  log "🎉 launched — instance $ocid; waiting for RUNNING + public IP ..."
+  log "🎉 launched - instance $ocid; waiting for RUNNING + public IP ..."
   oci compute instance get --instance-id "$ocid" --region "$REGION" \
       --wait-for-state RUNNING >/dev/null 2>&1 || true
   ip="$(oci compute instance list-vnics --instance-id "$ocid" --region "$REGION" \
@@ -100,12 +100,12 @@ while :; do
       *"Out of host capacity"*|*"OutOfHostCapacity"*)
         log "  $short: out of capacity" ;;
       *"TooManyRequests"*|*"429"*)
-        log "  $short: rate-limited — backing off ${backoff}s"
+        log "  $short: rate-limited - backing off ${backoff}s"
         sleep "$backoff"; backoff=$(( backoff*2 > 600 ? 600 : backoff*2 )); continue ;;
       *"LimitExceeded"*|*"QuotaExceeded"*)
-        die "$short: quota/limit exceeded — you may already hold the free A1 allowance ($out)" ;;
+        die "$short: quota/limit exceeded - you may already hold the free A1 allowance ($out)" ;;
       *)
-        log "  $short: unexpected response — $(echo "$out" | head -1)" ;;
+        log "  $short: unexpected response - $(echo "$out" | head -1)" ;;
     esac
     backoff="$INTERVAL"
   done

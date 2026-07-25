@@ -150,7 +150,7 @@ class TestCalibrationFix1:
     2026-07-20) recalibration: a cross-shore daytime windswell stays POOR, and a perfect
     night land breeze on the same swell can't inflate past FAIR (it was FIRING 77).
     Row 2 (q exp 1.4) reads the height moderately higher than the old quadratic to match
-    Surfline LOTUS without over-calling — this windswell stays shin-high POOR. See
+    Surfline LOTUS without over-calling - this windswell stays shin-high POOR. See
     docs/CALIBRATION.md."""
 
     WINDSWELL = (SwellPartition(0.66, 5.2, 290.0),)

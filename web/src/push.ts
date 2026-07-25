@@ -7,7 +7,7 @@ import { feedbackPref } from "./feedback";
 
 const API = (import.meta.env.VITE_PUSH_API as string | undefined) ?? "";
 const VAPID_PUBLIC = (import.meta.env.VITE_VAPID_PUBLIC as string | undefined) ?? "";
-const INTENT_KEY = "rosa.push"; // "on" | "off" — the user's choice, survives permission churn
+const INTENT_KEY = "rosa.push"; // "on" | "off" - the user's choice, survives permission churn
 
 export type PushState = "on" | "off" | "denied" | "unsupported";
 
@@ -80,7 +80,7 @@ export async function disablePush(): Promise<void> {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ endpoint: sub.endpoint }),
-  }).catch(() => undefined); // best effort — the sender also prunes dead subs
+  }).catch(() => undefined); // best effort - the sender also prunes dead subs
   await sub.unsubscribe().catch(() => undefined);
 }
 

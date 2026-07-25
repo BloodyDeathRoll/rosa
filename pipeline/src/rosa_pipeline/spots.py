@@ -3,14 +3,14 @@
 Two per-spot fields are derived when not given explicitly, so a straight coast of
 40 beaches needn't hand-author 40 orientations/sample points:
 
-* ``offshore_point`` — each spot samples deep water at its own coordinate pushed
+* ``offshore_point`` - each spot samples deep water at its own coordinate pushed
   ~0.06° west, so neighbours that fall in different marine-grid cells get distinct
   forecasts (a shared point made them identical). Override with ``offshore_point``.
-* ``offshore_direction`` — normally set explicitly per spot in the DB (derived from
+* ``offshore_direction`` - normally set explicitly per spot in the DB (derived from
   the OSM coastline shore-normal). When absent, falls back to the local tangent
   between the neighbouring spots (file order is N→S) minus 90° for this W-facing
-  coast — a coarse proxy that misreads sharp bends, so prefer the explicit value.
-* ``shore_normal`` — seaward-facing azimuth for wave geometry (bathymetry ray,
+  coast - a coarse proxy that misreads sharp bends, so prefer the explicit value.
+* ``shore_normal`` - seaward-facing azimuth for wave geometry (bathymetry ray,
   refraction). Defaults to ``offshore_direction + 180`` (the seaward normal for a spot
   whose best wind is straight offshore); override where they diverge (point breaks).
 """
@@ -49,7 +49,7 @@ def _derive_offshore_direction(rows: list[dict], i: int) -> float:
     n = len(rows)
     a = rows[max(0, i - 1)]
     b = rows[min(n - 1, i + 1)]
-    if a is b:  # lone spot — fall back to due-east (W-facing default)
+    if a is b:  # lone spot - fall back to due-east (W-facing default)
         return 90.0
     tangent = _bearing((float(a["lat"]), float(a["lon"])), (float(b["lat"]), float(b["lon"])))
     return round((tangent - 90.0) % 360.0, 1)

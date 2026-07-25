@@ -3,7 +3,7 @@
 //   node shoot.mjs <spots.json> <out-dir> [zoom]
 //
 // spots.json: [{ id, name, lat, lon }, ...]  (e.g. produced from data/spots/*.yaml)
-// Emits <out-dir>/<id>.png — one satellite tile per spot with a crosshair at its
+// Emits <out-dir>/<id>.png - one satellite tile per spot with a crosshair at its
 // coordinate. Deterministic + network-only: no model quota. This is the pre-step
 // the Dream rosa-spot-mapper assignment runs before the (sandboxed) vision step.
 //

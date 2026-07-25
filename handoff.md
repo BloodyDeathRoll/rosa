@@ -1,4 +1,4 @@
-# Session Handoff — 2026-07-25
+# Session Handoff - 2026-07-25
 
 ## Goal
 Build Rosa's own worldwide surf-spot database from first principles (not by
@@ -6,31 +6,31 @@ harvesting a list), and keep the live pipeline healthy as it scaled from 140 to
 188 spots. Emphasis for all spot work: **locations exact, above names.**
 
 ## Current State
-- **Live: 188 spots** on `rosa-data-opal` (verified — the 20:20 UTC cron published
+- **Live: 188 spots** on `rosa-data-opal` (verified - the 20:20 UTC cron published
   188 clean, no 429; `run --all` batching holds well under ~200 spots).
 - **Web app (`rosa-rust`) is deployed** with two UI fixes and reads 188 spots live.
   ⚠️ **The web fixes are DEPLOYED but UNCOMMITTED** (`web/src/pages/SpotPage.tsx`,
-  `web/src/styles.css`) — commit them.
+  `web/src/styles.css`) - commit them.
 - **Spot-seed pipeline works end-to-end, both flows** (primary coastline-generation
   + secondary web-search), fully offline via local datasets. Committed & pushed
   (37e70e0 tools, bfa2166 data, f5faa5c playbook).
 - **234 pipeline tests green.** Everything on `main`, pushed, except the web fixes.
-- **A1 seekers:** both alive, both shut out — Jerusalem VM (4/24, ~1.7 d) and
+- **A1 seekers:** both alive, both shut out - Jerusalem VM (4/24, ~1.7 d) and
   Frankfurt local **desktop** (4/24, 3 ADs, ~18 h; desktop stays on, doesn't sleep).
-  Zero A1 landed in either tenancy. No action — pure Always-Free contention.
+  Zero A1 landed in either tenancy. No action - pure Always-Free contention.
 - Claude Code updated to 2.1.220 (active next launch).
 
 ## Active Files
-- `tools/spot-seed/` — the toolchain: `seed.py` (primary: coastline→bathy→OSM-validate),
+- `tools/spot-seed/` - the toolchain: `seed.py` (primary: coastline→bathy→OSM-validate),
   `local_bathy.py` (local GEBCO), `osm_local.py` (local Geofabrik + business filter),
   `render.py` (ESRI sat-verify tiles), `multi_geocode.py` (Google+Nominatim+Photon),
   `emit_spots.py`, `osm_seed.py` (`is_business`), `coast_generate.py`, `bathy_gate.py`.
   Working outputs (`work/`, `candidates/`, `.venv`) gitignored.
-- `data/bathy/GEBCO_2024.nc` (7.5 GB) + `data/osm/*.osm.pbf` — local datasets, gitignored.
-- `data/spots/{sri-lanka,portugal,japan,philippines,nicaragua}.yaml` — +48 spots.
-- `docs/spot-db-scraping-playbook.md` — the full runbook (also in memory).
-- `web/src/pages/SpotPage.tsx`, `web/src/styles.css` — UI fixes (uncommitted).
-- `pipeline/src/rosa_pipeline/fetch.py` — Open-Meteo batching (committed 9852cac).
+- `data/bathy/GEBCO_2024.nc` (7.5 GB) + `data/osm/*.osm.pbf` - local datasets, gitignored.
+- `data/spots/{sri-lanka,portugal,japan,philippines,nicaragua}.yaml` - +48 spots.
+- `docs/spot-db-scraping-playbook.md` - the full runbook (also in memory).
+- `web/src/pages/SpotPage.tsx`, `web/src/styles.css` - UI fixes (uncommitted).
+- `pipeline/src/rosa_pipeline/fetch.py` - Open-Meteo batching (committed 9852cac).
 
 ## Changes Made This Session
 1. **Open-Meteo 429 fix (9852cac, deployed):** `fetch_many` batches ≤100 unique
@@ -74,6 +74,6 @@ harvesting a list), and keep the live pipeline healthy as it scaled from 140 to
    time. Gap queue: Japan Hokkaido/Okinawa/Wakayama; Portugal Azores + Ericeira detail;
    Philippines more; Latin-America Tier-B (needs sat-verify, not OSM). Held from this
    session: La Union Monaliza/Carrile Points (fuzzy vs `san-juan-la-union`), Uchiumi
-   (needs a Nichinan-coast geocode — Google returned Aoshima).
+   (needs a Nichinan-coast geocode - Google returned Aoshima).
 3. **~07-30 (archive matures):** Stage 2E calibration tune + the 3-way source verdict.
 4. Eyeball the autonomous **~0.8 m Hilton swell push** (calibration-suspect) vs reality.

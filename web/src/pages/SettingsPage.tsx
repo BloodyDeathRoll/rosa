@@ -7,7 +7,7 @@ import { signalReady } from "../splash";
 import { setUnits, useUnits } from "../units";
 import type { Theme } from "../theme";
 
-/** Swell-alert opt-in/out — one obvious switch, helper text explains the state. */
+/** Swell-alert opt-in/out - one obvious switch, helper text explains the state. */
 function NotificationsCard() {
   const [state, setState] = useState<PushState | null>(null);
   const [busy, setBusy] = useState(false);
@@ -30,7 +30,7 @@ function NotificationsCard() {
     try {
       setState(await enablePush());
     } catch {
-      // permission granted but registering with the alert service failed —
+      // permission granted but registering with the alert service failed -
       // say so instead of silently snapping back to Off
       setState("off");
       setFailed(true);
@@ -46,11 +46,11 @@ function NotificationsCard() {
   };
 
   const note = failed
-    ? "Couldn't reach the alert service — check your connection and try again."
+    ? "Couldn't reach the alert service - check your connection and try again."
     : state === "unsupported"
       ? "Not available in this browser. On iPhone, add Rosa to your home screen first."
       : state === "denied"
-        ? "Notifications are blocked for Rosa in your browser settings — allow them there, then try again."
+        ? "Notifications are blocked for Rosa in your browser settings - allow them there, then try again."
         : state === "on"
           ? "One heads-up when a new swell is on the way to your favorite spots. Never more than one per swell."
           : "Get a heads-up when a new swell is on the way to your favorite spots.";
@@ -101,7 +101,7 @@ function NotificationsCard() {
         </div>
       </div>
       <p class="settings-note">
-        A one-tap "was the call right?" the day after you check a spot — in the app, plus an
+        A one-tap "was the call right?" the day after you check a spot - in the app, plus an
         evening notification when alerts are on. It tunes the forecast.
       </p>
     </section>
@@ -117,7 +117,7 @@ export function SettingsPage({
 }) {
   const units = useUnits();
   const metric = units.height === "m";
-  // no async data — ready as soon as it mounts (lets the splash lift promptly)
+  // no async data - ready as soon as it mounts (lets the splash lift promptly)
   useEffect(signalReady, []);
 
   return (
@@ -198,7 +198,7 @@ export function SettingsPage({
         </section>
 
         <footer class="settings-foot">
-          <p>rosa 0.1 · forecasts are estimates — surf with your own eyes</p>
+          <p>rosa 0.1 · forecasts are estimates - surf with your own eyes</p>
           <p>Weather data by Open-Meteo.com (CC-BY 4.0)</p>
         </footer>
       </div>

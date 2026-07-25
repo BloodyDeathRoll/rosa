@@ -1,6 +1,6 @@
 /** Next-open retro feedback (v0.2 calibration loop): viewing a spot's forecast
-    stashes that day's promise locally; the NEXT day's first open asks one tap —
-    "was the call right?" — and ships {spot, at, predicted, verdict} to the
+    stashes that day's promise locally; the NEXT day's first open asks one tap -
+    "was the call right?" - and ships {spot, at, predicted, verdict} to the
     feedback API. Nothing is ever asked in the moment, max one prompt per day.
     Gated by the Profile "Spot feedback" toggle. */
 
@@ -16,7 +16,7 @@ const MIN_RATING = 30; // don't ask about days Rosa itself called sub-FAIR
 interface StashedView {
   spot: string;
   name: string;
-  at: string; // best hour's spot-local ISO — the session being graded
+  at: string; // best hour's spot-local ISO - the session being graded
   predicted: { rating: number; bucket: string; h: [number, number]; phrase?: string };
   done?: boolean;
 }
@@ -45,7 +45,7 @@ function writeViews(views: Record<string, StashedView>): void {
 }
 
 /** Called when a spot forecast is viewed: remember today's promise (last
-    viewed spot wins — the one most likely surfed). */
+    viewed spot wins - the one most likely surfed). */
 export function stashView(data: SpotPayload): void {
   if (!feedbackPref()) return;
   const today = todayIn(data.spot.timezone);
@@ -69,7 +69,7 @@ export interface FbPrompt {
   view: StashedView;
 }
 
-/** Yesterday's unanswered stash, if any — the one slim row Today may show. */
+/** Yesterday's unanswered stash, if any - the one slim row Today may show. */
 export function pendingPrompt(): FbPrompt | null {
   if (!feedbackPref() || API === "") return null;
   const y = new Date(Date.now() - 86_400_000);
@@ -78,7 +78,7 @@ export function pendingPrompt(): FbPrompt | null {
   return view && !view.done ? { date: yesterday, view } : null;
 }
 
-/** Answer (or dismiss with verdict null) — either way the prompt never returns. */
+/** Answer (or dismiss with verdict null) - either way the prompt never returns. */
 export async function resolvePrompt(p: FbPrompt, verdict: "up" | "down" | null): Promise<void> {
   const views = readViews();
   const v = views[p.date];
@@ -97,5 +97,5 @@ export async function resolvePrompt(p: FbPrompt, verdict: "up" | "down" | null):
       predicted: p.view.predicted,
       source: "web",
     }),
-  }).catch(() => undefined); // best effort — never block the UI on it
+  }).catch(() => undefined); // best effort - never block the UI on it
 }

@@ -1,16 +1,16 @@
-"""Raw NOAA GFS-Wave source (Stage 3a) — regional GRIB subsets via the NOMADS grib-filter.
+"""Raw NOAA GFS-Wave source (Stage 3a) - regional GRIB subsets via the NOMADS grib-filter.
 
 Live-verified 2026-07-23 (docs/rosa-stage3-plan.md): `filter_gfswave.pl` serves a regional
 subset of ``gfswave.tHHz.global.0p25.fHHH.grib2`` in ~10 KB per forecast hour, containing
 wind, combined swh/perpw/dirpw, windsea (shww/mpww/wvdir) and THREE swell partitions
-(shts/mpts/swdir x3) — the same partition schema Open-Meteo exposes.
+(shts/mpts/swdir x3) - the same partition schema Open-Meteo exposes.
 
 This module currently powers the dual-source buoy archive (OM-vs-NOAA A/B against measured
 truth). The full spot-forecast ``ForecastSource`` swap reuses the same fetch/parse when the
 A/B evidence justifies promotion.
 
 Comparison note baked in: GFS-Wave's ``perpw`` is a PEAK period, so it pairs with the buoy's
-DPD (dominant period) — unlike Open-Meteo's mean ``wave_period``, which pairs with APD.
+DPD (dominant period) - unlike Open-Meteo's mean ``wave_period``, which pairs with APD.
 ``verify`` handles this via ``GFSWAVE_VARIABLES``.
 
 NOMADS etiquette: the raw ``pub/`` listing is 403 for scripts; the filter CGI and direct
@@ -33,7 +33,7 @@ from .verify import WavePoint
 
 FILTER_URL = "https://nomads.ncep.noaa.gov/cgi-bin/filter_gfswave.pl"
 RESOLUTION = "0p25"
-# archive sampling: every 6 h to the full 16-day horizon (65 steps) — plenty for
+# archive sampling: every 6 h to the full 16-day horizon (65 steps) - plenty for
 # lead-time skill at a fraction of the request count of the native 1-3-hourly output
 DEFAULT_STEPS: tuple[int, ...] = tuple(range(0, 385, 6))
 # a cycle's wave files land on NOMADS ~3.5-4 h after cycle time; only offer cycles
@@ -196,7 +196,7 @@ class GFSWaveSource:
                 for step in self.steps:
                     data = self._get(client, cyc, step, box)
                     if data is None and step == self.steps[0]:
-                        # cycle not on NOMADS yet — drop back one and retry this box
+                        # cycle not on NOMADS yet - drop back one and retry this box
                         cyc = cyc - timedelta(hours=6)
                         data = self._get(client, cyc, step, box)
                     if data is None:

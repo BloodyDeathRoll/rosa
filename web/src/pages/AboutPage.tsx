@@ -62,7 +62,7 @@ function ReadingTheForecast() {
     <>
       <p class="about-lead">Every number in Rosa, in plain terms.</p>
       <p>
-        Nothing here is secret. If a figure looks wrong to you, your eyes win — and we would rather
+        Nothing here is secret. If a figure looks wrong to you, your eyes win - and we would rather
         you knew exactly what we are claiming than trusted it blindly.
       </p>
 
@@ -74,10 +74,10 @@ function ReadingTheForecast() {
       </p>
       <p>
         Wind can only ever <i>polish</i> waves that already exist. A glassy offshore morning with no
-        swell stays Poor — it cannot be talked up into Good by the wind alone.
+        swell stays Poor - it cannot be talked up into Good by the wind alone.
       </p>
 
-      <h2>Surf — the range, and the number under it</h2>
+      <h2>Surf - the range, and the number under it</h2>
       <p>
         This is the height of the <b>breaking wave at the spot</b>, not the wave height out at sea.
         Rosa takes the open-ocean swell and walks it into the beach over the real shape of the
@@ -85,30 +85,30 @@ function ReadingTheForecast() {
       </p>
       <p>
         We show a range because no forecast is precise to the centimetre. The smaller number
-        underneath is the middle of that range — the single figure to quote if you want one. Words
+        underneath is the middle of that range - the single figure to quote if you want one. Words
         like <i>waist-high</i> or <i>overhead</i> are the same number said out loud.
       </p>
 
-      <h2>Swell — where the energy is coming from</h2>
+      <h2>Swell - where the energy is coming from</h2>
       <p>
         A swell is one train of waves travelling from one storm. There are usually several at once,
         so Rosa lists them separately rather than mashing them into one figure.
       </p>
       <p>
         The direction is where the swell is coming <b>from</b>. Each spot faces a certain way and
-        only picks up swell from a band of directions — swell arriving outside that band still shows
+        only picks up swell from a band of directions - swell arriving outside that band still shows
         in the list, but it does not count toward the score, because the headland or the coast
         blocks it.
       </p>
 
-      <h2>Period — and why it says 8s when the maths uses 6s</h2>
+      <h2>Period - and why it says 8s when the maths uses 6s</h2>
       <p>
         Period is the gap in seconds between waves, and it matters as much as height: long-period
         swell carries far more energy and stands up taller when it hits shallow water. Short-period
         windswell is weaker than its height suggests.
       </p>
       <p>
-        The models publish two of them. The <b>peak period</b> is the dominant rhythm of the swell —
+        The models publish two of them. The <b>peak period</b> is the dominant rhythm of the swell -
         the number surf reports quote, as in "3ft at 8 seconds". The <b>mean period</b> is the
         average across the whole sea state, and it always reads lower because short, choppy waves
         drag it down.
@@ -128,14 +128,14 @@ function ReadingTheForecast() {
       </p>
       <ul class="about-sub">
         <li>
-          <b>Offshore</b> — blowing from the land out to sea. Holds the wave face up and grooms it.
+          <b>Offshore</b> - blowing from the land out to sea. Holds the wave face up and grooms it.
           The good one.
         </li>
         <li>
-          <b>Cross-shore</b> — along the beach. Tolerable when light, messy when not.
+          <b>Cross-shore</b> - along the beach. Tolerable when light, messy when not.
         </li>
         <li>
-          <b>Onshore</b> — blowing in from the sea. Crumbles the waves and turns the surface to
+          <b>Onshore</b> - blowing in from the sea. Crumbles the waves and turns the surface to
           chop.
         </li>
       </ul>
@@ -144,7 +144,7 @@ function ReadingTheForecast() {
         worked out per spot, not per region.
       </p>
 
-      <h2>kJ — how much punch the swell carries</h2>
+      <h2>kJ - how much punch the swell carries</h2>
       <p>
         Wave energy, in kilojoules per metre of wave crest. Height alone does not tell you whether a
         swell is serious: energy grows with the <i>square</i> of the height and the{" "}
@@ -156,17 +156,17 @@ function ReadingTheForecast() {
         one reads 40 kJ and the other 300 kJ. Only swell the spot actually faces is counted.
       </p>
 
-      <h2>hPa — air pressure</h2>
+      <h2>hPa - air pressure</h2>
       <p>
         Sea-level air pressure, the same units a barometer uses. It is a weather signal, not a surf
-        one: falling pressure means a system moving in — wind and, a day or two later, swell.
+        one: falling pressure means a system moving in - wind and, a day or two later, swell.
         Steady high pressure usually means settled, lighter mornings.
       </p>
 
       <h2>Water and air temperature, and the wetsuit</h2>
       <p>
         The wetsuit suggestion comes from the water temperature alone, using the industry-standard
-        bands. It is a starting point — if you run cold, or the wind is up, go thicker.
+        bands. It is a starting point - if you run cold, or the wind is up, go thicker.
       </p>
 
       <h2>Tide</h2>
@@ -184,7 +184,7 @@ function ReadingTheForecast() {
       <h2>Light</h2>
       <p>
         First light, sunrise, sunset and last light for that spot's own date and location. First and
-        last light are the useful ones — you can usually surf a good half hour before the sun is up.
+        last light are the useful ones - you can usually surf a good half hour before the sun is up.
       </p>
 
       <h2>Confidence, and how fresh this is</h2>
@@ -199,7 +199,7 @@ function ReadingTheForecast() {
       <p>
         Each day shows its best few hours as coloured bars, so you can find the good day without
         opening every one. The Size, Period and Wind bars break the chosen day's rating into its
-        three ingredients — a quick way to see <i>why</i> a day scored what it did, and which of the
+        three ingredients - a quick way to see <i>why</i> a day scored what it did, and which of the
         three is letting it down.
       </p>
       <p>
@@ -208,7 +208,7 @@ function ReadingTheForecast() {
 
       <h2>Colours</h2>
       <p>
-        The coloured rail down the left of each hour is the rating, in visual form — the same scale
+        The coloured rail down the left of each hour is the rating, in visual form - the same scale
         as the words, so you can scan a day without reading a single number.
       </p>
 
@@ -221,7 +221,7 @@ function ReadingTheForecast() {
       <h2>Swell alerts</h2>
       <p>
         If you turn them on, Rosa notifies you when a real swell is lining up for a spot you follow
-        — a sustained run of well-above-normal energy that peaks at Good or better. One swell gets
+        - a sustained run of well-above-normal energy that peaks at Good or better. One swell gets
         one notification, not one per spot per hour.
       </p>
 

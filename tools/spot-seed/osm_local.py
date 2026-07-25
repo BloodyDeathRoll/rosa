@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Local OSM extractor — pulls coastline + surf beacons from a Geofabrik .osm.pbf on
+"""Local OSM extractor - pulls coastline + surf beacons from a Geofabrik .osm.pbf on
 disk instead of the public Overpass API. Download the regional extract once
 (data/osm/<region>.osm.pbf, gitignored), then generation + validation are offline,
-reliable, and unlimited — the Overpass companion to the local GEBCO grid.
+reliable, and unlimited - the Overpass companion to the local GEBCO grid.
 
 extract_region(pbf) -> (coast_ways, beacons):
   coast_ways : list[ list[(lat,lon)] ]      natural=coastline geometries
@@ -12,7 +12,7 @@ Requires pyosmium (tools/spot-seed/.venv).
 """
 from __future__ import annotations
 import osmium
-from osm_seed import is_business  # tag- AND name-based (shop/amenity/school/...) — never a spot
+from osm_seed import is_business  # tag- AND name-based (shop/amenity/school/...) - never a spot
 
 
 class _Extract(osmium.SimpleHandler):

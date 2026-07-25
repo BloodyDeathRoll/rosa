@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 #
-# check-arm-capacity.sh — poll Oracle Cloud for VM.Standard.A1.Flex (Ampere ARM)
+# check-arm-capacity.sh - poll Oracle Cloud for VM.Standard.A1.Flex (Ampere ARM)
 # capacity in Jerusalem (il-jerusalem-1), Availability Domain 1.
 #
 # The Always-Free ARM shape is chronically "out of capacity" in Jerusalem. This
 # script asks OCI's Compute Capacity Report API whether the shape is launchable
-# RIGHT NOW — without creating anything — and can loop until it frees up.
+# RIGHT NOW - without creating anything - and can loop until it frees up.
 # Optionally (--launch) it fires a real LaunchInstance the moment capacity opens.
 #
 # ── Prerequisites ────────────────────────────────────────────────────────────
@@ -53,9 +53,9 @@ for arg in "$@"; do
 done
 
 die() { echo "error: $*" >&2; exit 2; }
-command -v oci >/dev/null || die "oci CLI not found — install & 'oci setup config' first"
-command -v jq  >/dev/null || die "jq not found — 'sudo apt install jq'"
-[[ -n "$COMPARTMENT_ID" ]] || die "COMPARTMENT_ID is empty — set it in the CONFIG block or export it"
+command -v oci >/dev/null || die "oci CLI not found - install & 'oci setup config' first"
+command -v jq  >/dev/null || die "jq not found - 'sudo apt install jq'"
+[[ -n "$COMPARTMENT_ID" ]] || die "COMPARTMENT_ID is empty - set it in the CONFIG block or export it"
 
 # Resolve the AD-<N> full name (e.g. "xyzZ:IL-JERUSALEM-1-AD-1") from the tenancy.
 AD_NAME="$(oci iam availability-domain list \
@@ -79,7 +79,7 @@ launch_instance() {
   [[ -n "$IMAGE_ID"  ]] || die "--launch needs IMAGE_ID"
   [[ -n "$SUBNET_ID" ]] || die "--launch needs SUBNET_ID"
   [[ -f "$SSH_PUBLIC_KEY_FILE" ]] || die "--launch needs SSH_PUBLIC_KEY_FILE ($SSH_PUBLIC_KEY_FILE missing)"
-  echo ">>> capacity open — launching $INSTANCE_NAME ($SHAPE $OCPUS/$MEM_GB) ..."
+  echo ">>> capacity open - launching $INSTANCE_NAME ($SHAPE $OCPUS/$MEM_GB) ..."
   oci compute instance launch \
     --compartment-id "$COMPARTMENT_ID" \
     --region "$REGION" \
@@ -105,7 +105,7 @@ while :; do
       if (( LAUNCH )); then launch_instance; fi
       exit 0 ;;
     API_ERROR|UNKNOWN)
-      # transient/permission/region hiccup — keep polling in --watch, else bail
+      # transient/permission/region hiccup - keep polling in --watch, else bail
       (( WATCH )) || exit 2 ;;
   esac
   (( WATCH )) || exit 1

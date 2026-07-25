@@ -2,11 +2,11 @@
 """OSM surf-spot seed extractor (ODbL source).
 
 Pulls `sport=surfing` features from the Overpass API per country, splits real
-breaks from businesses (shops / schools / rentals — by tag AND by name), and
+breaks from businesses (shops / schools / rentals - by tag AND by name), and
 dedupes against the spots already committed in data/spots/<region>.yaml. Prints
 a north→south candidate list and writes JSON per region for review.
 
-This is a SEED/PROPOSAL tool — it never edits the spot DB. Candidates still go
+This is a SEED/PROPOSAL tool - it never edits the spot DB. Candidates still go
 through the authority ladder (sat-verify → user-verify) before being added, and
 anything published from OSM data must be attributed to OpenStreetMap (© OSM
 contributors, ODbL).
@@ -19,7 +19,7 @@ from __future__ import annotations
 import json, math, re, sys, time, urllib.request, urllib.parse
 from pathlib import Path
 
-# public Overpass instances — tried in order, with backoff, on 429/504/timeout
+# public Overpass instances - tried in order, with backoff, on 429/504/timeout
 OVERPASS_ENDPOINTS = [
     "https://overpass-api.de/api/interpreter",
     "https://overpass.kumi.systems/api/interpreter",
@@ -104,7 +104,7 @@ def query_overpass(iso: str):
                                          headers={"User-Agent": "rosa-spot-seed/0.1"})
             with urllib.request.urlopen(req, timeout=200) as r:
                 return json.load(r).get("elements", [])
-        except Exception as e:  # 429/504/timeout — back off and try next mirror
+        except Exception as e:  # 429/504/timeout - back off and try next mirror
             last = e
             print(f"    {endpoint.split('//')[1].split('/')[0]} failed ({e}); retrying",
                   file=sys.stderr)
@@ -157,7 +157,7 @@ def main():
         if not iso:
             print(f"unknown region '{region}' (known: {', '.join(REGIONS)})", file=sys.stderr)
             continue
-        print(f"\n### {region} ({iso}) — querying Overpass ...", file=sys.stderr)
+        print(f"\n### {region} ({iso}) - querying Overpass ...", file=sys.stderr)
         try:
             summary, new = run_region(region, iso)
         except Exception as e:

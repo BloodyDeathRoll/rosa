@@ -4,7 +4,7 @@
 
 import type { IndexEntry } from "./types";
 
-/** [[west, south], [east, north]] — a maplibre LngLatBoundsLike. */
+/** [[west, south], [east, north]] - a maplibre LngLatBoundsLike. */
 export type Bounds = [[number, number], [number, number]];
 
 export interface RegionInfo {

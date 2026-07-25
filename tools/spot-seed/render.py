@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Render satellite crosshair tiles for spot-seed candidates — the visual leg of
+"""Render satellite crosshair tiles for spot-seed candidates - the visual leg of
 validation. For each candidate it shoots an ESRI World Imagery tile with a crosshair
 at the coordinate (via tools/spot-verify), so a vision pass can judge real break vs.
 open water / inland / harbor. Rendering is deterministic + network-only; the JUDGE
 step is the vision model reading the PNGs (ESRI is build-time verification only,
-never redistributed — see docs/spot-mapping-approach.md).
+never redistributed - see docs/spot-mapping-approach.md).
 
 Usage:
   python tools/spot-seed/render.py <region> [--tier new|corrections] [--zoom 16]
@@ -76,7 +76,7 @@ def _spots_from_region(region, tier):
     rows = res.get(tier, [])
     out = []
     for r in rows:
-        if tier == "corrections":  # {id, m, osm} — render at OUR pin? no coords; skip
+        if tier == "corrections":  # {id, m, osm} - render at OUR pin? no coords; skip
             continue
         out.append({"id": r["id"], "name": r.get("name", r["id"]),
                     "lat": r["lat"], "lon": r["lon"]})

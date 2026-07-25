@@ -1,6 +1,6 @@
 """ISRAMAR manual-import adapter (local-only) + merged registry.
 
-All data here is SYNTHETIC — ISRAMAR's real data is all-rights-reserved and never committed.
+All data here is SYNTHETIC - ISRAMAR's real data is all-rights-reserved and never committed.
 """
 
 from __future__ import annotations
