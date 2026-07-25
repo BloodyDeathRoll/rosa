@@ -315,12 +315,13 @@ export function SpotPage({ id }: { id: string }) {
   }, []);
 
   // Collapse the scrubber's bars once the page scrolls into the forecast, leaving
-  // just the compact date row pinned. Hysteresis (collapse at 72, expand under 24)
-  // keeps it from flickering around the threshold.
+  // just the compact date row pinned. Wide hysteresis (collapse at 72, only
+  // re-expand near the very top, under 8) plus `overflow-anchor: none` on <html>
+  // keeps the collapse from feeding back into scrollY and blinking.
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY || document.documentElement.scrollTop;
-      setCondensed((c) => (c ? y > 24 : y > 72));
+      setCondensed((c) => (c ? y > 8 : y > 72));
     };
     onScroll();
     addEventListener("scroll", onScroll, { passive: true });

@@ -82,6 +82,11 @@ html {
   text-rendering: optimizeLegibility;
   font-feature-settings: var(--inter-features);
   font-optical-sizing: auto;
+  /* When the spot-page sticky header collapses its bars, the height change would
+     otherwise make scroll-anchoring nudge scrollY back across the collapse
+     threshold — an endless expand/collapse blink. Disable anchoring on the root
+     scroller so scrollY stays put and the hysteresis holds. */
+  overflow-anchor: none;
 }
 
 body {
@@ -1784,8 +1789,8 @@ a.rank-card:hover {
   display: block;
   overflow: hidden;
   border-radius: 14px;
-  background: var(--secondary);
-  opacity: 0.55;
+  background: #22262f;
+  opacity: 0.75;
   transition: opacity 0.2s;
 }
 .map-card.center {
@@ -1803,15 +1808,12 @@ a.rank-card:hover {
   font-size: 8px;
   opacity: 0.7;
 }
-/* Flat scrim over the imagery so the readout stays legible — white in light,
-   black in dark. */
+/* Cards use the dark treatment in BOTH themes — white text over a dark scrim over
+   the satellite image, so light-mode cards read the same as dark. */
 .map-card-shade {
   position: absolute;
   inset: 0;
-  background: #ffffffdd;
-}
-:root[data-theme="dark"] .map-card-shade {
-  background: #000000cc;
+  background: #00000088;
 }
 .map-card-body {
   position: absolute;
@@ -1820,7 +1822,7 @@ a.rank-card:hover {
   flex-direction: column;
   gap: 2px;
   padding: 12px 14px;
-  color: var(--foreground);
+  color: #f5f0e8;
 }
 .map-card-head {
   display: flex;
@@ -1833,20 +1835,17 @@ a.rank-card:hover {
 }
 .map-card-name .spot-title b {
   font-size: 15px;
-  color: var(--foreground);
+  color: #f5f0e8;
 }
 .map-card-h {
   font-size: 26px;
   font-weight: 700;
   letter-spacing: -0.01em;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.55);
-}
-:root[data-theme="dark"] .map-card-h {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 .map-card-sub {
   font-size: 12px;
-  color: var(--muted-foreground);
+  color: #a8a29e;
 }
 
 /* Attribution: themed chip bottom-left, riding just above the live sheet
