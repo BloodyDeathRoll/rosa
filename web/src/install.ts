@@ -13,9 +13,10 @@ interface BeforeInstallPromptEvent extends Event {
 
 type BipWindow = Window & { __ROSA_BIP?: BeforeInstallPromptEvent | null };
 
-/** "prompt" = Chrome will show the real dialog; "ios" = Safari can only be told
-    how, since it has no programmatic install. */
-export type InstallOffer = "prompt" | "ios";
+/** "prompt" = Chromium will show the real dialog. The rest are browsers that can
+    install but expose no API for it, so all we can do is say where the control
+    is. Browsers with no install path at all get nothing. */
+export type InstallOffer = "prompt" | "ios" | "firefox";
 
 function deferred(): BeforeInstallPromptEvent | null {
   return (window as BipWindow).__ROSA_BIP ?? null;
@@ -41,6 +42,14 @@ function iosSafari(): boolean {
   return isIos && /Safari/.test(ua) && !/CriOS|FxiOS|EdgiOS/.test(ua);
 }
 
+/** Firefox never fires beforeinstallprompt - it's a Chromium-only API. On Android
+    it can still install from its own menu, so point there; on desktop Firefox has
+    no install path at all and gets no offer rather than a dead-end instruction. */
+function firefoxAndroid(): boolean {
+  const ua = navigator.userAgent;
+  return /Firefox\//.test(ua) && /Android/.test(ua);
+}
+
 /** What (if anything) to offer right now. */
 export function installOffer(): InstallOffer | null {
   try {
@@ -50,7 +59,8 @@ export function installOffer(): InstallOffer | null {
   }
   if (installed()) return null;
   if (deferred()) return "prompt";
-  return iosSafari() ? "ios" : null;
+  if (iosSafari()) return "ios";
+  return firefoxAndroid() ? "firefox" : null;
 }
 
 /** Remember that this open has been asked, so a refresh stays quiet. */

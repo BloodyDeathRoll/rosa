@@ -5,9 +5,10 @@ import { appReady } from "../splash";
 const AFTER_SPLASH_MS = 700; // the splash fades over 450ms - let it clear first
 const SPLASH_CAP_MS = 10_000; // same safety net main.tsx uses to lift the splash
 
-/** Add-to-home-screen sheet, offered once per app open (see install.ts). Chrome
-    gets a button wired to its own install dialog; Safari, which has no such API,
-    gets the one sentence that tells an iPhone user where the control is. */
+/** Add-to-home-screen sheet, offered once per app open (see install.ts). Chromium
+    gets a button wired to its own install dialog; browsers that can install but
+    expose no API for it (iOS Safari, Firefox for Android) get the one sentence
+    that says where their control lives. */
 export function InstallPrompt() {
   const [offer, setOffer] = useState<InstallOffer | null>(null);
   const [busy, setBusy] = useState(false);
@@ -69,11 +70,16 @@ export function InstallPrompt() {
           <p>
             Tap <b>Share</b> in Safari, then <b>Add to Home Screen</b>.
           </p>
+        ) : offer === "firefox" ? (
+          <p>
+            Open Firefox's <b>menu</b>, then <b>Install</b> (older versions call it{" "}
+            <b>Add to Home screen</b>).
+          </p>
         ) : (
           <p>Opens full screen, starts faster, and keeps your last forecast readable offline.</p>
         )}
         <div class="install-actions">
-          {offer === "ios" ? (
+          {offer !== "prompt" ? (
             <button class="install-go" onClick={dismiss}>
               Got it
             </button>
