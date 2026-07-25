@@ -138,10 +138,17 @@ function CamEmbed({ cam }: { cam?: SpotPayload["spot"]["cam"] }) {
     <section class="cam">
       <div class="cam-frame">
         <iframe
-          src={`https://www.youtube-nocookie.com/embed/${cam.yt}?rel=0&playsinline=1`}
+          // autoplay muted is what strips the embed back to the play bar: the title
+          // bar, channel avatar, big play button and "Watch on YouTube" overlay all
+          // belong to the unstarted state and have no parameter to turn them off.
+          // Muted is also the only autoplay mobile browsers allow.
+          src={
+            `https://www.youtube-nocookie.com/embed/${cam.yt}` +
+            `?rel=0&playsinline=1&autoplay=1&mute=1&modestbranding=1&iv_load_policy=3`
+          }
           title="Live cam"
           loading="lazy"
-          allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+          allow="autoplay; accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen"
           allowFullScreen
           frameBorder="0"
         />
