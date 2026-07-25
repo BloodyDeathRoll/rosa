@@ -263,3 +263,25 @@ def update_index(payload: dict, out_dir: Path) -> Path:
     }
     path.write_text(json.dumps(index, separators=(",", ":")), encoding="utf-8")
     return path
+
+
+def prune_index(known_ids: set[str], out_dir: Path) -> list[str]:
+    """Drop spots that have left the DB from index.json, and delete their payloads.
+
+    update_index only ever upserts, so a spot removed from data/spots/*.yaml would
+    otherwise stay published forever - a ghost card and map pin that no longer has
+    a YAML entry behind it. Only a full run may call this: a single-spot run has no
+    knowledge of the rest of the index. Returns the ids removed.
+    """
+    path = out_dir / "index.json"
+    if not path.exists():
+        return []
+    index: dict = json.loads(path.read_text(encoding="utf-8"))
+    stale = sorted(set(index.get("spots", {})) - known_ids)
+    if not stale:
+        return []
+    for spot_id in stale:
+        del index["spots"][spot_id]
+        (out_dir / "spots" / f"{spot_id}.json").unlink(missing_ok=True)
+    path.write_text(json.dumps(index, separators=(",", ":")), encoding="utf-8")
+    return stale

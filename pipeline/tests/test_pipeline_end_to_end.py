@@ -12,7 +12,7 @@ import pytest
 
 from rosa_pipeline.extract import extract_hours
 from rosa_pipeline.fetch import FixtureSource
-from rosa_pipeline.publish import build_payload, update_index, write_spot_json
+from rosa_pipeline.publish import build_payload, prune_index, update_index, write_spot_json
 from rosa_pipeline.score import score_hour
 from rosa_pipeline.spots import load_spots
 
@@ -101,3 +101,23 @@ def test_written_files(payload, tmp_path):
     assert index["spots"]["beit-yanai"]["bucket"] in BUCKETS
     # 16 days of 3-hourly detail; ~45 KB raw but <5 KB gzipped (what's served)
     assert spot_path.stat().st_size < 60_000
+
+
+def test_prune_index_drops_spots_that_left_the_db(payload, tmp_path):
+    """A spot deleted from the YAML must leave the index and lose its payload;
+    everything still in the DB must survive untouched."""
+    spot_path = write_spot_json(payload, tmp_path)
+    update_index(payload, tmp_path)
+    gone = dict(payload)
+    gone["spot"] = {**payload["spot"], "id": "herzliya-marina"}
+    gone_path = write_spot_json(gone, tmp_path)
+    update_index(gone, tmp_path)
+
+    assert prune_index({"beit-yanai"}, tmp_path) == ["herzliya-marina"]
+
+    index = json.loads((tmp_path / "index.json").read_text())
+    assert set(index["spots"]) == {"beit-yanai"}
+    assert not gone_path.exists()
+    assert spot_path.exists()
+    # nothing left to prune - a second pass is a no-op, not an error
+    assert prune_index({"beit-yanai"}, tmp_path) == []

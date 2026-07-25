@@ -46,7 +46,7 @@ from .fetch import FixtureSource, ForecastSource, OpenMeteoSource, fetch_marine_
 from .gfswave import GFSWaveFixtureSource, GFSWaveSource
 from .models import Spot
 from .observe import ISRAMARLocalSource, NDBCFixtureSource, NDBCSource
-from .publish import build_payload, update_index, write_spot_json
+from .publish import build_payload, prune_index, update_index, write_spot_json
 from .score import score_hour
 from .spectra import (
     NDBCSpectraSource,
@@ -287,6 +287,14 @@ def _cmd_run(args: argparse.Namespace) -> int:
     if published == 0:
         print("no spots published", file=sys.stderr)
         return 1
+    if args.all:
+        # the DB is the authority on what exists - prune anything it no longer lists.
+        # Guarded by published > 0 above so a failed run can never empty the index,
+        # and keyed on the DB (not this run's output) so a spot skipped for a dry
+        # grid cell keeps its last payload instead of vanishing.
+        removed = prune_index(set(spots), args.out)
+        if removed:
+            print(f"pruned {len(removed)} spot(s) no longer in the DB: {', '.join(removed)}")
     return 0
 
 
