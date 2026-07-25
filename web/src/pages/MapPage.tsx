@@ -572,13 +572,27 @@ function MapCard({
     <a class={`map-card${center ? " center" : ""}${img ? "" : " noimg"}`} data-id={id} href={`#/spot/${id}`}>
       {img && (
         <span class="map-card-bg">
-          <SatMap lat={entry.lat} lon={entry.lon} height={CARD_H} pin={false} />
+          {entry.cam ? (
+            // A spot with a cam shows what the camera sees rather than a satellite view -
+            // YouTube's own still for the live stream, refreshed by them, credited in full
+            // on the spot page one tap away.
+            <img
+              class="map-card-cam"
+              src={`https://i.ytimg.com/vi/${entry.cam}/mqdefault.jpg`}
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+          ) : (
+            <SatMap lat={entry.lat} lon={entry.lon} height={CARD_H} pin={false} />
+          )}
         </span>
       )}
       <span class="map-card-shade" />
       <span class="map-card-body">
         <span class="map-card-head">
           <Pill bucket={entry.bucket} />
+          {entry.cam && <span class="map-card-live">live cam</span>}
         </span>
         <span class="map-card-name">
           <SpotTitle name={name} region={null} />

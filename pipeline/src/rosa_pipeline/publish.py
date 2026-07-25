@@ -257,6 +257,9 @@ def update_index(payload: dict, out_dir: Path) -> Path:
         "bucket": payload["current"]["bucket"],
         "h": payload["current"]["h"],
         "generated_at": payload["generated_at"],
+        # just the video id: enough for the map card to show a cam still without
+        # fetching the whole payload. Full credit travels in the spot payload.
+        **({"cam": payload["spot"]["cam"]["yt"]} if "cam" in payload["spot"] else {}),
     }
     path.write_text(json.dumps(index, separators=(",", ":")), encoding="utf-8")
     return path

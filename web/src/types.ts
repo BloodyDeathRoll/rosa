@@ -105,6 +105,8 @@ export interface IndexEntry {
   bucket: Bucket;
   h: [number, number];
   generated_at: string;
+  /** YouTube id of this spot's live cam, when it has one - the map card shows its still. */
+  cam?: string;
 }
 
 export interface SpotIndex {

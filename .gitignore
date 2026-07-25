@@ -42,3 +42,6 @@ tools/spot-seed/work/
 tools/spot-seed/candidates/
 tools/spot-seed/geocode_gaps.json
 __pycache__/
+
+# local working notes
+cameras.md
