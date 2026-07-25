@@ -1,6 +1,6 @@
-# Rosa spot database — Israel (seed region)
+# Rosa spot database - Israel (seed region)
 # Coordinates sourced from OpenStreetMap beach features (© OpenStreetMap contributors, ODbL)
-# where matched — tagged "OSM". Unmatched spots remain approximate — tagged "TODO verify".
+# where matched - tagged "OSM". Unmatched spots remain approximate - tagged "TODO verify".
 # offshore_direction: compass direction the OFFSHORE WIND blows FROM. Derived per spot
 #   from the local coastline tangent (see spots.py); override inline where local
 #   knowledge differs (e.g. Haifa Bay, coves). Israel's near-straight W-facing coast → ~90-120.
@@ -39,23 +39,25 @@ spots:
   - { id: sdot-yam,          name: Sdot Yam / Caesarea,    lat: 32.4926, lon: 34.8867, offshore_direction: 90, <<: *il }  # google-geocoded
   - { id: olga,              name: Olga Beach,             lat: 32.4391, lon: 34.8780, offshore_direction: 103, <<: *il }  # sat-verified 2026-07-20 (current was offshore; google beach POI on coast)
   - { id: michmoret,         name: Michmoret (Kushi),      lat: 32.4081, lon: 34.8655, offshore_direction: 107, <<: *il }  # google-geocoded
-  - { id: beit-yanai,        name: Beit Yanai,             lat: 32.3817, lon: 34.8635, offshore_direction: 102, <<: *il }  # google-geocoded (calibration + fixture anchor — not snapped)
+  - { id: beit-yanai,        name: Beit Yanai,             lat: 32.3817, lon: 34.8635, offshore_direction: 102, <<: *il }  # google-geocoded (calibration + fixture anchor - not snapped)
+  - { id: manao-neurim,      name: Manao Neurim,           lat: 32.36589, lon: 34.85736, offshore_direction: 102, <<: *il }  # user-verified 2026-07-25 -- offshore_direction from neighbours
   - { id: netanya-sironit,   name: Sironit (Netanya),      lat: 32.3266, lon: 34.8456, offshore_direction: 102, <<: *il }  # google-geocoded
   - { id: kontiki,           name: Kontiki (Netanya),      lat: 32.3024, lon: 34.8402, offshore_direction: 103, <<: *il }  # OSM (Argaman beach)
   - { id: poleg,             name: Poleg Beach,            lat: 32.2737, lon: 34.83, offshore_direction: 102, <<: *il }  # google-geocoded
   - { id: gaash,             name: Ga'ash,                 lat: 32.23, lon: 34.8183, offshore_direction: 106, <<: *il }  # google-geocoded
   - { id: sidna-ali,         name: Sidna Ali,              lat: 32.1960, lon: 34.8035, offshore_direction: 107, <<: *il }  # user-verified 2026-07-19
+  - { id: kshatot,           name: Kshatot,                lat: 32.18111, lon: 34.80228, offshore_direction: 107, <<: *il }  # user-verified 2026-07-25 -- offshore_direction from neighbours
   - { id: gazebbo,           name: Gazebbo (Herzliya),     lat: 32.1762, lon: 34.8000, offshore_direction: 107, <<: *il }  # user-verified 2026-07-19
-  - { id: zvulun,            name: Zvulun (Herzliya),      lat: 32.1730, lon: 34.7995, offshore_direction: 108, <<: *il }  # user-verified 2026-07-19 — north Herzliya Pituah, NOT the marina
-  - { id: acadia,            name: Acadia (Herzliya),      lat: 32.1663, lon: 34.7963, offshore_direction: 118, <<: *il }  # user-verified 2026-07-19 — Dan Accadia cape
-  - { id: herzliya-marina,   name: The Marina (Herzliya),  lat: 32.1642, lon: 34.7940, offshore_direction: 113, <<: *il }  # user-verified 2026-07-19 — cove N of harbor entrance
-  - { id: dromi,             name: Dromi (Herzliya),       lat: 32.1578, lon: 34.7936, offshore_direction: 102, <<: *il }  # user-verified 2026-07-19 — south of the marina
+  - { id: zvulun,            name: Zvulun (Herzliya),      lat: 32.1730, lon: 34.7995, offshore_direction: 108, <<: *il }  # user-verified 2026-07-19 - north Herzliya Pituah, NOT the marina
+  - { id: acadia,            name: The Marina (Herzliya),  lat: 32.1663, lon: 34.7963, offshore_direction: 118, <<: *il }  # user-verified 2026-07-25 -- this cape IS the Marina spot; the old herzliya-marina pin sat inside the harbour and was removed. Id kept to preserve the URL/favorites.
+  - { id: dromi,             name: Dromi (Herzliya),       lat: 32.1578, lon: 34.7936, offshore_direction: 102, <<: *il }  # user-verified 2026-07-19 - south of the marina
   - { id: tel-baruch,        name: Tel Baruch North,       lat: 32.1223, lon: 34.7815, offshore_direction: 109, <<: *il }  # OSM
-  - { id: metzitzim,         name: Metzitzim (TLV),        lat: 32.0945, lon: 34.7697, offshore_direction: 107, <<: *il }  # google-geocoded
+  - { id: reading,           name: Reading,                lat: 32.10944, lon: 34.77653, offshore_direction: 108, <<: *il }  # user-verified 2026-07-25 -- offshore_direction from neighbours
   - { id: hilton,            name: Hilton Beach (TLV),     lat: 32.0901, lon: 34.7698, offshore_direction: 115, <<: *il }  # google-geocoded
   - { id: gordon,            name: Gordon (TLV),           lat: 32.0863, lon: 34.7664, offshore_direction: 107, <<: *il }  # google-geocoded
   - { id: bugrashov,         name: Bugrashov (TLV),        lat: 32.0779, lon: 34.7651, offshore_direction: 106, <<: *il }  # google-geocoded
-  - { id: dolphinarium,      name: Dolphinarium (TLV),     lat: 32.0677, lon: 34.7608, offshore_direction: 106, <<: *il }  # google-geocoded
+  - { id: dolphinarium,      name: Dolphinarium (TLV),     lat: 32.07006, lon: 34.76217, offshore_direction: 106, <<: *il }  # user-verified 2026-07-25 (moved ~300 m NE from the google pin)
+  - { id: maaravi,           name: Maaravi,                lat: 32.05825, lon: 34.75703, offshore_direction: 104, <<: *il }  # user-verified 2026-07-25 -- offshore_direction from neighbours
   - { id: bat-yam,           name: Bat Yam (Riviera),      lat: 32.0195, lon: 34.7356, offshore_direction: 101, <<: *il }  # google-geocoded
   # ---- south ----
   - { id: palmachim,         name: Palmachim,              lat: 31.9261, lon: 34.6963, offshore_direction: 120, <<: *il }  # OSM

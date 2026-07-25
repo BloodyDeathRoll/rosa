@@ -7,7 +7,7 @@ SPOTS_DIR = Path(__file__).resolve().parents[2] / "data" / "spots"
 
 def test_loads_israel_seed():
     spots = load_spots_file(SPOTS_DIR / "israel.yaml")
-    assert len(spots) == 40
+    assert len(spots) == 42
 
 
 def test_beit_yanai_fields():
@@ -37,7 +37,7 @@ def test_shore_normal_defaults_to_opposite_offshore_wind():
 
 def test_shore_normal_override_decouples_from_wind():
     # Arugam Bay: best wind is the SW monsoon (offshore_direction ~245) but the coast faces
-    # E/SE — shore_normal is set explicitly and must NOT be offshore_direction + 180.
+    # E/SE - shore_normal is set explicitly and must NOT be offshore_direction + 180.
     spots = load_spots(SPOTS_DIR)
     ab = spots["arugam-bay"]
     assert ab.offshore_direction == 245
