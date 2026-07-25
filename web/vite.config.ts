@@ -12,7 +12,10 @@ export default defineConfig({
         short_name: "Rosa",
         description: "Should I surf, when, where?",
         theme_color: "#ffffff",
-        background_color: "#ffffff",
+        // matches #splash's base colour in index.html: Android's WebAPK splash
+        // (icon on background_color, shown until first paint) can't be skipped, so
+        // it hands over to our own splash without a white flash in between
+        background_color: "#1a0f0c",
         display: "standalone",
         icons: [
           // the full-bleed maskable tile IS the installed app icon (raw + OS-masked);
