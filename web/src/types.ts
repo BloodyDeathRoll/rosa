@@ -6,15 +6,15 @@ export type Confidence = "high" | "medium" | "low";
 
 export interface Swell {
   h: number;
-  period: number; // mean period, s — scoring uses this
+  period: number; // mean period, s - scoring uses this
   peak_period: number | null; // peak period Tp, s; null where the model publishes none
   dir: number;
   kind: "swell" | "wind";
   in_window: boolean;
-  spread?: number; // assumed directional spread, deg — modeled (see spectral_meta)
+  spread?: number; // assumed directional spread, deg - modeled (see spectral_meta)
 }
 
-/** ECMWF spectral-lite (Stage 3b) — absent beyond the member's ~10-day horizon. */
+/** ECMWF spectral-lite (Stage 3b) - absent beyond the member's ~10-day horizon. */
 export interface MissedSwell {
   t: [number, number]; // period band, s
   h: number; // unaccounted significant height, m
@@ -40,8 +40,6 @@ export interface HourEntry {
   h_mid: number;
   phrase: string;
   energy_kj: number; // deep-water wave energy, kJ per metre of crest (energy period Te)
-  /** @deprecated pre-rename key, still present in payloads published before the rename. */
-  energy?: number;
   pressure: number | null; // mb
   air: number | null; // °C
   wind: Wind;

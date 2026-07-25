@@ -1,4 +1,4 @@
-/* Rosa — Uptake design system (design handoff: Rosa App.dc.html + colors_and_type.css).
+/* Rosa - Uptake design system (design handoff: Rosa App.dc.html + colors_and_type.css).
    Warm off-white + clay accent, Inter with tabular nums for data.
    Rating scale hexes are constant across themes and live in :root below. */
 
@@ -84,7 +84,7 @@ html {
   font-optical-sizing: auto;
   /* When the spot-page sticky header collapses its bars, the height change would
      otherwise make scroll-anchoring nudge scrollY back across the collapse
-     threshold — an endless expand/collapse blink. Disable anchoring on the root
+     threshold - an endless expand/collapse blink. Disable anchoring on the root
      scroller so scrollY stays put and the hysteresis holds. */
   overflow-anchor: none;
 }
@@ -217,7 +217,7 @@ button {
   color: var(--muted-foreground);
 }
 
-/* Spot screen top bar — back arrow · spot switcher · fav star, all one row.
+/* Spot screen top bar - back arrow · spot switcher · fav star, all one row.
    The back arrow and star get generous, fixed tap targets at each edge; the
    switcher fills the middle and is edge-masked so chips fade out beneath both
    rather than colliding with them. */
@@ -273,7 +273,7 @@ button {
 }
 
 /* Spot screen sticky head: top bar + date bar move as one block, pinned to the
-   very top — this screen has no app header above it. */
+   very top - this screen has no app header above it. */
 .spot-sticky {
   position: sticky;
   top: 0;
@@ -305,7 +305,7 @@ button {
   overflow-x: auto;
   scrollbar-width: none;
   padding: 8px 16px 10px;
-  /* freely draggable strip — native touch pan; mouse drag handled in TS */
+  /* freely draggable strip - native touch pan; mouse drag handled in TS */
   touch-action: pan-x;
   user-select: none;
   -webkit-user-select: none;
@@ -521,7 +521,7 @@ button {
 }
 
 /* Day carousel: full-width panels the whole card block drags through, snapping
-   per day. Horizontal scroll only — vertical pans fall through to the page. */
+   per day. Horizontal scroll only - vertical pans fall through to the page. */
 .day-carousel {
   display: flex;
   align-items: flex-start;
@@ -660,7 +660,7 @@ button {
 .coast .track::-webkit-scrollbar {
   display: none;
 }
-/* shared date axis — sticky under the app header, scrolls with the rows.
+/* shared date axis - sticky under the app header, scrolls with the rows.
    Left inset (12px) matches the cells padding so columns line up. */
 .coast-head {
   position: sticky;
@@ -727,7 +727,7 @@ button {
 }
 
 /* Spot-screen day selector: date label + its bars stacked in one column, one
-   track — date and bars drag together and always align. Edge-to-edge (today
+   track - date and bars drag together and always align. Edge-to-edge (today
    flush left, no blank gutters); the day at the left reading edge is selected
    and the columns snap to that edge. */
 .day-scrub .track {
@@ -806,7 +806,7 @@ button {
   margin-top: -6px; /* absorb the column's gap so the date row sits tight */
 }
 
-/* MSW-style chart columns (CoastChart) — reuse the 50px grid so the date axis
+/* MSW-style chart columns (CoastChart) - reuse the 50px grid so the date axis
    lines up with the list view. Bars grow up from a shared baseline. */
 .chart-col {
   flex: none;
@@ -837,7 +837,7 @@ button {
 .chart-bar.stub {
   background: var(--border);
 }
-/* dominant-condition rule beneath the teal bars — the only tier color in a column */
+/* dominant-condition rule beneath the teal bars - the only tier color in a column */
 .chart-rule {
   width: 42px;
   height: 3px;
@@ -1085,7 +1085,7 @@ a.rank-card:hover {
 .search-box input::placeholder {
   color: var(--muted-foreground);
 }
-/* No focus ring on the search field — the open keyboard + caret already mark
+/* No focus ring on the search field - the open keyboard + caret already mark
    focus; mobile browsers draw a heavy black outline on the auto-focused input. */
 .search-box input:focus,
 .search-box input:focus-visible {
@@ -1110,7 +1110,7 @@ a.rank-card:hover {
   min-width: 0;
   animation: search-open 0.28s ease-out both;
 }
-/* Opened search field is borderless — a soft filled pill on the header. */
+/* Opened search field is borderless - a soft filled pill on the header. */
 .search-box.grow input {
   border-color: transparent;
   box-shadow: none;
@@ -1141,7 +1141,7 @@ a.rank-card:hover {
 }
 
 /* Favorites reuse the Home compact cards (.rank-list), but .spots-page already
-   supplies the horizontal inset — drop the list's own so the cards line up with
+   supplies the horizontal inset - drop the list's own so the cards line up with
    the search box and Nearby rows. */
 .spots-page .rank-list {
   padding: 0;
@@ -1248,7 +1248,7 @@ a.rank-card:hover {
   flex: 1;
   display: flex;
   flex-direction: column;
-  /* no footer tab bar on this screen — clear the home indicator ourselves */
+  /* no footer tab bar on this screen - clear the home indicator ourselves */
   padding: 14px 0 calc(32px + env(safe-area-inset-bottom));
 }
 
@@ -1342,11 +1342,11 @@ a.rank-card:hover {
   background: var(--rating-poor);
 }
 
-/* Best-session rows — subtly tinted; the first row of a run carries a small
+/* Best-session rows - subtly tinted; the first row of a run carries a small
    "Best session" tag overlaid in its top-right corner, just below the divider. */
 .hour-grid.row.best {
   background: color-mix(in srgb, var(--rating-good) 4%, transparent);
-  /* keep the row's normal top divider — don't blank it out */
+  /* keep the row's normal top divider - don't blank it out */
 }
 .hour-grid.row.best-first {
   border-top-left-radius: 10px;
@@ -1465,15 +1465,16 @@ a.rank-card:hover {
   color: var(--muted-foreground);
   text-align: center;
 }
-/* Glossary link in the header's empty time cell. Quiet by default — it is a way out
+/* Glossary link over the rating rail's column. Quiet by default - it is a way out
    for someone who is stuck, not a thing to notice every time you read the table. */
 .hour-grid.head .grid-info {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* padding buys a real tap target out of a 26px column without moving the row */
-  margin: -8px -4px;
-  padding: 8px 4px;
+  /* The rail column is only 6px, so the icon overhangs it evenly; the negative
+     margin/padding pair buys a real tap target without shifting the header row. */
+  margin: -8px -7px;
+  padding: 8px 7px;
   color: var(--muted-foreground);
   opacity: 0.65;
 }
@@ -1718,7 +1719,7 @@ a.rank-card:hover {
    space between the (absent) header and the bottom nav.
    Maplibre needs its container to have a definite size at init, so .map-screen
    carries an explicit height (viewport minus the 58px bottom nav) rather than
-   relying on flex — an absolute/flex-only canvas measured 0 and rendered blank. */
+   relying on flex - an absolute/flex-only canvas measured 0 and rendered blank. */
 .map-page {
   overflow: hidden;
 }
@@ -1823,7 +1824,7 @@ a.rank-card:hover {
   font-size: 8px;
   opacity: 0.7;
 }
-/* Cards use the dark treatment in BOTH themes — white text over a dark scrim over
+/* Cards use the dark treatment in BOTH themes - white text over a dark scrim over
    the satellite image, so light-mode cards read the same as dark. */
 .map-card-shade {
   position: absolute;
@@ -1962,7 +1963,7 @@ a.rank-card:hover {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
 }
 
-/* Spot list under the map — selecting a row centers/rings the pin (never navigates). */
+/* Spot list under the map - selecting a row centers/rings the pin (never navigates). */
 .map-locations {
   flex: 1;
   min-height: 0;
@@ -2303,7 +2304,7 @@ a.rank-card:hover {
   font-weight: 700;
 }
 
-/* Stage-3b missed-swell hint — quiet amber note under the day title */
+/* Stage-3b missed-swell hint - quiet amber note under the day title */
 /* ----- Notifications settings note */
 
 .settings-note {

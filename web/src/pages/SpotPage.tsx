@@ -51,7 +51,7 @@ const pmOf = (hours: HourEntry[]) =>
 function DayBars({ day, hours }: { day: DayEntry; hours: HourEntry[] }) {
   // PEAK period, matching every other swell readout (see CLAUDE.md §UI "display != scoring").
   // Caveat: the `per / 9` scale below was set against MEAN periods, so it now saturates on
-  // ordinary days — rescale (~/13) before reading much into a full Period bar.
+  // ordinary days - rescale (~/13) before reading much into a full Period bar.
   const per = Math.max(
     0,
     ...hours.map((h) => {
@@ -87,12 +87,12 @@ function dayNote(days: DayEntry[], i: number, hours: HourEntry[]): string {
   const h = d.h_max[1];
   const prev = days[i - 1]?.h_max[1];
   const next = days[i + 1]?.h_max[1];
-  if (d.bucket === "FLAT") return "Flat — rest day";
+  if (d.bucket === "FLAT") return "Flat - rest day";
   if (next !== undefined && next >= h * 1.25) return "New swell filling in";
   if (prev !== undefined && prev >= h * 1.25)
-    return d.bucket === "POOR" ? "Leftover ripples" : "Fading — morning only";
+    return d.bucket === "POOR" ? "Leftover ripples" : "Fading - morning only";
   const peak = (prev === undefined || h >= prev) && (next === undefined || h >= next);
-  if ((d.bucket === "GOOD" || d.bucket === "FIRING") && peak) return "Peak of the swell — go early";
+  if ((d.bucket === "GOOD" || d.bucket === "FIRING") && peak) return "Peak of the swell - go early";
   const am = hours.filter((x) => Number(x.t.slice(11, 13)) < 11);
   const amClean = am.some((x) => x.wind.class !== "onshore" && knots(x.wind.kph) <= 8);
   const pmBlown = pmOf(hours).some((x) => x.wind.class === "onshore" && knots(x.wind.kph) >= 12);
@@ -105,7 +105,7 @@ function dayNote(days: DayEntry[], i: number, hours: HourEntry[]): string {
 const slotStartMin = (h: HourEntry) =>
   Number(h.t.slice(11, 13)) * 60 + Number(h.t.slice(14, 16));
 
-/** Top three GOOD-or-better slots of the selected day, chronological — restricted
+/** Top three GOOD-or-better slots of the selected day, chronological - restricted
     to slots that begin in daylight (first light → last light), so we never call a
     pre-dawn or post-dusk hour a "best session". Bounds are minutes-of-day, spot-local. */
 function sessionChips(
@@ -155,7 +155,7 @@ function HourRow({
       />
       <span class="surf">
         <b class="tabular">
-          {fmtH(h.h[0], units)}–{fmtH(h.h[1], units)}
+          {fmtH(h.h[0], units)}-{fmtH(h.h[1], units)}
         </b>
         <small class="tabular">{fmtH(h.h_mid, units)}</small>
       </span>
@@ -171,7 +171,7 @@ function HourRow({
             <small class="tabular">{cardinal(swell.dir)}</small>
           </>
         ) : (
-          <small>—</small>
+          <small>-</small>
         )}
       </span>
       <span class={`wind-cell wc-${h.wind.class}`}>
@@ -183,22 +183,19 @@ function HourRow({
         <small class="wclass">{windClassWord(h.wind.class)}</small>
       </span>
       <span class="pp">
-        {/* `?? h.energy` is a transition shim: the app and the pipeline deploy through
-            separate paths, so between a web deploy and the next cron publish the payload
-            may still carry the pre-rename key. Drop it once a cycle has published. */}
-        <b class="power tabular">{Math.round(h.energy_kj ?? h.energy)}</b>
-        <small class="press tabular">{h.pressure ?? "—"}</small>
+        <b class="power tabular">{Math.round(h.energy_kj)}</b>
+        <small class="press tabular">{h.pressure ?? "-"}</small>
       </span>
     </div>
   );
 }
 
-/** Horizontal spot chips (design 1a): freely draggable — touch scroll native,
+/** Horizontal spot chips (design 1a): freely draggable - touch scroll native,
     mouse drag via pointer events. Never auto-scrolls: tapping a chip changes
     the spot but leaves the strip where the user left it. */
 function SpotSwitcher({ spots, currentId }: { spots: [string, IndexEntry][]; currentId: string }) {
   const trackRef = useRef<HTMLDivElement>(null);
-  // pointer drag state — mouse only; touch uses native overflow-x pan
+  // pointer drag state - mouse only; touch uses native overflow-x pan
   const drag = useRef({ down: false, startX: 0, startScroll: 0, moved: false });
 
   const onPointerDown = (e: PointerEvent) => {
@@ -284,7 +281,7 @@ export function SpotPage({ id }: { id: string }) {
     pushRecent(id);
     fetchSpot(id)
       .then((d) => {
-        // The date bar always starts at the spot's current date — never show days
+        // The date bar always starts at the spot's current date - never show days
         // that are already in the past (the payload may be a run or two stale).
         const today = todayIn(d.spot.timezone);
         const future = d.days.filter((day) => day.date >= today);
@@ -296,7 +293,7 @@ export function SpotPage({ id }: { id: string }) {
         const start = idx >= 0 ? idx : 0;
         setDaySel(start);
         setLiveDay(start);
-        // remember today's promise — tomorrow's open may ask "was the call right?"
+        // remember today's promise - tomorrow's open may ask "was the call right?"
         stashView(data);
       }, (e: Error) => setError(e.message))
       .finally(signalReady);
@@ -304,7 +301,7 @@ export function SpotPage({ id }: { id: string }) {
 
   // A push notification's link (#/spot/id?ev=YYYY-MM-DD) opens on the swell's
   // peak day. Reacts to hashchange too: landing in an already-open app is a
-  // hash-only change — no reload, no remount — and must still jump the day.
+  // hash-only change - no reload, no remount - and must still jump the day.
   useEffect(() => {
     const apply = () => {
       const evDate = /[?&]ev=(\d{4}-\d{2}-\d{2})/.exec(location.hash)?.[1];
@@ -381,7 +378,7 @@ export function SpotPage({ id }: { id: string }) {
   const liveClamped = Math.min(liveDay, Math.max(0, allDays.length - 1));
 
   // The forecast for the live-scrubbed day. It rebuilds the instant the strip's
-  // centered column changes (keyed on liveDay) — no second scroller and no
+  // centered column changes (keyed on liveDay) - no second scroller and no
   // animation, so the data can't lag behind the date/bars or desync from them.
   const panel = useMemo(() => {
     if (!data) return null;
@@ -441,12 +438,12 @@ export function SpotPage({ id }: { id: string }) {
               <div class="rc-temps">
                 <span>
                   <ThermometerIcon />
-                  <span class="tabular">air {cur.air !== null ? fmtTemp(cur.air, units) : "—"}</span>
+                  <span class="tabular">air {cur.air !== null ? fmtTemp(cur.air, units) : "-"}</span>
                 </span>
                 <span>
                   <WavesIcon />
                   <span class="tabular">
-                    water {cur.sst !== null ? fmtTemp(cur.sst, units) : "—"}
+                    water {cur.sst !== null ? fmtTemp(cur.sst, units) : "-"}
                   </span>
                 </span>
                 {cur.wetsuit && (
@@ -466,11 +463,11 @@ export function SpotPage({ id }: { id: string }) {
             <span>{dayNote(days, i, dayHours)}</span>
           </div>
           <div class="hour-grid head">
-            {/* Sits over the time column — the one always-empty header cell. */}
+            <span aria-hidden="true" />
+            {/* Sits over the rating rail's 6px column; the icon overhangs it, centred. */}
             <a class="grid-info" href="#/about/reading" aria-label="What these numbers mean">
               <InfoIcon />
             </a>
-            <span aria-hidden="true" />
             <span aria-hidden="true">surf {heightUnit(units)}</span>
             <span aria-hidden="true">swell</span>
             <span aria-hidden="true">wind kt</span>
@@ -480,7 +477,7 @@ export function SpotPage({ id }: { id: string }) {
           </div>
           {hourRows}
           {dayHours.length === 0 && (
-            <p class="state">Beyond the model horizon — no hourly detail yet.</p>
+            <p class="state">Beyond the model horizon - no hourly detail yet.</p>
           )}
 
           <TideSection
