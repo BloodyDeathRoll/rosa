@@ -17,7 +17,7 @@ export interface Swell {
 export interface MissedSwell {
   t: [number, number]; // period band, s
   h: number; // unaccounted significant height, m
-  energy: number; // kW/m
+  energy_kw: number; // deep-water energy FLUX of the band, kW per metre of crest
 }
 
 export interface SpectralHour {
@@ -38,7 +38,9 @@ export interface HourEntry {
   h: [number, number];
   h_mid: number;
   phrase: string;
-  energy: number; // deep-water wave energy, kJ per metre of crest (energy period Te)
+  energy_kj: number; // deep-water wave energy, kJ per metre of crest (energy period Te)
+  /** @deprecated pre-rename key, still present in payloads published before the rename. */
+  energy?: number;
   pressure: number | null; // mb
   air: number | null; // °C
   wind: Wind;

@@ -80,8 +80,10 @@ def _spectral_entry(s: ScoredHour) -> dict | None:
         {
             "t": [m.period_lo_s, m.period_hi_s],
             "h": _r(m.height_m, 1),
-            # deep-water energy flux of the unaccounted band, kW/m (mid-band period)
-            "energy": _r(0.49 * m.height_m**2 * (m.period_lo_s + m.period_hi_s) / 2.0, 1),
+            # deep-water energy FLUX of the unaccounted band, kW per metre of crest
+            # (mid-band period) — a different quantity to the hour's energy_kj, hence the unit
+            # in the key: nothing here should ever be read as interchangeable with it
+            "energy_kw": _r(0.49 * m.height_m**2 * (m.period_lo_s + m.period_hi_s) / 2.0, 1),
         }
         for m in missed_swells(sea, s.hour.partitions)
     ]
@@ -100,7 +102,7 @@ def _hour_entry(spot: Spot, s: ScoredHour, tz: ZoneInfo) -> dict:
         "phrase": s.phrase,
         # deep-water wave energy of in-window partitions, kJ per metre of crest (the unit
         # surf forecasts quote); keyed on the energy period Te, not the mean period
-        "energy": round(energy_kj_per_m(s.hour.partitions, spot.swell_window)),
+        "energy_kj": round(energy_kj_per_m(s.hour.partitions, spot.swell_window)),
         "pressure": round(s.hour.pressure_msl) if s.hour.pressure_msl is not None else None,
         "air": _r(s.hour.air_c, 1) if s.hour.air_c is not None else None,
         "wind": {

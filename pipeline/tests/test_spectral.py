@@ -198,7 +198,7 @@ def test_publish_renders_spectral_block_and_spread() -> None:
     (missed,) = hour["spectral"]["missed"]
     assert missed["t"] == [14.0, 17.0]
     assert missed["h"] == 0.8
-    assert missed["energy"] > 0
+    assert missed["energy_kw"] > 0
     # every published partition carries its modeled spread
     assert all(s["spread"] > 0 for s in hour["swells"])
     assert payload["spectral_meta"]["member"] == "ecmwf-ifs-0p25 (open data)"

@@ -81,7 +81,7 @@ def test_every_hour_scored(payload):
         assert entry["h"][0] <= entry["h"][1]
         assert entry["wind"]["class"] in {"offshore", "cross-shore", "onshore"}
         assert entry["h"][0] <= entry["h_mid"] <= entry["h"][1] or entry["h_mid"] >= 0
-        assert entry["energy"] >= 0
+        assert entry["energy_kj"] >= 0
         assert entry["pressure"] is None or 900 < entry["pressure"] < 1100
 
 

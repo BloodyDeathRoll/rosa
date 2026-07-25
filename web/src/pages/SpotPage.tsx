@@ -171,7 +171,10 @@ function HourRow({
         <small class="wclass">{windClassWord(h.wind.class)}</small>
       </span>
       <span class="pp">
-        <b class="power tabular">{Math.round(h.energy)}</b>
+        {/* `?? h.energy` is a transition shim: the app and the pipeline deploy through
+            separate paths, so between a web deploy and the next cron publish the payload
+            may still carry the pre-rename key. Drop it once a cycle has published. */}
+        <b class="power tabular">{Math.round(h.energy_kj ?? h.energy)}</b>
         <small class="press tabular">{h.pressure ?? "—"}</small>
       </span>
     </div>
