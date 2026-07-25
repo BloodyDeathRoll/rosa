@@ -38,7 +38,7 @@ export interface HourEntry {
   h: [number, number];
   h_mid: number;
   phrase: string;
-  energy: number; // deep-water wave energy flux, kW/m
+  energy: number; // deep-water wave energy, kJ per metre of crest (energy period Te)
   pressure: number | null; // mb
   air: number | null; // °C
   wind: Wind;

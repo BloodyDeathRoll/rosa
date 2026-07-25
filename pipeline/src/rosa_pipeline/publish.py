@@ -13,7 +13,7 @@ from astral.sun import sun
 from .events import detect_events
 from .models import ScoredHour, Spot
 from .spectral import consistency_score, missed_swells, parametric_spread_deg
-from .transform import in_window
+from .transform import energy_kj_per_m, in_window
 
 MODEL_NAME = "open-meteo:best_match (marine + forecast v1)"
 ATTRIBUTION = "Weather data by Open-Meteo.com (CC-BY 4.0)"
@@ -98,8 +98,9 @@ def _hour_entry(spot: Spot, s: ScoredHour, tz: ZoneInfo) -> dict:
         "h": [s.h_break_lo, s.h_break_hi],
         "h_mid": _r(s.h_break_mid, 1),
         "phrase": s.phrase,
-        # deep-water wave energy flux of in-window partitions: ~0.49 * sum(H^2 * T) kW/m
-        "energy": _r(0.49 * s.energy, 1),
+        # deep-water wave energy of in-window partitions, kJ per metre of crest (the unit
+        # surf forecasts quote); keyed on the energy period Te, not the mean period
+        "energy": round(energy_kj_per_m(s.hour.partitions, spot.swell_window)),
         "pressure": round(s.hour.pressure_msl) if s.hour.pressure_msl is not None else None,
         "air": _r(s.hour.air_c, 1) if s.hour.air_c is not None else None,
         "wind": {

@@ -171,7 +171,7 @@ function HourRow({
         <small class="wclass">{windClassWord(h.wind.class)}</small>
       </span>
       <span class="pp">
-        <b class="power tabular">{h.energy.toFixed(1)}</b>
+        <b class="power tabular">{Math.round(h.energy)}</b>
         <small class="press tabular">{h.pressure ?? "—"}</small>
       </span>
     </div>
@@ -457,7 +457,7 @@ export function SpotPage({ id }: { id: string }) {
             <span>swell</span>
             <span>wind kt</span>
             <span class="pp-head">
-              kW/m<small>hPa</small>
+              kJ<small>hPa</small>
             </span>
           </div>
           {hourRows}

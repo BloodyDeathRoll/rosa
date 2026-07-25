@@ -12,6 +12,8 @@ from rosa_pipeline.transform import (
     dominant_partition,
     effective_height_in_window,
     energy_in_window,
+    energy_kj_per_m,
+    energy_period,
     exposure_weight,
     height_in_window,
     height_phrase,
@@ -146,6 +148,32 @@ class TestEnergy:
 
     def test_empty(self):
         assert energy_in_window((), WINDOW) == 0
+
+
+class TestEnergyPeriod:
+    def test_prefers_peak_period(self):
+        p = SwellPartition(height_m=1.0, period_s=5.8, direction_deg=290, peak_period_s=8.4)
+        assert energy_period(p) == pytest.approx(0.9 * 8.4)
+
+    def test_falls_back_to_mean_period(self):
+        assert energy_period(swell(1.0, 6.0, 290)) == 6.0
+
+
+class TestEnergyKjPerM:
+    def test_scales_with_height_squared_and_period_squared(self):
+        p = SwellPartition(height_m=1.5, period_s=5.9, direction_deg=290, peak_period_s=8.4)
+        te = 0.9 * 8.4
+        assert energy_kj_per_m((p,), WINDOW) == pytest.approx(0.98 * 1.5**2 * te**2)
+
+    def test_out_of_window_excluded(self):
+        assert energy_kj_per_m((swell(2.0, 12, 100),), WINDOW) == 0
+
+    def test_matches_the_flux_identity(self):
+        """E·L = 2·P·Te — the kJ figure and the old 0.49·H²·Te kW/m flux are the same physics."""
+        p = swell(1.2, 9.0, 290)
+        flux_kw_per_m = 0.49 * p.height_m**2 * p.period_s
+        expected = 2 * flux_kw_per_m * p.period_s
+        assert energy_kj_per_m((p,), WINDOW) == pytest.approx(expected, rel=1e-2)
 
 
 class TestHeightInWindow:

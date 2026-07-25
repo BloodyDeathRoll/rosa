@@ -65,6 +65,36 @@ def height_in_window(partitions: tuple[SwellPartition, ...], window: tuple[float
     return math.sqrt(sum(p.height_m**2 for p in partitions if in_window(p.direction_deg, window)))
 
 
+TE_OVER_TP = 0.9  # Te ≈ 0.9·Tp for a JONSWAP-ish spectrum (standard ocean-engineering ratio)
+# Energy in one wavelength per metre of crest: E*L = (rho*g/16)*H^2 * (g*Te^2/2pi), which is
+# ~0.98*H^2*Te^2 kJ/m for rho = 1025 kg/m3, g = 9.81. Identical physics to the deep-water flux
+# P = 0.49*H^2*Te kW/m, since E*L = 2*P*Te — energy is just how surf forecasts quote it.
+KJ_PER_M_COEFF = 0.98
+
+
+def energy_period(p: SwellPartition) -> float:
+    """Energy period Te (= Tm-1,0), the period wave energy/power is actually defined on.
+
+    Derived from the partition's PEAK period where the model publishes one; the mean period
+    is the fallback only. This matters: Open-Meteo's mean period runs well below the peak for
+    the same partition (Med swell 5.8 s mean vs 8.4 s peak), and energy goes as Te², so keying
+    off the mean understates a real swell badly."""
+    if p.peak_period_s is not None:
+        return TE_OVER_TP * p.peak_period_s
+    return p.period_s
+
+
+def energy_kj_per_m(partitions: tuple[SwellPartition, ...], window: tuple[float, float]) -> float:
+    """Deep-water wave energy of the in-window partitions, kJ per metre of crest — the kJ
+    figure surf forecasts quote. Partitions outside the window contribute 0 (they still
+    display), matching ``energy_in_window``."""
+    return sum(
+        KJ_PER_M_COEFF * p.height_m**2 * energy_period(p) ** 2
+        for p in partitions
+        if in_window(p.direction_deg, window)
+    )
+
+
 PERIOD_EXP = 1.4  # calibration knob: 2.0 = old quadratic (too cold), 1.0 = linear (too hot)
 
 
