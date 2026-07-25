@@ -45,7 +45,9 @@ function DetailCard({ data, date }: { data: SpotPayload; date: string }) {
           </span>
           <span class="line tabular">
             {windLabel(dv.rep)}
-            {swell ? ` · ${Math.round(swell.period)} s ${cardinal(swell.dir)}` : ""}
+            {swell
+              ? ` · ${Math.round(swell.peak_period ?? swell.period)} s ${cardinal(swell.dir)}`
+              : ""}
           </span>
           <span class="temps-row">
             <span>

@@ -48,7 +48,13 @@ const pmOf = (hours: HourEntry[]) =>
 
 /** Size / Period / Wind quality bars for the selected day (mock's bars3). */
 function DayBars({ day, hours }: { day: DayEntry; hours: HourEntry[] }) {
-  const per = Math.max(0, ...hours.map((h) => h.swells.find((s) => s.in_window)?.period ?? 0));
+  const per = Math.max(
+    0,
+    ...hours.map((h) => {
+      const s = h.swells.find((x) => x.in_window);
+      return s ? (s.peak_period ?? s.period) : 0;
+    })
+  );
   const pm = pmOf(hours);
   const pmKts = pm.length > 0 ? Math.max(...pm.map((h) => knots(h.wind.kph))) : 0;
   const bars = [
@@ -154,7 +160,9 @@ function HourRow({
           <>
             <span class="top">
               <SwellDirIcon rotate={arrowRotation(swell.dir)} />
-              <b class="tabular">{Math.round(swell.period)}s</b>
+              {/* Peak period, the number surf reports quote ("3ft @ 8s") and the one the
+                  kJ column is computed from; mean period only where no peak is published. */}
+              <b class="tabular">{Math.round(swell.peak_period ?? swell.period)}s</b>
             </span>
             <small class="tabular">{cardinal(swell.dir)}</small>
           </>

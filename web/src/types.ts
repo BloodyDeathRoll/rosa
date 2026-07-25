@@ -6,7 +6,8 @@ export type Confidence = "high" | "medium" | "low";
 
 export interface Swell {
   h: number;
-  period: number;
+  period: number; // mean period, s — scoring uses this
+  peak_period: number | null; // peak period Tp, s; null where the model publishes none
   dir: number;
   kind: "swell" | "wind";
   in_window: boolean;
