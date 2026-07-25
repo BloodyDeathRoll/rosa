@@ -23,6 +23,16 @@ class SwellPartition:
 
 
 @dataclass(frozen=True, slots=True)
+class SpotCam:
+    """A live cam we are permitted to embed, plus the credit that permission implies."""
+
+    youtube_id: str  # video id of the live stream
+    by: str  # channel name, shown as the credit
+    by_url: str  # channel URL, linked from the credit
+    note: str | None = None  # set when the camera is near the spot rather than on it
+
+
+@dataclass(frozen=True, slots=True)
 class Spot:
     id: str
     name: str
@@ -41,6 +51,11 @@ class Spot:
     ideal_size_m: tuple[float, float]
     region: str = ""  # display country/area (e.g. "Israel"); used for search
     tide_best: str | None = None  # local knowledge: "low" | "mid" | "high" (never derived)
+    # Live cam, only ever a stream whose operator publishes it as embeddable (CLAUDE.md
+    # legal red line: never scrape a cam, never touch a competitor's). Today that means a
+    # public YouTube live stream, embedded through YouTube's own player with the channel
+    # credited. None for the vast majority of spots - nobody points a camera at them.
+    cam: SpotCam | None = None
 
 
 @dataclass(frozen=True, slots=True)

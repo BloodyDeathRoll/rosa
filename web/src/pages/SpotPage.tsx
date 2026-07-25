@@ -125,6 +125,38 @@ function sessionChips(
 }
 
 
+/** Live cam, first thing on the page when a spot has one.
+ *
+ * Embedded through YouTube's own iframe player - the only way a cam is allowed into Rosa
+ * (CLAUDE.md: never scrape a stream, never touch a competitor's). The credit under the
+ * frame is the acknowledgement that permission implies, and it links back to the channel.
+ * `loading="lazy"` keeps the player off the wire until it scrolls in, so the sub-2 s first
+ * load target survives; nothing here blocks the forecast rendering. */
+function CamEmbed({ cam }: { cam?: SpotPayload["spot"]["cam"] }) {
+  if (!cam) return null;
+  return (
+    <section class="cam">
+      <div class="cam-frame">
+        <iframe
+          src={`https://www.youtube-nocookie.com/embed/${cam.yt}?rel=0&playsinline=1`}
+          title="Live cam"
+          loading="lazy"
+          allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+          allowFullScreen
+          frameBorder="0"
+        />
+      </div>
+      <p class="cam-credit">
+        Live cam by{" "}
+        <a href={cam.by_url} target="_blank" rel="noopener noreferrer">
+          {cam.by}
+        </a>{" "}
+        on YouTube{cam.note ? ` - ${cam.note}` : ""}
+      </p>
+    </section>
+  );
+}
+
 function HourRow({
   h,
   units,
@@ -419,6 +451,7 @@ export function SpotPage({ id }: { id: string }) {
       }
       return (
         <div class="spot-main">
+          <CamEmbed cam={data.spot.cam} />
           <section class="spot-card">
             <div class="rc-left">
               <Pill bucket={day.bucket} />

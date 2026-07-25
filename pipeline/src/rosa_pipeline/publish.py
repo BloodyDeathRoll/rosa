@@ -202,6 +202,19 @@ def build_payload(spot: Spot, scored: list[ScoredHour], *, fetched_at: str, now:
             "lat": spot.lat,
             "lon": spot.lon,
             "timezone": spot.timezone,
+            # Embeddable live cam + its credit; key omitted entirely when the spot has none.
+            **(
+                {
+                    "cam": {
+                        "yt": spot.cam.youtube_id,
+                        "by": spot.cam.by,
+                        "by_url": spot.cam.by_url,
+                        **({"note": spot.cam.note} if spot.cam.note else {}),
+                    }
+                }
+                if spot.cam is not None
+                else {}
+            ),
         },
         "model": MODEL_NAME,
         "fetched_at": fetched_at,

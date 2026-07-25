@@ -23,7 +23,7 @@ from typing import Any
 
 import yaml
 
-from .models import Spot
+from .models import Spot, SpotCam
 
 OFFSHORE_LON_OFFSET = 0.06  # deg west (~5.5 km) to a deep-water grid cell
 
@@ -89,6 +89,19 @@ def load_spots_file(path: Path) -> list[Spot]:
         tide_best = raw.get("tide_best")
         if tide_best is not None and tide_best not in ("low", "mid", "high"):
             raise ValueError(f"{raw['id']}: tide_best must be low|mid|high, got {tide_best!r}")
+        raw_cam = raw.get("cam")
+        cam = None
+        if raw_cam is not None:
+            missing = {"yt", "by", "by_url"} - set(raw_cam)
+            if missing:
+                # a cam without its credit is exactly what we are not allowed to ship
+                raise ValueError(f"{raw['id']}: cam is missing {sorted(missing)}")
+            cam = SpotCam(
+                youtube_id=raw_cam["yt"],
+                by=raw_cam["by"],
+                by_url=raw_cam["by_url"],
+                note=raw_cam.get("note"),
+            )
         spots.append(
             Spot(
                 id=raw["id"],
@@ -106,6 +119,7 @@ def load_spots_file(path: Path) -> list[Spot]:
                 ideal_size_m=_pair(ideal["size_m"]),
                 region=region,
                 tide_best=tide_best,
+                cam=cam,
             )
         )
     return spots

@@ -81,6 +81,9 @@ export interface SpotPayload {
     lat: number;
     lon: number;
     timezone: string;
+    /** Embeddable live cam. Absent for almost every spot. `note` is set when the
+        camera watches a beach near the spot rather than the peak itself. */
+    cam?: { yt: string; by: string; by_url: string; note?: string };
   };
   model: string;
   fetched_at: string;

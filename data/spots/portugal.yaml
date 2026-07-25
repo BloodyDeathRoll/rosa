@@ -25,7 +25,7 @@ spots:
   - { id: matosinhos,         name: "Matosinhos (Porto)",       lat: 41.171, lon: -8.692, offshore_direction: 90,  <<: *pt }  # sat-verified 2026-07-23 (city beach, sheltered by the harbour mole)
   - { id: espinho,            name: "Espinho",                  lat: 41.008, lon: -8.647, offshore_direction: 85,  <<: *pt }  # sat-verified 2026-07-23 (jetty rights)
   - { id: figueira-cabedelo,  name: "Cabedelo (Figueira da Foz)", lat: 40.138, lon: -8.868, offshore_direction: 120, <<: *pt }  # approx - TODO verify (long sandbar rights S of the Mondego mouth)
-  - { id: nazare-norte,       name: "Nazaré (Praia do Norte)",  lat: 39.606, lon: -9.085, offshore_direction: 120, ideal: { wind_dir: [90, 160], size_m: [1.0, 3.0] }, <<: *pt }  # sat-verified 2026-07-23 (canyon focus; giant in winter - rating tuned for surfable days, not tow days)
+  - { id: nazare-norte,       name: "Nazaré (Praia do Norte)",  lat: 39.606, lon: -9.085, offshore_direction: 120, ideal: { wind_dir: [90, 160], size_m: [1.0, 3.0] }, cam: { yt: "_Gi8UC_HPKM", by: "Explore Big Surf, Beaches and Sunsets", by_url: "https://www.youtube.com/@ExploreBigSurfandBeaches" }, <<: *pt }  # sat-verified 2026-07-23 (canyon focus; giant in winter - rating tuned for surfable days, not tow days)
   # ---- Peniche ----
   - { id: baleal-lagide,      name: "Lagide (Baleal)",          lat: 39.3775, lon: -9.34, offshore_direction: 140, swell_window: [260, 350], break_type: reef, <<: *pt }  # approx - TODO verify
   - { id: supertubos,         name: "Supertubos (Peniche)",     lat: 39.343, lon: -9.362, offshore_direction: 55,  swell_window: [180, 290], offshore_point: [39.31, -9.42], <<: *pt }  # sat-verified 2026-07-23 (SW-facing; Europe's heaviest beachbreak)

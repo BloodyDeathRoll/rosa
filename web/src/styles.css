@@ -1465,6 +1465,37 @@ a.rank-card:hover {
   color: var(--muted-foreground);
   text-align: center;
 }
+/* ---------- Live cam (first element on a spot page, when one exists) ---------- */
+.cam {
+  margin: 0 0 14px;
+}
+.cam-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--secondary);
+}
+.cam-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+.cam-credit {
+  margin: 6px 2px 0;
+  font-size: 11.5px;
+  color: var(--muted-foreground);
+}
+.cam-credit a {
+  color: var(--muted-foreground);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 /* Glossary link over the rating rail's column. Quiet by default - it is a way out
    for someone who is stuck, not a thing to notice every time you read the table. */
 .hour-grid.head .grid-info {
