@@ -6,6 +6,7 @@ Implements CLAUDE.md "Algorithm specs" exactly; every function here is unit-test
 from __future__ import annotations
 
 import math
+from collections.abc import Callable
 
 from .models import SwellPartition, WindClass
 from .physics import breaker_height_over_profile
@@ -141,13 +142,20 @@ def breaker_height_from_profile(
     window: tuple[float, float],
     shore_normal: float,
     wet_depths: list[float],
+    *,
+    rideability: Callable[[SwellPartition], float] | None = None,
 ) -> float:
     """RMS combine of each in-window partition's breaker height (Stage 2B, hybrid): real
     physics for the geometry (shoaling + refraction + depth-limited breaking over the spot's
     bathymetry) times a period-power rideability factor for windswell quality.
 
     Incidence is the partition's approach angle relative to the spot's shore normal; the
-    physics march zeroes anything arriving from behind it (>= 90 deg)."""
+    physics march zeroes anything arriving from behind it (>= 90 deg).
+
+    ``rideability`` lets the Stage-2E experiment harness (experiment.py) inject candidate
+    attenuation factors (e.g. keyed on the peak period instead of the mean - the
+    pre-registered CALIBRATION.md 07-25/26 question). Production never passes it: the
+    default is exactly the shipping ``period_rideability(p.period_s)``."""
     total_sq = 0.0
     for p in partitions:
         w = exposure_weight(p.direction_deg, window)
@@ -155,7 +163,8 @@ def breaker_height_from_profile(
             continue
         incidence = angle_diff(p.direction_deg, shore_normal)
         hb = breaker_height_over_profile(p.height_m, p.period_s, incidence, wet_depths)
-        hb *= period_rideability(p.period_s) * w
+        factor = rideability(p) if rideability is not None else period_rideability(p.period_s)
+        hb *= factor * w
         total_sq += hb * hb
     return math.sqrt(total_sq)
 

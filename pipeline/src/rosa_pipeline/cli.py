@@ -215,6 +215,19 @@ def _build_parser() -> argparse.ArgumentParser:
     notify.add_argument(
         "--dry-run", action="store_true", help="plan and print, send nothing"
     )
+
+    exp = sub.add_parser(
+        "experiment",
+        help="Stage-2E: grade candidate rideability transforms against the calibration frames",
+    )
+    exp.add_argument(
+        "--frames",
+        type=Path,
+        default=Path("data/calibration/frames.yaml"),
+        help="machine-readable eye frames distilled from docs/CALIBRATION.md",
+    )
+    exp.add_argument("--spots-dir", type=Path, default=Path("data/spots"))
+    exp.add_argument("--bathy-dir", type=Path, default=BATHY_DIR)
     return parser
 
 
@@ -534,6 +547,16 @@ def _cmd_bathy(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_experiment(args: argparse.Namespace) -> int:
+    from .experiment import load_frames, render_report, run_experiment
+
+    frames = load_frames(args.frames)
+    spots = load_spots(args.spots_dir)
+    results = run_experiment(frames, spots, args.bathy_dir)
+    print(render_report(results))
+    return 0
+
+
 def _cmd_notify(args: argparse.Namespace) -> int:
     import os
 
@@ -584,6 +607,8 @@ def main(argv: list[str] | None = None) -> int:
         return _cmd_bathy(args)
     if args.command == "notify":
         return _cmd_notify(args)
+    if args.command == "experiment":
+        return _cmd_experiment(args)
     return _cmd_run(args)
 
 

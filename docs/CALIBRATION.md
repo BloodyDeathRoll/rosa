@@ -166,3 +166,60 @@ rideability keyed on **Tm** (5.9 s) rather than **Tp** (8.4 s) is the under-call
 at Hilton, and whether a Tp-aware (or spectral-band-aware) rideability fixes this day
 *without* re-inflating the 2026-07-19/20 flat-day frames. Both regimes must be satisfied
 by whatever lands - do not fit one and break the other.
+
+## 2026-07-26 - dogfood: Hilton (TLV) again, **under**-called ~2x on a SMALL day
+
+Second eye-check at Hilton, user standing on the beach ~12:00 local. First data point
+on Hilton's corrected pin (moved ~200 m SW this morning, `user-verified 2026-07-26`)
+and its freshly re-cut depth profile, so the bathymetry is not the stale-profile bug.
+
+| Date | Time | Spot | Rosa pred (h, rating) | Surfline | Observed (eyes) | Notes |
+|------|------|------|------------------------|----------|-----------------|-------|
+| 2026-07-26 | 12:00 local (09:00Z) | hilton | **0.2-0.3 m** (mid 0.3), POOR 21 (run 2026-07-26T08:36Z) | 0.3-0.6 m | **0.5-0.6 m** (user: "even 0.5-0.6") | Under-call ~**2x** on the midpoint. Model input at the offshore point: in-window swell **Hs 0.82 m, Tp 7.0 s, Tm 5.0 s, dir 301**, wind 15.8 kph onshore (315), tide -0.25 m. Transform took 0.82 m -> 0.25 m = **0.30x**; the observation implies ~**0.67x**. Surfline's top of range was right, its bottom was not. |
+
+**Why this one matters more than a repeat:** the 07-25 entry under-called a *big*
+day (Hs 1.5 m, Tp 8.4 s) and the working hypothesis was that `period_rideability` is
+"tuned on the flat end and too aggressive once real energy shows up". This day is the
+opposite end - Hs 0.82 m, Tp 7.0 s, Tm 5.0 s, an ordinary Med windswell - and it still
+under-calls, by *more* (2x vs 1.6x). So the error is **not** confined to big swells:
+the attenuation looks too aggressive across the range, not just at the top.
+
+Note the Tm/Tp gap is even wider here (5.0 vs 7.0 s) than on 07-25 (5.9 vs 8.4 s), and
+the under-call is worse - consistent with, though not proof of, the pre-registered
+suspicion that rideability keyed on **Tm** is the mechanism.
+
+Rows 1-2 (2026-07-19/20) over-called Med windswell; these two under-call it. Between
+them sits Stage 2B (hybrid physics + rideability), so the transform, not the input,
+is the thing that flipped sign. **No knob touched** - two observations, and Stage 2E
+tuning is gated on the VM archive maturing (~07-30). When it lands, this row and the
+07-25 row are the two Med frames any candidate must satisfy together with the
+07-19/20 flat-day frames.
+
+## 2026-07-26 - Stage-2E harness built; first pre-registered run (no knobs moved)
+
+The 2E experiment is now executable: `rosa-pipeline experiment` grades candidate
+rideability transforms against machine-readable frames (`data/calibration/frames.yaml`,
+distilled from this log: 07-19 flat, 07-24 windswell, 07-25 + 07-26 Hilton under-calls).
+Candidates inject via a `rideability` hook on `breaker_height_from_profile`; the shipping
+path is untouched and a regression test pins the baseline to the published 07-26 output.
+Inputs for the two 2026-07-19/24 frames were reconstructed from the OM historical archive
+(hindcast); 07-25/26 are as logged. All frames grade on today's committed profiles
+(hilton = the corrected 2026-07-26 pin).
+
+First run, grid = {mean, peak, energy(Te)} x exp {1.0, 1.2, 1.4, 1.6}:
+
+- **Shipping (mean^1.4)**: passes both small-day frames, under-calls both Hilton frames
+  (-0.36 m / -0.22 m). Reproduces reality - the harness is faithful.
+- **Tp-keyed candidates (peak^1.0-1.4) fix BOTH Hilton frames and hold the 07-24
+  windswell frame** - the pre-registered mechanism is confirmed as *a* mechanism.
+- **But every Tp/Te candidate over-calls the 07-19 flat frame** (+0.10 to +0.20 m,
+  band 0.1-0.2 m). That day also had a wide Tm/Tp gap (5.05/6.95) yet was ankle-high.
+- **No candidate passes all four frames.** Least-bad: energy^1.4 (max |err| 0.11 m).
+
+**Reading:** switching the period key alone trades the under-call for a flat-day
+over-call - the same tension rows 1-2 fought from the other side. The unresolved axis is
+likely *input* error, not transform: OM ran +18% hot on Hs on the 07-19 day (Hadera
+buoy), and the archive de-bias (2E's other half, ~07-30) is exactly the missing term.
+Candidate for the full 2E fit: de-biased inputs + Tp/Te-keyed rideability, re-run this
+harness, require all four frames plus no regression on the buoy-validated regions.
+**No knob moved today.**

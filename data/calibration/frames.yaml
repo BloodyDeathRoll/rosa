@@ -1,0 +1,59 @@
+# Stage-2E calibration frames - machine-readable distillation of docs/CALIBRATION.md.
+#
+# Each frame is one graded observation: the sea state the model saw (deep-water
+# partitions at the spot's offshore point), the tide, and the breaker height a human
+# actually observed. The experiment harness (`rosa-pipeline experiment`) runs candidate
+# transforms against ALL frames at once - per CALIBRATION.md, a candidate that fixes the
+# Hilton under-calls by breaking the small-windswell frames (or vice versa) fails.
+#
+# Honesty notes:
+# - Israel/Med only. These frames tune nothing globally by themselves (CALIBRATION.md
+#   "Scope & honesty") - they are the eye half of 2E; the buoy-archive de-bias is the
+#   other half.
+# - Inputs for 2026-07-19 and 2026-07-24 were reconstructed 2026-07-26 from the
+#   Open-Meteo historical archive at the spot's offshore point (hindcast, not the
+#   forecast run the log graded). 07-25/26 inputs are as logged on the day.
+# - The 07-24 "observed" band is calibration row 2's settled judgment (user-directed
+#   "heights up" + corroboration), not a direct eye measurement - hence its wider slack.
+# - Bathymetry: frames are graded on TODAY'S committed profiles. hilton's pin and
+#   profile moved 2026-07-26 (~200 m SW); the 07-25 frame therefore re-grades that day
+#   on the corrected geometry, which is what we want going forward.
+
+frames:
+  - id: "2026-07-19-beit-yanai-flat"
+    spot: beit-yanai
+    calibration_row: "row 1 (2026-07-19, ~10:00 local)"
+    observed_m: [0.1, 0.2]     # ankle-high at best (user + cam); ISRAMAR Hadera Hs 0.56 corroborates the input
+    slack_m: 0.05
+    tide_m: -0.27
+    partitions:
+      - { hs: 0.60, tm: 5.05, tp: 6.95, dir: 290 }
+      # windsea that hour was 0.02 m @ 0.45 s - negligible, omitted
+
+  - id: "2026-07-24-beit-yanai-windswell"
+    spot: beit-yanai
+    calibration_row: "row 2 (settled 2026-07-20, graded day 2026-07-24, midday)"
+    observed_m: [0.3, 0.6]     # settled row-2 band: "poor to fair, almost surfable"; NOT direct eyes
+    slack_m: 0.10
+    tide_m: -0.25
+    partitions:
+      - { hs: 0.96, tm: 5.10, tp: 5.75, dir: 295 }
+      - { hs: 0.56, tm: 2.90, dir: 245, kind: wind }   # inside the 25-deg exposure shoulder
+
+  - id: "2026-07-25-hilton-undercall"
+    spot: hilton
+    calibration_row: "2026-07-25 entry (day, hour not recorded)"
+    observed_m: [1.0, 1.2]     # user's eyes; predicted 0.5-0.8 = under-call ~1.6x
+    slack_m: 0.05
+    tide_m: -0.21
+    partitions:
+      - { hs: 1.45, tm: 5.9, tp: 8.4, dir: 291 }
+
+  - id: "2026-07-26-hilton-undercall"
+    spot: hilton
+    calibration_row: "2026-07-26 entry (12:00 local)"
+    observed_m: [0.5, 0.6]     # user's eyes on the beach; predicted 0.2-0.3 = under-call ~2x
+    slack_m: 0.05
+    tide_m: -0.25
+    partitions:
+      - { hs: 0.82, tm: 5.0, tp: 7.0, dir: 301 }
