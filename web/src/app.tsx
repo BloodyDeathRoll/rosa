@@ -1,7 +1,8 @@
 import { useEffect, useState } from "preact/hooks";
-import { HomeIcon, MapIcon, StarIcon, UserIcon } from "./components/icons";
+import { HomeIcon, MapIcon, StarIcon, UserIcon, WavesIcon } from "./components/icons";
 import { InstallPrompt } from "./components/InstallPrompt";
 import { AboutPage, type AboutDoc } from "./pages/AboutPage";
+import { ChartsPage } from "./pages/ChartsPage";
 import { MapPage } from "./pages/MapPage";
 import { SettingsPage } from "./pages/SettingsPage";
 import { SearchPage } from "./pages/SearchPage";
@@ -16,6 +17,7 @@ type Route =
   | { page: "spots" }
   | { page: "search" }
   | { page: "map" }
+  | { page: "charts" }
   | { page: "settings" }
   | { page: "about"; doc: AboutDoc }
   | { page: "spot"; id: string };
@@ -24,6 +26,7 @@ function parseRoute(hash: string): Route {
   const spot = /^#\/spot\/([\w-]+)/.exec(hash);
   if (spot?.[1]) return { page: "spot", id: spot[1] };
   if (hash.startsWith("#/map")) return { page: "map" };
+  if (hash.startsWith("#/charts")) return { page: "charts" };
   if (hash.startsWith("#/search")) return { page: "search" };
   // #/favorites is a pre-handoff route folded into Spots
   if (hash.startsWith("#/spots") || hash.startsWith("#/favorites")) return { page: "spots" };
@@ -37,6 +40,7 @@ const TABS: { tab: Tab; label: string; icon: typeof HomeIcon }[] = [
   { tab: "today", label: "Today", icon: HomeIcon },
   { tab: "spots", label: "Spots", icon: StarIcon },
   { tab: "map", label: "Map", icon: MapIcon },
+  { tab: "charts", label: "Charts", icon: WavesIcon },
   { tab: "settings", label: "Profile", icon: UserIcon },
 ];
 
@@ -89,6 +93,8 @@ export function App() {
         <SpotPage id={route.id} />
       ) : route.page === "map" ? (
         <MapPage theme={theme} />
+      ) : route.page === "charts" ? (
+        <ChartsPage theme={theme} />
       ) : route.page === "spots" ? (
         <SpotsPage />
       ) : route.page === "search" ? (

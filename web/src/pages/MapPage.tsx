@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import { fetchIndex } from "../api";
-import { ChevronLeftIcon, CompassNorthIcon, LocateIcon, SearchIcon } from "../components/icons";
+import { ChevronLeftIcon, CompassNorthIcon, LocateIcon, SearchIcon} from "../components/icons";
 import { SatMap } from "../components/MiniMap";
 import { Pill, SpotTitle } from "../components/parts";
 import { ratingVar } from "../conditions";

@@ -2569,3 +2569,118 @@ a.rank-card:hover {
   min-width: 0;
   scroll-snap-align: center;
 }
+
+/* ---------- SwellMap layer (animated wave fields over the map) ---------- */
+.swell-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+/* Scrub bar: rides above the card sheet like the attribution chip does. */
+.swell-bar {
+  position: absolute;
+  left: 12px;
+  right: 64px;
+  bottom: calc(var(--sheet-h, 150px) + 40px);
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 9px 12px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--card) 88%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: var(--card-shadow);
+}
+.swell-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.swell-play {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 9999px;
+  background: var(--secondary);
+  font-size: 11px;
+  color: var(--foreground);
+}
+.swell-scrub {
+  flex: 1;
+  min-width: 0;
+  accent-color: var(--accent);
+}
+.swell-time {
+  flex: none;
+  font-size: 12px;
+  font-weight: 600;
+  min-width: 86px;
+  text-align: right;
+}
+.swell-meta {
+  gap: 7px;
+}
+.swell-legend {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+}
+.swell-scale {
+  font-size: 10.6px;
+  color: var(--muted-foreground);
+}
+.swell-attr {
+  font-size: 10.6px;
+  color: var(--muted-foreground);
+  white-space: nowrap;
+}
+.swell-note {
+  position: absolute;
+  left: 12px;
+  bottom: calc(var(--sheet-h, 150px) + 44px);
+  z-index: 6;
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--card) 88%, transparent);
+  font-size: 12.5px;
+  color: var(--muted-foreground);
+}
+
+/* Charts tab: basin chips float at the top; the control bar sits above the tab
+   bar (no card sheet here, so no --sheet-h offset). */
+.charts-basins {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  z-index: 6;
+  display: flex;
+  gap: 7px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 2px;
+}
+.charts-basins::-webkit-scrollbar {
+  display: none;
+}
+.charts-basins .group-chip {
+  flex: none;
+  background: color-mix(in srgb, var(--card) 88%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: var(--card-shadow);
+}
+.charts-bar {
+  bottom: 14px;
+  right: 12px;
+}
+.charts-vars {
+  flex: 1;
+}
+.charts-vars button {
+  flex: 1;
+}
