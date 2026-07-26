@@ -1945,7 +1945,10 @@ a.rank-card:hover {
   z-index: 10;
   display: flex;
   flex-direction: column;
-  background: var(--background);
+  /* --background is a near-transparent TINT in the light theme (#17171c01) - fine
+     over the opaque body, invisible over the map canvas (the results floated on
+     the live map). Composite the tint over the real page colour instead. */
+  background: linear-gradient(var(--background), var(--background)) var(--body-bg);
 }
 
 /* Spot pins. A plain tier dot by default; the focused pin morphs into a pill
