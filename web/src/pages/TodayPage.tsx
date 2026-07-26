@@ -1,6 +1,7 @@
-import { useEffect, useState } from "preact/hooks";
+import { useEffect, useRef, useState } from "preact/hooks";
 import { fetchIndex, fetchSpot } from "../api";
 import { CoastChart } from "../components/CoastChart";
+import { sectionsOf } from "../components/GroupChips";
 import { SatMap } from "../components/MiniMap";
 import { SearchIcon, ShirtIcon, ThermometerIcon, WavesIcon } from "../components/icons";
 import { AppHeader, Pill, SpotTitle } from "../components/parts";
@@ -188,6 +189,26 @@ export function TodayPage() {
     </a>
   );
 
+  // Extended-card carousel: one rich card per listed spot, swipeable, in the
+  // exact order the chart below renders (home region first, then A-Z) so a swipe
+  // right walks the same sequence as reading the list top to bottom.
+  const cardsRef = useRef<HTMLDivElement>(null);
+  const carousel = grid
+    ? sectionsOf(grid, (s) => s.spot.region, homeRegion).flatMap((sec) => sec.rows)
+    : [];
+
+  // Start on the last-opened spot (the old single extended card), snapped into
+  // place instantly - sections may have reordered it away from index 0.
+  useEffect(() => {
+    const track = cardsRef.current;
+    const id = detail?.spot.id;
+    if (!track || !id) return;
+    const slide = track.querySelector<HTMLElement>(`[data-id="${id}"]`);
+    if (!slide) return;
+    track.scrollLeft = slide.offsetLeft - (track.clientWidth - slide.clientWidth) / 2;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [grid]);
+
   // all spots share the date range; use the featured spot's days as the axis.
   // Anchor to the spot's real current date and drop any past days, so the strip
   // never leads with a stale day from an older pipeline run.
@@ -219,9 +240,13 @@ export function TodayPage() {
       <AppHeader lead={greeting()} right={search} />
       <div class="home">
         {prompt && <FeedbackRow p={prompt} onDone={() => setPrompt(null)} />}
-        {detail && (
-          <div class="home-hero">
-            <DetailCard data={detail} date={today} />
+        {carousel.length > 0 && (
+          <div class="home-cards" ref={cardsRef}>
+            {carousel.map((d) => (
+              <div class="hc-slide" key={d.spot.id} data-id={d.spot.id}>
+                <DetailCard data={d} date={todayIn(d.spot.timezone)} />
+              </div>
+            ))}
           </div>
         )}
         <CoastChart spots={grid} dates={dates} today={today} homeRegion={homeRegion} />

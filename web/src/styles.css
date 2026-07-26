@@ -640,10 +640,6 @@ button {
 }
 
 /* ---------- Home: extended-card wrapper + coast grid ---------- */
-.home-hero {
-  padding: 14px 16px 10px;
-}
-
 /* Surfline-style multi-day grid: a shared date axis + one row per spot, all
    horizontally scrollable in lock-step across the forecast period. */
 .coast {
@@ -2547,4 +2543,26 @@ a.rank-card:hover {
 .coast .group-label:first-child,
 .rank-list .group-label:first-child {
   margin-top: 4px;
+}
+
+/* Extended-card carousel at the top of Home: every listed spot gets the rich
+   card, swipe moves between them. Same centered-snap pattern as the map sheet;
+   neighbours peek at the edges so the swipe affordance is visible. */
+.home-cards {
+  --cw: 88%;
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+  padding: 14px calc((100% - var(--cw)) / 2) 10px;
+  -webkit-overflow-scrolling: touch;
+}
+.home-cards::-webkit-scrollbar {
+  display: none;
+}
+.home-cards .hc-slide {
+  flex: 0 0 var(--cw);
+  min-width: 0;
+  scroll-snap-align: center;
 }
