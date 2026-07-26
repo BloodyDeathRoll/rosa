@@ -1,6 +1,10 @@
 {
   "spot": "sendai-shinko",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    38.2605,
+    141.0215
+  ],
   "bearing_seaward_deg": 85.0,
   "nearshore_depth_m": 8.0,
   "offshore_depth_m": 31.0,

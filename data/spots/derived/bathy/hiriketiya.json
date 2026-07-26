@@ -1,6 +1,10 @@
 {
   "spot": "hiriketiya",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    5.96125,
+    80.70894
+  ],
   "bearing_seaward_deg": 172.0,
   "nearshore_depth_m": -17.0,
   "offshore_depth_m": 1793.0,

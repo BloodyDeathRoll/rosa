@@ -1,6 +1,10 @@
 {
   "spot": "espinho",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    41.008,
+    -8.647
+  ],
   "bearing_seaward_deg": 265.0,
   "nearshore_depth_m": 6.0,
   "offshore_depth_m": 49.0,

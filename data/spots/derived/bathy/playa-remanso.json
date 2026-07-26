@@ -1,6 +1,10 @@
 {
   "spot": "playa-remanso",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    11.2225,
+    -85.8475
+  ],
   "bearing_seaward_deg": 240.0,
   "nearshore_depth_m": -14.0,
   "offshore_depth_m": 90.0,

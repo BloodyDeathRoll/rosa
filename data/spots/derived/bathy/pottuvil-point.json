@@ -1,6 +1,10 @@
 {
   "spot": "pottuvil-point",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    6.887,
+    81.834
+  ],
   "bearing_seaward_deg": 95.0,
   "nearshore_depth_m": 1.0,
   "offshore_depth_m": 140.0,

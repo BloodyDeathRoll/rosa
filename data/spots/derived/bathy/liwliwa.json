@@ -1,6 +1,10 @@
 {
   "spot": "liwliwa",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    15.0614,
+    120.0606
+  ],
   "bearing_seaward_deg": 265.0,
   "nearshore_depth_m": -0.0,
   "offshore_depth_m": 775.0,

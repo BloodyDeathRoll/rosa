@@ -1,6 +1,10 @@
 {
   "spot": "hikkaduwa",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    6.1304,
+    80.0963
+  ],
   "bearing_seaward_deg": 215.0,
   "nearshore_depth_m": 9.0,
   "offshore_depth_m": 74.0,

@@ -25,7 +25,7 @@ spots:
   # ---- Northwest (Chinandega) ----
   - { id: the-boom,           name: "The Boom (Aposentillo)",   lat: 12.6322, lon: -87.3634, offshore_direction: 60,  <<: *nic }  # sat-verified 2026-07-23 (hollow beachbreak)
   # ---- León / Managua coast ----
-  - { id: puerto-sandino,     name: "Puerto Sandino",           lat: 12.193, lon: -86.774, offshore_direction: 40,  swell_window: [170, 270], offshore_point: [12.13, -86.86], break_type: point, <<: *nic }  # sat-verified 2026-07-23 (long river-mouth left, tide-fussy)
+  - { id: puerto-sandino,     name: "Puerto Sandino",           lat: 12.193, lon: -86.774, offshore_direction: 40,  swell_window: [170, 270], offshore_bearing: 233.2, offshore_km: 11.68, break_type: point, <<: *nic }  # sat-verified 2026-07-23 (long river-mouth left, tide-fussy)
   - { id: miramar,            name: "Miramar",                  lat: 12.145, lon: -86.75, offshore_direction: 70,  break_type: reef, <<: *nic }  # approx - TODO verify
   - { id: el-transito,        name: "El Tránsito",              lat: 12.0235, lon: -86.695, offshore_direction: 55,  <<: *nic }  # sat-verified 2026-07-23
   # ---- Rivas / Popoyo zone ----
@@ -43,4 +43,4 @@ spots:
 
   # ==== WEB-SEARCH-SEEDED (2026-07-24) - surf-guide discovery, Google/Nominatim/Photon
   # geocode cross-checked + ESRI sat-verified. Locations verified; params TODO-tune. ====
-  - { id: manzanillo, name: "Manzanillo (Tola)", lat: 11.3705, lon: -86.0093, offshore_direction: 50, offshore_point: [11.3416, -86.0444], <<: *nic }  # websearch-seeded 2026-07-24 (geocoded+sat-verified) - TODO verify
+  - { id: manzanillo, name: "Manzanillo (Tola)", lat: 11.3705, lon: -86.0093, offshore_direction: 50, offshore_bearing: 230.0, offshore_km: 5.0, <<: *nic }  # websearch-seeded 2026-07-24 (geocoded+sat-verified) - TODO verify

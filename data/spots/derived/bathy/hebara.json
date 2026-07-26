@@ -1,6 +1,10 @@
 {
   "spot": "hebara",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    35.1615,
+    140.3345
+  ],
   "bearing_seaward_deg": 135.0,
   "nearshore_depth_m": 4.0,
   "offshore_depth_m": 150.0,

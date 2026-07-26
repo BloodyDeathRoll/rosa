@@ -1,6 +1,10 @@
 {
   "spot": "akko-argaman",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.9156,
+    35.0787
+  ],
   "bearing_seaward_deg": 250.0,
   "nearshore_depth_m": 7.0,
   "offshore_depth_m": 43.0,

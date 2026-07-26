@@ -1,6 +1,10 @@
 {
   "spot": "playa-yankee",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    11.179,
+    -85.818
+  ],
   "bearing_seaward_deg": 235.0,
   "nearshore_depth_m": -3.0,
   "offshore_depth_m": 63.0,

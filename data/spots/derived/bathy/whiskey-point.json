@@ -1,6 +1,10 @@
 {
   "spot": "whiskey-point",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    6.9043,
+    81.8475
+  ],
   "bearing_seaward_deg": 80.0,
   "nearshore_depth_m": 6.0,
   "offshore_depth_m": 736.0,

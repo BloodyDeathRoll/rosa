@@ -1,0 +1,69 @@
+{
+  "spot": "agu-adoura",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    41.4287,
+    -8.7841
+  ],
+  "bearing_seaward_deg": 262.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 83.0,
+  "mean_slope_m_per_km": 4.23,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.42839,
+      "lon": -8.78707,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.42807,
+      "lon": -8.79004,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.42745,
+      "lon": -8.79598,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.42619,
+      "lon": -8.80785,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.42494,
+      "lon": -8.81973,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.42243,
+      "lon": -8.84348,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.41865,
+      "lon": -8.87911,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.41359,
+      "lon": -8.9266,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.40597,
+      "lon": -8.99782,
+      "depth_m": 83.0
+    }
+  ]
+}

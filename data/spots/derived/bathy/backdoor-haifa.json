@@ -1,6 +1,10 @@
 {
   "spot": "backdoor-haifa",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.8349,
+    34.9683
+  ],
   "bearing_seaward_deg": 343.0,
   "nearshore_depth_m": 8.0,
   "offshore_depth_m": 201.0,

@@ -1,6 +1,10 @@
 {
   "spot": "costa-caparica",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    38.635,
+    -9.2365
+  ],
   "bearing_seaward_deg": 260.0,
   "nearshore_depth_m": 8.0,
   "offshore_depth_m": 97.0,

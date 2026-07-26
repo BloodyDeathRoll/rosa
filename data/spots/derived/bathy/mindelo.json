@@ -1,0 +1,69 @@
+{
+  "spot": "mindelo",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    41.308,
+    -8.7397
+  ],
+  "bearing_seaward_deg": 252.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 71.0,
+  "mean_slope_m_per_km": 3.66,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.30731,
+      "lon": -8.74255,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.30661,
+      "lon": -8.74539,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.30522,
+      "lon": -8.75109,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.30244,
+      "lon": -8.76247,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.29966,
+      "lon": -8.77385,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.29409,
+      "lon": -8.79662,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.28573,
+      "lon": -8.83076,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.27457,
+      "lon": -8.87627,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.2578,
+      "lon": -8.9445,
+      "depth_m": 71.0
+    }
+  ]
+}

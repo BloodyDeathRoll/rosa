@@ -1,6 +1,10 @@
 {
   "spot": "shizunami",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    34.7295,
+    138.2345
+  ],
   "bearing_seaward_deg": 130.0,
   "nearshore_depth_m": 7.0,
   "offshore_depth_m": 366.0,

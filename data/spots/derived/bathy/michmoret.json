@@ -1,6 +1,10 @@
 {
   "spot": "michmoret",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.4081,
+    34.8655
+  ],
   "bearing_seaward_deg": 287.0,
   "nearshore_depth_m": 19.0,
   "offshore_depth_m": 226.0,

@@ -4,8 +4,9 @@
 # offshore_direction: compass direction the OFFSHORE WIND blows FROM. Derived per spot
 #   from the local coastline tangent (see spots.py); override inline where local
 #   knowledge differs (e.g. Haifa Bay, coves). Israel's near-straight W-facing coast → ~90-120.
-# offshore_point: deep-water sample point. Derived per spot (its own coord pushed ~0.06° W);
-#   override inline with `offshore_point: [lat, lon]` when needed.
+# offshore_point: NOT stored - derived from each spot's own pin. Default pushes ~0.06 deg W
+#   (seaward on this coast); set `offshore_km` (+ `offshore_bearing`, default = seaward
+#   normal) to cast the ray elsewhere. A pin is the ONLY place a location is written down.
 # swell_window: swell source directions that reach the break.
 
 defaults: &il
@@ -53,9 +54,9 @@ spots:
   - { id: dromi,             name: Dromi (Herzliya),       lat: 32.1578, lon: 34.7936, offshore_direction: 102, <<: *il }  # user-verified 2026-07-19 - south of the marina
   - { id: tel-baruch,        name: Tel Baruch North,       lat: 32.1223, lon: 34.7815, offshore_direction: 109, <<: *il }  # OSM
   - { id: reading,           name: Reading,                lat: 32.10944, lon: 34.77653, offshore_direction: 108, <<: *il }  # user-verified 2026-07-25 -- offshore_direction from neighbours
-  - { id: hilton,            name: Hilton Beach (TLV),     lat: 32.0901, lon: 34.7698, offshore_direction: 115, <<: *il }  # google-geocoded
-  - { id: gordon,            name: Gordon (TLV),           lat: 32.0863, lon: 34.7664, offshore_direction: 107, <<: *il }  # google-geocoded
-  - { id: bugrashov,         name: Bugrashov (TLV),        lat: 32.0779, lon: 34.7651, offshore_direction: 106, <<: *il }  # google-geocoded
+  - { id: hilton,            name: Hilton Beach (TLV),     lat: 32.0887112, lon: 34.7675748, offshore_direction: 115, <<: *il }  # user-verified 2026-07-26 (moved ~200 m SW off the google pin)
+  - { id: gordon,            name: Gordon (TLV),           lat: 32.0843085, lon: 34.7676147, offshore_direction: 107, <<: *il }  # user-verified 2026-07-26 (moved ~250 m S off the google pin)
+  # bugrashov removed 2026-07-26 (user) - the pin sat between Gordon and Dolphinarium
   - { id: dolphinarium,      name: Dolphinarium (TLV),     lat: 32.07006, lon: 34.76217, offshore_direction: 106, <<: *il }  # user-verified 2026-07-25 (moved ~300 m NE from the google pin)
   - { id: maaravi,           name: Maaravi,                lat: 32.05825, lon: 34.75703, offshore_direction: 104, <<: *il }  # user-verified 2026-07-25 -- offshore_direction from neighbours
   - { id: bat-yam,           name: Bat Yam (Riviera),      lat: 32.0195, lon: 34.7356, offshore_direction: 101, <<: *il }  # google-geocoded

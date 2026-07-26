@@ -223,3 +223,52 @@ class TestOpenTopoDataBackoff:
 
 def test_round_key_format():
     assert _round_key(32.38173, 34.80351) == "32.3817,34.8035"
+
+
+class TestOriginProvenance:
+    """A profile records the pin it was cast from, so a moved spot can't silently keep
+    bathymetry sampled somewhere else (that used to be undetectable - it just fed the
+    wrong depths into h_break)."""
+
+    def test_build_stamps_the_spot_coords(self):
+        spot = make_spot(lat=32.0887112, lon=34.7675748, shore_normal=270.0)
+        src = FixtureBathymetrySource(
+            {_round_key(lat, lon): -20.0 for lat, lon, _ in ray_points(spot.lat, spot.lon, 270.0)}
+        )
+        profile = build_profile(src, spot)
+        assert (profile.origin_lat, profile.origin_lon) == (spot.lat, spot.lon)
+        assert profile.to_dict()["origin"] == [spot.lat, spot.lon]
+
+    def test_round_trips_through_json(self):
+        profile = DepthProfile(
+            spot_id="x",
+            bearing_seaward_deg=270.0,
+            samples=(DepthSample(0.25, 32.0, 34.0, 5.0),),
+            origin_lat=32.0,
+            origin_lon=34.1,
+        )
+        back = DepthProfile.from_dict(json.loads(json.dumps(profile.to_dict())))
+        assert (back.origin_lat, back.origin_lon) == (32.0, 34.1)
+
+    def test_pre_origin_profile_never_claims_to_match(self):
+        legacy = DepthProfile.from_dict(
+            {
+                "spot": "x",
+                "bearing_seaward_deg": 270.0,
+                "samples": [{"dist_km": 0.25, "lat": 32.0, "lon": 34.0, "depth_m": 5.0}],
+            }
+        )
+        assert legacy.origin_lat is None
+        assert not legacy.matches_spot(make_spot(lat=32.0, lon=34.0))
+
+    def test_matches_only_within_tolerance(self):
+        profile = DepthProfile(
+            spot_id="x",
+            bearing_seaward_deg=270.0,
+            samples=(DepthSample(0.25, 32.0, 34.0, 5.0),),
+            origin_lat=32.0,
+            origin_lon=34.0,
+        )
+        assert profile.matches_spot(make_spot(lat=32.0, lon=34.0))
+        assert profile.matches_spot(make_spot(lat=32.00004, lon=34.0))  # ~4 m, rounding noise
+        assert not profile.matches_spot(make_spot(lat=32.002, lon=34.0))  # ~220 m, a real move

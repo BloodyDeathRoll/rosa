@@ -1,6 +1,10 @@
 {
   "spot": "panga-drops",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    11.4315,
+    -86.077
+  ],
   "bearing_seaward_deg": 240.0,
   "nearshore_depth_m": -29.0,
   "offshore_depth_m": 70.0,

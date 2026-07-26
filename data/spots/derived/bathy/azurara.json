@@ -1,0 +1,69 @@
+{
+  "spot": "azurara",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    41.337,
+    -8.7419
+  ],
+  "bearing_seaward_deg": 232.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 61.0,
+  "mean_slope_m_per_km": 2.99,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.33562,
+      "lon": -8.74426,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.33423,
+      "lon": -8.74662,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.33146,
+      "lon": -8.75134,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.32592,
+      "lon": -8.76077,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.32039,
+      "lon": -8.77021,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.30931,
+      "lon": -8.78907,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.29268,
+      "lon": -8.81736,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.2705,
+      "lon": -8.85505,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.23721,
+      "lon": -8.91153,
+      "depth_m": 61.0
+    }
+  ]
+}

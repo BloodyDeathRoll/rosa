@@ -1,6 +1,10 @@
 {
   "spot": "san-juan-la-union",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    16.666,
+    120.322
+  ],
   "bearing_seaward_deg": 270.0,
   "nearshore_depth_m": 14.0,
   "offshore_depth_m": 544.0,

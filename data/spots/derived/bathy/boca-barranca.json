@@ -1,6 +1,10 @@
 {
   "spot": "boca-barranca",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    9.9563,
+    -84.7477
+  ],
   "bearing_seaward_deg": 205.0,
   "nearshore_depth_m": 5.0,
   "offshore_depth_m": 42.0,

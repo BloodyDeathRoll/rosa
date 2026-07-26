@@ -1,6 +1,10 @@
 {
   "spot": "maaravi",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.05825,
+    34.75703
+  ],
   "bearing_seaward_deg": 284.0,
   "nearshore_depth_m": 2.0,
   "offshore_depth_m": 180.0,

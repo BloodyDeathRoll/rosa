@@ -1,6 +1,10 @@
 {
   "spot": "nahariya",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    33.0108,
+    35.0887
+  ],
   "bearing_seaward_deg": 284.0,
   "nearshore_depth_m": 10.0,
   "offshore_depth_m": 569.0,

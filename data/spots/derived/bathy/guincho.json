@@ -1,6 +1,10 @@
 {
   "spot": "guincho",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    38.733,
+    -9.474
+  ],
   "bearing_seaward_deg": 280.0,
   "nearshore_depth_m": 5.0,
   "offshore_depth_m": 65.0,

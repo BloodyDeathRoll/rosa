@@ -1,6 +1,10 @@
 {
   "spot": "dominical",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    9.242,
+    -83.8674
+  ],
   "bearing_seaward_deg": 220.0,
   "nearshore_depth_m": 13.0,
   "offshore_depth_m": 88.0,

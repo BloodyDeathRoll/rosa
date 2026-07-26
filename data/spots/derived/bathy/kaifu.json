@@ -1,6 +1,10 @@
 {
   "spot": "kaifu",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    33.578,
+    134.353
+  ],
   "bearing_seaward_deg": 135.0,
   "nearshore_depth_m": 43.0,
   "offshore_depth_m": 383.0,

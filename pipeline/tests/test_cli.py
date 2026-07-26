@@ -11,8 +11,9 @@ from rosa_pipeline.spots import load_spots
 
 FIXTURES = Path(__file__).parent / "fixtures"
 
-# both spots pinned to the same explicit offshore_point → one group, served by the
-# single captured fixture (fixture_key 32.3817_34.8035)
+# both spots resolve to the SAME deep-water point - different pins, with bearings and
+# distances chosen to converge → one group, served by the single captured fixture
+# (fixture_key 32.3817_34.8035)
 SPOTS_YAML = """\
 defaults: &d
   timezone: Asia/Jerusalem
@@ -24,8 +25,10 @@ defaults: &d
     size_m: [0.6, 1.5]
 
 spots:
-  - { id: spot-a, name: Spot A, lat: 32.39, lon: 34.86, offshore_point: [32.3817, 34.8035], <<: *d }
-  - { id: spot-b, name: Spot B, lat: 32.43, lon: 34.87, offshore_point: [32.3817, 34.8035], <<: *d }
+  - { id: spot-a, name: Spot A, lat: 32.39, lon: 34.86,
+      offshore_bearing: 260.1, offshore_km: 5.39, <<: *d }
+  - { id: spot-b, name: Spot B, lat: 32.43, lon: 34.87,
+      offshore_bearing: 229.3, offshore_km: 8.24, <<: *d }
 """
 
 

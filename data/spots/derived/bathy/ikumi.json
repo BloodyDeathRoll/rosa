@@ -1,6 +1,10 @@
 {
   "spot": "ikumi",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    33.5403,
+    134.2915
+  ],
   "bearing_seaward_deg": 120.0,
   "nearshore_depth_m": -0.0,
   "offshore_depth_m": 336.0,

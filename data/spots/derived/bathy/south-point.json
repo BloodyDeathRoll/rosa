@@ -1,6 +1,10 @@
 {
   "spot": "south-point",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    5.98044,
+    80.33978
+  ],
   "bearing_seaward_deg": 185.0,
   "nearshore_depth_m": -11.0,
   "offshore_depth_m": 621.0,

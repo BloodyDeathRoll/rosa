@@ -1,6 +1,10 @@
 {
   "spot": "playa-cocles",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    9.6488,
+    -82.7237
+  ],
   "bearing_seaward_deg": 60.0,
   "nearshore_depth_m": 8.0,
   "offshore_depth_m": 972.0,

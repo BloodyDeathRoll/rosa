@@ -1,6 +1,10 @@
 {
   "spot": "gazebbo",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.1762,
+    34.8
+  ],
   "bearing_seaward_deg": 287.0,
   "nearshore_depth_m": 103.0,
   "offshore_depth_m": 162.0,

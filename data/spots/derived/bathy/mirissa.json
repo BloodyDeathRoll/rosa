@@ -1,6 +1,10 @@
 {
   "spot": "mirissa",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    5.9396,
+    80.4585
+  ],
   "bearing_seaward_deg": 185.0,
   "nearshore_depth_m": 3.0,
   "offshore_depth_m": 1895.0,

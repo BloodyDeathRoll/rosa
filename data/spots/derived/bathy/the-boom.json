@@ -1,6 +1,10 @@
 {
   "spot": "the-boom",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    12.6322,
+    -87.3634
+  ],
   "bearing_seaward_deg": 240.0,
   "nearshore_depth_m": -2.0,
   "offshore_depth_m": 55.0,

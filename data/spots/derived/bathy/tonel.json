@@ -1,6 +1,10 @@
 {
   "spot": "tonel",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    37.007,
+    -8.946
+  ],
   "bearing_seaward_deg": 225.0,
   "nearshore_depth_m": 4.0,
   "offshore_depth_m": 507.0,

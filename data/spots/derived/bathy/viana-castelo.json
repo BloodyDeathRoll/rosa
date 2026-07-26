@@ -1,0 +1,69 @@
+{
+  "spot": "viana-castelo",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    41.6646,
+    -8.8246
+  ],
+  "bearing_seaward_deg": 274.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 91.0,
+  "mean_slope_m_per_km": 4.96,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.66476,
+      "lon": -8.8276,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.66491,
+      "lon": -8.8306,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.66523,
+      "lon": -8.83661,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.66585,
+      "lon": -8.84862,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.66648,
+      "lon": -8.86063,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.66772,
+      "lon": -8.88465,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.66958,
+      "lon": -8.92068,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.67204,
+      "lon": -8.96872,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.67569,
+      "lon": -9.0408,
+      "depth_m": 91.0
+    }
+  ]
+}

@@ -1,6 +1,10 @@
 {
   "spot": "matapalo-osa",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    8.37,
+    -83.283
+  ],
   "bearing_seaward_deg": 150.0,
   "nearshore_depth_m": 43.0,
   "offshore_depth_m": 942.0,

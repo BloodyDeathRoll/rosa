@@ -1,6 +1,10 @@
 {
   "spot": "tsurigasaki",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    35.373,
+    140.394
+  ],
   "bearing_seaward_deg": 90.0,
   "nearshore_depth_m": 5.0,
   "offshore_depth_m": 36.0,

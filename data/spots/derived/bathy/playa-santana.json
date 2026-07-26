@@ -1,6 +1,10 @@
 {
   "spot": "playa-santana",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    11.4445,
+    -86.0905
+  ],
   "bearing_seaward_deg": 235.0,
   "nearshore_depth_m": -1.0,
   "offshore_depth_m": 71.0,

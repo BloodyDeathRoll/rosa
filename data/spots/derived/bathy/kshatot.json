@@ -1,6 +1,10 @@
 {
   "spot": "kshatot",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.18111,
+    34.80228
+  ],
   "bearing_seaward_deg": 287.0,
   "nearshore_depth_m": 4.0,
   "offshore_depth_m": 161.0,

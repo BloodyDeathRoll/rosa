@@ -1,6 +1,10 @@
 {
   "spot": "zavial",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    37.046,
+    -8.8675
+  ],
   "bearing_seaward_deg": 185.0,
   "nearshore_depth_m": 3.0,
   "offshore_depth_m": 116.0,

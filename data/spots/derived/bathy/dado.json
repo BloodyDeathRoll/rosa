@@ -1,6 +1,10 @@
 {
   "spot": "dado",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.7936,
+    34.9546
+  ],
   "bearing_seaward_deg": 276.0,
   "nearshore_depth_m": 7.0,
   "offshore_depth_m": 946.0,

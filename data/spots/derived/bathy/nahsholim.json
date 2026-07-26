@@ -1,6 +1,10 @@
 {
   "spot": "nahsholim",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.6137,
+    34.9137
+  ],
   "bearing_seaward_deg": 275.0,
   "nearshore_depth_m": 24.0,
   "offshore_depth_m": 641.0,

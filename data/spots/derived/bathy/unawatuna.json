@@ -1,6 +1,10 @@
 {
   "spot": "unawatuna",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    6.0015,
+    80.2459
+  ],
   "bearing_seaward_deg": 200.0,
   "nearshore_depth_m": 9.0,
   "offshore_depth_m": 63.0,

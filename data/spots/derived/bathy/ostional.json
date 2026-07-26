@@ -1,6 +1,10 @@
 {
   "spot": "ostional",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    9.9938,
+    -85.7054
+  ],
   "bearing_seaward_deg": 250.0,
   "nearshore_depth_m": 10.0,
   "offshore_depth_m": 494.0,

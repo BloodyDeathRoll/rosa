@@ -1,6 +1,10 @@
 {
   "spot": "sticks",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    5.97503,
+    80.35569
+  ],
   "bearing_seaward_deg": 185.0,
   "nearshore_depth_m": -10.0,
   "offshore_depth_m": 425.0,

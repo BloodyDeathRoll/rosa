@@ -1,6 +1,10 @@
 {
   "spot": "crystal-beach",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    15.0215,
+    120.063
+  ],
   "bearing_seaward_deg": 260.0,
   "nearshore_depth_m": 2.0,
   "offshore_depth_m": 1239.0,

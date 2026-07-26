@@ -1,6 +1,10 @@
 {
   "spot": "salsa-brava",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    9.6617,
+    -82.7443
+  ],
   "bearing_seaward_deg": 55.0,
   "nearshore_depth_m": 8.0,
   "offshore_depth_m": 1050.0,

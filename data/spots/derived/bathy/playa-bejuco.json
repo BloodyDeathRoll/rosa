@@ -1,6 +1,10 @@
 {
   "spot": "playa-bejuco",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    9.463,
+    -84.44
+  ],
   "bearing_seaward_deg": 230.0,
   "nearshore_depth_m": 28.0,
   "offshore_depth_m": 80.0,

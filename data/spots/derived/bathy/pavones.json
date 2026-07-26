@@ -1,6 +1,10 @@
 {
   "spot": "pavones",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    8.396,
+    -83.1411
+  ],
   "bearing_seaward_deg": 250.0,
   "nearshore_depth_m": 7.0,
   "offshore_depth_m": 451.0,

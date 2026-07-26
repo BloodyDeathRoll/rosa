@@ -1,6 +1,10 @@
 {
   "spot": "pacifico",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    9.8715,
+    126.1165
+  ],
   "bearing_seaward_deg": 70.0,
   "nearshore_depth_m": 96.0,
   "offshore_depth_m": 2516.0,

@@ -1,6 +1,10 @@
 {
   "spot": "el-transito",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    12.0235,
+    -86.695
+  ],
   "bearing_seaward_deg": 235.0,
   "nearshore_depth_m": 14.0,
   "offshore_depth_m": 71.0,

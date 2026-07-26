@@ -1,6 +1,10 @@
 {
   "spot": "praia-grande",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    38.817,
+    -9.479
+  ],
   "bearing_seaward_deg": 275.0,
   "nearshore_depth_m": 11.0,
   "offshore_depth_m": 92.0,

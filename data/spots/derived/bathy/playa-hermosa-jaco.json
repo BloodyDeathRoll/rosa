@@ -1,6 +1,10 @@
 {
   "spot": "playa-hermosa-jaco",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    9.5715,
+    -84.6042
+  ],
   "bearing_seaward_deg": 235.0,
   "nearshore_depth_m": 13.0,
   "offshore_depth_m": 178.0,

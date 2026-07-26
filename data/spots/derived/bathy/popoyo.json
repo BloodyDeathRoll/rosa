@@ -1,6 +1,10 @@
 {
   "spot": "popoyo",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    11.452,
+    -86.102
+  ],
   "bearing_seaward_deg": 230.0,
   "nearshore_depth_m": 10.0,
   "offshore_depth_m": 71.0,

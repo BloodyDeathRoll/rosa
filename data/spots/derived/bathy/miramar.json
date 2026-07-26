@@ -1,6 +1,10 @@
 {
   "spot": "miramar",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    12.145,
+    -86.75
+  ],
   "bearing_seaward_deg": 250.0,
   "nearshore_depth_m": -5.0,
   "offshore_depth_m": 52.0,

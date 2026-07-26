@@ -1,6 +1,10 @@
 {
   "spot": "sabang-baler",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    15.762,
+    121.567
+  ],
   "bearing_seaward_deg": 50.0,
   "nearshore_depth_m": 2.0,
   "offshore_depth_m": 104.0,

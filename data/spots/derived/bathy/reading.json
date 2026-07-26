@@ -1,6 +1,10 @@
 {
   "spot": "reading",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.10944,
+    34.77653
+  ],
   "bearing_seaward_deg": 288.0,
   "nearshore_depth_m": 7.0,
   "offshore_depth_m": 158.0,

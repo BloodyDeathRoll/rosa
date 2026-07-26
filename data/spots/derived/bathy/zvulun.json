@@ -1,6 +1,10 @@
 {
   "spot": "zvulun",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.173,
+    34.7995
+  ],
   "bearing_seaward_deg": 288.0,
   "nearshore_depth_m": 247.0,
   "offshore_depth_m": 161.0,

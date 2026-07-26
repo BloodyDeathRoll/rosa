@@ -1,6 +1,10 @@
 {
   "spot": "olga",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.4391,
+    34.878
+  ],
   "bearing_seaward_deg": 283.0,
   "nearshore_depth_m": 4.0,
   "offshore_depth_m": 272.0,

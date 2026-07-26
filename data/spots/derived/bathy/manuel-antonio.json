@@ -1,6 +1,10 @@
 {
   "spot": "manuel-antonio",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    9.3861,
+    -84.1542
+  ],
   "bearing_seaward_deg": 215.0,
   "nearshore_depth_m": 17.0,
   "offshore_depth_m": 143.0,

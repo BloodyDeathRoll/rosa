@@ -1,6 +1,10 @@
 {
   "spot": "habonim",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.6566,
+    34.9262
+  ],
   "bearing_seaward_deg": 276.0,
   "nearshore_depth_m": 19.0,
   "offshore_depth_m": 576.0,

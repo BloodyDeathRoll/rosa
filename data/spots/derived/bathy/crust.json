@@ -1,0 +1,69 @@
+{
+  "spot": "crust",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    5.9711,
+    80.3651
+  ],
+  "bearing_seaward_deg": 209.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 340.0,
+  "mean_slope_m_per_km": 19.77,
+  "land_samples": 2,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 5.96913,
+      "lon": 80.364,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 5.96717,
+      "lon": 80.36291,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 5.96323,
+      "lon": 80.36072,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 5.95537,
+      "lon": 80.35633,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 5.9475,
+      "lon": 80.35195,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 5.93177,
+      "lon": 80.34318,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 5.90817,
+      "lon": 80.33003,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 5.87671,
+      "lon": 80.3125,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 5.82951,
+      "lon": 80.28621,
+      "depth_m": 340.0
+    }
+  ]
+}

@@ -1,6 +1,10 @@
 {
   "spot": "kiryat-yam",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.8495,
+    35.0623
+  ],
   "bearing_seaward_deg": 294.0,
   "nearshore_depth_m": 6.0,
   "offshore_depth_m": 181.0,

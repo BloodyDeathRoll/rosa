@@ -1,6 +1,10 @@
 {
   "spot": "bagasbas",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    14.134,
+    122.9855
+  ],
   "bearing_seaward_deg": 30.0,
   "nearshore_depth_m": 3.0,
   "offshore_depth_m": 44.0,

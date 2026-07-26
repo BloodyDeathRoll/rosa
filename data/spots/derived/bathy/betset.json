@@ -1,6 +1,10 @@
 {
   "spot": "betset",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    33.0805,
+    35.1048
+  ],
   "bearing_seaward_deg": 272.0,
   "nearshore_depth_m": 10.0,
   "offshore_depth_m": 853.0,

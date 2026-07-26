@@ -1,6 +1,10 @@
 {
   "spot": "dor",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.6072,
+    34.9127
+  ],
   "bearing_seaward_deg": 266.0,
   "nearshore_depth_m": 28.0,
   "offshore_depth_m": 574.0,

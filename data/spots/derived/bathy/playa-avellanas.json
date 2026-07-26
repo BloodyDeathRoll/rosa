@@ -1,6 +1,10 @@
 {
   "spot": "playa-avellanas",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    10.2089,
+    -85.855
+  ],
   "bearing_seaward_deg": 260.0,
   "nearshore_depth_m": 16.0,
   "offshore_depth_m": 460.0,

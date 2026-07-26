@@ -1,6 +1,10 @@
 {
   "spot": "puerto-sandino",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    12.193,
+    -86.774
+  ],
   "bearing_seaward_deg": 220.0,
   "nearshore_depth_m": 6.0,
   "offshore_depth_m": 48.0,

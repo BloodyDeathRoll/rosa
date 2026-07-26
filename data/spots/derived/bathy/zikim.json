@@ -1,6 +1,10 @@
 {
   "spot": "zikim",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    31.6135,
+    34.5025
+  ],
   "bearing_seaward_deg": 303.0,
   "nearshore_depth_m": 8.0,
   "offshore_depth_m": 127.0,

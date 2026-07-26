@@ -1,6 +1,10 @@
 {
   "spot": "bat-galim",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.8373,
+    34.9788
+  ],
   "bearing_seaward_deg": 344.0,
   "nearshore_depth_m": 8.0,
   "offshore_depth_m": 125.0,

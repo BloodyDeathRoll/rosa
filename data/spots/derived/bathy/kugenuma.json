@@ -1,6 +1,10 @@
 {
   "spot": "kugenuma",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    35.3145,
+    139.47
+  ],
   "bearing_seaward_deg": 185.0,
   "nearshore_depth_m": 3.0,
   "offshore_depth_m": 1010.0,

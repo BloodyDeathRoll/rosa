@@ -1,6 +1,10 @@
 {
   "spot": "atlit",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.7084,
+    34.9408
+  ],
   "bearing_seaward_deg": 306.0,
   "nearshore_depth_m": 6.0,
   "offshore_depth_m": 765.0,

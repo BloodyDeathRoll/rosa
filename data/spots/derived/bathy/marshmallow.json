@@ -1,6 +1,10 @@
 {
   "spot": "marshmallow",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    5.97236,
+    80.35919
+  ],
   "bearing_seaward_deg": 214.0,
   "nearshore_depth_m": -3.0,
   "offshore_depth_m": 161.0,

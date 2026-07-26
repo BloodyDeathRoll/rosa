@@ -1,65 +1,69 @@
 {
   "spot": "midigama",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    5.96501,
+    80.38891
+  ],
   "bearing_seaward_deg": 195.0,
-  "nearshore_depth_m": 4.0,
-  "offshore_depth_m": 1241.0,
-  "mean_slope_m_per_km": 69.69,
-  "land_samples": 0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 712.0,
+  "mean_slope_m_per_km": 40.45,
+  "land_samples": 1,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 5.95653,
-      "lon": 80.38641,
-      "depth_m": 4.0
+      "lat": 5.96284,
+      "lon": 80.38832,
+      "depth_m": -6.0
     },
     {
       "dist_km": 0.5,
-      "lat": 5.95436,
-      "lon": 80.38583,
-      "depth_m": 7.0
+      "lat": 5.96067,
+      "lon": 80.38774,
+      "depth_m": 1.0
     },
     {
       "dist_km": 1.0,
-      "lat": 5.95001,
-      "lon": 80.38466,
-      "depth_m": 16.0
+      "lat": 5.95632,
+      "lon": 80.38657,
+      "depth_m": 4.0
     },
     {
       "dist_km": 2.0,
-      "lat": 5.94133,
-      "lon": 80.38232,
-      "depth_m": 38.0
+      "lat": 5.94764,
+      "lon": 80.38423,
+      "depth_m": 23.0
     },
     {
       "dist_km": 3.0,
-      "lat": 5.93264,
-      "lon": 80.37998,
-      "depth_m": 54.0
+      "lat": 5.93895,
+      "lon": 80.38189,
+      "depth_m": 44.0
     },
     {
       "dist_km": 5.0,
-      "lat": 5.91527,
-      "lon": 80.3753,
-      "depth_m": 68.0
+      "lat": 5.92158,
+      "lon": 80.37721,
+      "depth_m": 64.0
     },
     {
       "dist_km": 8.0,
-      "lat": 5.88921,
-      "lon": 80.36828,
-      "depth_m": 59.0
+      "lat": 5.89552,
+      "lon": 80.37019,
+      "depth_m": 65.0
     },
     {
       "dist_km": 12.0,
-      "lat": 5.85446,
-      "lon": 80.35892,
-      "depth_m": 259.0
+      "lat": 5.86077,
+      "lon": 80.36083,
+      "depth_m": 217.0
     },
     {
       "dist_km": 18.0,
-      "lat": 5.80234,
-      "lon": 80.34489,
-      "depth_m": 1241.0
+      "lat": 5.80865,
+      "lon": 80.3468,
+      "depth_m": 712.0
     }
   ]
 }

@@ -1,0 +1,69 @@
+{
+  "spot": "ingrina",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    37.0466,
+    -8.8791
+  ],
+  "bearing_seaward_deg": 180.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 121.0,
+  "mean_slope_m_per_km": 7.27,
+  "land_samples": 1,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.04435,
+      "lon": -8.8791,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.0421,
+      "lon": -8.8791,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.03761,
+      "lon": -8.8791,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.02861,
+      "lon": -8.8791,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.01962,
+      "lon": -8.8791,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.00163,
+      "lon": -8.8791,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.97465,
+      "lon": -8.8791,
+      "depth_m": 102.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.93868,
+      "lon": -8.8791,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.88472,
+      "lon": -8.8791,
+      "depth_m": 121.0
+    }
+  ]
+}

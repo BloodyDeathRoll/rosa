@@ -1,65 +1,69 @@
 {
   "spot": "hilton",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.0887112,
+    34.7675748
+  ],
   "bearing_seaward_deg": 295.0,
   "nearshore_depth_m": 7.0,
-  "offshore_depth_m": 153.0,
-  "mean_slope_m_per_km": 8.23,
+  "offshore_depth_m": 157.0,
+  "mean_slope_m_per_km": 8.45,
   "land_samples": 0,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 32.09105,
-      "lon": 34.76739,
+      "lat": 32.08966,
+      "lon": 34.76517,
       "depth_m": 7.0
     },
     {
       "dist_km": 0.5,
-      "lat": 32.092,
-      "lon": 34.76499,
-      "depth_m": 8.0
+      "lat": 32.09061,
+      "lon": 34.76276,
+      "depth_m": 9.0
     },
     {
       "dist_km": 1.0,
-      "lat": 32.0939,
-      "lon": 34.76018,
-      "depth_m": 13.0
+      "lat": 32.09251,
+      "lon": 34.75795,
+      "depth_m": 15.0
     },
     {
       "dist_km": 2.0,
-      "lat": 32.0977,
-      "lon": 34.75056,
-      "depth_m": 25.0
+      "lat": 32.09631,
+      "lon": 34.74833,
+      "depth_m": 26.0
     },
     {
       "dist_km": 3.0,
-      "lat": 32.1015,
-      "lon": 34.74093,
-      "depth_m": 32.0
+      "lat": 32.10011,
+      "lon": 34.73871,
+      "depth_m": 33.0
     },
     {
       "dist_km": 5.0,
-      "lat": 32.10909,
-      "lon": 34.72169,
+      "lat": 32.10771,
+      "lon": 34.71946,
       "depth_m": 40.0
     },
     {
       "dist_km": 8.0,
-      "lat": 32.12048,
-      "lon": 34.69281,
-      "depth_m": 45.0
+      "lat": 32.11909,
+      "lon": 34.69059,
+      "depth_m": 46.0
     },
     {
       "dist_km": 12.0,
-      "lat": 32.13566,
-      "lon": 34.6543,
-      "depth_m": 67.0
+      "lat": 32.13427,
+      "lon": 34.65207,
+      "depth_m": 69.0
     },
     {
       "dist_km": 18.0,
-      "lat": 32.15839,
-      "lon": 34.5965,
-      "depth_m": 153.0
+      "lat": 32.15701,
+      "lon": 34.59428,
+      "depth_m": 157.0
     }
   ]
 }

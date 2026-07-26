@@ -1,6 +1,10 @@
 {
   "spot": "chigasaki",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    35.318,
+    139.404
+  ],
   "bearing_seaward_deg": 180.0,
   "nearshore_depth_m": 4.0,
   "offshore_depth_m": 525.0,

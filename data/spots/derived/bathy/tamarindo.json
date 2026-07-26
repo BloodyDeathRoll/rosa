@@ -1,6 +1,10 @@
 {
   "spot": "tamarindo",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    10.2941,
+    -85.8537
+  ],
   "bearing_seaward_deg": 250.0,
   "nearshore_depth_m": 29.0,
   "offshore_depth_m": 127.0,

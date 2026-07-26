@@ -1,6 +1,10 @@
 {
   "spot": "palmachim",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    31.9261,
+    34.6963
+  ],
   "bearing_seaward_deg": 300.0,
   "nearshore_depth_m": 21.0,
   "offshore_depth_m": 245.0,

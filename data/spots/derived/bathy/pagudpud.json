@@ -1,6 +1,10 @@
 {
   "spot": "pagudpud",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    18.6235,
+    120.8635
+  ],
   "bearing_seaward_deg": 30.0,
   "nearshore_depth_m": -6.0,
   "offshore_depth_m": 2295.0,

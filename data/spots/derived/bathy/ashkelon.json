@@ -1,6 +1,10 @@
 {
   "spot": "ashkelon",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    31.6645,
+    34.5441
+  ],
   "bearing_seaward_deg": 303.0,
   "nearshore_depth_m": 9.0,
   "offshore_depth_m": 103.0,

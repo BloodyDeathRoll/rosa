@@ -1,6 +1,10 @@
 {
   "spot": "kodomonokuni",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    31.80872,
+    131.462
+  ],
   "bearing_seaward_deg": 95.0,
   "nearshore_depth_m": -7.0,
   "offshore_depth_m": 83.0,

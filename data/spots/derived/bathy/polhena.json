@@ -1,6 +1,10 @@
 {
   "spot": "polhena",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    5.933,
+    80.538
+  ],
   "bearing_seaward_deg": 185.0,
   "nearshore_depth_m": 6.0,
   "offshore_depth_m": 2051.0,

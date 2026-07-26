@@ -1,6 +1,10 @@
 {
   "spot": "playa-negra",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    10.17,
+    -85.822
+  ],
   "bearing_seaward_deg": 270.0,
   "nearshore_depth_m": 236.0,
   "offshore_depth_m": 399.0,

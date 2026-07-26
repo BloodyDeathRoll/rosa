@@ -1,6 +1,10 @@
 {
   "spot": "santa-teresa",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    9.6424,
+    -85.1697
+  ],
   "bearing_seaward_deg": 250.0,
   "nearshore_depth_m": 13.0,
   "offshore_depth_m": 198.0,

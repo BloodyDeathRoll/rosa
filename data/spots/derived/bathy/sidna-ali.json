@@ -1,6 +1,10 @@
 {
   "spot": "sidna-ali",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.196,
+    34.8035
+  ],
   "bearing_seaward_deg": 287.0,
   "nearshore_depth_m": 9.0,
   "offshore_depth_m": 169.0,

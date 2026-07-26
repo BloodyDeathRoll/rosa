@@ -1,6 +1,10 @@
 {
   "spot": "dromi",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.1578,
+    34.7936
+  ],
   "bearing_seaward_deg": 282.0,
   "nearshore_depth_m": 5.0,
   "offshore_depth_m": 159.0,

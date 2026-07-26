@@ -1,6 +1,10 @@
 {
   "spot": "marbella",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    9.9,
+    -85.755
+  ],
   "bearing_seaward_deg": 255.0,
   "nearshore_depth_m": 119.0,
   "offshore_depth_m": 1190.0,

@@ -1,6 +1,10 @@
 {
   "spot": "esterillos",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    9.5155,
+    -84.5175
+  ],
   "bearing_seaward_deg": 230.0,
   "nearshore_depth_m": 5.0,
   "offshore_depth_m": 49.0,

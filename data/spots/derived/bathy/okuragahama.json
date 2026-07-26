@@ -1,6 +1,10 @@
 {
   "spot": "okuragahama",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.4045,
+    131.6455
+  ],
   "bearing_seaward_deg": 110.0,
   "nearshore_depth_m": -0.0,
   "offshore_depth_m": 178.0,

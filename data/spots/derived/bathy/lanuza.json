@@ -1,6 +1,10 @@
 {
   "spot": "lanuza",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    9.2355,
+    126.06
+  ],
   "bearing_seaward_deg": 10.0,
   "nearshore_depth_m": -5.0,
   "offshore_depth_m": 67.0,

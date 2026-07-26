@@ -1,0 +1,69 @@
+{
+  "spot": "cantinho-bah-a",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    39.3679,
+    -9.3396
+  ],
+  "bearing_seaward_deg": 295.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 31.0,
+  "mean_slope_m_per_km": 1.75,
+  "land_samples": 1,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 39.36885,
+      "lon": -9.34224,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 39.3698,
+      "lon": -9.34487,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 39.3717,
+      "lon": -9.35014,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 39.3755,
+      "lon": -9.36069,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 39.3793,
+      "lon": -9.37123,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 39.38689,
+      "lon": -9.39233,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 39.39828,
+      "lon": -9.42398,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 39.41344,
+      "lon": -9.4662,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 39.43616,
+      "lon": -9.52956,
+      "depth_m": 31.0
+    }
+  ]
+}

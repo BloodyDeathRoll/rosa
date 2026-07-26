@@ -1,6 +1,10 @@
 {
   "spot": "ollies-point",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    10.8425,
+    -85.8146
+  ],
   "bearing_seaward_deg": 250.0,
   "nearshore_depth_m": 30.0,
   "offshore_depth_m": 99.0,

@@ -1,6 +1,10 @@
 {
   "spot": "cemento",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    15.7501,
+    121.6368
+  ],
   "bearing_seaward_deg": 40.0,
   "nearshore_depth_m": 7.0,
   "offshore_depth_m": 202.0,

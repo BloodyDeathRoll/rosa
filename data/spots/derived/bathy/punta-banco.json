@@ -1,6 +1,10 @@
 {
   "spot": "punta-banco",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    8.353,
+    -83.142
+  ],
   "bearing_seaward_deg": 235.0,
   "nearshore_depth_m": 22.0,
   "offshore_depth_m": 980.0,

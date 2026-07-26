@@ -1,6 +1,10 @@
 {
   "spot": "weligama",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    5.97186,
+    80.43794
+  ],
   "bearing_seaward_deg": 209.0,
   "nearshore_depth_m": -10.0,
   "offshore_depth_m": 558.0,

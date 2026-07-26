@@ -28,6 +28,7 @@ from typing import Protocol
 
 import httpx
 
+from .buoys import haversine_km
 from .models import Spot
 
 EARTH_R_KM = 6371.0088
@@ -37,6 +38,11 @@ MAX_LOCATIONS_PER_REQ = 100
 # Seaward ray sample distances (km from the spot along the shore-normal). Dense nearshore to
 # catch the shoaling gradient GEBCO can resolve, out to ~18 km for a deep-water reference.
 RAY_DISTANCES_KM: tuple[float, ...] = (0.25, 0.5, 1.0, 2.0, 3.0, 5.0, 8.0, 12.0, 18.0)
+
+# How far a spot may drift before its committed profile counts as stale. An order of
+# magnitude above the samples' 5 dp rounding (~1 m) and far below GEBCO's ~460 m cell,
+# so it never fires on noise and always fires on a real pin correction.
+ORIGIN_TOLERANCE_M = 10.0
 
 
 @dataclass(frozen=True, slots=True)
@@ -52,6 +58,12 @@ class DepthProfile:
     spot_id: str
     bearing_seaward_deg: float
     samples: tuple[DepthSample, ...]
+    # The pin this ray was cast from. Without it a profile is silently keyed to
+    # coordinates it doesn't record, so moving a spot leaves a stale profile that
+    # nothing can detect later - it just feeds the wrong depths into h_break.
+    # None only for profiles written before the field existed.
+    origin_lat: float | None = None
+    origin_lon: float | None = None
 
     @property
     def nearshore_depth_m(self) -> float:
@@ -83,14 +95,29 @@ class DepthProfile:
             DepthSample(dist_km=s["dist_km"], lat=s["lat"], lon=s["lon"], depth_m=s["depth_m"])
             for s in d["samples"]
         )
+        origin = d.get("origin") or (None, None)
         return cls(
-            spot_id=d["spot"], bearing_seaward_deg=d["bearing_seaward_deg"], samples=samples
+            spot_id=d["spot"],
+            bearing_seaward_deg=d["bearing_seaward_deg"],
+            samples=samples,
+            origin_lat=origin[0],
+            origin_lon=origin[1],
         )
+
+    def matches_spot(self, spot: Spot, tol_m: float = ORIGIN_TOLERANCE_M) -> bool:
+        """Was this profile cast from where the spot sits now? False once a pin moves
+        (or for a pre-origin profile, which can't prove it) - i.e. time to re-cut."""
+        if self.origin_lat is None or self.origin_lon is None:
+            return False
+        drift_km = haversine_km(self.origin_lat, self.origin_lon, spot.lat, spot.lon)
+        return drift_km * 1000.0 <= tol_m
 
     def to_dict(self) -> dict:
         return {
             "spot": self.spot_id,
             "source": "gebco2020 via opentopodata",
+            # full precision, not the samples' 5 dp: this is an identity, not a measurement
+            "origin": [self.origin_lat, self.origin_lon],
             "bearing_seaward_deg": round(self.bearing_seaward_deg, 1),
             "nearshore_depth_m": round(self.nearshore_depth_m, 1),
             "offshore_depth_m": round(self.offshore_depth_m, 1),
@@ -246,4 +273,10 @@ def build_profile(source: BathymetrySource, spot: Spot) -> DepthProfile:
         )
         for (lat, lon, dist), elev in zip(pts, elevations, strict=True)
     )
-    return DepthProfile(spot_id=spot.id, bearing_seaward_deg=seaward, samples=samples)
+    return DepthProfile(
+        spot_id=spot.id,
+        bearing_seaward_deg=seaward,
+        samples=samples,
+        origin_lat=spot.lat,
+        origin_lon=spot.lon,
+    )

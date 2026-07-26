@@ -1,6 +1,10 @@
 {
   "spot": "ribeira-dilhas",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    38.9885,
+    -9.4225
+  ],
   "bearing_seaward_deg": 290.0,
   "nearshore_depth_m": 9.0,
   "offshore_depth_m": 96.0,

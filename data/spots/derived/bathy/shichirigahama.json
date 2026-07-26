@@ -1,6 +1,10 @@
 {
   "spot": "shichirigahama",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    35.3055,
+    139.512
+  ],
   "bearing_seaward_deg": 200.0,
   "nearshore_depth_m": 6.0,
   "offshore_depth_m": 1010.0,

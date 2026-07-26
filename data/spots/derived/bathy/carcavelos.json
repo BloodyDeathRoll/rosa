@@ -1,6 +1,10 @@
 {
   "spot": "carcavelos",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    38.678,
+    -9.336
+  ],
   "bearing_seaward_deg": 190.0,
   "nearshore_depth_m": 8.0,
   "offshore_depth_m": 117.0,

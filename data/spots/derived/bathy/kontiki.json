@@ -1,6 +1,10 @@
 {
   "spot": "kontiki",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.3024,
+    34.8402
+  ],
   "bearing_seaward_deg": 283.0,
   "nearshore_depth_m": 13.0,
   "offshore_depth_m": 167.0,

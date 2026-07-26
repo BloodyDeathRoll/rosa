@@ -1,6 +1,10 @@
 {
   "spot": "gas-station",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    5.96867,
+    80.36842
+  ],
   "bearing_seaward_deg": 185.0,
   "nearshore_depth_m": -9.0,
   "offshore_depth_m": 699.0,

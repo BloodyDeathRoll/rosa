@@ -1,6 +1,10 @@
 {
   "spot": "playa-hermosa-sjds",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    11.2025,
+    -85.836
+  ],
   "bearing_seaward_deg": 230.0,
   "nearshore_depth_m": -2.0,
   "offshore_depth_m": 68.0,

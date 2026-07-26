@@ -7,7 +7,7 @@ SPOTS_DIR = Path(__file__).resolve().parents[2] / "data" / "spots"
 
 def test_loads_israel_seed():
     spots = load_spots_file(SPOTS_DIR / "israel.yaml")
-    assert len(spots) == 42
+    assert len(spots) == 41
 
 
 def test_beit_yanai_fields():
@@ -54,3 +54,21 @@ def test_derived_directions_vary():
     spots = load_spots(SPOTS_DIR)
     dirs = {round(s.offshore_direction) for s in spots.values()}
     assert len(dirs) > 5  # not all pinned to a single default angle
+
+
+def test_committed_bathy_profiles_match_their_spots():
+    """Every committed profile belongs to a live spot AND was cast from where that spot
+    sits now. Catches the two ways bathymetry rots: a removed spot leaving an orphan
+    file, and a moved pin leaving depths sampled somewhere else."""
+    from rosa_pipeline.bathymetry import load_profile
+
+    bathy_dir = SPOTS_DIR / "derived" / "bathy"
+    spots = load_spots(SPOTS_DIR)
+    # the captured elevations map shares the directory but is not a profile
+    ids = sorted(p.stem for p in bathy_dir.glob("*.json") if p.stem != "bathy_elevations")
+
+    orphans = [i for i in ids if i not in spots]
+    assert orphans == [], f"profiles with no spot: {orphans}"
+
+    stale = [i for i in ids if not load_profile(i, bathy_dir).matches_spot(spots[i])]
+    assert stale == [], f"profiles cast from superseded coordinates - re-cut them: {stale}"

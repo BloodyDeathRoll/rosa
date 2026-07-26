@@ -1,0 +1,69 @@
+{
+  "spot": "sentinela",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    18.6245,
+    121.097
+  ],
+  "bearing_seaward_deg": 288.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 801.0,
+  "mean_slope_m_per_km": 45.35,
+  "land_samples": 1,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.62519,
+      "lon": 121.09474,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.62589,
+      "lon": 121.09249,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.62728,
+      "lon": 121.08797,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.63006,
+      "lon": 121.07895,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.63284,
+      "lon": 121.06992,
+      "depth_m": 102.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.63839,
+      "lon": 121.05187,
+      "depth_m": 98.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.64672,
+      "lon": 121.02478,
+      "depth_m": 179.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.65782,
+      "lon": 120.98867,
+      "depth_m": 355.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.67445,
+      "lon": 120.93449,
+      "depth_m": 801.0
+    }
+  ]
+}

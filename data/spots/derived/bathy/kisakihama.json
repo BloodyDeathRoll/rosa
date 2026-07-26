@@ -1,6 +1,10 @@
 {
   "spot": "kisakihama",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    31.828,
+    131.45306
+  ],
   "bearing_seaward_deg": 100.0,
   "nearshore_depth_m": 2.0,
   "offshore_depth_m": 77.0,

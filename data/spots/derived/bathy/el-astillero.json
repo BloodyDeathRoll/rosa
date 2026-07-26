@@ -1,6 +1,10 @@
 {
   "spot": "el-astillero",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    11.5125,
+    -86.168
+  ],
   "bearing_seaward_deg": 230.0,
   "nearshore_depth_m": 41.0,
   "offshore_depth_m": 70.0,

@@ -1,6 +1,10 @@
 {
   "spot": "calicoan-abcd",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    10.979,
+    125.778
+  ],
   "bearing_seaward_deg": 130.0,
   "nearshore_depth_m": 2.0,
   "offshore_depth_m": 247.0,

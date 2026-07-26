@@ -1,6 +1,10 @@
 {
   "spot": "playa-colorado",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    11.411,
+    -86.061
+  ],
   "bearing_seaward_deg": 235.0,
   "nearshore_depth_m": 4.0,
   "offshore_depth_m": 79.0,

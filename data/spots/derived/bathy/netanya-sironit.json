@@ -1,6 +1,10 @@
 {
   "spot": "netanya-sironit",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.3266,
+    34.8456
+  ],
   "bearing_seaward_deg": 282.0,
   "nearshore_depth_m": 13.0,
   "offshore_depth_m": 174.0,

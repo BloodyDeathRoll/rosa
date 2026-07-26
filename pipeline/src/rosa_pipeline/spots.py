@@ -1,11 +1,18 @@
 """Load the spot database (data/spots/*.yaml) into Spot models.
 
-Two per-spot fields are derived when not given explicitly, so a straight coast of
-40 beaches needn't hand-author 40 orientations/sample points:
+A spot's ``lat``/``lon`` is the SINGLE place its location is written down. Everything
+else positional is derived from it, so correcting a pin never means hunting for copies
+of the same coordinate - the deep-water sample follows the spot, and a stale bathymetry
+profile is detected (see ``DepthProfile.matches_spot``) rather than silently believed.
 
-* ``offshore_point`` - each spot samples deep water at its own coordinate pushed
-  ~0.06° west, so neighbours that fall in different marine-grid cells get distinct
-  forecasts (a shared point made them identical). Override with ``offshore_point``.
+Fields derived when not given explicitly, so a straight coast of 40 beaches needn't
+hand-author 40 orientations/sample points:
+
+* ``offshore_point`` - never stored. Each spot samples deep water at its own coordinate
+  pushed ~0.06° west, so neighbours in different marine-grid cells get distinct forecasts
+  (a shared point made them identical). Aim it elsewhere with ``offshore_km`` (+ optional
+  ``offshore_bearing``, default = the seaward normal), which is relative to the pin -
+  a coast that doesn't face west needs this.
 * ``offshore_direction`` - normally set explicitly per spot in the DB (derived from
   the OSM coastline shore-normal). When absent, falls back to the local tangent
   between the neighbouring spots (file order is N→S) minus 90° for this W-facing
@@ -23,6 +30,7 @@ from typing import Any
 
 import yaml
 
+from .bathymetry import destination  # great-circle geodesy, shared rather than re-derived
 from .models import Spot, SpotCam
 
 OFFSHORE_LON_OFFSET = 0.06  # deg west (~5.5 km) to a deep-water grid cell
@@ -55,6 +63,23 @@ def _derive_offshore_direction(rows: list[dict], i: int) -> float:
     return round((tangent - 90.0) % 360.0, 1)
 
 
+def _offshore_point(lat: float, lon: float, raw: dict, shore_normal: float) -> tuple[float, float]:
+    """Deep-water sample point, always expressed RELATIVE to the spot's own pin.
+
+    ``offshore_km`` (with ``offshore_bearing``, defaulting to the seaward normal) casts a
+    ray out from the spot; without it the spot falls back to the plain westward push, which
+    only suits a west-facing coast. Deliberately never an absolute coordinate: a spot's
+    lat/lon is the single place its location is written down, so correcting a pin carries
+    the deep-water sample with it instead of leaving the forecast read from where the spot
+    used to be.
+    """
+    if "offshore_km" in raw:
+        bearing = float(raw.get("offshore_bearing", shore_normal))
+        out_lat, out_lon = destination(lat, lon, bearing, float(raw["offshore_km"]))
+        return round(out_lat, 4), round(out_lon, 4)
+    return round(lat, 4), round(lon - OFFSHORE_LON_OFFSET, 4)
+
+
 def _region_from_stem(stem: str) -> str:
     """Filename "sri-lanka" -> display region "Sri Lanka"."""
     return stem.replace("-", " ").title()
@@ -68,11 +93,12 @@ def load_spots_file(path: Path) -> list[Spot]:
     for i, raw in enumerate(rows):
         ideal = raw["ideal"]
         lat, lon = float(raw["lat"]), float(raw["lon"])
-        offshore_point = (
-            _pair(raw["offshore_point"])
-            if "offshore_point" in raw
-            else (round(lat, 4), round(lon - OFFSHORE_LON_OFFSET, 4))
-        )
+        if "offshore_point" in raw:
+            raise ValueError(
+                f"{raw['id']}: offshore_point was removed - it duplicated the spot's "
+                "coordinates and went stale whenever a pin moved. Use offshore_km "
+                "(+ offshore_bearing) so the sample point follows the pin."
+            )
         offshore_direction = (
             float(raw["offshore_direction"])
             if "offshore_direction" in raw
@@ -86,6 +112,7 @@ def load_spots_file(path: Path) -> list[Spot]:
             if "shore_normal" in raw
             else (offshore_direction + 180.0) % 360.0
         )
+        offshore_point = _offshore_point(lat, lon, raw, shore_normal)
         tide_best = raw.get("tide_best")
         if tide_best is not None and tide_best not in ("low", "mid", "high"):
             raise ValueError(f"{raw['id']}: tide_best must be low|mid|high, got {tide_best!r}")

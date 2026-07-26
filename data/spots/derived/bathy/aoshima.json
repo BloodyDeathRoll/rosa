@@ -1,6 +1,10 @@
 {
   "spot": "aoshima",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    31.80414,
+    131.46928
+  ],
   "bearing_seaward_deg": 90.0,
   "nearshore_depth_m": -4.0,
   "offshore_depth_m": 89.0,

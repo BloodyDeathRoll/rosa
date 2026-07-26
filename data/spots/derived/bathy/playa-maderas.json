@@ -1,6 +1,10 @@
 {
   "spot": "playa-maderas",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    11.3035,
+    -85.9245
+  ],
   "bearing_seaward_deg": 260.0,
   "nearshore_depth_m": -8.0,
   "offshore_depth_m": 71.0,

@@ -1,6 +1,10 @@
 {
   "spot": "praia-do-amado",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    37.166,
+    -8.903
+  ],
   "bearing_seaward_deg": 280.0,
   "nearshore_depth_m": 3.0,
   "offshore_depth_m": 140.0,

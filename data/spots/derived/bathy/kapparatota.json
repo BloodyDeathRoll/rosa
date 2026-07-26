@@ -1,0 +1,69 @@
+{
+  "spot": "kapparatota",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    5.9582,
+    80.4086
+  ],
+  "bearing_seaward_deg": 199.0,
+  "nearshore_depth_m": -16.0,
+  "offshore_depth_m": 755.0,
+  "mean_slope_m_per_km": 43.44,
+  "land_samples": 2,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 5.95607,
+      "lon": 80.40786,
+      "depth_m": -16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 5.95395,
+      "lon": 80.40713,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 5.9497,
+      "lon": 80.40566,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 5.94119,
+      "lon": 80.40271,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 5.93269,
+      "lon": 80.39977,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 5.91568,
+      "lon": 80.39388,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 5.89017,
+      "lon": 80.38505,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 5.85616,
+      "lon": 80.37328,
+      "depth_m": 230.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 5.80514,
+      "lon": 80.35563,
+      "depth_m": 755.0
+    }
+  ]
+}

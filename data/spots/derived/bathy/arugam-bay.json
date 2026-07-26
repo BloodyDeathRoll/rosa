@@ -1,65 +1,69 @@
 {
   "spot": "arugam-bay",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    6.83605,
+    81.83991
+  ],
   "bearing_seaward_deg": 115.0,
-  "nearshore_depth_m": 1.0,
-  "offshore_depth_m": 92.0,
-  "mean_slope_m_per_km": 5.13,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 108.0,
+  "mean_slope_m_per_km": 6.31,
   "land_samples": 1,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 6.83905,
-      "lon": 81.83805,
-      "depth_m": 1.0
+      "lat": 6.8351,
+      "lon": 81.84196,
+      "depth_m": -4.0
     },
     {
       "dist_km": 0.5,
-      "lat": 6.8381,
-      "lon": 81.8401,
-      "depth_m": -2.0
-    },
-    {
-      "dist_km": 1.0,
-      "lat": 6.8362,
-      "lon": 81.84421,
+      "lat": 6.83415,
+      "lon": 81.84401,
       "depth_m": 6.0
     },
     {
-      "dist_km": 2.0,
-      "lat": 6.8324,
-      "lon": 81.85242,
-      "depth_m": 9.0
-    },
-    {
-      "dist_km": 3.0,
-      "lat": 6.8286,
-      "lon": 81.86063,
-      "depth_m": 11.0
-    },
-    {
-      "dist_km": 5.0,
-      "lat": 6.82099,
-      "lon": 81.87704,
-      "depth_m": 11.0
-    },
-    {
-      "dist_km": 8.0,
-      "lat": 6.80959,
-      "lon": 81.90167,
+      "dist_km": 1.0,
+      "lat": 6.83225,
+      "lon": 81.84812,
       "depth_m": 7.0
     },
     {
+      "dist_km": 2.0,
+      "lat": 6.82845,
+      "lon": 81.85633,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 6.82465,
+      "lon": 81.86454,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 6.81704,
+      "lon": 81.88095,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 6.80564,
+      "lon": 81.90558,
+      "depth_m": 9.0
+    },
+    {
       "dist_km": 12.0,
-      "lat": 6.79438,
-      "lon": 81.9345,
-      "depth_m": 43.0
+      "lat": 6.79043,
+      "lon": 81.93841,
+      "depth_m": 47.0
     },
     {
       "dist_km": 18.0,
-      "lat": 6.77157,
-      "lon": 81.98374,
-      "depth_m": 92.0
+      "lat": 6.76762,
+      "lon": 81.98765,
+      "depth_m": 108.0
     }
   ]
 }

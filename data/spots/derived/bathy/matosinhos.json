@@ -1,6 +1,10 @@
 {
   "spot": "matosinhos",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    41.171,
+    -8.692
+  ],
   "bearing_seaward_deg": 270.0,
   "nearshore_depth_m": 11.0,
   "offshore_depth_m": 58.0,

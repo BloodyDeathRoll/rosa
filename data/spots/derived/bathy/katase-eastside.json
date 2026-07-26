@@ -1,0 +1,69 @@
+{
+  "spot": "katase-eastside",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    35.3075,
+    139.4873
+  ],
+  "bearing_seaward_deg": 164.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 339.0,
+  "mean_slope_m_per_km": 19.1,
+  "land_samples": 1,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.30534,
+      "lon": 139.48806,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.30318,
+      "lon": 139.48882,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.29886,
+      "lon": 139.49034,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.29021,
+      "lon": 139.49337,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.28157,
+      "lon": 139.49641,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.26427,
+      "lon": 139.50248,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.23834,
+      "lon": 139.51158,
+      "depth_m": 112.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.20376,
+      "lon": 139.5237,
+      "depth_m": 252.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.15188,
+      "lon": 139.54187,
+      "depth_m": 339.0
+    }
+  ]
+}

@@ -1,6 +1,10 @@
 {
   "spot": "kamogawa-malibu",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    35.0985,
+    140.1045
+  ],
   "bearing_seaward_deg": 150.0,
   "nearshore_depth_m": 3.0,
   "offshore_depth_m": 1072.0,

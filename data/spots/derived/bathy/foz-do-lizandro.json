@@ -1,0 +1,69 @@
+{
+  "spot": "foz-do-lizandro",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    38.9414,
+    -9.415
+  ],
+  "bearing_seaward_deg": 270.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 119.0,
+  "mean_slope_m_per_km": 6.76,
+  "land_samples": 1,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.9414,
+      "lon": -9.41789,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.9414,
+      "lon": -9.42078,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.9414,
+      "lon": -9.42656,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.9414,
+      "lon": -9.43813,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.94139,
+      "lon": -9.44969,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.94139,
+      "lon": -9.47281,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.94136,
+      "lon": -9.5075,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.94132,
+      "lon": -9.55375,
+      "depth_m": 106.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.94122,
+      "lon": -9.62313,
+      "depth_m": 119.0
+    }
+  ]
+}

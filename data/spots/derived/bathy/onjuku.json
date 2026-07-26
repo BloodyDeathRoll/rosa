@@ -1,6 +1,10 @@
 {
   "spot": "onjuku",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    35.1845,
+    140.3525
+  ],
   "bearing_seaward_deg": 160.0,
   "nearshore_depth_m": -3.0,
   "offshore_depth_m": 220.0,

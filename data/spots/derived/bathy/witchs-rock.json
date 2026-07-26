@@ -1,6 +1,10 @@
 {
   "spot": "witchs-rock",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    10.803,
+    -85.723
+  ],
   "bearing_seaward_deg": 255.0,
   "nearshore_depth_m": 7.0,
   "offshore_depth_m": 82.0,

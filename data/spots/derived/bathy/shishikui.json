@@ -1,6 +1,10 @@
 {
   "spot": "shishikui",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    33.567,
+    134.3095
+  ],
   "bearing_seaward_deg": 120.0,
   "nearshore_depth_m": 1.0,
   "offshore_depth_m": 288.0,

@@ -1,6 +1,10 @@
 {
   "spot": "isonoura",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    34.2595,
+    135.0865
+  ],
   "bearing_seaward_deg": 240.0,
   "nearshore_depth_m": 6.0,
   "offshore_depth_m": 63.0,

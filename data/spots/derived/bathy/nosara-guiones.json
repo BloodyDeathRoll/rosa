@@ -1,6 +1,10 @@
 {
   "spot": "nosara-guiones",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    9.947,
+    -85.687
+  ],
   "bearing_seaward_deg": 250.0,
   "nearshore_depth_m": 16.0,
   "offshore_depth_m": 571.0,

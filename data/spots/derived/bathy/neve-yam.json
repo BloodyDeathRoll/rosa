@@ -1,6 +1,10 @@
 {
   "spot": "neve-yam",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.679,
+    34.9256
+  ],
   "bearing_seaward_deg": 262.0,
   "nearshore_depth_m": 25.0,
   "offshore_depth_m": 545.0,

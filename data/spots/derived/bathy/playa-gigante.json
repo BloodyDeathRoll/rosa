@@ -1,6 +1,10 @@
 {
   "spot": "playa-gigante",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    11.39,
+    -86.034
+  ],
   "bearing_seaward_deg": 240.0,
   "nearshore_depth_m": 37.0,
   "offshore_depth_m": 84.0,

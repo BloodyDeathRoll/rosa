@@ -1,6 +1,10 @@
 {
   "spot": "figueira-cabedelo",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    40.138,
+    -8.868
+  ],
   "bearing_seaward_deg": 300.0,
   "nearshore_depth_m": 7.0,
   "offshore_depth_m": 67.0,

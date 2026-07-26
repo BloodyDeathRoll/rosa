@@ -1,6 +1,10 @@
 {
   "spot": "tel-baruch",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.1223,
+    34.7815
+  ],
   "bearing_seaward_deg": 289.0,
   "nearshore_depth_m": 7.0,
   "offshore_depth_m": 158.0,

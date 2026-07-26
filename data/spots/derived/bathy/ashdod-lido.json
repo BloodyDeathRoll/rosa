@@ -1,6 +1,10 @@
 {
   "spot": "ashdod-lido",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    31.8081,
+    34.6347
+  ],
   "bearing_seaward_deg": 292.0,
   "nearshore_depth_m": 8.0,
   "offshore_depth_m": 107.0,

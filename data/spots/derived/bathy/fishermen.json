@@ -1,0 +1,69 @@
+{
+  "spot": "fishermen",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    5.9585,
+    80.4201
+  ],
+  "bearing_seaward_deg": 78.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": -17.0,
+  "mean_slope_m_per_km": -0.56,
+  "land_samples": 6,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 5.95897,
+      "lon": 80.42231,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 5.95943,
+      "lon": 80.42452,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 5.96037,
+      "lon": 80.42894,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 5.96224,
+      "lon": 80.43779,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 5.96411,
+      "lon": 80.44663,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 5.96785,
+      "lon": 80.46432,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 5.97345,
+      "lon": 80.49086,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 5.98093,
+      "lon": 80.52624,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 5.99213,
+      "lon": 80.57931,
+      "depth_m": -17.0
+    }
+  ]
+}

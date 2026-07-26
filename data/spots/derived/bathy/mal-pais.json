@@ -1,6 +1,10 @@
 {
   "spot": "mal-pais",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    9.597,
+    -85.145
+  ],
   "bearing_seaward_deg": 250.0,
   "nearshore_depth_m": 12.0,
   "offshore_depth_m": 387.0,

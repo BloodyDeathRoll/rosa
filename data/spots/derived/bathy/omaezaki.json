@@ -1,6 +1,10 @@
 {
   "spot": "omaezaki",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    34.596,
+    138.22
+  ],
   "bearing_seaward_deg": 180.0,
   "nearshore_depth_m": 5.0,
   "offshore_depth_m": 87.0,

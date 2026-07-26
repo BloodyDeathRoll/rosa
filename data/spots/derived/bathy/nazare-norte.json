@@ -1,6 +1,10 @@
 {
   "spot": "nazare-norte",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    39.606,
+    -9.085
+  ],
   "bearing_seaward_deg": 300.0,
   "nearshore_depth_m": 12.0,
   "offshore_depth_m": 121.0,

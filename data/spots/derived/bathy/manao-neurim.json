@@ -1,6 +1,10 @@
 {
   "spot": "manao-neurim",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.36589,
+    34.85736
+  ],
   "bearing_seaward_deg": 282.0,
   "nearshore_depth_m": 6.0,
   "offshore_depth_m": 185.0,

@@ -1,6 +1,10 @@
 {
   "spot": "caesarea-aqueduct",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.5139,
+    34.8936
+  ],
   "bearing_seaward_deg": 286.0,
   "nearshore_depth_m": 8.0,
   "offshore_depth_m": 444.0,

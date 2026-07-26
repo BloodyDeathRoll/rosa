@@ -1,0 +1,69 @@
+{
+  "spot": "vila-ancora",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    41.8122,
+    -8.8652
+  ],
+  "bearing_seaward_deg": 300.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 108.0,
+  "mean_slope_m_per_km": 5.86,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.81332,
+      "lon": -8.86781,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.81445,
+      "lon": -8.87042,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.8167,
+      "lon": -8.87565,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.82119,
+      "lon": -8.8861,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.82569,
+      "lon": -8.89656,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.83467,
+      "lon": -8.91747,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.84814,
+      "lon": -8.94884,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.86609,
+      "lon": -8.9907,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.89299,
+      "lon": -9.05353,
+      "depth_m": 108.0
+    }
+  ]
+}

@@ -1,6 +1,10 @@
 {
   "spot": "supertubos",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    39.343,
+    -9.362
+  ],
   "bearing_seaward_deg": 235.0,
   "nearshore_depth_m": 7.0,
   "offshore_depth_m": 65.0,

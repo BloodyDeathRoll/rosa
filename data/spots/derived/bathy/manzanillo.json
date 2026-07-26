@@ -1,0 +1,69 @@
+{
+  "spot": "manzanillo",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    11.3705,
+    -86.0093
+  ],
+  "bearing_seaward_deg": 230.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 89.0,
+  "mean_slope_m_per_km": 5.63,
+  "land_samples": 2,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.36905,
+      "lon": -86.01106,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.36761,
+      "lon": -86.01281,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.36472,
+      "lon": -86.01633,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.35894,
+      "lon": -86.02335,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.35316,
+      "lon": -86.03038,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.34159,
+      "lon": -86.04443,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.32425,
+      "lon": -86.06551,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.30112,
+      "lon": -86.0936,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.26642,
+      "lon": -86.13574,
+      "depth_m": 89.0
+    }
+  ]
+}

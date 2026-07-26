@@ -1,6 +1,10 @@
 {
   "spot": "achziv",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    33.0443,
+    35.099
+  ],
   "bearing_seaward_deg": 286.0,
   "nearshore_depth_m": 10.0,
   "offshore_depth_m": 861.0,

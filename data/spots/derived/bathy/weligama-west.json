@@ -1,0 +1,69 @@
+{
+  "spot": "weligama-west",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    5.9601,
+    80.4017
+  ],
+  "bearing_seaward_deg": 192.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 986.0,
+  "mean_slope_m_per_km": 55.72,
+  "land_samples": 1,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 5.9579,
+      "lon": 80.40123,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 5.9557,
+      "lon": 80.40076,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 5.9513,
+      "lon": 80.39982,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 5.94251,
+      "lon": 80.39794,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 5.93371,
+      "lon": 80.39606,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 5.91612,
+      "lon": 80.3923,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 5.88973,
+      "lon": 80.38666,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 5.85454,
+      "lon": 80.37914,
+      "depth_m": 258.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 5.80176,
+      "lon": 80.36787,
+      "depth_m": 986.0
+    }
+  ]
+}

@@ -1,6 +1,10 @@
 {
   "spot": "baleal-lagide",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    39.3775,
+    -9.34
+  ],
   "bearing_seaward_deg": 320.0,
   "nearshore_depth_m": 2.0,
   "offshore_depth_m": 678.0,

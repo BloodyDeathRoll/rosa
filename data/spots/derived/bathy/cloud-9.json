@@ -1,6 +1,10 @@
 {
   "spot": "cloud-9",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    9.815,
+    126.169
+  ],
   "bearing_seaward_deg": 90.0,
   "nearshore_depth_m": 41.0,
   "offshore_depth_m": 2894.0,

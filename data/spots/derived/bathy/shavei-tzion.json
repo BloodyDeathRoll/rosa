@@ -1,6 +1,10 @@
 {
   "spot": "shavei-tzion",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.9826,
+    35.0798
+  ],
   "bearing_seaward_deg": 280.0,
   "nearshore_depth_m": 9.0,
   "offshore_depth_m": 601.0,

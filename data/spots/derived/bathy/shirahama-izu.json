@@ -1,6 +1,10 @@
 {
   "spot": "shirahama-izu",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    34.6905,
+    138.9735
+  ],
   "bearing_seaward_deg": 115.0,
   "nearshore_depth_m": -0.0,
   "offshore_depth_m": 547.0,

@@ -1,0 +1,69 @@
+{
+  "spot": "aver-o-mar",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    41.3898,
+    -8.7747
+  ],
+  "bearing_seaward_deg": 270.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 83.0,
+  "mean_slope_m_per_km": 4.9,
+  "land_samples": 1,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.3898,
+      "lon": -8.7777,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.3898,
+      "lon": -8.78069,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.3898,
+      "lon": -8.78669,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.3898,
+      "lon": -8.79867,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.38979,
+      "lon": -8.81066,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.38978,
+      "lon": -8.83464,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.38976,
+      "lon": -8.8706,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.38971,
+      "lon": -8.91855,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.3896,
+      "lon": -8.99047,
+      "depth_m": 83.0
+    }
+  ]
+}

@@ -1,6 +1,10 @@
 {
   "spot": "kaeda-kako",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    31.82072,
+    131.45503
+  ],
   "bearing_seaward_deg": 95.0,
   "nearshore_depth_m": -2.0,
   "offshore_depth_m": 79.0,

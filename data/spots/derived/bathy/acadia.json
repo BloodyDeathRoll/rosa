@@ -1,6 +1,10 @@
 {
   "spot": "acadia",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.1663,
+    34.7963
+  ],
   "bearing_seaward_deg": 298.0,
   "nearshore_depth_m": 186.0,
   "offshore_depth_m": 153.0,

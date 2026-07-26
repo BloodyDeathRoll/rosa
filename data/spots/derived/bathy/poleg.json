@@ -1,6 +1,10 @@
 {
   "spot": "poleg",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.2737,
+    34.83
+  ],
   "bearing_seaward_deg": 282.0,
   "nearshore_depth_m": 10.0,
   "offshore_depth_m": 167.0,

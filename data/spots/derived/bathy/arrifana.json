@@ -1,6 +1,10 @@
 {
   "spot": "arrifana",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    37.2925,
+    -8.8675
+  ],
   "bearing_seaward_deg": 305.0,
   "nearshore_depth_m": 9.0,
   "offshore_depth_m": 169.0,

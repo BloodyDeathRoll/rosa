@@ -1,6 +1,10 @@
 {
   "spot": "bat-yam",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.0195,
+    34.7356
+  ],
   "bearing_seaward_deg": 281.0,
   "nearshore_depth_m": 7.0,
   "offshore_depth_m": 263.0,

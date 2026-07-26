@@ -1,6 +1,10 @@
 {
   "spot": "gaash",
   "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.23,
+    34.8183
+  ],
   "bearing_seaward_deg": 286.0,
   "nearshore_depth_m": 11.0,
   "offshore_depth_m": 164.0,
