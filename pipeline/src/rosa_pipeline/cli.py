@@ -228,6 +228,13 @@ def _build_parser() -> argparse.ArgumentParser:
     )
     exp.add_argument("--spots-dir", type=Path, default=Path("data/spots"))
     exp.add_argument("--bathy-dir", type=Path, default=BATHY_DIR)
+
+    sm = sub.add_parser(
+        "swellmap", help="publish animated wave-field frames per basin (SwellMap v0.2)"
+    )
+    sm.add_argument("--spots-dir", type=Path, default=Path("data/spots"))
+    sm.add_argument("--out", type=Path, default=Path("data/out"))
+    sm.add_argument("--basin", default=None, help="single basin name (default: all)")
     return parser
 
 
@@ -557,6 +564,19 @@ def _cmd_experiment(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_swellmap(args: argparse.Namespace) -> int:
+    from .swellmap import basin_boxes, run_swellmap
+
+    basins = basin_boxes(args.spots_dir)
+    if args.basin is not None:
+        basins = [b for b in basins if b.name == args.basin]
+        if not basins:
+            print(f"unknown basin {args.basin!r}", file=sys.stderr)
+            return 2
+    written = run_swellmap(args.spots_dir, args.out, basins=basins)
+    return 0 if written else 1
+
+
 def _cmd_notify(args: argparse.Namespace) -> int:
     import os
 
@@ -609,6 +629,8 @@ def main(argv: list[str] | None = None) -> int:
         return _cmd_notify(args)
     if args.command == "experiment":
         return _cmd_experiment(args)
+    if args.command == "swellmap":
+        return _cmd_swellmap(args)
     return _cmd_run(args)
 
 

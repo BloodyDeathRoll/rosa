@@ -29,6 +29,10 @@ STAGE="$HOME/rosa-data"   # dir basename becomes the Vercel project name
   # 2) refresh the per-spot forecasts
   uv run --project pipeline rosa-pipeline run --all
 
+  # 2b) SwellMap basin frames (animated wave fields, ~5 min). Non-fatal: on a
+  #     NOMADS outage the previous cycle's frames keep serving.
+  uv run --project pipeline rosa-pipeline swellmap || echo "warn: swellmap failed"
+
   # 3) publish: Vercel Build Output API v3 payload, served at /data/*
   rm -rf "$STAGE/.vercel/output"
   mkdir -p "$STAGE/.vercel/output/static/data"
