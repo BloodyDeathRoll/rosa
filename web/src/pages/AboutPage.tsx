@@ -84,9 +84,16 @@ function ReadingTheForecast() {
         seabed, so it grows, bends, and finally breaks the way it actually would there.
       </p>
       <p>
-        We show a range because no forecast is precise to the centimetre. The smaller number
-        underneath is the middle of that range - the single figure to quote if you want one. Words
-        like <i>waist-high</i> or <i>overhead</i> are the same number said out loud.
+        We show a range because no forecast is precise to the centimetre. Words like{" "}
+        <i>waist-high</i> or <i>overhead</i> are the same number said out loud.
+      </p>
+      <p>
+        The smaller number underneath is a <b>different measurement</b>: the height of that swell
+        out in deep water, before it reaches the coast, carrying its unit so you can tell the two
+        apart. It is normally the bigger of the two, often by half again or more, and that is not a
+        contradiction - open-ocean height is measured over water hundreds of metres deep, and how
+        much of it survives the trip in depends on the swell's period and the angle it meets the
+        coast at. A short-period swell loses far more of itself than a long-period one.
       </p>
 
       <h2>Swell - where the energy is coming from</h2>

@@ -196,7 +196,13 @@ function HourRow({
         <b class="tabular">
           {fmtH(h.h[0], units)}-{fmtH(h.h[1], units)}
         </b>
-        <small class="tabular">{fmtH(h.h_mid, units)}</small>
+        {/* Offshore significant height of the same swell the next column names -
+            the deep-water wave that becomes the breaking range above it. It sits
+            here in place of the range's midpoint, which the range already told
+            you. Carries its unit so it can't be read as a second surf figure. */}
+        <small class="tabular">
+          {swell ? `${fmtH(swell.h, units)} ${heightUnit(units)}` : "-"}
+        </small>
       </span>
       <span class="vec swell-cell">
         {swell ? (
