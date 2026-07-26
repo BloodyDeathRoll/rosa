@@ -56,6 +56,24 @@ const PLAY_MS = 450;
 
 const basinCache = new Map<string, SwellBasin>();
 
+/** Payloads published before 2026-07-26 carry grib-filter 0-360 longitudes
+    (Portugal = 347.5); MapLibre wants signed degrees or it projects the field a
+    world-copy off-screen. Harmless on already-canonical payloads. */
+function normalizeBasin(b: SwellBasin): SwellBasin {
+  const wrap = (lon: number) => (lon > 180 ? lon - 360 : lon);
+  return { ...b, lon_first: wrap(b.lon_first), lon_last: wrap(b.lon_last) };
+}
+
+const ALL = "all";
+
+async function loadBasin(name: string): Promise<SwellBasin> {
+  const hit = basinCache.get(name);
+  if (hit) return hit;
+  const data = normalizeBasin(await fetchSwellBasin(name));
+  basinCache.set(name, data);
+  return data;
+}
+
 function rampColor(ramp: string[], t: number): string {
   return ramp[Math.min(ramp.length - 1, Math.floor(t * ramp.length))] ?? "#1d6f8c";
 }
@@ -109,7 +127,7 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
   const mapRef = useRef<MLMap | null>(null);
   const [index, setIndex] = useState<SwellIndex | null>(null);
   const [basinName, setBasinName] = useState<string | null>(null);
-  const [basin, setBasin] = useState<SwellBasin | null>(null);
+  const [basins, setBasins] = useState<SwellBasin[]>([]);
   const [variable, setVariable] = useState<Variable>("hs");
   const [frame, setFrame] = useState(0);
   const [playing, setPlaying] = useState(false);
@@ -171,22 +189,31 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
     src?.setTiles?.([TILE_URLS[theme]]);
   }, [theme]);
 
-  // Load the selected basin (cached) and frame the map on it.
+  // Load the selection - one basin, or every published basin stitched onto one
+  // chart ("All") - and frame the map on the union of what loaded.
   useEffect(() => {
-    if (!basinName) return;
+    if (!basinName || !index) return;
     let disposed = false;
     (async () => {
       try {
-        const data =
-          basinCache.get(basinName) ?? (await fetchSwellBasin(basinName));
-        basinCache.set(basinName, data);
+        const names = basinName === ALL ? Object.keys(index) : [basinName];
+        const settled = await Promise.allSettled(names.map(loadBasin));
+        const loaded = settled
+          .filter((r): r is PromiseFulfilledResult<SwellBasin> => r.status === "fulfilled")
+          .map((r) => r.value);
         if (disposed) return;
-        setBasin(data);
+        if (!loaded.length) {
+          setError("This basin isn't published yet.");
+          return;
+        }
+        setBasins(loaded);
         setFrame(0);
+        const lons = loaded.flatMap((b) => [b.lon_first, b.lon_last]);
+        const lats = loaded.flatMap((b) => [b.lat_first, b.lat_last]);
         mapRef.current?.fitBounds(
           [
-            [data.lon_first, data.lat_first],
-            [data.lon_last, data.lat_last],
+            [Math.min(...lons), Math.min(...lats)],
+            [Math.max(...lons), Math.max(...lats)],
           ],
           { padding: 20, duration: 600 },
         );
@@ -197,29 +224,37 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
     return () => {
       disposed = true;
     };
-  }, [basinName]);
+  }, [basinName, index]);
 
-  // Per-basin, per-variable fixed scale so scrubbing compares honestly.
+  // Master timeline = the longest frame list; other basins join by timestamp, so
+  // a basin that missed a NOMADS step skips that frame instead of drifting.
+  const timeline = basins.reduce<string[]>(
+    (best, b) => (b.frames.length > best.length ? b.frames.map((f) => f.t) : best),
+    [],
+  );
+
+  // One fixed scale across every loaded basin and frame, so scrubbing - and the
+  // stitched all-regions view - compare honestly.
   const maxVal = (() => {
-    if (!basin) return 1;
     let mx = 0;
-    for (const f of basin.frames) {
-      for (let i = 0; i < f.hs.length; i++) {
-        const v = cellValue(basin, f, i, variable);
-        if (v !== null && v > mx) mx = v;
+    for (const b of basins) {
+      for (const f of b.frames) {
+        for (let i = 0; i < f.hs.length; i++) {
+          const v = cellValue(b, f, i, variable);
+          if (v !== null && v > mx) mx = v;
+        }
       }
     }
     return Math.max(1, Math.ceil(mx));
   })();
 
-  // Draw the current frame; track every map move.
+  // Draw the current frame; redraw on every map move so cells track the basemap.
   useEffect(() => {
     const m = mapRef.current;
     const canvas = canvasRef.current;
-    if (!m || !canvas || !basin) return;
+    const t = timeline[frame];
+    if (!m || !canvas || !basins.length || !t) return;
     const ramp = RAMPS[variable][theme];
-    const f = basin.frames[frame];
-    if (!f) return;
 
     const draw = () => {
       const wrap = canvas.parentElement;
@@ -237,61 +272,64 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
       if (!ctx) return;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, W, H);
-      ctx.globalAlpha = OVERLAY_ALPHA;
-
-      const { nx, ny } = basin;
-      const dLat = (basin.lat_last - basin.lat_first) / (ny - 1);
-      const dLon = (basin.lon_last - basin.lon_first) / (nx - 1);
       const proj = (lat: number, lon: number) => m.project([lon, lat]);
 
-      for (let j = 0; j < ny; j++) {
-        for (let i = 0; i < nx; i++) {
-          const v = cellValue(basin, f, j * nx + i, variable);
-          if (v === null) continue;
-          const lat = basin.lat_first + j * dLat;
-          const lon = basin.lon_first + i * dLon;
-          const a = proj(lat - dLat / 2, lon - dLon / 2);
-          const b = proj(lat + dLat / 2, lon + dLon / 2);
-          const x = Math.min(a.x, b.x);
-          const y = Math.min(a.y, b.y);
-          const w = Math.abs(b.x - a.x) + 0.5;
-          const h = Math.abs(b.y - a.y) + 0.5;
-          if (x + w < 0 || y + h < 0 || x > W || y > H) continue;
-          ctx.fillStyle = rampColor(ramp, Math.min(1, v / maxVal));
-          ctx.fillRect(x, y, w, h);
-        }
-      }
+      for (const bas of basins) {
+        const f = bas.frames.find((fr) => fr.t === t);
+        if (!f) continue; // this basin missed this NOMADS step - skip, don't drift
+        ctx.globalAlpha = OVERLAY_ALPHA;
+        const { nx, ny } = bas;
+        const dLat = (bas.lat_last - bas.lat_first) / (ny - 1);
+        const dLon = (bas.lon_last - bas.lon_first) / (nx - 1);
 
-      // Direction arrows - the WIND chart shows wind direction, wave charts show
-      // swell direction; both point where the flow travels, kept sparse.
-      const cellPx = Math.abs(
-        proj(basin.lat_first, basin.lon_first + dLon).x - proj(basin.lat_first, basin.lon_first).x,
-      );
-      const stride = Math.max(1, Math.round(W / ARROW_TARGET / Math.max(1, cellPx)));
-      ctx.globalAlpha = 0.9;
-      ctx.strokeStyle = theme === "dark" ? "rgba(255,255,255,0.85)" : "rgba(10,20,25,0.7)";
-      ctx.lineWidth = 1.4;
-      const len = Math.min(14, Math.max(7, cellPx * 0.45));
-      for (let j = 0; j < ny; j += stride) {
-        for (let i = 0; i < nx; i += stride) {
-          const qd = (variable === "wind" ? f.wdir : f.dir)?.[j * nx + i];
-          if (qd === undefined || qd === 255) continue;
-          if (cellValue(basin, f, j * nx + i, variable === "wind" ? "wind" : "hs") === null) continue;
-          const p = proj(basin.lat_first + j * dLat, basin.lon_first + i * dLon);
-          if (p.x < 0 || p.y < 0 || p.x > W || p.y > H) continue;
-          const rad = ((qd * basin.scales.dir_deg + 180) * Math.PI) / 180;
-          const dx = Math.sin(rad) * len;
-          const dy = -Math.cos(rad) * len;
-          ctx.beginPath();
-          ctx.moveTo(p.x - dx / 2, p.y - dy / 2);
-          ctx.lineTo(p.x + dx / 2, p.y + dy / 2);
-          const hx = p.x + dx / 2;
-          const hy = p.y + dy / 2;
-          const ang = Math.atan2(dy, dx);
-          ctx.lineTo(hx - 4 * Math.cos(ang - 0.5), hy - 4 * Math.sin(ang - 0.5));
-          ctx.moveTo(hx, hy);
-          ctx.lineTo(hx - 4 * Math.cos(ang + 0.5), hy - 4 * Math.sin(ang + 0.5));
-          ctx.stroke();
+        for (let j = 0; j < ny; j++) {
+          for (let i = 0; i < nx; i++) {
+            const v = cellValue(bas, f, j * nx + i, variable);
+            if (v === null) continue;
+            const lat = bas.lat_first + j * dLat;
+            const lon = bas.lon_first + i * dLon;
+            const a = proj(lat - dLat / 2, lon - dLon / 2);
+            const b = proj(lat + dLat / 2, lon + dLon / 2);
+            const x = Math.min(a.x, b.x);
+            const y = Math.min(a.y, b.y);
+            const w = Math.abs(b.x - a.x) + 0.5;
+            const h = Math.abs(b.y - a.y) + 0.5;
+            if (x + w < 0 || y + h < 0 || x > W || y > H) continue;
+            ctx.fillStyle = rampColor(ramp, Math.min(1, v / maxVal));
+            ctx.fillRect(x, y, w, h);
+          }
+        }
+
+        // Direction arrows - wind direction on the Wind chart, swell elsewhere.
+        const cellPx = Math.abs(
+          proj(bas.lat_first, bas.lon_first + dLon).x - proj(bas.lat_first, bas.lon_first).x,
+        );
+        const stride = Math.max(1, Math.round(W / ARROW_TARGET / Math.max(1, cellPx)));
+        ctx.globalAlpha = 0.9;
+        ctx.strokeStyle = theme === "dark" ? "rgba(255,255,255,0.85)" : "rgba(10,20,25,0.7)";
+        ctx.lineWidth = 1.4;
+        const len = Math.min(14, Math.max(7, cellPx * 0.45));
+        for (let j = 0; j < ny; j += stride) {
+          for (let i = 0; i < nx; i += stride) {
+            const qd = (variable === "wind" ? f.wdir : f.dir)?.[j * nx + i];
+            if (qd === undefined || qd === 255) continue;
+            if (cellValue(bas, f, j * nx + i, variable === "wind" ? "wind" : "hs") === null) continue;
+            const p = proj(bas.lat_first + j * dLat, bas.lon_first + i * dLon);
+            if (p.x < 0 || p.y < 0 || p.x > W || p.y > H) continue;
+            const rad = ((qd * bas.scales.dir_deg + 180) * Math.PI) / 180;
+            const dx = Math.sin(rad) * len;
+            const dy = -Math.cos(rad) * len;
+            ctx.beginPath();
+            ctx.moveTo(p.x - dx / 2, p.y - dy / 2);
+            ctx.lineTo(p.x + dx / 2, p.y + dy / 2);
+            const hx = p.x + dx / 2;
+            const hy = p.y + dy / 2;
+            const ang = Math.atan2(dy, dx);
+            ctx.lineTo(hx - 4 * Math.cos(ang - 0.5), hy - 4 * Math.sin(ang - 0.5));
+            ctx.moveTo(hx, hy);
+            ctx.lineTo(hx - 4 * Math.cos(ang + 0.5), hy - 4 * Math.sin(ang + 0.5));
+            ctx.stroke();
+          }
         }
       }
       ctx.globalAlpha = 1;
@@ -303,16 +341,18 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
       m.off("move", draw);
       canvas.getContext("2d")?.clearRect(0, 0, canvas.width, canvas.height);
     };
-  }, [basin, frame, variable, theme, maxVal]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [basins, frame, variable, theme, maxVal]);
 
   useEffect(() => {
-    if (!playing || !basin) return;
-    const id = setInterval(() => setFrame((n) => (n + 1) % basin.frames.length), PLAY_MS);
+    if (!playing || !timeline.length) return;
+    const id = setInterval(() => setFrame((n) => (n + 1) % timeline.length), PLAY_MS);
     return () => clearInterval(id);
-  }, [playing, basin]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [playing, timeline.length]);
 
-  const f = basin?.frames[frame];
-  const ramp = basin ? RAMPS[variable][theme] : [];
+  const t = timeline[frame];
+  const ramp = basins.length ? RAMPS[variable][theme] : [];
   const unit = VARIABLES.find((v) => v.key === variable)?.unit ?? "";
 
   return (
@@ -323,7 +363,7 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
 
         {index && (
           <div class="charts-basins" role="tablist" aria-label="Basin">
-            {Object.keys(index).map((name) => (
+            {[ALL, ...Object.keys(index)].map((name) => (
               <button
                 key={name}
                 role="tab"
@@ -331,7 +371,7 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
                 class={`group-chip${name === basinName ? " on" : ""}`}
                 onClick={() => setBasinName(name)}
               >
-                {basinLabel(name)}
+                {name === ALL ? "All regions" : basinLabel(name)}
               </button>
             ))}
           </div>
@@ -339,11 +379,11 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
 
         {error && <p class="swell-note">{error}</p>}
 
-        {basin && f && (
+        {basins.length > 0 && t && (
           <div class="swell-bar charts-bar">
             <div class="swell-row">
               <div class="segmented compact charts-vars" role="radiogroup" aria-label="Chart type">
-                {VARIABLES.filter((v) => v.key !== "wind" || basin.frames[0]?.wind).map((v) => (
+                {VARIABLES.filter((v) => v.key !== "wind" || basins.some((b) => b.frames[0]?.wind)).map((v) => (
                   <button
                     key={v.key}
                     role="radio"
@@ -355,7 +395,7 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
                   </button>
                 ))}
               </div>
-              <span class="swell-time tabular">{timeLabel(f.t)}</span>
+              <span class="swell-time tabular">{timeLabel(t)}</span>
             </div>
             <div class="swell-row">
               <button
@@ -369,7 +409,7 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
                 class="swell-scrub"
                 type="range"
                 min={0}
-                max={basin.frames.length - 1}
+                max={timeline.length - 1}
                 value={frame}
                 aria-label="Forecast time"
                 onInput={(e) => {
@@ -383,7 +423,7 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
               <span class="swell-scale tabular">
                 0-{maxVal} {unit}
               </span>
-              <span class="swell-attr">GFS-Wave · run {timeLabel(basin.run)}</span>
+              <span class="swell-attr">GFS-Wave · run {timeLabel(basins[0]!.run)}</span>
             </div>
           </div>
         )}

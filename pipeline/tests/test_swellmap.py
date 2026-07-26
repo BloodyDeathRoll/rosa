@@ -81,3 +81,15 @@ def test_build_basin_payload_total_outage_is_none():
     basin = BasinBox("israel", ("Israel",), 28.6, 36.1, 31.5, 38.1)
     cycle = datetime(2026, 7, 23, 6, tzinfo=UTC)
     assert build_basin_payload(basin, cycle, lambda step: None, (0, 3)) is None
+
+
+def test_payload_longitudes_are_wrapped_to_signed():
+    """Western-hemisphere basins (Portugal, Central America) come back from the
+    0-360 grib-filter as e.g. 347.5E; the payload must carry -12.5 or the web
+    projects the field a world-copy off-screen (the 2026-07-26 render bug)."""
+    basin = BasinBox("israel", ("Israel",), 28.6, 36.1, 31.5, 38.1)
+    cycle = datetime(2026, 7, 23, 6, tzinfo=UTC)
+    payload = build_basin_payload(basin, cycle, lambda step: GRIB, (0,))
+    assert payload is not None
+    assert -180.0 <= payload["lon_first"] <= 180.0
+    assert -180.0 <= payload["lon_last"] <= 180.0

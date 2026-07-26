@@ -119,13 +119,18 @@ def parse_grib_field(grib_bytes: bytes) -> dict | None:
         arr = np.ma.filled(np.ma.masked_invalid(vals), np.nan)
         return [None if np.isnan(v) else float(v) for v in arr.ravel()]
 
+    def norm_lon(lon: float) -> float:
+        # grib-filter works in 0-360; the web draws in -180..180. None of our basins
+        # cross the antimeridian, so a plain wrap is safe (Portugal 347.5 -> -12.5).
+        return lon - 360.0 if lon > 180.0 else lon
+
     return {
         "ny": lats.shape[0],
         "nx": lats.shape[1],
         "lat_first": float(lats[0, 0]),
         "lat_last": float(lats[-1, 0]),
-        "lon_first": float(lons[0, 0]),
-        "lon_last": float(lons[0, -1]),
+        "lon_first": norm_lon(float(lons[0, 0])),
+        "lon_last": norm_lon(float(lons[0, -1])),
         "hs": flat("swh"),
         "per": flat("perpw"),
         "dir": flat("dirpw"),
