@@ -9,7 +9,7 @@ import { SpotPage } from "./pages/SpotPage";
 import { SpotsPage } from "./pages/SpotsPage";
 import { TodayPage } from "./pages/TodayPage";
 import { applyTheme, initialTheme, saveTheme, type Theme } from "./theme";
-import { lastTab, saveLastTab, TAB_ROUTES, type Tab } from "./tabs";
+import { TAB_ROUTES, type Tab } from "./tabs";
 
 type Route =
   | { page: "today" }
@@ -59,14 +59,11 @@ function TabBar({ active }: { active: Tab | null }) {
 }
 
 export function App() {
-  const [route, setRoute] = useState<Route>(() => {
-    // reopen on the last used tab (only when landing on the bare root)
-    if ((location.hash === "" || location.hash === "#/") && lastTab() !== "today") {
-      location.replace(TAB_ROUTES[lastTab()]);
-      return parseRoute(TAB_ROUTES[lastTab()]);
-    }
-    return parseRoute(location.hash);
-  });
+  // A launch always lands on Today. Reopening on the last used tab meant a cold
+  // start could drop you straight onto the Map, which answers none of "should I
+  // surf, when, where?" until you've panned it. A deep link still wins - only a
+  // bare root resolves to Today.
+  const [route, setRoute] = useState<Route>(() => parseRoute(location.hash));
   const [theme, setTheme] = useState<Theme>(initialTheme);
 
   useEffect(() => applyTheme(theme), [theme]);
@@ -75,7 +72,6 @@ export function App() {
     const onHash = () => {
       const r = parseRoute(location.hash);
       setRoute(r);
-      if (r.page !== "spot" && r.page !== "about" && r.page !== "search") saveLastTab(r.page);
       scrollTo(0, 0);
     };
     addEventListener("hashchange", onHash);

@@ -2533,3 +2533,18 @@ a.rank-card:hover {
     animation: none;
   }
 }
+
+/* Region heading over a run of spots - Today's coast chart and the Spots list
+   under "All". Same wording and order as the group chips that filter them. */
+.group-label {
+  margin: 18px 16px 6px;
+  font-size: 12.4px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+.coast .group-label:first-child,
+.rank-list .group-label:first-child {
+  margin-top: 4px;
+}

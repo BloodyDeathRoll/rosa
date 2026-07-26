@@ -1,5 +1,7 @@
+import { Fragment } from "preact";
 import { useCallback, useEffect, useRef } from "preact/hooks";
 import { ratingVar } from "../conditions";
+import { sectionsOf } from "./GroupChips";
 import { SwellDirIcon } from "./icons";
 import { arrowRotation, dateOf, dayLabel, dayNum, splitName } from "../format";
 import { fmtRange, useUnits } from "../units";
@@ -207,6 +209,9 @@ export function CoastChart({
     0.1,
     ...spots.flatMap((s) => s.hours.map((h) => h.h_mid)),
   );
+  // Grouped by region under a heading, so a list spanning countries doesn't
+  // interleave them by latitude. One region = no headings, nothing to separate.
+  const sections = sectionsOf(spots, (s) => s.spot.region);
 
   // every scrollable strip registers here so a drag on any one syncs the rest
   const strips = useRef<HTMLElement[]>([]);
@@ -234,7 +239,10 @@ export function CoastChart({
           </span>
         ))}
       </div>
-      {spots.map((data) => (
+      {sections.map(({ group, rows }) => (
+        <Fragment key={group}>
+          {sections.length > 1 && <h3 class="group-label">{group}</h3>}
+          {rows.map((data) => (
         <a key={data.spot.id} class="coast-row" href={`#/spot/${data.spot.id}`}>
           <span class="coast-name">{splitName(data.spot.name).name}</span>
           <div class="coast-cells track" ref={register} onScroll={onScroll}>
@@ -270,6 +278,8 @@ export function CoastChart({
             })}
           </div>
         </a>
+          ))}
+        </Fragment>
       ))}
     </div>
   );

@@ -1,6 +1,7 @@
+import { Fragment } from "preact";
 import { useEffect, useMemo, useState } from "preact/hooks";
 import { fetchIndex, fetchSpot } from "../api";
-import { GroupChips, groupsOf, ALL_GROUP } from "../components/GroupChips";
+import { GroupChips, groupNameOf, groupsOf, sectionsOf, ALL_GROUP } from "../components/GroupChips";
 import { SearchIcon } from "../components/icons";
 import { AppHeader, SpotTitle, StarButton, TierDot } from "../components/parts";
 import { SpotCard } from "../components/SpotCard";
@@ -102,7 +103,7 @@ export function SpotsPage() {
   const shown =
     activeGroup === ALL_GROUP
       ? favRows
-      : favRows.filter(([, e]) => (e.region?.trim() || "Other") === activeGroup);
+      : favRows.filter(([, e]) => groupNameOf(e.region) === activeGroup);
 
   if (error) {
     return (
@@ -126,20 +127,35 @@ export function SpotsPage() {
             <GroupChips groups={groups} selected={activeGroup} onSelect={setGroup} />
           )}
           <div class="rank-list">
-            {shown.map(([id, e]) => {
-              const p = payloads[id];
-              return p ? (
-                <SpotCard
-                  key={id}
-                  data={p}
-                  date={todayIn(p.spot.timezone)}
-                  isFav
-                  onToggle={() => onToggle(id)}
-                />
-              ) : (
-                <Row key={id} id={id} entry={e} payload={undefined} onToggle={() => onToggle(id)} />
-              );
-            })}
+            {sectionsOf(shown, ([, e]) => e.region).map(({ group, rows }) => (
+              <Fragment key={group}>
+                {/* Only under "All" - inside a filtered group every row is that
+                    group, so the heading would just repeat the selected chip. */}
+                {activeGroup === ALL_GROUP && groups.length > 2 && (
+                  <h3 class="group-label">{group}</h3>
+                )}
+                {rows.map(([id, e]) => {
+                  const p = payloads[id];
+                  return p ? (
+                    <SpotCard
+                      key={id}
+                      data={p}
+                      date={todayIn(p.spot.timezone)}
+                      isFav
+                      onToggle={() => onToggle(id)}
+                    />
+                  ) : (
+                    <Row
+                      key={id}
+                      id={id}
+                      entry={e}
+                      payload={undefined}
+                      onToggle={() => onToggle(id)}
+                    />
+                  );
+                })}
+              </Fragment>
+            ))}
           </div>
         </div>
       )}
