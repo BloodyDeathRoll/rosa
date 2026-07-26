@@ -1,0 +1,23 @@
+$ Rosa Stage-4 scaffolding: Israel coarse grid, SYNTHETIC boundary proof-run.
+$ Not a forecast. Forces a canonical 1.5 m / 8 s / W JONSWAP on the west (deep,
+$ ~1100 m) boundary + 5 m/s W wind, stationary, and tables Hs/Tp/Dir at every
+$ Israeli spot's nearshore point (points.loc). Real Stage-4 runs swap the
+$ constant boundary for Stage-3 spectra and this grid for finer nests.
+PROJ 'rosa' 'IL1'
+SET NAUTICAL
+MODE STATIONARY TWODIMENSIONAL
+COORDINATES SPHERICAL
+CGRID REGULAR 34.0 31.5 0. 1.20 1.70 120 170 CIRCLE 36 0.04 0.5 25
+INPGRID BOTTOM REGULAR 34.0 31.5 0. 120 170 0.01 0.01
+READINP BOTTOM 1. 'bot.grd' 3 0 FREE
+BOUND SHAPESPEC JONSWAP 3.3 PEAK DSPR DEGREES
+BOUNDSPEC SIDE W CONSTANT PAR 1.5 8. 270. 20.
+WIND 5. 270.
+GEN3
+BREAKING
+FRICTION JONSWAP
+NUM ACCUR 0.02 0.02 0.02 98. STAT 50
+POINTS 'SPOTS' FILE 'points.loc'
+TABLE 'SPOTS' HEAD 'spots.tab' XP YP DEP HSIGN TPS DIR
+COMPUTE
+STOP
