@@ -198,10 +198,13 @@ export function CoastChart({
   spots,
   dates,
   today,
+  homeRegion,
 }: {
   spots: SpotPayload[];
   dates: string[];
   today: string;
+  /** Region you're in right now - pinned to the top, the rest run A-Z. */
+  homeRegion?: string | null;
 }) {
   const units = useUnits();
   // shared, comparable scale: the tallest bar across every spot + hour shown
@@ -210,8 +213,9 @@ export function CoastChart({
     ...spots.flatMap((s) => s.hours.map((h) => h.h_mid)),
   );
   // Grouped by region under a heading, so a list spanning countries doesn't
-  // interleave them by latitude. One region = no headings, nothing to separate.
-  const sections = sectionsOf(spots, (s) => s.spot.region);
+  // interleave them by latitude. Where you are comes first, everywhere else runs
+  // A-Z. One region = no headings, nothing to separate.
+  const sections = sectionsOf(spots, (s) => s.spot.region, homeRegion);
 
   // every scrollable strip registers here so a drag on any one syncs the rest
   const strips = useRef<HTMLElement[]>([]);

@@ -117,6 +117,7 @@ function FeedbackRow({ p, onDone }: { p: FbPrompt; onDone: () => void }) {
 export function TodayPage() {
   const [detail, setDetail] = useState<SpotPayload | null>(null);
   const [grid, setGrid] = useState<SpotPayload[] | null>(null);
+  const [homeRegion, setHomeRegion] = useState<string | null>(null);
   const [prompt, setPrompt] = useState<FbPrompt | null>(pendingPrompt);
   const [error, setError] = useState<string | null>(null);
 
@@ -138,6 +139,14 @@ export function TodayPage() {
         const km: Record<string, number> = {};
         for (const [id, e] of entries) km[id] = distanceKm(at, { lat: e.lat, lon: e.lon });
         const byDist = [...entries].sort(([a], [b]) => (km[a] ?? 0) - (km[b] ?? 0));
+
+        // Region you're in - the one the chart pins above the rest. Only claimed
+        // when `at` is a real position (a GPS fix, or the last spot you opened);
+        // with neither, `at` is the median of every spot on earth and the nearest
+        // one to it would name a region at random, so no region leads.
+        const located = pos !== null || lastEntry !== undefined;
+        const nearestEntry = byDist[0]?.[1];
+        setHomeRegion(located ? (nearestEntry?.region?.trim() || null) : null);
 
         // extended card = the last opened spot (fall back to nearest for a fresh
         // user). The grid below lists that same spot first, then every favorite
@@ -215,7 +224,7 @@ export function TodayPage() {
             <DetailCard data={detail} date={today} />
           </div>
         )}
-        <CoastChart spots={grid} dates={dates} today={today} />
+        <CoastChart spots={grid} dates={dates} today={today} homeRegion={homeRegion} />
       </div>
     </main>
   );

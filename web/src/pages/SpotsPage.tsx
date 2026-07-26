@@ -1,7 +1,15 @@
 import { Fragment } from "preact";
 import { useEffect, useMemo, useState } from "preact/hooks";
 import { fetchIndex, fetchSpot } from "../api";
-import { GroupChips, groupNameOf, groupsOf, sectionsOf, ALL_GROUP } from "../components/GroupChips";
+import {
+  GroupChips,
+  groupNameOf,
+  groupsOf,
+  saveGroup,
+  savedGroup,
+  sectionsOf,
+  ALL_GROUP,
+} from "../components/GroupChips";
 import { SearchIcon } from "../components/icons";
 import { AppHeader, SpotTitle, StarButton, TierDot } from "../components/parts";
 import { SpotCard } from "../components/SpotCard";
@@ -56,7 +64,9 @@ export function SpotsPage() {
   const [payloads, setPayloads] = useState<Record<string, SpotPayload>>({});
   const [error, setError] = useState<string | null>(null);
   const [favs, setFavs] = useState<string[]>(getFavorites);
-  const [group, setGroup] = useState<string>(ALL_GROUP);
+  // the chip survives a relaunch; if that region is no longer among your
+  // favourites, `activeGroup` below falls back to All.
+  const [group, setGroup] = useState<string>(savedGroup);
   const onToggle = (id: string) => setFavs(toggleFavorite(id));
 
   useEffect(() => {
@@ -124,7 +134,14 @@ export function SpotsPage() {
       ) : (
         <div class="spots-page">
           {groups.length > 1 && (
-            <GroupChips groups={groups} selected={activeGroup} onSelect={setGroup} />
+            <GroupChips
+              groups={groups}
+              selected={activeGroup}
+              onSelect={(g) => {
+                setGroup(g);
+                saveGroup(g);
+              }}
+            />
           )}
           <div class="rank-list">
             {sectionsOf(shown, ([, e]) => e.region).map(({ group, rows }) => (
