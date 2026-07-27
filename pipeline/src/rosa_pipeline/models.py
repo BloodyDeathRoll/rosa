@@ -30,6 +30,7 @@ class SpotCam:
     by: str  # channel name, shown as the credit
     by_url: str  # channel URL, linked from the credit
     note: str | None = None  # set when the camera is near the spot rather than on it
+    label: str | None = None  # angle name when a spot has several cams ("Panorâmica 1")
 
 
 @dataclass(frozen=True, slots=True)
@@ -51,11 +52,17 @@ class Spot:
     ideal_size_m: tuple[float, float]
     region: str = ""  # display country/area (e.g. "Israel"); used for search
     tide_best: str | None = None  # local knowledge: "low" | "mid" | "high" (never derived)
-    # Live cam, only ever a stream whose operator publishes it as embeddable (CLAUDE.md
-    # legal red line: never scrape a cam, never touch a competitor's). Today that means a
-    # public YouTube live stream, embedded through YouTube's own player with the channel
-    # credited. None for the vast majority of spots - nobody points a camera at them.
-    cam: SpotCam | None = None
+    # Live cams, only ever streams whose operator publishes them as embeddable (CLAUDE.md
+    # legal red line: never scrape a cam, never touch a competitor's). Today that means
+    # public YouTube live streams, embedded through YouTube's own player with the channel
+    # credited. Empty for the vast majority of spots - nobody points a camera at them.
+    # Several entries = several angles (each may carry a `label`).
+    cams: tuple[SpotCam, ...] = ()
+
+    @property
+    def cam(self) -> SpotCam | None:
+        """First (primary) cam - the one map cards and single-cam consumers use."""
+        return self.cams[0] if self.cams else None
 
 
 @dataclass(frozen=True, slots=True)

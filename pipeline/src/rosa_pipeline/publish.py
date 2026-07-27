@@ -11,7 +11,7 @@ from astral import Observer
 from astral.sun import sun
 
 from .events import detect_events
-from .models import ScoredHour, Spot
+from .models import ScoredHour, Spot, SpotCam
 from .spectral import consistency_score, missed_swells, parametric_spread_deg
 from .transform import energy_kj_per_m, in_window
 
@@ -41,6 +41,16 @@ def _confidence(day_index: int, agreement_score: float | None) -> tuple[str, flo
     score = min(base, ceiling)
     label = "high" if score >= 0.7 else "medium" if score >= 0.45 else "low"
     return label, round(score, 2)
+
+
+def _cam_entry(cam: SpotCam) -> dict:
+    return {
+        "yt": cam.youtube_id,
+        "by": cam.by,
+        "by_url": cam.by_url,
+        **({"note": cam.note} if cam.note else {}),
+        **({"label": cam.label} if cam.label else {}),
+    }
 
 
 def _r(x: float, digits: int = 2) -> float:
@@ -202,17 +212,15 @@ def build_payload(spot: Spot, scored: list[ScoredHour], *, fetched_at: str, now:
             "lat": spot.lat,
             "lon": spot.lon,
             "timezone": spot.timezone,
-            # Embeddable live cam + its credit; key omitted entirely when the spot has none.
+            # Embeddable live cams + their credit; keys omitted entirely when the spot
+            # has none. `cams` carries every angle; `cam` stays as the first one for
+            # single-cam consumers (map card still).
             **(
                 {
-                    "cam": {
-                        "yt": spot.cam.youtube_id,
-                        "by": spot.cam.by,
-                        "by_url": spot.cam.by_url,
-                        **({"note": spot.cam.note} if spot.cam.note else {}),
-                    }
+                    "cam": _cam_entry(spot.cams[0]),
+                    "cams": [_cam_entry(c) for c in spot.cams],
                 }
-                if spot.cam is not None
+                if spot.cams
                 else {}
             ),
         },
@@ -257,9 +265,14 @@ def update_index(payload: dict, out_dir: Path) -> Path:
         "bucket": payload["current"]["bucket"],
         "h": payload["current"]["h"],
         "generated_at": payload["generated_at"],
-        # just the video id: enough for the map card to show a cam still without
-        # fetching the whole payload. Full credit travels in the spot payload.
+        # just video ids: enough for the map card still and the nearby-cams strip
+        # without fetching whole payloads. Full credit travels in the spot payload.
         **({"cam": payload["spot"]["cam"]["yt"]} if "cam" in payload["spot"] else {}),
+        **(
+            {"cams": [c["yt"] for c in payload["spot"]["cams"]]}
+            if "cams" in payload["spot"]
+            else {}
+        ),
     }
     path.write_text(json.dumps(index, separators=(",", ":")), encoding="utf-8")
     return path

@@ -116,18 +116,23 @@ def load_spots_file(path: Path) -> list[Spot]:
         tide_best = raw.get("tide_best")
         if tide_best is not None and tide_best not in ("low", "mid", "high"):
             raise ValueError(f"{raw['id']}: tide_best must be low|mid|high, got {tide_best!r}")
-        raw_cam = raw.get("cam")
-        cam = None
-        if raw_cam is not None:
+        if "cam" in raw and "cams" in raw:
+            raise ValueError(f"{raw['id']}: use either cam: or cams:, not both")
+        raw_cams = raw.get("cams") or ([raw["cam"]] if raw.get("cam") else [])
+        cams = []
+        for raw_cam in raw_cams:
             missing = {"yt", "by", "by_url"} - set(raw_cam)
             if missing:
                 # a cam without its credit is exactly what we are not allowed to ship
                 raise ValueError(f"{raw['id']}: cam is missing {sorted(missing)}")
-            cam = SpotCam(
-                youtube_id=raw_cam["yt"],
-                by=raw_cam["by"],
-                by_url=raw_cam["by_url"],
-                note=raw_cam.get("note"),
+            cams.append(
+                SpotCam(
+                    youtube_id=raw_cam["yt"],
+                    by=raw_cam["by"],
+                    by_url=raw_cam["by_url"],
+                    note=raw_cam.get("note"),
+                    label=raw_cam.get("label"),
+                )
             )
         spots.append(
             Spot(
@@ -146,7 +151,7 @@ def load_spots_file(path: Path) -> list[Spot]:
                 ideal_size_m=_pair(ideal["size_m"]),
                 region=region,
                 tide_best=tide_best,
-                cam=cam,
+                cams=tuple(cams),
             )
         )
     return spots
