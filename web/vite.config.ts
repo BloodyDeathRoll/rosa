@@ -12,16 +12,17 @@ export default defineConfig({
         short_name: "Rosa",
         description: "Should I surf, when, where?",
         theme_color: "#ffffff",
-        // matches #splash's base colour in index.html: Android's WebAPK splash
-        // (icon on background_color, shown until first paint) can't be skipped, so
-        // it hands over to our own splash without a white flash in between
-        background_color: "#1a0f0c",
+        // Android's WebAPK splash (icon on background_color, shown until first
+        // paint) can't be skipped and its top bar (theme_color) stays white, so
+        // the background is white to match, with the transparent red wave mark
+        background_color: "#ffffff",
         display: "standalone",
         icons: [
-          // the full-bleed maskable tile IS the installed app icon (raw + OS-masked);
-          // the rounded icon.svg stays as a plain-"any" fallback for contexts that want it
-          { src: "/icon-maskable.svg", sizes: "any", type: "image/svg+xml", purpose: "any maskable" },
-          { src: "/icon.svg", sizes: "any", type: "image/svg+xml", purpose: "any" }
+          // the full-bleed maskable tile IS the installed app icon (OS-masked);
+          // the transparent red favicon is the plain-"any" icon, so the WebAPK
+          // splash shows the red mark on the white background
+          { src: "/icon-maskable.svg", sizes: "any", type: "image/svg+xml", purpose: "maskable" },
+          { src: "/favicon.svg", sizes: "any", type: "image/svg+xml", purpose: "any" }
         ]
       },
       workbox: {
