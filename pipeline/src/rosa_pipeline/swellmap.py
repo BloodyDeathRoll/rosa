@@ -26,7 +26,7 @@ from pathlib import Path
 
 import httpx
 
-from .gfswave import Box, _is_grib, _lon360, filter_url, pick_cycle
+from .gfswave import FILTER_URL, RESOLUTION, Box, _is_grib, _lon360, filter_url, pick_cycle
 from .spots import load_spots
 
 # One basin box can serve several spot regions (Costa Rica + Nicaragua share a coast).
@@ -254,3 +254,220 @@ def run_swellmap(
         prev.update(index)
         idx_path.write_text(json.dumps(prev, separators=(",", ":")), encoding="utf-8")
     return written
+
+
+# ---------------------------------------------------------------------------
+# World layer: the whole globe, one PNG per timestep.
+#
+# JSON dies at global scale (65k cells x 5 fields x 57 frames ≈ 28 MB/cycle even
+# at 1 deg), so the quantized planes are packed into an 8-bit grayscale PNG
+# instead: five field planes (hs, per, dir, wind, wdir) stacked vertically, so
+# one image is (5*ny) x nx. PNG's Up filter + zlib love smooth geophysical
+# fields - a 0.5 deg world frame lands around 60-120 KB. The client fetches
+# frames lazily while scrubbing and decodes via an offscreen canvas.
+# ---------------------------------------------------------------------------
+
+WORLD_SUBSAMPLE = 2  # GFS-Wave global native 0.25 deg -> published 0.5 deg
+WORLD_PLANES = ("hs", "per", "dir", "wind", "wdir")
+_WORLD_VARS = ("HTSGW", "PERPW", "DIRPW", "WIND", "WDIR")  # grib-filter var names
+_PLANE_SCALES = {
+    "hs": HS_SCALE,
+    "per": PER_SCALE,
+    "dir": DIR_SCALE,
+    "wind": WIND_SCALE,
+    "wdir": DIR_SCALE,
+}
+
+
+def world_filter_url(cycle: datetime, step: int) -> str:
+    """Whole-globe grib-filter request, explicit variables only (all_var on the
+    full grid would ship every swell partition - several times the bytes)."""
+    from urllib.parse import quote
+
+    d = quote(f"/gfs.{cycle:%Y%m%d}/{cycle:%H}/wave/gridded", safe="")
+    f = f"gfswave.t{cycle:%H}z.global.{RESOLUTION}.f{step:03d}.grib2"
+    var = "&".join(f"var_{v}=on" for v in _WORLD_VARS)
+    return (
+        f"{FILTER_URL}?dir={d}&file={f}&{var}&subregion="
+        f"&toplat=90&leftlon=0&rightlon=360&bottomlat=-90"
+    )
+
+
+def parse_grib_planes(grib_bytes: bytes) -> tuple[dict, dict] | None:
+    """Like parse_grib_field but numpy-native: (geometry, {name: 2-D float array,
+    NaN = land/missing}). Longitudes stay as the file stores them (0-360 for the
+    global grid) - the world client handles the wrap; basins never use this."""
+    import numpy as np
+    import pygrib
+
+    with tempfile.NamedTemporaryFile(suffix=".grib2") as tf:
+        tf.write(grib_bytes)
+        tf.flush()
+        grbs = pygrib.open(tf.name)
+        fields: dict[str, object] = {}
+        lats = lons = None
+        for m in grbs:
+            if m.shortName in ("swh", "perpw", "dirpw", "ws", "wdir") and m.shortName not in fields:
+                fields[m.shortName] = m.values
+                if lats is None:
+                    lats, lons = m.latlons()
+        grbs.close()
+    if lats is None or "swh" not in fields:
+        return None
+    geom = {
+        "ny": int(lats.shape[0]),
+        "nx": int(lats.shape[1]),
+        "lat_first": float(lats[0, 0]),
+        "lat_last": float(lats[-1, 0]),
+        "lon_first": float(lons[0, 0]),
+        "lon_last": float(lons[0, -1]),
+    }
+    grib_to_plane = {"swh": "hs", "perpw": "per", "dirpw": "dir", "ws": "wind", "wdir": "wdir"}
+    planes: dict[str, object] = {}
+    for short, name in grib_to_plane.items():
+        vals = fields.get(short)
+        if vals is None:
+            planes[name] = np.full((geom["ny"], geom["nx"]), np.nan)
+        else:
+            planes[name] = np.ma.filled(np.ma.masked_invalid(vals), np.nan).astype(float)
+    return geom, planes
+
+
+def _quantize_plane(arr: object, scale: float) -> object:
+    """Vectorized _quantize: NaN -> 255, else round(v/scale) clipped to 0..254."""
+    import numpy as np
+
+    q = np.round(np.asarray(arr, dtype=float) / scale)
+    q = np.clip(q, 0, 254)
+    q = np.where(np.isnan(np.asarray(arr, dtype=float)), MISSING, q)
+    return q.astype(np.uint8)
+
+
+def png_gray(width: int, height: int, pixels: bytes) -> bytes:
+    """Minimal 8-bit grayscale PNG encoder (pure zlib, no imaging dependency).
+    Uses the Up filter on every scanline - near-optimal for smooth fields."""
+    import struct
+    import zlib
+
+    import numpy as np
+
+    img = np.frombuffer(pixels, dtype=np.uint8).reshape(height, width)
+    up = img - np.vstack([np.zeros((1, width), np.uint8), img[:-1]])  # uint8 wraps = Up filter
+    filtered = np.concatenate([np.full((height, 1), 2, np.uint8), up], axis=1)
+
+    def chunk(tag: bytes, payload: bytes) -> bytes:
+        body = tag + payload
+        return struct.pack(">I", len(payload)) + body + struct.pack(">I", zlib.crc32(body))
+
+    ihdr = struct.pack(">IIBBBBB", width, height, 8, 0, 0, 0, 0)  # bit depth 8, grayscale
+    idat = zlib.compress(filtered.tobytes(), 9)
+    return b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", ihdr) + chunk(b"IDAT", idat) + chunk(b"IEND", b"")
+
+
+def _subsample_geom(geom: dict, k: int) -> dict:
+    ny, nx = geom["ny"], geom["nx"]
+    dlat = (geom["lat_last"] - geom["lat_first"]) / (ny - 1)
+    dlon = (geom["lon_last"] - geom["lon_first"]) / (nx - 1)
+    ny2 = (ny + k - 1) // k
+    nx2 = (nx + k - 1) // k
+    return {
+        "ny": ny2,
+        "nx": nx2,
+        "lat_first": geom["lat_first"],
+        "lat_last": geom["lat_first"] + (ny2 - 1) * dlat * k,
+        "lon_first": geom["lon_first"],
+        "lon_last": geom["lon_first"] + (nx2 - 1) * dlon * k,
+    }
+
+
+def build_world_frames(
+    cycle: datetime,
+    fetch_planes: Callable[[int], tuple[dict, dict] | None],
+    steps: tuple[int, ...],
+    world_dir: Path,
+) -> dict | None:
+    """Fetch every step, write one PNG per good step into `world_dir`, return the
+    world.json metadata (or None if nothing at all arrived). `fetch_planes` is
+    injectable so tests feed synthetic arrays instead of the network."""
+    import numpy as np
+
+    geom: dict | None = None
+    frames: list[dict] = []
+    maxes = {"hs": 0.0, "per": 0.0, "wind": 0.0, "energy": 0.0}
+    world_dir.mkdir(parents=True, exist_ok=True)
+    for step in steps:
+        got = fetch_planes(step)
+        if got is None:
+            continue
+        raw_geom, planes = got
+        sub = {n: np.asarray(planes[n])[::WORLD_SUBSAMPLE, ::WORLD_SUBSAMPLE] for n in WORLD_PLANES}
+        sgeom = _subsample_geom(raw_geom, WORLD_SUBSAMPLE)
+        if geom is None:
+            geom = sgeom
+        elif (sgeom["ny"], sgeom["nx"]) != (geom["ny"], geom["nx"]):
+            continue  # malformed step must not corrupt the grid geometry
+        q = {n: _quantize_plane(sub[n], _PLANE_SCALES[n]) for n in WORLD_PLANES}
+        stacked = np.concatenate([q[n] for n in WORLD_PLANES], axis=0)
+        png = png_gray(geom["nx"], geom["ny"] * len(WORLD_PLANES), stacked.tobytes())
+        name = f"f{step:03d}.png"
+        (world_dir / name).write_bytes(png)
+        frames.append(
+            {"t": (cycle + timedelta(hours=step)).strftime("%Y-%m-%dT%H:%MZ"), "png": name}
+        )
+        # fixed per-run ramp scale, computed here so the client never scans frames
+        hs, per, wind = sub["hs"], sub["per"], sub["wind"]
+        maxes["hs"] = max(maxes["hs"], float(np.nanmax(hs)) if np.isfinite(hs).any() else 0.0)
+        maxes["per"] = max(maxes["per"], float(np.nanmax(per)) if np.isfinite(per).any() else 0.0)
+        if np.isfinite(wind).any():
+            maxes["wind"] = max(maxes["wind"], float(np.nanmax(wind)) * 1.94384)  # knots
+        energy = 0.49 * hs**2 * (0.9 * per)  # kW/m, Te = 0.9*Tp - mirrors the client
+        if np.isfinite(energy).any():
+            maxes["energy"] = max(maxes["energy"], float(np.nanmax(energy)))
+    if geom is None or not frames:
+        return None
+    return {
+        "model": "noaa:gfswave.global.0p25",
+        "grid_deg": 0.25 * WORLD_SUBSAMPLE,
+        "run": cycle.strftime("%Y-%m-%dT%H:%MZ"),
+        "attribution": "Wave data: NOAA GFS-Wave (WAVEWATCH III)",
+        "scales": {
+            "hs_m": HS_SCALE,
+            "per_s": PER_SCALE,
+            "dir_deg": DIR_SCALE,
+            "wind_ms": WIND_SCALE,
+            "missing": MISSING,
+        },
+        "planes": list(WORLD_PLANES),
+        "max": {k: round(v, 2) for k, v in maxes.items()},
+        **geom,
+        "frames": frames,
+    }
+
+
+def run_swellmap_world(out_dir: Path, now: datetime | None = None) -> int:
+    """Fetch + publish the global layer. Returns the number of frames written.
+    Never fatal: a total outage keeps the previous world.json serving."""
+    cycle = pick_cycle(now or datetime.now(UTC))
+    steps = tuple(range(0, HORIZON_H + 1, STEP_H))
+    target = out_dir / "swellmap"
+    world_dir = target / "world"
+
+    with httpx.Client(timeout=120.0, follow_redirects=True) as client:
+
+        def fetch_planes(step: int) -> tuple[dict, dict] | None:
+            try:
+                resp = client.get(world_filter_url(cycle, step))
+            except httpx.HTTPError:
+                return None
+            time.sleep(REQUEST_GAP_S)
+            if resp.status_code != 200 or not _is_grib(resp.content):
+                return None
+            return parse_grib_planes(resp.content)
+
+        meta = build_world_frames(cycle, fetch_planes, steps, world_dir)
+    if meta is None:
+        print("warn: swellmap world: no frames fetched - keeping previous files")
+        return 0
+    (target / "world.json").write_text(json.dumps(meta, separators=(",", ":")), encoding="utf-8")
+    print(f"swellmap world: {len(meta['frames'])} frames @ {meta['grid_deg']:g} deg")
+    return len(meta["frames"])

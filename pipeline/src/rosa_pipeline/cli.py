@@ -235,6 +235,12 @@ def _build_parser() -> argparse.ArgumentParser:
     sm.add_argument("--spots-dir", type=Path, default=Path("data/spots"))
     sm.add_argument("--out", type=Path, default=Path("data/out"))
     sm.add_argument("--basin", default=None, help="single basin name (default: all)")
+    sm.add_argument(
+        "--skip-world", action="store_true", help="basins only - skip the global PNG layer"
+    )
+    sm.add_argument(
+        "--world-only", action="store_true", help="global PNG layer only - skip the basins"
+    )
     return parser
 
 
@@ -565,16 +571,21 @@ def _cmd_experiment(args: argparse.Namespace) -> int:
 
 
 def _cmd_swellmap(args: argparse.Namespace) -> int:
-    from .swellmap import basin_boxes, run_swellmap
+    from .swellmap import basin_boxes, run_swellmap, run_swellmap_world
 
-    basins = basin_boxes(args.spots_dir)
-    if args.basin is not None:
-        basins = [b for b in basins if b.name == args.basin]
-        if not basins:
-            print(f"unknown basin {args.basin!r}", file=sys.stderr)
-            return 2
-    written = run_swellmap(args.spots_dir, args.out, basins=basins)
-    return 0 if written else 1
+    written: list[str] = []
+    if not args.world_only:
+        basins = basin_boxes(args.spots_dir)
+        if args.basin is not None:
+            basins = [b for b in basins if b.name == args.basin]
+            if not basins:
+                print(f"unknown basin {args.basin!r}", file=sys.stderr)
+                return 2
+        written = run_swellmap(args.spots_dir, args.out, basins=basins)
+    world_frames = 0
+    if not args.skip_world and args.basin is None:
+        world_frames = run_swellmap_world(args.out)
+    return 0 if (written or world_frames) else 1
 
 
 def _cmd_notify(args: argparse.Namespace) -> int:

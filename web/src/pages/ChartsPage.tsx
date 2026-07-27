@@ -1,6 +1,14 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import type { Map as MLMap } from "maplibre-gl";
-import { fetchSwellBasin, fetchSwellIndex, type SwellBasin, type SwellIndex } from "../api";
+import {
+  fetchSwellBasin,
+  fetchSwellIndex,
+  fetchWorldMeta,
+  swellmapAsset,
+  type SwellBasin,
+  type SwellIndex,
+  type WorldMeta,
+} from "../api";
 import { signalReady } from "../splash";
 
 /** Charts tab: animated basin wave fields (SwellMap v0.2), Surfline-style - a
@@ -66,6 +74,7 @@ function normalizeBasin(b: SwellBasin): SwellBasin {
 }
 
 const ALL = "all";
+const WORLD = "world";
 
 async function loadBasin(name: string): Promise<SwellBasin> {
   const hit = basinCache.get(name);
@@ -75,9 +84,133 @@ async function loadBasin(name: string): Promise<SwellBasin> {
   return data;
 }
 
-function rampColor(ramp: string[], t: number): string {
-  return ramp[Math.min(ramp.length - 1, Math.floor(t * ramp.length))] ?? "#1d6f8c";
+/* ---- World frames: lazy PNG fetch + decode ----------------------------------
+   Each frame is one grayscale PNG of five field planes stacked vertically
+   (hs, per, dir, wind, wdir). Decoded once into a flat byte buffer and cached
+   for the session; frames load on demand while scrubbing. */
+
+const worldPlaneCache = new Map<string, Uint8ClampedArray>();
+const worldInflight = new Set<string>();
+
+async function loadWorldFrame(meta: WorldMeta, png: string): Promise<void> {
+  if (worldPlaneCache.has(png) || worldInflight.has(png)) return;
+  worldInflight.add(png);
+  try {
+    const res = await fetch(swellmapAsset(png));
+    if (!res.ok) return;
+    // colorSpaceConversion none: the bytes ARE the data - no profile may touch them
+    const bmp = await createImageBitmap(await res.blob(), {
+      premultiplyAlpha: "none",
+      colorSpaceConversion: "none",
+    });
+    const w = meta.nx;
+    const h = meta.ny * meta.planes.length;
+    const cnv = document.createElement("canvas");
+    cnv.width = w;
+    cnv.height = h;
+    const cx = cnv.getContext("2d", { willReadFrequently: true });
+    if (!cx) return;
+    cx.drawImage(bmp, 0, 0);
+    const rgba = cx.getImageData(0, 0, w, h).data;
+    const out = new Uint8ClampedArray(w * h);
+    for (let i = 0; i < out.length; i++) out[i] = rgba[i * 4]!; // grayscale: R channel
+    worldPlaneCache.set(png, out);
+  } finally {
+    worldInflight.delete(png);
+  }
 }
+
+/* ---- Colormap: 256-step LUT lerped across the ramp stops (matches the legend
+   gradient) - the renderer paints per-cell pixels, not per-cell rects. */
+const lutCache = new Map<string, Uint8ClampedArray>();
+
+function rampLUT(variable: Variable, theme: "light" | "dark"): Uint8ClampedArray {
+  const key = `${variable}|${theme}`;
+  const hit = lutCache.get(key);
+  if (hit) return hit;
+  const stops = RAMPS[variable][theme].map((hex) => [
+    parseInt(hex.slice(1, 3), 16),
+    parseInt(hex.slice(3, 5), 16),
+    parseInt(hex.slice(5, 7), 16),
+  ]);
+  const lut = new Uint8ClampedArray(256 * 3);
+  for (let i = 0; i < 256; i++) {
+    const t = (i / 255) * (stops.length - 1);
+    const a = Math.min(stops.length - 1, Math.floor(t));
+    const b = Math.min(stops.length - 1, a + 1);
+    const f = t - a;
+    for (let c = 0; c < 3; c++) lut[i * 3 + c] = stops[a]![c]! * (1 - f) + stops[b]![c]! * f;
+  }
+  lutCache.set(key, lut);
+  return lut;
+}
+
+/* ---- Layer: one drawable grid (a basin frame, or the world planes) ---------- */
+
+interface Layer {
+  id: string;
+  nx: number;
+  ny: number;
+  lat0: number; // latitude of row 0 (either pole-first orientation works)
+  dLat: number;
+  lon0: number; // longitude of column 0 - may exceed 180 (world grid is 0-360)
+  dLon: number;
+  val: (i: number) => number | null; // selected variable, physical units
+  dirQ: (i: number) => number; // quantized direction for arrows (255 = none)
+  dirScale: number;
+}
+
+function basinLayer(bas: SwellBasin, f: SwellBasin["frames"][number], variable: Variable): Layer {
+  return {
+    id: bas.basin,
+    nx: bas.nx,
+    ny: bas.ny,
+    lat0: bas.lat_first,
+    dLat: (bas.lat_last - bas.lat_first) / (bas.ny - 1),
+    lon0: bas.lon_first,
+    dLon: (bas.lon_last - bas.lon_first) / (bas.nx - 1),
+    val: (i) => cellValue(bas, f, i, variable),
+    dirQ: (i) => (variable === "wind" ? (f.wdir?.[i] ?? 255) : (f.dir?.[i] ?? 255)),
+    dirScale: bas.scales.dir_deg,
+  };
+}
+
+function worldLayer(meta: WorldMeta, planes: Uint8ClampedArray, variable: Variable): Layer {
+  const n = meta.nx * meta.ny;
+  const P = (name: string) => meta.planes.indexOf(name) * n;
+  const s = meta.scales;
+  const val = (i: number): number | null => {
+    if (variable === "wind") {
+      const q = planes[P("wind") + i]!;
+      return q === 255 ? null : q * s.wind_ms * 1.94384;
+    }
+    const qh = planes[P("hs") + i]!;
+    if (qh === 255) return null;
+    const hs = qh * s.hs_m;
+    if (variable === "hs") return hs;
+    const qp = planes[P("per") + i]!;
+    if (qp === 255) return null;
+    const per = qp * s.per_s;
+    if (variable === "per") return per;
+    return 0.49 * hs * hs * (0.9 * per);
+  };
+  return {
+    id: "world",
+    nx: meta.nx,
+    ny: meta.ny,
+    lat0: meta.lat_first,
+    dLat: (meta.lat_last - meta.lat_first) / (meta.ny - 1),
+    lon0: meta.lon_first,
+    dLon: (meta.lon_last - meta.lon_first) / (meta.nx - 1),
+    val,
+    dirQ: (i) => planes[P(variable === "wind" ? "wdir" : "dir") + i]!,
+    dirScale: s.dir_deg,
+  };
+}
+
+/* Ramp-scale caps: the world's absolute max is a single typhoon cell - a linear
+   ramp to it would flatten every ordinary coast. Saturate above these instead. */
+const WORLD_SCALE_CAP: Record<Variable, number> = { hs: 8, per: 20, energy: 200, wind: 50 };
 
 function cellValue(b: SwellBasin, f: SwellBasin["frames"][number], i: number, v: Variable): number | null {
   if (v === "wind") {
@@ -140,12 +273,14 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mapRef = useRef<MLMap | null>(null);
   const [index, setIndex] = useState<SwellIndex | null>(null);
+  const [world, setWorld] = useState<WorldMeta | null>(null);
   const [basinName, setBasinName] = useState<string | null>(null);
   const [basins, setBasins] = useState<SwellBasin[]>([]);
   const [variable, setVariable] = useState<Variable>("hs");
   const [menuOpen, setMenuOpen] = useState(false);
   const [frame, setFrame] = useState(0);
   const [playing, setPlaying] = useState(false);
+  const [tick, setTick] = useState(0); // bumped when an async world frame lands
   const [error, setError] = useState<string | null>(null);
 
   // Map + index once. The splash lifts as soon as we know what there is to show.
@@ -153,13 +288,23 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
     let disposed = false;
     (async () => {
       try {
-        const [{ default: maplibregl }, idx] = await Promise.all([
+        const [{ default: maplibregl }, idxR, worldR] = await Promise.all([
           import("maplibre-gl"),
-          fetchSwellIndex(),
+          fetchSwellIndex().then(
+            (v) => ({ ok: true as const, v }),
+            () => ({ ok: false as const, v: null }),
+          ),
+          fetchWorldMeta().then(
+            (v) => ({ ok: true as const, v }),
+            () => ({ ok: false as const, v: null }),
+          ),
         ]);
         await import("maplibre-gl/dist/maplibre-gl.css");
         if (disposed || !wrapRef.current) return;
+        if (!idxR.ok && !worldR.ok) throw new Error("nothing published");
+        const idx = idxR.v ?? {};
         setIndex(idx);
+        if (worldR.ok) setWorld(worldR.v);
         const m = new maplibregl.Map({
           container: wrapRef.current,
           style: {
@@ -181,7 +326,7 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
         m.addControl(new maplibregl.AttributionControl({ compact: true }), "bottom-left");
         mapRef.current = m;
         // open on the basin nearest the last map view's region: default Israel
-        setBasinName(nearestBasin(idx, 32.1, 34.8));
+        setBasinName(nearestBasin(idx, 32.1, 34.8) ?? (worldR.ok ? WORLD : null));
       } catch {
         if (!disposed) setError("Charts aren't published yet - try again after the next forecast cycle.");
       } finally {
@@ -204,10 +349,22 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
     src?.setTiles?.([TILE_URLS[theme]]);
   }, [theme]);
 
-  // Load the selection - one basin, or every published basin stitched onto one
-  // chart ("All") - and frame the map on the union of what loaded.
+  // Load the selection - the world layer, one basin, or every published basin
+  // stitched onto one chart ("All") - and frame the map on what loaded.
   useEffect(() => {
     if (!basinName || !index) return;
+    if (basinName === WORLD) {
+      setBasins([]);
+      setFrame(0);
+      mapRef.current?.fitBounds(
+        [
+          [-179, -55],
+          [179, 72],
+        ],
+        { padding: 0, duration: 600 },
+      );
+      return;
+    }
     let disposed = false;
     (async () => {
       try {
@@ -241,16 +398,23 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
     };
   }, [basinName, index]);
 
+  const isWorld = basinName === WORLD;
+
   // Master timeline = the longest frame list; other basins join by timestamp, so
   // a basin that missed a NOMADS step skips that frame instead of drifting.
-  const timeline = basins.reduce<string[]>(
-    (best, b) => (b.frames.length > best.length ? b.frames.map((f) => f.t) : best),
-    [],
-  );
+  const timeline = isWorld
+    ? (world?.frames.map((f) => f.t) ?? [])
+    : basins.reduce<string[]>(
+        (best, b) => (b.frames.length > best.length ? b.frames.map((f) => f.t) : best),
+        [],
+      );
 
-  // One fixed scale across every loaded basin and frame, so scrubbing - and the
-  // stitched all-regions view - compare honestly.
+  // One fixed scale across every frame, so scrubbing compares honestly. World:
+  // the pipeline precomputed the run's max (capped - see WORLD_SCALE_CAP).
   const maxVal = (() => {
+    if (isWorld) {
+      return Math.max(1, Math.ceil(Math.min(world?.max[variable] ?? 1, WORLD_SCALE_CAP[variable])));
+    }
     let mx = 0;
     for (const b of basins) {
       for (const f of b.frames) {
@@ -263,13 +427,90 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
     return Math.max(1, Math.ceil(mx));
   })();
 
-  // Draw the current frame; redraw on every map move so cells track the basemap.
+  // World frames load on demand: the shown frame first, then a short prefetch
+  // run ahead so playback stays smooth once the first loop has warmed the cache.
+  useEffect(() => {
+    if (!isWorld || !world) return;
+    const wanted = [frame, frame + 1, frame + 2].filter((i) => i < world.frames.length);
+    for (const i of wanted) {
+      const png = world.frames[i]!.png;
+      if (!worldPlaneCache.has(png)) {
+        void loadWorldFrame(world, png).then(() => setTick((n) => n + 1));
+      }
+    }
+  }, [isWorld, world, frame]);
+
+  // Draw the current frame; redraw on every map move so the field tracks the
+  // basemap. Each layer is colormapped once into an offscreen grid canvas, then
+  // blitted one latitude row at a time (mercator rows aren't evenly spaced) with
+  // image smoothing on - bilinear interpolation instead of hard cell squares.
   useEffect(() => {
     const m = mapRef.current;
     const canvas = canvasRef.current;
     const t = timeline[frame];
-    if (!m || !canvas || !basins.length || !t) return;
-    const ramp = RAMPS[variable][theme];
+    if (!m || !canvas || !t || (isWorld ? !world : !basins.length)) return;
+    const lut = rampLUT(variable, theme);
+    const gridCanvases = new Map<string, HTMLCanvasElement>();
+
+    // Vertical oversampling: strips blit from a K-times-taller pre-upscaled
+    // canvas, so the field is bilinear in BOTH axes (a 1-px source strip alone
+    // interpolates horizontally only - basin zoom showed venetian-blind rows).
+    const K = 8;
+
+    const buildGrid = (layer: Layer): HTMLCanvasElement => {
+      const cnv = document.createElement("canvas");
+      cnv.width = layer.nx;
+      cnv.height = layer.ny;
+      const cx = cnv.getContext("2d")!;
+      const img = cx.createImageData(layer.nx, layer.ny);
+      const px = img.data;
+      const n = layer.nx * layer.ny;
+      // fully opaque pixels: strips may overlap while blitting, and translucent
+      // overlaps would stack into visible seam lines - the whole field is
+      // composited onto the map at OVERLAY_ALPHA in one pass instead
+      for (let i = 0; i < n; i++) {
+        const v = layer.val(i);
+        if (v === null) continue; // land/missing stays transparent
+        const q = Math.max(0, Math.min(255, Math.round((v / maxVal) * 255)));
+        px[i * 4] = lut[q * 3]!;
+        px[i * 4 + 1] = lut[q * 3 + 1]!;
+        px[i * 4 + 2] = lut[q * 3 + 2]!;
+        px[i * 4 + 3] = 255;
+      }
+      cx.putImageData(img, 0, 0);
+      const tall = document.createElement("canvas");
+      tall.width = layer.nx;
+      tall.height = layer.ny * K;
+      const tx = tall.getContext("2d")!;
+      tx.imageSmoothingEnabled = true;
+      tx.drawImage(cnv, 0, 0, layer.nx, layer.ny * K);
+      return tall;
+    };
+
+    // World: draw the nearest loaded frame so scrubbing never flashes empty
+    // while the target frame is still downloading.
+    const currentLayers = (): Layer[] => {
+      if (isWorld) {
+        const frames = world!.frames;
+        for (let d = 0; d < frames.length; d++) {
+          for (const i of d === 0 ? [frame] : [frame - d, frame + d]) {
+            if (i < 0 || i >= frames.length) continue;
+            const planes = worldPlaneCache.get(frames[i]!.png);
+            if (planes) return [worldLayer(world!, planes, variable)];
+          }
+        }
+        return [];
+      }
+      const out: Layer[] = [];
+      for (const bas of basins) {
+        const f = bas.frames.find((fr) => fr.t === t);
+        if (f) out.push(basinLayer(bas, f, variable)); // a missed NOMADS step skips, never drifts
+      }
+      return out;
+    };
+    const layers = currentLayers();
+
+    const field = document.createElement("canvas"); // opaque strip target, reused per draw
 
     const draw = () => {
       const wrap = canvas.parentElement;
@@ -283,71 +524,113 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
         canvas.style.width = `${W}px`;
         canvas.style.height = `${H}px`;
       }
+      if (field.width !== W * dpr) {
+        field.width = W * dpr;
+        field.height = H * dpr;
+      }
       const ctx = canvas.getContext("2d");
-      if (!ctx) return;
+      const fctx = field.getContext("2d");
+      if (!ctx || !fctx) return;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, W, H);
-      const proj = (lat: number, lon: number) => m.project([lon, lat]);
+      fctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      fctx.clearRect(0, 0, W, H);
+      fctx.imageSmoothingEnabled = true;
 
-      for (const bas of basins) {
-        const f = bas.frames.find((fr) => fr.t === t);
-        if (!f) continue; // this basin missed this NOMADS step - skip, don't drift
-        ctx.globalAlpha = OVERLAY_ALPHA;
-        const { nx, ny } = bas;
-        const dLat = (bas.lat_last - bas.lat_first) / (ny - 1);
-        const dLon = (bas.lon_last - bas.lon_first) / (nx - 1);
+      // Continuous-plane x mapping (project() doesn't wrap): one world's pixel
+      // width lets any longitude - including the 0-360 world grid - land on the
+      // right screen x, and repeats the layer on the neighbouring world copies.
+      const worldW = m.project([180, 0]).x - m.project([-180, 0]).x;
+      const xOfLon = (lon: number) => m.project([-180, 0]).x + ((lon + 180) / 360) * worldW;
+      const yOfLat = (lat: number) => m.project([0, Math.max(-85, Math.min(85, lat))]).y;
 
-        for (let j = 0; j < ny; j++) {
-          for (let i = 0; i < nx; i++) {
-            const v = cellValue(bas, f, j * nx + i, variable);
-            if (v === null) continue;
-            const lat = bas.lat_first + j * dLat;
-            const lon = bas.lon_first + i * dLon;
-            const a = proj(lat - dLat / 2, lon - dLon / 2);
-            const b = proj(lat + dLat / 2, lon + dLon / 2);
-            const x = Math.min(a.x, b.x);
-            const y = Math.min(a.y, b.y);
-            const w = Math.abs(b.x - a.x) + 0.5;
-            const h = Math.abs(b.y - a.y) + 0.5;
-            if (x + w < 0 || y + h < 0 || x > W || y > H) continue;
-            ctx.fillStyle = rampColor(ramp, Math.min(1, v / maxVal));
-            ctx.fillRect(x, y, w, h);
+      for (const layer of layers) {
+        let grid = gridCanvases.get(layer.id);
+        if (!grid) {
+          grid = buildGrid(layer);
+          gridCanvases.set(layer.id, grid);
+        }
+        const xL = xOfLon(layer.lon0 - layer.dLon / 2);
+        const spanW = ((layer.dLon * layer.nx) / 360) * worldW;
+
+        for (let j = 0; j < layer.ny; j++) {
+          const latA = layer.lat0 + (j - 0.5) * layer.dLat;
+          const latB = layer.lat0 + (j + 0.5) * layer.dLat;
+          // 79 deg trim: beyond it is the sea-ice margin's data/missing noise
+          // (and mercator's blow-up) - no surf, no basin, nothing lost
+          if (Math.max(Math.abs(latA), Math.abs(latB)) > 79) continue;
+          const ya = yOfLat(latA);
+          const yb = yOfLat(latB);
+          const top = Math.min(ya, yb);
+          const rowH = Math.abs(yb - ya);
+          if (top > H || top + rowH < 0) continue;
+          // subdivide tall rows so mercator row placement stays exact while the
+          // pre-upscaled source supplies the vertical interpolation
+          const S = Math.min(K, Math.max(1, Math.ceil(rowH / 3)));
+          for (let s = 0; s < S; s++) {
+            const fa = (j - 0.5 + s / S) * layer.dLat + layer.lat0;
+            const fb = (j - 0.5 + (s + 1) / S) * layer.dLat + layer.lat0;
+            const yfa = yOfLat(fa);
+            const yfb = yOfLat(fb);
+            const sy = Math.min(yfa, yfb);
+            const sh = Math.abs(yfb - yfa);
+            const srcY = j * K + (s * K) / S;
+            for (let k = -1; k <= 1; k++) {
+              const dx = k * worldW;
+              if (xL + dx > W || xL + spanW + dx < 0) continue;
+              // slight overlap so adjacent strips can't leave hairline seams -
+              // harmless because the strips are opaque
+              fctx.drawImage(grid, 0, srcY, layer.nx, K / S, xL + dx, sy, spanW, sh + 0.6);
+            }
           }
         }
+      }
 
+      // one composite pass: the whole field fades over the basemap uniformly
+      ctx.globalAlpha = OVERLAY_ALPHA;
+      ctx.drawImage(field, 0, 0, W, H);
+      ctx.globalAlpha = 1;
+
+      for (const layer of layers) {
         // Direction arrows - wind direction on the Wind chart, swell elsewhere.
-        const cellPx = Math.abs(
-          proj(bas.lat_first, bas.lon_first + dLon).x - proj(bas.lat_first, bas.lon_first).x,
-        );
+        const cellPx = (layer.dLon / 360) * worldW;
         const stride = Math.max(1, Math.round(W / ARROW_TARGET / Math.max(1, cellPx)));
         ctx.globalAlpha = 0.9;
         ctx.strokeStyle = theme === "dark" ? "rgba(255,255,255,0.85)" : "rgba(10,20,25,0.7)";
         ctx.lineWidth = 1.4;
         const len = Math.min(14, Math.max(7, cellPx * 0.45));
-        for (let j = 0; j < ny; j += stride) {
-          for (let i = 0; i < nx; i += stride) {
-            const qd = (variable === "wind" ? f.wdir : f.dir)?.[j * nx + i];
-            if (qd === undefined || qd === 255) continue;
-            if (cellValue(bas, f, j * nx + i, variable === "wind" ? "wind" : "hs") === null) continue;
-            const p = proj(bas.lat_first + j * dLat, bas.lon_first + i * dLon);
-            if (p.x < 0 || p.y < 0 || p.x > W || p.y > H) continue;
-            const rad = ((qd * bas.scales.dir_deg + 180) * Math.PI) / 180;
-            const dx = Math.sin(rad) * len;
-            const dy = -Math.cos(rad) * len;
-            ctx.beginPath();
-            ctx.moveTo(p.x - dx / 2, p.y - dy / 2);
-            ctx.lineTo(p.x + dx / 2, p.y + dy / 2);
-            const hx = p.x + dx / 2;
-            const hy = p.y + dy / 2;
-            const ang = Math.atan2(dy, dx);
-            ctx.lineTo(hx - 4 * Math.cos(ang - 0.5), hy - 4 * Math.sin(ang - 0.5));
-            ctx.moveTo(hx, hy);
-            ctx.lineTo(hx - 4 * Math.cos(ang + 0.5), hy - 4 * Math.sin(ang + 0.5));
-            ctx.stroke();
+        for (let j = 0; j < layer.ny; j += stride) {
+          const lat = layer.lat0 + j * layer.dLat;
+          if (Math.abs(lat) > 79) continue;
+          const y = yOfLat(lat);
+          if (y < 0 || y > H) continue;
+          for (let i = 0; i < layer.nx; i += stride) {
+            const idx = j * layer.nx + i;
+            const qd = layer.dirQ(idx);
+            if (qd === 255) continue;
+            if (layer.val(idx) === null) continue;
+            const bx = xOfLon(layer.lon0 + i * layer.dLon);
+            for (let k = -1; k <= 1; k++) {
+              const x = bx + k * worldW;
+              if (x < 0 || x > W) continue;
+              const rad = ((qd * layer.dirScale + 180) * Math.PI) / 180;
+              const ax = Math.sin(rad) * len;
+              const ay = -Math.cos(rad) * len;
+              ctx.beginPath();
+              ctx.moveTo(x - ax / 2, y - ay / 2);
+              ctx.lineTo(x + ax / 2, y + ay / 2);
+              const hx = x + ax / 2;
+              const hy = y + ay / 2;
+              const ang = Math.atan2(ay, ax);
+              ctx.lineTo(hx - 4 * Math.cos(ang - 0.5), hy - 4 * Math.sin(ang - 0.5));
+              ctx.moveTo(hx, hy);
+              ctx.lineTo(hx - 4 * Math.cos(ang + 0.5), hy - 4 * Math.sin(ang + 0.5));
+              ctx.stroke();
+            }
           }
         }
+        ctx.globalAlpha = 1;
       }
-      ctx.globalAlpha = 1;
     };
 
     draw();
@@ -357,7 +640,7 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
       canvas.getContext("2d")?.clearRect(0, 0, canvas.width, canvas.height);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [basins, frame, variable, theme, maxVal]);
+  }, [basins, world, isWorld, frame, variable, theme, maxVal, tick]);
 
   useEffect(() => {
     if (!playing || !timeline.length) return;
@@ -367,7 +650,7 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
   }, [playing, timeline.length]);
 
   const t = timeline[frame];
-  const ramp = basins.length ? RAMPS[variable][theme] : [];
+  const ramp = RAMPS[variable][theme];
 
   return (
     <main class="page map-page">
@@ -377,7 +660,10 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
 
         {index && (
           <div class="charts-basins" role="tablist" aria-label="Basin">
-            {[ALL, ...Object.keys(index)].map((name) => (
+            {[
+              ...(world ? [WORLD] : []),
+              ...(Object.keys(index).length ? [ALL, ...Object.keys(index)] : []),
+            ].map((name) => (
               <button
                 key={name}
                 role="tab"
@@ -385,7 +671,7 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
                 class={`group-chip${name === basinName ? " on" : ""}`}
                 onClick={() => setBasinName(name)}
               >
-                {name === ALL ? "All regions" : basinLabel(name)}
+                {name === WORLD ? "World" : name === ALL ? "All regions" : basinLabel(name)}
               </button>
             ))}
           </div>
@@ -393,7 +679,7 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
 
         {error && <p class="swell-note">{error}</p>}
 
-        {basins.length > 0 && t && (
+        {(isWorld ? world !== null : basins.length > 0) && t && (
           <div class={`charts-deck${playing ? " playing" : ""}`}>
             <div class="deck-head">
               <button
@@ -416,7 +702,9 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
               {menuOpen && <div class="deck-scrim" onClick={() => setMenuOpen(false)} />}
               {menuOpen && (
                 <div class="deck-menu" role="listbox" aria-label="Chart type">
-                  {VARIABLES.filter((v) => v.key !== "wind" || basins.some((b) => b.frames[0]?.wind)).map((v) => (
+                  {VARIABLES.filter(
+                    (v) => v.key !== "wind" || isWorld || basins.some((b) => b.frames[0]?.wind),
+                  ).map((v) => (
                     <button
                       key={v.key}
                       role="option"
@@ -430,7 +718,9 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
                       {v.label}
                     </button>
                   ))}
-                  <span class="deck-run">GFS-Wave · run {timeLabel(basins[0]!.run)}</span>
+                  <span class="deck-run">
+                    GFS-Wave · run {timeLabel(isWorld ? world!.run : basins[0]!.run)}
+                  </span>
                 </div>
               )}
               <span class="deck-legend" style={`background:linear-gradient(90deg, ${ramp.join(",")})`} />

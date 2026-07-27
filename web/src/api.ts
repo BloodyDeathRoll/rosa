@@ -61,3 +61,33 @@ export async function fetchSwellBasin(name: string): Promise<SwellBasin> {
   if (!res.ok) throw new Error(`Swell frames for "${name}" aren't published yet.`);
   return (await res.json()) as SwellBasin;
 }
+
+/* ---- World layer: whole-globe frames, one stacked-grayscale PNG per timestep ---- */
+
+export interface WorldMeta {
+  model: string;
+  grid_deg: number;
+  run: string;
+  attribution: string;
+  scales: { hs_m: number; per_s: number; dir_deg: number; wind_ms: number; missing: number };
+  planes: string[]; // vertical plane order inside each PNG: hs, per, dir, wind, wdir
+  max: { hs: number; per: number; wind: number; energy: number };
+  ny: number;
+  nx: number;
+  lat_first: number;
+  lat_last: number;
+  lon_first: number; // 0-360 grid - the renderer handles the wrap
+  lon_last: number;
+  frames: { t: string; png: string }[];
+}
+
+export async function fetchWorldMeta(): Promise<WorldMeta> {
+  const res = await fetch(`${DATA_BASE}/data/swellmap/world.json`);
+  if (!res.ok) throw new Error(`World layer isn't published yet. (${res.status})`);
+  return (await res.json()) as WorldMeta;
+}
+
+/** URL of a file under /data/swellmap/ (world frame PNGs). */
+export function swellmapAsset(path: string): string {
+  return `${DATA_BASE}/data/swellmap/world/${path}`;
+}
