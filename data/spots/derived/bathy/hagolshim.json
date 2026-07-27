@@ -1,0 +1,69 @@
+{
+  "spot": "hagolshim",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.0296803,
+    34.7408952
+  ],
+  "bearing_seaward_deg": 282.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 255.0,
+  "mean_slope_m_per_km": 14.03,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.03015,
+      "lon": 34.7383,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.03062,
+      "lon": 34.73571,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.03155,
+      "lon": 34.73052,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.03342,
+      "lon": 34.72014,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.03529,
+      "lon": 34.70976,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.03902,
+      "lon": 34.68901,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.04461,
+      "lon": 34.65787,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.05206,
+      "lon": 34.61635,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.0632,
+      "lon": 34.55405,
+      "depth_m": 255.0
+    }
+  ]
+}
