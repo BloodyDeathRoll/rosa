@@ -1,0 +1,28 @@
+# Live-cam candidates - review, then add accepted ones to the spot YAMLs as
+# cam: { yt, by, by_url[, note] } and their channel to tools/cam-scan/channels.yaml.
+# Unmatched cams double as spot-discovery signals (docs/cam-scan-plan.md §3).
+candidates:
+- yt: w7rzgn6WXs8
+  title: LIVECAM - Marina de Portimão (Portugal)
+  by: Playocean
+  by_url: https://www.youtube.com/channel/UCHSNLuGE3aeMG1RaS4r6sFg
+  live_hours: 10902.6
+  found_via: channel:PlayoceanLive
+  match: skipped
+  reason: marina, not a surf spot
+- yt: fAS2TFePbQk
+  title: 'LIVE Anacapa Island Cove Lookout Cam: Channel Islands National Park - NPS | explore.org'
+  by: Explore Big Surf, Beaches and Sunsets
+  by_url: https://www.youtube.com/channel/UCJRuk-FJ6dzX0MOpnd0UDCg
+  live_hours: 2182.0
+  found_via: channel:ExploreBigSurfandBeaches
+  match: skipped
+  reason: island cove overlook, no break
+- yt: TCGyi19a6J4
+  title: LIVE Catalina Island West End Overlook Cam | explore.org
+  by: Explore Big Surf, Beaches and Sunsets
+  by_url: https://www.youtube.com/channel/UCJRuk-FJ6dzX0MOpnd0UDCg
+  live_hours: 1247.8
+  found_via: channel:ExploreBigSurfandBeaches
+  match: skipped
+  reason: island overlook, no break

@@ -1,0 +1,17 @@
+# Cam networks: channels that carry live surf cams. Channel mining enumerates
+# every current live stream of each - one channel often means many cams.
+# Every accepted cam's channel gets added here (docs/cam-scan-plan.md §1).
+channels:
+  - { handle: "TheSurfersView", name: "The Surfers View" } # US east coast + Tamarindo
+  - { handle: "PlayoceanLive", name: "Playocean" } # Portugal beaches
+  - { handle: "iinamicom", name: "ii-nami.com" } # Miyazaki wave cams
+  - { handle: "malpaisurfcam1", name: "malpaisurfcam" } # Santa Teresa / Mal Pais
+  - { handle: "VacationNosara", name: "Vacation Nosara" } # Playa Guiones
+  - { handle: "ToviLive", name: "Tovi - Live Stream" } # Israel (Hagolshim Rishon)
+  - { handle: "NAMIARUMOVIE", name: "NAMIARUMOVIE" } # Shonan cams
+  - { handle: "withsea_official", name: "WITH SEA" } # Chigasaki
+  - { handle: "mariner1173", name: "mariner1173" } # Shirahama (Izu)
+  - { handle: "ExploreBigSurfandBeaches", name: "Explore Big Surf, Beaches and Sunsets" } # Nazaré
+  - { handle: "千葉県長生村", name: "Chosei Village (Chiba)" } # Hitotsumatsu beach
+  - { handle: "サンセットタウン", name: "Sunset Town" } # Hebara
+  - { handle: "波のスケッチ", name: "Nami no Sketch" } # Kamogawa
