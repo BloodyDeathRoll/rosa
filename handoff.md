@@ -1,109 +1,108 @@
-# Session Handoff - 2026-07-25
+# Session Handoff - 2026-07-26
 
 ## Goal
-Fix the forecast's energy column (wrong unit, wrong period), then act on a batch of
-user-supplied spot corrections across Israel/Sri Lanka/Japan, and add live cams where
-they can be embedded without asking anyone's permission.
+Big infra + product day: get the A1 (Stage-4 box), build the Stage-2E calibration
+harness and SWAN scaffolding while archives mature, and ship SwellMap v0.2 - a
+Surfline-style Charts tab with animated basin wave fields for every region.
 
 ## Current State
-- **Everything is committed and pushed** except one line in `.gitignore` (adds
-  `coordinates.md` alongside `cameras.md`). 10 commits this session, `ea39f07..65f8041`.
-- **239 pipeline tests green**, ruff clean, `tsc --noEmit` clean, web builds.
-- **Web is deployed** (`rosa-r38p0uwx1`, aliased to rosa-rust.vercel.app).
-- **CRITICAL: none of the data work is live yet.** The published payloads are still the
-  188-spot set generated 08:36 UTC. The **14:20 UTC cron** is the first cycle that pulls
-  today's commits. Until it runs: new spots absent, moved spots on old pins, no cams.
-  The user was told to expect it by ~17:35 IDT. If it did not run, check
-  `deploy/oracle/publish.sh` on the VM (82.70.218.149).
-- Spot DB: **193 spots** (israel 42, sri-lanka 32, japan 23, portugal 40, costa-rica 25,
-  philippines 16, nicaragua 15). **149 bathy profiles**; 44 spots still have none.
-- 7 spots have live cams. Verified embeddable but **never eyeballed in a browser**.
+- **All committed, pushed, deployed.** Working tree clean at `6bc0761`. Web live on
+  rosa-rust.vercel.app; six basin frame-sets live on rosa-data-opal (/data/swellmap/).
+  257 pipeline tests green, ruff clean.
+- **rosa-arm is RUNNING**: A1.Flex 4 OCPU/24 GB, public 82.70.253.255, private
+  10.0.0.35, Jerusalem AD-1 - launched first try after the Israeli tenancy upgraded
+  to PAYG (2,834 free-tier attempts had failed; it was deprioritisation, not missing
+  hardware). Quota policy `rosa-free-tier-cap` (A1 4/24 + 200GB storage) is ACTIVE on
+  BOTH tenancies and verified binding (`effective-quota-value: 4`); usage sits at
+  exactly 4/4 + 24/24 → $0, nothing more can provision. Frankfurt + Jerusalem A1
+  watchers all stopped. SWAN 41.51 built on it (`~/bin/swan-omp.exe`, OpenMP; MPI
+  deliberately not built - switch.pl emits a serial binary); smoke + Israel-grid
+  synthetic run verified (Haifa-bay sheltering reproduced, 3 s wall).
+- **Charts tab live**: 5th tab (Today|Spots|Map|Charts|Profile). Basin chips
+  (All regions + 6), four charts from one payload (Height/Period/Energy/Wind),
+  play/scrub timeline, per-variable single-hue themed ramps, GFS-Wave run attribution.
+  Map tab is spot-finding only again (in-map layer removed by user direction).
+- **SwellMap pipeline**: `rosa-pipeline swellmap` in publish.sh (non-fatal step);
+  frames regenerate 4x/day. Wind rides in the same GRIBs (zero extra requests).
+- **Stage-2E harness built and run** (`rosa-pipeline experiment`): Tp-keyed
+  rideability fixes both Hilton under-calls and holds the windswell frame, but every
+  Tp/Te candidate over-calls the 07-19 flat frame; NO candidate passes all 4; no
+  knob moved. Logged in docs/CALIBRATION.md. 07-26 Hilton entry added (~2x under-call
+  on a small day, first data point on the corrected pin).
+- Hilton/Gordon moved to user-verified pins, bugrashov removed (Israel 41, total 192);
+  bathy = 192/192 profiles, origin-stamped, guard test enforces no orphans/stale;
+  `offshore_point` absolute field removed (pin-relative offshore_bearing/km).
+- Web UX shipped today: launch always lands on Today; region section labels
+  (home region first, A-Z; Spots A-Z; chip persisted); swipeable extended-card
+  carousel on Today; auto-reload on SW update; install prompt (Chromium dialog,
+  iOS-Safari + Firefox-Android instructions); dark manifest background; cam embed
+  stripped to play bar; offshore swell height shown under the surf range (bolder).
 
 ## Active Files
-- `pipeline/src/rosa_pipeline/transform.py` - new `energy_period()` + `energy_kj_per_m()`.
-- `pipeline/src/rosa_pipeline/publish.py` - `energy_kj` per hour, `energy_kw` in
-  `spectral.missed[]`, `spot.cam`, `cam` id in index.json.
-- `pipeline/src/rosa_pipeline/models.py` / `spots.py` - `SpotCam` + loader (raises if a cam
-  lacks `by`/`by_url`).
-- `data/spots/{israel,sri-lanka,japan}.yaml` - the corrections; japan+portugal carry cams.
-- `data/spots/derived/bathy/` - 16 profiles cut/re-cut, 3 orphans deleted.
-- `web/src/pages/SpotPage.tsx` - `CamEmbed` (first element), peak period, kJ column, info icon.
-- `web/src/pages/AboutPage.tsx` - `ReadingTheForecast` glossary, route `#/about/reading`.
-- `web/src/pages/MapPage.tsx` + `styles.css` - cam still on map cards, LIVE CAM chip.
-- `docs/CALIBRATION.md` - 2026-07-25 Hilton entry.
+- `pipeline/src/rosa_pipeline/swellmap.py` - basin frame fetch/quantize/publish.
+- `pipeline/src/rosa_pipeline/experiment.py` + `data/calibration/frames.yaml` - 2E harness.
+- `pipeline/src/rosa_pipeline/transform.py` - `rideability` injection hook (prod default unchanged).
+- `web/src/pages/ChartsPage.tsx` - the Charts tab (multi-basin canvas renderer).
+- `web/src/pages/TodayPage.tsx` - card carousel; `web/src/components/GroupChips.tsx` - sectionsOf.
+- `deploy/oracle/setup-arm.sh` - rosa-arm provisioning (idempotent, self-verifying).
+- `data/swan/israel/` + `tools/swan-grid/build_grid.py` - SWAN Israel grid + deck.
+- `docs/CALIBRATION.md` - 07-26 Hilton entry + 2E harness first-run entry.
 
 ## Changes Made This Session
-1. **Energy column rewritten.** It published `0.49*H^2*T` kW/m keyed on the MEAN period.
-   Now `0.98*H^2*Te^2` kJ per metre of crest, Te = `0.9*peak_period` (mean only as
-   fallback). Hilton went 6.1 -> 119. A test asserts the identity `E*L = 2*P*Te` so the
-   two forms cannot drift.
-2. **Keys renamed** `energy` -> `energy_kj` (hour) and `energy_kw` (missed band), because
-   one name meant two units. This was breaking: production called `energy.toFixed(1)` and
-   would have thrown. A `?? h.energy` shim carried the transition; **removed after
-   verifying the 08:20 cycle published `energy_kj`** (values 126/133/119/107/98/83).
-3. **Peak period now displayed everywhere** (hourly column, Today card, Period bar input).
-   Scoring still consumes the MEAN period. This divergence is DELIBERATE and documented in
-   CLAUDE.md section UI - do not "fix" it by unifying them.
-4. **Glossary page** `#/about/reading`, linked from Profile and an info icon over the
-   hourly table's rating rail. Explains every data point including the mean/peak split.
-5. **950 dashes replaced** (810 em, 140 en) across 89 tracked files. User preference,
-   saved to memory. Write plain hyphens from the start.
-6. **Spot corrections** (all user-supplied DMS, verified to 0.0 m against the YAML):
-   Israel +Maaravi/Reading/Kshatot/Manao Neurim, moved Dolphinarium, removed
-   herzliya-marina + metzitzim, renamed acadia -> "The Marina (Herzliya)" (id kept).
-   Sri Lanka: replaced the coarse ahangama-kabalana pin with South Point/Kabalana/Sticks/
-   Marshmallow/Gas Station, removed momos + cove, Weligama renamed+moved, Hiriketiya moved,
-   weligama-west renamed "Coconut". Japan: +Kaeda Kako/Kodomonokuni, moved Aoshima,
-   **corrected the existing kisakihama pin** (it sat S of Aoshima; it is N).
-7. **Bathymetry**: 16 profiles cut. Verified the physics, not just the files - South Point
-   renders 1.0-1.4 m vs neighbouring Koggala 1.1-1.6 m on the same swell.
-8. **Bay shore-normals** from user-drawn map arrows: hiriketiya 172, weligama 209, set as
-   explicit `shore_normal` while leaving `offshore_direction` alone (beach faces S so N wind
-   is still offshore; the swell's path is the bay mouth - the arugam-bay precedent).
-   Weligama's deep reference dropped 1512 m -> 558 m.
-9. **Live cams**: 7 spots (nazare-norte, kugenuma, chigasaki, hebara, shirahama-izu,
-   kamogawa-malibu, tsurigasaki). All public YouTube live streams, each verified via oEmbed
-   (200 = embeddable). Embedded as the first element on the spot page with a credit line
-   linking the channel. Map cards show the YouTube still + a LIVE CAM chip.
+1. PAYG upgrade path: quotas FIRST (compute-core/compute-memory/block-storage
+   families - plain `compute` is invalid), orphan 47GB boot volume deleted, then
+   upgrade, then `oci compute instance launch` worked immediately. Boot volume min
+   is 50GB (47 rejected).
+2. SwellMap: basins derived from spot DB extents (+3 deg pad); u8 quantization
+   (0.1m/2deg/0.2s/0.25m/s, 255=missing); one JSON per basin (~30-70KB gz);
+   client-side colormap (dataviz method: single-hue sequential, no rainbow -
+   also keeps distance from ISRAMAR's all-rights-reserved imagery).
+3. Charts tab per user direction ("Map = locating spots"); Energy derived
+   client-side (0.49*H^2*Te, Te=0.9*Tp); arrows follow variable (wind vs swell dir).
+4. Western-hemisphere fix: grib-filter returns 0-360 lons → Portugal/CA payloads
+   carried lon_first ~347 → MapLibre drew a world-copy off-screen. Fixed canonical
+   in pipeline + normalize-on-load in client (covers already-published files).
+5. "All regions" chip stitches all basins, aligned by frame timestamp, one shared
+   scale per variable.
+6. Memory rules saved: "commit" = commit+push+DEPLOY unless told otherwise;
+   spot-DB hygiene (bathy follows the pin, counts self-update).
 
 ## Failed Attempts
-- **Automated bay shore-normal detection does not work.** Built a 360-degree GEBCO scan
-  (max-of-min-depth along the ray). It could NOT reproduce either hand-drawn arrow
-  (proposed 195 for weligama vs the user's 209; no change for hiriketiya) and wanted a
-  70-degree swing at aoshima that is an artifact of the pin sitting beside Aoshima island.
-  Inside a bay every bearing hits a land-classified GEBCO cell, so the objective ranks grid
-  resolution, not geometry. **Do not apply it. Ask for a map arrow instead.**
-- **Land-sample warnings on bathy profiles are NOT fixable by re-aiming the ray.** GEBCO
-  cells are ~460 m and Hiriketiya's bay is ~400 m across, so it reads as land whichever way
-  the ray points. 30 previously committed profiles already had them;
-  `wet_depths_deep_to_shallow()` drops them. Not a bug.
-- **WebFetch cannot inspect any cam site** - beachcam.co.il, webcamtaxi, beachcam.meo.pt,
-  lankasurf all render players in JS, so the HTML is navigation only. YouTube oEmbed +
-  `youtube.com/results?...&sp=EgJAAQ%3D%3D` (ytInitialData JSON) answered it without a
-  browser. **No Chrome/browser tool is exposed to this session** despite the user having a
-  Claude Chrome extension running.
-- **A python filter removed both Aoshima lines** because my replacement comment contained
-  the same phrase as the match pattern. Re-added by hand. Check filter patterns against the
-  text you just wrote.
-- Cams for Israel/Costa Rica/Sri Lanka/Nicaragua/Philippines/rest of Portugal all sit
-  behind operator-owned players. They need a partnership and the user has ruled out
-  outreach for now. Surfline covers many of the same spots and is a hard legal red line;
-  the search script filters it by channel name.
+- **JSON frames die at global scale**: 1-deg world = 65k cells x 5 fields x 57
+  frames ≈ 28MB/cycle. Do NOT try to extend the current JSON format to a world
+  chart - it needs PNG-channel encoding (see Next Step).
+- **SSH-wrapped long VM jobs get orphaned**: my `timeout 1500 ssh ...` killed the
+  connection mid-generation; the remote chain survived but would have died on
+  SIGPIPE at its next print, and index.json was never written. Always run long VM
+  work detached with a log (`nohup setsid ~/script.sh > log 2>&1`), as
+  `~/swellmap-finish.sh` on rosa-instance now models.
+- **pgrep/pkill -f self-matching bit twice** (killed own script; false "cycle
+  running"). Use `pgrep -f "[p]attern"` bracket trick.
+- **SWAN `make mpi` silently produces a serial binary** (switch.pl doesn't enable
+  MPI paths); `make clean` wipes macros.inc so platform.pl+config must rerun before
+  every target. OpenMP is the correct mode on one box anyway.
+- **`.env.production` bakes VITE_DATA_BASE into every `vite build`** - local
+  layer tests must build with `VITE_DATA_BASE=` (empty) or they silently hit live
+  rosa-data and 404.
+- 2E: no single rideability-key/exponent candidate satisfies all 4 eye frames -
+  input de-bias (archive half of 2E) is the missing term; do not hand-fit.
 
 ## Next Step
-1. **Verify the 14:20 UTC cycle published cleanly** (this is the gate on everything):
-   `curl -s https://rosa-data-opal.vercel.app/data/index.json | python3 -c "import json,sys; d=json.load(sys.stdin)['spots']; print(len(d), 'reading' in d, d.get('chigasaki',{}).get('cam'))"`
-   Expect `193 True OJYcNsIpyx0`. Then eyeball a cam spot page and a map card.
-2. Commit the pending `.gitignore` line.
-3. **Ask the user for map arrows** on the 11 bay spots still on derived normals:
-   unawatuna, fishermen, onjuku, okuragahama, isonoura, shizunami, pagudpud, sabang-baler,
-   matosinhos, arrifana, acadia. `fishermen` is the most suspect (derived 78 = ENE from an
-   osm-seeded offshore_direction of 258).
-4. **~07-30, Stage 2E** (archive-gated): the Hilton 2026-07-25 entry in docs/CALIBRATION.md
-   is the first eye-verified data point and it says the hybrid breaker **under-called 1.6x**
-   (0.5-0.8 m predicted vs 1.0-1.2 m observed, on Hs 1.5 m / Tp 8.4 s / Tm 5.9 s). Opposite
-   sign to rows 1-2. Pre-registered question: is `period_rideability` keyed on Tm the cause?
-   Any fix must satisfy BOTH regimes.
-5. Smaller: rescale the Period bar (`min(1, per/9)` in SpotPage `DayBars` saturates now that
-   it reads peak periods, ~/13); re-derive the borrowed `offshore_direction` on the 14 new
-   spots; 44 spots still lack bathy profiles.
+**Global world chart (user-requested, spec'd, not started):** encode each frame's
+quantized fields into PNG channels (pure zlib, no new dep) - 1-deg world frame
+≈ 15-40KB PNG; client fetches frames lazily while scrubbing, decodes via offscreen
+canvas, colormaps as today. Pipeline: `swellmap --global` fetching global 0.25
+subsampled to 1 deg (~200MB/cycle from NOMADS on the VM - acceptable). Add a
+"World" chip in ChartsPage. Start in `swellmap.py` + `ChartsPage.tsx`.
+
+Then:
+1. ~07-30 archives mature → Stage 2E: de-bias inputs (verify --archive per region),
+   re-run `rosa-pipeline experiment`, require all 4 frames + no buoy regression.
+   Also the 3a A/B + 3-way ECMWF verdicts.
+2. Watch the 20:20Z+ cron cycles: publish.sh now runs swellmap - confirm
+   `publish.log` stays clean and frames refresh (`index.json` run timestamp).
+3. Backlog: Period bar rescale (min(1,per/9)→~/13 in SpotPage DayBars); 11 bay
+   spots want hand-drawn map arrows (fishermen worst: derived 78 vs osm 258, 6/9
+   land samples); pressure overlay would need GFS atmospheric - optional.
+4. rosa-arm next real work: Stage-4 region grid forced by Stage-3 spectra
+   (gated on 3b acceptance); `deploy/oracle/setup-arm.sh` reprovisions from scratch.
