@@ -12,7 +12,7 @@
     <style>
       /* Branded loading splash - painted before the JS bundle, dismissed by main.tsx
          (min 1 s, or longer while the app is still loading). The wave mark is the
-         red favicon recolored to white via a mask so we never inline its path. */
+         favicon recolored to white via a mask so we never inline its path. */
       #splash {
         position: fixed;
         inset: 0;
@@ -54,7 +54,7 @@
         height: 8px;
         margin-left: 8px;
         border-radius: 50%;
-        background: #d82619;
+        background: #0057ff; /* --accent; hardcoded because this paints before the bundle's stylesheet loads */
         vertical-align: baseline;
       }
       #splash .splash-word {
