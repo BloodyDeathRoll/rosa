@@ -118,6 +118,19 @@ function timeLabel(iso: string): string {
   });
 }
 
+/** Ruler metadata per frame: local weekday, plus whether this frame opens a new
+    local day (it gets the heavy tick + the day label on the timeline). */
+function rulerMarks(timeline: string[]): { label: string; dayStart: boolean }[] {
+  let prev = "";
+  return timeline.map((iso) => {
+    const d = new Date(iso.replace("Z", ":00Z"));
+    const key = d.toDateString();
+    const dayStart = prev !== "" && key !== prev;
+    prev = key;
+    return { label: d.toLocaleDateString(undefined, { weekday: "short" }), dayStart };
+  });
+}
+
 function basinLabel(name: string): string {
   return name.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
@@ -130,6 +143,7 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
   const [basinName, setBasinName] = useState<string | null>(null);
   const [basins, setBasins] = useState<SwellBasin[]>([]);
   const [variable, setVariable] = useState<Variable>("hs");
+  const [menuOpen, setMenuOpen] = useState(false);
   const [frame, setFrame] = useState(0);
   const [playing, setPlaying] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -354,7 +368,6 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
 
   const t = timeline[frame];
   const ramp = basins.length ? RAMPS[variable][theme] : [];
-  const unit = VARIABLES.find((v) => v.key === variable)?.unit ?? "";
 
   return (
     <main class="page map-page">
@@ -381,50 +394,96 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
         {error && <p class="swell-note">{error}</p>}
 
         {basins.length > 0 && t && (
-          <div class="swell-bar charts-bar">
-            <div class="swell-row">
-              <div class="segmented compact charts-vars" role="radiogroup" aria-label="Chart type">
-                {VARIABLES.filter((v) => v.key !== "wind" || basins.some((b) => b.frames[0]?.wind)).map((v) => (
-                  <button
-                    key={v.key}
-                    role="radio"
-                    aria-checked={variable === v.key}
-                    class={variable === v.key ? "on" : ""}
-                    onClick={() => setVariable(v.key)}
-                  >
-                    {v.label}
-                  </button>
-                ))}
-              </div>
-              <span class="swell-time tabular">{timeLabel(t)}</span>
-            </div>
-            <div class="swell-row">
+          <div class={`charts-deck${playing ? " playing" : ""}`}>
+            <div class="deck-head">
               <button
-                class="swell-play"
+                class="deck-tag"
+                aria-haspopup="listbox"
+                aria-expanded={menuOpen}
+                onClick={() => setMenuOpen((o) => !o)}
+              >
+                {VARIABLES.find((v) => v.key === variable)?.label}
+                <svg
+                  class={`chev${menuOpen ? " up" : ""}`}
+                  viewBox="0 0 10 6"
+                  width="10"
+                  height="6"
+                  aria-hidden="true"
+                >
+                  <path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </button>
+              {menuOpen && <div class="deck-scrim" onClick={() => setMenuOpen(false)} />}
+              {menuOpen && (
+                <div class="deck-menu" role="listbox" aria-label="Chart type">
+                  {VARIABLES.filter((v) => v.key !== "wind" || basins.some((b) => b.frames[0]?.wind)).map((v) => (
+                    <button
+                      key={v.key}
+                      role="option"
+                      aria-selected={variable === v.key}
+                      class={variable === v.key ? "on" : ""}
+                      onClick={() => {
+                        setVariable(v.key);
+                        setMenuOpen(false);
+                      }}
+                    >
+                      {v.label}
+                    </button>
+                  ))}
+                  <span class="deck-run">GFS-Wave · run {timeLabel(basins[0]!.run)}</span>
+                </div>
+              )}
+              <span class="deck-legend" style={`background:linear-gradient(90deg, ${ramp.join(",")})`} />
+              <span class="deck-clock tabular">
+                <small>{new Date(t.replace("Z", ":00Z")).toLocaleDateString(undefined, { weekday: "short" })}</small>
+                {new Date(t.replace("Z", ":00Z")).toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" })}
+              </span>
+            </div>
+            <div class="deck-timeline">
+              <button
+                class="deck-play"
                 onClick={() => setPlaying((p) => !p)}
                 aria-label={playing ? "Pause" : "Play"}
               >
-                {playing ? "❚❚" : "▶"}
+                {playing ? (
+                  <svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true">
+                    <rect x="2" y="1.5" width="3" height="9" rx="1" fill="currentColor" />
+                    <rect x="7" y="1.5" width="3" height="9" rx="1" fill="currentColor" />
+                  </svg>
+                ) : (
+                  <svg viewBox="0 0 12 12" width="12" height="12" aria-hidden="true">
+                    <path d="M3.2 1.6a1 1 0 0 1 1.5-.86l6.2 4.4a1 1 0 0 1 0 1.72l-6.2 4.4a1 1 0 0 1-1.5-.86z" fill="currentColor" />
+                  </svg>
+                )}
               </button>
-              <input
-                class="swell-scrub"
-                type="range"
-                min={0}
-                max={timeline.length - 1}
-                value={frame}
-                aria-label="Forecast time"
-                onInput={(e) => {
-                  setPlaying(false);
-                  setFrame(Number((e.target as HTMLInputElement).value));
-                }}
-              />
-            </div>
-            <div class="swell-row swell-meta">
-              <span class="swell-legend" style={`background:linear-gradient(90deg, ${ramp.join(",")})`} />
-              <span class="swell-scale tabular">
-                0-{maxVal} {unit}
-              </span>
-              <span class="swell-attr">GFS-Wave · run {timeLabel(basins[0]!.run)}</span>
+              <div class="deck-ruler">
+                <div class="deck-ticks" aria-hidden="true">
+                  {rulerMarks(timeline).map((m, i) => (
+                    <span key={i} class={`tick${m.dayStart ? " maj" : ""}`}>
+                      {m.dayStart && i / (timeline.length - 1) < 0.94 && (
+                        <span class="tklb">{m.label}</span>
+                      )}
+                    </span>
+                  ))}
+                </div>
+                <span
+                  class="deck-needle"
+                  style={`left:${timeline.length > 1 ? (frame / (timeline.length - 1)) * 100 : 0}%`}
+                  aria-hidden="true"
+                />
+                <input
+                  class="deck-scrub"
+                  type="range"
+                  min={0}
+                  max={timeline.length - 1}
+                  value={frame}
+                  aria-label="Forecast time"
+                  onInput={(e) => {
+                    setPlaying(false);
+                    setFrame(Number((e.target as HTMLInputElement).value));
+                  }}
+                />
+              </div>
             </div>
           </div>
         )}

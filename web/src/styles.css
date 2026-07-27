@@ -17,8 +17,8 @@
   --primary-foreground: #faf9f7;
   --secondary: #17171c0d;
   --muted-foreground: #17171c80;
-  --accent: #d97756;
-  --accent-hover: #c05f3e;
+  --accent: #0057ff; /* Behance blue - the action color, same in both themes */
+  --accent-hover: #0046cc;
   --border: #17171c1a;
   --input-bg: #ffffff;
   --input-border: #38384b66;
@@ -199,7 +199,7 @@ button {
   height: var(--brand-dot);
   margin-left: var(--brand-dot); /* one dot width between the text and the dot */
   border-radius: 50%;
-  background: #d82619; /* the same red as the icon */
+  background: var(--accent); /* the same blue as the icon */
 }
 
 .head-note {
@@ -2234,7 +2234,7 @@ a.rank-card:hover {
   height: var(--brand-dot);
   margin-left: var(--brand-dot);
   border-radius: 50%;
-  background: #d82619;
+  background: var(--accent);
 }
 .about-hero-title {
   color: #fff;
@@ -2584,65 +2584,238 @@ a.rank-card:hover {
   z-index: 2;
   pointer-events: none;
 }
-/* Scrub bar: rides above the card sheet like the attribution chip does. */
-.swell-bar {
+/* Charts instrument deck: a full-width strip laid straight over the chart (no
+   card) - a scrim fades the map out underneath for legibility. Top row: layer
+   tag + colormap ramp + frame clock; below it the tick ruler (fine 3-hourly
+   ticks, heavy midnight ticks with day labels) carrying the accent needle. */
+.charts-deck {
   position: absolute;
-  left: 12px;
-  right: 64px;
-  bottom: calc(var(--sheet-h, 150px) + 40px);
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 6;
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  padding: 9px 12px;
-  border-radius: 14px;
-  background: color-mix(in srgb, var(--card) 88%, transparent);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: var(--card-shadow);
+  padding: 18px 14px 10px;
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--background) 92%, transparent) 55%,
+    color-mix(in srgb, var(--background) 55%, transparent) 82%,
+    transparent
+  );
 }
-.swell-row {
+.deck-head {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 12px;
 }
-.swell-play {
-  flex: none;
-  width: 30px;
-  height: 30px;
+/* Layer tag: current chart type + chevron, opens the selection menu above */
+.deck-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 11px;
   border-radius: 9999px;
-  background: var(--secondary);
+  border: 1px solid color-mix(in srgb, var(--foreground) 16%, transparent);
+  background: color-mix(in srgb, var(--secondary) 55%, transparent);
   font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--foreground);
 }
-.swell-scrub {
+.deck-tag .chev {
+  transition: transform 0.18s ease;
+  color: var(--muted-foreground);
+}
+.deck-tag .chev.up {
+  transform: rotate(180deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .deck-tag .chev {
+    transition: none;
+  }
+}
+.deck-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 7;
+}
+.deck-menu {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 10px);
+  z-index: 8;
+  display: flex;
+  flex-direction: column;
+  min-width: 170px;
+  padding: 5px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--card) 96%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+  box-shadow: var(--card-shadow);
+}
+.deck-menu button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 11px;
+  border-radius: 9px;
+  background: none;
+  font-size: 13.5px;
+  font-weight: 500;
+  text-align: left;
+  color: var(--foreground);
+}
+.deck-menu button.on {
+  font-weight: 700;
+  background: color-mix(in srgb, var(--secondary) 70%, transparent);
+}
+/* the selected layer carries the accent dot */
+.deck-menu button.on::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.deck-run {
+  margin-top: 3px;
+  padding: 7px 11px 5px;
+  border-top: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+  font-size: 9.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--muted-foreground);
+}
+.deck-timeline {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding-top: 8px;
+}
+.deck-play {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  border: 1px solid color-mix(in srgb, var(--foreground) 18%, transparent);
+  background: color-mix(in srgb, var(--secondary) 55%, transparent);
+  color: var(--foreground);
+}
+.charts-deck.playing .deck-play {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+}
+.deck-ruler {
+  position: relative;
   flex: 1;
   min-width: 0;
-  accent-color: var(--accent);
+  height: 38px;
 }
-.swell-time {
-  flex: none;
-  font-size: 12px;
+.deck-ticks {
+  position: absolute;
+  inset: 3px 0 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.deck-ticks .tick {
+  position: relative;
+  width: 1px;
+  height: 8px;
+  background: color-mix(in srgb, var(--foreground) 22%, transparent);
+}
+.deck-ticks .tick.maj {
+  height: 14px;
+  background: color-mix(in srgb, var(--foreground) 38%, transparent);
+}
+.deck-ticks .tklb {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px;
   font-weight: 600;
-  min-width: 86px;
-  text-align: right;
-}
-.swell-meta {
-  gap: 7px;
-}
-.swell-legend {
-  flex: 1;
-  height: 6px;
-  border-radius: 3px;
-}
-.swell-scale {
-  font-size: 10.6px;
-  color: var(--muted-foreground);
-}
-.swell-attr {
-  font-size: 10.6px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--muted-foreground);
   white-space: nowrap;
+}
+.deck-needle {
+  position: absolute;
+  top: 0;
+  bottom: 12px;
+  width: 2px;
+  border-radius: 1px;
+  background: var(--accent);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.deck-needle::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+/* the needle glides between frames while the animation runs */
+.charts-deck.playing .deck-needle {
+  transition: left 0.45s linear;
+}
+@media (prefers-reduced-motion: reduce) {
+  .charts-deck.playing .deck-needle {
+    transition: none;
+  }
+}
+/* invisible native range on top: keyboard, screen reader, and drag for free */
+.deck-scrub {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+}
+.deck-ruler:has(.deck-scrub:focus-visible) {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+/* Colormap ramp stretches between the tag and the clock; the clock is
+   right-aligned and never wraps or spills past the edge */
+.deck-legend {
+  flex: 1;
+  min-width: 0;
+  height: 4px;
+  border-radius: 2px;
+}
+.deck-clock {
+  flex: none;
+  margin-left: auto;
+  white-space: nowrap;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--foreground);
+}
+.deck-clock small {
+  margin-right: 6px;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
 }
 .swell-note {
   position: absolute;
@@ -2680,14 +2853,4 @@ a.rank-card:hover {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   box-shadow: var(--card-shadow);
-}
-.charts-bar {
-  bottom: 14px;
-  right: 12px;
-}
-.charts-vars {
-  flex: 1;
-}
-.charts-vars button {
-  flex: 1;
 }
