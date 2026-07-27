@@ -223,3 +223,20 @@ buoy), and the archive de-bias (2E's other half, ~07-30) is exactly the missing 
 Candidate for the full 2E fit: de-biased inputs + Tp/Te-keyed rideability, re-run this
 harness, require all four frames plus no regression on the buoy-validated regions.
 **No knob moved today.**
+
+## 2026-07-27 - dogfood: Poleg, **under**-called again (third Med frame, no knobs moved)
+
+Dawn session, user in the water (reported ~07:20 local, "was just in").
+
+| Date | Time | Spot | Rosa pred (h, rating) | Observed (eyes) | Buoy | Notes |
+|------|------|------|------------------------|-----------------|------|-------|
+| 2026-07-27 | ~05:30-07:00 | poleg | 0.4-0.6 m, GOOD 56 @ 06:00 (FAIR 43 by 09:00) | **0.8-1.0 m** (user) | - (not pulled; VM archive has the cycle) | Under-call ≈ **1.8x** on the range midpoint (0.5 m vs ~0.9 m). Model input at the offshore point (06:00): in-window swell **Hs 1.08 m, Tm 6.2 s, Tp 7.7 s, dir 292°**, wind 4 kph offshore. Same signature as the two Hilton rows: transform attenuates ~1.1 m offshore to ~0.5 m breaking, wide Tm/Tp gap (6.2 vs 7.7 s). |
+
+**Reading:** third consecutive Israel under-call with the same mechanism fingerprint
+(rideability keyed on Tm while a genuinely longer Tp carries the energy), now at a
+second spot (poleg, not just hilton) - this rules out a bad Hilton bathy profile as
+the sole cause. Pattern is now 3 under-call frames vs the 2 flat-day frames; still
+**no knob touched** - Stage 2E (input de-bias + re-run `rosa-pipeline experiment`,
+~07-30) owns the fit. Add this day as a fifth frame to
+`data/calibration/frames.yaml` when 2E runs (inputs above; grade on poleg's
+committed profile).
