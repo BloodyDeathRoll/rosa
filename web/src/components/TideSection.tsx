@@ -159,7 +159,7 @@ export function TideSection({
               y1={LABEL_H}
               x2={xOf(e.min).toFixed(1)}
               y2={H}
-              stroke="var(--border)"
+              stroke="var(--tide-mark)"
               stroke-width="1"
             />
           ))}

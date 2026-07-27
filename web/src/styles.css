@@ -17,8 +17,8 @@
   --primary-foreground: #faf9f7;
   --secondary: #17171c0d;
   --muted-foreground: #17171c80;
-  --accent: #d97756;
-  --accent-hover: #c05f3e;
+  --accent: #e63e32;
+  --accent-hover: #d82619;
   --border: #17171c1a;
   --input-bg: #ffffff;
   --input-border: #38384b66;
@@ -42,6 +42,10 @@
      by a rule beneath the column, not the bars themselves. */
   --chart-bar: #186a83;
 
+  /* Vertical markers at the tide chart's highs/lows - a warm translucent tone
+     tuned to the brand-red curve, quieter than --border */
+  --tide-mark: #9d6e6d2d;
+
   /* ----- Typography */
   --font-sans: "Inter Variable", "Inter", system-ui, sans-serif;
   --font-heading: var(--font-sans);
@@ -53,17 +57,17 @@
   color-scheme: dark;
   /* Dark backgrounds sampled from the Webull-style reference: near-black page,
      cool blue-neutral dark-grey cards. */
-  --background: #0a0b0f;
+  --background: #060607;
   --body-bg: #000000;
   --foreground: #f5f0e8;
-  --card: #121418;
-  --primary: #292934;
+  --card: #0e0d0d;
+  --primary: #262121;
   --primary-foreground: #f5f0e8;
-  --secondary: #22262f;
-  --muted-foreground: #a8a29e;
-  --border: #282d36;
+  --secondary: #17171d;
+  --muted-foreground: #736b6b;
+  --border: #151518;
   --input-bg: #181b21;
-  --input-border: #282d36;
+  --input-border: #2621214c;
   --input-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3), 0px 1px 2px rgba(0, 0, 0, 0.2);
   --emphasis-bg: #ffffff0c;
   --card-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3), 0px 1px 2px rgba(0, 0, 0, 0.2);
@@ -2849,8 +2853,12 @@ a.rank-card:hover {
 }
 .charts-basins .group-chip {
   flex: none;
-  background: color-mix(in srgb, var(--card) 88%, transparent);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   box-shadow: var(--card-shadow);
+}
+/* glass backdrop only for unselected chips - the .on chip keeps its inverted
+   fill, otherwise its background-colored label vanishes on the card tint */
+.charts-basins .group-chip:not(.on) {
+  background: color-mix(in srgb, var(--card) 88%, transparent);
 }
