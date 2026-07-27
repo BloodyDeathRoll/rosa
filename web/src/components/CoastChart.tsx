@@ -48,6 +48,30 @@ function dayColumn(data: SpotPayload, date: string) {
   return { bars, hasAny: hrs.length > 0, wind: noon?.wind.dir ?? null, day };
 }
 
+/** One day's three daypart bars alone (no wind arrow, no range label) - the
+    extended Today card drops this next to its surf range so the card carries the
+    same at-a-glance shape as the chart rows. Scaled to this spot's own peak. */
+export function DayBars({ data, date }: { data: SpotPayload; date: string }) {
+  const { bars, hasAny } = dayColumn(data, date);
+  if (!hasAny) return null;
+  const maxH = Math.max(0.1, ...data.hours.map((h) => h.h_mid));
+  return (
+    <span class="chart-plot" style={`height:${CHART_H}px`} aria-hidden="true">
+      {bars.map((b, i) => (
+        <span
+          key={i}
+          class={`chart-bar${b === null ? " stub" : ""}`}
+          style={
+            b !== null
+              ? `height:${Math.max(BAR_MIN, (b.h / maxH) * CHART_H)}px;background:${b.color}`
+              : `height:${BAR_MIN}px`
+          }
+        />
+      ))}
+    </span>
+  );
+}
+
 const COL = 56; // .day-col width in px - keep in sync with styles.css
 
 /** The spot screen's date selector: one horizontal track where each column is a

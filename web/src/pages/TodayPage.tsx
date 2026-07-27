@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import { fetchIndex, fetchSpot } from "../api";
-import { CoastChart } from "../components/CoastChart";
+import { CoastChart, DayBars } from "../components/CoastChart";
 import { sectionsOf } from "../components/GroupChips";
 import { SatMap } from "../components/MiniMap";
 import { SearchIcon, ShirtIcon, ThermometerIcon, WavesIcon } from "../components/icons";
@@ -43,6 +43,7 @@ function DetailCard({ data, date }: { data: SpotPayload; date: string }) {
           </span>
           <span class="range-row">
             <span class="surf-range tabular">{fmtRange(dv.range, units)}</span>
+            <DayBars data={data} date={date} />
           </span>
           <span class="line tabular">
             {windLabel(dv.rep)}
@@ -70,13 +71,6 @@ function DetailCard({ data, date }: { data: SpotPayload; date: string }) {
               </span>
             )}
           </span>
-          {dv.bw && (
-            <span class="foot">
-              <span class="window">
-                Best window <b>{`${dv.bw.start}-${dv.bw.end}`}</b>
-              </span>
-            </span>
-          )}
         </div>
       </button>
     </div>
