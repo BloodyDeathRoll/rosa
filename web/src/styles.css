@@ -631,6 +631,13 @@ button {
   font-weight: 600;
   font-variant-numeric: tabular-nums;
 }
+/* Right rail on the extended card: the rating pill and today's day bars sit in
+   the same fixed-width column, both centered, so they share one vertical axis */
+.detail-card .hc-rail {
+  display: flex;
+  justify-content: center;
+  min-width: 64px;
+}
 /* Bigger rating tag on the extended card */
 .detail-card .pill {
   height: 26px;

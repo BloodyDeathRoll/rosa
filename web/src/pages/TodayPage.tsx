@@ -39,11 +39,15 @@ function DetailCard({ data, date }: { data: SpotPayload; date: string }) {
         <div class="dc-body">
           <span class="top">
             <SpotTitle name={name} region={region} />
-            <Pill bucket={dv.bucket} />
+            <span class="hc-rail">
+              <Pill bucket={dv.bucket} />
+            </span>
           </span>
           <span class="range-row">
             <span class="surf-range tabular">{fmtRange(dv.range, units)}</span>
-            <DayBars data={data} date={date} />
+            <span class="hc-rail">
+              <DayBars data={data} date={date} />
+            </span>
           </span>
           <span class="line tabular">
             {windLabel(dv.rep)}
