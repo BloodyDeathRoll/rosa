@@ -1,3 +1,4 @@
+import { CamIcon } from "./icons";
 import { Pill, SpotTitle, StarButton } from "./parts";
 import { bestWindow, dateOf, splitName, windLabel } from "../format";
 import { fmtRange, useUnits } from "../units";
@@ -56,7 +57,14 @@ export function SpotCard({
           <span class="wind-stat">{windLabel(dv.rep)}</span>
         </div>
       </div>
-      {onToggle && <StarButton on={!!isFav} name={name} size={18} onToggle={onToggle} />}
+      <span class="card-side">
+        {data.spot.cam && (
+          <span class="cam-mark" title="Live cam">
+            <CamIcon />
+          </span>
+        )}
+        {onToggle && <StarButton on={!!isFav} name={name} size={18} onToggle={onToggle} />}
+      </span>
     </a>
   );
 }

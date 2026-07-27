@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import { fetchIndex } from "../api";
-import { ChevronLeftIcon, CompassNorthIcon, LocateIcon, SearchIcon} from "../components/icons";
+import { CamIcon, ChevronLeftIcon, CompassNorthIcon, LocateIcon, SearchIcon} from "../components/icons";
 import { SatMap } from "../components/MiniMap";
 import { Pill, SpotTitle } from "../components/parts";
 import { ratingVar } from "../conditions";
@@ -594,7 +594,11 @@ function MapCard({
       <span class="map-card-body">
         <span class="map-card-head">
           <Pill bucket={entry.bucket} />
-          {entry.cam && <span class="map-card-live">live cam</span>}
+          {entry.cam && (
+            <span class="map-card-live">
+              <CamIcon size={11} /> live cam
+            </span>
+          )}
         </span>
         <span class="map-card-name">
           <SpotTitle name={name} region={null} />

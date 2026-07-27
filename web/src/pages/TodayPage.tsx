@@ -3,7 +3,7 @@ import { fetchIndex, fetchSpot } from "../api";
 import { CoastChart, DayBars } from "../components/CoastChart";
 import { sectionsOf } from "../components/GroupChips";
 import { SatMap } from "../components/MiniMap";
-import { SearchIcon, ShirtIcon, ThermometerIcon, WavesIcon } from "../components/icons";
+import { CamIcon, SearchIcon, ShirtIcon, ThermometerIcon, WavesIcon } from "../components/icons";
 import { AppHeader, Pill, SpotTitle } from "../components/parts";
 import { dayView } from "../components/SpotCard";
 import { getFavorites } from "../favorites";
@@ -35,7 +35,27 @@ function DetailCard({ data, date }: { data: SpotPayload; date: string }) {
   return (
     <div class="detail-card">
       <button class="open" onClick={open}>
-        <SatMap lat={data.spot.lat} lon={data.spot.lon} height={141} />
+        <span class="dc-cover">
+          {data.spot.cam ? (
+            // A spot with a cam shows what the camera sees rather than a satellite
+            // view - YouTube's own still for the live stream (same as the map cards),
+            // credited in full on the spot page one tap away.
+            <img
+              class="dc-cam"
+              src={`https://i.ytimg.com/vi/${data.spot.cam.yt}/mqdefault.jpg`}
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+          ) : (
+            <SatMap lat={data.spot.lat} lon={data.spot.lon} height={141} />
+          )}
+          {data.spot.cam && (
+            <span class="cam-badge" title="Live cam">
+              <CamIcon />
+            </span>
+          )}
+        </span>
         <div class="dc-body">
           <span class="top">
             <SpotTitle name={name} region={region} />

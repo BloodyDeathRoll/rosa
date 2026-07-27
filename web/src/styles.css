@@ -589,6 +589,33 @@ button {
   width: 100%;
   text-align: left;
 }
+/* Cover: the cam still when the spot has one (same source as the map cards),
+   satellite imagery otherwise. */
+.detail-card .dc-cover {
+  display: block;
+  position: relative;
+}
+.detail-card .dc-cam {
+  display: block;
+  width: 100%;
+  height: 141px;
+  object-fit: cover;
+  object-position: center;
+}
+/* Cam marker pinned to the cover's top-right corner. */
+.detail-card .cam-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: #00000066;
+  color: #f5f0e8;
+}
 .detail-card .dc-body {
   display: block;
   padding: 14px 16px;
@@ -930,6 +957,16 @@ a.rank-card:hover {
 }
 .rank-card .name-link {
   min-width: 0;
+}
+/* Right rail of the compact card: cam marker (when the spot has one) then star. */
+.rank-card .card-side {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.rank-card .cam-mark {
+  display: inline-flex;
+  color: var(--muted-foreground);
 }
 .rank-card:active {
   transform: scale(0.985);
@@ -1948,6 +1985,9 @@ a.rank-card:hover {
 .map-card-live {
   order: -1;
   margin-right: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.06em;
