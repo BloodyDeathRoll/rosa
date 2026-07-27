@@ -37,6 +37,8 @@ BASINS: dict[str, tuple[str, ...]] = {
     "sri-lanka": ("Sri Lanka",),
     "japan": ("Japan",),
     "philippines": ("Philippines",),
+    "california": ("California",),
+    "hawaii": ("Hawaii",),
 }
 BOX_PAD_DEG = 3.0  # sea-room around the spot extent so swell context is visible
 STEP_H = 3

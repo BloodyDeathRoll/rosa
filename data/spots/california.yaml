@@ -1,0 +1,19 @@
+# Rosa spot database - California (seeded via cam-scan discovery 2026-07-27)
+# Two LA-area spots added because live cams exist for them (docs/cam-scan-plan.md
+# §3: a camera pointed at a break we don't track = a missed spot). Coordinates
+# google-geocoded; orientations reasoned from coastal facing - TODO sat-verify.
+# Swell regime: NW winter groundswell + S-SSW summer swell; Santa Monica Bay is
+# shadowed from due W-NW by Point Dume - windows reflect the bay geometry.
+
+defaults: &ca
+  timezone: America/Los_Angeles
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [180, 290]
+  ideal:
+    wind_dir: [30, 120]
+    size_m: [0.6, 2.0]
+
+spots:
+  - { id: santa-monica,    name: "Santa Monica",    lat: 34.01290, lon: -118.50172, offshore_direction: 50, swell_window: [180, 265], cam: { yt: "v97JpT3ZA0w", by: "Explore Big Surf, Beaches and Sunsets", by_url: "https://www.youtube.com/@ExploreBigSurfandBeaches", note: "pier cam (explore.org stream)" }, <<: *ca }  # google-geocoded 2026-07-27 (cam-scan discovery)
+  - { id: manhattan-beach, name: "Manhattan Beach", lat: 33.8842, lon: -118.4109, offshore_direction: 70, cam: { yt: "tBEIYdw1HeM", by: "The Surfers View", by_url: "https://www.youtube.com/@TheSurfersView" }, <<: *ca }  # google-geocoded 2026-07-27 (cam-scan discovery)

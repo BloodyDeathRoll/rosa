@@ -1,0 +1,69 @@
+{
+  "spot": "pipeline",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    21.6656,
+    -158.0539
+  ],
+  "bearing_seaward_deg": 330.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 1515.0,
+  "mean_slope_m_per_km": 85.52,
+  "land_samples": 1,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 21.66755,
+      "lon": -158.05511,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 21.66949,
+      "lon": -158.05632,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 21.67339,
+      "lon": -158.05874,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 21.68118,
+      "lon": -158.06358,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 21.68896,
+      "lon": -158.06842,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 21.70454,
+      "lon": -158.0781,
+      "depth_m": 112.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 21.7279,
+      "lon": -158.09262,
+      "depth_m": 304.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 21.75905,
+      "lon": -158.112,
+      "depth_m": 439.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.80577,
+      "lon": -158.14108,
+      "depth_m": 1515.0
+    }
+  ]
+}

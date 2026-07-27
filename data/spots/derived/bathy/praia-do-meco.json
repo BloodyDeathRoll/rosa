@@ -1,0 +1,69 @@
+{
+  "spot": "praia-do-meco",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    38.48911,
+    -9.18384
+  ],
+  "bearing_seaward_deg": 265.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 133.0,
+  "mean_slope_m_per_km": 6.82,
+  "land_samples": 0,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.48891,
+      "lon": -9.1867,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.48872,
+      "lon": -9.18956,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.48833,
+      "lon": -9.19529,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.48754,
+      "lon": -9.20673,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.48675,
+      "lon": -9.21818,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.48518,
+      "lon": -9.24107,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.4828,
+      "lon": -9.2754,
+      "depth_m": 547.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.47962,
+      "lon": -9.32117,
+      "depth_m": 240.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.47482,
+      "lon": -9.38982,
+      "depth_m": 133.0
+    }
+  ]
+}

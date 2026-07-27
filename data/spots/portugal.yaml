@@ -36,7 +36,20 @@ spots:
   - { id: praia-grande,       name: "Praia Grande (Sintra)",    lat: 38.817, lon: -9.479, offshore_direction: 95,  <<: *pt }  # sat-verified 2026-07-23
   - { id: guincho,            name: "Guincho (Cascais)",        lat: 38.733, lon: -9.474, offshore_direction: 100, <<: *pt }  # sat-verified 2026-07-23 (windy - nortada afternoons)
   - { id: carcavelos,         name: "Carcavelos",               lat: 38.678, lon: -9.336, offshore_direction: 10,  swell_window: [170, 270], offshore_bearing: 183.1, offshore_km: 6.46, <<: *pt }  # sat-verified 2026-07-23 (S-facing Tagus-mouth beach; needs W swell wrap)
-  - { id: costa-caparica,     name: "Costa da Caparica (CDS)",  lat: 38.635, lon: -9.2365, offshore_direction: 80,  cam: { yt: "qhU5x83fUt8", by: "Playocean", by_url: "https://www.youtube.com/@PlayoceanLive", note: "town-beach panorama" }, <<: *pt }  # sat-verified 2026-07-23 (jetty peaks)
+  - id: costa-caparica
+    name: "Costa da Caparica (CDS)"
+    lat: 38.635
+    lon: -9.2365
+    offshore_direction: 80
+    cams:  # Playocean covers the whole strip - four angles on one spot
+      - { yt: "qhU5x83fUt8", label: "Panorâmica 2", by: "Playocean", by_url: "https://www.youtube.com/@PlayoceanLive", note: "town-beach panorama" }
+      - { yt: "oDbKeeojgyk", label: "Panorâmica 1", by: "Playocean", by_url: "https://www.youtube.com/@PlayoceanLive" }
+      - { yt: "TxI7MEJIGWc", label: "Praia do Infante", by: "Playocean", by_url: "https://www.youtube.com/@PlayoceanLive" }
+      - { yt: "oNVEct9tl8E", label: "Santo António", by: "Playocean", by_url: "https://www.youtube.com/@PlayoceanLive", note: "north end of the strip, ~1.4 km up" }
+    <<: *pt  # sat-verified 2026-07-23 (jetty peaks)
+  # ---- Setúbal / Alentejo ----
+  - { id: praia-do-meco,      name: "Praia do Meco (Sesimbra)", lat: 38.48911, lon: -9.18384, offshore_direction: 85, cam: { yt: "EqnyST2s53I", by: "Playocean", by_url: "https://www.youtube.com/@PlayoceanLive" }, <<: *pt }  # google-geocoded 2026-07-27 (cam-scan discovery - W-facing Atlantic beach)
+  - { id: sao-torpes,         name: "São Torpes (Sines)",       lat: 37.92278, lon: -8.80528, offshore_direction: 65, swell_window: [210, 300], ideal: { wind_dir: [45, 135], size_m: [0.5, 1.8] }, cam: { yt: "OTwS1dniBMk", by: "Playocean", by_url: "https://www.youtube.com/@PlayoceanLive" }, <<: *pt }  # google-geocoded 2026-07-27 (cam-scan discovery - gentle bay S of the Sines cape)
   # ---- Algarve west coast ----
   - { id: arrifana,           name: "Arrifana (Aljezur)",       lat: 37.2925, lon: -8.8675, offshore_direction: 125, swell_window: [235, 345], <<: *pt }  # approx - TODO verify (cliff-backed bay + right point)
   - { id: praia-do-amado,     name: "Praia do Amado (Carrapateira)", lat: 37.166, lon: -8.903, offshore_direction: 100, <<: *pt }  # sat-verified 2026-07-23

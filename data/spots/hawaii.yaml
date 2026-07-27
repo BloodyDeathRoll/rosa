@@ -1,0 +1,20 @@
+# Rosa spot database - Hawaii (seeded via cam-scan discovery 2026-07-27)
+# Banzai Pipeline added because a live cam exists for it (docs/cam-scan-plan.md
+# §3: a camera pointed at a break we don't track = a missed spot). North Shore:
+# winter NW groundswell machine, flat all summer; trades from ENE-SE blow
+# offshore-ish. Coordinates google-geocoded; TODO sat-verify.
+#
+# ⚠ offshore_point: the loader default pushes 0.06° WEST, which runs along this
+# NNW-facing shore - the spot carries an explicit seaward offshore ray instead.
+
+defaults: &hi
+  timezone: Pacific/Honolulu
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [270, 30]      # WNW → NNE, wraps through north
+  ideal:
+    wind_dir: [110, 200]
+    size_m: [1.5, 4.0]
+
+spots:
+  - { id: pipeline, name: "Banzai Pipeline (Oahu)", lat: 21.6656, lon: -158.0539, offshore_direction: 150, offshore_bearing: 325.0, offshore_km: 6.0, cam: { yt: "Fp7l8XASb9Y", by: "Explore Big Surf, Beaches and Sunsets", by_url: "https://www.youtube.com/@ExploreBigSurfandBeaches", note: "explore.org North Shore stream" }, <<: *hi }  # google-geocoded 2026-07-27 (cam-scan discovery)

@@ -1,0 +1,69 @@
+{
+  "spot": "miura",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    35.178,
+    139.652
+  ],
+  "bearing_seaward_deg": 155.0,
+  "nearshore_depth_m": -21.0,
+  "offshore_depth_m": 457.0,
+  "mean_slope_m_per_km": 26.93,
+  "land_samples": 5,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.17596,
+      "lon": 139.65316,
+      "depth_m": -21.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.17392,
+      "lon": 139.65432,
+      "depth_m": -26.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.16985,
+      "lon": 139.65665,
+      "depth_m": -31.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.1617,
+      "lon": 139.6613,
+      "depth_m": -19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.15355,
+      "lon": 139.66595,
+      "depth_m": -36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.13724,
+      "lon": 139.67524,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.11279,
+      "lon": 139.68917,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.08018,
+      "lon": 139.70773,
+      "depth_m": 403.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.03126,
+      "lon": 139.73555,
+      "depth_m": 457.0
+    }
+  ]
+}
