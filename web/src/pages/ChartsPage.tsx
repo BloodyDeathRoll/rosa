@@ -30,23 +30,24 @@ const VARIABLES: { key: Variable; label: string; unit: string }[] = [
 ];
 
 // One hue per variable (teal / violet / amber), six steps, monotonic lightness.
-// Light theme deepens with magnitude; dark theme glows with magnitude.
+// Both themes deepen with magnitude (light mode leads): pale = calm, deep = big,
+// so the field reads the same either theme; dark just uses brighter endpoints.
 const RAMPS: Record<Variable, { light: string[]; dark: string[] }> = {
   hs: {
     light: ["#dfeef4", "#b3d9e6", "#7cbcd2", "#4295b4", "#1d6f8c", "#0d4459"],
-    dark: ["#0d3340", "#155163", "#20758c", "#3b9cb4", "#6cc3d8", "#a8e4f2"],
+    dark: ["#a8e4f2", "#6cc3d8", "#3b9cb4", "#20758c", "#155163", "#0d3340"],
   },
   per: {
     light: ["#ece9f7", "#cdc5ee", "#a99add", "#8471c9", "#5e4aa8", "#3b2d75"],
-    dark: ["#241d4e", "#3a2f7c", "#5443ab", "#7b68cc", "#a396dd", "#cfc7f2"],
+    dark: ["#cfc7f2", "#a396dd", "#7b68cc", "#5443ab", "#3a2f7c", "#241d4e"],
   },
   energy: {
     light: ["#fdeedd", "#f8d3ab", "#f0b077", "#e08a4c", "#b96426", "#84440f"],
-    dark: ["#3d2408", "#6b3d10", "#9c5a1c", "#cc7c30", "#eda45c", "#f9cf9b"],
+    dark: ["#f9cf9b", "#eda45c", "#cc7c30", "#9c5a1c", "#6b3d10", "#3d2408"],
   },
   wind: {
     light: ["#e6f3e9", "#c0e0c8", "#90c79e", "#5da672", "#38804d", "#1c5430"],
-    dark: ["#14301c", "#1e4d2c", "#2c6f40", "#43955a", "#6fbc82", "#a9e0b6"],
+    dark: ["#a9e0b6", "#6fbc82", "#43955a", "#2c6f40", "#1e4d2c", "#14301c"],
   },
 };
 
