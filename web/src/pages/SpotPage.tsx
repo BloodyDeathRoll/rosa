@@ -26,6 +26,7 @@ import {
   dayLabel,
   hourOf,
   knots,
+  nowIn,
   splitName,
   todayIn,
   windClassWord,
@@ -332,13 +333,23 @@ function HourRow({
   );
 }
 
-/** Horizontal spot chips (design 1a): freely draggable - touch scroll native,
-    mouse drag via pointer events. Never auto-scrolls: tapping a chip changes
-    the spot but leaves the strip where the user left it. */
+/** The favorites bar (header row 2): freely draggable - touch scroll native,
+    mouse drag via pointer events. When the open spot is a favorite the strip
+    animates its chip into view; when it isn't, the strip rests at its start so
+    favorites read first-to-last across the row (overflowing off-screen). */
 function SpotSwitcher({ spots, currentId }: { spots: [string, IndexEntry][]; currentId: string }) {
   const trackRef = useRef<HTMLDivElement>(null);
   // pointer drag state - mouse only; touch uses native overflow-x pan
   const drag = useRef({ down: false, startX: 0, startScroll: 0, moved: false });
+
+  useEffect(() => {
+    const t = trackRef.current;
+    if (!t) return;
+    const chip = t.querySelector<HTMLElement>(".schip.on");
+    const left = chip ? chip.offsetLeft - (t.clientWidth - chip.offsetWidth) / 2 : 0;
+    t.scrollTo({ left, behavior: "smooth" });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentId, spots.length]);
 
   const onPointerDown = (e: PointerEvent) => {
     if (e.pointerType !== "mouse") return;
@@ -512,6 +523,8 @@ export function SpotPage({ id }: { id: string }) {
         .map(({ entry }) => entry)
         .sort(([, a], [, b]) => b.lat - a.lat)
     : [];
+  // the open spot's name lives in the header's top row, so the strip is purely
+  // the favorites bar - a non-favorite spot gets no chip of its own
   const switcherSpots = favSpots.length > 0 ? favSpots : nearSpots;
 
   // the day scrubber drives the selected/live day; the panel below follows liveDay
@@ -626,7 +639,9 @@ export function SpotPage({ id }: { id: string }) {
           <TideSection
             hours={data.hours}
             date={day.date}
-            nowT={day.date === today ? cur.t : null}
+            // live wall clock in the spot's tz - NOT cur.t, which is the hour the
+            // pipeline considered current at generation time (hours stale between runs)
+            nowT={day.date === today ? nowIn(data.spot.timezone) : null}
             metric={units.height === "m"}
             tideBest={data.spot.tide_best}
           />
@@ -654,21 +669,26 @@ export function SpotPage({ id }: { id: string }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, units, liveDay, id, spots]);
 
-  // Top bar: back arrow · spot switcher (masked, fills the middle) · fav star.
+  // Header, two rows: back arrow + spot name left / fav star right, then the
+  // favorites strip underneath.
+  const spotName = splitName(data?.spot.name ?? curEntry?.name ?? "").name;
   const topBar = (
-    <div class="spot-top">
-      <button class="spot-back" onClick={goBack} aria-label="Back">
-        <ChevronLeftIcon />
-      </button>
+    <>
+      <div class="spot-top">
+        <button class="spot-back" onClick={goBack} aria-label="Back">
+          <ChevronLeftIcon />
+        </button>
+        <span class="spot-top-name">{spotName}</span>
+        {data && (
+          <StarButton
+            on={favs.includes(id)}
+            name={spotName}
+            onToggle={() => setFavs(toggleFavorite(id))}
+          />
+        )}
+      </div>
       {switcherSpots.length > 1 && <SpotSwitcher spots={switcherSpots} currentId={id} />}
-      {data && (
-        <StarButton
-          on={favs.includes(id)}
-          name={splitName(data.spot.name).name}
-          onToggle={() => setFavs(toggleFavorite(id))}
-        />
-      )}
-    </div>
+    </>
   );
 
   if (error || !data) {

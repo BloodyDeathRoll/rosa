@@ -247,33 +247,17 @@ button {
 }
 .spot-top .star-btn {
   flex: none;
-  margin-left: auto; /* pin right even when the switcher is absent */
+  margin-left: auto; /* pin right even when the name is short */
 }
-.spot-top .spot-switch {
+/* Row 1: the open spot's name, left-aligned beside the chevron. */
+.spot-top .spot-top-name {
   flex: 1;
   min-width: 0;
-  position: static;
-  top: auto;
-  background: transparent;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  -webkit-mask-image: linear-gradient(
-    90deg,
-    transparent 0,
-    #000 14px,
-    #000 calc(100% - 14px),
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    90deg,
-    transparent 0,
-    #000 14px,
-    #000 calc(100% - 14px),
-    transparent 100%
-  );
-}
-.spot-top .spot-switch .track {
-  padding: 2px 10px;
+  font-size: 17px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Spot screen sticky head: top bar + date bar move as one block, pinned to the
@@ -294,21 +278,29 @@ button {
   backdrop-filter: none;
 }
 
-/* Spot switcher chips (design 1a) */
+/* Favorites strip - header row 2, under the back/name/star row. */
 .spot-switch {
-  position: sticky;
-  top: 52px;
-  z-index: 19;
-  background: color-mix(in srgb, var(--card) 85%, transparent);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 14px,
+    #000 calc(100% - 14px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 14px,
+    #000 calc(100% - 14px),
+    transparent 100%
+  );
 }
 .spot-switch .track {
   display: flex;
   gap: 8px;
   overflow-x: auto;
   scrollbar-width: none;
-  padding: 8px 16px 10px;
+  padding: 2px 16px 10px;
   /* freely draggable strip - native touch pan; mouse drag handled in TS */
   touch-action: pan-x;
   user-select: none;

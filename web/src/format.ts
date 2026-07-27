@@ -26,6 +26,23 @@ export function todayIn(tz: string): string {
   }
 }
 
+/** Current wall-clock minute in an IANA timezone as a spot-local ISO string
+    ("YYYY-MM-DDTHH:MM") - same shape as the payload's local timestamps, but
+    live, independent of when the pipeline last ran. */
+export function nowIn(tz: string): string {
+  try {
+    const t = new Intl.DateTimeFormat("en-GB", {
+      timeZone: tz,
+      hourCycle: "h23",
+      hour: "2-digit",
+      minute: "2-digit",
+    }).format(new Date());
+    return `${todayIn(tz)}T${t}`;
+  } catch {
+    return new Date().toISOString().slice(0, 16);
+  }
+}
+
 /** "Jul 20" style sub-label for a day pill title. */
 export function dayDate(date: string): string {
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
