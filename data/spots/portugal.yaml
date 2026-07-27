@@ -36,7 +36,7 @@ spots:
   - { id: praia-grande,       name: "Praia Grande (Sintra)",    lat: 38.817, lon: -9.479, offshore_direction: 95,  <<: *pt }  # sat-verified 2026-07-23
   - { id: guincho,            name: "Guincho (Cascais)",        lat: 38.733, lon: -9.474, offshore_direction: 100, <<: *pt }  # sat-verified 2026-07-23 (windy - nortada afternoons)
   - { id: carcavelos,         name: "Carcavelos",               lat: 38.678, lon: -9.336, offshore_direction: 10,  swell_window: [170, 270], offshore_bearing: 183.1, offshore_km: 6.46, <<: *pt }  # sat-verified 2026-07-23 (S-facing Tagus-mouth beach; needs W swell wrap)
-  - { id: costa-caparica,     name: "Costa da Caparica (CDS)",  lat: 38.635, lon: -9.2365, offshore_direction: 80,  <<: *pt }  # sat-verified 2026-07-23 (jetty peaks)
+  - { id: costa-caparica,     name: "Costa da Caparica (CDS)",  lat: 38.635, lon: -9.2365, offshore_direction: 80,  cam: { yt: "qhU5x83fUt8", by: "Playocean", by_url: "https://www.youtube.com/@PlayoceanLive", note: "town-beach panorama" }, <<: *pt }  # sat-verified 2026-07-23 (jetty peaks)
   # ---- Algarve west coast ----
   - { id: arrifana,           name: "Arrifana (Aljezur)",       lat: 37.2925, lon: -8.8675, offshore_direction: 125, swell_window: [235, 345], <<: *pt }  # approx - TODO verify (cliff-backed bay + right point)
   - { id: praia-do-amado,     name: "Praia do Amado (Carrapateira)", lat: 37.166, lon: -8.903, offshore_direction: 100, <<: *pt }  # sat-verified 2026-07-23
