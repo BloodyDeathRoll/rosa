@@ -35,7 +35,7 @@ import { TideSection } from "../components/TideSection";
 import { setPendingPin } from "./MapPage";
 import { fmtClock, sunTimes } from "../sun";
 import { fmtH, fmtTemp, heightUnit, useUnits, type Units } from "../units";
-import type { DayEntry, HourEntry, IndexEntry, SpotPayload } from "../types";
+import type { CamEntry, DayEntry, HourEntry, IndexEntry, SpotPayload } from "../types";
 
 function qClass(q: number): string {
   return q >= 0.7 ? "q-good" : q >= 0.45 ? "q-fair" : q >= 0.25 ? "q-warn" : "q-poor";
@@ -125,15 +125,49 @@ function sessionChips(
 }
 
 
-/** Live cam, first thing on the page when a spot has one.
+/** Live cam block, first thing on the page when a spot has one.
  *
  * Embedded through YouTube's own iframe player - the only way a cam is allowed into Rosa
  * (CLAUDE.md: never scrape a stream, never touch a competitor's). The credit under the
  * frame is the acknowledgement that permission implies, and it links back to the channel.
  * `loading="lazy"` keeps the player off the wire until it scrolls in, so the sub-2 s first
- * load target survives; nothing here blocks the forecast rendering. */
-function CamEmbed({ cam }: { cam?: SpotPayload["spot"]["cam"] }) {
-  if (!cam) return null;
+ * load target survives; nothing here blocks the forecast rendering.
+ *
+ * Surfline-style picker under the player: Angles = this spot's cameras, Nearby =
+ * cameras at other spots within 50 km (the app's nearby radius), closest first.
+ * Thumbnails are YouTube's own stills; tapping swaps the player in place. A nearby
+ * pick fetches that spot's payload for the cam's credit (SW-cached, tiny). */
+function CamSection({ data, all }: { data: SpotPayload; all: [string, IndexEntry][] }) {
+  const spot = data.spot;
+  const cams = spot.cams ?? (spot.cam ? [spot.cam] : []);
+  const [tab, setTab] = useState<"angles" | "nearby">("angles");
+  const [sel, setSel] = useState(0);
+  const [away, setAway] = useState<{ cam: CamEntry; id: string; name: string } | null>(null);
+
+  useEffect(() => {
+    setTab("angles");
+    setSel(0);
+    setAway(null);
+  }, [spot.id]);
+
+  if (!cams.length) return null;
+
+  const nearby = all
+    .filter(([id, e]) => id !== spot.id && (e.cams?.length ?? (e.cam ? 1 : 0)) > 0)
+    .map(([id, e]) => ({ id, name: e.name, km: distanceKm(spot, e), yts: e.cams ?? [e.cam!] }))
+    .filter((n) => n.km <= 50)
+    .sort((a, b) => a.km - b.km);
+
+  const active = away?.cam ?? cams[Math.min(sel, cams.length - 1)]!;
+  const pickNearby = (id: string, name: string, yt: string) => {
+    void fetchSpot(id).then((p) => {
+      const list = p.spot.cams ?? (p.spot.cam ? [p.spot.cam] : []);
+      const cam = list.find((c) => c.yt === yt) ?? list[0];
+      if (cam) setAway({ cam, id, name });
+    }, () => undefined);
+  };
+  const thumb = (yt: string) => `https://i.ytimg.com/vi/${yt}/mqdefault.jpg`;
+
   return (
     <section class="cam">
       <div class="cam-frame">
@@ -142,8 +176,9 @@ function CamEmbed({ cam }: { cam?: SpotPayload["spot"]["cam"] }) {
           // bar, channel avatar, big play button and "Watch on YouTube" overlay all
           // belong to the unstarted state and have no parameter to turn them off.
           // Muted is also the only autoplay mobile browsers allow.
+          key={active.yt}
           src={
-            `https://www.youtube-nocookie.com/embed/${cam.yt}` +
+            `https://www.youtube-nocookie.com/embed/${active.yt}` +
             `?rel=0&playsinline=1&autoplay=1&mute=1&modestbranding=1&iv_load_policy=3`
           }
           title="Live cam"
@@ -155,11 +190,73 @@ function CamEmbed({ cam }: { cam?: SpotPayload["spot"]["cam"] }) {
       </div>
       <p class="cam-credit">
         Live cam by{" "}
-        <a href={cam.by_url} target="_blank" rel="noopener noreferrer">
-          {cam.by}
+        <a href={active.by_url} target="_blank" rel="noopener noreferrer">
+          {active.by}
         </a>{" "}
-        on YouTube{cam.note ? ` - ${cam.note}` : ""}
+        on YouTube
+        {away ? (
+          <>
+            {" "}
+            · at <a href={`#/spot/${away.id}`}>{splitName(away.name).name}</a>
+          </>
+        ) : (
+          active.note ? ` - ${active.note}` : ""
+        )}
       </p>
+      {(cams.length > 1 || nearby.length > 0) && (
+        <div class="cam-picker">
+          <div class="cam-tabs" role="tablist" aria-label="Cameras">
+            <button
+              role="tab"
+              aria-selected={tab === "angles"}
+              class={`group-chip${tab === "angles" ? " on" : ""}`}
+              onClick={() => setTab("angles")}
+            >
+              Angles
+            </button>
+            {nearby.length > 0 && (
+              <button
+                role="tab"
+                aria-selected={tab === "nearby"}
+                class={`group-chip${tab === "nearby" ? " on" : ""}`}
+                onClick={() => setTab("nearby")}
+              >
+                Nearby
+              </button>
+            )}
+          </div>
+          <div class="cam-thumbs">
+            {tab === "angles"
+              ? cams.map((c, i) => (
+                  <button
+                    key={c.yt}
+                    class={`cam-thumb${!away && sel === i ? " on" : ""}`}
+                    onClick={() => {
+                      setSel(i);
+                      setAway(null);
+                    }}
+                  >
+                    <img src={thumb(c.yt)} alt="" loading="lazy" />
+                    <span>{c.label ?? `Angle ${i + 1}`}</span>
+                  </button>
+                ))
+              : nearby.flatMap((n) =>
+                  n.yts.map((yt) => (
+                    <button
+                      key={yt}
+                      class={`cam-thumb${away?.cam.yt === yt ? " on" : ""}`}
+                      onClick={() => pickNearby(n.id, n.name, yt)}
+                    >
+                      <img src={thumb(yt)} alt="" loading="lazy" />
+                      <span>
+                        {splitName(n.name).name} · {Math.round(n.km)} km
+                      </span>
+                    </button>
+                  )),
+                )}
+          </div>
+        </div>
+      )}
     </section>
   );
 }
@@ -464,7 +561,7 @@ export function SpotPage({ id }: { id: string }) {
       }
       return (
         <div class="spot-main">
-          <CamEmbed cam={data.spot.cam} />
+          <CamSection data={data} all={spots} />
           <section class="spot-card">
             <div class="rc-left">
               <Pill bucket={day.bucket} />
@@ -555,7 +652,7 @@ export function SpotPage({ id }: { id: string }) {
         </div>
       );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data, units, liveDay, id]);
+  }, [data, units, liveDay, id, spots]);
 
   // Top bar: back arrow · spot switcher (masked, fills the middle) · fav star.
   const topBar = (

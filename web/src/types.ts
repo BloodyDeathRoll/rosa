@@ -72,6 +72,15 @@ export interface SwellEventEntry {
   bucket: Bucket;
 }
 
+export interface CamEntry {
+  yt: string;
+  by: string;
+  by_url: string;
+  note?: string;
+  /** angle name when a spot has several cams ("Panorâmica 1") */
+  label?: string;
+}
+
 export interface SpotPayload {
   spot: {
     id: string;
@@ -83,7 +92,9 @@ export interface SpotPayload {
     timezone: string;
     /** Embeddable live cam. Absent for almost every spot. `note` is set when the
         camera watches a beach near the spot rather than the peak itself. */
-    cam?: { yt: string; by: string; by_url: string; note?: string };
+    cam?: CamEntry;
+    /** Every angle when the spot has several cams; `cam` is always the first. */
+    cams?: CamEntry[];
   };
   model: string;
   fetched_at: string;
@@ -107,6 +118,8 @@ export interface IndexEntry {
   generated_at: string;
   /** YouTube id of this spot's live cam, when it has one - the map card shows its still. */
   cam?: string;
+  /** Every angle's video id - the nearby-cams strip reads these without payload fetches. */
+  cams?: string[];
 }
 
 export interface SpotIndex {

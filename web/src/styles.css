@@ -1502,6 +1502,57 @@ a.rank-card:hover {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+/* Angle/nearby picker under the player (Surfline-style thumbnails) */
+.cam-picker {
+  margin: 10px 12px 0;
+}
+.cam-tabs {
+  display: flex;
+  gap: 7px;
+  margin-bottom: 9px;
+}
+.cam-thumbs {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 2px 2px 4px;
+}
+.cam-thumbs::-webkit-scrollbar {
+  display: none;
+}
+.cam-thumb {
+  flex: none;
+  width: 126px;
+  padding: 0;
+  background: none;
+  text-align: left;
+}
+.cam-thumb img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background: var(--secondary);
+}
+.cam-thumb.on img {
+  border-color: var(--accent);
+}
+.cam-thumb span {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--muted-foreground);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cam-thumb.on span {
+  color: var(--foreground);
+  font-weight: 600;
+}
 
 /* Glossary link over the rating rail's column. Quiet by default - it is a way out
    for someone who is stuck, not a thing to notice every time you read the table. */
