@@ -18,9 +18,9 @@ export default defineConfig({
         background_color: "#ffffff",
         display: "standalone",
         icons: [
-          // the full-bleed maskable tile IS the installed app icon (OS-masked);
-          // the transparent red favicon is the plain-"any" icon, so the WebAPK
-          // splash shows the red mark on the white background
+          // the maskable tile (white bg, red mark) is the installed app icon AND
+          // the WebAPK pre-splash icon - Android prefers maskable for both, so
+          // the tile stays white with the red mark to match background_color
           { src: "/icon-maskable.svg", sizes: "any", type: "image/svg+xml", purpose: "maskable" },
           { src: "/favicon.svg", sizes: "any", type: "image/svg+xml", purpose: "any" }
         ]
