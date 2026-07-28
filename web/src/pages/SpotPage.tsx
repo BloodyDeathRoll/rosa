@@ -36,7 +36,7 @@ import { TideSection } from "../components/TideSection";
 import { setPendingPin } from "./MapPage";
 import { fmtClock, sunTimes } from "../sun";
 import { fmtH, fmtTemp, heightUnit, useUnits, type Units } from "../units";
-import type { CamEntry, DayEntry, HourEntry, IndexEntry, SpotPayload } from "../types";
+import type { DayEntry, HourEntry, IndexEntry, SpotPayload } from "../types";
 
 function qClass(q: number): string {
   return q >= 0.7 ? "q-good" : q >= 0.45 ? "q-fair" : q >= 0.25 ? "q-warn" : "q-poor";
@@ -136,19 +136,17 @@ function sessionChips(
  *
  * Surfline-style picker under the player: Angles = this spot's cameras, Nearby =
  * cameras at other spots within 50 km (the app's nearby radius), closest first.
- * Thumbnails are YouTube's own stills; tapping swaps the player in place. A nearby
- * pick fetches that spot's payload for the cam's credit (SW-cached, tiny). */
+ * Thumbnails are YouTube's own stills; an angle swaps the player in place, a
+ * nearby pick opens that spot's page - the stream belongs with its forecast. */
 function CamSection({ data, all }: { data: SpotPayload; all: [string, IndexEntry][] }) {
   const spot = data.spot;
   const cams = spot.cams ?? (spot.cam ? [spot.cam] : []);
   const [tab, setTab] = useState<"angles" | "nearby">("angles");
   const [sel, setSel] = useState(0);
-  const [away, setAway] = useState<{ cam: CamEntry; id: string; name: string } | null>(null);
 
   useEffect(() => {
     setTab("angles");
     setSel(0);
-    setAway(null);
   }, [spot.id]);
 
   if (!cams.length) return null;
@@ -159,14 +157,7 @@ function CamSection({ data, all }: { data: SpotPayload; all: [string, IndexEntry
     .filter((n) => n.km <= 50)
     .sort((a, b) => a.km - b.km);
 
-  const active = away?.cam ?? cams[Math.min(sel, cams.length - 1)]!;
-  const pickNearby = (id: string, name: string, yt: string) => {
-    void fetchSpot(id).then((p) => {
-      const list = p.spot.cams ?? (p.spot.cam ? [p.spot.cam] : []);
-      const cam = list.find((c) => c.yt === yt) ?? list[0];
-      if (cam) setAway({ cam, id, name });
-    }, () => undefined);
-  };
+  const active = cams[Math.min(sel, cams.length - 1)]!;
   const thumb = (yt: string) => `https://i.ytimg.com/vi/${yt}/mqdefault.jpg`;
 
   return (
@@ -195,14 +186,7 @@ function CamSection({ data, all }: { data: SpotPayload; all: [string, IndexEntry
           {active.by}
         </a>{" "}
         on YouTube
-        {away ? (
-          <>
-            {" "}
-            · at <a href={`#/spot/${away.id}`}>{splitName(away.name).name}</a>
-          </>
-        ) : (
-          active.note ? ` - ${active.note}` : ""
-        )}
+        {active.note ? ` - ${active.note}` : ""}
       </p>
       {(cams.length > 1 || nearby.length > 0) && (
         <div class="cam-picker">
@@ -231,30 +215,27 @@ function CamSection({ data, all }: { data: SpotPayload; all: [string, IndexEntry
               ? cams.map((c, i) => (
                   <button
                     key={c.yt}
-                    class={`cam-thumb${!away && sel === i ? " on" : ""}`}
-                    onClick={() => {
-                      setSel(i);
-                      setAway(null);
-                    }}
+                    class={`cam-thumb${sel === i ? " on" : ""}`}
+                    onClick={() => setSel(i)}
                   >
                     <img src={thumb(c.yt)} alt="" loading="lazy" />
                     <span>{c.label ?? `Angle ${i + 1}`}</span>
                   </button>
                 ))
-              : nearby.flatMap((n) =>
-                  n.yts.map((yt) => (
-                    <button
-                      key={yt}
-                      class={`cam-thumb${away?.cam.yt === yt ? " on" : ""}`}
-                      onClick={() => pickNearby(n.id, n.name, yt)}
-                    >
-                      <img src={thumb(yt)} alt="" loading="lazy" />
-                      <span>
-                        {splitName(n.name).name} · {Math.round(n.km)} km
-                      </span>
-                    </button>
-                  )),
-                )}
+              : nearby.map((n) => (
+                  // one thumb per spot (its angles live on its page) - a tap opens
+                  // the whole spot, forecast and all, not just the stream
+                  <button
+                    key={n.id}
+                    class="cam-thumb"
+                    onClick={() => (location.hash = `#/spot/${n.id}`)}
+                  >
+                    <img src={thumb(n.yts[0]!)} alt="" loading="lazy" />
+                    <span>
+                      {splitName(n.name).name} · {Math.round(n.km)} km
+                    </span>
+                  </button>
+                ))}
           </div>
         </div>
       )}
