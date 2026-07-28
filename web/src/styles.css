@@ -1772,12 +1772,14 @@ a.rank-card:hover {
   padding: 0 16px 10px;
   font-size: 11px;
 }
-.nearby-cards {
+/* .map-cards is defined further down, so these need the extra class to win:
+   the strip reads from the page's own left edge, not the map's centred snap. */
+.map-cards.nearby-cards {
   --cw: 66%;
   padding: 2px 16px;
   scroll-snap-type: none;
 }
-.nearby-cards .map-card {
+.map-cards.nearby-cards .map-card {
   scroll-snap-align: start;
 }
 .sun-row > span {
