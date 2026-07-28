@@ -26,7 +26,7 @@ function greeting(): string {
   return "Good night";
 }
 
-function DetailCard({ data, date }: { data: SpotPayload; date: string }) {
+function DetailCard({ data, date, maxH }: { data: SpotPayload; date: string; maxH: number }) {
   const units = useUnits();
   const { name, region } = splitName(data.spot.name);
   const dv = dayView(data, date);
@@ -66,7 +66,7 @@ function DetailCard({ data, date }: { data: SpotPayload; date: string }) {
           <span class="range-row">
             <span class="surf-range tabular">{fmtRange(dv.range, units)}</span>
             <span class="hc-rail">
-              <DayBars data={data} date={date} />
+              <DayBars data={data} date={date} maxH={maxH} />
             </span>
           </span>
           <span class="line tabular">
@@ -214,6 +214,9 @@ export function TodayPage() {
   const carousel = grid
     ? sectionsOf(grid, (s) => s.spot.region, homeRegion).flatMap((sec) => sec.rows)
     : [];
+  // one scale across every card (and the chart rows below, which derive the
+  // same max from the same spots) so bar heights compare spot to spot
+  const chartMax = Math.max(0.1, ...carousel.flatMap((s) => s.hours.map((h) => h.h_mid)));
 
   // Start on the last-opened spot (the old single extended card), snapped into
   // place instantly - sections may have reordered it away from index 0.
@@ -262,7 +265,7 @@ export function TodayPage() {
           <div class="home-cards" ref={cardsRef}>
             {carousel.map((d) => (
               <div class="hc-slide" key={d.spot.id} data-id={d.spot.id}>
-                <DetailCard data={d} date={todayIn(d.spot.timezone)} />
+                <DetailCard data={d} date={todayIn(d.spot.timezone)} maxH={chartMax} />
               </div>
             ))}
           </div>

@@ -50,11 +50,12 @@ function dayColumn(data: SpotPayload, date: string) {
 
 /** One day's three daypart bars alone (no wind arrow, no range label) - the
     extended Today card drops this next to its surf range so the card carries the
-    same at-a-glance shape as the chart rows. Scaled to this spot's own peak. */
-export function DayBars({ data, date }: { data: SpotPayload; date: string }) {
+    same at-a-glance shape as the chart rows. `maxH` is the caller's shared scale
+    (the tallest bar across every card shown), so heights compare across cards -
+    a per-spot scale made 0.3 m fill one card while 0.6 m stubbed on the next. */
+export function DayBars({ data, date, maxH }: { data: SpotPayload; date: string; maxH: number }) {
   const { bars, hasAny } = dayColumn(data, date);
   if (!hasAny) return null;
-  const maxH = Math.max(0.1, ...data.hours.map((h) => h.h_mid));
   return (
     <span class="chart-plot" style={`height:${CHART_H}px`} aria-hidden="true">
       {bars.map((b, i) => (
