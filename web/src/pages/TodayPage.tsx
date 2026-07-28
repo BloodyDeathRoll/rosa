@@ -74,8 +74,12 @@ export function planToday({
   const homeRegion = homeId ? (index[homeId]!.region?.trim() || null) : null;
 
   const regionOf = (id: string) => groupNameOf(index[id]!.region);
+  // Only where you are, what you favorited, and the ONE spot you looked at last
+  // - browsing history is not a set of places you surf, so a week of poking at
+  // spots around the world must not turn into a row of chips.
+  const seeds = [...(homeId ? [homeId] : []), ...myFavs, ...(myRecents[0] ? [myRecents[0]] : [])];
   const regions = [ALL_GROUP];
-  for (const id of [...(homeId ? [homeId] : []), ...myRecents, ...myFavs]) {
+  for (const id of seeds) {
     const r = regionOf(id);
     if (!regions.includes(r)) regions.push(r);
   }
@@ -95,9 +99,9 @@ export function planToday({
   const add = (id: string | undefined) => {
     if (id && known(id) && inScope(id) && !ids.includes(id)) ids.push(id);
   };
+  // the anchor, then your favorites here (north to south), then nearest fill
   add(anchor);
   for (const id of [...myFavs].sort((a, b) => index[b]!.lat - index[a]!.lat)) add(id);
-  for (const id of myRecents) if (scope !== ALL_GROUP || ids.length < MIN_SPOTS) add(id);
   if (ids.length < MIN_SPOTS) {
     // Top up from wherever the region is centred on you: in your own region
     // (and under "All") that's your actual position, so the fill is the cluster
