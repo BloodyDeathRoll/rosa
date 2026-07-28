@@ -36,7 +36,7 @@ east: &sl_e
 
 spots:
   # ==== SOUTH COAST (W→E; sample pushed SOUTH) ====
-  - { id: hikkaduwa,        name: "Hikkaduwa",              lat: 6.1304, lon: 80.0963, offshore_direction: 35,  offshore_bearing: 172.5, offshore_km: 5.65,  break_type: reef, <<: *sl_s }  # approx - TODO verify
+  - { id: hikkaduwa,        name: "Hikkaduwa",              lat: 6.1304, lon: 80.0963, offshore_direction: 35,  offshore_bearing: 172.5, offshore_km: 5.65,  break_type: reef, shore_normal: 172.5, <<: *sl_s }  # approx - TODO verify
   - { id: unawatuna,        name: "Unawatuna",              lat: 6.0015, lon: 80.2459, offshore_direction: 20,  offshore_bearing: 176.6, offshore_km: 5.74,  swell_window: [160, 220], <<: *sl_s }  # approx - TODO verify (sheltered bay)
   - { id: koggala,          name: "Koggala",                lat: 5.98283, lon: 80.33502, offshore_direction: 5,   offshore_bearing: 180.0, offshore_km: 4.98, break_type: reef, <<: *sl_s }  # osm-corrected 2026-07-24 (was 5.9824,80.327)
   # Ahangama stretch, user-verified 2026-07-25: replaces the single coarse "Ahangama
@@ -44,7 +44,7 @@ spots:
   - { id: south-point,      name: "South Point",            lat: 5.98044, lon: 80.33978, offshore_direction: 5,   offshore_bearing: 179.7, offshore_km: 5.05, <<: *sl_s }  # user-verified 2026-07-25 - offshore_direction from neighbours, TODO verify
   - { id: kabalana,         name: "Kabalana",               lat: 5.97747, lon: 80.34842, offshore_direction: 5,   offshore_bearing: 180.5, offshore_km: 5.06, <<: *sl_s }  # user-verified 2026-07-25 - offshore_direction from neighbours, TODO verify
   - { id: sticks,           name: "Sticks",                 lat: 5.97503, lon: 80.35569, offshore_direction: 5,   offshore_bearing: 179.6, offshore_km: 5.01, <<: *sl_s }  # user-verified 2026-07-25 - offshore_direction from neighbours, TODO verify
-  - { id: marshmallow,      name: "Marshmallow",            lat: 5.97236, lon: 80.35919, offshore_direction: 34,  offshore_bearing: 180.2, offshore_km: 5.04, <<: *sl_s }  # user-verified 2026-07-25 (moved from the osm-seeded pin) - offshore_direction still the OSM value from the OLD position, TODO re-derive
+  - { id: marshmallow,      name: "Marshmallow",            lat: 5.97236, lon: 80.35919, offshore_direction: 34,  offshore_bearing: 180.2, offshore_km: 5.04, shore_normal: 180.2, <<: *sl_s }  # user-verified 2026-07-25 (moved from the osm-seeded pin) - offshore_direction still the OSM value from the OLD position, TODO re-derive
   - { id: gas-station,      name: "Gas Station",            lat: 5.96867, lon: 80.36842, offshore_direction: 5,   offshore_bearing: 180.5, offshore_km: 4.97, <<: *sl_s }  # user-verified 2026-07-25 - offshore_direction from neighbours, TODO verify
   - { id: midigama,         name: "Midigama",               lat: 5.96501, lon: 80.38891, offshore_direction: 15,  offshore_bearing: 179.9, offshore_km: 5.0,  break_type: reef, <<: *sl_s }  # osm-corrected 2026-07-24 (was 5.9587,80.387) - Ram's Right / Lazy Left
   - { id: weligama,         name: "Weligama Bay",           lat: 5.97186, lon: 80.43794, offshore_direction: 5,   shore_normal: 209, offshore_bearing: 179.9, offshore_km: 4.99,  <<: *sl_s }  # user-verified 2026-07-25 (renamed + moved; beginner beachbreak). shore_normal = bay-mouth axis the user drew, NOT offshore_direction+180: the beach faces ~S (so N wind is still the offshore one) while the swell's way in/out is SSW past the headland - same divergence as arugam-bay.
@@ -67,12 +67,12 @@ spots:
   # offshore_direction derived from OSM coastline geometry; offshore ray cast south to open
   # water. SOURCE = osm-seeded (below sat-/user-verified on the authority ladder) - sat-verify
   # coords + break_type + swell_window before trusting. Ordered W→E along the south coast.
-  - { id: hikkaduwa-south, name: "Hikkaduwa South", lat: 6.1288, lon: 80.1031, offshore_direction: 25,  offshore_bearing: 180.0, offshore_km: 5.0, break_type: reef, <<: *sl_s }  # osm-seeded - TODO verify (Hikkaduwa reef; OSM "Surf Control")
+  - { id: hikkaduwa-south, name: "Hikkaduwa South", lat: 6.1288, lon: 80.1031, offshore_direction: 25,  offshore_bearing: 180.0, offshore_km: 5.0, break_type: reef, <<: *sl_s }  # offshore_direction was 258 (WSW): that called the monsoon onshore wind 'offshore' and, via shore_normal, aimed the depth ray inland - corrected to 0 (N) with the bay's south facing, 2026-07-29. osm-seeded - TODO verify (Hikkaduwa reef; OSM "Surf Control")
   - { id: crust,        name: "Crust",          lat: 5.9711, lon: 80.3651, offshore_direction: 29,  offshore_bearing: 180.0, offshore_km: 5.0, <<: *sl_s }  # osm-seeded - TODO verify
   - { id: weligama-west, name: "Coconut",        lat: 5.9601, lon: 80.4017, offshore_direction: 12,  offshore_bearing: 180.0, offshore_km: 5.0, break_type: reef, <<: *sl_s }  # renamed 2026-07-25 (user); coords still osm-seeded - TODO verify
   - { id: kapparatota,  name: "Kapparatota",    lat: 5.9582, lon: 80.4086, offshore_direction: 19,  offshore_bearing: 180.0, offshore_km: 5.0, <<: *sl_s }  # osm-seeded - TODO verify
-  - { id: jungle,       name: "Jungle Beach",   lat: 5.9587, lon: 80.4129, offshore_direction: 41,  offshore_bearing: 180.0, offshore_km: 5.0, <<: *sl_s }  # osm-seeded - TODO verify
-  - { id: fishermen,    name: "Fishermen Bay",  lat: 5.9585, lon: 80.4201, offshore_direction: 258, offshore_bearing: 180.0, offshore_km: 5.0, <<: *sl_s }  # osm-seeded - TODO verify (bay-facing)
+  - { id: jungle,       name: "Jungle Beach",   lat: 5.9587, lon: 80.4129, offshore_direction: 41,  offshore_bearing: 180.0, offshore_km: 5.0, shore_normal: 180.0, <<: *sl_s }  # osm-seeded - TODO verify
+  - { id: fishermen,    name: "Fishermen Bay",  lat: 5.9585, lon: 80.4201, offshore_direction: 0, offshore_bearing: 180.0, offshore_km: 5.0, shore_normal: 180.0, <<: *sl_s }  # osm-seeded - TODO verify (bay-facing)
   - { id: thalaramba,   name: "Thalaramba",     lat: 5.9374, lon: 80.4749, offshore_direction: 1,   offshore_bearing: 180.0, offshore_km: 4.99, <<: *sl_s }  # osm-seeded - TODO verify
   - { id: madiha,       name: "Madiha",         lat: 5.9371, lon: 80.5065, offshore_direction: 357, offshore_bearing: 180.0, offshore_km: 4.99, <<: *sl_s }  # osm-seeded - TODO verify
   - { id: weddawata,    name: "Weddawata",      lat: 5.9399, lon: 80.5650, offshore_direction: 345, offshore_bearing: 180.0, offshore_km: 5.0, <<: *sl_s }  # osm-seeded - TODO verify

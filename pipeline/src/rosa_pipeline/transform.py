@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import math
 from collections.abc import Callable
+from functools import lru_cache
 
 from .models import SwellPartition, WindClass
 from .physics import breaker_height_over_profile
@@ -57,13 +58,69 @@ def exposure_weight(
     return math.cos((beyond / shoulder_deg) * (math.pi / 2.0))
 
 
+SPREAD_QUADRATURE_N = 41  # samples across +-3 sigma - the taper has kinks, so sample evenly
+
+
+@lru_cache(maxsize=200_000)
+def _energy_fraction(mean_deg: int, sigma_deg: int, lo: float, hi: float, shoulder: float) -> float:
+    """Share of a partition's energy that lands inside the window once the swell's
+    directional spread is integrated. Cached on whole degrees - the inputs repeat
+    endlessly across hours and spots."""
+    sigma = max(1.0, float(sigma_deg))
+    num = den = 0.0
+    for i in range(SPREAD_QUADRATURE_N):
+        off = -3.0 * sigma + (6.0 * sigma) * i / (SPREAD_QUADRATURE_N - 1)
+        w = math.exp(-0.5 * (off / sigma) ** 2)
+        den += w
+        num += w * exposure_weight((mean_deg + off) % 360.0, (lo, hi), shoulder)
+    return num / den
+
+
+def spread_exposure(
+    p: SwellPartition,
+    window: tuple[float, float],
+    shoulder_deg: float = EXPOSURE_SHOULDER_DEG,
+) -> float:
+    """Energy fraction of one partition that actually reaches the spot.
+
+    A partition is not a single bearing: its energy fans out roughly +-20-35 deg
+    about the mean (see spectral.parametric_spread_deg), so a swell whose mean sits
+    outside the arc still delivers the part of its fan that falls inside. Treating
+    it as a pencil beam is what let a 1.9 m sea offshore render as 0.0-0.1 m of
+    surf at Pipeline while Surfline called 0.3-0.6 m (2026-07-29). Energy units:
+    take sqrt() where an amplitude weight is wanted."""
+    from .spectral import parametric_spread_deg
+
+    return _energy_fraction(
+        round(p.direction_deg) % 360,
+        round(parametric_spread_deg(p)),
+        window[0],
+        window[1],
+        shoulder_deg,
+    )
+
+
+def arriving_direction(direction_deg: float, window: tuple[float, float]) -> float:
+    """Where the energy that reaches the spot actually comes from.
+
+    Inside the arc that's the swell's own bearing. Outside it, only the part of
+    the fan that falls inside arrives, so it comes in over the nearer edge - and
+    it must be measured from there, or the refraction step would still treat the
+    swell as arriving from behind the beach and cancel what the fan delivered."""
+    if in_window(direction_deg, window):
+        return direction_deg % 360
+    lo, hi = window
+    d = direction_deg % 360
+    return lo if angle_diff(d, lo) <= angle_diff(d, hi) else hi
+
+
 def energy_in_window(partitions: tuple[SwellPartition, ...], window: tuple[float, float]) -> float:
-    return sum(p.height_m**2 * p.period_s for p in partitions if in_window(p.direction_deg, window))
+    return sum(p.height_m**2 * p.period_s * spread_exposure(p, window) for p in partitions)
 
 
 def height_in_window(partitions: tuple[SwellPartition, ...], window: tuple[float, float]) -> float:
-    """Combined significant height of in-window partitions (RMS combination)."""
-    return math.sqrt(sum(p.height_m**2 for p in partitions if in_window(p.direction_deg, window)))
+    """Combined significant height of the energy that reaches the spot (RMS combination)."""
+    return math.sqrt(sum(p.height_m**2 * spread_exposure(p, window) for p in partitions))
 
 
 TE_OVER_TP = 0.9  # Te ≈ 0.9·Tp for a JONSWAP-ish spectrum (standard ocean-engineering ratio)
@@ -86,13 +143,12 @@ def energy_period(p: SwellPartition) -> float:
 
 
 def energy_kj_per_m(partitions: tuple[SwellPartition, ...], window: tuple[float, float]) -> float:
-    """Deep-water wave energy of the in-window partitions, kJ per metre of crest - the kJ
-    figure surf forecasts quote. Partitions outside the window contribute 0 (they still
-    display), matching ``energy_in_window``."""
+    """Deep-water wave energy reaching the spot, kJ per metre of crest - the kJ figure
+    surf forecasts quote. Weighted by the same spread-aware exposure as the breaker
+    height, so a row can never show real surf next to 0 kJ."""
     return sum(
-        KJ_PER_M_COEFF * p.height_m**2 * energy_period(p) ** 2
+        KJ_PER_M_COEFF * p.height_m**2 * energy_period(p) ** 2 * spread_exposure(p, window)
         for p in partitions
-        if in_window(p.direction_deg, window)
     )
 
 
@@ -114,12 +170,13 @@ def effective_height_in_window(
     """RMS combination of per-partition period-adjusted heights: sqrt(sum (H_i * q(T_i))^2)."""
     return math.sqrt(
         sum(
-            (p.height_m * period_quality(p.period_s)) ** 2
+            (p.height_m * period_quality(p.period_s)) ** 2 * spread_exposure(p, window)
             for p in partitions
-            if in_window(p.direction_deg, window)
         )
     )
 
+
+GRAZING_INCIDENCE_DEG = 85.0  # steepest approach the physics will still march (see below)
 
 RIDEABILITY_EXP = 1.4  # period-power exponent (was the q(T) exponent, calibration row 2)
 
@@ -158,10 +215,18 @@ def breaker_height_from_profile(
     default is exactly the shipping ``period_rideability(p.period_s)``."""
     total_sq = 0.0
     for p in partitions:
-        w = exposure_weight(p.direction_deg, window)
+        w = math.sqrt(spread_exposure(p, window))  # energy fraction -> amplitude
         if w <= 0.0:
             continue
-        incidence = angle_diff(p.direction_deg, shore_normal)
+        # the energy that arrives comes from inside the arc, so the angle it
+        # arrives at is the arc's, not the fan's mean - a swell whose mean sits
+        # behind the headland still refracts in from the open side
+        incidence = angle_diff(arriving_direction(p.direction_deg, window), shore_normal)
+        # A window reaching past the shore normal is the spot's own local knowledge
+        # saying that arc does reach the break (wrapping points, bay mouths), so
+        # honour it at grazing incidence rather than letting the derived normal
+        # cancel it outright - refraction leaves little, but never nothing.
+        incidence = min(incidence, GRAZING_INCIDENCE_DEG)
         hb = breaker_height_over_profile(p.height_m, p.period_s, incidence, wet_depths)
         factor = rideability(p) if rideability is not None else period_rideability(p.period_s)
         hb *= factor * w
@@ -175,10 +240,7 @@ def dominant_partition(
     """The exposure-weighted dominant partition - includes swells within the soft-window
     shoulder so a just-outside swell can drive period/flat-gating consistently with the
     breaker height (Stage 2C)."""
-    scored = [
-        (p, p.height_m**2 * p.period_s * exposure_weight(p.direction_deg, window))
-        for p in partitions
-    ]
+    scored = [(p, p.height_m**2 * p.period_s * spread_exposure(p, window)) for p in partitions]
     scored = [(p, s) for p, s in scored if s > 0]
     if not scored:
         return None

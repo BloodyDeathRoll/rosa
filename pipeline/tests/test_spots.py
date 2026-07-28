@@ -72,3 +72,60 @@ def test_committed_bathy_profiles_match_their_spots():
 
     stale = [i for i in ids if not load_profile(i, bathy_dir).matches_spot(spots[i])]
     assert stale == [], f"profiles cast from superseded coordinates - re-cut them: {stale}"
+
+
+def test_seaward_directions_agree_with_each_other():
+    """``shore_normal`` aims the seabed ray the wave physics marches along, while
+    ``offshore_bearing`` aims the forecast sample point. Both mean "out to sea", so
+    they cannot disagree by much - when they did, the ray ran up the beach and the
+    spot forecast collapsed to nothing (Fishermen Bay was 102 deg out, six of nine
+    depth samples on dry land, 69% of its hours reading 0.0-0.1 m; 2026-07-29)."""
+    import yaml
+
+    from rosa_pipeline.transform import angle_diff
+
+    bad = []
+    for path in sorted(SPOTS_DIR.glob("*.yaml")):
+        for entry in (yaml.safe_load(path.read_text()) or {}).get("spots", []):
+            bearing = entry.get("offshore_bearing")
+            if bearing is None:
+                continue  # no hand-set sample ray: the derived normal is all there is
+            spot = load_spots(SPOTS_DIR)[entry["id"]]
+            off = angle_diff(float(bearing), spot.shore_normal)
+            if off > 45:
+                bad.append(f"{entry['id']} ({off:.0f} deg)")
+    assert bad == [], (
+        "these spots aim their depth profile and their sample point at different "
+        f"seas - set shore_normal and re-cut the profile: {bad}"
+    )
+
+
+def test_committed_profiles_reach_open_water():
+    """A profile whose seaward end is dry land is pointing the wrong way: the physics
+    would march the swell up a hillside and break it to nothing."""
+    from rosa_pipeline.bathymetry import load_profile
+
+    bathy_dir = SPOTS_DIR / "derived" / "bathy"
+    spots = load_spots(SPOTS_DIR)
+    dry = []
+    for sid in sorted(spots):
+        profile = load_profile(sid, bathy_dir)
+        if profile is not None and profile.offshore_depth_m <= 0:
+            dry.append(f"{sid} ({profile.offshore_depth_m:.0f} m)")
+    assert dry == [], f"profiles whose deep end is above water: {dry}"
+
+
+def test_offshore_wind_comes_from_the_land():
+    """``offshore_direction`` is where an OFFSHORE wind blows from, so it has to sit on
+    the landward side of the beach - within 90 deg of ``shore_normal`` + 180. Past that
+    the spot calls an onshore wind offshore and rates blown-out days as clean (Fishermen
+    Bay was 102 deg out, calling the SW monsoon offshore; 2026-07-29)."""
+    from rosa_pipeline.transform import angle_diff
+
+    spots = load_spots(SPOTS_DIR)
+    backwards = [
+        f"{sid} ({angle_diff(s.offshore_direction, (s.shore_normal + 180) % 360):.0f} deg)"
+        for sid, s in sorted(spots.items())
+        if angle_diff(s.offshore_direction, (s.shore_normal + 180) % 360) >= 90
+    ]
+    assert backwards == [], f"spots whose offshore wind blows in off the sea: {backwards}"

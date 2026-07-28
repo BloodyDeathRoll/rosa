@@ -20,10 +20,15 @@ from rosa_pipeline.transform import (
     in_window,
     period_quality,
     period_rideability,
+    spread_exposure,
     wetsuit,
 )
 
 WINDOW = (250.0, 340.0)
+# Wide enough that a partition at 290-300 keeps its whole directional fan inside
+# the arc, so the formula tests below read exactly - windowing itself is tested
+# against WINDOW (see TestSpreadExposure).
+WIDE = (200.0, 20.0)
 
 
 def swell(h: float, t: float, d: float) -> SwellPartition:
@@ -81,14 +86,16 @@ class TestBreakerHeightFromProfile:
         h = breaker_height_from_profile((swell(1.5, 12.0, 100.0),), WINDOW, 290.0, PROFILE_FIX)
         assert h == 0.0
 
-    def test_soft_shoulder_contributes_but_attenuated(self):
-        # a swell 10° outside the window still contributes (Stage 2C), below an in-window one,
-        # while one well outside the shoulder is still fully dropped
+    def test_swell_outside_the_arc_still_delivers_its_fan(self):
+        # a swell whose mean sits outside the window still lands part of its
+        # directional fan inside it - below an in-window one, but never zero
+        # (the Pipeline case, 2026-07-29). Only a swell whose whole fan misses
+        # the arc drops out.
         fx, sn = PROFILE_FIX, 295.0
         inside = breaker_height_from_profile((swell(1.0, 12.0, 295.0),), WINDOW, sn, fx)
-        shoulder = breaker_height_from_profile((swell(1.0, 12.0, 350.0),), WINDOW, sn, fx)
-        far = breaker_height_from_profile((swell(1.0, 12.0, 20.0),), WINDOW, sn, fx)
-        assert 0.0 < shoulder < inside
+        outside = breaker_height_from_profile((swell(1.0, 12.0, 355.0),), WINDOW, sn, fx)
+        far = breaker_height_from_profile((swell(1.0, 12.0, 100.0),), WINDOW, sn, fx)
+        assert 0.0 < outside < inside
         assert far == 0.0
 
     def test_rms_combines_partitions(self):
@@ -142,9 +149,13 @@ class TestInWindow:
 
 
 class TestEnergy:
-    def test_sums_only_in_window(self):
-        partitions = (swell(1.0, 10, 290), swell(2.0, 8, 100))
-        assert energy_in_window(partitions, WINDOW) == 1.0**2 * 10
+    def test_counts_only_what_reaches_the_spot(self):
+        # the in-arc swell counts in full; one arriving from behind the coast
+        # adds only the sliver of its fan that grazes the arc - never its bulk
+        in_arc = energy_in_window((swell(1.0, 10, 290),), WIDE)
+        with_behind = energy_in_window((swell(1.0, 10, 290), swell(2.0, 8, 110)), WIDE)
+        assert in_arc == pytest.approx(1.0**2 * 10)
+        assert in_arc < with_behind < in_arc * 1.05
 
     def test_empty(self):
         assert energy_in_window((), WINDOW) == 0
@@ -163,7 +174,7 @@ class TestEnergyKjPerM:
     def test_scales_with_height_squared_and_period_squared(self):
         p = SwellPartition(height_m=1.5, period_s=5.9, direction_deg=290, peak_period_s=8.4)
         te = 0.9 * 8.4
-        assert energy_kj_per_m((p,), WINDOW) == pytest.approx(0.98 * 1.5**2 * te**2)
+        assert energy_kj_per_m((p,), WIDE) == pytest.approx(0.98 * 1.5**2 * te**2)
 
     def test_out_of_window_excluded(self):
         assert energy_kj_per_m((swell(2.0, 12, 100),), WINDOW) == 0
@@ -173,13 +184,13 @@ class TestEnergyKjPerM:
         p = swell(1.2, 9.0, 290)
         flux_kw_per_m = 0.49 * p.height_m**2 * p.period_s
         expected = 2 * flux_kw_per_m * p.period_s
-        assert energy_kj_per_m((p,), WINDOW) == pytest.approx(expected, rel=1e-2)
+        assert energy_kj_per_m((p,), WIDE) == pytest.approx(expected, rel=1e-2)
 
 
 class TestHeightInWindow:
     def test_rms_combination(self):
         partitions = (swell(0.6, 8, 290), swell(0.8, 10, 300))
-        assert height_in_window(partitions, WINDOW) == (0.6**2 + 0.8**2) ** 0.5
+        assert height_in_window(partitions, WIDE) == pytest.approx((0.6**2 + 0.8**2) ** 0.5)
 
     def test_out_of_window_excluded(self):
         assert height_in_window((swell(2.0, 10, 100),), WINDOW) == 0
@@ -201,11 +212,11 @@ class TestPeriodQuality:
 class TestEffectiveHeight:
     def test_short_period_discounted(self):
         # calibration row 2 (q exp 1.4): 0.66 m @ 5.2 s surfs shin-high ~0.26 m
-        h = effective_height_in_window((swell(0.66, 5.2, 290),), WINDOW)
+        h = effective_height_in_window((swell(0.66, 5.2, 290),), WIDE)
         assert h == pytest.approx(0.66 * 0.52**1.4)
 
     def test_long_period_boosted(self):
-        h = effective_height_in_window((swell(1.0, 14.0, 290),), WINDOW)
+        h = effective_height_in_window((swell(1.0, 14.0, 290),), WIDE)
         assert h == pytest.approx(1.2)
 
     def test_out_of_window_excluded(self):
@@ -254,3 +265,45 @@ class TestWetsuit:
         assert wetsuit(13.0) == "5/4 + boots"
         assert wetsuit(10.0) == "5/4 hooded + gloves"
         assert wetsuit(8.0) == "6/5 hooded"
+
+
+class TestSpreadExposure:
+    """The swell fan (2026-07-29). A partition is not a pencil beam: its energy
+    spreads +-20-35 deg about the mean, so a swell whose mean sits outside the
+    arc still delivers part of itself. Before this, Pipeline read 0.0-0.1 m with
+    a 1.9 m sea offshore while Surfline called 0.3-0.6 m."""
+
+    def test_a_swell_centred_in_a_wide_arc_arrives_whole(self):
+        assert spread_exposure(swell(1.0, 12, 290), WIDE) == pytest.approx(1.0)
+
+    def test_a_swell_just_outside_the_arc_still_arrives(self):
+        # 20 deg beyond the edge: reduced, but nowhere near zero
+        w = spread_exposure(swell(1.0, 8, 360), WINDOW)
+        assert 0.1 < w < 0.6
+
+    def test_more_energy_arrives_the_closer_the_mean_is_to_the_arc(self):
+        near = spread_exposure(swell(1.0, 8, 350), WINDOW)
+        far = spread_exposure(swell(1.0, 8, 30), WINDOW)
+        assert near > far
+
+    def test_a_wider_fan_delivers_more_from_outside(self):
+        # windsea spreads (35 deg) further than groundswell (20-25), so an
+        # equally off-axis windsea leaks more energy into the arc
+        windsea = SwellPartition(height_m=1.0, period_s=6.0, direction_deg=5.0, kind="wind")
+        groundswell = SwellPartition(height_m=1.0, period_s=12.0, direction_deg=5.0, kind="swell")
+        assert spread_exposure(windsea, WINDOW) > spread_exposure(groundswell, WINDOW)
+
+    def test_energy_never_collapses_to_zero_with_a_real_sea_offshore(self):
+        """The rule the whole change exists for: a metre offshore cannot read as
+        nothing at the spot unless the swell is a fan-width and more off-axis."""
+        # Pipeline's arc, and the ENE trade swell that broke it (2026-07-28)
+        pipeline_arc = (270.0, 30.0)
+        trade = swell(1.9, 8.0, 70.0)
+        reaching = height_in_window((trade,), pipeline_arc)
+        assert reaching > 0.5, "a 1.9 m sea 40 deg off-axis must still reach the beach"
+
+    def test_energy_and_height_agree_about_what_arrives(self):
+        """A row can never show real surf next to 0 kJ (the old hard-window bug)."""
+        p = swell(1.5, 9.0, 355.0)  # outside WINDOW, fan still reaching
+        assert height_in_window((p,), WINDOW) > 0
+        assert energy_kj_per_m((p,), WINDOW) > 0
