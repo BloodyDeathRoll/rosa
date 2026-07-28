@@ -240,3 +240,88 @@ the sole cause. Pattern is now 3 under-call frames vs the 2 flat-day frames; sti
 ~07-30) owns the fit. Add this day as a fifth frame to
 `data/calibration/frames.yaml` when 2E runs (inputs above; grade on poleg's
 committed profile).
+
+## 2026-07-29 - exposure rebuilt: a swell is a fan, not a pencil beam (structural)
+
+User-reported, with a Surfline side-by-side: **"we CANNOT have a 0-0.1 range on spot when
+there is over a meter in the deep. That DOES NOT HAPPEN AND CANNOT HAPPEN."** Correct - and
+Rosa was doing it at 419 of ~24,000 published hours.
+
+| Date | Time | Spot | Rosa pred (h) | Surfline (same hour) | Buoy | Notes |
+|------|------|------|---------------|----------------------|------|-------|
+| 2026-07-28 | 06:00 | pipeline | **0.0-0.1 m** | 0.6-0.9 m | - | offshore 1.8 m @ 6.8 s from 65° |
+| 2026-07-28 | 09:00 | pipeline | **0.0-0.1 m** | 0.3-0.6 m | - | offshore 1.8 m @ 7.5 s from 67° |
+| 2026-07-28 | 12:00-21:00 | pipeline | 0.1-0.2 m | 0.3-0.6 m | - | offshore 1.8-2.0 m, ENE trade windswell all day |
+| 2026-07-29 | all day | fishermen | **0.0-0.1 m** 69% of hours | - | - | in-window 18.8 s swell present and still zeroed |
+
+**Three faults, one mistake: the model treated each partition as a single bearing.**
+
+1. **Exposure** evaluated `exposure_weight` at the partition's mean direction only, so a swell
+   whose mean sat outside the arc was deleted whole - even though a real partition's energy
+   fans over ±20-35°. Now `spread_exposure()` integrates the existing window/shoulder curve
+   over a Gaussian of the partition's own spread (`spectral.parametric_spread_deg`, the values
+   the CDIP Waverider arbitration already fixed on 2026-07-23), truncated at ±3σ, 41-point
+   quadrature, `lru_cache`d on whole degrees. Energy units - callers take `sqrt()` for an
+   amplitude weight.
+2. **Refraction** then measured that same swell from its mean too, so what the fan delivered
+   was cancelled again as "arriving from behind the beach" (incidence ≥ 90° returns 0). The
+   energy that gets in arrives over the window's edge, so `arriving_direction()` now supplies
+   the incidence. **Without this second half, Pipeline was still 3x under-called** - the fix is
+   only complete with both.
+3. A **window reaching past the shore normal** (wrapping points, bay mouths: whiskey-point's
+   arc sits 99-111° off its normal) is the spot's own local knowledge that the arc reaches the
+   break. That now marches at `GRAZING_INCIDENCE_DEG = 85°` rather than being cancelled by a
+   derived normal. Refraction leaves very little there - but not nothing.
+
+Also: `energy_kj_per_m`/`energy_in_window`/`height_in_window`/`effective_height_in_window` were
+still on the **hard** window while the height used the soft one, so rows showed real surf beside
+**0 kJ** (visible in the user's 07-28 screenshots). All four now use the same spread-aware
+exposure.
+
+**Result (199 spots, 24,216 hours compared against the previously published payloads):**
+
+- impossible zeros (≥1 m offshore, ~0 at the spot): **419 → 2** (both at ingrina, an Algarve
+  cove whose swell arrives more than a fan-width behind its headland).
+- height on hours that already had surf: **median x1.00**, 10th x0.90, 90th x1.00.
+- **Israel, the coast every constant in this log was fit against: x1.00 at every percentile.**
+  The five calibration frames and the open Stage-2E question are therefore untouched - this
+  changes which swells *reach* a spot, not how a reaching swell is transformed.
+- pipeline now tracks Surfline hour by hour (0.3-0.5 / 0.4-0.6 vs their 0.3-0.6).
+
+**No calibration constant moved**: `PERIOD_EXP`, `RIDEABILITY_EXP`, `BREAK_GAMMA`, the wind gate
+and every per-spot `height_coeff` are as they were. This is a structural fix in the sense of
+§Scope - it is geometry, true everywhere, not a Med-fit number.
+
+**Data faults found in the same hunt** (they compounded the above, and were separately fatal):
+
+- **Ten spots aimed their depth ray up to 102° away from the sea they face.** `shore_normal`
+  defaults to `offshore_direction + 180`; where `offshore_direction` was osm-seeded wrong, the
+  bathymetry ray went with it. **fishermen** ran ENE inland with six of nine samples on dry
+  land (deep end +7 m *above* sea level), which zeroed its breaker height regardless of swell.
+  Explicit `shore_normal` set and profiles re-cut for all ten; fishermen's ray now reaches
+  1742 m of open ocean and the spot reads a steady 0.9-1.5 m.
+- **fishermen `offshore_direction: 258`** called the SW monsoon *offshore* at a south-facing
+  bay (it rated FIRING 91 while claiming zero surf). Corrected to 0; the DB-wide median
+  disagreement between a spot's wind direction and its own coastline is 0°, so 102° was a true
+  outlier. Now cross-shore, rating 77.
+
+**Guards added** (`test_spots.py`) so none of this can rot back in silently: the depth ray and
+the sample point must aim at the same sea (≤45°); a profile's deep end must be underwater;
+offshore wind must blow from the land (<90° from `shore_normal + 180`). Six tests in
+`test_transform.py` pin the fan itself, including the literal rule this entry opens with.
+
+**Caveats / watch items:**
+
+- The spreads are **modeled per partition class, not measured hourly**. The same CDIP sweep
+  found ≥14 s measured σ of 36-46° against the assumed 24° - unresolved, and if anything means
+  real fans are *wider* than assumed, so this fix is conservative.
+- The Gaussian is truncated at ±3σ; a swell arriving from behind the coast still leaks ~0.5% of
+  its energy (≈7% of amplitude) where the tail grazes the arc. Deliberate - it is what keeps
+  the "never zero with a real sea offshore" rule true - but it is a floor, not a measurement.
+- Three spots still sit 65-73° between wind direction and coastline (matapalo-osa, okanda,
+  peanut-farm) - under the new guard's 90° bound, but worth local-knowledge review.
+- The partition **direction wander** that first drew attention here (hiriketiya's 12 s
+  groundswell reported at 189° → 224° → 276° → 255° → 192° across one day) is *not* fixed by
+  this. The fan absorbs it where the wander is within a fan-width; beyond that it remains an
+  Open-Meteo partition-quality issue, and temporal smoothing of long-period partition direction
+  is the next candidate if it recurs.
