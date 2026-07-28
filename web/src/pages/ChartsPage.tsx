@@ -9,6 +9,7 @@ import {
   type SwellIndex,
   type WorldMeta,
 } from "../api";
+import { getPosition } from "../geo";
 import { signalReady } from "../splash";
 
 /** Charts tab: animated basin wave fields (SwellMap v0.2), Surfline-style - a
@@ -70,6 +71,9 @@ const PLAY_MS = 450;
    to this band (see minZoomFor): zooming out past it would only add blank. */
 const DATA_LAT_N = 85.05;
 const DATA_LAT_S = -78.5;
+/* Opening zoom when we know where the user is: wide enough to hold the swell
+   window feeding their coast, tight enough that their own sea is legible. */
+const HOME_ZOOM = 3;
 
 /** Mercator y of a latitude, 0 (north edge) to 1 (south edge). */
 function mercY(lat: number): number {
@@ -290,7 +294,7 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
     let disposed = false;
     (async () => {
       try {
-        const [{ default: maplibregl }, idxR, worldR] = await Promise.all([
+        const [{ default: maplibregl }, idxR, worldR, at] = await Promise.all([
           import("maplibre-gl"),
           fetchSwellIndex().then(
             (v) => ({ ok: true as const, v }),
@@ -300,6 +304,7 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
             (v) => ({ ok: true as const, v }),
             () => ({ ok: false as const, v: null }),
           ),
+          getPosition(), // cached session fix - no second permission prompt
         ]);
         await import("maplibre-gl/dist/maplibre-gl.css");
         if (disposed || !wrapRef.current) return;
@@ -320,8 +325,12 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
             },
             layers: [{ id: "carto", type: "raster", source: "carto" }],
           },
-          center: [20, (DATA_LAT_N + DATA_LAT_S) / 2],
-          zoom: minZoomFor(wrapRef.current.clientHeight),
+          // open on your own coast at basin scale - the swell heading at you is
+          // the point; the whole world is one pinch away
+          center: at ? [at.lon, at.lat] : [20, (DATA_LAT_N + DATA_LAT_S) / 2],
+          zoom: at
+            ? Math.max(HOME_ZOOM, minZoomFor(wrapRef.current.clientHeight))
+            : minZoomFor(wrapRef.current.clientHeight),
           minZoom: minZoomFor(wrapRef.current.clientHeight),
           attributionControl: false,
         });
