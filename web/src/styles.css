@@ -622,9 +622,9 @@ button {
   display: flex;
   flex-direction: column;
   padding-bottom: 20px;
-  /* 4.2 columns across the reading width (the app column, less the two --edge
-     insets), so the fifth day peeks in and invites the swipe */
-  --col-w: calc(min(100vw, 430px) * 0.88 / 4.2);
+  /* 3.4 columns across the reading width (the app column, less the two --edge
+     insets), so the next day peeks in and invites the swipe */
+  --col-w: calc(min(100vw, 430px) * 0.88 / 3.4);
 }
 .coast .track {
   display: flex;
@@ -815,10 +815,10 @@ button {
 /* the coast chart's own readout: full-size in its wide columns (the spot
    page's scrubber shares .chart-val in a 56px column - leave that alone) */
 .coast .chart-val {
-  /* sized off the column, not the screen: "0.2-0.3" in Inter measures 3.53em,
-     so a quarter of the column always leaves ~12% breathing room - a fixed
-     22px overflows the narrower columns of a 360px phone */
-  font-size: calc(var(--col-w) * 0.25);
+  /* sized off the column, not the screen: "0.2-0.3 m" in Inter measures
+     4.68em, so a fifth of the column always leaves ~6% breathing room - a
+     fixed size overflows the narrower columns of a 360px phone */
+  font-size: calc(var(--col-w) * 0.2);
   letter-spacing: -0.01em;
 }
 /* dominant-condition rule beneath the teal bars - the only tier color in a column */

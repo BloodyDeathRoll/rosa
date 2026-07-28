@@ -309,8 +309,10 @@ export function CoastChart({
                       <span class="chart-empty" />
                     )}
                   </span>
+                  {/* with the unit here - these wide columns have room for it,
+                      unlike the spot page's scrubber */}
                   <span class="chart-val tabular">
-                    {day ? fmtRange(day.h_max, units, false) : "-"}
+                    {day ? fmtRange(day.h_max, units) : "-"}
                   </span>
                 </span>
               );
