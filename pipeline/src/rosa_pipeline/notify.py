@@ -228,6 +228,34 @@ def fetch_subscriptions(subs_url: str, admin_secret: str) -> list[dict]:
     return [s for s in subs if isinstance(s, dict) and "endpoint" in s and "keys" in s]
 
 
+def send_alert(
+    message: str,
+    admin_subs_path: Path,
+    vapid_private_key: Path,
+    vapid_sub: str,
+) -> int:
+    """Ops alert (cycle failure / stale-data watchdog): a plain push sent ONLY to
+    the admin devices snapshotted in admin_subs_path - never the public subscriber
+    list. Returns pushes delivered; a dead endpoint is reported, not pruned (the
+    snapshot is maintained by hand, see deploy/oracle/README.md)."""
+    from pywebpush import WebPushException, webpush
+
+    subs = json.loads(admin_subs_path.read_text())
+    sent = 0
+    for sub in subs:
+        try:
+            webpush(
+                subscription_info={"endpoint": sub["endpoint"], "keys": sub["keys"]},
+                data=json.dumps({"title": "Rosa pipeline", "body": message, "tag": "rosa-admin"}),
+                vapid_private_key=str(vapid_private_key),
+                vapid_claims={"sub": vapid_sub},
+            )
+            sent += 1
+        except WebPushException as exc:
+            print(f"alert: push failed for {endpoint_hash(sub['endpoint'])}: {exc}")
+    return sent
+
+
 def prune_subscription(subs_url: str, admin_secret: str, endpoint: str) -> None:
     import httpx
 

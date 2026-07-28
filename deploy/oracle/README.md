@@ -43,3 +43,18 @@ rosa-push Vercel project env), `VAPID_PRIVATE_KEY=$HOME/rosa-push/vapid_private.
   all-rights-reserved and gitignored, it never travels via git.
 - **Skill checks (after a week of archive):**
   `uv run --project pipeline rosa-pipeline verify --buoy 46042 --archive`
+
+## Ops alerting (2026-07-28)
+Two independent eyes, after two silent run-crash incidents left stale data serving:
+- **Failure push (this VM):** publish.sh traps any essential-step failure and runs
+  `rosa-pipeline alert` - a plain Web Push to the devices in
+  `~/rosa-push/admin-subs.json` (a hand-maintained snapshot of the ADMIN's own
+  subscriptions, never the public list; refresh it after re-subscribing:
+  `curl -s -H "x-admin-secret: $PUSH_ADMIN_SECRET" $PUSH_SUBS_URL > ~/rosa-push/admin-subs.json`).
+- **Stale-data watchdog (rosa-backup, 10.0.0.11):** hourly cron runs
+  `~/rosa-watch/freshness-watch.py` (source: `deploy/backup/freshness-watch.py`) -
+  alerts when rosa-data's `fetched_at` is > 7 h old or unreadable, so a dead VM or
+  dead cron still pages. Re-alerts at most every 12 h.
+- **Optional third eye:** set `HEALTHCHECK_URL` in `~/rosa/.env` (healthchecks.io
+  ping URL) - publish.sh pings it on success and `$HEALTHCHECK_URL/fail` on failure,
+  covering the "both VMs die together" case. Unset = no-op.

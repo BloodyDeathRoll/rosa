@@ -216,6 +216,26 @@ def _build_parser() -> argparse.ArgumentParser:
         "--dry-run", action="store_true", help="plan and print, send nothing"
     )
 
+    alert = sub.add_parser(
+        "alert", help="push an ops alert to the admin devices (publish.sh failure trap)"
+    )
+    alert.add_argument("--message", required=True, help="alert body text")
+    alert.add_argument(
+        "--subs",
+        type=Path,
+        default=Path.home() / "rosa-push" / "admin-subs.json",
+        help="admin device subscription snapshot (VM-local)",
+    )
+    alert.add_argument(
+        "--vapid-key",
+        type=Path,
+        default=None,
+        help="VAPID private key PEM (default: $VAPID_PRIVATE_KEY)",
+    )
+    alert.add_argument(
+        "--vapid-sub", default=None, help="VAPID contact claim (default: $VAPID_SUB)"
+    )
+
     exp = sub.add_parser(
         "experiment",
         help="Stage-2E: grade candidate rideability transforms against the calibration frames",
@@ -626,6 +646,29 @@ def _cmd_notify(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_alert(args: argparse.Namespace) -> int:
+    import os
+
+    from .notify import send_alert
+
+    vapid_key = args.vapid_key or (
+        Path(os.environ["VAPID_PRIVATE_KEY"]) if os.environ.get("VAPID_PRIVATE_KEY") else None
+    )
+    vapid_sub = args.vapid_sub or os.environ.get("VAPID_SUB")
+    if not vapid_key or not vapid_sub:
+        print(
+            "alert: missing VAPID_PRIVATE_KEY/--vapid-key or VAPID_SUB/--vapid-sub",
+            file=sys.stderr,
+        )
+        return 2
+    if not args.subs.exists():
+        print(f"alert: no admin subs snapshot at {args.subs}", file=sys.stderr)
+        return 2
+    sent = send_alert(args.message, args.subs, vapid_key, vapid_sub)
+    print(f"alert: sent to {sent} admin device(s)")
+    return 0 if sent else 1
+
+
 def main(argv: list[str] | None = None) -> int:
     args = _build_parser().parse_args(argv)
     if args.command == "verify":
@@ -638,6 +681,8 @@ def main(argv: list[str] | None = None) -> int:
         return _cmd_bathy(args)
     if args.command == "notify":
         return _cmd_notify(args)
+    if args.command == "alert":
+        return _cmd_alert(args)
     if args.command == "experiment":
         return _cmd_experiment(args)
     if args.command == "swellmap":

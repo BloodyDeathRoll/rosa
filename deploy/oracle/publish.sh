@@ -13,6 +13,21 @@ if [ -f "$HOME/rosa/.env" ]; then set -a; . "$HOME/rosa/.env"; set +a; fi
 LOG="$HOME/rosa/publish.log"
 STAGE="$HOME/rosa-data"   # dir basename becomes the Vercel project name
 
+# Ops alerting: a failed essential step pushes to the admin devices
+# (~/rosa-push/admin-subs.json snapshot) and pings the healthcheck's /fail URL;
+# a clean cycle pings the healthcheck. Both are best-effort - alerting must
+# never break the cycle - and HEALTHCHECK_URL is optional (set in ~/rosa/.env).
+on_fail() {
+  local step="$1"
+  echo "!!! $(date -u +%FT%TZ) FAILED at: $step"
+  uv run --project "$HOME/rosa/pipeline" rosa-pipeline alert \
+    --message "Cycle FAILED at: $step ($(date -u +%H:%MZ)). Stale data keeps serving until the next good run." \
+    || echo "warn: failure alert push failed too"
+  [ -n "${HEALTHCHECK_URL:-}" ] && curl -fsS -m 10 --retry 3 -o /dev/null \
+    --data-raw "$step" "$HEALTHCHECK_URL/fail" || true
+}
+trap 'on_fail "${BASH_COMMAND} (line $LINENO)"' ERR
+
 {
   echo "=== $(date -u +%FT%TZ) run start ==="
   cd "$HOME/rosa"
@@ -49,6 +64,12 @@ JSON
   if [ -n "${PUSH_SUBS_URL:-}" ]; then
     cd "$HOME/rosa"
     uv run --project pipeline rosa-pipeline notify || echo "warn: notify failed"
+  fi
+
+  # 5) dead-man ping: "a cycle completed" - its absence is the alarm
+  if [ -n "${HEALTHCHECK_URL:-}" ]; then
+    curl -fsS -m 10 --retry 3 -o /dev/null "$HEALTHCHECK_URL" \
+      || echo "warn: healthcheck ping failed"
   fi
   echo "=== $(date -u +%FT%TZ) done ==="
 } >> "$LOG" 2>&1
