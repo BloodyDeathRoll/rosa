@@ -30,6 +30,27 @@ export function refreshPosition(): Promise<LatLon | null> {
   return cached;
 }
 
+/* Where the user actually is, as a spot id + its region - written by Today once
+   a real GPS fix has ranked the spots, read by the feedback loop (which asks
+   only about spots in your own region) and by the push subscription (which
+   sends the id, never coordinates). Absent until a fix is granted. */
+const HOME_KEY = "rosa.home";
+
+export function setHome(spotId: string, region: string | null): void {
+  localStorage.setItem(HOME_KEY, JSON.stringify({ spot: spotId, region: region ?? "" }));
+}
+
+export function getHome(): { spot: string; region: string } | null {
+  try {
+    const raw: unknown = JSON.parse(localStorage.getItem(HOME_KEY) ?? "null");
+    return raw && typeof raw === "object" && "spot" in raw
+      ? (raw as { spot: string; region: string })
+      : null;
+  } catch {
+    return null;
+  }
+}
+
 export function distanceKm(a: LatLon, b: LatLon): number {
   const rad = Math.PI / 180;
   const dLat = (b.lat - a.lat) * rad;

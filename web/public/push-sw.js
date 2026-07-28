@@ -35,6 +35,26 @@ var FEEDBACK_API = "https://rosa-push.vercel.app/api/feedback";
 self.addEventListener("notificationclick", (event) => {
   event.notification.close();
   const data = event.notification.data || {};
+  // Step 1 of the feedback ask - "surfed it?". No ends it silently (a session
+  // that never happened has nothing to say about the forecast); Yes raises
+  // step 2 in place, carrying the same feedback block.
+  if (event.action === "surfed-no") return;
+  if (event.action === "surfed-yes" && data.feedback) {
+    event.waitUntil(
+      self.registration.showNotification("How was the forecast?", {
+        body: event.notification.body || "",
+        tag: event.notification.tag || "rosa-fb",
+        icon: /android/i.test(navigator.userAgent) ? "/notify-badge.png" : "/notify-icon.png",
+        badge: "/notify-badge.png",
+        actions: [
+          { action: "up", title: "👍 Nailed it" },
+          { action: "down", title: "👎 Off" },
+        ],
+        data: data,
+      })
+    );
+    return;
+  }
   // 👍/👎 tapped on a feedback ask: POST the verdict right from the worker -
   // the app never needs to open
   if ((event.action === "up" || event.action === "down") && data.feedback) {

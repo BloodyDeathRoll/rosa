@@ -4,6 +4,7 @@
 
 import { getFavorites } from "./favorites";
 import { feedbackPref } from "./feedback";
+import { getHome } from "./geo";
 
 const API = (import.meta.env.VITE_PUSH_API as string | undefined) ?? "";
 const VAPID_PUBLIC = (import.meta.env.VITE_VAPID_PUBLIC as string | undefined) ?? "";
@@ -48,6 +49,9 @@ async function post(sub: PushSubscription, spots: string[]): Promise<void> {
       endpoint: json.endpoint,
       keys: json.keys,
       spots,
+      // nearest spot id (never coordinates): keeps the evening ask in the
+      // user's own region, and gives it a spot to ask about with no favorites
+      home: getHome()?.spot ?? null,
       feedback: feedbackPref(), // "Spot feedback" toggle → evening 👍👎 ask on/off
     }),
   });

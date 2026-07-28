@@ -228,7 +228,9 @@ IL = ZoneInfo("Asia/Jerusalem")
 EVENING = datetime(2026, 7, 23, 16, 0, tzinfo=UTC)
 
 
-def cand(spot_id: str, *, rating: int = 62, date: str = "2026-07-23") -> FeedbackCandidate:
+def cand(
+    spot_id: str, *, rating: int = 62, date: str = "2026-07-23", region: str = "Israel"
+) -> FeedbackCandidate:
     return FeedbackCandidate(
         spot_id=spot_id,
         spot_name=spot_id,
@@ -238,6 +240,7 @@ def cand(spot_id: str, *, rating: int = 62, date: str = "2026-07-23") -> Feedbac
         h=(0.6, 0.9),
         at=f"{date}T09:00+03:00",
         predicted={"rating": rating, "bucket": "GOOD", "h": [0.6, 0.9], "phrase": "waist-high"},
+        region=region,
     )
 
 
@@ -282,7 +285,7 @@ class TestFeedbackPlanning:
         assert got is not None
         n, c = got
         assert c.spot_id == "b"
-        assert n.title == "How was b today?"
+        assert n.title == "Surfed b today?"
         assert n.keys == (feedback_key("b", "2026-07-23"),)
 
     def test_non_favorite_skipped(self):
@@ -294,10 +297,44 @@ class TestFeedbackPlanning:
         sent = {feedback_key("a", "2026-07-23")}
         assert plan_feedback_push([cand("a"), cand("b")], ["a", "b"], sent) is None
 
+    def test_never_asks_across_regions(self):
+        # in Israel, browsing Costa Rica: the CR spot is a candidate (it's
+        # evening there, it was good) but it is not what you surfed
+        cands = [cand("zvulun"), cand("tamarindo", rating=90, region="Costa Rica")]
+        regions = {"zvulun": "Israel", "tamarindo": "Costa Rica"}
+        got = plan_feedback_push(cands, ["zvulun", "tamarindo"], set(), "zvulun", regions)
+        assert got is not None and got[1].spot_id == "zvulun"
+
+    def test_quiet_when_nothing_in_the_home_region(self):
+        cands = [cand("tamarindo", rating=90, region="Costa Rica")]
+        regions = {"zvulun": "Israel", "tamarindo": "Costa Rica"}
+        assert plan_feedback_push(cands, ["tamarindo"], set(), "zvulun", regions) is None
+
+    def test_rotates_over_consecutive_good_days(self):
+        # yesterday asked about the higher-rated spot; today the other one is due
+        cands = [cand("a", rating=80), cand("b", rating=60)]
+        sent = {feedback_key("a", "2026-07-22")}
+        got = plan_feedback_push(cands, ["a", "b"], sent)
+        assert got is not None and got[1].spot_id == "b"
+
+    def test_rating_breaks_ties_when_none_asked_yet(self):
+        got = plan_feedback_push([cand("a", rating=55), cand("b", rating=70)], ["a", "b"], set())
+        assert got is not None and got[1].spot_id == "b"
+
+    def test_no_favorites_falls_back_to_the_nearest_spot(self):
+        cands = [cand("zvulun"), cand("poleg")]
+        regions = {"zvulun": "Israel", "poleg": "Israel"}
+        got = plan_feedback_push(cands, [], set(), "poleg", regions)
+        assert got is not None and got[1].spot_id == "poleg"
+
+    def test_no_favorites_and_no_location_stays_quiet(self):
+        assert plan_feedback_push([cand("a")], [], set()) is None
+
     def test_payload_carries_actions_and_row(self):
         n, c = plan_feedback_push([cand("a")], ["a"], set())
         p = feedback_payload(n, c)
-        assert [a["action"] for a in p["actions"]] == ["up", "down"]
+        # step 1 asks whether it was surfed at all; the SW raises 👍/👎 on yes
+        assert [a["action"] for a in p["actions"]] == ["surfed-yes", "surfed-no"]
         assert p["feedback"]["spot"] == "a"
         assert p["feedback"]["source"] == "push"
         assert p["feedback"]["predicted"]["bucket"] == "GOOD"

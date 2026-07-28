@@ -9,7 +9,8 @@ import { dayView } from "../components/SpotCard";
 import { getFavorites } from "../favorites";
 import { pendingPrompt, resolvePrompt, type FbPrompt } from "../feedback";
 import { cardinal, splitName, todayIn, windLabel } from "../format";
-import { distanceKm, getPosition } from "../geo";
+import { distanceKm, getPosition, setHome } from "../geo";
+import { syncPushSpots } from "../push";
 import { getRecents } from "../recents";
 import { signalReady } from "../splash";
 import { fmtRange, fmtTemp, useUnits } from "../units";
@@ -101,10 +102,13 @@ function DetailCard({ data, date, maxH }: { data: SpotPayload; date: string; max
   );
 }
 
-/** The retro 👍👎 row: one tap grades yesterday's call, then it's gone.
-    Never asks in the moment - only about a day already surfed. */
+/** The retro row, asked in two steps: first whether you surfed it at all, and
+    only then how the call held up - a forecast grade from someone who never
+    paddled out is noise in the calibration log. "No" ends it silently (nothing
+    is reported); either way the row is gone for good. */
 function FeedbackRow({ p, onDone }: { p: FbPrompt; onDone: () => void }) {
   const units = useUnits();
+  const [surfed, setSurfed] = useState(false);
   const { predicted } = p.view;
   const answer = (verdict: "up" | "down" | null) => {
     void resolvePrompt(p, verdict);
@@ -113,21 +117,29 @@ function FeedbackRow({ p, onDone }: { p: FbPrompt; onDone: () => void }) {
   return (
     <div class="fb-row">
       <span class="fb-text">
-        <b>Surfed {p.view.name} yesterday?</b>
-        <small class="tabular">
-          Rosa called {fmtRange(predicted.h, units)} - was it right?
-        </small>
+        <b>{surfed ? "How was the forecast?" : `Surfed ${p.view.name} yesterday?`}</b>
+        <small class="tabular">Rosa called {fmtRange(predicted.h, units)}</small>
       </span>
       <span class="fb-actions">
-        <button onClick={() => answer("up")} aria-label="Forecast was right">
-          👍
-        </button>
-        <button onClick={() => answer("down")} aria-label="Forecast was off">
-          👎
-        </button>
-        <button class="fb-x" onClick={() => answer(null)} aria-label="Dismiss">
-          ✕
-        </button>
+        {surfed ? (
+          <>
+            <button onClick={() => answer("up")} aria-label="Forecast was right">
+              👍
+            </button>
+            <button onClick={() => answer("down")} aria-label="Forecast was off">
+              👎
+            </button>
+          </>
+        ) : (
+          <>
+            <button class="fb-yes" onClick={() => setSurfed(true)} aria-label="Yes, I surfed it">
+              ✓
+            </button>
+            <button class="fb-no" onClick={() => answer(null)} aria-label="No, I didn't surf">
+              ✕
+            </button>
+          </>
+        )}
       </span>
     </div>
   );
@@ -166,6 +178,13 @@ export function TodayPage() {
         const located = pos !== null || lastEntry !== undefined;
         const nearestEntry = byDist[0]?.[1];
         setHomeRegion(located ? (nearestEntry?.region?.trim() || null) : null);
+        // Remember where the user actually is (a real fix only - the last-opened
+        // spot says what they were reading, not where they stand). The feedback
+        // loop asks only about this region, and pushes fall back to this spot.
+        if (pos !== null && byDist[0]) {
+          setHome(byDist[0][0], nearestEntry?.region?.trim() ?? null);
+          void syncPushSpots();
+        }
 
         // extended card = the last opened spot (fall back to nearest for a fresh
         // user). The grid below lists that same spot first, then every favorite

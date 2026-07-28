@@ -49,6 +49,10 @@ export default async function handler(req, res) {
   if (req.method === "POST") {
     const keys = body.keys ?? {};
     const spots = body.spots ?? [];
+    // nearest spot id, never coordinates - enough for the sender to keep the
+    // evening ask in the user's own region, and to have something to ask about
+    // when nothing is favorited. Null whenever location is unknown/denied.
+    const home = body.home ?? null;
     if (
       typeof keys.p256dh !== "string" ||
       typeof keys.auth !== "string" ||
@@ -56,7 +60,8 @@ export default async function handler(req, res) {
       keys.auth.length > 64 ||
       !Array.isArray(spots) ||
       spots.length > MAX_SPOTS ||
-      spots.some((s) => typeof s !== "string" || !SPOT_ID.test(s))
+      spots.some((s) => typeof s !== "string" || !SPOT_ID.test(s)) ||
+      (home !== null && (typeof home !== "string" || !SPOT_ID.test(home)))
     ) {
       return res.status(400).json({ error: "bad subscription" });
     }
@@ -64,6 +69,7 @@ export default async function handler(req, res) {
       endpoint,
       keys: { p256dh: keys.p256dh, auth: keys.auth },
       spots,
+      home,
       // "Spot feedback" Profile toggle - the sender skips the evening 👍👎
       // ask for subs that turned it off
       feedback: body.feedback !== false,

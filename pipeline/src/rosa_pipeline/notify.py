@@ -295,6 +295,7 @@ def send_notifications(
             f"{len(candidates)} feedback candidates, {len(subs)} subs"
         )
         state = load_state(state_path)
+        regions = spot_regions(out_dir)
         sent_count = 0
         for sub in subs:
             ehash = endpoint_hash(sub["endpoint"])
@@ -306,7 +307,9 @@ def send_notifications(
             ]
             # evening 👍👎 ask - only for subs that keep "Spot feedback" on
             if sub.get("feedback", True):
-                fb = plan_feedback_push(candidates, spots, sent_keys)
+                fb = plan_feedback_push(
+                    candidates, spots, sent_keys, sub.get("home"), regions
+                )
                 if fb is not None:
                     plans.append((fb[0], feedback_payload(fb[0], fb[1])))
             for n, payload in plans:
@@ -365,6 +368,7 @@ class FeedbackCandidate:
     h: tuple[float, float] | None
     at: str  # best hour's spot-local ISO - the session being graded
     predicted: dict
+    region: str = ""  # the ask never crosses regions - see plan_feedback_push
 
 
 def load_feedback_candidates(out_dir: Path, now: datetime) -> list[FeedbackCandidate]:
@@ -404,22 +408,60 @@ def load_feedback_candidates(out_dir: Path, now: datetime) -> list[FeedbackCandi
                     "h": best.get("h"),
                     "phrase": best.get("phrase"),
                 },
+                region=spot.get("region", ""),
             )
         )
     return out
+
+
+def spot_regions(out_dir: Path) -> dict[str, str]:
+    """spot id → region, read from the published index (cheap, one small file)."""
+    try:
+        index = json.loads((out_dir / "index.json").read_text())
+    except (json.JSONDecodeError, OSError):
+        return {}
+    return {sid: e.get("region", "") for sid, e in index.get("spots", {}).items()}
 
 
 def feedback_key(spot_id: str, date: str) -> str:
     return f"fb:{spot_id}:{date}"
 
 
+def last_asked(sent: set[str], spot_id: str) -> str:
+    """Most recent date this spot was asked about ("" = never), from the sent keys."""
+    prefix = f"fb:{spot_id}:"
+    dates = [k.removeprefix(prefix) for k in sent if k.startswith(prefix)]
+    return max(dates) if dates else ""
+
+
 def plan_feedback_push(
     candidates: list[FeedbackCandidate],
     favorites: list[str],
     sent: set[str],
+    home: str | None = None,
+    regions: dict[str, str] | None = None,
 ) -> tuple[Notification, FeedbackCandidate] | None:
-    """At most ONE evening ask per subscription per day (anti-spam rule)."""
+    """Pick the ONE spot to ask this subscription about tonight, or None.
+
+    Rules, in order:
+    - At most one ask per subscription per day (anti-spam).
+    - Never cross regions: someone in Israel surfed Zvulun, not Tamarindo. The
+      region comes from `home` (the device's nearest spot, sent with the
+      subscription); with no home known we can't tell, and the old
+      favorites-only behaviour stands.
+    - Rotate: among eligible spots the one asked longest ago wins (never-asked
+      first), so a run of good days spreads the asks across the favorites
+      instead of hammering the best-rated one.
+    - No favorites: ask about `home` itself, when its day was good enough to be
+      a candidate at all.
+    """
     mine = [c for c in candidates if c.spot_id in favorites]
+    home_region = (regions or {}).get(home or "", "")
+    if home_region:
+        mine = [c for c in mine if c.region == home_region]
+    if not mine and home:
+        # nothing favorited nearby - fall back to the spot they're standing next to
+        mine = [c for c in candidates if c.spot_id == home]
     if not mine:
         return None
     # a feedback ask already went out for any of today's candidate dates → quiet
@@ -427,13 +469,16 @@ def plan_feedback_push(
         k.startswith("fb:") and k.endswith(c.date) for c in mine for k in sent
     ):
         return None
-    best = max(mine, key=lambda c: (c.rating, c.h or (0.0, 0.0)))
+    best = min(mine, key=lambda c: (last_asked(sent, c.spot_id), -c.rating))
     name = best.spot_name.split(" (")[0].split(" / ")[0]
     word = BUCKET_WORD.get(best.bucket, best.bucket)
     h_txt = f" {best.h[0]:.1f}-{best.h[1]:.1f} m" if best.h else ""
+    # step 1 of the ask: did you surf it at all - the service worker raises the
+    # "how was the forecast?" step only on yes (a grade from someone who never
+    # paddled out is noise in the calibration log)
     n = Notification(
-        title=f"How was {name} today?",
-        body=f"Rosa called {word} ·{h_txt} - nailed it or off?",
+        title=f"Surfed {name} today?",
+        body=f"Rosa called {word} ·{h_txt}",
         url=f"{APP_ORIGIN}/#/spot/{best.spot_id}",
         tag=f"rosa-fb-{best.spot_id}-{best.date}",
         keys=(feedback_key(best.spot_id, best.date),),
@@ -441,8 +486,11 @@ def plan_feedback_push(
     return n, best
 
 
-# the extra payload block a feedback push carries: lock-screen 👍/👎 actions the
-# service worker answers by POSTing straight to the feedback API (no app open)
+# the extra payload block a feedback push carries. Step 1 offers yes/no to
+# "surfed it?"; the service worker answers "no" by dismissing and "yes" by
+# raising step 2 (👍/👎), which it POSTs straight to the feedback API - the app
+# never has to open. Older workers that only know up/down still answer, since
+# the feedback block itself is unchanged.
 def feedback_payload(n: Notification, c: FeedbackCandidate) -> dict:
     return {
         "title": n.title,
@@ -450,8 +498,8 @@ def feedback_payload(n: Notification, c: FeedbackCandidate) -> dict:
         "url": n.url,
         "tag": n.tag,
         "actions": [
-            {"action": "up", "title": "👍 Nailed it"},
-            {"action": "down", "title": "👎 Off"},
+            {"action": "surfed-yes", "title": "✓ Yes"},
+            {"action": "surfed-no", "title": "✕ No"},
         ],
         "feedback": {
             "spot": c.spot_id,

@@ -2506,6 +2506,21 @@ a.rank-card:hover {
   color: var(--muted-foreground);
   font-size: 13px;
 }
+/* step 1 (surfed it?) answers as a plain green tick / red cross - the only
+   place outside the condition layer that spends colour, and it earns it: the
+   two answers must be told apart at a glance, half-awake */
+.fb-row .fb-yes,
+.fb-row .fb-no {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1;
+}
+.fb-row .fb-yes {
+  color: var(--rating-good);
+}
+.fb-row .fb-no {
+  color: var(--rating-flat);
+}
 
 /* Map fabs: north under the search glass; locate bottom-right, its center
    aligned with the attribution chip across the map (both ride --sheet-h). */

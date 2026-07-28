@@ -5,6 +5,7 @@
     Gated by the Profile "Spot feedback" toggle. */
 
 import { splitName, todayIn } from "./format";
+import { getHome } from "./geo";
 import type { SpotPayload } from "./types";
 
 const API = (import.meta.env.VITE_PUSH_API as string | undefined) ?? "";
@@ -45,9 +46,14 @@ function writeViews(views: Record<string, StashedView>): void {
 }
 
 /** Called when a spot forecast is viewed: remember today's promise (last
-    viewed spot wins - the one most likely surfed). */
+    viewed spot wins - the one most likely surfed). Spots outside the region the
+    user is actually in are never stashed: reading Tamarindo from Israel is
+    browsing, not a session, and tomorrow's ask must not claim otherwise. */
 export function stashView(data: SpotPayload): void {
   if (!feedbackPref()) return;
+  const home = getHome();
+  const region = data.spot.region?.trim() ?? "";
+  if (home?.region && region && home.region !== region) return;
   const today = todayIn(data.spot.timezone);
   const day = data.days.find((d) => d.date === today);
   if (!day || day.rating_max < MIN_RATING) return;
