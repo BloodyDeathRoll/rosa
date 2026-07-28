@@ -26,9 +26,9 @@ function barPx(h: number, maxH: number, chartH: number = CHART_H): number {
   return Math.max(BAR_MIN, Math.min(chartH, px));
 }
 
-// the coast rows carry a readout under every bar, so they run shorter than the
-// card's bare mini-bars and the spot page's scrubber
-const ROW_CHART_H = Math.round(CHART_H * 0.8);
+// the coast rows carry a readout under every bar, so they run at half the
+// height of the card's bare mini-bars and the spot page's scrubber
+const ROW_CHART_H = Math.round(CHART_H * 0.5);
 
 // Spot-local daypart windows: morning · midday · evening.
 const PERIODS: [number, number][] = [

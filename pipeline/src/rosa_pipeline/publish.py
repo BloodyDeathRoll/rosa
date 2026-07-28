@@ -70,6 +70,16 @@ def _daylight(
     return lit or day_hours
 
 
+def _covers_day(day_hours: list[ScoredHour], tz: ZoneInfo) -> bool:
+    """Does this day's data actually span the local day? A published day has to
+    reach from around midnight to late evening; anything shorter is the model
+    horizon cutting a day in half, and would show a range read off a few hours
+    with no daypart bars at all. Tolerant of the 3-hourly grid and of offsets
+    that aren't whole hours (Asia/Colombo is +05:30)."""
+    hours = [s.hour.time.astimezone(tz).hour for s in day_hours]
+    return bool(hours) and min(hours) <= 1 and max(hours) >= 21
+
+
 def _day_agreement(day_hours: list[ScoredHour]) -> float | None:
     scores = [s.hour.agreement_score for s in day_hours if s.hour.agreement_score is not None]
     return sum(scores) / len(scores) if scores else None
@@ -156,13 +166,24 @@ def build_payload(spot: Spot, scored: list[ScoredHour], *, fetched_at: str, now:
     if not visible:  # stale run older than a day - publish what exists, honestly
         visible = scored
 
+    # ...and drop the trailing day when the model horizon lands mid-day: east of
+    # UTC the last local day can hold a couple of pre-dawn hours, which render as
+    # a day with no dayparts and a range read off two hours. Half a day is not a
+    # forecast - cut it rather than show it. (The leading day can't be partial:
+    # the fetch reaches a day back, so local midnight is always covered.)
+    day_of = lambda s: s.hour.time.astimezone(tz).date().isoformat()  # noqa: E731
+    by_date: dict[str, list[ScoredHour]] = {}
+    for s in visible:
+        by_date.setdefault(day_of(s), []).append(s)
+    complete = {d: hrs for d, hrs in by_date.items() if _covers_day(hrs, tz)}
+    if complete:  # never strip everything - a spot with no full day still reports
+        by_date = complete
+        visible = [s for s in visible if day_of(s) in by_date]
+
     table_hours = [
         s for s in visible[: TABLE_DAYS * 24] if s.hour.time.astimezone(tz).hour % TABLE_STEP_H == 0
     ]
 
-    by_date: dict[str, list[ScoredHour]] = {}
-    for s in visible:
-        by_date.setdefault(s.hour.time.astimezone(tz).date().isoformat(), []).append(s)
     sorted_dates = sorted(by_date.items())
     date_index = {date_str: i for i, (date_str, _) in enumerate(sorted_dates)}
 

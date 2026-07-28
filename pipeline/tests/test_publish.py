@@ -1,6 +1,7 @@
 """Daylight restriction on the day-strip summary (calibration fix #1)."""
 
-from datetime import UTC, datetime
+from dataclasses import replace
+from datetime import UTC, datetime, timedelta
 
 from rosa_pipeline.models import HourForecast, ScoredHour, Spot
 from rosa_pipeline.publish import build_payload
@@ -63,3 +64,59 @@ def test_all_night_day_falls_back_to_all_hours():
     hours = [scored(0, 90), scored(1, 20)]  # 03:00-04:00 local only, both pre-dawn
     payload = build_payload(SPOT, hours, fetched_at="t", now=hours[0].hour.time)
     assert payload["days"][0]["rating_max"] == 90
+
+
+# ---- the forecast never shows a half day -------------------------------------
+# The model horizon lands at a fixed UTC moment, so east of UTC the last local
+# day can hold a couple of pre-dawn hours: a day with no daypart bars and a
+# range read off two hours (seen live at Midigama, Asia/Colombo, 2026-07-29).
+
+
+def scored_utc(t: datetime, rating: int = 45) -> ScoredHour:
+    """Same as scored() but at an explicit instant, for multi-day series."""
+    return replace(scored(0, rating), hour=replace(scored(0, rating).hour, time=t))
+
+
+def series(start: datetime, slots: int, step_h: int = 3) -> list[ScoredHour]:
+    return [scored_utc(start + timedelta(hours=step_h * i)) for i in range(slots)]
+
+
+def day_span(payload: dict, date: str) -> tuple[int, int]:
+    """First and last published hour-of-day for one local date."""
+    hours = [int(h["t"][11:13]) for h in payload["hours"] if h["t"].startswith(date)]
+    return (min(hours), max(hours)) if hours else (-1, -1)
+
+
+def test_trailing_partial_day_is_dropped():
+    # Israel is UTC+3: 21:00 UTC starts the next local day. Three full local days
+    # then two pre-dawn slots of a fourth - the fourth must not be published.
+    hours = series(datetime(2026, 7, 19, 21, tzinfo=UTC), 3 * 8 + 2)
+    payload = build_payload(SPOT, hours, fetched_at="t", now=hours[0].hour.time)
+    dates = [d["date"] for d in payload["days"]]
+    assert dates == ["2026-07-20", "2026-07-21", "2026-07-22"]
+    assert not any(h["t"].startswith("2026-07-23") for h in payload["hours"])
+
+
+def test_trailing_partial_day_dropped_on_a_half_hour_offset():
+    # Asia/Colombo is +05:30 - the live case. 18:30 UTC = 00:00 local.
+    spot = replace(SPOT, timezone="Asia/Colombo", lat=5.95, lon=80.39)
+    hours = series(datetime(2026, 7, 19, 18, 30, tzinfo=UTC), 2 * 8 + 2)
+    payload = build_payload(spot, hours, fetched_at="t", now=hours[0].hour.time)
+    assert [d["date"] for d in payload["days"]] == ["2026-07-20", "2026-07-21"]
+
+
+def test_every_published_day_spans_its_local_day():
+    hours = series(datetime(2026, 7, 19, 21, tzinfo=UTC), 4 * 8 + 5)
+    payload = build_payload(SPOT, hours, fetched_at="t", now=hours[0].hour.time)
+    assert payload["days"], "a payload must publish at least one day"
+    for day in payload["days"]:
+        first, last = day_span(payload, day["date"])
+        assert first <= 1 and last >= 21, f"{day['date']} is a partial day ({first}..{last})"
+
+
+def test_short_series_still_publishes_rather_than_nothing():
+    # a spot whose feed has no complete day at all reports what it has - an empty
+    # payload would be worse than an honest short one
+    hours = series(datetime(2026, 7, 19, 21, tzinfo=UTC), 3)
+    payload = build_payload(SPOT, hours, fetched_at="t", now=hours[0].hour.time)
+    assert len(payload["days"]) == 1

@@ -56,10 +56,11 @@ def test_payload_shape(payload):
     assert payload["model"]
     assert payload["fetched_at"]
     assert payload["attribution"].startswith("Weather data by Open-Meteo")
-    # 3-hourly, up to 16 days; the leading partial local day is trimmed (publish
-    # starts at the spot's local today, so hour count depends on when now falls)
-    assert 15 * 8 <= len(payload["hours"]) <= 16 * 8
-    assert len(payload["days"]) == 16
+    # 3-hourly; every published day is a WHOLE local day, so the hour count is
+    # exactly 8 per day. Days can be 15 or 16 depending on where the model
+    # horizon falls in local time (the partial tail day is dropped).
+    assert 15 <= len(payload["days"]) <= 16
+    assert len(payload["hours"]) == 8 * len(payload["days"])
     assert payload["current"]["bucket"] in BUCKETS
     assert payload["current"]["why"].keys() == {"size", "period", "wind"}
     assert payload["current"]["wetsuit"] is not None
@@ -73,7 +74,18 @@ def test_no_fabricated_far_days(spot, raw, payload):
     tz = ZoneInfo(spot.timezone)
     real_dates = {h.time.astimezone(tz).date().isoformat() for h in hours}
     assert all(d["date"] in real_dates for d in payload["days"])
-    assert len(payload["days"]) == 16  # GFS-Wave fills the full 16-day horizon
+    # GFS-Wave fills the horizon; only a half-day tail is ever cut
+    assert 15 <= len(payload["days"]) <= 16
+
+
+def test_no_partial_days(payload):
+    """Every published day spans its local day - never a couple of pre-dawn hours
+    left over where the model horizon fell (the Midigama case, 2026-07-29)."""
+    for day in payload["days"]:
+        hours = [int(h["t"][11:13]) for h in payload["hours"] if h["t"].startswith(day["date"])]
+        assert len(hours) == 8, f"{day['date']} published {len(hours)} slots, expected 8"
+        span = f"{day['date']} spans {min(hours)}..{max(hours)}"
+        assert min(hours) <= 1 and max(hours) >= 21, span
 
 
 def test_every_hour_scored(payload):
