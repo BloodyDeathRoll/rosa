@@ -1,108 +1,86 @@
-# Session Handoff - 2026-07-26
+# Session Handoff — 2026-07-27 (evening)
 
 ## Goal
-Big infra + product day: get the A1 (Stage-4 box), build the Stage-2E calibration
-harness and SWAN scaffolding while archives mature, and ship SwellMap v0.2 - a
-Surfline-style Charts tab with animated basin wave fields for every region.
+Small web UX round: surface cams on every card type, fix the tide chart's
+"now" marker, and rebuild the messy spot-page header as two clean rows.
 
 ## Current State
-- **All committed, pushed, deployed.** Working tree clean at `6bc0761`. Web live on
-  rosa-rust.vercel.app; six basin frame-sets live on rosa-data-opal (/data/swellmap/).
-  257 pipeline tests green, ruff clean.
-- **rosa-arm is RUNNING**: A1.Flex 4 OCPU/24 GB, public 82.70.253.255, private
-  10.0.0.35, Jerusalem AD-1 - launched first try after the Israeli tenancy upgraded
-  to PAYG (2,834 free-tier attempts had failed; it was deprioritisation, not missing
-  hardware). Quota policy `rosa-free-tier-cap` (A1 4/24 + 200GB storage) is ACTIVE on
-  BOTH tenancies and verified binding (`effective-quota-value: 4`); usage sits at
-  exactly 4/4 + 24/24 → $0, nothing more can provision. Frankfurt + Jerusalem A1
-  watchers all stopped. SWAN 41.51 built on it (`~/bin/swan-omp.exe`, OpenMP; MPI
-  deliberately not built - switch.pl emits a serial binary); smoke + Israel-grid
-  synthetic run verified (Haifa-bay sheltering reproduced, 3 s wall).
-- **Charts tab live**: 5th tab (Today|Spots|Map|Charts|Profile). Basin chips
-  (All regions + 6), four charts from one payload (Height/Period/Energy/Wind),
-  play/scrub timeline, per-variable single-hue themed ramps, GFS-Wave run attribution.
-  Map tab is spot-finding only again (in-map layer removed by user direction).
-- **SwellMap pipeline**: `rosa-pipeline swellmap` in publish.sh (non-fatal step);
-  frames regenerate 4x/day. Wind rides in the same GRIBs (zero extra requests).
-- **Stage-2E harness built and run** (`rosa-pipeline experiment`): Tp-keyed
-  rideability fixes both Hilton under-calls and holds the windswell frame, but every
-  Tp/Te candidate over-calls the 07-19 flat frame; NO candidate passes all 4; no
-  knob moved. Logged in docs/CALIBRATION.md. 07-26 Hilton entry added (~2x under-call
-  on a small day, first data point on the corrected pin).
-- Hilton/Gordon moved to user-verified pins, bugrashov removed (Israel 41, total 192);
-  bathy = 192/192 profiles, origin-stamped, guard test enforces no orphans/stale;
-  `offshore_point` absolute field removed (pin-relative offshore_bearing/km).
-- Web UX shipped today: launch always lands on Today; region section labels
-  (home region first, A-Z; Spots A-Z; chip persisted); swipeable extended-card
-  carousel on Today; auto-reload on SW update; install prompt (Chromium dialog,
-  iOS-Safari + Firefox-Android instructions); dark manifest background; cam embed
-  stripped to play bar; offshore swell height shown under the surf range (bolder).
+- All committed and pushed (main at `9fe34b0`), deployed to
+  rosa-rust.vercel.app (bundle `index-CzYqf0Sv.js` verified live).
+  Build + `tsc --noEmit` green.
+- **Cam markers everywhere** (`73c3191`): new `CamIcon` (lucide "video",
+  stroke 1.5) in icons.tsx. Compact favorite cards show it muted, left of the
+  star (`.card-side` rail); Today's extended card cover swaps satellite for
+  the cam's YouTube still (`i.ytimg.com/vi/{yt}/mqdefault.jpg`, same source as
+  map cards) with a dark round `.cam-badge` top-right; map cards' "live cam"
+  tag now leads with the icon (top-left, unchanged position). 14 index
+  entries currently carry cams. mqdefault is 320px wide - flagged it may look
+  soft on the ~370px home cover; user hasn't complained yet.
+- **Tide now-marker fixed** (`9fe34b0`): was `data.current.t` = pipeline's
+  current hour at generation time (3-hourly snap, up to ~6 h stale between VM
+  cycles) - user saw marker at ~20:00 at 22:26. Now `nowIn(tz)` in format.ts
+  returns live wall-clock "YYYY-MM-DDTHH:MM" in the spot's tz (en-GB,
+  hourCycle h23). Marker is placed at render time only - it does not tick
+  while the page sits open (offered a minute-interval refresh; not requested).
+- **Two-row spot header** (`9fe34b0`): row 1 = back chevron + spot name
+  (bold, ellipsized, sourced from index while payload loads) + fav star;
+  row 2 = SpotSwitcher, now purely the favorites strip. If the open spot is a
+  favorite its chip smooth-scrolls into view (centered) on open/spot-change;
+  if not, the strip rests scrolled to 0 (first fav flush left, rest overflow
+  off-screen). This SUPERSEDES two earlier behaviors from this same session:
+  "design 1a never auto-scrolls" AND the mid-session change that injected a
+  non-favorite current spot into the strip - both intentionally replaced by
+  user direction. `.spot-switch` lost its own sticky/backdrop CSS (it lives
+  inside `.spot-sticky` now); edge-fade mask kept.
 
 ## Active Files
-- `pipeline/src/rosa_pipeline/swellmap.py` - basin frame fetch/quantize/publish.
-- `pipeline/src/rosa_pipeline/experiment.py` + `data/calibration/frames.yaml` - 2E harness.
-- `pipeline/src/rosa_pipeline/transform.py` - `rideability` injection hook (prod default unchanged).
-- `web/src/pages/ChartsPage.tsx` - the Charts tab (multi-basin canvas renderer).
-- `web/src/pages/TodayPage.tsx` - card carousel; `web/src/components/GroupChips.tsx` - sectionsOf.
-- `deploy/oracle/setup-arm.sh` - rosa-arm provisioning (idempotent, self-verifying).
-- `data/swan/israel/` + `tools/swan-grid/build_grid.py` - SWAN Israel grid + deck.
-- `docs/CALIBRATION.md` - 07-26 Hilton entry + 2E harness first-run entry.
+- `web/src/components/icons.tsx` — added CamIcon.
+- `web/src/components/SpotCard.tsx` — `.card-side` rail: cam icon + star.
+- `web/src/pages/TodayPage.tsx` — DetailCard `.dc-cover`: cam still vs SatMap
+  + `.cam-badge`.
+- `web/src/pages/MapPage.tsx` — CamIcon inside `.map-card-live` tag.
+- `web/src/pages/SpotPage.tsx` — two-row topBar, SpotSwitcher auto-scroll
+  effect, switcherSpots = favorites only, tide `nowT={nowIn(tz)}`.
+- `web/src/format.ts` — new `nowIn(tz)` helper.
+- `web/src/styles.css` — `.card-side`/`.cam-mark`, `.dc-cover`/`.dc-cam`/
+  `.cam-badge`, `.spot-top-name`, `.map-card-live` flex, `.spot-switch`
+  de-stickied.
 
 ## Changes Made This Session
-1. PAYG upgrade path: quotas FIRST (compute-core/compute-memory/block-storage
-   families - plain `compute` is invalid), orphan 47GB boot volume deleted, then
-   upgrade, then `oci compute instance launch` worked immediately. Boot volume min
-   is 50GB (47 rejected).
-2. SwellMap: basins derived from spot DB extents (+3 deg pad); u8 quantization
-   (0.1m/2deg/0.2s/0.25m/s, 255=missing); one JSON per basin (~30-70KB gz);
-   client-side colormap (dataviz method: single-hue sequential, no rainbow -
-   also keeps distance from ISRAMAR's all-rights-reserved imagery).
-3. Charts tab per user direction ("Map = locating spots"); Energy derived
-   client-side (0.49*H^2*Te, Te=0.9*Tp); arrows follow variable (wind vs swell dir).
-4. Western-hemisphere fix: grib-filter returns 0-360 lons → Portugal/CA payloads
-   carried lon_first ~347 → MapLibre drew a world-copy off-screen. Fixed canonical
-   in pipeline + normalize-on-load in client (covers already-published files).
-5. "All regions" chip stitches all basins, aligned by frame timestamp, one shared
-   scale per variable.
-6. Memory rules saved: "commit" = commit+push+DEPLOY unless told otherwise;
-   spot-DB hygiene (bathy follows the pin, counts self-update).
+1. Cam icons (user spec: compact cards left of star; hp cover top-right; map
+   cards top-left) + hp cover uses the cam video thumb like map cards.
+   Kept the map card's "live cam" text, icon prepended. Committed `73c3191`,
+   deployed.
+2. SpotSwitcher: follow-the-open-spot centering + non-fav injection (interim
+   request, later superseded by #4's favorites-only rule).
+3. Tide now-marker: root-caused stale `cur.t` vs wall clock; added `nowIn`.
+4. Header rebuild to two rows per user sketch. Committed `9fe34b0` with #3,
+   deployed.
+- Convention refresher: user's "commit" = commit + push + `npm run deploy`
+  (CLI prebuilt prod deploy), web files only - handoff.md edits left alone.
 
 ## Failed Attempts
-- **JSON frames die at global scale**: 1-deg world = 65k cells x 5 fields x 57
-  frames ≈ 28MB/cycle. Do NOT try to extend the current JSON format to a world
-  chart - it needs PNG-channel encoding (see Next Step).
-- **SSH-wrapped long VM jobs get orphaned**: my `timeout 1500 ssh ...` killed the
-  connection mid-generation; the remote chain survived but would have died on
-  SIGPIPE at its next print, and index.json was never written. Always run long VM
-  work detached with a log (`nohup setsid ~/script.sh > log 2>&1`), as
-  `~/swellmap-finish.sh` on rosa-instance now models.
-- **pgrep/pkill -f self-matching bit twice** (killed own script; false "cycle
-  running"). Use `pgrep -f "[p]attern"` bracket trick.
-- **SWAN `make mpi` silently produces a serial binary** (switch.pl doesn't enable
-  MPI paths); `make clean` wipes macros.inc so platform.pl+config must rerun before
-  every target. OpenMP is the correct mode on one box anyway.
-- **`.env.production` bakes VITE_DATA_BASE into every `vite build`** - local
-  layer tests must build with `VITE_DATA_BASE=` (empty) or they silently hit live
-  rosa-data and 404.
-- 2E: no single rideability-key/exponent candidate satisfies all 4 eye frames -
-  input de-bias (archive half of 2E) is the missing term; do not hand-fit.
+- First prod-verify curl after deploy showed the OLD bundle hash - it was
+  CDN/HTML cache, not a failed deploy; a cache-busted curl showed the new
+  hash. Don't misdiagnose this as "deploy didn't promote".
+- (Process, not failure): the user's UI vocabulary took several greps to map:
+  "spots screen" = the spot page, "location selector" = the SpotSwitcher chip
+  strip in its header. Check SpotPage.tsx first for spot-screen reports.
 
 ## Next Step
-**Global world chart (user-requested, spec'd, not started):** encode each frame's
-quantized fields into PNG channels (pure zlib, no new dep) - 1-deg world frame
-≈ 15-40KB PNG; client fetches frames lazily while scrubbing, decodes via offscreen
-canvas, colormaps as today. Pipeline: `swellmap --global` fetching global 0.25
-subsampled to 1 deg (~200MB/cycle from NOMADS on the VM - acceptable). Add a
-"World" chip in ChartsPage. Start in `swellmap.py` + `ChartsPage.tsx`.
-
-Then:
-1. ~07-30 archives mature → Stage 2E: de-bias inputs (verify --archive per region),
-   re-run `rosa-pipeline experiment`, require all 4 frames + no buoy regression.
-   Also the 3a A/B + 3-way ECMWF verdicts.
-2. Watch the 20:20Z+ cron cycles: publish.sh now runs swellmap - confirm
-   `publish.log` stays clean and frames refresh (`index.json` run timestamp).
-3. Backlog: Period bar rescale (min(1,per/9)→~/13 in SpotPage DayBars); 11 bay
-   spots want hand-drawn map arrows (fishermen worst: derived 78 vs osm 258, 6/9
-   land samples); pressure overlay would need GFS atmospheric - optional.
-4. rosa-arm next real work: Stage-4 region grid forced by Stage-3 spectra
-   (gated on 3b acceptance); `deploy/oracle/setup-arm.sh` reprovisions from scratch.
+Nothing pending from this session's scope. Carry-overs from the earlier
+2026-07-27 session (its handoff was overwritten by this one):
+1. Cam verify after YouTube quota reset (midnight PT):
+   `set -a && . ./.env.local && set +a && YOUTUBE_API_KEY="$GOOGLE_MAPS_API_KEY" python3 tools/cam-scan/scan.py verify`
+   → dead cams tamarindo/chigasaki/aoshima; `--resolve --apply` if their
+   channels are live again; plan: wire weekly verify into VM cron + key on VM.
+2. Confirm world charts published (first VM cycle with the code was 20:20Z
+   today): rosa-data-opal.vercel.app/data/swellmap/world.json exists + World
+   chip appears in Charts; check publish.log on rosa-instance
+   (82.70.218.149); new-spot payloads (pipeline, santa-monica, praia-do-meco).
+3. ~07-30 archives mature → Stage 2E de-bias/refit (FIVE frames incl. 07-27
+   Poleg under-call) + 3a GFS-Wave A/B + 3-way ECMWF verdicts.
+4. Backlog: Period bar rescale (min(1,per/9) → ~/13); tide marker live tick
+   if user asks; bay-spot hand-drawn bathy rays (miura newest); pre-existing
+   test failure `test_confidence.py::test_end_to_end_confidence_in_payload`
+   (0.85 vs 1.0, ECMWF 5th-member drift, predates today).
