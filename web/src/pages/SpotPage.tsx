@@ -34,10 +34,13 @@ import {
 } from "../format";
 import { distanceKm } from "../geo";
 import { TideSection } from "../components/TideSection";
-import { setPendingPin } from "./MapPage";
+import { MapCard, setPendingPin } from "./MapPage";
 import { fmtClock, sunTimes } from "../sun";
 import { fmtH, fmtTemp, heightUnit, useUnits, type Units } from "../units";
 import type { DayEntry, HourEntry, IndexEntry, SpotPayload } from "../types";
+
+const NEARBY_KM = 50; // the app's nearby radius, same as the cam picker's
+const NEARBY_MAX = 6;
 
 function qClass(q: number): string {
   return q >= 0.7 ? "q-good" : q >= 0.45 ? "q-fair" : q >= 0.25 ? "q-warn" : "q-poor";
@@ -415,6 +418,21 @@ export function SpotPage({ id }: { id: string }) {
   // header falls back to the index entry's name while the payload loads
   const curEntry = spots.find(([sid]) => sid === id)?.[1];
 
+  // Other spots on this stretch of coast, closest first - the same cards the
+  // Map tab uses, so a spot reads identically wherever you meet it.
+  const nearby = curEntry
+    ? spots
+        .filter(([sid]) => sid !== id)
+        .map(([sid, e]) => ({
+          id: sid,
+          entry: e,
+          km: Math.round(distanceKm({ lat: curEntry.lat, lon: curEntry.lon }, e)),
+        }))
+        .filter(({ km }) => km <= NEARBY_KM)
+        .sort((a, b) => a.km - b.km)
+        .slice(0, NEARBY_MAX)
+    : [];
+
   // the day scrubber drives the selected/live day; the panel below follows liveDay
   const allDays = data?.days ?? [];
   const daySelClamped = Math.min(daySel, Math.max(0, allDays.length - 1));
@@ -606,6 +624,16 @@ export function SpotPage({ id }: { id: string }) {
         />
       </div>
       {panel}
+      {nearby.length > 0 && (
+        <section class="nearby-sec">
+          <span class="eyebrow">Other nearby spots:</span>
+          <div class="map-cards nearby-cards">
+            {nearby.map(({ id: nid, entry, km }) => (
+              <MapCard key={nid} id={nid} entry={entry} dist={km} center={false} img />
+            ))}
+          </div>
+        </section>
+      )}
     </main>
   );
 }

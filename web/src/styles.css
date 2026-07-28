@@ -1761,6 +1761,25 @@ a.rank-card:hover {
   margin-top: 8px;
   border-top: 1px solid var(--border);
 }
+/* Other nearby spots - the Map tab's cards, scrolling under the sun row. */
+.nearby-sec {
+  padding: 16px 0 22px;
+  margin-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.nearby-sec .eyebrow {
+  display: block;
+  padding: 0 16px 10px;
+  font-size: 11px;
+}
+.nearby-cards {
+  --cw: 66%;
+  padding: 2px 16px;
+  scroll-snap-type: none;
+}
+.nearby-cards .map-card {
+  scroll-snap-align: start;
+}
 .sun-row > span {
   display: flex;
   flex-direction: column;

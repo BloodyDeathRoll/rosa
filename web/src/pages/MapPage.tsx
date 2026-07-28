@@ -553,8 +553,9 @@ function makeCluster(entries: IndexEntry[], onClick: () => void): HTMLElement {
 const CARD_H = 118;
 
 /** The one big centered card drives the emphasized pin; tapping opens the spot.
-    Satellite imagery of the break, dimmed, with the readout laid over it. */
-function MapCard({
+    Satellite imagery of the break, dimmed, with the readout laid over it. Also
+    the spot page's "other nearby spots" cards - same object, same shape. */
+export function MapCard({
   id,
   entry,
   dist,
