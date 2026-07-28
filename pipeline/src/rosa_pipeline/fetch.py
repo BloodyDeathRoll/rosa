@@ -20,12 +20,16 @@ import httpx
 MARINE_URL = "https://marine-api.open-meteo.com/v1/marine"
 WEATHER_URL = "https://api.open-meteo.com/v1/forecast"
 FORECAST_DAYS = 16
+# Open-Meteo returns data from 00:00 UTC; a spot west of UTC would open on a "today"
+# missing everything before its local midnight (Costa Rica lost 00:00-18:00). One past
+# UTC day covers local midnight at any longitude; publish trims per spot to local today.
+PAST_DAYS = 1
 # Open-Meteo caps calls at 600/min PER API HOST, billed by weight
 # (max(1, vars/10) x max(1, days/14) per location). The marine host carries both the marine
-# request (~4.57/point) and the ensemble (~1.37/point) = ~5.94/point, so 600 / 5.94 ~= 101
-# points fit in one minute bucket. Batch the coords under that and pause past a minute
+# request and the ensemble; at 16+1 days that's ~6.3/point, so 600 / 6.3 ~= 95 points fit
+# in one minute bucket. Batch the coords under that and pause past a minute
 # boundary between batches so each lands in a fresh window; keeps the whole coast in-quota.
-MARINE_BATCH_SIZE = 100
+MARINE_BATCH_SIZE = 90
 # best_match is Open-Meteo's per-location blend but only reaches ~9 days; NOAA GFS-Wave
 # runs the full 16. Request both - extract prefers best_match, falls back to GFS-Wave for
 # the extended tail (per-hour, so each hour stays internally consistent).
@@ -155,6 +159,7 @@ class OpenMeteoSource:
             "latitude": ",".join(f"{lat:g}" for lat, _ in coords),
             "longitude": ",".join(f"{lon:g}" for _, lon in coords),
             "forecast_days": FORECAST_DAYS,
+            "past_days": PAST_DAYS,
         }
         with httpx.Client(timeout=self.timeout_s, transport=self._transport) as client:
             marine = client.get(

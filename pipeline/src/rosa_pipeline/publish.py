@@ -147,17 +147,26 @@ def _hour_entry(spot: Spot, s: ScoredHour, tz: ZoneInfo) -> dict:
 def build_payload(spot: Spot, scored: list[ScoredHour], *, fetched_at: str, now: datetime) -> dict:
     tz = ZoneInfo(spot.timezone)
 
+    # The fetch reaches one day back (fetch.PAST_DAYS) so the series covers local
+    # midnight at any longitude; publish from the spot's local today so every day
+    # shown is complete, without shipping a stale full yesterday. Events below
+    # still see the whole series - history only steadies their baseline.
+    today_local = now.astimezone(tz).date()
+    visible = [s for s in scored if s.hour.time.astimezone(tz).date() >= today_local]
+    if not visible:  # stale run older than a day - publish what exists, honestly
+        visible = scored
+
     table_hours = [
-        s for s in scored[: TABLE_DAYS * 24] if s.hour.time.astimezone(tz).hour % TABLE_STEP_H == 0
+        s for s in visible[: TABLE_DAYS * 24] if s.hour.time.astimezone(tz).hour % TABLE_STEP_H == 0
     ]
 
     by_date: dict[str, list[ScoredHour]] = {}
-    for s in scored:
+    for s in visible:
         by_date.setdefault(s.hour.time.astimezone(tz).date().isoformat(), []).append(s)
     sorted_dates = sorted(by_date.items())
     date_index = {date_str: i for i, (date_str, _) in enumerate(sorted_dates)}
 
-    current = next((s for s in scored if s.hour.time >= now), scored[-1])
+    current = next((s for s in visible if s.hour.time >= now), visible[-1])
     current_entry = _hour_entry(spot, current, tz)
     current_entry["wetsuit"] = current.wetsuit
     current_entry["why"] = {

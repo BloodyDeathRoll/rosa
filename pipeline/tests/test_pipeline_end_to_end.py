@@ -56,7 +56,9 @@ def test_payload_shape(payload):
     assert payload["model"]
     assert payload["fetched_at"]
     assert payload["attribution"].startswith("Weather data by Open-Meteo")
-    assert len(payload["hours"]) == 16 * 8  # 16 days, 3-hourly
+    # 3-hourly, up to 16 days; the leading partial local day is trimmed (publish
+    # starts at the spot's local today, so hour count depends on when now falls)
+    assert 15 * 8 <= len(payload["hours"]) <= 16 * 8
     assert len(payload["days"]) == 16
     assert payload["current"]["bucket"] in BUCKETS
     assert payload["current"]["why"].keys() == {"size", "period", "wind"}
