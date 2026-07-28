@@ -113,6 +113,12 @@ def extract_hours(
         j = weather_index.get(t)
         if j is None:
             continue
+        wind_speed = weather["wind_speed_10m"][j]
+        wind_dir = weather["wind_direction_10m"][j]
+        if wind_speed is None or wind_dir is None:
+            # the weather API can pad nulls (seen on past_days hours at some points);
+            # skipping is honest - a fabricated calm would score as fake offshore
+            continue
         partitions = tuple(
             p
             for prefix, kind in _SWELL_PREFIXES
@@ -136,8 +142,8 @@ def extract_hours(
                 time=time,
                 partitions=partitions,
                 sst_c=sst if sst is not None else last_sst,
-                wind_speed_kph=weather["wind_speed_10m"][j],
-                wind_dir_deg=weather["wind_direction_10m"][j],
+                wind_speed_kph=wind_speed,
+                wind_dir_deg=wind_dir,
                 wind_gusts_kph=weather["wind_gusts_10m"][j],
                 # .get: absent in captures made before these were added to the fetch
                 pressure_msl=(pm[j] if (pm := weather.get("pressure_msl")) else None),
