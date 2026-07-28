@@ -4,7 +4,7 @@ import { ratingVar } from "../conditions";
 import { sectionsOf } from "./GroupChips";
 import { SwellDirIcon } from "./icons";
 import { arrowRotation, dateOf, dayLabel, dayNum, splitName } from "../format";
-import { fmtRange, useUnits } from "../units";
+import { fmtRange, heightUnit, useUnits } from "../units";
 import type { DayEntry, SpotPayload } from "../types";
 
 /** MSW-style multi-day forecast: same spots as the coast grid, drawn as a bar
@@ -20,11 +20,15 @@ const BAR_MIN = 3; // px - a real but tiny day still shows a stub
     absolute - a 0.3 m day looks the same in every view), the top 40% runs
     1 m up to the view's max. Keeps small-wave coasts readable without letting
     them fill the chart, while big days still tower. */
-function barPx(h: number, maxH: number): number {
-  const low = CHART_H * 0.6;
-  const px = h <= 1 ? h * low : low + ((h - 1) / Math.max(1, maxH - 1)) * (CHART_H - low);
-  return Math.max(BAR_MIN, Math.min(CHART_H, px));
+function barPx(h: number, maxH: number, chartH: number = CHART_H): number {
+  const low = chartH * 0.6;
+  const px = h <= 1 ? h * low : low + ((h - 1) / Math.max(1, maxH - 1)) * (chartH - low);
+  return Math.max(BAR_MIN, Math.min(chartH, px));
 }
+
+// the coast rows carry a readout under every bar, so they run shorter than the
+// card's bare mini-bars and the spot page's scrubber
+const ROW_CHART_H = Math.round(CHART_H * 0.8);
 
 // Spot-local daypart windows: morning · midday · evening.
 const PERIODS: [number, number][] = [
@@ -292,7 +296,7 @@ export function CoastChart({
                   <span class="chart-wind" aria-hidden="true">
                     {wind !== null ? <SwellDirIcon size={13} rotate={arrowRotation(wind)} /> : null}
                   </span>
-                  <span class="chart-plot" style={`height:${CHART_H}px`}>
+                  <span class="chart-plot" style={`height:${ROW_CHART_H}px`}>
                     {hasAny ? (
                       bars.map((b, i) => (
                         <span
@@ -300,7 +304,7 @@ export function CoastChart({
                           class={`chart-bar${b === null ? " stub" : ""}`}
                           style={
                             b !== null
-                              ? `height:${barPx(b.h, maxH)}px;background:${b.color}`
+                              ? `height:${barPx(b.h, maxH, ROW_CHART_H)}px;background:${b.color}`
                               : `height:${BAR_MIN}px`
                           }
                         />
@@ -309,10 +313,10 @@ export function CoastChart({
                       <span class="chart-empty" />
                     )}
                   </span>
-                  {/* with the unit here - these wide columns have room for it,
-                      unlike the spot page's scrubber */}
+                  {/* unit tight against the number ("0.2-0.3m"): these wide
+                      columns have room for it, unlike the spot page's scrubber */}
                   <span class="chart-val tabular">
-                    {day ? fmtRange(day.h_max, units) : "-"}
+                    {day ? `${fmtRange(day.h_max, units, false)}${heightUnit(units)}` : "-"}
                   </span>
                 </span>
               );

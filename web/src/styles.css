@@ -815,10 +815,9 @@ button {
 /* the coast chart's own readout: full-size in its wide columns (the spot
    page's scrubber shares .chart-val in a 56px column - leave that alone) */
 .coast .chart-val {
-  /* sized off the column, not the screen: "0.2-0.3 m" in Inter measures
-     4.68em, so a fifth of the column always leaves ~6% breathing room - a
-     fixed size overflows the narrower columns of a 360px phone */
-  font-size: calc(var(--col-w) * 0.2);
+  /* sized off the column, not the screen, so it can't overflow the narrower
+     columns of a 360px phone ("0.2-0.3m" measures 4.42em in Inter) */
+  font-size: calc(var(--col-w) * 0.16);
   letter-spacing: -0.01em;
 }
 /* dominant-condition rule beneath the teal bars - the only tier color in a column */
