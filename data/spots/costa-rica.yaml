@@ -45,7 +45,7 @@ spots:
   - { id: ollies-point,       name: "Ollie's Point",          lat: 10.8425, lon: -85.8146, offshore_direction: 105, shore_normal: 250, break_type: point, <<: *pac }  # approx - TODO verify (Santa Rosa NP, boat access; coord nudged seaward off the headland)
   - { id: witchs-rock,        name: "Witch's Rock (Naranjo)", lat: 10.803, lon: -85.723, offshore_direction: 75,  <<: *pac }  # approx - TODO verify (Santa Rosa NP, boat access)
   - { id: playa-grande,       name: "Playa Grande",           lat: 10.328, lon: -85.8477, offshore_direction: 90,  <<: *pac }  # approx - TODO verify
-  - { id: tamarindo,          name: "Tamarindo",              lat: 10.2941, lon: -85.8537, offshore_direction: 70,  cam: { yt: "IKJfhA8GZA0", by: "The Surfers View", by_url: "https://www.youtube.com/@TheSurfersView" }, <<: *pac }  # approx - TODO verify
+  - { id: tamarindo,          name: "Tamarindo",              lat: 10.2941, lon: -85.8537, offshore_direction: 70,  <<: *pac }  # approx - TODO verify
   - { id: playa-avellanas,    name: "Playa Avellanas",        lat: 10.2089, lon: -85.855, offshore_direction: 80,  <<: *pac }  # approx - TODO verify
   - { id: playa-negra,        name: "Playa Negra",            lat: 10.170, lon: -85.822, offshore_direction: 90,  break_type: reef, <<: *pac }  # approx - TODO verify (reef)
   - { id: marbella,           name: "Marbella",               lat: 9.900,  lon: -85.755, offshore_direction: 75,  <<: *pac }  # approx - TODO verify
