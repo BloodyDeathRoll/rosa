@@ -1017,6 +1017,10 @@ a.rank-card:hover {
 .spots-page .group-chips {
   margin: 0 -16px;
 }
+/* Today: the chips start on the same reading edge as the cards below them */
+.home .group-chips {
+  padding: 10px var(--edge) 2px;
+}
 .group-chip {
   flex: none;
   padding: 8px 16px;

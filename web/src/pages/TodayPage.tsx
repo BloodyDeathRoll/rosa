@@ -1,7 +1,14 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import { fetchIndex, fetchSpot } from "../api";
 import { CoastChart, DayBars } from "../components/CoastChart";
-import { sectionsOf } from "../components/GroupChips";
+import {
+  ALL_GROUP,
+  GroupChips,
+  groupNameOf,
+  saveGroup,
+  savedGroup,
+  sectionsOf,
+} from "../components/GroupChips";
 import { SatMap } from "../components/MiniMap";
 import { CamIcon, SearchIcon, ShirtIcon, ThermometerIcon, WavesIcon } from "../components/icons";
 import { AppHeader, Pill, SpotTitle } from "../components/parts";
@@ -149,6 +156,7 @@ export function TodayPage() {
   const [detail, setDetail] = useState<SpotPayload | null>(null);
   const [grid, setGrid] = useState<SpotPayload[] | null>(null);
   const [homeRegion, setHomeRegion] = useState<string | null>(null);
+  const [group, setGroup] = useState<string>(savedGroup());
   const [prompt, setPrompt] = useState<FbPrompt | null>(pendingPrompt);
   const [error, setError] = useState<string | null>(null);
 
@@ -226,12 +234,24 @@ export function TodayPage() {
     </a>
   );
 
+  // Region filter, shared with the Spots tab (same remembered chip): a list
+  // spanning countries is rarely all interesting at once. Only worth showing
+  // when there is more than one region to choose between.
+  const regionGroups = grid
+    ? [ALL_GROUP, ...sectionsOf(grid, (s) => s.spot.region, homeRegion).map((s) => s.group)]
+    : [ALL_GROUP];
+  const activeGroup = regionGroups.includes(group) ? group : ALL_GROUP;
+  const shown =
+    grid && activeGroup !== ALL_GROUP
+      ? grid.filter((s) => groupNameOf(s.spot.region) === activeGroup)
+      : grid;
+
   // Extended-card carousel: one rich card per listed spot, swipeable, in the
   // exact order the chart below renders (home region first, then A-Z) so a swipe
   // right walks the same sequence as reading the list top to bottom.
   const cardsRef = useRef<HTMLDivElement>(null);
-  const carousel = grid
-    ? sectionsOf(grid, (s) => s.spot.region, homeRegion).flatMap((sec) => sec.rows)
+  const carousel = shown
+    ? sectionsOf(shown, (s) => s.spot.region, homeRegion).flatMap((sec) => sec.rows)
     : [];
   // one scale across every card (and the chart rows below, which derive the
   // same max from the same spots) so bar heights compare spot to spot
@@ -252,7 +272,9 @@ export function TodayPage() {
   // all spots share the date range; use the featured spot's days as the axis.
   // Anchor to the spot's real current date and drop any past days, so the strip
   // never leads with a stale day from an older pipeline run.
-  const featured = detail ?? grid?.[0];
+  // (the axis follows what's shown, so a filter can't leave the strip anchored
+  // to a spot that scrolled out of the list)
+  const featured = carousel.find((s) => s.spot.id === detail?.spot.id) ?? carousel[0] ?? detail;
   const allDates = featured?.days.map((d) => d.date) ?? [];
   const today = featured ? todayIn(featured.spot.timezone) : (allDates[0] ?? "");
   const future = allDates.filter((d) => d >= today);
@@ -280,6 +302,16 @@ export function TodayPage() {
       <AppHeader lead={greeting()} right={search} />
       <div class="home">
         {prompt && <FeedbackRow p={prompt} onDone={() => setPrompt(null)} />}
+        {regionGroups.length > 2 && (
+          <GroupChips
+            groups={regionGroups}
+            selected={activeGroup}
+            onSelect={(g) => {
+              setGroup(g);
+              saveGroup(g);
+            }}
+          />
+        )}
         {carousel.length > 0 && (
           <div class="home-cards" ref={cardsRef}>
             {carousel.map((d) => (
@@ -289,7 +321,7 @@ export function TodayPage() {
             ))}
           </div>
         )}
-        <CoastChart spots={grid} dates={dates} today={today} homeRegion={homeRegion} />
+        <CoastChart spots={carousel} dates={dates} today={today} homeRegion={homeRegion} />
       </div>
     </main>
   );
