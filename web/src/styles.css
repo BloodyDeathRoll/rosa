@@ -638,7 +638,7 @@ button {
   position: sticky;
   top: 52px;
   z-index: 10;
-  padding: 6px 12px 8px;
+  padding: 6px var(--edge, 12px) 8px;
   background: var(--body-bg);
 }
 .coast-day {
@@ -668,12 +668,12 @@ button {
 }
 .coast-name {
   display: block;
-  padding: 0 12px 10px;
+  padding: 0 var(--edge, 12px) 10px;
   font-size: 16px;
   font-weight: 700;
 }
 .coast-cells {
-  padding: 0 12px;
+  padding: 0 var(--edge, 12px);
 }
 .coast-cell {
   flex: none;
@@ -846,7 +846,7 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  padding: 0 12px 10px;
+  padding: 0 var(--edge, 12px) 10px;
 }
 .coast-name-row .coast-name {
   padding: 0;
@@ -2591,7 +2591,7 @@ a.rank-card:hover {
 /* Region heading over a run of spots - Today's coast chart and the Spots list
    under "All". Same wording and order as the group chips that filter them. */
 .group-label {
-  margin: 18px 16px 6px;
+  margin: 18px var(--edge, 16px) 6px;
   font-size: 12.4px;
   font-weight: 700;
   letter-spacing: 0.07em;
@@ -2606,14 +2606,20 @@ a.rank-card:hover {
 /* Extended-card carousel at the top of Home: every listed spot gets the rich
    card, swipe moves between them. Same centered-snap pattern as the map sheet;
    neighbours peek at the edges so the swipe affordance is visible. */
-.home-cards {
+/* One reading edge for the whole screen: the extended cards are centred at
+   --cw wide, and everything below them (day strip, region labels, spot rows,
+   bars) lines up with the card's left edge instead of sitting further out. */
+.home {
   --cw: 88%;
+  --edge: calc((100% - var(--cw)) / 2);
+}
+.home-cards {
   display: flex;
   gap: 12px;
   overflow-x: auto;
   scrollbar-width: none;
   scroll-snap-type: x mandatory;
-  padding: 14px calc((100% - var(--cw)) / 2) 10px;
+  padding: 14px var(--edge) 10px;
   -webkit-overflow-scrolling: touch;
 }
 .home-cards::-webkit-scrollbar {
