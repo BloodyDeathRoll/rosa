@@ -245,13 +245,18 @@ button {
 .spot-back:active {
   background: var(--secondary);
 }
+/* the star belongs to the name - it sits right beside it, however short the
+   name is; only the search icon is pinned to the far right */
 .spot-top .star-btn {
   flex: none;
-  margin-left: auto; /* pin right even when the name is short */
 }
-/* Row 1: the open spot's name, left-aligned beside the chevron. */
+.spot-top .spot-top-search {
+  flex: none;
+  margin-left: auto;
+}
+/* The open spot's name, left-aligned beside the chevron. */
 .spot-top .spot-top-name {
-  flex: 1;
+  flex: 0 1 auto;
   min-width: 0;
   font-size: 17px;
   font-weight: 700;
@@ -276,65 +281,6 @@ button {
   top: auto;
   background: transparent;
   backdrop-filter: none;
-}
-
-/* Favorites strip - header row 2, under the back/name/star row. */
-.spot-switch {
-  -webkit-mask-image: linear-gradient(
-    90deg,
-    transparent 0,
-    #000 14px,
-    #000 calc(100% - 14px),
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    90deg,
-    transparent 0,
-    #000 14px,
-    #000 calc(100% - 14px),
-    transparent 100%
-  );
-}
-.spot-switch .track {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  padding: 2px 16px 10px;
-  /* freely draggable strip - native touch pan; mouse drag handled in TS */
-  touch-action: pan-x;
-  user-select: none;
-  -webkit-user-select: none;
-}
-.spot-switch .track::-webkit-scrollbar {
-  display: none;
-}
-.schip {
-  flex: none;
-  padding: 6px 15px;
-  border-radius: 9999px;
-  border: 1px solid var(--input-border);
-  background: var(--card);
-  font-size: 14.3px;
-  font-weight: 600;
-  color: var(--foreground);
-  white-space: nowrap;
-  transition:
-    background 0.18s ease,
-    color 0.18s ease,
-    border-color 0.18s ease,
-    transform 0.18s ease;
-}
-.schip:hover {
-  color: var(--foreground);
-}
-.schip.on {
-  background: var(--primary);
-  color: var(--primary-foreground);
-  border-color: var(--primary);
-}
-.schip:active {
-  transform: scale(0.96);
 }
 
 /* Swipe wrapper + per-spot entrance animation */

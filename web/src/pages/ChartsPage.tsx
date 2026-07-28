@@ -63,6 +63,27 @@ const OVERLAY_ALPHA = 0.72;
 const ARROW_TARGET = 11;
 const PLAY_MS = 450;
 
+/* How far the wave field actually reaches. GFS-Wave carries values right over
+   the pole (measured: to 89 N), so the north is limited only by mercator's own
+   85.05 edge; the south stops at ~78.5 S, where the Southern Ocean gives way to
+   the Antarctic ice shelf and there is nothing left to draw. The view is capped
+   to this band (see minZoomFor): zooming out past it would only add blank. */
+const DATA_LAT_N = 85.05;
+const DATA_LAT_S = -78.5;
+
+/** Mercator y of a latitude, 0 (north edge) to 1 (south edge). */
+function mercY(lat: number): number {
+  const clamped = Math.max(-DATA_LAT_N, Math.min(DATA_LAT_N, lat));
+  return 0.5 - Math.log(Math.tan(Math.PI / 4 + (clamped * Math.PI) / 360)) / (2 * Math.PI);
+}
+
+/** Zoom at which the covered band exactly fills a viewport `h` CSS px tall -
+    the chart's floor, so the field always reaches the top and bottom edges. */
+function minZoomFor(h: number): number {
+  const band = mercY(DATA_LAT_S) - mercY(DATA_LAT_N); // fraction of the world's height
+  return Math.log2(Math.max(1, h) / (512 * band));
+}
+
 const basinCache = new Map<string, SwellBasin>();
 
 /** Payloads published before 2026-07-26 carry grib-filter 0-360 longitudes
@@ -299,13 +320,14 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
             },
             layers: [{ id: "carto", type: "raster", source: "carto" }],
           },
-          bounds: [
-            [-179, -55],
-            [179, 72],
-          ],
+          center: [20, (DATA_LAT_N + DATA_LAT_S) / 2],
+          zoom: minZoomFor(wrapRef.current.clientHeight),
+          minZoom: minZoomFor(wrapRef.current.clientHeight),
           attributionControl: false,
         });
         m.addControl(new maplibregl.AttributionControl({ compact: true }), "bottom-left");
+        // the floor follows the container (rotation, split screen, desktop resize)
+        m.on("resize", () => m.setMinZoom(minZoomFor(m.getContainer().clientHeight)));
         mapRef.current = m;
         setBasinName(WORLD);
       } catch {
@@ -337,13 +359,7 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
     if (basinName === WORLD) {
       setBasins([]);
       setFrame(0);
-      mapRef.current?.fitBounds(
-        [
-          [-179, -55],
-          [179, 72],
-        ],
-        { padding: 0, duration: 600 },
-      );
+      // no reframing: the map opens on the covered band and can't zoom out past it
       return;
     }
     let disposed = false;
@@ -523,7 +539,8 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
       // right screen x, and repeats the layer on the neighbouring world copies.
       const worldW = m.project([180, 0]).x - m.project([-180, 0]).x;
       const xOfLon = (lon: number) => m.project([-180, 0]).x + ((lon + 180) / 360) * worldW;
-      const yOfLat = (lat: number) => m.project([0, Math.max(-85, Math.min(85, lat))]).y;
+      const yOfLat = (lat: number) =>
+        m.project([0, Math.max(-DATA_LAT_N, Math.min(DATA_LAT_N, lat))]).y;
 
       for (const layer of layers) {
         let grid = gridCanvases.get(layer.id);
@@ -537,9 +554,10 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
         for (let j = 0; j < layer.ny; j++) {
           const latA = layer.lat0 + (j - 0.5) * layer.dLat;
           const latB = layer.lat0 + (j + 0.5) * layer.dLat;
-          // 79 deg trim: beyond it is the sea-ice margin's data/missing noise
-          // (and mercator's blow-up) - no surf, no basin, nothing lost
-          if (Math.max(Math.abs(latA), Math.abs(latB)) > 79) continue;
+          // draw everything mercator can show - the model carries data past the
+          // pole, so an earlier 79 deg trim was leaving a blank band of real
+          // field across the top of the world view
+          if (Math.max(Math.abs(latA), Math.abs(latB)) > DATA_LAT_N) continue;
           const ya = yOfLat(latA);
           const yb = yOfLat(latB);
           const top = Math.min(ya, yb);
@@ -582,7 +600,7 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
         const len = Math.min(14, Math.max(7, cellPx * 0.45));
         for (let j = 0; j < layer.ny; j += stride) {
           const lat = layer.lat0 + j * layer.dLat;
-          if (Math.abs(lat) > 79) continue;
+          if (Math.abs(lat) > DATA_LAT_N) continue;
           const y = yOfLat(lat);
           if (y < 0 || y > H) continue;
           for (let i = 0; i < layer.nx; i += stride) {

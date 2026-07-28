@@ -1,10 +1,11 @@
 import type { VNode } from "preact";
-import { useCallback, useEffect, useMemo, useRef, useState } from "preact/hooks";
+import { useCallback, useEffect, useMemo, useState } from "preact/hooks";
 import { fetchIndex, fetchSpot } from "../api";
 import {
   ChevronLeftIcon,
   InfoIcon,
   MapIcon,
+  SearchIcon,
   ShirtIcon,
   SwellDirIcon,
   ThermometerIcon,
@@ -314,81 +315,6 @@ function HourRow({
   );
 }
 
-/** The favorites bar (header row 2): freely draggable - touch scroll native,
-    mouse drag via pointer events. When the open spot is a favorite the strip
-    animates its chip into view; when it isn't, the strip rests at its start so
-    favorites read first-to-last across the row (overflowing off-screen). */
-function SpotSwitcher({ spots, currentId }: { spots: [string, IndexEntry][]; currentId: string }) {
-  const trackRef = useRef<HTMLDivElement>(null);
-  // pointer drag state - mouse only; touch uses native overflow-x pan
-  const drag = useRef({ down: false, startX: 0, startScroll: 0, moved: false });
-
-  useEffect(() => {
-    const t = trackRef.current;
-    if (!t) return;
-    const chip = t.querySelector<HTMLElement>(".schip.on");
-    const left = chip ? chip.offsetLeft - (t.clientWidth - chip.offsetWidth) / 2 : 0;
-    t.scrollTo({ left, behavior: "smooth" });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentId, spots.length]);
-
-  const onPointerDown = (e: PointerEvent) => {
-    if (e.pointerType !== "mouse") return;
-    const t = trackRef.current;
-    if (!t) return;
-    drag.current = { down: true, startX: e.clientX, startScroll: t.scrollLeft, moved: false };
-  };
-  const onPointerMove = (e: PointerEvent) => {
-    if (!drag.current.down) return;
-    const t = trackRef.current;
-    if (!t) return;
-    const dx = e.clientX - drag.current.startX;
-    if (Math.abs(dx) > 3) drag.current.moved = true;
-    t.scrollLeft = drag.current.startScroll - dx;
-  };
-  const onPointerUp = () => {
-    drag.current.down = false;
-    // clear moved on next tick so the click handler can still see it
-    setTimeout(() => {
-      drag.current.moved = false;
-    }, 0);
-  };
-
-  return (
-    <div class="spot-switch">
-      <div
-        class="track"
-        ref={trackRef}
-        onPointerDown={onPointerDown}
-        onPointerMove={onPointerMove}
-        onPointerUp={onPointerUp}
-        onPointerCancel={onPointerUp}
-        onPointerLeave={onPointerUp}
-      >
-        {spots.map(([sid, e]) => {
-          const on = sid === currentId;
-          return (
-            <a
-              key={sid}
-              class={`schip${on ? " on" : ""}`}
-              href={`#/spot/${sid}`}
-              aria-current={on ? "page" : undefined}
-              onClick={(ev) => {
-                if (drag.current.moved) ev.preventDefault();
-              }}
-            >
-              {splitName(e.name).name}
-            </a>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
-const NEAR_RADIUS_KM = 20; // switcher outer bound
-const NEAR_MAX = 8; // ...capped to this many nearest spots
-
 // Selected date carried across spot→spot navigation (the switcher chips keep
 // SpotPage mounted, so this survives the id change). Cleared on unmount, so
 // arriving fresh from Home/Map/Favorites still opens on today.
@@ -486,27 +412,8 @@ export function SpotPage({ id }: { id: string }) {
     location.hash = "#/";
   };
 
-  // switcher: the user's favorites (north→south); if none are recorded, fall
-  // back to the 8 spots nearest the current one (within 20 km).
+  // header falls back to the index entry's name while the payload loads
   const curEntry = spots.find(([sid]) => sid === id)?.[1];
-  const favSpots = spots
-    .filter(([sid]) => favs.includes(sid))
-    .sort(([, a], [, b]) => b.lat - a.lat);
-  const nearSpots = curEntry
-    ? spots
-        .map(([sid, e]) => ({
-          entry: [sid, e] as [string, IndexEntry],
-          km: distanceKm({ lat: curEntry.lat, lon: curEntry.lon }, { lat: e.lat, lon: e.lon }),
-        }))
-        .filter(({ km }) => km <= NEAR_RADIUS_KM)
-        .sort((a, b) => a.km - b.km)
-        .slice(0, NEAR_MAX)
-        .map(({ entry }) => entry)
-        .sort(([, a], [, b]) => b.lat - a.lat)
-    : [];
-  // the open spot's name lives in the header's top row, so the strip is purely
-  // the favorites bar - a non-favorite spot gets no chip of its own
-  const switcherSpots = favSpots.length > 0 ? favSpots : nearSpots;
 
   // the day scrubber drives the selected/live day; the panel below follows liveDay
   const allDays = data?.days ?? [];
@@ -650,26 +557,26 @@ export function SpotPage({ id }: { id: string }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, units, liveDay, id, spots]);
 
-  // Header, two rows: back arrow + spot name left / fav star right, then the
-  // favorites strip underneath.
+  // Header, one row: back arrow, spot name with its star right beside it, and
+  // search pinned right - switching spots happens through search now.
   const spotName = splitName(data?.spot.name ?? curEntry?.name ?? "").name;
   const topBar = (
-    <>
-      <div class="spot-top">
-        <button class="spot-back" onClick={goBack} aria-label="Back">
-          <ChevronLeftIcon />
-        </button>
-        <span class="spot-top-name">{spotName}</span>
-        {data && (
-          <StarButton
-            on={favs.includes(id)}
-            name={spotName}
-            onToggle={() => setFavs(toggleFavorite(id))}
-          />
-        )}
-      </div>
-      {switcherSpots.length > 1 && <SpotSwitcher spots={switcherSpots} currentId={id} />}
-    </>
+    <div class="spot-top">
+      <button class="spot-back" onClick={goBack} aria-label="Back">
+        <ChevronLeftIcon />
+      </button>
+      <span class="spot-top-name">{spotName}</span>
+      {data && (
+        <StarButton
+          on={favs.includes(id)}
+          name={spotName}
+          onToggle={() => setFavs(toggleFavorite(id))}
+        />
+      )}
+      <a class="icon-btn spot-top-search" href="#/search" aria-label="Search spots">
+        <SearchIcon />
+      </a>
+    </div>
   );
 
   if (error || !data) {
