@@ -228,21 +228,6 @@ function cellValue(b: SwellBasin, f: SwellBasin["frames"][number], i: number, v:
   return 0.49 * (qh * b.scales.hs_m) ** 2 * (0.9 * per); // kW/m, Te = 0.9*Tp
 }
 
-function nearestBasin(index: SwellIndex, lat: number, lon: number): string | null {
-  let best: string | null = null;
-  let bestD = Infinity;
-  for (const [name, e] of Object.entries(index)) {
-    const [la0, lo0, la1, lo1] = e.bbox;
-    if (lat >= la0 && lat <= la1 && lon >= lo0 && lon <= lo1) return name;
-    const d = (lat - (la0 + la1) / 2) ** 2 + (lon - (lo0 + lo1) / 2) ** 2;
-    if (d < bestD) {
-      bestD = d;
-      best = name;
-    }
-  }
-  return best;
-}
-
 function timeLabel(iso: string): string {
   return new Date(iso.replace("Z", ":00Z")).toLocaleString(undefined, {
     weekday: "short",
@@ -262,10 +247,6 @@ function rulerMarks(timeline: string[]): { label: string; dayStart: boolean }[] 
     prev = key;
     return { label: d.toLocaleDateString(undefined, { weekday: "short" }), dayStart };
   });
-}
-
-function basinLabel(name: string): string {
-  return name.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
 export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
@@ -301,10 +282,9 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
         ]);
         await import("maplibre-gl/dist/maplibre-gl.css");
         if (disposed || !wrapRef.current) return;
-        if (!idxR.ok && !worldR.ok) throw new Error("nothing published");
-        const idx = idxR.v ?? {};
-        setIndex(idx);
-        if (worldR.ok) setWorld(worldR.v);
+        if (!worldR.ok) throw new Error("world chart not published");
+        setIndex(idxR.v ?? {});
+        setWorld(worldR.v);
         const m = new maplibregl.Map({
           container: wrapRef.current,
           style: {
@@ -319,14 +299,15 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
             },
             layers: [{ id: "carto", type: "raster", source: "carto" }],
           },
-          center: [34.8, 32.3],
-          zoom: 4,
+          bounds: [
+            [-179, -55],
+            [179, 72],
+          ],
           attributionControl: false,
         });
         m.addControl(new maplibregl.AttributionControl({ compact: true }), "bottom-left");
         mapRef.current = m;
-        // open on the basin nearest the last map view's region: default Israel
-        setBasinName(nearestBasin(idx, 32.1, 34.8) ?? (worldR.ok ? WORLD : null));
+        setBasinName(WORLD);
       } catch {
         if (!disposed) setError("Charts aren't published yet - try again after the next forecast cycle.");
       } finally {
@@ -657,25 +638,6 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
       <div class="map-screen">
         <div class="map-canvas" ref={wrapRef} />
         <canvas class="swell-canvas" ref={canvasRef} aria-hidden="true" />
-
-        {index && (
-          <div class="charts-basins" role="tablist" aria-label="Basin">
-            {[
-              ...(world ? [WORLD] : []),
-              ...(Object.keys(index).length ? [ALL, ...Object.keys(index)] : []),
-            ].map((name) => (
-              <button
-                key={name}
-                role="tab"
-                aria-selected={name === basinName}
-                class={`group-chip${name === basinName ? " on" : ""}`}
-                onClick={() => setBasinName(name)}
-              >
-                {name === WORLD ? "World" : name === ALL ? "All regions" : basinLabel(name)}
-              </button>
-            ))}
-          </div>
-        )}
 
         {error && <p class="swell-note">{error}</p>}
 
