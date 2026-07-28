@@ -16,6 +16,16 @@ import type { DayEntry, SpotPayload } from "../types";
 const CHART_H = 42; // px - tallest bar
 const BAR_MIN = 3; // px - a real but tiny day still shows a stub
 
+/** Piecewise bar scale: the bottom half of the bar range is 0-1 m (linear, and
+    absolute - a 0.3 m day looks the same in every view), the top half runs
+    1 m up to the view's max. Keeps small-wave coasts readable without letting
+    them fill the chart, while big days still tower. */
+function barPx(h: number, maxH: number): number {
+  const half = CHART_H / 2;
+  const px = h <= 1 ? h * half : half + ((h - 1) / Math.max(1, maxH - 1)) * half;
+  return Math.max(BAR_MIN, Math.min(CHART_H, px));
+}
+
 // Spot-local daypart windows: morning · midday · evening.
 const PERIODS: [number, number][] = [
   [5, 11],
@@ -64,7 +74,7 @@ export function DayBars({ data, date, maxH }: { data: SpotPayload; date: string;
           class={`chart-bar${b === null ? " stub" : ""}`}
           style={
             b !== null
-              ? `height:${Math.max(BAR_MIN, (b.h / maxH) * CHART_H)}px;background:${b.color}`
+              ? `height:${barPx(b.h, maxH)}px;background:${b.color}`
               : `height:${BAR_MIN}px`
           }
         />
@@ -200,7 +210,7 @@ export function DayScrubber({
                         class={`chart-bar${b === null ? " stub" : ""}`}
                         style={
                           b !== null
-                            ? `height:${Math.max(BAR_MIN, (b.h / maxH) * CHART_H)}px;background:${b.color}`
+                            ? `height:${barPx(b.h, maxH)}px;background:${b.color}`
                             : `height:${BAR_MIN}px`
                         }
                       />
@@ -290,7 +300,7 @@ export function CoastChart({
                           class={`chart-bar${b === null ? " stub" : ""}`}
                           style={
                             b !== null
-                              ? `height:${Math.max(BAR_MIN, (b.h / maxH) * CHART_H)}px;background:${b.color}`
+                              ? `height:${barPx(b.h, maxH)}px;background:${b.color}`
                               : `height:${BAR_MIN}px`
                           }
                         />
