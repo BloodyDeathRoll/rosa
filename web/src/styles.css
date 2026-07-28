@@ -622,6 +622,9 @@ button {
   display: flex;
   flex-direction: column;
   padding-bottom: 20px;
+  /* 4.2 columns across the reading width (the app column, less the two --edge
+     insets), so the fifth day peeks in and invites the swipe */
+  --col-w: calc(min(100vw, 430px) * 0.88 / 4.2);
 }
 .coast .track {
   display: flex;
@@ -643,7 +646,7 @@ button {
 }
 .coast-day {
   flex: none;
-  width: 50px;
+  width: var(--col-w);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -651,11 +654,11 @@ button {
   color: var(--muted-foreground);
 }
 .coast-day .dow {
-  font-size: 10.5px;
+  font-size: 13px;
   font-weight: 600;
 }
 .coast-day .dnum {
-  font-size: 13.5px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--foreground);
 }
@@ -782,7 +785,7 @@ button {
    lines up with the list view. Bars grow up from a shared baseline. */
 .chart-col {
   flex: none;
-  width: 50px;
+  width: var(--col-w);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -797,8 +800,8 @@ button {
 .chart-plot {
   display: flex;
   align-items: flex-end;
-  gap: 2px;
-  width: 42px;
+  gap: 3px;
+  width: calc(var(--col-w, 50px) * 0.84);
 }
 .chart-bar {
   flex: 1;
@@ -808,6 +811,15 @@ button {
 }
 .chart-bar.stub {
   background: var(--border);
+}
+/* the coast chart's own readout: full-size in its wide columns (the spot
+   page's scrubber shares .chart-val in a 56px column - leave that alone) */
+.coast .chart-val {
+  /* sized off the column, not the screen: "0.2-0.3" in Inter measures 3.53em,
+     so a quarter of the column always leaves ~12% breathing room - a fixed
+     22px overflows the narrower columns of a 360px phone */
+  font-size: calc(var(--col-w) * 0.25);
+  letter-spacing: -0.01em;
 }
 /* dominant-condition rule beneath the teal bars - the only tier color in a column */
 .chart-rule {
@@ -830,7 +842,7 @@ button {
   opacity: 0.5;
 }
 .chart-val {
-  width: 50px;
+  width: var(--col-w, 50px);
   text-align: center;
   font-size: 11px;
   font-weight: 700;
