@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "preact/hooks";
+import { useEffect, useMemo, useRef, useState } from "preact/hooks";
 import { fetchIndex, fetchSpot } from "../api";
 import { CoastChart, DayBars } from "../components/CoastChart";
 import {
@@ -7,7 +7,6 @@ import {
   groupNameOf,
   saveGroup,
   savedGroup,
-  sectionsOf,
 } from "../components/GroupChips";
 import { SatMap } from "../components/MiniMap";
 import { CamIcon, SearchIcon, ShirtIcon, ThermometerIcon, WavesIcon } from "../components/icons";
@@ -16,14 +15,104 @@ import { dayView } from "../components/SpotCard";
 import { getFavorites } from "../favorites";
 import { pendingPrompt, resolvePrompt, type FbPrompt } from "../feedback";
 import { cardinal, splitName, todayIn, windLabel } from "../format";
-import { distanceKm, getPosition, setHome } from "../geo";
+import { distanceKm, getPosition, setHome, type LatLon } from "../geo";
 import { syncPushSpots } from "../push";
 import { getRecents } from "../recents";
 import { signalReady } from "../splash";
 import { fmtRange, fmtTemp, useUnits } from "../units";
-import type { SpotPayload } from "../types";
+import type { IndexEntry, SpotPayload } from "../types";
 
-const FALLBACK_COUNT = 6; // nearest spots shown when no favorites are saved
+const MIN_SPOTS = 5; // a thinner Today than this isn't worth the screen
+
+interface TodayPlan {
+  /** Region chips, "All" first, the region you're in next, then A-Z. */
+  regions: string[];
+  /** The selected region's spots: the anchor first, then the rest. */
+  ids: string[];
+  /** Region you're standing in - the chart pins it above the others. */
+  homeRegion: string | null;
+  /** Spot nearest the real GPS fix, or null when location is unknown. */
+  nearestId: string | null;
+}
+
+/** Decide what Today shows, from the index alone.
+ *
+ * Regions offered = where you are, plus everywhere you've recently looked at or
+ * favorited - so a spot browsed in Costa Rica from Israel puts a Costa Rica chip
+ * up without pretending you surf there.
+ *
+ * Within a region: your favorites there, and if that's under MIN_SPOTS, topped up
+ * with the spots closest to the region's anchor. The anchor leads the list (it's
+ * the card you land on): the last spot you viewed in that region, or - in the
+ * region you're actually in - simply the closest spot to you. */
+export function planToday({
+  index,
+  pos,
+  favs,
+  recents,
+  group,
+}: {
+  index: Record<string, IndexEntry>;
+  pos: LatLon | null;
+  favs: string[];
+  recents: string[];
+  group: string;
+}): TodayPlan {
+  const known = (id: string) => index[id] !== undefined;
+  const at = (id: string) => ({ lat: index[id]!.lat, lon: index[id]!.lon });
+  const myRecents = recents.filter(known);
+  const myFavs = favs.filter(known);
+
+  // Somewhere to measure from: the fix, else the last spot you opened. With
+  // neither, no region is "yours" and nothing can be called nearest.
+  const from = pos ?? (myRecents[0] ? at(myRecents[0]) : null);
+  const byDistFrom = (o: { lat: number; lon: number }, ids: string[]) =>
+    [...ids].sort((a, b) => distanceKm(o, at(a)) - distanceKm(o, at(b)));
+  const allIds = Object.keys(index);
+  const nearestId = pos ? (byDistFrom(pos, allIds)[0] ?? null) : null;
+  const homeId = from ? byDistFrom(from, allIds)[0] : undefined;
+  const homeRegion = homeId ? (index[homeId]!.region?.trim() || null) : null;
+
+  const regionOf = (id: string) => groupNameOf(index[id]!.region);
+  const regions = [ALL_GROUP];
+  for (const id of [...(homeId ? [homeId] : []), ...myRecents, ...myFavs]) {
+    const r = regionOf(id);
+    if (!regions.includes(r)) regions.push(r);
+  }
+  // "All" and the home region lead; the rest read A-Z
+  const tail = regions.slice(homeRegion ? 2 : 1).sort((a, b) => a.localeCompare(b));
+  const ordered = [...regions.slice(0, homeRegion ? 2 : 1), ...tail];
+
+  const scope = ordered.includes(group) ? group : ALL_GROUP;
+  const inScope = (id: string) => scope === ALL_GROUP || regionOf(id) === scope;
+
+  // Anchor: what you last looked at here, else the closest spot in this region.
+  const anchor =
+    myRecents.find(inScope) ??
+    (from ? byDistFrom(from, allIds.filter(inScope))[0] : allIds.filter(inScope)[0]);
+
+  const ids: string[] = [];
+  const add = (id: string | undefined) => {
+    if (id && known(id) && inScope(id) && !ids.includes(id)) ids.push(id);
+  };
+  add(anchor);
+  for (const id of [...myFavs].sort((a, b) => index[b]!.lat - index[a]!.lat)) add(id);
+  for (const id of myRecents) if (scope !== ALL_GROUP || ids.length < MIN_SPOTS) add(id);
+  if (ids.length < MIN_SPOTS) {
+    // Top up from wherever the region is centred on you: in your own region
+    // (and under "All") that's your actual position, so the fill is the cluster
+    // you could drive to - not five spots around whatever you last browsed
+    // abroad. In a region you're only looking at, it's the anchor.
+    const origin =
+      (scope === ALL_GROUP || scope === homeRegion) && from ? from : anchor ? at(anchor) : from;
+    const pool = allIds.filter((id) => inScope(id) && !ids.includes(id));
+    for (const id of origin ? byDistFrom(origin, pool) : pool) {
+      if (ids.length >= MIN_SPOTS) break;
+      ids.push(id);
+    }
+  }
+  return { regions: ordered, ids, homeRegion, nearestId };
+}
 
 function greeting(): string {
   const h = new Date().getHours();
@@ -153,74 +242,28 @@ function FeedbackRow({ p, onDone }: { p: FbPrompt; onDone: () => void }) {
 }
 
 export function TodayPage() {
-  const [detail, setDetail] = useState<SpotPayload | null>(null);
-  const [grid, setGrid] = useState<SpotPayload[] | null>(null);
-  const [homeRegion, setHomeRegion] = useState<string | null>(null);
+  const [index, setIndex] = useState<Record<string, IndexEntry> | null>(null);
+  const [pos, setPos] = useState<LatLon | null>(null);
+  const [payloads, setPayloads] = useState<Record<string, SpotPayload>>({});
   const [group, setGroup] = useState<string>(savedGroup());
   const [prompt, setPrompt] = useState<FbPrompt | null>(pendingPrompt);
   const [error, setError] = useState<string | null>(null);
+  // read once: neither can change while this screen is open
+  const [favs] = useState(getFavorites);
+  const [recents] = useState(getRecents);
 
+  // Index + position first (both small); payloads follow per selected region.
   useEffect(() => {
     let disposed = false;
     (async () => {
       try {
-        const [index, pos] = await Promise.all([fetchIndex(), getPosition()]);
+        const [idx, at] = await Promise.all([fetchIndex(), getPosition()]);
         if (disposed) return;
-        const entries = Object.entries(index.spots);
-        const lastId = getRecents()[0];
-        const lastEntry = lastId !== undefined ? index.spots[lastId] : undefined;
-        const mid = (xs: number[]) => [...xs].sort((a, b) => a - b)[Math.floor(xs.length / 2)] ?? 0;
-        const at =
-          pos ??
-          (lastEntry
-            ? { lat: lastEntry.lat, lon: lastEntry.lon }
-            : { lat: mid(entries.map(([, e]) => e.lat)), lon: mid(entries.map(([, e]) => e.lon)) });
-        const km: Record<string, number> = {};
-        for (const [id, e] of entries) km[id] = distanceKm(at, { lat: e.lat, lon: e.lon });
-        const byDist = [...entries].sort(([a], [b]) => (km[a] ?? 0) - (km[b] ?? 0));
-
-        // Region you're in - the one the chart pins above the rest. Only claimed
-        // when `at` is a real position (a GPS fix, or the last spot you opened);
-        // with neither, `at` is the median of every spot on earth and the nearest
-        // one to it would name a region at random, so no region leads.
-        const located = pos !== null || lastEntry !== undefined;
-        const nearestEntry = byDist[0]?.[1];
-        setHomeRegion(located ? (nearestEntry?.region?.trim() || null) : null);
-        // Remember where the user actually is (a real fix only - the last-opened
-        // spot says what they were reading, not where they stand). The feedback
-        // loop asks only about this region, and pushes fall back to this spot.
-        if (pos !== null && byDist[0]) {
-          setHome(byDist[0][0], nearestEntry?.region?.trim() ?? null);
-          void syncPushSpots();
-        }
-
-        // extended card = the last opened spot (fall back to nearest for a fresh
-        // user). The grid below lists that same spot first, then every favorite
-        // (north→south); with no favorites saved it falls back to nearest spots.
-        const recents = getRecents().filter((id) => index.spots[id]);
-        const detailId = recents[0] ?? byDist[0]?.[0];
-        const favIds = getFavorites()
-          .filter((fid) => index.spots[fid] && fid !== detailId)
-          .sort((a, b) => (index.spots[b]?.lat ?? 0) - (index.spots[a]?.lat ?? 0));
-        const listIds =
-          favIds.length > 0
-            ? favIds
-            : byDist
-                .map(([id]) => id)
-                .filter((id) => id !== detailId)
-                .slice(0, FALLBACK_COUNT);
-
-        const orderedIds = [...(detailId ? [detailId] : []), ...listIds];
-        const results = await Promise.allSettled(orderedIds.map(fetchSpot));
-        if (disposed) return;
-        const byId = new Map<string, SpotPayload>();
-        for (const r of results) if (r.status === "fulfilled") byId.set(r.value.spot.id, r.value);
-        setDetail(detailId ? (byId.get(detailId) ?? null) : null);
-        setGrid(orderedIds.map((id) => byId.get(id)).filter((d): d is SpotPayload => !!d));
+        setIndex(idx.spots);
+        setPos(at);
       } catch (e) {
         if (!disposed) setError((e as Error).message);
-      } finally {
-        signalReady(); // home is populated (or errored) - the splash may lift
+        signalReady();
       }
     })();
     return () => {
@@ -228,53 +271,72 @@ export function TodayPage() {
     };
   }, []);
 
+  // What Today is about: which regions you can flip between, and which spots
+  // each one shows. Pure index arithmetic - no payloads needed, so the chips
+  // and the ordering are settled before a single forecast has downloaded.
+  const plan = useMemo(
+    () => (index ? planToday({ index, pos, favs, recents, group }) : null),
+    [index, pos, favs, recents, group],
+  );
+
+  // Where the user actually is: remembered for the feedback loop (which asks
+  // only about your own region) and for push (which falls back to this spot).
+  // A real fix only - the last spot you opened says what you were reading.
+  useEffect(() => {
+    if (pos === null || !plan?.nearestId || !index) return;
+    setHome(plan.nearestId, index[plan.nearestId]?.region?.trim() ?? null);
+    void syncPushSpots();
+  }, [pos, plan?.nearestId, index]);
+
+  // Fetch the selected region's spots (SW-cached, so flipping back is instant).
+  useEffect(() => {
+    if (!plan) return;
+    let disposed = false;
+    const missing = plan.ids.filter((id) => !payloads[id]);
+    if (missing.length === 0) {
+      signalReady();
+      return;
+    }
+    (async () => {
+      const results = await Promise.allSettled(missing.map(fetchSpot));
+      if (disposed) return;
+      const add: Record<string, SpotPayload> = {};
+      for (const r of results) if (r.status === "fulfilled") add[r.value.spot.id] = r.value;
+      setPayloads((prev) => ({ ...prev, ...add }));
+      signalReady(); // home is populated - the splash may lift
+    })();
+    return () => {
+      disposed = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [plan?.ids.join(",")]);
+
   const search = (
     <a class="icon-btn" href="#/search" aria-label="Search spots">
       <SearchIcon />
     </a>
   );
 
-  // Region filter, shared with the Spots tab (same remembered chip): a list
-  // spanning countries is rarely all interesting at once. Only worth showing
-  // when there is more than one region to choose between.
-  const regionGroups = grid
-    ? [ALL_GROUP, ...sectionsOf(grid, (s) => s.spot.region, homeRegion).map((s) => s.group)]
-    : [ALL_GROUP];
-  const activeGroup = regionGroups.includes(group) ? group : ALL_GROUP;
-  const shown =
-    grid && activeGroup !== ALL_GROUP
-      ? grid.filter((s) => groupNameOf(s.spot.region) === activeGroup)
-      : grid;
-
-  // Extended-card carousel: one rich card per listed spot, swipeable, in the
-  // exact order the chart below renders (home region first, then A-Z) so a swipe
-  // right walks the same sequence as reading the list top to bottom.
+  // Cards in the plan's order: the anchor leads, so the card you land on is the
+  // one this region is really about. Only spots already downloaded render.
   const cardsRef = useRef<HTMLDivElement>(null);
-  const carousel = shown
-    ? sectionsOf(shown, (s) => s.spot.region, homeRegion).flatMap((sec) => sec.rows)
-    : [];
+  const carousel = (plan?.ids ?? [])
+    .map((id) => payloads[id])
+    .filter((d): d is SpotPayload => d !== undefined);
+  const homeRegion = plan?.homeRegion ?? null;
   // one scale across every card (and the chart rows below, which derive the
   // same max from the same spots) so bar heights compare spot to spot
   const chartMax = Math.max(0.1, ...carousel.flatMap((s) => s.hours.map((h) => h.h_mid)));
 
-  // Start on the last-opened spot (the old single extended card), snapped into
-  // place instantly - sections may have reordered it away from index 0.
+  // The anchor leads the list, so the carousel simply rests at its start.
   useEffect(() => {
-    const track = cardsRef.current;
-    const id = detail?.spot.id;
-    if (!track || !id) return;
-    const slide = track.querySelector<HTMLElement>(`[data-id="${id}"]`);
-    if (!slide) return;
-    track.scrollLeft = slide.offsetLeft - (track.clientWidth - slide.clientWidth) / 2;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [grid]);
+    if (cardsRef.current) cardsRef.current.scrollLeft = 0;
+  }, [plan?.ids[0]]);
 
   // all spots share the date range; use the featured spot's days as the axis.
   // Anchor to the spot's real current date and drop any past days, so the strip
   // never leads with a stale day from an older pipeline run.
-  // (the axis follows what's shown, so a filter can't leave the strip anchored
-  // to a spot that scrolled out of the list)
-  const featured = carousel.find((s) => s.spot.id === detail?.spot.id) ?? carousel[0] ?? detail;
+  const featured = carousel[0];
   const allDates = featured?.days.map((d) => d.date) ?? [];
   const today = featured ? todayIn(featured.spot.timezone) : (allDates[0] ?? "");
   const future = allDates.filter((d) => d >= today);
@@ -288,7 +350,7 @@ export function TodayPage() {
       </main>
     );
   }
-  if (!grid) {
+  if (!plan || carousel.length === 0) {
     return (
       <main class="page">
         <AppHeader lead={greeting()} right={search} />
@@ -302,10 +364,10 @@ export function TodayPage() {
       <AppHeader lead={greeting()} right={search} />
       <div class="home">
         {prompt && <FeedbackRow p={prompt} onDone={() => setPrompt(null)} />}
-        {regionGroups.length > 2 && (
+        {plan.regions.length > 2 && (
           <GroupChips
-            groups={regionGroups}
-            selected={activeGroup}
+            groups={plan.regions}
+            selected={plan.regions.includes(group) ? group : ALL_GROUP}
             onSelect={(g) => {
               setGroup(g);
               saveGroup(g);
