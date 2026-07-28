@@ -897,12 +897,16 @@ a.rank-card:hover {
   min-width: 0;
 }
 /* Right rail of the compact card: cam marker (when the spot has one) then star. */
-.rank-card .card-side {
+/* cam icon + star, riding together on the right of a row (favorite cards and
+   search results alike) */
+.rank-card .card-side,
+.spot-row-card .card-side {
   display: flex;
   align-items: center;
   gap: 8px;
 }
-.rank-card .cam-mark {
+.rank-card .cam-mark,
+.spot-row-card .cam-mark {
   display: inline-flex;
   color: var(--muted-foreground);
 }

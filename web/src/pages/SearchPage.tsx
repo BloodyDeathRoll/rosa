@@ -1,6 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from "preact/hooks";
 import { fetchIndex } from "../api";
-import { ChevronLeftIcon, ChevronRightIcon, MapPinIcon, SearchIcon } from "../components/icons";
+import {
+  CamIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  MapPinIcon,
+  SearchIcon,
+} from "../components/icons";
 import { SpotTitle, StarButton, TierDot } from "../components/parts";
 import { ratingWord } from "../conditions";
 import { getFavorites, toggleFavorite } from "../favorites";
@@ -38,7 +44,14 @@ function ResultRow({
           {fmtRange(entry.h, units)} · {ratingWord(entry.bucket)}
         </span>
       </span>
-      <StarButton on={isFav} name={name} size={16} onToggle={onToggle} />
+      <span class="card-side">
+        {(entry.cams?.length ?? (entry.cam ? 1 : 0)) > 0 && (
+          <span class="cam-mark" title="Live cam">
+            <CamIcon />
+          </span>
+        )}
+        <StarButton on={isFav} name={name} size={16} onToggle={onToggle} />
+      </span>
     </a>
   );
 }
