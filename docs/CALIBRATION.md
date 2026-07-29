@@ -518,3 +518,55 @@ filter on the directions the physics consumes.
 Footnote: hiriketiya's original excursion (189 -> 224 -> 276 -> 255 -> 192 deg) is **absent** in
 the current run - its 12 s swell holds 191-199 deg all day. The 07-29 case was transient, which
 is itself the argument against tuning a constant to it.
+
+## 2026-07-29 (PM) - ingrina's 2 "impossible zeros" are correct physics
+
+Closes the last SESSION-9 watch item. **No bug, no code change.** The audit heuristic that
+flagged them is what needs the caveat.
+
+### The two hours
+
+Both are the same event - 2026-08-10 06:00 and 09:00 local, a 1.0-1.1 m / 8 s sea from
+313-314 deg with no in-window partition, published as 0.0-0.1 m. Ingrina is a south-facing
+Algarve cove (`swell_window [90, 220]`, `offshore_direction 0`), so 314 deg is arriving from
+over the land and the transform gives it no exposure.
+
+### Why it is right, in three independent checks
+
+1. **The wind agrees with the waves.** Through the whole event the wind is 18-25 kph from
+   346-351 deg - *offshore* at Ingrina - and the sea runs the same way. This is a northerly
+   (nortada) generating sea in the Gulf of Cadiz that travels SOUTH, away from a lee shore.
+   A surfer standing there sees flat, glassy water. Rating 1 is the honest answer.
+2. **The offshore field is real, not a coastal-cell artifact.** Sampling the model at 5, 10,
+   20 and 30 km due south returns the same NNW direction (322-351 deg) at every distance, and
+   the height GROWS with distance from the coast (0.96 -> 1.04 -> 1.12 -> 1.14 m). That is the
+   fetch signature of a locally generated wind sea, exactly as a northerly over the Gulf
+   should look. (Noted in passing: the requested 5 km point snaps 4.4 km back to a grid cell
+   at 37.0417, effectively on the shoreline - Open-Meteo's marine grid is ~1/12 deg here. It
+   does not change the answer, but `offshore_km: 5` buys no separation at this spot.)
+3. **The rest of the coastline corroborates.** At the same hour, ranked by window orientation:
+   Nazare/Ericeira/Peniche `[235,340]` 1.1-1.4 m -> Supertubos `[180,290]` 0.30 -> Carcavelos
+   `[170,270]` 0.10 -> Zavial `[160,260]` 0.10 -> **Ingrina `[90,220]` 0.00**. Monotonic in
+   window orientation, and it is the textbook Algarve pattern: NW swell lights the west coast
+   while the south coast is flat.
+
+### The lesson is about the audit, not the forecast
+
+The invariant from the exposure rebuild - *"a metre offshore can never read as ~0 at the
+spot"* - needs its missing clause: **...when that metre is arriving from a direction the
+coastline can actually see.** The SESSION-9 bug was in-window energy being cancelled; this is
+out-of-window energy correctly ignored. An audit that flags on offshore height alone cannot
+tell the two apart, and will keep re-flagging lee-shore hours forever. Any future zero-audit
+should additionally require that some partition is in-window (or that the wind is not offshore)
+before calling a zero impossible.
+
+Counter-lesson still standing (SESSION 9): do not declare a zero correct from reasoning alone.
+Here it took the wind agreeing with the waves, the fetch gradient offshore, and 42 neighbouring
+spots ordered by exposure - not one argument.
+
+### One genuine open question, for local knowledge only
+
+Ingrina's window ends at 220 deg while its neighbour Zavial's reaches 260 deg. Real Ingrina
+does pick up some W/SW wrap around Sagres, so the narrower window may be under-calling wrapped
+swell there. That is a spot-DB judgement, not a formula one - **user/local knowledge decides**,
+per the coordinate-authority ladder. Flagged, not changed.
