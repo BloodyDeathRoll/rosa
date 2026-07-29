@@ -5,8 +5,13 @@ period, and direction - sampled at a buoy against that buoy's observations. Pure
 over paired series; the CLI wires live/fixture I/O around them.
 
 Two comparison notes baked in:
-- Open-Meteo ``wave_period`` is a MEAN period, so it pairs with the buoy's APD (average),
-  not DPD (dominant/peak).
+- Open-Meteo ``wave_period`` is a MEAN period - but "mean period" is not one quantity.
+  It is the ENERGY period Tm-1,0 (m-1/m0); the buoy's APD is Tm02 (sqrt(m0/m2)), and
+  Tm-1,0 > Tm02 for any real spectrum. Pairing the two manufactures a positive bias
+  (+2.67 s fleet-wide vs +0.54 s against Tm-1,0; CALIBRATION.md 2026-07-29). So the
+  period pairs with Tm-1,0 measured from the station's own spectrum
+  (``ENERGY_PERIOD_VARIABLES``); the APD pairing survives only as a labelled fallback
+  for stations that publish no spectra, and must never be calibrated against.
 - Direction is circular - errors wrap at ±180°, and scatter-index is undefined for it.
 
 The nowcast path (compare today's forecast hours to the buoy's recent obs) needs no stored
@@ -17,16 +22,33 @@ lead-time skill by replaying forecasts stamped at successive run times.
 from __future__ import annotations
 
 import math
-from dataclasses import dataclass
+from bisect import bisect_left
+from collections.abc import Sequence
+from dataclasses import dataclass, replace
 from datetime import UTC, datetime, timedelta
 
 from .buoys import Buoy
 from .observe import BuoyObs
+from .spectra import SpectrumMeasures
+
+# the APD-paired period label; the renderers footnote it so a reader can never mistake
+# this row for a calibratable bias (see module docstring)
+APD_FALLBACK_LABEL = "Mean per. vs APD"
 
 # variable key -> (label, unit, model attr, obs attr, circular?)
+# FALLBACK pairing: period vs the buoy's APD (Tm02). Definitionally ~2 s hot against
+# Open-Meteo's Tm-1,0 - used only where no spectrum is published. Prefer the tuple below.
 VARIABLES = (
     ("hs", "Sig. wave height", "m", "hs", "hs_m", False),
-    ("tp", "Mean period", "s", "tp", "apd_s", False),
+    ("tp", APD_FALLBACK_LABEL, "s", "tp", "apd_s", False),
+    ("dir", "Wave direction", "°", "dir", "mwd_deg", True),
+)
+
+# PREFERRED pairing for Open-Meteo: like-for-like against the measured energy period.
+# Needs obs enriched by with_energy_period().
+ENERGY_PERIOD_VARIABLES = (
+    ("hs", "Sig. wave height", "m", "hs", "hs_m", False),
+    ("tp", "Energy period", "s", "tp", "tm_m10_s", False),
     ("dir", "Wave direction", "°", "dir", "mwd_deg", True),
 )
 
@@ -97,8 +119,36 @@ def _nearest_obs(t: datetime, obs: list[BuoyObs], tol: timedelta) -> BuoyObs | N
     return best
 
 
+def with_energy_period(
+    obs: list[BuoyObs], measures: Sequence[SpectrumMeasures], *, tol_min: int = 30
+) -> list[BuoyObs]:
+    """Attach each observation's measured energy period Tm-1,0, from the nearest spectrum.
+
+    This is what makes a like-for-like period comparison possible: the standard-met file
+    publishes only APD (Tm02), while the model serves Tm-1,0. Observations with no
+    spectrum inside ``tol_min`` keep ``tm_m10_s = None`` and simply drop out of period
+    scoring - never silently fall back to APD, which is the bias this exists to remove."""
+    if not measures:
+        return obs
+    ordered = sorted(measures, key=lambda m: m.time)
+    times = [m.time for m in ordered]
+    tol = timedelta(minutes=tol_min)
+    out: list[BuoyObs] = []
+    for o in obs:
+        i = bisect_left(times, o.time)
+        best: SpectrumMeasures | None = None
+        best_gap = tol
+        for j in (i - 1, i):  # times is sorted, so the nearest is one of these two
+            if 0 <= j < len(ordered):
+                gap = abs(ordered[j].time - o.time)
+                if gap <= best_gap:
+                    best, best_gap = ordered[j], gap
+        out.append(o if best is None else replace(o, tm_m10_s=best.tm_m10_s))
+    return out
+
+
 def pair_series(
-    model: list[WavePoint], obs: list[BuoyObs], *, tol_min: int = 30
+    model: list[WavePoint], obs: list[BuoyObs], *, tol_min: int = 30, variables: tuple = VARIABLES
 ) -> dict[str, list[tuple[float, float]]]:
     """(model, obs) value pairs per variable - each forecast hour matched to the nearest
     observation *that actually reports that variable* within ``tol_min``.
@@ -107,8 +157,8 @@ def pair_series(
     every ~30-60 min, so the time-nearest row is often wave-blank. Filtering to rows with
     the field present before the nearest-search is what keeps those hours scorable."""
     tol = timedelta(minutes=tol_min)
-    pairs: dict[str, list[tuple[float, float]]] = {key: [] for key, *_ in VARIABLES}
-    for key, _label, _unit, m_attr, o_attr, _circ in VARIABLES:
+    pairs: dict[str, list[tuple[float, float]]] = {key: [] for key, *_ in variables}
+    for key, _label, _unit, m_attr, o_attr, _circ in variables:
         valid = [o for o in obs if getattr(o, o_attr) is not None]
         for mp in model:
             mv = getattr(mp, m_attr)
@@ -138,12 +188,16 @@ def _score_var(
 
 
 def build_scorecard(
-    model: list[WavePoint], obs: list[BuoyObs], *, tol_min: int = 30
+    model: list[WavePoint],
+    obs: list[BuoyObs],
+    *,
+    tol_min: int = 30,
+    variables: tuple = VARIABLES,
 ) -> dict[str, VarScore]:
-    pairs = pair_series(model, obs, tol_min=tol_min)
+    pairs = pair_series(model, obs, tol_min=tol_min, variables=variables)
     return {
         key: _score_var(key, label, unit, pairs[key], circular)
-        for key, label, unit, _m, _o, circular in VARIABLES
+        for key, label, unit, _m, _o, circular in variables
     }
 
 
@@ -210,22 +264,44 @@ def lead_time_scorecard(
     }
 
 
+def _apd_footnote(*scorecards: dict[str, VarScore]) -> list[str]:
+    """The warning that has to travel with any APD-paired period row."""
+    used = any(s.label == APD_FALLBACK_LABEL and s.n for card in scorecards for s in card.values())
+    if not used:
+        return []
+    return [
+        "  * period scored against APD (Tm02); the model serves Tm-1,0, so this row reads",
+        "    ~2 s hot by definition - report it, never calibrate against it.",
+    ]
+
+
 def render_lead_scorecard(buoy: Buoy, by_lead: dict[str, dict[str, VarScore]]) -> str:
-    lines = [f"lead-time skill vs buoy {buoy.id} - {buoy.name}"]
+    """One row per lead x variable, **bias first**.
+
+    Bias is the calibratable quantity - it is what an input-side de-bias would correct, and
+    what tells a hot model from a cold one. An rmse-only card hid a +2.8 s period bias for
+    six days (CALIBRATION.md 2026-07-29); rmse alone cannot show sign."""
+    lines = [
+        f"lead-time skill vs buoy {buoy.id} - {buoy.name}",
+        f"  {'lead':<6}{'var':<18}{'n':>6}  {'bias':>8}  {'mae':>8}  {'rmse':>8}",
+    ]
     for lead_label, scores in by_lead.items():
-        cells = []
+        if not any(scores[k].n for k, *_ in VARIABLES):
+            lines.append(f"  {lead_label:<6}(no matured forecasts yet)")
+            continue
         for key, *_ in VARIABLES:
             s = scores[key]
-            cells.append(f"{s.label.split()[0].lower()} n={s.n} rmse={s.rmse:.2f}{s.unit}")
-        n_any = any(scores[k].n for k, *_ in VARIABLES)
-        suffix = "  ·  ".join(cells) if n_any else "(no matured forecasts yet)"
-        lines.append(f"  {lead_label:<5} {suffix}")
+            if not s.n:
+                continue
+            lines.append(
+                f"  {lead_label:<6}{s.label:<18}{s.n:>6}  {s.bias:>+7.2f}{s.unit}  "
+                f"{s.mae:>7.2f}{s.unit}  {s.rmse:>7.2f}{s.unit}"
+            )
+    lines.extend(_apd_footnote(*by_lead.values()))
     return "\n".join(lines)
 
 
-def render_scorecard(
-    buoy: Buoy, dist_km: float | None, scores: dict[str, VarScore]
-) -> str:
+def render_scorecard(buoy: Buoy, dist_km: float | None, scores: dict[str, VarScore]) -> str:
     where = f"{buoy.id} - {buoy.name}"
     if dist_km is not None:
         where += f"  ({dist_km:.0f} km from spot)"
@@ -243,4 +319,5 @@ def render_scorecard(
         )
     if all(scores[k].n == 0 for k, *_ in VARIABLES):
         lines.append("  (no overlapping model/obs hours - buoy may be met-only or offline)")
+    lines.extend(_apd_footnote(scores))
     return "\n".join(lines)

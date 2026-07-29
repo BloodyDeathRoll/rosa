@@ -22,6 +22,8 @@ import sys
 from datetime import UTC, datetime
 from pathlib import Path
 
+import httpx
+
 from .archive import FileArchiveStore, rows_from_model, rows_from_spectral
 from .bathymetry import (
     BathymetrySource,
@@ -52,6 +54,7 @@ from .spectra import (
     NDBCSpectraSource,
     SpectraFixtureSource,
     build_report,
+    measure,
 )
 from .spectra import (
     render_report as render_spectra_report,
@@ -59,6 +62,7 @@ from .spectra import (
 from .spots import load_spots
 from .verify import (
     ECMWF_VARIABLES,
+    ENERGY_PERIOD_VARIABLES,
     GFSWAVE_VARIABLES,
     VARIABLES,
     build_scorecard,
@@ -66,6 +70,7 @@ from .verify import (
     parse_marine_waves,
     render_lead_scorecard,
     render_scorecard,
+    with_energy_period,
 )
 
 # multi-source archive keys: OM rows live at "<buoy>", GFS-Wave at "<buoy>.gfswave",
@@ -212,9 +217,7 @@ def _build_parser() -> argparse.ArgumentParser:
     notify.add_argument(
         "--vapid-sub", default=None, help="VAPID contact claim (default: $VAPID_SUB)"
     )
-    notify.add_argument(
-        "--dry-run", action="store_true", help="plan and print, send nothing"
-    )
+    notify.add_argument("--dry-run", action="store_true", help="plan and print, send nothing")
 
     alert = sub.add_parser(
         "alert", help="push an ops alert to the admin devices (publish.sh failure trap)"
@@ -353,6 +356,38 @@ def _obs_for(buoy: Buoy, args: argparse.Namespace):
     return NDBCSource(capture_dir=args.capture).fetch(buoy)
 
 
+def _with_measured_energy_period(
+    buoy: Buoy, obs: list, args: argparse.Namespace, variables: tuple
+) -> tuple[list, tuple]:
+    """Enrich observations with Tm-1,0 from the station's spectra, for a like-for-like
+    period comparison against Open-Meteo (which serves Tm-1,0, not APD/Tm02).
+
+    Falls back to the labelled APD pairing - loudly - whenever the station publishes no
+    spectra, so a scorecard is never silently built on the definitional +2 s offset."""
+    reason = ""
+    if buoy.source != "ndbc":
+        reason = f"source {buoy.source!r} publishes no spectra"
+    else:
+        try:
+            src = (
+                SpectraFixtureSource(args.obs_fixtures)
+                if args.obs_fixtures is not None
+                else NDBCSpectraSource(capture_dir=args.capture)
+            )
+            measures = [m for m in (measure(s) for s in src.fetch(buoy)) if m]
+        except (OSError, httpx.HTTPError) as exc:
+            measures, reason = [], f"spectra unavailable ({type(exc).__name__})"
+        if not reason and not measures:
+            reason = "station publishes no spectral files"
+        if not reason:
+            enriched = with_energy_period(obs, measures, tol_min=args.tol_min)
+            if any(o.tm_m10_s is not None for o in enriched):
+                return enriched, ENERGY_PERIOD_VARIABLES
+            reason = "no spectrum within tolerance of any observation"
+    print(f"{buoy.id}: period vs APD - {reason}", file=sys.stderr)
+    return obs, variables
+
+
 def _model_for(buoy: Buoy, args: argparse.Namespace):
     if args.fixtures is not None:
         marine = json.loads((args.fixtures / f"marine_{buoy.id}.json").read_text(encoding="utf-8"))
@@ -382,9 +417,7 @@ def _cmd_verify(args: argparse.Namespace) -> int:
         if spot is None:
             print(f"unknown spot {args.near!r}", file=sys.stderr)
             return 2
-        near = nearest_buoys(
-            spot.lat, spot.lon, buoys, radius_km=args.radius_km, limit=args.limit
-        )
+        near = nearest_buoys(spot.lat, spot.lon, buoys, radius_km=args.radius_km, limit=args.limit)
         if not near:
             print(
                 f"no buoy within {args.radius_km:.0f} km of {spot.name} - "
@@ -412,6 +445,11 @@ def _cmd_verify(args: argparse.Namespace) -> int:
             print(render_spectra_report(buoy, build_report(specs)))
             continue
         obs = _obs_for(buoy, args)
+        source = args.source if args.archive else "om"
+        variables = SOURCE_VARIABLES[source]
+        if source == "om":
+            # like-for-like period: Open-Meteo serves Tm-1,0, the met file only APD (Tm02)
+            obs, variables = _with_measured_energy_period(buoy, obs, args, variables)
         if args.archive:
             key = buoy.id + SOURCE_KEY_SUFFIX[args.source]
             rows = FileArchiveStore(args.archive_dir).read(key)
@@ -419,12 +457,12 @@ def _cmd_verify(args: argparse.Namespace) -> int:
                 rows,
                 obs,
                 tol_min=args.tol_min,
-                variables=SOURCE_VARIABLES[args.source],
+                variables=variables,
             )
             print(render_lead_scorecard(buoy, by_lead))
         else:
             model = _model_for(buoy, args)
-            scores = build_scorecard(model, obs, tol_min=args.tol_min)
+            scores = build_scorecard(model, obs, tol_min=args.tol_min, variables=variables)
             print(render_scorecard(buoy, dist, scores))
     return 0
 
@@ -525,8 +563,14 @@ def _cmd_feedback(args: argparse.Namespace) -> int:
     if args.note:
         observed["note"] = args.note
 
-    record = FeedbackRecord(spot=args.spot, at=at, verdict=args.verdict, predicted=predicted,
-                            observed=observed, source="cli")
+    record = FeedbackRecord(
+        spot=args.spot,
+        at=at,
+        verdict=args.verdict,
+        predicted=predicted,
+        observed=observed,
+        source="cli",
+    )
     store.append("feedback", [record.to_row()])
 
     icon = "👍" if args.verdict == "up" else "👎"

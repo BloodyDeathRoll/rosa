@@ -8,12 +8,20 @@ from pathlib import Path
 
 from rosa_pipeline.buoys import Buoy
 from rosa_pipeline.observe import BuoyObs, NDBCFixtureSource
+from rosa_pipeline.spectra import SpectrumMeasures
 from rosa_pipeline.verify import (
+    APD_FALLBACK_LABEL,
+    ENERGY_PERIOD_VARIABLES,
+    VARIABLES,
     WavePoint,
     ang_diff,
     build_scorecard,
+    lead_time_scorecard,
     pair_series,
     parse_marine_waves,
+    render_lead_scorecard,
+    render_scorecard,
+    with_energy_period,
 )
 
 FIX = Path(__file__).resolve().parent / "fixtures" / "verify"
@@ -86,3 +94,108 @@ def test_end_to_end_on_real_fixtures() -> None:
     assert scores["hs"].rmse >= 0
     # Monterey summer swell ~1-2 m; a sane model shouldn't be off by more than a metre RMS
     assert scores["hs"].rmse < 1.0
+
+
+def _measures(t: datetime, tm_m10_s: float) -> SpectrumMeasures:
+    return SpectrumMeasures(
+        time=t,
+        hs_m=1.0,
+        tp_s=12.0,
+        tm_m10_s=tm_m10_s,
+        tm02_s=tm_m10_s - 2.0,
+        qp=2.0,
+        consistency=70,
+        sigma_peak_deg=20.0,
+        windsea=False,
+    )
+
+
+def test_energy_period_attached_from_nearest_spectrum() -> None:
+    t0 = datetime(2026, 7, 29, 6, 0, tzinfo=UTC)
+    obs = [_obs(t0, hs_m=1.0, apd_s=7.0)]
+    out = with_energy_period(obs, [_measures(t0 + timedelta(minutes=10), 9.2)], tol_min=30)
+    assert out[0].tm_m10_s == 9.2
+    assert out[0].apd_s == 7.0  # the met fields are untouched
+
+
+def test_energy_period_never_falls_back_to_apd_when_no_spectrum_is_near() -> None:
+    """A spectrum outside tolerance must leave the hour unscorable, not silently APD-paired."""
+    t0 = datetime(2026, 7, 29, 6, 0, tzinfo=UTC)
+    obs = [_obs(t0, hs_m=1.0, apd_s=7.0)]
+    out = with_energy_period(obs, [_measures(t0 + timedelta(hours=3), 9.2)], tol_min=30)
+    assert out[0].tm_m10_s is None
+
+    model = [WavePoint(time=t0, hs=1.0, tp=9.3, dir=None)]
+    assert pair_series(model, out, variables=ENERGY_PERIOD_VARIABLES)["tp"] == []
+
+
+def test_apd_pairing_manufactures_the_definitional_period_bias() -> None:
+    """The regression this fix exists to prevent (CALIBRATION.md 2026-07-29).
+
+    Same model hour, same buoy hour: pairing Tm-1,0 against APD (Tm02) invents ~+2 s of
+    'model error' that pairing against the measured energy period does not."""
+    t0 = datetime(2026, 7, 29, 6, 0, tzinfo=UTC)
+    model = [WavePoint(time=t0, hs=1.0, tp=9.3, dir=None)]
+    obs = with_energy_period([_obs(t0, hs_m=1.0, apd_s=7.2)], [_measures(t0, 9.2)], tol_min=30)
+
+    apd = build_scorecard(model, obs, variables=VARIABLES)["tp"]
+    energy = build_scorecard(model, obs, variables=ENERGY_PERIOD_VARIABLES)["tp"]
+    assert abs(apd.bias - 2.1) < 1e-9
+    assert abs(energy.bias - 0.1) < 1e-9
+    assert apd.label == APD_FALLBACK_LABEL  # and so carries the renderer's warning
+
+
+def test_apd_footnote_rides_along_with_the_fallback_only() -> None:
+    buoy = Buoy(id="46042", name="Monterey", lat=36.8, lon=-122.4, source="ndbc")
+    t0 = datetime(2026, 7, 29, 6, 0, tzinfo=UTC)
+    model = [WavePoint(time=t0, hs=1.0, tp=9.3, dir=None)]
+    obs = with_energy_period([_obs(t0, hs_m=1.0, apd_s=7.2)], [_measures(t0, 9.2)], tol_min=30)
+
+    fallback = render_scorecard(buoy, None, build_scorecard(model, obs, variables=VARIABLES))
+    preferred = render_scorecard(
+        buoy, None, build_scorecard(model, obs, variables=ENERGY_PERIOD_VARIABLES)
+    )
+    assert "never calibrate against it" in fallback
+    assert "never calibrate against it" not in preferred
+
+
+def test_lead_scorecard_reports_bias_not_just_rmse() -> None:
+    """Guards the fault that hid the period bug for six days (CALIBRATION.md 2026-07-29).
+
+    rmse is unsigned, so a systematic offset and random scatter render identically. A model
+    running consistently hot must be visibly *hot* on the lead card, not merely 'wrong by
+    0.30'."""
+    buoy = Buoy(id="46042", name="Monterey", lat=36.8, lon=-122.4, source="ndbc")
+    run = datetime(2026, 7, 29, 0, 0, tzinfo=UTC)
+    rows, obs = [], []
+    for h in range(6):  # model reads +0.30 m hot every hour
+        valid = run + timedelta(hours=h)
+        rows.append({"run": run.isoformat(), "valid": valid.isoformat(), "hs": 1.3})
+        obs.append(_obs(valid, hs_m=1.0))
+
+    out = render_lead_scorecard(buoy, lead_time_scorecard(rows, obs))
+    assert "+0.30m" in out  # signed bias, with its sign
+    assert "bias" in out
+    line = next(ln for ln in out.splitlines() if "Sig. wave height" in ln)
+    assert line.index("+0.30") < line.index("0.30m", line.index("+0.30") + 1)  # bias before rmse
+
+
+def test_lead_scorecard_distinguishes_hot_from_cold() -> None:
+    """The signed half: same magnitude of error, opposite direction, must read differently."""
+    buoy = Buoy(id="46042", name="Monterey", lat=36.8, lon=-122.4, source="ndbc")
+    run = datetime(2026, 7, 29, 0, 0, tzinfo=UTC)
+
+    def card(model_hs: float) -> str:
+        rows = [
+            {
+                "run": run.isoformat(),
+                "valid": (run + timedelta(hours=h)).isoformat(),
+                "hs": model_hs,
+            }
+            for h in range(4)
+        ]
+        obs = [_obs(run + timedelta(hours=h), hs_m=1.0) for h in range(4)]
+        return render_lead_scorecard(buoy, lead_time_scorecard(rows, obs))
+
+    assert "+0.30m" in card(1.3)
+    assert "-0.30m" in card(0.7)

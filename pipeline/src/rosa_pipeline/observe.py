@@ -8,7 +8,8 @@ local-validation-only (all-rights-reserved) - it must never be committed or ship
 Parses the NDBC ``realtime2/<id>.txt`` standard-meteorological file. Wave columns:
     WVHT = significant wave height (m)   -> hs_m
     DPD  = dominant (peak) period (s)    -> dpd_s
-    APD  = average period (s)            -> apd_s   (compare to model MEAN wave_period)
+    APD  = average period (s), i.e. Tm02 -> apd_s   (NOT the model's mean period - see
+                                           verify.py: Open-Meteo serves Tm-1,0)
     MWD  = mean wave direction (deg, from)-> mwd_deg
     WTMP = water temperature (degC)      -> wtmp_c
 Missing values are the literal "MM". Rows are newest-first; we return oldest-first.
@@ -37,6 +38,9 @@ class BuoyObs:
     apd_s: float | None
     mwd_deg: float | None
     wtmp_c: float | None
+    # Tm-1,0 (m-1/m0) measured from the station's own spectrum - not in the standard-met
+    # file, filled in by verify.with_energy_period() where spectra are published.
+    tm_m10_s: float | None = None
 
 
 def _num(token: str) -> float | None:
