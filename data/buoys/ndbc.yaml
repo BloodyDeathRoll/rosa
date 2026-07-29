@@ -47,8 +47,8 @@ buoys:
     lat: 21.671
     lon: -158.119
     source: ndbc
-  - id: "51101"
-    name: "NW Hawaii - 190NM NW of Kauai"
-    lat: 24.359
-    lon: -162.081
-    source: ndbc
+# REMOVED 2026-07-29: 51101 "NW Hawaii - 190NM NW of Kauai" (24.359, -162.081). Its wave
+# sensor is down - the station still reports pressure and temps, so it looks alive, but
+# WVHT/DPD/APD/MWD have been "MM" since at least 2026-06-14. It produced zero scoreable
+# pairs in all three sources while being archived 4x/day (CALIBRATION.md 2026-07-29).
+# Restore it if NDBC brings the wave payload back.
