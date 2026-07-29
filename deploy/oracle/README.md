@@ -60,3 +60,18 @@ Two independent eyes, after two silent run-crash incidents left stale data servi
 - **Optional third eye:** set `HEALTHCHECK_URL` in `~/rosa/.env` (healthchecks.io
   ping URL) - publish.sh pings it on success and `$HEALTHCHECK_URL/fail` on failure,
   covering the "both VMs die together" case. Unset = no-op.
+- **Weekly cam rot check (this VM, 2026-07-29):** `deploy/oracle/cam-watch.sh`, cron
+  Mondays 05:40 UTC, log `~/rosa/cam-watch.log`. A cam dies with nobody touching it -
+  YouTube rotates the video id whenever a 24/7 stream restarts - so an embed can sit
+  dark for months. One admin push when anything is dead, naming the spots and how many
+  are auto-repairable. Needs `GOOGLE_MAPS_API_KEY` in `~/rosa/.env` (the project's
+  Google key carries the YouTube Data API). Cost: ~1 unit on a clean week (one batched
+  `videos.list`), +100 per dead cam, against 10,000/day.
+  **It never runs `--apply`, by design:** this box holds a READ-ONLY deploy key, so it
+  cannot push a repair, and applying here would leave `data/spots` dirty and make the
+  next `git pull --ff-only` fail - silently freezing the VM on local code. Repair is a
+  one-command human action from a clone that can push:
+  `YOUTUBE_API_KEY=$GOOGLE_MAPS_API_KEY python tools/cam-scan/scan.py verify --resolve --apply`
+  (rewrites only cams whose replacement still carries the same title; everything else
+  prints as NEEDS A HUMAN). If the VM is ever given a write-capable key, the apply +
+  commit + push could move here.
