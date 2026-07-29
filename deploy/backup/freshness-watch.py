@@ -33,6 +33,27 @@ VAPID_PEM = BASE / "vapid_private.pem"
 VAPID_SUB = os.environ.get("VAPID_SUB", "mailto:shaharnaor@outlook.com")
 
 
+def stale_message(fetched_at: datetime, now: datetime, max_age_h: float = MAX_AGE_H) -> str | None:
+    """The alert text when the last good cycle is too old, else None.
+
+    Both datetimes must be tz-aware; the published ``fetched_at`` carries an offset."""
+    age_h = (now - fetched_at).total_seconds() / 3600
+    if age_h <= max_age_h:
+        return None
+    return (
+        f"Forecast data is STALE: last good cycle {age_h:.1f} h ago "
+        f"(limit {max_age_h:g} h). Check rosa-instance + publish.log."
+    )
+
+
+def alert_is_due(state: dict, now: datetime, realert_h: float = REALERT_H) -> bool:
+    """False while a recent alert already covers this problem - broken must not mean hourly."""
+    last = state.get("last_alert")
+    if not last:
+        return True
+    return (now - datetime.fromisoformat(last)).total_seconds() / 3600 >= realert_h
+
+
 def push(message: str) -> int:
     from pywebpush import WebPushException, webpush
 
@@ -60,13 +81,7 @@ def main() -> int:
         )
         with urllib.request.urlopen(req, timeout=30) as r:
             payload = json.load(r)
-        fetched = datetime.fromisoformat(payload["fetched_at"])
-        age_h = (now - fetched).total_seconds() / 3600
-        if age_h > MAX_AGE_H:
-            problem = (
-                f"Forecast data is STALE: last good cycle {age_h:.1f} h ago "
-                f"(limit {MAX_AGE_H:g} h). Check rosa-instance + publish.log."
-            )
+        problem = stale_message(datetime.fromisoformat(payload["fetched_at"]), now)
     except Exception as exc:  # unreadable CDN is page-worthy too
         problem = f"Can't read rosa-data ({type(exc).__name__}) - CDN or publish problem."
 
@@ -75,8 +90,7 @@ def main() -> int:
         return 0
 
     state = json.loads(STATE.read_text()) if STATE.exists() else {}
-    last = state.get("last_alert")
-    if last and (now - datetime.fromisoformat(last)).total_seconds() / 3600 < REALERT_H:
+    if not alert_is_due(state, now):
         print(f"{now.isoformat(timespec='seconds')} still broken, alerted recently: {problem}")
         return 0
     n = push(problem)
