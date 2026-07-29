@@ -12,6 +12,14 @@ Usage (from repo root):
   YOUTUBE_API_KEY=... python tools/cam-scan/scan.py verify            # are assigned cams still live?
   YOUTUBE_API_KEY=... python tools/cam-scan/scan.py verify --resolve --apply
 
+A cam usually "dies" without anyone touching it: YouTube rotates the video id
+whenever a 24/7 stream restarts, so the same physical camera reappears under a new
+id. `--resolve --apply` repairs exactly that case and nothing else - it swaps in a
+replacement ONLY when the new stream's title still matches the dead one. A channel's
+*other* live stream is a different beach, not a new angle: auto-taking the first one
+pointed Chigasaki at Miura, 30 km away and already assigned to another spot
+(2026-07-29). Everything it will not decide is printed as "NEEDS A HUMAN".
+
 Candidates land in data/cams/candidates.yaml for review - apply by editing the
 spot YAMLs (a normal committable diff; no interactive gates). State that makes
 runs resumable and non-repeating lives in data/cams/seen.json: quota is
@@ -22,6 +30,7 @@ QUERY_TTL_DAYS, and judged video ids are never re-proposed.
 from __future__ import annotations
 
 import argparse
+import html
 import json
 import os
 import re
@@ -173,6 +182,49 @@ def load_spots() -> list[dict]:
 def base_name(name: str) -> str:
     """'Nazaré (Praia do Norte)' -> 'Nazaré' - the query-friendly part."""
     return re.sub(r"\s*\(.*\)$", "", str(name)).strip()
+
+
+# Live-badge noise that broadcasters add and drop at will - it says nothing about WHICH
+# beach the camera points at, which is the only thing the title comparison is asked to decide.
+_TITLE_NOISE = re.compile(
+    r"(【\s*live\s*】|\[\s*live\s*\]|\(\s*live\s*\)|🔴|●|24\s*h(?:ours)?|live\s*(?:stream|now))",
+    re.IGNORECASE,
+)
+
+
+def normalize_title(title: str) -> str:
+    """Collapse a stream title to its identifying part, for old-vs-new comparison."""
+    t = html.unescape(str(title)).casefold()
+    t = _TITLE_NOISE.sub(" ", t)
+    # Separator class, written as escapes because these are characters a Japanese
+    # broadcaster types in a title (data), not prose: \u3000 CJK space, \u2013/\u2014
+    # en+em dash, \u30fb katakana middle dot.
+    t = re.sub(r"[\s\u3000_.,:;|/\\~\-\u2013\u2014\u30fb]+", " ", t)
+    return t.strip()
+
+
+def pick_replacement(
+    old_title: str | None, items: list[dict], taken: set[str]
+) -> tuple[dict | None, str]:
+    """Choose a dead cam's replacement from its channel's live streams.
+
+    Returns (item, why). An item is returned ONLY when its title still identifies the same
+    camera - because a channel's *other* live stream is a different beach, not a new angle
+    on this one. Auto-applying the channel's first live stream pointed Chigasaki at Miura,
+    30 km away and already assigned to another spot (2026-07-29); this is the guard against
+    repeating that. Anything short of a title match is handed back for a human to judge.
+    """
+    fresh = [i for i in items if i.get("id", {}).get("videoId") not in taken]
+    if not fresh:
+        return None, "no unassigned live stream on this channel"
+    if not old_title:
+        return None, f"{len(fresh)} live stream(s), but the old title is gone - cannot match"
+    want = normalize_title(old_title)
+    for i in fresh:
+        if normalize_title(i.get("snippet", {}).get("title", "")) == want:
+            return i, "same title - same camera, new broadcast id"
+    titles = "; ".join(i.get("snippet", {}).get("title", "")[:40] for i in fresh[:3])
+    return None, f"no title match among {len(fresh)} live stream(s) [{titles}]"
 
 
 def load_state() -> dict:
@@ -440,6 +492,8 @@ def cmd_verify(api: Api, args: argparse.Namespace) -> None:
             f"{len(dead)} dead cam(s). Re-run with --resolve to find replacements (100 units each)."
         )
         return
+    taken = assigned_cam_ids(spots)
+    needs_human: list[tuple[dict, str]] = []
     for spot, cam, _ in dead:
         cid = urllib.parse.urlparse(cam.get("by_url", "")).path.rstrip("/").rsplit("/", 1)[-1]
         if cid.startswith("@"):
@@ -450,20 +504,35 @@ def cmd_verify(api: Api, args: argparse.Namespace) -> None:
             break
         if not items:
             print(f"  {spot['id']}: channel has no live stream - remove the cam?")
+            needs_human.append((spot, "channel is dark"))
             continue
-        new_id = items[0]["id"]["videoId"]
+        old_title = (videos.get(cam["yt"], {}).get("snippet") or {}).get("title")
+        match, why = pick_replacement(old_title, items, taken)
+        if match is None:
+            print(f"  {spot['id']}: NEEDS A HUMAN - {why}")
+            needs_human.append((spot, why))
+            continue
+        new_id = match["id"]["videoId"]
+        print(f"  {spot['id']}: {cam['yt']} -> {new_id} ({why})")
+        if not args.apply:
+            continue
+        path = SPOTS_DIR / spot["file"]
+        text = path.read_text(encoding="utf-8")
+        patched = text.replace(f'yt: "{cam["yt"]}"', f'yt: "{new_id}"')
+        if patched != text:
+            path.write_text(patched, encoding="utf-8")
+            taken.discard(cam["yt"])
+            taken.add(new_id)
+            print(f"    patched {spot['file']}")
+        else:
+            print(f"    could not patch {spot['file']} - yt id string not found")
+    if needs_human:
         print(
-            f"  {spot['id']}: current live stream is {new_id} ({items[0]['snippet']['title'][:60]})"
+            f"\n{len(needs_human)} cam(s) need a human - a channel's OTHER live stream is a\n"
+            "different beach, not a new angle. Assign or remove by hand:"
         )
-        if args.apply:
-            path = SPOTS_DIR / spot["file"]
-            text = path.read_text(encoding="utf-8")
-            patched = text.replace(f'yt: "{cam["yt"]}"', f'yt: "{new_id}"')
-            if patched != text:
-                path.write_text(patched, encoding="utf-8")
-                print(f"    patched {spot['file']}")
-            else:
-                print(f"    could not patch {spot['file']} - yt id string not found")
+        for spot, why in needs_human:
+            print(f"  {spot['id']} ({spot['file']}): {why}")
     print(f"spent {api.spent} units")
 
 
@@ -478,7 +547,11 @@ def main() -> None:
     p.add_argument("--geocode", action="store_true", help="distance sanity via GOOGLE_MAPS_API_KEY")
     p.add_argument("--resolve", action="store_true", help="verify: find replacement streams")
     p.add_argument(
-        "--apply", action="store_true", help="verify --resolve: patch spot YAMLs in place"
+        "--apply",
+        action="store_true",
+        help="verify --resolve: patch spot YAMLs in place. Only ever writes a swap whose "
+        "title still matches the dead stream (same camera, new broadcast id); anything "
+        "else is listed for a human.",
     )
     args = p.parse_args()
 
