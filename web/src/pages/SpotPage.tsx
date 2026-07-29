@@ -67,8 +67,6 @@ const pmOf = (hours: HourEntry[]) =>
 /** Size / Period / Wind quality bars for the selected day (mock's bars3). */
 function DayBars({ day, hours }: { day: DayEntry; hours: HourEntry[] }) {
   // PEAK period, matching every other swell readout (see CLAUDE.md §UI "display != scoring").
-  // Caveat: the `per / 9` scale below was set against MEAN periods, so it now saturates on
-  // ordinary days - rescale (~/13) before reading much into a full Period bar.
   const per = Math.max(
     0,
     ...hours.map((h) => {
@@ -80,7 +78,13 @@ function DayBars({ day, hours }: { day: DayEntry; hours: HourEntry[] }) {
   const pmKts = pm.length > 0 ? Math.max(...pm.map((h) => knots(h.wind.kph))) : 0;
   const bars = [
     { l: "Size", q: Math.min(1, day.h_max[1] / 1.3) },
-    { l: "Period", q: Math.min(1, per / 9) },
+    // Ramp, not a bare divisor: peak periods below ~5 s barely occur, so scaling from zero
+    // wasted the bottom third of the track. 5 s empty -> 15 s full spans p5..p91 of the
+    // fleet's day-max in-window peak period, and lands the qClass tiers where a surfer
+    // would put them (6 s windswell poor, 10 s fair, 12 s+ good). The old /9 read FULL on
+    // 58% of days - it was set for MEAN periods and never rescaled when the readouts moved
+    // to peak (CLAUDE.md §UI "display != scoring").
+    { l: "Period", q: Math.max(0, Math.min(1, (per - 5) / 10)) },
     { l: "Wind", q: hours.length > 0 ? Math.max(0.12, 1 - pmKts / 22) : 0 },
   ];
   return (
