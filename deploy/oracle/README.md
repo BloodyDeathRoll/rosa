@@ -53,8 +53,10 @@ Two independent eyes, after two silent run-crash incidents left stale data servi
   `curl -s -H "x-admin-secret: $PUSH_ADMIN_SECRET" $PUSH_SUBS_URL > ~/rosa-push/admin-subs.json`).
 - **Stale-data watchdog (rosa-backup, 10.0.0.11):** hourly cron runs
   `~/rosa-watch/freshness-watch.py` (source: `deploy/backup/freshness-watch.py`) -
-  alerts when rosa-data's `fetched_at` is > 7 h old or unreadable, so a dead VM or
-  dead cron still pages. Re-alerts at most every 12 h.
+  alerts when rosa-data's `fetched_at` is > 8 h old or unreadable, so a dead VM or
+  dead cron still pages. Re-alerts at most every 12 h. (8 h, not 7: `fetched_at` is
+  stamped at cycle START and publishing takes 60-90 min, so served age legitimately
+  peaks near 6.9 h - 7 h left ~6 min of headroom and a slow cycle paged falsely.)
 - **Optional third eye:** set `HEALTHCHECK_URL` in `~/rosa/.env` (healthchecks.io
   ping URL) - publish.sh pings it on success and `$HEALTHCHECK_URL/fail` on failure,
   covering the "both VMs die together" case. Unset = no-op.

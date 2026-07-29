@@ -24,7 +24,11 @@ from datetime import UTC, datetime
 from pathlib import Path
 
 DATA_URL = "https://rosa-data-opal.vercel.app/data/spots/beit-yanai.json"
-MAX_AGE_H = 7.0  # cycles run every 6 h; one missed cycle + slack
+# Cycles run every 6 h, but `fetched_at` is stamped when a cycle STARTS and the data only
+# reaches the CDN 60-90 min later, so served age peaks near 6.9 h just before each publish
+# lands. At the old 7.0 that left ~6 min of headroom and any slow cycle paged a false alarm.
+# 8.0 keeps a genuinely missed cycle (>12 h) firmly in range.
+MAX_AGE_H = 8.0
 REALERT_H = 12.0  # keep nagging while broken, but never hourly
 BASE = Path.home() / "rosa-watch"
 STATE = BASE / "state.json"
