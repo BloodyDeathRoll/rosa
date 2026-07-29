@@ -641,7 +641,7 @@ button {
   position: sticky;
   top: 52px;
   z-index: 10;
-  padding: 6px var(--edge, 12px) 8px;
+  padding: 10px var(--edge, 12px) 16px;
   background: var(--body-bg);
 }
 .coast-day {
@@ -2677,6 +2677,17 @@ a.rank-card:hover {
   flex: 0 0 var(--cw);
   min-width: 0;
   scroll-snap-align: center;
+  display: flex; /* card fills the tallest slide - a wrapped temps row can't
+                    leave its neighbours short */
+}
+.home-cards .detail-card,
+.home-cards .detail-card .open {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.home-cards .dc-body {
+  flex: 1; /* the body takes up the slack, so covers stay aligned across cards */
 }
 
 /* ---------- SwellMap layer (animated wave fields over the map) ---------- */
