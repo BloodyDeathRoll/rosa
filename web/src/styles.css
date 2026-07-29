@@ -1579,6 +1579,15 @@ a.rank-card:hover {
   align-self: stretch;
   min-height: 40px;
   border-radius: 2px;
+  background: var(--border); /* the track; the fill below carries the tier */
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.hour-grid .bar > i {
+  display: block;
+  width: 100%;
+  border-radius: 2px;
 }
 .hour-grid .surf {
   display: flex;

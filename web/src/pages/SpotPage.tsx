@@ -42,6 +42,18 @@ import type { DayEntry, HourEntry, IndexEntry, SpotPayload } from "../types";
 const NEARBY_KM = 50; // the app's nearby radius, same as the cam picker's
 const NEARBY_MAX = 6;
 
+/** How far the rating rail fills its track: one fifth per tier, so the column
+    reads as a bar chart down the hours - flat is a red stub, epic runs full. */
+const RAIL_FILL: Record<string, number> = {
+  FLAT: 20,
+  POOR: 40,
+  FAIR: 60,
+  GOOD: 80,
+  FIRING: 100,
+};
+
+const railFill = (bucket: string): number => RAIL_FILL[bucket] ?? 20;
+
 function qClass(q: number): string {
   return q >= 0.7 ? "q-good" : q >= 0.45 ? "q-fair" : q >= 0.25 ? "q-warn" : "q-poor";
 }
@@ -271,10 +283,9 @@ function HourRow({
     >
       {label && <span class="best-tag">{label}</span>}
       <span class="t tabular">{hourOf(h.t)}</span>
-      <span
-        class="bar"
-        style={`background:${h.bucket === "FLAT" ? "var(--border)" : ratingVar(h.bucket)}`}
-      />
+      <span class="bar">
+        <i style={`height:${railFill(h.bucket)}%;background:${ratingVar(h.bucket)}`} />
+      </span>
       <span class="surf">
         <b class="tabular">
           {fmtH(h.h[0], units)}-{fmtH(h.h[1], units)}
