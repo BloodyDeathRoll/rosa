@@ -2630,6 +2630,14 @@ a.rank-card:hover {
 
 /* Region heading over a run of spots - Today's coast chart and the Spots list
    under "All". Same wording and order as the group chips that filter them. */
+/* Each region reads as its own block on Today: a little room top and bottom so
+   the coasts don't run into one another. */
+.coast-group {
+  padding: 2px 0 10px;
+}
+.coast-group + .coast-group {
+  padding-top: 8px;
+}
 .group-label {
   margin: 18px var(--edge, 16px) 6px;
   font-size: 12.4px;

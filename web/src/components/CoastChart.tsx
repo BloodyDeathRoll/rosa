@@ -1,4 +1,3 @@
-import { Fragment } from "preact";
 import { useCallback, useEffect, useRef } from "preact/hooks";
 import { ratingVar } from "../conditions";
 import { sectionsOf } from "./GroupChips";
@@ -283,7 +282,7 @@ export function CoastChart({
         ))}
       </div>
       {sections.map(({ group, rows }) => (
-        <Fragment key={group}>
+        <section key={group} class="coast-group">
           {sections.length > 1 && <h3 class="group-label">{group}</h3>}
           {rows.map((data) => (
         <a key={data.spot.id} class="coast-row" href={`#/spot/${data.spot.id}`}>
@@ -324,7 +323,7 @@ export function CoastChart({
           </div>
         </a>
           ))}
-        </Fragment>
+        </section>
       ))}
     </div>
   );
