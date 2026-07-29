@@ -436,3 +436,85 @@ healthy from the outside - only the pair count reveals it.
 5. Unchanged by this entry: the Tm-vs-Tp under-call question (CLAUDE.md §UI) and whether
    `period_rideability` should key on Tp - if anything §1 sharpens it, since the input period is
    an *energy* period, further still from the Tp shown on screen.
+
+## 2026-07-29 (PM) - partition direction wander: quantified, and NOT worth smoothing
+
+Closes the SESSION-9 watch item ("temporal smoothing of long-period partition direction is
+the next candidate **if it recurs**"). Measured across the whole fleet: 203 published payloads,
+**24,531 consecutive 3 h transitions**, ~62,700 partition-slot transitions. No code changed.
+
+### It recurs - but almost all of it is in partitions that do not matter
+
+Slot-wise (following `swells[i]` across the step, as a naive smoother would):
+
+| period band | n | median | p90 | p99 | >45 deg |
+|---|---|---|---|---|---|
+| <8 s windsea | 32,674 | 3 deg | 37 | 116 | 8.02% |
+| 8-12 s | 18,986 | 1 deg | 35 | 97 | 6.06% |
+| >=12 s groundswell | 11,037 | 1 deg | 27 | 93 | 4.78% |
+
+The median step is 1-3 deg: the field is quiet, and the wander lives entirely in the tail.
+And the tail is concentrated in **weak** partitions - median height 0.24 m when a slot jumps
+>45 deg vs 0.52 m when it does not, and the jumping partition carries a median **4.2%** of the
+hour's H^2*T energy.
+
+### A third of the "wander" is not wander at all - it is the labels moving
+
+Matching each hour's partitions to the next hour's over all permutations (direction + period),
+**13.0%** of transitions have a best match that is *not* the identity: Open-Meteo's
+primary/secondary/tertiary slots reshuffle, so following a slot index follows a *different
+physical swell*. Following the matched swell instead:
+
+| period band | p90 slot-wise | p90 matched | >45 deg slot-wise | matched |
+|---|---|---|---|---|
+| 8-12 s | 35 deg | 25 deg | 6.06% | 3.73% |
+| >=12 s | 27 deg | **13 deg** | 4.78% | 3.15% |
+
+**This is why slot-wise temporal smoothing would have been a bug, not a fix.** It would blend
+two unrelated swells in 13% of transitions - degrading a calculation that is currently correct.
+
+### And the labels cannot affect the forecast anyway
+
+Everything downstream is **order-independent**: `energy_in_window` sums over partitions,
+`h_break` combines them RMS, and `dominant_partition` picks by max exposure-weighted energy.
+Slot order changes only which swell the UI lists first. So the 13% reshuffle has *zero*
+forecast impact, and the honest wander figure is the matched one (>=12 s: p90 13 deg).
+
+### What actually reaches the forecast: 1.80% of transitions
+
+The dominant partition jumped >45 deg in **441 of 24,531** transitions (1.80%), mostly in the
+8-12 s band (218) rather than true groundswell (50). By region - the tropics' multi-swell seas,
+not the Med:
+
+| region | rate | | region | rate |
+|---|---|---|---|---|
+| hawaii | 5.88% (n=119) | | portugal | 1.72% |
+| sri-lanka | 3.62% | | costa-rica | 0.94% |
+| philippines | 3.36% | | nicaragua | 0.90% |
+| japan | 3.19% | | **israel** | **0.06%** |
+
+Downstream effect on the published rows, big-jump steps vs the rest:
+
+- rating: median 3.0 pts either way; **p90 17 vs 10**
+- h_mid: median 0.000 m either way; **p90 0.30 vs 0.10 m**
+
+The medians are *identical* - SESSION 9's spread-aware exposure is absorbing the ordinary case
+exactly as claimed, because a fan that spans 40-70 deg does not care about a 20 deg wobble.
+Only the tail survives, as visible jitter in the hourly table.
+
+### Decision: no smoothing. Watch item closed.
+
+1. Slot-wise smoothing is **wrong** (blends different swells 13% of the time).
+2. Any smoothing is **unnecessary** for the physics - the transform is order-free and the fan
+   already absorbs the median case.
+3. The residual is **1.8% of rows, tail-only**, in genuinely ambiguous tropical multi-swell
+   conditions. That is real model uncertainty, and we already surface it: `spectral.consistency`
+   is exactly the "is this sea state coherent?" signal.
+
+If it is ever revisited, the principled route is partition **tracking** (match by
+direction+period across hours, as this analysis does) for **display** stability only - never a
+filter on the directions the physics consumes.
+
+Footnote: hiriketiya's original excursion (189 -> 224 -> 276 -> 255 -> 192 deg) is **absent** in
+the current run - its 12 s swell holds 191-199 deg all day. The 07-29 case was transient, which
+is itself the argument against tuning a constant to it.
