@@ -325,3 +325,114 @@ offshore wind must blow from the land (<90° from `shore_normal + 180`). Six tes
   this. The fan absorbs it where the wander is within a fan-width; beyond that it remains an
   Open-Meteo partition-quality issue, and temporal smoothing of long-period partition direction
   is the next candidate if it recurs.
+
+## 2026-07-29 (PM) - Stage-2E dry run: the period "hot bias" is mostly a harness artifact
+
+Dry run of the Stage-2E sweep a day before the archive matures, to smoke-test the path and
+preview the numbers. It changed the plan. **No knobs moved; no code changed.** Archive pulled
+from rosa-instance: 7.1 d of Open-Meteo (~40 runs/buoy), 5.7 d of GFS-Wave, 5.6 d of ECMWF
+across 13 stations; obs captured once per buoy and replayed so all three sources score the
+same truth.
+
+### 1. Open-Meteo `wave_period` is Tm-1,0, and we have been scoring it against Tm02
+
+`verify.py` pairs OM's `wave_period` with the buoy's **APD** on the reasoning that both are
+"mean" periods. NDBC's APD is **Tm02** = √(m0/m2); OM's field is the **energy period Tm-1,0** =
+m-1/m0. For any real spectrum Tm-1,0 > Tm02, so the pairing manufactures a positive bias.
+
+Settled empirically against NDBC spectral files (the Session-7 `spectra.py` harness), pairing
+the archived 0-1 d OM period to the *same buoy-hour's* measured moments:
+
+| OM period minus... | n | bias | mae | rmse |
+|--------------------|---|------|-----|------|
+| Tm-1,0 (energy period) | 1158 | **+0.54 s** | 0.99 s | 1.24 s |
+| Tm02 (= NDBC APD)      | 1158 | +2.67 s | 2.67 s | 2.94 s |
+| Tp (peak)              | 1158 | −2.52 s | 3.27 s | 4.56 s |
+
+Six of seven stations land closest to Tm-1,0 (51201 Waimea is closest to Tp - narrow
+groundswell, where Tm-1,0 ≈ Tp). Per-station the measured Tm-1,0−Tm02 gap tracks the apparent
+bias almost exactly where the sea is simple: 44013 gap 1.35 s vs apparent bias 1.36 s; 46225
+gap 3.69 vs 3.68. The residual - the honest model error - is **+1.1 s at 46042, +0.5 at 46022,
+−0.05 at 46059, −0.03 at 44013**.
+
+**Consequence: the planned Stage-2E period de-bias would have been wrong.** The 2026-07-23
+entry's "OM mean period runs ~+3 s hot in the Pacific" is ~80% definitional. Subtracting the
+APD-paired number would have driven the input **~2 s cold**, and period feeds shoaling *and*
+`period_rideability` - it would have corrupted `h_break` fleet-wide in the name of calibration.
+Fix the harness pairing before fitting anything to it. (Israel is unaffected either way: no
+NDBC/CDIP station is in range of the Med.)
+
+### 2. Hs: the fleet mean hides a sign flip by station class
+
+Fleet Hs bias is now **−0.04 m @0-1 d** (n=9774), which reads like "OM is unbiased" and is
+misleading. Per station, the offshore discus buoys run hot and the CDIP Waveriders run cold:
+
+- discus: 46042 +0.12, 46026 +0.11, 46022 +0.17, 46059 +0.05, 41013 +0.07, 51201 +0.16,
+  41008 −0.01, 44013 −0.09
+- Waverider: 46218 −0.12, 46225 −0.15, **51202 −0.49, 51205 −0.53**
+
+The split tracks the instrument, not the basin (51201 Waimea and 51205 Pauwela are both Hawaii,
+opposite signs). Session 7 already found discus-hull directional spread is instrument-broadened;
+this is the same lesson on Hs. **A single global Hs de-bias is not defensible** - the per-station
+spread (−0.53…+0.17) dwarfs the fleet mean. Also note the 07-23 "Pacific +0.23-0.41 m hot"
+figure roughly halves under proper sampling (46042 +0.23→+0.12, 51201 +0.41→+0.16): it was
+n=6-7 nowcast hours.
+
+### 3. Three-way A/B (Stage 3a/3b), matched hours
+
+Scored over the **identical** (buoy, valid-hour, lead) triples for all three sources, so the
+4×/day vs 00z/12z cadence difference cannot drive it (n=284 @0-1 d; small - the intersection is
+sparse until ECMWF matures, but the ranking is the same as the unmatched full-sample run):
+
+| var | lead | om | gfswave | ecmwf |
+|-----|------|----|---------|-------|
+| Hs bias / mae | 0-1d | −0.06 / 0.20 | −0.16 / 0.25 | **+0.05 / 0.21** |
+| period bias / mae | 0-1d | +2.45 / 2.45 (vs APD - see §1) | **+0.44 / 1.73** | −0.93 / 2.04 |
+| dir bias / mae | 0-1d | +15.1 / 34.1 | **−5.9 / 28.7** | +12.5 / 32.7 |
+
+- **GFS-Wave does not beat Open-Meteo on Hs** - it is ~0.15 m low at every lead. That answers
+  the open 3a question: no source swap for height.
+- GFS-Wave is the best **direction** source (MAE 28.7° vs 34.1°), and OM carries a consistent
+  **+15…+18° clockwise** direction bias at all leads. That is a live candidate for an input-side
+  correction because it feeds `spread_exposure()` directly - but it is measured against total-sea
+  `mwd`, not per-partition directions, so it does **not** transfer to the partition fields the
+  transform actually consumes. Do not apply it blind.
+- The period column is not a fair three-way race: OM is scored against APD and the others
+  against DPD. §1 must land before this row means anything.
+
+### 4. Station health
+
+**51101 (NW Hawaii) has been contributing nothing.** It responds (no longer 404, cf. sweep #2)
+but reports `MM` for WVHT/DPD/APD/MWD back to at least 2026-06-14 - met-only, wave sensor down.
+It produced **zero pairs in all three sources** while we archive it 4×/day. ✅ **Removed from
+`data/buoys/ndbc.yaml` same day** (registry 13 → 12 stations), with its coordinates left in a
+comment there so it can be restored the moment NDBC brings the wave payload back. Note the
+failure mode for the next registry review: a station that answers with met data still looks
+healthy from the outside - only the pair count reveals it.
+
+### Actions
+
+1. ✅ **DONE same day - the OM period pairing is fixed.** `verify.py` now pairs the model
+   period against **Tm-1,0 measured from the station's own spectrum**
+   (`ENERGY_PERIOD_VARIABLES` + `with_energy_period()`, wired for the `om` source in both the
+   nowcast and archive paths). Stations that publish no spectra fall back to the APD pairing,
+   but loudly: the row is labelled `Mean per. vs APD`, the CLI says which station degraded and
+   why, and both renderers append "report it, never calibrate against it". Hours with no
+   spectrum inside the tolerance drop out of period scoring rather than silently reverting to
+   APD. Re-run over the same archive, same n: **fleet period bias +2.81 s → +0.51 s**, RMSE at
+   46042 3.71 s → 1.51 s, per-station 46042 +1.07, 46022 +0.40, 46059 −0.14, 41013 +0.41,
+   44013 −0.07, 51201 +1.40, 46225 +0.46. GFS-Wave and ECMWF pairings are untouched (they
+   genuinely publish peak periods and were already correctly matched to DPD). 284 tests green,
+   4 new - including one that pins the definitional bias itself so this cannot rot back in.
+2. ✅ **DONE same day - `render_lead_scorecard` now prints bias and MAE, not rmse alone.**
+   This is *why* the period fault survived six days of archive: rmse is unsigned, so a +2.8 s
+   systematic offset and random scatter look identical on an rmse-only card. The lead card is
+   now one row per lead × variable with bias first, matching `render_scorecard`. Reading it
+   immediately shows something the old card could not: at 46042 the Hs bias **grows with lead**
+   (+0.12 m @0-1 d → +0.23 m @3-5 d) and so does the direction bias (+19.7° → +35.0°). Rule for
+   any future skill metric: **if it cannot show sign, it cannot show a bias - publish both.**
+3. Any de-bias must be per-station-class (or per-source) - never one global constant.
+4. Keep 51201/51202/51205 apart when judging Hawaii: they disagree by 0.7 m.
+5. Unchanged by this entry: the Tm-vs-Tp under-call question (CLAUDE.md §UI) and whether
+   `period_rideability` should key on Tp - if anything §1 sharpens it, since the input period is
+   an *energy* period, further still from the Tp shown on screen.
