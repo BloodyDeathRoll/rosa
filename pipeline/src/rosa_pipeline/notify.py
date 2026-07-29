@@ -157,11 +157,38 @@ def plan_notifications(
     favorites: list[str],
     sent: set[str],
     now: datetime,
+    *,
+    home: str | None = None,
+    regions: dict[str, str] | None = None,
+    already_today: int = 0,
 ) -> list[Notification]:
-    """One Notification per unseen group that touches the user's favorites."""
+    """AT MOST ONE Notification: the best unseen swell **where the user actually is**.
+
+    Two hard rules, both learned the hard way (user, 2026-07-29 - a single cycle
+    delivered "New swell - Japan", "New swell - Israel" and "New swell - Portugal"
+    to a phone in Israel, because the planner emitted one push per *group* and the
+    favorites spanned four countries):
+
+    - **Never leave the user's region.** The region comes from `home`, the device's
+      nearest spot, sent with the subscription - the same lock `plan_feedback_push`
+      already uses. A swell in Japan is not news to someone in Tel Aviv, however
+      much they like the look of Chigasaki.
+    - **One swell push per device per day, maximum.** Even inside one region several
+      groups can be live at once; only the best one is worth waking someone for.
+      `already_today` carries how many have gone out (see `swell_pushes_today`).
+
+    With no `home` known (a subscription made before the field existed) the region
+    cannot be judged - the one-a-day cap still applies, so the worst case is one
+    push about the wrong coast rather than a screenful.
+    """
+    if already_today > 0:
+        return []
+    home_region = (regions or {}).get(home or "", "")
     out: list[Notification] = []
     for group in groups:
         mine = [e for e in group if e.spot_id in favorites]
+        if home_region:
+            mine = [e for e in mine if (e.region or "") == home_region]
         if not mine:
             continue
         best = max(mine, key=lambda e: (e.rating, e.h_peak))
@@ -181,17 +208,23 @@ def plan_notifications(
         if more > 0:
             body += f" +{more} more {'spot' if more == 1 else 'spots'}"
         out.append(
-            Notification(
-                title=f"New swell - {where}",
-                body=body,
-                url=f"{APP_ORIGIN}/#/spot/{best.spot_id}?ev={best.peak.date().isoformat()}",
-                # the browser collapses same-tag notifications: a second safety
-                # net for the one-swell-one-notification rule
-                tag=f"rosa-{_slug(where)}-{best.peak.date().isoformat()}",
-                keys=tuple(event_key(e) for e in group),
+            (
+                (best.rating, best.h_peak),
+                Notification(
+                    title=f"New swell - {where}",
+                    body=body,
+                    url=f"{APP_ORIGIN}/#/spot/{best.spot_id}?ev={best.peak.date().isoformat()}",
+                    # the browser collapses same-tag notifications: a second safety
+                    # net for the one-swell-one-notification rule
+                    tag=f"rosa-{_slug(where)}-{best.peak.date().isoformat()}",
+                    keys=tuple(event_key(e) for e in group),
+                ),
             )
         )
-    return out
+    if not out:
+        return []
+    # one a day: of everything live in the user's own region, wake them for the best
+    return [max(out, key=lambda scored: scored[0])[1]]
 
 
 # ---------------------------------------------------------------- sent state
@@ -221,6 +254,21 @@ def save_state(path: Path, sent: dict[str, str], now: datetime) -> None:
 def sent_for(sent: dict[str, str], ehash: str) -> set[str]:
     prefix = f"{ehash}|"
     return {k.removeprefix(prefix) for k in sent if k.startswith(prefix)}
+
+
+def swell_pushes_today(sent: dict[str, str], ehash: str, now: datetime) -> int:
+    """Swell pushes already delivered to this device today - the one-a-day gate.
+
+    Feedback asks (`fb:` keys) carry their own daily limit and are not counted here.
+    The day is UTC: the device's own timezone isn't in the subscription, and a cheap
+    honest approximation beats pretending to know it."""
+    day = now.date().isoformat()
+    prefix = f"{ehash}|"
+    return sum(
+        1
+        for k, v in sent.items()
+        if k.startswith(prefix) and not k.startswith(f"{prefix}fb:") and v.startswith(day)
+    )
 
 
 def mark_sent(sent: dict[str, str], ehash: str, keys: tuple[str, ...], now: datetime) -> None:
@@ -315,7 +363,15 @@ def send_notifications(
             spots = sub.get("spots", [])
             plans: list[tuple[Notification, dict]] = [
                 (n, {"title": n.title, "body": n.body, "url": n.url, "tag": n.tag})
-                for n in plan_notifications(groups, spots, sent_keys, now)
+                for n in plan_notifications(
+                    groups,
+                    spots,
+                    sent_keys,
+                    now,
+                    home=sub.get("home"),
+                    regions=regions,
+                    already_today=swell_pushes_today(state, ehash, now),
+                )
             ]
             # evening 👍👎 ask - only for subs that keep "Spot feedback" on
             if sub.get("feedback", True):

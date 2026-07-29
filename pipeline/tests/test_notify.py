@@ -4,6 +4,7 @@ sent-state tolerance, payload loading. Pure functions - no network."""
 import json
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
+from typing import ClassVar
 
 from rosa_pipeline.notify import (
     SpotEvent,
@@ -16,6 +17,7 @@ from rosa_pipeline.notify import (
     plan_notifications,
     save_state,
     sent_for,
+    swell_pushes_today,
 )
 
 NOW = datetime(2026, 7, 23, 12, 0, tzinfo=UTC)
@@ -386,3 +388,100 @@ class TestFeedbackPull:
         rows = store.read("feedback")
         assert [r["id"] for r in rows] == ["feedback/x.json", "feedback/y.json"]
         assert set(deleted["ids"]) == {"feedback/x.json", "feedback/y.json"}  # both pruned
+
+
+class TestOnePushPerDayInTheUsersOwnRegion:
+    """The 2026-07-29 complaint: one cycle delivered "New swell - Japan",
+    "New swell - Israel" and "New swell - Portugal" to a phone in Tel Aviv,
+    because the planner emitted one push per group and the favorites spanned four
+    countries. Both rules below are user-stated requirements, not heuristics."""
+
+    REGIONS: ClassVar[dict[str, str]] = {
+        "zvulun": "Israel",
+        "hilton": "Israel",
+        "beit-yanai": "Israel",
+        "chigasaki": "Japan",
+        "guincho": "Portugal",
+    }
+
+    def _worldwide(self):
+        return group_events(
+            [
+                ev("zvulun", region="Israel", rating=55),
+                ev("chigasaki", region="Japan", rating=90, peak_off_h=30),
+                ev("guincho", region="Portugal", rating=70, peak_off_h=36),
+            ]
+        )
+
+    def test_a_phone_in_israel_hears_only_about_israel(self):
+        plans = plan_notifications(
+            self._worldwide(),
+            ["zvulun", "chigasaki", "guincho"],
+            set(),
+            NOW,
+            home="hilton",
+            regions=self.REGIONS,
+        )
+        assert len(plans) == 1
+        assert plans[0].title == "New swell - Israel"
+
+    def test_a_better_swell_abroad_does_not_win(self):
+        """Japan is rated 90 against Israel's 55 - still not news in Tel Aviv."""
+        plans = plan_notifications(
+            self._worldwide(),
+            ["zvulun", "chigasaki", "guincho"],
+            set(),
+            NOW,
+            home="hilton",
+            regions=self.REGIONS,
+        )
+        assert "Japan" not in plans[0].title
+
+    def test_several_live_swells_at_home_still_wake_you_once(self):
+        groups = group_events(
+            [
+                ev("zvulun", rating=55, peak_off_h=24),
+                ev("beit-yanai", rating=80, peak_off_h=60, direction=180),
+            ]
+        )
+        assert len(groups) == 2  # genuinely two swells
+        plans = plan_notifications(
+            groups, ["zvulun", "beit-yanai"], set(), NOW, home="hilton", regions=self.REGIONS
+        )
+        assert len(plans) == 1
+        assert "beit-yanai" in plans[0].url  # and it is the better one
+
+    def test_nothing_more_once_today_has_had_its_push(self):
+        plans = plan_notifications(
+            self._worldwide(),
+            ["zvulun"],
+            set(),
+            NOW,
+            home="hilton",
+            regions=self.REGIONS,
+            already_today=1,
+        )
+        assert plans == []
+
+    def test_unknown_home_cannot_region_lock_but_is_still_capped_at_one(self):
+        """Subscriptions predating the `home` field: worst case is one push about the
+        wrong coast, never a screenful."""
+        plans = plan_notifications(
+            self._worldwide(), ["zvulun", "chigasaki", "guincho"], set(), NOW
+        )
+        assert len(plans) == 1
+
+
+class TestSwellPushesToday:
+    def test_counts_only_this_device_only_today_and_not_feedback(self):
+        eh = endpoint_hash("https://example.com/a")
+        other = endpoint_hash("https://example.com/b")
+        sent = {
+            f"{eh}|swell:zvulun:2026-07-23": NOW.isoformat(),
+            f"{eh}|swell:poleg:2026-07-22": (NOW - timedelta(days=1)).isoformat(),
+            f"{eh}|fb:zvulun:2026-07-23": NOW.isoformat(),
+            f"{other}|swell:zvulun:2026-07-23": NOW.isoformat(),
+        }
+        assert swell_pushes_today(sent, eh, NOW) == 1
+        assert swell_pushes_today(sent, eh, NOW + timedelta(days=1)) == 0
+        assert swell_pushes_today({}, eh, NOW) == 0
