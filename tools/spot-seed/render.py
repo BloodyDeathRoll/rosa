@@ -10,6 +10,7 @@ Usage:
   python tools/spot-seed/render.py <region> [--tier new|corrections] [--zoom 16]
   python tools/spot-seed/render.py --file path/to/spots.json --out DIR
 """
+
 from __future__ import annotations
 import argparse, json, os, shutil, subprocess, sys, tempfile, time, urllib.request
 from pathlib import Path
@@ -53,17 +54,32 @@ def render_tiles(spots, out_dir, zoom=16, http_port=4180, cdp_port=9230):
     out_dir.mkdir(parents=True, exist_ok=True)
     sj = out_dir / "spots.json"
     sj.write_text(json.dumps(spots))
-    srv = subprocess.Popen([sys.executable, "-m", "http.server", str(http_port)],
-                           cwd=str(VERIFY), stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    srv = subprocess.Popen(
+        [sys.executable, "-m", "http.server", str(http_port)],
+        cwd=str(VERIFY),
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
     udd = tempfile.mkdtemp()
-    chrome = subprocess.Popen([_chrome(), "--headless=new", "--enable-unsafe-swiftshader",
-                               f"--remote-debugging-port={cdp_port}", f"--user-data-dir={udd}"],
-                              stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    chrome = subprocess.Popen(
+        [
+            _chrome(),
+            "--headless=new",
+            "--enable-unsafe-swiftshader",
+            f"--remote-debugging-port={cdp_port}",
+            f"--user-data-dir={udd}",
+        ],
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
     try:
         _wait_cdp(cdp_port)
         env = {**os.environ, "SPOT_HTTP_PORT": str(http_port), "SPOT_CDP_PORT": str(cdp_port)}
-        subprocess.run([_node(), str(VERIFY / "shoot.mjs"), str(sj), str(out_dir), str(zoom)],
-                       env=env, check=True)
+        subprocess.run(
+            [_node(), str(VERIFY / "shoot.mjs"), str(sj), str(out_dir), str(zoom)],
+            env=env,
+            check=True,
+        )
     finally:
         srv.terminate()
         chrome.terminate()
@@ -78,8 +94,9 @@ def _spots_from_region(region, tier):
     for r in rows:
         if tier == "corrections":  # {id, m, osm} - render at OUR pin? no coords; skip
             continue
-        out.append({"id": r["id"], "name": r.get("name", r["id"]),
-                    "lat": r["lat"], "lon": r["lon"]})
+        out.append(
+            {"id": r["id"], "name": r.get("name", r["id"]), "lat": r["lat"], "lon": r["lon"]}
+        )
     return out
 
 

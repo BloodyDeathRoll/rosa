@@ -171,9 +171,7 @@ def measure(spec: SpectrumObs) -> SpectrumMeasures | None:
     qp = (2.0 / m0**2) * moment(spec.freqs, tuple(e * e for e in spec.energy), 1)
     r1 = spec.r1[peak_i]
     sigma = math.degrees(math.sqrt(2.0 * (1.0 - r1))) if r1 is not None and r1 <= 1.0 else None
-    windsea = (
-        f_peak > spec.sep_freq if spec.sep_freq is not None else tp < WINDSEA_TP_MAX_S
-    )
+    windsea = f_peak > spec.sep_freq if spec.sep_freq is not None else tp < WINDSEA_TP_MAX_S
     return SpectrumMeasures(
         time=spec.time,
         hs_m=hs,
@@ -297,8 +295,7 @@ def render_report(buoy: Buoy, report: SpectraReport) -> str:
     r = report.consistency_spearman
     if r is not None:
         lines.append(
-            f"  consistency proxy vs Qp narrowness: spearman r={r:+.2f}"
-            f" (n={report.consistency_n})"
+            f"  consistency proxy vs Qp narrowness: spearman r={r:+.2f} (n={report.consistency_n})"
         )
     else:
         lines.append("  consistency proxy vs Qp narrowness: (not enough spectra)")
@@ -340,9 +337,7 @@ class NDBCSpectraSource:
             swr1_text = swr1.text if swr1.status_code == 200 else ""
         if self.capture_dir is not None:
             self.capture_dir.mkdir(parents=True, exist_ok=True)
-            (self.capture_dir / f"{buoy.id}.data_spec").write_text(
-                data_spec.text, encoding="utf-8"
-            )
+            (self.capture_dir / f"{buoy.id}.data_spec").write_text(data_spec.text, encoding="utf-8")
             (self.capture_dir / f"{buoy.id}.swr1").write_text(swr1_text, encoding="utf-8")
         return parse_spectra(data_spec.text, swr1_text, buoy.id)
 

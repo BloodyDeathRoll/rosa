@@ -71,9 +71,7 @@ def _partition_period(p: SwellPartition) -> float:
     return p.peak_period_s if p.peak_period_s is not None else p.period_s
 
 
-def missed_swells(
-    sea: SpectralSea, partitions: tuple[SwellPartition, ...]
-) -> list[MissedSwell]:
+def missed_swells(sea: SpectralSea, partitions: tuple[SwellPartition, ...]) -> list[MissedSwell]:
     """Band energy the partitions can't explain - banded height cannot hide from the sorter.
 
     Per band, the accounted height is the RMS of partitions whose period falls inside the

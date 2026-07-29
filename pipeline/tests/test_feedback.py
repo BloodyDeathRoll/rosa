@@ -15,10 +15,20 @@ from rosa_pipeline.feedback import (
 PAYLOAD = {
     "current": {"rating": 60, "bucket": "GOOD", "h": [0.5, 0.8], "phrase": "waist-high"},
     "hours": [
-        {"t": "2026-07-21T06:00+03:00", "rating": 55, "bucket": "GOOD",
-         "h": [0.5, 0.8], "phrase": "waist-high"},
-        {"t": "2026-07-21T12:00+03:00", "rating": 20, "bucket": "POOR",
-         "h": [0.1, 0.2], "phrase": "shin-high"},
+        {
+            "t": "2026-07-21T06:00+03:00",
+            "rating": 55,
+            "bucket": "GOOD",
+            "h": [0.5, 0.8],
+            "phrase": "waist-high",
+        },
+        {
+            "t": "2026-07-21T12:00+03:00",
+            "rating": 20,
+            "bucket": "POOR",
+            "h": [0.1, 0.2],
+            "phrase": "shin-high",
+        },
     ],
 }
 
@@ -54,7 +64,9 @@ def test_record_row_roundtrips() -> None:
 
 def _rec(pred_bucket, obs_bucket, verdict, pred_h=None, obs_h=None) -> FeedbackRecord:
     return FeedbackRecord(
-        spot="s", at=datetime(2026, 7, 21, 9, 0, tzinfo=UTC), verdict=verdict,
+        spot="s",
+        at=datetime(2026, 7, 21, 9, 0, tzinfo=UTC),
+        verdict=verdict,
         predicted={"bucket": pred_bucket, "rating": 0, "h": pred_h, "phrase": ""},
         observed={k: v for k, v in (("bucket", obs_bucket), ("h_mid", obs_h)) if v is not None},
     )
@@ -64,7 +76,7 @@ def test_summarize_agreement_and_hot_bias() -> None:
     records = [
         _rec("GOOD", "POOR", "down", pred_h=[0.5, 0.9], obs_h=0.2),  # +2 hot, +0.5 m hot
         _rec("FAIR", "POOR", "down", pred_h=[0.3, 0.5], obs_h=0.3),  # +1 hot, +0.1 m hot
-        _rec("POOR", "POOR", "up"),                                   # spot on, no height
+        _rec("POOR", "POOR", "up"),  # spot on, no height
     ]
     s = summarize(records)
     assert s["n"] == 3

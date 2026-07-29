@@ -34,8 +34,22 @@ APP_ORIGIN = "https://rosa-rust.vercel.app"
 BUCKET_WORD = {"FLAT": "Flat", "POOR": "Poor", "FAIR": "Fair", "GOOD": "Good", "FIRING": "Epic"}
 
 _CARDINALS = [
-    "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE",
-    "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW",
+    "N",
+    "NNE",
+    "NE",
+    "ENE",
+    "E",
+    "ESE",
+    "SE",
+    "SSE",
+    "S",
+    "SSW",
+    "SW",
+    "WSW",
+    "W",
+    "WNW",
+    "NW",
+    "NNW",
 ]
 
 _DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
@@ -46,7 +60,7 @@ def _cardinal(deg: float) -> str:
 
 
 def _when(dt: datetime) -> str:
-    """"Fri 11:00" in the event's own (spot-local) clock."""
+    """ "Fri 11:00" in the event's own (spot-local) clock."""
     return f"{_DAYS[dt.weekday()]} {dt:%H:%M}"
 
 
@@ -131,9 +145,7 @@ def group_events(events: list[SpotEvent]) -> list[list[SpotEvent]]:
 def _was_sent(sent: set[str], e: SpotEvent) -> bool:
     """±1-day tolerance: a peak drifting across midnight is still the same swell."""
     d = e.peak.date()
-    return any(
-        f"{e.spot_id}:{(d + timedelta(days=off)).isoformat()}" in sent for off in (-1, 0, 1)
-    )
+    return any(f"{e.spot_id}:{(d + timedelta(days=off)).isoformat()}" in sent for off in (-1, 0, 1))
 
 
 def _slug(text: str) -> str:
@@ -307,9 +319,7 @@ def send_notifications(
             ]
             # evening 👍👎 ask - only for subs that keep "Spot feedback" on
             if sub.get("feedback", True):
-                fb = plan_feedback_push(
-                    candidates, spots, sent_keys, sub.get("home"), regions
-                )
+                fb = plan_feedback_push(candidates, spots, sent_keys, sub.get("home"), regions)
                 if fb is not None:
                     plans.append((fb[0], feedback_payload(fb[0], fb[1])))
             for n, payload in plans:

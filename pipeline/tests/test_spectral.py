@@ -135,8 +135,9 @@ def _raw(n_hours: int = 2) -> RawForecast:
             "wave_height_gwam": [1.0] * n_hours,
         }
     }
-    return RawForecast(fetched_at="2026-07-22T00:00:00+00:00", marine=marine,
-                       weather=weather, ensemble=ensemble)
+    return RawForecast(
+        fetched_at="2026-07-22T00:00:00+00:00", marine=marine, weather=weather, ensemble=ensemble
+    )
 
 
 def test_extract_joins_nearest_spectral_within_tolerance() -> None:
@@ -185,9 +186,7 @@ SPOT = Spot(
 
 
 def test_publish_renders_spectral_block_and_spread() -> None:
-    spectral = [
-        _sea(swh=1.0, mwd=280.0, mwp=13.3, pp1d=14.5, mp2=13.0, bands=(("h1417", 0.8),))
-    ]
+    spectral = [_sea(swh=1.0, mwd=280.0, mwp=13.3, pp1d=14.5, mp2=13.0, bands=(("h1417", 0.8),))]
     hours = extract_hours(_raw(2), spectral=spectral)
     scored = [score_hour(SPOT, h, None) for h in hours]
     payload = build_payload(SPOT, scored, fetched_at="2026-07-22T00:00:00+00:00", now=T0)

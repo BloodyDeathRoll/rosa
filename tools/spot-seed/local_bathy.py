@@ -9,6 +9,7 @@ same convention as bathy_gate.gebco_elevations, so it's a drop-in swap.
 
 Requires netCDF4 + numpy (tools/spot-seed/.venv). Run seed.py under that venv to use it.
 """
+
 from __future__ import annotations
 from pathlib import Path
 
@@ -19,6 +20,7 @@ class LocalGebco:
     def __init__(self, path=DEFAULT_GRID):
         import numpy as np
         from netCDF4 import Dataset
+
         self.np = np
         self.ds = Dataset(str(path))
         v = self.ds.variables
@@ -26,8 +28,10 @@ class LocalGebco:
         lonn = "lon" if "lon" in v else "longitude"
         self.lat = np.asarray(v[latn][:], dtype="float64")
         self.lon = np.asarray(v[lonn][:], dtype="float64")
-        dn = next((n for n in ("elevation", "z") if n in v),
-                  next((k for k, var in v.items() if var.ndim == 2), None))
+        dn = next(
+            (n for n in ("elevation", "z") if n in v),
+            next((k for k, var in v.items() if var.ndim == 2), None),
+        )
         if dn is None:
             raise ValueError("no 2-D elevation variable found in grid")
         self.elev = v[dn]  # lazy [lat, lon]
@@ -47,15 +51,18 @@ class LocalGebco:
         # one bounding-box read, then local indexing - far faster than per-point disk hits
         i0, i1 = int(ii.min()), int(ii.max())
         j0, j1 = int(jj.min()), int(jj.max())
-        sub = np.asarray(self.elev[i0:i1 + 1, j0:j1 + 1], dtype="float64")
+        sub = np.asarray(self.elev[i0 : i1 + 1, j0 : j1 + 1], dtype="float64")
         return [float(sub[i - i0, j - j0]) for i, j in zip(ii, jj)]
 
 
 if __name__ == "__main__":
     import sys
+
     g = LocalGebco()
-    print(f"grid: {g.nlat}x{g.nlon}  lat[{g.lat0:.4f}..{float(g.lat[-1]):.4f}] "
-          f"lon[{g.lon0:.4f}..{float(g.lon[-1]):.4f}]  dlat={g.dlat:.6f}")
+    print(
+        f"grid: {g.nlat}x{g.nlon}  lat[{g.lat0:.4f}..{float(g.lat[-1]):.4f}] "
+        f"lon[{g.lon0:.4f}..{float(g.lon[-1]):.4f}]  dlat={g.dlat:.6f}"
+    )
     # smoke: a known-deep point + a land point
     pts = [(5.90, 80.40), (32.0, 34.6), (0.0, 0.0)]
     for p, e in zip(pts, g.elevations(pts)):

@@ -76,9 +76,7 @@ def main() -> int:
             f.write(" ".join(f"{d:.1f}" for d in row) + "\n")
 
     spots = load_spots(ROOT / "data" / "spots")
-    il = sorted(
-        (s for s in spots.values() if s.region == "Israel"), key=lambda s: -s.lat
-    )
+    il = sorted((s for s in spots.values() if s.region == "Israel"), key=lambda s: -s.lat)
     with (out_dir / "points.loc").open("w", encoding="utf-8") as f:
         for s in il:
             f.write(f"{s.lon - POINT_OFFSHORE_LON:.5f} {s.lat:.5f}\n")

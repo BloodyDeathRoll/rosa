@@ -15,6 +15,7 @@ Usage:
     python tools/spot-seed/osm_seed.py japan
     python tools/spot-seed/osm_seed.py all
 """
+
 from __future__ import annotations
 import json, math, re, sys, time, urllib.request, urllib.parse
 from pathlib import Path
@@ -31,8 +32,13 @@ OUT_DIR = Path(__file__).resolve().parent / "candidates"
 
 # region yaml stem -> ISO 3166-1 alpha-2 (Overpass area code)
 REGIONS = {
-    "israel": "IL", "costa-rica": "CR", "sri-lanka": "LK", "japan": "JP",
-    "portugal": "PT", "nicaragua": "NI", "philippines": "PH",
+    "israel": "IL",
+    "costa-rica": "CR",
+    "sri-lanka": "LK",
+    "japan": "JP",
+    "portugal": "PT",
+    "nicaragua": "NI",
+    "philippines": "PH",
 }
 
 DEDUPE_KM = 3.0  # a break within this of an existing spot = same spot
@@ -47,7 +53,9 @@ BIZ_NAME_RE = re.compile(
     r"hostel|hostal|hotel|pousada|guest\s?house|surfboard|repair|ding|caf[eé]|bar|"
     r"club|clube|academy|resort|lodge|villa|apartments?|rooms?|surfhouse|lounge|"
     r"cent(er|re|ro)|kite\w*|\bsup\b|yoga|scuba|div(e|ing)|pesqueiro|rendimento|"
-    r"collective|co\.?|inc\.?)\b|surfshop|surf\s?camp)", re.I)
+    r"collective|co\.?|inc\.?)\b|surfshop|surf\s?camp)",
+    re.I,
+)
 
 
 def haversine_km(a_lat, a_lon, b_lat, b_lon):
@@ -55,7 +63,7 @@ def haversine_km(a_lat, a_lon, b_lat, b_lon):
     p1, p2 = math.radians(a_lat), math.radians(b_lat)
     dp = math.radians(b_lat - a_lat)
     dl = math.radians(b_lon - a_lon)
-    x = math.sin(dp/2)**2 + math.cos(p1)*math.cos(p2)*math.sin(dl/2)**2
+    x = math.sin(dp / 2) ** 2 + math.cos(p1) * math.cos(p2) * math.sin(dl / 2) ** 2
     return 2 * R * math.asin(math.sqrt(x))
 
 
@@ -65,7 +73,7 @@ def load_existing(region: str):
     text = (SPOTS_DIR / f"{region}.yaml").read_text(encoding="utf-8")
     out = []
     for m in re.finditer(r"\bid:\s*([a-z0-9-]+)", text):
-        seg = text[m.start():m.start() + 400]
+        seg = text[m.start() : m.start() + 400]
         lat = re.search(r"\blat:\s*(-?[0-9.]+)", seg)
         lon = re.search(r"\blon:\s*(-?[0-9.]+)", seg)
         if lat and lon:
@@ -93,21 +101,26 @@ def name_of(tags):
 
 
 def query_overpass(iso: str):
-    q = (f'[out:json][timeout:180];area["ISO3166-1"="{iso}"][admin_level=2]->.a;'
-         f'(nwr["sport"="surfing"](area.a););out center tags;')
+    q = (
+        f'[out:json][timeout:180];area["ISO3166-1"="{iso}"][admin_level=2]->.a;'
+        f'(nwr["sport"="surfing"](area.a););out center tags;'
+    )
     data = urllib.parse.urlencode({"data": q}).encode()
     last = None
     for attempt in range(4):
         endpoint = OVERPASS_ENDPOINTS[attempt % len(OVERPASS_ENDPOINTS)]
         try:
-            req = urllib.request.Request(endpoint, data=data,
-                                         headers={"User-Agent": "rosa-spot-seed/0.1"})
+            req = urllib.request.Request(
+                endpoint, data=data, headers={"User-Agent": "rosa-spot-seed/0.1"}
+            )
             with urllib.request.urlopen(req, timeout=200) as r:
                 return json.load(r).get("elements", [])
         except Exception as e:  # 429/504/timeout - back off and try next mirror
             last = e
-            print(f"    {endpoint.split('//')[1].split('/')[0]} failed ({e}); retrying",
-                  file=sys.stderr)
+            print(
+                f"    {endpoint.split('//')[1].split('/')[0]} failed ({e}); retrying",
+                file=sys.stderr,
+            )
             time.sleep(5 * (attempt + 1))
     raise RuntimeError(f"all Overpass endpoints failed: {last}")
 
@@ -122,8 +135,14 @@ def run_region(region: str, iso: str):
         lon = e.get("lon") or (e.get("center") or {}).get("lon")
         if lat is None or lon is None:
             continue
-        rec = {"type": e["type"], "id": e["id"], "name": name_of(tags),
-               "lat": round(lat, 5), "lon": round(lon, 5), "tags": tags}
+        rec = {
+            "type": e["type"],
+            "id": e["id"],
+            "name": name_of(tags),
+            "lat": round(lat, 5),
+            "lon": round(lon, 5),
+            "tags": tags,
+        }
         (biz if is_business(tags) else breaks).append(rec)
     new, matched = [], []
     for b in breaks:
@@ -137,11 +156,22 @@ def run_region(region: str, iso: str):
         (matched if dmin < DEDUPE_KM else new).append(b)
     new.sort(key=lambda b: -b["lat"])
     OUT_DIR.mkdir(exist_ok=True)
-    summary = {"region": region, "iso": iso, "existing_spots": len(existing),
-               "raw": len(els), "business": len(biz), "candidates": len(breaks),
-               "matched_existing": len(matched), "new": len(new)}
-    json.dump({"summary": summary, "new": new, "matched": matched, "business": biz},
-              open(OUT_DIR / f"{region}.json", "w"), ensure_ascii=False, indent=1)
+    summary = {
+        "region": region,
+        "iso": iso,
+        "existing_spots": len(existing),
+        "raw": len(els),
+        "business": len(biz),
+        "candidates": len(breaks),
+        "matched_existing": len(matched),
+        "new": len(new),
+    }
+    json.dump(
+        {"summary": summary, "new": new, "matched": matched, "business": biz},
+        open(OUT_DIR / f"{region}.json", "w"),
+        ensure_ascii=False,
+        indent=1,
+    )
     return summary, new
 
 
@@ -165,28 +195,44 @@ def main():
             continue
         rows.append(summary)
         s = summary
-        print(f"  existing {s['existing_spots']:>3} | raw {s['raw']:>3} | "
-              f"biz {s['business']:>3} | breaks {s['candidates']:>3} | "
-              f"match {s['matched_existing']:>3} | NEW {s['new']:>3}")
+        print(
+            f"  existing {s['existing_spots']:>3} | raw {s['raw']:>3} | "
+            f"biz {s['business']:>3} | breaks {s['candidates']:>3} | "
+            f"match {s['matched_existing']:>3} | NEW {s['new']:>3}"
+        )
         if len(regions) == 1:
             for b in new:
-                extra = [f"{k}={b['tags'][k]}" for k in ("natural", "leisure", "name:ja")
-                         if k in b["tags"]]
-                print(f"    {b['lat']:.4f},{b['lon']:.4f}  {b['name'][:36]:36} "
-                      f"[{b['type']}/{b['id']}]  {' '.join(extra)}")
+                extra = [
+                    f"{k}={b['tags'][k]}"
+                    for k in ("natural", "leisure", "name:ja")
+                    if k in b["tags"]
+                ]
+                print(
+                    f"    {b['lat']:.4f},{b['lon']:.4f}  {b['name'][:36]:36} "
+                    f"[{b['type']}/{b['id']}]  {' '.join(extra)}"
+                )
         if len(regions) > 1:
             time.sleep(3)  # be polite to the public Overpass instance
     if len(rows) > 1:
         print("\n=== 7-country OSM yield ===")
-        print(f"{'region':13} {'have':>5} {'raw':>5} {'biz':>4} {'break':>6} {'match':>6} {'NEW':>5}")
-        tot = {k: 0 for k in ("existing_spots", "raw", "business", "candidates", "matched_existing", "new")}
+        print(
+            f"{'region':13} {'have':>5} {'raw':>5} {'biz':>4} {'break':>6} {'match':>6} {'NEW':>5}"
+        )
+        tot = {
+            k: 0
+            for k in ("existing_spots", "raw", "business", "candidates", "matched_existing", "new")
+        }
         for s in rows:
-            print(f"{s['region']:13} {s['existing_spots']:>5} {s['raw']:>5} "
-                  f"{s['business']:>4} {s['candidates']:>6} {s['matched_existing']:>6} {s['new']:>5}")
+            print(
+                f"{s['region']:13} {s['existing_spots']:>5} {s['raw']:>5} "
+                f"{s['business']:>4} {s['candidates']:>6} {s['matched_existing']:>6} {s['new']:>5}"
+            )
             for k in tot:
                 tot[k] += s[k]
-        print(f"{'TOTAL':13} {tot['existing_spots']:>5} {tot['raw']:>5} "
-              f"{tot['business']:>4} {tot['candidates']:>6} {tot['matched_existing']:>6} {tot['new']:>5}")
+        print(
+            f"{'TOTAL':13} {tot['existing_spots']:>5} {tot['raw']:>5} "
+            f"{tot['business']:>4} {tot['candidates']:>6} {tot['matched_existing']:>6} {tot['new']:>5}"
+        )
 
 
 if __name__ == "__main__":

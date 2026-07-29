@@ -45,10 +45,20 @@ def test_lead_time_buckets_and_scoring() -> None:
     valid = datetime(2026, 7, 22, 12, 0, tzinfo=UTC)
     # two forecasts for the SAME valid time: one made 6 h ahead (0-1d), one 4 days ahead (3-5d)
     rows = [
-        {"run": (valid - timedelta(hours=6)).isoformat(), "valid": valid.isoformat(),
-         "hs": 1.1, "tp": None, "dir": None},
-        {"run": (valid - timedelta(days=4)).isoformat(), "valid": valid.isoformat(),
-         "hs": 1.6, "tp": None, "dir": None},
+        {
+            "run": (valid - timedelta(hours=6)).isoformat(),
+            "valid": valid.isoformat(),
+            "hs": 1.1,
+            "tp": None,
+            "dir": None,
+        },
+        {
+            "run": (valid - timedelta(days=4)).isoformat(),
+            "valid": valid.isoformat(),
+            "hs": 1.6,
+            "tp": None,
+            "dir": None,
+        },
     ]
     obs = [_obs(valid, hs_m=1.0)]  # truth: 1.0 m
     by_lead = lead_time_scorecard(rows, obs, tol_min=30)
@@ -63,8 +73,15 @@ def test_lead_time_buckets_and_scoring() -> None:
 
 def test_lead_scorecard_ignores_unmatched_valid_times() -> None:
     valid = datetime(2026, 7, 22, 12, 0, tzinfo=UTC)
-    rows = [{"run": (valid - timedelta(hours=6)).isoformat(), "valid": valid.isoformat(),
-             "hs": 1.1, "tp": None, "dir": None}]
+    rows = [
+        {
+            "run": (valid - timedelta(hours=6)).isoformat(),
+            "valid": valid.isoformat(),
+            "hs": 1.1,
+            "tp": None,
+            "dir": None,
+        }
+    ]
     obs = [_obs(valid + timedelta(hours=3), hs_m=1.0)]  # obs 3 h off - outside 30-min tol
     by_lead = lead_time_scorecard(rows, obs, tol_min=30)
     assert all(by_lead[b]["hs"].n == 0 for b in by_lead)

@@ -150,9 +150,7 @@ def load_frames(path: Path) -> list[Frame]:
     return frames
 
 
-def predict_frame(
-    frame: Frame, spot: Spot, wet_depths: list[float], candidate: Candidate
-) -> float:
+def predict_frame(frame: Frame, spot: Spot, wet_depths: list[float], candidate: Candidate) -> float:
     """Raw h_mid for one frame under one candidate - the exact production path
     (tide-shifted depths -> physics march -> rideability -> height_coeff), minus
     only the display snapping, which would quantize grading."""

@@ -141,9 +141,7 @@ def destination(lat: float, lon: float, bearing_deg: float, dist_km: float) -> t
     br = math.radians(bearing_deg)
     lat1 = math.radians(lat)
     lon1 = math.radians(lon)
-    lat2 = math.asin(
-        math.sin(lat1) * math.cos(ang) + math.cos(lat1) * math.sin(ang) * math.cos(br)
-    )
+    lat2 = math.asin(math.sin(lat1) * math.cos(ang) + math.cos(lat1) * math.sin(ang) * math.cos(br))
     lon2 = lon1 + math.atan2(
         math.sin(br) * math.sin(ang) * math.cos(lat1),
         math.cos(ang) - math.sin(lat1) * math.sin(lat2),
@@ -158,9 +156,7 @@ def ray_points(
     distances: tuple[float, ...] = RAY_DISTANCES_KM,
 ) -> list[tuple[float, float, float]]:
     """(lat, lon, dist_km) sample points marching seaward from the spot along the shore-normal."""
-    return [
-        (*destination(origin_lat, origin_lon, seaward_bearing_deg, d), d) for d in distances
-    ]
+    return [(*destination(origin_lat, origin_lon, seaward_bearing_deg, d), d) for d in distances]
 
 
 def _round_key(lat: float, lon: float) -> str:

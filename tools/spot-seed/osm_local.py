@@ -10,6 +10,7 @@ extract_region(pbf) -> (coast_ways, beacons):
 
 Requires pyosmium (tools/spot-seed/.venv).
 """
+
 from __future__ import annotations
 import osmium
 from osm_seed import is_business  # tag- AND name-based (shop/amenity/school/...) - never a spot
@@ -42,8 +43,11 @@ class _Extract(osmium.SimpleHandler):
         elif t.get("sport") == "surfing" or t.get("natural") == "beach":
             pts = [(nd.location.lat, nd.location.lon) for nd in w.nodes if nd.location.valid()]
             if pts:
-                self._beacon({x.k: x.v for x in t},
-                             sum(p[0] for p in pts) / len(pts), sum(p[1] for p in pts) / len(pts))
+                self._beacon(
+                    {x.k: x.v for x in t},
+                    sum(p[0] for p in pts) / len(pts),
+                    sum(p[1] for p in pts) / len(pts),
+                )
 
 
 def extract_region(pbf_path):
@@ -54,9 +58,11 @@ def extract_region(pbf_path):
 
 if __name__ == "__main__":
     import sys
+
     coast, beacons = extract_region(sys.argv[1])
     surf = [b for b in beacons if b["surf"] and b["name"]]
-    print(f"coastline ways: {len(coast)} | beacons: {len(beacons)} "
-          f"({len(surf)} named surf features)")
+    print(
+        f"coastline ways: {len(coast)} | beacons: {len(beacons)} ({len(surf)} named surf features)"
+    )
     for b in surf[:15]:
         print(f"  surf: {b['lat']:.4f},{b['lon']:.4f}  {b['name']}")

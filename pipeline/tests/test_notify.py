@@ -118,9 +118,7 @@ class TestPlanning:
         e_sent = ev("a", peak_off_h=24)
         e_drifted = ev("a", peak_off_h=24 + 26)  # crosses midnight vs e_sent
         assert e_sent.peak.date() != e_drifted.peak.date()
-        plans = plan_notifications(
-            group_events([e_drifted]), ["a"], {event_key(e_sent)}, NOW
-        )
+        plans = plan_notifications(group_events([e_drifted]), ["a"], {event_key(e_sent)}, NOW)
         assert plans == []
 
     def test_group_sent_via_any_member_suppresses_all(self):
@@ -251,10 +249,20 @@ def _payload_dir(tmp_path: Path, rating_max: int, date: str = "2026-07-23") -> P
         "spot": {"id": "zvulun", "name": "Zvulun (Herzliya)", "timezone": "Asia/Jerusalem"},
         "days": [{"date": date, "rating_max": rating_max, "bucket": "GOOD", "h_max": [0.6, 0.9]}],
         "hours": [
-            {"t": f"{date}T09:00+03:00", "rating": rating_max, "bucket": "GOOD",
-             "h": [0.6, 0.9], "phrase": "waist-high"},
-            {"t": f"{date}T15:00+03:00", "rating": 40, "bucket": "FAIR",
-             "h": [0.4, 0.6], "phrase": "knee-high"},
+            {
+                "t": f"{date}T09:00+03:00",
+                "rating": rating_max,
+                "bucket": "GOOD",
+                "h": [0.6, 0.9],
+                "phrase": "waist-high",
+            },
+            {
+                "t": f"{date}T15:00+03:00",
+                "rating": 40,
+                "bucket": "FAIR",
+                "h": [0.4, 0.6],
+                "phrase": "knee-high",
+            },
         ],
     }
     (spots / "zvulun.json").write_text(json.dumps(payload))

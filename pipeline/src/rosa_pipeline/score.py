@@ -87,9 +87,7 @@ def bucket(rating: int) -> Bucket:
     return "FIRING"
 
 
-def score_hour(
-    spot: Spot, hour: HourForecast, wet_depths: list[float] | None = None
-) -> ScoredHour:
+def score_hour(spot: Spot, hour: HourForecast, wet_depths: list[float] | None = None) -> ScoredHour:
     window = spot.swell_window
     dominant = dominant_partition(hour.partitions, window)
     energy = energy_in_window(hour.partitions, window)

@@ -117,7 +117,9 @@ def geocode_google(name: str, region: str) -> tuple[float, float, str] | None:
 def geocode_mapbox(name: str, region: str) -> tuple[float, float, str] | None:
     tok = os.environ["MAPBOX_TOKEN"]
     q = urllib.parse.quote(f"{name}, {region}")
-    res = _get(f"https://api.mapbox.com/geocoding/v5/mapbox.places/{q}.json?access_token={tok}&limit=1")
+    res = _get(
+        f"https://api.mapbox.com/geocoding/v5/mapbox.places/{q}.json?access_token={tok}&limit=1"
+    )
     feats = res.get("features", []) if isinstance(res, dict) else []
     if feats:
         lon, lat = feats[0]["center"]
@@ -139,11 +141,18 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("yaml", type=Path)
     ap.add_argument("--provider", choices=PROVIDERS, default="nominatim")
-    ap.add_argument("--region", default=None,
-                    help="country/region suffix for queries (default: from the YAML filename)")
+    ap.add_argument(
+        "--region",
+        default=None,
+        help="country/region suffix for queries (default: from the YAML filename)",
+    )
     ap.add_argument("--apply", action="store_true", help="patch lat/lon for gated matches")
-    ap.add_argument("--max-shift-km", type=float, default=6.0,
-                    help="reject a geocode that moves a spot more than this (likely wrong feature)")
+    ap.add_argument(
+        "--max-shift-km",
+        type=float,
+        default=6.0,
+        help="reject a geocode that moves a spot more than this (likely wrong feature)",
+    )
     args = ap.parse_args()
 
     geocode = PROVIDERS[args.provider]
@@ -194,14 +203,17 @@ def main() -> int:
 
     if args.apply:
         args.yaml.write_text(text, encoding="utf-8")
-    print(f"\n{args.provider}: resolved {resolved}/{len(data['spots'])}, "
-          f"applied {matched} (of which {shifted} moved >0.3km), flagged {flagged} for review, "
-          f"{protected_n} protected (user-verified, untouched).")
+    print(
+        f"\n{args.provider}: resolved {resolved}/{len(data['spots'])}, "
+        f"applied {matched} (of which {shifted} moved >0.3km), flagged {flagged} for review, "
+        f"{protected_n} protected (user-verified, untouched)."
+    )
     return 0
 
 
 def _patch_coord(text: str, spot_id: str, lat: float, lon: float, provider: str) -> str:
     import re
+
     out = []
     for line in text.splitlines(keepends=True):
         if f"id: {spot_id}," in line:

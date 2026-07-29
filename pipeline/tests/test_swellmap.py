@@ -150,9 +150,7 @@ def test_build_world_frames_from_fixture(tmp_path):
     w, h, img = _decode_png_gray(png)
     assert (w, h) == (meta["nx"], meta["ny"] * len(WORLD_PLANES))
     _geom, planes = parsed
-    want = _quantize_plane(
-        np.asarray(planes["hs"])[::WORLD_SUBSAMPLE, ::WORLD_SUBSAMPLE], 0.1
-    )
+    want = _quantize_plane(np.asarray(planes["hs"])[::WORLD_SUBSAMPLE, ::WORLD_SUBSAMPLE], 0.1)
     assert (img[: meta["ny"]] == want).all()
     assert (img == MISSING).any(), "land must be encoded as the missing sentinel"
 

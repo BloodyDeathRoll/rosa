@@ -59,8 +59,7 @@ def pick_cycle(now: datetime) -> datetime:
 
 def _stem(cycle: datetime, step: int) -> str:
     return (
-        f"{BASE_URL}/{cycle:%Y%m%d}/{cycle:%H}z/ifs/0p25/wave/"
-        f"{cycle:%Y%m%d%H%M%S}-{step}h-wave-fc"
+        f"{BASE_URL}/{cycle:%Y%m%d}/{cycle:%H}z/ifs/0p25/wave/{cycle:%Y%m%d%H%M%S}-{step}h-wave-fc"
     )
 
 
@@ -236,9 +235,7 @@ class EcmwfSource:
                 return None
             parts: list[bytes] = []
             for start, end in ranges:
-                resp = client.get(
-                    data_url(cycle, step), headers={"Range": f"bytes={start}-{end}"}
-                )
+                resp = client.get(data_url(cycle, step), headers={"Range": f"bytes={start}-{end}"})
                 if resp.status_code not in (200, 206):
                     return None
                 parts.append(resp.content)

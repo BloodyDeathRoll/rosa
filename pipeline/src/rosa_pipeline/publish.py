@@ -257,9 +257,7 @@ def build_payload(spot: Spot, scored: list[ScoredHour], *, fetched_at: str, now:
         "model": MODEL_NAME,
         "fetched_at": fetched_at,
         "generated_at": now.isoformat(timespec="seconds"),
-        "attribution": (
-            f"{ATTRIBUTION} · {ATTRIBUTION_ECMWF}" if has_spectral else ATTRIBUTION
-        ),
+        "attribution": (f"{ATTRIBUTION} · {ATTRIBUTION_ECMWF}" if has_spectral else ATTRIBUTION),
         # transparency labels for the Stage-3b fields ("why this rating" principle):
         # swell spread is a per-class assumption until validated against buoy spectra
         "spectral_meta": {

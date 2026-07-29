@@ -50,7 +50,7 @@ MIN_LIVE_HOURS = 12.0  # younger streams are somebody's session, not a cam
 TEMPLATES: dict[str, dict[str, list[str]]] = {
     "Israel": {
         "region": ["מצלמה חוף גלישה ישראל", "surf cam live israel beach"],
-        "spot": ['חוף {name} מצלמה', "{name} israel beach cam live"],
+        "spot": ["חוף {name} מצלמה", "{name} israel beach cam live"],
     },
     "Costa Rica": {
         "region": ["costa rica surf cam live playa", "costa rica beach cam live"],
@@ -125,7 +125,9 @@ class Api:
         q = urllib.parse.urlencode({**params, "key": self.key})
         return _get(f"{API}/{endpoint}?{q}")
 
-    def search_live(self, *, q: str | None = None, channel_id: str | None = None) -> list[dict] | None:
+    def search_live(
+        self, *, q: str | None = None, channel_id: str | None = None
+    ) -> list[dict] | None:
         params = {"part": "snippet", "type": "video", "eventType": "live", "maxResults": "25"}
         if q is not None:
             params["q"] = q
@@ -408,7 +410,10 @@ def cmd_sweep(api: Api, args: argparse.Namespace) -> None:
     new = judge_candidates(api, found, spots, state, args)
     save_state(state)
     write_candidates(new)
-    print(f"spent {api.spent} units" + (" - budget exhausted, rerun to continue" if out_of_budget else ""))
+    print(
+        f"spent {api.spent} units"
+        + (" - budget exhausted, rerun to continue" if out_of_budget else "")
+    )
 
 
 def cmd_verify(api: Api, args: argparse.Namespace) -> None:
@@ -431,7 +436,9 @@ def cmd_verify(api: Api, args: argparse.Namespace) -> None:
     if not dead:
         return
     if not args.resolve:
-        print(f"{len(dead)} dead cam(s). Re-run with --resolve to find replacements (100 units each).")
+        print(
+            f"{len(dead)} dead cam(s). Re-run with --resolve to find replacements (100 units each)."
+        )
         return
     for spot, cam, _ in dead:
         cid = urllib.parse.urlparse(cam.get("by_url", "")).path.rstrip("/").rsplit("/", 1)[-1]
@@ -445,7 +452,9 @@ def cmd_verify(api: Api, args: argparse.Namespace) -> None:
             print(f"  {spot['id']}: channel has no live stream - remove the cam?")
             continue
         new_id = items[0]["id"]["videoId"]
-        print(f"  {spot['id']}: current live stream is {new_id} ({items[0]['snippet']['title'][:60]})")
+        print(
+            f"  {spot['id']}: current live stream is {new_id} ({items[0]['snippet']['title'][:60]})"
+        )
         if args.apply:
             path = SPOTS_DIR / spot["file"]
             text = path.read_text(encoding="utf-8")
@@ -459,14 +468,18 @@ def cmd_verify(api: Api, args: argparse.Namespace) -> None:
 
 
 def main() -> None:
-    p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    p = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
     p.add_argument("command", choices=["channels", "sweep", "verify"])
     p.add_argument("--region", help="sweep a single region (e.g. Israel)")
     p.add_argument("--budget", type=int, default=9000, help="API units to spend (default 9000)")
     p.add_argument("--min-live-hours", type=float, default=MIN_LIVE_HOURS)
     p.add_argument("--geocode", action="store_true", help="distance sanity via GOOGLE_MAPS_API_KEY")
     p.add_argument("--resolve", action="store_true", help="verify: find replacement streams")
-    p.add_argument("--apply", action="store_true", help="verify --resolve: patch spot YAMLs in place")
+    p.add_argument(
+        "--apply", action="store_true", help="verify --resolve: patch spot YAMLs in place"
+    )
     args = p.parse_args()
 
     key = os.environ.get("YOUTUBE_API_KEY")

@@ -134,17 +134,21 @@ def test_cli_archive_ecmwf_writes_suffixed_key(tmp_path) -> None:
     rc = main(
         [
             "archive",
-            "--buoys-dir", str(buoys_dir),
-            "--archive-dir", str(archive_dir),
-            "--wave-source", "ecmwf",
-            "--ecmwf-fixtures", str(grib_dir),
-            "--isramar-dir", str(tmp_path / "no-isramar"),
+            "--buoys-dir",
+            str(buoys_dir),
+            "--archive-dir",
+            str(archive_dir),
+            "--wave-source",
+            "ecmwf",
+            "--ecmwf-fixtures",
+            str(grib_dir),
+            "--isramar-dir",
+            str(tmp_path / "no-isramar"),
         ]
     )
     assert rc == 0
     rows = [
-        json.loads(line)
-        for line in (archive_dir / "TEST1.ecmwf.jsonl").read_text().splitlines()
+        json.loads(line) for line in (archive_dir / "TEST1.ecmwf.jsonl").read_text().splitlines()
     ]
     assert len(rows) == 1
     assert rows[0]["hs"] is not None and rows[0]["tp"] is not None

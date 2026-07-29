@@ -91,8 +91,12 @@ def test_measure_rejects_flat_sea() -> None:
 def test_measure_sigma_from_r1() -> None:
     spec = _synthetic({0.06: 1.0, 0.07: 10.0, 0.08: 1.0})
     spec = SpectrumObs(
-        station="x", time=T0, freqs=spec.freqs, energy=spec.energy,
-        r1=(None, 0.94, None), sep_freq=None,
+        station="x",
+        time=T0,
+        freqs=spec.freqs,
+        energy=spec.energy,
+        r1=(None, 0.94, None),
+        sep_freq=None,
     )
     m = measure(spec)
     assert m is not None and m.sigma_peak_deg is not None
@@ -166,11 +170,15 @@ def test_cli_verify_spectra_offline(tmp_path, capsys) -> None:
     rc = main(
         [
             "verify",
-            "--buoy", "51201",
+            "--buoy",
+            "51201",
             "--spectra",
-            "--buoys-dir", str(buoys_dir),
-            "--obs-fixtures", str(obs_dir),
-            "--isramar-dir", str(tmp_path / "no-isramar"),
+            "--buoys-dir",
+            str(buoys_dir),
+            "--obs-fixtures",
+            str(obs_dir),
+            "--isramar-dir",
+            str(tmp_path / "no-isramar"),
         ]
     )
     assert rc == 0

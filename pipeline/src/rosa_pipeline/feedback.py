@@ -143,9 +143,7 @@ def markdown_rows(records: list[FeedbackRecord]) -> str:
         p, o = r.predicted, r.observed
         phrase = p.get("phrase") or ""
         pred = f"{p.get('bucket')} {p.get('rating')}, {p.get('h')} m {phrase}".strip()
-        obs = " ".join(
-            s for s in [o.get("bucket"), o.get("phrase"), o.get("note")] if s
-        ) or "-"
+        obs = " ".join(s for s in [o.get("bucket"), o.get("phrase"), o.get("note")] if s) or "-"
         icon = "👍" if r.verdict == "up" else "👎"
         d, t = r.at.date().isoformat(), r.at.strftime("%H:%M")
         out.append(f"| {d} | {t} | {r.spot} | {pred} | {obs} | - | {icon} feedback |")

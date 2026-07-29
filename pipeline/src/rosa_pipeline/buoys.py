@@ -71,9 +71,7 @@ def nearest_buoys(
 ) -> list[tuple[Buoy, float]]:
     """Buoys within ``radius_km`` of (lat, lon), closest first, capped at ``limit``.
     Empty when nothing is in range - the honest answer for a spot with no nearby truth."""
-    hits = [
-        (b, haversine_km(lat, lon, b.lat, b.lon)) for b in buoys.values()
-    ]
+    hits = [(b, haversine_km(lat, lon, b.lat, b.lon)) for b in buoys.values()]
     hits = [(b, d) for b, d in hits if d <= radius_km]
     hits.sort(key=lambda bd: bd[1])
     return hits[:limit]

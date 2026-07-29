@@ -95,8 +95,13 @@ def test_gfswave_scoring_pairs_peak_period_with_dpd() -> None:
     pairing mean-vs-dominant would fabricate a phantom bias."""
     valid = datetime(2026, 7, 22, 12, 0, tzinfo=UTC)
     rows = [
-        {"run": (valid - timedelta(hours=6)).isoformat(), "valid": valid.isoformat(),
-         "hs": None, "tp": 12.0, "dir": None},
+        {
+            "run": (valid - timedelta(hours=6)).isoformat(),
+            "valid": valid.isoformat(),
+            "hs": None,
+            "tp": 12.0,
+            "dir": None,
+        },
     ]
     # buoy: dominant period 12 s (matches), average period 7 s (would read +5 s hot)
     obs = [_obs(valid, dpd_s=12.0, apd_s=7.0)]
@@ -134,17 +139,21 @@ def test_cli_archive_gfswave_writes_suffixed_key(tmp_path) -> None:
     rc = main(
         [
             "archive",
-            "--buoys-dir", str(buoys_dir),
-            "--archive-dir", str(archive_dir),
-            "--wave-source", "gfswave",
-            "--gfs-fixtures", str(gfs_dir),
-            "--isramar-dir", str(tmp_path / "no-isramar"),
+            "--buoys-dir",
+            str(buoys_dir),
+            "--archive-dir",
+            str(archive_dir),
+            "--wave-source",
+            "gfswave",
+            "--gfs-fixtures",
+            str(gfs_dir),
+            "--isramar-dir",
+            str(tmp_path / "no-isramar"),
         ]
     )
     assert rc == 0
     gfs_rows = [
-        json.loads(line)
-        for line in (archive_dir / "TEST1.gfswave.jsonl").read_text().splitlines()
+        json.loads(line) for line in (archive_dir / "TEST1.gfswave.jsonl").read_text().splitlines()
     ]
     assert len(gfs_rows) == 1
     assert gfs_rows[0]["hs"] is not None and gfs_rows[0]["tp"] is not None

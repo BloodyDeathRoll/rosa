@@ -60,7 +60,9 @@ def _raw_with_ensemble(members: dict[str, float]) -> RawForecast:
     for suffix, value in members.items():
         hourly[f"wave_height_{suffix}"] = [value] * len(times)
     return RawForecast(
-        fetched_at=raw.fetched_at, marine=raw.marine, weather=raw.weather,
+        fetched_at=raw.fetched_at,
+        marine=raw.marine,
+        weather=raw.weather,
         ensemble={"hourly": hourly},
     )
 
