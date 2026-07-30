@@ -733,3 +733,80 @@ band sitting unaccounted beside a 6 s primary is exactly the Stage-3b **missed-s
 territory. Worth checking whether the guard fired on Zvulun for that hour when the archives
 support it - it would be the first live confirmation the guard catches something a competitor
 also sees.
+
+## 2026-07-30 (cont.) - four more spots, and a correction to the entry above
+
+Extended the Surfline side-by-side to Hilton, Beit Yanai, Supertubos, Hikkaduwa and Popoyo
+(same morning, user screenshots). Same caveat as above: another model, not truth, comparison
+only, nothing enters a fit.
+
+### CORRECTION to §3 of the previous entry - "we read bigger on the small hours" was overstated
+
+It was drawn from **Zvulun alone**. With three Israeli spots on the same swell it does not hold
+as written:
+
+| hour | Hilton SL / Rosa | Beit Yanai SL / Rosa | Zvulun SL / Rosa |
+|------|------------------|----------------------|------------------|
+| 12am | 0-0.3 / 0.2-0.4 | 0-0.3 / 0.3-0.4 | 0-0.3 / 0.3-0.4 |
+| 3am | **0.3-0.6 / 0.3-0.5** | **0.3-0.6 / 0.3-0.5** | 0-0.3 / 0.3-0.5 |
+| 6am | **0.3-0.6 / 0.3-0.5** | **0.3-0.6 / 0.3-0.5** | **0.3-0.6 / 0.3-0.5** |
+| 9am-noon | **0.3-0.6 / 0.3-0.5** | **0.3-0.6 / 0.3-0.5** | - |
+| 3pm | 0-0.3 / 0.3-0.4 | 0-0.3 / 0.3-0.4 | - |
+| 6-9pm | 0-0.3 / 0.2-0.3 | 0-0.3 / 0.2-0.4 | - |
+
+Through the clean part of the day (3am-noon) **Rosa's 0.3-0.5 sits inside Surfline's 0.3-0.6 at
+all three spots** - that is agreement, not an over-call. And note Surfline's own Zvulun reads
+0-0.3 at 3am while its Hilton and Beit Yanai read 0.3-0.6 on an identical 0.7 m 7 s 295 deg
+swell. **Judging ourselves against one spot of theirs was fragile; their spot-to-spot spread is
+as large as the difference we were chasing.**
+
+What survives: two narrower differences.
+
+1. **Afternoon (3pm-9pm) they drop a whole band and we do not.** The swell barely changes
+   (0.7 -> 0.6 m, 7 s) but the wind comes up (Hilton 18 kph NW, Beit Yanai 15 kph WNW onshore).
+   This looks **structural, not a calibration error**: Surfline's surf height appears to absorb
+   wind degradation, whereas Rosa's `h_break` is depth-limited physics x rideability and wind
+   enters only the *rating*. Worth deciding deliberately - it is a product question (should a
+   blown-out 0.6 m read smaller?), not a knob.
+2. **Midnight, light wind, small and clean: we are one band higher** (0.2-0.4 vs 0-0.3). This is
+   the only hour where the original watch item still stands, and it is now a much thinner claim.
+
+**Still no knob moved.** The as-logged flat-morning frame remains the thing that would settle it.
+
+### Direction: no sign of the +16 deg clockwise lean on unambiguous swells
+
+Dominant-swell direction, Surfline -> Rosa: Popoyo 221 -> 224, Supertubos' W swell 284 -> 285,
+Israel 295 -> 293/294. Agreement is within a few degrees and **the sign is inconsistent**, so
+this adds nothing supporting a systematic clockwise bias in our input. Consistent with the
+reading that the +15.6 deg measured against buoy `mwd` is largely a blending artifact.
+
+### Partition ORDER is not comparable across providers - do not match by slot
+
+At Supertubos 6am Surfline lists primary 0.3 m 10 s and secondary **0.4 m** 8 s - its "primary"
+is not its biggest. Ours sorts differently again. This is the same lesson as our own
+partition-label wander finding (2026-07-29): **match partitions by direction and period, never
+by slot index.** Any future automated cross-provider comparison has to pair on physics, not on
+column position.
+
+### WATCH ITEM (new, significant): Hikkaduwa disagrees structurally
+
+| | Surfline | Rosa |
+|---|----------|------|
+| dominant | **1.8 m 9-10 s from 267-270** | 1.0 m 4 s from 243-254 |
+| mid | 0.7-0.9 m 13 s from 193-198 | 1.0-1.1 m 10-11 s from 181-187 |
+| long | 0.5-0.6 m **18-20 s** from 210-212 | 0.6-0.9 m **15-17 s** from 188-196 |
+
+Surfline sees a **1.8 m 9 s west swell**; Open-Meteo gives us a 1.0 m **4 s** west windsea at
+nearly the same bearing. Same feature, read as organised swell by one model and as short chop by
+the other - and it is the biggest partition in the water either way, so it drives the whole
+forecast. Our long-period band is also 3 s shorter and ~18 deg further south than theirs.
+
+This matters more than the Israeli difference: **Sri Lanka has no buoy** (flagged unvalidatable
+since 2026-07-23), it is our second-largest region at 32 spots, and this is the first outside
+cross-check we have ever had there. It is exactly the regime where a 4 s vs 9 s reading swings
+`period_rideability` from the 0.3 floor to ~0.9 - i.e. a factor of ~3 in `h_break`.
+
+Not actionable yet - two models disagreeing does not say which is right, and SW-monsoon seas are
+genuinely hard to partition. Next step when someone has time: check the **Stage-3b missed-swell
+guard** and the ECMWF period-banded heights (h1012...h2530) for Hikkaduwa this morning - that
+member is independent of Open-Meteo and can referee the 4 s vs 9 s question without a buoy.
