@@ -810,3 +810,79 @@ Not actionable yet - two models disagreeing does not say which is right, and SW-
 genuinely hard to partition. Next step when someone has time: check the **Stage-3b missed-swell
 guard** and the ECMWF period-banded heights (h1012...h2530) for Hikkaduwa this morning - that
 member is independent of Open-Meteo and can referee the 4 s vs 9 s question without a buoy.
+
+## 2026-07-30 (cont.) - ECMWF referees Hikkaduwa: Open-Meteo is ~0.8 m low on the monsoon sea
+
+Sri Lanka has no buoy, so the Surfline-vs-us disagreement above had no arbiter. The Stage-3b
+ECMWF open-data member is independent of Open-Meteo, so it can referee. Fetched live at
+hikkaduwa's offshore point (6.080, 80.103), 00z cycle, steps 0-24.
+
+| valid | swh | pp1d | mwp (Tm-1,0) | mp2 (Tm02) | mwd | h1012 | h1214 | h1417 | h1721 | h2125 | h2530 |
+|-------|-----|------|------|------|-----|-------|-------|-------|-------|-------|-------|
+| 07-29 12Z | 2.08 | 10.0 | 9.0 | 5.6 | 219 | 0.77 | 0.60 | 0.53 | 0.39 | 0.30 | 0.15 |
+| 07-30 00Z | 2.24 | 10.2 | 8.9 | 5.6 | 224 | 0.80 | 0.65 | 0.54 | 0.49 | 0.32 | 0.13 |
+| 07-30 06Z | 2.28 | 10.4 | 9.0 | 5.6 | 219 | 0.81 | 0.65 | 0.56 | 0.55 | 0.31 | 0.13 |
+| 07-30 12Z | 2.38 | 10.0 | 8.8 | 5.6 | 219 | 0.83 | 0.65 | 0.58 | 0.57 | 0.30 | 0.14 |
+
+### The height: Open-Meteo is low, and it is not a small miss
+
+At 06Z, ECMWF **swh 2.28 m**. Open-Meteo's partitions sum (RMS) to **1.50 m**; Surfline's imply
+**~2.10 m**. Splitting ECMWF's own total by its bands:
+
+- energy at >=10 s: **1.34 m** (RMS of the six bands)
+- energy below 10 s: **1.84 m** <- the disputed monsoon windsea
+- Open-Meteo calls that sea **1.0 m**; Surfline calls it **1.8 m**
+
+So Open-Meteo is carrying roughly **0.8 m of Hs less** than ECMWF in the short-period sea, and
+~0.78 m less overall. **Surfline's height is corroborated; ours is not.**
+
+### The period: Surfline is wrong, and Open-Meteo is right
+
+Surfline calls that sea 9 s. Tm02 weights short waves heavily (m2 ~ H^2/T^2), so a sea of this
+size at 9 s is arithmetically incompatible with the measured Tm02 of 5.6 s. Reconstructing the
+moments from a two-component sea (short component + ECMWF's own bands as the long tail):
+
+| candidate sub-10 s sea | predicted Tm-1,0 | predicted Tm02 |
+|------------------------|------------------|----------------|
+| **ECMWF measured** | **9.0** | **5.6** |
+| 1.84 m @ 4.5 s (OM-like) | 7.9 | 5.4 |
+| 1.84 m @ 5.0 s (OM-like) | 8.3 | 6.0 |
+| 1.84 m @ 9.0 s (SL-like) | 10.9 | **10.0** |
+
+A 9 s windsea overshoots Tm02 by 4.4 s. The truth is close to **1.84 m at ~4.5-5 s**: Open-Meteo
+has the character of the sea right and roughly half its height; Surfline has the height right and
+the period badly long.
+
+### Why this matters more than the Israeli difference
+
+`period_rideability` at 4.5 s sits on its **0.3 floor**; at 9 s it is ~0.85. So the two readings
+differ by ~3x in `h_break` *before* the height error. We are on the right side of that (short and
+slopping, not clean 9 s groundswell) - **but we are feeding it a sea that is ~45% too small**.
+
+This is the **first evidence of a large regional Open-Meteo height deficit in a region we cannot
+validate with buoys** - and Sri Lanka is 32 spots, our second-largest region. The 12-station
+buoy sweep the same week put OM's fleet Hs bias at -0.005 m, but every one of those stations is
+in the Pacific or Atlantic. Nothing in that sweep covers the Indian Ocean or a monsoon sea.
+
+### The missed-swell guard worked, and this is its first live corroboration
+
+The guard was already firing at hikkaduwa all day, flagging unaccounted energy at 12-14 s
+(0.6-0.7 m), 17-21 s (0.4-0.6 m) and 21-25 s (0.3 m). Surfline independently shows an 18-20 s
+swell at 0.5-0.6 m from 210-212 deg. **Two independent sources confirm a swell Open-Meteo's
+partitions do not carry, exactly where the guard said to look.** Stage 3b's acceptance item
+"missed-swell backtest" now has its first real data point, and it passed.
+
+### Actions
+
+**No knob moved** - one point, one day, and ECMWF is a model too. But this is now the most
+valuable open thread, and it is cheap to settle:
+
+1. **Sweep OM swh vs ECMWF swh across all 32 Sri Lanka spots** (and the Philippines, also
+   monsoon-fed and buoy-less). Both are already fetched per cycle; this needs no new source.
+   If the deficit is regional and persistent it is a genuine per-region input correction - the
+   first defensible one, since unlike the Hs work in the entry above it would not be built on
+   instrument-class cancellation.
+2. Re-check whether the deficit is in the **windsea partition specifically** rather than the
+   total, which is what the guard hints.
+3. Only then consider whether anything should change. Note this cuts the opposite way from the
+   Israeli picture, which is another reason a single global Hs constant would be wrong.
