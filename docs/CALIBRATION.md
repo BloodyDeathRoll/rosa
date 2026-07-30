@@ -672,3 +672,64 @@ reason not to chase the last 0.15 m with a second knob.
 injecting candidates through `breaker_height_from_profile`'s existing `rideability` hook, so
 production and harness are the same code path - `test_baseline_reproduces_production_path`
 now pins that equality against the real function rather than a copied constant.
+
+## 2026-07-30 - Zvulun side-by-side vs Surfline, first outside look after the 2E change
+
+Same-morning comparison (user screenshots, ~09:20 local) against the 08:20-cycle-pending
+payload - i.e. **the first Israeli day computed with peak-keyed rideability**. Zvulun is a
+one-swell Med day, which makes it a clean read.
+
+**Standing caveat: Surfline is another model, not ground truth.** This says where we differ,
+never who is right; only eyes in the water settle that. Nothing here is a calibration input.
+Comparison only - no Surfline data enters the spot DB or any fit (CLAUDE.md legal red lines).
+
+| hour | primary swell (SL -> Rosa) | surf (SL -> Rosa) | nearshore kJ (SL -> Rosa) |
+|------|---------------------------|-------------------|---------------------------|
+| 12am | 0.5 m 6 s 295 -> 0.7 m 6 s 292 | 0-0.3 -> **0.3-0.4** | 11 -> 13 |
+| 3am  | 0.7 m 7 s 295 -> 0.7 m 7 s 293 | 0-0.3 -> **0.3-0.5** | 16 -> 20 |
+| 6am  | 0.7 m 7 s 297 -> 0.7 m 7 s 294 | 0.3-0.6 -> 0.3-0.5 | 21 -> 20 |
+| 9am  | 0.7 m 7 s 299 -> 0.7 m 7 s 295 | - | 24 -> 20 |
+| noon | 0.7 m 7 s 300 -> 0.7 m 7 s 296 | - | 19 -> 19 |
+| 3pm  | 0.6 m 7 s 299 -> 0.6 m 7 s 295 | - | 15 -> 13 |
+| 6pm  | 0.6 m 6 s 299 -> 0.6 m 6 s 292 | - | 12 -> 11 |
+| 9pm  | 0.5 m 6 s ~299 -> 0.6 m 6 s 292 | - | 11 -> 10 |
+
+### 1. The offshore sea agrees almost exactly, and so does the energy
+
+Height and period match hour for hour. Our `energy_kj` tracks Surfline's **nearshore** column
+row by row (13/11, 20/16, 20/21, 20/24, 19/19, 13/15, 11/12, 10/11); their offshore column
+runs ~2x their nearshore throughout. Consistency reads **0% on both**. Pressure matches within
+1-2 mb. Two independently-built pipelines landing on the same energy figures is a real check
+on the exposure + kJ path, which nothing outside our own tests had ever corroborated.
+
+### 2. Direction: we sit 3-5 deg COUNTER-clockwise of Surfline, all day
+
+Both trend the same way through the day (SL 295->300, Rosa 292->296); we are just offset low.
+Worth recording because it is **the opposite sign** from the +15.6 deg clockwise bias we
+measured against buoy `mwd` the same week. That does not resolve the direction question - a
+second model is not truth - but it is another reason to think the +16 deg is largely a
+**blending artifact** of comparing per-partition directions to a single mixed buoy arrow,
+rather than a genuine clockwise lean in Open-Meteo. Still gated on the per-partition
+measurement; do not apply anything to `spread_exposure()` on the strength of this.
+
+### 3. WATCH ITEM: we now read bigger than Surfline on the small hours
+
+0.3-0.4 against 0-0.3 at midnight and 0.3-0.5 against 0-0.3 at 3am, converging by 6am
+(0.3-0.5 vs 0.3-0.6). This is the 2E peak-keying doing what it was built to do - possibly a
+touch too much at the bottom of the range. It is **the same direction the 07-19 Beit Yanai
+flat frame warned about** (+0.15 m over-call) and the first outside evidence since the change
+shipped this morning.
+
+**Do not move a knob on this.** It is one spot, one day, against another model. What it does
+is raise the priority of an as-logged flat-morning frame at Zvulun or Beit Yanai: if the water
+looks like nothing while we say 0.3-0.5, that is the frame the set is short of, and it lands
+on `height_coeff` (still 1.0 at all 199 spots) rather than on the rideability exponent.
+
+### 4. Surfline resolved a secondary swell we did not carry
+
+At 12am they list a secondary 0.2 m **8 s** from 291 deg; Open-Meteo gave us no such partition
+(our only extra entries later in the day are 2-3 s windsea, which they do not list). An 8 s
+band sitting unaccounted beside a 6 s primary is exactly the Stage-3b **missed-swell guard's**
+territory. Worth checking whether the guard fired on Zvulun for that hour when the archives
+support it - it would be the first live confirmation the guard catches something a competitor
+also sees.
