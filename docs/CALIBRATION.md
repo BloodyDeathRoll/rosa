@@ -886,3 +886,122 @@ valuable open thread, and it is cheap to settle:
    total, which is what the guard hints.
 3. Only then consider whether anything should change. Note this cuts the opposite way from the
    Israeli picture, which is another reason a single global Hs constant would be wrong.
+
+## 2026-07-30 (cont.) - CORRECTION: it is not a model deficit, it is Open-Meteo's partitions not closing
+
+The entry above concluded "Open-Meteo is ~0.8 m low on the monsoon sea". **That was wrong**, and
+three follow-up tests took it apart. What is left is a different problem, and a more actionable one.
+
+### Test 1 - regional sweep with a control group
+
+OM partition-RMS vs ECMWF swh, 755 matched (spot, hour) pairs:
+
+| group | region | n | OM | ECMWF | EC-OM | ratio |
+|-------|--------|---|-----|-------|-------|-------|
+| TEST | sri-lanka | 128 | 1.59 | 2.19 | **+0.60** | 1.38 |
+| TEST | philippines | 64 | 0.57 | 0.70 | +0.13 | 1.22 |
+| CONTROL | israel | 126 | 0.69 | 0.65 | -0.04 | 0.95 |
+| CONTROL | portugal | 126 | 0.62 | 0.61 | -0.01 | 0.99 |
+| CONTROL | costa-rica | 125 | 1.38 | 1.41 | +0.03 | 1.02 |
+| CONTROL | nicaragua | 75 | 1.48 | 1.44 | -0.04 | 0.97 |
+| CONTROL | japan | 96 | 0.63 | 0.68 | +0.04 | 1.06 |
+| | **= CONTROL** | 563 | 0.94 | 0.94 | **+0.00** | 1.00 |
+
+The control lands on exactly 1.00, so the method is sound and the Sri Lanka gap is not a
+constant model-vs-model offset. This is where it was tempting to stop and apply a regional
+correction. **That would have been the third artifact-driven "fix" this project nearly shipped.**
+
+### Test 2 - deep water: the gap vanishes entirely
+
+Sampling open ocean >200 km from land, where neither model has a resolution or sheltering problem:
+
+| point | OM | ECMWF | diff |
+|-------|-----|-------|------|
+| Indian Ocean south of Sri Lanka | 2.17 | 2.16 | -0.01 |
+| IO southwest of Sri Lanka | 2.02 | 2.04 | +0.02 |
+| IO south of India | 1.77 | 1.77 | -0.00 |
+| **TEST group** | **1.99** | **1.99** | **+0.00** |
+| CONTROL group | 1.75 | 1.75 | -0.00 |
+
+**There is no Indian-Ocean model difference.** Whatever the gap is, it is made near the coast.
+
+### Test 3 - the transect: two different mechanisms, neither a model being wrong
+
+Open-Meteo's own Hs walking straight out from the spot:
+
+| km offshore | Hikkaduwa OM / ECMWF | Arugam Bay OM / ECMWF |
+|-------------|----------------------|------------------------|
+| 0 | **2.32** / 2.18 | **1.32** / 2.16 |
+| 20 | 2.41 / 2.18 | 2.13 / 2.16 |
+| 50 | 2.40 / 2.24 | 2.49 / 2.45 |
+| 120 | 2.36 / 2.13 | 2.61 / 2.42 |
+
+- **Arugam Bay: an ECMWF artifact.** OM resolves the island sheltering its east coast from the
+  SW monsoon (1.32 m at the coast climbing to 2.61 m at 120 km); ECMWF at 0.25 deg (~28 km)
+  cannot, and reads a flat ~2.2 m. OM is right; the "+1.05 m deficit" was our coarse reference.
+- **Hikkaduwa: OM's total is fine.** 2.32 m against ECMWF's 2.18 - they agree. So OM is NOT low.
+
+### What is actually wrong: the partitions do not sum to the model's own total
+
+At Hikkaduwa's offshore point, Open-Meteo's four partition fields against its own `wave_height`:
+
+| hour | TOTAL | windsea | swell 1 | swell 2 | swell 3 | RMS parts | unaccounted |
+|------|-------|---------|---------|---------|---------|-----------|-------------|
+| 00Z | 2.22 | 1.00/4s | 0.92/11s | 0.58/14s | 0.00 | 1.48 | **1.66** |
+| 06Z | 2.24 | 1.02/4s | 1.04/10s | 0.72/17s | 0.00 | 1.62 | **1.54** |
+| 18Z | 2.34 | 0.48/3s | 0.98/9s | 0.90/15s | 0.00 | 1.41 | **1.86** |
+
+Tertiary swell is empty, so we are not dropping a field - **Open-Meteo simply does not place all
+of its energy into the four partitions it publishes.** Rosa reads only partitions, so at
+Hikkaduwa the transform is fed a ~1.6 m sea when the model itself says 2.2-2.3 m.
+
+Closure ratio RMS(partitions)/total, 3 spots per region, pure within-OM (no second source):
+
+| region | closure | mean unaccounted Hs |
+|--------|---------|---------------------|
+| sri-lanka | **0.86** | **0.85 m** (crust 0.72, hikkaduwa ~0.72) |
+| california | 0.91 | 0.39 m |
+| portugal | 0.93 | 0.19 m |
+| philippines | 0.94 | 0.13 m |
+| hawaii | 0.95 | 0.43 m |
+| japan | 0.97 | 0.15 m |
+| nicaragua / costa-rica | 0.99 | 0.08-0.19 m |
+| **israel** | **0.99** | **0.05 m** |
+
+Closure is near-perfect in simple seas and degrades in big multi-modal ones - four slots cannot
+hold a monsoon sea carrying windsea plus three or more swell trains. **Israel at 0.99 is why
+this never showed up in any calibration we have ever done**: every graded frame is Med.
+
+### What survives from the previous entry
+
+- Surfline's **9 s reading is still ruled out** - that argument used ECMWF's Tm02 of 5.6 s, and
+  since OM's total (2.24) and ECMWF's (2.28) agree, both describe the same sea. A sea that size
+  at 9 s predicts Tm02 10.0 s.
+- The **missed-swell guard corroboration still stands** - ECMWF and Surfline independently show
+  17-21 s energy that OM's partitions do not carry. That is the same failure as the closure gap,
+  seen from the long-period end.
+- Best reading of Hikkaduwa: a real sea of ~2.3 m, of which ~1.84 m is short-period (~4.5-5 s)
+  monsoon windsea. OM's windsea partition carries only ~1.0 m of it. **We have the character
+  right and roughly half the energy.**
+
+### Actions
+
+**Still no knob moved, and no regional Hs correction - that idea is dead** (tests 1-3 killed it).
+The real item is different and narrower:
+
+1. **`wave_height` is fetched every cycle and thrown away** - `extract.py` uses it solely as a
+   horizon null-sentinel. Carrying it onto `HourForecast` costs nothing and gives us a per-hour
+   **closure ratio**: a pure within-source data-quality signal, the energy analogue of the
+   Stage-3b missed-swell guard.
+2. Only then decide what to DO about a short sea. Options (none obviously right, all need
+   thought): surface low closure as a confidence penalty; synthesise a residual partition
+   (but with what period and direction?); leave the forecast alone and just monitor. **Do not
+   scale partitions to close the gap** - that would invent direction and period the model
+   never gave, and Rosa's whole premise is not doing that.
+3. Sri Lanka's 32 spots are the exposed region, and it has no buoy. Worth re-checking closure
+   across a full monsoon cycle before treating 0.86 as its steady state.
+
+**Method note, third time this month:** a measured "bias" that turns out to be a comparison
+artifact - APD vs Tm-1,0 (period), blended `mwd` vs per-partition directions, and now a 0.25 deg
+grid vs a sheltered coast. The control group and the deep-water test are what caught this one.
+Build both into any future cross-source claim.
