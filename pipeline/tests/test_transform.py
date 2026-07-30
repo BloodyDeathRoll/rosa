@@ -18,6 +18,7 @@ from rosa_pipeline.transform import (
     height_in_window,
     height_phrase,
     in_window,
+    partition_closure,
     period_quality,
     period_rideability,
     rideability_period,
@@ -84,6 +85,36 @@ class TestRideabilityPeriod:
         assert breaker_height_from_profile(with_peak, WIDE, 290.0, depths) == pytest.approx(
             breaker_height_from_profile(mean_only, WIDE, 290.0, depths)
         )
+
+
+class TestPartitionClosure:
+    """2026-07-30: Open-Meteo does not always fit all its energy into the four partition
+    fields it publishes, and the partitions are all the transform sees."""
+
+    def test_full_closure_when_partitions_are_the_whole_sea(self):
+        parts = (swell(1.2, 10.0, 290.0), swell(0.9, 6.0, 300.0))
+        total = math.sqrt(1.2**2 + 0.9**2)
+        assert partition_closure(parts, total) == pytest.approx(1.0)
+
+    def test_detects_unaccounted_energy(self):
+        """The live Hikkaduwa case: 1.02/1.04/0.72 m of partitions against a 2.24 m total."""
+        parts = (
+            swell(1.02, 4.0, 248.0),
+            swell(1.04, 10.0, 186.0),
+            swell(0.72, 17.0, 188.0),
+        )
+        c = partition_closure(parts, 2.24)
+        assert c == pytest.approx(0.72, abs=0.01)
+
+    def test_none_without_a_source_total(self):
+        assert partition_closure((swell(1.0, 10.0, 290.0),), None) is None
+        assert partition_closure((swell(1.0, 10.0, 290.0),), 0.0) is None
+
+    def test_combines_in_energy_not_height(self):
+        """Two equal partitions make a sea sqrt(2)x one of them, not 2x - closure must use
+        the energy sum, or every multi-swell hour would look like it was missing sea."""
+        parts = (swell(1.0, 10.0, 290.0), swell(1.0, 10.0, 300.0))
+        assert partition_closure(parts, 2.0) == pytest.approx(math.sqrt(2) / 2)
 
 
 class TestExposureWeight:

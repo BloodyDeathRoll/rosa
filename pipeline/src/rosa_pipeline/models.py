@@ -101,6 +101,11 @@ class HourForecast:
     # ECMWF spectral-lite member joined to this hour (Stage 3b); None when the member
     # wasn't fetched or the hour is beyond its 240 h horizon
     spectral: SpectralSea | None = None
+    # the source's OWN combined significant wave height for this hour, m. Kept so the
+    # partitions can be checked against it (see transform.partition_closure): Open-Meteo
+    # does not always place all of its energy into the four partition fields it publishes,
+    # and the partitions are all the transform ever sees. None for older fixtures.
+    total_hs_m: float | None = None
 
 
 @dataclass(frozen=True, slots=True)

@@ -13,7 +13,7 @@ from astral.sun import sun
 from .events import detect_events
 from .models import ScoredHour, Spot, SpotCam
 from .spectral import consistency_score, missed_swells, parametric_spread_deg
-from .transform import energy_kj_per_m, in_window
+from .transform import energy_kj_per_m, in_window, partition_closure
 
 MODEL_NAME = "open-meteo:best_match (marine + forecast v1)"
 ATTRIBUTION = "Weather data by Open-Meteo.com (CC-BY 4.0)"
@@ -148,6 +148,12 @@ def _hour_entry(spot: Spot, s: ScoredHour, tz: ZoneInfo) -> dict:
             for p in s.hour.partitions
         ],
     }
+    # fraction of the source's own sea the four partition fields account for. Diagnostic:
+    # nothing downstream scores on it (docs/CALIBRATION.md 2026-07-30). Omitted rather than
+    # published as null when the source gave no total, to keep the payload small.
+    closure = partition_closure(s.hour.partitions, s.hour.total_hs_m)
+    if closure is not None:
+        entry["closure"] = _r(closure, 2)
     spectral = _spectral_entry(s)
     if spectral is not None:
         entry["spectral"] = spectral

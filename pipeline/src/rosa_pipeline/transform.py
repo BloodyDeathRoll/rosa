@@ -142,6 +142,31 @@ def energy_period(p: SwellPartition) -> float:
     return p.period_s
 
 
+def partition_closure(
+    partitions: tuple[SwellPartition, ...], total_hs_m: float | None
+) -> float | None:
+    """What fraction of the source's own sea the published partitions actually account for.
+
+    Significant height combines in energy, so partitions that cover the whole spectrum satisfy
+    Hs_total = sqrt(sum Hs_i^2). Open-Meteo publishes four partition slots (windsea + three
+    swells) and, in complex multi-modal seas, does not fit all of its energy into them: at
+    Hikkaduwa the partitions RMS to ~1.6 m against its own 2.2-2.3 m total. The transform only
+    ever sees partitions, so that missing energy is invisible to the forecast.
+
+    Returns RMS(partitions)/total, a ratio of HEIGHTS: 1.0 = the partitions are the whole sea.
+    Read it in energy when judging severity - the square is the energy fraction, so 0.73 of the
+    height is only ~0.53 of the energy. Values slightly above 1.0 occur through rounding and are
+    not meaningful. None when the source published no total (older fixtures).
+
+    Diagnostic only - it deliberately does NOT feed the forecast. A low ratio says energy is
+    missing but not its direction or period, and inventing those is exactly what Rosa does not
+    do (docs/CALIBRATION.md 2026-07-30)."""
+    if total_hs_m is None or total_hs_m <= 0:
+        return None
+    rms = math.sqrt(sum(p.height_m**2 for p in partitions))
+    return rms / total_hs_m
+
+
 def energy_kj_per_m(partitions: tuple[SwellPartition, ...], window: tuple[float, float]) -> float:
     """Deep-water wave energy reaching the spot, kJ per metre of crest - the kJ figure
     surf forecasts quote. Weighted by the same spread-aware exposure as the breaker

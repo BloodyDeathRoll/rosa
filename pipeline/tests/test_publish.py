@@ -3,9 +3,11 @@
 from dataclasses import replace
 from datetime import UTC, datetime, timedelta
 
-from rosa_pipeline.models import HourForecast, ScoredHour, Spot
+from rosa_pipeline.models import HourForecast, ScoredHour, Spot, SwellPartition
 from rosa_pipeline.publish import build_payload
 from rosa_pipeline.score import bucket
+
+SWELL = SwellPartition(height_m=1.0, period_s=10.0, direction_deg=290.0)
 
 SPOT = Spot(
     id="test",
@@ -120,3 +122,37 @@ def test_short_series_still_publishes_rather_than_nothing():
     hours = series(datetime(2026, 7, 19, 21, tzinfo=UTC), 3)
     payload = build_payload(SPOT, hours, fetched_at="t", now=hours[0].hour.time)
     assert len(payload["days"]) == 1
+
+
+def test_closure_published_when_the_source_gives_a_total():
+    """2026-07-30: the four Open-Meteo partition fields do not always hold all of the
+    model's energy, and the transform only ever sees partitions. The payload carries the
+    ratio so a short sea is visible instead of silent."""
+    parts = (
+        SwellPartition(height_m=1.02, period_s=4.0, direction_deg=248.0, kind="wind"),
+        SwellPartition(height_m=1.04, period_s=10.0, direction_deg=186.0),
+        SwellPartition(height_m=0.72, period_s=17.0, direction_deg=188.0),
+    )
+    s = scored(9, 40)
+    s = replace(s, hour=replace(s.hour, partitions=parts, total_hs_m=2.24))
+    payload = build_payload(SPOT, [s], fetched_at="x", now=datetime(2026, 7, 19, tzinfo=UTC))
+    entry = payload["hours"][0]
+    # 1.62 m of partitions against a 2.24 m sea: 73% of the height, and since energy
+    # goes as H^2, only ~53% of the energy is in a partition the transform can see
+    assert entry["closure"] == 0.73
+
+
+def test_closure_omitted_when_the_source_gives_no_total():
+    """Older captures have no wave_height for the hour - omit the key rather than
+    publishing a null that reads like 'measured, and it was nothing'."""
+    s = scored(9, 40)
+    s = replace(s, hour=replace(s.hour, partitions=(SWELL,), total_hs_m=None))
+    payload = build_payload(SPOT, [s], fetched_at="x", now=datetime(2026, 7, 19, tzinfo=UTC))
+    assert "closure" not in payload["hours"][0]
+
+
+def test_closure_is_one_when_partitions_are_the_whole_sea():
+    s = scored(9, 40)
+    s = replace(s, hour=replace(s.hour, partitions=(SWELL,), total_hs_m=1.0))
+    payload = build_payload(SPOT, [s], fetched_at="x", now=datetime(2026, 7, 19, tzinfo=UTC))
+    assert payload["hours"][0]["closure"] == 1.0

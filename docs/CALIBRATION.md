@@ -1005,3 +1005,57 @@ The real item is different and narrower:
 artifact - APD vs Tm-1,0 (period), blended `mwd` vs per-partition directions, and now a 0.25 deg
 grid vs a sheltered coast. The control group and the deep-water test are what caught this one.
 Build both into any future cross-source claim.
+
+## 2026-07-30 (cont.) - closure ratio wired up, and measured across the fleet
+
+`extract.py` now carries Open-Meteo's own `wave_height` onto `HourForecast.total_hs_m` (it had
+been read solely as the horizon null-sentinel and dropped), and the payload gains a per-hour
+`closure` = RMS(partitions) / total. **Diagnostic only - nothing scores on it.**
+
+Note on reading the number: it is a ratio of HEIGHTS. Energy goes as H², so the energy actually
+visible to the transform is `closure²`. My earlier framing of Hikkaduwa's 0.73 as "a third of the
+sea" was loose - it is ~27% of the height and **~47% of the energy**.
+
+Full fleet, 25,136 published hours (closure present on 98% - the GFS-Wave tail days beyond the
+marine horizon carry no comparable total):
+
+| region | mean | p10 | min | energy the transform sees |
+|--------|------|-----|-----|---------------------------|
+| sri-lanka | 0.90 | 0.76 | 0.59 | 81% |
+| california | 0.91 | 0.72 | 0.50 | 82% |
+| costa-rica | 0.94 | 0.82 | 0.54 | 89% |
+| portugal | 0.94 | 0.83 | 0.59 | 89% |
+| hawaii | 0.95 | 0.91 | 0.84 | 90% |
+| nicaragua | 0.95 | 0.84 | 0.51 | 90% |
+| philippines | 0.96 | 0.88 | 0.33 | 93% |
+| japan | 0.97 | 0.90 | 0.52 | 94% |
+| **israel** | **1.00** | **0.98** | **0.85** | **99%** |
+
+### This moderates the alarm, and sharpens where it belongs
+
+Over a full forecast Sri Lanka averages **0.90**, not the 0.72 measured at Hikkaduwa on one
+morning - that hour sat in the bad tail, not the middle. The 3-spot sample in the previous entry
+(0.86 for Sri Lanka) over-stated it too; 32 spots x 128 hours is the honest figure.
+
+What the full sample adds that the small one could not:
+
+- **The tail matters more than the mean.** Every region except Israel and Hawaii has hours below
+  0.60, and the Philippines reaches 0.33 - a single hour where two thirds of the height and ~89%
+  of the energy is in no partition. A regional mean hides these completely; they are exactly the
+  hours a forecast would be most wrong.
+- **California at 0.91 is the surprise.** It is buoy-covered and was in the CONTROL group that
+  read +0.00 against ECMWF, so its partitions are short without the total being wrong - the same
+  signature as Sri Lanka, in a region we thought was well characterised. Only 2 spots, so weak,
+  but it means this is not a monsoon-only story.
+- **Israel really is the outlier at 1.00** (min 0.85). Every graded calibration frame this project
+  has is Israeli, so no amount of past calibration could have surfaced this. Worth remembering the
+  next time an Israeli result is treated as evidence about the fleet.
+
+### Still not acting on it
+
+No knob, no scaling, no confidence penalty yet. A low ratio says energy is missing but not its
+direction or period, and Rosa's premise is not inventing those. The number is now recorded every
+cycle, so the questions it needs are answerable in a week rather than by a one-morning snapshot:
+does a spot's closure track the sea state or the spot? is the missing energy short-period (where
+`period_rideability` would have floored it anyway, making this nearly harmless) or long? do the
+sub-0.6 hours cluster in conditions a user would care about?

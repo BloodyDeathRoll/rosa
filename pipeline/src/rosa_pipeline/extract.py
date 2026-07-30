@@ -127,6 +127,10 @@ def extract_hours(
         sst = marine["sea_surface_temperature"][i]
         if sst is not None:
             last_sst = sst
+        # the source's own combined Hs. Until 2026-07-30 this was read only as the horizon
+        # null-sentinel above and discarded; keeping it lets publish report how much of the
+        # sea the four partition fields actually account for (transform.partition_closure).
+        total_hs = marine["wave_height"][i]
         time = datetime.fromisoformat(t).replace(tzinfo=UTC)
         sp = _nearest_spectral(time, sp_series, sp_times)
         # the ECMWF member joins the OM ensemble as one more independent voice in the
@@ -153,6 +157,7 @@ def extract_hours(
                 agreement_score=agreement.score if agreement else None,
                 n_models=agreement.n_models if agreement else 0,
                 spectral=sp,
+                total_hs_m=total_hs,
             )
         )
     return hours
