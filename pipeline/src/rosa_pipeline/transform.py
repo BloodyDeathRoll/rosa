@@ -190,8 +190,27 @@ def period_rideability(period_s: float) -> float:
     grounded reframing of the old ``q(T)``: because the physics now does the shoaling, this
     factor only ATTENUATES (cap 1.0) - it can never push a wave past its depth-limited break.
     A proxy for wave power / cleanliness; retired at Stage 3 when spectral directional spread
-    and power replace it. Tune the exponent from docs/CALIBRATION.md only."""
+    and power replace it. Tune the exponent from docs/CALIBRATION.md only.
+
+    Feed it ``rideability_period(p)``, not the partition's mean period - see below."""
     return min(1.0, max(0.3, (period_s / 10.0) ** RIDEABILITY_EXP))
+
+
+def rideability_period(p: SwellPartition) -> float:
+    """The period ``period_rideability`` keys on: the partition's PEAK period, falling back
+    to the mean only where the model publishes no Tp (Stage 2E, 2026-07-30).
+
+    Tp is the period of the energy-carrying waves a surfer actually rides, and Open-Meteo's
+    mean period runs far below it for the same partition (Med swell 5.9 s mean vs 8.4 s peak).
+    Keying the attenuation on the mean under-called real Med swell 1.6-2x against the user's
+    own eyes at three graded frames (Hilton 07-25 + 07-26, Poleg 07-27) and every mean-keyed
+    candidate missed all three, at any exponent - docs/CALIBRATION.md 2026-07-30. It also puts the
+    height path on the same period family as ``energy_period`` and the published kJ, which
+    already keyed off Tp.
+
+    The effect is confined to short-period seas: rideability saturates at its 1.0 cap above
+    ~10 s, so every partition at or above ~8 s is bit-identical to the old behaviour."""
+    return p.peak_period_s if p.peak_period_s is not None else p.period_s
 
 
 def breaker_height_from_profile(
@@ -210,9 +229,8 @@ def breaker_height_from_profile(
     physics march zeroes anything arriving from behind it (>= 90 deg).
 
     ``rideability`` lets the Stage-2E experiment harness (experiment.py) inject candidate
-    attenuation factors (e.g. keyed on the peak period instead of the mean - the
-    pre-registered CALIBRATION.md 07-25/26 question). Production never passes it: the
-    default is exactly the shipping ``period_rideability(p.period_s)``."""
+    attenuation factors. Production never passes it: the default is exactly the shipping
+    ``period_rideability(rideability_period(p))`` - peak-keyed since 2026-07-30."""
     total_sq = 0.0
     for p in partitions:
         w = math.sqrt(spread_exposure(p, window))  # energy fraction -> amplitude
@@ -228,7 +246,9 @@ def breaker_height_from_profile(
         # cancel it outright - refraction leaves little, but never nothing.
         incidence = min(incidence, GRAZING_INCIDENCE_DEG)
         hb = breaker_height_over_profile(p.height_m, p.period_s, incidence, wet_depths)
-        factor = rideability(p) if rideability is not None else period_rideability(p.period_s)
+        factor = (
+            rideability(p) if rideability is not None else period_rideability(rideability_period(p))
+        )
         hb *= factor * w
         total_sq += hb * hb
     return math.sqrt(total_sq)

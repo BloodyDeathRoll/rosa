@@ -75,7 +75,10 @@ class Candidate:
 
 
 #: The shipping transform expressed as a candidate - the harness's regression anchor.
-BASELINE = Candidate(key="mean", exp=RIDEABILITY_EXP)
+#: Peak-keyed since 2026-07-30 (Stage 2E resolved the pre-registered question in favour
+#: of Tp); ``key="peak"`` mirrors ``transform.rideability_period`` exactly, Tp with a
+#: mean-period fallback.
+BASELINE = Candidate(key="peak", exp=RIDEABILITY_EXP)
 
 #: Default grid: the three period keys the 2E question names, over a bracketing
 #: exponent sweep. Kept small on purpose - this is a pre-registered experiment,
@@ -217,13 +220,22 @@ def render_report(results: list[CandidateResult]) -> str:
         lines.append(f"candidates satisfying every frame: {', '.join(passing)}")
     else:
         best = min(results, key=lambda r: r.max_abs_error_m)
+        most = max(results, key=lambda r: sum(1 for f in r.frames if f.passed))
+        n_most = sum(1 for f in most.frames if f.passed)
         lines.append(
-            "no candidate satisfies every frame; "
-            f"least-bad: {best.candidate.label} (max |err| {best.max_abs_error_m:.2f} m)"
+            "no candidate satisfies every frame; least-bad by max error: "
+            f"{best.candidate.label} (max |err| {best.max_abs_error_m:.2f} m); "
+            f"most frames passed: {most.candidate.label} ({n_most}/{len(most.frames)})"
+        )
+        lines.append(
+            "the two rank differently - min-max-error favours a candidate that misses "
+            "every frame slightly over one that fits most and misses one. 2026-07-30 chose "
+            "frames-passed; see docs/CALIBRATION.md."
         )
     lines.append(
-        "note: reporting only - knobs move via docs/CALIBRATION.md, and the global "
-        "constants also need the buoy-archive de-bias (2E's other half)."
+        "note: reporting only - knobs move via docs/CALIBRATION.md. 2E's buoy half is "
+        "settled: no input de-bias is defensible (Hs bias flips sign by instrument class, "
+        "period bias is +0.2 s after the SESSION-10 harness fix)."
     )
     return "\n".join(lines)
 

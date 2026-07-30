@@ -122,10 +122,13 @@ function ReadingTheForecast() {
       </p>
       <p>
         Rosa <b>displays the peak period</b>, because that is the convention you already know and
-        the honest description of the swell. The <b>rating and the surf height are still computed
-        from the mean period</b>, which is what our scoring was calibrated against. So the seconds
-        on screen can sit a little above the seconds doing the work behind it. We would rather show
-        you the number surfers use and say this plainly than quietly show the lower one.
+        the honest description of the swell. As of 30 July 2026 the <b>surf height is judged on the
+        peak period too</b>: we used to rate how rideable a swell was from the mean period, and it
+        under-called real Mediterranean surf by up to double against what we saw in the water.
+        Two smaller pieces still run on the mean period - the arithmetic that bends waves as they
+        shoal in, and the Period bar on the rating card - so the seconds on screen can still sit a
+        little above some of the seconds doing the work. We would rather show you the number
+        surfers use and say this plainly than quietly show the lower one.
       </p>
 
       <h2>Wind</h2>

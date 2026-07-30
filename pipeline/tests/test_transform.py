@@ -20,6 +20,7 @@ from rosa_pipeline.transform import (
     in_window,
     period_quality,
     period_rideability,
+    rideability_period,
     spread_exposure,
     wetsuit,
 )
@@ -47,6 +48,42 @@ class TestPeriodRideability:
     def test_midrange_between_floor_and_one(self):
         assert period_rideability(6.0) == pytest.approx((0.6) ** 1.4)
         assert 0.3 < period_rideability(6.0) < 1.0
+
+
+class TestRideabilityPeriod:
+    """Stage 2E (2026-07-30): rideability keys on Tp, not the mean period."""
+
+    def test_prefers_the_peak_period(self):
+        p = SwellPartition(height_m=1.0, period_s=5.9, direction_deg=290.0, peak_period_s=8.4)
+        assert rideability_period(p) == 8.4
+
+    def test_falls_back_to_mean_when_the_model_publishes_no_peak(self):
+        p = SwellPartition(height_m=1.0, period_s=5.9, direction_deg=290.0)
+        assert rideability_period(p) == 5.9
+
+    def test_breaker_height_uses_the_peak_period(self):
+        """The production default must attenuate on Tp: the same sea with a peak period
+        declared has to break higher than one the model gave only a mean for."""
+        depths = [40.0, 20.0, 10.0, 6.0, 3.0, 1.5, 0.8]
+        mean_only = (SwellPartition(height_m=1.4, period_s=5.9, direction_deg=290.0),)
+        with_peak = (
+            SwellPartition(height_m=1.4, period_s=5.9, direction_deg=290.0, peak_period_s=8.4),
+        )
+        h_mean = breaker_height_from_profile(mean_only, WIDE, 290.0, depths)
+        h_peak = breaker_height_from_profile(with_peak, WIDE, 290.0, depths)
+        assert h_peak > h_mean
+
+    def test_long_period_swell_is_unchanged_by_the_key(self):
+        """Above the 1.0 cap the key cannot matter - this is why the change left every
+        groundswell region bit-identical (CALIBRATION.md 2026-07-30)."""
+        depths = [40.0, 20.0, 10.0, 6.0, 3.0, 1.5, 0.8]
+        mean_only = (SwellPartition(height_m=1.4, period_s=12.0, direction_deg=290.0),)
+        with_peak = (
+            SwellPartition(height_m=1.4, period_s=12.0, direction_deg=290.0, peak_period_s=15.0),
+        )
+        assert breaker_height_from_profile(with_peak, WIDE, 290.0, depths) == pytest.approx(
+            breaker_height_from_profile(mean_only, WIDE, 290.0, depths)
+        )
 
 
 class TestExposureWeight:

@@ -57,3 +57,17 @@ frames:
     tide_m: -0.25
     partitions:
       - { hs: 0.82, tm: 5.0, tp: 7.0, dir: 301 }
+
+  - id: "2026-07-27-poleg-undercall"
+    spot: poleg
+    calibration_row: "2026-07-27 entry (~05:30-07:00 local, graded at 06:00)"
+    observed_m: [0.8, 1.0]     # user in the water; predicted 0.4-0.6 = under-call ~1.8x
+    slack_m: 0.05
+    # tide was not recorded on the day - taken from the OM marine archive at poleg's
+    # offshore point, 2026-07-27T06:00 Asia/Jerusalem (added 2026-07-30)
+    tide_m: -0.27
+    partitions:
+      # as logged in the row; the archive hindcast corroborates within 0.04 m / 0.2 s
+      # (1.04 m, Tm 6.0 s, Tp 7.65 s, dir 292)
+      - { hs: 1.08, tm: 6.2, tp: 7.7, dir: 292 }
+      # windsea that hour was 0.08 m @ 1.0 s - negligible, omitted (as on the 07-19 frame)

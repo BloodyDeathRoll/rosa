@@ -570,3 +570,105 @@ Ingrina's window ends at 220 deg while its neighbour Zavial's reaches 260 deg. R
 does pick up some W/SW wrap around Sagres, so the narrower window may be under-calling wrapped
 swell there. That is a spot-DB judgement, not a formula one - **user/local knowledge decides**,
 per the coordinate-authority ladder. Flagged, not changed.
+
+## 2026-07-30 - Stage 2E resolved: rideability keys on Tp (first knob moved since row 2)
+
+The archive matured. Both halves of 2E ran on the SESSION-10-fixed harness, and they
+answered in opposite directions: **the input needs no correction at all, and the transform
+needs one.**
+
+### 1. The buoy half: no input de-bias is defensible. 2E's planned fit is off the table.
+
+Full sweep, 12 stations x 3 archived sources, `verify --archive` per source.
+Open-Meteo, n = 45,252 pairs (vs the 6-7 nowcast hours the 07-23 sweep drew on):
+
+| var | fleet bias | mae | by class |
+|-----|-----------|-----|----------|
+| Hs | **-0.005 m** | 0.223 | CDIP Waverider **-0.299**, NDBC discus **+0.088** |
+| Energy period (vs measured Tm-1,0) | **+0.209 s** | 0.863 | CDIP +0.078, NDBC +0.250 |
+| Direction | **+15.58 deg** | 33.79 | CDIP +11.6, NDBC +16.8 |
+
+- **The period question is closed.** +0.21 s fleet-wide. SESSION 10's "the hot bias was our
+  own pairing bug" holds at 7x the sample. The input de-bias that Stage 2E was originally
+  built around would have been a pure fabrication.
+- **Hs has no global bias to remove** - the -0.005 m fleet mean is *cancellation*, not
+  accuracy. It still tracks the instrument, not the basin: Hawaii's 51201 reads **+0.232**
+  while 51202/51205 read **-0.498/-0.466**. Confirms 10c at scale.
+- Hs bias grows with lead (-0.035 m @0-1d -> +0.125 @7d+), as does direction
+  (+12.7 -> +19.9 deg). Only visible because the scorecard prints sign (SESSION 10b).
+
+**Three-way A/B, matched hours.** Open-Meteo stays the height source; GFS-Wave is confirmed
+the better direction source but still cannot be applied:
+
+| source | Hs bias | Hs mae | Dir bias | Dir mae |
+|--------|---------|--------|----------|---------|
+| Open-Meteo | -0.005 | **0.223** | +15.58 | 33.79 |
+| GFS-Wave | -0.119 | 0.279 | **-0.700** | **30.05** |
+| ECMWF | +0.074 | 0.247 | +16.23 | 33.43 |
+
+GFS-Wave runs ~0.12 m low fleet-wide and loses on Hs mae at every lead - **no source swap**,
+same verdict as 07-29 on a far larger sample. Its direction is near-unbiased where OM and
+ECMWF share a ~+16 deg clockwise lean. Still NOT actionable: measured on total-sea `mwd`,
+not the per-partition directions `spread_exposure()` consumes (SESSION 10d's caveat stands).
+
+### 2. The Israel half: the transform was keying on the wrong period. KNOB MOVED.
+
+Added the 2026-07-27 **Poleg** frame the 07-27 entry earmarked (fifth frame; inputs as
+logged, tide -0.27 m reconstructed from the OM marine archive at poleg's offshore point,
+which corroborates the logged partitions within 0.04 m / 0.2 s).
+
+Grid {mean, peak, energy} x exp {1.0, 1.2, 1.4, 1.6}, then a wider sweep to exp 3.0:
+
+- **Every mean-keyed row now under-calls three of the five frames** (Hilton x2, Poleg),
+  by -0.22 to -0.43 m. Shipping `mean^1.4` was the worst of them on Hilton 07-25 (-0.37).
+- **Every peak-keyed row fixes them.** `peak^1.4` puts all three inside their observed band
+  or within 0.12 m of it.
+- **No candidate satisfies all five, and no exponent can.** Steepening the exponent pulls the
+  flat frame into range but drags the under-call frames back down with it - checked out to
+  exp 3.0. The split is **by spot, not by period regime**: both Beit Yanai frames resist
+  peak-keying, all three Hilton/Poleg frames demand it.
+
+**Decision: `rideability_period()` keys on the partition's peak period** (mean only as a
+fallback where the model publishes no Tp). `RIDEABILITY_EXP` stays **1.4** - it is the
+min-max-error choice across all five frames, and lowering it inflates the *smallest* hours
+most (fleet p10 x1.25 at exp 1.0), which is the false-hope direction.
+
+This also ends an internal contradiction: `energy_period()` / the published kJ column already
+keyed off Tp, with a docstring saying that keying off the mean "understates a real swell
+badly" - while the height path next to it still used the mean.
+
+### 3. Fleet impact: confined to short-period seas, by construction
+
+Recomputed over all 199 spots x 25,472 published hours. Rideability saturates at its 1.0 cap
+above ~10 s, so the key **cannot** matter for groundswell - and doesn't:
+
+| dominant Tm | n | median | p90 |
+|-------------|---|--------|-----|
+| < 6 s | 6,474 | x1.06 | **x1.26** |
+| 6-8 s | 5,333 | x1.04 | x1.00 |
+| 8-10 s | 2,765 | x1.00 | x1.00 |
+| >= 10 s | 9,650 | x1.00 | x1.00 |
+
+Costa Rica, Nicaragua, Sri Lanka, Japan, Hawaii, Philippines and California are
+**bit-identical at every percentile**. Israel moves p90 x1.39 / p99 x1.44; Portugal x1.04-1.07.
+
+Buckets over the same fleet: **3.39% of hours change**, and they move the right way -
+POOR->FAIR 734, FAIR->GOOD 55, FLAT->POOR 51, GOOD->FIRING 2, and 2 downgrades total.
+Mean rating delta **+0.68 pts**; FIRING count moves by 2 hours in 25k. The ten spots with the
+most changes are all Israeli Med beaches - exactly the regime the log has been flagging since
+07-25.
+
+### Residual, logged not fixed
+
+Poleg still reads -0.12 m under its observed band, and the 07-19 Beit Yanai flat frame
+over-calls +0.15 m. That residual is **per-spot**, which is what `height_coeff` exists for -
+and it is still 1.0 at all 199 spots, never once used. Not fitting it now: two thin frames
+per spot, and both Beit Yanai frames are hindcast-**reconstructed** inputs while all three
+frames demanding peak-keying are **as-logged**. Provenance correlates perfectly with which
+candidate each frame favours, which is a real confound on a five-frame set and the honest
+reason not to chase the last 0.15 m with a second knob.
+
+**Method note:** the whole fleet impact above is computed offline from published payloads by
+injecting candidates through `breaker_height_from_profile`'s existing `rideability` hook, so
+production and harness are the same code path - `test_baseline_reproduces_production_path`
+now pins that equality against the real function rather than a copied constant.
