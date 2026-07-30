@@ -1,116 +1,92 @@
-# Session Handoff — 2026-07-29
+# Session Handoff - 2026-07-30 (session 11)
 
 ## Goal
-Started as a small web-polish round (Charts, Today layout, spot page) and turned into
-the biggest forecast-correctness fix so far: a metre of swell offshore was rendering as
-0.0-0.1 m at the spot. Root-caused, fixed, verified against Surfline, logged.
+Run Stage 2E for real (the archive matured). Both halves ran. The buoy half said the input
+needs no correction at all; the Israel half moved one knob. A Surfline side-by-side afterwards
+then turned up a separate, larger finding about Open-Meteo's partitions.
 
 ## Current State
-- **All committed and pushed** (main at `5bad2aa`), working tree clean. Web deployed to
-  rosa-rust.vercel.app (`index-DsHhZiAu.js` / `index-CVu7Nof3.css` verified live).
-  280 pipeline tests green, ruff clean, `tsc --noEmit` clean.
-- **⚠ The pipeline fixes are NOT in the served data yet.** rosa-instance has been running
-  one cycle since 2026-07-28T21:58Z (started before those commits); it will publish on the
-  NEXT cycle. Until then rosa-data still serves the old physics AND the 2-slot last day at
-  midigama. Verify with the commands in Next Step.
-- Exposure rebuild is verified locally: `run --all` gave impossible zeros **419 → 2**
-  (both at ingrina), median height x1.00, **Israel x1.00 at every percentile** (so the
-  five Stage-2E calibration frames are unaffected). Pipeline now matches Surfline hour by
-  hour; Fishermen Bay 0.0-0.1 m -> 0.9-1.5 m.
-- Open: ingrina's 2 zero hours; matapalo-osa, okanda, peanut-farm sit 65-73 deg between
-  wind direction and coastline (inside the new guard, want local knowledge); Open-Meteo
-  partition **direction wander** is absorbed by the fan but not solved.
+- **All committed and pushed**, main at `867ca1d`. **318 pipeline tests green**, `ruff check`
+  and `ruff format` clean. Fleet `run --all` clean (199 spots, 0 warnings).
+- **Stage 2E is DONE.** `period_rideability` now keys on the PEAK period; `RIDEABILITY_EXP`
+  stays 1.4. No other constant moved - not gamma, not `height_coeff`, no input de-bias.
+- Web deployed and verified live (`index-tWop6GtP.js` on rosa-rust.vercel.app, with the
+  rewritten `#/about/reading` disclosure confirmed present in the shipped bundle).
+- **VM was still on `cb5cda9` as of 08:09Z**; the 08:20Z cycle is the first to pull 2E AND the
+  closure ratio together. **Unconfirmed at handoff time - check it first.**
+- Local `data/out` is a fresh full fleet run from this morning (post-2E, with `closure`).
+- Local `data/verify/archive/` is rsynced from the VM (25 MB, 12 stations, ~1 week).
 
 ## Active Files
-- `pipeline/src/rosa_pipeline/transform.py` — the fix: `spread_exposure()`,
-  `arriving_direction()`, `GRAZING_INCIDENCE_DEG`, energy/height on one exposure.
-- `pipeline/src/rosa_pipeline/publish.py` — `_covers_day()`; drops the trailing half-day.
-- `pipeline/src/rosa_pipeline/fetch.py` — `PAST_DAYS=1`, batch 100->90.
-- `pipeline/src/rosa_pipeline/extract.py` — skips null-wind hours (crashed `run --all`).
-- `pipeline/src/rosa_pipeline/notify.py` + `cli.py` — `send_alert()` / `rosa-pipeline alert`;
-  region-locked, rotating feedback planner (`plan_feedback_push`, `spot_regions`).
-- `pipeline/tests/{test_transform,test_spots,test_publish,test_pipeline_end_to_end,test_notify}.py`
-- `data/spots/{sri-lanka,costa-rica}.yaml` + 10 re-cut `data/spots/derived/bathy/*.json`.
-- `deploy/oracle/publish.sh` (ERR trap -> push alert), `deploy/backup/freshness-watch.py`
-  (hourly watchdog on rosa-backup), `deploy/oracle/README.md` §Ops alerting.
-- `deploy/push-api/api/sub.js` — accepts `home` (nearest spot id, never coordinates).
-- `web/src/pages/{TodayPage,SpotPage,ChartsPage,SearchPage,MapPage}.tsx`,
-  `web/src/components/CoastChart.tsx`, `web/src/{geo,push,feedback}.ts`,
-  `web/public/push-sw.js`, `web/src/styles.css`, `web/public/splash.jpg`.
-- `docs/CALIBRATION.md` (2026-07-29 entry), `CLAUDE.md` (spec + SESSION 9 + NEXT).
+- `pipeline/src/rosa_pipeline/transform.py` - `rideability_period()` (new, peak-keyed),
+  `partition_closure()` (new), `breaker_height_from_profile` default factor changed.
+- `pipeline/src/rosa_pipeline/experiment.py` - `BASELINE` now `key="peak"`; report footer
+  reports both ranking criteria and no longer promises a de-bias.
+- `pipeline/src/rosa_pipeline/models.py` - `HourForecast.total_hs_m`.
+- `pipeline/src/rosa_pipeline/extract.py` - carries `wave_height` through (was dropped).
+- `pipeline/src/rosa_pipeline/publish.py` - per-hour `closure` key.
+- `data/calibration/frames.yaml` - Poleg 07-27 added (5 frames now).
+- `web/src/pages/AboutPage.tsx` - period disclosure corrected.
+- `pipeline/tests/{test_transform,test_experiment,test_publish}.py`
+- `docs/CALIBRATION.md` (five entries today), `CLAUDE.md` (SESSION 11 + NEXT rewritten).
 
 ## Changes Made This Session
-1. **Charts**: world-only (basin selector deleted); render to mercator's 85 deg edge — a
-   79 deg trim was blanking real Arctic field; zoom floored to the covered band; opens on
-   the user's coast at basin scale (`HOME_ZOOM = 3`, cached `getPosition()`).
-2. **Pipeline day boundaries**: `past_days=1` + trim to local today (the first day was cut
-   for spots west of UTC); then `_covers_day()` drops the trailing half-day east of UTC
-   (midigama had a 2-slot 16th day). 6 tests cover both ends.
-3. **Ops alerting** after two silent crash-and-serve-stale incidents: publish.sh ERR-traps
-   -> Web Push to `~/rosa-push/admin-subs.json` (admin only, never the public list);
-   rosa-backup runs an hourly freshness watchdog (pages if `fetched_at` > 7 h). Both tested
-   end to end (two test pushes delivered).
-4. **Feedback ask split in two** (user req): "Surfed X?" tick/cross then thumbs only on
-   yes, in-app and on the lock screen. Selection never crosses regions (device sends its
-   nearest spot id), rotates over favorites, falls back to the nearest spot with no
-   favorites. Verified against the live index.
-5. **Today planner** (`planToday()`): chips from where you are + favorites + the ONE
-   last-viewed spot; >=5 spots per region; anchor leads; payloads load per region.
-6. **The exposure rebuild** — full argument in docs/CALIBRATION.md 2026-07-29. Three
-   faults, one mistake (treating a partition as a single bearing): exposure judged the mean
-   only; refraction re-judged it the same way and cancelled the rest; a window reaching past
-   the shore normal was overruled by the derived normal. Plus 10 misaimed depth rays re-cut
-   and fishermen's `offshore_direction` corrected (it called the SW monsoon offshore).
-   Guards added: ray vs sample point, deep end underwater, wind from the land.
-7. **Web polish**: bar scale shared + piecewise 60/40 + units joined + 3.4 day columns +
-   bars at 50%; region blocks padded; equal-height cards; date bar padding; one-row spot
-   header (SpotSwitcher deleted); "Other nearby spots" strip reusing `MapCard`; cam icons
-   on search rows; nearby cam opens the whole spot page; new splash artwork; tamarindo's
-   dead cam removed; rating rail is now a grey track with a tier-coloured fill (flat = red
-   stub at 1/5 ... epic = full).
+1. **2E buoy half - no input correction is defensible.** 12 stations x 3 sources, OM n=45,252:
+   period bias **+0.21 s** (the "hot period" is dead), Hs fleet **-0.005 m but that is pure
+   cancellation** (CDIP -0.299 vs NDBC +0.088; Hawaii 51201 +0.232 against 51202/51205
+   -0.498/-0.466). Direction +15.6 deg. **No source swap** - GFS-Wave is 0.12 m low and loses
+   Hs mae at every lead; it is the better direction source but that is measured on total-sea
+   `mwd`, not per-partition, so still not actionable.
+2. **2E Israel half - KNOB MOVED.** Added the Poleg frame the log earmarked. Every mean-keyed
+   candidate under-calls 3 of 5 frames by -0.22..-0.43 m; every peak-keyed one fixes them; **no
+   exponent reconciles all five, checked to exp 3.0** - the split is by SPOT, not period regime.
+   Fleet effect is surgical: rideability saturates at its 1.0 cap above ~10 s, so every >=8 s
+   region is bit-identical. 3.39% of hours change bucket, **POOR->FAIR 734 vs 2 downgrades**.
+3. **Surfline side-by-side, 5 spots.** Clean-conditions agreement in Israel (our 0.3-0.5 inside
+   their 0.3-0.6 at all three spots). Direction agrees within a few degrees with inconsistent
+   sign - more support for the +15.6 deg being a blending artifact.
+4. **Partition closure found and wired up.** OM's four partition fields do not always hold all
+   of its own energy. Fleet: israel 1.00, japan 0.97, philippines 0.96, nicaragua/hawaii 0.95,
+   portugal/costa-rica 0.94, california 0.91, sri-lanka 0.90; every region but Israel and Hawaii
+   has hours below 0.60. Diagnostic only - nothing scores on it.
+5. `#/about/reading` corrected (it said height is computed from the mean period).
 
 ## Failed Attempts
-- **Declaring Pipeline's zeros "correct physics" was wrong.** The first assessment argued a
-  north-shore break is legitimately flat in July. The user's Surfline screenshot disproved
-  it (0.3-0.6 m from the same 1.8 m ENE swell). Check a reference forecast before calling a
-  zero legitimate.
-- **Spread-aware exposure alone did not fix it** — Pipeline went 0.0-0.1 -> 0.1-0.2, still
-  3x under Surfline, because refraction still measured incidence from the fan's *mean* and
-  cancelled it as arriving from behind the beach. Both halves are required.
-- **Spread integration does not rescue hiriketiya's 276 deg hours** (2.6 sigma outside the
-  arc). That is Open-Meteo partition direction wander (a 12 s swell reported
-  189->276->192 deg in one day), a separate problem.
-- **Bathy audit false negative**: comparing the profile's bearing to `spot.offshore_bearing`
-  via `getattr` returned None (the loader consumes that key into `offshore_point`), so the
-  first audit reported "0 mismatches". Reading the YAML directly found 13.
-- **Reading `data/out` before `run --all` finished** reported 77 remaining zeros; those were
-  the previous run's files. Wait for the run.
-- **CSS specificity**: `.nearby-cards` lost to `.map-cards` (equal specificity, defined
-  later), so the cards sat flush against the screen edge. Needed `.map-cards.nearby-cards`.
-- **`git commit -m` with nested double quotes** in the message broke shell parsing — use
-  `-F <file>` for long messages.
-- **Vercel deploy failed twice with `ETIMEDOUT` to api.vercel.com**, transient; the third
-  attempt succeeded. A failed deploy leaves the old bundle serving, so always verify the
-  hash after deploying.
-- Background watchers timed out twice waiting on VM cycles: a full publish cycle now takes
-  ~60-90 min (3-way archive + 199 spots + swellmap), so poll windows must exceed that.
+- **Three of my own conclusions were wrong today and had to be walked back in the log.** Each
+  was caught by adding a control, not by more reasoning. If closure ever justifies a change,
+  give it the same treatment before shipping.
+  - "We read bigger than Surfline on the small hours" - drawn from Zvulun alone. Their own
+    Zvulun reads 0-0.3 where their Hilton reads 0.3-0.6 on identical input.
+  - "Open-Meteo is ~0.8 m low in Sri Lanka" - **wrong, and I nearly proposed a regional Hs
+    correction on it.** Deep water showed OM and ECMWF agreeing to 0.01 m; a transect showed
+    Arugam Bay's gap was ECMWF's 0.25 deg grid failing to resolve the island sheltering its own
+    east coast. OM's total was never low.
+  - "A third of the sea is missing" - closure is a ratio of HEIGHTS; energy is `closure^2`.
+- **Third comparison artifact this month** (after APD-vs-Tm-1,0 and blended `mwd`): a coarse
+  grid against a sheltered coast. **A control group and a deep-water check are what caught it -
+  build both into any future cross-source claim.**
+- **ECMWF's period bands start at 10 s**, so they cannot referee a 4 s vs 9 s question directly;
+  `swh` plus the Tm02/Tm-1,0 moments do.
+- **`Spot` has no `offshore_bearing`** - it is consumed when deriving `offshore_point`; compute
+  the bearing from the pin if you need it.
+- **Bash cwd persists between calls** - bit me again after a `cd pipeline`. Use absolute paths.
+- **`run --all` died once on an Open-Meteo TLS handshake timeout mid-batch** and needed a plain
+  retry. Transient, not a code fault - do not go looking for a bug.
 
 ## Next Step
-1. **Confirm the pipeline fixes reached the served data** once the current VM cycle ends:
-   ```bash
-   ssh -i web/.oracle/ssh-key-2026-07-23.key ubuntu@82.70.218.149 \
-     'grep -E "=== 2026-07-29" ~/rosa/publish.log | tail -3; pgrep -f publish.sh || echo idle'
-   curl -s "https://rosa-data-opal.vercel.app/data/spots/pipeline.json" | \
-     python3 -c "import json,sys; d=json.load(sys.stdin); print([h['h'] for h in d['hours'][:8]])"
-   # expect ~0.3-0.6, not 0.0-0.1; fishermen ~0.9-1.5; midigama last day 8 slots not 2
-   ```
-   A failed cycle should have pushed an alert; `grep 'FAILED at:' ~/rosa/publish.log`.
-2. **Stage 2E** (archives mature ~07-30): input de-bias + Israel refit + re-run
-   `rosa-pipeline experiment`. The five frames are unaffected by this session's work
-   (Israel x1.00), so the Tm-vs-Tp under-call question stands exactly as logged.
-3. Watch items: ingrina's 2 zero hours; matapalo-osa/okanda/peanut-farm wind vs coastline;
-   partition direction wander (temporal smoothing of long-period partition direction is the
-   next candidate if it recurs).
-4. Backlog: Period bar rescale (`min(1, per/9)` -> ~/13) in SpotPage `DayBars`; cam verify
-   for chigasaki/aoshima (`tools/cam-scan/scan.py verify`); Nazare's temps row overflows its
-   card (user said leave it).
+1. **Confirm the 08:20Z cycle** - first production run of the 2E forecast change AND closure:
+   `ssh -i web/.oracle/ssh-key-2026-07-23.key ubuntu@82.70.218.149 'grep -E "^=== |FAILED at:" ~/rosa/publish.log | tail -4'`
+2. **User action, highest value: eyeball a flat Israeli morning.** The residual 2E error is
+   per-spot and `height_coeff` is still 1.0 at all 199 spots. Surfline could not settle it -
+   only eyes can. Prefer **as-logged** frames; provenance confounded the existing five.
+3. **In a week, once closure has data:** does it track the sea state or the spot? Is the missing
+   energy short-period (where `period_rideability` floors it anyway, making this nearly
+   harmless) or long? **Do NOT scale partitions to close the gap** - that invents direction and
+   period the model never gave. A confidence penalty is the honest option.
+4. **Product decision nobody has made:** Surfline's surf height drops a band in an onshore
+   afternoon; ours does not, because wind lives in the rating. Should a blown-out 0.6 m read
+   smaller?
+5. Backlog: the notify fix has still never fired a real push in production (simulation only);
+   chigasaki cam replacement (nearest official is Kanagawa's 平塚海岸 `62_twW5uXd4`, ~6 km west);
+   `hagolshim` points at a Rishon LeZion stream ~5 km south; `tide_best` values; 79 ruff
+   findings in `tools/`+`deploy/`.
