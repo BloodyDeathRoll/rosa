@@ -1059,3 +1059,263 @@ cycle, so the questions it needs are answerable in a week rather than by a one-m
 does a spot's closure track the sea state or the spot? is the missing energy short-period (where
 `period_rideability` would have floored it anyway, making this nearly harmless) or long? do the
 sub-0.6 hours cluster in conditions a user would care about?
+
+## 2026-08-02 - the depth march never reached the surf zone, and the wave got smaller on the way in
+
+Triggered by the user watching Santa Teresa's cam: surfers in frame put the face **over 1 m**
+against a published **0.5-0.7 m**. Unlike the 07-30 Surfline round this is a direct eye frame in
+a **long-period Pacific** region, the regime CLAUDE.md has flagged as untested since the log's
+"Scope & honesty" header was written. It found a structural fault, not a constant that needed
+nudging.
+
+### What was wrong
+
+`breaker_height_over_profile` marches a partition shoreward and returns `gamma*d` at the depth
+where it first breaks. If it never breaks inside the profile it returned **the most-shoaled
+height it had reached** - the height at the shallowest GEBCO sample. The docstring called that
+a sub-grid gap "a per-spot residual coefficient absorbs". `height_coeff` is 1.0 at all 199
+spots, so nothing absorbed it.
+
+That branch is not an edge case. Committed profile floors, all 199 spots:
+
+```
+<2 m  9      2-5 m  42      5-10 m  76      10-20 m  54      >=20 m  18
+```
+
+Median floor 7 m, so a wave needs ~5.5 m of height to break inside the profile. Share of
+published hours that actually reach depth-limited breaking:
+
+```
+California 0.0%  Hawaii 0.0%  Israel 0.0%  Nicaragua 0.0%  Portugal 0.7%
+Japan 1.8%  Costa Rica 2.7%  Philippines 2.7%  Sri Lanka 3.0%
+```
+
+**97-100% of the fleet was being served a mid-shelf height labelled as a breaker height.** And
+the shallowest sample is the worst possible place to stop: it sits inside the shoaling dip and
+has already taken the refraction loss, but none of the shallow-water growth. At Santa Teresa the
+dominant partition went **x0.74 from offshore to "break"** (Ks 0.93, Kr 0.80 at 60 deg incidence,
+last wet sample 13 m). Fleet median of published `h_mid` over RMS of in-window offshore
+partitions: **0.69**. Waves were arriving smaller than they left.
+
+### The fix, and what was deliberately not done
+
+Closed the march with **Komar & Gaughan (1972)**, `Hb = 0.39 g^0.2 (T H0'^2)^0.4`, refraction
+iterated to the breaking depth, H0 de-shoaled from the profile's reference depth first
+(`deep_water_equivalent`) so a spot whose profile starts shallow does not get an inflated H0.
+It needs only H0, T and the approach angle - no bathymetry we do not have.
+
+**Rejected: appending a plausible shallow tail to the profiles.** It looks like more physics but
+the answer becomes exactly `gamma x whatever final depth was invented`. That is a knob wearing a
+lab coat.
+
+### The exponent had to move with it, and this is the important part
+
+`RIDEABILITY_EXP = 1.4` was fitted **on top of the truncated march**, so part of what it was
+"measuring" was the truncation. Refitting on the same 5 frames with the march closed, using the
+harness's own criterion (predicted mid inside observed +- slack):
+
+```
+BEFORE - march stops at the GEBCO floor        AFTER - march closed
+candidate  pass  maxerr                        candidate  pass  maxerr
+peak^1      4/5    0.20                        peak^2.2    4/5    0.15
+peak^1.4    3/5    0.15  <- shipping           peak^2      4/5    0.17
+energy^1    3/5    0.16                        mean^1      4/5    0.19
+peak^1.2    3/5    0.17                        energy^1.4  4/5    0.20
+```
+
+Adopted **`peak^2.2`** (key unchanged, exponent 1.4 -> 2.2). The tie-break inside the 4/5 tier
+was not the frames - they cannot separate 1.8 from 2.2 - it was the fleet:
+
+```
+median height multiplier vs the deployed forecast
+region          exp 1.4  exp 1.8  exp 2.0  exp 2.2
+California         1.70     1.68     1.67     1.66
+Costa Rica         1.66     1.64     1.62     1.61
+Nicaragua          1.72     1.70     1.70     1.69
+Sri Lanka          1.46     1.44     1.44     1.44
+Japan              1.39     1.36     1.34     1.34
+Philippines        1.60     1.51     1.49     1.47
+Hawaii             1.44     1.30     1.25     1.20
+Portugal           1.48     1.34     1.27     1.21
+Israel             1.39     1.19     1.11     1.06
+```
+
+Because rideability caps at 1.0 above ~10 s, **the exponent is in practice an Israel/Portugal
+knob** and the closure is a long-period-region correction. They separate cleanly. 2.2 is the
+value that leaves the **calibrated** region essentially where its graded frames put it
+(Israel x1.06) while the closure corrects the regions that never had an eye frame. Choosing 1.8
+would have raised Israel 19% on no eye evidence at all.
+
+### A claim I made and had to withdraw
+
+I first reported that **"exponent 2.5 with the march closed makes all five frames pass, the
+first time any candidate has"**. It does not. That came from a scratchpad pass test asking
+whether the *displayed range* overlapped the observed band; the project's harness asks whether
+the predicted *midpoint* sits inside observed +- slack, which is stricter and is the criterion
+every previous entry in this log used. Under the real criterion **no candidate passes all five,
+before or after** - the 2026-07-19 flat frame is over by +0.15 to +0.24 everywhere. Fourth
+comparison artifact in three weeks, and the first one that was purely my own bookkeeping:
+**score candidates with the shipped harness, never a scratchpad reimplementation of it.**
+
+The flat frame's residual looks structural rather than tunable: it is a 0.60 m 5.05 s Med
+windsea observed ankle-high, and a breaker index assumes something that breaks as a wave.
+
+### Two supporting faults found on the way, both fixed
+
+**1. Peak period was missing from 7 of 9 regions.** Coverage of `peak_period` on published
+partitions: Israel 18.9%, Portugal 15.7%, **everywhere else 0.0%**. Cause: `best_match` resolves
+to `meteofrance_wave` (its Hs matched to the centisecond at all 5 probe points), which publishes
+no peak period at all. Stage 2E's peak-keyed rideability was therefore falling back to the mean
+everywhere outside Europe - the fix shipped 07-30 was reaching two regions.
+
+Probed every marine model. `gwam` (DWD global WAM) publishes `swell_wave_peak_period` at all 5
+probe points out to ~7.3 days; `ewam` does too but is Europe-only; `ncep_gfswave016` and
+`meteofrance_wave` publish none. Added `gwam` to `MARINE_MODELS` as a peak-period-only source -
+one extra model on the same request, so no extra cost against the rate limiter. Santa Teresa now
+reads Tp **11.2 s** where its mean is 8.7 s.
+
+This is a cross-model join and the only one in the pipeline. It is safe because Tp feeds
+`period_rideability` and the display, never the dispersion march or `period_score`. It is also
+what Open-Meteo already does inside `best_match` over Europe: at Hilton and Supertubos its Hs is
+meteofrance's while its Tp is gwam's, identical to the centisecond. Tests pin that gwam supplies
+**only** the Tp and never becomes the horizon tail. `secondary_/tertiary_swell_wave_peak_period`
+do not exist as API variables, so those partitions still have no Tp - an API limit, not a choice.
+
+**2. Santa Teresa's swell window was the regional default and was wrong.** `[190, 310]` put its
+lower edge exactly on the dominant 189-190 deg swell, costing 28% of that partition's energy,
+while its top 20 deg pointed at dry land. New `horizon.py` fans rays over 360 deg from the spot
+and asks which reach open ocean, using the same GEBCO source and `destination` geometry as the
+depth profiles. Derived: **[160, 290]**, adopted.
+
+The criterion needed care and nearly produced a fifth artifact. A plain `elevation >= 0` test
+carved a false notch at 220-235 deg straight through the open Pacific - a submerged bar at
+1.5-3 km reading 0 to +2 m with 60-90 m of water beyond it. Two thresholds instead of one: land
+must stand above GEBCO's noise (`HORIZON_LAND_M = 3.0`) and the ray must reach deep water
+(`-50 m`), in that order. The derived window is stable for any land threshold in 2-5 m and only
+collapses below 2 m, which is the bar being read as a coast again. `rosa-pipeline horizon`
+reports and never applies - same rule the cam sweep learned the hard way.
+
+### Status
+
+The other 198 spots still carry regional-default windows. `horizon --all` would take ~25 min
+against the OpenTopoData rate limit and every result wants an eye on it before adoption, so it
+was not run. Santa Teresa is the one spot with an observation behind it.
+
+`height_coeff` remains 1.0 at all 199 spots.
+
+## 2026-08-02 (cont.) - fleet horizon sweep: a negative result, nothing adopted
+
+Ran `rosa-pipeline horizon --all` (199 spots, ~1,200 rate-limited GEBCO requests). **185 of 199
+disagree with their YAML window. None were adopted**, because the disagreement turned out not to
+be evidence the YAML is wrong.
+
+```
+derived window width        <30    30-60   60-90   90-135   >=135
+                              4       6      29      75       73
+```
+
+**39 of 187 derived windows are narrower than 90 deg, which no open beach is**, and 12 spots
+returned no window at all. Reading the captured rays back:
+
+- **miramar (Nicaragua), derived 10 deg.** Bearings 225-275 all sit on the same shelf. The only
+  thing separating "open" from "blocked" is whether the 0.5 km sample rounds to **+3 or +4 m**
+  against `HORIZON_LAND_M = 3.0`. On a shallow-shelving coast the nearshore GEBCO cell straddles
+  the waterline, so the threshold behaves like a coin flip and chops the arc at random.
+  `manzanillo` (25 deg) is the same story.
+- **calicoan-abcd (Philippines), derived 10 deg.** Different mechanism: bearings 145+ never reach
+  `HORIZON_DEEP_M = -50 m` within 40 km (deepest -43, -32, -28), so a wide-open ocean sector reads
+  blocked. This is also what the 12 no-window spots are, and **they are not all geometry faults**
+  whatever my error message says - `pavones`, `panga-drops`, `miura`, `kodomonokuni` sit inside
+  gulfs and bays where land really is 20 km across the water and swell really does wrap in
+  through the mouth.
+- **arugam-bay, derived [25, 175] against a hand-set [120, 200].** The scan is right that the
+  Indian Ocean is open from the NNE. The point that shelters the break from exactly that swell
+  is smaller than a GEBCO cell. The method measures **ocean visibility at ~450 m**; it cannot
+  measure local sheltering.
+
+So Santa Teresa's success does not generalise - it is the easy case, a long simple open beach on
+a steep coast, and it cleared a bar the sweep results cannot: **stable across the entire
+plausible threshold range (2-5 m) AND a user eye observation backing the forecast it produces.**
+
+`horizon` output is a **flag for review, not an answer**, and that is now written into the module
+docstring so the next person does not adopt 185 windows on the strength of "the tool said so".
+Making it adoptable would mean tolerating isolated blocked bearings as noise rather than walls,
+and making the deep-water test relative to the local shelf instead of a fixed -50 m. Not
+attempted - it needs its own experiment and its own eyes.
+
+Separately, `prune_index` was fixed: it drove off `index.json` only, so a payload whose index
+entry had already vanished was invisible to it and shipped in every prebuilt deploy forever.
+Four such orphans had been riding along since 2026-07-23 (`ahangama-kabalana`, `bugrashov`,
+`herzliya-marina`, `metzitzim`). It now sweeps the payload directory against the spot DB as well.
+
+## 2026-08-02 (cont.) - horizon made adoptable, 183 windows adopted
+
+The negative result above was two mechanical faults, not a dead end. Both are fixed and the
+sweep re-run offline against the captured elevations (reproducible, no new requests).
+
+**Fault 1 - the spot's own shoreline cell was deciding the window.** `HORIZON_DISTANCES_KM`
+starts at 0.5 km, which is inside one GEBCO cell of the spot itself, and on a shallow-shelving
+coast that cell straddles the waterline by construction. At `miramar` bearings 225-275 sit on
+one identical shelf and the only thing separating "open" from "blocked" was whether that sample
+rounded to **+3 or +4 m**. `HORIZON_MIN_BLOCKER_KM = 1.0` now ignores land the source cannot
+resolve. This single change took no-window 12 -> 4 and sub-90-deg windows 39 -> 18.
+
+**Fault 2 - a -50 m "open water" bar is unreachable on a broad shelf.** `calicoan-abcd` never
+gets past -43 m in 40 km, so a wide-open sector read blocked. `HORIZON_DEEP_M` is now **-20 m**:
+past the surf zone, still discriminating, and it removes every remaining sub-60-deg window.
+Beyond -20 the curve flattens.
+
+```
+                    none   <30   30-60   <90   median width
+before (-50, 0.0)     12     4       6    39      125
+after  (-20, 1.0)      3     0       0    10      136
+```
+
+**A rewrite in between was wrong and got caught.** Trying to replace the deep test with "still
+in water at the far end", I dropped the ORDERED land-vs-water comparison. That immediately
+regressed santa-teresa from [160, 290] to [210, 290] - a single **+5 m bar cell at 3 km** on
+bearing 205 became a wall, chopping off the southern sector where its dominant swell arrives.
+The ordering test is what lets a ray shrug off a bar it has already sailed past; it is
+load-bearing and must not be dropped. Santa Teresa is invariant under every threshold pair
+tried, which is what a well-conditioned spot looks like.
+
+### Adoption
+
+**Adopt where the current value is provably wrong, or where the change is immaterial:**
+
+- **13 spots whose YAML window did not contain their own shore normal.** An independent check,
+  needing no part of this tool: 14 of 199 windows excluded the direction the beach faces
+  (`salema` off by 44 deg, `whiskey-point` 40, `coconut-beach` 30, `molhe-leste` 26). Same class
+  of fault as the 2026-07-29 shore_normal audit. The derived window contains the normal by
+  construction, so it is unambiguously better on that axis.
+- **170 spots where the height moves less than 10%.**
+
+**Held - 16 spots:** 3 large movers whose size the tool's blind spot could explain
+(`calicoan-abcd` x0.68, `zavial` x0.69, `kodomonokuni` x0.89), 10 flagged NARROW (<90 deg, which
+no open beach is - the CLI now prints that warning), and 3 whose shore normal is blocked
+(`pavones`, `panga-drops`, `miura` - genuinely inside gulfs, not geometry faults).
+`playa-cocles` still excludes its own normal and is NARROW-flagged; it needs eyes.
+
+**Fleet height impact of the windows alone: x1.01 median** (p10 0.94, p90 1.06). Windows rotate
+by tens of degrees and the forecast barely moves, because the soft exposure taper and the fact
+that swell usually arrives near the shore normal absorb it. The windows were worth fixing for
+correctness, not for size.
+
+**The remaining limit is unchanged and is not fixable from GEBCO:** the scan measures ocean
+visibility at ~450 m, so a derived window is an **upper bound on exposure**. It cannot see a
+headland sheltering the break at 50-200 m (`arugam-bay` opens at 25 deg because the Indian Ocean
+genuinely is open from the NNE) nor swell wrapping in around a point (`pottuvil-point`).
+
+### Two things this shook loose
+
+Adopting moved `beit-yanai`, `hilton` and `poleg` - the three calibration-frame spots - so the
+2E exponent refit had to be redone against the new geometry. **`peak^2.2` still wins, 4/5 frames,
+maxerr 0.15** (per-frame +0.15 / 0.00 / 0.00 / -0.04 / -0.04). The conclusion survives.
+
+And a live `run --all` took two Open-Meteo **429s on the ensemble request**. That was mine:
+adding `gwam` took the marine request from 2 models to 3, so its quota weight went ~4.9 -> 7.3
+per point and `MARINE_BATCH_SIZE = 90` no longer fit the 600/min bucket. Reduced to **65** with
+the arithmetic written out. It degrades honestly (publishes without the confidence ensemble
+rather than failing), which is exactly why it would have rotted silently on the VM cron.
+Re-derive that batch size whenever `MARINE_MODELS` or `MARINE_HOURLY` changes. Clean re-run
+after: 199 spots, 0 warnings.
