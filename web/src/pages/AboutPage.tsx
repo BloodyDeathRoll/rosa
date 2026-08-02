@@ -84,16 +84,25 @@ function ReadingTheForecast() {
         seabed, so it grows, bends, and finally breaks the way it actually would there.
       </p>
       <p>
+        One honest limit on that. The public seabed maps we use (GEBCO) stop well short of the
+        surf zone - at the average spot the shallowest depth they give us is about 7 metres, and
+        waves do most of their growing in the last metre or two. So Rosa walks the swell in as far
+        as the map goes and then finishes the last stretch with a published formula that predicts
+        breaker height from the swell's height, period and angle alone. Until 2 August 2026 it did
+        not finish that stretch at all, and every spot read too small as a result.
+      </p>
+      <p>
         We show a range because no forecast is precise to the centimetre. Words like{" "}
         <i>waist-high</i> or <i>overhead</i> are the same number said out loud.
       </p>
       <p>
         The smaller number underneath is a <b>different measurement</b>: the height of that swell
         out in deep water, before it reaches the coast, carrying its unit so you can tell the two
-        apart. It is normally the bigger of the two, often by half again or more, and that is not a
-        contradiction - open-ocean height is measured over water hundreds of metres deep, and how
-        much of it survives the trip in depends on the swell's period and the angle it meets the
-        coast at. A short-period swell loses far more of itself than a long-period one.
+        apart. Either one can be the bigger, and that is not a contradiction. A long-period
+        groundswell arrives at the beach <i>taller</i> than it was at sea - it stands up as the
+        water shallows, which is why a 1.5 m reading offshore can be well overhead at the reef. A
+        short-period wind sea does the opposite and loses most of itself on the way in. Period and
+        the angle it meets the coast at decide which happens.
       </p>
 
       <h2>Swell - where the energy is coming from</h2>
