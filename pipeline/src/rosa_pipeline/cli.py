@@ -195,6 +195,23 @@ def _build_parser() -> argparse.ArgumentParser:
         "--sleep", type=float, default=1.0, help="seconds between spots (OpenTopoData rate limit)"
     )
 
+    horizon = sub.add_parser(
+        "horizon", help="derive a spot's swell_window from coastline geometry (reports only)"
+    )
+    which_h = horizon.add_mutually_exclusive_group(required=True)
+    which_h.add_argument("--spot", help="spot id, e.g. santa-teresa")
+    which_h.add_argument("--all", action="store_true", help="every spot in the DB")
+    horizon.add_argument("--spots-dir", type=Path, default=Path("data/spots"))
+    horizon.add_argument(
+        "--fixtures", type=Path, default=None, help="replay a captured elevations map (offline)"
+    )
+    horizon.add_argument(
+        "--capture", type=Path, default=None, help="capture the elevations map to this dir"
+    )
+    horizon.add_argument(
+        "--sleep", type=float, default=1.0, help="seconds between spots (OpenTopoData rate limit)"
+    )
+
     notify = sub.add_parser(
         "notify", help="send grouped swell-alert Web Pushes for new events (VM cron step)"
     )
@@ -583,6 +600,57 @@ def _cmd_feedback(args: argparse.Namespace) -> int:
     return 0
 
 
+def _cmd_horizon(args: argparse.Namespace) -> int:
+    """Report the geometry-derived swell window next to the one in the YAML. Deliberately does
+    NOT apply: per CLAUDE.md's coordinate authority ladder a derived value ranks below a human's
+    eyes, and the cam sweep already taught this repo what unattended --apply costs."""
+    import time
+
+    from .horizon import scan_horizon
+
+    spots = load_spots(args.spots_dir)
+    if args.all:
+        targets = list(spots.values())
+    else:
+        target = spots.get(args.spot)
+        if target is None:
+            print(f"unknown spot {args.spot!r}; known: {', '.join(sorted(spots))}", file=sys.stderr)
+            return 2
+        targets = [target]
+
+    source: BathymetrySource = (
+        FixtureBathymetrySource.from_file(args.fixtures / "bathy_elevations.json")
+        if args.fixtures is not None
+        else OpenTopoDataSource(capture_dir=args.capture)
+    )
+
+    changed = 0
+    for i, spot in enumerate(targets):
+        try:
+            scan = scan_horizon(source, spot)
+        except ValueError as exc:
+            print(f"{spot.id}: ⚠ {exc}", file=sys.stderr)
+            continue
+        cur = spot.swell_window
+        derived = scan.window
+        same = abs(cur[0] - derived[0]) < 2.5 and abs(cur[1] - derived[1]) < 2.5
+        changed += not same
+        # A window narrower than this is almost certainly an artifact rather than a sheltered
+        # spot - no open beach sees less. Flagged, never suppressed: the caller decides.
+        width = ((derived[1] - derived[0]) % 360) or 360
+        flag = "" if same else "   <- differs"
+        if width < 90:
+            flag += f"   ⚠ NARROW {width:.0f} deg - review before adopting"
+        print(
+            f"{spot.id}: yaml [{cur[0]:.0f}, {cur[1]:.0f}] vs derived "
+            f"[{derived[0]:.0f}, {derived[1]:.0f}] (shore normal {scan.shore_normal:.0f}){flag}"
+        )
+        if args.fixtures is None and i < len(targets) - 1 and args.sleep > 0:
+            time.sleep(args.sleep)
+    print(f"{changed} of {len(targets)} spot(s) differ - edit the YAML by hand to adopt")
+    return 0
+
+
 def _cmd_bathy(args: argparse.Namespace) -> int:
     import time
 
@@ -723,6 +791,8 @@ def main(argv: list[str] | None = None) -> int:
         return _cmd_feedback(args)
     if args.command == "bathy":
         return _cmd_bathy(args)
+    if args.command == "horizon":
+        return _cmd_horizon(args)
     if args.command == "notify":
         return _cmd_notify(args)
     if args.command == "alert":
