@@ -1,6 +1,6 @@
 # Rosa - conditions color system (dark + light themes)
 
-> **HISTORICAL (superseded 2026-07-20).** The session-3 "Uptake" design handoff (warm
+> **HISTORICAL (superseded 2026-07-20).** The session-3 "warm clay" design handoff (warm
 > cream/clay, Inter, FIRING→"Epic") replaced this zine system and is what `web/` implements.
 > Kept for context only - do NOT implement from this file. See CLAUDE.md §UI.
 
