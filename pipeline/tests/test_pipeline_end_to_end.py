@@ -135,3 +135,27 @@ def test_prune_index_drops_spots_that_left_the_db(payload, tmp_path):
     assert spot_path.exists()
     # nothing left to prune - a second pass is a no-op, not an error
     assert prune_index({"beit-yanai"}, tmp_path) == []
+
+
+def test_prune_index_sweeps_payloads_the_index_has_already_forgotten(payload, tmp_path):
+    """The gap that let 4 orphans ship since 2026-07-23: an index entry can vanish on its
+    own, and from then on an index-driven prune cannot see the payload it left behind."""
+    keep = write_spot_json(payload, tmp_path)
+    update_index(payload, tmp_path)
+    orphan = dict(payload)
+    orphan["spot"] = {**payload["spot"], "id": "metzitzim"}
+    orphan_path = write_spot_json(orphan, tmp_path)  # payload written, never indexed
+
+    assert prune_index({"beit-yanai"}, tmp_path) == ["metzitzim"]
+    assert not orphan_path.exists()
+    assert keep.exists()
+    assert set(json.loads((tmp_path / "index.json").read_text())["spots"]) == {"beit-yanai"}
+
+
+def test_prune_index_without_an_index_still_sweeps_payloads(payload, tmp_path):
+    """No index.json yet (fresh out dir) must not mask a stale payload or raise."""
+    orphan = dict(payload)
+    orphan["spot"] = {**payload["spot"], "id": "bugrashov"}
+    orphan_path = write_spot_json(orphan, tmp_path)
+    assert prune_index({"beit-yanai"}, tmp_path) == ["bugrashov"]
+    assert not orphan_path.exists()

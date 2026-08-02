@@ -319,16 +319,31 @@ def prune_index(known_ids: set[str], out_dir: Path) -> list[str]:
     otherwise stay published forever - a ghost card and map pin that no longer has
     a YAML entry behind it. Only a full run may call this: a single-spot run has no
     knowledge of the rest of the index. Returns the ids removed.
+
+    Sweeps the payload DIRECTORY as well as the index, because the two go stale
+    independently: an index entry can disappear on its own (a rewritten index, a prune
+    that ran before the file landed) and from that moment the payload is invisible to an
+    index-driven prune and ships in every prebuilt deploy forever. Four such orphans had
+    been riding along since 2026-07-23 and were only found by diffing the output
+    directory against the DB (2026-08-02).
     """
     path = out_dir / "index.json"
-    if not path.exists():
-        return []
-    index: dict = json.loads(path.read_text(encoding="utf-8"))
-    stale = sorted(set(index.get("spots", {})) - known_ids)
+    spots_dir = out_dir / "spots"
+
+    stale: set[str] = set()
+    index: dict | None = None
+    if path.exists():
+        index = json.loads(path.read_text(encoding="utf-8"))
+        stale |= set(index.get("spots", {})) - known_ids
+    if spots_dir.is_dir():
+        stale |= {p.stem for p in spots_dir.glob("*.json")} - known_ids
     if not stale:
         return []
-    for spot_id in stale:
-        del index["spots"][spot_id]
-        (out_dir / "spots" / f"{spot_id}.json").unlink(missing_ok=True)
-    path.write_text(json.dumps(index, separators=(",", ":")), encoding="utf-8")
-    return stale
+
+    for spot_id in sorted(stale):
+        if index is not None:
+            index.get("spots", {}).pop(spot_id, None)
+        (spots_dir / f"{spot_id}.json").unlink(missing_ok=True)
+    if index is not None:
+        path.write_text(json.dumps(index, separators=(",", ":")), encoding="utf-8")
+    return sorted(stale)
