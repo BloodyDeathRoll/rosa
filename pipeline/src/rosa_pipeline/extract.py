@@ -6,7 +6,7 @@ from bisect import bisect_left
 from datetime import UTC, datetime, timedelta
 
 from .confidence import agreement_from_heights, member_heights_at
-from .fetch import RawForecast
+from .fetch import TP_MODEL, TP_SUFFIX, RawForecast
 from .models import HourForecast, SpectralSea, SwellPartition
 
 # a 3-hourly published hour joins the nearest 6-hourly ECMWF step within this - the
@@ -23,30 +23,50 @@ _SWELL_PREFIXES: tuple[tuple[str, str], ...] = (
 
 def _merge_models(hourly: dict) -> dict:
     """Collapse a multi-model marine response (fields suffixed `_marine_best_match`,
-    `_ncep_gfswave016`) into a single unsuffixed series, per hour: use best_match where
-    it has data (days 0-9), else GFS-Wave (days 10-16). Anchored on wave_height so every
+    `_ncep_gfswave016`, `_gwam`) into a single unsuffixed series, per hour: use best_match
+    where it has data (days 0-9), else GFS-Wave (days 10-16). Anchored on wave_height so every
     field in an hour comes from one model. A single-model / fixture response passes through
-    unchanged."""
+    unchanged.
+
+    ONE field family is exempt from the single-model rule: `*_peak_period` falls through to
+    `fetch.TP_MODEL` (gwam) where the primary chain published none, which outside Europe is
+    always - see the TP_MODEL note in fetch.py for why that join is safe and why gwam is
+    never a horizon fallback for anything else (it stops at ~7.3 days, short of best_match)."""
     if "wave_height" in hourly:  # single model (or fixture) - nothing to merge
         return hourly
     suffixes = {k[len("wave_height_") :] for k in hourly if k.startswith("wave_height_")}
     if not suffixes:
         return hourly
     bm = next((s for s in suffixes if "best_match" in s), None)
-    gf = next((s for s in suffixes if "best_match" not in s), None)
+    tp = next((s for s in suffixes if s == TP_MODEL), None)
+    # sorted() so the tail model is deterministic once there are three suffixes in play
+    gf = next((s for s in sorted(suffixes) if "best_match" not in s and s != tp), None)
     anchor = hourly.get(f"wave_height_{bm}") if bm else None
-    bases = {k.rsplit("_" + (bm or gf or ""), 1)[0] for k in hourly if k != "time"}
+
+    known = [s for s in (bm, gf, tp) if s]
+    bases: set[str] = set()
+    for k in hourly:
+        if k == "time":
+            continue
+        for s in known:
+            if k.endswith(f"_{s}"):
+                bases.add(k[: -(len(s) + 1)])
+                break
 
     merged: dict = {"time": hourly["time"]}
     n = len(hourly["time"])
-    for base in bases:
+    for base in sorted(bases):
         bm_arr = hourly.get(f"{base}_{bm}") if bm else None
         gf_arr = hourly.get(f"{base}_{gf}") if gf else None
+        tp_arr = hourly.get(f"{base}_{tp}") if tp and base.endswith(TP_SUFFIX) else None
         out: list = []
         for i in range(n):
             use_bm = anchor is not None and i < len(anchor) and anchor[i] is not None
             src = bm_arr if use_bm else gf_arr
-            out.append(src[i] if src is not None and i < len(src) else None)
+            v = src[i] if src is not None and i < len(src) else None
+            if v is None and tp_arr is not None and i < len(tp_arr):
+                v = tp_arr[i]  # peak period only - never Hs / direction / mean period
+            out.append(v)
         merged[base] = out
     return merged
 

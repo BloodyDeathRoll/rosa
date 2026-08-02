@@ -26,14 +26,38 @@ FORECAST_DAYS = 16
 PAST_DAYS = 1
 # Open-Meteo caps calls at 600/min PER API HOST, billed by weight
 # (max(1, vars/10) x max(1, days/14) per location). The marine host carries both the marine
-# request and the ensemble; at 16+1 days that's ~6.3/point, so 600 / 6.3 ~= 95 points fit
-# in one minute bucket. Batch the coords under that and pause past a minute
-# boundary between batches so each lands in a fresh window; keeps the whole coast in-quota.
-MARINE_BATCH_SIZE = 90
+# request and the ensemble, and a model multiplies the series count, so the arithmetic at
+# 16+1 days is: marine 20 vars x 3 models = 60 -> 6.0, x 17/14 = 7.3; ensemble 3 vars x 4
+# models = 12 -> 1.2, x 17/14 = 1.5. Together ~8.8/point, so 600 / 8.8 ~= 68 points fit in one
+# minute bucket. Batch under that and pause past a minute boundary between batches so each
+# lands in a fresh window; keeps the whole coast in-quota.
+#
+# Was 90 while MARINE_MODELS held two models (~6.4/point, 95 points). Adding gwam for the peak
+# period on 2026-08-02 pushed 90 points over the bucket and a live `run --all` took two 429s on
+# the ensemble request - which degrades honestly (no confidence ensemble) rather than failing,
+# so it would have rotted quietly on the VM cron. Re-derive this whenever MARINE_MODELS or
+# MARINE_HOURLY changes.
+MARINE_BATCH_SIZE = 65
 # best_match is Open-Meteo's per-location blend but only reaches ~9 days; NOAA GFS-Wave
 # runs the full 16. Request both - extract prefers best_match, falls back to GFS-Wave for
 # the extended tail (per-hour, so each hour stays internally consistent).
-MARINE_MODELS = ["best_match", "ncep_gfswave016"]
+#
+# gwam rides along as the PEAK-PERIOD source only (see TP_MODEL below). Outside Europe
+# best_match resolves to meteofrance_wave, which publishes no peak period at all, so Tp
+# was null across 7 of 9 regions and `rideability_period` silently fell back to the mean
+# everywhere but Israel and Portugal (measured 2026-08-02). It is one extra model on the
+# SAME request, not an extra request, so it costs nothing against the rate limiter.
+MARINE_MODELS = ["best_match", "ncep_gfswave016", "gwam"]
+# Peak period is taken from this model wherever the primary chain publishes none. It is a
+# deliberate cross-model join and the only one in the pipeline: Tp feeds `period_rideability`
+# and the display, never the dispersion march or `period_score`, so a Tp from a different
+# model cannot desynchronise the physics. Open-Meteo already does exactly this inside
+# best_match over Europe - at Hilton and Supertubos its Hs is meteofrance_wave's while its
+# Tp is gwam's to the centisecond - so this makes the rest of the world consistent with what
+# Europe was already being served. Coverage runs to ~7.3 days; past that Tp is null again
+# and the mean-period fallback stands, as it did everywhere before.
+TP_MODEL = "gwam"
+TP_SUFFIX = "_peak_period"
 # independent members for the confidence ensemble (Stage 1) - fetched in a separate,
 # lightweight request (Hs/period/dir only) so the primary path + fixtures stay untouched.
 # best_match is a blend, so it's excluded here; these disagree independently.
