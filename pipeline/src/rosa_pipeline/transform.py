@@ -203,7 +203,16 @@ def effective_height_in_window(
 
 GRAZING_INCIDENCE_DEG = 85.0  # steepest approach the physics will still march (see below)
 
-RIDEABILITY_EXP = 1.4  # period-power exponent (was the q(T) exponent, calibration row 2)
+# Period-power exponent (was the q(T) exponent, calibration row 2). 1.4 until 2026-08-02, when
+# closing the depth march with a breaker index made the old value wrong: 1.4 had been fitted on
+# top of a march that stopped at the GEBCO floor and therefore under-called every spot, so part
+# of what it was "measuring" was that truncation. Refitted against the same 5 frames with the
+# march closed - see docs/CALIBRATION.md 2026-08-02. Because rideability caps at 1.0 above 10 s,
+# this exponent is in practice an Israel/Portugal knob: over the fleet it moves Israel x1.39 ->
+# x1.06 and Portugal x1.48 -> x1.21 while Costa Rica/Nicaragua/California barely stir. 2.2 is
+# the value that leaves the CALIBRATED region where its graded frames put it while the closure
+# corrects the long-period regions that never had an eye frame.
+RIDEABILITY_EXP = 2.2
 
 
 def period_rideability(period_s: float) -> float:

@@ -5,6 +5,7 @@ import pytest
 from rosa_pipeline.models import SwellPartition
 from rosa_pipeline.transform import (
     EXPOSURE_SHOULDER_DEG,
+    RIDEABILITY_EXP,
     angle_diff,
     breaker_height_from_profile,
     breaker_range,
@@ -43,11 +44,13 @@ class TestPeriodRideability:
         assert period_rideability(14.0) == 1.0  # capped at 1.0, never amplifies
 
     def test_windswell_attenuated_to_floor(self):
-        assert period_rideability(4.0) == 0.3  # (0.4)^1.4 ≈ 0.28 -> floored
+        assert period_rideability(4.0) == 0.3  # (0.4)^exp is well under the floor
         assert period_rideability(2.0) == 0.3
 
     def test_midrange_between_floor_and_one(self):
-        assert period_rideability(6.0) == pytest.approx((0.6) ** 1.4)
+        # tracks the constant rather than pinning it - the exponent is a calibration knob
+        # (1.4 until 2026-08-02, 2.2 after the depth march was closed)
+        assert period_rideability(6.0) == pytest.approx((0.6) ** RIDEABILITY_EXP)
         assert 0.3 < period_rideability(6.0) < 1.0
 
 

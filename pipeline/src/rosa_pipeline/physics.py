@@ -91,6 +91,65 @@ def refraction_coeff(incidence_ref_deg: float, incidence_deg: float) -> float:
     return math.sqrt(math.cos(a_ref) / cos_a)
 
 
+KOMAR_GAUGHAN_COEFF = 0.39  # Komar & Gaughan (1972), empirical fit to lab + field breakers
+KOMAR_GAUGHAN_ITERS = 20  # refraction depends on the breaking depth, which depends on Kr
+
+
+def deep_water_equivalent(height_m: float, period_s: float, depth_ref_m: float) -> float:
+    """Undo shoaling back to deep water: H0 = H(d) x sqrt(Cg(d) / Cg_deep).
+
+    Open-Meteo reports a partition height at a grid cell that is usually, but not always, in
+    deep water for that period. Breaker indices are defined on the deep-water height, so the
+    reference height has to be de-shoaled first or a spot whose profile starts shallow gets a
+    silently inflated H0. Where the reference really is deep this is a no-op to 3 decimals."""
+    cg_deep = GRAVITY * period_s / (4.0 * math.pi)
+    return height_m * math.sqrt(group_speed(period_s, depth_ref_m) / cg_deep)
+
+
+def breaker_height_komar_gaughan(
+    offshore_height_m: float,
+    period_s: float,
+    incidence_deg: float,
+    depth_ref_m: float,
+    *,
+    gamma: float = BREAK_GAMMA,
+) -> float:
+    """Breaker height from the deep-water sea state alone: Hb = 0.39 g^0.2 (T H0'^2)^0.4.
+
+    Needed because GEBCO stops far short of the surf zone. Its shallowest sample sits at a
+    median of 7 m across the fleet (13 m at Santa Teresa), so a wave would have to be ~5.5 m
+    to reach gamma*d inside the profile, and in 97-100% of published hours the march never
+    breaks at all - it just returns the height at the last sampled depth. That depth is the
+    worst possible place to stop: it is inside the shoaling dip (Ks ~0.93) and has already
+    taken the refraction loss (Kr ~0.80 at 60 deg), but none of the shallow-water growth that
+    actually makes a breaker. Waves arrived SMALLER than they started, x0.74 at Santa Teresa
+    and x0.69 fleet-median (2026-08-02, docs/CALIBRATION.md).
+
+    Komar & Gaughan closes that gap without inventing bathymetry: it is an empirical fit over
+    lab and field breakers that needs only H0, T and the approach angle. Refraction is iterated
+    because Kr must be evaluated at the breaking depth and that depth is what we are solving
+    for; ``incidence_deg`` is taken at ``depth_ref_m``, the same assumption the march makes.
+
+    Extending the profile with invented shallow samples was the alternative and was rejected:
+    the answer would then be exactly gamma x whatever final depth was made up."""
+    if offshore_height_m <= 0 or period_s <= 0 or incidence_deg >= 90.0:
+        return 0.0
+    h0 = deep_water_equivalent(offshore_height_m, period_s, depth_ref_m)
+    a_ref = math.radians(incidence_deg)
+    c_ref = phase_speed(period_s, depth_ref_m)
+    hb = KOMAR_GAUGHAN_COEFF * GRAVITY**0.2 * (period_s * h0**2) ** 0.4
+    for _ in range(KOMAR_GAUGHAN_ITERS):
+        sin_a = math.sin(a_ref) * phase_speed(period_s, hb / gamma) / c_ref
+        if sin_a >= 1.0:
+            return 0.0
+        kr = math.sqrt(math.cos(a_ref) / math.cos(math.asin(sin_a)))
+        nxt = KOMAR_GAUGHAN_COEFF * GRAVITY**0.2 * (period_s * (kr * h0) ** 2) ** 0.4
+        if abs(nxt - hb) < 1e-4:
+            return nxt
+        hb = nxt
+    return hb
+
+
 def breaker_height_over_profile(
     offshore_height_m: float,
     period_s: float,
@@ -104,8 +163,11 @@ def breaker_height_over_profile(
 
     The wave breaks at the first depth where the transformed height reaches gamma*d (depth-
     limited breaking) -> breaker height = gamma*d there. If it never reaches that within the
-    profile it breaks even closer to shore than GEBCO resolves, so we return the most-shoaled
-    height reached (a per-spot residual coefficient absorbs that sub-grid surf-zone gap).
+    profile it breaks closer to shore than GEBCO resolves, and the profile has nothing left to
+    say: ``breaker_height_komar_gaughan`` closes the last stretch from the deep-water sea state
+    instead. That branch is not an edge case - it is what runs in 97-100% of published hours
+    (2026-08-02). Until then this returned the height at the shallowest sample, which is a
+    mid-shelf height, not a breaker height, and was systematically too small.
 
     Swell arriving from behind the shore normal (incidence ≥ 90°) contributes nothing."""
     if (
@@ -132,4 +194,6 @@ def breaker_height_over_profile(
         height = offshore_height_m * ks * kr
         if height >= gamma * d:
             return gamma * d
-    return min(height, gamma * depths_deep_to_shallow[-1])
+    return breaker_height_komar_gaughan(
+        offshore_height_m, period_s, incidence_deg, d_ref, gamma=gamma
+    )

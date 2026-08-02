@@ -83,8 +83,12 @@ BASELINE = Candidate(key="peak", exp=RIDEABILITY_EXP)
 #: Default grid: the three period keys the 2E question names, over a bracketing
 #: exponent sweep. Kept small on purpose - this is a pre-registered experiment,
 #: not a free parameter search.
+#: Widened 2026-08-02 to bracket the refitted exponent - closing the depth march moved the
+#: best-fitting exponent from 1.4 to 2.2, off the top of the old 1.0-1.6 grid.
+EXPONENT_GRID: tuple[float, ...] = (1.0, 1.4, 1.8, 2.0, 2.2, 2.6)
+
 DEFAULT_CANDIDATES: tuple[Candidate, ...] = tuple(
-    Candidate(key=k, exp=e) for k in ("mean", "peak", "energy") for e in (1.0, 1.2, 1.4, 1.6)
+    Candidate(key=k, exp=e) for k in ("mean", "peak", "energy") for e in EXPONENT_GRID
 )
 
 

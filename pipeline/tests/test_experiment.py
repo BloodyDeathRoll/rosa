@@ -7,6 +7,7 @@ import pytest
 from rosa_pipeline.bathymetry import load_profile
 from rosa_pipeline.experiment import (
     BASELINE,
+    EXPONENT_GRID,
     Candidate,
     load_frames,
     predict_frame,
@@ -81,7 +82,7 @@ def test_run_experiment_and_report():
     frames = load_frames(FRAMES)
     spots = load_spots(SPOTS_DIR)
     results = run_experiment(frames, spots, BATHY_DIR)
-    assert len(results) == 12  # 3 keys x 4 exponents
+    assert len(results) == 3 * len(EXPONENT_GRID)  # 3 period keys x the exponent grid
     report = render_report(results)
     assert "shipping" in report
     # the report never crashes on the no-winner case and always states an outcome
