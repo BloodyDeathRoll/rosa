@@ -2,10 +2,69 @@ import { useEffect, useState } from "preact/hooks";
 import { MoonIcon, SunIcon } from "../components/icons";
 import { AppHeader } from "../components/parts";
 import { feedbackPref, setFeedbackPref } from "../feedback";
+import { manualInstallOffer, runInstall, type InstallOffer } from "../install";
 import { disablePush, enablePush, pushState, syncPushSpots, type PushState } from "../push";
 import { signalReady } from "../splash";
 import { setUnits, useUnits } from "../units";
 import type { Theme } from "../theme";
+
+/** Standing way back into the install, for anyone who dismissed the sheet or
+    never saw it (it only offers itself once per app open). Hidden entirely when
+    Rosa is already installed, or when the browser has no install path at all. */
+function InstallCard() {
+  const [offer, setOffer] = useState<InstallOffer | null>(manualInstallOffer);
+  const [busy, setBusy] = useState(false);
+
+  useEffect(() => {
+    const evaluate = () => setOffer(manualInstallOffer());
+    // Chrome's offer can land after this page mounts; index.html re-broadcasts it
+    addEventListener("rosa:installable", evaluate);
+    addEventListener("appinstalled", evaluate);
+    return () => {
+      removeEventListener("rosa:installable", evaluate);
+      removeEventListener("appinstalled", evaluate);
+    };
+  }, []);
+
+  if (!offer) return null;
+
+  const install = async () => {
+    setBusy(true);
+    await runInstall().catch(() => false); // cancelled, or the offer went stale
+    setBusy(false);
+    setOffer(manualInstallOffer());
+  };
+
+  return (
+    <section class="settings-card">
+      <div class="card-title">
+        <span class="eyebrow">App</span>
+      </div>
+      <div class="settings-row">
+        <span class="label">Install Rosa</span>
+        {offer === "prompt" ? (
+          <button class="install-go settings-install" disabled={busy} onClick={() => void install()}>
+            Install
+          </button>
+        ) : null}
+      </div>
+      <p class="settings-note">
+        {offer === "ios" ? (
+          <>
+            Tap <b>Share</b> in Safari, then <b>Add to Home Screen</b>.
+          </>
+        ) : offer === "firefox" ? (
+          <>
+            Open Firefox's <b>menu</b>, then <b>Install</b> (older versions call it{" "}
+            <b>Add to Home screen</b>).
+          </>
+        ) : (
+          "Opens full screen, starts faster, and keeps your last forecast readable offline."
+        )}
+      </p>
+    </section>
+  );
+}
 
 /** Swell-alert opt-in/out - one obvious switch, helper text explains the state. */
 function NotificationsCard() {
@@ -173,6 +232,8 @@ export function SettingsPage({
             </div>
           </div>
         </section>
+
+        <InstallCard />
 
         <NotificationsCard />
 

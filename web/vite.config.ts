@@ -18,9 +18,26 @@ export default defineConfig({
         background_color: "#ffffff",
         display: "standalone",
         icons: [
+          // PNGs first and non-negotiable: Chrome on Android mints a WebAPK from
+          // these, and an SVG-only icon set (which desktop Chrome accepts fine)
+          // leaves Android with nothing installable - no prompt, no menu entry
+          { src: "/icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
+          { src: "/icon-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
           // the maskable tile (red tile, white mark) is the installed app icon
           // AND the WebAPK pre-splash icon - Android prefers maskable for both;
           // it draws on the white background_color
+          {
+            src: "/icon-maskable-192.png",
+            sizes: "192x192",
+            type: "image/png",
+            purpose: "maskable"
+          },
+          {
+            src: "/icon-maskable-512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "maskable"
+          },
           { src: "/icon-maskable.svg", sizes: "any", type: "image/svg+xml", purpose: "maskable" },
           { src: "/favicon.svg", sizes: "any", type: "image/svg+xml", purpose: "any" }
         ]

@@ -2615,6 +2615,14 @@ a.rank-card:hover {
 .install-go:disabled {
   opacity: 0.6;
 }
+/* the same button standing alone in a Profile row, so it carries the shape the
+   sheet's .install-actions would otherwise give it */
+.settings-install {
+  padding: 9px 20px;
+  border-radius: 11px;
+  font-size: 14px;
+  font-weight: 600;
+}
 .install-later {
   background: var(--secondary);
   color: var(--foreground);

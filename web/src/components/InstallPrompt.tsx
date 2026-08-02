@@ -5,7 +5,7 @@ import { appReady } from "../splash";
 const AFTER_SPLASH_MS = 700; // the splash fades over 450ms - let it clear first
 const SPLASH_CAP_MS = 10_000; // same safety net main.tsx uses to lift the splash
 
-/** Add-to-home-screen sheet, offered once per app open (see install.ts). Chromium
+/** Add-to-home-screen sheet, offered until it is answered (see install.ts). Chromium
     gets a button wired to its own install dialog; browsers that can install but
     expose no API for it (iOS Safari, Firefox for Android) get the one sentence
     that says where their control lives. */
@@ -21,8 +21,7 @@ export function InstallPrompt() {
       if (disposed || !armed) return;
       const next = installOffer();
       if (!next) return;
-      markInstallSeen(); // asked for this open - a reload won't ask again
-      setOffer(next);
+      setOffer(next); // marked seen only once the user answers it, not on sight
     };
     const onInstalled = () => {
       if (!disposed) setOffer(null);
@@ -52,12 +51,15 @@ export function InstallPrompt() {
 
   if (!offer) return null;
 
-  const dismiss = () => setOffer(null);
+  const dismiss = () => {
+    markInstallSeen(); // answered - a reload won't ask again
+    setOffer(null);
+  };
   const install = async () => {
     setBusy(true);
     await runInstall().catch(() => false); // user cancelled, or the offer went stale
     setBusy(false);
-    setOffer(null);
+    dismiss();
   };
 
   return (

@@ -1,7 +1,9 @@
-/** Add-to-home-screen offer. Shown once per app open when Rosa is running in a
-    browser tab rather than as an installed PWA - a reload inside the same tab is
-    the same open, so the sheet doesn't come back on every refresh (the seen flag
-    lives in sessionStorage, which survives a reload but not a fresh launch). */
+/** Add-to-home-screen offer, made when Rosa is running in a browser tab rather
+    than as an installed PWA. The sheet keeps offering itself until the user
+    actually answers it - a sheet nobody looked at was never an answer - and then
+    stays quiet for the rest of that tab session (the flag lives in sessionStorage,
+    which survives a reload but not a fresh launch). Profile carries a standing
+    Install row for anyone who said no and changed their mind. */
 
 const SEEN_KEY = "rosa.install.seen";
 
@@ -50,17 +52,24 @@ function firefoxAndroid(): boolean {
   return /Firefox\//.test(ua) && /Android/.test(ua);
 }
 
-/** What (if anything) to offer right now. */
+/** What (if anything) this browser can be told about installing, ignoring the
+    once-per-open flag - for the Profile row, which the user went looking for
+    rather than being interrupted by. */
+export function manualInstallOffer(): InstallOffer | null {
+  if (installed()) return null;
+  if (deferred()) return "prompt";
+  if (iosSafari()) return "ios";
+  return firefoxAndroid() ? "firefox" : null;
+}
+
+/** What (if anything) to offer right now, unprompted. */
 export function installOffer(): InstallOffer | null {
   try {
     if (sessionStorage.getItem(SEEN_KEY) === "1") return null;
   } catch {
     // private mode with storage blocked - offering once per page load is fine
   }
-  if (installed()) return null;
-  if (deferred()) return "prompt";
-  if (iosSafari()) return "ios";
-  return firefoxAndroid() ? "firefox" : null;
+  return manualInstallOffer();
 }
 
 /** Remember that this open has been asked, so a refresh stays quiet. */
