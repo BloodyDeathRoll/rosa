@@ -1,6 +1,7 @@
 from pathlib import Path
 
 from rosa_pipeline.spots import load_spots, load_spots_file
+from rosa_pipeline.transform import in_window
 
 SPOTS_DIR = Path(__file__).resolve().parents[2] / "data" / "spots"
 
@@ -16,7 +17,11 @@ def test_beit_yanai_fields():
     assert by.name == "Beit Yanai"
     # offshore_direction derived from the local coast tangent (W-facing coast → ~90-120)
     assert 90 <= by.offshore_direction <= 120
-    assert by.swell_window == (250, 340)
+    # geometry-derived 2026-08-02 (`rosa-pipeline horizon`), replacing the [250,340] regional
+    # default. A window must always contain the shore normal it belongs to - that invariant is
+    # the point, the exact arc is data and will move again when a pin or a scan does.
+    assert by.swell_window == (210, 5)
+    assert in_window(by.shore_normal, by.swell_window)
     assert by.height_coeff == 1.0
     # sampled at its own coord pushed ~0.06° west, not a shared regional point
     assert by.offshore_point == (32.3817, 34.8035)
@@ -25,8 +30,12 @@ def test_beit_yanai_fields():
 
 
 def test_per_spot_override_survives_merge():
+    """An inline swell_window must beat the region anchor's. Asserted against the anchor
+    rather than a literal, so a re-derived window cannot quietly turn this into a no-op."""
     spots = load_spots(SPOTS_DIR)
-    assert spots["bat-galim"].swell_window == (270, 360)  # bay orientation override
+    israel_default = (250, 340)
+    assert spots["bat-galim"].swell_window != israel_default
+    assert spots["bat-galim"].swell_window == (255, 65)  # north-facing Haifa bay
 
 
 def test_shore_normal_defaults_to_opposite_offshore_wind():

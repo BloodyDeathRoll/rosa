@@ -22,25 +22,26 @@ defaults: &pt
 
 spots:
   # ---- Norte / Centro ----
-  - { id: matosinhos,         name: "Matosinhos (Porto)",       lat: 41.171, lon: -8.692, offshore_direction: 90,  <<: *pt }  # sat-verified 2026-07-23 (city beach, sheltered by the harbour mole)
-  - { id: espinho,            name: "Espinho",                  lat: 41.008, lon: -8.647, offshore_direction: 85,  <<: *pt }  # sat-verified 2026-07-23 (jetty rights)
-  - { id: figueira-cabedelo,  name: "Cabedelo (Figueira da Foz)", lat: 40.138, lon: -8.868, offshore_direction: 120, <<: *pt }  # approx - TODO verify (long sandbar rights S of the Mondego mouth)
-  - { id: nazare-norte,       name: "Nazaré (Praia do Norte)",  lat: 39.606, lon: -9.085, offshore_direction: 120, ideal: { wind_dir: [90, 160], size_m: [1.0, 3.0] }, cam: { yt: "_Gi8UC_HPKM", by: "Explore Big Surf, Beaches and Sunsets", by_url: "https://www.youtube.com/@ExploreBigSurfandBeaches" }, <<: *pt }  # sat-verified 2026-07-23 (canyon focus; giant in winter - rating tuned for surfable days, not tow days)
+  - { id: matosinhos,         name: "Matosinhos (Porto)",       lat: 41.171, lon: -8.692, offshore_direction: 90,  swell_window: [190, 335], <<: *pt }  # sat-verified 2026-07-23 (city beach, sheltered by the harbour mole)
+  - { id: espinho,            name: "Espinho",                  lat: 41.008, lon: -8.647, offshore_direction: 85,  swell_window: [200, 345], <<: *pt }  # sat-verified 2026-07-23 (jetty rights)
+  - { id: figueira-cabedelo,  name: "Cabedelo (Figueira da Foz)", lat: 40.138, lon: -8.868, offshore_direction: 120, swell_window: [210, 320], <<: *pt }  # approx - TODO verify (long sandbar rights S of the Mondego mouth)
+  - { id: nazare-norte,       name: "Nazaré (Praia do Norte)",  lat: 39.606, lon: -9.085, offshore_direction: 120, ideal: { wind_dir: [90, 160], size_m: [1.0, 3.0] }, cam: { yt: "_Gi8UC_HPKM", by: "Explore Big Surf, Beaches and Sunsets", by_url: "https://www.youtube.com/@ExploreBigSurfandBeaches" }, swell_window: [210, 0], <<: *pt }  # sat-verified 2026-07-23 (canyon focus; giant in winter - rating tuned for surfable days, not tow days)
   # ---- Peniche ----
-  - { id: baleal-lagide,      name: "Lagide (Baleal)",          lat: 39.3775, lon: -9.34, offshore_direction: 140, swell_window: [260, 350], break_type: reef, <<: *pt }  # approx - TODO verify
-  - { id: supertubos,         name: "Supertubos (Peniche)",     lat: 39.343, lon: -9.362, offshore_direction: 55,  swell_window: [180, 290], offshore_bearing: 233.7, offshore_km: 6.19, <<: *pt }  # sat-verified 2026-07-23 (SW-facing; Europe's heaviest beachbreak)
+  - { id: baleal-lagide,      name: "Lagide (Baleal)",          lat: 39.3775, lon: -9.34, offshore_direction: 140, swell_window: [265, 50], break_type: reef, <<: *pt }  # approx - TODO verify
+  - { id: supertubos,         name: "Supertubos (Peniche)",     lat: 39.343, lon: -9.362, offshore_direction: 55,  swell_window: [180, 295], offshore_bearing: 233.7, offshore_km: 6.19, <<: *pt }  # sat-verified 2026-07-23 (SW-facing; Europe's heaviest beachbreak)
   # ---- Ericeira (World Surfing Reserve) ----
-  - { id: coxos,              name: "Coxos (Ericeira)",         lat: 39.0068, lon: -9.4225, offshore_direction: 120, swell_window: [250, 345], break_type: point, <<: *pt }  # approx - TODO verify (Portugal's best right)
-  - { id: ribeira-dilhas,     name: "Ribeira d'Ilhas (Ericeira)", lat: 38.9885, lon: -9.4225, offshore_direction: 110, swell_window: [250, 345], break_type: reef, <<: *pt }  # sat-verified 2026-07-23
+  - { id: coxos,              name: "Coxos (Ericeira)",         lat: 39.0068, lon: -9.4225, offshore_direction: 120, swell_window: [210, 355], break_type: point, <<: *pt }  # approx - TODO verify (Portugal's best right)
+  - { id: ribeira-dilhas,     name: "Ribeira d'Ilhas (Ericeira)", lat: 38.9885, lon: -9.4225, offshore_direction: 110, swell_window: [200, 350], break_type: reef, <<: *pt }  # sat-verified 2026-07-23
   # ---- Sintra / Cascais / Lisboa ----
-  - { id: praia-grande,       name: "Praia Grande (Sintra)",    lat: 38.817, lon: -9.479, offshore_direction: 95,  <<: *pt }  # sat-verified 2026-07-23
-  - { id: guincho,            name: "Guincho (Cascais)",        lat: 38.733, lon: -9.474, offshore_direction: 100, <<: *pt }  # sat-verified 2026-07-23 (windy - nortada afternoons)
-  - { id: carcavelos,         name: "Carcavelos",               lat: 38.678, lon: -9.336, offshore_direction: 10,  swell_window: [170, 270], offshore_bearing: 183.1, offshore_km: 6.46, <<: *pt }  # sat-verified 2026-07-23 (S-facing Tagus-mouth beach; needs W swell wrap)
+  - { id: praia-grande,       name: "Praia Grande (Sintra)",    lat: 38.817, lon: -9.479, offshore_direction: 95,  swell_window: [215, 5], <<: *pt }  # sat-verified 2026-07-23
+  - { id: guincho,            name: "Guincho (Cascais)",        lat: 38.733, lon: -9.474, offshore_direction: 100, swell_window: [210, 335], <<: *pt }  # sat-verified 2026-07-23 (windy - nortada afternoons)
+  - { id: carcavelos,         name: "Carcavelos",               lat: 38.678, lon: -9.336, offshore_direction: 10,  swell_window: [130, 280], offshore_bearing: 183.1, offshore_km: 6.46, <<: *pt }  # sat-verified 2026-07-23 (S-facing Tagus-mouth beach; needs W swell wrap)
   - id: costa-caparica
     name: "Costa da Caparica (CDS)"
     lat: 38.635
     lon: -9.2365
     offshore_direction: 80
+    swell_window: [170, 285]
     cams:  # Playocean covers the whole strip - four angles on one spot
       - { yt: "qhU5x83fUt8", label: "Panorâmica 2", by: "Playocean", by_url: "https://www.youtube.com/@PlayoceanLive", note: "town-beach panorama" }
       - { yt: "oDbKeeojgyk", label: "Panorâmica 1", by: "Playocean", by_url: "https://www.youtube.com/@PlayoceanLive" }
@@ -48,12 +49,12 @@ spots:
       - { yt: "oNVEct9tl8E", label: "Santo António", by: "Playocean", by_url: "https://www.youtube.com/@PlayoceanLive", note: "north end of the strip, ~1.4 km up" }
     <<: *pt  # sat-verified 2026-07-23 (jetty peaks)
   # ---- Setúbal / Alentejo ----
-  - { id: praia-do-meco,      name: "Praia do Meco (Sesimbra)", lat: 38.48911, lon: -9.18384, offshore_direction: 85, cam: { yt: "EqnyST2s53I", by: "Playocean", by_url: "https://www.youtube.com/@PlayoceanLive" }, <<: *pt }  # google-geocoded 2026-07-27 (cam-scan discovery - W-facing Atlantic beach)
-  - { id: sao-torpes,         name: "São Torpes (Sines)",       lat: 37.92278, lon: -8.80528, offshore_direction: 65, swell_window: [210, 300], ideal: { wind_dir: [45, 135], size_m: [0.5, 1.8] }, cam: { yt: "OTwS1dniBMk", by: "Playocean", by_url: "https://www.youtube.com/@PlayoceanLive" }, <<: *pt }  # google-geocoded 2026-07-27 (cam-scan discovery - gentle bay S of the Sines cape)
+  - { id: praia-do-meco,      name: "Praia do Meco (Sesimbra)", lat: 38.48911, lon: -9.18384, offshore_direction: 85, cam: { yt: "EqnyST2s53I", by: "Playocean", by_url: "https://www.youtube.com/@PlayoceanLive" }, swell_window: [205, 340], <<: *pt }  # google-geocoded 2026-07-27 (cam-scan discovery - W-facing Atlantic beach)
+  - { id: sao-torpes,         name: "São Torpes (Sines)",       lat: 37.92278, lon: -8.80528, offshore_direction: 65, swell_window: [185, 300], ideal: { wind_dir: [45, 135], size_m: [0.5, 1.8] }, cam: { yt: "OTwS1dniBMk", by: "Playocean", by_url: "https://www.youtube.com/@PlayoceanLive" }, <<: *pt }  # google-geocoded 2026-07-27 (cam-scan discovery - gentle bay S of the Sines cape)
   # ---- Algarve west coast ----
-  - { id: arrifana,           name: "Arrifana (Aljezur)",       lat: 37.2925, lon: -8.8675, offshore_direction: 125, swell_window: [235, 345], <<: *pt }  # approx - TODO verify (cliff-backed bay + right point)
-  - { id: praia-do-amado,     name: "Praia do Amado (Carrapateira)", lat: 37.166, lon: -8.903, offshore_direction: 100, <<: *pt }  # sat-verified 2026-07-23
-  - { id: tonel,              name: "Tonel (Sagres)",           lat: 37.007, lon: -8.946, offshore_direction: 45,  swell_window: [190, 300], <<: *pt }  # approx - TODO verify (works when the west coast is blown out)
+  - { id: arrifana,           name: "Arrifana (Aljezur)",       lat: 37.2925, lon: -8.8675, offshore_direction: 125, swell_window: [215, 320], <<: *pt }  # approx - TODO verify (cliff-backed bay + right point)
+  - { id: praia-do-amado,     name: "Praia do Amado (Carrapateira)", lat: 37.166, lon: -8.903, offshore_direction: 100, swell_window: [220, 330], <<: *pt }  # sat-verified 2026-07-23
+  - { id: tonel,              name: "Tonel (Sagres)",           lat: 37.007, lon: -8.946, offshore_direction: 45,  swell_window: [205, 305], <<: *pt }  # approx - TODO verify (works when the west coast is blown out)
   # ---- Algarve south coast ----
   - { id: zavial,             name: "Zavial",                   lat: 37.046, lon: -8.8675, offshore_direction: 5,   swell_window: [160, 260], offshore_bearing: 182.0, offshore_km: 6.23, break_type: point, <<: *pt }  # approx - TODO verify (S-coast right point; needs SW groundswell or big W wrap)
 
@@ -61,30 +62,30 @@ spots:
   # coastline-generated → bathy-pruned → OSM-name confirmed; offshore_direction from
   # coastline geometry; offshore ray cast seaward. SOURCE = osm-seeded (below
   # sat/user-verified). sat-verify coords + break_type + swell_window before trusting.
-  - { id: moledo, name: "Praia de Moledo", lat: 41.8492, lon: -8.8667, offshore_direction: 88, offshore_bearing: 268.0, offshore_km: 5.0, <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
-  - { id: vila-ancora, name: "Vila Praia de Ancora", lat: 41.8122, lon: -8.8652, offshore_direction: 120, offshore_bearing: 300.0, offshore_km: 5.0, <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
-  - { id: arda, name: "Praia da Arda", lat: 41.7706, lon: -8.8742, offshore_direction: 110, offshore_bearing: 290.0, offshore_km: 5.0, <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
-  - { id: kings-rock, name: "Kings Rock", lat: 41.7262, lon: -8.8693, offshore_direction: 38, offshore_bearing: 218.1, offshore_km: 5.0, <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
-  - { id: viana-castelo, name: "Viana do castelo", lat: 41.6646, lon: -8.8246, offshore_direction: 94, offshore_bearing: 274.0, offshore_km: 5.0, <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
-  - { id: ofir, name: "Ofir", lat: 41.5241, lon: -8.7909, offshore_direction: 46, offshore_bearing: 226.1, offshore_km: 5.0, <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
-  - { id: agu-adoura, name: "Aguçadoura", lat: 41.4287, lon: -8.7841, offshore_direction: 82, offshore_bearing: 262.0, offshore_km: 5.0, <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
-  - { id: aver-o-mar, name: "Aver-o-mar", lat: 41.3898, lon: -8.7747, offshore_direction: 90, offshore_bearing: 270.0, offshore_km: 5.0, <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
-  - { id: azurara, name: "Azurara", lat: 41.337, lon: -8.7419, offshore_direction: 52, offshore_bearing: 232.0, offshore_km: 5.0, <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
-  - { id: mindelo, name: "Mindelo", lat: 41.308, lon: -8.7397, offshore_direction: 72, offshore_bearing: 252.0, offshore_km: 5.0, <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
-  - { id: aterro, name: "Praia do Aterro", lat: 41.2094, lon: -8.716, offshore_direction: 104, offshore_bearing: 284.0, offshore_km: 5.0, <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
-  - { id: le-a, name: "Leça", lat: 41.1861, lon: -8.7077, offshore_direction: 145, offshore_bearing: 325.0, offshore_km: 5.0, <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
-  - { id: po-spot, name: "Spot de Surf", lat: 39.3993, lon: -9.2785, offshore_direction: 143, offshore_bearing: 323.0, offshore_km: 5.0, <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
+  - { id: moledo, name: "Praia de Moledo", lat: 41.8492, lon: -8.8667, offshore_direction: 88, offshore_bearing: 268.0, offshore_km: 5.0, swell_window: [215, 340], <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
+  - { id: vila-ancora, name: "Vila Praia de Ancora", lat: 41.8122, lon: -8.8652, offshore_direction: 120, offshore_bearing: 300.0, offshore_km: 5.0, swell_window: [210, 325], <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
+  - { id: arda, name: "Praia da Arda", lat: 41.7706, lon: -8.8742, offshore_direction: 110, offshore_bearing: 290.0, offshore_km: 5.0, swell_window: [205, 350], <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
+  - { id: kings-rock, name: "Kings Rock", lat: 41.7262, lon: -8.8693, offshore_direction: 38, offshore_bearing: 218.1, offshore_km: 5.0, swell_window: [170, 308], <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
+  - { id: viana-castelo, name: "Viana do castelo", lat: 41.6646, lon: -8.8246, offshore_direction: 94, offshore_bearing: 274.0, offshore_km: 5.0, swell_window: [185, 325], <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
+  - { id: ofir, name: "Ofir", lat: 41.5241, lon: -8.7909, offshore_direction: 46, offshore_bearing: 226.1, offshore_km: 5.0, swell_window: [175, 316], <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
+  - { id: agu-adoura, name: "Aguçadoura", lat: 41.4287, lon: -8.7841, offshore_direction: 82, offshore_bearing: 262.0, offshore_km: 5.0, swell_window: [180, 345], <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
+  - { id: aver-o-mar, name: "Aver-o-mar", lat: 41.3898, lon: -8.7747, offshore_direction: 90, offshore_bearing: 270.0, offshore_km: 5.0, swell_window: [180, 340], <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
+  - { id: azurara, name: "Azurara", lat: 41.337, lon: -8.7419, offshore_direction: 52, offshore_bearing: 232.0, offshore_km: 5.0, swell_window: [180, 315], <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
+  - { id: mindelo, name: "Mindelo", lat: 41.308, lon: -8.7397, offshore_direction: 72, offshore_bearing: 252.0, offshore_km: 5.0, swell_window: [175, 340], <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
+  - { id: aterro, name: "Praia do Aterro", lat: 41.2094, lon: -8.716, offshore_direction: 104, offshore_bearing: 284.0, offshore_km: 5.0, swell_window: [194, 345], <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
+  - { id: le-a, name: "Leça", lat: 41.1861, lon: -8.7077, offshore_direction: 145, offshore_bearing: 325.0, offshore_km: 5.0, swell_window: [235, 345], <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
+  - { id: po-spot, name: "Spot de Surf", lat: 39.3993, lon: -9.2785, offshore_direction: 143, offshore_bearing: 323.0, offshore_km: 5.0, swell_window: [255, 25], <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
   - { id: cantinho-bah-a, name: "Spot de Surf Cantinho da Bahía", lat: 39.3679, lon: -9.3396, offshore_direction: 115, offshore_bearing: 295.0, offshore_km: 5.0, <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
   - { id: po-sport, name: "Sport de Surf", lat: 39.3611, lon: -9.3534, offshore_direction: 155, offshore_bearing: 335.0, offshore_km: 5.01, <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
-  - { id: ba-a, name: "Praia da Baía", lat: 39.3605, lon: -9.359, offshore_direction: 183, offshore_bearing: 3.0, offshore_km: 5.0, <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
-  - { id: molhe-leste, name: "Spot de Surf do Molhe Leste", lat: 39.3505, lon: -9.3686, offshore_direction: 29, offshore_bearing: 209.0, offshore_km: 5.0, <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
-  - { id: consola-o, name: "Praia da Consolação", lat: 39.3385, lon: -9.3607, offshore_direction: 75, offshore_bearing: 254.9, offshore_km: 5.0, <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
-  - { id: crazy, name: "Crazy Left", lat: 38.9965, lon: -9.4255, offshore_direction: 93, offshore_bearing: 272.9, offshore_km: 5.0, <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
-  - { id: bordeira, name: "Praia da Bordeira", lat: 37.2019, lon: -8.9006, offshore_direction: 131, offshore_bearing: 311.0, offshore_km: 5.0, <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
-  - { id: salema, name: "Praia da Salema", lat: 37.0654, lon: -8.8212, offshore_direction: 11, offshore_bearing: 191.0, offshore_km: 4.99, <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
+  - { id: ba-a, name: "Praia da Baía", lat: 39.3605, lon: -9.359, offshore_direction: 183, offshore_bearing: 3.0, offshore_km: 5.0, swell_window: [305, 50], <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
+  - { id: molhe-leste, name: "Spot de Surf do Molhe Leste", lat: 39.3505, lon: -9.3686, offshore_direction: 29, offshore_bearing: 209.0, offshore_km: 5.0, swell_window: [175, 275], <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
+  - { id: consola-o, name: "Praia da Consolação", lat: 39.3385, lon: -9.3607, offshore_direction: 75, offshore_bearing: 254.9, offshore_km: 5.0, swell_window: [180, 300], <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
+  - { id: crazy, name: "Crazy Left", lat: 38.9965, lon: -9.4255, offshore_direction: 93, offshore_bearing: 272.9, offshore_km: 5.0, swell_window: [195, 355], <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
+  - { id: bordeira, name: "Praia da Bordeira", lat: 37.2019, lon: -8.9006, offshore_direction: 131, offshore_bearing: 311.0, offshore_km: 5.0, swell_window: [240, 20], <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
+  - { id: salema, name: "Praia da Salema", lat: 37.0654, lon: -8.8212, offshore_direction: 11, offshore_bearing: 191.0, offshore_km: 4.99, swell_window: [110, 235], <<: *pt }  # osm-seeded 2026-07-24 - TODO verify
 
   # ==== WEB-SEARCH-SEEDED (2026-07-24) - surf-guide discovery, Google/Nominatim/Photon
   # geocode cross-checked + ESRI sat-verified. Locations verified; params TODO-tune. ====
-  - { id: odeceixe, name: "Odeceixe", lat: 37.4421, lon: -8.7974, offshore_direction: 90, offshore_bearing: 270.0, offshore_km: 5.0, <<: *pt }  # websearch-seeded 2026-07-24 (geocoded+sat-verified) - TODO verify
-  - { id: foz-do-lizandro, name: "Foz do Lizandro (Ericeira)", lat: 38.9414, lon: -9.415, offshore_direction: 90, offshore_bearing: 270.0, offshore_km: 5.0, <<: *pt }  # websearch-seeded 2026-07-24 (geocoded+sat-verified) - TODO verify
-  - { id: ingrina, name: "Ingrina (Sagres)", lat: 37.0466, lon: -8.8791, offshore_direction: 0, swell_window: [90, 220], offshore_bearing: 180.0, offshore_km: 5.0, <<: *pt }  # websearch-seeded 2026-07-24 (geocoded+sat-verified) - TODO verify
+  - { id: odeceixe, name: "Odeceixe", lat: 37.4421, lon: -8.7974, offshore_direction: 90, offshore_bearing: 270.0, offshore_km: 5.0, swell_window: [225, 325], <<: *pt }  # websearch-seeded 2026-07-24 (geocoded+sat-verified) - TODO verify
+  - { id: foz-do-lizandro, name: "Foz do Lizandro (Ericeira)", lat: 38.9414, lon: -9.415, offshore_direction: 90, offshore_bearing: 270.0, offshore_km: 5.0, swell_window: [220, 345], <<: *pt }  # websearch-seeded 2026-07-24 (geocoded+sat-verified) - TODO verify
+  - { id: ingrina, name: "Ingrina (Sagres)", lat: 37.0466, lon: -8.8791, offshore_direction: 0, swell_window: [105, 220], offshore_bearing: 180.0, offshore_km: 5.0, <<: *pt }  # websearch-seeded 2026-07-24 (geocoded+sat-verified) - TODO verify

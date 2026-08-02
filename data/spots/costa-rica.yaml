@@ -42,31 +42,35 @@ caribbean: &carib
 spots:
   # ==== PACIFIC ====
   # ---- Guanacaste / North Nicoya (N→S) ----
-  - { id: ollies-point,       name: "Ollie's Point",          lat: 10.8425, lon: -85.8146, offshore_direction: 105, shore_normal: 250, break_type: point, <<: *pac }  # approx - TODO verify (Santa Rosa NP, boat access; coord nudged seaward off the headland)
-  - { id: witchs-rock,        name: "Witch's Rock (Naranjo)", lat: 10.803, lon: -85.723, offshore_direction: 75,  <<: *pac }  # approx - TODO verify (Santa Rosa NP, boat access)
-  - { id: playa-grande,       name: "Playa Grande",           lat: 10.328, lon: -85.8477, offshore_direction: 90,  <<: *pac }  # approx - TODO verify
-  - { id: tamarindo,          name: "Tamarindo",              lat: 10.2941, lon: -85.8537, offshore_direction: 70,  <<: *pac }  # approx - TODO verify
-  - { id: playa-avellanas,    name: "Playa Avellanas",        lat: 10.2089, lon: -85.855, offshore_direction: 80,  <<: *pac }  # approx - TODO verify
-  - { id: playa-negra,        name: "Playa Negra",            lat: 10.170, lon: -85.822, offshore_direction: 90,  break_type: reef, <<: *pac }  # approx - TODO verify (reef)
-  - { id: marbella,           name: "Marbella",               lat: 9.900,  lon: -85.755, offshore_direction: 75,  <<: *pac }  # approx - TODO verify
-  - { id: ostional,           name: "Playa Ostional",         lat: 9.9938,  lon: -85.7054, offshore_direction: 70,  <<: *pac }  # approx - TODO verify
-  - { id: nosara-guiones,     name: "Nosara (Playa Guiones)", lat: 9.947,  lon: -85.687, offshore_direction: 70,  cam: { yt: "_W_lH0Pugg4", by: "Vacation Nosara", by_url: "https://www.youtube.com/@VacationNosara" }, <<: *pac }  # approx - TODO verify
-  - { id: santa-teresa,       name: "Santa Teresa",           lat: 9.6424,  lon: -85.1697, offshore_direction: 70,  cam: { yt: "SuVmuBKsURo", by: "malpaisurfcam", by_url: "https://www.youtube.com/@malpaisurfcam1" }, <<: *pac }  # approx - TODO verify
-  - { id: mal-pais,           name: "Mal País",               lat: 9.597,  lon: -85.145, offshore_direction: 70,  break_type: reef, <<: *pac }  # approx - TODO verify
+  - { id: ollies-point,       name: "Ollie's Point",          lat: 10.8425, lon: -85.8146, offshore_direction: 105, shore_normal: 250, break_type: point, swell_window: [160, 290], <<: *pac }  # approx - TODO verify (Santa Rosa NP, boat access; coord nudged seaward off the headland)
+  - { id: witchs-rock,        name: "Witch's Rock (Naranjo)", lat: 10.803, lon: -85.723, offshore_direction: 75,  swell_window: [165, 295], <<: *pac }  # approx - TODO verify (Santa Rosa NP, boat access)
+  - { id: playa-grande,       name: "Playa Grande",           lat: 10.328, lon: -85.8477, offshore_direction: 90,  swell_window: [185, 310], <<: *pac }  # approx - TODO verify
+  - { id: tamarindo,          name: "Tamarindo",              lat: 10.2941, lon: -85.8537, offshore_direction: 70,  swell_window: [165, 340], <<: *pac }  # approx - TODO verify
+  - { id: playa-avellanas,    name: "Playa Avellanas",        lat: 10.2089, lon: -85.855, offshore_direction: 80,  swell_window: [185, 350], <<: *pac }  # approx - TODO verify
+  - { id: playa-negra,        name: "Playa Negra",            lat: 10.170, lon: -85.822, offshore_direction: 90,  break_type: reef, swell_window: [180, 270], <<: *pac }  # approx - TODO verify (reef)
+  - { id: marbella,           name: "Marbella",               lat: 9.900,  lon: -85.755, offshore_direction: 75,  swell_window: [165, 255], <<: *pac }  # approx - TODO verify
+  - { id: ostional,           name: "Playa Ostional",         lat: 9.9938,  lon: -85.7054, offshore_direction: 70,  swell_window: [165, 295], <<: *pac }  # approx - TODO verify
+  - { id: nosara-guiones,     name: "Nosara (Playa Guiones)", lat: 9.947,  lon: -85.687, offshore_direction: 70,  cam: { yt: "_W_lH0Pugg4", by: "Vacation Nosara", by_url: "https://www.youtube.com/@VacationNosara" }, swell_window: [160, 330], <<: *pac }  # approx - TODO verify
+  # swell_window derived from the coastline, not the regional default (2026-08-02, `rosa-pipeline
+  # horizon`): the sea is open 135-295 deg here, so [190,310] both clipped 30 deg of real ocean
+  # to the south - the dominant swell arrives at 189-190 and was losing 28% of its energy on the
+  # window edge - and pointed its top 20 deg at dry land. Clipped to shore_normal +-90.
+  - { id: santa-teresa,       name: "Santa Teresa",           lat: 9.6424,  lon: -85.1697, offshore_direction: 70,  swell_window: [160, 290], shore_normal: 250, cam: { yt: "Pm-Bh1r7YuM", by: "malpaisurfcam", by_url: "https://www.youtube.com/@malpaisurfcam1" }, <<: *pac }  # approx - TODO verify
+  - { id: mal-pais,           name: "Mal País",               lat: 9.597,  lon: -85.145, offshore_direction: 70,  break_type: reef, swell_window: [200, 340], <<: *pac }  # approx - TODO verify
   # ---- Central Pacific (Puntarenas / Jacó) ----
   - { id: boca-barranca,      name: "Boca Barranca",          lat: 9.9563,  lon: -84.7477, offshore_direction: 50,  shore_normal: 205, break_type: point, <<: *pac }  # approx - TODO verify (rivermouth long left; head of Gulf of Nicoya - shallow shelf, sample stays gulf-side)
-  - { id: jaco,               name: "Jacó",                   lat: 9.610,  lon: -84.632, offshore_direction: 55,  <<: *pac }  # approx - TODO verify
-  - { id: playa-hermosa-jaco, name: "Playa Hermosa (Jacó)",   lat: 9.5715,  lon: -84.6042, offshore_direction: 55,  <<: *pac }  # approx - TODO verify (powerful beachbreak)
-  - { id: esterillos,         name: "Esterillos",             lat: 9.5155,  lon: -84.5175, offshore_direction: 50,  <<: *pac }  # approx - TODO verify
-  - { id: playa-bejuco,       name: "Playa Bejuco",           lat: 9.463,  lon: -84.440, offshore_direction: 50,  <<: *pac }  # approx - TODO verify
-  - { id: manuel-antonio,     name: "Manuel Antonio (Playitas)", lat: 9.3861, lon: -84.1542, offshore_direction: 35, swell_window: [180, 260], <<: *pac }  # approx - TODO verify (more S-facing)
+  - { id: jaco,               name: "Jacó",                   lat: 9.610,  lon: -84.632, offshore_direction: 55,  swell_window: [165, 285], <<: *pac }  # approx - TODO verify
+  - { id: playa-hermosa-jaco, name: "Playa Hermosa (Jacó)",   lat: 9.5715,  lon: -84.6042, offshore_direction: 55,  swell_window: [145, 300], <<: *pac }  # approx - TODO verify (powerful beachbreak)
+  - { id: esterillos,         name: "Esterillos",             lat: 9.5155,  lon: -84.5175, offshore_direction: 50,  swell_window: [140, 270], <<: *pac }  # approx - TODO verify
+  - { id: playa-bejuco,       name: "Playa Bejuco",           lat: 9.463,  lon: -84.440, offshore_direction: 50,  swell_window: [140, 230], <<: *pac }  # approx - TODO verify
+  - { id: manuel-antonio,     name: "Manuel Antonio (Playitas)", lat: 9.3861, lon: -84.1542, offshore_direction: 35, swell_window: [145, 290], <<: *pac }  # approx - TODO verify (more S-facing)
   # ---- South Pacific (Dominical / Osa / Golfo Dulce) ----
-  - { id: dominical,          name: "Dominical",              lat: 9.242,  lon: -83.8674, offshore_direction: 40,  swell_window: [180, 260], <<: *pac }  # approx - TODO verify
-  - { id: matapalo-osa,       name: "Matapalo (Cabo Matapalo)", lat: 8.370, lon: -83.283, offshore_direction: 330, swell_window: [170, 230], offshore_bearing: 223.4, offshore_km: 10.72, break_type: point, shore_normal: 223.4, <<: *pac }  # approx - TODO verify (SE tip of Osa; sample pushed SW to open Pacific)
+  - { id: dominical,          name: "Dominical",              lat: 9.242,  lon: -83.8674, offshore_direction: 40,  swell_window: [135, 305], <<: *pac }  # approx - TODO verify
+  - { id: matapalo-osa,       name: "Matapalo (Cabo Matapalo)", lat: 8.370, lon: -83.283, offshore_direction: 330, swell_window: [133, 280], offshore_bearing: 223.4, offshore_km: 10.72, break_type: point, shore_normal: 223.4, <<: *pac }  # approx - TODO verify (SE tip of Osa; sample pushed SW to open Pacific)
   - { id: pavones,            name: "Pavones",                lat: 8.396,  lon: -83.1411, offshore_direction: 70,  swell_window: [175, 220], offshore_bearing: 206.7, offshore_km: 14.43, break_type: point, shore_normal: 206.7, <<: *pac }  # approx - TODO verify (world-class long left inside Golfo Dulce; sample pushed to gulf mouth)
-  - { id: punta-banco,        name: "Punta Banco",            lat: 8.353,  lon: -83.142, offshore_direction: 55,  swell_window: [175, 220], offshore_bearing: 214.7, offshore_km: 11.22, break_type: reef, <<: *pac }  # approx - TODO verify (just S of Pavones)
+  - { id: punta-banco,        name: "Punta Banco",            lat: 8.353,  lon: -83.142, offshore_direction: 55,  swell_window: [145, 325], offshore_bearing: 214.7, offshore_km: 11.22, break_type: reef, <<: *pac }  # approx - TODO verify (just S of Pavones)
   # ==== CARIBBEAN (E/NE-facing; offshore ray cast EAST into the sea) ====
-  - { id: playa-bonita,       name: "Playa Bonita (Limón)",   lat: 10.0119, lon: -83.0461, offshore_direction: 225, offshore_bearing: 82.9, offshore_km: 7.29, break_type: beach, shore_normal: 82.9, <<: *carib }  # approx - TODO verify
-  - { id: isla-uvita,         name: "Isla Uvita (Limón)",     lat: 10.002, lon: -83.020, offshore_direction: 240, offshore_bearing: 91.7, offshore_km: 7.67, shore_normal: 91.7, <<: *carib }  # approx - TODO verify (island reef, boat access)
-  - { id: salsa-brava,        name: "Salsa Brava (Puerto Viejo)", lat: 9.6617, lon: -82.7443, offshore_direction: 235, offshore_bearing: 91.8, offshore_km: 5.96, shore_normal: 91.8, <<: *carib }  # approx - TODO verify (heavy shallow reef)
+  - { id: playa-bonita,       name: "Playa Bonita (Limón)",   lat: 10.0119, lon: -83.0461, offshore_direction: 225, offshore_bearing: 82.9, offshore_km: 7.29, break_type: beach, shore_normal: 82.9, swell_window: [353, 115], <<: *carib }  # approx - TODO verify
+  - { id: isla-uvita,         name: "Isla Uvita (Limón)",     lat: 10.002, lon: -83.020, offshore_direction: 240, offshore_bearing: 91.7, offshore_km: 7.67, shore_normal: 91.7, swell_window: [2, 140], <<: *carib }  # approx - TODO verify (island reef, boat access)
+  - { id: salsa-brava,        name: "Salsa Brava (Puerto Viejo)", lat: 9.6617, lon: -82.7443, offshore_direction: 235, offshore_bearing: 91.8, offshore_km: 5.96, shore_normal: 91.8, swell_window: [2, 105], <<: *carib }  # approx - TODO verify (heavy shallow reef)
   - { id: playa-cocles,       name: "Playa Cocles",           lat: 9.6488,  lon: -82.7237, offshore_direction: 240, offshore_bearing: 99.4, offshore_km: 5.97, break_type: beach, shore_normal: 99.4, <<: *carib }  # approx - TODO verify
