@@ -74,7 +74,7 @@ spots:
   - { id: kisakihama,         name: "Kisakihama (Miyazaki)",    lat: 31.828, lon: 131.45306, offshore_direction: 280, swell_window: [20, 140], offshore_bearing: 90.0, offshore_km: 4.72, <<: *jp }  # user-verified 2026-07-25 (pro-tour beachbreak, N of Aoshima)
   - { id: kaeda-kako,         name: "Kaeda Kako",               lat: 31.82072, lon: 131.45503, offshore_direction: 275, swell_window: [20, 130], offshore_bearing: 90.0, offshore_km: 4.72, <<: *jp }  # user-verified 2026-07-25 - offshore_direction/swell_window from neighbours, TODO verify
   - { id: kodomonokuni,       name: "Kodomonokuni",             lat: 31.80872, lon: 131.462, offshore_direction: 275, swell_window: [30, 160], offshore_bearing: 90.0, offshore_km: 4.72, <<: *jp }  # user-verified 2026-07-25 - offshore_direction/swell_window from neighbours, TODO verify
-  - { id: aoshima,            name: "Aoshima (Miyazaki)",       lat: 31.80414, lon: 131.46928, offshore_direction: 270, swell_window: [15, 130], offshore_bearing: 90.0, offshore_km: 4.7, cam: { yt: "8WbVejm_Lfk", by: "ii-nami.com", by_url: "https://www.youtube.com/@iinamicom" }, <<: *jp }  # user-verified 2026-07-25 (moved up from the web-search seed block)
+  - { id: aoshima,            name: "Aoshima (Miyazaki)",       lat: 31.80414, lon: 131.46928, offshore_direction: 270, swell_window: [15, 130], offshore_bearing: 90.0, offshore_km: 4.7, cam: { yt: "QFAYdvPk3H8", by: "ii-nami.com", by_url: "https://www.youtube.com/@iinamicom" }, <<: *jp }  # user-verified 2026-07-25 (moved up from the web-search seed block)
 
   # ==== OSM-SEEDED (2026-07-24, © OpenStreetMap contributors, ODbL) ====
   # coastline-generated → bathy-pruned → OSM-name confirmed; offshore_direction from
