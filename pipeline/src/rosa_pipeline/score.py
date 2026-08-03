@@ -35,6 +35,7 @@ from .transform import (
     effective_height_in_window,
     energy_in_window,
     height_phrase,
+    shore_normal_wind_ms,
     wetsuit,
 )
 
@@ -100,7 +101,17 @@ def score_hour(spot: Spot, hour: HourForecast, wet_depths: list[float] | None = 
         depths = wet_depths
         if hour.tide_m:
             depths = [d + hour.tide_m for d in wet_depths if d + hour.tide_m > 0]
-        h_eff = breaker_height_from_profile(hour.partitions, window, spot.shore_normal, depths)
+        # open item 4 (product call 2026-08-03): a blown-out sea reads smaller, a groomed one
+        # bigger. Inert until WIND_BREAKER_COEFF is graded - see physics.wind_breaker_factor.
+        h_eff = breaker_height_from_profile(
+            hour.partitions,
+            window,
+            spot.shore_normal,
+            depths,
+            wind_normal_ms=shore_normal_wind_ms(
+                hour.wind_speed_kph, hour.wind_dir_deg, spot.offshore_direction
+            ),
+        )
     else:
         h_eff = effective_height_in_window(hour.partitions, window)
     h_lo, h_mid, h_hi = breaker_range(h_eff, spot.height_coeff)

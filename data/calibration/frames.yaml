@@ -18,6 +18,14 @@
 # - Bathymetry: frames are graded on TODAY'S committed profiles. hilton's pin and
 #   profile moved 2026-07-26 (~200 m SW); the 07-25 frame therefore re-grades that day
 #   on the corrected geometry, which is what we want going forward.
+# - wind (added 2026-08-03) is archive hindcast at the spot's coordinate, same provenance
+#   as the 07-19/07-24 partitions and the 07-27 tide. `theta` is the angle from the spot's
+#   offshore_direction: <=45 offshore, <=135 cross-shore, >135 onshore. Nothing grades on it
+#   yet - the wind term's coefficient is 0 (physics.wind_breaker_factor). Recorded because
+#   **NONE of these five frames is blown out** - they span 1.9-23.0 kph, where any sane wind
+#   term is ~1.0, so this set CANNOT constrain that coefficient and a sweep over it would
+#   return "every candidate identical". Grading a frame in a >30 kph onshore blow is the
+#   only thing that can.
 
 frames:
   - id: "2026-07-19-beit-yanai-flat"
@@ -26,6 +34,9 @@ frames:
     observed_m: [0.1, 0.2]     # ankle-high at best (user + cam); ISRAMAR Hadera Hs 0.56 corroborates the input
     slack_m: 0.05
     tide_m: -0.27
+    # 9.4 kph cross-shore: this frame is NOT blown out, so the wind term cannot explain
+    # its +0.15 m over-call - open item 3 stays structural (settled 2026-08-03)
+    wind: { kph: 9.4, from_deg: 232, theta_deg: 130, class: cross-shore }
     partitions:
       - { hs: 0.60, tm: 5.05, tp: 6.95, dir: 290 }
       # windsea that hour was 0.02 m @ 0.45 s - negligible, omitted
@@ -36,6 +47,8 @@ frames:
     observed_m: [0.3, 0.6]     # settled row-2 band: "poor to fair, almost surfable"; NOT direct eyes
     slack_m: 0.10
     tide_m: -0.25
+    # the windiest frame in the set, and the only one whose observed band is NOT direct eyes
+    wind: { kph: 23.0, from_deg: 238, theta_deg: 136, class: onshore }
     partitions:
       - { hs: 0.96, tm: 5.10, tp: 5.75, dir: 295 }
       - { hs: 0.56, tm: 2.90, dir: 245, kind: wind }   # inside the 25-deg exposure shoulder
@@ -46,6 +59,9 @@ frames:
     observed_m: [1.0, 1.2]     # user's eyes; predicted 0.5-0.8 = under-call ~1.6x
     slack_m: 0.05
     tide_m: -0.21
+    # hour not recorded, so the wind is a daylight SPAN, not a value: 11.5-15.2 kph veering
+    # 223 -> 279 deg (cross-shore in the morning, onshore by mid-afternoon). Midday shown.
+    wind: { kph: 15.2, from_deg: 241, theta_deg: 126, class: cross-shore, hour: uncertain }
     partitions:
       - { hs: 1.45, tm: 5.9, tp: 8.4, dir: 291 }
 
@@ -55,6 +71,8 @@ frames:
     observed_m: [0.5, 0.6]     # user's eyes on the beach; predicted 0.2-0.3 = under-call ~2x
     slack_m: 0.05
     tide_m: -0.25
+    # dead onshore but light - still nowhere near a blow-out
+    wind: { kph: 13.6, from_deg: 300, theta_deg: 175, class: onshore }
     partitions:
       - { hs: 0.82, tm: 5.0, tp: 7.0, dir: 301 }
 
@@ -66,6 +84,7 @@ frames:
     # tide was not recorded on the day - taken from the OM marine archive at poleg's
     # offshore point, 2026-07-27T06:00 Asia/Jerusalem (added 2026-07-30)
     tide_m: -0.27
+    wind: { kph: 1.9, from_deg: 56, theta_deg: 46, class: cross-shore }
     partitions:
       # as logged in the row; the archive hindcast corroborates within 0.04 m / 0.2 s
       # (1.04 m, Tm 6.0 s, Tp 7.65 s, dir 292)

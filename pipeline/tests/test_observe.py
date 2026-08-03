@@ -32,6 +32,15 @@ def test_parse_handles_missing_and_values() -> None:
     assert met_only.wtmp_c == 15.5
 
 
+def test_parses_the_co_located_wind() -> None:
+    """The wind columns share the line with the wave columns and were parsed past until
+    2026-08-03. They are the only wind+wave ground truth Rosa has - see open item 4."""
+    wave, met_only = parse_ndbc_txt(SAMPLE, "46042")
+    assert wave.wdir_deg == 330.0 and wave.wspd_ms == 5.0
+    # a row with no waves still carries wind - that is the point of keeping met-only rows
+    assert met_only.wdir_deg == 320.0 and met_only.wspd_ms == 5.0
+
+
 def test_times_are_utc_aware() -> None:
     obs = parse_ndbc_txt(SAMPLE, "x")
     assert all(o.time.tzinfo is UTC for o in obs)

@@ -10,7 +10,7 @@ from collections.abc import Callable
 from functools import lru_cache
 
 from .models import SwellPartition, WindClass
-from .physics import breaker_height_over_profile
+from .physics import BREAK_GAMMA, breaker_height_over_profile, wind_breaker_factor
 
 
 def angle_diff(a: float, b: float) -> float:
@@ -247,6 +247,23 @@ def rideability_period(p: SwellPartition) -> float:
     return p.peak_period_s if p.peak_period_s is not None else p.period_s
 
 
+KPH_PER_MS = 3.6
+
+
+def shore_normal_wind_ms(
+    speed_kph: float, wind_from_deg: float, offshore_direction: float
+) -> float:
+    """Shore-normal component of the wind in m/s, POSITIVE OFFSHORE.
+
+    ``offshore_direction`` is the bearing an offshore wind blows FROM, so a wind arriving from
+    exactly that bearing is fully offshore (+U) and one from the opposite bearing is fully
+    onshore (-U). Cross-shore projects to ~0, which is what the physics wants: only the
+    component blowing along the wave's direction of travel can act on the breaking face
+    (Douglass 1990 - see physics.wind_breaker_factor)."""
+    theta = math.radians(angle_diff(wind_from_deg, offshore_direction))
+    return (speed_kph / KPH_PER_MS) * math.cos(theta)
+
+
 # Inverse of the Komar & Gaughan height exponent: Hb ~ (T H0^2)^0.4, so Hb^2.5 is linear in
 # the offshore energy flux T*H0^2. Summing partitions in Hb^2.5 and taking the 0.4 power is
 # therefore *exactly* "add the offshore energy, then apply the breaker index once" - which is
@@ -279,6 +296,7 @@ def breaker_height_from_profile(
     wet_depths: list[float],
     *,
     rideability: Callable[[SwellPartition], float] | None = None,
+    wind_normal_ms: float = 0.0,
 ) -> float:
     """Breaker height of the dominant WAVE FIELD (Stage 2B hybrid + the 2026-08-03 combine
     fix): real physics for the geometry (shoaling + refraction + depth-limited breaking over
@@ -305,7 +323,13 @@ def breaker_height_from_profile(
 
     ``rideability`` lets the Stage-2E experiment harness (experiment.py) inject candidate
     attenuation factors. Production never passes it: the default is exactly the shipping
-    ``period_rideability(rideability_period(p))`` - peak-keyed since 2026-07-30."""
+    ``period_rideability(rideability_period(p))`` - peak-keyed since 2026-07-30.
+
+    ``wind_normal_ms`` (positive offshore) applies Douglass's wind effect to the COMBINED
+    breaker height - after the field combine, because the wind acts on the wave field that
+    actually breaks, not on each partition's arithmetic. Inert while ``WIND_BREAKER_COEFF`` is
+    0, so every existing caller and frame is bit-identical; see physics.wind_breaker_factor for
+    why it has no value yet."""
     from .spectral import parametric_spread_deg
 
     breakers: list[tuple[float, float, float]] = []  # (Hb, direction, spread)
@@ -336,7 +360,11 @@ def breaker_height_from_profile(
         field_coherence(angle_diff(d, dir_dom), s, spread_dom) * hb**FIELD_ENERGY_EXP
         for hb, d, s in breakers
     )
-    return total ** (1.0 / FIELD_ENERGY_EXP)
+    combined = total ** (1.0 / FIELD_ENERGY_EXP)
+    # h_b from the wave's own breaking criterion - the depth the field breaks in is what the
+    # wind number scales against, and it is not a sampled depth (the profile usually stops
+    # well outside the surf zone).
+    return combined * wind_breaker_factor(wind_normal_ms, combined / BREAK_GAMMA)
 
 
 def dominant_partition(

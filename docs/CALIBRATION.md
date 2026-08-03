@@ -1471,3 +1471,119 @@ is 0.72 m at 10.8 s arriving at 10 deg incidence, and that single partition alon
 It is stronger than session 12's in that Surfline and the user's eye bracket the same answer and
 the fix is a correctness argument rather than a fitted constant, but Santa Teresa is still the
 only long-period spot anyone has ever graded. **Grade more frames in a long-period region.**
+
+## 2026-08-03 (session 14) - the march/index handoff, and wind enters the height
+
+### The handoff step is closed, and it was bigger than "found, not fixed" said
+
+Session 13 logged the step as a curiosity - 1.167 -> 1.303 m between 13 and 14 degrees of
+incidence, invisible because 97-100% of hours take the index branch. Reproduced and measured, it
+is two defects wearing one coat:
+
+1. **The branch is non-monotone.** Preferring the march wherever it reached `gamma*d` means a
+   WORSE approach angle can return a BIGGER wave, because the two branches disagree by ~0.13 m at
+   the crossover.
+2. **The sampling interval was setting the height.** The march can only break AT a sampled depth.
+   On a profile stepping 4 m -> 1 m it skips the real break point and clamps:
+
+   | case | old (march wins) | K&G | `H(d) = gamma*d` solved continuously |
+   |---|---|---|---|
+   | 2.0 m 14 s over `[50,20,8,4,1]` | **0.780** | 3.313 | 2.984 |
+   | 3.0 m 14 s over `[50,20,8,4,2]` | **3.120** | 4.583 | 4.153 |
+
+   Up to 3.8x low, against the same linear theory the march itself uses. **51 of the 199 committed
+   profiles reach 1-2 m** (elephant-rock, hikkaduwa-south, midigama, pottuvil-point, pavones,
+   playa-cocles, aoshima, shishikui and 43 more), so the clamp fires on exactly their biggest days.
+   It does not show in the current 24,808 published hours - no hour is anywhere near it - which is
+   why it stayed invisible: it is a big-day defect at a minority of spots.
+
+**Fix: the deeper break wins, `max(gamma*d_march, Hb_KG)`.** A K&G height implying a breaking
+depth deeper than where the march found one means linear shoaling under-called the growth just
+before breaking - which it does, everywhere - so the wave broke at the deeper of the two. The
+result is continuous across the handoff and monotone in incidence (regression test pins both).
+K&G sits above linear theory in nearly every real sea state, so in practice the max resolves to
+the index; the depth limit still binds for a steep short-period storm sea over a shelf, which is
+pinned by its own test so the branch cannot rot into dead code.
+
+Two tests asserted the old behaviour and were rewritten, not deleted - both now carry why the
+old assertion was wrong. **Stage-0 scorecard unmoved**: `peak^2.2` still grades 4/5, max |err|
+0.15 m, every frame identical. Expected - the Israel frames sit on deep profiles that take the
+index branch either way.
+
+### Height absorbs wind: the product call is settled, the coefficient is not
+
+**Decision (user, 2026-08-03): yes.** A 2 m sea shredded by a 40 kph onshore gale must not
+publish the same height as the same sea glassed off.
+
+Part of the gap was already in the data and is NOT what a wind term fixes: onshore hours carry
+**14.4%** of their in-window energy as windsea against **0.8%** offshore (24,808 published
+hours), so counting chop as surf explains roughly 7% of height. The rest is a missing term.
+
+**The first attempt was a guess and was removed the same day.** `wind_face_factor` reused the
+rating's wind geometry - a 25% loss ramping from 15 to 35 kph, offshore treated as a no-op. It
+was wrong in form (raw kph), wrong in sign (offshore is not neutral), and its magnitude came
+from nowhere.
+
+#### What measurement says, and where it stops
+
+**1. The buoys say the offshore input is clean.** NDBC's standard-met file carries WDIR/WSPD on
+the same line as WVHT and `observe.py` had been parsing past them since Stage 0; they are now
+captured. Pairing the forecast archive (13 stations) against the stations' own observations with
+the shipped `_nearest_obs`, 2,001 hours at lead <= 6 h:
+
+| wind (m/s) | n | bias (m) | rel bias | rmse (m) | obs Hs |
+|---|---|---|---|---|---|
+| 0.0-2.5 | 227 | +0.059 | +6.4% | 0.166 | 0.93 |
+| 2.5-5.0 | 487 | +0.045 | +4.5% | 0.175 | 1.00 |
+| 5.0-7.5 | 634 | +0.046 | +3.7% | 0.168 | 1.23 |
+| 7.5-10.0 | 369 | +0.066 | +4.1% | 0.201 | 1.62 |
+| 10.0-12.5 | 276 | +0.020 | +1.1% | 0.209 | 1.89 |
+
+Flat to *shrinking* with wind (model/obs 1.050 calm vs 1.010 blowing). **Open-Meteo's offshore
+Hs is not wind-biased**, so none of this belongs upstream and the effect is entirely nearshore -
+which also means **no buoy can ever fit it**. Caveats: the five CDIP stations contributed zero
+pairs (Waverider buoys have no anemometer), so these are 7 discus buoys; wind tops out near
+12.5 m/s; the archive only starts 2026-07-22.
+
+**2. The literature gives the form, sign and scaling.** Douglass (1990), *Influence of wind on
+breaking waves*, JWPCOE 116(6):651-663: onshore wind moves the break point offshore and
+**decreases** the breaker height-to-depth ratio gamma_b; offshore wind does the reverse.
+Feddersen & Veron (2005, JPO 35:1223) summarise it - break-point location up to 40%, gamma_b up
+to 100% over the tested range, U/c range applicable to a natural nearshore environment - and
+state the net: "with offshore wind not only do waves break closer to shore, but they have larger
+breaking-wave heights." Douglass tested U/sqrt(g*h_0) = +-2.3 on a 1:8 slope. Note that the
+modern gamma parameterizations (e.g. Zhang et al. 2021, on offshore steepness and kh) carry no
+wind term at all, so there is no field-calibrated wind-gamma formula off the shelf.
+
+So the shipped form is `physics.wind_breaker_factor(U_n, h_b)`: keyed on `U_n/sqrt(g*h_b)` with
+`U_n` the shore-normal component **positive offshore** (`transform.shore_normal_wind_ms`),
+signed, clamped to +-50%, applied to the combined breaker height after the field combine. At a
+1.5 m breaking depth a 40 kph onshore wind is -2.9, comparable to Douglass's tested range.
+
+**3. Nothing we own can set the coefficient, so it is 0.0.** Wind is now recorded on all five
+frames (archive hindcast, same provenance as the 07-19/07-24 partitions):
+
+| frame | wind | theta | class |
+|---|---|---|---|
+| 07-19 beit-yanai flat | 9.4 kph from 232 | 130 | cross-shore |
+| 07-24 beit-yanai windswell | 23.0 kph from 238 | 136 | onshore |
+| 07-25 hilton (hour unknown) | 11.5-15.2 kph, 223-279 | 108-164 | cross -> onshore |
+| 07-26 hilton | 13.6 kph from 300 | 175 | onshore |
+| 07-27 poleg | 1.9 kph from 56 | 46 | cross-shore |
+
+**No frame is blown out.** The set spans 1.9-23.0 kph, where any sane wind term is ~1.0, so the
+Stage-0 scorecard cannot constrain the coefficient - a sweep would return "every candidate
+identical", which looks like validation and is not. The one frame with real onshore wind (07-24)
+is also the only one whose observed band is not direct eyes. The surfer feedback store holds one
+row. `WIND_BREAKER_COEFF = 0.0` therefore ships inert: the form is plumbed and tested, and the
+published forecast does not move by a millimetre.
+
+**To switch it on: grade 2-3 frames in a genuine onshore blow (>30 kph), then fit.** That is the
+only measurement that can set it, and it is a morning at the beach on a bad day, not a sweep.
+
+#### Bonus: open item 3 is settled, and not in the direction hoped
+
+The 07-19 flat frame - +0.15 m over under every candidate, the one nothing could fix - blew
+**9.4 kph cross-shore**. It is not a blown-out frame, so the wind term cannot reach it at any
+coefficient. That over-call stays **structural** (a breaker index assumes something that breaks
+as a wave; that frame is a 0.60 m 5.05 s windsea observed ankle-high). One fewer hypothesis.

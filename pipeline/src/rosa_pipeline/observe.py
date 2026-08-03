@@ -6,6 +6,8 @@ ISRAMAR/CDIP slot in behind the same ``ObservationSource`` protocol later. ISRAM
 local-validation-only (all-rights-reserved) - it must never be committed or shipped.
 
 Parses the NDBC ``realtime2/<id>.txt`` standard-meteorological file. Wave columns:
+    WDIR = wind direction (deg, FROM)    -> wdir_deg
+    WSPD = wind speed (m/s)              -> wspd_ms
     WVHT = significant wave height (m)   -> hs_m
     DPD  = dominant (peak) period (s)    -> dpd_s
     APD  = average period (s), i.e. Tm02 -> apd_s   (NOT the model's mean period - see
@@ -13,6 +15,12 @@ Parses the NDBC ``realtime2/<id>.txt`` standard-meteorological file. Wave column
     MWD  = mean wave direction (deg, from)-> mwd_deg
     WTMP = water temperature (degC)      -> wtmp_c
 Missing values are the literal "MM". Rows are newest-first; we return oldest-first.
+
+The wind columns sit on the same line as the wave columns and were parsed past until
+2026-08-03. They are the only co-located wind+wave ground truth Rosa has: whether a wind
+term belongs in the OFFSHORE input (an Open-Meteo Hs bias, fittable from thousands of buoy
+hours) or purely in the NEARSHORE transform (fittable only from eyes) is not answerable
+without them. See docs/CALIBRATION.md 2026-08-03 and open item 4.
 """
 
 from __future__ import annotations
@@ -41,6 +49,9 @@ class BuoyObs:
     # Tm-1,0 (m-1/m0) measured from the station's own spectrum - not in the standard-met
     # file, filled in by verify.with_energy_period() where spectra are published.
     tm_m10_s: float | None = None
+    # co-located wind, same line of the same file (see module docstring)
+    wdir_deg: float | None = None  # direction the wind blows FROM
+    wspd_ms: float | None = None  # m/s, as NDBC reports it - not kph
 
 
 def _num(token: str) -> float | None:
@@ -84,6 +95,8 @@ def parse_ndbc_txt(text: str, station: str) -> list[BuoyObs]:
                 apd_s=_num(f[10]),
                 mwd_deg=_num(f[11]),
                 wtmp_c=_num(f[14]),
+                wdir_deg=_num(f[5]),
+                wspd_ms=_num(f[6]),
             )
         )
     obs.sort(key=lambda o: o.time)

@@ -1,9 +1,10 @@
+import itertools
 import math
 
 import pytest
 
 from rosa_pipeline.models import SwellPartition
-from rosa_pipeline.physics import breaker_height_over_profile
+from rosa_pipeline.physics import breaker_height_over_profile, wind_breaker_factor
 from rosa_pipeline.transform import (
     EXPOSURE_SHOULDER_DEG,
     FIELD_ENERGY_EXP,
@@ -26,6 +27,7 @@ from rosa_pipeline.transform import (
     period_quality,
     period_rideability,
     rideability_period,
+    shore_normal_wind_ms,
     spread_exposure,
     wetsuit,
 )
@@ -450,3 +452,70 @@ class TestSpreadExposure:
         p = swell(1.5, 9.0, 355.0)  # outside WINDOW, fan still reaching
         assert height_in_window((p,), WINDOW) > 0
         assert energy_kj_per_m((p,), WINDOW) > 0
+
+
+class TestShoreNormalWind:
+    """Open item 4: the wind the breaker physics consumes is the shore-normal COMPONENT,
+    positive offshore - not a speed plus an angle bucket."""
+
+    OFFSHORE = 90.0  # the spot's offshore_direction: an offshore wind blows FROM 90
+
+    def test_wind_straight_offshore_is_the_full_speed_positive(self):
+        assert shore_normal_wind_ms(36.0, 90.0, self.OFFSHORE) == pytest.approx(10.0)
+
+    def test_wind_straight_onshore_is_the_full_speed_negative(self):
+        assert shore_normal_wind_ms(36.0, 270.0, self.OFFSHORE) == pytest.approx(-10.0)
+
+    def test_cross_shore_projects_to_nothing(self):
+        assert shore_normal_wind_ms(36.0, 180.0, self.OFFSHORE) == pytest.approx(0.0, abs=1e-12)
+        assert shore_normal_wind_ms(36.0, 0.0, self.OFFSHORE) == pytest.approx(0.0, abs=1e-12)
+
+    def test_converts_kph_to_ms(self):
+        # the physics is in m/s; the forecast hour carries kph
+        assert shore_normal_wind_ms(3.6, 90.0, self.OFFSHORE) == pytest.approx(1.0)
+
+    def test_is_continuous_around_the_compass(self):
+        series = [shore_normal_wind_ms(40.0, float(a), self.OFFSHORE) for a in range(0, 361)]
+        for lo, hi in itertools.pairwise(series):
+            assert abs(hi - lo) < 0.25
+
+
+class TestWindBreakerFactor:
+    """Douglass (1990): onshore wind lowers the breaker, offshore raises it, scaled by the
+    dimensionless U_n/sqrt(g*h_b).
+
+    The coefficient is 0.0 in the tree - nothing Rosa owns can set it (see
+    physics.wind_breaker_factor). These pin the FORM by passing a coefficient explicitly, plus
+    the invariant that the shipped constant leaves production untouched."""
+
+    def test_shipped_constant_is_inert(self):
+        """Until a blown-out frame is graded this term must not move a single published hour."""
+        for wind in (-15.0, -5.0, 0.0, 5.0, 15.0):
+            assert wind_breaker_factor(wind, 2.0) == 1.0
+
+    def test_onshore_wind_lowers_the_breaker(self):
+        assert wind_breaker_factor(-10.0, 1.5, coeff=0.1) < 1.0
+
+    def test_offshore_wind_raises_the_breaker(self):
+        """The sign the first attempt got wrong: offshore wind does not just groom, it makes
+        waves break closer to shore AND larger (Feddersen & Veron 2005 on Douglass 1990)."""
+        assert wind_breaker_factor(10.0, 1.5, coeff=0.1) > 1.0
+
+    def test_is_symmetric_about_calm(self):
+        up = wind_breaker_factor(8.0, 1.5, coeff=0.1) - 1.0
+        down = 1.0 - wind_breaker_factor(-8.0, 1.5, coeff=0.1)
+        assert up == pytest.approx(down)
+
+    def test_scales_on_wind_over_wave_speed_not_on_wind_alone(self):
+        """The same wind over a deeper break is a smaller dimensionless number, so it moves
+        the height less - this is what keying on U/sqrt(g*h) buys over raw kph."""
+        shallow = wind_breaker_factor(-10.0, 1.0, coeff=0.1)
+        deep = wind_breaker_factor(-10.0, 4.0, coeff=0.1)
+        assert shallow < deep < 1.0
+
+    def test_clamped_so_no_wind_can_erase_or_double_a_wave(self):
+        assert wind_breaker_factor(-60.0, 0.5, coeff=0.5) == pytest.approx(0.5)
+        assert wind_breaker_factor(60.0, 0.5, coeff=0.5) == pytest.approx(1.5)
+
+    def test_degenerate_depth_is_a_no_op(self):
+        assert wind_breaker_factor(-10.0, 0.0, coeff=0.1) == 1.0
