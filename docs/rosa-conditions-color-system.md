@@ -2,7 +2,7 @@
 
 > **HISTORICAL (superseded 2026-07-20).** The session-3 "warm clay" design handoff (warm
 > cream/clay, Inter, FIRING→"Epic") replaced this zine system and is what `web/` implements.
-> Kept for context only - do NOT implement from this file. See CLAUDE.md §UI.
+> Kept for context only - do NOT implement from this file. See `docs/UI.md`.
 
 Directions for this session. We are implementing Rosa's theme system and the 5-tier condition color coding. Read this whole file before writing code.
 

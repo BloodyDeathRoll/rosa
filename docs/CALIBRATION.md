@@ -1,6 +1,19 @@
 # Calibration Log
 
-Method: CLAUDE.md §Calibration. Log every dogfood session below; adjust height_coeff / score weights only from accumulated evidence.
+Log every dogfood session below — date/time, spot, Rosa predicted height+rating, observed reality
+(user's eyes), buoy reading if available. Adjust `height_coeff` / score weights only from
+accumulated evidence, never a single session.
+
+## Method rules (hard-won — read before running any sweep or grading any candidate)
+
+- **A skill metric that cannot show sign cannot show a bias** — always publish bias alongside rmse.
+- **Score candidates with the shipped harness, never a scratchpad reimplementation** (the harness grades the predicted MIDPOINT, not the displayed range).
+- **Fleet impact is only valid as a same-input A/B** — comparing against an older `data/out` snapshot mixes the code change with the weather.
+- **Any cross-source claim needs a control group + a deep-water check.** Three comparison artifacts have been caught this way (APD-vs-Tm-1,0, blended `mwd`, OM's partition closure).
+- **Pair periods like-for-like:** Open-Meteo serves the energy period Tm-1,0, NDBC's APD is Tm02, and Tm-1,0 > Tm02 always. Stations without spectra fall back loudly and are never calibrated against.
+- **Hs bias tracks the instrument, not the basin** — discus buoys read the model hot, CDIP Waveriders cold; 51201 vs 51202/51205 are the same ocean with opposite signs. No global de-bias is defensible; keep station classes apart.
+- **Match on direction and period, never partition slot index** — partition order is not comparable across providers.
+- **Partition direction wander is CLOSED — do not build temporal smoothing.** The transform is order-independent. If ever revisited: partition *tracking* for display order only, never a filter on the directions the physics consumes.
 
 ## Scope & honesty (read first)
 **This calibration is Israel/Med-only, not global - do not claim otherwise.** The numeric
@@ -433,7 +446,7 @@ healthy from the outside - only the pair count reveals it.
    any future skill metric: **if it cannot show sign, it cannot show a bias - publish both.**
 3. Any de-bias must be per-station-class (or per-source) - never one global constant.
 4. Keep 51201/51202/51205 apart when judging Hawaii: they disagree by 0.7 m.
-5. Unchanged by this entry: the Tm-vs-Tp under-call question (CLAUDE.md §UI) and whether
+5. Unchanged by this entry: the Tm-vs-Tp under-call question (docs/UI.md) and whether
    `period_rideability` should key on Tp - if anything §1 sharpens it, since the input period is
    an *energy* period, further still from the Tp shown on screen.
 

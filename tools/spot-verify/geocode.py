@@ -161,7 +161,7 @@ def main() -> int:
     text = args.yaml.read_text(encoding="utf-8")
     data = yaml.safe_load(text)
 
-    # Authority ladder (CLAUDE.md §Spot database): user-verified > everything.
+    # Authority ladder (docs/SPOT-DB.md): user-verified > everything.
     # A geocoder must NEVER overwrite a coordinate a human placed by hand.
     protected = set()
     for line in text.splitlines():

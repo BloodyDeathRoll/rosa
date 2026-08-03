@@ -1,0 +1,39 @@
+# Rosa — algorithm spec
+
+Read this before touching `pipeline/src/rosa_pipeline/` (transform, score, physics, spectral, extract).
+Implement exactly; unit-test all. Why each constant holds its value: `docs/CALIBRATION.md`.
+
+**Wind classification.** θ = smallest angle between wind *source* direction and `offshore_direction`. θ ≤ 45° → Offshore; 45–135° → Cross-shore; > 135° → Onshore.
+
+**Swell energy in window.** Per partition with direction inside `swell_window`: E += H² × T. Partitions outside contribute 0 to score but still display.
+
+**Rating v1 (0–100).** size 0–40 (ramp of transformed height vs spot `ideal.size_m`, peak inside range, taper above) + period 0–20 (linear 6 s → 0 pts, 14 s → 20 pts, dominant in-window partition) + wind 0–40 (offshore ≤ 15 kph = 40; scales down with speed and angle; onshore ≥ 25 kph = 0). **Wind gate:** wind points scale by `min(1, (size_pts + period_pts)/60)` — offshore wind polishes waves that exist, it never creates rating alone. Day-strip `rating_max` uses daylight hours only (dawn–dusk via astral). Buckets: 0-9 FLAT, 10-29 POOR, 30-49 FAIR, 50-69 GOOD, 70+ FIRING.
+
+**Breaker height — hybrid physics.** Per in-window partition, march the spot's committed depth profile (`data/spots/derived/bathy/{id}.json`): dispersion → shoaling `Ks` → Snell refraction `Kr` → depth-limited breaking at γ=0.78·d (tide added to breaking depth). **The profile runs out before the wave breaks in 97–100% of published hours** — close that last stretch with the Komar & Gaughan (1972) breaker index `Hb = 0.39 g^0.2 (T H0'^2)^0.4` (`breaker_height_komar_gaughan`; H0 de-shoaled first via `deep_water_equivalent`, refraction iterated to breaking depth). Then multiply by `period_rideability` — power-based, **capped at 1.0, attenuates only** (naive physics over-calls short-period Med windswell ~3×). Then combine partitions **by wave field — never RMS** (see below).
+
+- **Field combine.** `field_coherence(Δdir, spread_a, spread_b)` = `cos²` taper, 1.0 at zero separation → 0 once Δdir reaches the sum of the two partitions' own spreads. Coherent partitions add their energy in `Hb^2.5` (`FIELD_ENERGY_EXP`, the exact inverse of K&G's 0.4 exponent, so the sum *is* "add offshore energy, apply the index once"); partitions past that arc taper toward the dominant one alone. **`sqrt(Σ Hb²)` was wrong twice over** — it ran the sublinear index (`Hb ~ H0^0.8`) once per partition, so N small partitions beat the one sea they are, and it merged trains crossing at 55° into a single bigger wave. Cost Santa Teresa 1.0–1.8 m vs Surfline 0.6–1.1 (2026-08-03). A single in-window partition is bit-identical to the old path, so the Israel eye frames are untouched. The taper must stay **smooth**: a hard threshold jitters the published height 0.18 m on a 3° direction wander.
+- `period_rideability` keys on the partition's **PEAK** period (`rideability_period()`; mean only as a no-Tp fallback). `RIDEABILITY_EXP = 2.2`.
+- Because rideability saturates above ~10 s, the exponent is in practice an **Israel/Portugal knob**; the breaker-index closure is a **long-period-region correction**. They separate cleanly.
+- **Never append invented shallow samples** to a profile — the answer becomes γ × whatever depth was made up.
+- Display as range h±20%, snapped to 0.1 m, widened to a real ≥0.1 m spread ("0.1–0.1" isn't a range).
+- Tune γ / rideability exponent / residual coeff from `docs/CALIBRATION.md` + the Stage-0 scorecard only. **`height_coeff` is 1.0 at all 199 spots.**
+- No-profile fallback only: `q(T) = clamp((T/10)^1.4, 0.3, 1.2)` (`PERIOD_EXP`).
+
+**Spread-aware exposure.** A partition is not one bearing — its energy fans over ±20–35° (`spectral.parametric_spread_deg`, CDIP-tuned; `SPREAD_LONG_SWELL_DEG` 24). `spread_exposure()` integrates the soft window (flat 1.0 inside `swell_window`, cosine taper to 0 over a 25° shoulder, `EXPOSURE_SHOULDER_DEG`) over that fan and returns the ENERGY fraction reaching the spot (amplitude = sqrt). The incidence fed to refraction is `arriving_direction()` — the window edge the energy comes in over, not the fan's mean — capped at `GRAZING_INCIDENCE_DEG` (85°) so windows reaching past the shore normal are honoured, not cancelled. Energy/kJ uses the same exposure as the height, so a row can't show surf beside 0 kJ.
+
+> **Invariant:** a metre offshore can never read ~0 at the spot *when it arrives from a direction the coastline can see*. Any zero-audit must also require an in-window partition, or it re-flags lee shores forever.
+
+**Peak period source.** `best_match` resolves to `meteofrance_wave`, which serves **no** Tp. `gwam` (DWD global WAM) rides the same marine request as a **Tp-only** source (`fetch.TP_MODEL`, ~7.3-day coverage) — it must never become the horizon tail. Coverage ~25–40% per region; secondary/tertiary partitions have none (the API has no such variable).
+
+**Display ≠ scoring — deliberate, do not "fix" by unifying.** All swell readouts show the **PEAK** period `peak_period ?? period` (surf-report convention, and what the kJ column derives from). `h_break`'s rideability factor also keys on peak. Still on the **MEAN** period: the dispersion/shoaling/refraction march inside `breaker_height_over_profile`, and `period_score` (the rating's Period component + the web's Period bar). Disclosed to users at `#/about/reading` — **keep it in sync**.
+
+**Human phrase** (h_break midpoint): <0.3 shin-high · 0.3–0.5 knee · 0.5–0.8 waist · 0.8–1.2 chest · 1.2–1.5 head-high · 1.5–2 overhead · 2–3 well overhead · >3 double-overhead+.
+**Wetsuit** (from SST): >24° rashguard · 19–24 spring/2 mm · 17–19 3/2 · 14–17 4/3 · 12–14 5/4+boots · 9–12 5/4 hooded+gloves · <9 6/5 hooded.
+
+**Swell-event detection.** A contiguous ≥12 h window where in-window energy ≥ 2× trailing 48 h median and rating ≥ GOOD at peak. Emit `{start, peak, end, peak_height, direction}`.
+
+**Tides.** Open-Meteo Marine `sea_level_height_msl` (MeteoFrance SMOC, ~8 km hourly) — **total** water level (astronomical + surge). Feeds the breaking depth (`d_break = profile_depth + tide`) and publishes as a per-hour series. Med spots micro-tidal (~0.15 m, sparkline only); macro-tidal spots (Costa Rica ~1.5–2 m) genuinely move the forecast.
+
+**Sun.** `astral`; show first light / sunrise / sunset / last light.
+
+**`closure`** (`transform.partition_closure`, per-hour payload key) = partition RMS ÷ Open-Meteo's own total `wave_height`. **Diagnostic only — nothing scores on it.** A low ratio says energy is missing but not its direction or period, and inventing those is against the premise. **Do NOT scale partitions to close it** — a confidence penalty is the honest option. Fleet by region: israel 1.00 · japan 0.97 · philippines 0.96 · nicaragua/hawaii 0.95 · portugal/costa-rica 0.94 · california 0.91 · sri-lanka 0.90.
