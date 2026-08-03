@@ -42,11 +42,10 @@ spots:
     lon: -9.2365
     offshore_direction: 80
     swell_window: [170, 285]
-    cams:  # Playocean covers the whole strip - four angles on one spot
+    cams:  # Playocean covers the whole strip - three angles on one spot
       - { yt: "qhU5x83fUt8", label: "Panorâmica 2", by: "Playocean", by_url: "https://www.youtube.com/@PlayoceanLive", note: "town-beach panorama" }
       - { yt: "oDbKeeojgyk", label: "Panorâmica 1", by: "Playocean", by_url: "https://www.youtube.com/@PlayoceanLive" }
       - { yt: "TxI7MEJIGWc", label: "Praia do Infante", by: "Playocean", by_url: "https://www.youtube.com/@PlayoceanLive" }
-      - { yt: "oNVEct9tl8E", label: "Santo António", by: "Playocean", by_url: "https://www.youtube.com/@PlayoceanLive", note: "north end of the strip, ~1.4 km up" }
     <<: *pt  # sat-verified 2026-07-23 (jetty peaks)
   # ---- Setúbal / Alentejo ----
   - { id: praia-do-meco,      name: "Praia do Meco (Sesimbra)", lat: 38.48911, lon: -9.18384, offshore_direction: 85, cam: { yt: "EqnyST2s53I", by: "Playocean", by_url: "https://www.youtube.com/@PlayoceanLive" }, swell_window: [205, 340], <<: *pt }  # google-geocoded 2026-07-27 (cam-scan discovery - W-facing Atlantic beach)
