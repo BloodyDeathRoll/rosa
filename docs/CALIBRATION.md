@@ -1505,6 +1505,33 @@ K&G sits above linear theory in nearly every real sea state, so in practice the 
 the index; the depth limit still binds for a steep short-period storm sea over a shelf, which is
 pinned by its own test so the branch cannot rot into dead code.
 
+#### Fleet impact (same-input A/B, 25,136 hours of one captured fetch)
+
+Captured once with `run --all --capture`, then replayed through both code versions offline, so
+the only difference is the code (the local box failed the capture twice on the documented TLS
+handshake timeout; the run was done on the Oracle VM in a scratch clone, publishing nowhere).
+
+| | |
+|---|---|
+| h_mid new/old, median | **1.0000** (p10 1.0000, p90 1.0000) |
+| bit-identical hours | 23,149 / 24,994 (**92.6%**) |
+| hours moving >2% | 1,984 (**7.94%**) |
+| null heights, old / new | 0 / 0 |
+| rating changes | 1,258 hours (5.0%) - 263 up, 995 down |
+
+Median is exactly 1.0000 in **every** region: the change is invisible except where a profile
+reaches the surf zone, and there it is large and always upward. Worst cases are the long-period
+Japan swell: `okuragahama` published **0.6-0.8 m for a 1.56 m 18 s groundswell arriving 1 deg
+off its shore normal** - the profile has a 1 m sample and the march clamped to gamma*1.
+`kodomonokuni` 2.2 -> 6.3 m on a 5.26 m 19.8 s typhoon swell, where the continuous depth-limited
+solve gives ~6.7 m and K&G ~7.5 m - the new number is bracketed by both, the old one by neither.
+Ratings mostly fall because `size_score` tapers above the ideal band, which is the correct
+response to a wave that is now honestly oversize.
+
+**No eye frame exists anywhere near this regime.** This is a correctness fix - the old branch
+contradicted its own linear theory - not a calibrated one. The affected spots (Japan, Sri Lanka,
+Philippines, pavones, playa-cocles) have never been graded.
+
 Two tests asserted the old behaviour and were rewritten, not deleted - both now carry why the
 old assertion was wrong. **Stage-0 scorecard unmoved**: `peak^2.2` still grades 4/5, max |err|
 0.15 m, every frame identical. Expected - the Israel frames sit on deep profiles that take the
