@@ -150,6 +150,52 @@ def breaker_height_komar_gaughan(
     return hb
 
 
+# Wind's effect on the breaker (open item 4; product call 2026-08-03: a blown-out sea reads
+# smaller). Douglass (1990), "Influence of wind on breaking waves", J. Waterway Port Coastal
+# Ocean Eng 116(6):651-663, blew onshore and offshore wind over a laboratory nearshore slope:
+# onshore wind moves the break point OFFSHORE and DECREASES the breaker height-to-depth ratio
+# gamma_b, offshore wind does the reverse. Feddersen & Veron (2005, J. Phys. Oceanogr. 35:1223)
+# summarise the magnitudes - break-point location up to 40%, gamma_b up to 100% across the
+# tested range - and state the U/c range is applicable to a natural nearshore environment. Net
+# effect on the height (their wording): "with offshore wind not only do waves break closer to
+# shore, but they have larger breaking-wave heights."
+#
+# Three things that measurement fixes, which the first attempt at this (a raw-kph multiplier on
+# the published height, 2026-08-03, removed same day) got wrong:
+#   * it scales on DIMENSIONLESS wind over wave speed, U_n/sqrt(g*h_b), not on kph;
+#   * it is SIGNED - offshore wind raises the breaker, it is not a no-op;
+#   * it belongs on the breaker height, which both branches of the hybrid produce.
+#
+# WIND_BREAKER_COEFF IS 0.0 ON PURPOSE - the term is inert until something can set it.
+# Nothing Rosa owns can: the buoys say Open-Meteo's offshore Hs is NOT wind-biased (+6.4% ->
+# +1.1% relative bias from calm to 12.5 m/s over 2,001 paired hours, so the effect is entirely
+# nearshore and no buoy can reach it), and all five calibration frames sit at 1.9-23 kph, where
+# any sane wind term is ~1.0 - grading them would return "every candidate identical", which
+# looks like validation and is not. Douglass's number is a 1:8 laboratory beach and is an upper
+# bound, not our coefficient. **To switch this on: grade 2-3 frames in a real onshore blow
+# (>30 kph) and fit it.** docs/CALIBRATION.md 2026-08-03.
+WIND_BREAKER_COEFF = 0.0
+WIND_BREAKER_CLAMP = 0.5  # no measurement supports moving the breaker more than +-50%
+
+
+def wind_breaker_factor(
+    wind_normal_ms: float,
+    breaking_depth_m: float,
+    *,
+    coeff: float = WIND_BREAKER_COEFF,
+) -> float:
+    """Wind's multiplier on breaker height. ``wind_normal_ms`` is the shore-normal component of
+    the wind, POSITIVE OFFSHORE (blowing out to sea), negative onshore.
+
+    Keyed on U_n/sqrt(g*h_b), the dimensionless wind-over-wave-speed Douglass parameterised on -
+    at a 1.5 m breaking depth a 40 kph onshore wind is about -2.9, comparable to the +-2.3 he
+    tested. Returns 1.0 exactly while ``coeff`` is 0."""
+    if coeff == 0.0 or breaking_depth_m <= 0 or wind_normal_ms == 0.0:
+        return 1.0
+    w = wind_normal_ms / math.sqrt(GRAVITY * breaking_depth_m)
+    return max(1.0 - WIND_BREAKER_CLAMP, min(1.0 + WIND_BREAKER_CLAMP, 1.0 + coeff * w))
+
+
 def breaker_height_over_profile(
     offshore_height_m: float,
     period_s: float,
@@ -169,6 +215,18 @@ def breaker_height_over_profile(
     (2026-08-02). Until then this returned the height at the shallowest sample, which is a
     mid-shelf height, not a breaker height, and was systematically too small.
 
+    **The two answers are reconciled by taking the deeper break, not by branching** (fixed
+    2026-08-03). Choosing the march whenever it happened to reach gamma*d made the height jump
+    UP as the approach angle got worse - 1.170 -> 1.303 m between 13 and 14 degrees of incidence
+    on a profile ending at 1.5 m - because the branches disagree at the crossover. It also let
+    the sampling interval set the answer: the march can only break AT a sampled depth, so a
+    profile that steps 4 m -> 1 m skips the real break point and clamps a 2 m 14 s swell to
+    gamma*1 = 0.78 m, 3.8x below what the same linear theory gives solved continuously (2.98 m).
+    51 of 199 committed profiles reach 1-2 m, so that clamp fires on exactly their biggest days.
+    A K&G height implying a breaking depth deeper than where the march found one means linear
+    shoaling under-called the growth - so the wave broke at the deeper of the two, and the max
+    is the physical answer. Continuous across the handoff and monotone in incidence.
+
     Swell arriving from behind the shore normal (incidence ≥ 90°) contributes nothing."""
     if (
         offshore_height_m <= 0
@@ -183,6 +241,7 @@ def breaker_height_over_profile(
     a_ref = math.radians(incidence_deg)
     sin_a_ref = math.sin(a_ref)
     height = offshore_height_m
+    depth_limited = 0.0
     for d in depths_deep_to_shallow:
         c = angular_frequency(period_s) / wavenumber(period_s, d)
         sin_a = sin_a_ref * c / c_ref
@@ -193,7 +252,11 @@ def breaker_height_over_profile(
         kr = math.sqrt(math.cos(a_ref) / math.cos(alpha))
         height = offshore_height_m * ks * kr
         if height >= gamma * d:
-            return gamma * d
-    return breaker_height_komar_gaughan(
-        offshore_height_m, period_s, incidence_deg, d_ref, gamma=gamma
+            depth_limited = gamma * d
+            break
+    return max(
+        depth_limited,
+        breaker_height_komar_gaughan(
+            offshore_height_m, period_s, incidence_deg, d_ref, gamma=gamma
+        ),
     )

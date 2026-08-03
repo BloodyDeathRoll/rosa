@@ -1,3 +1,4 @@
+import itertools
 import math
 
 import pytest
@@ -100,10 +101,17 @@ class TestBreakerOverProfile:
         assert hb == pytest.approx(0.78 * 1.5, rel=1e-6) or hb <= 0.78 * 10.0
         assert 0 < hb <= 2.0 * 3  # sane magnitude
 
-    def test_breaks_at_gamma_times_depth(self):
-        hb = breaker_height_over_profile(3.0, 14.0, 0.0, [50.0, 20.0, 8.0, 4.0, 2.0])
-        # breaks where H >= gamma*d; result is exactly gamma*(some sampled depth)
-        assert any(hb == pytest.approx(0.78 * d) for d in [50.0, 20.0, 8.0, 4.0, 2.0])
+    def test_breaks_at_gamma_times_depth_when_the_profile_is_the_binding_constraint(self):
+        """Rewritten 2026-08-03. It used to assert the answer was exactly gamma*(a SAMPLED
+        depth), which is only true if the sampling interval is allowed to set the height: the
+        march can break at 4 m or at 2 m but nowhere between, and on this profile it clamps a
+        3 m 14 s swell to gamma*2 = 3.12 m when solving H(d) = gamma*d continuously gives
+        4.15 m. The contract now is that the deeper of the two breaking criteria wins, so a
+        real depth limit still caps the wave but a sampling artefact cannot shrink it."""
+        profile = [50.0, 20.0, 8.0, 4.0, 2.0]
+        hb = breaker_height_over_profile(3.0, 14.0, 0.0, profile)
+        assert hb >= 0.78 * 2.0  # never below what the march alone would have returned
+        assert hb <= 0.78 * profile[0]  # still a depth-limited height somewhere on the profile
 
     def test_swell_from_behind_shore_normal_is_zero(self):
         assert breaker_height_over_profile(2.0, 12.0, 95.0, [50.0, 10.0, 3.0]) == 0.0
@@ -129,12 +137,42 @@ class TestBreakerOverProfile:
         assert hb == pytest.approx(breaker_height_komar_gaughan(0.3, 12.0, 0.0, 200.0), abs=1e-9)
         assert hb > 0.3  # a breaker is bigger than the swell that made it
 
-    def test_a_profile_that_does_reach_the_surf_zone_still_wins(self):
-        """The closure is a fallback, not a replacement - real shallow bathymetry still
-        decides where a wave breaks. Only 9 of 199 committed profiles get shallow enough
-        for this branch to fire under ordinary surf."""
+    def test_a_shallow_profile_cannot_shrink_the_wave_below_the_index(self):
+        """Rewritten 2026-08-03. This used to assert 0.78 m for a 2 m 14 s swell - the march
+        reached gamma*d at the profile's 1 m sample and returned gamma*1. That is the sampling
+        interval speaking, not the bathymetry: the wave really breaks around 3.8 m depth, and
+        solving H(d) = gamma*d continuously over the same linear theory gives 2.98 m. 51 of the
+        199 committed profiles reach 1-2 m, so the old rule clamped their biggest days to
+        0.78 m. The deeper break wins now."""
         hb = breaker_height_over_profile(2.0, 14.0, 0.0, [50.0, 20.0, 8.0, 4.0, 1.0])
-        assert hb == pytest.approx(0.78 * 1.0)  # depth-limited, not the index
+        assert hb == pytest.approx(breaker_height_komar_gaughan(2.0, 14.0, 0.0, 50.0), abs=1e-9)
+        assert hb > 0.78 * 1.0
+
+    def test_a_genuine_depth_limit_still_beats_the_index(self):
+        """The closure is a fallback, not a replacement. The march wins wherever linear shoaling
+        reaches gamma*d in deeper water than the index's own breaking depth - a steep short-period
+        storm sea over a shelf. Rare (K&G sits above linear theory in almost every real sea state,
+        because linear shoaling under-calls the nonlinear growth just before breaking), which is
+        why the max is nearly always the index - but the depth limit is a real floor, not dead
+        code, and this pins it."""
+        shelf = [30.0, 18.0, 11.0, 6.7]
+        hb = breaker_height_over_profile(6.0, 4.0, 0.0, shelf)
+        assert hb > breaker_height_komar_gaughan(6.0, 4.0, 0.0, 30.0)
+        assert any(hb == pytest.approx(0.78 * d) for d in shelf)
+
+    def test_handoff_is_continuous_and_monotone_in_incidence(self):
+        """Regression for the 2026-08-03 step. On a profile ending at 1.5 m the height used to
+        jump 1.170 -> 1.303 m between 13 and 14 degrees of incidence - it got BIGGER as the
+        angle got worse - because the march won on one side of the crossover and the index on
+        the other. Breaker height must fall smoothly as the approach goes oblique."""
+        profile = [180.0, 50.0, 20.0, 8.0, 3.0, 1.5]
+        heights = [breaker_height_over_profile(0.8, 10.0, float(a), profile) for a in range(0, 86)]
+        for a, (lo, hi) in enumerate(itertools.pairwise(heights)):
+            # the defect was an UPWARD step - a worse angle returning a bigger wave
+            assert hi <= lo + 1e-9, f"height rose from {lo:.4f} to {hi:.4f} at {a} deg"
+            # the old jump was 0.133 m; what is left is the index's own gradient, which only
+            # steepens approaching grazing incidence
+            assert lo - hi < 0.05, f"step of {lo - hi:.4f} m at {a} deg"
 
     def test_period_raises_breaker_height(self):
         # longer period shoals more -> breaks bigger, all else equal
