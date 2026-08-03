@@ -3,8 +3,10 @@ import math
 import pytest
 
 from rosa_pipeline.models import SwellPartition
+from rosa_pipeline.physics import breaker_height_over_profile
 from rosa_pipeline.transform import (
     EXPOSURE_SHOULDER_DEG,
+    FIELD_ENERGY_EXP,
     RIDEABILITY_EXP,
     angle_diff,
     breaker_height_from_profile,
@@ -16,6 +18,7 @@ from rosa_pipeline.transform import (
     energy_kj_per_m,
     energy_period,
     exposure_weight,
+    field_coherence,
     height_in_window,
     height_phrase,
     in_window,
@@ -141,6 +144,9 @@ class TestExposureWeight:
 
 # deep -> shallow depth profile for the transform tests (straight-in when shore_normal == dir)
 PROFILE_FIX = [180.0, 50.0, 20.0, 8.0, 3.0, 1.5]
+# As above but stopping where GEBCO really does (~8 m), so every partition takes the
+# breaker-index branch and no march/index step can be mistaken for combine behaviour.
+DEEP_FIX = [180.0, 50.0, 20.0, 8.0]
 
 
 class TestBreakerHeightFromProfile:
@@ -169,12 +175,78 @@ class TestBreakerHeightFromProfile:
         assert 0.0 < outside < inside
         assert far == 0.0
 
-    def test_rms_combines_partitions(self):
+    # --- partition combination (rewritten 2026-08-03; was `test_rms_combines_partitions`,
+    # which pinned sqrt(sum Hb^2). That double-counted: it ran the sublinear breaker index
+    # once per partition AND merged crossing trains into one wave. See CALIBRATION.md.)
+
+    def test_one_partition_is_untouched_by_the_field_combine(self):
+        # the regression that matters: single-swell hours must be bit-identical to
+        # the pre-2026-08-03 transform, so the Israel eye frames still grade the same
+        one = breaker_height_from_profile((swell(0.8, 12.0, 290.0),), WINDOW, 290.0, PROFILE_FIX)
+        w = spread_exposure(swell(0.8, 12.0, 290.0), WINDOW)
+        expect = (
+            breaker_height_over_profile(0.8, 12.0, 0.0, PROFILE_FIX)
+            * period_rideability(12.0)
+            * math.sqrt(w)
+        )
+        assert one == pytest.approx(expect, rel=1e-12)
+
+    def test_aligned_swells_add_their_energy_once(self):
+        # same bearing = one wave field: the energy adds, but the breaker index is
+        # applied to the combined sea ONCE, so the result is below the old sqrt(2) RMS
         one = breaker_height_from_profile((swell(0.8, 12.0, 290.0),), WINDOW, 290.0, PROFILE_FIX)
         two = breaker_height_from_profile(
-            (swell(0.8, 12.0, 290.0), swell(0.8, 12.0, 300.0)), WINDOW, 290.0, PROFILE_FIX
+            (swell(0.8, 12.0, 290.0), swell(0.8, 12.0, 290.0)), WINDOW, 290.0, PROFILE_FIX
         )
-        assert two == pytest.approx(one * math.sqrt(2), rel=1e-6)
+        assert two == pytest.approx(one * 2 ** (1 / FIELD_ENERGY_EXP), rel=1e-9)
+        assert one < two < one * math.sqrt(2)
+
+    def test_crossing_swells_do_not_add(self):
+        # 90 deg apart is two separate seas breaking at two different angles - the
+        # surf height is the dominant one's, not the pair's
+        one = breaker_height_from_profile((swell(0.8, 12.0, 290.0),), WINDOW, 290.0, PROFILE_FIX)
+        crossed = breaker_height_from_profile(
+            (swell(0.8, 12.0, 290.0), swell(0.8, 12.0, 340.0)), WINDOW, 290.0, PROFILE_FIX
+        )
+        assert crossed == pytest.approx(one, rel=1e-9)
+
+    def test_combine_decays_monotonically_with_separation(self):
+        heights = [
+            breaker_height_from_profile(
+                (swell(0.8, 12.0, 290.0), swell(0.8, 12.0, 290.0 + d)), WINDOW, 290.0, PROFILE_FIX
+            )
+            for d in (0, 10, 20, 30, 40, 50)
+        ]
+        assert heights == sorted(heights, reverse=True)
+        assert heights[-1] == pytest.approx(
+            breaker_height_from_profile((swell(0.8, 12.0, 290.0),), WINDOW, 290.0, PROFILE_FIX)
+        )
+
+    def test_combine_is_smooth_under_direction_wander(self):
+        # Open-Meteo reshuffles partition directions by a few degrees hour to hour
+        # (CALIBRATION.md 2026-07-29). A hard cluster threshold made the published
+        # height jump ~0.2 m on a 3 deg wander; this taper must not.
+        # DEEP_FIX, not PROFILE_FIX: a profile whose shallowest sample is 1.5 m lets the
+        # march break in-profile at low incidence and fall through to the breaker index at
+        # high incidence, and those two branches disagree by ~0.13 m - a real step, but one
+        # in physics.py's march/index handoff, not in the combine under test here. Real
+        # GEBCO profiles bottom out around 7-13 m, which is why 97-100% of published hours
+        # take the index branch anyway.
+        def h(d: float) -> float:
+            return breaker_height_from_profile(
+                (swell(0.8, 12.0, 290.0), swell(0.75, 12.0, d)), WINDOW, 290.0, DEEP_FIX
+            )
+
+        for d in range(290, 340):
+            assert abs(h(d + 1) - h(d)) < 0.02
+
+    def test_field_coherence_shape(self):
+        assert field_coherence(0.0, 20.0, 20.0) == pytest.approx(1.0)
+        assert field_coherence(40.0, 20.0, 20.0) == 0.0  # fans exactly stop overlapping
+        assert field_coherence(60.0, 20.0, 20.0) == 0.0  # past the fans
+        assert 0.0 < field_coherence(20.0, 20.0, 20.0) < 1.0
+        # a broader pair of fans stays coherent further apart
+        assert field_coherence(40.0, 35.0, 25.0) > field_coherence(40.0, 20.0, 20.0)
 
 
 class TestAngleDiff:

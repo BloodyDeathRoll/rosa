@@ -92,6 +92,14 @@ function ReadingTheForecast() {
         not finish that stretch at all, and every spot read too small as a result.
       </p>
       <p>
+        When more than one swell is running, Rosa asks how far apart they are pointing. Swells
+        arriving from roughly the same direction are one body of water and their energy adds up.
+        Swells crossing from clearly different directions do not: they break at different angles on
+        different parts of the beach, and the wave you actually ride belongs to one of them, so the
+        bigger one sets the number. Until 3 August 2026 Rosa added every swell together regardless
+        of direction, which made busy multi-swell days read too big.
+      </p>
+      <p>
         We show a range because no forecast is precise to the centimetre. Words like{" "}
         <i>waist-high</i> or <i>overhead</i> are the same number said out loud.
       </p>

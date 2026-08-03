@@ -247,6 +247,31 @@ def rideability_period(p: SwellPartition) -> float:
     return p.peak_period_s if p.peak_period_s is not None else p.period_s
 
 
+# Inverse of the Komar & Gaughan height exponent: Hb ~ (T H0^2)^0.4, so Hb^2.5 is linear in
+# the offshore energy flux T*H0^2. Summing partitions in Hb^2.5 and taking the 0.4 power is
+# therefore *exactly* "add the offshore energy, then apply the breaker index once" - which is
+# the only way to combine that does not run the nonlinear index N times over. (The
+# depth-limited branch of the march is not a power law, so for the 0-3% of hours that break
+# inside the profile this is an approximation rather than an identity.)
+FIELD_ENERGY_EXP = 2.5
+
+
+def field_coherence(delta_deg: float, spread_a_deg: float, spread_b_deg: float) -> float:
+    """How much two swell trains behave as ONE wave field, from their angular separation.
+
+    1.0 when they arrive from the same bearing, tapering to 0 once their directional fans
+    no longer overlap (separation >= the sum of the two spreads). Deliberately smooth: a
+    hard threshold makes the published height jump ~0.2 m on the 1-3 deg direction wander
+    Open-Meteo's partitions show all the time (docs/CALIBRATION.md 2026-07-29), while this
+    taper moves it ~0.02 m."""
+    arc = spread_a_deg + spread_b_deg
+    if delta_deg >= arc:
+        return 0.0
+    if arc <= 0.0:
+        return 1.0
+    return math.cos((delta_deg / arc) * (math.pi / 2.0)) ** 2
+
+
 def breaker_height_from_profile(
     partitions: tuple[SwellPartition, ...],
     window: tuple[float, float],
@@ -255,17 +280,35 @@ def breaker_height_from_profile(
     *,
     rideability: Callable[[SwellPartition], float] | None = None,
 ) -> float:
-    """RMS combine of each in-window partition's breaker height (Stage 2B, hybrid): real
-    physics for the geometry (shoaling + refraction + depth-limited breaking over the spot's
-    bathymetry) times a period-power rideability factor for windswell quality.
+    """Breaker height of the dominant WAVE FIELD (Stage 2B hybrid + the 2026-08-03 combine
+    fix): real physics for the geometry (shoaling + refraction + depth-limited breaking over
+    the spot's bathymetry) times a period-power rideability factor for windswell quality.
 
     Incidence is the partition's approach angle relative to the spot's shore normal; the
     physics march zeroes anything arriving from behind it (>= 90 deg).
 
+    **Partitions are combined by field, not RMS'd.** Until 2026-08-03 this returned
+    ``sqrt(sum Hb_i^2)`` - each partition marched to its own breaker height and those heights
+    then added in energy. That is wrong twice over. It applies the breaker index once per
+    partition, and the index is sublinear in height (Hb ~ H0^0.8), so N small partitions
+    transform to more surf than the one sea they actually are; and it assumes two trains
+    crossing at 55 deg merge into a single bigger breaking wave, when they in fact break at
+    different angles on different parts of the beach and a surfer rides one or the other.
+    At Santa Teresa on 2026-08-02 the two effects together published 1.0-1.8 m against
+    Surfline's 0.6-1.1 m and the user's own ">1 m" (docs/CALIBRATION.md 2026-08-03).
+
+    So: trains whose directional fans still overlap are one field and their energy adds
+    (``FIELD_ENERGY_EXP`` makes that sum exactly "combine offshore, transform once");
+    trains further apart than that are separate crossing seas, discounted by
+    ``field_coherence`` toward the dominant one alone. A single in-window partition is
+    bit-identical to the old behaviour - only multi-swell hours move.
+
     ``rideability`` lets the Stage-2E experiment harness (experiment.py) inject candidate
     attenuation factors. Production never passes it: the default is exactly the shipping
     ``period_rideability(rideability_period(p))`` - peak-keyed since 2026-07-30."""
-    total_sq = 0.0
+    from .spectral import parametric_spread_deg
+
+    breakers: list[tuple[float, float, float]] = []  # (Hb, direction, spread)
     for p in partitions:
         w = math.sqrt(spread_exposure(p, window))  # energy fraction -> amplitude
         if w <= 0.0:
@@ -284,8 +327,16 @@ def breaker_height_from_profile(
             rideability(p) if rideability is not None else period_rideability(rideability_period(p))
         )
         hb *= factor * w
-        total_sq += hb * hb
-    return math.sqrt(total_sq)
+        if hb > 0.0:
+            breakers.append((hb, p.direction_deg, parametric_spread_deg(p)))
+    if not breakers:
+        return 0.0
+    _, dir_dom, spread_dom = max(breakers, key=lambda b: b[0])
+    total = sum(
+        field_coherence(angle_diff(d, dir_dom), s, spread_dom) * hb**FIELD_ENERGY_EXP
+        for hb, d, s in breakers
+    )
+    return total ** (1.0 / FIELD_ENERGY_EXP)
 
 
 def dominant_partition(

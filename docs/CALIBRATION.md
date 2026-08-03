@@ -1319,3 +1319,142 @@ the arithmetic written out. It degrades honestly (publishes without the confiden
 rather than failing), which is exactly why it would have rotted silently on the VM cron.
 Re-derive that batch size whenever `MARINE_MODELS` or `MARINE_HOURLY` changes. Clean re-run
 after: 199 spots, 0 warnings.
+
+## 2026-08-03 - Santa Teresa over-called: the partitions were being combined twice over
+
+User side-by-side from his phone, Santa Teresa, 2026-08-02 (Rosa screenshot vs Surfline
+screenshot, "Observed heights" on, both metric, both 3-hourly, same local day):
+
+| local | Rosa (shipped) | Surfline | Rosa (after this fix) |
+|-------|----------------|----------|-----------------------|
+| 12am | 1.0-1.5 | 0.6-1.1 | 0.8-1.2 |
+| 3am  | 1.2-1.7 | 0.6-1.1 | 0.8-1.3 |
+| 6am  | 1.1-1.6 | 0.9-1.2 | 0.8-1.2 |
+| 9am  | 1.0-1.5 | 0.6-1.1 | 0.8-1.2 |
+| noon | 1.2-1.8 | 0.6-1.1 | 1.0-1.5 |
+| 3pm  | 1.1-1.6 | 0.6-1.1 | 0.8-1.2 |
+| 6pm  | 1.1-1.6 | 0.6-1.1 | 0.8-1.2 |
+| 9pm  | 1.1-1.7 | 0.6-1.1 | 0.8-1.2 |
+
+His words: "extreme in the other direction" - i.e. session 12's closure, which was built to
+answer his own ">1 m" eye frame at this spot, had over-shot past it. Note the eye frame and
+Surfline do not actually disagree by much: ">1 m" sits at the TOP of Surfline's 0.6-1.1 band.
+Rosa's *midpoints* were 1.25-1.50, above both.
+
+**Standing caveat, same as every Surfline entry: another model, not truth. No Surfline data
+enters the spot DB or any fit (CLAUDE.md legal red lines).** What makes this one gradeable is
+that the user's own eyes and Surfline agree on roughly where the top of the range should be.
+
+### The fault: `sqrt(sum Hb_i^2)` over per-partition breaker heights
+
+`breaker_height_from_profile` marched each partition to its own breaker height and then RMS'd
+those heights. That is wrong in two independent ways at once, and both inflate:
+
+1. **The breaker index is sublinear in height.** Komar & Gaughan is `Hb ~ (T H0^2)^0.4`, i.e.
+   `Hb ~ H0^0.8`, so the smaller a partition is the *larger* its amplification. At Santa Teresa
+   midnight the 0.86 m 8.9 s partition transformed x1.16 (60 deg incidence) while the 0.56 m
+   9.2 s one transformed **x1.68** - a partition two-thirds the size arrived at 96% of the
+   height. Running the index once per partition and then adding therefore always beats running
+   it once on the combined sea.
+2. **Two trains 55 deg apart do not merge into one breaking wave.** They refract to different
+   angles and break on different parts of the beach; the wave a surfer rides belongs to one of
+   them. RMS assumes they stack.
+
+Decomposition of the midnight hour under the shipped code:
+
+```
+H=0.86 Tm=8.9 Tp=11.2 dir=190  w=0.99 inc=60  H0=0.86  Hb=0.98  ride=1.00 -> 0.97
+H=0.56 Tm=9.2 Tp=None dir=245  w=1.00 inc= 5  H0=0.56  Hb=0.94  ride=0.83 -> 0.78
+RMS -> 1.26        (dominant partition alone -> 0.97)
+```
+
+### The fix: combine by wave FIELD, not by RMS
+
+`field_coherence(delta, spread_a, spread_b)` = `cos^2` taper, 1.0 at zero separation, 0 once
+the separation reaches the sum of the two partitions' own directional spreads
+(`spectral.parametric_spread_deg`, 20-35 deg each). Partitions still coherent add their energy;
+the sum is taken in `Hb^2.5` (`FIELD_ENERGY_EXP`), which is the exact inverse of K&G's 0.4
+exponent - so summing there and taking the 0.4 power *is* "add the offshore energy flux, then
+apply the breaker index once". Partitions past that arc taper out toward the dominant one alone.
+
+Deliberate properties:
+- **A single in-window partition is bit-identical** to the old transform (verified over 2,811
+  such fleet hours, max delta 4e-16). The Israel eye frames are all single-swell, so the whole
+  Stage-2E calibration is untouched: `rosa-pipeline experiment` still grades `peak^2.2` at 4/5,
+  max |err| 0.15 m, exactly as on 2026-08-02.
+- **The arc is derived, not fitted.** It is the sum of the two fans' spreads - "one field while
+  the fans still overlap" - so no new magic constant was introduced.
+- **The taper is smooth on purpose.** A hard cluster threshold scored identically at Santa
+  Teresa but moved the published height **0.183 m on a 3 deg direction wander**; this taper
+  moves it 0.016 m. Open-Meteo reshuffles partition directions by a few degrees every hour
+  (2026-07-29), so a threshold here would have shipped visible hour-to-hour jitter. There is a
+  regression test pinning < 0.02 m per degree.
+
+### What else was tested, and why each was rejected
+
+Graded on two frame sets at once: the 8 Surfline hours above, and the 5 Israel eye frames in
+`data/calibration/frames.yaml`. A candidate had to fix the first without moving the second.
+
+| candidate | Santa Teresa | Israel eye frames | verdict |
+|-----------|--------------|-------------------|---------|
+| shipped (RMS) | 0/8 in band, bias +0.24 m | 4/5 | the fault |
+| **field-coherent combine** | **7/8, bias +0.01** | **4/5 unchanged** | **adopted** |
+| combine in energy only (p=2.5, no coherence) | 0/8, +0.15 | 4/5 | right direction, only 6% - the index-once fix alone is not enough |
+| dominant partition only (p=inf) | 7/8, +0.01 | 4/5 | same score at Santa Teresa but discards genuinely aligned energy: two equal 1.0 m 12 s swells from the SAME bearing read as one. Fleet Nicaragua x0.79, Hawaii x0.80 |
+| hard direction clustering | 7/8, +0.01 | 4/5 | same score, but jitters 0.183 m on a 3 deg wander (above) |
+| flatten the index's steepness exponent (`b` 0.20 -> 0.05, `a` re-anchored at Israel) | 7/8 | **2/5** | needs `b ~= 0`, i.e. no steepness dependence at all. Every published breaker index has 0.2-0.25. Rejected on physics AND on the frames |
+| `KOMAR_GAUGHAN_COEFF` 0.39 -> 0.30-0.33 | 3-6/8 | **1-2/5** | Israel pins the index; the coefficient is not free |
+| `RIDEABILITY_EXP` 1.8 / 2.6 / 3.0 | 0/8 (no effect) | 2-4/5 | rideability saturates at its 1.0 cap above ~10 s, so it cannot reach this at all |
+| `period_rideability` cap 1.0 -> 0.8 | 5/8 | 4/5 | *does* separate the two regions - but only because no eye frame ever tests the cap (all five sit at 0.27-0.68). Lowering it is not a rideability statement, it is a flat x0.8 on every long-period region, i.e. asserting the index is 20% hot when three independent indices say it is not. Rejected |
+| feed the index Tp instead of Tm | 0/8, worse | 3/5 | wrong direction on both sets |
+| directional-spreading loss at the break | 0/8 | 2/5 | too small, and costs Israel |
+| blunt global `scale` 0.7-0.9 | 5-8/8 | 1-2/5 | fits Santa Teresa by breaking the calibrated region. The null hypothesis, and it loses |
+| revert santa-teresa's swell window to `[190,310]` | 0/8, +0.18 | - | the 2026-08-02 horizon adoption is worth only x0.95 here. **Not the cause** - the window stays |
+
+The two levers that could separate Santa Teresa from Israel were the combination rule and the
+rideability cap. They were discriminated on principle, not on score: the combination rule was
+fixing an outright mathematical error (the index applied N times), while the cap would have been
+overriding a well-supported physical relation in the one regime no frame constrains.
+
+### Fleet impact (same-input A/B, 24,674 hours of today's partitions)
+
+| region | median | p10 | p90 |
+|--------|--------|-----|-----|
+| Israel | **1.00** | 0.91 | 1.00 |
+| Philippines | 0.97 | 0.77 | 1.00 |
+| Japan | 0.95 | 0.75 | 1.00 |
+| Portugal | 0.92 | 0.79 | 0.98 |
+| Sri Lanka | 0.92 | 0.80 | 0.99 |
+| Costa Rica | 0.90 | 0.75 | 1.00 |
+| California | 0.89 | 0.75 | 0.97 |
+| Hawaii | 0.88 | 0.74 | 0.98 |
+| Nicaragua | 0.86 | 0.77 | 0.97 |
+| **FLEET** | **0.93** | 0.78 | 1.00 |
+
+Surgical by construction: 11% of hours are bit-identical (single exposed partition), Israel's
+median is exactly 1.00, and the movers are the multi-swell Pacific regions. Santa Teresa itself
+moves x0.76 today because it happens to have two big well-separated swells - the fleet number
+understates what it does to the case that was actually wrong. Published/offshore over the same
+hours: 0.83 -> 0.76 fleet.
+
+### Found, not fixed - `physics.py`'s march/index handoff has a step
+
+Writing the smoothness test surfaced it: when the march *does* reach `gamma*d` inside the
+profile it returns `gamma*d`, otherwise it falls through to Komar & Gaughan, and the two branches
+disagree. On a test profile whose shallowest sample is 1.5 m the published height steps
+**1.167 -> 1.303 m between 13 and 14 degrees of incidence**. Real GEBCO profiles bottom out at
+7-13 m, which is why 97-100% of published hours take the index branch and this is invisible in
+production - but it is a genuine discontinuity and it will bite whenever a profile is unusually
+shallow. Not touched here (a separate defect, and this session already moves the fleet). The
+regression test uses a deep profile so it grades the combine, not the handoff.
+
+### Residual and honesty
+
+Noon is the one hour still above Surfline's band (1.22 vs their 0.6-1.1). Its dominant partition
+is 0.72 m at 10.8 s arriving at 10 deg incidence, and that single partition alone transforms to
+1.2 m - so no combination rule can reach it; it is index-level and small (+0.12 m). Not chased.
+
+**One spot, one day still.** This entry rests on the same single-spot exposure the closure did.
+It is stronger than session 12's in that Surfline and the user's eye bracket the same answer and
+the fix is a correctness argument rather than a fitted constant, but Santa Teresa is still the
+only long-period spot anyone has ever graded. **Grade more frames in a long-period region.**
