@@ -55,7 +55,7 @@ spots:
   # horizon`): the sea is open 135-295 deg here, so [190,310] both clipped 30 deg of real ocean
   # to the south - the dominant swell arrives at 189-190 and was losing 28% of its energy on the
   # window edge - and pointed its top 20 deg at dry land. Clipped to shore_normal +-90.
-  - { id: santa-teresa,       name: "Santa Teresa",           lat: 9.6424,  lon: -85.1697, offshore_direction: 70,  swell_window: [160, 290], shore_normal: 250, cam: { yt: "Pm-Bh1r7YuM", by: "malpaisurfcam", by_url: "https://www.youtube.com/@malpaisurfcam1" }, <<: *pac }  # approx - TODO verify
+  - { id: santa-teresa,       name: "Santa Teresa",           lat: 9.6424,  lon: -85.1697, offshore_direction: 70,  swell_window: [160, 290], shore_normal: 250, cam: { yt: "Suzc2FnUV1k", by: "malpaisurfcam", by_url: "https://www.youtube.com/@malpaisurfcam1" }, <<: *pac }  # approx - TODO verify
   - { id: mal-pais,           name: "Mal País",               lat: 9.597,  lon: -85.145, offshore_direction: 70,  break_type: reef, swell_window: [200, 340], <<: *pac }  # approx - TODO verify
   # ---- Central Pacific (Puntarenas / Jacó) ----
   - { id: boca-barranca,      name: "Boca Barranca",          lat: 9.9563,  lon: -84.7477, offshore_direction: 50,  shore_normal: 205, break_type: point, <<: *pac }  # approx - TODO verify (rivermouth long left; head of Gulf of Nicoya - shallow shelf, sample stays gulf-side)

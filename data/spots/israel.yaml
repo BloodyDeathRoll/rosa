@@ -59,7 +59,7 @@ spots:
   # bugrashov removed 2026-07-26 (user) - the pin sat between Gordon and Dolphinarium
   - { id: dolphinarium,      name: Dolphinarium (TLV),     lat: 32.07006, lon: 34.76217, offshore_direction: 106, swell_window: [215, 10], <<: *il }  # user-verified 2026-07-25 (moved ~300 m NE from the google pin)
   - { id: maaravi,           name: Maaravi,                lat: 32.05825, lon: 34.75703, offshore_direction: 104, swell_window: [230, 10], <<: *il }  # user-verified 2026-07-25 -- offshore_direction from neighbours
-  - { id: hagolshim,         name: Hagolshim (Bat Yam),    lat: 32.0296803, lon: 34.7408952, offshore_direction: 102, cam: { yt: "urdL45yleBY", by: "Tovi - Live Stream", by_url: "https://www.youtube.com/@ToviLive", note: "Hagolshim Rishon LeZion stream, ~6 km south" }, swell_window: [210, 10], <<: *il }  # user-verified 2026-07-27 -- offshore_direction from neighbours
+  - { id: hagolshim,         name: Hagolshim (Bat Yam),    lat: 32.0296803, lon: 34.7408952, offshore_direction: 102, cam: { yt: "GglnCQwxvTQ", by: "Tovi - Live Stream", by_url: "https://www.youtube.com/@ToviLive", note: "Hagolshim Rishon LeZion stream, ~6 km south" }, swell_window: [210, 10], <<: *il }  # user-verified 2026-07-27 -- offshore_direction from neighbours
   - { id: bat-yam,           name: Bat Yam (Riviera),      lat: 32.0195, lon: 34.7356, offshore_direction: 101, swell_window: [210, 11], <<: *il }  # google-geocoded
   # ---- south ----
   - { id: palmachim,         name: Palmachim,              lat: 31.9261, lon: 34.6963, offshore_direction: 120, swell_window: [210, 15], <<: *il }  # OSM
