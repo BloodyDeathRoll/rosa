@@ -8,7 +8,11 @@ by an OSM surf feature. Composes the reusable pieces from coast_generate.py and
 bathy_gate.py."""
 
 from __future__ import annotations
-import json, sys, time, urllib.request, urllib.parse
+import json
+import sys
+import time
+import urllib.request
+import urllib.parse
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))

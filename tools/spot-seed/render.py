@@ -12,7 +12,15 @@ Usage:
 """
 
 from __future__ import annotations
-import argparse, json, os, shutil, subprocess, sys, tempfile, time, urllib.request
+import argparse
+import json
+import os
+import shutil
+import subprocess
+import sys
+import tempfile
+import time
+import urllib.request
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent

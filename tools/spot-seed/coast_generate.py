@@ -15,7 +15,12 @@ Usage: python tools/spot-seed/coast_generate.py [spacing_m]
 """
 
 from __future__ import annotations
-import json, math, re, sys, urllib.request, urllib.parse
+import json
+import math
+import re
+import sys
+import urllib.request
+import urllib.parse
 from pathlib import Path
 
 OVERPASS = [

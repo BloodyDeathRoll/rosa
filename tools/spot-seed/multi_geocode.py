@@ -6,7 +6,12 @@ Google needs GOOGLE_MAPS_API_KEY in env. Coords still go through sat-verify -
 this only gets us onto the right stretch of coast, never straight into the DB."""
 
 from __future__ import annotations
-import json, math, sys, time, urllib.parse, urllib.request
+import json
+import math
+import sys
+import time
+import urllib.parse
+import urllib.request
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "spot-verify"))

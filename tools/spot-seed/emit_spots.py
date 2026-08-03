@@ -5,7 +5,9 @@ per-spot seaward normal; swell_window is derived from it where the region needs 
 All entries tagged osm-seeded + TODO verify (below sat/user-verified on the ladder)."""
 
 from __future__ import annotations
-import json, re, sys
+import json
+import re
+import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))

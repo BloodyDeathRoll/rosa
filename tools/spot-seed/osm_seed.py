@@ -17,7 +17,13 @@ Usage:
 """
 
 from __future__ import annotations
-import json, math, re, sys, time, urllib.request, urllib.parse
+import json
+import math
+import re
+import sys
+import time
+import urllib.request
+import urllib.parse
 from pathlib import Path
 
 # public Overpass instances - tried in order, with backoff, on 429/504/timeout

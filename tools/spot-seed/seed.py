@@ -21,7 +21,13 @@ Usage:
 """
 
 from __future__ import annotations
-import argparse, json, sys, time, urllib.request, urllib.parse, re
+import argparse
+import json
+import sys
+import time
+import urllib.request
+import urllib.parse
+import re
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))

@@ -21,7 +21,12 @@ Usage: python tools/spot-seed/bathy_gate.py
 """
 
 from __future__ import annotations
-import json, math, sys, time, urllib.request, urllib.parse
+import json
+import math
+import sys
+import time
+import urllib.request
+import urllib.parse
 from pathlib import Path
 
 GEBCO_URL = "https://api.opentopodata.org/v1/gebco2020"
