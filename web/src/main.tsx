@@ -1,4 +1,5 @@
 import { render } from "preact";
+import { initAnalytics } from "./analytics";
 import { App } from "./app";
 import { appReady } from "./splash";
 import "@fontsource-variable/inter";
@@ -6,6 +7,8 @@ import "./styles.css";
 
 const root = document.getElementById("app");
 if (root) render(<App />, root);
+
+initAnalytics();
 
 /** Pick up a new deploy on the first launch instead of the second.
     The worker is built with skipWaiting + clientsClaim, so an update activates and

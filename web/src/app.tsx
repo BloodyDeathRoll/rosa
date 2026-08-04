@@ -12,7 +12,7 @@ import { TodayPage } from "./pages/TodayPage";
 import { applyTheme, initialTheme, saveTheme, type Theme } from "./theme";
 import { TAB_ROUTES, type Tab } from "./tabs";
 
-type Route =
+export type Route =
   | { page: "today" }
   | { page: "spots" }
   | { page: "search" }
@@ -22,7 +22,7 @@ type Route =
   | { page: "about"; doc: AboutDoc }
   | { page: "spot"; id: string };
 
-function parseRoute(hash: string): Route {
+export function parseRoute(hash: string): Route {
   const spot = /^#\/spot\/([\w-]+)/.exec(hash);
   if (spot?.[1]) return { page: "spot", id: spot[1] };
   if (hash.startsWith("#/map")) return { page: "map" };
