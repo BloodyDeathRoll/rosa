@@ -13,6 +13,21 @@ if [ -f "$HOME/rosa/.env" ]; then set -a; . "$HOME/rosa/.env"; set +a; fi
 LOG="$HOME/rosa/publish.log"
 STAGE="$HOME/rosa-data"   # dir basename becomes the Vercel project name
 
+# Single-instance guard. Every cycle shares one checkout (~/rosa: same git pull,
+# uv sync, data/out) and one stage dir, so an overrun - a slow `run --all` still
+# going when the next cron fires - can deploy a half-written tree. Non-blocking
+# on purpose: the loser exits 0 immediately rather than queueing, because a
+# queued cycle would fetch stale-by-an-hour data and then race the next one too.
+# Skips are a normal outcome, not a failure: this sits ABOVE the ERR trap so it
+# never pushes an ops alert. The lock lives outside the repo so it can't dirty
+# `git pull --ff-only`. Held for the whole cycle; released when the fd closes.
+LOCK="$HOME/.rosa-publish.lock"
+exec 9>"$LOCK"
+if ! flock -n 9; then
+  echo "=== $(date -u +%FT%TZ) skipped - a cycle already holds $LOCK ===" >> "$LOG"
+  exit 0
+fi
+
 # Ops alerting: a failed essential step pushes to the admin devices
 # (~/rosa-push/admin-subs.json snapshot) and pings the healthcheck's /fail URL;
 # a clean cycle pings the healthcheck. Both are best-effort - alerting must
