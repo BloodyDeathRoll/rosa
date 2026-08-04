@@ -2,68 +2,68 @@
   "spot": "matapalo-osa",
   "source": "gebco2020 via opentopodata",
   "origin": [
-    8.37,
-    -83.283
+    8.3785,
+    -83.2882
   ],
-  "bearing_seaward_deg": 223.4,
-  "nearshore_depth_m": 38.0,
-  "offshore_depth_m": 1726.0,
-  "mean_slope_m_per_km": 95.1,
-  "land_samples": 0,
+  "bearing_seaward_deg": 210.0,
+  "nearshore_depth_m": -68.0,
+  "offshore_depth_m": 1945.0,
+  "mean_slope_m_per_km": 113.41,
+  "land_samples": 2,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 8.36837,
-      "lon": -83.28456,
-      "depth_m": 38.0
+      "lat": 8.37655,
+      "lon": -83.28934,
+      "depth_m": -68.0
     },
     {
       "dist_km": 0.5,
-      "lat": 8.36673,
-      "lon": -83.28612,
-      "depth_m": 49.0
+      "lat": 8.37461,
+      "lon": -83.29047,
+      "depth_m": -38.0
     },
     {
       "dist_km": 1.0,
-      "lat": 8.36347,
-      "lon": -83.28925,
-      "depth_m": 77.0
+      "lat": 8.37071,
+      "lon": -83.29275,
+      "depth_m": 10.0
     },
     {
       "dist_km": 2.0,
-      "lat": 8.35693,
-      "lon": -83.29549,
-      "depth_m": 228.0
+      "lat": 8.36292,
+      "lon": -83.29729,
+      "depth_m": 107.0
     },
     {
       "dist_km": 3.0,
-      "lat": 8.3504,
-      "lon": -83.30174,
-      "depth_m": 463.0
+      "lat": 8.35513,
+      "lon": -83.30183,
+      "depth_m": 355.0
     },
     {
       "dist_km": 5.0,
-      "lat": 8.33733,
-      "lon": -83.31423,
-      "depth_m": 572.0
+      "lat": 8.33956,
+      "lon": -83.31092,
+      "depth_m": 562.0
     },
     {
       "dist_km": 8.0,
-      "lat": 8.31772,
-      "lon": -83.33296,
-      "depth_m": 833.0
+      "lat": 8.31619,
+      "lon": -83.32456,
+      "depth_m": 846.0
     },
     {
       "dist_km": 12.0,
-      "lat": 8.29158,
-      "lon": -83.35793,
-      "depth_m": 1269.0
+      "lat": 8.28504,
+      "lon": -83.34273,
+      "depth_m": 1155.0
     },
     {
       "dist_km": 18.0,
-      "lat": 8.25237,
-      "lon": -83.39539,
-      "depth_m": 1726.0
+      "lat": 8.2383,
+      "lon": -83.36998,
+      "depth_m": 1945.0
     }
   ]
 }

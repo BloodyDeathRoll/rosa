@@ -2,68 +2,68 @@
   "spot": "boca-barranca",
   "source": "gebco2020 via opentopodata",
   "origin": [
-    9.9563,
-    -84.7477
+    9.9602,
+    -84.7388
   ],
-  "bearing_seaward_deg": 205.0,
-  "nearshore_depth_m": 5.0,
-  "offshore_depth_m": 42.0,
-  "mean_slope_m_per_km": 2.08,
+  "bearing_seaward_deg": 270.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 25.0,
+  "mean_slope_m_per_km": 1.35,
   "land_samples": 0,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 9.95426,
-      "lon": -84.74866,
-      "depth_m": 5.0
+      "lat": 9.9602,
+      "lon": -84.74108,
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
-      "lat": 9.95222,
-      "lon": -84.74963,
-      "depth_m": 6.0
+      "lat": 9.9602,
+      "lon": -84.74337,
+      "depth_m": 4.0
     },
     {
       "dist_km": 1.0,
-      "lat": 9.94815,
-      "lon": -84.75156,
-      "depth_m": 10.0
+      "lat": 9.9602,
+      "lon": -84.74793,
+      "depth_m": 6.0
     },
     {
       "dist_km": 2.0,
-      "lat": 9.94,
-      "lon": -84.75542,
-      "depth_m": 12.0
+      "lat": 9.9602,
+      "lon": -84.75706,
+      "depth_m": 7.0
     },
     {
       "dist_km": 3.0,
-      "lat": 9.93185,
-      "lon": -84.75928,
-      "depth_m": 16.0
+      "lat": 9.9602,
+      "lon": -84.76619,
+      "depth_m": 9.0
     },
     {
       "dist_km": 5.0,
-      "lat": 9.91555,
-      "lon": -84.76699,
-      "depth_m": 20.0
+      "lat": 9.9602,
+      "lon": -84.78445,
+      "depth_m": 11.0
     },
     {
       "dist_km": 8.0,
-      "lat": 9.89109,
-      "lon": -84.77856,
-      "depth_m": 20.0
+      "lat": 9.96019,
+      "lon": -84.81185,
+      "depth_m": 10.0
     },
     {
       "dist_km": 12.0,
-      "lat": 9.85849,
-      "lon": -84.79399,
-      "depth_m": 36.0
+      "lat": 9.96018,
+      "lon": -84.84837,
+      "depth_m": 8.0
     },
     {
       "dist_km": 18.0,
-      "lat": 9.80958,
-      "lon": -84.81713,
-      "depth_m": 42.0
+      "lat": 9.96016,
+      "lon": -84.90315,
+      "depth_m": 25.0
     }
   ]
 }

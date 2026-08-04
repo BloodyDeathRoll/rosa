@@ -2,68 +2,68 @@
   "spot": "nosara-guiones",
   "source": "gebco2020 via opentopodata",
   "origin": [
-    9.947,
-    -85.687
+    9.9352,
+    -85.6666
   ],
   "bearing_seaward_deg": 250.0,
-  "nearshore_depth_m": 16.0,
-  "offshore_depth_m": 571.0,
-  "mean_slope_m_per_km": 31.27,
-  "land_samples": 0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 520.0,
+  "mean_slope_m_per_km": 29.75,
+  "land_samples": 2,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 9.94623,
-      "lon": -85.68914,
-      "depth_m": 16.0
+      "lat": 9.93443,
+      "lon": -85.66874,
+      "depth_m": -8.0
     },
     {
       "dist_km": 0.5,
-      "lat": 9.94546,
-      "lon": -85.69129,
-      "depth_m": 17.0
+      "lat": 9.93366,
+      "lon": -85.67089,
+      "depth_m": -2.0
     },
     {
       "dist_km": 1.0,
-      "lat": 9.94392,
-      "lon": -85.69558,
-      "depth_m": 17.0
+      "lat": 9.93212,
+      "lon": -85.67518,
+      "depth_m": 9.0
     },
     {
       "dist_km": 2.0,
-      "lat": 9.94085,
-      "lon": -85.70416,
-      "depth_m": 12.0
+      "lat": 9.92905,
+      "lon": -85.68376,
+      "depth_m": 18.0
     },
     {
       "dist_km": 3.0,
-      "lat": 9.93777,
-      "lon": -85.71274,
-      "depth_m": 31.0
+      "lat": 9.92597,
+      "lon": -85.69234,
+      "depth_m": 22.0
     },
     {
       "dist_km": 5.0,
-      "lat": 9.93162,
-      "lon": -85.7299,
-      "depth_m": 96.0
+      "lat": 9.91982,
+      "lon": -85.7095,
+      "depth_m": 44.0
     },
     {
       "dist_km": 8.0,
-      "lat": 9.92239,
-      "lon": -85.75563,
-      "depth_m": 95.0
+      "lat": 9.91059,
+      "lon": -85.73523,
+      "depth_m": 100.0
     },
     {
       "dist_km": 12.0,
-      "lat": 9.91007,
-      "lon": -85.78995,
-      "depth_m": 230.0
+      "lat": 9.89827,
+      "lon": -85.76954,
+      "depth_m": 159.0
     },
     {
       "dist_km": 18.0,
-      "lat": 9.8916,
-      "lon": -85.84141,
-      "depth_m": 571.0
+      "lat": 9.8798,
+      "lon": -85.82101,
+      "depth_m": 520.0
     }
   ]
 }

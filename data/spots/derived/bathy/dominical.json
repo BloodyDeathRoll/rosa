@@ -2,68 +2,68 @@
   "spot": "dominical",
   "source": "gebco2020 via opentopodata",
   "origin": [
-    9.242,
-    -83.8674
+    9.2471,
+    -83.8609
   ],
   "bearing_seaward_deg": 220.0,
-  "nearshore_depth_m": 13.0,
-  "offshore_depth_m": 88.0,
-  "mean_slope_m_per_km": 4.23,
-  "land_samples": 0,
+  "nearshore_depth_m": -14.0,
+  "offshore_depth_m": 87.0,
+  "mean_slope_m_per_km": 5.69,
+  "land_samples": 2,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 9.24028,
-      "lon": -83.86886,
-      "depth_m": 13.0
+      "lat": 9.24538,
+      "lon": -83.86236,
+      "depth_m": -14.0
     },
     {
       "dist_km": 0.5,
-      "lat": 9.23856,
-      "lon": -83.87033,
-      "depth_m": 19.0
+      "lat": 9.24366,
+      "lon": -83.86383,
+      "depth_m": -9.0
     },
     {
       "dist_km": 1.0,
-      "lat": 9.23511,
-      "lon": -83.87326,
-      "depth_m": 26.0
+      "lat": 9.24021,
+      "lon": -83.86676,
+      "depth_m": 10.0
     },
     {
       "dist_km": 2.0,
-      "lat": 9.22822,
-      "lon": -83.87911,
-      "depth_m": 33.0
+      "lat": 9.23332,
+      "lon": -83.87261,
+      "depth_m": 28.0
     },
     {
       "dist_km": 3.0,
-      "lat": 9.22133,
-      "lon": -83.88497,
-      "depth_m": 37.0
+      "lat": 9.22643,
+      "lon": -83.87847,
+      "depth_m": 34.0
     },
     {
       "dist_km": 5.0,
-      "lat": 9.20755,
-      "lon": -83.89668,
-      "depth_m": 57.0
+      "lat": 9.21265,
+      "lon": -83.89018,
+      "depth_m": 47.0
     },
     {
       "dist_km": 8.0,
-      "lat": 9.18688,
-      "lon": -83.91425,
-      "depth_m": 64.0
+      "lat": 9.19198,
+      "lon": -83.90775,
+      "depth_m": 67.0
     },
     {
       "dist_km": 12.0,
-      "lat": 9.15932,
-      "lon": -83.93766,
-      "depth_m": 89.0
+      "lat": 9.16442,
+      "lon": -83.93117,
+      "depth_m": 79.0
     },
     {
       "dist_km": 18.0,
-      "lat": 9.11798,
-      "lon": -83.97278,
-      "depth_m": 88.0
+      "lat": 9.12308,
+      "lon": -83.96629,
+      "depth_m": 87.0
     }
   ]
 }

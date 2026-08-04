@@ -40,29 +40,30 @@ The judgment per spot is seconds of looking, and it's the same judgment every ti
 a patient autonomous agent. Run it over the whole spot DB, worldwide, as an off-hours batch that
 proposes a correction queue for one human approval pass. That is the Dream assignment below.
 
-## Utilizing Dream - `rosa-spot-mapper` assignment
+## Where the loop lives - in this repo (2026-08-04)
 
-Dream (`~/Projects/Dream`) is the off-hours autonomous host: budget-gated `claude -p` steps,
-persists to disk, **proposes changes for human approval** (its core principle, which is exactly
-Rosa's authority ladder). Assignments may use the network (wtw-catalog does) - no sandbox needed
-here since the mapper runs no untrusted code.
+The whole loop is rosa-side, driven from an interactive session. Three legs:
 
-Two phases per run (split so the deterministic part costs zero model quota):
+1. **Queue (deterministic)** - `tools/spot-verify/queue.py` picks the next batch of spots whose
+   pin is not yet `user-verified`/`sat-verified` and not already judged
+   (`tools/spot-verify/.state/judged.txt`), weakest-authority-first, and writes
+   `work/<date>/queue.json` + `queue.md`.
+2. **Render (deterministic, network)** - `tools/spot-seed/render.py --file work/<date>/queue.json
+   --out work/<date>` shoots a crosshair tile per spot. Zero model cost.
+3. **Judge (vision pass)** - a session reads the tiles per `tools/spot-verify/JUDGING.md`,
+   presents keep/move/flag with a confidence and a reason, and on approval edits
+   `data/spots/<region>.yaml`, retags `sat-verified <date>`, re-cuts the moved spot's bathy
+   profile, and marks the batch judged. Nothing is applied without that approval.
 
-1. **Render (deterministic, network, zero quota)** - `run.sh` calls
-   `tools/spot-verify/run-local.sh` to shoot a crosshair tile for each queued spot into
-   `work/<date>/`. Queue = spots not yet `user-verified`/`sat-verified`, lowest-confidence first.
-2. **Judge (claude step, Read PNGs + Write proposals only)** - the model reads each tile +
-   current coord and writes `proposals/<date>/corrections.yaml`:
-   `{id, old:[lat,lon], new:[lat,lon], confidence, reason}`. It NEVER edits `data/spots/*.yaml`.
-
-**Approval** - a `spot-map-apply.sh` (mirrors Dream's `review-apply.sh`) shows before/after tiles
-side by side; on confirm it patches the YAML and tags the spot `sat-verified <date>`. Nothing
-auto-commits.
-
-Cadence: **weekly** (slow-burn curation, not nightly). Priority below the Phase-1 assignments.
-Registry entry ships `enabled: false` - enable after one manual `start-dreaming`-style test run
-and a look at the first proposals batch.
+**This was briefly scaffolded as a `rosa-spot-mapper` assignment in Dream (`~/Projects/Dream`),
+the off-hours autonomous host. It was never registered, never ran, and was deleted 2026-08-04.**
+Two reasons it came back here: the judgement is the part that benefits most from being
+interactive (re-render, zoom, argue with an ambiguous coast, act on local knowledge in the same
+breath), and applying a move has rosa-side consequences an isolated proposal file can't carry -
+a moved pin invalidates its bathymetry profile and may invalidate its three coastline angles.
+Dream's contribution would have been unattended scheduling at ~12 spots/week; a focused session
+clears a region in an afternoon. If the DB later grows faster than sessions can keep up,
+re-hosting the queue+render legs off-hours is the thing to revisit.
 
 ### Worldwide extension
 

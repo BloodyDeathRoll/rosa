@@ -9,13 +9,16 @@
     <meta charset="utf8" />
     <style>
       html, body, #m { margin: 0; height: 100%; width: 100%; }
+      /* above Leaflet's panes (z-index 200-700) - #m is position:relative with
+         z-index auto, so it makes no stacking context and a low value here is
+         painted UNDER the tiles, i.e. an invisible crosshair. */
       .xh { position: absolute; left: 50%; top: 50%; width: 40px; height: 40px;
-            transform: translate(-20px, -20px); z-index: 9; pointer-events: none; }
+            transform: translate(-20px, -20px); z-index: 900; pointer-events: none; }
       .xh:before, .xh:after { content: ""; position: absolute; background: #ff2d2d;
             box-shadow: 0 0 2px #000; }
       .xh:before { left: 19px; top: 0; width: 2px; height: 40px; }
       .xh:after { top: 19px; left: 0; height: 2px; width: 40px; }
-      #lbl { position: absolute; left: 8px; top: 8px; z-index: 9; background: #000a;
+      #lbl { position: absolute; left: 8px; top: 8px; z-index: 900; background: #000a;
              color: #fff; font: 13px monospace; padding: 4px 8px; }
     </style>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
