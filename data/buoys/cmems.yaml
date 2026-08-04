@@ -1,0 +1,36 @@
+# Copernicus Marine in-situ buoy registry - validation ground truth (roadmap Stage 0).
+#
+# Source: Copernicus Marine Service, product INSITU_IBI_PHYBGCWAV_DISCRETE_MYNRT_013_033
+# (Iberia-Biscay-Ireland in-situ near-real-time observations), DOI 10.48670/moi-00043.
+# Free and open under the Copernicus Marine licence - ATTRIBUTION IS REQUIRED wherever these
+# numbers are shown or published (see CLAUDE.md legal red lines; the app footer already
+# carries the Open-Meteo/CMEMS line).
+#
+# NOTE: the per-platform daily NetCDF files are served from public S3 and need NO account -
+# verified 2026-08-04, plain unauthenticated GET returns 200. A Copernicus login is needed
+# only to *browse* the catalogue with their toolbox, never to fetch these files at runtime.
+#
+# WHY THESE THREE: they are the only moored wave platforms on the Portuguese coast in the
+# product (261 platforms, the rest are Spanish/French/UK/Dutch/Belgian/Irish). Together they
+# span the coast north to south, which is what the harness needs - each buoy scores the model
+# AT ITS OWN LOCATION, so what matters is covering the regional wave climate, not sitting
+# close to any individual spot.
+#
+# Portugal is Rosa's largest region (42 spots) and had zero ground truth before this file;
+# NDBC/CDIP are US-only networks.
+buoys:
+  - id: "Leixoes-coast-buoy"
+    name: "Leixoes - off Porto, N Portugal (CMEMS/IBI)"
+    lat: 41.3167
+    lon: -8.9833
+    source: cmems
+  - id: "Sines-coast-buoy"
+    name: "Sines - Alentejo, C Portugal (CMEMS/IBI)"
+    lat: 37.9211
+    lon: -8.9289
+    source: cmems
+  - id: "Faro-coast-buoy"
+    name: "Faro - E Algarve, S Portugal (CMEMS/IBI)"
+    lat: 36.9047
+    lon: -7.8983
+    source: cmems

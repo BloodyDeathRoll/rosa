@@ -34,6 +34,24 @@ input) and `h_break` against measured **NDBC / CDIP** buoys worldwide. No eyes n
 whether the height/period math is sane **per region**. It validates *size*, not *rideability* -
 that's an accepted limit.
 
+**Coverage reality (2026-08-04).** NDBC and CDIP are US-only networks, so "worldwide" was
+aspirational: the 12 registered buoys are all California / Hawaii / US East Coast, next to 2 of
+199 spots. The first fleet run (107,596 paired hours, all 12 buoys, 5 lead bands) said the
+height math is sound - rmse 0.25 m at 0-1 d rising to 0.38 m at 7 d+, no outlier station - but
+it said it about the wrong ocean. It also reproduced the instrument split from the method rules
+above (0-1 d bias: CDIP Waveriders -0.24 m vs NDBC discus +0.05 m, converging to ~0 by 5-7 d;
+a real model bias would persist across leads, so this is the instruments) and showed the
+"+16° clockwise" direction bias is an average hiding sign flips - per station it runs
+**-11.4° (Pauwela) to +28.4° (Mokapu)**. A blanket direction correction is not defensible.
+
+**Portugal now has in-situ truth** (`data/buoys/cmems.yaml`): Leixoes, Sines and Faro, from the
+Copernicus in-situ IBI product, north-to-south along the coast. Free/open, **attribution
+required**, and the per-platform daily NetCDF files need no account - public S3. These are the
+only non-US wave buoys Rosa can reach; japan / sri-lanka / philippines / costa-rica / nicaragua
+still have none, and israel's only nearby platform is ISRAMAR's, which stays off-limits.
+First live read (small n, nowcast window only - the lead-time archive starts accruing from the
+next cycle): Hs bias **+0.01 m Leixoes, -0.04 m Sines, +0.14 m Faro**.
+
 ### Admin/manual per-beach calibration (allowed, but NOT the basis)
 For specific beaches we actively watch, an optional admin/manual `height_coeff` (or similar
 per-spot override) may refine that **individual** spot. Strict rule: **the global formula knobs

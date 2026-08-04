@@ -47,7 +47,13 @@ from .feedback import (
 from .fetch import FixtureSource, ForecastSource, OpenMeteoSource, fetch_marine_waves
 from .gfswave import GFSWaveFixtureSource, GFSWaveSource
 from .models import Spot
-from .observe import ISRAMARLocalSource, NDBCFixtureSource, NDBCSource
+from .observe import (
+    CMEMSFixtureSource,
+    CMEMSSource,
+    ISRAMARLocalSource,
+    NDBCFixtureSource,
+    NDBCSource,
+)
 from .publish import build_payload, prune_index, update_index, write_spot_json
 from .score import score_hour
 from .spectra import (
@@ -368,6 +374,10 @@ def _obs_for(buoy: Buoy, args: argparse.Namespace):
     if buoy.source == "isramar":
         # never fetched - reads the local manual-import csv only (all-rights-reserved)
         return ISRAMARLocalSource(args.isramar_dir).fetch(buoy)
+    if buoy.source == "cmems":
+        if getattr(args, "obs_fixtures", None) is not None:
+            return CMEMSFixtureSource(args.obs_fixtures).fetch(buoy)
+        return CMEMSSource(capture_dir=args.capture).fetch(buoy)
     if getattr(args, "obs_fixtures", None) is not None:
         return NDBCFixtureSource(args.obs_fixtures).fetch(buoy)
     return NDBCSource(capture_dir=args.capture).fetch(buoy)

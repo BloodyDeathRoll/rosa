@@ -2,7 +2,8 @@
 
 Mirrors ``fetch.py``: a live source that can capture responses, and a fixture source that
 replays them so tests never touch the network. NDBC is the first adapter (public domain);
-ISRAMAR/CDIP slot in behind the same ``ObservationSource`` protocol later. ISRAMAR stays
+CMEMS in-situ (Copernicus, free/open, attribution required) is the second and is the only
+non-US network - it is what gives Portugal any ground truth at all. ISRAMAR stays
 local-validation-only (all-rights-reserved) - it must never be committed or shipped.
 
 Parses the NDBC ``realtime2/<id>.txt`` standard-meteorological file. Wave columns:
@@ -26,7 +27,7 @@ without them. See docs/CALIBRATION.md 2026-08-03 and open item 4.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Protocol
 
@@ -131,6 +132,148 @@ class NDBCFixtureSource:
     def fetch(self, buoy: Buoy) -> list[BuoyObs]:
         path = self.fixtures_dir / f"ndbc_{buoy.id}.txt"
         return parse_ndbc_txt(path.read_text(encoding="utf-8"), buoy.id)
+
+
+CMEMS_IBI = (
+    "https://s3.waw3-1.cloudferro.com/mdl-native-03/native"
+    "/INSITU_IBI_PHYBGCWAV_DISCRETE_MYNRT_013_033"
+    "/cmems_obs-ins_ibi_phybgcwav_mynrt_na_irr_202311/latest"
+)
+# OceanSITES QC convention: 0 no-QC, 1 good, 2 probably-good, 3 bad-correctable, 4 bad,
+# 9 missing. CMEMS's own guidance is to use 1 and 2; anything else is dropped.
+CMEMS_GOOD_QC = (1, 2)
+
+
+def parse_cmems_nc(data: bytes, station: str) -> list[BuoyObs]:
+    """Parse one CMEMS in-situ daily NetCDF4 file into observations, oldest-first.
+
+    Variable mapping (CMEMS name -> BuoyObs field), chosen to pair LIKE-FOR-LIKE with the
+    NDBC adapter so the two networks can share one scorecard:
+        VHM0  significant wave height (m)   -> hs_m
+        VTM02 mean period, Tm02 (s)         -> apd_s   (same definition as NDBC's APD)
+        VTPK  peak period (s)               -> dpd_s   (same definition as NDBC's DPD)
+        TEMP  sea temperature (degC)        -> wtmp_c
+
+    DIRECTION IS A KNOWN MISMATCH, deliberately not hidden: these files carry VMDR (mean
+    direction) only sometimes, and VPED (direction at the spectral PEAK) always. NDBC's MWD
+    is a mean. We prefer VMDR and fall back to VPED, which carries the same peak-vs-mean
+    offset already documented for ISRAMAR - a known bias, not an error. Never read a
+    direction score across sources without checking which one this station supplied.
+
+    No wind: these platforms publish waves only, so wdir_deg/wspd_ms stay None (unlike NDBC,
+    where wind shares the line - see the module docstring and open item 4).
+
+    Values are (time, depth) arrays; the first QC-good depth level wins per timestamp."""
+    import io
+
+    import h5py
+    import numpy as np
+
+    obs: list[BuoyObs] = []
+    with h5py.File(io.BytesIO(data), "r") as f:
+        if "TIME" not in f or "VHM0" not in f:
+            return []
+        # TIME is days since the CF epoch below; the files state it in TIME.units.
+        times = np.asarray(f["TIME"][:], dtype="float64")
+        epoch = datetime(1950, 1, 1, tzinfo=UTC)
+
+        def column(name: str) -> np.ndarray | None:
+            """QC-filtered values per timestamp, NaN where unusable."""
+            if name not in f:
+                return None
+            vals = np.asarray(f[name][:], dtype="float64")
+            fill = f[name].attrs.get("_FillValue")
+            if fill is not None:
+                vals = np.where(np.isclose(vals, float(np.ravel(fill)[0])), np.nan, vals)
+            qc_name = f"{name}_QC"
+            if qc_name in f:
+                qc = np.asarray(f[qc_name][:])
+                vals = np.where(np.isin(qc, CMEMS_GOOD_QC), vals, np.nan)
+            if vals.ndim == 1:
+                return vals
+            # (time, depth) -> first non-NaN depth level per timestamp
+            out = np.full(vals.shape[0], np.nan)
+            for i, row in enumerate(vals):
+                ok = row[~np.isnan(row)]
+                if ok.size:
+                    out[i] = ok[0]
+            return out
+
+        hs = column("VHM0")
+        tm02 = column("VTM02")
+        tpk = column("VTPK")
+        direction = column("VMDR")
+        if direction is None or np.all(np.isnan(direction)):
+            direction = column("VPED")
+        temp = column("TEMP")
+
+        def at(arr: np.ndarray | None, i: int) -> float | None:
+            if arr is None or i >= arr.shape[0]:
+                return None
+            v = arr[i]
+            return None if np.isnan(v) else float(v)
+
+        for i, day in enumerate(times):
+            if not np.isfinite(day):
+                continue
+            obs.append(
+                BuoyObs(
+                    station=station,
+                    time=epoch + timedelta(days=float(day)),
+                    hs_m=at(hs, i),
+                    dpd_s=at(tpk, i),
+                    apd_s=at(tm02, i),
+                    mwd_deg=at(direction, i),
+                    wtmp_c=at(temp, i),
+                )
+            )
+    obs.sort(key=lambda o: o.time)
+    return obs
+
+
+class CMEMSSource:
+    """Copernicus Marine in-situ waves. Public S3, no credentials (verified 2026-08-04).
+
+    One file per platform per day, so a window of recent days is stitched together. Today's
+    file may not exist yet, and a platform can simply miss a day - both are normal and are
+    skipped, never raised, so one gap can't fail a whole verify run."""
+
+    def __init__(
+        self, capture_dir: Path | None = None, timeout_s: float = 30.0, days: int = 3
+    ) -> None:
+        self.capture_dir = capture_dir
+        self.timeout_s = timeout_s
+        self.days = days
+
+    def fetch(self, buoy: Buoy) -> list[BuoyObs]:
+        today = datetime.now(UTC).date()
+        obs: list[BuoyObs] = []
+        with httpx.Client(timeout=self.timeout_s) as client:
+            for back in range(self.days, -1, -1):
+                stamp = (today - timedelta(days=back)).strftime("%Y%m%d")
+                name = f"IR_TS_MO_{buoy.id}_{stamp}.nc"
+                resp = client.get(f"{CMEMS_IBI}/{stamp}/{name}")
+                if resp.status_code == 404:
+                    continue  # day not published (yet) - normal
+                resp.raise_for_status()
+                if self.capture_dir is not None:
+                    self.capture_dir.mkdir(parents=True, exist_ok=True)
+                    (self.capture_dir / f"cmems_{name}").write_bytes(resp.content)
+                obs.extend(parse_cmems_nc(resp.content, buoy.id))
+        obs.sort(key=lambda o: o.time)
+        return obs
+
+
+class CMEMSFixtureSource:
+    def __init__(self, fixtures_dir: Path) -> None:
+        self.fixtures_dir = fixtures_dir
+
+    def fetch(self, buoy: Buoy) -> list[BuoyObs]:
+        obs: list[BuoyObs] = []
+        for path in sorted(self.fixtures_dir.glob(f"cmems_IR_TS_MO_{buoy.id}_*.nc")):
+            obs.extend(parse_cmems_nc(path.read_bytes(), buoy.id))
+        obs.sort(key=lambda o: o.time)
+        return obs
 
 
 def parse_isramar_csv(text: str, station: str) -> list[BuoyObs]:
