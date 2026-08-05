@@ -5,8 +5,10 @@ import pytest
 
 from rosa_pipeline.physics import (
     GRAVITY,
+    angular_frequency,
     breaker_height_komar_gaughan,
     breaker_height_over_profile,
+    celerities,
     deep_water_equivalent,
     group_speed,
     phase_speed,
@@ -59,6 +61,23 @@ class TestCelerity:
     def test_group_below_phase_in_deep_water(self):
         # deep water: Cg = C/2
         assert group_speed(10.0, 5000.0) == pytest.approx(phase_speed(10.0, 5000.0) / 2, rel=1e-3)
+
+    def test_celerities_match_independent_dispersion_arithmetic(self):
+        """Dream review 2026-08-05: the shoaling march now takes (C, Cg) from one dispersion
+        solve. Pin both values to the formulas computed from a separate wavenumber call, so
+        the fused path can never drift from the physics it replaced."""
+        for T, d in itertools.product((6.0, 10.0, 16.0), (2.0, 40.0, 4000.0)):
+            k = wavenumber(T, d)
+            c, cg = celerities(T, d)
+            assert c == pytest.approx(angular_frequency(T) / k, rel=1e-12)
+            kd = k * d
+            n = 0.5 if 2 * kd > 350 else 0.5 * (1 + 2 * kd / math.sinh(2 * kd))
+            assert cg == pytest.approx(n * c, rel=1e-12)
+
+    def test_celerities_deep_overflow_branch_gives_half_c(self):
+        # 2kd >> 350: sinh would overflow - the guard must return exactly n = 1/2
+        c, cg = celerities(4.0, 5000.0)
+        assert cg == 0.5 * c
 
 
 class TestShoaling:

@@ -13,6 +13,7 @@ from rosa_pipeline.verify import (
     APD_FALLBACK_LABEL,
     ENERGY_PERIOD_VARIABLES,
     VARIABLES,
+    VarScore,
     WavePoint,
     ang_diff,
     build_scorecard,
@@ -59,6 +60,43 @@ def test_missing_values_drop_from_that_variable_only() -> None:
     pairs = pair_series(model, obs, tol_min=30)
     assert pairs["hs"] and pairs["dir"]
     assert pairs["tp"] == []
+
+
+def test_equidistant_obs_resolve_to_the_later_one() -> None:
+    """Dream review 2026-08-05: the old linear scan's `gap <= best_gap` kept the LAST
+    equal-gap observation in (oldest-first) list order, i.e. the later one. The bisect
+    rewrite must preserve that exactly - verification history is compared run over run."""
+    t0 = datetime(2026, 7, 21, 6, 0, tzinfo=UTC)
+    model = [WavePoint(time=t0, hs=1.5, tp=None, dir=None)]
+    obs = [
+        _obs(t0 - timedelta(minutes=10), hs_m=1.0),
+        _obs(t0 + timedelta(minutes=10), hs_m=2.0),
+    ]
+    assert pair_series(model, obs, tol_min=30)["hs"] == [(1.5, 2.0)]
+
+
+def test_duplicate_timestamps_resolve_to_the_last_in_input_order() -> None:
+    """Buoy files do repeat timestamps; the old scan kept the run's last row and the sort
+    in _obs_index is stable, so the bisect must land on it too."""
+    t0 = datetime(2026, 7, 21, 6, 0, tzinfo=UTC)
+    model = [WavePoint(time=t0, hs=1.5, tp=None, dir=None)]
+    obs = [
+        _obs(t0 + timedelta(minutes=10), hs_m=1.0),
+        _obs(t0 + timedelta(minutes=10), hs_m=2.0),
+    ]
+    assert pair_series(model, obs, tol_min=30)["hs"] == [(1.5, 2.0)]
+
+
+def test_unsorted_observations_still_pair_with_the_nearest() -> None:
+    """The parsers all return oldest-first, but that was an informal invariant; _obs_index
+    sorts so a bisect over an unsorted source cannot silently pick the wrong neighbour."""
+    t0 = datetime(2026, 7, 21, 6, 0, tzinfo=UTC)
+    model = [WavePoint(time=t0, hs=1.5, tp=None, dir=None)]
+    obs = [  # newest first
+        _obs(t0 + timedelta(minutes=25), hs_m=3.0),
+        _obs(t0 + timedelta(minutes=5), hs_m=1.0),
+    ]
+    assert pair_series(model, obs, tol_min=30)["hs"] == [(1.5, 1.0)]
 
 
 def test_scorecard_metrics_math() -> None:
@@ -199,3 +237,26 @@ def test_lead_scorecard_distinguishes_hot_from_cold() -> None:
 
     assert "+0.30m" in card(1.3)
     assert "-0.30m" in card(0.7)
+
+
+def test_renderers_show_every_variable_handed_in() -> None:
+    """Dream review 2026-08-05: both renderers iterated the module-level VARIABLES tuple,
+    which worked only because all four *_VARIABLES tuples happen to share the same three
+    keys. A source with a fourth variable would have printed three rows and silently
+    dropped it - render the card that was handed in."""
+    buoy = Buoy(id="46042", name="Monterey", lat=36.8, lon=-122.4, source="ndbc")
+    scores = {
+        key: VarScore(
+            key=key,
+            label=f"var {key}",
+            unit="m",
+            n=1,
+            bias=0.1,
+            mae=0.1,
+            rmse=0.1,
+            scatter_index=None,
+        )
+        for key in ("hs", "tp", "dir", "extra")
+    }
+    assert "var extra" in render_scorecard(buoy, None, scores)
+    assert "var extra" in render_lead_scorecard(buoy, {"h024": scores})

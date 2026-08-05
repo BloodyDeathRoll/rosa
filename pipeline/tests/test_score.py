@@ -171,3 +171,13 @@ class TestCalibrationFix1:
         # size 40 + period 20 >= 60 -> gate is 1, wind untouched
         s = score_hour(SPOT, hour((SwellPartition(1.0, 14.0, 290.0),)))
         assert s.wind_score == 40
+
+
+def test_wind_gate_docstring_matches_the_constant():
+    """Dream review 2026-08-05: the module docstring said the gate divides by 30 while
+    WIND_GATE_PTS is 60. The formula is published in-app ("why this rating"), so the
+    docstring is spec, not decoration - hold it to the named constant."""
+    import rosa_pipeline.score as score_mod
+
+    assert score_mod.__doc__ is not None
+    assert f"(size + period) / {score_mod.WIND_GATE_PTS:.0f}" in score_mod.__doc__

@@ -98,6 +98,15 @@ def test_blocked_shore_normal_reports_none_rather_than_an_empty_arc() -> None:
     assert window_from_open_bearings({10, 15, 20}, 250.0) is None
 
 
+def test_fully_open_fan_spans_the_whole_clip_not_half() -> None:
+    """Dream review 2026-08-05: the two expansion loops shared one budget, so `lo` could
+    spend the whole circle before `hi` moved a step. A fully open fan came back as
+    [normal-90, normal] - half the arc, and exactly 90 deg wide, which is one degree too
+    wide for the CLI's NARROW (<90) warning to catch."""
+    open_b = set(range(0, 360, 5))
+    assert window_from_open_bearings(open_b, 250.0) == (160.0, 340.0)
+
+
 class _FakeSource:
     """Sea everywhere except a headland from 300 deg round to 130 deg.
 

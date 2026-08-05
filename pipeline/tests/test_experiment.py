@@ -89,6 +89,20 @@ def test_run_experiment_and_report():
     assert "satisfying every frame" in report or "least-bad" in report
 
 
+def test_bad_frame_fails_before_any_candidate_is_graded():
+    """Dream review 2026-08-05: spot + profile resolution was inside the per-candidate
+    loop, so a frame pointing at a missing spot only surfaced when the first candidate
+    reached it - and with no candidates at all it never surfaced. Resolution now runs
+    up front, before any grading."""
+    from dataclasses import replace
+
+    frames = load_frames(FRAMES)
+    bad = replace(frames[0], spot_id="no-such-spot")
+    spots = load_spots(SPOTS_DIR)
+    with pytest.raises(KeyError, match="no-such-spot"):
+        run_experiment([bad], spots, BATHY_DIR, candidates=())
+
+
 def test_missing_peak_period_falls_back_to_mean():
     """Frames may omit tp (old fixtures, secondary swells) - a peak-keyed candidate
     must then behave exactly like the mean-keyed one, not crash or zero out."""

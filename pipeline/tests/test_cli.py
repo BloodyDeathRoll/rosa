@@ -109,6 +109,61 @@ def test_spot_and_all_are_mutually_exclusive():
         main(["run"])
 
 
+def test_run_all_survives_one_failing_spot(tmp_path, monkeypatch, capsys):
+    """Dream review 2026-08-05: this loop ran bare while every other step in _cmd_run was
+    guarded, so one raising spot stranded every spot after it AND skipped prune_index -
+    the ghost-card failure mode. The rest of the batch must publish, and the cycle must
+    still exit 1 so publish.sh's trap sees a failed cycle."""
+    import rosa_pipeline.cli as cli_mod
+
+    spots_dir = tmp_path / "spots"
+    spots_dir.mkdir()
+    (spots_dir / "test.yaml").write_text(SPOTS_YAML, encoding="utf-8")
+    out = tmp_path / "out"
+
+    real = cli_mod.load_profile
+
+    def sabotaged(spot_id, bathy_dir):
+        if spot_id == "spot-b":
+            raise ValueError("boom")
+        return real(spot_id, bathy_dir)
+
+    monkeypatch.setattr(cli_mod, "load_profile", sabotaged)
+    rc = main(
+        [
+            "run",
+            "--all",
+            "--spots-dir",
+            str(spots_dir),
+            "--out",
+            str(out),
+            "--fixtures",
+            str(FIXTURES),
+        ]
+    )
+    err = capsys.readouterr().err
+    assert rc == 1  # a failed spot is still a failed cycle
+    assert (out / "spots" / "spot-a.json").exists()  # the batch went on without spot-b
+    assert not (out / "spots" / "spot-b.json").exists()
+    assert set(json.loads((out / "index.json").read_text())["spots"]) == {"spot-a"}
+    assert "error: spot-b: ValueError('boom')" in err  # repr - the type is the signal
+    assert "1 of 2 spot(s) failed (ValueError): spot-b" in err
+
+
+def test_swellmap_world_only_with_basin_is_a_usage_error(capsys):
+    """Dream review 2026-08-05: --world-only skips the basin layer and --basin narrows it,
+    so together they select nothing. This fell through both branches and returned 1, which
+    publish.sh's trap reads as a broken cycle, not a typo."""
+    rc = main(["swellmap", "--world-only", "--basin", "east-med"])
+    assert rc == 2
+    assert "drop --basin" in capsys.readouterr().err
+
+
+def test_swellmap_layer_flags_are_mutually_exclusive():
+    with pytest.raises(SystemExit):
+        main(["swellmap", "--skip-world", "--world-only"])
+
+
 def test_real_db_loads_for_all():
     # each spot now samples its own offshore point → ~one group per spot (was 3 shared)
     spots = list(load_spots(Path(__file__).resolve().parents[2] / "data" / "spots").values())

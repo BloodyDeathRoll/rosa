@@ -156,3 +156,32 @@ def test_closure_is_one_when_partitions_are_the_whole_sea():
     s = replace(s, hour=replace(s.hour, partitions=(SWELL,), total_hs_m=1.0))
     payload = build_payload(SPOT, [s], fetched_at="x", now=datetime(2026, 7, 19, tzinfo=UTC))
     assert payload["hours"][0]["closure"] == 1.0
+
+
+def test_confidence_keyed_on_lead_days_not_list_position():
+    """Dream review 2026-08-05: _horizon_ceiling is a claim about model skill at a lead
+    time, but the published day list has holes by construction - _covers_day drops any day
+    the model half-covers. Keyed on list position, one dropped mid-series day promoted
+    every later day a whole tier: a day-10, GFS-Wave-only forecast shipped as 0.85 "high"
+    instead of 0.4 "low"."""
+    from zoneinfo import ZoneInfo
+
+    tz = ZoneInfo(SPOT.timezone)
+    base = scored(0, 40)
+    start = datetime(2026, 7, 18, 21, tzinfo=UTC)  # local midnight - day 0 is 2026-07-19
+    hours = []
+    for i in range(24 * 11):  # local days 0..10, hourly
+        t = start + timedelta(hours=i)
+        local = t.astimezone(tz)
+        if local.date().isoformat() == "2026-07-20" and local.hour > 12:
+            continue  # cut day 1 short so _covers_day drops it
+        hours.append(replace(base, hour=replace(base.hour, time=t)))
+    payload = build_payload(SPOT, hours, fetched_at="t", now=start + timedelta(hours=6))
+    days = {d["date"]: d for d in payload["days"]}
+
+    assert "2026-07-20" not in days  # the half-covered day is gone...
+    # ...and its absence must not promote the days behind it: lead 10 is the
+    # GFS-Wave-only tier no matter where the day lands in the list.
+    assert days["2026-07-29"]["confidence_score"] == 0.4
+    assert days["2026-07-29"]["confidence"] == "low"
+    assert days["2026-07-28"]["confidence_score"] == 0.85  # lead 9 keeps the mid tier
