@@ -135,9 +135,14 @@ def window_from_open_bearings(
     if anchor % 360 not in open_bearings:
         return None
     lo = hi = anchor
-    while (lo - step_deg) % 360 in open_bearings and hi - (lo - step_deg) < 360 - step_deg:
+    # Each side expands against its OWN budget, measured from the anchor. With the single
+    # shared budget this used to carry, `lo` could consume the whole circle before `hi` moved
+    # at all: a fully-open fan returned [normal-90, normal] - a plausible-looking 90 deg arc
+    # missing its entire clockwise half, and wide enough to dodge the CLI's NARROW (<90) flag.
+    reach = max_incidence_deg + step_deg  # one step past the clip below; the clip does the rest
+    while (lo - step_deg) % 360 in open_bearings and anchor - (lo - step_deg) <= reach:
         lo -= step_deg
-    while (hi + step_deg) % 360 in open_bearings and (hi + step_deg) - lo < 360 - step_deg:
+    while (hi + step_deg) % 360 in open_bearings and (hi + step_deg) - anchor <= reach:
         hi += step_deg
     lo = max(lo, shore_normal - max_incidence_deg)
     hi = min(hi, shore_normal + max_incidence_deg)

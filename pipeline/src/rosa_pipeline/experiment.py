@@ -178,17 +178,29 @@ def run_experiment(
     bathy_dir: Path,
     candidates: tuple[Candidate, ...] = DEFAULT_CANDIDATES,
 ) -> list[CandidateResult]:
+    # Resolve each frame's spot + profile ONCE, not once per candidate. The profile JSON is
+    # read and parsed inside the inner loop otherwise, so a run re-reads the same files
+    # len(candidates) times (18 by default) for no new information. Hoisting also moves the
+    # two "bad frame file" errors to the top of the run, before any candidate is graded -
+    # _cmd_experiment prints nothing before this call, so nothing depends on the old ordering.
+    resolved: dict[str, tuple[Spot, list[float]]] = {}
+    for fr in frames:
+        if fr.spot_id in resolved:
+            continue
+        spot = spots.get(fr.spot_id)
+        if spot is None:
+            raise KeyError(f"frame {fr.id}: unknown spot {fr.spot_id!r}")
+        profile = load_profile(fr.spot_id, bathy_dir)
+        if profile is None:
+            raise FileNotFoundError(f"frame {fr.id}: no bathy profile for {fr.spot_id}")
+        resolved[fr.spot_id] = (spot, profile.wet_depths_deep_to_shallow())
+
     results: list[CandidateResult] = []
     for cand in candidates:
         frame_results = []
         for fr in frames:
-            spot = spots.get(fr.spot_id)
-            if spot is None:
-                raise KeyError(f"frame {fr.id}: unknown spot {fr.spot_id!r}")
-            profile = load_profile(fr.spot_id, bathy_dir)
-            if profile is None:
-                raise FileNotFoundError(f"frame {fr.id}: no bathy profile for {fr.spot_id}")
-            mid = predict_frame(fr, spot, profile.wet_depths_deep_to_shallow(), cand)
+            spot, wet_depths = resolved[fr.spot_id]
+            mid = predict_frame(fr, spot, wet_depths, cand)
             frame_results.append(FrameResult(frame=fr, h_mid_m=mid))
         results.append(CandidateResult(candidate=cand, frames=tuple(frame_results)))
     return results

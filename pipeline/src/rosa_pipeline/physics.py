@@ -47,20 +47,29 @@ def wavenumber(period_s: float, depth_m: float, *, iterations: int = 12) -> floa
     return k
 
 
-def phase_speed(period_s: float, depth_m: float) -> float:
-    """C = ω / k."""
-    return angular_frequency(period_s) / wavenumber(period_s, depth_m)
+def celerities(period_s: float, depth_m: float) -> tuple[float, float]:
+    """(C, Cg) from ONE dispersion solve.
 
-
-def group_speed(period_s: float, depth_m: float) -> float:
-    """Cg = n·C, n = ½(1 + 2kd/sinh 2kd). → gT/4π in deep water, √(gd) in shallow."""
+    The shoaling march needs both at every sampled depth and used to ask for them separately,
+    which solved w^2 = g*k*tanh(k*d) twice for the same (T, d). Identical arithmetic, half the
+    Newton iterations; ``phase_speed``/``group_speed`` stay as the single-value views."""
     k = wavenumber(period_s, depth_m)
     kd = k * depth_m
     c = angular_frequency(period_s) / k
     if 2.0 * kd > 350.0:  # sinh overflows and the ratio vanishes - deep-water n = 1/2
-        return 0.5 * c
+        return c, 0.5 * c
     n = 0.5 * (1.0 + 2.0 * kd / math.sinh(2.0 * kd))
-    return n * c
+    return c, n * c
+
+
+def phase_speed(period_s: float, depth_m: float) -> float:
+    """C = ω / k."""
+    return celerities(period_s, depth_m)[0]
+
+
+def group_speed(period_s: float, depth_m: float) -> float:
+    """Cg = n·C, n = ½(1 + 2kd/sinh 2kd). → gT/4π in deep water, √(gd) in shallow."""
+    return celerities(period_s, depth_m)[1]
 
 
 def shoaling_coeff(period_s: float, depth_ref_m: float, depth_m: float) -> float:
@@ -236,19 +245,18 @@ def breaker_height_over_profile(
     ):
         return 0.0
     d_ref = depths_deep_to_shallow[0]
-    cg_ref = group_speed(period_s, d_ref)
-    c_ref = phase_speed(period_s, d_ref)
+    c_ref, cg_ref = celerities(period_s, d_ref)
     a_ref = math.radians(incidence_deg)
     sin_a_ref = math.sin(a_ref)
     height = offshore_height_m
     depth_limited = 0.0
     for d in depths_deep_to_shallow:
-        c = angular_frequency(period_s) / wavenumber(period_s, d)
+        c, cg = celerities(period_s, d)
         sin_a = sin_a_ref * c / c_ref
         if sin_a >= 1.0:
             continue  # refracted to grazing at this depth - skip
         alpha = math.asin(sin_a)
-        ks = math.sqrt(cg_ref / group_speed(period_s, d))
+        ks = math.sqrt(cg_ref / cg)
         kr = math.sqrt(math.cos(a_ref) / math.cos(alpha))
         height = offshore_height_m * ks * kr
         if height >= gamma * d:

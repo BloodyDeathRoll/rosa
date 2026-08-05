@@ -22,7 +22,7 @@ lead-time skill by replaying forecasts stamped at successive run times.
 from __future__ import annotations
 
 import math
-from bisect import bisect_left
+from bisect import bisect_left, bisect_right
 from collections.abc import Sequence
 from dataclasses import dataclass, replace
 from datetime import UTC, datetime, timedelta
@@ -109,13 +109,45 @@ def ang_diff(a: float, b: float) -> float:
     return (a - b + 180.0) % 360.0 - 180.0
 
 
-def _nearest_obs(t: datetime, obs: list[BuoyObs], tol: timedelta) -> BuoyObs | None:
+def _obs_index(obs: list[BuoyObs]) -> tuple[list[BuoyObs], list[datetime]]:
+    """Sort once, so ``_nearest_obs`` can bisect instead of rescanning.
+
+    Every parser already returns observations oldest-first (observe.py:103, :230, :263, :311)
+    and ``with_energy_period`` preserves input order - but that is an informal invariant, and
+    an unsorted source would make the bisect silently return the wrong neighbour where the old
+    linear scan was right. Sorting here (once per variable, not once per model point) makes it
+    an enforced one instead."""
+    ordered = sorted(obs, key=lambda o: o.time)
+    return ordered, [o.time for o in ordered]
+
+
+def _nearest_obs(
+    t: datetime, index: tuple[list[BuoyObs], list[datetime]], tol: timedelta
+) -> BuoyObs | None:
+    """Nearest observation to ``t`` within ``tol``, in O(log n).
+
+    Was a linear scan over every observation, once per (variable, model point): O(V*M*O). That
+    is seconds on a nowcast but compounds on ``verify --archive``, where the archive gains
+    ~len(model) rows per buoy per run and so gets slower every day the project measures.
+    Same two-neighbour pattern already used by ``with_energy_period`` and
+    ``extract._nearest_spectral``.
+
+    Tie-breaking is preserved exactly, which takes more care than it looks: the old scan's
+    ``gap <= best_gap`` kept the LAST equal-gap observation in list order, and buoy files do
+    repeat timestamps. Splitting at ``bisect_right`` puts the last row of the ``<= t`` run at
+    ``i - 1`` for free, but ``i`` is the FIRST row of the later run - so walk it to that run's
+    last row too. Checking the earlier candidate before the later one then reproduces the
+    scan's preference for the later observation when the two are equidistant."""
+    ordered, times = index
+    i = bisect_right(times, t)
+    hi = bisect_right(times, times[i]) - 1 if i < len(times) else i
     best: BuoyObs | None = None
     best_gap = tol
-    for o in obs:
-        gap = abs(o.time - t)
-        if gap <= best_gap:
-            best, best_gap = o, gap
+    for j in (i - 1, hi):
+        if 0 <= j < len(ordered):
+            gap = abs(ordered[j].time - t)
+            if gap <= best_gap:
+                best, best_gap = ordered[j], gap
     return best
 
 
@@ -159,12 +191,13 @@ def pair_series(
     tol = timedelta(minutes=tol_min)
     pairs: dict[str, list[tuple[float, float]]] = {key: [] for key, *_ in variables}
     for key, _label, _unit, m_attr, o_attr, _circ in variables:
-        valid = [o for o in obs if getattr(o, o_attr) is not None]
+        # indexed once per variable, outside the model loop
+        index = _obs_index([o for o in obs if getattr(o, o_attr) is not None])
         for mp in model:
             mv = getattr(mp, m_attr)
             if mv is None:
                 continue
-            o = _nearest_obs(mp.time, valid, tol)
+            o = _nearest_obs(mp.time, index, tol)
             if o is not None:
                 pairs[key].append((mv, getattr(o, o_attr)))
     return pairs
@@ -234,8 +267,9 @@ def lead_time_scorecard(
     ``variables`` picks the model↔obs pairing (VARIABLES for Open-Meteo mean period,
     GFSWAVE_VARIABLES for GFS-Wave peak period)."""
     tol = timedelta(minutes=tol_min)
+    # indexed once per variable, not rescanned per archived row - the archive only grows
     valid_obs = {
-        o_attr: [o for o in obs if getattr(o, o_attr) is not None]
+        o_attr: _obs_index([o for o in obs if getattr(o, o_attr) is not None])
         for *_head, o_attr, _circ in variables
     }
     pairs: dict[str, dict[str, list[tuple[float, float]]]] = {
@@ -286,11 +320,15 @@ def render_lead_scorecard(buoy: Buoy, by_lead: dict[str, dict[str, VarScore]]) -
         f"  {'lead':<6}{'var':<18}{'n':>6}  {'bias':>8}  {'mae':>8}  {'rmse':>8}",
     ]
     for lead_label, scores in by_lead.items():
-        if not any(scores[k].n for k, *_ in VARIABLES):
+        # Iterate the card that was handed in, not the module-level VARIABLES. The caller may
+        # have built it from ENERGY_PERIOD_/GFSWAVE_/ECMWF_VARIABLES (cli.py:476-493); that
+        # works today only because all four tuples happen to share the same three keys, an
+        # invariant nothing enforces. A source that adds a fourth variable would silently
+        # print three rows and drop it. `label`/`unit` already come off the VarScore.
+        if not any(s.n for s in scores.values()):
             lines.append(f"  {lead_label:<6}(no matured forecasts yet)")
             continue
-        for key, *_ in VARIABLES:
-            s = scores[key]
+        for s in scores.values():
             if not s.n:
                 continue
             lines.append(
@@ -309,15 +347,15 @@ def render_scorecard(buoy: Buoy, dist_km: float | None, scores: dict[str, VarSco
         f"model skill vs buoy {where}",
         f"  {'var':<18}{'n':>4}  {'bias':>8}  {'mae':>8}  {'rmse':>8}  {'SI':>6}",
     ]
-    for key, *_ in VARIABLES:
-        s = scores[key]
+    # As in render_lead_scorecard: render what the card holds, not what VARIABLES lists.
+    for s in scores.values():
         si = f"{s.scatter_index:.2f}" if s.scatter_index is not None else "  -"
         unit = s.unit
         lines.append(
             f"  {s.label:<18}{s.n:>4}  {s.bias:>+7.2f}{unit}  {s.mae:>7.2f}{unit}  "
             f"{s.rmse:>7.2f}{unit}  {si:>6}"
         )
-    if all(scores[k].n == 0 for k, *_ in VARIABLES):
+    if all(s.n == 0 for s in scores.values()):
         lines.append("  (no overlapping model/obs hours - buoy may be met-only or offline)")
     lines.extend(_apd_footnote(scores))
     return "\n".join(lines)

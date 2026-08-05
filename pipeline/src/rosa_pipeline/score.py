@@ -13,8 +13,9 @@ is published in-app ("why this rating") and tuned only via the calibration log:
   offshore, then linear to 0 at 180 deg. speed_factor is 1 up to 15 kph, then linear to 0
   at a max speed that shrinks with angle: 40 kph when offshore, 25 kph when onshore.
 - wind gate (calibration fix #1, 2026-07-19): wind points are scaled by
-  min(1, (size + period) / 30) before summing - offshore wind polishes waves that exist,
-  it never creates rating on its own. ScoredHour.wind_score holds the gated value.
+  min(1, (size + period) / 60) - the WIND_GATE_PTS constant below - before summing:
+  offshore wind polishes waves that exist, it never creates rating on its own.
+  ScoredHour.wind_score holds the gated value.
 - flat gate: with no in-window partition or h_break_mid < 0.15 m, rating = size component
   only (a flat day with perfect offshore wind must read FLAT, not FAIR).
 

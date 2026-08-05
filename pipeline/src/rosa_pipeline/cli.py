@@ -281,10 +281,11 @@ def _build_parser() -> argparse.ArgumentParser:
     sm.add_argument("--spots-dir", type=Path, default=Path("data/spots"))
     sm.add_argument("--out", type=Path, default=Path("data/out"))
     sm.add_argument("--basin", default=None, help="single basin name (default: all)")
-    sm.add_argument(
+    layer = sm.add_mutually_exclusive_group()
+    layer.add_argument(
         "--skip-world", action="store_true", help="basins only - skip the global PNG layer"
     )
-    sm.add_argument(
+    layer.add_argument(
         "--world-only", action="store_true", help="global PNG layer only - skip the basins"
     )
     return parser
@@ -336,6 +337,7 @@ def _cmd_run(args: argparse.Namespace) -> int:
             print(f"warn: ecmwf spectral member skipped: {e}", file=sys.stderr)
 
     published = 0
+    failures: list[tuple[str, Exception]] = []
     for point, raw, spectral in zip(points, raws, spectral_series, strict=True):
         hours = extract_hours(raw, spectral=spectral)
         if not hours:
@@ -344,12 +346,26 @@ def _cmd_run(args: argparse.Namespace) -> int:
             print(f"warning: no forecast at point {point} - skipping {ids}", file=sys.stderr)
             continue
         for spot in groups[point]:
-            profile = load_profile(spot.id, BATHY_DIR)
-            wet_depths = profile.wet_depths_deep_to_shallow() if profile else None
-            scored = [score_hour(spot, h, wet_depths) for h in hours]
-            payload = build_payload(spot, scored, fetched_at=raw.fetched_at, now=now)
-            path = write_spot_json(payload, args.out)
-            update_index(payload, args.out)
+            # Per-spot failure must not sink the batch. Every other step in this command is
+            # already guarded this way (the ECMWF member above, the dry-cell skip above, the
+            # gfswave/ecmwf archive members below); this loop was the one that ran bare. The
+            # batch IS the product - there is no request-time backend - so a spot that never
+            # gets written silently serves its previous payload, and an unguarded raise here
+            # strands every spot after it AND skips prune_index, which is exactly how removed
+            # spots shipped as ghost cards from 2026-07-23 to 2026-08-02.
+            try:
+                profile = load_profile(spot.id, BATHY_DIR)
+                wet_depths = profile.wet_depths_deep_to_shallow() if profile else None
+                scored = [score_hour(spot, h, wet_depths) for h in hours]
+                payload = build_payload(spot, scored, fetched_at=raw.fetched_at, now=now)
+                path = write_spot_json(payload, args.out)
+                update_index(payload, args.out)
+            except Exception as e:
+                # repr, not str: losing the exception type on a batch of 199 makes a systemic
+                # fault unreadable. The count and the first type are echoed in the summary.
+                failures.append((spot.id, e))
+                print(f"error: {spot.id}: {e!r}", file=sys.stderr)
+                continue
             current = payload["current"]
             published += 1
             print(
@@ -367,6 +383,18 @@ def _cmd_run(args: argparse.Namespace) -> int:
         removed = prune_index(set(spots), args.out)
         if removed:
             print(f"pruned {len(removed)} spot(s) no longer in the DB: {', '.join(removed)}")
+    if failures:
+        # Still a failed cycle for publish.sh's trap - but only after doing every piece of
+        # work that could be done, prune included (it is keyed on the DB, not on this run's
+        # output, so a failed spot is never pruned for having failed). A schema break that
+        # hits all 199 spots reads as 199 lines plus this summary, not one traceback.
+        kinds = ", ".join(sorted({type(e).__name__ for _, e in failures}))
+        print(
+            f"error: {len(failures)} of {published + len(failures)} spot(s) failed ({kinds}): "
+            f"{', '.join(sid for sid, _ in failures)}",
+            file=sys.stderr,
+        )
+        return 1
     return 0
 
 
@@ -714,6 +742,13 @@ def _cmd_experiment(args: argparse.Namespace) -> int:
 
 def _cmd_swellmap(args: argparse.Namespace) -> int:
     from .swellmap import basin_boxes, run_swellmap, run_swellmap_world
+
+    if args.world_only and args.basin is not None:
+        # The two filters together select nothing: --basin narrows the basin layer, which
+        # --world-only skips outright. Left to run, this fetched nothing, printed nothing and
+        # returned 1 - which publish.sh's failure trap reads as a broken cycle, not a typo.
+        print("swellmap: --world-only selects no basin - drop --basin", file=sys.stderr)
+        return 2
 
     written: list[str] = []
     if not args.world_only:

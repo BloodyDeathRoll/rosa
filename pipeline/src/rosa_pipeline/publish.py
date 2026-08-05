@@ -191,7 +191,14 @@ def build_payload(spot: Spot, scored: list[ScoredHour], *, fetched_at: str, now:
     ]
 
     sorted_dates = sorted(by_date.items())
-    date_index = {date_str: i for i, (date_str, _) in enumerate(sorted_dates)}
+
+    # Lead in days from the run, NOT the position in the published list. `_horizon_ceiling`
+    # is a claim about forecast SKILL at a lead time, and this list has holes in it by
+    # construction: the `_covers_day` filter above drops any day the model half-covers.
+    # Keyed on position, one dropped mid-series day promoted every later day a whole tier -
+    # a day-10, GFS-Wave-only forecast published as 0.85 "high" instead of 0.4 "low".
+    def lead_days(date_str: str) -> int:
+        return max(0, (date.fromisoformat(date_str) - today_local).days)
 
     current = next((s for s in visible if s.hour.time >= now), visible[-1])
     current_entry = _hour_entry(spot, current, tz)
@@ -202,7 +209,7 @@ def build_payload(spot: Spot, scored: list[ScoredHour], *, fetched_at: str, now:
         "wind": _r(current.wind_score, 1),
     }
     cur_date = current.hour.time.astimezone(tz).date().isoformat()
-    cur_label, cur_score = _confidence(date_index.get(cur_date, 0), current.hour.agreement_score)
+    cur_label, cur_score = _confidence(lead_days(cur_date), current.hour.agreement_score)
     current_entry["confidence"] = {
         "label": cur_label,
         "score": cur_score,
@@ -210,9 +217,9 @@ def build_payload(spot: Spot, scored: list[ScoredHour], *, fetched_at: str, now:
     }
 
     days = []
-    for day_index, (date_str, day_hours) in enumerate(sorted_dates[:OUTLOOK_DAYS]):
+    for date_str, day_hours in sorted_dates[:OUTLOOK_DAYS]:
         best = max(_daylight(spot, day_hours, date_str, tz), key=lambda s: s.rating)
-        label, score = _confidence(day_index, _day_agreement(day_hours))
+        label, score = _confidence(lead_days(date_str), _day_agreement(day_hours))
         days.append(
             {
                 "date": date_str,
