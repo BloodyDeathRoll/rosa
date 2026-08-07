@@ -81,6 +81,16 @@ JSON
     uv run --project pipeline rosa-pipeline notify || echo "warn: notify failed"
   fi
 
+  # 4b) measure forecast skill vs buoy truth: lead-bucket scorecards -> skill.json,
+  #     the measured confidence ceilings the NEXT cycle's run --all publishes
+  #     (this cycle already read the previous one). After the deploy on purpose -
+  #     a buoy-obs outage must neither delay nor break publishing - and non-fatal
+  #     for the same reason. ISRAMAR buoys are skipped inside the command (legal
+  #     red line: manual calibration use only).
+  cd "$HOME/rosa"
+  uv run --project pipeline rosa-pipeline verify --all-buoys --archive --write-skill \
+    || echo "warn: skill measurement failed - published ceilings stay as-is"
+
   # 5) dead-man ping: "a cycle completed" - its absence is the alarm
   if [ -n "${HEALTHCHECK_URL:-}" ]; then
     curl -fsS -m 10 --retry 3 -o /dev/null "$HEALTHCHECK_URL" \

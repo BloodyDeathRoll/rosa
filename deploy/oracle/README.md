@@ -72,6 +72,15 @@ right: anyone holding it can suppress your outage alerts). Open-Meteo and NDBC a
   all-rights-reserved and gitignored, it never travels via git.
 - **Skill checks (after a week of archive):**
   `uv run --project pipeline rosa-pipeline verify --buoy 46042 --archive`
+- **Measured confidence ceilings (2026-08-07):** every cycle ends with
+  `verify --all-buoys --archive --write-skill`, which scores the whole fleet
+  (ISRAMAR buoys skipped - legal red line) and writes `data/verify/skill.json`;
+  the next cycle's `run --all` publishes ceilings derived from it, with the
+  contributing buoys named in each payload's `confidence_meta.ceiling_source`.
+  Single-buoy spot checks like the one above never touch skill.json - persisting
+  requires the explicit `--write-skill`. Non-fatal: on failure (or while tiers
+  are still under the 100-hour sample floor) publishing falls back to the static
+  ceilings and says so.
 
 ## Ops alerting (2026-07-28, third eye live 2026-08-04)
 Three independent eyes, after two silent run-crash incidents left stale data serving. They
