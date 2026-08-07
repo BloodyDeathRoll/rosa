@@ -168,3 +168,55 @@ def test_real_db_loads_for_all():
     # each spot now samples its own offshore point → ~one group per spot (was 3 shared)
     spots = list(load_spots(Path(__file__).resolve().parents[2] / "data" / "spots").values())
     assert len(group_by_point(spots)) == len(spots)
+
+
+def test_verify_skill_write_is_opt_in():
+    """2026-08-07 review: skill.json is fleet-wide state (run --all feeds it to every
+    spot's confidence ceiling), so the documented single-buoy spot check must not
+    write it as a side effect - persisting requires an explicit --write-skill."""
+    from rosa_pipeline.cli import _build_parser
+
+    args = _build_parser().parse_args(["verify", "--buoy", "46042", "--archive"])
+    assert args.write_skill is False
+    args = _build_parser().parse_args(["verify", "--buoy", "46042", "--archive", "--write-skill"])
+    assert args.write_skill is True
+
+
+def test_verify_all_buoys_fleet_pass(tmp_path, monkeypatch, capsys):
+    """The scheduled fleet pass (verify --all-buoys --archive --write-skill): skips
+    ISRAMAR buoys (legal red line), survives one failing buoy per-buoy like run --all
+    survives one failing spot, and writes skill.json naming only the buoys that
+    actually contributed."""
+    import rosa_pipeline.cli as cli
+
+    root = Path(__file__).resolve().parents[2]
+    failed = []
+
+    def fake_obs(buoy, args):
+        if not failed:
+            failed.append(buoy.id)
+            raise RuntimeError("obs outage")
+        return []
+
+    monkeypatch.setattr(cli, "_obs_for", fake_obs)
+    monkeypatch.setattr(cli, "_with_measured_energy_period", lambda b, o, a, v: (o, v))
+    rc = main(
+        [
+            "verify",
+            "--all-buoys",
+            "--archive",
+            "--write-skill",
+            "--buoys-dir",
+            str(root / "data" / "buoys"),
+            "--isramar-dir",
+            str(tmp_path / "no-isramar"),
+            "--archive-dir",
+            str(tmp_path / "archive"),
+        ]
+    )
+    assert rc == 0
+    err = capsys.readouterr().err
+    assert "left out of this skill pass" in err
+    skill = json.loads((tmp_path / "skill.json").read_text())
+    assert failed[0] not in skill["buoy_ids"]
+    assert len(skill["buoy_ids"]) >= 2  # the rest of the fleet still contributed

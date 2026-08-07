@@ -54,7 +54,13 @@ from .observe import (
     NDBCFixtureSource,
     NDBCSource,
 )
-from .publish import build_payload, prune_index, update_index, write_spot_json
+from .publish import (
+    build_payload,
+    load_skill_ceilings,
+    prune_index,
+    update_index,
+    write_spot_json,
+)
 from .score import score_hour
 from .spectra import (
     NDBCSpectraSource,
@@ -76,6 +82,7 @@ from .verify import (
     parse_marine_waves,
     render_lead_scorecard,
     render_scorecard,
+    skill_payload,
     with_energy_period,
 )
 
@@ -118,6 +125,12 @@ def _build_parser() -> argparse.ArgumentParser:
     target = verify.add_mutually_exclusive_group(required=True)
     target.add_argument("--buoy", help="buoy id from the registry, e.g. 46042")
     target.add_argument("--near", help="spot id - score the nearest in-range buoy(s)")
+    target.add_argument(
+        "--all-buoys",
+        action="store_true",
+        help="score every registered buoy (the scheduled fleet skill pass). ISRAMAR "
+        "buoys are skipped: their data is manual-calibration-only (legal red line)",
+    )
     verify.add_argument("--buoys-dir", type=Path, default=Path("data/buoys"))
     verify.add_argument("--spots-dir", type=Path, default=Path("data/spots"))
     verify.add_argument("--radius-km", type=float, default=150.0, help="--near search radius")
@@ -130,6 +143,14 @@ def _build_parser() -> argparse.ArgumentParser:
         help="score archived forecasts by lead time (instead of the live nowcast)",
     )
     verify.add_argument("--archive-dir", type=Path, default=ARCHIVE_DIR)
+    verify.add_argument(
+        "--write-skill",
+        action="store_true",
+        help="with --archive: persist the lead-bucket Hs scorecard as skill.json, the "
+        "measured horizon ceilings run --all publishes fleet-wide. Opt-in on purpose: "
+        "it should only be written from a run covering the full buoy fleet, not the "
+        "single-buoy spot checks",
+    )
     verify.add_argument(
         "--spectra",
         action="store_true",
@@ -315,6 +336,9 @@ def _cmd_run(args: argparse.Namespace) -> int:
         else OpenMeteoSource(capture_dir=args.capture)
     )
     now = datetime.now(UTC)
+    # measured horizon ceilings from the verification harness, if `verify --archive`
+    # has run and matured past its sample floor; None -> static defaults (2026-08-07)
+    skill = load_skill_ceilings(ARCHIVE_DIR.parent / "skill.json")
 
     # one deep-water sample per unique offshore point; each spot may have its own, so a
     # full run fetches them all in a single batched request (fetch_many) - no throttling.
@@ -357,7 +381,9 @@ def _cmd_run(args: argparse.Namespace) -> int:
                 profile = load_profile(spot.id, BATHY_DIR)
                 wet_depths = profile.wet_depths_deep_to_shallow() if profile else None
                 scored = [score_hour(spot, h, wet_depths) for h in hours]
-                payload = build_payload(spot, scored, fetched_at=raw.fetched_at, now=now)
+                payload = build_payload(
+                    spot, scored, fetched_at=raw.fetched_at, now=now, skill=skill
+                )
                 path = write_spot_json(payload, args.out)
                 update_index(payload, args.out)
             except Exception as e:
@@ -460,7 +486,17 @@ def _cmd_verify(args: argparse.Namespace) -> int:
     buoys = load_all_buoys(args.buoys_dir, args.isramar_dir)
 
     targets: list[tuple[Buoy, float | None]]
-    if args.buoy:
+    if getattr(args, "all_buoys", False):
+        targets = []
+        for b in sorted(buoys.values(), key=lambda b: b.id):
+            if b.source == "isramar":
+                # legal red line (CLAUDE.md): ISRAMAR data is all-rights-reserved,
+                # manual validation during calibration only - a scheduled fleet
+                # pass must never read it
+                print(f"{b.id}: skipped - ISRAMAR obs are manual-calibration-only")
+                continue
+            targets.append((b, None))
+    elif args.buoy:
         buoy = buoys.get(str(args.buoy))
         if buoy is None:
             print(f"unknown buoy {args.buoy!r}; known: {', '.join(sorted(buoys))}", file=sys.stderr)
@@ -482,6 +518,10 @@ def _cmd_verify(args: argparse.Namespace) -> int:
             return 0
         targets = list(near)
 
+    # per-buoy lead scorecards for the om (published-model) source, persisted as
+    # skill.json after the loop - the harness output publish's horizon ceilings read
+    skill_by_lead: list[dict] = []
+    skill_buoys: list[str] = []
     for buoy, dist in targets:
         if args.spectra:
             # measured-spectra validation needs NDBC spectral files, which only NDBC has
@@ -499,26 +539,60 @@ def _cmd_verify(args: argparse.Namespace) -> int:
                 continue
             print(render_spectra_report(buoy, build_report(specs)))
             continue
-        obs = _obs_for(buoy, args)
-        source = args.source if args.archive else "om"
-        variables = SOURCE_VARIABLES[source]
-        if source == "om":
-            # like-for-like period: Open-Meteo serves Tm-1,0, the met file only APD (Tm02)
-            obs, variables = _with_measured_energy_period(buoy, obs, args, variables)
-        if args.archive:
-            key = buoy.id + SOURCE_KEY_SUFFIX[args.source]
-            rows = FileArchiveStore(args.archive_dir).read(key)
-            by_lead = lead_time_scorecard(
-                rows,
-                obs,
-                tol_min=args.tol_min,
-                variables=variables,
-            )
-            print(render_lead_scorecard(buoy, by_lead))
-        else:
-            model = _model_for(buoy, args)
-            scores = build_scorecard(model, obs, tol_min=args.tol_min, variables=variables)
-            print(render_scorecard(buoy, dist, scores))
+        try:
+            obs = _obs_for(buoy, args)
+            source = args.source if args.archive else "om"
+            variables = SOURCE_VARIABLES[source]
+            if source == "om":
+                # like-for-like period: Open-Meteo serves Tm-1,0, the met file only APD (Tm02)
+                obs, variables = _with_measured_energy_period(buoy, obs, args, variables)
+            if args.archive:
+                key = buoy.id + SOURCE_KEY_SUFFIX[args.source]
+                rows = FileArchiveStore(args.archive_dir).read(key)
+                by_lead = lead_time_scorecard(
+                    rows,
+                    obs,
+                    tol_min=args.tol_min,
+                    variables=variables,
+                )
+                print(render_lead_scorecard(buoy, by_lead))
+                if source == "om":
+                    skill_by_lead.append(by_lead)
+                    skill_buoys.append(buoy.id)
+            else:
+                model = _model_for(buoy, args)
+                scores = build_scorecard(model, obs, tol_min=args.tol_min, variables=variables)
+                print(render_scorecard(buoy, dist, scores))
+        except Exception as e:
+            # the fleet pass degrades per buoy (same philosophy as run --all per
+            # spot): one obs outage drops that buoy from this skill measurement
+            # instead of killing the cycle's whole pass. A targeted run still
+            # raises - there a failure is the answer the operator asked for.
+            if not getattr(args, "all_buoys", False):
+                raise
+            print(f"{buoy.id}: FAILED ({e}) - left out of this skill pass", file=sys.stderr)
+    if skill_by_lead and getattr(args, "write_skill", False):
+        # Opt-in (--write-skill), because this file is FLEET-WIDE state: run --all
+        # feeds it to every spot's ceiling, and the deploy README's single-buoy spot
+        # check (`verify --buoy 46042 --archive`) must not silently clobber a
+        # full-fleet measurement with one Pacific station's skill. Sits next to the
+        # archive dir (data/verify/skill.json), never inside it - the archive holds
+        # append-only forecast rows, this is derived and rewritable. Written via
+        # tmp+replace so a killed run can't leave the torn file load_skill_ceilings
+        # then has to throw away.
+        skill_path = args.archive_dir.parent / "skill.json"
+        skill_path.parent.mkdir(parents=True, exist_ok=True)
+        payload = skill_payload(
+            skill_by_lead,
+            generated=datetime.now(UTC).isoformat(timespec="seconds"),
+            buoy_ids=skill_buoys,
+        )
+        tmp = skill_path.with_suffix(".json.tmp")
+        tmp.write_text(json.dumps(payload, indent=1) + "\n", encoding="utf-8")
+        tmp.replace(skill_path)
+        print(f"skill: wrote {skill_path} (buoys: {', '.join(sorted(skill_buoys))})")
+    elif skill_by_lead:
+        print("skill: not persisted (pass --write-skill to update the published ceilings)")
     return 0
 
 
@@ -715,9 +789,14 @@ def _cmd_bathy(args: argparse.Namespace) -> int:
         path = args.out / f"{spot.id}.json"
         path.write_text(json.dumps(profile.to_dict(), indent=2) + "\n", encoding="utf-8")
         written += 1
-        warn = ""
+        warns = []
         if profile.land_samples:
-            warn = f"  ⚠ {profile.land_samples} land sample(s) - check shore-normal"
+            warns.append(f"{profile.land_samples} land sample(s) - check shore-normal")
+        if profile.missing_samples:
+            # a hole reads as `nan m` in the numbers above and was otherwise silent -
+            # land_samples can't see it, so a whole sweep could hide one in 199 lines
+            warns.append(f"{profile.missing_samples} sample(s) with no GEBCO elevation")
+        warn = f"  ⚠ {'; '.join(warns)}" if warns else ""
         print(
             f"{spot.id}: near {profile.nearshore_depth_m:.0f} m → offshore "
             f"{profile.offshore_depth_m:.0f} m (slope {profile.mean_slope_m_per_km:.1f} m/km) "

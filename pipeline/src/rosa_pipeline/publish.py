@@ -23,20 +23,98 @@ TABLE_STEP_H = 3
 OUTLOOK_DAYS = 16
 
 
-def _horizon_ceiling(day_index: int) -> float:
+# Tier -> (static fallback ceiling, lead buckets whose measured skill covers it).
+# The static numbers are the pre-2026-08-07 hand-set constants; they remain the
+# fallback whenever the archive hasn't matured enough distinct hours in a tier.
+# Bucket lists cover each tier's day range EXACTLY (day N = leads 24N..24N+24 h):
+# tier 0 = days 0-3 = 0-96 h, tier 1 = days 4-9 = 96-240 h, tier 2 = day 10+.
+# That is why verify.LEAD_BUCKETS splits at 96 h and 240 h - a tier priced from
+# fresher leads than the days it covers would overstate confidence (the day-3
+# bug caught in the 2026-08-07 review).
+_CEILING_TIERS: tuple[tuple[int | None, float, tuple[str, ...]], ...] = (
+    (3, 1.0, ("0-1d", "1-3d", "3-4d")),
+    (9, 0.85, ("4-5d", "5-7d", "7-9d")),
+    (None, 0.4, ("9d+",)),
+)
+SKILL_N_FLOOR = 100  # distinct compared hours a tier needs before its measurement is trusted
+SKILL_CEILING_MIN = 0.1  # even a terrible measured tier keeps a visible floor
+
+
+def load_skill_ceilings(path: Path) -> tuple[dict[int, float], str] | None:
+    """Measured horizon ceilings from ``verify --archive``'s skill.json, or None.
+
+    Maps each tier's n-weighted scatter index onto a ceiling (1 - SI, clamped):
+    SI is rmse relative to the observed mean, so "typically 20% off" reads as "at
+    most 0.8 confident" - crude, monotone, and auditable against the harness.
+    A tier whose buckets hold fewer than SKILL_N_FLOOR distinct hours falls back
+    to the static constant; with the archive's no-backfill rule the far tiers
+    ship on fallback for their first weeks, deliberately. Ceilings are then
+    clamped monotone non-increasing across tiers: near leads mature first, so a
+    measured tier 0 below a still-static tier 1 would otherwise publish day 5 at
+    HIGHER confidence than tomorrow - skill never improves with lead. Second
+    element is the provenance string the payload publishes, naming the buoys the
+    measurement came from. The whole body is guarded: skill.json is derived,
+    rewritable state written non-atomically, so a torn or malformed file must
+    read as "no measurement" (static defaults), never abort a publish cycle."""
+    try:
+        skill = json.loads(path.read_text(encoding="utf-8"))
+        buckets = skill["buckets"]
+        ceilings: dict[int, float] = {}
+        for tier_i, (_max_day, static, labels) in enumerate(_CEILING_TIERS):
+            entries = [buckets.get(lb) or {} for lb in labels]
+            n = sum(int(e.get("n") or 0) for e in entries)
+            sis = [
+                (float(e["scatter_index"]), int(e["n"]))
+                for e in entries
+                if e.get("scatter_index") is not None
+            ]
+            if n < SKILL_N_FLOOR or not sis:
+                ceilings[tier_i] = static
+                continue
+            si = sum(v * w for v, w in sis) / sum(w for _, w in sis)
+            ceilings[tier_i] = max(SKILL_CEILING_MIN, min(1.0, 1.0 - si))
+        for tier_i in range(1, len(_CEILING_TIERS)):
+            ceilings[tier_i] = min(ceilings[tier_i], ceilings[tier_i - 1])
+        generated = skill.get("generated", "?")
+        buoys = ", ".join(skill.get("buoy_ids") or []) or "unknown buoys"
+    except (OSError, ValueError, KeyError, TypeError, AttributeError):
+        # AttributeError: a bucket map that parsed as a non-dict (.get on a str)
+        if path.exists():
+            print(f"warn: {path} is unreadable - static ceilings this run")
+        return None
+    if all(ceilings[i] == static for i, (_d, static, _l) in enumerate(_CEILING_TIERS)):
+        # nothing matured past the floor - identical to defaults, say so honestly
+        return ceilings, (
+            f"static defaults (skill.json {generated}: no tier past n>={SKILL_N_FLOOR})"
+        )
+    return ceilings, f"measured (verify skill.json {generated}, buoys: {buoys})"
+
+
+def _horizon_ceiling(day_index: int, ceilings: dict[int, float] | None = None) -> float:
     """Confidence a forecast this far out can earn even if every model agrees - skill
-    degrades with lead time, and the day 10+ tail is GFS-Wave-only."""
-    if day_index <= 3:
-        return 1.0
-    if day_index <= 9:
-        return 0.85
-    return 0.4
+    degrades with lead time, and the day 10+ tail is GFS-Wave-only. ``ceilings``
+    (2026-08-07) substitutes measured per-tier values derived from the shipped
+    verification harness; None keeps the static constants."""
+    for tier_i, (max_day, static, _labels) in enumerate(_CEILING_TIERS):
+        if max_day is None or day_index <= max_day:
+            return ceilings[tier_i] if ceilings is not None else static
+    return _CEILING_TIERS[-1][1]  # unreachable - the last tier is open-ended
 
 
-def _confidence(day_index: int, agreement_score: float | None) -> tuple[str, float]:
+def _confidence(
+    day_index: int,
+    agreement_score: float | None,
+    ceilings: dict[int, float] | None = None,
+) -> tuple[str, float]:
     """Combine multi-model agreement with the horizon ceiling → (label, 0-1 score).
-    No ensemble (agreement None) → fall back to the horizon proxy alone."""
-    ceiling = _horizon_ceiling(day_index)
+    No ensemble (agreement None) → fall back to the horizon proxy alone.
+
+    Closure deliberately does NOT feed this (2026-08-07 review): capping on
+    closure² is the honest option ALGORITHM.md sketches, but shipping it is a
+    fleet-wide confidence change (7.5% of published hours leave "high") and so
+    needs a Stage-0 A/B and a CALIBRATION.md entry first - plus a small-Hs guard,
+    since at calm hours closure dips are quantisation noise, not missing sea."""
+    ceiling = _horizon_ceiling(day_index, ceilings)
     base = agreement_score if agreement_score is not None else ceiling
     score = min(base, ceiling)
     label = "high" if score >= 0.7 else "medium" if score >= 0.45 else "low"
@@ -160,8 +238,16 @@ def _hour_entry(spot: Spot, s: ScoredHour, tz: ZoneInfo) -> dict:
     return entry
 
 
-def build_payload(spot: Spot, scored: list[ScoredHour], *, fetched_at: str, now: datetime) -> dict:
+def build_payload(
+    spot: Spot,
+    scored: list[ScoredHour],
+    *,
+    fetched_at: str,
+    now: datetime,
+    skill: tuple[dict[int, float], str] | None = None,
+) -> dict:
     tz = ZoneInfo(spot.timezone)
+    ceilings, ceiling_source = skill if skill is not None else (None, "static defaults")
 
     # The fetch reaches one day back (fetch.PAST_DAYS) so the series covers local
     # midnight at any longitude; publish from the spot's local today so every day
@@ -209,7 +295,7 @@ def build_payload(spot: Spot, scored: list[ScoredHour], *, fetched_at: str, now:
         "wind": _r(current.wind_score, 1),
     }
     cur_date = current.hour.time.astimezone(tz).date().isoformat()
-    cur_label, cur_score = _confidence(lead_days(cur_date), current.hour.agreement_score)
+    cur_label, cur_score = _confidence(lead_days(cur_date), current.hour.agreement_score, ceilings)
     current_entry["confidence"] = {
         "label": cur_label,
         "score": cur_score,
@@ -219,7 +305,7 @@ def build_payload(spot: Spot, scored: list[ScoredHour], *, fetched_at: str, now:
     days = []
     for date_str, day_hours in sorted_dates[:OUTLOOK_DAYS]:
         best = max(_daylight(spot, day_hours, date_str, tz), key=lambda s: s.rating)
-        label, score = _confidence(lead_days(date_str), _day_agreement(day_hours))
+        label, score = _confidence(lead_days(date_str), _day_agreement(day_hours), ceilings)
         days.append(
             {
                 "date": date_str,
@@ -233,7 +319,16 @@ def build_payload(spot: Spot, scored: list[ScoredHour], *, fetched_at: str, now:
 
     has_spectral = any(s.hour.spectral is not None for s in scored)
     # swell events (CLAUDE.md spec): >= 12 h of >= 2x-baseline energy, GOOD+ at peak -
-    # the alerts/swell-stories seed; local-time ISO like every other timestamp here
+    # the alerts/swell-stories seed; local-time ISO like every other timestamp here.
+    #
+    # DETECTED over the whole series (the trailing baseline needs the history), but only
+    # PUBLISHED when the peak lands on a day this payload actually shows. Detecting over
+    # `scored` and publishing unfiltered leaked events past both trims above: one peaking
+    # on the half-covered tail day - whose h_peak/rating are read off exactly the few
+    # hours `_covers_day` had just rejected as too thin to forecast from - and one that
+    # finished yesterday, which the web renders as live (notify filters those, the payload
+    # did not). Both link to `/#/spot/<id>?ev=<peak date>`, a day with no card behind it.
+    published_dates = {d["date"] for d in days}
     events = [
         {
             "start": e.start.astimezone(tz).isoformat(timespec="minutes"),
@@ -245,6 +340,7 @@ def build_payload(spot: Spot, scored: list[ScoredHour], *, fetched_at: str, now:
             "bucket": e.peak_bucket,
         }
         for e in detect_events(scored)
+        if e.peak.astimezone(tz).date().isoformat() in published_dates
     ]
     return {
         "spot": {
@@ -277,6 +373,9 @@ def build_payload(spot: Spot, scored: list[ScoredHour], *, fetched_at: str, now:
             "member": "ecmwf-ifs-0p25 (open data)" if has_spectral else None,
             "spread": "parametric (modeled)",
         },
+        # where the horizon ceiling came from ("why this rating" principle, 2026-08-07):
+        # a reader can regenerate the measured value with `verify --archive` and compare
+        "confidence_meta": {"ceiling_source": ceiling_source},
         "current": current_entry,
         "hours": [_hour_entry(spot, s, tz) for s in table_hours],
         "days": days,
@@ -292,12 +391,8 @@ def write_spot_json(payload: dict, out_dir: Path) -> Path:
     return path
 
 
-def update_index(payload: dict, out_dir: Path) -> Path:
-    """Upsert this spot's summary into index.json (list of all published spots)."""
-    out_dir.mkdir(parents=True, exist_ok=True)
-    path = out_dir / "index.json"
-    index: dict = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {"spots": {}}
-    index["spots"][payload["spot"]["id"]] = {
+def _index_entry(payload: dict) -> dict:
+    return {
         "name": payload["spot"]["name"],
         "region": payload["spot"].get("region", ""),
         "lat": payload["spot"]["lat"],
@@ -315,6 +410,48 @@ def update_index(payload: dict, out_dir: Path) -> Path:
             else {}
         ),
     }
+
+
+def _read_index(out_dir: Path) -> dict:
+    """index.json, rebuilt from the payloads on disk when it can't be read.
+
+    ``write_text`` is not atomic, so a kill between truncate and flush (VM reboot, OOM,
+    a publish.sh timeout) leaves a half-written index.json. Parsed bare, that made every
+    spot in ``_cmd_run``'s per-spot guard raise JSONDecodeError, ``published`` stay 0 and
+    the cycle return 1 WITHOUT rewriting the file - so the next cycle failed identically
+    and the pipeline stayed down until a human deleted it. There is no request-time
+    backend to cover that gap.
+
+    Nothing has to be invented to recover: every field the index holds is a copy of one
+    already in ``spots/<id>.json``, so the payload directory is the authority and the
+    index is a derived cache. A payload that is itself unreadable is skipped - the run
+    that publishes it will upsert it back."""
+    path = out_dir / "index.json"
+    if path.exists():
+        try:
+            index = json.loads(path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            index = None
+        else:
+            if isinstance(index, dict) and isinstance(index.get("spots"), dict):
+                return index
+        print(f"warn: {path} is unreadable - rebuilding it from {out_dir / 'spots'}")
+
+    spots: dict[str, dict] = {}
+    for p in sorted((out_dir / "spots").glob("*.json")):
+        try:
+            spots[p.stem] = _index_entry(json.loads(p.read_text(encoding="utf-8")))
+        except (json.JSONDecodeError, OSError, KeyError, TypeError):
+            print(f"warn: {p} is unreadable - left out of the rebuilt index")
+    return {"spots": spots}
+
+
+def update_index(payload: dict, out_dir: Path) -> Path:
+    """Upsert this spot's summary into index.json (list of all published spots)."""
+    out_dir.mkdir(parents=True, exist_ok=True)
+    path = out_dir / "index.json"
+    index = _read_index(out_dir)
+    index["spots"][payload["spot"]["id"]] = _index_entry(payload)
     path.write_text(json.dumps(index, separators=(",", ":")), encoding="utf-8")
     return path
 
@@ -340,7 +477,7 @@ def prune_index(known_ids: set[str], out_dir: Path) -> list[str]:
     stale: set[str] = set()
     index: dict | None = None
     if path.exists():
-        index = json.loads(path.read_text(encoding="utf-8"))
+        index = _read_index(out_dir)  # same self-heal as update_index - never raise here
         stale |= set(index.get("spots", {})) - known_ids
     if spots_dir.is_dir():
         stale |= {p.stem for p in spots_dir.glob("*.json")} - known_ids

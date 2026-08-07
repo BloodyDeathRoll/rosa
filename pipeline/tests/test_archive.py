@@ -43,7 +43,7 @@ def _obs(t: datetime, **kw) -> BuoyObs:
 
 def test_lead_time_buckets_and_scoring() -> None:
     valid = datetime(2026, 7, 22, 12, 0, tzinfo=UTC)
-    # two forecasts for the SAME valid time: one made 6 h ahead (0-1d), one 4 days ahead (3-5d)
+    # two forecasts for the SAME valid time: one made 6 h ahead (0-1d), one 4 days ahead (4-5d)
     rows = [
         {
             "run": (valid - timedelta(hours=6)).isoformat(),
@@ -65,10 +65,14 @@ def test_lead_time_buckets_and_scoring() -> None:
     # near lead is accurate, far lead drifts hot - exactly the signal the archive exists to show
     assert by_lead["0-1d"]["hs"].n == 1
     assert abs(by_lead["0-1d"]["hs"].bias - 0.1) < 1e-9
-    assert by_lead["3-5d"]["hs"].n == 1
-    assert abs(by_lead["3-5d"]["hs"].bias - 0.6) < 1e-9
+    # a 96 h lead lands in 4-5d: buckets split at 96 h / 240 h so each ceiling
+    # tier is priced only from the leads of the days it covers (2026-08-07)
+    assert by_lead["4-5d"]["hs"].n == 1
+    assert abs(by_lead["4-5d"]["hs"].bias - 0.6) < 1e-9
     # buckets with no matured forecasts stay empty, not errored
-    assert by_lead["7d+"]["hs"].n == 0
+    assert by_lead["3-4d"]["hs"].n == 0
+    assert by_lead["7-9d"]["hs"].n == 0
+    assert by_lead["9d+"]["hs"].n == 0
 
 
 def test_lead_scorecard_ignores_unmatched_valid_times() -> None:

@@ -79,6 +79,16 @@ class DepthProfile:
         return sum(1 for s in self.samples if s.depth_m <= 0)
 
     @property
+    def missing_samples(self) -> int:
+        """Count of ray points the source returned no elevation for (depth NaN).
+
+        Its own counter, not folded into ``land_samples``: a hole is not land, and the
+        two want different fixes (a hole is a source gap, land is a wrong shore-normal).
+        Needed at all because ``nan <= 0`` is False, so a hole was invisible to every QC
+        path - ``bathy`` printed no warning and the march quietly ran a shorter ray."""
+        return sum(1 for s in self.samples if not math.isfinite(s.depth_m))
+
+    @property
     def mean_slope_m_per_km(self) -> float:
         near, far = self.samples[0], self.samples[-1]
         span = far.dist_km - near.dist_km
@@ -92,7 +102,14 @@ class DepthProfile:
     @classmethod
     def from_dict(cls, d: dict) -> DepthProfile:
         samples = tuple(
-            DepthSample(dist_km=s["dist_km"], lat=s["lat"], lon=s["lon"], depth_m=s["depth_m"])
+            DepthSample(
+                dist_km=s["dist_km"],
+                lat=s["lat"],
+                lon=s["lon"],
+                # null = the source had no elevation here; back to NaN, which every
+                # depth consumer already treats as "not a sample" (see to_dict)
+                depth_m=float("nan") if s["depth_m"] is None else s["depth_m"],
+            )
             for s in d["samples"]
         )
         origin = d.get("origin") or (None, None)
@@ -113,22 +130,30 @@ class DepthProfile:
         return drift_km * 1000.0 <= tol_m
 
     def to_dict(self) -> dict:
+        # A missing sample serialises as JSON `null`, never as Python's `NaN` literal:
+        # `json.dumps` emits NaN happily and `json.loads` reads it back, so the breakage
+        # only shows up in a strict reader (RFC 8259, JSON.parse, serde) - i.e. wherever
+        # the spot DB is consumed by something that isn't this pipeline.
+        def _round(x: float, digits: int) -> float | None:
+            return round(x, digits) if math.isfinite(x) else None
+
         return {
             "spot": self.spot_id,
             "source": "gebco2020 via opentopodata",
             # full precision, not the samples' 5 dp: this is an identity, not a measurement
             "origin": [self.origin_lat, self.origin_lon],
             "bearing_seaward_deg": round(self.bearing_seaward_deg, 1),
-            "nearshore_depth_m": round(self.nearshore_depth_m, 1),
-            "offshore_depth_m": round(self.offshore_depth_m, 1),
-            "mean_slope_m_per_km": round(self.mean_slope_m_per_km, 2),
+            "nearshore_depth_m": _round(self.nearshore_depth_m, 1),
+            "offshore_depth_m": _round(self.offshore_depth_m, 1),
+            "mean_slope_m_per_km": _round(self.mean_slope_m_per_km, 2),
             "land_samples": self.land_samples,
+            "missing_samples": self.missing_samples,
             "samples": [
                 {
                     "dist_km": s.dist_km,
                     "lat": round(s.lat, 5),
                     "lon": round(s.lon, 5),
-                    "depth_m": round(s.depth_m, 1),
+                    "depth_m": _round(s.depth_m, 1),
                 }
                 for s in self.samples
             ],

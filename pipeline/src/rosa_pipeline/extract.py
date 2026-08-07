@@ -5,7 +5,7 @@ from __future__ import annotations
 from bisect import bisect_left
 from datetime import UTC, datetime, timedelta
 
-from .confidence import agreement_from_heights, member_heights_at
+from .confidence import agreement_from_members, member_directions_at, member_heights_at
 from .fetch import TP_MODEL, TP_SUFFIX, RawForecast
 from .models import HourForecast, SpectralSea, SwellPartition
 
@@ -158,9 +158,17 @@ def extract_hours(
         member_hs = (
             member_heights_at(ens, ens_index[t]) if ens is not None and t in ens_index else []
         )
+        # member bearings feed Agreement.dir_span_deg, a recorded DIAGNOSTIC only
+        # (2026-08-07) - direction does not score until a calibration entry says
+        # how (see confidence.py). The ECMWF spectral member below contributes
+        # height only - it has no per-member direction column here, and a missing
+        # bearing must not read as disagreement.
+        member_dirs = (
+            member_directions_at(ens, ens_index[t]) if ens is not None and t in ens_index else []
+        )
         if sp is not None and sp.swh is not None:
             member_hs = [*member_hs, sp.swh]
-        agreement = agreement_from_heights(member_hs)
+        agreement = agreement_from_members(member_hs, member_dirs)
         hours.append(
             HourForecast(
                 time=time,

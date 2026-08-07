@@ -109,6 +109,28 @@ def ang_diff(a: float, b: float) -> float:
     return (a - b + 180.0) % 360.0 - 180.0
 
 
+def _circular_mean_deg(vals: list[float]) -> float:
+    """Vector-mean bearing - naive averaging breaks across the 0/360 wrap."""
+    s = sum(math.sin(math.radians(v)) for v in vals)
+    c = sum(math.cos(math.radians(v)) for v in vals)
+    return math.degrees(math.atan2(s, c)) % 360.0
+
+
+def _collapse_hour(hour_pairs: list[tuple[float, float]], circular: bool) -> tuple[float, float]:
+    """Average the archived runs of one valid hour into a single (model, obs) pair.
+
+    The obs side is the same observation repeated (identical valid -> identical
+    nearest match), so its mean is a no-op kept for symmetry; the model side is a
+    true mean across runs. Direction averages as a vector, not arithmetically."""
+    if len(hour_pairs) == 1:
+        return hour_pairs[0]
+    ms = [m for m, _ in hour_pairs]
+    os_ = [o for _, o in hour_pairs]
+    if circular:
+        return _circular_mean_deg(ms), _circular_mean_deg(os_)
+    return sum(ms) / len(ms), sum(os_) / len(os_)
+
+
 def _obs_index(obs: list[BuoyObs]) -> tuple[list[BuoyObs], list[datetime]]:
     """Sort once, so ``_nearest_obs`` can bisect instead of rescanning.
 
@@ -235,13 +257,80 @@ def build_scorecard(
 
 
 # lead-time buckets (hours): label, lo (inclusive), hi (exclusive)
+# Bucket edges sit exactly on publish._CEILING_TIERS' day boundaries so every
+# ceiling tier is priced from the leads of the days it covers, nothing fresher:
+# 7d+ split at 240 h (day 9/10 tier change, and the day-10+ tail is
+# GFS-Wave-only); 3-5d split at 96 h (2026-08-07 review) because tier 0 ends at
+# day 3 = leads up to 96 h - with a whole 72-120 h bucket, day 3 was priced
+# partly from day-4 forecasts and day 4 partly from day-3 ones.
 LEAD_BUCKETS: tuple[tuple[str, float, float], ...] = (
     ("0-1d", 0.0, 24.0),
     ("1-3d", 24.0, 72.0),
-    ("3-5d", 72.0, 120.0),
+    ("3-4d", 72.0, 96.0),
+    ("4-5d", 96.0, 120.0),
     ("5-7d", 120.0, 168.0),
-    ("7d+", 168.0, float("inf")),
+    ("7-9d", 168.0, 240.0),
+    ("9d+", 240.0, float("inf")),
 )
+
+
+def merge_var_scores(scores: list[VarScore]) -> VarScore | None:
+    """n-weighted merge of one variable's scores across buoys (for skill.json).
+
+    bias and mae merge exactly (they are n-weighted means); rmse merges exactly
+    via the mean of squares; scatter_index has lost its mean_obs so it merges as
+    an n-weighted mean of the per-buoy values - approximate, and good enough for
+    a ceiling with a sample floor in front of it."""
+    scored = [s for s in scores if s.n > 0]
+    if not scored:
+        return None
+    n = sum(s.n for s in scored)
+    first = scored[0]
+    bias = sum(s.bias * s.n for s in scored) / n
+    mae = sum(s.mae * s.n for s in scored) / n
+    rmse = math.sqrt(sum(s.rmse * s.rmse * s.n for s in scored) / n)
+    sis = [(s.scatter_index, s.n) for s in scored if s.scatter_index is not None]
+    si = sum(v * w for v, w in sis) / sum(w for _, w in sis) if sis else None
+    return VarScore(first.key, first.label, first.unit, n, bias, mae, rmse, si)
+
+
+def skill_payload(
+    per_buoy: list[dict[str, dict[str, VarScore]]],
+    *,
+    key: str = "hs",
+    generated: str,
+    buoy_ids: list[str] | None = None,
+) -> dict:
+    """The lead-bucket skill summary ``verify --archive`` persists for the pipeline.
+
+    One variable (Hs - the axis confidence is calibrated on), merged across buoys,
+    one entry per lead bucket. Consumed by publish.load_skill_ceilings; every
+    number is straight from lead_time_scorecard, so the ceiling it feeds is
+    auditable against the same harness the accuracy claims come from. ``buoy_ids``
+    is the provenance the payload carries all the way to the published
+    confidence_meta: a fleet-wide ceiling measured at one buoy must say so."""
+    buckets: dict[str, dict] = {}
+    for label, _lo, _hi in LEAD_BUCKETS:
+        merged = merge_var_scores([b[label][key] for b in per_buoy if label in b])
+        if merged is None:
+            buckets[label] = {"n": 0}
+            continue
+        buckets[label] = {
+            "n": merged.n,
+            "bias": round(merged.bias, 4),
+            "mae": round(merged.mae, 4),
+            "rmse": round(merged.rmse, 4),
+            "scatter_index": (
+                round(merged.scatter_index, 4) if merged.scatter_index is not None else None
+            ),
+        }
+    return {
+        "generated": generated,
+        "variable": key,
+        "buoys": len(per_buoy),
+        "buoy_ids": sorted(buoy_ids or []),
+        "buckets": buckets,
+    }
 
 
 def _bucket_for(lead_h: float, buckets: tuple[tuple[str, float, float], ...]) -> str | None:
@@ -272,8 +361,16 @@ def lead_time_scorecard(
         o_attr: _obs_index([o for o in obs if getattr(o, o_attr) is not None])
         for *_head, o_attr, _circ in variables
     }
-    pairs: dict[str, dict[str, list[tuple[float, float]]]] = {
-        label: {key: [] for key, *_ in variables} for label, _lo, _hi in buckets
+    # The archive appends the whole horizon 4x/day, so one valid hour is archived
+    # once per run and several of those rows land inside the same lead bucket.
+    # Pairing each row independently counted the same (hour, observation)
+    # comparison once per archived run - n was inflated 3.7-27.8x and the standard
+    # error the headline accuracy claim rests on was overstated by ~sqrt(that)
+    # (2026-08-07 Dream review). Collapse to one averaged comparison per distinct
+    # valid hour per bucket: every run still contributes signal, but n counts
+    # what a reader assumes it counts - independent compared hours.
+    grouped: dict[str, dict[str, dict[str, list[tuple[float, float]]]]] = {
+        label: {key: {} for key, *_ in variables} for label, _lo, _hi in buckets
     }
     for row in rows:
         run = datetime.fromisoformat(row["run"])
@@ -288,7 +385,14 @@ def lead_time_scorecard(
                 continue
             o = _nearest_obs(valid, valid_obs[o_attr], tol)
             if o is not None:
-                pairs[label][key].append((mv, getattr(o, o_attr)))
+                grouped[label][key].setdefault(row["valid"], []).append((mv, getattr(o, o_attr)))
+    pairs: dict[str, dict[str, list[tuple[float, float]]]] = {
+        label: {
+            key: [_collapse_hour(hour_pairs, circ) for hour_pairs in grouped[label][key].values()]
+            for key, _lbl, _unit, _m, _o, circ in variables
+        }
+        for label, _lo, _hi in buckets
+    }
     return {
         label: {
             key: _score_var(key, lbl, unit, pairs[label][key], circ)
