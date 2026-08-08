@@ -27,6 +27,7 @@ from pathlib import Path
 import httpx
 
 from .gfswave import FILTER_URL, RESOLUTION, Box, _is_grib, _lon360, filter_url, pick_cycle
+from .publish import write_json_atomic
 from .spots import load_spots
 
 # One basin box can serve several spot regions (Costa Rica + Nicaragua share a coast).
@@ -238,9 +239,7 @@ def run_swellmap(
             if payload is None:
                 print(f"warn: swellmap {basin.name}: no frames fetched - keeping previous file")
                 continue
-            (target / f"{basin.name}.json").write_text(
-                json.dumps(payload, separators=(",", ":")), encoding="utf-8"
-            )
+            write_json_atomic(target / f"{basin.name}.json", payload)
             written.append(basin.name)
             index[basin.name] = {
                 "regions": payload["regions"],
@@ -252,9 +251,23 @@ def run_swellmap(
     if written:
         # merge over the previous index so a skipped basin keeps its entry
         idx_path = target / "index.json"
-        prev = json.loads(idx_path.read_text(encoding="utf-8")) if idx_path.exists() else {}
+        prev: dict = {}
+        if idx_path.exists():
+            try:
+                loaded = json.loads(idx_path.read_text(encoding="utf-8"))
+            except (json.JSONDecodeError, OSError):
+                # a torn index (written non-atomically before write_json_atomic, or
+                # damaged any other way) parsed bare crash-looped every later run -
+                # after all basins
+                # had already been fetched, and before the world layer got to run. A
+                # basin skipped this run loses its entry until its next good fetch;
+                # degraded, but the map stays alive (same contract as publish._read_index).
+                print(f"warn: {idx_path} is unreadable - rebuilding from this run's basins")
+            else:
+                if isinstance(loaded, dict):
+                    prev = loaded
         prev.update(index)
-        idx_path.write_text(json.dumps(prev, separators=(",", ":")), encoding="utf-8")
+        write_json_atomic(idx_path, prev)
     return written
 
 
@@ -470,6 +483,6 @@ def run_swellmap_world(out_dir: Path, now: datetime | None = None) -> int:
     if meta is None:
         print("warn: swellmap world: no frames fetched - keeping previous files")
         return 0
-    (target / "world.json").write_text(json.dumps(meta, separators=(",", ":")), encoding="utf-8")
+    write_json_atomic(target / "world.json", meta)
     print(f"swellmap world: {len(meta['frames'])} frames @ {meta['grid_deg']:g} deg")
     return len(meta["frames"])

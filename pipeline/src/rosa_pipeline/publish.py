@@ -383,11 +383,23 @@ def build_payload(
     }
 
 
+def write_json_atomic(path: Path, obj: dict) -> None:
+    """Compact JSON via tmp+replace, so a killed run can't leave a torn file.
+
+    publish.sh ships data/out wholesale to the CDN, so a half-written file would
+    serve to every client until the next cycle - and the heal-on-read guards
+    (_read_index, notify._iter_payloads, swellmap's index merge) only protect the
+    pipeline, not the app. Same idiom as skill.json in cli._cmd_verify."""
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    tmp.write_text(json.dumps(obj, separators=(",", ":")), encoding="utf-8")
+    tmp.replace(path)
+
+
 def write_spot_json(payload: dict, out_dir: Path) -> Path:
     spots_dir = out_dir / "spots"
     spots_dir.mkdir(parents=True, exist_ok=True)
     path = spots_dir / f"{payload['spot']['id']}.json"
-    path.write_text(json.dumps(payload, separators=(",", ":")), encoding="utf-8")
+    write_json_atomic(path, payload)
     return path
 
 
@@ -452,7 +464,7 @@ def update_index(payload: dict, out_dir: Path) -> Path:
     path = out_dir / "index.json"
     index = _read_index(out_dir)
     index["spots"][payload["spot"]["id"]] = _index_entry(payload)
-    path.write_text(json.dumps(index, separators=(",", ":")), encoding="utf-8")
+    write_json_atomic(path, index)
     return path
 
 
@@ -489,5 +501,5 @@ def prune_index(known_ids: set[str], out_dir: Path) -> list[str]:
             index.get("spots", {}).pop(spot_id, None)
         (spots_dir / f"{spot_id}.json").unlink(missing_ok=True)
     if index is not None:
-        path.write_text(json.dumps(index, separators=(",", ":")), encoding="utf-8")
+        write_json_atomic(path, index)
     return sorted(stale)

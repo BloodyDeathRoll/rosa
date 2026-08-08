@@ -91,11 +91,24 @@ def event_key(e: SpotEvent) -> str:
     return f"{e.spot_id}:{e.peak.date().isoformat()}"
 
 
+def _iter_payloads(out_dir: Path):
+    """Published spot payloads, skipping any that can't be parsed.
+
+    publish writes spots/<id>.json with a plain ``write_text`` (not atomic) and notify
+    runs on its own cron: a kill mid-publish leaves one half-written payload, which
+    must cost that spot's pushes until it republishes - never the whole notify run
+    (same contract as publish._read_index)."""
+    for path in sorted((out_dir / "spots").glob("*.json")):
+        try:
+            yield json.loads(path.read_text())
+        except (json.JSONDecodeError, OSError):
+            print(f"warn: {path} is unreadable - skipped this notify run")
+
+
 def load_spot_events(out_dir: Path, now: datetime) -> list[SpotEvent]:
     """Every not-yet-finished event across the published payloads."""
     events: list[SpotEvent] = []
-    for path in sorted((out_dir / "spots").glob("*.json")):
-        payload = json.loads(path.read_text())
+    for payload in _iter_payloads(out_dir):
         spot = payload.get("spot", {})
         for e in payload.get("events", []):
             end = datetime.fromisoformat(e["end"])
@@ -442,8 +455,7 @@ def load_feedback_candidates(out_dir: Path, now: datetime) -> list[FeedbackCandi
     from zoneinfo import ZoneInfo
 
     out: list[FeedbackCandidate] = []
-    for path in sorted((out_dir / "spots").glob("*.json")):
-        payload = json.loads(path.read_text())
+    for payload in _iter_payloads(out_dir):
         spot = payload.get("spot", {})
         try:
             local = now.astimezone(ZoneInfo(spot.get("timezone", "UTC")))
