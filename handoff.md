@@ -1,86 +1,88 @@
-# Session Handoff — 2026-08-05 (session 18)
+# Session Handoff — 2026-08-08 (session 20)
 
 ## Goal
-Review the Dream-project pipeline changes (commit `0fec25a`: 4 findings + 5 proposals across
-7 files), pin them with committed regression tests, land everything, and confirm the VM cycle
-shipped it to production.
+Close out session 19's two open items (verify the fleet skill measurement's first
+production runs on the Oracle VM; write the session 19 docs), then pull and land the
+2026-08-08 Dream overnight review.
 
 ## Current State
-- **Everything is done, committed, pushed, deployed, and verified. Working tree is clean.**
-- `main` = `a9f9ca2` (13 regression tests + docs) on top of `0fec25a` (the Dream fixes).
-- **385 tests pass, ruff clean** (`cd pipeline && uv run pytest`), up from 372.
-- **The review verdict on `0fec25a`: sound, no defects.** Verified beyond the diff: swellmap's
-  world branch is gated on `--basin is None`; horizon's per-side budget provably covers the
-  ±90° clip (`anchor ≤ shore_normal < anchor + step`, max span ~200° so dropping the anti-wrap
-  guard is safe); `sorted()` stability is what makes the bisect "last equal-gap wins" claim
-  true; celerities' deep-water branch matches both old functions.
-- **VM cycle confirmed on the new code:** 08:20:01 → 09:29:46 UTC `done`, no FAILED/skipped
-  lines, VM HEAD `a9f9ca2`. CDN spot-check: `marbella.json` serves `fetched_at 08:42Z` at the
-  moved pin (10.0723, -85.7705). **This also closes session 17's open verification** (the
-  Costa Rica pins were confirmed published by the earlier 02:20 cycle).
-- Sessions 15/16 items still open: ISRAMAR email unsent, privacy page inaccurate by explicit
-  user decision (re-offer before public launch), Portugal lead-time archive accruing.
+- **All done, committed, and pushed.** Working tree clean.
+- **VM verified clean (2026-08-08, ~15:00 UTC):** every publish cycle since the 08-07
+  code landed completed — no `FAILED at:` in `publish.log` since the pre-existing
+  08-03 quota incident. The fleet skill pass writes `data/verify/skill.json` each
+  cycle from 15 buoys (12 NDBC + 3 Portugal), zero per-buoy failures.
+- **Measured ceilings are LIVE, not pending.** Payloads publish
+  `ceiling_source: "measured (verify skill.json <ts>, buoys: ...)"` — the archive was
+  seeded with the retired GH-Actions rows, so SKILL_N_FLOOR cleared immediately
+  (0-1d bucket n=5040). "static defaults" appearing NOW would be a regression
+  (check the `warn:` path in `publish.load_skill_ceilings`).
+- **Dream 2026-08-08 review fully applied** (2 findings + 1 proposal, all accepted):
+  the torn-file class is closed at source (atomic writes) and at every reader.
+  405 tests green (402 existing + 3 shipped Dream tests), ruff check clean.
+  `ruff format --check` still flags only the pre-existing `pipeline/tests/test_observe.py`.
+- Dream loop closed: `.state/rosa.applied` has the 3 diff lines (auto-logged by the
+  applier), playbook got one untagged verdict bullet (torn-file seam closed; the
+  "notify parses twice" proposal declined by reviewer and operator alike).
+- **Untested live: the patched write path** — next VM cycle (20:20 UTC pull) is the
+  de-facto smoke, per the accepted no-local-`run --all` stance (Open-Meteo quota).
 
 ## Active Files
-All committed in `a9f9ca2`:
-- `pipeline/tests/test_publish.py` — confidence keyed on lead days, not list position.
-- `pipeline/tests/test_horizon.py` — fully open fan spans the whole ±90° clip, not half.
-- `pipeline/tests/test_cli.py` — `run --all` survives one failing spot (rc 1, batch continues,
-  stderr summary); `swellmap --world-only --basin` rc 2; `--skip-world --world-only` rejected.
-- `pipeline/tests/test_score.py` — docstring wind-gate divisor held to `WIND_GATE_PTS`.
-- `pipeline/tests/test_verify.py` — `_nearest_obs` tie-break pins (equidistant→later,
-  duplicate timestamps→last in input order, unsorted still pairs nearest); renderers show
-  every variable in the card handed in.
-- `pipeline/tests/test_physics.py` — `celerities` vs independent dispersion arithmetic,
-  incl. the 2kd>350 overflow branch.
-- `pipeline/tests/test_experiment.py` — bad frame fails before any candidate is graded.
-- `docs/SESSIONS.md` — SESSION 18 appended.
-- `handoff.md` — this file.
+- `pipeline/src/rosa_pipeline/notify.py` — `_iter_payloads` generator: a torn spot
+  payload skips with a warning instead of killing the whole notify cron run.
+- `pipeline/src/rosa_pipeline/swellmap.py` — guarded `swellmap/index.json` read
+  (torn index → rebuild from this run's basins, no more permanent crash loop);
+  basin/world/index writes via `write_json_atomic`.
+- `pipeline/src/rosa_pipeline/publish.py` — `write_json_atomic` helper (tmp+replace,
+  the `skill.json` idiom) used at all six `data/out` JSON write sites.
+- `docs/SESSIONS.md` — SESSION 19 entry appended.
+- `docs/OPEN-ITEMS.md` — new item 12 (closure/direction scoring gated on the
+  calibration package); pin backlog renumbered 12→13.
 
 ## Changes Made This Session
-1. **Reviewed `0fec25a` before touching anything** — read the full diff, checked every claim
-   against surrounding code, re-ran the suite. Two gaps found: the Dream review's 12
-   red→green tests were never committed (suite stayed at 372), and the handoff was stale.
-2. **Wrote 13 regression tests** covering the 4 findings and the behavior-sensitive
-   proposals. Design choice: the three `_nearest_obs` tests are *preservation* pins — they
-   freeze tie-break behavior the bisect rewrite had to keep (a naive `bisect_left` is what
-   they'd catch; the Dream commit's own 87k-query check found 11,897 mismatches for that).
-3. **Red-checked** in a throwaway worktree at `2b4e30a` (pre-Dream): 8/11 applicable tests
-   fail there as intended; the 3 `_nearest_obs` pins pass by design; the 2 physics tests
-   can't run pre-fix (`celerities` doesn't exist). Worktree removed.
-4. Committed and pushed `a9f9ca2` — which also released the previously unpushed `0fec25a`
-   to the VM.
-5. **Watched the 08:20 UTC cycle** with a background SSH poll (5-min interval) instead of
-   triggering a manual run — a manual run would race the cron and spend Open-Meteo daily
-   quota (open item 9). Cycle clean; CDN verified.
-6. Lesson written into SESSIONS.md: **a review that ships fixes must ship its red→green
-   tests in the same commit**, or every finding is one refactor away from coming back.
+1. VM verification (SSH per oracle-vm memory): tailed `publish.log`, grepped
+   `FAILED at:` since the code landed (none), confirmed `skill.json` body (15 buoy_ids,
+   all buckets but 9d+), curled beit-yanai payload — `ceiling_source` already measured.
+2. Session 19 docs written and pushed as `8135957`.
+3. `/dream-review`: applied the 3 diffs via Dream's applier in the documented order
+   (notify-torn-payload-skip, swellmap-index-torn-write-self-heal, atomic-json-writes —
+   fed "2 3 1" because the applier numbers alphabetically). One flagged deviation:
+   reworded a `swellmap.py` comment that still claimed "the write below is not atomic"
+   after diff 3 made it atomic.
+4. Declined (with the reviewer's own recommendation) the "notify parses payloads
+   twice" efficiency proposal — below measurement noise.
+5. Committed: pipeline fix + docs/handoff, pushed to main.
 
 ## Failed Attempts
-- None this session. Notes to prevent false alarms later:
-  - `ruff format --check` flags pre-existing `pipeline/tests/test_observe.py` — untouched
-    by this session, not a regression.
-  - No full local `run --all` smoke was run for the Dream changes (would spend Open-Meteo
-    daily quota, the known cycle-killer). Accepted risk consciously; the clean 08:20
-    production cycle is the de-facto smoke result.
+- The applier's shipped-test runner reported FAIL on both Dream tests —
+  `ModuleNotFoundError: rosa_pipeline`. Not a real failure: it doesn't set
+  `PYTHONPATH=pipeline/src`. Run them directly:
+  `PYTHONPATH=pipeline/src pipeline/.venv/bin/python -m pytest -q <report>/tests/`.
+- Notes against false alarms: the two `FAILED at:` lines in `publish.log` are the
+  known 2026-08-03 quota incident (OPEN-ITEMS item 9), and `publish.log` is
+  append-only across days — bracket reads between *dated* banners.
 
 ## Next Step
-1. **Next judging batch — Costa Rica's remaining 14** (carried from session 17):
-   ```
-   python3 tools/spot-verify/queue.py --batch 14 --region costa-rica
-   python3 tools/spot-seed/render.py --file tools/spot-verify/work/<date>/queue.json --out tools/spot-verify/work/<date>
-   ```
-   Then follow `tools/spot-verify/JUDGING.md`. After that: israel 28, portugal 30,
-   sri-lanka 25, japan 12, nicaragua 5, philippines 2, california 2, hawaii 1.
-   `ollies-point` needs local knowledge, not another satellite pass.
-2. Send the ISRAMAR email (`info@ocean.org.il`, Dr. Isaac Gertman; ask for the **route** as
-   well as permission; CAMERI held until they answer).
-3. Re-run Portugal lead time around 2026-08-11: `verify --buoy Leixoes-coast-buoy --archive`.
-4. Re-offer the privacy-page fix before any public launch.
+1. **Optionally spot-check the 20:20 UTC cycle** (~21:30 UTC finish) — first live run
+   of the atomic write path: `ssh -i web/.oracle/ssh-key-2026-07-23.key
+   ubuntu@82.70.218.149 'tail -20 ~/rosa/publish.log'`; expect a normal `done` banner,
+   no `.tmp` files left in `data/out`.
+2. **Costa Rica batch of 14 pin verifications**:
+   `python3 tools/spot-verify/queue.py --batch 14 --region costa-rica`, then
+   `tools/spot-seed/render.py` + judge per `tools/spot-verify/JUDGING.md` (item 13).
+3. **ISRAMAR email** (info@ocean.org.il, Dr. Isaac Gertman) — request the Hadera buoy
+   feed AND the route (robots.txt blocks the download endpoints). CAMERI held until
+   ISRAMAR answers (item 10).
+4. **Portugal lead-time re-run ~2026-08-11**:
+   `uv run --project pipeline rosa-pipeline verify --buoy Leixoes-coast-buoy --archive`
+   — safe, cannot touch skill.json without `--write-skill`.
+5. Privacy page before launch (re-offer).
 
 ## Constraints carried forward
-- **Never import competitor spot data.** Satellite + geocoder + local knowledge only.
-- `horizon` and the cam tools **report, never apply**.
-- Watch the Open-Meteo daily quota — a failed `archive` still aborts the whole cycle (item 9).
-- Do not add auth to `CMEMSSource`; the per-platform files are on public S3.
-- `python` is not on the VM (`exit 127`), only `python3`.
+- Closure/direction scoring requires the full calibration package (OPEN-ITEMS item 12);
+  recorded-not-scored is the correct current state.
+- ISRAMAR: manual calibration only — never in the scheduled fleet pass.
+- No local `run --all` smoke without weighing the Open-Meteo daily quota; the
+  production cycle is the de-facto smoke. `python` is not on the VM, only `python3`.
+- `horizon`/cam tools report, never apply. Never import competitor spot data.
+- Dream: only append-only writes (`.state/rosa.applied`, untagged playbook bullets);
+  never commit in the Dream repo from a project session.
