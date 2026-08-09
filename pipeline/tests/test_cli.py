@@ -220,3 +220,83 @@ def test_verify_all_buoys_fleet_pass(tmp_path, monkeypatch, capsys):
     skill = json.loads((tmp_path / "skill.json").read_text())
     assert failed[0] not in skill["buoy_ids"]
     assert len(skill["buoy_ids"]) >= 2  # the rest of the fleet still contributed
+
+
+BUOYS_YAML = """\
+buoys:
+  - {id: "11111", name: "B1", lat: 30.0, lon: -120.0, source: ndbc}
+  - {id: "22222", name: "B2", lat: 31.0, lon: -121.0, source: ndbc}
+  - {id: "33333", name: "B3", lat: 32.0, lon: -122.0, source: ndbc}
+"""
+
+
+def _marine_body() -> dict:
+    hours = [f"2026-08-09T{h:02d}:00" for h in range(3)]
+    return {
+        "hourly": {
+            "time": hours,
+            "wave_height": [1.0, 1.1, 1.2],
+            "wave_period": [8.0, 8.0, 8.0],
+            "wave_direction": [270.0, 271.0, 272.0],
+        }
+    }
+
+
+def _archive_argv(tmp_path: Path, buoys_dir: Path, extra: list[str] | None = None) -> list[str]:
+    return [
+        "archive",
+        "--wave-source",
+        "om",
+        "--buoys-dir",
+        str(buoys_dir),
+        "--isramar-dir",
+        str(tmp_path / "no-isramar"),
+        "--archive-dir",
+        str(tmp_path / "archive"),
+        *(extra or []),
+    ]
+
+
+def test_archive_fleet_batches_om_into_one_request(tmp_path, monkeypatch):
+    """The live fleet archive makes ONE comma-joined marine request, not one per buoy,
+    while per-buoy capture filenames and archive rows stay exactly as before."""
+    import rosa_pipeline.cli as cli
+
+    buoys_dir = tmp_path / "buoys"
+    buoys_dir.mkdir()
+    (buoys_dir / "test.yaml").write_text(BUOYS_YAML, encoding="utf-8")
+    calls: list[list[tuple[float, float]]] = []
+
+    def fake_many(coords):
+        calls.append(coords)
+        return [_marine_body() for _ in coords]
+
+    monkeypatch.setattr(cli, "fetch_marine_waves_many", fake_many)
+    capture = tmp_path / "capture"
+    rc = main(_archive_argv(tmp_path, buoys_dir, ["--capture", str(capture)]))
+    assert rc == 0
+    assert calls == [[(30.0, -120.0), (31.0, -121.0), (32.0, -122.0)]]
+    for bid in ("11111", "22222", "33333"):
+        assert (tmp_path / "archive" / f"{bid}.jsonl").exists()
+        assert (capture / f"marine_{bid}.json").exists()
+
+
+def test_archive_fleet_batch_failure_degrades_not_raises(tmp_path, monkeypatch, capsys):
+    """One bad batch skips the om pass but must not raise (the gfswave/ecmwf members
+    and the cron trap's exit-1 summary still run) - the semantics the per-buoy guard
+    established, at batch granularity."""
+    import rosa_pipeline.cli as cli
+
+    buoys_dir = tmp_path / "buoys"
+    buoys_dir.mkdir()
+    (buoys_dir / "test.yaml").write_text(BUOYS_YAML, encoding="utf-8")
+
+    def fake_many(coords):
+        raise RuntimeError("marine host hiccup")
+
+    monkeypatch.setattr(cli, "fetch_marine_waves_many", fake_many)
+    rc = main(_archive_argv(tmp_path, buoys_dir))
+    err = capsys.readouterr().err
+    assert rc == 1
+    assert "open-meteo batch failed" in err
+    assert not (tmp_path / "archive").exists() or not list((tmp_path / "archive").glob("*.jsonl"))

@@ -267,6 +267,16 @@ def run_swellmap(
                 if isinstance(loaded, dict):
                     prev = loaded
         prev.update(index)
+        # The DB is the authority on what exists (same rule as publish.prune_index):
+        # the merge above only ever upserts, so a basin whose spots left the DB kept
+        # its index entry and its <basin>.json forever - both shipping in every CDN
+        # deploy. Keyed on basin_boxes(spots_dir), NOT on this run's output, so a
+        # basin merely skipped for a failed fetch keeps serving its previous file.
+        known = {b.name for b in basin_boxes(spots_dir)}
+        for stale in sorted(set(prev) - known):
+            del prev[stale]
+            (target / f"{stale}.json").unlink(missing_ok=True)
+            print(f"swellmap: pruned basin {stale!r} - no longer in the DB")
         write_json_atomic(idx_path, prev)
     return written
 
@@ -424,7 +434,13 @@ def build_world_frames(
         q = {n: _quantize_plane(sub[n], _PLANE_SCALES[n]) for n in WORLD_PLANES}
         stacked = np.concatenate([q[n] for n in WORLD_PLANES], axis=0)
         png = png_gray(geom["nx"], geom["ny"] * len(WORLD_PLANES), stacked.tobytes())
-        name = f"f{step:03d}.png"
+        # cycle-scoped name: writing over the previous run's f000.png meant a run
+        # killed mid-way left the OLD world.json (atomic, so it survives) labelling
+        # NEW-cycle pixels with the old run's timestamps - every file parses fine,
+        # the map just lies about which run it shows. New names per cycle keep the
+        # surviving metadata pointing at its own frames; run_swellmap_world prunes
+        # unreferenced frames after the new world.json lands.
+        name = f"{cycle:%Y%m%d%H}-f{step:03d}.png"
         (world_dir / name).write_bytes(png)
         frames.append(
             {"t": (cycle + timedelta(hours=step)).strftime("%Y-%m-%dT%H:%MZ"), "png": name}
@@ -459,6 +475,16 @@ def build_world_frames(
     }
 
 
+def _prune_world_frames(world_dir: Path, keep: set[str]) -> None:
+    """Drop frames the just-published world.json does not reference (previous
+    cycles', plus any orphans a killed run left) - they would otherwise ship in
+    every CDN deploy forever. Only called after the new metadata is on disk, so
+    a reader always finds every frame its world.json names."""
+    for p in world_dir.glob("*.png"):
+        if p.name not in keep:
+            p.unlink(missing_ok=True)
+
+
 def run_swellmap_world(out_dir: Path, now: datetime | None = None) -> int:
     """Fetch + publish the global layer. Returns the number of frames written.
     Never fatal: a total outage keeps the previous world.json serving."""
@@ -484,5 +510,6 @@ def run_swellmap_world(out_dir: Path, now: datetime | None = None) -> int:
         print("warn: swellmap world: no frames fetched - keeping previous files")
         return 0
     write_json_atomic(target / "world.json", meta)
+    _prune_world_frames(world_dir, {f["png"] for f in meta["frames"]})
     print(f"swellmap world: {len(meta['frames'])} frames @ {meta['grid_deg']:g} deg")
     return len(meta["frames"])

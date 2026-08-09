@@ -44,7 +44,13 @@ from .feedback import (
     render_report,
     summarize,
 )
-from .fetch import FixtureSource, ForecastSource, OpenMeteoSource, fetch_marine_waves
+from .fetch import (
+    FixtureSource,
+    ForecastSource,
+    OpenMeteoSource,
+    fetch_marine_waves,
+    fetch_marine_waves_many,
+)
 from .gfswave import GFSWaveFixtureSource, GFSWaveSource
 from .models import Spot
 from .observe import (
@@ -596,6 +602,18 @@ def _cmd_verify(args: argparse.Namespace) -> int:
     return 0
 
 
+def _archive_om_rows(
+    store: FileArchiveStore, args: argparse.Namespace, now: datetime, buoy: Buoy, model
+) -> None:
+    rows = rows_from_model(now, model)
+    store.append(buoy.id, rows)
+    stamp = now.isoformat(timespec="seconds")
+    print(
+        f"{buoy.id}: archived {len(rows)} forecast rows @ {stamp}"
+        f" → {args.archive_dir / (buoy.id + '.jsonl')}"
+    )
+
+
 def _cmd_archive(args: argparse.Namespace) -> int:
     buoys = load_all_buoys(args.buoys_dir, args.isramar_dir)
     if args.buoy:
@@ -609,16 +627,60 @@ def _cmd_archive(args: argparse.Namespace) -> int:
 
     store = FileArchiveStore(args.archive_dir)
     now = datetime.now(UTC)
+    failures: list[tuple[str, Exception]] = []
     if args.wave_source in ("om", "both", "all"):
-        for buoy in targets:
-            model = _model_for(buoy, args)
-            rows = rows_from_model(now, model)
-            store.append(buoy.id, rows)
-            stamp = now.isoformat(timespec="seconds")
-            print(
-                f"{buoy.id}: archived {len(rows)} forecast rows @ {stamp}"
-                f" → {args.archive_dir / (buoy.id + '.jsonl')}"
-            )
+        # Failure must not sink the fleet run (same philosophy as run --all per spot
+        # and verify --all-buoys per buoy): the archive is append-only and can never
+        # be back-filled, so an unguarded Open-Meteo hiccup cost every later buoy
+        # this run's rows for ALL sources - the guarded gfswave/ecmwf members below
+        # never even started. A targeted --buoy run still raises: there the failure
+        # is the answer the operator asked for.
+        if args.buoy or args.fixtures is not None:
+            # targeted or fixture-fed: per-buoy fetch (fixtures are per-buoy files;
+            # nothing to batch)
+            for buoy in targets:
+                try:
+                    model = _model_for(buoy, args)
+                except Exception as e:
+                    if args.buoy:
+                        raise
+                    failures.append((buoy.id, e))
+                    print(
+                        f"error: {buoy.id}: {e!r} - left out of this archive run",
+                        file=sys.stderr,
+                    )
+                    continue
+                _archive_om_rows(store, args, now, buoy, model)
+        else:
+            # fleet live run: one comma-joined request for all buoys instead of one
+            # request (fresh TCP+TLS) per buoy - 15 calls/cycle -> 1, and one
+            # response to guard instead of fifteen coin flips
+            try:
+                marines = fetch_marine_waves_many([(b.lat, b.lon) for b in targets])
+            except Exception as e:
+                failures.extend((b.id, e) for b in targets)
+                print(
+                    f"error: open-meteo batch failed ({e!r}) - om rows left out of "
+                    "this archive run",
+                    file=sys.stderr,
+                )
+            else:
+                for buoy, marine in zip(targets, marines, strict=True):
+                    try:
+                        if args.capture is not None:
+                            args.capture.mkdir(parents=True, exist_ok=True)
+                            (args.capture / f"marine_{buoy.id}.json").write_text(
+                                json.dumps(marine), encoding="utf-8"
+                            )
+                        model = parse_marine_waves(marine)
+                    except Exception as e:
+                        failures.append((buoy.id, e))
+                        print(
+                            f"error: {buoy.id}: {e!r} - left out of this archive run",
+                            file=sys.stderr,
+                        )
+                        continue
+                    _archive_om_rows(store, args, now, buoy, model)
     if args.wave_source in ("gfswave", "both", "all"):
         # Stage 3a A/B member. Guarded so a NOMADS outage never breaks OM archiving.
         try:
@@ -657,6 +719,16 @@ def _cmd_archive(args: argparse.Namespace) -> int:
                 )
         except Exception as e:
             print(f"warn: ecmwf archive skipped: {e}", file=sys.stderr)
+    if failures:
+        # still a failed cycle for the cron trap - but only after archiving every
+        # buoy and member that could be archived (mirrors _cmd_run's summary)
+        kinds = ", ".join(sorted({type(e).__name__ for _, e in failures}))
+        print(
+            f"error: {len(failures)} of {len(targets)} buoy(s) failed ({kinds}): "
+            f"{', '.join(bid for bid, _ in failures)}",
+            file=sys.stderr,
+        )
+        return 1
     return 0
 
 

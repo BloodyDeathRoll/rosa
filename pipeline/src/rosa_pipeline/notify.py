@@ -94,10 +94,11 @@ def event_key(e: SpotEvent) -> str:
 def _iter_payloads(out_dir: Path):
     """Published spot payloads, skipping any that can't be parsed.
 
-    publish writes spots/<id>.json with a plain ``write_text`` (not atomic) and notify
-    runs on its own cron: a kill mid-publish leaves one half-written payload, which
-    must cost that spot's pushes until it republishes - never the whole notify run
-    (same contract as publish._read_index)."""
+    publish has written spots/<id>.json atomically since 2026-08-08, so a kill
+    mid-publish can no longer tear one. The guard stays as defense in depth (disk
+    damage, partial CDN syncs, hand edits): an unreadable payload must cost that
+    spot's pushes until it republishes - never the whole notify run (same contract
+    as publish._read_index)."""
     for path in sorted((out_dir / "spots").glob("*.json")):
         try:
             yield json.loads(path.read_text())
@@ -261,7 +262,14 @@ def save_state(path: Path, sent: dict[str, str], now: datetime) -> None:
     cutoff = now - timedelta(days=SENT_TTL_DAYS)
     kept = {k: v for k, v in sent.items() if datetime.fromisoformat(v) >= cutoff}
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps({"sent": kept}, indent=1, sort_keys=True))
+    # tmp+replace (the skill.json idiom, cli._cmd_verify): load_state reads a torn
+    # file as {} - the right call for crash-safety, but on THIS file {} means the
+    # whole sent-state is forgotten and the next cron run re-pushes every active
+    # event to every subscription. A kill mid-write must cost nothing, not the
+    # one-swell-one-notification guarantee.
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    tmp.write_text(json.dumps({"sent": kept}, indent=1, sort_keys=True))
+    tmp.replace(path)
 
 
 def sent_for(sent: dict[str, str], ehash: str) -> set[str]:

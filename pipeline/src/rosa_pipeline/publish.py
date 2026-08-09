@@ -427,8 +427,9 @@ def _index_entry(payload: dict) -> dict:
 def _read_index(out_dir: Path) -> dict:
     """index.json, rebuilt from the payloads on disk when it can't be read.
 
-    ``write_text`` is not atomic, so a kill between truncate and flush (VM reboot, OOM,
-    a publish.sh timeout) leaves a half-written index.json. Parsed bare, that made every
+    index.json has been written atomically since 2026-08-08, so a kill between truncate
+    and flush can no longer tear it. The guard stays as defense in depth (disk damage,
+    partial CDN syncs, hand edits), because a torn index parsed bare once made every
     spot in ``_cmd_run``'s per-spot guard raise JSONDecodeError, ``published`` stay 0 and
     the cycle return 1 WITHOUT rewriting the file - so the next cycle failed identically
     and the pipeline stayed down until a human deleted it. There is no request-time

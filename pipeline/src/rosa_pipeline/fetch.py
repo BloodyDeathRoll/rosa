@@ -119,6 +119,35 @@ def fetch_marine_waves(lat: float, lon: float, *, timeout_s: float = 30.0) -> di
     return resp.json()
 
 
+def fetch_marine_waves_many(
+    coords: list[tuple[float, float]], *, timeout_s: float = 30.0
+) -> list[dict]:
+    """Total sea-state at many points in one comma-joined request (the
+    ``OpenMeteoSource._fetch_batch`` idiom), for the archive fleet run: one call
+    against the marine host instead of one per buoy. Open-Meteo answers a
+    multi-location query with a list of per-location bodies (a single point comes
+    back as a bare dict); each element matches ``fetch_marine_waves``'s shape, so
+    per-buoy capture files and ``parse_marine_waves`` are unaffected."""
+    if not coords:
+        return []
+    with httpx.Client(timeout=timeout_s) as client:
+        resp = client.get(
+            MARINE_URL,
+            params={
+                "latitude": ",".join(f"{lat:g}" for lat, _ in coords),
+                "longitude": ",".join(f"{lon:g}" for _, lon in coords),
+                "hourly": ",".join(MARINE_WAVE_FIELDS),
+                "forecast_days": FORECAST_DAYS,
+            },
+        )
+        resp.raise_for_status()
+    data = resp.json()
+    bodies = [data] if isinstance(data, dict) else list(data)
+    if len(bodies) != len(coords):
+        raise ValueError(f"open-meteo returned {len(bodies)} locations for {len(coords)} buoys")
+    return bodies
+
+
 @dataclass(frozen=True, slots=True)
 class RawForecast:
     fetched_at: str  # ISO-8601 UTC
