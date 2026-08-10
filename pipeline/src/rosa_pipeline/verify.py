@@ -372,9 +372,19 @@ def lead_time_scorecard(
     grouped: dict[str, dict[str, dict[str, list[tuple[float, float]]]]] = {
         label: {key: {} for key, *_ in variables} for label, _lo, _hi in buckets
     }
+    # Observations only reach as far back as the source keeps them (NDBC realtime2
+    # ~45 days, CMEMS 3), but the archive is append-only and grows forever. A row
+    # whose valid hour lies outside the obs window can never pair with anything, so
+    # skip it before the per-variable bisect instead of searching for nothing - the
+    # pass then scales with the obs window rather than with archive age. Empty obs
+    # pairs nothing anywhere, so skipping every row is the same result, faster.
+    obs_times = [o.time for o in obs]
+    window = (min(obs_times) - tol, max(obs_times) + tol) if obs_times else None
     for row in rows:
-        run = datetime.fromisoformat(row["run"])
         valid = datetime.fromisoformat(row["valid"])
+        if window is None or not window[0] <= valid <= window[1]:
+            continue
+        run = datetime.fromisoformat(row["run"])
         lead_h = (valid - run).total_seconds() / 3600.0
         label = _bucket_for(lead_h, buckets)
         if label is None:

@@ -232,6 +232,12 @@ def _hour_entry(spot: Spot, s: ScoredHour, tz: ZoneInfo) -> dict:
     closure = partition_closure(s.hour.partitions, s.hour.total_hs_m)
     if closure is not None:
         entry["closure"] = _r(closure, 2)
+    # member bearing fan, deg - diagnostic like closure: nothing scores on it
+    # (2026-08-07 revert), but publishing it is what lets a calibration entry
+    # derive a direction tolerance from real hours instead of a borrowed
+    # constant. Omitted (not null) when <2 member bearings, to keep payloads small.
+    if s.hour.dir_span_deg is not None:
+        entry["dir_span"] = round(s.hour.dir_span_deg)
     spectral = _spectral_entry(s)
     if spectral is not None:
         entry["spectral"] = spectral

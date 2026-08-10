@@ -184,6 +184,10 @@ def extract_hours(
                 tide_m=(sl[i] if (sl := marine.get("sea_level_height_msl")) is not None else None),
                 agreement_score=agreement.score if agreement else None,
                 n_models=agreement.n_models if agreement else 0,
+                # measured every run but previously dropped here - the payload is the
+                # only artifact a run leaves, so an unpersisted diagnostic can never
+                # accumulate into the distribution its calibration entry needs
+                dir_span_deg=agreement.dir_span_deg if agreement else None,
                 spectral=sp,
                 total_hs_m=total_hs,
             )

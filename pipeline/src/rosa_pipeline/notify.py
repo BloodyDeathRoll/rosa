@@ -379,48 +379,66 @@ def send_notifications(
         regions = spot_regions(out_dir)
         sent_count = 0
         for sub in subs:
-            ehash = endpoint_hash(sub["endpoint"])
-            sent_keys = sent_for(state, ehash)
-            spots = sub.get("spots", [])
-            plans: list[tuple[Notification, dict]] = [
-                (n, {"title": n.title, "body": n.body, "url": n.url, "tag": n.tag})
-                for n in plan_notifications(
-                    groups,
-                    spots,
-                    sent_keys,
-                    now,
-                    home=sub.get("home"),
-                    regions=regions,
-                    already_today=swell_pushes_today(state, ehash, now),
-                )
-            ]
-            # evening 👍👎 ask - only for subs that keep "Spot feedback" on
-            if sub.get("feedback", True):
-                fb = plan_feedback_push(candidates, spots, sent_keys, sub.get("home"), regions)
-                if fb is not None:
-                    plans.append((fb[0], feedback_payload(fb[0], fb[1])))
-            for n, payload in plans:
-                if dry_run:
-                    print(f"  DRY {ehash}: {n.title} | {n.body}")
-                    continue
-                try:
-                    from pywebpush import WebPushException, webpush
-
-                    webpush(
-                        subscription_info={"endpoint": sub["endpoint"], "keys": sub["keys"]},
-                        data=json.dumps(payload),
-                        vapid_private_key=str(vapid_private_key),
-                        vapid_claims={"sub": vapid_sub},
+            # Per-subscription guard (the run --all / verify --all-buoys / archive
+            # philosophy): only WebPushException is handled below, but the loop can
+            # also raise a connection-level error out of pywebpush (requests wraps
+            # only HTTP failures), an httpx error from prune_subscription, or a
+            # TypeError from a malformed subscription the admin API let through.
+            # Uncaught, any of those aborts the fleet mid-run: every later sub gets
+            # nothing this cycle, and save_state below never runs - so every
+            # mark_sent already made is forgotten and the next cron re-pushes the
+            # same swell to every device already served, breaking the
+            # one-swell-one-notification requirement this module exists to keep.
+            try:
+                ehash = endpoint_hash(sub["endpoint"])
+                sent_keys = sent_for(state, ehash)
+                spots = sub.get("spots", [])
+                plans: list[tuple[Notification, dict]] = [
+                    (n, {"title": n.title, "body": n.body, "url": n.url, "tag": n.tag})
+                    for n in plan_notifications(
+                        groups,
+                        spots,
+                        sent_keys,
+                        now,
+                        home=sub.get("home"),
+                        regions=regions,
+                        already_today=swell_pushes_today(state, ehash, now),
                     )
-                except WebPushException as exc:
-                    status = exc.response.status_code if exc.response is not None else None
-                    print(f"  push failed ({status}) for {ehash}: {exc}")
-                    if status in (404, 410):  # endpoint gone - forget the device
-                        prune_subscription(subs_url, admin_secret, sub["endpoint"])
-                    continue
-                mark_sent(state, ehash, n.keys, now)
-                sent_count += 1
-                print(f"  sent {ehash}: {n.title} | {n.body}")
+                ]
+                # evening 👍👎 ask - only for subs that keep "Spot feedback" on
+                if sub.get("feedback", True):
+                    fb = plan_feedback_push(candidates, spots, sent_keys, sub.get("home"), regions)
+                    if fb is not None:
+                        plans.append((fb[0], feedback_payload(fb[0], fb[1])))
+                for n, payload in plans:
+                    if dry_run:
+                        print(f"  DRY {ehash}: {n.title} | {n.body}")
+                        continue
+                    try:
+                        from pywebpush import WebPushException, webpush
+
+                        webpush(
+                            subscription_info={"endpoint": sub["endpoint"], "keys": sub["keys"]},
+                            data=json.dumps(payload),
+                            vapid_private_key=str(vapid_private_key),
+                            vapid_claims={"sub": vapid_sub},
+                        )
+                    except WebPushException as exc:
+                        status = exc.response.status_code if exc.response is not None else None
+                        print(f"  push failed ({status}) for {ehash}: {exc}")
+                        if status in (404, 410):  # endpoint gone - forget the device
+                            prune_subscription(subs_url, admin_secret, sub["endpoint"])
+                        continue
+                    mark_sent(state, ehash, n.keys, now)
+                    sent_count += 1
+                    print(f"  sent {ehash}: {n.title} | {n.body}")
+            except Exception as exc:
+                # repr, not str (the _cmd_run precedent): the exception type is what
+                # tells a sick vendor from a malformed subscription
+                print(
+                    f"  sub {endpoint_hash(str(sub.get('endpoint', '?')))} failed: {exc!r}"
+                    " - skipped this run"
+                )
         if not dry_run:
             save_state(state_path, state, now)
         print(f"notify: {sent_count} pushes sent")
@@ -550,10 +568,11 @@ def plan_feedback_push(
         mine = [c for c in candidates if c.spot_id == home]
     if not mine:
         return None
-    # a feedback ask already went out for any of today's candidate dates → quiet
-    if any(feedback_key(c.spot_id, c.date) in sent for c in mine) or any(
-        k.startswith("fb:") and k.endswith(c.date) for c in mine for k in sent
-    ):
+    # a feedback ask already went out for any of today's candidate dates → quiet.
+    # Deliberately any-spot, not per-spot: one ask per day per person, whichever
+    # spot it was for (a per-spot check would be subsumed by this one anyway -
+    # feedback_key is "fb:<spot>:<date>", which this pattern already matches).
+    if any(k.startswith("fb:") and k.endswith(c.date) for c in mine for k in sent):
         return None
     best = min(mine, key=lambda c: (last_asked(sent, c.spot_id), -c.rating))
     name = best.spot_name.split(" (")[0].split(" / ")[0]

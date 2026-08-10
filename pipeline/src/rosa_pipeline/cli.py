@@ -812,7 +812,14 @@ def _cmd_horizon(args: argparse.Namespace) -> int:
     for i, spot in enumerate(targets):
         try:
             scan = scan_horizon(source, spot)
-        except ValueError as exc:
+        except Exception as exc:
+            # ValueError is a per-spot geometry verdict - always report and move on.
+            # Anything else (an OpenTopoData hiccup, mid-sweep) must not abort a
+            # rate-limited ~1 s/spot sweep either - but a targeted single-spot run
+            # still raises: there the failure is the answer the operator asked for
+            # (the verify --all-buoys rule).
+            if not args.all and not isinstance(exc, ValueError):
+                raise
             print(f"{spot.id}: ⚠ {exc}", file=sys.stderr)
             continue
         cur = spot.swell_window
@@ -856,8 +863,22 @@ def _cmd_bathy(args: argparse.Namespace) -> int:
 
     args.out.mkdir(parents=True, exist_ok=True)
     written = 0
+    failures: list[tuple[str, Exception]] = []
     for i, spot in enumerate(targets):
-        profile = build_profile(source, spot)
+        try:
+            profile = build_profile(source, spot)
+        except Exception as e:
+            # Per-spot guard (the run --all rule): the sweep paces itself ~1 s/spot
+            # for the OpenTopoData rate limit, so an unguarded hiccup at spot 150
+            # threw away minutes of rate-limited work and every later profile. A
+            # targeted --spot run still raises - there the failure is the answer.
+            if not args.all:
+                raise
+            failures.append((spot.id, e))
+            print(f"error: {spot.id}: {e!r} - left out of this sweep", file=sys.stderr)
+            if args.fixtures is None and i < len(targets) - 1 and args.sleep > 0:
+                time.sleep(args.sleep)
+            continue
         path = args.out / f"{spot.id}.json"
         path.write_text(json.dumps(profile.to_dict(), indent=2) + "\n", encoding="utf-8")
         written += 1
@@ -878,6 +899,16 @@ def _cmd_bathy(args: argparse.Namespace) -> int:
         if args.fixtures is None and i < len(targets) - 1 and args.sleep > 0:
             time.sleep(args.sleep)
     print(f"wrote {written} depth profile(s) → {args.out}")
+    if failures:
+        # still a failed cycle - but only after sampling every spot that could be
+        # (mirrors _cmd_run's summary)
+        kinds = ", ".join(sorted({type(e).__name__ for _, e in failures}))
+        print(
+            f"error: {len(failures)} of {len(targets)} spot(s) failed ({kinds}): "
+            f"{', '.join(sid for sid, _ in failures)}",
+            file=sys.stderr,
+        )
+        return 1
     return 0
 
 

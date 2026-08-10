@@ -98,6 +98,11 @@ class HourForecast:
     # None when no ensemble was fetched (older fixtures) → confidence falls back to horizon
     agreement_score: float | None = None
     n_models: int = 0
+    # widest pairwise member bearing gap at this hour, deg (Agreement.dir_span_deg).
+    # DIAGNOSTIC only - nothing scores on it (2026-08-07 revert); persisted so the
+    # calibration entry direction scoring is gated on has a distribution to derive
+    # its tolerance from. None = fewer than two member bearings.
+    dir_span_deg: float | None = None
     # ECMWF spectral-lite member joined to this hour (Stage 3b); None when the member
     # wasn't fetched or the hour is beyond its 240 h horizon
     spectral: SpectralSea | None = None
