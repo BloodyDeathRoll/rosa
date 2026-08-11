@@ -39,6 +39,9 @@ ARCHIVE_PARAMS: tuple[str, ...] = ("swh", "mwd", "pp1d", "mwp", "mp2")
 # 6-hourly to the full 240 h horizon (41 steps); native output is 3-hourly to 144 h
 DEFAULT_STEPS: tuple[int, ...] = tuple(range(0, 241, 6))
 CYCLE_HOURS: tuple[int, ...] = (0, 12)  # only these run the wave stream to 240 h
+# pick_cycle drops its date-rollover branch on the strength of this: with 00z in
+# the tuple, "the latest cycle hour at or before ready.hour" always has an answer.
+assert CYCLE_HOURS[0] == 0, "pick_cycle assumes a 00z cycle; restore its rollover branch"
 CYCLE_LAG_H = 9.0  # a cycle is fully on data.ecmwf.int ~8 h after cycle time
 NEAREST_MAX_DEG = 0.6  # nearest wet grid node must be within this of the point
 # coalesce param ranges when the skipped bytes (the ~0.5 MB wmb message between our
@@ -50,10 +53,10 @@ GRID_STEP_DEG = 0.25
 def pick_cycle(now: datetime) -> datetime:
     """Latest 00/12Z cycle whose wave files should be fully published."""
     ready = now - timedelta(hours=CYCLE_LAG_H)
-    cycle_hour = max((h for h in CYCLE_HOURS if h <= ready.hour), default=None)
-    if cycle_hour is None:  # before 00z of today was ready → yesterday's last cycle
-        ready -= timedelta(days=1)
-        cycle_hour = CYCLE_HOURS[-1]
+    # no date-rollover case to handle: subtracting the lag has already carried
+    # `ready` back across midnight, and 00z is always a candidate (the assert on
+    # CYCLE_HOURS pins that), so the generator is never empty.
+    cycle_hour = max(h for h in CYCLE_HOURS if h <= ready.hour)
     return ready.replace(hour=cycle_hour, minute=0, second=0, microsecond=0)
 
 

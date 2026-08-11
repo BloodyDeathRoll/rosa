@@ -59,6 +59,27 @@ class FeedbackRecord:
         )
 
 
+def records_from_rows(rows: list[dict]) -> list[FeedbackRecord]:
+    """Stored rows → records, skipping any row that can't be read.
+
+    The store is append-only and fed from the public drop-box (notify.pull_feedback), whose
+    API validates ``at`` only as "a string" - it never parses it. One row with an
+    unparseable timestamp therefore lands in feedback.jsonl permanently and made
+    ``feedback --report`` raise for the WHOLE store: the calibration surface goes dark until
+    a human hand-edits a gitignored JSONL. Same heal-on-read contract every other reader in
+    this pipeline already keeps (publish._read_index rebuilds, notify._iter_payloads skips,
+    FileArchiveStore.read drops a torn line) - a bad row costs itself, never the report.
+    Loud, not silent: a row that is being dropped from calibration has to say so."""
+    out: list[FeedbackRecord] = []
+    for row in rows:
+        try:
+            out.append(FeedbackRecord.from_row(row))
+        except (KeyError, TypeError, ValueError) as exc:
+            ident = row.get("id") or row.get("spot") if isinstance(row, dict) else row
+            print(f"warn: unreadable feedback row skipped ({exc}) - {ident!r}")
+    return out
+
+
 def predicted_from_payload(payload: dict, at: datetime) -> dict:
     """Snapshot what Rosa showed for a spot at time ``at`` - the hour entry nearest ``at``,
     falling back to ``current``. This is what the human's eyes are being compared against."""

@@ -163,6 +163,19 @@ def _day_agreement(day_hours: list[ScoredHour]) -> float | None:
     return sum(scores) / len(scores) if scores else None
 
 
+def _day_models(day_hours: list[ScoredHour]) -> int:
+    """Fewest ensemble members backing any hour of this day - 0 = at least one hour had none.
+
+    Published so a reader can tell an ensemble-backed confidence from a horizon-proxy one.
+    They are not the same claim and the label does not distinguish them: with no ensemble
+    ``_confidence`` falls back to the ceiling alone, which is >= the score the same hour
+    would have earned WITH members (min(agreement, ceiling)), so a lost ensemble - the
+    documented 429 fallback in fetch._fetch_batch - publishes a day at the HIGHEST
+    confidence its horizon allows. Changing that score is a tuning change and is not done
+    here; saying how many models stood behind it costs one integer per day."""
+    return min((s.hour.n_models for s in day_hours), default=0)
+
+
 def _spectral_entry(s: ScoredHour) -> dict | None:
     """ECMWF spectral-lite block (Stage 3b): consistency 0-100 + any missed swells.
     Omitted entirely when the member wasn't joined to this hour (beyond its 240 h
@@ -238,6 +251,14 @@ def _hour_entry(spot: Spot, s: ScoredHour, tz: ZoneInfo) -> dict:
     # constant. Omitted (not null) when <2 member bearings, to keep payloads small.
     if s.hour.dir_span_deg is not None:
         entry["dir_span"] = round(s.hour.dir_span_deg)
+        # ...and how many bearings that span covers. The span is the widest PAIRWISE gap,
+        # so it grows with the member count on its own (k members = k(k-1)/2 pairs), and
+        # the count moves with lead time as shorter-horizon members drop out. Published
+        # beside the span because nothing else in the payload carries it: `models` on
+        # `current` counts HEIGHT members and includes the ECMWF member, whose bearing the
+        # fan excludes. Without it a calibration entry pooling these hours would read
+        # member attrition as direction disagreement.
+        entry["dir_n"] = s.hour.n_dir_members
     spectral = _spectral_entry(s)
     if spectral is not None:
         entry["spectral"] = spectral
@@ -320,6 +341,9 @@ def build_payload(
                 "h_max": [best.h_break_lo, best.h_break_hi],
                 "confidence": label,
                 "confidence_score": score,
+                # how many ensemble members stood behind that label (see _day_models);
+                # 0 means the horizon proxy alone, which the label cannot say by itself
+                "models": _day_models(day_hours),
             }
         )
 

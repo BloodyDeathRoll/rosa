@@ -103,6 +103,10 @@ class HourForecast:
     # calibration entry direction scoring is gated on has a distribution to derive
     # its tolerance from. None = fewer than two member bearings.
     dir_span_deg: float | None = None
+    # how many member bearings that span covers (Agreement.n_dirs). Distinct from
+    # n_models above, which counts height members and includes the ECMWF member; a
+    # max-pairwise gap cannot be pooled across hours without it.
+    n_dir_members: int = 0
     # ECMWF spectral-lite member joined to this hour (Stage 3b); None when the member
     # wasn't fetched or the hour is beyond its 240 h horizon
     spectral: SpectralSea | None = None

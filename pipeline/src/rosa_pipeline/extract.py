@@ -160,14 +160,22 @@ def extract_hours(
         )
         # member bearings feed Agreement.dir_span_deg, a recorded DIAGNOSTIC only
         # (2026-08-07) - direction does not score until a calibration entry says
-        # how (see confidence.py). The ECMWF spectral member below contributes
-        # height only - it has no per-member direction column here, and a missing
-        # bearing must not read as disagreement.
+        # how (see confidence.py). A member that is SILENT must never widen the fan,
+        # so each bearing is appended only when it actually arrived: the published
+        # dir_n says how many did (2026-08-11 - the span is a max over pairs, so it
+        # is only poolable within a fixed member count).
         member_dirs = (
             member_directions_at(ens, ens_index[t]) if ens is not None and t in ens_index else []
         )
         if sp is not None and sp.swh is not None:
             member_hs = [*member_hs, sp.swh]
+        # the ECMWF member's own total-sea mean direction (SpectralSea.mwd, fetched
+        # since Stage 3b) joins the fan like-for-like with OM's wave_direction_<member>
+        # - same quantity, same convention (measured 2026-08-11 against the archived
+        # OM bearings at four buoys: mean offset -2.6 deg .. +5.1 deg, MAE 4-7 deg, so
+        # no flip). It carries the same bimodal-sea caveat pb_0048 flagged for all five.
+        if sp is not None and sp.mwd is not None:
+            member_dirs = [*member_dirs, float(sp.mwd) % 360.0]
         agreement = agreement_from_members(member_hs, member_dirs)
         hours.append(
             HourForecast(
@@ -188,6 +196,10 @@ def extract_hours(
                 # only artifact a run leaves, so an unpersisted diagnostic can never
                 # accumulate into the distribution its calibration entry needs
                 dir_span_deg=agreement.dir_span_deg if agreement else None,
+                # the span's own sample size: without it the recorded distribution
+                # mixes 2-member and 4-member fans, and the maximum of k(k-1)/2 pairs
+                # grows with k on its own (see confidence.Agreement.n_dirs)
+                n_dir_members=agreement.n_dirs if agreement else 0,
                 spectral=sp,
                 total_hs_m=total_hs,
             )

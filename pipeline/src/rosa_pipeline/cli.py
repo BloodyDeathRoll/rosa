@@ -41,6 +41,7 @@ from .feedback import (
     bucket_delta,
     markdown_rows,
     predicted_from_payload,
+    records_from_rows,
     render_report,
     summarize,
 )
@@ -529,23 +530,28 @@ def _cmd_verify(args: argparse.Namespace) -> int:
     skill_by_lead: list[dict] = []
     skill_buoys: list[str] = []
     for buoy, dist in targets:
-        if args.spectra:
-            # measured-spectra validation needs NDBC spectral files, which only NDBC has
-            if buoy.source != "ndbc":
-                print(f"{buoy.id}: no public spectral files for source {buoy.source!r} - skipped")
-                continue
-            src = (
-                SpectraFixtureSource(args.obs_fixtures)
-                if args.obs_fixtures is not None
-                else NDBCSpectraSource(capture_dir=args.capture)
-            )
-            specs = src.fetch(buoy)
-            if not specs:
-                print(f"{buoy.id}: no spectral files published - met-only or non-spectral buoy")
-                continue
-            print(render_spectra_report(buoy, build_report(specs)))
-            continue
         try:
+            if args.spectra:
+                # measured-spectra validation needs NDBC spectral files, which only NDBC has.
+                # Inside the guard, not before it: this branch does its own live NDBC fetch,
+                # so `--all-buoys --spectra` used to lose every later station to the first
+                # station's outage - the one fleet loop in this command still running bare.
+                if buoy.source != "ndbc":
+                    print(
+                        f"{buoy.id}: no public spectral files for source {buoy.source!r} - skipped"
+                    )
+                    continue
+                src = (
+                    SpectraFixtureSource(args.obs_fixtures)
+                    if args.obs_fixtures is not None
+                    else NDBCSpectraSource(capture_dir=args.capture)
+                )
+                specs = src.fetch(buoy)
+                if not specs:
+                    print(f"{buoy.id}: no spectral files published - met-only or non-spectral buoy")
+                    continue
+                print(render_spectra_report(buoy, build_report(specs)))
+                continue
             obs = _obs_for(buoy, args)
             source = args.source if args.archive else "om"
             variables = SOURCE_VARIABLES[source]
@@ -735,7 +741,7 @@ def _cmd_archive(args: argparse.Namespace) -> int:
 def _cmd_feedback(args: argparse.Namespace) -> int:
     store = FileArchiveStore(args.feedback_dir)
     if args.report:
-        records = [FeedbackRecord.from_row(r) for r in store.read("feedback")]
+        records = records_from_rows(store.read("feedback"))
         print(render_report(summarize(records)))
         if args.markdown and records:
             print("\n" + markdown_rows(records))
