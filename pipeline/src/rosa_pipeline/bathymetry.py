@@ -43,6 +43,13 @@ RAY_DISTANCES_KM: tuple[float, ...] = (0.25, 0.5, 1.0, 2.0, 3.0, 5.0, 8.0, 12.0,
 # magnitude above the samples' 5 dp rounding (~1 m) and far below GEBCO's ~460 m cell,
 # so it never fires on noise and always fires on a real pin correction.
 ORIGIN_TOLERANCE_M = 10.0
+# ...and how far its AIM may drift. A profile is a ray, so it goes stale two ways:
+# the pin moves (above) or ``shore_normal`` is re-cut in the YAML without re-running
+# ``bathy``, which leaves depths sampled along a bearing the spot no longer has - the
+# Fishermen Bay failure of 2026-07-29 (102 deg out, six of nine samples on dry land,
+# 69% of its hours reading 0.0-0.1 m). ``to_dict`` rounds the stored bearing to 0.1 deg,
+# so this sits an order of magnitude above that quantisation and far below any real edit.
+BEARING_TOLERANCE_DEG = 0.5
 
 
 @dataclass(frozen=True, slots=True)
@@ -121,13 +128,26 @@ class DepthProfile:
             origin_lon=origin[1],
         )
 
-    def matches_spot(self, spot: Spot, tol_m: float = ORIGIN_TOLERANCE_M) -> bool:
-        """Was this profile cast from where the spot sits now? False once a pin moves
-        (or for a pre-origin profile, which can't prove it) - i.e. time to re-cut."""
+    def matches_spot(
+        self,
+        spot: Spot,
+        tol_m: float = ORIGIN_TOLERANCE_M,
+        bearing_tol_deg: float = BEARING_TOLERANCE_DEG,
+    ) -> bool:
+        """Was this profile cast from where the spot sits now, AND along the way it
+        faces now? False once a pin moves or ``shore_normal`` is re-cut without a new
+        sweep (or for a pre-origin profile, which can't prove it) - i.e. time to re-cut.
+
+        The aim is checked as well as the origin because the physics march reads these
+        depths as the seabed along ``spot.shore_normal``; a rotated normal leaves the
+        origin untouched and every other guard green (see BEARING_TOLERANCE_DEG)."""
         if self.origin_lat is None or self.origin_lon is None:
             return False
         drift_km = haversine_km(self.origin_lat, self.origin_lon, spot.lat, spot.lon)
-        return drift_km * 1000.0 <= tol_m
+        if drift_km * 1000.0 > tol_m:
+            return False
+        off = abs(self.bearing_seaward_deg - spot.shore_normal) % 360.0
+        return min(off, 360.0 - off) <= bearing_tol_deg
 
     def to_dict(self) -> dict:
         # A missing sample serialises as JSON `null`, never as Python's `NaN` literal:

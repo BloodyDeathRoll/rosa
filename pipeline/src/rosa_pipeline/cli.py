@@ -72,8 +72,10 @@ from .score import score_hour
 from .spectra import (
     NDBCSpectraSource,
     SpectraFixtureSource,
+    SpectraReport,
     build_report,
     measure,
+    spread_payload,
 )
 from .spectra import (
     render_report as render_spectra_report,
@@ -163,6 +165,13 @@ def _build_parser() -> argparse.ArgumentParser:
         action="store_true",
         help="validate the Stage-3b assumptions against the buoy's measured spectra "
         "(consistency proxy vs Qp, parametric spread vs sigma from r1)",
+    )
+    verify.add_argument(
+        "--write-spread",
+        action="store_true",
+        help="with --spectra: persist the per-station, per-class measured spread as "
+        "spread.json. Recording only - nothing reads it yet; NDBC realtime2 keeps ~45 "
+        "days, so a window not written down cannot be re-pooled later",
     )
     verify.add_argument(
         "--source",
@@ -476,16 +485,20 @@ def _with_measured_energy_period(
     return obs, variables
 
 
-def _model_for(buoy: Buoy, args: argparse.Namespace):
-    if args.fixtures is not None:
-        marine = json.loads((args.fixtures / f"marine_{buoy.id}.json").read_text(encoding="utf-8"))
-    else:
-        marine = fetch_marine_waves(buoy.lat, buoy.lon)
-        if args.capture is not None:
-            args.capture.mkdir(parents=True, exist_ok=True)
-            (args.capture / f"marine_{buoy.id}.json").write_text(
-                json.dumps(marine), encoding="utf-8"
+def _model_for(buoy: Buoy, args: argparse.Namespace, marine: dict | None = None):
+    """Nowcast model series for one buoy. ``marine`` short-circuits the per-buoy fetch
+    with a body a fleet batch already pulled (fetch_marine_waves_many) - same response
+    shape, so capture files and parse_marine_waves are unaffected either way."""
+    if marine is None:
+        if args.fixtures is not None:
+            marine = json.loads(
+                (args.fixtures / f"marine_{buoy.id}.json").read_text(encoding="utf-8")
             )
+        else:
+            marine = fetch_marine_waves(buoy.lat, buoy.lon)
+    if args.fixtures is None and args.capture is not None:
+        args.capture.mkdir(parents=True, exist_ok=True)
+        (args.capture / f"marine_{buoy.id}.json").write_text(json.dumps(marine), encoding="utf-8")
     return parse_marine_waves(marine)
 
 
@@ -525,10 +538,37 @@ def _cmd_verify(args: argparse.Namespace) -> int:
             return 0
         targets = list(near)
 
+    # Fleet nowcast: one comma-joined Open-Meteo request for every buoy instead of a
+    # fresh TCP+TLS handshake per station - the shape _cmd_archive's fleet branch
+    # already uses (15 calls/cycle -> 1, one response to guard instead of fifteen coin
+    # flips). --buoy/--near keep the per-buoy path on purpose: there a single station's
+    # failure IS the answer the operator asked for. A batch that fails costs every
+    # buoy's nowcast instead of one, so it is recorded per buoy and reported by the
+    # existing per-buoy guard below, exactly as _cmd_archive does it.
+    batched: dict[str, dict | Exception] = {}
+    if (
+        getattr(args, "all_buoys", False)
+        and not args.archive
+        and not args.spectra
+        and args.fixtures is None
+    ):
+        try:
+            marines = fetch_marine_waves_many([(b.lat, b.lon) for b, _ in targets])
+        except Exception as e:
+            batched = {b.id: e for b, _ in targets}
+            print(
+                f"error: open-meteo batch failed ({e!r}) - no buoy scores this pass",
+                file=sys.stderr,
+            )
+        else:
+            batched = {b.id: m for (b, _), m in zip(targets, marines, strict=True)}
+
     # per-buoy lead scorecards for the om (published-model) source, persisted as
     # skill.json after the loop - the harness output publish's horizon ceilings read
     skill_by_lead: list[dict] = []
     skill_buoys: list[str] = []
+    # --spectra reports, persisted as spread.json on request
+    spread_reports: list[SpectraReport] = []
     for buoy, dist in targets:
         try:
             if args.spectra:
@@ -550,7 +590,9 @@ def _cmd_verify(args: argparse.Namespace) -> int:
                 if not specs:
                     print(f"{buoy.id}: no spectral files published - met-only or non-spectral buoy")
                     continue
-                print(render_spectra_report(buoy, build_report(specs)))
+                report = build_report(specs)
+                spread_reports.append(report)
+                print(render_spectra_report(buoy, report))
                 continue
             obs = _obs_for(buoy, args)
             source = args.source if args.archive else "om"
@@ -572,7 +614,10 @@ def _cmd_verify(args: argparse.Namespace) -> int:
                     skill_by_lead.append(by_lead)
                     skill_buoys.append(buoy.id)
             else:
-                model = _model_for(buoy, args)
+                prefetched = batched.get(buoy.id)
+                if isinstance(prefetched, Exception):
+                    raise prefetched  # the batch's failure, reported as this buoy's
+                model = _model_for(buoy, args, marine=prefetched)
                 scores = build_scorecard(model, obs, tol_min=args.tol_min, variables=variables)
                 print(render_scorecard(buoy, dist, scores))
         except Exception as e:
@@ -605,6 +650,41 @@ def _cmd_verify(args: argparse.Namespace) -> int:
         print(f"skill: wrote {skill_path} (buoys: {', '.join(sorted(skill_buoys))})")
     elif skill_by_lead:
         print("skill: not persisted (pass --write-skill to update the published ceilings)")
+    elif getattr(args, "write_skill", False):
+        # --write-skill only ever collects the om source (the model run --all publishes);
+        # a Stage-3a/3b A/B pass asks for it and would otherwise get scorecards, no
+        # skill.json and not one word about why. Say what did not happen.
+        why = (
+            f"--source {args.source!r} is an A/B member, not the published model"
+            if args.archive and args.source != "om"
+            else "no archived om scorecards in this pass"
+        )
+        print(f"skill: nothing to persist - {why}", file=sys.stderr)
+    if getattr(args, "write_spread", False):
+        # Opt-in and recording-only. The harness already builds these numbers every run
+        # and then prints them away; this is the step that lets a window survive NDBC's
+        # ~45-day realtime2 horizon. Nothing consumes spread.json - making the measured
+        # spread SCORE is a calibration change (CALIBRATION.md + a Stage-0 A/B), not
+        # this. Sits beside skill.json in data/verify, same tmp+replace idiom, since
+        # both are derived and rewritable rather than append-only archive rows.
+        if not spread_reports:
+            why = (
+                "no station published usable spectra"
+                if args.spectra
+                else "--write-spread needs --spectra"
+            )
+            print(f"spread: nothing to persist - {why}", file=sys.stderr)
+        else:
+            spread_path = args.archive_dir.parent / "spread.json"
+            spread_path.parent.mkdir(parents=True, exist_ok=True)
+            payload = spread_payload(
+                spread_reports,
+                generated=datetime.now(UTC).isoformat(timespec="seconds"),
+            )
+            tmp = spread_path.with_suffix(".json.tmp")
+            tmp.write_text(json.dumps(payload, indent=1) + "\n", encoding="utf-8")
+            tmp.replace(spread_path)
+            print(f"spread: wrote {spread_path} ({len(spread_reports)} station(s))")
     return 0
 
 

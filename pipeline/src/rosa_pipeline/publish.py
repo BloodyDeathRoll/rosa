@@ -53,16 +53,29 @@ def load_skill_ceilings(path: Path) -> tuple[dict[int, float], str] | None:
     measured tier 0 below a still-static tier 1 would otherwise publish day 5 at
     HIGHER confidence than tomorrow - skill never improves with lead. Second
     element is the provenance string the payload publishes, naming the buoys the
-    measurement came from. The whole body is guarded: skill.json is derived,
-    rewritable state written non-atomically, so a torn or malformed file must
-    read as "no measurement" (static defaults), never abort a publish cycle."""
+    measurement came from AND the lead buckets that actually cleared the floor:
+    the archive matures nearest-first and cannot be back-filled, so a tier can
+    read "measured" off one matured bucket beside two still-empty ones. Naming
+    the leads is what lets a reader re-run ``verify --archive`` and reproduce
+    exactly what the string claims, at the lead they are looking at. The whole
+    body is guarded: skill.json is derived, rewritable state written
+    non-atomically, so a torn or malformed file must read as "no measurement"
+    (static defaults), never abort a publish cycle."""
     try:
         skill = json.loads(path.read_text(encoding="utf-8"))
         buckets = skill["buckets"]
         ceilings: dict[int, float] = {}
+        matured: list[str] = []  # lead buckets scored on their own, for the provenance
         for tier_i, (_max_day, static, labels) in enumerate(_CEILING_TIERS):
             entries = [buckets.get(lb) or {} for lb in labels]
             n = sum(int(e.get("n") or 0) for e in entries)
+            # a bucket past the floor implies its tier is too (the tier's n is the sum),
+            # so this can never claim a lead inside a tier that fell back to static
+            matured.extend(
+                lb
+                for lb, e in zip(labels, entries, strict=True)
+                if e.get("scatter_index") is not None and int(e.get("n") or 0) >= SKILL_N_FLOOR
+            )
             sis = [
                 (float(e["scatter_index"]), int(e["n"]))
                 for e in entries
@@ -87,7 +100,8 @@ def load_skill_ceilings(path: Path) -> tuple[dict[int, float], str] | None:
         return ceilings, (
             f"static defaults (skill.json {generated}: no tier past n>={SKILL_N_FLOOR})"
         )
-    return ceilings, f"measured (verify skill.json {generated}, buoys: {buoys})"
+    leads = ",".join(matured) if matured else f"none past n>={SKILL_N_FLOOR}"
+    return ceilings, f"measured (verify skill.json {generated}, buoys: {buoys}, leads: {leads})"
 
 
 def _horizon_ceiling(day_index: int, ceilings: dict[int, float] | None = None) -> float:

@@ -287,6 +287,43 @@ def build_report(specs: list[SpectrumObs]) -> SpectraReport:
     )
 
 
+def spread_payload(reports: list[SpectraReport], *, generated: str) -> dict:
+    """The per-station, per-class spread summary ``verify --spectra --write-spread``
+    persists as spread.json.
+
+    A recording step, nothing more: no pipeline stage reads this file, exactly as
+    ``dir_span`` was persisted before anything scored on it. The reason to keep it is
+    that NDBC ``realtime2`` holds only ~45 days, so once a window scrolls out the only
+    surviving record of it is prose in CALIBRATION.md - which cannot be re-pooled,
+    re-split by instrument class, or re-derived. Kept per station rather than merged:
+    ``measure`` deliberately refuses to average discus-hull sigma in with Waverider
+    sigma, and a merged file would throw that separation away."""
+    return {
+        "generated": generated,
+        "stations": sorted(r.station for r in reports),
+        "by_station": {
+            r.station: {
+                "n_hours": r.n_hours,
+                "consistency_n": r.consistency_n,
+                "consistency_spearman": (
+                    round(r.consistency_spearman, 4) if r.consistency_spearman is not None else None
+                ),
+                "spread": {
+                    s.label: {
+                        "n": s.n,
+                        "assumed_deg": round(s.assumed_deg, 2),
+                        "measured_mean_deg": round(s.measured_mean_deg, 2),
+                        "bias_deg": round(s.bias_deg, 2),
+                        "mae_deg": round(s.mae_deg, 2),
+                    }
+                    for s in r.spread
+                },
+            }
+            for r in reports
+        },
+    }
+
+
 def render_report(buoy: Buoy, report: SpectraReport) -> str:
     lines = [
         f"measured spectra vs Stage-3b assumptions - buoy {buoy.id} - {buoy.name}",

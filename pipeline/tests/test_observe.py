@@ -65,9 +65,7 @@ def test_fixture_source_reads_real_capture() -> None:
 # captured 2026-08-03 from the public S3 path (no credentials - see observe.CMEMSSource).
 
 FIX_ROOT = Path(__file__).resolve().parent / "fixtures"
-SINES = Buoy(
-    id="Sines-coast-buoy", name="Sines", lat=37.9211, lon=-8.9289, source="cmems"
-)
+SINES = Buoy(id="Sines-coast-buoy", name="Sines", lat=37.9211, lon=-8.9289, source="cmems")
 
 
 def test_cmems_fixture_parses_a_real_file() -> None:
