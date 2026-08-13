@@ -23,7 +23,7 @@ export default defineConfig({
           // leaves Android with nothing installable - no prompt, no menu entry
           { src: "/icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
           { src: "/icon-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
-          // the maskable tile (#00175e tile, white mark) is the installed app icon
+          // the maskable tile (#032afa tile, white mark) is the installed app icon
           // AND the WebAPK pre-splash icon - Android prefers maskable for both;
           // it draws on the white background_color
           {
