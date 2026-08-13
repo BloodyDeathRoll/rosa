@@ -29,7 +29,7 @@
   --muted-foreground: #17171c80;
   --accent: #11b7f2;
   --accent-hover: #0469ce;
-  --border: #17171c1a;
+  --border: #3e3e4319;
   --input-bg: #ffffff;
   --input-border: #38384b66;
   --input-shadow: 0px 1px 3px rgba(0, 0, 0, 0.07), 0px 1px 2px rgba(0, 0, 0, 0.05);
@@ -49,7 +49,7 @@
      whatever it sits on. Fills are for bars, dots and pins; the -fg twins are for
      type, dark enough to read on a white page (dark theme lifts them instead). */
   --rating-flat: #30384e3e;
-  --rating-poor: #5979a189;
+  --rating-poor: #92b9e893; /* also on row 140 for dark mode */
   --rating-fair: #11b7f2;
   --rating-good: #24b161;
   --rating-firing: #0c6733;
@@ -136,6 +136,8 @@
   --glow-floor: 12%;
   --tabbar-bg: #000000;
   --tabbar-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+  --rating-poor: #3c639293;
 }
 :root[data-theme="dark"] .map-screen .maplibregl-ctrl-attrib-button {
   filter: invert(1); /* maplibre's (i) glyph is a black background-image svg */
@@ -2929,7 +2931,7 @@ a.rank-card:hover {
   background: var(--card);
   border-radius: 16px;
   box-shadow: var(--card-shadow);
-  padding: 4px 16px;
+  padding: 8px 16px;
 }
 .settings-card .card-title {
   padding: 12px 0 8px;
@@ -2948,6 +2950,11 @@ a.rank-card:hover {
 .settings-row.about-link {
   border-top: none;
   padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.settings-row.about-link:last-child {
+  border-bottom: none;
+  padding-bottom: 16px
 }
 .settings-row .label {
   font-size: 14.9px;
@@ -2975,8 +2982,8 @@ a.rank-card:hover {
 /* Stage-3b missed-swell hint - quiet amber note under the day title */
 .settings-note {
   margin: 0;
-  padding: 10px 16px 14px;
-  font-size: 12.7px;
+  padding: 12px 16px 12px;
+  font-size: 14px;
   line-height: 1.45;
   color: var(--muted-foreground);
 }
