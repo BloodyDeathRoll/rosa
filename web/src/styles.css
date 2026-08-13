@@ -2406,8 +2406,12 @@ a.rank-card:hover {
 .map-card-shade {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, var(--tide-fill-secondary) 0%, rgba(0, 0, 0, 0.8) 100%);
+  background: linear-gradient(180deg, var(--tide-fill) 0%, rgba(0, 0, 0, 0.4) 100%);
 }
+
+/* The type carries its own shadow as well as sitting on the wash: at z13 the
+   tiles run from near-black jungle to bright sand, and white-on-sand is the
+   case the wash alone does not cover at the top of the card. */
 .map-card-body {
   position: absolute;
   inset: 0;
@@ -2416,6 +2420,9 @@ a.rank-card:hover {
   gap: 2px;
   padding: 12px 14px;
   color: #f5f0e8;
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.9),
+    0 0 12px rgba(0, 0, 0, 0.7);
 }
 .map-card-head {
   display: flex;
@@ -2458,7 +2465,10 @@ a.rank-card:hover {
 }
 .map-card-sub {
   font-size: 12px;
-  color: #a8a29e;
+  /* was the mid grey #a8a29e, which is the one tone that disappears against
+     both ends of the imagery; keep it quieter than the name via alpha, not by
+     going grey. */
+  color: rgba(245, 240, 232, 0.85);
 }
 
 /* Attribution: themed chip bottom-left, riding just above the live sheet

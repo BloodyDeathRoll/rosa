@@ -5,7 +5,13 @@ import { useEffect, useRef, useState } from "preact/hooks";
     maplibre) so the home page stays light. */
 
 const TILE = 256;
-const Z = 15;
+/* z15 framed roughly 1.2 km across, which is tighter than most breaks: a spot
+   whose coordinate sits offshore (Ollie's Point, Witch's Rock) filled the whole
+   card with featureless water or canopy and read as a broken image. z13 is
+   ~4.9 km across, so the headland, the bay and the beach are all in frame and
+   the card is recognisable as the place. Beach-front spots (Beit Yanai, Playa
+   Yankee) read fine at either. */
+const Z = 13;
 
 const lonToX = (lon: number) => ((lon + 180) / 360) * TILE * 2 ** Z;
 const latToY = (lat: number) => {
