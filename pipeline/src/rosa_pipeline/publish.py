@@ -308,7 +308,17 @@ def build_payload(
     by_date: dict[str, list[ScoredHour]] = {}
     for s in visible:
         by_date.setdefault(day_of(s), []).append(s)
-    complete = {d: hrs for d, hrs in by_date.items() if _covers_day(hrs, tz)}
+    # ...but TODAY is exempt. The parenthetical above ("the leading day can't be partial")
+    # is a premise, not a guarantee: extract_hours drops any hour whose weather record has
+    # a null wind - a case its own comment records as observed on the past_days hours - and
+    # east of UTC those are precisely the hours covering local midnight. Lose two of them
+    # and the leading day fails _covers_day like any other, which deleted today from
+    # `days`/`hours` AND pushed `current` (the app's whole first screen) onto tomorrow's
+    # 00:00, under a fresh generated_at with nothing saying which day it is. A thin card
+    # for today is honest; yesterday's answer relabelled as now is not. Trailing and
+    # interior days keep the filter exactly as before.
+    leading = min(by_date) if by_date else None
+    complete = {d: hrs for d, hrs in by_date.items() if d == leading or _covers_day(hrs, tz)}
     if complete:  # never strip everything - a spot with no full day still reports
         by_date = complete
         visible = [s for s in visible if day_of(s) in by_date]
