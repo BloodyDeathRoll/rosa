@@ -23,12 +23,12 @@
   --body-bg: #f4f3f3;
   --foreground: #0d1225;
   --card: #ffffffc4;
-  --primary: #0a0b0f;
+  --primary: #1c2137;
   --primary-foreground: #faf9f7;
   --secondary: #17171c1b;
   --muted-foreground: #17171c80;
   --accent: #11b7f2;
-  --accent-hover: #0469ce;
+  --accent-hover: #e4a022; /* alternative for dark */
   --border: #3e3e4319;
   --input-bg: #ffffff;
   --input-border: #38384b66;
@@ -80,7 +80,7 @@
 
   /* Water under the tide curve, keyed to the rating ramp's fair step so the
      chart belongs to the same sea palette (TideSection.tsx paints with it). */
-  --tide-fill: color-mix(in srgb, var(--rating-fair) 14%, transparent);
+  --tide-fill: color-mix(in srgb, var(--rating-fair) 8%, transparent);
   --tide-fill-secondary: color-mix(in srgb, var(--rating-fair) 50%, transparent);
 
   /* Bottom glow - two tones lit off opposite bottom corners, far enough apart in
@@ -88,11 +88,11 @@
      on the left, teal on the right. Neither is the red accent - the accent means
      "tap me", and the rating ramp already owns red. Light keeps them faint; dark
      carries them further. */
-  --glow-a: #16337a;
-  --glow-b: #0d9488;
-  --glow-a-str: 42%;
-  --glow-b-str: 30%;
-  --glow-floor: 9%;
+  --glow-a: #032afa;
+  --glow-b: #24b161;
+  --glow-a-str: 16%;
+  --glow-b-str: 12%;
+  --glow-floor: 8%;
   /* height of the bottom band both glow layers live in - a fixed px height, so
      a collapsing mobile URL bar cannot rescale it */
   --glow-h: 460px;
@@ -125,7 +125,7 @@
   --background: #060607;
   --body-bg: #000000;
   --foreground: #f5f0e8;
-  --card: #14161db0;
+  --card: #18192188;
   --primary: #1f2127;
   --primary-foreground: #f5f0e8;
   --secondary: #0c0c0d;
@@ -1772,7 +1772,7 @@ a.rank-card:hover {
 /* Best-session rows - subtly tinted; the first row of a run carries a small
    "Best session" tag overlaid in its top-right corner, just below the divider. */
 .hour-grid.row.best {
-  background: color-mix(in srgb, var(--rating-good) 4%, transparent);
+  background: color-mix(in srgb, var(--rating-good) 6%, transparent);
   /* keep the row's normal top divider - don't blank it out */
 }
 .hour-grid.row.best-first {
