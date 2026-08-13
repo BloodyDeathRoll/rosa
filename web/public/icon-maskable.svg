@@ -4,7 +4,7 @@
   <defs>
     <style>
       :root {
-        --brand-mark: #000b2d;
+        --brand-mark: #00175e;
       }
       .st0 {
         fill: #fff;
