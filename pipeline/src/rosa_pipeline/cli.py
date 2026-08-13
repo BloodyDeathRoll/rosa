@@ -123,6 +123,16 @@ def _build_parser() -> argparse.ArgumentParser:
     )
     run.add_argument("--capture", type=Path, default=None, help="capture raw responses to this dir")
     run.add_argument(
+        "--skill",
+        type=Path,
+        default=ARCHIVE_DIR.parent / "skill.json",
+        help="measured horizon ceilings to publish (default data/verify/skill.json, "
+        "written by `verify --archive --write-skill`). Point it at a candidate file to "
+        "run the same-input A/B a ceiling change needs - CALIBRATION.md's rule - without "
+        "touching the VM's real one; /dev/null (or any missing path) forces the static "
+        "fallback, which is the A/B's control arm",
+    )
+    run.add_argument(
         "--ecmwf-fixtures",
         type=Path,
         default=None,
@@ -353,8 +363,12 @@ def _cmd_run(args: argparse.Namespace) -> int:
     )
     now = datetime.now(UTC)
     # measured horizon ceilings from the verification harness, if `verify --archive`
-    # has run and matured past its sample floor; None -> static defaults (2026-08-07)
-    skill = load_skill_ceilings(ARCHIVE_DIR.parent / "skill.json")
+    # has run and matured past its sample floor; None -> static defaults (2026-08-07).
+    # Overridable (--skill) so the same-input A/B that CALIBRATION.md requires before any
+    # ceiling change can be run offline against a candidate skill.json: skill.json and the
+    # archive are gitignored VM-only state, which is exactly what left the 2026-08-12
+    # partial-tier proposal unmeasurable and therefore deferred.
+    skill = load_skill_ceilings(args.skill)
 
     # one deep-water sample per unique offshore point; each spot may have its own, so a
     # full run fetches them all in a single batched request (fetch_many) - no throttling.
