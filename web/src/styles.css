@@ -965,7 +965,11 @@ button {
   top: 52px;
   z-index: 10;
   padding: 10px calc(var(--edge, 12px) + var(--coast-pad)) 16px;
-  /* background: var(--body-bg); */
+  /* Same treatment as the app header above it: no fill of its own, and the blur
+     is what keeps the dates readable over the cards passing underneath. */
+  background: transparent;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 .coast-day {
   flex: none;
