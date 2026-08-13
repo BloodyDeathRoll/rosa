@@ -569,6 +569,11 @@ def _cmd_verify(args: argparse.Namespace) -> int:
     skill_buoys: list[str] = []
     # --spectra reports, persisted as spread.json on request
     spread_reports: list[SpectraReport] = []
+    # what the pass actually managed, so it can say so at the end (the run --all /
+    # archive / bathy --all summary shape). `scored` counts buoys that produced a
+    # card; a buoy skipped on purpose (non-NDBC under --spectra) is neither.
+    scored = 0
+    failures: list[tuple[str, Exception]] = []
     for buoy, dist in targets:
         try:
             if args.spectra:
@@ -593,6 +598,7 @@ def _cmd_verify(args: argparse.Namespace) -> int:
                 report = build_report(specs)
                 spread_reports.append(report)
                 print(render_spectra_report(buoy, report))
+                scored += 1
                 continue
             obs = _obs_for(buoy, args)
             source = args.source if args.archive else "om"
@@ -620,6 +626,7 @@ def _cmd_verify(args: argparse.Namespace) -> int:
                 model = _model_for(buoy, args, marine=prefetched)
                 scores = build_scorecard(model, obs, tol_min=args.tol_min, variables=variables)
                 print(render_scorecard(buoy, dist, scores))
+            scored += 1
         except Exception as e:
             # the fleet pass degrades per buoy (same philosophy as run --all per
             # spot): one obs outage drops that buoy from this skill measurement
@@ -627,6 +634,7 @@ def _cmd_verify(args: argparse.Namespace) -> int:
             # raises - there a failure is the answer the operator asked for.
             if not getattr(args, "all_buoys", False):
                 raise
+            failures.append((buoy.id, e))
             print(f"{buoy.id}: FAILED ({e}) - left out of this skill pass", file=sys.stderr)
     if skill_by_lead and getattr(args, "write_skill", False):
         # Opt-in (--write-skill), because this file is FLEET-WIDE state: run --all
@@ -685,7 +693,25 @@ def _cmd_verify(args: argparse.Namespace) -> int:
             tmp.write_text(json.dumps(payload, indent=1) + "\n", encoding="utf-8")
             tmp.replace(spread_path)
             print(f"spread: wrote {spread_path} ({len(spread_reports)} station(s))")
-    return 0
+    if failures:
+        # Say what was lost, the way _cmd_run / _cmd_archive / _cmd_bathy do - and only
+        # after every buoy that could be scored has been, skill.json included. Without
+        # this a fleet pass that lost stations left N scattered FAILED lines and no
+        # count, so nothing downstream could tell "one dead buoy" from "the whole pass".
+        kinds = ", ".join(sorted({type(e).__name__ for _, e in failures}))
+        print(
+            f"error: {len(failures)} of {len(targets)} buoy(s) failed ({kinds}): "
+            f"{', '.join(bid for bid, _ in failures)}",
+            file=sys.stderr,
+        )
+    # A pass that scored SOMETHING is a degraded pass, not a failed one: dropping a dead
+    # station and measuring the rest is the documented contract (see the per-buoy guard
+    # above, pinned by test_cli.py::test_verify_all_buoys_fleet_pass). A pass that scored
+    # NOTHING measured nothing - a total obs outage, or the fleet nowcast batch failing -
+    # and until now exited 0, which is why publish.sh's own
+    #   || echo "warn: skill measurement failed - published ceilings stay as-is"
+    # could never fire and the published ceilings could go stale in silence.
+    return 1 if failures and not scored else 0
 
 
 def _archive_om_rows(
