@@ -18,6 +18,7 @@ import { ratingVar } from "../conditions";
 import { getFavorites, toggleFavorite } from "../favorites";
 import { stashView } from "../feedback";
 import { pushRecent } from "../recents";
+import { onScroll as onAppScroll, scrollTop } from "../scroller";
 import { signalReady } from "../splash";
 import {
   arrowRotation,
@@ -410,12 +411,11 @@ export function SpotPage({ id }: { id: string }) {
   // keeps the collapse from feeding back into scrollY and blinking.
   useEffect(() => {
     const onScroll = () => {
-      const y = window.scrollY || document.documentElement.scrollTop;
+      const y = scrollTop();
       setCondensed((c) => (c ? y > 8 : y > 72));
     };
     onScroll();
-    addEventListener("scroll", onScroll, { passive: true });
-    return () => removeEventListener("scroll", onScroll);
+    return onAppScroll(onScroll);
   }, []);
 
   useEffect(() => {

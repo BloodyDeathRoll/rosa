@@ -2,23 +2,28 @@
    Warm off-white + clay accent, Inter with tabular nums for data.
    Rating scale hexes are constant across themes and live in :root below. */
 
+/* ==========================================================================
+   TOKENS
+   Palette, rating scale, typography - everything below reads from these.
+   ========================================================================== */
+
 :root {
   /* ----- Brand */
-  --clay: #d97756;
+  --clay: #11b7f2;
   --stone: #4a4540;
 
   /* ----- Light palette */
   color-scheme: light;
   --background: #17171c01;
-  --body-bg: #ffffff;
-  --foreground: #1c1917;
-  --card: #ffffff;
+  --body-bg: #f4f3f3;
+  --foreground: #17171c;
+  --card: #ffffffc4;
   --primary: #0a0b0f;
   --primary-foreground: #faf9f7;
-  --secondary: #17171c0d;
+  --secondary: #17171c1b;
   --muted-foreground: #17171c80;
-  --accent: #e63e32;
-  --accent-hover: #d82619;
+  --accent: #11b7f2;
+  --accent-hover: #0469ce;
   --border: #17171c1a;
   --input-bg: #ffffff;
   --input-border: #38384b66;
@@ -29,14 +34,26 @@
   --seg-active-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
 
   /* ----- Rating scale (FLAT/POOR/FAIR/GOOD/FIRING → Flat/Poor/Fair/Good/Epic)
-     Ramp red → orange → yellow → green → dark green (user, 2026-07-20). */
-  --rating-flat: #ef4444;
-  --rating-flat-fg: #ef4444;
-  --rating-poor: #f97316;
-  --rating-fair: #eab308;
-  --rating-good: #22c55e;
-  --rating-firing: #15803d;
-  --warn-orange: #f97316;
+     Sea ramp (user, 2026-08-13): flat is a dark blue so washed out it barely
+     registers, poor a muted blue, fair teal, and the top two are both green -
+     Good calm, Epic the same green turned up. So the eye is pulled only by the
+     days worth surfing, and the traffic light is spent on the wind alone
+     (--wind-* below), where red means "the wind is wrong" and nothing else.
+
+     Flat carries its own alpha rather than a lighter hex, so it stays weak on
+     whatever it sits on. Fills are for bars, dots and pins; the -fg twins are for
+     type, dark enough to read on a white page (dark theme lifts them instead). */
+  --rating-flat: #30384e3e;
+  --rating-poor: #5979a1ab;
+  --rating-fair: #11b7f2;
+  --rating-good: #24b161;
+  --rating-firing: #03841a;
+
+  /* Wind, and only wind, gets the traffic light. */
+  --wind-good: #24b161;
+  --wind-cross: #e48022;
+  --wind-bad: #d0574a;
+  --warn-orange: var(--wind-cross);
 
   /* Chart bars are a single neutral teal; the day's condition color is carried
      by a rule beneath the column, not the bars themselves. */
@@ -45,6 +62,39 @@
   /* Vertical markers at the tide chart's highs/lows - a warm translucent tone
      tuned to the brand-red curve, quieter than --border */
   --tide-mark: #9d6e6d2d;
+
+  /* Water under the tide curve, keyed to the rating ramp's fair step so the
+     chart belongs to the same sea palette (TideSection.tsx paints with it). */
+  --tide-fill: color-mix(in srgb, var(--rating-fair) 14%, transparent);
+  --tide-fill-secondary: color-mix(in srgb, var(--rating-fair) 50%, transparent);
+
+  /* Bottom glow - two tones lit off opposite bottom corners, far enough apart in
+     hue to read as two (wtw does it with gold against electric blue): deep blue
+     on the left, teal on the right. Neither is the red accent - the accent means
+     "tap me", and the rating ramp already owns red. Light keeps them faint; dark
+     carries them further. */
+  --glow-a: #16337a;
+  --glow-b: #0d9488;
+  --glow-a-str: 42%;
+  --glow-b-str: 30%;
+  --glow-floor: 9%;
+  /* height of the bottom band both glow layers live in - a fixed px height, so
+     a collapsing mobile URL bar cannot rescale it */
+  --glow-h: 460px;
+
+  /* ----- Floating bottom nav (see .tabs) */
+  --tabbar-h: 64px;
+  --tabbar-inset: 16px; /* off the sides */
+  --tabbar-gap: var(--tabbar-inset); /* and the same off the bottom edge */
+  --tabbar-bg: #ffffff;
+  --tabbar-shadow: 0 8px 26px rgba(0, 0, 0, 0.16);
+  /* what the pill costs a screen that measures itself off the viewport */
+  --tabbar-space: calc(
+    var(--tabbar-h) + var(--tabbar-gap) + env(safe-area-inset-bottom, 0px)
+  );
+  /* what anything sitting above the pill should clear: its footprint plus room
+     to breathe, so nothing lands on its rim */
+  --tabbar-clear: calc(var(--tabbar-space) + 32px);
 
   /* ----- Typography */
   --font-sans: "Inter Variable", "Inter", system-ui, sans-serif;
@@ -60,20 +110,41 @@
   --background: #060607;
   --body-bg: #000000;
   --foreground: #f5f0e8;
-  --card: #0e0d0d;
-  --primary: #262121;
+  --card: #14161db0;
+  --primary: #1f2127;
   --primary-foreground: #f5f0e8;
-  --secondary: #17171d;
-  --muted-foreground: #736b6b;
+  --secondary: #0c0c0d;
+  --muted-foreground: #acb4d290;
   --border: #151518;
   --input-bg: #181b21;
   --input-border: #2621214c;
   --input-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3), 0px 1px 2px rgba(0, 0, 0, 0.2);
-  --emphasis-bg: #ffffff0c;
+  --emphasis-bg: #2a31492d;
   --card-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3), 0px 1px 2px rgba(0, 0, 0, 0.2);
   --sheet-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
   --seg-active-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  /* a dark-blue wash disappears on a near-black page, so flat is lifted; type
+     takes the bright end of each step */
+
+  --glow-a-str: 55%;
+  --glow-b-str: 40%;
+  --glow-floor: 12%;
+  --tabbar-bg: #000000;
+  --tabbar-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
+:root[data-theme="dark"] .map-screen .maplibregl-ctrl-attrib-button {
+  filter: invert(1); /* maplibre's (i) glyph is a black background-image svg */
+}
+
+/* Light theme: darker tab icons so they don't read as faint. */
+:root:not([data-theme="dark"]) .tabs a:not(.on) svg {
+  color: #57534e;
+}
+
+/* ==========================================================================
+   BASE
+   Reset and element defaults.
+   ========================================================================== */
 
 * {
   box-sizing: border-box;
@@ -116,6 +187,11 @@ button {
   padding: 0;
 }
 
+/* ==========================================================================
+   UTIL
+   Small helpers used across screens.
+   ========================================================================== */
+
 .tabular {
   font-variant-numeric: tabular-nums;
 }
@@ -128,7 +204,33 @@ button {
   color: var(--muted-foreground);
 }
 
-/* ---------- App column ---------- */
+/* Full-page empty state (e.g. Spots with no favorites): dead-center of the
+   space between header and bottom nav. */
+.empty-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  font-size: 14.3px;
+  color: var(--muted-foreground);
+  text-align: center;
+}
+
+.accent-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  font-size: 13.2px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* ==========================================================================
+   SHELL
+   App column, sticky app header, brand lockup, bottom nav.
+   ========================================================================== */
 
 .app {
   max-width: 430px;
@@ -138,6 +240,70 @@ button {
   flex-direction: column;
   background: var(--background);
   box-shadow: 0 0 24px rgba(0, 0, 0, 0.08);
+  /* own stacking context, so the glow below sits above the column's background
+     and still behind everything the pages draw */
+  isolation: isolate;
+}
+
+/* Bottom treatment, ported from the wtw app shell: a two-tone gradient mesh lit
+   off the bottom corners, with specks drifting up through it (BottomGlow.tsx).
+   Both layers are fixed so they stay welded to the bottom of the screen while
+   the app scrolls - inside the desktop phone frame the frame's own transform
+   makes "fixed" resolve to the frame, which is why the frame must not be the
+   scroller (see the DESKTOP block). Both sit at z-index -1 under an isolated
+   .app: above the column's background, behind everything the pages draw.
+
+   Both are a band of fixed pixel height anchored to the bottom edge, never a
+   share of the viewport. A mobile browser changes viewport height every time
+   the URL bar collapses, and anything sized in % or dvh gets rescaled by it -
+   which reads as the gradient sliding while you scroll and snapping back when
+   the bar returns. Pixels don't move. */
+.app::before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--glow-h);
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      95% 100% at 18% 130%,
+      color-mix(in srgb, var(--glow-a) var(--glow-a-str), transparent) 0%,
+      transparent 72%
+    ),
+    radial-gradient(
+      85% 90% at 82% 120%,
+      color-mix(in srgb, var(--glow-b) var(--glow-b-str), transparent) 0%,
+      transparent 70%
+    ),
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      color-mix(in srgb, var(--glow-a) var(--glow-floor), transparent) 100%
+    );
+}
+
+/* The particle field rides the same bottom band as the mesh. Painted after
+   ::before (equal z-index, later in tree order), so the specks sit on the glow.
+   Dark screens them out of the near-black page; light needs no blend, the tones
+   are already darker than the page. */
+.glow-particles {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  pointer-events: none;
+  display: block;
+  /* canvas is a replaced element: insets alone leave it at its intrinsic
+     300x150, so the size has to be spelled out */
+  width: 100%;
+  height: var(--glow-h);
+}
+:root[data-theme="dark"] .glow-particles {
+  mix-blend-mode: screen;
 }
 
 .page {
@@ -145,14 +311,18 @@ button {
   display: flex;
   flex-direction: column;
 }
+/* The pill floats over the page now, so a scrolling screen has to end above it.
+   Only when the nav is actually rendered (Search has none), and never on the
+   full-bleed screens, which handle the clearance inside their own chrome. */
+.app:has(.tabs) .page:not(.map-page) {
+  padding-bottom: var(--tabbar-space);
+}
 
 .state {
   padding: 24px 16px;
   font-size: 14.3px;
   color: var(--muted-foreground);
 }
-
-/* ---------- Sticky header ---------- */
 
 .app-head {
   display: flex;
@@ -163,10 +333,12 @@ button {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: color-mix(in srgb, var(--card) 85%, transparent);
+  /* No fill of its own: the greeting and the search glyph sit straight on the
+     page, and content passes under them. The blur is what keeps them readable
+     over whatever scrolls past - it tints nothing. */
+  background: transparent;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
 /* Brand lockup: icon mark · either the time-of-day greeting (Home) or the
@@ -221,122 +393,75 @@ button {
   color: var(--muted-foreground);
 }
 
-/* Spot screen top bar - back arrow · spot switcher · fav star, all one row.
-   The back arrow and star get generous, fixed tap targets at each edge; the
-   switcher fills the middle and is edge-masked so chips fade out beneath both
-   rather than colliding with them. */
-.spot-top {
+/* A floating pill rather than a full-width bar welded to the screen edge: it
+   sits inset from all three sides so the glow and the page keep running past it.
+
+   Fixed on every screen, never in flow. Sticky-in-flow on some screens and fixed
+   on others put it at subtly different heights depending on what the page did
+   below it; one mechanism means one distance from the bottom edge, always. Being
+   fixed it is out of the column, so its width is restated here - the same 430px
+   reading width as everything else, centred, less the side inset. Screens that
+   scroll pay for it with padding (see .page below); the full-bleed ones pad
+   their own chrome by --tabbar-clear. */
+.tabs {
   display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 10px;
+  height: var(--tabbar-h);
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(min(430px, 100%) - 2 * var(--tabbar-inset));
+  bottom: calc(var(--tabbar-gap) + env(safe-area-inset-bottom, 0px));
+  z-index: 20;
+  margin: 0;
+  border-radius: 9999px;
+  background: var(--tabbar-bg);
+  border: 1px solid color-mix(in srgb, var(--border) 85%, transparent);
+  box-shadow: var(--tabbar-shadow);
+  /* the five tabs group in the middle of the pill rather than stretching to its
+     ends - edge-to-edge left them reading as five separate things */
+  justify-content: center;
+  gap: 2px;
+  padding: 0 6px;
 }
-.spot-back {
-  flex: none;
-  display: inline-flex;
+.tabs a {
+  flex: 0 1 64px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
+  border-radius: 9999px;
   color: var(--muted-foreground);
-  transition: background 0.15s;
 }
-.spot-back:active {
-  background: var(--secondary);
-}
-/* the star belongs to the name - it sits right beside it, however short the
-   name is; only the search icon is pinned to the far right */
-.spot-top .star-btn {
-  flex: none;
-}
-.spot-top .spot-top-search {
-  flex: none;
-  margin-left: auto;
-}
-/* The open spot's name, left-aligned beside the chevron. */
-.spot-top .spot-top-name {
-  flex: 0 1 auto;
-  min-width: 0;
-  font-size: 17px;
-  font-weight: 700;
-  white-space: nowrap;
+/* Icons only. The label stays in the DOM, clipped, or the links would have no
+   accessible name - the icons are decorative SVG. */
+.tabs a span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
   overflow: hidden;
-  text-overflow: ellipsis;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+/* overrides the icons' own 18px width/height attributes */
+.tabs a svg {
+  width: 26px;
+  height: 26px;
+  stroke-width: 2;
+}
+.tabs a:hover {
+  color: var(--muted-foreground);
+}
+.tabs a.on,
+.tabs a.on:hover {
+  color: var(--foreground);
+  font-weight: 700;
 }
 
-/* Spot screen sticky head: top bar + date bar move as one block, pinned to the
-   very top - this screen has no app header above it. */
-.spot-sticky {
-  position: sticky;
-  top: 0;
-  z-index: 19;
-  padding-top: env(safe-area-inset-top);
-  background: color-mix(in srgb, var(--card) 88%, transparent);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-.spot-sticky .date-bar {
-  position: static;
-  top: auto;
-  background: transparent;
-  backdrop-filter: none;
-}
 
-/* Swipe wrapper + per-spot entrance animation */
-.spot-swipe {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-.spot-view {
-  animation: spot-fade 0.28s ease both;
-}
-.spot-view.from-right {
-  animation: spot-slide-right 0.28s ease both;
-}
-.spot-view.from-left {
-  animation: spot-slide-left 0.28s ease both;
-}
-@keyframes spot-fade {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-@keyframes spot-slide-right {
-  from {
-    opacity: 0;
-    transform: translateX(26px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-@keyframes spot-slide-left {
-  from {
-    opacity: 0;
-    transform: translateX(-26px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .spot-view,
-  .spot-view.from-right,
-  .spot-view.from-left {
-    animation: none;
-  }
-}
-
-/* ---------- Rating pill ---------- */
+/* ==========================================================================
+   CONTROLS
+   Reusable pieces: rating pill, star, spot title, segmented, search field, group chips, satellite tile.
+   ========================================================================== */
 
 .pill {
   height: 22px;
@@ -348,27 +473,223 @@ button {
   font-weight: 600;
 }
 .pill[data-bucket="FLAT"] {
-  background: color-mix(in srgb, var(--rating-flat) 13%, transparent);
+  background: color-mix(in srgb, var(--rating-flat) 100%, transparent);
   color: var(--rating-flat-fg);
 }
 .pill[data-bucket="POOR"] {
-  background: color-mix(in srgb, var(--rating-poor) 13%, transparent);
-  color: var(--rating-poor);
+  background: color-mix(in srgb, var(--rating-poor) 100%, transparent);
+  color: var(--rating-poor-fg);
 }
 .pill[data-bucket="FAIR"] {
-  background: color-mix(in srgb, var(--rating-fair) 13%, transparent);
-  color: var(--rating-fair);
+  background: color-mix(in srgb, var(--rating-fair) 100%, transparent);
+  color: var(--rating-fair-fg);
 }
 .pill[data-bucket="GOOD"] {
-  background: color-mix(in srgb, var(--rating-good) 13%, transparent);
-  color: var(--rating-good);
+  background: color-mix(in srgb, var(--rating-good) 100%, transparent);
+  color: var(--rating-good-fg);
 }
 .pill[data-bucket="FIRING"] {
-  background: color-mix(in srgb, var(--rating-firing) 13%, transparent);
-  color: var(--rating-firing);
+  background: color-mix(in srgb, var(--rating-firing) 100%, transparent);
+  color: var(--rating-firing-fg);
 }
 
-/* ---------- Today: spot cards ---------- */
+/* Satellite header (Surfline-style) */
+.sat-map {
+  display: block;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--secondary);
+}
+.sat-map .sm-tiles img {
+  position: absolute;
+  display: block;
+  max-width: none;
+}
+.sat-map .sm-pin {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -100%);
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
+}
+.sat-map .sm-attr {
+  position: absolute;
+  right: 6px;
+  bottom: 4px;
+  font-size: 8.8px;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+}
+.segmented.compact button {
+  padding: 5px 10px;
+}
+
+.star-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: var(--muted-foreground);
+}
+.star-btn svg {
+  fill: none;
+  stroke: currentColor;
+}
+.star-btn.on {
+  color: var(--accent);
+}
+.star-btn.on svg {
+  fill: currentColor;
+}
+
+.spot-title {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.spot-title b {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--foreground);
+}
+.spot-title small {
+  font-size: 12.1px;
+  font-weight: 400;
+  color: var(--muted-foreground);
+}
+
+/* Surfline-style region group bar (Spots + Map favorites). */
+.group-chips {
+  display: flex;
+  flex: none;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 8px 12px;
+}
+.group-chips::-webkit-scrollbar {
+  display: none;
+}
+.group-chip {
+  flex: none;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  white-space: nowrap;
+}
+.group-chip.on {
+  background: var(--foreground);
+  color: var(--body-bg);
+  border-color: var(--foreground);
+}
+
+.search-box {
+  position: relative;
+}
+.search-box svg {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  color: var(--muted-foreground);
+}
+.search-box input {
+  height: 40px;
+  padding: 0 12px 0 36px;
+  border-radius: 8px;
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  color: var(--foreground);
+  font-size: 14.9px;
+  font-family: inherit;
+  box-shadow: var(--input-shadow);
+  width: 100%;
+}
+.search-box input::placeholder {
+  color: var(--muted-foreground);
+}
+
+/* No focus ring on the search field - the open keyboard + caret already mark
+   focus; mobile browsers draw a heavy black outline on the auto-focused input. */
+.search-box input:focus,
+.search-box input:focus-visible {
+  outline: none;
+}
+
+/* Search screen header: back arrow + an open, full-width search field. */
+.search-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: color-mix(in srgb, var(--card) 85%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.search-box.grow {
+  flex: 1;
+  min-width: 0;
+  animation: search-open 0.28s ease-out both;
+}
+
+/* Opened search field is borderless - a soft filled pill on the header. */
+.search-box.grow input {
+  border-color: transparent;
+  box-shadow: none;
+  background: var(--secondary);
+}
+
+/* Wipe the field open right→left, keeping rounded corners. */
+@keyframes search-open {
+  from {
+    clip-path: inset(0 0 0 100% round 8px);
+    opacity: 0;
+  }
+  to {
+    clip-path: inset(0 0 0 0 round 8px);
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .search-box.grow {
+    animation: none;
+  }
+}
+
+.segmented {
+  display: inline-flex;
+  padding: 3px;
+  background: var(--secondary);
+  border-radius: 8px;
+  gap: 2px;
+}
+.segmented button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 14px;
+  border-radius: 6px;
+  font-size: 13.8px;
+  font-weight: 500;
+  color: var(--muted-foreground);
+}
+.segmented button.on {
+  background: var(--card);
+  color: var(--foreground);
+  box-shadow: var(--seg-active-shadow);
+}
+
+/* ==========================================================================
+   TODAY
+   Today tab: extended-card carousel, compact rank cards, coast chart and list, day scrubber, retro feedback.
+   ========================================================================== */
 
 .rank-list {
   display: flex;
@@ -485,35 +806,6 @@ button {
   scroll-snap-stop: always;
 }
 
-/* Satellite header (Surfline-style) */
-.sat-map {
-  display: block;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  background: var(--secondary);
-}
-.sat-map .sm-tiles img {
-  position: absolute;
-  display: block;
-  max-width: none;
-}
-.sat-map .sm-pin {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -100%);
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
-}
-.sat-map .sm-attr {
-  position: absolute;
-  right: 6px;
-  bottom: 4px;
-  font-size: 8.8px;
-  color: #fff;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
-}
-
 /* Rich last-viewed card at the top of Home */
 .detail-card {
   background: var(--card);
@@ -527,6 +819,7 @@ button {
   width: 100%;
   text-align: left;
 }
+
 /* Cover: the cam still when the spot has one (same source as the map cards),
    satellite imagery otherwise. */
 .detail-card .dc-cover {
@@ -540,6 +833,7 @@ button {
   object-fit: cover;
   object-position: center;
 }
+
 /* Cam marker pinned to the cover's top-right corner. */
 .detail-card .cam-badge {
   position: absolute;
@@ -600,6 +894,7 @@ button {
   font-weight: 600;
   font-variant-numeric: tabular-nums;
 }
+
 /* Right rail on the extended card: the rating pill and today's day bars sit in
    the same fixed-width column, both centered, so they share one vertical axis */
 .detail-card .hc-rail {
@@ -607,6 +902,7 @@ button {
   justify-content: center;
   min-width: 64px;
 }
+
 /* Bigger rating tag on the extended card */
 .detail-card .pill {
   height: 26px;
@@ -615,7 +911,6 @@ button {
   font-weight: 700;
 }
 
-/* ---------- Home: extended-card wrapper + coast grid ---------- */
 /* Surfline-style multi-day grid: a shared date axis + one row per spot, all
    horizontally scrollable in lock-step across the forecast period. */
 .coast {
@@ -625,6 +920,9 @@ button {
   /* 3.4 columns across the reading width (the app column, less the two --edge
      insets), so the next day peeks in and invites the swipe */
   --col-w: calc(min(100vw, 430px) * 0.88 / 3.4);
+  /* padding inside each spot card, and so also the extra inset the date axis
+     needs to stay lined up with the bars */
+  --coast-pad: 12px;
 }
 .coast .track {
   display: flex;
@@ -635,13 +933,15 @@ button {
 .coast .track::-webkit-scrollbar {
   display: none;
 }
-/* shared date axis - sticky under the app header, scrolls with the rows.
-   Left inset (12px) matches the cells padding so columns line up. */
+
+/* shared date axis - sticky under the app header, scrolls with the rows. Its
+   side inset is the card inset plus the card's own padding, so the axis columns
+   sit exactly over the bars inside the cards below. */
 .coast-head {
   position: sticky;
   top: 52px;
   z-index: 10;
-  padding: 10px var(--edge, 12px) 16px;
+  padding: 10px calc(var(--edge, 12px) + var(--coast-pad)) 16px;
   background: var(--body-bg);
 }
 .coast-day {
@@ -662,21 +962,32 @@ button {
   font-weight: 700;
   color: var(--foreground);
 }
+/* One card per spot, the same card as everywhere else in the app, rather than
+   rows divided by hairlines. Clipped so the horizontally scrolling bars stay
+   inside the rounded corners. */
 .coast-row {
   display: block;
-  padding: 10px 0 12px;
+  margin: 0 var(--edge, 12px) 10px;
+  padding: 12px 0;
+  overflow: hidden;
   color: var(--foreground);
   text-decoration: none;
-  border-bottom: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.15s ease;
+}
+.coast-row:active {
+  transform: scale(0.985);
 }
 .coast-name {
   display: block;
-  padding: 0 var(--edge, 12px) 10px;
+  padding: 0 var(--coast-pad) 10px;
   font-size: 16px;
   font-weight: 700;
 }
 .coast-cells {
-  padding: 0 var(--edge, 12px);
+  padding: 0 var(--coast-pad);
 }
 .coast-cell {
   flex: none;
@@ -761,6 +1072,7 @@ button {
   border-radius: 9999px;
   margin-top: 2px;
 }
+
 /* Wind + bars + range collapse together when the page scrolls into the forecast,
    leaving just the date row pinned. */
 .dcol-bars {
@@ -774,11 +1086,6 @@ button {
     max-height 0.22s ease,
     opacity 0.18s ease,
     margin-top 0.22s ease;
-}
-.spot-sticky.condensed .dcol-bars {
-  max-height: 0;
-  opacity: 0;
-  margin-top: -6px; /* absorb the column's gap so the date row sits tight */
 }
 
 /* MSW-style chart columns (CoastChart) - reuse the 50px grid so the date axis
@@ -812,6 +1119,7 @@ button {
 .chart-bar.stub {
   background: var(--border);
 }
+
 /* the coast chart's own readout: full-size in its wide columns (the spot
    page's scrubber shares .chart-val in a 56px column - leave that alone) */
 .coast .chart-val {
@@ -820,6 +1128,7 @@ button {
   font-size: calc(var(--col-w) * 0.16);
   letter-spacing: -0.01em;
 }
+
 /* dominant-condition rule beneath the teal bars - the only tier color in a column */
 .chart-rule {
   width: 42px;
@@ -869,9 +1178,6 @@ button {
   color: inherit;
   text-decoration: none;
 }
-.segmented.compact button {
-  padding: 5px 10px;
-}
 
 .rank-card {
   background: var(--card);
@@ -907,6 +1213,7 @@ a.rank-card:hover {
 .rank-card .name-link {
   min-width: 0;
 }
+
 /* Right rail of the compact card: cam marker (when the spot has one) then star. */
 /* cam icon + star, riding together on the right of a row (favorite cards and
    search results alike) */
@@ -930,48 +1237,10 @@ a.rank-card:hover {
     transform 0.15s ease,
     box-shadow 0.15s ease;
 }
-.spot-row-card:active {
-  transform: scale(0.985);
-}
-
-.star-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  color: var(--muted-foreground);
-}
-.star-btn svg {
-  fill: none;
-  stroke: currentColor;
-}
-.star-btn.on {
-  color: var(--accent);
-}
-.star-btn.on svg {
-  fill: currentColor;
-}
 
 .rank-card .open {
   min-width: 0;
   text-align: left;
-}
-
-.spot-title {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
-}
-.spot-title b {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--foreground);
-}
-.spot-title small {
-  font-size: 12.1px;
-  font-weight: 400;
-  color: var(--muted-foreground);
 }
 
 .rank-card .line {
@@ -1017,42 +1286,142 @@ a.rank-card:hover {
   color: var(--muted-foreground);
 }
 
-/* Surfline-style region group bar (Spots + Map favorites). */
-.group-chips {
-  display: flex;
-  flex: none;
-  gap: 8px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  padding: 8px 12px;
-}
-.group-chips::-webkit-scrollbar {
-  display: none;
-}
-.spots-page .group-chips {
-  margin: 0 -16px;
-}
 /* Today: the chips start on the same reading edge as the cards below them */
 .home .group-chips {
   padding: 10px var(--edge) 2px;
 }
-.group-chip {
-  flex: none;
-  padding: 8px 16px;
-  border-radius: 999px;
-  border: 1px solid var(--border);
-  font-size: 13.5px;
-  font-weight: 600;
-  color: var(--muted-foreground);
-  white-space: nowrap;
+
+.fb-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 16px;
+  padding: 12px 10px 12px 16px;
+  background: var(--card);
+  border-radius: 14px;
+  box-shadow: var(--card-shadow);
 }
-.group-chip.on {
-  background: var(--foreground);
-  color: var(--body-bg);
-  border-color: var(--foreground);
+.fb-row .fb-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.fb-row b {
+  font-size: 14px;
+}
+.fb-row small {
+  font-size: 12.7px;
+  color: var(--muted-foreground);
+}
+.fb-row .fb-actions {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.fb-row .fb-actions button {
+  font-size: 17px;
+  padding: 8px 9px;
+  border-radius: 10px;
+}
+.fb-row .fb-actions button:active {
+  background: var(--secondary);
+}
+.fb-row .fb-x {
+  color: var(--muted-foreground);
+  font-size: 13px;
 }
 
-/* ---------- Spots tab ---------- */
+/* step 1 (surfed it?) answers as a plain green tick / red cross - the only
+   place outside the condition layer that spends colour, and it earns it: the
+   two answers must be told apart at a glance, half-awake */
+.fb-row .fb-yes,
+.fb-row .fb-no {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1;
+}
+.fb-row .fb-yes {
+  color: var(--wind-good);
+}
+.fb-row .fb-no {
+  color: var(--wind-bad);
+}
+
+/* Region heading over a run of spots - Today's coast chart and the Spots list
+   under "All". Same wording and order as the group chips that filter them. */
+/* Each region reads as its own block on Today: a little room top and bottom so
+   the coasts don't run into one another. */
+.coast-group {
+  padding: 2px 0 10px;
+}
+.coast-group + .coast-group {
+  padding-top: 8px;
+}
+.group-label {
+  margin: 18px var(--edge, 16px) 6px;
+  font-size: 12.4px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+.coast .group-label:first-child,
+.rank-list .group-label:first-child {
+  margin-top: 4px;
+}
+
+/* Extended-card carousel at the top of Home: every listed spot gets the rich
+   card, swipe moves between them. Same centered-snap pattern as the map sheet;
+   neighbours peek at the edges so the swipe affordance is visible. */
+/* One reading edge for the whole screen: the extended cards are centred at
+   --cw wide, and everything below them (day strip, region labels, spot rows,
+   bars) lines up with the card's left edge instead of sitting further out. */
+.home {
+  --cw: 88%;
+  --edge: calc((100% - var(--cw)) / 2);
+}
+.home-cards {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+  padding: 14px var(--edge) 10px;
+  -webkit-overflow-scrolling: touch;
+}
+.home-cards::-webkit-scrollbar {
+  display: none;
+}
+.home-cards .hc-slide {
+  flex: 0 0 var(--cw);
+  min-width: 0;
+  scroll-snap-align: center;
+  display: flex; /* card fills the tallest slide - a wrapped temps row can't
+                    leave its neighbours short */
+}
+.home-cards .detail-card,
+.home-cards .detail-card .open {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.home-cards .dc-body {
+  flex: 1; /* the body takes up the slack, so covers stay aligned across cards */
+}
+
+/* ==========================================================================
+   SPOTS
+   Spots tab: search results, favourites, map-area rows.
+   ========================================================================== */
+
+.spot-row-card:active {
+  transform: scale(0.985);
+}
+.spots-page .group-chips {
+  margin: 0 -16px;
+}
 
 .spots-page {
   flex: 1;
@@ -1060,78 +1429,6 @@ a.rank-card:hover {
   display: flex;
   flex-direction: column;
   gap: 14px;
-}
-
-.search-box {
-  position: relative;
-}
-.search-box svg {
-  position: absolute;
-  left: 12px;
-  top: 12px;
-  color: var(--muted-foreground);
-}
-.search-box input {
-  height: 40px;
-  padding: 0 12px 0 36px;
-  border-radius: 8px;
-  border: 1px solid var(--input-border);
-  background: var(--input-bg);
-  color: var(--foreground);
-  font-size: 14.9px;
-  font-family: inherit;
-  box-shadow: var(--input-shadow);
-  width: 100%;
-}
-.search-box input::placeholder {
-  color: var(--muted-foreground);
-}
-/* No focus ring on the search field - the open keyboard + caret already mark
-   focus; mobile browsers draw a heavy black outline on the auto-focused input. */
-.search-box input:focus,
-.search-box input:focus-visible {
-  outline: none;
-}
-
-/* Search screen header: back arrow + an open, full-width search field. */
-.search-head {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 10px;
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: color-mix(in srgb, var(--card) 85%, transparent);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-.search-box.grow {
-  flex: 1;
-  min-width: 0;
-  animation: search-open 0.28s ease-out both;
-}
-/* Opened search field is borderless - a soft filled pill on the header. */
-.search-box.grow input {
-  border-color: transparent;
-  box-shadow: none;
-  background: var(--secondary);
-}
-/* Wipe the field open right→left, keeping rounded corners. */
-@keyframes search-open {
-  from {
-    clip-path: inset(0 0 0 100% round 8px);
-    opacity: 0;
-  }
-  to {
-    clip-path: inset(0 0 0 0 round 8px);
-    opacity: 1;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .search-box.grow {
-    animation: none;
-  }
 }
 
 .spot-group-list {
@@ -1193,6 +1490,7 @@ a.rank-card:hover {
 .spot-row-card > svg {
   flex: none;
 }
+
 /* Card-less variant (search results): plain rows, no card chrome. */
 .spot-row-card.plain {
   background: none;
@@ -1217,33 +1515,132 @@ a.rank-card:hover {
   padding: 4px 2px;
 }
 
-/* Full-page empty state (e.g. Spots with no favorites): dead-center of the
-   space between header and bottom nav. */
-.empty-center {
+/* ==========================================================================
+   SPOT
+   Spot screen: top bar, rating card, cam, hourly table, tide, sun, nearby.
+   ========================================================================== */
+
+/* Spot screen top bar - back arrow · spot switcher · fav star, all one row.
+   The back arrow and star get generous, fixed tap targets at each edge; the
+   switcher fills the middle and is edge-masked so chips fade out beneath both
+   rather than colliding with them. */
+.spot-top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+}
+.spot-back {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  color: var(--muted-foreground);
+  transition: background 0.15s;
+}
+.spot-back:active {
+  background: var(--secondary);
+}
+
+/* the star belongs to the name - it sits right beside it, however short the
+   name is; only the search icon is pinned to the far right */
+.spot-top .star-btn {
+  flex: none;
+}
+.spot-top .spot-top-search {
+  flex: none;
+  margin-left: auto;
+}
+
+/* The open spot's name, left-aligned beside the chevron. */
+.spot-top .spot-top-name {
+  flex: 0 1 auto;
+  min-width: 0;
+  font-size: 17px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Spot screen sticky head: top bar + date bar move as one block, pinned to the
+   very top - this screen has no app header above it. */
+.spot-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 19;
+  padding-top: env(safe-area-inset-top);
+  background: color-mix(in srgb, var(--card) 88%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.spot-sticky .date-bar {
+  position: static;
+  top: auto;
+  background: transparent;
+  backdrop-filter: none;
+}
+
+/* Swipe wrapper + per-spot entrance animation */
+.spot-swipe {
   flex: 1;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  font-size: 14.3px;
-  color: var(--muted-foreground);
-  text-align: center;
+  flex-direction: column;
 }
-
-/* Map-sheet empty state: same height as the card carousel row, so the sheet
-   doesn't shrink when the viewport has no spots; text centered both ways. */
-.sheet-empty {
-  height: 120px; /* card 118px + the row's 2px top padding */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  font-size: 14.3px;
-  color: var(--muted-foreground);
-  text-align: center;
+.spot-view {
+  animation: spot-fade 0.28s ease both;
 }
-
-/* ---------- Spot screen ---------- */
+.spot-view.from-right {
+  animation: spot-slide-right 0.28s ease both;
+}
+.spot-view.from-left {
+  animation: spot-slide-left 0.28s ease both;
+}
+@keyframes spot-fade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes spot-slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(26px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes spot-slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(-26px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .spot-view,
+  .spot-view.from-right,
+  .spot-view.from-left {
+    animation: none;
+  }
+}
+.spot-sticky.condensed .dcol-bars {
+  max-height: 0;
+  opacity: 0;
+  margin-top: -6px; /* absorb the column's gap so the date row sits tight */
+}
 
 .spot-main {
   flex: 1;
@@ -1264,6 +1661,7 @@ a.rank-card:hover {
   box-shadow: var(--card-shadow);
   overflow: hidden;
 }
+
 /* Left column: total rating on top, quality bars beneath */
 .spot-card .rc-left {
   flex: 1;
@@ -1272,6 +1670,7 @@ a.rank-card:hover {
   flex-direction: column;
   align-items: flex-start;
 }
+
 /* Right column: show-on-map, then air / water / rashguard stacked */
 .spot-card .rc-right {
   flex: none;
@@ -1365,7 +1764,7 @@ a.rank-card:hover {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--rating-good);
+  color: var(--rating-good-fg);
   pointer-events: none;
 }
 
@@ -1389,16 +1788,6 @@ a.rank-card:hover {
 }
 .temps-row .suit {
   font-weight: 500;
-}
-
-.accent-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  white-space: nowrap;
-  font-size: 13.2px;
-  font-weight: 600;
-  color: var(--accent);
 }
 
 /* Day pills */
@@ -1453,7 +1842,7 @@ a.rank-card:hover {
   grid-template-columns: 26px 6px 1fr 0.9fr 1fr 0.7fr;
   gap: 6px;
   align-items: center;
-  padding: 10px 10px 10px 6px;
+  padding: 8px 16px 8px 12px;
 }
 .hour-grid.head {
   padding: 6px 10px 5px 6px;
@@ -1466,7 +1855,6 @@ a.rank-card:hover {
   color: var(--muted-foreground);
   text-align: center;
 }
-/* ---------- Live cam (first element on a spot page, when one exists) ---------- */
 .cam {
   margin: 0 0 14px;
 }
@@ -1496,6 +1884,7 @@ a.rank-card:hover {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+
 /* Angle/nearby picker under the player (Surfline-style thumbnails) */
 .cam-picker {
   margin: 10px 12px 0;
@@ -1653,9 +2042,9 @@ a.rank-card:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 8px;
   line-height: 1.15;
-  padding: 4px 2px;
+  padding: 8px 8px;
   border-radius: 8px;
   background: var(--emphasis-bg);
 }
@@ -1680,24 +2069,20 @@ a.rank-card:hover {
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
-/* Class-tinted wording so onshore/offshore reads at a glance */
-.hour-grid .wind-cell.wc-offshore .wclass {
-  color: var(--rating-good);
-}
+
+/* Class-tinted wording so onshore/offshore reads at a glance. This is the one
+   place the traffic light lives now - the rating scale is blue. */
+.hour-grid .wind-cell.wc-offshore .wclass,
 .hour-grid .wind-cell.wc-offshore .top svg {
-  color: var(--rating-good);
+  color: var(--wind-good);
 }
-.hour-grid .wind-cell.wc-cross-shore .wclass {
-  color: var(--warn-orange);
-}
+.hour-grid .wind-cell.wc-cross-shore .wclass,
 .hour-grid .wind-cell.wc-cross-shore .top svg {
-  color: var(--warn-orange);
+  color: var(--wind-cross);
 }
-.hour-grid .wind-cell.wc-onshore .wclass {
-  color: var(--rating-flat);
-}
+.hour-grid .wind-cell.wc-onshore .wclass,
 .hour-grid .wind-cell.wc-onshore .top svg {
-  color: var(--rating-flat);
+  color: var(--wind-bad);
 }
 
 /* Power + pressure share one stacked column: power on top (heavier), pressure below. */
@@ -1716,6 +2101,7 @@ a.rank-card:hover {
   font-size: 11px;
   color: var(--muted-foreground);
 }
+
 /* Header cell for the merged column: two stacked unit labels. */
 .hour-grid.head .pp-head {
   display: flex;
@@ -1753,6 +2139,7 @@ a.rank-card:hover {
   width: 100%;
   height: 96px;
 }
+
 /* Surfline-style extreme labels: time over height, centered on the curve's
    highs/lows in a strip reserved above the water line */
 .tide-ext {
@@ -1781,6 +2168,7 @@ a.rank-card:hover {
   margin-top: 8px;
   border-top: 1px solid var(--border);
 }
+
 /* Other nearby spots - the Map tab's cards, scrolling under the sun row. */
 .nearby-sec {
   padding: 16px 0 22px;
@@ -1792,6 +2180,7 @@ a.rank-card:hover {
   padding: 0 16px 10px;
   font-size: 11px;
 }
+
 /* .map-cards is defined further down, so these need the extra class to win:
    the strip reads from the page's own left edge, not the map's centred snap. */
 .map-cards.nearby-cards {
@@ -1825,24 +2214,57 @@ a.rank-card:hover {
   color: var(--foreground);
 }
 
-/* ---------- Map ---------- */
+.tide-sec .tide-best {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
 
-/* Map screen: a full-bleed map with floating controls (back · search) and a
-   bottom sheet (centered spot-card carousel) overlaid on top. The map fills all
-   space between the (absent) header and the bottom nav.
+/* ==========================================================================
+   MAP
+   Map tab: canvas, floating controls, bottom sheet cards, pins, location list, maplibre chrome.
+   ========================================================================== */
+
+/* Map-sheet empty state: same height as the card carousel row, so the sheet
+   doesn't shrink when the viewport has no spots; text centered both ways. */
+.sheet-empty {
+  height: 120px; /* card 118px + the row's 2px top padding */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  font-size: 14.3px;
+  color: var(--muted-foreground);
+  text-align: center;
+}
+
+/* Map screen: a full-bleed map with floating controls (back · search) and the
+   spot-card carousel overlaid on top. The map fills the whole screen, nav pill
+   included - nothing of the page shows around it.
    Maplibre needs its container to have a definite size at init, so .map-screen
-   carries an explicit height (viewport minus the 58px bottom nav) rather than
-   relying on flex - an absolute/flex-only canvas measured 0 and rendered blank. */
+   carries an explicit height rather than relying on flex - an absolute/flex-only
+   canvas measured 0 and rendered blank. */
 .map-page {
   overflow: hidden;
+  /* pinned to the viewport rather than sized by flex, so nothing below it (the
+     floating nav included) can shorten the canvas and expose the page under it */
+  height: 100dvh;
 }
 .map-screen {
   position: relative;
   overflow: hidden;
 }
+/* Full bleed: the map runs edge to edge and the nav pill floats on top of it,
+   so the bottom glow never shows through as a band under the canvas. */
 .map-canvas {
   width: 100%;
-  height: calc(100dvh - 58px - env(safe-area-inset-bottom, 0px));
+  height: 100dvh;
+}
+/* On the full-bleed screens the column is exactly one viewport, nothing scrolls,
+   and the nav floats over the canvas instead of taking a row under it. */
+.app:has(.map-page) {
+  height: 100dvh;
+  overflow: hidden;
 }
 
 /* Floating circular controls over the map (back top-left, search top-right). */
@@ -1872,27 +2294,24 @@ a.rank-card:hover {
   background: var(--secondary);
 }
 
-/* Bottom sheet overlaying the map. */
+/* Spot carousel over the map. No sheet chrome of its own - no fill, no rounded
+   lip, no shadow, no grip - just the cards riding on the map, which now runs
+   underneath them. The bottom padding clears the floating nav, and because it is
+   part of the sheet's box it lands in --sheet-h too, so the attribution chip and
+   the locate fab keep their spacing without knowing about the nav. */
 .map-sheet {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 5;
-  padding: 6px 0 12px;
-  background: var(--card);
-  border-top-left-radius: 18px;
-  border-top-right-radius: 18px;
-  box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.18);
+  padding: 6px 0 var(--tabbar-clear);
+  background: none;
 }
 .sheet-grip {
-  display: block;
-  width: 36px;
-  height: 4px;
-  margin: 4px auto 8px;
-  border-radius: 9999px;
-  background: var(--border);
+  display: none;
 }
+
 /* Centered spot-card carousel: one card sits in the middle (the focused spot),
    neighbours peek at the edges. The side padding is what lets the first/last
    card snap to center. --cw is the card width as a share of the sheet. */
@@ -1919,13 +2338,14 @@ a.rank-card:hover {
   overflow: hidden;
   border-radius: 14px;
   background: #22262f;
-  opacity: 0.75;
+  opacity: 0.95;
   transition: opacity 0.2s;
 }
 .map-card.center {
   opacity: 1;
 }
-/* Satellite imagery fills the card behind everything. */
+
+/* Satellite imagery (or the cam still) fills the card behind everything. */
 .map-card-bg {
   position: absolute;
   inset: 0;
@@ -1937,6 +2357,7 @@ a.rank-card:hover {
   font-size: 8px;
   opacity: 0.7;
 }
+
 /* Cam still fills the card the way the satellite tile does. The 16:9 frame is wider
    than the card, so crop to the middle - that is where the surf is. */
 .map-card-cam {
@@ -1946,12 +2367,15 @@ a.rank-card:hover {
   object-position: center;
   display: block;
 }
-/* Cards use the dark treatment in BOTH themes - white text over a dark scrim over
-   the satellite image, so light-mode cards read the same as dark. */
+
+/* Over the thumbnail: the tide chart's water at the top, settling into a light
+   black wash at the floor - unlike the tide chart, this one has to keep white
+   type readable over a bright satellite tile. Cards keep the dark treatment in
+   BOTH themes, so a light-mode card reads the same as a dark one. */
 .map-card-shade {
   position: absolute;
   inset: 0;
-  background: #00000088;
+  background: linear-gradient(180deg, var(--tide-fill-secondary) 0%, rgba(0, 0, 0, 0.8) 100%);
 }
 .map-card-body {
   position: absolute;
@@ -1968,6 +2392,7 @@ a.rank-card:hover {
   align-items: center;
   gap: 6px;
 }
+
 /* Says the still is a camera, not satellite imagery. Order puts it left of the pill. */
 .map-card-live {
   order: -1;
@@ -1984,6 +2409,7 @@ a.rank-card:hover {
   border-radius: 999px;
   padding: 2px 7px;
 }
+
 /* Name sits just above the surf value; the auto margin pushes the name/value/sub
    group to the bottom of the card. */
 .map-card-name {
@@ -2022,9 +2448,6 @@ a.rank-card:hover {
 }
 .map-screen .maplibregl-ctrl-attrib summary.maplibregl-ctrl-attrib-button {
   background-color: transparent;
-}
-:root[data-theme="dark"] .map-screen .maplibregl-ctrl-attrib-button {
-  filter: invert(1); /* maplibre's (i) glyph is a black background-image svg */
 }
 
 /* Search layers over the live map (map stays mounted so easeTo/pick work). */
@@ -2158,7 +2581,326 @@ a.rank-card:hover {
   font-size: 9.9px;
 }
 
-/* ---------- Settings ---------- */
+/* Map fabs: north under the search glass; locate bottom-right, its center
+   aligned with the attribution chip across the map (both ride --sheet-h). */
+.map-fab.locate {
+  right: 12px;
+  top: auto;
+  /* center-align with the attribution chip: chip bottom = sheet + 10 (container)
+     + 10 (maplibre's own margin), chip h 24, fab h 40 → fab bottom = sheet + 12 */
+  bottom: calc(var(--sheet-h, 150px) + 12px);
+}
+.map-fab.locate.err {
+  color: var(--wind-bad);
+}
+.map-fab.north {
+  right: 12px;
+  top: 60px;
+}
+.map-fab.north svg {
+  transform: rotate(var(--brg, 0deg));
+  transition: transform 0.2s;
+}
+
+/* ==========================================================================
+   CHARTS
+   Charts tab: swell canvas and the instrument deck (layer menu, timeline, needle).
+   ========================================================================== */
+
+.swell-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Charts instrument deck: a full-width strip laid straight over the chart (no
+   card) - a scrim fades the map out underneath for legibility. Top row: layer
+   tag + colormap ramp + frame clock; below it the tick ruler (fine 3-hourly
+   ticks, heavy midnight ticks with day labels) carrying the accent needle. */
+.charts-deck {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  /* clears the floating nav, plus a gap so the ruler doesn't sit on the pill */
+  padding: 18px 14px var(--tabbar-clear);
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--background) 92%, transparent) 55%,
+    color-mix(in srgb, var(--background) 55%, transparent) 82%,
+    transparent
+  );
+}
+.deck-head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Layer tag: current chart type + chevron, opens the selection menu above */
+.deck-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 11px;
+  border-radius: 9999px;
+  border: 1px solid color-mix(in srgb, var(--foreground) 16%, transparent);
+  background: color-mix(in srgb, var(--secondary) 55%, transparent);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--foreground);
+}
+.deck-tag .chev {
+  transition: transform 0.18s ease;
+  color: var(--muted-foreground);
+}
+.deck-tag .chev.up {
+  transform: rotate(180deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .deck-tag .chev {
+    transition: none;
+  }
+}
+.deck-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 7;
+}
+.deck-menu {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 10px);
+  z-index: 8;
+  display: flex;
+  flex-direction: column;
+  min-width: 170px;
+  padding: 5px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--card) 96%, transparent);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+  box-shadow: var(--card-shadow);
+}
+.deck-menu button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 11px;
+  border-radius: 9px;
+  background: none;
+  font-size: 13.5px;
+  font-weight: 500;
+  text-align: left;
+  color: var(--foreground);
+}
+.deck-menu button.on {
+  font-weight: 700;
+  background: color-mix(in srgb, var(--secondary) 70%, transparent);
+}
+
+/* the selected layer carries the accent dot */
+.deck-menu button.on::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.deck-run {
+  margin-top: 3px;
+  padding: 7px 11px 5px;
+  border-top: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
+  font-size: 9.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--muted-foreground);
+}
+.deck-timeline {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding-top: 8px;
+}
+.deck-play {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  border: 1px solid color-mix(in srgb, var(--foreground) 18%, transparent);
+  background: color-mix(in srgb, var(--secondary) 55%, transparent);
+  color: var(--foreground);
+}
+.charts-deck.playing .deck-play {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+}
+.deck-ruler {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  height: 38px;
+}
+.deck-ticks {
+  position: absolute;
+  inset: 3px 0 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.deck-ticks .tick {
+  position: relative;
+  width: 1px;
+  height: 8px;
+  background: color-mix(in srgb, var(--foreground) 22%, transparent);
+}
+.deck-ticks .tick.maj {
+  height: 14px;
+  background: color-mix(in srgb, var(--foreground) 38%, transparent);
+}
+.deck-ticks .tklb {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  white-space: nowrap;
+}
+.deck-needle {
+  position: absolute;
+  top: 0;
+  bottom: 12px;
+  width: 2px;
+  border-radius: 1px;
+  background: var(--accent);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.deck-needle::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* the needle glides between frames while the animation runs */
+.charts-deck.playing .deck-needle {
+  transition: left 0.45s linear;
+}
+@media (prefers-reduced-motion: reduce) {
+  .charts-deck.playing .deck-needle {
+    transition: none;
+  }
+}
+
+/* invisible native range on top: keyboard, screen reader, and drag for free */
+.deck-scrub {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+}
+.deck-ruler:has(.deck-scrub:focus-visible) {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Colormap ramp stretches between the tag and the clock; the clock is
+   right-aligned and never wraps or spills past the edge */
+.deck-legend {
+  flex: 1;
+  min-width: 0;
+  height: 4px;
+  border-radius: 2px;
+}
+.deck-clock {
+  flex: none;
+  margin-left: auto;
+  white-space: nowrap;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--foreground);
+}
+.deck-clock small {
+  margin-right: 6px;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+.swell-note {
+  position: absolute;
+  left: 12px;
+  bottom: calc(var(--sheet-h, 150px) + 44px);
+  z-index: 6;
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--card) 88%, transparent);
+  font-size: 12.5px;
+  color: var(--muted-foreground);
+}
+
+/* Charts tab: basin chips float at the top; the deck publishes its own height as
+   --sheet-h (ChartsPage.tsx), the same channel the Map's card sheet uses, so the
+   attribution chip clears it. */
+.charts-basins {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  z-index: 6;
+  display: flex;
+  gap: 7px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 2px;
+}
+.charts-basins::-webkit-scrollbar {
+  display: none;
+}
+.charts-basins .group-chip {
+  flex: none;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: var(--card-shadow);
+}
+
+/* glass backdrop only for unselected chips - the .on chip keeps its inverted
+   fill, otherwise its background-colored label vanishes on the card tint */
+.charts-basins .group-chip:not(.on) {
+  background: color-mix(in srgb, var(--card) 88%, transparent);
+}
+
+/* ==========================================================================
+   PROFILE
+   Profile / settings rows and cards.
+   ========================================================================== */
 
 .settings-page {
   flex: 1;
@@ -2190,7 +2932,7 @@ a.rank-card:hover {
 }
 .settings-row.about-link {
   border-top: none;
-  padding: 15px 0;
+  padding: 12px 0;
 }
 .settings-row .label {
   font-size: 14.9px;
@@ -2205,29 +2947,6 @@ a.rank-card:hover {
   color: var(--muted-foreground);
 }
 
-.segmented {
-  display: inline-flex;
-  padding: 3px;
-  background: var(--secondary);
-  border-radius: 8px;
-  gap: 2px;
-}
-.segmented button {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 5px 14px;
-  border-radius: 6px;
-  font-size: 13.8px;
-  font-weight: 500;
-  color: var(--muted-foreground);
-}
-.segmented button.on {
-  background: var(--card);
-  color: var(--foreground);
-  box-shadow: var(--seg-active-shadow);
-}
-
 .settings-foot {
   text-align: center;
   font-size: 12.1px;
@@ -2238,7 +2957,19 @@ a.rank-card:hover {
   margin: 2px 0;
 }
 
-/* ---------- About / legal pages ---------- */
+/* Stage-3b missed-swell hint - quiet amber note under the day title */
+.settings-note {
+  margin: 0;
+  padding: 10px 16px 14px;
+  font-size: 12.7px;
+  line-height: 1.45;
+  color: var(--muted-foreground);
+}
+
+/* ==========================================================================
+   ABOUT
+   About and legal pages.
+   ========================================================================== */
 
 .about-page {
   padding: 0;
@@ -2375,6 +3106,7 @@ a.rank-card:hover {
   flex-direction: column;
   gap: 5px;
 }
+
 /* A bullet list used on its own (not nested in .about-steps) reads as body copy. */
 .about-body > .about-sub {
   color: var(--muted-foreground);
@@ -2406,143 +3138,10 @@ a.rank-card:hover {
   opacity: 0.7;
 }
 
-/* ---------- Bottom nav ---------- */
-
-.tabs {
-  display: flex;
-  height: 58px;
-  position: sticky;
-  bottom: 0;
-  z-index: 20;
-  background: color-mix(in srgb, var(--card) 85%, transparent);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-top: 1px solid var(--border);
-  padding-bottom: env(safe-area-inset-bottom);
-}
-.tabs a {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  font-size: 11.6px;
-  font-weight: 500;
-  color: var(--muted-foreground);
-}
-.tabs a svg {
-  stroke-width: 2;
-}
-/* Light theme: darker tab icons so they don't read as faint. */
-:root:not([data-theme="dark"]) .tabs a:not(.on) svg {
-  color: #57534e;
-}
-.tabs a:hover {
-  color: var(--muted-foreground);
-}
-.tabs a.on,
-.tabs a.on:hover {
-  color: var(--foreground);
-  font-weight: 700;
-}
-
-/* Stage-3b missed-swell hint - quiet amber note under the day title */
-/* ----- Notifications settings note */
-
-.settings-note {
-  margin: 0;
-  padding: 10px 16px 14px;
-  font-size: 12.7px;
-  line-height: 1.45;
-  color: var(--muted-foreground);
-}
-
-/* ----- Retro feedback row (Today): one tap grades yesterday's call */
-
-.fb-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin: 0 16px;
-  padding: 12px 10px 12px 16px;
-  background: var(--card);
-  border-radius: 14px;
-  box-shadow: var(--card-shadow);
-}
-.fb-row .fb-text {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  min-width: 0;
-}
-.fb-row b {
-  font-size: 14px;
-}
-.fb-row small {
-  font-size: 12.7px;
-  color: var(--muted-foreground);
-}
-.fb-row .fb-actions {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-}
-.fb-row .fb-actions button {
-  font-size: 17px;
-  padding: 8px 9px;
-  border-radius: 10px;
-}
-.fb-row .fb-actions button:active {
-  background: var(--secondary);
-}
-.fb-row .fb-x {
-  color: var(--muted-foreground);
-  font-size: 13px;
-}
-/* step 1 (surfed it?) answers as a plain green tick / red cross - the only
-   place outside the condition layer that spends colour, and it earns it: the
-   two answers must be told apart at a glance, half-awake */
-.fb-row .fb-yes,
-.fb-row .fb-no {
-  font-size: 19px;
-  font-weight: 700;
-  line-height: 1;
-}
-.fb-row .fb-yes {
-  color: var(--rating-good);
-}
-.fb-row .fb-no {
-  color: var(--rating-flat);
-}
-
-/* Map fabs: north under the search glass; locate bottom-right, its center
-   aligned with the attribution chip across the map (both ride --sheet-h). */
-.map-fab.locate {
-  right: 12px;
-  top: auto;
-  /* center-align with the attribution chip: chip bottom = sheet + 10 (container)
-     + 10 (maplibre's own margin), chip h 24, fab h 40 → fab bottom = sheet + 12 */
-  bottom: calc(var(--sheet-h, 150px) + 12px);
-}
-.map-fab.locate.err {
-  color: var(--rating-flat);
-}
-.map-fab.north {
-  right: 12px;
-  top: 60px;
-}
-.map-fab.north svg {
-  transform: rotate(var(--brg, 0deg));
-  transition: transform 0.2s;
-}
-
-.tide-sec .tide-best {
-  margin: 6px 0 0;
-  font-size: 12px;
-  color: var(--muted-foreground);
-}
+/* ==========================================================================
+   INSTALL
+   Add-to-home-screen prompt.
+   ========================================================================== */
 
 /* Add-to-home-screen sheet: rises over everything (incl. the tab bar and the
    map's own sheet) once per app open when Rosa is running in a browser tab. */
@@ -2615,6 +3214,7 @@ a.rank-card:hover {
 .install-go:disabled {
   opacity: 0.6;
 }
+
 /* the same button standing alone in a Profile row, so it carries the shape the
    sheet's .install-actions would otherwise give it */
 .settings-install {
@@ -2645,346 +3245,65 @@ a.rank-card:hover {
   }
 }
 
-/* Region heading over a run of spots - Today's coast chart and the Spots list
-   under "All". Same wording and order as the group chips that filter them. */
-/* Each region reads as its own block on Today: a little room top and bottom so
-   the coasts don't run into one another. */
-.coast-group {
-  padding: 2px 0 10px;
-}
-.coast-group + .coast-group {
-  padding-top: 8px;
-}
-.group-label {
-  margin: 18px var(--edge, 16px) 6px;
-  font-size: 12.4px;
-  font-weight: 700;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  color: var(--muted-foreground);
-}
-.coast .group-label:first-child,
-.rank-list .group-label:first-child {
-  margin-top: 4px;
-}
+/* ==========================================================================
+   DESKTOP
+   Wide-screen presentation - the whole app inside a phone frame.
+   ========================================================================== */
 
-/* Extended-card carousel at the top of Home: every listed spot gets the rich
-   card, swipe moves between them. Same centered-snap pattern as the map sheet;
-   neighbours peek at the edges so the swipe affordance is visible. */
-/* One reading edge for the whole screen: the extended cards are centred at
-   --cw wide, and everything below them (day strip, region labels, spot rows,
-   bars) lines up with the card's left edge instead of sitting further out. */
-.home {
-  --cw: 88%;
-  --edge: calc((100% - var(--cw)) / 2);
-}
-.home-cards {
-  display: flex;
-  gap: 12px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  scroll-snap-type: x mandatory;
-  padding: 14px var(--edge) 10px;
-  -webkit-overflow-scrolling: touch;
-}
-.home-cards::-webkit-scrollbar {
-  display: none;
-}
-.home-cards .hc-slide {
-  flex: 0 0 var(--cw);
-  min-width: 0;
-  scroll-snap-align: center;
-  display: flex; /* card fills the tallest slide - a wrapped temps row can't
-                    leave its neighbours short */
-}
-.home-cards .detail-card,
-.home-cards .detail-card .open {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-.home-cards .dc-body {
-  flex: 1; /* the body takes up the slack, so covers stay aligned across cards */
-}
-
-/* ---------- SwellMap layer (animated wave fields over the map) ---------- */
-.swell-canvas {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-}
-/* Charts instrument deck: a full-width strip laid straight over the chart (no
-   card) - a scrim fades the map out underneath for legibility. Top row: layer
-   tag + colormap ramp + frame clock; below it the tick ruler (fine 3-hourly
-   ticks, heavy midnight ticks with day labels) carrying the accent needle. */
-.charts-deck {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 6;
-  display: flex;
-  flex-direction: column;
-  padding: 18px 14px 10px;
-  background: linear-gradient(
-    to top,
-    color-mix(in srgb, var(--background) 92%, transparent) 55%,
-    color-mix(in srgb, var(--background) 55%, transparent) 82%,
-    transparent
-  );
-}
-.deck-head {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-/* Layer tag: current chart type + chevron, opens the selection menu above */
-.deck-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 6px 11px;
-  border-radius: 9999px;
-  border: 1px solid color-mix(in srgb, var(--foreground) 16%, transparent);
-  background: color-mix(in srgb, var(--secondary) 55%, transparent);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--foreground);
-}
-.deck-tag .chev {
-  transition: transform 0.18s ease;
-  color: var(--muted-foreground);
-}
-.deck-tag .chev.up {
-  transform: rotate(180deg);
-}
-@media (prefers-reduced-motion: reduce) {
-  .deck-tag .chev {
-    transition: none;
+@media (min-width: 900px) and (min-height: 620px) {
+  :root {
+    --frame-h: min(932px, calc(100dvh - 40px));
+    --frame-backdrop: #dcd8d3;
+    --frame-face: var(--body-bg);
+    --frame-edge: rgba(0, 0, 0, 0.14);
   }
-}
-.deck-scrim {
-  position: fixed;
-  inset: 0;
-  z-index: 7;
-}
-.deck-menu {
-  position: absolute;
-  left: 0;
-  bottom: calc(100% + 10px);
-  z-index: 8;
-  display: flex;
-  flex-direction: column;
-  min-width: 170px;
-  padding: 5px;
-  border-radius: 14px;
-  background: color-mix(in srgb, var(--card) 96%, transparent);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
-  box-shadow: var(--card-shadow);
-}
-.deck-menu button {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 9px 11px;
-  border-radius: 9px;
-  background: none;
-  font-size: 13.5px;
-  font-weight: 500;
-  text-align: left;
-  color: var(--foreground);
-}
-.deck-menu button.on {
-  font-weight: 700;
-  background: color-mix(in srgb, var(--secondary) 70%, transparent);
-}
-/* the selected layer carries the accent dot */
-.deck-menu button.on::after {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-}
-.deck-run {
-  margin-top: 3px;
-  padding: 7px 11px 5px;
-  border-top: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
-  font-size: 9.5px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  color: var(--muted-foreground);
-}
-.deck-timeline {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  padding-top: 8px;
-}
-.deck-play {
-  flex: none;
-  display: grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 9999px;
-  border: 1px solid color-mix(in srgb, var(--foreground) 18%, transparent);
-  background: color-mix(in srgb, var(--secondary) 55%, transparent);
-  color: var(--foreground);
-}
-.charts-deck.playing .deck-play {
-  color: var(--accent);
-  border-color: color-mix(in srgb, var(--accent) 55%, transparent);
-}
-.deck-ruler {
-  position: relative;
-  flex: 1;
-  min-width: 0;
-  height: 38px;
-}
-.deck-ticks {
-  position: absolute;
-  inset: 3px 0 14px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-.deck-ticks .tick {
-  position: relative;
-  width: 1px;
-  height: 8px;
-  background: color-mix(in srgb, var(--foreground) 22%, transparent);
-}
-.deck-ticks .tick.maj {
-  height: 14px;
-  background: color-mix(in srgb, var(--foreground) 38%, transparent);
-}
-.deck-ticks .tklb {
-  position: absolute;
-  top: calc(100% + 2px);
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 9px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--muted-foreground);
-  white-space: nowrap;
-}
-.deck-needle {
-  position: absolute;
-  top: 0;
-  bottom: 12px;
-  width: 2px;
-  border-radius: 1px;
-  background: var(--accent);
-  transform: translateX(-50%);
-  pointer-events: none;
-}
-.deck-needle::before {
-  content: "";
-  position: absolute;
-  top: -2px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-}
-/* the needle glides between frames while the animation runs */
-.charts-deck.playing .deck-needle {
-  transition: left 0.45s linear;
-}
-@media (prefers-reduced-motion: reduce) {
-  .charts-deck.playing .deck-needle {
-    transition: none;
+  :root[data-theme="dark"] {
+    --frame-backdrop: #000000;
+    --frame-face: var(--background);
+    --frame-edge: rgba(255, 255, 255, 0.1);
   }
-}
-/* invisible native range on top: keyboard, screen reader, and drag for free */
-.deck-scrub {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  opacity: 0;
-  cursor: ew-resize;
-}
-.deck-ruler:has(.deck-scrub:focus-visible) {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-  border-radius: 6px;
-}
-/* Colormap ramp stretches between the tag and the clock; the clock is
-   right-aligned and never wraps or spills past the edge */
-.deck-legend {
-  flex: 1;
-  min-width: 0;
-  height: 4px;
-  border-radius: 2px;
-}
-.deck-clock {
-  flex: none;
-  margin-left: auto;
-  white-space: nowrap;
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--foreground);
-}
-.deck-clock small {
-  margin-right: 6px;
-  font-size: 9.5px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted-foreground);
-}
-.swell-note {
-  position: absolute;
-  left: 12px;
-  bottom: calc(var(--sheet-h, 150px) + 44px);
-  z-index: 6;
-  margin: 0;
-  padding: 8px 12px;
-  border-radius: 12px;
-  background: color-mix(in srgb, var(--card) 88%, transparent);
-  font-size: 12.5px;
-  color: var(--muted-foreground);
-}
 
-/* Charts tab: basin chips float at the top; the control bar sits above the tab
-   bar (no card sheet here, so no --sheet-h offset). */
-.charts-basins {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
-  z-index: 6;
-  display: flex;
-  gap: 7px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  padding: 2px;
-}
-.charts-basins::-webkit-scrollbar {
-  display: none;
-}
-.charts-basins .group-chip {
-  flex: none;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: var(--card-shadow);
-}
-/* glass backdrop only for unselected chips - the .on chip keeps its inverted
-   fill, otherwise its background-colored label vanishes on the card tint */
-.charts-basins .group-chip:not(.on) {
-  background: color-mix(in srgb, var(--card) 88%, transparent);
+  html,
+  body {
+    height: 100%;
+    overflow: hidden;
+  }
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--frame-backdrop);
+  }
+
+  /* The frame itself must not scroll: it is the containing block for the fixed
+     backdrop (its transform makes it one), and a fixed box inside a scrolling
+     ancestor rides the content instead of staying put. So the frame is a fixed
+     box and .page carries the scrollbar. */
+  .app {
+    width: 430px;
+    height: var(--frame-h);
+    min-height: 0;
+    overflow: hidden;
+    background: var(--frame-face);
+    border: 1px solid var(--frame-edge);
+    border-radius: 30px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+    transform: translateZ(0);
+  }
+  .page {
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    scrollbar-width: none;
+  }
+  .page::-webkit-scrollbar {
+    display: none;
+  }
+  /* the nav sticks to the frame, not to a scrollport it no longer lives in */
+
+  /* map fills the frame, not the viewport - full bleed, nav floating over it */
+  .map-canvas {
+    height: var(--frame-h);
+  }
 }

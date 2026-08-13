@@ -151,7 +151,16 @@ export function TideSection({
       </div>
       <div class="tide-chart">
         <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none">
-          <path d={`${line} L${W},${H} L0,${H} Z`} fill="rgba(217,119,86,0.10)" stroke="none" />
+          {/* Water fades out downwards: --tide-fill at the curve, the same colour
+              at zero opacity by the floor. Every instance defines the identical
+              gradient, so sharing one id across them is harmless. */}
+          <defs>
+            <linearGradient id="tide-water" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="var(--tide-fill)" />
+              <stop offset="100%" stop-color="var(--tide-fill)" stop-opacity="0" />
+            </linearGradient>
+          </defs>
+          <path d={`${line} L${W},${H} L0,${H} Z`} fill="url(#tide-water)" stroke="none" />
           {extremes.map((e) => (
             <line
               key={e.min}

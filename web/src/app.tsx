@@ -1,5 +1,6 @@
 import { useEffect, useState } from "preact/hooks";
 import { HomeIcon, MapIcon, StarIcon, UserIcon, WavesIcon } from "./components/icons";
+import { BottomGlow } from "./components/BottomGlow";
 import { InstallPrompt } from "./components/InstallPrompt";
 import { AboutPage, type AboutDoc } from "./pages/AboutPage";
 import { ChartsPage } from "./pages/ChartsPage";
@@ -8,6 +9,7 @@ import { SettingsPage } from "./pages/SettingsPage";
 import { SearchPage } from "./pages/SearchPage";
 import { SpotPage } from "./pages/SpotPage";
 import { SpotsPage } from "./pages/SpotsPage";
+import { scrollToTop } from "./scroller";
 import { TodayPage } from "./pages/TodayPage";
 import { applyTheme, initialTheme, saveTheme, type Theme } from "./theme";
 import { TAB_ROUTES, type Tab } from "./tabs";
@@ -76,7 +78,7 @@ export function App() {
     const onHash = () => {
       const r = parseRoute(location.hash);
       setRoute(r);
-      scrollTo(0, 0);
+      scrollToTop();
     };
     addEventListener("hashchange", onHash);
     return () => removeEventListener("hashchange", onHash);
@@ -89,6 +91,7 @@ export function App() {
 
   return (
     <div class="app">
+      <BottomGlow theme={theme} />
       {route.page === "spot" ? (
         <SpotPage id={route.id} />
       ) : route.page === "map" ? (

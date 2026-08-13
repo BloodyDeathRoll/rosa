@@ -657,6 +657,21 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [playing, timeline.length]);
 
+  // Publish the deck's live height as --sheet-h, the same way the Map screen does
+  // for its card sheet, so maplibre's attribution chip rides just above it
+  // instead of landing inside it.
+  const deckObs = useRef<ResizeObserver | null>(null);
+  const deckRef = (el: HTMLElement | null) => {
+    deckObs.current?.disconnect();
+    if (!el) return;
+    const wrap = el.closest(".map-screen") as HTMLElement | null;
+    if (!wrap) return;
+    const apply = () => wrap.style.setProperty("--sheet-h", `${el.offsetHeight}px`);
+    apply();
+    deckObs.current = new ResizeObserver(apply);
+    deckObs.current.observe(el);
+  };
+
   const t = timeline[frame];
   const ramp = RAMPS[variable][theme];
 
@@ -669,7 +684,7 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
         {error && <p class="swell-note">{error}</p>}
 
         {(isWorld ? world !== null : basins.length > 0) && t && (
-          <div class={`charts-deck${playing ? " playing" : ""}`}>
+          <div class={`charts-deck${playing ? " playing" : ""}`} ref={deckRef}>
             <div class="deck-head">
               <button
                 class="deck-tag"

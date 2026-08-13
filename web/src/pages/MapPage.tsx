@@ -550,11 +550,13 @@ function makeCluster(entries: IndexEntry[], onClick: () => void): HTMLElement {
   return el;
 }
 
-const CARD_H = 118;
 
 /** The one big centered card drives the emphasized pin; tapping opens the spot.
-    Satellite imagery of the break, dimmed, with the readout laid over it. Also
-    the spot page's "other nearby spots" cards - same object, same shape. */
+    Satellite imagery (or the cam still) of the break with the tide gradient over
+    it, readout on top. Also the spot page's "other nearby spots" cards - same
+    object, same shape. */
+const CARD_H = 118;
+
 export function MapCard({
   id,
   entry,
