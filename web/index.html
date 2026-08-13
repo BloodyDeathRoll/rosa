@@ -12,7 +12,7 @@
     <style>
       /* Branded loading splash - painted before the JS bundle, dismissed by main.tsx
          (min 1 s, or longer while the app is still loading). The wave mark is the
-         red favicon recolored to white via a mask so we never inline its path. */
+         favicon recolored to white via a mask so we never inline its path. */
       #splash {
         position: fixed;
         inset: 0;
@@ -29,6 +29,31 @@
         position: absolute;
         inset: 0;
         background: rgba(0, 0, 0, 0.42);
+      }
+      /* The app's own bottom treatment, so the splash hands over to a screen that
+         already looks like it: the two-tone mesh here, the particle field on the
+         canvas below (mounted by main.tsx the moment the bundle parses - the
+         splash is still up for at least a second after that). Values are copied
+         rather than tokenised because this block is painted before styles.css
+         exists; keep them in step with --glow-* there. */
+      #splash .splash-glow,
+      #splash .splash-particles {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 460px;
+        pointer-events: none;
+      }
+      #splash .splash-glow {
+        background:
+          radial-gradient(95% 100% at 18% 130%, rgba(22, 51, 122, 0.55) 0%, transparent 72%),
+          radial-gradient(85% 90% at 82% 120%, rgba(13, 148, 136, 0.4) 0%, transparent 70%),
+          linear-gradient(180deg, transparent 0%, rgba(22, 51, 122, 0.12) 100%);
+      }
+      #splash .splash-particles {
+        width: 100%;
+        mix-blend-mode: screen;
       }
       #splash.hide {
         opacity: 0;
@@ -54,7 +79,9 @@
         height: 8px;
         margin-left: 8px;
         border-radius: 50%;
-        background: #d82619;
+        /* the mark's colour, spelled out: this block paints before styles.css
+           exists, so --brand-mark isn't defined yet - keep it in step */
+        background: #11b7f2;
         vertical-align: baseline;
       }
       #splash .splash-word {
@@ -121,6 +148,8 @@
   </head>
   <body>
     <div id="splash" role="status" aria-label="Loading Rosa">
+      <div class="splash-glow"></div>
+      <canvas class="splash-particles" aria-hidden="true"></canvas>
       <div class="splash-inner">
         <div class="splash-mark"></div>
         <span class="splash-word">rosa<i class="splash-dot"></i></span>

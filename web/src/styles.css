@@ -10,13 +10,18 @@
 :root {
   /* ----- Brand */
   --clay: #11b7f2;
+  /* The wave mark. The header lockup paints it as a mask (see .brand-mark), so
+     this is the single place its colour is set - the SVG files carry the same
+     value as their own fallback, for the favicon and the PWA icon, which the
+     browser loads standalone and CSS can never reach. */
+  --brand-mark: #11b7f2;
   --stone: #4a4540;
 
   /* ----- Light palette */
   color-scheme: light;
   --background: #17171c01;
   --body-bg: #f4f3f3;
-  --foreground: #17171c;
+  --foreground: #0d1225;
   --card: #ffffffc4;
   --primary: #0a0b0f;
   --primary-foreground: #faf9f7;
@@ -44,10 +49,10 @@
      whatever it sits on. Fills are for bars, dots and pins; the -fg twins are for
      type, dark enough to read on a white page (dark theme lifts them instead). */
   --rating-flat: #30384e3e;
-  --rating-poor: #5979a1ab;
+  --rating-poor: #5979a189;
   --rating-fair: #11b7f2;
   --rating-good: #24b161;
-  --rating-firing: #03841a;
+  --rating-firing: #0c6733;
 
   /* Wind, and only wind, gets the traffic light. */
   --wind-good: #24b161;
@@ -350,10 +355,16 @@ button {
   gap: 9px;
   color: var(--foreground);
 }
+/* Masked rather than an <img>: an SVG loaded through <img> is its own document,
+   so no stylesheet can reach inside it. The mask takes the file's silhouette and
+   the colour comes from --brand-mark. */
 .brand-mark {
   height: 17.6px; /* 20% smaller than the standalone 22px mark */
-  width: auto;
+  aspect-ratio: 762.6 / 828.1; /* the mark's own viewBox */
   display: block;
+  background: var(--brand-mark);
+  -webkit-mask: url(/favicon.svg) center / contain no-repeat;
+  mask: url(/favicon.svg) center / contain no-repeat;
 }
 .brand-lead {
   font-family: var(--font-heading);
@@ -375,7 +386,7 @@ button {
   height: var(--brand-dot);
   margin-left: var(--brand-dot); /* one dot width between the text and the dot */
   border-radius: 50%;
-  background: #d82619; /* the same red as the icon */
+  background: var(--brand-mark);
 }
 
 .head-note {
@@ -1820,11 +1831,14 @@ a.rank-card:hover {
   border-radius: 9999px;
 }
 
+/* The note reads as a subtitle to the date, not a second column: stacked under
+   it, with room before the table starts so it doesn't crowd the header row. */
 .day-title {
-  padding: 14px 16px 8px;
+  padding: 24px 24px 16px;
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
 }
 .day-title b {
   font-size: 14.3px;
@@ -1858,6 +1872,7 @@ a.rank-card:hover {
 .cam {
   margin: 0 0 14px;
 }
+
 .cam-frame {
   position: relative;
   width: 100%;
@@ -3047,7 +3062,7 @@ a.rank-card:hover {
   height: var(--brand-dot);
   margin-left: var(--brand-dot);
   border-radius: 50%;
-  background: #d82619;
+  background: var(--brand-mark);
 }
 .about-hero-title {
   color: #fff;

@@ -3,8 +3,11 @@
   <!-- Generator: Adobe Illustrator 30.6.0, SVG Export Plug-In . SVG Version: 2.1.4 Build 109)  -->
   <defs>
     <style>
+      :root {
+        --brand-mark: #11b7f2;
+      }
       .st0 {
-        fill: #d82619;
+        fill: var(--brand-mark);
       }
     </style>
   </defs>

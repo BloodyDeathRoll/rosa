@@ -59,7 +59,7 @@ export function AppHeader({ lead, right }: { lead?: ComponentChildren; right?: C
   return (
     <header class="app-head">
       <span class="brand">
-        <img class="brand-mark" src="/favicon.svg" alt="Rosa" />
+        <span class="brand-mark" role="img" aria-label="Rosa" />
         {lead ? (
           <span class="brand-lead">{lead}</span>
         ) : (
