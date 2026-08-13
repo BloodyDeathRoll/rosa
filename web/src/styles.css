@@ -19,7 +19,7 @@
 
   /* ----- Light palette */
   color-scheme: light;
-  --background: #17171c01;
+  --background: #f2f3f51b;
   --body-bg: #f4f3f3;
   --foreground: #0d1225;
   --card: #ffffffc4;
@@ -53,6 +53,16 @@
   --rating-fair: #11b7f2;
   --rating-good: #24b161;
   --rating-firing: #0c6733;
+
+  /* Pill type. Fair, Good and Epic fill their pill with a solid, saturated
+     colour, so their label is white in both themes; Flat and Poor are washed-out
+     translucent fills that let the page through, so theirs takes the page's own
+     ink and follows the theme with it. */
+  --rating-flat-fg: var(--foreground);
+  --rating-poor-fg: var(--foreground);
+  --rating-fair-fg: #ffffff;
+  --rating-good-fg: #ffffff;
+  --rating-firing-fg: #ffffff;
 
   /* Wind, and only wind, gets the traffic light. */
   --wind-good: #24b161;
@@ -955,7 +965,7 @@ button {
   top: 52px;
   z-index: 10;
   padding: 10px calc(var(--edge, 12px) + var(--coast-pad)) 16px;
-  background: var(--body-bg);
+  /* background: var(--body-bg); */
 }
 .coast-day {
   flex: none;
@@ -1777,7 +1787,7 @@ a.rank-card:hover {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--rating-good-fg);
+  color: var(--rating-good); /* type on the row, not on a pill - not the -fg */
   pointer-events: none;
 }
 
