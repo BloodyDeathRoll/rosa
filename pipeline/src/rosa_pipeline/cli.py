@@ -144,6 +144,16 @@ def _build_parser() -> argparse.ArgumentParser:
         "member is skipped",
     )
     run.add_argument(
+        "--tide-source",
+        choices=["om", "eot20"],
+        default="om",
+        help="om (default): Open-Meteo's sea_level_height_msl, the shipped path. "
+        "eot20: synthesise tide locally from the committed per-spot EOT20 constants "
+        "(fetch-plane plan C1-switch) - fills the day-10-16 tail the OM field leaves "
+        "null. The A/B arm; the default flips only with its pb_0049 evidence "
+        "(tide feeds score depths)",
+    )
+    run.add_argument(
         "--wave-source",
         choices=["om", "blend"],
         default="om",
@@ -455,8 +465,23 @@ def _cmd_run(args: argparse.Namespace) -> int:
 
     published = 0
     failures: list[tuple[str, Exception]] = []
+    tide_by_point: dict = {}
+    if getattr(args, "tide_source", "om") == "eot20":
+        from .tide import load_constants
+
+        for point, group_spots in groups.items():
+            # constants are extracted AT the offshore point, so any spot in the group
+            # carries the same water - load by the first spot's id
+            c = load_constants(TIDE_DIR, group_spots[0].id)
+            if c is None:
+                print(
+                    f"warn: no EOT20 constants for {group_spots[0].id} - "
+                    "OM tide stands in at this point",
+                    file=sys.stderr,
+                )
+            tide_by_point[point] = c
     for point, raw, spectral in zip(points, raws, spectral_series, strict=True):
-        hours = extract_hours(raw, spectral=spectral)
+        hours = extract_hours(raw, spectral=spectral, tide_constants=tide_by_point.get(point))
         if not hours:
             # a derived point that landed on a dry grid cell - skip its spots, keep going
             ids = ", ".join(s.id for s in groups[point])

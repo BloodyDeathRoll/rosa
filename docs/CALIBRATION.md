@@ -1815,3 +1815,16 @@ Monterey, GFS ws=3.71 m/s from a committed grib, and a live `archive --buoy 4604
 starts reporting the wind rows as they mature. Guarded so wind can only ever cost its
 own columns, never a wave row. Decision rule stays: OM weather remains until the
 scorecard says otherwise - re-run the C3 comparison once a few weeks accumulate.
+
+## 2026-08-14 (session 27, part 6) - C1-switch built flag-gated; the flip waits on its A/B
+
+`run --tide-source eot20` (default om, shipped behavior untouched): extract synthesises
+tide_m from the committed EOT20 constants for every hour - including the day-10-16 tail
+the OM field leaves null - via one predict() per point group. Offline same-input A/B on
+the committed Beit Yanai fixture: **127 paired hours, 0 rating moves, 0 bucket changes**
+(mean tide delta 0.22 m - micro-tidal Israel cannot move the breaker march), and **47
+null tail hours newly carry a tide value**. That is NOT the promotion evidence: the
+regions that can move are the 2.5-3 m-range coasts (Portugal, Costa Rica, Japan), and
+the fleet-wide same-input A/B needs a fresh `run --all --capture` after the quota reset
+(00:00Z). The flip - default om -> eot20, and dropping sea_level from the blend arm's
+light request - lands in ONE change with that A/B and its entry here, per pb_0049.

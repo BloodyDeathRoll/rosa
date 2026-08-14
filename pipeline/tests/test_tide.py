@@ -135,3 +135,53 @@ def test_extraction_refuses_dry_land(tmp_path: Path) -> None:
         )
     with pytest.raises(ValueError, match="dry land"):
         tide.extract_constants("s", (32.06, 34.56), tmp_path)
+
+
+def test_extract_uses_eot20_tide_when_given() -> None:
+    # plan C1-switch: with constants passed, the OM sea-level column is ignored and
+    # the tail hours (where OM is null) get a tide value instead of None
+    from rosa_pipeline.extract import extract_hours
+    from rosa_pipeline.fetch import RawForecast
+
+    c = tide.load_constants(TIDE_DIR, "beit-yanai")
+    times = ["2026-08-14T00:00", "2026-08-14T01:00"]
+    raw = RawForecast(
+        fetched_at="2026-08-14T00:00:00+00:00",
+        marine={
+            "hourly": {
+                "time": times,
+                "wave_height": [1.0, 1.0],
+                "wave_direction": [280.0, 280.0],
+                "wave_period": [8.0, 8.0],
+                "swell_wave_height": [0.8, 0.8],
+                "swell_wave_direction": [280.0, 280.0],
+                "swell_wave_period": [8.0, 8.0],
+                "wind_wave_height": [None, None],
+                "wind_wave_direction": [None, None],
+                "wind_wave_period": [None, None],
+                "secondary_swell_wave_height": [None, None],
+                "secondary_swell_wave_direction": [None, None],
+                "secondary_swell_wave_period": [None, None],
+                "tertiary_swell_wave_height": [None, None],
+                "tertiary_swell_wave_direction": [None, None],
+                "tertiary_swell_wave_period": [None, None],
+                "sea_surface_temperature": [28.0, 28.0],
+                "sea_level_height_msl": [None, 9.9],  # null tail hour + a sentinel
+            }
+        },
+        weather={
+            "hourly": {
+                "time": times,
+                "wind_speed_10m": [10.0, 10.0],
+                "wind_direction_10m": [90.0, 90.0],
+                "wind_gusts_10m": [12.0, 12.0],
+            }
+        },
+    )
+    om_hours = extract_hours(raw)
+    assert om_hours[0].tide_m is None and om_hours[1].tide_m == 9.9  # the shipped path
+    eot_hours = extract_hours(raw, tide_constants=c)
+    assert eot_hours[0].tide_m is not None  # the null tail hour is filled
+    assert abs(eot_hours[1].tide_m) < 1.0  # EOT20, never the 9.9 sentinel
+    ref = tide.predict(c, [datetime(2026, 8, 14, 1, tzinfo=UTC)])
+    assert eot_hours[1].tide_m == pytest.approx(ref[0], abs=0.001)

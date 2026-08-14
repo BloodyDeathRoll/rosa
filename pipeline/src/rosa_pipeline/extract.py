@@ -108,11 +108,28 @@ def _nearest_spectral(
 
 
 def extract_hours(
-    raw: RawForecast, spectral: list[SpectralSea] | None = None
+    raw: RawForecast,
+    spectral: list[SpectralSea] | None = None,
+    tide_constants=None,
 ) -> list[HourForecast]:
+    """``tide_constants`` (tide.TideConstants, plan C1-switch): when given, tide_m is
+    synthesised locally from the committed EOT20 harmonics for EVERY hour - including
+    the day-10-16 tail, where the OM field is null - and the OM sea-level column is
+    ignored. Semantics shift with the source: EOT20 is the astronomical tide alone,
+    OM's field includes non-tidal sea level (steric/surge; offsets -0.81..+0.41 m
+    measured fleet-wide, CALIBRATION.md 2026-08-14). Default None = the OM field,
+    unchanged - the pb_0049 A/B decides the flip, not this parameter."""
     marine = _merge_models(raw.marine["hourly"])
     weather = raw.weather["hourly"]
     weather_index = {t: i for i, t in enumerate(weather["time"])}
+    eot20_tide: list[float] | None = None
+    if tide_constants is not None:
+        from . import tide as tide_mod  # lazy: pulls numpy/pyTMD only when switched on
+
+        times = [
+            datetime.fromisoformat(t).replace(tzinfo=UTC) for t in raw.marine["hourly"]["time"]
+        ]
+        eot20_tide = tide_mod.predict(tide_constants, times)
     # ensemble (independent members) drives per-hour confidence; aligned by timestamp so a
     # different horizon/ordering can't misalign it. Absent in pre-Stage-1 fixtures → None.
     ens = raw.ensemble["hourly"] if raw.ensemble else None
@@ -188,8 +205,13 @@ def extract_hours(
                 # .get: absent in captures made before these were added to the fetch
                 pressure_msl=(pm[j] if (pm := weather.get("pressure_msl")) else None),
                 air_c=(ta[j] if (ta := weather.get("temperature_2m")) else None),
-                # tide/water level (Stage 2D); .get tolerates fixtures captured before it existed
-                tide_m=(sl[i] if (sl := marine.get("sea_level_height_msl")) is not None else None),
+                # tide/water level (Stage 2D); .get tolerates fixtures captured before it
+                # existed. EOT20 (plan C1-switch) takes over the whole column when on.
+                tide_m=(
+                    round(eot20_tide[i], 3)
+                    if eot20_tide is not None
+                    else (sl[i] if (sl := marine.get("sea_level_height_msl")) is not None else None)
+                ),
                 agreement_score=agreement.score if agreement else None,
                 n_models=agreement.n_models if agreement else 0,
                 # measured every run but previously dropped here - the payload is the
