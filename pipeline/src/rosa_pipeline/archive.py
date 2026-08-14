@@ -34,6 +34,10 @@ def rows_from_model(run_time: datetime, model: list[WavePoint]) -> list[dict]:
             "hs": p.hs,
             "tp": p.tp,
             "dir": p.dir,
+            # 10 m wind (m/s / deg FROM), both sources, plan C3 evidence (2026-08-14).
+            # None on all earlier rows; the scorecard ignores keys it doesn't pair.
+            "ws": p.ws,
+            "wdir": p.wdir,
         }
         for p in model
     ]

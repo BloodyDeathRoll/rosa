@@ -11,7 +11,16 @@ from rosa_pipeline.verify import WavePoint, lead_time_scorecard
 
 def test_rows_from_model_shape() -> None:
     run = datetime(2026, 7, 20, 0, 0, tzinfo=UTC)
-    model = [WavePoint(time=datetime(2026, 7, 22, 0, 0, tzinfo=UTC), hs=1.5, tp=10.0, dir=250.0)]
+    model = [
+        WavePoint(
+            time=datetime(2026, 7, 22, 0, 0, tzinfo=UTC),
+            hs=1.5,
+            tp=10.0,
+            dir=250.0,
+            ws=5.2,
+            wdir=310.0,
+        )
+    ]
     rows = rows_from_model(run, model)
     assert rows == [
         {
@@ -20,6 +29,8 @@ def test_rows_from_model_shape() -> None:
             "hs": 1.5,
             "tp": 10.0,
             "dir": 250.0,
+            "ws": 5.2,
+            "wdir": 310.0,
         }
     ]
 

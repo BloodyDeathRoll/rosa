@@ -51,6 +51,7 @@ from .fetch import (
     OpenMeteoSource,
     fetch_marine_waves,
     fetch_marine_waves_many,
+    fetch_wind_many,
 )
 from .gfswave import GFSWaveFixtureSource, GFSWaveSource
 from .models import Spot
@@ -87,6 +88,7 @@ from .verify import (
     GFSWAVE_VARIABLES,
     VARIABLES,
     build_scorecard,
+    join_wind,
     lead_time_scorecard,
     parse_marine_waves,
     render_lead_scorecard,
@@ -106,6 +108,8 @@ ARCHIVE_DIR = Path("data/verify/archive")
 ISRAMAR_DIR = Path("data/verify/isramar")  # local-only, gitignored (all-rights-reserved)
 FEEDBACK_DIR = Path("data/verify/feedback")
 BATHY_DIR = Path("data/spots/derived/bathy")  # committed per-spot depth profiles (Stage 2A)
+TIDE_DIR = Path("data/spots/derived/tide")  # committed per-spot EOT20 constants (plan C1)
+TIDE_GRIDS = Path("data/tide-src/ocean_tides")  # local EOT20 grids (gitignored, 2.1 GB)
 
 
 def _build_parser() -> argparse.ArgumentParser:
@@ -138,6 +142,16 @@ def _build_parser() -> argparse.ArgumentParser:
         default=None,
         help="replay captured ECMWF gribs (offline); with --fixtures alone the spectral "
         "member is skipped",
+    )
+    run.add_argument(
+        "--wave-source",
+        choices=["om", "blend"],
+        default="om",
+        help="om (default): Open-Meteo, the shipped path. blend: the GFS-Wave+ECMWF "
+        "50/50 blend (fetch-plane plan B) - the A/B arm, NOT promoted; weather + "
+        "SST/tide still ride light OM requests, ensemble is not fetched (confidence "
+        "degrades to the horizon proxy). With --fixtures, expects gfsfull_*.grib2 + "
+        "weather_*/marine_light_*.json captures in the fixtures dir",
     )
 
     verify = sub.add_parser("verify", help="score the offshore model against buoy observations")
@@ -248,6 +262,27 @@ def _build_parser() -> argparse.ArgumentParser:
         "--sleep", type=float, default=1.0, help="seconds between spots (OpenTopoData rate limit)"
     )
 
+    tide_p = sub.add_parser(
+        "tide",
+        help="extract per-spot EOT20 tide constants (fetch-plane plan C1; needs the "
+        "local grids). Writes committed constants; NOTHING consumes them until the "
+        "switch lands with its same-input A/B - see CALIBRATION.md 2026-08-14",
+    )
+    which_t = tide_p.add_mutually_exclusive_group(required=True)
+    which_t.add_argument("--spot", help="spot id, e.g. beit-yanai")
+    which_t.add_argument("--all", action="store_true", help="every spot in the DB")
+    tide_p.add_argument("--spots-dir", type=Path, default=Path("data/spots"))
+    tide_p.add_argument("--grids", type=Path, default=TIDE_GRIDS, help="EOT20 ocean_tides dir")
+    tide_p.add_argument("--out", type=Path, default=TIDE_DIR, help="constants output dir")
+    tide_p.add_argument(
+        "--verify",
+        type=Path,
+        default=None,
+        metavar="OUT_DIR",
+        help="also compare synthesis against the OM tide series in this published "
+        "payload dir (e.g. data/out) - corr / offset / demeaned rmse per spot",
+    )
+
     horizon = sub.add_parser(
         "horizon", help="derive a spot's swell_window from coastline geometry (reports only)"
     )
@@ -356,11 +391,6 @@ def _cmd_run(args: argparse.Namespace) -> int:
             return 2
         targets = [target]
 
-    source: ForecastSource = (
-        FixtureSource(args.fixtures)
-        if args.fixtures is not None
-        else OpenMeteoSource(capture_dir=args.capture)
-    )
     now = datetime.now(UTC)
     # measured horizon ceilings from the verification harness, if `verify --archive`
     # has run and matured past its sample floor; None -> static defaults (2026-08-07).
@@ -374,10 +404,11 @@ def _cmd_run(args: argparse.Namespace) -> int:
     # full run fetches them all in a single batched request (fetch_many) - no throttling.
     groups = group_by_point(targets)
     points = list(groups)
-    raws = source.fetch_many(points)
 
     # ECMWF spectral-lite member (Stage 3b) - guarded: an ECMWF outage must never sink
     # the forecast run. Offline replay (--fixtures) skips it unless --ecmwf-fixtures.
+    # Fetched BEFORE the wave source because the blend arm reuses this same series as
+    # its ECMWF blend member - one ECMWF fetch per run, never one per leg.
     spectral_series = [[] for _ in points]
     ecmwf_src: EcmwfWaves | None = None
     if args.ecmwf_fixtures is not None:
@@ -389,6 +420,38 @@ def _cmd_run(args: argparse.Namespace) -> int:
             spectral_series = ecmwf_src.fetch_series(points)
         except Exception as e:
             print(f"warn: ecmwf spectral member skipped: {e}", file=sys.stderr)
+
+    if getattr(args, "wave_source", "om") == "blend":
+        # fetch-plane plan B: the A/B arm. Not promoted - see blend.py's module docstring.
+        from .blend import (
+            BlendedSource,
+            GfsFullFixtureSource,
+            GfsFullSource,
+            fetch_aux_many,
+            fixture_aux_many,
+        )
+        from .oisst import OisstFixtureSource, OisstSource
+
+        if args.fixtures is not None:
+            blend_src = BlendedSource(
+                gfs=GfsFullFixtureSource(args.fixtures),
+                aux=lambda coords: fixture_aux_many(coords, args.fixtures),
+                sst=OisstFixtureSource(args.fixtures),
+            )
+        else:
+            blend_src = BlendedSource(
+                gfs=GfsFullSource(capture_dir=args.capture),
+                aux=lambda coords: fetch_aux_many(coords, capture_dir=args.capture),
+                sst=OisstSource(capture_dir=args.capture),
+            )
+        raws = blend_src.fetch_many(points, ecmwf_series=spectral_series)
+    else:
+        source: ForecastSource = (
+            FixtureSource(args.fixtures)
+            if args.fixtures is not None
+            else OpenMeteoSource(capture_dir=args.capture)
+        )
+        raws = source.fetch_many(points)
 
     published = 0
     failures: list[tuple[str, Exception]] = []
@@ -782,6 +845,17 @@ def _cmd_archive(args: argparse.Namespace) -> int:
                         file=sys.stderr,
                     )
                     continue
+                if args.fixtures is None:
+                    # live targeted run: same wind join as the fleet path (plan C3
+                    # evidence); guarded - wind is decision data, waves are the spine
+                    try:
+                        [wind] = fetch_wind_many([(buoy.lat, buoy.lon)])
+                        model = join_wind(model, wind)
+                    except Exception as e:
+                        print(
+                            f"warn: {buoy.id}: wind fetch failed ({e!r}) - archiving without wind",
+                            file=sys.stderr,
+                        )
                 _archive_om_rows(store, args, now, buoy, model)
         else:
             # fleet live run: one comma-joined request for all buoys instead of one
@@ -797,7 +871,20 @@ def _cmd_archive(args: argparse.Namespace) -> int:
                     file=sys.stderr,
                 )
             else:
-                for buoy, marine in zip(targets, marines, strict=True):
+                # 10 m wind for the same points, one weather-host request (plan C3
+                # evidence). Guarded separately: wind is the decision data, waves are
+                # the archive's spine - a weather-host hiccup must cost wind columns
+                # for this run, never the wave rows.
+                winds: list[dict] = []
+                try:
+                    winds = fetch_wind_many([(b.lat, b.lon) for b in targets])
+                except Exception as e:
+                    print(
+                        f"warn: open-meteo wind batch failed ({e!r}) - om rows archive "
+                        "without wind this run",
+                        file=sys.stderr,
+                    )
+                for bi, (buoy, marine) in enumerate(zip(targets, marines, strict=True)):
                     try:
                         if args.capture is not None:
                             args.capture.mkdir(parents=True, exist_ok=True)
@@ -805,6 +892,8 @@ def _cmd_archive(args: argparse.Namespace) -> int:
                                 json.dumps(marine), encoding="utf-8"
                             )
                         model = parse_marine_waves(marine)
+                        if bi < len(winds):
+                            model = join_wind(model, winds[bi])
                     except Exception as e:
                         failures.append((buoy.id, e))
                         print(
@@ -978,6 +1067,85 @@ def _cmd_horizon(args: argparse.Namespace) -> int:
             time.sleep(args.sleep)
     print(f"{changed} of {len(targets)} spot(s) differ - edit the YAML by hand to adopt")
     return 0
+
+
+def _cmd_tide(args: argparse.Namespace) -> int:
+    from . import tide as tide_mod
+
+    spots = load_spots(args.spots_dir)
+    if args.all:
+        targets = list(spots.values())
+    else:
+        target = spots.get(args.spot)
+        if target is None:
+            print(f"unknown spot {args.spot!r}; known: {', '.join(sorted(spots))}", file=sys.stderr)
+            return 2
+        targets = [target]
+    if not args.grids.is_dir():
+        print(
+            f"error: EOT20 grids not found at {args.grids} - download once from "
+            "SEANOE 10.17882/79489 (ocean_tides, ~2.1 GB)",
+            file=sys.stderr,
+        )
+        return 2
+
+    args.out.mkdir(parents=True, exist_ok=True)
+    written = 0
+    failures: list[tuple[str, Exception]] = []
+    for spot in targets:
+        try:
+            constants = tide_mod.extract_constants(spot.id, spot.offshore_point, args.grids)
+        except Exception as e:
+            # per-spot guard, the bathy/run --all rule; a targeted --spot run raises
+            if not args.all:
+                raise
+            failures.append((spot.id, e))
+            print(f"error: {spot.id}: {e!r} - left out of this sweep", file=sys.stderr)
+            continue
+        path = tide_mod.save_constants(constants, args.out)
+        written += 1
+        line = (
+            f"{spot.id}: {constants.method} @ ({constants.sample[0]:.3f}, "
+            f"{constants.sample[1]:.3f}) sum-amp {tide_mod.amplitude_m(constants):.2f} m → {path}"
+        )
+        if args.verify is not None:
+            line += _tide_verify_suffix(spot.id, constants, args.verify, tide_mod)
+        print(line)
+    if failures:
+        print(f"error: {len(failures)} of {len(targets)} spot(s) failed", file=sys.stderr)
+    return 1 if failures else 0
+
+
+def _tide_verify_suffix(spot_id: str, constants, out_dir: Path, tide_mod) -> str:
+    """Compare EOT20 synthesis against the OM tide series a published payload carries.
+
+    A constant offset is EXPECTED and not an error: OM's sea_level_height_msl includes
+    non-tidal sea level (seasonal steric height, surge), EOT20 is the astronomical tide
+    alone. Shape (corr) and demeaned rmse are the extraction-correctness signals."""
+    import statistics
+    from datetime import datetime
+
+    payload_path = out_dir / "spots" / f"{spot_id}.json"
+    if not payload_path.exists():
+        return "  (no published payload to verify against)"
+    payload = json.loads(payload_path.read_text(encoding="utf-8"))
+    pairs = [
+        (datetime.fromisoformat(h["t"]), h["tide"])
+        for h in payload.get("hours", [])
+        if h.get("tide") is not None
+    ]
+    if len(pairs) < 24:
+        return "  (payload has no OM tide series)"
+    pred = tide_mod.predict(constants, [t for t, _ in pairs])
+    om = [v for _, v in pairs]
+    mo, mp = statistics.mean(om), statistics.mean(pred)
+    dm = [(p - mp) - (o - mo) for p, o in zip(pred, om, strict=True)]
+    rmse = (sum(x * x for x in dm) / len(dm)) ** 0.5
+    rng = max(om) - min(om)
+    corr = statistics.correlation(pred, om) if rng > 0.02 else None
+    corr_s = f"{corr:+.3f}" if corr is not None else "n/a (flat)"
+    flag = "  ⚠ CHECK" if corr is not None and corr < 0.9 and rmse > 0.1 else ""
+    return f"  | vs OM: corr {corr_s} offset {mp - mo:+.2f} m demeaned-rmse {rmse:.3f} m{flag}"
 
 
 def _cmd_bathy(args: argparse.Namespace) -> int:
@@ -1154,6 +1322,8 @@ def main(argv: list[str] | None = None) -> int:
         return _cmd_archive(args)
     if args.command == "feedback":
         return _cmd_feedback(args)
+    if args.command == "tide":
+        return _cmd_tide(args)
     if args.command == "bathy":
         return _cmd_bathy(args)
     if args.command == "horizon":

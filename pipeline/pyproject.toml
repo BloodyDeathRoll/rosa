@@ -10,6 +10,7 @@ dependencies = [
     "h5py>=3.11",
     "httpx>=0.27",
     "pygrib>=2.1",
+    "pytmd>=3.0.9",
     "pywebpush>=2.0",
     "pyyaml>=6.0",
 ]

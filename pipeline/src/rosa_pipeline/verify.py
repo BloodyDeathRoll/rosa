@@ -38,10 +38,20 @@ APD_FALLBACK_LABEL = "Mean per. vs APD"
 # variable key -> (label, unit, model attr, obs attr, circular?)
 # FALLBACK pairing: period vs the buoy's APD (Tm02). Definitionally ~2 s hot against
 # Open-Meteo's Tm-1,0 - used only where no spectrum is published. Prefer the tuple below.
+# 10 m wind vs the buoy's anemometer (plan C3 evidence) - appended to the OM and
+# GFS-Wave tuples; n=0 on all pre-2026-08-14 rows, accumulating since. NOT on the ECMWF
+# tuple: the open-data wave stream carries no 10 m wind, and an always-empty row on its
+# card would read like a measurement.
+_WIND_VARIABLES = (
+    ("ws", "Wind speed", "m/s", "ws", "wspd_ms", False),
+    ("wdir", "Wind direction", "°", "wdir", "wdir_deg", True),
+)
+
 VARIABLES = (
     ("hs", "Sig. wave height", "m", "hs", "hs_m", False),
     ("tp", APD_FALLBACK_LABEL, "s", "tp", "apd_s", False),
     ("dir", "Wave direction", "°", "dir", "mwd_deg", True),
+    *_WIND_VARIABLES,
 )
 
 # PREFERRED pairing for Open-Meteo: like-for-like against the measured energy period.
@@ -50,6 +60,7 @@ ENERGY_PERIOD_VARIABLES = (
     ("hs", "Sig. wave height", "m", "hs", "hs_m", False),
     ("tp", "Energy period", "s", "tp", "tm_m10_s", False),
     ("dir", "Wave direction", "°", "dir", "mwd_deg", True),
+    *_WIND_VARIABLES,
 )
 
 # GFS-Wave archive rows carry a PEAK period (perpw), so tp pairs with the buoy's DPD
@@ -58,10 +69,16 @@ GFSWAVE_VARIABLES = (
     ("hs", "Sig. wave height", "m", "hs", "hs_m", False),
     ("tp", "Peak period", "s", "tp", "dpd_s", False),
     ("dir", "Wave direction", "°", "dir", "mwd_deg", True),
+    *_WIND_VARIABLES,
 )
 
 # ECMWF archive rows store pp1d - also a peak period, same DPD pairing (Stage 3b).
-ECMWF_VARIABLES = GFSWAVE_VARIABLES
+# No wind: the open-data wave stream does not publish it.
+ECMWF_VARIABLES = (
+    ("hs", "Sig. wave height", "m", "hs", "hs_m", False),
+    ("tp", "Peak period", "s", "tp", "dpd_s", False),
+    ("dir", "Wave direction", "°", "dir", "mwd_deg", True),
+)
 
 
 @dataclass(frozen=True, slots=True)
@@ -70,6 +87,13 @@ class WavePoint:
     hs: float | None
     tp: float | None
     dir: float | None
+    # co-located 10 m wind (fetch-plane plan C3 evidence, 2026-08-14): archived from both
+    # sources so the weather-migration decision can be a measurement against the buoys'
+    # anemometers. m/s to pair with NDBC WSPD directly. None on pre-2026-08-14 history;
+    # GFS carries it in the same wave gribs, OM needs the separate weather-host join
+    # (verify.join_wind). Field VERIFIED live before shipping - both sources return values.
+    ws: float | None = None
+    wdir: float | None = None
 
 
 @dataclass(frozen=True, slots=True)
@@ -101,6 +125,26 @@ def parse_marine_waves(marine: dict) -> list[WavePoint]:
                 dir=d,
             )
         )
+    return out
+
+
+def join_wind(model: list[WavePoint], weather: dict) -> list[WavePoint]:
+    """Attach OM 10 m wind (m/s) to wave points, matched by exact timestamp.
+
+    ``weather`` is a weather-host body (fetch.fetch_wind_many - requested in m/s).
+    Points without a matching hour keep ws/wdir None; never interpolated here."""
+    hourly = weather.get("hourly", {})
+    times = hourly.get("time", [])
+    ws = hourly.get("wind_speed_10m", [])
+    wd = hourly.get("wind_direction_10m", [])
+    by_time = {
+        t: (ws[i] if i < len(ws) else None, wd[i] if i < len(wd) else None)
+        for i, t in enumerate(times)
+    }
+    out: list[WavePoint] = []
+    for p in model:
+        w = by_time.get(p.time.strftime("%Y-%m-%dT%H:%M"))
+        out.append(replace(p, ws=w[0], wdir=w[1]) if w is not None else p)
     return out
 
 

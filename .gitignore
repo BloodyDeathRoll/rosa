@@ -37,6 +37,9 @@ data/bathy/
 # local OSM extracts (downloaded once)
 data/osm/
 
+# EOT20 tide constituent grids (large, downloaded once - the per-spot constants ARE committed)
+data/tide-src/
+
 # spot-verify judging batches (queue + ESRI tiles - regenerated; imagery never redistributed)
 tools/spot-verify/work/
 

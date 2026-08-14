@@ -116,7 +116,7 @@ def _is_grib(data: bytes) -> bool:
 def parse_grib_points(
     grib_bytes: bytes, points: list[tuple[float, float]], valid: datetime
 ) -> list[WavePoint | None]:
-    """Extract (hs=swh, tp=perpw, dir=dirpw) at the nearest wet grid node of each point.
+    """Extract (hs=swh, tp=perpw, dir=dirpw, ws, wdir) at the nearest wet grid node of each point.
 
     Returns one WavePoint (or None if no wet node within NEAREST_MAX_DEG) per input point.
     pygrib wants a file path, so the bytes hit a temp file briefly."""
@@ -129,7 +129,7 @@ def parse_grib_points(
         grbs = pygrib.open(tf.name)
         fields: dict[str, tuple] = {}
         for m in grbs:
-            if m.shortName in ("swh", "perpw", "dirpw") and m.shortName not in fields:
+            if m.shortName in ("swh", "perpw", "dirpw", "ws", "wdir") and m.shortName not in fields:
                 vals = m.values  # masked array over land
                 lats, lons = m.latlons()
                 fields[m.shortName] = (vals, lats, lons)
@@ -140,7 +140,7 @@ def parse_grib_points(
         lon = _lon360(lon)
         vals_by_name: dict[str, float | None] = {}
         ok = True
-        for name in ("swh", "perpw", "dirpw"):
+        for name in ("swh", "perpw", "dirpw", "ws", "wdir"):
             if name not in fields:
                 vals_by_name[name] = None
                 continue
@@ -162,6 +162,9 @@ def parse_grib_points(
                 hs=vals_by_name["swh"],
                 tp=vals_by_name["perpw"],
                 dir=vals_by_name["dirpw"],
+                # 10 m wind rides in the same wave gribs (plan C3 evidence) - m/s native
+                ws=vals_by_name["ws"],
+                wdir=vals_by_name["wdir"],
             )
         )
     return out

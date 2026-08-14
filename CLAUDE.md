@@ -13,7 +13,10 @@ Rosa is a **worldwide, mobile-first PWA surf forecast app**: free, lean, fast, s
 | "What's still open?" | `docs/OPEN-ITEMS.md` |
 | "Why is it like this?" | `docs/SESSIONS.md` (session log) |
 | Live machine / deploy state | `handoff.md`, `deploy/oracle/README.md` |
+| **Where forecast data comes from, what replaces it, scale** | `docs/rosa-accuracy-roadmap.md` (§2 keep/join/replace, §4 stages, §9 scale) · `docs/rosa-stage3-plan.md` · `docs/rosa-fetch-plane-plan.md` (off the OM quota) |
 | Product plan · competitor teardown | `docs/rosa-build-plan.md` · `docs/rosa-surfline-teardown.md` |
+
+**Do not re-derive the data-source strategy from first principles.** Stage 3a (raw NOAA GFS-Wave source + dual-source buoy A/B) and Stage 3b (ECMWF spectral-lite) are BUILT — `gfswave.py`, `ecmwf.py`, `verify --archive --source {om,gfswave,ecmwf}`, and a dual-source archive that has been accumulating since 2026-07-23. What is NOT done is the promotion of a raw source to primary, which is gated on buoy skill ≥ Open-Meteo per region. Check the archive before proposing anything here.
 
 ## Non-negotiable principles
 1. Every screen answers "should I surf, when, where?" — cut anything that doesn't.
@@ -68,6 +71,6 @@ Frontend never computes forecasts; it renders pipeline JSON. Keep the fetch laye
 - Vercel Git integration stays **DISCONNECTED**; deploys are CLI-only (forecast data is gitignored, so a Git-triggered build ships a dataless app).
 
 ## Doc precedence
-CLAUDE.md and `data/spots/*.yaml` are authoritative. The area docs above are current spec. `docs/SESSIONS.md` and `docs/CALIBRATION.md` are history and rationale; other `docs/` are historical context. **When docs disagree, stop and reconcile before implementing.**
+CLAUDE.md and `data/spots/*.yaml` are authoritative. The area docs above are current spec — **including `docs/rosa-accuracy-roadmap.md` and the stage plans, which are LIVE spec for every stage not yet marked BUILT, not history** (`gfswave.py` cites `rosa-stage3-plan.md` as its live-verified source). `docs/SESSIONS.md` and `docs/CALIBRATION.md` are history and rationale; the remaining `docs/` are historical context. **When docs disagree, stop and reconcile before implementing.**
 
 At the end of every working session: append to `docs/SESSIONS.md`, and update `docs/OPEN-ITEMS.md` if the open list moved.

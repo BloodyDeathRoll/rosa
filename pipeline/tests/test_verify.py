@@ -260,3 +260,45 @@ def test_renderers_show_every_variable_handed_in() -> None:
     }
     assert "var extra" in render_scorecard(buoy, None, scores)
     assert "var extra" in render_lead_scorecard(buoy, {"h024": scores})
+
+
+def test_join_wind_attaches_by_timestamp() -> None:
+    # plan C3 evidence: OM wind joins the wave points by exact hour; a missing hour
+    # keeps None rather than borrowing a neighbour
+    t0 = datetime(2026, 8, 14, 6, 0, tzinfo=UTC)
+    from rosa_pipeline.verify import join_wind
+
+    model = [
+        WavePoint(time=t0, hs=1.0, tp=8.0, dir=250.0),
+        WavePoint(time=t0 + timedelta(hours=1), hs=1.1, tp=8.0, dir=250.0),
+    ]
+    weather = {
+        "hourly": {
+            "time": [t0.strftime("%Y-%m-%dT%H:%M")],
+            "wind_speed_10m": [5.2],
+            "wind_direction_10m": [310.0],
+        }
+    }
+    joined = join_wind(model, weather)
+    assert (joined[0].ws, joined[0].wdir) == (5.2, 310.0)
+    assert (joined[1].ws, joined[1].wdir) == (None, None)  # no matching hour
+    assert joined[0].hs == 1.0  # wave fields untouched
+
+
+def test_wind_scorecard_pairs_with_the_anemometer() -> None:
+    t0 = datetime(2026, 8, 14, 6, 0, tzinfo=UTC)
+    model = [WavePoint(time=t0, hs=1.0, tp=8.0, dir=250.0, ws=6.0, wdir=300.0)]
+    obs = [_obs(t0, hs_m=1.0, wspd_ms=5.0, wdir_deg=290.0)]
+    scores = build_scorecard(model, obs)
+    assert scores["ws"].n == 1 and abs(scores["ws"].bias - 1.0) < 1e-9
+    assert scores["wdir"].n == 1 and abs(scores["wdir"].bias - 10.0) < 1e-9
+
+
+def test_windless_history_scores_empty_not_crashing() -> None:
+    # every pre-2026-08-14 archive row lacks ws/wdir - history must score as before
+    t0 = datetime(2026, 8, 14, 6, 0, tzinfo=UTC)
+    scores = build_scorecard(
+        [WavePoint(time=t0, hs=1.0, tp=8.0, dir=250.0)], [_obs(t0, hs_m=1.0, wspd_ms=5.0)]
+    )
+    assert scores["ws"].n == 0
+    assert scores["hs"].n == 1

@@ -148,6 +148,31 @@ def fetch_marine_waves_many(
     return bodies
 
 
+def fetch_wind_many(coords: list[tuple[float, float]], *, timeout_s: float = 30.0) -> list[dict]:
+    """10 m wind at many points, one comma-joined WEATHER-host request, in m/s so the
+    values pair with NDBC WSPD without conversion (fetch-plane plan C3 evidence).
+    Tiny: 2 vars -> weight 1/point on a host the archive otherwise never touches."""
+    if not coords:
+        return []
+    with httpx.Client(timeout=timeout_s) as client:
+        resp = client.get(
+            WEATHER_URL,
+            params={
+                "latitude": ",".join(f"{lat:g}" for lat, _ in coords),
+                "longitude": ",".join(f"{lon:g}" for _, lon in coords),
+                "hourly": "wind_speed_10m,wind_direction_10m",
+                "wind_speed_unit": "ms",
+                "forecast_days": FORECAST_DAYS,
+            },
+        )
+        resp.raise_for_status()
+    data = resp.json()
+    bodies = [data] if isinstance(data, dict) else list(data)
+    if len(bodies) != len(coords):
+        raise ValueError(f"open-meteo returned {len(bodies)} locations for {len(coords)} buoys")
+    return bodies
+
+
 @dataclass(frozen=True, slots=True)
 class RawForecast:
     fetched_at: str  # ISO-8601 UTC

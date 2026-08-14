@@ -1632,3 +1632,186 @@ The 07-19 flat frame - +0.15 m over under every candidate, the one nothing could
 **9.4 kph cross-shore**. It is not a blown-out frame, so the wind term cannot reach it at any
 coefficient. That over-call stays **structural** (a breaker index assumes something that breaks
 as a wave; that frame is a 0.60 m 5.05 s windsea observed ankle-high). One fewer hypothesis.
+
+## 2026-08-14 (session 27) - Stage 3a's promotion gate, measured: a two-grid blend reaches parity
+
+**Why this ran.** The question asked was how worldwide spot coverage scales. The binding
+constraint is the FETCH plane: Open-Meteo costs ~8.8 quota units per spot per cycle
+(`fetch.py`'s own arithmetic, 65 points per minute bucket), so spot count is capped by
+someone else's quota. Global model GRIB is O(1) in spot count instead. Stage 3a already
+built the raw GFS-Wave source, the GRIB point reader and the dual-source archive; what it
+never had was the acceptance evidence its own plan requires ("raw-source lead-time skill
+>= OM's at the proxy buoys"). This is that measurement.
+
+**Method.** 15 NDBC buoys, the committed dual-source archive, scored with the SHIPPED
+`verify.lead_time_scorecard` (method rule: never a scratchpad reimplementation). Four arms:
+`om`, `gfswave`, `ecmwf`, and a `blend` pairing the two grids on the same valid hour and
+nearest cycle (<=12 h apart), equal weights, blended row carrying the LATER run so lead is
+never overstated. No Open-Meteo calls; one NDBC obs fetch per buoy.
+
+**Significant wave height, n-weighted MAE (m), pooled:**
+
+| lead | OM | GFS-Wave | ECMWF | blend |
+|---|---|---|---|---|
+| 0-1d | **0.194** | 0.248 | 0.207 | 0.211 |
+| 1-3d | **0.203** | 0.240 | 0.230 | 0.210 |
+| 3-4d | 0.248 | 0.270 | 0.284 | **0.247** |
+| 4-5d | 0.259 | 0.278 | 0.283 | **0.253** |
+| 5-7d | 0.277 | 0.301 | 0.316 | **0.274** |
+| 7-9d | **0.319** | 0.341 | 0.383 | 0.338 |
+
+**Wave direction, n-weighted MAE (deg):** blend wins 5 of 6 buckets - 29.4 vs OM's 33.2 at
+0-1d, 29.6 vs 32.6 at 1-3d, narrowing to a 0.75 deg loss at 7-9d.
+
+**Findings.**
+1. **GFS-Wave ALONE fails the gate** - worse than OM on Hs at every single lead. That is why
+   the gate never opened, and it is the right verdict. Do not promote a single raw model.
+2. **The blend reaches parity on Hs and wins on direction**, with EQUAL WEIGHTS and no
+   tuning. Worst Hs case is 1.6 cm behind OM at 0-1d; it is ahead across 3-7d. Blending two
+   free global grids is what recovers what best_match was buying.
+3. **The period comparison from this run is VOID** - the `om` arm scores the energy period
+   against APD while the raw arms score peak period against DPD. That is exactly the
+   like-for-like rule at the top of this file, and the run violated it. The apparent 26%
+   blend win on `tp` means nothing; re-run it against a single obs column before quoting it.
+
+**Not yet established, needed before promotion:** tuned (not equal) weights, with their own
+entry here; a per-region breakdown, since the acceptance bar is per-region and this pooled
+the fleet; a fresher archive (these rows start 2026-07-23, and the raw arms carry ~6x fewer
+rows than OM, so the arms are not the same sample); and a valid period comparison.
+
+## 2026-08-14 (session 27, part 2) - fetch-plane plan executed: A1-A3, C1 build, D1
+
+**A1 - NEGATIVE result: a like-for-like OM period race is impossible, permanently.**
+The plan assumed archiving OM's `wave_peak_period` would let an OM-peak-vs-DPD race
+accumulate. Built it, then checked the field live before shipping: **`wave_peak_period`
+is null from EVERY OM model at the fleet** (best_match, ncep_gfswave016, gwam,
+meteofrance_wave all return only nulls; the sole populated peak column anywhere is
+`swell_wave_peak_period_gwam`, swell-only, which pairs with DPD only when swell dominates
+- the APD-vs-Tm-1,0 class of mismatch, do not use it). The code change was REVERTED
+rather than shipped: an always-null archived column costs quota weight on every archive
+request and reads like a measurement. Standing conclusion: OM's period story is
+energy-period-only; **the raw arms' race is the period evidence, full stop** - restated
+valid (all Tp vs DPD): blend best at every lead past 3d (1.45-1.61 s MAE), GFS-Wave best
+at 0-1d (1.74 s). Do not re-propose archiving an OM peak period without first proving the
+column carries values.
+
+**A2 - tuned blend weights do NOT beat 50/50 yet.** Grid-searched w (GFS share) per lead
+on even-day runs, evaluated on odd-day runs, shipped harness both halves, 12 buoys:
+fitted w = {0-1d: 0.2, 1-3d: 0.45, 3-4d: 0.5, 4-5d: 0.45, 5-7d: 0.5, 7-9d: 0.75}; holdout
+gains are 0.010 m at 0-1d, 0.005 m at 7-9d, <=0.001 m elsewhere - inside noise on a
+5-week archive. **Verdict: keep 50/50** until the archive clears A4's >=8 weeks, then
+re-fit. (The w=0.2 nowcast hint - ECMWF-heavy near, GFS-heavy far - is physically
+plausible and worth re-testing then.)
+
+**A3 - per-region: the pooled parity hides real structure.** Hs MAE, all archived rows,
+blend at 50/50 vs OM:
+- **us-west (6 buoys): blend AHEAD at 5 of 6 leads** (by 0.003-0.035 m) - the first
+  region to clear the promotion bar on Hs.
+- **us-east (3): parity** (within +-0.012 m through 5-7d, behind 0.039 at 7-9d).
+- **hawaii (3): OM clearly ahead at every lead** (0.006-0.054 m). Expected physics: the
+  0.25-deg global grids cannot resolve island shadowing at nearshore Waveriders; Hawaii
+  stays OM under the per-region rollout rule.
+- **portugal (3 CMEMS buoys, measured ON THE VM 2026-08-14, full 15-buoy archive):
+  blend AHEAD of OM at EVERY lead, by 0.031-0.076 m** (0.098 vs 0.131 at 0-1d; 0.136 vs
+  0.212 at 7-9d - a 36% improvement). The strongest region in the fleet and the second
+  past the promotion bar. The VM archive is ~3 weeks fuller than this box's snapshot;
+  on it, us-west softens to parity-to-ahead (behind <=0.012 at 0-3d, ahead 3-7d+),
+  us-east reads slightly behind everywhere (0.002-0.023), hawaii stays behind everywhere.
+  VM-run A2 agrees with the local verdict: tuned weights buy <=0.005 m out-of-sample
+  (fitted w drifts ECMWF-heavy near, 0.3-0.35) - keep 50/50 until A4. VM period race:
+  blend best through 4-5d (1.39-1.43 s), ECMWF best at 5-9d.
+
+**C1 - EOT20 tide built, verified, committed, NOT yet consumed.** 2.1 GB EOT20 grids
+downloaded (gitignored `data/tide-src/`); `tide.py` extracts per-spot constants at the
+derived offshore point (bilinear, nearest-wet fallback, refuses dry land) and synthesises
+via pyTMD FES arguments; `rosa-pipeline tide --all --verify data/out` extracted **199/199
+constants** (committed, the bathy pattern, ~1 KB each) and scored them against the OM
+tide series in today's payloads: **median corr +0.969, median demeaned rmse 0.087 m**.
+The mean offsets (-0.81..+0.41 m, sign flips by basin) are a SEMANTIC difference, not an
+error: OM's `sea_level_height_msl` includes non-tidal sea level (seasonal steric, surge),
+EOT20 is the astronomical tide alone. One flagged extraction: **isonoura** (corr 0.849,
+rmse 0.198 m at 1.61 m range) - its offshore point masks out and the nearest wet cell
+sits up the Kii Channel where tidal phase genuinely differs. The seven Sri Lanka
+east-coast "low-corr" spots are microtidal (0.26 m range, demeaned rmse <=0.03 m) - noise
+ratio, not error. **The switch is a separate change**: `tide_m` feeds `score.py` depths,
+so consuming this moves published ratings - same-input fleet A/B + entry here, per
+pb_0049. Sequenced: fill the null day-10-16 tail first, then replace.
+
+**D1 - whole-globe GRIB fits the VM.** Measured: global `gfswave.0p25` file = 11.9 MB
+per step (19 messages - wind, combined, windsea, 3 partitions: the full schema), 2 s
+download, and parsing EVERY field of a full-globe step peaks at **168 MB RSS / 3.0 s** -
+comfortable on the 1 GB VM one step at a time. Per cycle at 3-hourly x 16 d (129 steps):
+~1.5 GB download, ~5 min sequential. ECMWF global via the existing byte-range path:
+~10 MB x 41 steps ~= 410 MB. Per-basin grib-filter subsets remain ~100x cheaper in bytes
+(~15-20 MB/cycle across 9 basins, at ~1,160 requests) - B1 should default to per-basin
+and keep whole-globe as the scale mode; both hold the O(1)-in-spot-count property.
+
+**A3 no-buoy promotion policy (decided 2026-08-14, operator call):** a region with no
+buoy promotes on **pooled fleet evidence plus its own 👍👎 feedback stream** - clear
+pooled skill first, then a trial period in which the region's feedback shows no
+regression. The Hawaii exception generalises: any region measurably worse under the
+blend stays on OM regardless of the pooled verdict. Only regions with their own buoy
+can be promoted on skill alone.
+
+## 2026-08-14 (session 27, part 3) - plan B built: the blended wave source exists
+
+`blend.py` + `run --wave-source blend`, the A/B arm - NOT promoted, OM stays the default.
+Composition per hour: partitions (windsea + 3 swells) from GFS-Wave full-schema boxes -
+the only free source with partitions; totals (Hs/direction/Tp) blended 50/50 with ECMWF,
+whose fetch is the SAME one the spectral member already makes (once per run, not per
+leg); total mean period from ECMWF `mwp` alone (GFS gridded publishes none, honest None
+past 240 h); weather + SST/tide still ride OM transitionally (plan C), with the marine
+request cut to 2 fields (~0.2 weight/pt vs ~8.8); `ensemble=None` - blend-arm confidence
+degrades to the horizon proxy until C4. The composed marine dict is unsuffixed, which
+`_merge_models` passes through - extract/transform/score untouched.
+
+**The smoke caught a real correctness bug before it shipped:** a 3-hourly UTC series
+contains a local-midnight hour only where the UTC offset is a multiple of 3 h, so
+publish's whole-local-day filter dropped EVERY day at Pipeline (UTC-10) - and would have
+at all of Sri Lanka (UTC+5:30). Fixed by interpolating the GRIB steps to hourly before
+composing (linear, circular for bearings, keys missing at either endpoint stay missing;
+the same thing Open-Meteo does to 3-hourly models), pinned by two tests.
+
+**Live smoke, 3 spots / 3 regions, full payload each:** beit-yanai 125-128 h rated,
+tamarindo 120 h (blend carries 4.0 swell trains/hour vs OM's 3.0), pipeline 120 h/15 d
+after the fix. Mean |rating delta| vs the OM arm: 7-9 points, max 33 - the two arms are
+genuinely different forecasts, which is exactly what D3's promotion A/B adjudicates
+against buoys and feedback, not something to reconcile by hand. Repo suite 421 green,
+8 blend tests, 64 KB of committed fixtures.
+
+## 2026-08-14 (session 27, part 4) - plan C2 + C4 on the blend arm
+
+**C2 - SST from NOAA OISST.** `oisst.py`: one 0.25-deg global daily netCDF (~1.5 MB,
+public domain, `*_preliminary` until the final lands ~2 weeks later; fetcher tries
+final-then-preliminary back to 4 days). Blend arm only: the daily value fills the SST
+column (intra-day drift ~0.1 C, below model error), the OM light value stays as the
+per-hour fallback and the guard path - an NCEI outage cannot sink a run. Sanity-checked
+live at 5 spots across 5 basins (Med 29.2, Portugal 20.4, Hawaii 27.2, CR 30.2,
+Sri Lanka 28.8 C). SST is display + tail carry, never rating physics - not pb_0049
+territory.
+
+**C4 - the blend arm's confidence ensemble is its own two members.** No OM ensemble
+request: the RAW pre-blend GFS totals ride as a one-member ensemble body (never the
+blended total - it is not independent) and extract appends the ECMWF spectral member
+exactly as on the OM arm. Agreement + dir_span are live again on the blend arm with
+n_models=2, and `dir_n=2` marks the member-count era, per the 2026-08-11 rule. The OM
+arm's 4-5-member fan is unchanged. Promotion note for D3: the two arms' confidence
+numbers come from DIFFERENT member sets, so the promotion A/B compares them as separate
+eras, never pooled.
+
+## 2026-08-14 (session 27, part 5) - plan C3 evidence: wind enters the buoy archive
+
+The weather-migration decision (C3) had no data: the archive recorded waves only, while
+the buoys carry anemometers nobody was reading. Now every archive cycle records 10 m
+wind from BOTH sources: OM via one extra weather-host request (2 vars, m/s so it pairs
+with NDBC WSPD without conversion - the like-for-like rule), joined onto the wave points
+by exact timestamp; GFS-Wave from the SAME wave gribs the archive already downloads
+(`ws`/`wdir` messages ride along free). `WavePoint.ws/.wdir`, `ws`/`wdir` row keys, and
+a wind pairing on the OM and GFS-Wave variable tuples - NOT the ECMWF tuple, whose wave
+stream has no 10 m wind and whose card must not show an always-empty row. Both fields
+were VERIFIED live before shipping (the A1 lesson): OM 384/384 non-null in m/s at
+Monterey, GFS ws=3.71 m/s from a committed grib, and a live `archive --buoy 46042` wrote
+384 OM rows all carrying wind. Wind columns are None on all history; `verify --archive`
+starts reporting the wind rows as they mature. Guarded so wind can only ever cost its
+own columns, never a wave row. Decision rule stays: OM weather remains until the
+scorecard says otherwise - re-run the C3 comparison once a few weeks accumulate.
