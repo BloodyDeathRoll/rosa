@@ -103,10 +103,24 @@ def test_all_tiers_under_floor_reads_as_static(tmp_path: Path) -> None:
     assert source.startswith("static defaults")
 
 
-def test_corrupt_skill_file_is_static_not_fatal(tmp_path: Path) -> None:
+def test_corrupt_skill_file_is_static_not_fatal(tmp_path: Path, capsys) -> None:
     p = tmp_path / "skill.json"
     p.write_text("{ torn")
     assert load_skill_ceilings(p) is None
+    # a torn file IS damage and must still say so
+    assert "unreadable" in capsys.readouterr().out
+
+
+def test_empty_skill_file_is_the_ab_control_arm_and_stays_quiet(tmp_path: Path, capsys) -> None:
+    # `run --skill /dev/null` is the documented control arm: static ceilings, and no
+    # warning, because a scary line in one arm is what gets an A/B disbelieved
+    for body in ("", "   \n"):
+        p = tmp_path / "skill.json"
+        p.write_text(body)
+        assert load_skill_ceilings(p) is None
+        assert capsys.readouterr().out == ""
+    assert load_skill_ceilings(Path("/dev/null")) is None
+    assert capsys.readouterr().out == ""
 
 
 def test_malformed_buckets_are_static_not_fatal(tmp_path: Path) -> None:

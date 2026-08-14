@@ -48,8 +48,8 @@ function HowItWorks() {
         </li>
       </ol>
       <p class="about-note">
-        We refresh the forecast several times a day, and always show which model it came from and
-        when it last ran, so you know how fresh it is.
+        We refresh the forecast several times a day, and always show when it last ran, so you know
+        how fresh it is.
       </p>
     </>
   );
@@ -216,8 +216,8 @@ function ReadingTheForecast() {
 
       <h2>Confidence, and how fresh this is</h2>
       <p>
-        Rosa runs several times a day and always shows which model it came from and when it last
-        ran. Confidence reflects two things: how far ahead the forecast is looking, and how much the
+        Rosa runs several times a day and always shows when it last ran. Confidence reflects two
+        things: how far ahead the forecast is looking, and how much the
         different weather models agree with each other right now. Tomorrow is worth trusting; day
         twelve is a hint about a trend, nothing more.
       </p>

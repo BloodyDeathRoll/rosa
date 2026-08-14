@@ -614,6 +614,15 @@ def _cmd_verify(args: argparse.Namespace) -> int:
                 print(render_spectra_report(buoy, report))
                 scored += 1
                 continue
+            # Decided already: with the fleet nowcast batch gone this buoy cannot be
+            # scored, so raise BEFORE the observation and spectra fetches below. Those
+            # are two live requests per buoy (NDBC realtime2 + the spectral files that
+            # `_with_measured_energy_period` pulls) whose results the batch failure has
+            # made unusable - 30 requests across the fleet, spent to produce the same
+            # FAILED line either way.
+            prefetched = batched.get(buoy.id)
+            if isinstance(prefetched, Exception):
+                raise prefetched  # the batch's failure, reported as this buoy's
             obs = _obs_for(buoy, args)
             source = args.source if args.archive else "om"
             variables = SOURCE_VARIABLES[source]
@@ -634,9 +643,6 @@ def _cmd_verify(args: argparse.Namespace) -> int:
                     skill_by_lead.append(by_lead)
                     skill_buoys.append(buoy.id)
             else:
-                prefetched = batched.get(buoy.id)
-                if isinstance(prefetched, Exception):
-                    raise prefetched  # the batch's failure, reported as this buoy's
                 model = _model_for(buoy, args, marine=prefetched)
                 scores = build_scorecard(model, obs, tol_min=args.tol_min, variables=variables)
                 print(render_scorecard(buoy, dist, scores))
@@ -954,7 +960,13 @@ def _cmd_horizon(args: argparse.Namespace) -> int:
         changed += not same
         # A window narrower than this is almost certainly an artifact rather than a sheltered
         # spot - no open beach sees less. Flagged, never suppressed: the caller decides.
-        width = ((derived[1] - derived[0]) % 360) or 360
+        # No `or 360` here: `window_from_open_bearings` clips both sides to
+        # +-MAX_INCIDENCE_DEG, so a derived arc is never wider than 180 deg and a width of
+        # 0 is never a full circle - it is the degenerate window the scan returns when the
+        # shore normal's own bearing is open and both neighbours are blocked. Reading that
+        # 0 as 360 turned the worst possible result into the widest one and silenced the
+        # only NARROW review gate standing between a derived arc and the spot DB.
+        width = (derived[1] - derived[0]) % 360
         flag = "" if same else "   <- differs"
         if width < 90:
             flag += f"   ⚠ NARROW {width:.0f} deg - review before adopting"

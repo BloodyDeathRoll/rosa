@@ -18,7 +18,7 @@ Rosa is a **worldwide, mobile-first PWA surf forecast app**: free, lean, fast, s
 ## Non-negotiable principles
 1. Every screen answers "should I surf, when, where?" — cut anything that doesn't.
 2. **Precompute everything, serve static.** Pipeline runs on schedule → per-spot JSON + map frames on CDN. No request-time forecast backend, ever. This is what keeps the app free.
-3. Always display model name, run timestamp, and confidence. Rating formula is public ("why this rating" in-app) — transparency vs. Surfline's black box is a core differentiator.
+3. Always display run timestamp and confidence. Rating formula is public ("why this rating" in-app) — transparency vs. Surfline's black box is a core differentiator. **No model name**: the payload is stitched per hour from several models, so one label was wrong on ~40% of rows and nothing rendered it (retired 2026-08-14). Re-introduce it only as per-hour provenance, never as a constant.
 4. Mobile-first, dark-first, < 2 s first load on 4G, forecast readable in a 20-second pre-dawn check. Installable PWA, offline-cache last forecast.
 5. Every forecast state and swell animation has a shareable URL + auto share card.
 

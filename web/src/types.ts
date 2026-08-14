@@ -96,7 +96,6 @@ export interface SpotPayload {
     /** Every angle when the spot has several cams; `cam` is always the first. */
     cams?: CamEntry[];
   };
-  model: string;
   fetched_at: string;
   generated_at: string;
   attribution: string;

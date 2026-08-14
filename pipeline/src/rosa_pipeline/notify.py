@@ -194,6 +194,15 @@ def plan_notifications(
     With no `home` known (a subscription made before the field existed) the region
     cannot be judged - the one-a-day cap still applies, so the worst case is one
     push about the wrong coast rather than a screenful.
+
+    **No favorites: fall back to `home` itself**, exactly as `plan_feedback_push`
+    already does. `web/src/push.ts` posts `spots: getFavorites()`, which is `[]` for
+    every device that switches the Profile toggle on before favoriting anything, and
+    `deploy/push-api/api/sub.js` stores that empty list happily (it caps the length, it
+    does not require one). Without this branch such a device passes the favorites
+    filter zero events forever: it gets the evening 👍👎 ask - which HAS the fallback -
+    and never once gets the swell alert it actually subscribed to. The region lock is
+    unaffected: `home` is by construction the device's own nearest spot.
     """
     if already_today > 0:
         return []
@@ -203,6 +212,9 @@ def plan_notifications(
         mine = [e for e in group if e.spot_id in favorites]
         if home_region:
             mine = [e for e in mine if (e.region or "") == home_region]
+        if not mine and home:
+            # nothing favorited in this swell - speak for the spot they're standing next to
+            mine = [e for e in group if e.spot_id == home]
         if not mine:
             continue
         best = max(mine, key=lambda e: (e.rating, e.h_peak))

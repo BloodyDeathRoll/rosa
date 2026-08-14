@@ -53,7 +53,8 @@ def test_extract_merges_models_to_full_horizon(raw):
 
 def test_payload_shape(payload):
     assert payload["spot"]["id"] == "beit-yanai"
-    assert payload["model"]
+    # no `model` key: retired 2026-08-14, see the comment in publish.build_payload
+    assert "model" not in payload
     assert payload["fetched_at"]
     assert payload["attribution"].startswith("Weather data by Open-Meteo")
     # 3-hourly; every published day is a WHOLE local day, so the hour count is

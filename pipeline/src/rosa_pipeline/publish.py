@@ -15,7 +15,6 @@ from .models import ScoredHour, Spot, SpotCam
 from .spectral import consistency_score, missed_swells, parametric_spread_deg
 from .transform import energy_kj_per_m, in_window, partition_closure
 
-MODEL_NAME = "open-meteo:best_match (marine + forecast v1)"
 ATTRIBUTION = "Weather data by Open-Meteo.com (CC-BY 4.0)"
 ATTRIBUTION_ECMWF = "Wave spectra: ECMWF open data (CC-BY 4.0)"
 TABLE_DAYS = 16
@@ -62,7 +61,16 @@ def load_skill_ceilings(path: Path) -> tuple[dict[int, float], str] | None:
     non-atomically, so a torn or malformed file must read as "no measurement"
     (static defaults), never abort a publish cycle."""
     try:
-        skill = json.loads(path.read_text(encoding="utf-8"))
+        text = path.read_text(encoding="utf-8")
+        if not text.strip():
+            # An EMPTY file is "no measurement", not damage, and must not warn:
+            # `run --skill /dev/null` is the documented A/B control arm (its help text
+            # says so), and /dev/null reads as "". skill.json itself is written
+            # tmp+replace, so zero bytes is not a failure mode it has. A control-arm run
+            # whose log carries a line that reads like a fault is a run that gets
+            # disbelieved or re-done - and both arms being auditable is the whole point.
+            return None
+        skill = json.loads(text)
         buckets = skill["buckets"]
         ceilings: dict[int, float] = {}
         matured: list[str] = []  # lead buckets scored on their own, for the provenance
@@ -417,7 +425,10 @@ def build_payload(
                 else {}
             ),
         },
-        "model": MODEL_NAME,
+        # No `model` key by design (2026-08-14): the payload is stitched per hour from
+        # best_match and the GFS-Wave tail, so one constant name was wrong on ~40% of
+        # rows, and nothing rendered it. `attribution` carries the data credit; per-hour
+        # provenance would have to be per-hour, and is not published today.
         "fetched_at": fetched_at,
         "generated_at": now.isoformat(timespec="seconds"),
         "attribution": (f"{ATTRIBUTION} · {ATTRIBUTION_ECMWF}" if has_spectral else ATTRIBUTION),
