@@ -1849,3 +1849,33 @@ errors (3 tries, backoff) - four consecutive fleet captures had died on single T
 handshake timeouts mid-run while single requests succeeded in 0.3 s, and the fix's
 first live run needed and survived exactly one such retry. HTTP-level handling (the
 ensemble-429 degrade) is unchanged.
+
+## 2026-08-15 - beit-yanai's pin is ~700 m INLAND, and the move is HELD
+
+Found in the Israel sat-verification batch: the `beit-yanai` pin sits in the village,
+about 700 m east of the water. **This is not new and not an oversight** - the 2026-07-22
+coordinate-correction pass (`02c5d61`) snapped 49 inland spots to the waterline and
+*deliberately reverted this one*, tagged "calibration + fixture anchor - not snapped".
+The move is held again for the same reason, now written down properly:
+
+1. **The committed fixture key IS this pin's derived offshore point.** Pin 34.8635 minus
+   the region's 0.06 deg westward push = `pipeline/tests/fixtures/32.3817_34.8035.json`.
+   Moving the pin to the waterline (34.8560) derives 34.7960, and the fixture no longer
+   matches - `test_pipeline_end_to_end` and every offline replay lose their input. The
+   fix would be regenerating the fixture, which silently rebases the one captured
+   response the whole offline suite is pinned to.
+2. **Israel's scoring constants were fitted at this coordinate.** `q(T)`, the wind-gate
+   denominator and the per-spot `height_coeff` were tuned against Beit Yanai readings
+   (CALIBRATION rows from 2026-07-20 on). Moving the sample point makes the fitted
+   constants non-comparable to their own evidence.
+
+**What is actually true about the forecast:** the offshore SAMPLE point is 0.06 deg west
+of the pin, i.e. genuinely offshore in open water, so the forecast Beit Yanai serves is
+sampled from the sea - it is the MAP DOT and the derived geometry that are wrong, not the
+wave data. That is why this has been survivable.
+
+**To resolve properly, in one change (not started):** move the pin to the waterline,
+re-derive `offshore_bearing`/`offshore_km` so the sample point lands where it does today
+(keeping the fixture key stable is the cheap version), re-cut bathy + tide, and re-run the
+Israel calibration frames to confirm the constants still hold. Until then the pin stays,
+annotated in `israel.yaml` so the next sat pass doesn't re-propose it blind.

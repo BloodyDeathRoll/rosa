@@ -32,3 +32,14 @@ akko-argaman	2026-08-15
 ashdod-lido	2026-08-15
 atlit	2026-08-15
 bat-galim	2026-08-15
+bat-yam	2026-08-15
+betset	2026-08-15
+caesarea-aqueduct	2026-08-15
+dado	2026-08-15
+dor	2026-08-15
+gaash	2026-08-15
+kiryat-yam	2026-08-15
+michmoret	2026-08-15
+nahariya	2026-08-15
+nahsholim	2026-08-15
+netanya-sironit	2026-08-15
