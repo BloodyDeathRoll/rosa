@@ -36,7 +36,14 @@ PAYLOAD = {
 def test_predicted_snapshot_picks_nearest_hour() -> None:
     at = datetime(2026, 7, 21, 3, 30, tzinfo=UTC)  # = 06:30 +03:00, nearest the 06:00 row
     pred = predicted_from_payload(PAYLOAD, at)
-    assert pred == {"rating": 55, "bucket": "GOOD", "h": [0.5, 0.8], "phrase": "waist-high"}
+    # wind key added 2026-08-15 for the wind-coefficient fit; None when the payload hour has none
+    assert pred == {
+        "rating": 55,
+        "bucket": "GOOD",
+        "h": [0.5, 0.8],
+        "phrase": "waist-high",
+        "wind": None,
+    }
 
 
 def test_predicted_falls_back_to_current_when_no_hours() -> None:
