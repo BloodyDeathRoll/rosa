@@ -232,6 +232,28 @@ class OpenMeteoSource:
             out.extend(self._fetch_batch(batch))
         return out
 
+    def _get_retrying(self, client: httpx.Client, url: str, params: dict) -> httpx.Response:
+        """One GET with bounded retries on TRANSPORT errors (handshake/connect timeouts).
+
+        A fleet run spans minutes of network exposure across batches, and one transient
+        TLS handshake timeout used to kill the whole run - four consecutive capture
+        attempts died that way on 2026-08-15 while single requests succeeded in 0.3 s.
+        HTTP errors (429, 5xx) are NOT retried here: the callers' own handling (the
+        ensemble-429 degrade, raise_for_status) stays authoritative for those."""
+        last: Exception | None = None
+        for attempt in range(3):
+            if attempt:
+                time.sleep(10.0 * attempt)
+            try:
+                return client.get(url, params=params)
+            except httpx.TransportError as e:
+                last = e
+                print(
+                    f"warn: open-meteo transport error ({e!r}), retry {attempt + 1}/2",
+                    file=sys.stderr,
+                )
+        raise last  # type: ignore[misc]  # loop always sets it before falling through
+
     def _fetch_batch(self, coords: list[tuple[float, float]]) -> list[RawForecast]:
         common = {
             "latitude": ",".join(f"{lat:g}" for lat, _ in coords),
@@ -240,20 +262,24 @@ class OpenMeteoSource:
             "past_days": PAST_DAYS,
         }
         with httpx.Client(timeout=self.timeout_s, transport=self._transport) as client:
-            marine = client.get(
+            marine = self._get_retrying(
+                client,
                 MARINE_URL,
-                params={
+                {
                     **common,
                     "hourly": ",".join(MARINE_HOURLY),
                     "models": ",".join(MARINE_MODELS),
                 },
             )
             marine.raise_for_status()
-            weather = client.get(WEATHER_URL, params={**common, "hourly": ",".join(WEATHER_HOURLY)})
+            weather = self._get_retrying(
+                client, WEATHER_URL, {**common, "hourly": ",".join(WEATHER_HOURLY)}
+            )
             weather.raise_for_status()
-            ensemble: httpx.Response | None = client.get(
+            ensemble: httpx.Response | None = self._get_retrying(
+                client,
                 MARINE_URL,
-                params={
+                {
                     **common,
                     "hourly": ",".join(ENSEMBLE_HOURLY),
                     "models": ",".join(MARINE_ENSEMBLE_MODELS),

@@ -75,3 +75,20 @@ def test_over_cap_coords_split_into_batches_and_lose_no_point():
 
     assert len(raws) == len(coords)
     assert marine_request_sizes == [MARINE_BATCH_SIZE, 50]
+
+
+def test_transient_transport_error_is_retried_not_fatal(capsys):
+    # 2026-08-15: four consecutive fleet captures died on one TLS handshake timeout
+    # mid-run - a single transient must cost a retry, never the whole batch
+    calls = {"n": 0}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        calls["n"] += 1
+        if calls["n"] == 1:
+            raise httpx.ConnectTimeout("handshake timed out", request=request)
+        return httpx.Response(200, json=_body({"hourly": {"time": ["2026-08-15T00:00"]}}))
+
+    src = OpenMeteoSource(transport=httpx.MockTransport(handler), sleep_between_batches_s=0)
+    raws = src.fetch_many(COORDS)
+    assert len(raws) == len(COORDS)
+    assert "transport error" in capsys.readouterr().err
