@@ -76,7 +76,7 @@ spots:
   - { id: thalaramba,   name: "Thalaramba",     lat: 5.9374, lon: 80.4749, offshore_direction: 1,   offshore_bearing: 180.0, offshore_km: 4.99, swell_window: [120, 255], <<: *sl_s }  # sat-verified 2026-08-15 (kept)
   - { id: madiha,       name: "Madiha",         lat: 5.9371, lon: 80.5065, offshore_direction: 357, offshore_bearing: 180.0, offshore_km: 4.99, swell_window: [115, 250], <<: *sl_s }  # sat-verified 2026-08-15 (kept)
   - { id: weddawata,    name: "Weddawata",      lat: 5.9399, lon: 80.5650, offshore_direction: 345, offshore_bearing: 180.0, offshore_km: 5.0, swell_window: [140, 255], <<: *sl_s }  # sat-verified 2026-08-15 (kept)
-  - { id: wellamadama,  name: "Wellamadama",    lat: 5.9358, lon: 80.5752, offshore_direction: 4,   offshore_bearing: 180.0, offshore_km: 5.0, swell_window: [155, 265], <<: *sl_s }  # osm-seeded - TODO verify
+  - { id: wellamadama,  name: "Wellamadama",    lat: 5.9358, lon: 80.5752, offshore_direction: 4,   offshore_bearing: 180.0, offshore_km: 5.0, swell_window: [155, 265], <<: *sl_s }  # sat-verified 2026-08-15 (kept) - TODO verify
   - { id: unakuruwa,    name: "Unakuruwa",      lat: 6.0013, lon: 80.7651, offshore_direction: 5,   offshore_bearing: 180.0, offshore_km: 5.0, swell_window: [95, 225], <<: *sl_s }  # sat-verified 2026-08-15 (kept)
   # east coast (Arugam) osm-seeded:
   - { id: coconut-beach, name: "Coconut Beach (Arugam)", lat: 6.8842, lon: 81.8431, offshore_direction: 245, shore_normal: 90, offshore_bearing: 90.2, offshore_km: 5.73, break_type: point, swell_window: [20, 150], <<: *sl_e }  # sat-verified 2026-08-15 (kept)

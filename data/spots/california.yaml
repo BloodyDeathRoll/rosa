@@ -15,5 +15,5 @@ defaults: &ca
     size_m: [0.6, 2.0]
 
 spots:
-  - { id: santa-monica,    name: "Santa Monica",    lat: 34.01290, lon: -118.50172, offshore_direction: 50, swell_window: [155, 280], cam: { yt: "v97JpT3ZA0w", by: "Explore Big Surf, Beaches and Sunsets", by_url: "https://www.youtube.com/@ExploreBigSurfandBeaches", note: "pier cam (explore.org stream)" }, <<: *ca }  # google-geocoded 2026-07-27 (cam-scan discovery)
-  - { id: manhattan-beach, name: "Manhattan Beach", lat: 33.8842, lon: -118.4109, offshore_direction: 70, cam: { yt: "tBEIYdw1HeM", by: "The Surfers View", by_url: "https://www.youtube.com/@TheSurfersView" }, swell_window: [185, 315], <<: *ca }  # google-geocoded 2026-07-27 (cam-scan discovery)
+  - { id: santa-monica,    name: "Santa Monica",    lat: 34.0123, lon: -118.5025, offshore_direction: 50, swell_window: [155, 280], cam: { yt: "v97JpT3ZA0w", by: "Explore Big Surf, Beaches and Sunsets", by_url: "https://www.youtube.com/@ExploreBigSurfandBeaches", note: "pier cam (explore.org stream)" }, <<: *ca }  # sat-verified 2026-08-15 2026-07-27 (cam-scan discovery)
+  - { id: manhattan-beach, name: "Manhattan Beach", lat: 33.8842, lon: -118.4124, offshore_direction: 70, cam: { yt: "tBEIYdw1HeM", by: "The Surfers View", by_url: "https://www.youtube.com/@TheSurfersView" }, swell_window: [185, 315], <<: *ca }  # sat-verified 2026-08-15 2026-07-27 (cam-scan discovery)

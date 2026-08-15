@@ -2,68 +2,69 @@
   "spot": "santa-monica",
   "source": "gebco2020 via opentopodata",
   "origin": [
-    34.0129,
-    -118.50172
+    34.0123,
+    -118.5025
   ],
   "bearing_seaward_deg": 230.0,
-  "nearshore_depth_m": 3.0,
-  "offshore_depth_m": 317.0,
-  "mean_slope_m_per_km": 17.69,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 315.0,
+  "mean_slope_m_per_km": 17.46,
   "land_samples": 0,
+  "missing_samples": 0,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 34.01145,
-      "lon": -118.5038,
-      "depth_m": 3.0
+      "lat": 34.01085,
+      "lon": -118.50458,
+      "depth_m": 5.0
     },
     {
       "dist_km": 0.5,
-      "lat": 34.01001,
-      "lon": -118.50588,
-      "depth_m": 7.0
+      "lat": 34.00941,
+      "lon": -118.50666,
+      "depth_m": 8.0
     },
     {
       "dist_km": 1.0,
-      "lat": 34.00712,
-      "lon": -118.51003,
-      "depth_m": 10.0
+      "lat": 34.00652,
+      "lon": -118.51081,
+      "depth_m": 11.0
     },
     {
       "dist_km": 2.0,
-      "lat": 34.00134,
-      "lon": -118.51834,
-      "depth_m": 15.0
+      "lat": 34.00074,
+      "lon": -118.51912,
+      "depth_m": 16.0
     },
     {
       "dist_km": 3.0,
-      "lat": 33.99556,
-      "lon": -118.52665,
-      "depth_m": 24.0
+      "lat": 33.99496,
+      "lon": -118.52743,
+      "depth_m": 25.0
     },
     {
       "dist_km": 5.0,
-      "lat": 33.98399,
-      "lon": -118.54326,
-      "depth_m": 43.0
+      "lat": 33.98339,
+      "lon": -118.54404,
+      "depth_m": 44.0
     },
     {
       "dist_km": 8.0,
-      "lat": 33.96664,
-      "lon": -118.56817,
-      "depth_m": 66.0
+      "lat": 33.96604,
+      "lon": -118.56895,
+      "depth_m": 69.0
     },
     {
       "dist_km": 12.0,
-      "lat": 33.94349,
-      "lon": -118.60137,
-      "depth_m": 200.0
+      "lat": 33.94289,
+      "lon": -118.60215,
+      "depth_m": 203.0
     },
     {
       "dist_km": 18.0,
-      "lat": 33.90876,
-      "lon": -118.65114,
-      "depth_m": 317.0
+      "lat": 33.90816,
+      "lon": -118.65192,
+      "depth_m": 315.0
     }
   ]
 }

@@ -114,3 +114,15 @@ kabune	2026-08-15
 katase-eastside	2026-08-15
 tsujido	2026-08-15
 miura	2026-08-15
+tamarindo	2026-08-15
+miramar	2026-08-15
+playa-gigante	2026-08-15
+playa-maderas	2026-08-15
+playa-remanso	2026-08-15
+playa-santana	2026-08-15
+ph-surfing	2026-08-15
+sentinela	2026-08-15
+wellamadama	2026-08-15
+manhattan-beach	2026-08-15
+santa-monica	2026-08-15
+pipeline	2026-08-15

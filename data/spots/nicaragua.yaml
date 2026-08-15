@@ -26,18 +26,18 @@ spots:
   - { id: the-boom,           name: "The Boom (Aposentillo)",   lat: 12.6322, lon: -87.3634, offshore_direction: 60,  swell_window: [150, 315], <<: *nic }  # sat-verified 2026-07-23 (hollow beachbreak)
   # ---- León / Managua coast ----
   - { id: puerto-sandino,     name: "Puerto Sandino",           lat: 12.193, lon: -86.774, offshore_direction: 40,  swell_window: [165, 295], offshore_bearing: 233.2, offshore_km: 11.68, break_type: point, <<: *nic }  # sat-verified 2026-07-23 (long river-mouth left, tide-fussy)
-  - { id: miramar,            name: "Miramar",                  lat: 12.145, lon: -86.75, offshore_direction: 70,  break_type: reef, swell_window: [195, 300], <<: *nic }  # approx - TODO verify
+  - { id: miramar,            name: "Miramar",                  lat: 12.1448, lon: -86.7519, offshore_direction: 70,  break_type: reef, swell_window: [195, 300], <<: *nic }  # sat-verified 2026-08-15
   - { id: el-transito,        name: "El Tránsito",              lat: 12.0235, lon: -86.695, offshore_direction: 55,  swell_window: [155, 315], <<: *nic }  # sat-verified 2026-07-23
   # ---- Rivas / Popoyo zone ----
   - { id: el-astillero,       name: "El Astillero",             lat: 11.5125, lon: -86.168, offshore_direction: 50,  swell_window: [180, 320], <<: *nic }  # sat-verified 2026-07-23
   - { id: popoyo,             name: "Popoyo",                   lat: 11.452, lon: -86.102, offshore_direction: 50,  break_type: reef, swell_window: [150, 305], <<: *nic }  # sat-verified 2026-07-23 (main reef; outer reef holds XL)
-  - { id: playa-santana,      name: "Playa Santana",            lat: 11.4445, lon: -86.0905, offshore_direction: 55,  swell_window: [170, 295], <<: *nic }  # approx - TODO verify
+  - { id: playa-santana,      name: "Playa Santana",            lat: 11.4445, lon: -86.0905, offshore_direction: 55,  swell_window: [170, 295], <<: *nic }  # sat-verified 2026-08-15 (kept)
   - { id: panga-drops,        name: "Panga Drops",              lat: 11.4315, lon: -86.077, offshore_direction: 60,  break_type: reef, <<: *nic }  # sat-verified 2026-07-23 (wide-open A-frame on volcanic reef)
   - { id: playa-colorado,     name: "Playa Colorado",           lat: 11.411, lon: -86.061, offshore_direction: 55,  swell_window: [145, 270], <<: *nic }  # sat-verified 2026-07-23 (Nicaragua's barrel magnet)
-  - { id: playa-gigante,      name: "Playa Gigante",            lat: 11.39, lon: -86.034, offshore_direction: 60,  swell_window: [195, 320], <<: *nic }  # approx - TODO verify
+  - { id: playa-gigante,      name: "Playa Gigante",            lat: 11.39, lon: -86.0329, offshore_direction: 60,  swell_window: [195, 320], <<: *nic }  # sat-verified 2026-08-15
   # ---- San Juan del Sur zone ----
-  - { id: playa-maderas,      name: "Playa Maderas",            lat: 11.3035, lon: -85.9245, offshore_direction: 80,  swell_window: [170, 280], <<: *nic }  # approx - TODO verify (SJDS's everyday peak)
-  - { id: playa-remanso,      name: "Playa Remanso",            lat: 11.2225, lon: -85.8475, offshore_direction: 60,  swell_window: [185, 290], <<: *nic }  # approx - TODO verify (beginner-friendly)
+  - { id: playa-maderas,      name: "Playa Maderas",            lat: 11.3061, lon: -85.9245, offshore_direction: 80,  swell_window: [170, 280], <<: *nic }  # sat-verified 2026-08-15 (SJDS's everyday peak)
+  - { id: playa-remanso,      name: "Playa Remanso",            lat: 11.2212, lon: -85.8485, offshore_direction: 60,  swell_window: [185, 290], <<: *nic }  # sat-verified 2026-08-15 (beginner-friendly)
   - { id: playa-hermosa-sjds, name: "Playa Hermosa (SJDS)",     lat: 11.2025, lon: -85.836, offshore_direction: 50,  swell_window: [165, 310], <<: *nic }  # sat-verified 2026-07-23
   - { id: playa-yankee,       name: "Playa Yankee",             lat: 11.179, lon: -85.818, offshore_direction: 55,  swell_window: [160, 295], <<: *nic }  # sat-verified 2026-07-23 (punchy, uncrowded)
 

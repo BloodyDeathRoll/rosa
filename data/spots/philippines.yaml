@@ -57,8 +57,8 @@ spots:
   # coastline-generated → bathy-pruned → OSM-name confirmed; offshore_direction from
   # coastline geometry; offshore ray cast seaward. SOURCE = osm-seeded (below
   # sat/user-verified). sat-verify coords + break_type + swell_window before trusting.
-  - { id: sentinela, name: "Sentinela Beach", lat: 18.6245, lon: 121.097, offshore_direction: 108, swell_window: [245, 18], offshore_bearing: 288.0, offshore_km: 5.0, <<: *phe }  # osm-seeded 2026-07-24 - TODO verify
-  - { id: ph-surfing, name: "Surfing spot", lat: 6.3228, lon: 125.6533, offshore_direction: 285, swell_window: [15, 145], offshore_bearing: 105.0, offshore_km: 5.0, <<: *phe }  # osm-seeded 2026-07-24 - TODO verify
+  - { id: sentinela, name: "Sentinela Beach", lat: 18.6245, lon: 121.097, offshore_direction: 108, swell_window: [245, 18], offshore_bearing: 288.0, offshore_km: 5.0, <<: *phe }  # sat-verified 2026-08-15 (kept) 2026-07-24 - TODO verify
+  - { id: ph-surfing, name: "Surfing spot", lat: 6.3228, lon: 125.6533, offshore_direction: 285, swell_window: [15, 145], offshore_bearing: 105.0, offshore_km: 5.0, <<: *phe }  # sat-verified 2026-08-15 (kept) 2026-07-24 - TODO verify
 
   # ==== WEB-SEARCH-SEEDED (2026-07-24) - surf-guide discovery, Google/Nominatim/Photon
   # geocode cross-checked + ESRI sat-verified. Locations verified; params TODO-tune. ====
