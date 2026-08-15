@@ -1,0 +1,72 @@
+{
+  "spot": "barra-de-santiago",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    13.6887,
+    -90.0063
+  ],
+  "bearing_seaward_deg": 203.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 58.0,
+  "mean_slope_m_per_km": 2.99,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.68663,
+      "lon": -90.0072,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.68456,
+      "lon": -90.00811,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.68042,
+      "lon": -90.00992,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.67214,
+      "lon": -90.01353,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.66386,
+      "lon": -90.01715,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.64731,
+      "lon": -90.02438,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.62247,
+      "lon": -90.03523,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.58936,
+      "lon": -90.04968,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.53968,
+      "lon": -90.07136,
+      "depth_m": 58.0
+    }
+  ]
+}

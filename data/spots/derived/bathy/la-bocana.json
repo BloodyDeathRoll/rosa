@@ -1,0 +1,72 @@
+{
+  "spot": "la-bocana",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    13.4928,
+    -89.3855
+  ],
+  "bearing_seaward_deg": 209.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 54.0,
+  "mean_slope_m_per_km": 3.32,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.49083,
+      "lon": -89.38662,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.48887,
+      "lon": -89.38774,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.48493,
+      "lon": -89.38998,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.47707,
+      "lon": -89.39447,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.4692,
+      "lon": -89.39895,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.45347,
+      "lon": -89.40792,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.42987,
+      "lon": -89.42136,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.39841,
+      "lon": -89.43928,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.35121,
+      "lon": -89.46616,
+      "depth_m": 54.0
+    }
+  ]
+}

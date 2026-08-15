@@ -1,0 +1,72 @@
+{
+  "spot": "el-espino",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    13.1703,
+    -88.2944
+  ],
+  "bearing_seaward_deg": 186.0,
+  "nearshore_depth_m": 44.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": -0.51,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.16806,
+      "lon": -88.29464,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.16583,
+      "lon": -88.29488,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.16136,
+      "lon": -88.29537,
+      "depth_m": 103.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.15241,
+      "lon": -88.29633,
+      "depth_m": 149.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.14347,
+      "lon": -88.2973,
+      "depth_m": 155.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.12558,
+      "lon": -88.29923,
+      "depth_m": 154.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.09875,
+      "lon": -88.30212,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.06297,
+      "lon": -88.30598,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.00931,
+      "lon": -88.31177,
+      "depth_m": 35.0
+    }
+  ]
+}

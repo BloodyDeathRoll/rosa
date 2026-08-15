@@ -7,7 +7,7 @@ each 3-hourly field to bytes, and publishes one compact JSON per region. The web
 colormaps the grids client-side, so the pipeline precomputes DATA (the principle that
 matters) without shipping megabytes of rendered PNGs.
 
-Sizing, so nobody re-derives it: ~57 steps x 6 boxes = ~342 filter requests/cycle at
+Sizing, so nobody re-derives it: ~57 steps x 9 boxes = ~513 filter requests/cycle at
 10-30 KB each, seconds of CPU, ~2 MB published. Runs on the existing VM cron.
 
 All-rights-reserved note: this renders NOAA open data with our own pipeline. It must
@@ -34,7 +34,11 @@ from .spots import load_spots
 BASINS: dict[str, tuple[str, ...]] = {
     "israel": ("Israel",),
     "portugal": ("Portugal",),
-    "central-america": ("Costa Rica", "Nicaragua"),
+    "central-america": ("Costa Rica", "Nicaragua", "El Salvador"),
+    # Mexico gets its own box rather than joining central-america: its spots run from
+    # Tijuana to the Oaxaca isthmus, and merging them would stretch one frame over
+    # 30 deg of latitude and drown the Central American detail in sea room.
+    "mexico": ("Mexico",),
     "sri-lanka": ("Sri Lanka",),
     "japan": ("Japan",),
     "philippines": ("Philippines",),

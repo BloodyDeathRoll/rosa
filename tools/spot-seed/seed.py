@@ -74,6 +74,8 @@ REGIONS = {
     "costa-rica": (8.00, -85.95, 11.30, -82.50),
     "nicaragua": (10.70, -87.75, 15.05, -83.10),
     "philippines": (4.50, 116.90, 21.20, 126.70),
+    "el-salvador": (13.10, -90.20, 13.65, -87.65),
+    "mexico": (14.30, -118.60, 32.80, -91.90),
 }
 
 
@@ -330,8 +332,14 @@ def main():
     have, corrections, new = [], [], []
     for c in sorted(byname.values(), key=lambda c: (c["lat"], c["lon"])):
         toks = {t for t in norm_name(c["osm_name"]).split() if len(t) > 2}
-        near = min(existing, key=lambda e: hav_m(c["lat"], c["lon"], e["lat"], e["lon"]))
-        dm = round(hav_m(c["lat"], c["lon"], near["lat"], near["lon"]))
+        # a brand-new region has no existing pins: every Tier-A candidate is NEW by
+        # construction, so stand in an infinite nearest-distance rather than min() on []
+        near = (
+            min(existing, key=lambda e: hav_m(c["lat"], c["lon"], e["lat"], e["lon"]))
+            if existing
+            else None
+        )
+        dm = round(hav_m(c["lat"], c["lon"], near["lat"], near["lon"])) if near else 10**9
         name_hit = next((e for e in ex_tokens if toks & e["tokens"]), None)
         if name_hit and dm <= 5000:  # same name AND within 5 km -> our pin, plausibly off
             (corrections if dm > 600 else have).append((c, name_hit["id"], dm))
@@ -354,11 +362,8 @@ def main():
             sid = f"{base}-{k}"
             k += 1
         taken.add(sid)
-        # coast side is GEOGRAPHIC (Arugam cluster is lon>81.3), not local facing -
-        # a bay spot can face E on the south coast. Offshore sample pushes to the open
-        # basin: straight S for the south coast, straight E for the east coast.
-        east = c["lon"] > 81.30
-        oplat, oplon = destination(c["lat"], c["lon"], 90 if east else 180, 5.0)
+        # The deep-water sample is a DISTANCE along this spot's own seaward normal, not an
+        # absolute point: emit_spots.py writes it as offshore_km so it follows the pin.
         records.append(
             {
                 "id": sid,
@@ -366,8 +371,8 @@ def main():
                 "lat": round(c["lat"], 4),
                 "lon": round(c["lon"], 4),
                 "offshore_direction": c["offshore_direction"],
-                "offshore_point": [round(oplat, 4), round(oplon, 4)],
-                "anchor": "sl_e" if east else "sl_s",
+                "seaward": (c["offshore_direction"] + 180) % 360,
+                "offshore_km": 5.0,
             }
         )
 
@@ -390,7 +395,7 @@ def main():
     for r in records:
         print(
             f"  {r['id']:22} {r['lat']:.4f},{r['lon']:.4f}  offdir {r['offshore_direction']:>3}°  "
-            f'({r["anchor"]})  "{r["name"]}"'
+            f'seaward {r["seaward"]:>3}°  "{r["name"]}"'
         )
 
     json.dump(

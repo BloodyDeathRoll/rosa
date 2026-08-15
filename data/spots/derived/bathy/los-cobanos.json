@@ -1,0 +1,72 @@
+{
+  "spot": "los-cobanos",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    13.525,
+    -89.8046
+  ],
+  "bearing_seaward_deg": 205.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 77.0,
+  "mean_slope_m_per_km": 4.34,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.52296,
+      "lon": -89.80558,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.52092,
+      "lon": -89.80655,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.51685,
+      "lon": -89.80851,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.5087,
+      "lon": -89.81242,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.50055,
+      "lon": -89.81633,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.48425,
+      "lon": -89.82414,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.45979,
+      "lon": -89.83586,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.42719,
+      "lon": -89.85149,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.37828,
+      "lon": -89.87492,
+      "depth_m": 77.0
+    }
+  ]
+}

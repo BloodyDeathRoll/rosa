@@ -1,0 +1,72 @@
+{
+  "spot": "scorpion-bay",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    26.2504,
+    -112.476
+  ],
+  "bearing_seaward_deg": 145.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 1.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 26.24856,
+      "lon": -112.47456,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 26.24672,
+      "lon": -112.47312,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 26.24303,
+      "lon": -112.47025,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 26.23567,
+      "lon": -112.4645,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 26.2283,
+      "lon": -112.45875,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 26.21356,
+      "lon": -112.44725,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 26.19146,
+      "lon": -112.43001,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 26.16198,
+      "lon": -112.40704,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 26.11776,
+      "lon": -112.37259,
+      "depth_m": 30.0
+    }
+  ]
+}

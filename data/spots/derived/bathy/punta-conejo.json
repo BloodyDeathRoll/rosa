@@ -1,0 +1,72 @@
+{
+  "spot": "punta-conejo",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    16.1334,
+    -95.2496
+  ],
+  "bearing_seaward_deg": 140.0,
+  "nearshore_depth_m": -13.0,
+  "offshore_depth_m": 48.0,
+  "mean_slope_m_per_km": 3.44,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 16.13168,
+      "lon": -95.2481,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 16.12996,
+      "lon": -95.24659,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 16.12651,
+      "lon": -95.24358,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 16.11962,
+      "lon": -95.23757,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 16.11273,
+      "lon": -95.23155,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.09895,
+      "lon": -95.21952,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.07828,
+      "lon": -95.20147,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.05072,
+      "lon": -95.17742,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.00937,
+      "lon": -95.14135,
+      "depth_m": 48.0
+    }
+  ]
+}

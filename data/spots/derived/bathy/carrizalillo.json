@@ -1,0 +1,72 @@
+{
+  "spot": "carrizalillo",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    15.8596,
+    -97.0787
+  ],
+  "bearing_seaward_deg": 222.0,
+  "nearshore_depth_m": -18.0,
+  "offshore_depth_m": 1005.0,
+  "mean_slope_m_per_km": 57.63,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 15.85793,
+      "lon": -97.08026,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 15.85626,
+      "lon": -97.08183,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 15.85292,
+      "lon": -97.08496,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 15.84623,
+      "lon": -97.09121,
+      "depth_m": 171.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 15.83955,
+      "lon": -97.09747,
+      "depth_m": 105.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 15.82618,
+      "lon": -97.10997,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 15.80613,
+      "lon": -97.12873,
+      "depth_m": 255.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 15.77939,
+      "lon": -97.15374,
+      "depth_m": 396.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 15.73927,
+      "lon": -97.19124,
+      "depth_m": 1005.0
+    }
+  ]
+}

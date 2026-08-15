@@ -9,7 +9,7 @@
 import { inject, pageview } from "@vercel/analytics";
 import { parseRoute, type Route } from "./app";
 
-/** The 199 spot pages collapse to one row so the report reads as screens, not
+/** Every spot page collapses to one row so the report reads as screens, not
     as a spot leaderboard. `path` still carries the real hash for the few cases
     where the individual spot matters. */
 function routeOf(route: Route): string {

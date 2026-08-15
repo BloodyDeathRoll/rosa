@@ -43,7 +43,7 @@ big datasets are gitignored (`data/bathy/`, `data/osm/`).
 | `osm_local.py` | local Geofabrik extractor (`--osm local`, default when pbf present); applies `is_business` |
 | `osm_seed.py` | `BIZ_NAME_RE` + `is_business()` (tag AND name business filter, multilingual) |
 | `render.py` | **sat-verify**: renders ESRI crosshair tiles for candidates → read+judge |
-| `multi_geocode.py` | secondary: Google Places + Nominatim + Photon, agreement-spread cross-check |
+| `multi_geocode.py` | secondary: Google Places + Nominatim + Photon, agreement-spread cross-check. `--file <queue.json>` takes `[[id, query, region], ...]`, `--out <path>` writes the result |
 | `emit_spots.py` | turn a region's reviewed `result.json` into DB YAML (offshore_point/swell derived) |
 | `work/<region>/` | cached stages: coastline / candidates / bathy / beacons / result.json (resumable) |
 
@@ -126,10 +126,11 @@ Add via a `websearch-seeded` block (provenance + `TODO verify`).
   our pin sat between them; Weligama→Marriott and Baleal→beach were different spots). **Never
   move a good pin on a weak match.**
 - **offshore params, derived not guessed.** `offshore_direction` from coastline geometry (the
-  shore normal). `offshore_point` pushed ~5 km along the seaward normal to open water - per
-  region convention (Israel/Portugal push W; Japan/Philippines-Pacific push E; the YAML loader
-  default is 0.06° **W**, correct only for W-facing coasts). `swell_window` ≈ seaward ± ~65°,
-  or the region anchor's default. All `TODO verify` until calibrated.
+  shore normal). The deep-water sample is `offshore_km` (~5 km) along the spot's own seaward
+  normal, so it follows the pin - **`offshore_point` is rejected by the loader**, because an
+  absolute coordinate went stale the moment a pin moved. Without `offshore_km` a spot falls
+  back to a 0.06° **W** push, correct only for a west-facing coast. `swell_window` ≈ seaward
+  ± ~65°, or the region anchor's default. All `TODO verify` until calibrated.
 - **Provenance tag** on every seeded spot; OSM-derived carries `© OpenStreetMap contributors,
   ODbL`. A DB built by correcting/extending OSM is a Derivative Database → publish ODbL.
   Tags follow the authority ladder and a lower tier NEVER overwrites a higher one:
@@ -151,8 +152,12 @@ Four things, in this order:
 3. **Region defaults** - a new `data/spots/<region>.yaml` needs its anchor block: timezone,
    a default `swell_window`, `height_coeff: 1.0`, `ideal` wind/size, and the seaward
    convention for that coast (the YAML loader's default pushes the sample point 0.06 deg
-   **W**, which is right only for a west-facing coast - east-facing regions must set
-   `offshore_bearing`/`offshore_km` per spot).
+   **W**, which is right only for a west-facing coast - every other coast sets `offshore_km`,
+   optionally with `offshore_bearing`, per spot).
+   Create the file **before** running `seed.py`: it reads the region's existing spots, and a
+   brand-new region simply has none (`spots: []` parses fine and every Tier-A hit comes back
+   NEW). Add the region to `emit_spots.py`'s `CFG` too, and to `swellmap.BASINS` - a region
+   in no basin has no map layer, and `test_every_spot_region_has_a_basin` fails.
 4. **Derived data per new spot** - after `emit_spots.py`:
    `rosa-pipeline bathy --spot <id>` AND `rosa-pipeline tide --spot <id>`. Both are
    enforced by tests (`test_committed_bathy_profiles_match_their_spots`,
@@ -167,9 +172,33 @@ Four things, in this order:
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-08-15, DB = 199 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-08-15, DB = 257 spots, ALL sat-verified)
 **Seeded (generation + web-search):** Sri Lanka 16→32, Portugal 16→42, Japan 17→24,
-Philippines 12→16, Nicaragua +1. **Curated already-complete:** Costa Rica, Israel.
+Philippines 12→16, Nicaragua +1, **Mexico 0→38 and El Salvador 0→20 (2026-08-15)**.
+**Curated already-complete:** Costa Rica, Israel.
+
+**Mexico + El Salvador, what the two flows actually delivered.** The primary flow found almost
+nothing: El Salvador's whole coast has **1** OSM surf beacon (El Zonte) and Mexico's Pacific has
+**4** (Rosarito, Zippers, The Rock, San Agustinillo) against 18,386 bathy-passed candidates. Latin
+America is web-search country, exactly as §2 says. But OSM was still the best *second source* -
+scanning the `.osm.pbf` for `natural=beach|cape` and `place=village|hamlet` names near each
+geocode confirmed 34 of 42 Mexican and 15 of 21 Salvadoran candidates within 1 km, and corrected
+two that Google had put in the wrong place (Atami's geocode was 800 m inland at the resort's
+street address; Punta Mango's was 450 m from the OSM cape). **Run that scan before rendering** -
+it costs one pbf pass and turns single-source geocodes into two-source ones.
+
+**Dropped rather than shipped** (the render is what decided each): `atami`'s Google pin (inland,
+replaced by the OSM one, kept), `km-61` (Google returned El Zonte - a duplicate, no second
+source), `the-rock` (a real break but 250 m from `zippers`, same bathy, a sub-spot),
+`todos-santos-island` / Killers (the island is unmistakable but the break is offshore of its NW
+tip and two passes could not place it), `punta-baja` (Google returned the town of El Rosario,
+10 km inland), `matanchen` (pin verified, but no ray out of the bay reaches open water - see
+OPEN-ITEMS 18).
+
+**Two pins were still wrong after the first render and only the second caught them:** `la-ticla`
+sat 300 m inland in the village and `la-punta` 150 m up the beach. Both came from a coordinate
+*nudged by eye* off a z16 tile rather than re-rendered. **A nudged coordinate is a new
+coordinate: render it again.** The final pass rendered all 58 at z15 and read every one.
 **Verification: COMPLETE 2026-08-15** - 199/199 pins checked against imagery (was 80/199 on
 2026-08-04); `queue.py --status` reads 0 outstanding. Israel and Portugal are 100%;
 `ollies-point` and `witchs-rock`, which two satellite passes could not settle, were closed by
@@ -201,10 +230,13 @@ operator-supplied coordinates and are tagged `user-verified`.
   samples up a headland); `test_seaward_directions_agree_with_each_other` caught both. Always
   re-run `horizon` and re-check `shore_normal`/`offshore_bearing` after a move.
 
-**Next gap queue:** Japan Hokkaido / Okinawa / Wakayama detail; Philippines more (Daku,
-Zambales Liwliwa neighbours); Portugal Ericeira micro-spots & the **Azores**; Nicaragua north
-(Puerto Sandino cluster). Regions with zero spots today: everywhere else - Indonesia,
-Australia, Morocco, Peru, Chile, France/Spain, Mexico, South Africa.
+**Next gap queue:** the six drops above (Killers, Punta Baja, La Saladita's neighbours, Matanchén
+once bathymetry allows); Mexico detail - the East Cape between Shipwrecks and Nine Palms, the
+Punta Mita sub-breaks, Oaxaca's Salina Cruz points beyond Conejo/Chipehua; Japan Hokkaido /
+Okinawa / Wakayama detail; Philippines more (Daku, Zambales Liwliwa neighbours); Portugal
+Ericeira micro-spots & the **Azores**; Nicaragua north (Puerto Sandino cluster). Regions with
+zero spots today: everywhere else - Indonesia, Australia, Morocco, Peru, Chile, France/Spain,
+South Africa.
 **The real frontier = Tier-B.** Tens of thousands of physics-valid, *unnamed* coastline
 stretches (Japan 22k, Philippines 37k). OSM/guides never named them; this is the sat-verify +
 community-contribution layer, and it's where "all the spots" ultimately lives.

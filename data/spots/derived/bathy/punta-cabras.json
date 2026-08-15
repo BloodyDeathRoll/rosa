@@ -1,0 +1,72 @@
+{
+  "spot": "punta-cabras",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    31.3301,
+    -116.4562
+  ],
+  "bearing_seaward_deg": 241.0,
+  "nearshore_depth_m": 40.0,
+  "offshore_depth_m": 257.0,
+  "mean_slope_m_per_km": 12.23,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 31.32901,
+      "lon": -116.4585,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 31.32792,
+      "lon": -116.4608,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 31.32574,
+      "lon": -116.46541,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 31.32138,
+      "lon": -116.47461,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 31.31702,
+      "lon": -116.48382,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 31.30829,
+      "lon": -116.50223,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 31.2952,
+      "lon": -116.52984,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 31.27773,
+      "lon": -116.56664,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 31.25151,
+      "lon": -116.62181,
+      "depth_m": 257.0
+    }
+  ]
+}

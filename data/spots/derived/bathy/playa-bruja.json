@@ -1,0 +1,72 @@
+{
+  "spot": "playa-bruja",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    23.3027,
+    -106.4915
+  ],
+  "bearing_seaward_deg": 259.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 80.0,
+  "mean_slope_m_per_km": 5.07,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 23.30227,
+      "lon": -106.4939,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 23.30184,
+      "lon": -106.49631,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 23.30098,
+      "lon": -106.50111,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 23.29927,
+      "lon": -106.51072,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 23.29755,
+      "lon": -106.52034,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 23.29411,
+      "lon": -106.53956,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 23.28895,
+      "lon": -106.56839,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 23.28207,
+      "lon": -106.60683,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 23.27172,
+      "lon": -106.66448,
+      "depth_m": 80.0
+    }
+  ]
+}

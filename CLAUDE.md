@@ -43,7 +43,7 @@ Each was learned the hard way and each has a rationale in the linked doc. **Do n
 - **Do not build temporal smoothing for partition direction wander** — closed, the transform is order-independent. (`docs/CALIBRATION.md`)
 - **The `horizon` and cam tools report, never apply.** `verify --resolve --apply` is not safe unattended. (`docs/SPOT-DB.md`)
 - **Swell events surface ONLY as push** — do not rebuild in-app event banners, cards, or alert strips. (`docs/UI.md`)
-- **Tune knobs only from `docs/CALIBRATION.md` + the Stage-0 scorecard.** `height_coeff` is 1.0 at all 199 spots. Fleet impact is only valid as a same-input A/B, scored with the shipped harness.
+- **Tune knobs only from `docs/CALIBRATION.md` + the Stage-0 scorecard.** `height_coeff` is 1.0 at all 257 spots. Fleet impact is only valid as a same-input A/B, scored with the shipped harness.
 - **Inspect live infra before designing for it.** A session once built a competing scheduler off a stale handoff while another had already provisioned the box.
 
 ## Architecture
@@ -61,7 +61,7 @@ Frontend never computes forecasts; it renders pipeline JSON. Keep the fetch laye
 
 **Scheduler:** Oracle VM `rosa-instance`, cron 4×/day (02:20/08:20/14:20/20:20 UTC) → `deploy/oracle/publish.sh` = git pull → buoy archive → `run --all` → prebuilt Vercel deploy of `data/out` to the separate `rosa-data` project. **NO GitHub Actions, NO systemd.** `rosa-backup` VM runs an hourly freshness watchdog (pages if `fetched_at` > 8 h). Crash alerts go to the admin push snapshot, never the public list.
 
-**Spot DB: 199 spots** — israel 42, costa-rica 25, sri-lanka 32, japan 24, portugal 42, nicaragua 15, philippines 16, california 2, hawaii 1. One committed bathy profile each. Changing the count updates `docs/SPOT-DB.md` AND `test_loads_israel_seed` — no approval needed.
+**Spot DB: 257 spots** — israel 42, portugal 42, mexico 38, sri-lanka 32, costa-rica 25, japan 24, el-salvador 20, philippines 16, nicaragua 15, california 2, hawaii 1. One committed bathy profile each. Changing the count updates `docs/SPOT-DB.md` AND `test_loads_israel_seed` — no approval needed.
 
 ## Conventions
 - Python: uv, ruff, pytest; type hints everywhere; pipeline stages pure functions (input → output, no hidden state) so fixtures test everything offline.

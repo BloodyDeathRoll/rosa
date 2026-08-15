@@ -1,0 +1,72 @@
+{
+  "spot": "cerritos",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    23.3427,
+    -110.1877
+  ],
+  "bearing_seaward_deg": 256.0,
+  "nearshore_depth_m": -79.0,
+  "offshore_depth_m": 648.0,
+  "mean_slope_m_per_km": 40.96,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 23.34216,
+      "lon": -110.19008,
+      "depth_m": -79.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 23.34161,
+      "lon": -110.19245,
+      "depth_m": -72.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 23.34052,
+      "lon": -110.1972,
+      "depth_m": -45.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 23.33835,
+      "lon": -110.20671,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 23.33617,
+      "lon": -110.21621,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 23.33181,
+      "lon": -110.23522,
+      "depth_m": 162.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 23.32528,
+      "lon": -110.26372,
+      "depth_m": 366.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 23.31655,
+      "lon": -110.30172,
+      "depth_m": 611.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 23.30345,
+      "lon": -110.35872,
+      "depth_m": 648.0
+    }
+  ]
+}

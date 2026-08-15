@@ -1,0 +1,72 @@
+{
+  "spot": "chipehua",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    16.0364,
+    -95.3762
+  ],
+  "bearing_seaward_deg": 69.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 32.0,
+  "mean_slope_m_per_km": 2.03,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 16.03721,
+      "lon": -95.37402,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 16.03801,
+      "lon": -95.37183,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 16.03962,
+      "lon": -95.36746,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 16.04285,
+      "lon": -95.35873,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 16.04607,
+      "lon": -95.34999,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.05251,
+      "lon": -95.33252,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.06217,
+      "lon": -95.3063,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.07505,
+      "lon": -95.27135,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.09435,
+      "lon": -95.21891,
+      "depth_m": 32.0
+    }
+  ]
+}

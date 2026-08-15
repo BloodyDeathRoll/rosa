@@ -1,24 +1,29 @@
 #!/usr/bin/env python3
 """Turn a region's reviewed result.json 'new' spots into DB YAML lines and append
-an osm-seeded block to data/spots/<region>.yaml. offshore_point is pushed along the
-per-spot seaward normal; swell_window is derived from it where the region needs one.
+an osm-seeded block to data/spots/<region>.yaml. The deep-water sample is emitted as
+offshore_km along the spot's own seaward normal; swell_window is derived from it where
+the region needs one.
 All entries tagged osm-seeded + TODO verify (below sat/user-verified on the ladder)."""
 
 from __future__ import annotations
+import datetime as _dt
 import json
 import re
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from bathy_gate import destination
 from seed import load_existing, slug, WORK, SPOTS
+
+STAMP = _dt.date.today().isoformat()
 
 # region -> (anchor, needs_swell_window, break_default, push_km)
 CFG = {
     "portugal": ("pt", False, None, 5.0),
     "japan": ("jp", True, None, 5.0),
     "philippines": ("phe", True, None, 5.0),
+    "el-salvador": ("sv", True, None, 5.0),
+    "mexico": ("mx", True, None, 5.0),
 }
 DROP_NAME = re.compile(r"kizakiham", re.I)  # dup of existing kisakihama (z/s spelling)
 GENERIC = re.compile(r"^(surf(ing)?\s*spot|spot\s*(de\s*)?surf|sport\s*de\s*surf)$", re.I)
@@ -52,7 +57,6 @@ def main():
         taken.add(sid)
         od = r["offshore_direction"]
         seaward = (od + 180) % 360
-        oplat, oplon = destination(r["lat"], r["lon"], seaward, push)
         parts = [
             f"id: {sid}",
             f'name: "{nm}"',
@@ -62,14 +66,16 @@ def main():
         ]
         if needs_sw:
             parts.append(f"swell_window: [{wrap(seaward - 65)}, {wrap(seaward + 65)}]")
-        parts.append(f"offshore_point: [{round(oplat, 4)}, {round(oplon, 4)}]")
+        # offshore_km casts the deep-water sample along the spot's own seaward normal, so
+        # the sample follows the pin. An absolute offshore_point is rejected by the loader.
+        parts.append(f"offshore_km: {push}")
         parts.append(f"<<: *{anchor}")
-        lines.append("  - { " + ", ".join(parts) + " }  # osm-seeded 2026-07-24 - TODO verify")
+        lines.append("  - { " + ", ".join(parts) + " }  # osm-seeded " + STAMP + " - TODO verify")
 
     block = (
-        "\n  # ==== OSM-SEEDED (2026-07-24, © OpenStreetMap contributors, ODbL) ====\n"
+        f"\n  # ==== OSM-SEEDED ({STAMP}, © OpenStreetMap contributors, ODbL) ====\n"
         "  # coastline-generated → bathy-pruned → OSM-name confirmed; offshore_direction from\n"
-        "  # coastline geometry; offshore_point pushed seaward. SOURCE = osm-seeded (below\n"
+        "  # coastline geometry; sample point pushed seaward via offshore_km. SOURCE = osm-seeded (below\n"
         "  # sat/user-verified). sat-verify coords + break_type + swell_window before trusting.\n"
         + "\n".join(lines)
         + "\n"

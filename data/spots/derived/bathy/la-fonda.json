@@ -1,0 +1,72 @@
+{
+  "spot": "la-fonda",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.1199,
+    -116.8863
+  ],
+  "bearing_seaward_deg": 263.0,
+  "nearshore_depth_m": -20.0,
+  "offshore_depth_m": 158.0,
+  "mean_slope_m_per_km": 10.03,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.11963,
+      "lon": -116.88893,
+      "depth_m": -20.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.11935,
+      "lon": -116.89157,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.1188,
+      "lon": -116.89684,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.11771,
+      "lon": -116.90738,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.11661,
+      "lon": -116.91792,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.11441,
+      "lon": -116.93899,
+      "depth_m": 109.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.1111,
+      "lon": -116.97061,
+      "depth_m": 319.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.10669,
+      "lon": -117.01275,
+      "depth_m": 358.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.10003,
+      "lon": -117.07597,
+      "depth_m": 158.0
+    }
+  ]
+}

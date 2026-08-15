@@ -1,0 +1,72 @@
+{
+  "spot": "conchalio",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    13.482,
+    -89.332
+  ],
+  "bearing_seaward_deg": 184.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 50.0,
+  "mean_slope_m_per_km": 2.99,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.47976,
+      "lon": -89.33216,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.47751,
+      "lon": -89.33232,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.47303,
+      "lon": -89.33265,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.46406,
+      "lon": -89.33329,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.45509,
+      "lon": -89.33394,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.43714,
+      "lon": -89.33522,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.41023,
+      "lon": -89.33716,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.37434,
+      "lon": -89.33974,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.32052,
+      "lon": -89.3436,
+      "depth_m": 50.0
+    }
+  ]
+}

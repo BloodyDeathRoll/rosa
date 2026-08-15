@@ -1,0 +1,72 @@
+{
+  "spot": "el-pimental",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    13.369,
+    -89.0668
+  ],
+  "bearing_seaward_deg": 210.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 54.0,
+  "mean_slope_m_per_km": 3.27,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.36705,
+      "lon": -89.06796,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.36511,
+      "lon": -89.06911,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.36121,
+      "lon": -89.07142,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.35342,
+      "lon": -89.07604,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.34563,
+      "lon": -89.08066,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.33006,
+      "lon": -89.08991,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.30669,
+      "lon": -89.10377,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.27553,
+      "lon": -89.12224,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.2288,
+      "lon": -89.14995,
+      "depth_m": 54.0
+    }
+  ]
+}

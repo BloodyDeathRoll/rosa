@@ -1,0 +1,72 @@
+{
+  "spot": "atami",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    13.494,
+    -89.4192
+  ],
+  "bearing_seaward_deg": 200.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 57.0,
+  "mean_slope_m_per_km": 3.66,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.49189,
+      "lon": -89.41999,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.48977,
+      "lon": -89.42078,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.48555,
+      "lon": -89.42236,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.4771,
+      "lon": -89.42553,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.46865,
+      "lon": -89.42869,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.45175,
+      "lon": -89.43501,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.42639,
+      "lon": -89.4445,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.39259,
+      "lon": -89.45714,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.34188,
+      "lon": -89.4761,
+      "depth_m": 57.0
+    }
+  ]
+}

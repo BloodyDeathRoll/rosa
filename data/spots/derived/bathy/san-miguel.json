@@ -1,0 +1,72 @@
+{
+  "spot": "san-miguel",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    31.9021,
+    -116.7449
+  ],
+  "bearing_seaward_deg": 203.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 415.0,
+  "mean_slope_m_per_km": 23.15,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 31.90003,
+      "lon": -116.74593,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 31.89796,
+      "lon": -116.74697,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 31.89382,
+      "lon": -116.74904,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 31.88554,
+      "lon": -116.75318,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 31.87726,
+      "lon": -116.75731,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 31.86071,
+      "lon": -116.76559,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 31.83587,
+      "lon": -116.77799,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 31.80275,
+      "lon": -116.79452,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 31.75307,
+      "lon": -116.81928,
+      "depth_m": 415.0
+    }
+  ]
+}

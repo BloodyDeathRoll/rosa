@@ -1,0 +1,72 @@
+{
+  "spot": "punta-san-jose",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    31.4613,
+    -116.5963
+  ],
+  "bearing_seaward_deg": 232.0,
+  "nearshore_depth_m": -14.0,
+  "offshore_depth_m": 248.0,
+  "mean_slope_m_per_km": 14.76,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 31.45992,
+      "lon": -116.59838,
+      "depth_m": -14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 31.45853,
+      "lon": -116.60045,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 31.45576,
+      "lon": -116.60461,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 31.45023,
+      "lon": -116.61291,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 31.44469,
+      "lon": -116.62122,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 31.43361,
+      "lon": -116.63783,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 31.41699,
+      "lon": -116.66273,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 31.39482,
+      "lon": -116.69593,
+      "depth_m": 106.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 31.36155,
+      "lon": -116.74569,
+      "depth_m": 248.0
+    }
+  ]
+}

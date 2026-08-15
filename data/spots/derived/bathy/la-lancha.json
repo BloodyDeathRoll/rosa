@@ -1,0 +1,72 @@
+{
+  "spot": "la-lancha",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    20.7628,
+    -105.4916
+  ],
+  "bearing_seaward_deg": 223.0,
+  "nearshore_depth_m": 31.0,
+  "offshore_depth_m": 433.0,
+  "mean_slope_m_per_km": 22.65,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 20.76116,
+      "lon": -105.49324,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 20.75951,
+      "lon": -105.49488,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 20.75622,
+      "lon": -105.49816,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 20.74965,
+      "lon": -105.50472,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 20.74307,
+      "lon": -105.51128,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 20.72991,
+      "lon": -105.52439,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 20.71017,
+      "lon": -105.54406,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 20.68386,
+      "lon": -105.57027,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 20.64437,
+      "lon": -105.60958,
+      "depth_m": 433.0
+    }
+  ]
+}

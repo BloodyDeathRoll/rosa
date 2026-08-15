@@ -54,9 +54,24 @@ SPOTS = [
 PROV = [("google", geocode_google), ("nominatim", geocode_nominatim), ("photon", geocode_photon)]
 
 
+def load_queue():
+    """--file <json> reads [[id, query, region], ...]; without it, the SPOTS list above
+    (the gap queue of an earlier session, kept as the worked example)."""
+    if "--file" in sys.argv:
+        rows = json.loads(Path(sys.argv[sys.argv.index("--file") + 1]).read_text())
+        return [tuple(r) for r in rows]
+    return SPOTS
+
+
+def out_path():
+    if "--out" in sys.argv:
+        return Path(sys.argv[sys.argv.index("--out") + 1])
+    return Path(__file__).resolve().parent / "geocode_gaps.json"
+
+
 def main():
     out = {}
-    for sid, name, region in SPOTS:
+    for sid, name, region in load_queue():
         res = {}
         for pv, fn in PROV:
             try:
@@ -81,7 +96,7 @@ def main():
         }
         ps = "  ".join(f"{pv}={res[pv]}" for pv in res)
         print(f"{sid:16} spread {spread:5.1f} km | best {best} | {ps}")
-    json.dump(out, open(Path(__file__).resolve().parent / "geocode_gaps.json", "w"), indent=1)
+    json.dump(out, open(out_path(), "w"), indent=1)
 
 
 if __name__ == "__main__":

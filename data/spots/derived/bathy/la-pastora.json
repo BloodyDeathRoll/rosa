@@ -1,0 +1,72 @@
+{
+  "spot": "la-pastora",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    23.4884,
+    -110.2761
+  ],
+  "bearing_seaward_deg": 231.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 409.0,
+  "mean_slope_m_per_km": 22.7,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 23.48699,
+      "lon": -110.27801,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 23.48557,
+      "lon": -110.27991,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 23.48274,
+      "lon": -110.28372,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 23.47708,
+      "lon": -110.29134,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 23.47142,
+      "lon": -110.29896,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 23.4601,
+      "lon": -110.31419,
+      "depth_m": 144.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 23.44311,
+      "lon": -110.33704,
+      "depth_m": 359.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 23.42046,
+      "lon": -110.3675,
+      "depth_m": 387.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 23.38647,
+      "lon": -110.41316,
+      "depth_m": 409.0
+    }
+  ]
+}

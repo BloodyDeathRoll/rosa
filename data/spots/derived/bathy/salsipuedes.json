@@ -1,0 +1,72 @@
+{
+  "spot": "salsipuedes",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    31.9777,
+    -116.824
+  ],
+  "bearing_seaward_deg": 172.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 18.0,
+  "mean_slope_m_per_km": 1.58,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 31.97547,
+      "lon": -116.82363,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 31.97325,
+      "lon": -116.82326,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 31.96879,
+      "lon": -116.82252,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 31.95989,
+      "lon": -116.82105,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 31.95098,
+      "lon": -116.81957,
+      "depth_m": 119.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 31.93317,
+      "lon": -116.81663,
+      "depth_m": 219.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 31.90645,
+      "lon": -116.81221,
+      "depth_m": 164.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 31.87083,
+      "lon": -116.80631,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 31.81739,
+      "lon": -116.79749,
+      "depth_m": 18.0
+    }
+  ]
+}

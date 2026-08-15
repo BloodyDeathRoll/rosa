@@ -1,0 +1,72 @@
+{
+  "spot": "zicatela",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    15.842,
+    -97.0498
+  ],
+  "bearing_seaward_deg": 229.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 808.0,
+  "mean_slope_m_per_km": 45.75,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 15.84052,
+      "lon": -97.05156,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 15.83905,
+      "lon": -97.05333,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 15.8361,
+      "lon": -97.05686,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 15.8302,
+      "lon": -97.06391,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 15.8243,
+      "lon": -97.07096,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 15.8125,
+      "lon": -97.08507,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 15.79479,
+      "lon": -97.10623,
+      "depth_m": 150.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 15.77118,
+      "lon": -97.13443,
+      "depth_m": 346.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 15.73576,
+      "lon": -97.17673,
+      "depth_m": 808.0
+    }
+  ]
+}

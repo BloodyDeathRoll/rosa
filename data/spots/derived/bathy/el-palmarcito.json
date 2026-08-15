@@ -1,0 +1,72 @@
+{
+  "spot": "el-palmarcito",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    13.4936,
+    -89.4219
+  ],
+  "bearing_seaward_deg": 209.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 57.0,
+  "mean_slope_m_per_km": 3.83,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.49163,
+      "lon": -89.42302,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.48967,
+      "lon": -89.42414,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.48573,
+      "lon": -89.42638,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.47787,
+      "lon": -89.43087,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.47,
+      "lon": -89.43535,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.45427,
+      "lon": -89.44432,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.43067,
+      "lon": -89.45776,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.39921,
+      "lon": -89.47568,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.35201,
+      "lon": -89.50256,
+      "depth_m": 57.0
+    }
+  ]
+}

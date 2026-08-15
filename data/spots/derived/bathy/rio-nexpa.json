@@ -1,0 +1,72 @@
+{
+  "spot": "rio-nexpa",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    18.0882,
+    -102.793
+  ],
+  "bearing_seaward_deg": 194.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 641.0,
+  "mean_slope_m_per_km": 36.51,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.08602,
+      "lon": -102.79357,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.08384,
+      "lon": -102.79414,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.07947,
+      "lon": -102.79529,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.07075,
+      "lon": -102.79758,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.06202,
+      "lon": -102.79987,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.04457,
+      "lon": -102.80444,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.01839,
+      "lon": -102.8113,
+      "depth_m": 140.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 17.98349,
+      "lon": -102.82045,
+      "depth_m": 440.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 17.93113,
+      "lon": -102.83416,
+      "depth_m": 641.0
+    }
+  ]
+}

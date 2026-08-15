@@ -1,0 +1,72 @@
+{
+  "spot": "sayulita",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    20.871,
+    -105.4413
+  ],
+  "bearing_seaward_deg": 302.0,
+  "nearshore_depth_m": 97.0,
+  "offshore_depth_m": 109.0,
+  "mean_slope_m_per_km": 0.68,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 5,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 20.87219,
+      "lon": -105.44334,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 20.87338,
+      "lon": -105.44538,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 20.87577,
+      "lon": -105.44946,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 20.88053,
+      "lon": -105.45763,
+      "depth_m": 166.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 20.8853,
+      "lon": -105.46579,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 20.89482,
+      "lon": -105.48212,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 20.90911,
+      "lon": -105.50661,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 20.92816,
+      "lon": -105.53928,
+      "depth_m": 114.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 20.95672,
+      "lon": -105.5883,
+      "depth_m": 109.0
+    }
+  ]
+}
