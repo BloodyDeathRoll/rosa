@@ -132,6 +132,32 @@ Add via a `websearch-seeded` block (provenance + `TODO verify`).
   or the region anchor's default. All `TODO verify` until calibrated.
 - **Provenance tag** on every seeded spot; OSM-derived carries `© OpenStreetMap contributors,
   ODbL`. A DB built by correcting/extending OSM is a Derivative Database → publish ODbL.
+  Tags follow the authority ladder and a lower tier NEVER overwrites a higher one:
+  `user-verified` > `sat-verified` > OSM > google-geocoded > approximation.
+- **Derived data is part of the add, not a follow-up.** Every new spot needs a committed
+  bathy profile AND committed EOT20 tide constants (§3b step 4); both are test-enforced,
+  one file per spot, no gaps and no orphans.
+
+## 3b. Adding a region that is not in `seed.py` yet
+
+Four things, in this order:
+
+1. **Bbox** - add `"<region>": (S, W, N, E)` to `REGIONS` in `tools/spot-seed/seed.py`,
+   scoped to the SURF coast, not the country. A whole-country box explodes the candidate
+   count (§6) and drags in coastline nobody surfs.
+2. **OSM extract** - `data/osm/<region>.osm.pbf` from
+   `download.geofabrik.de/<continent>/<country>-latest.osm.pbf`. Gitignored, one-time.
+   Without it `--osm local` silently falls back to Overpass.
+3. **Region defaults** - a new `data/spots/<region>.yaml` needs its anchor block: timezone,
+   a default `swell_window`, `height_coeff: 1.0`, `ideal` wind/size, and the seaward
+   convention for that coast (the YAML loader's default pushes the sample point 0.06 deg
+   **W**, which is right only for a west-facing coast - east-facing regions must set
+   `offshore_bearing`/`offshore_km` per spot).
+4. **Derived data per new spot** - after `emit_spots.py`:
+   `rosa-pipeline bathy --spot <id>` AND `rosa-pipeline tide --spot <id>`. Both are
+   enforced by tests (`test_committed_bathy_profiles_match_their_spots`,
+   `test_committed_constants_match_the_spot_db`) - a region seeded without the tide step
+   fails the suite. Then re-check the three angles with `rosa-pipeline horizon --spot <id>`.
 
 ## 4. Chunked, long-running workflow
 - Do **one region (or one gap area) at a time**; the `work/<region>/` cache makes every stage
@@ -141,15 +167,37 @@ Add via a `websearch-seeded` block (provenance + `TODO verify`).
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-07-24, DB = 188 spots)
-**Done (generation + web-search seeded):** Sri Lanka 16→31, Portugal 16→40, Japan 17→24,
-Philippines 12→16, Nicaragua +1 - all coordinate-verified.
-**Validated already-complete:** Costa Rica, Israel (OSM/curation solid; web cross-ref clean).
-**Held (need better locate before add):** La Union Monaliza Point & Carrile Point (fuzzy vs
-`san-juan-la-union`); Uchiumi (geocoder failed - needs a Nichinan-coast query or manual sat pin).
-**Next gap queue:** Japan Hokkaido / Okinawa / Wakayama detail; Philippines more (Daku, Zambales
-Liwliwa neighbours); Portugal Ericeira micro-spots & the **Azores**; Nicaragua north (Puerto
-Sandino cluster).
+## 5. Session log & queue (as of 2026-08-15, DB = 199 spots, ALL sat-verified)
+**Seeded (generation + web-search):** Sri Lanka 16→32, Portugal 16→42, Japan 17→24,
+Philippines 12→16, Nicaragua +1. **Curated already-complete:** Costa Rica, Israel.
+**Verification: COMPLETE 2026-08-15** - 199/199 pins checked against imagery (was 80/199 on
+2026-08-04); `queue.py --status` reads 0 outstanding. Israel and Portugal are 100%;
+`ollies-point` and `witchs-rock`, which two satellite passes could not settle, were closed by
+operator-supplied coordinates and are tagged `user-verified`.
+
+**What that sweep proved about SOURCING - use it when seeding the next region:**
+- **`approx` pins were wrong almost every time** - offshore by 0.3 to 6 km, or inland in the
+  village. Pottuvil Point was pinned in a lagoon; Playa Bejuco 6 km out to sea. Treat an
+  `approx` seed as a placeholder that has not yet been located, never as a coordinate.
+- **OSM surf markers were right almost every time.** Israel's and the Sri Lanka south
+  coast's OSM-sourced pins came back near-100% keep. Prefer the primary (coastline+OSM)
+  flow; it is not just more comprehensive, it is more accurate.
+- **A single-source geocode must never be adopted.** Four were rejected this sweep; one was
+  45 km off (Coxos), one landed inland (Okanda). Two providers agreeing under ~1 km, THEN a
+  z16 render, is the bar. A single provider is at best a candidate to confirm off imagery.
+- **Moving a pin to the waterline improves the physics**, because GEBCO can then sample the
+  real nearshore: shallowest wet depth went 21→2 m at Playa Maderas, 15→4 m at Tangalle.
+  The `land_samples` warning that follows is usually just GEBCO's ~450 m beach cell, which
+  the march drops - judge on shallowest WET depth (JUDGING.md), not the warning.
+- **A moved pin invalidates its angles.** Two spots this sweep aimed their depth ray and
+  their sample point at different seas after moving (tangalle 51 deg apart, miura marched 5
+  samples up a headland); `test_seaward_directions_agree_with_each_other` caught both. Always
+  re-run `horizon` and re-check `shore_normal`/`offshore_bearing` after a move.
+
+**Next gap queue:** Japan Hokkaido / Okinawa / Wakayama detail; Philippines more (Daku,
+Zambales Liwliwa neighbours); Portugal Ericeira micro-spots & the **Azores**; Nicaragua north
+(Puerto Sandino cluster). Regions with zero spots today: everywhere else - Indonesia,
+Australia, Morocco, Peru, Chile, France/Spain, Mexico, South Africa.
 **The real frontier = Tier-B.** Tens of thousands of physics-valid, *unnamed* coastline
 stretches (Japan 22k, Philippines 37k). OSM/guides never named them; this is the sat-verify +
 community-contribution layer, and it's where "all the spots" ultimately lives.
