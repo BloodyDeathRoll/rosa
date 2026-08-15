@@ -1,0 +1,72 @@
+{
+  "spot": "el-majahual",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    13.4899,
+    -89.366
+  ],
+  "bearing_seaward_deg": 209.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 55.0,
+  "mean_slope_m_per_km": 3.44,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.48793,
+      "lon": -89.36712,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.48597,
+      "lon": -89.36824,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.48203,
+      "lon": -89.37048,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.47417,
+      "lon": -89.37497,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.4663,
+      "lon": -89.37945,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.45057,
+      "lon": -89.38841,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.42697,
+      "lon": -89.40186,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.39551,
+      "lon": -89.41978,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.34831,
+      "lon": -89.44666,
+      "depth_m": 55.0
+    }
+  ]
+}

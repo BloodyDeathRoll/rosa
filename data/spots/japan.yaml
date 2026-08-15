@@ -23,16 +23,17 @@ defaults: &jp
 
 spots:
   # ---- Tohoku (Miyagi) ----
-  - { id: sendai-shinko,      name: "Sendai Shinko",            lat: 38.2605, lon: 141.0215, offshore_direction: 265, swell_window: [70, 175],  offshore_bearing: 90.5, offshore_km: 5.98, <<: *jp }  # sat-verified 2026-07-23 (consistent E-facing jetty beach)
+  - { id: sendai-shinko,      name: "Sendai Shinko", town: "Tagajo",            lat: 38.2605, lon: 141.0215, offshore_direction: 265, swell_window: [70, 175],  offshore_bearing: 90.5, offshore_km: 5.98, <<: *jp }  # sat-verified 2026-07-23 (consistent E-facing jetty beach)
   # ---- Chiba (E-facing, most consistent Honshu coast) ----
-  - { id: tsurigasaki,        name: "Tsurigasaki (Ichinomiya)", lat: 35.373, lon: 140.394, offshore_direction: 270, swell_window: [40, 165],  offshore_bearing: 87.9, offshore_km: 5.99, cam: { yt: "47xoP12hJxs", by: "千葉県長生村", by_url: "https://www.youtube.com/@%E5%8D%83%E8%91%89%E7%9C%8C%E9%95%B7%E7%94%9F%E6%9D%91", note: "Hitotsumatsu beach, ~5 km north" }, <<: *jp }  # sat-verified 2026-07-23 (2020 Olympic venue)
-  - { id: onjuku,             name: "Onjuku",                   lat: 35.1808, lon: 140.3556, offshore_direction: 340, swell_window: [100, 190],  offshore_bearing: 165.3, offshore_km: 6.27, <<: *jp }  # sat-verified 2026-08-15 (S-facing bay)
-  - { id: hebara,             name: "Hebara",                   lat: 35.1615, lon: 140.3345, offshore_direction: 315, swell_window: [65, 200],  offshore_bearing: 138.1, offshore_km: 6.2, cam: { yt: "opzDOTvMlq0", by: "サンセットタウン", by_url: "https://www.youtube.com/@%E3%82%B5%E3%83%B3%E3%82%BB%E3%83%83%E3%83%88%E3%82%BF%E3%82%A6%E3%83%B3" }, <<: *jp }  # sat-verified 2026-07-23 (Chiba's barrel beach)
-  - { id: kamogawa-malibu,    name: "Kamogawa (Malibu)",        lat: 35.1010, lon: 140.1058, offshore_direction: 330, swell_window: [80, 185],  offshore_bearing: 149.1, offshore_km: 6.29, break_type: point, cam: { yt: "wHxfJblKgWU", by: "波のスケッチ", by_url: "https://www.youtube.com/@%E6%B3%A2%E3%81%AE%E3%82%B9%E3%82%B1%E3%83%83%E3%83%81", note: "Kamogawa seaside, just along the beach" }, <<: *jp }  # sat-verified 2026-08-15 (longboard point off river mouth)
+  - { id: tsurigasaki,        name: "Tsurigasaki (Ichinomiya)", town: "Ichinomiya", lat: 35.373, lon: 140.394, offshore_direction: 270, swell_window: [40, 165],  offshore_bearing: 87.9, offshore_km: 5.99, cam: { yt: "47xoP12hJxs", by: "千葉県長生村", by_url: "https://www.youtube.com/@%E5%8D%83%E8%91%89%E7%9C%8C%E9%95%B7%E7%94%9F%E6%9D%91", note: "Hitotsumatsu beach, ~5 km north" }, <<: *jp }  # sat-verified 2026-07-23 (2020 Olympic venue)
+  - { id: onjuku,             name: "Onjuku", town: "Onjuku",                   lat: 35.1808, lon: 140.3556, offshore_direction: 340, swell_window: [100, 190],  offshore_bearing: 165.3, offshore_km: 6.27, <<: *jp }  # sat-verified 2026-08-15 (S-facing bay)
+  - { id: hebara,             name: "Hebara", town: "Katsuura",                   lat: 35.1615, lon: 140.3345, offshore_direction: 315, swell_window: [65, 200],  offshore_bearing: 138.1, offshore_km: 6.2, cam: { yt: "opzDOTvMlq0", by: "サンセットタウン", by_url: "https://www.youtube.com/@%E3%82%B5%E3%83%B3%E3%82%BB%E3%83%83%E3%83%88%E3%82%BF%E3%82%A6%E3%83%B3" }, <<: *jp }  # sat-verified 2026-07-23 (Chiba's barrel beach)
+  - { id: kamogawa-malibu,    name: "Kamogawa (Malibu)", town: "Kamogawa",        lat: 35.1010, lon: 140.1058, offshore_direction: 330, swell_window: [80, 185],  offshore_bearing: 149.1, offshore_km: 6.29, break_type: point, cam: { yt: "wHxfJblKgWU", by: "波のスケッチ", by_url: "https://www.youtube.com/@%E6%B3%A2%E3%81%AE%E3%82%B9%E3%82%B1%E3%83%83%E3%83%81", note: "Kamogawa seaside, just along the beach" }, <<: *jp }  # sat-verified 2026-08-15 (longboard point off river mouth)
   # ---- Shonan / Sagami Bay (S-facing; needs S-SE typhoon or solid low) ----
-  - { id: chigasaki,          name: "Chigasaki",                lat: 35.318, lon: 139.404, offshore_direction: 0,   swell_window: [115, 255], offshore_bearing: 183.2, offshore_km: 6.46, <<: *jp }  # sat-verified 2026-08-15 (kept) (Southern Beach)
+  - { id: chigasaki,          name: "Chigasaki", town: "Chigasaki",                lat: 35.318, lon: 139.404, offshore_direction: 0,   swell_window: [115, 255], offshore_bearing: 183.2, offshore_km: 6.46, <<: *jp }  # sat-verified 2026-08-15 (kept) (Southern Beach)
   - id: kugenuma
     name: "Kugenuma (Enoshima)"
+    town: "Fujisawa"
     lat: 35.3145
     lon: 139.47
     offshore_direction: 5
@@ -44,11 +45,12 @@ spots:
       - { yt: "DZWA9Xicaxg", label: "Kugenuma beach", by: "NAMIARUMOVIE", by_url: "https://www.youtube.com/@NAMIARUMOVIE" }
       - { yt: "CZvqU0OqYro", label: "Enoshima island", by: "WITH SEA", by_url: "https://www.youtube.com/@withsea_official", note: "island view just east of the beach" }
     <<: *jp  # sat-verified 2026-07-23 (Japan's most crowded beginner beach)
-  - { id: shichirigahama,     name: "Shichirigahama (Kamakura)", lat: 35.3055, lon: 139.512, offshore_direction: 20,  swell_window: [125, 265], offshore_bearing: 197.9, offshore_km: 6.49, <<: *jp }  # sat-verified 2026-08-15 (kept)
-  - { id: miura,              name: "Miura Kaigan",             lat: 35.1780, lon: 139.6572, offshore_direction: 280, shore_normal: 125, swell_window: [80, 180], offshore_bearing: 140.0, offshore_km: 6.0, ideal: { wind_dir: [225, 335], size_m: [0.5, 1.5] }, cam: { yt: "49NubJ78KWU", by: "WITH SEA", by_url: "https://www.youtube.com/@withsea_official" }, <<: *jp }  # sat-verified 2026-08-15 (was google-geocoded 2026-07-27; cam-scan discovery - E-facing bay-mouth beach; shore_normal 155->125 and offshore_bearing 155->140 when the pin moved to the beach 2026-08-15: from the new pin 155 marched 5 samples up the headland, 125 is clean to 385 m and still down the Uraga channel)
+  - { id: shichirigahama,     name: "Shichirigahama (Kamakura)", town: "Kamakura", lat: 35.3055, lon: 139.512, offshore_direction: 20,  swell_window: [125, 265], offshore_bearing: 197.9, offshore_km: 6.49, <<: *jp }  # sat-verified 2026-08-15 (kept)
+  - { id: miura,              name: "Miura Kaigan", town: "Miura",             lat: 35.1780, lon: 139.6572, offshore_direction: 280, shore_normal: 125, swell_window: [80, 180], offshore_bearing: 140.0, offshore_km: 6.0, ideal: { wind_dir: [225, 335], size_m: [0.5, 1.5] }, cam: { yt: "49NubJ78KWU", by: "WITH SEA", by_url: "https://www.youtube.com/@withsea_official" }, <<: *jp }  # sat-verified 2026-08-15 (was google-geocoded 2026-07-27; cam-scan discovery - E-facing bay-mouth beach; shore_normal 155->125 and offshore_bearing 155->140 when the pin moved to the beach 2026-08-15: from the new pin 155 marched 5 samples up the headland, 125 is clean to 385 m and still down the Uraga channel)
   # ---- Izu / Shizuoka ----
   - id: shirahama-izu
     name: "Shirahama (Izu)"
+    town: "Shimoda"
     lat: 34.6905
     lon: 138.9735
     offshore_direction: 295
@@ -59,30 +61,30 @@ spots:
       - { yt: "-JyiKauoFF0", label: "Angle 1", by: "mariner1173", by_url: "https://www.youtube.com/@mariner1173" }
       - { yt: "RP-wuud0NMU", label: "Angle 2", by: "mariner1173", by_url: "https://www.youtube.com/@mariner1173" }
     <<: *jp  # sat-verified 2026-08-15 (kept) (white-sand E-facing beach, Shimoda)
-  - { id: shizunami,          name: "Shizunami",                lat: 34.7295, lon: 138.2345, offshore_direction: 310, swell_window: [50, 200], offshore_bearing: 136.5, offshore_km: 6.05, <<: *jp }  # sat-verified 2026-07-23 (Suruga Bay SE-facing beach)
-  - { id: omaezaki,           name: "Omaezaki",                 lat: 34.596, lon: 138.220, offshore_direction: 0,   swell_window: [90, 270], offshore_bearing: 180.0, offshore_km: 6.23, break_type: reef, <<: *jp }  # sat-verified 2026-07-23 (cape picks up S swell)
+  - { id: shizunami,          name: "Shizunami", town: "Makinohara",                lat: 34.7295, lon: 138.2345, offshore_direction: 310, swell_window: [50, 200], offshore_bearing: 136.5, offshore_km: 6.05, <<: *jp }  # sat-verified 2026-07-23 (Suruga Bay SE-facing beach)
+  - { id: omaezaki,           name: "Omaezaki", town: "Omaezaki",                 lat: 34.596, lon: 138.220, offshore_direction: 0,   swell_window: [90, 270], offshore_bearing: 180.0, offshore_km: 6.23, break_type: reef, <<: *jp }  # sat-verified 2026-07-23 (cape picks up S swell)
   # ---- Wakayama (Kii Channel; typhoon-S wrap only) ----
-  - { id: isonoura,           name: "Isonoura",                 lat: 34.2595, lon: 135.0865, offshore_direction: 60, swell_window: [155, 275], offshore_bearing: 237.7, offshore_km: 6.14, <<: *jp }  # sat-verified 2026-07-23 (Kansai staple; sheltered, needs S typhoon swell up the channel)
+  - { id: isonoura,           name: "Isonoura", town: "Wakayama",                 lat: 34.2595, lon: 135.0865, offshore_direction: 60, swell_window: [155, 275], offshore_bearing: 237.7, offshore_km: 6.14, <<: *jp }  # sat-verified 2026-07-23 (Kansai staple; sheltered, needs S typhoon swell up the channel)
   # ---- Shikoku (Tokushima/Kochi border - Japan's most exposed S coast) ----
-  - { id: kaifu,              name: "Kaifu",                    lat: 33.578, lon: 134.353, offshore_direction: 315, swell_window: [45, 225],  offshore_bearing: 130.7, offshore_km: 8.19, break_type: point, <<: *jp }  # sat-verified 2026-07-23 (river-mouth sandbar, typhoon jewel)
-  - { id: shishikui,          name: "Shishikui",                lat: 33.567, lon: 134.3095, offshore_direction: 300, swell_window: [90, 200],  offshore_bearing: 138.5, offshore_km: 8.46, <<: *jp }  # sat-verified 2026-07-23
-  - { id: ikumi,              name: "Ikumi",                    lat: 33.5403, lon: 134.2932, offshore_direction: 300, swell_window: [75, 190],  offshore_bearing: 135.9, offshore_km: 7.79, <<: *jp }  # sat-verified 2026-08-15 (Kochi's consistent beachbreak)
+  - { id: kaifu,              name: "Kaifu", town: "Kaiyo",                    lat: 33.578, lon: 134.353, offshore_direction: 315, swell_window: [45, 225],  offshore_bearing: 130.7, offshore_km: 8.19, break_type: point, <<: *jp }  # sat-verified 2026-07-23 (river-mouth sandbar, typhoon jewel)
+  - { id: shishikui,          name: "Shishikui", town: "Kaiyo",                lat: 33.567, lon: 134.3095, offshore_direction: 300, swell_window: [90, 200],  offshore_bearing: 138.5, offshore_km: 8.46, <<: *jp }  # sat-verified 2026-07-23
+  - { id: ikumi,              name: "Ikumi", town: "Toyo",                    lat: 33.5403, lon: 134.2932, offshore_direction: 300, swell_window: [75, 190],  offshore_bearing: 135.9, offshore_km: 7.79, <<: *jp }  # sat-verified 2026-08-15 (Kochi's consistent beachbreak)
   # ---- Kyushu (Miyazaki - E-facing, most consistent in Japan) ----
-  - { id: okuragahama,        name: "Okuragahama (Hyuga)",      lat: 32.4045, lon: 131.6455, offshore_direction: 290, swell_window: [70, 190],   offshore_bearing: 104.9, offshore_km: 6.27, <<: *jp }  # sat-verified 2026-08-15 (kept) (NE-opening bay)
+  - { id: okuragahama,        name: "Okuragahama (Hyuga)", town: "Hyuga",      lat: 32.4045, lon: 131.6455, offshore_direction: 290, swell_window: [70, 190],   offshore_bearing: 104.9, offshore_km: 6.27, <<: *jp }  # sat-verified 2026-08-15 (kept) (NE-opening bay)
   # Miyazaki city cluster, user-verified 2026-07-25 (N->S). Kisakihama's earlier pin sat
   # S of Aoshima; it is in fact N of it, so the coordinate is corrected rather than added.
-  - { id: kisakihama,         name: "Kisakihama (Miyazaki)",    lat: 31.828, lon: 131.45306, offshore_direction: 280, swell_window: [20, 140], offshore_bearing: 90.0, offshore_km: 4.72, <<: *jp }  # user-verified 2026-07-25 (pro-tour beachbreak, N of Aoshima)
-  - { id: kaeda-kako,         name: "Kaeda Kako",               lat: 31.82072, lon: 131.45503, offshore_direction: 275, swell_window: [20, 130], offshore_bearing: 90.0, offshore_km: 4.72, <<: *jp }  # user-verified 2026-07-25 - offshore_direction/swell_window from neighbours, TODO verify
-  - { id: kodomonokuni,       name: "Kodomonokuni",             lat: 31.80872, lon: 131.462, offshore_direction: 275, swell_window: [30, 160], offshore_bearing: 90.0, offshore_km: 4.72, <<: *jp }  # user-verified 2026-07-25 - offshore_direction/swell_window from neighbours, TODO verify
-  - { id: aoshima,            name: "Aoshima (Miyazaki)",       lat: 31.80414, lon: 131.46928, offshore_direction: 270, swell_window: [15, 130], offshore_bearing: 90.0, offshore_km: 4.7, cam: { yt: "QFAYdvPk3H8", by: "ii-nami.com", by_url: "https://www.youtube.com/@iinamicom" }, <<: *jp }  # user-verified 2026-07-25 (moved up from the web-search seed block)
+  - { id: kisakihama,         name: "Kisakihama (Miyazaki)", town: "Miyazaki",    lat: 31.828, lon: 131.45306, offshore_direction: 280, swell_window: [20, 140], offshore_bearing: 90.0, offshore_km: 4.72, <<: *jp }  # user-verified 2026-07-25 (pro-tour beachbreak, N of Aoshima)
+  - { id: kaeda-kako,         name: "Kaeda Kako", town: "Miyazaki",               lat: 31.82072, lon: 131.45503, offshore_direction: 275, swell_window: [20, 130], offshore_bearing: 90.0, offshore_km: 4.72, <<: *jp }  # user-verified 2026-07-25 - offshore_direction/swell_window from neighbours, TODO verify
+  - { id: kodomonokuni,       name: "Kodomonokuni", town: "Miyazaki",             lat: 31.80872, lon: 131.462, offshore_direction: 275, swell_window: [30, 160], offshore_bearing: 90.0, offshore_km: 4.72, <<: *jp }  # user-verified 2026-07-25 - offshore_direction/swell_window from neighbours, TODO verify
+  - { id: aoshima,            name: "Aoshima (Miyazaki)", town: "Aoshima",       lat: 31.80414, lon: 131.46928, offshore_direction: 270, swell_window: [15, 130], offshore_bearing: 90.0, offshore_km: 4.7, cam: { yt: "QFAYdvPk3H8", by: "ii-nami.com", by_url: "https://www.youtube.com/@iinamicom" }, <<: *jp }  # user-verified 2026-07-25 (moved up from the web-search seed block)
 
   # ==== OSM-SEEDED (2026-07-24, © OpenStreetMap contributors, ODbL) ====
   # coastline-generated → bathy-pruned → OSM-name confirmed; offshore_direction from
   # coastline geometry; offshore ray cast seaward. SOURCE = osm-seeded (below
   # sat/user-verified). sat-verify coords + break_type + swell_window before trusting.
-  - { id: tsujido, name: "Tsujido (辻堂海岸)", lat: 35.3167, lon: 139.46, offshore_direction: 9, swell_window: [115, 260], offshore_bearing: 189.0, offshore_km: 5.0, <<: *jp }  # sat-verified 2026-08-15 (kept) 2026-07-24 - TODO verify
-  - { id: katase-eastside, name: "Katase Eastside Beach", lat: 35.3075, lon: 139.4873, offshore_direction: 344, swell_window: [130, 254], offshore_bearing: 164.0, offshore_km: 5.0, <<: *jp }  # sat-verified 2026-08-15 (kept) 2026-07-24 - TODO verify
-  - { id: kabune, name: "Kabune", lat: 35.2936, lon: 139.5537, offshore_direction: 10, swell_window: [155, 275], offshore_bearing: 190.0, offshore_km: 5.0, <<: *jp }  # sat-verified 2026-08-15 2026-07-24 - TODO verify
+  - { id: tsujido, name: "Tsujido (辻堂海岸)", town: "Fujisawa", lat: 35.3167, lon: 139.46, offshore_direction: 9, swell_window: [115, 260], offshore_bearing: 189.0, offshore_km: 5.0, <<: *jp }  # sat-verified 2026-08-15 (kept) 2026-07-24 - TODO verify
+  - { id: katase-eastside, name: "Katase Eastside Beach", town: "Fujisawa", lat: 35.3075, lon: 139.4873, offshore_direction: 344, swell_window: [130, 254], offshore_bearing: 164.0, offshore_km: 5.0, <<: *jp }  # sat-verified 2026-08-15 (kept) 2026-07-24 - TODO verify
+  - { id: kabune, name: "Kabune", town: "Zushi", lat: 35.2936, lon: 139.5537, offshore_direction: 10, swell_window: [155, 275], offshore_bearing: 190.0, offshore_km: 5.0, <<: *jp }  # sat-verified 2026-08-15 2026-07-24 - TODO verify
 
   # ==== WEB-SEARCH-SEEDED (2026-07-24) - surf-guide discovery, Google/Nominatim/Photon
   # geocode cross-checked + ESRI sat-verified. Locations verified; params TODO-tune. ====

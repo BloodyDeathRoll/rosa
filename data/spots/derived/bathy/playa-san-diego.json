@@ -1,0 +1,72 @@
+{
+  "spot": "playa-san-diego",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    13.4776,
+    -89.2801
+  ],
+  "bearing_seaward_deg": 203.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 50.0,
+  "mean_slope_m_per_km": 2.76,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.47553,
+      "lon": -89.281,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.47346,
+      "lon": -89.28191,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.46932,
+      "lon": -89.28371,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.46104,
+      "lon": -89.28733,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.45276,
+      "lon": -89.29094,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.43621,
+      "lon": -89.29816,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.41137,
+      "lon": -89.309,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.37826,
+      "lon": -89.32344,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.32858,
+      "lon": -89.3451,
+      "depth_m": 50.0
+    }
+  ]
+}

@@ -138,6 +138,10 @@ Add via a `websearch-seeded` block (provenance + `TODO verify`).
 - **Derived data is part of the add, not a follow-up.** Every new spot needs a committed
   bathy profile AND committed EOT20 tide constants (§3b step 4); both are test-enforced,
   one file per spot, no gaps and no orphans.
+- **Every new spot needs a `town`** - the nearest OSM `place=city|town|village|hamlet` within
+  12 km, which is what makes it findable by the name people actually search ("Puerto
+  Escondido" holds three breaks, none of them named that). Test-enforced
+  (`test_every_spot_carries_a_town`). It is a search key and a subtitle, never part of `name`.
 
 ## 3b. Adding a region that is not in `seed.py` yet
 
@@ -172,9 +176,9 @@ Four things, in this order:
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-08-15, DB = 257 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-08-16, DB = 265 spots, ALL sat-verified)
 **Seeded (generation + web-search):** Sri Lanka 16→32, Portugal 16→42, Japan 17→24,
-Philippines 12→16, Nicaragua +1, **Mexico 0→38 and El Salvador 0→20 (2026-08-15)**.
+Philippines 12→16, Nicaragua +1, **Mexico 0→43 and El Salvador 0→23 (2026-08-15/16)**.
 **Curated already-complete:** Costa Rica, Israel.
 
 **Mexico + El Salvador, what the two flows actually delivered.** The primary flow found almost
@@ -186,6 +190,20 @@ geocode confirmed 34 of 42 Mexican and 15 of 21 Salvadoran candidates within 1 k
 two that Google had put in the wrong place (Atami's geocode was 800 m inland at the resort's
 street address; Punta Mango's was 450 m from the OSM cape). **Run that scan before rendering** -
 it costs one pbf pass and turns single-source geocodes into two-source ones.
+
+**Round two (2026-08-16), after the user spotted a gap the first pass could not have shown.**
+The complaint was that Puerto Escondido was missing; it was not - it was in the DB three times
+over as `zicatela`, `la-punta` and `carrizalillo`, and **search matched only the break name**,
+so the town that half the world knows the wave by returned nothing. That is a DB-shape bug, not
+a coverage bug, and the fix was a `town` field on every spot in every region (§3 and SPOT-DB.md).
+The same pass re-searched both countries for genuinely absent majors and added eight:
+`killers` (Isla Todos Santos - placed at the island's NW point, which the first pass could not
+settle), `punta-baja`, `baja-malibu`, `caleta-de-campos`, `punta-chivo`, `km-61` (a real break
+500 m from K59, dropped in round one only because Google had geocoded it onto El Zonte),
+`el-majahual` and `playa-san-diego`. Two more were rejected again: `cuatro-casas` (Google
+returns a point 100 km from where the guides put it, on two different queries) and
+`punta-perfecta` (imagery shows no break). **`zicatela` is now displayed "Puerto Escondido"** -
+the one case where the town IS the wave's common name.
 
 **Dropped rather than shipped** (the render is what decided each): `atami`'s Google pin (inland,
 replaced by the OSM one, kept), `km-61` (Google returned El Zonte - a duplicate, no second

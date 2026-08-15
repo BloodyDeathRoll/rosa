@@ -401,6 +401,7 @@ export function MapPage({ theme }: { theme: Theme }) {
         ([id, e]) =>
           e.name.toLowerCase().includes(q) ||
           (e.region ?? "").toLowerCase().includes(q) ||
+          (e.town ?? "").toLowerCase().includes(q) ||
           id.includes(q)
       )
     : [];

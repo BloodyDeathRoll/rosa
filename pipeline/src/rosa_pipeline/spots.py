@@ -150,6 +150,7 @@ def load_spots_file(path: Path) -> list[Spot]:
                 ideal_wind_dir=_pair(ideal["wind_dir"]),
                 ideal_size_m=_pair(ideal["size_m"]),
                 region=region,
+                town=(raw.get("town") or None),
                 tide_best=tide_best,
                 cams=tuple(cams),
             )

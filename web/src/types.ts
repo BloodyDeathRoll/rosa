@@ -86,6 +86,8 @@ export interface SpotPayload {
     id: string;
     name: string;
     region?: string;
+    /** Nearest settlement - search matches it, nothing renders it as part of the name. */
+    town?: string;
     tide_best?: "low" | "mid" | "high" | null;
     lat: number;
     lon: number;
@@ -109,6 +111,8 @@ export interface SpotPayload {
 export interface IndexEntry {
   name: string;
   region?: string;
+  /** Nearest settlement, so "tel aviv" finds every Tel Aviv break. Search-only. */
+  town?: string;
   lat: number;
   lon: number;
   rating: number;

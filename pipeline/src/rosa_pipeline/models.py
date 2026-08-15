@@ -51,6 +51,11 @@ class Spot:
     ideal_wind_dir: tuple[float, float]
     ideal_size_m: tuple[float, float]
     region: str = ""  # display country/area (e.g. "Israel"); used for search
+    # Nearest settlement (e.g. "Puerto Escondido"), for SEARCH only - a break is famous under
+    # the town's name at least as often as its own, and a search that only matches the break
+    # name finds nothing for "Puerto Escondido" while holding three of its waves. Derived from
+    # the nearest OSM place node, never rendered as part of the spot's name.
+    town: str | None = None
     tide_best: str | None = None  # local knowledge: "low" | "mid" | "high" (never derived)
     # Live cams, only ever streams whose operator publishes them as embeddable (CLAUDE.md
     # legal red line: never scrape a cam, never touch a competitor's). Today that means

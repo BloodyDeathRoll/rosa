@@ -35,11 +35,14 @@ function ResultRow({
 }) {
   const units = useUnits();
   const { name, region } = splitName(entry.name);
+  // A break's town is what half of them are actually famous under, and it is why a row
+  // matched a search for it - so it stands in as the subtitle when the name carries none.
+  const sub = region ?? entry.town ?? null;
   return (
     <a class="spot-row-card plain" href={`#/spot/${id}`}>
       <TierDot bucket={entry.bucket} />
       <span class="mid">
-        <SpotTitle name={name} region={region} />
+        <SpotTitle name={name} region={sub} />
         <span class="line tabular">
           {fmtRange(entry.h, units)} · {ratingWord(entry.bucket)}
         </span>
@@ -120,7 +123,10 @@ export function SearchPage() {
 
   const q = query.trim().toLowerCase();
   const match = ([id, e]: Entry) =>
-    e.name.toLowerCase().includes(q) || (e.region ?? "").toLowerCase().includes(q) || id.includes(q);
+    e.name.toLowerCase().includes(q) ||
+    (e.region ?? "").toLowerCase().includes(q) ||
+    (e.town ?? "").toLowerCase().includes(q) ||
+    id.includes(q);
   const spotMatches = q ? all.filter(match) : [];
   const regionMatches =
     q && index ? regionsFrom(index).filter((r) => r.name.toLowerCase().includes(q)) : [];

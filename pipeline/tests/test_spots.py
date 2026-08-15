@@ -138,3 +138,14 @@ def test_offshore_wind_comes_from_the_land():
         if angle_diff(s.offshore_direction, (s.shore_normal + 180) % 360) >= 90
     ]
     assert backwards == [], f"spots whose offshore wind blows in off the sea: {backwards}"
+
+
+def test_every_spot_carries_a_town():
+    """Search matches name, region, town and id (web/src/pages/SearchPage.tsx), and the town
+    is the half users actually type: "Puerto Escondido" holds three breaks, none of them
+    named that, and "tel aviv" holds several more. A spot without one is invisible to the
+    search its own town would have found. Derived from the nearest OSM place node, so this
+    is a data completeness check, not a judgement about which town is right."""
+    spots = load_spots(SPOTS_DIR)
+    missing = sorted(s.id for s in spots.values() if not (s.town or "").strip())
+    assert missing == [], f"spots with no town: {missing[:10]}"

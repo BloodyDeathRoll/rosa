@@ -409,6 +409,8 @@ def build_payload(
             "id": spot.id,
             "name": spot.name,
             "region": spot.region,
+            # search-only: the town a break is often known by. Key omitted when unset.
+            **({"town": spot.town} if spot.town else {}),
             "tide_best": spot.tide_best,
             "lat": spot.lat,
             "lon": spot.lon,
@@ -472,6 +474,8 @@ def _index_entry(payload: dict) -> dict:
     return {
         "name": payload["spot"]["name"],
         "region": payload["spot"].get("region", ""),
+        # the search index matches name, region, town and id - see web/src/pages/SearchPage.tsx
+        **({"town": payload["spot"]["town"]} if payload["spot"].get("town") else {}),
         "lat": payload["spot"]["lat"],
         "lon": payload["spot"]["lon"],
         "rating": payload["current"]["rating"],
