@@ -90,3 +90,15 @@ arugam-bay	2026-08-15
 coconut-beach	2026-08-15
 crust	2026-08-15
 elephant-rock	2026-08-15
+fishermen	2026-08-15
+hikkaduwa-south	2026-08-15
+jungle	2026-08-15
+kapparatota	2026-08-15
+koggala	2026-08-15
+madiha	2026-08-15
+midigama	2026-08-15
+peanut-farm	2026-08-15
+thalaramba	2026-08-15
+unakuruwa	2026-08-15
+weddawata	2026-08-15
+weligama-west	2026-08-15
