@@ -251,6 +251,18 @@ def breaker_height_over_profile(
     height = offshore_height_m
     depth_limited = 0.0
     for d in depths_deep_to_shallow:
+        if d > d_ref:
+            # The ray is not monotone: 88 of the 199 committed profiles dip DEEPER somewhere
+            # inside the reference sample (GEBCO shelves, canyons, the 18 km point sitting on a
+            # bank). ``depths_deep_to_shallow`` is ordered by DISTANCE, not by depth, so such a
+            # sample arrives after the reference the march conserves energy flux from - and
+            # shoaling theory has nothing to say about a wave moving back into deeper water.
+            # Marching it anyway makes Snell hand back sin_a just under 1, and Kr =
+            # sqrt(cos a_ref / cos alpha) is UNBOUNDED as alpha -> 90: measured Kr up to 8.8 at
+            # cantinho-bah-a and transformed heights of 43-193 m from 1-4 m swells at 11 spots,
+            # which then "break" at gamma*d in 32-247 m of water. Skip it, exactly as the
+            # grazing case below is skipped; the shallower samples still decide the break.
+            continue
         c, cg = celerities(period_s, d)
         sin_a = sin_a_ref * c / c_ref
         if sin_a >= 1.0:
