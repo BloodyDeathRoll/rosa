@@ -36,8 +36,8 @@ east: &sl_e
 
 spots:
   # ==== SOUTH COAST (W→E; sample pushed SOUTH) ====
-  - { id: hikkaduwa,        name: "Hikkaduwa",              lat: 6.1304, lon: 80.0963, offshore_direction: 35,  offshore_bearing: 172.5, offshore_km: 5.65,  break_type: reef, shore_normal: 172.5, swell_window: [140, 262], <<: *sl_s }  # approx - TODO verify
-  - { id: unawatuna,        name: "Unawatuna",              lat: 6.0015, lon: 80.2459, offshore_direction: 20,  offshore_bearing: 176.6, offshore_km: 5.74,  swell_window: [110, 290], <<: *sl_s }  # approx - TODO verify (sheltered bay)
+  - { id: hikkaduwa,        name: "Hikkaduwa",              lat: 6.1304, lon: 80.0963, offshore_direction: 35,  offshore_bearing: 172.5, offshore_km: 5.65,  break_type: reef, shore_normal: 172.5, swell_window: [140, 262], <<: *sl_s }  # sat-verified 2026-08-15 (kept)
+  - { id: unawatuna,        name: "Unawatuna",              lat: 6.0082, lon: 80.2444, offshore_direction: 20,  shore_normal: 150, offshore_bearing: 176.6, offshore_km: 5.74,  swell_window: [110, 290], <<: *sl_s }  # sat-verified 2026-08-15 (sheltered bay)
   - { id: koggala,          name: "Koggala",                lat: 5.98283, lon: 80.33502, offshore_direction: 5,   offshore_bearing: 180.0, offshore_km: 4.98, break_type: reef, swell_window: [150, 275], <<: *sl_s }  # osm-corrected 2026-07-24 (was 5.9824,80.327)
   # Ahangama stretch, user-verified 2026-07-25: replaces the single coarse "Ahangama
   # (Kabalana)" pin (removed) with the named breaks, W->E.
@@ -48,19 +48,19 @@ spots:
   - { id: gas-station,      name: "Gas Station",            lat: 5.96867, lon: 80.36842, offshore_direction: 5,   offshore_bearing: 180.5, offshore_km: 4.97, swell_window: [135, 265], <<: *sl_s }  # user-verified 2026-07-25 - offshore_direction from neighbours, TODO verify
   - { id: midigama,         name: "Midigama",               lat: 5.96501, lon: 80.38891, offshore_direction: 15,  offshore_bearing: 179.9, offshore_km: 5.0,  break_type: reef, swell_window: [140, 250], <<: *sl_s }  # osm-corrected 2026-07-24 (was 5.9587,80.387) - Ram's Right / Lazy Left
   - { id: weligama,         name: "Weligama Bay",           lat: 5.97186, lon: 80.43794, offshore_direction: 5,   shore_normal: 209, offshore_bearing: 179.9, offshore_km: 4.99,  <<: *sl_s }  # user-verified 2026-07-25 (renamed + moved; beginner beachbreak). shore_normal = bay-mouth axis the user drew, NOT offshore_direction+180: the beach faces ~S (so N wind is still the offshore one) while the swell's way in/out is SSW past the headland - same divergence as arugam-bay.
-  - { id: mirissa,          name: "Mirissa",                lat: 5.9396, lon: 80.4585, offshore_direction: 5,   offshore_bearing: 179.5, offshore_km: 6.07, swell_window: [125, 275], <<: *sl_s }  # approx - TODO verify
-  - { id: polhena,          name: "Polhena (Matara)",       lat: 5.933, lon: 80.538, offshore_direction: 5,   offshore_bearing: 180.0, offshore_km: 6.67, break_type: reef, swell_window: [100, 270], <<: *sl_s }  # approx - TODO verify
+  - { id: mirissa,          name: "Mirissa",                lat: 5.9432, lon: 80.4618, offshore_direction: 5,   shore_normal: 200, offshore_bearing: 179.5, offshore_km: 6.07, swell_window: [125, 275], <<: *sl_s }  # sat-verified 2026-08-15
+  - { id: polhena,          name: "Polhena (Matara)",       lat: 5.9362, lon: 80.5256, offshore_direction: 5,   offshore_bearing: 180.0, offshore_km: 6.67, break_type: reef, swell_window: [100, 270], <<: *sl_s }  # sat-verified 2026-08-15
   - { id: hiriketiya,       name: "Hiriketiya",             lat: 5.96125, lon: 80.70894, offshore_direction: 350, shore_normal: 172, offshore_bearing: 179.9, offshore_km: 5.03, swell_window: [90, 225], <<: *sl_s }  # user-verified 2026-07-25 (horseshoe bay). shore_normal = the bay-mouth axis the user drew (was deriving 170, near enough - now explicit so nothing re-derives it away).
-  - { id: tangalle,         name: "Tangalle",               lat: 6.0158, lon: 80.7946, offshore_direction: 355, offshore_bearing: 180.6, offshore_km: 5.87, swell_window: [85, 225], <<: *sl_s }  # approx - TODO verify
+  - { id: tangalle,         name: "Tangalle",               lat: 6.0353, lon: 80.8034, offshore_direction: 355, shore_normal: 130, offshore_bearing: 140.0, offshore_km: 5.87, swell_window: [85, 225], <<: *sl_s }  # sat-verified 2026-08-15
   # ==== EAST COAST (Arugam Bay cluster, S→N; sample pushed EAST) ====
   # shore_normal (seaward, E/SE) is set explicitly - the coast faces the ocean E/SE while the
   # best wind (offshore_direction) is the SW monsoon, so the two genuinely diverge here.
-  - { id: okanda,           name: "Okanda",                 lat: 6.650, lon: 81.780, offshore_direction: 240, shore_normal: 130, offshore_bearing: 90.0, offshore_km: 6.63,  swell_window: [40, 190], <<: *sl_e }  # approx - TODO verify (remote, S of Arugam) - SW-monsoon offshore
+  - { id: okanda,           name: "Okanda",                 lat: 6.6529, lon: 81.7756, offshore_direction: 240, shore_normal: 130, offshore_bearing: 90.0, offshore_km: 6.63,  swell_window: [40, 190], <<: *sl_e }  # sat-verified 2026-08-15 (remote, S of Arugam) - SW-monsoon offshore
   - { id: peanut-farm,      name: "Peanut Farm",            lat: 6.78236, lon: 81.82250, offshore_direction: 240, shore_normal: 125, offshore_bearing: 90.3, offshore_km: 6.57,  swell_window: [35, 175], <<: *sl_e }  # osm-corrected 2026-07-24 (was 6.780,81.850) - SW-monsoon offshore
   - { id: elephant-rock,    name: "Elephant Rock",          lat: 6.81060, lon: 81.82318, offshore_direction: 240, shore_normal: 120, offshore_bearing: 89.6, offshore_km: 6.6,  swell_window: [40, 175], <<: *sl_e }  # osm-corrected 2026-07-24 (was 6.800,81.848) - SW-monsoon offshore
   - { id: arugam-bay,       name: "Arugam Bay (Main Point)", lat: 6.83605, lon: 81.83991, offshore_direction: 245, shore_normal: 115, offshore_bearing: 90.0, offshore_km: 6.63, swell_window: [25, 195], <<: *sl_e }  # osm-corrected 2026-07-24 (was 6.840,81.836) - SW-monsoon offshore
-  - { id: pottuvil-point,   name: "Pottuvil Point",         lat: 6.887, lon: 81.834, offshore_direction: 240, shore_normal: 95,  offshore_bearing: 90.0, offshore_km: 6.62, swell_window: [35, 130], <<: *sl_e }  # approx - TODO verify - SW-monsoon offshore
-  - { id: whiskey-point,    name: "Whiskey Point",          lat: 6.9043, lon: 81.8475, offshore_direction: 250, shore_normal: 80,  offshore_bearing: 64.0, offshore_km: 3.99,  swell_window: [20, 170], <<: *sl_e }  # approx - TODO verify - SW-monsoon offshore
+  - { id: pottuvil-point,   name: "Pottuvil Point",         lat: 6.9051, lon: 81.8453, offshore_direction: 240, shore_normal: 95,  offshore_bearing: 90.0, offshore_km: 6.62, swell_window: [35, 130], <<: *sl_e }  # sat-verified 2026-08-15 - SW-monsoon offshore
+  - { id: whiskey-point,    name: "Whiskey Point",          lat: 6.9043, lon: 81.844, offshore_direction: 250, shore_normal: 80,  offshore_bearing: 64.0, offshore_km: 3.99,  swell_window: [20, 170], <<: *sl_e }  # sat-verified 2026-08-15 - SW-monsoon offshore
 
   # ==== OSM-SEEDED (2026-07-24, © OpenStreetMap contributors, ODbL) ====
   # Generated from the coastline (tools/spot-seed: coastline → bathy prune → OSM-name confirm).
@@ -68,7 +68,7 @@ spots:
   # water. SOURCE = osm-seeded (below sat-/user-verified on the authority ladder) - sat-verify
   # coords + break_type + swell_window before trusting. Ordered W→E along the south coast.
   - { id: hikkaduwa-south, name: "Hikkaduwa South", lat: 6.1288, lon: 80.1031, offshore_direction: 25,  offshore_bearing: 180.0, offshore_km: 5.0, break_type: reef, swell_window: [155, 295], <<: *sl_s }  # offshore_direction was 258 (WSW): that called the monsoon onshore wind 'offshore' and, via shore_normal, aimed the depth ray inland - corrected to 0 (N) with the bay's south facing, 2026-07-29. osm-seeded - TODO verify (Hikkaduwa reef; OSM "Surf Control")
-  - { id: crust,        name: "Crust",          lat: 5.9711, lon: 80.3651, offshore_direction: 29,  offshore_bearing: 180.0, offshore_km: 5.0, swell_window: [150, 270], <<: *sl_s }  # osm-seeded - TODO verify
+  - { id: crust,        name: "Crust",          lat: 5.9711, lon: 80.3651, offshore_direction: 29,  offshore_bearing: 180.0, offshore_km: 5.0, swell_window: [150, 270], <<: *sl_s }  # sat-verified 2026-08-15 (kept) - TODO verify
   - { id: weligama-west, name: "Coconut",        lat: 5.9601, lon: 80.4017, offshore_direction: 12,  offshore_bearing: 180.0, offshore_km: 5.0, break_type: reef, swell_window: [135, 260], <<: *sl_s }  # renamed 2026-07-25 (user); coords still osm-seeded - TODO verify
   - { id: kapparatota,  name: "Kapparatota",    lat: 5.9582, lon: 80.4086, offshore_direction: 19,  offshore_bearing: 180.0, offshore_km: 5.0, swell_window: [125, 265], <<: *sl_s }  # osm-seeded - TODO verify
   - { id: jungle,       name: "Jungle Beach",   lat: 5.9587, lon: 80.4129, offshore_direction: 41,  offshore_bearing: 180.0, offshore_km: 5.0, shore_normal: 180.0, swell_window: [150, 250], <<: *sl_s }  # osm-seeded - TODO verify
@@ -79,4 +79,4 @@ spots:
   - { id: wellamadama,  name: "Wellamadama",    lat: 5.9358, lon: 80.5752, offshore_direction: 4,   offshore_bearing: 180.0, offshore_km: 5.0, swell_window: [155, 265], <<: *sl_s }  # osm-seeded - TODO verify
   - { id: unakuruwa,    name: "Unakuruwa",      lat: 6.0013, lon: 80.7651, offshore_direction: 5,   offshore_bearing: 180.0, offshore_km: 5.0, swell_window: [95, 225], <<: *sl_s }  # osm-seeded - TODO verify
   # east coast (Arugam) osm-seeded:
-  - { id: coconut-beach, name: "Coconut Beach (Arugam)", lat: 6.8842, lon: 81.8431, offshore_direction: 245, shore_normal: 90, offshore_bearing: 90.2, offshore_km: 5.73, break_type: point, swell_window: [20, 150], <<: *sl_e }  # osm-seeded - TODO verify
+  - { id: coconut-beach, name: "Coconut Beach (Arugam)", lat: 6.8842, lon: 81.8431, offshore_direction: 245, shore_normal: 90, offshore_bearing: 90.2, offshore_km: 5.73, break_type: point, swell_window: [20, 150], <<: *sl_e }  # sat-verified 2026-08-15 (kept) - TODO verify

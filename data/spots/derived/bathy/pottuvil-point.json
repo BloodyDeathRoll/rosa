@@ -2,68 +2,69 @@
   "spot": "pottuvil-point",
   "source": "gebco2020 via opentopodata",
   "origin": [
-    6.887,
-    81.834
+    6.9051,
+    81.8453
   ],
   "bearing_seaward_deg": 95.0,
-  "nearshore_depth_m": 1.0,
-  "offshore_depth_m": 140.0,
-  "mean_slope_m_per_km": 7.83,
-  "land_samples": 1,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 243.0,
+  "mean_slope_m_per_km": 13.41,
+  "land_samples": 0,
+  "missing_samples": 0,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 6.8868,
-      "lon": 81.83626,
-      "depth_m": 1.0
+      "lat": 6.9049,
+      "lon": 81.84756,
+      "depth_m": 5.0
     },
     {
       "dist_km": 0.5,
-      "lat": 6.88661,
-      "lon": 81.83851,
-      "depth_m": 1.0
+      "lat": 6.90471,
+      "lon": 81.84981,
+      "depth_m": 6.0
     },
     {
       "dist_km": 1.0,
-      "lat": 6.88622,
-      "lon": 81.84302,
-      "depth_m": -2.0
+      "lat": 6.90432,
+      "lon": 81.85432,
+      "depth_m": 7.0
     },
     {
       "dist_km": 2.0,
-      "lat": 6.88543,
-      "lon": 81.85205,
-      "depth_m": 8.0
+      "lat": 6.90353,
+      "lon": 81.86335,
+      "depth_m": 10.0
     },
     {
       "dist_km": 3.0,
-      "lat": 6.88465,
-      "lon": 81.86107,
-      "depth_m": 12.0
+      "lat": 6.90275,
+      "lon": 81.87237,
+      "depth_m": 11.0
     },
     {
       "dist_km": 5.0,
-      "lat": 6.88308,
-      "lon": 81.87912,
-      "depth_m": 12.0
+      "lat": 6.90118,
+      "lon": 81.89042,
+      "depth_m": 14.0
     },
     {
       "dist_km": 8.0,
-      "lat": 6.88072,
-      "lon": 81.90619,
-      "depth_m": 21.0
+      "lat": 6.89882,
+      "lon": 81.91749,
+      "depth_m": 11.0
     },
     {
       "dist_km": 12.0,
-      "lat": 6.87758,
-      "lon": 81.94229,
-      "depth_m": 49.0
+      "lat": 6.89568,
+      "lon": 81.95359,
+      "depth_m": 50.0
     },
     {
       "dist_km": 18.0,
-      "lat": 6.87286,
-      "lon": 81.99643,
-      "depth_m": 140.0
+      "lat": 6.89096,
+      "lon": 82.00774,
+      "depth_m": 243.0
     }
   ]
 }

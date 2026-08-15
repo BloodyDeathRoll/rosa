@@ -2,68 +2,69 @@
   "spot": "unawatuna",
   "source": "gebco2020 via opentopodata",
   "origin": [
-    6.0015,
-    80.2459
+    6.0082,
+    80.2444
   ],
-  "bearing_seaward_deg": 200.0,
-  "nearshore_depth_m": 9.0,
-  "offshore_depth_m": 63.0,
-  "mean_slope_m_per_km": 3.04,
-  "land_samples": 0,
+  "bearing_seaward_deg": 150.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 59.0,
+  "mean_slope_m_per_km": 3.89,
+  "land_samples": 2,
+  "missing_samples": 0,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 5.99939,
-      "lon": 80.24513,
-      "depth_m": 9.0
+      "lat": 6.00625,
+      "lon": 80.24553,
+      "depth_m": -10.0
     },
     {
       "dist_km": 0.5,
-      "lat": 5.99727,
-      "lon": 80.24435,
-      "depth_m": 19.0
+      "lat": 6.00431,
+      "lon": 80.24666,
+      "depth_m": -5.0
     },
     {
       "dist_km": 1.0,
-      "lat": 5.99305,
-      "lon": 80.24281,
-      "depth_m": 28.0
+      "lat": 6.00041,
+      "lon": 80.24892,
+      "depth_m": 8.0
     },
     {
       "dist_km": 2.0,
-      "lat": 5.9846,
-      "lon": 80.23971,
-      "depth_m": 41.0
+      "lat": 5.99262,
+      "lon": 80.25344,
+      "depth_m": 22.0
     },
     {
       "dist_km": 3.0,
-      "lat": 5.97615,
-      "lon": 80.23662,
-      "depth_m": 49.0
+      "lat": 5.98483,
+      "lon": 80.25796,
+      "depth_m": 34.0
     },
     {
       "dist_km": 5.0,
-      "lat": 5.95925,
-      "lon": 80.23044,
-      "depth_m": 58.0
+      "lat": 5.96926,
+      "lon": 80.26701,
+      "depth_m": 48.0
     },
     {
       "dist_km": 8.0,
-      "lat": 5.93389,
-      "lon": 80.22116,
-      "depth_m": 63.0
+      "lat": 5.94589,
+      "lon": 80.28057,
+      "depth_m": 56.0
     },
     {
       "dist_km": 12.0,
-      "lat": 5.90009,
-      "lon": 80.20879,
-      "depth_m": 62.0
+      "lat": 5.91474,
+      "lon": 80.29865,
+      "depth_m": 61.0
     },
     {
       "dist_km": 18.0,
-      "lat": 5.84938,
-      "lon": 80.19024,
-      "depth_m": 63.0
+      "lat": 5.868,
+      "lon": 80.32577,
+      "depth_m": 59.0
     }
   ]
 }
