@@ -189,6 +189,13 @@ operator-supplied coordinates and are tagged `user-verified`.
   real nearshore: shallowest wet depth went 21→2 m at Playa Maderas, 15→4 m at Tangalle.
   The `land_samples` warning that follows is usually just GEBCO's ~450 m beach cell, which
   the march drops - judge on shallowest WET depth (JUDGING.md), not the warning.
+- **Two of `bathy`'s four warnings are geometry, not errors** (added 2026-08-15):
+  `N sample(s) deeper than the one before` and `deepest wet sample is not the 18 km reference`
+  describe the seabed, not a mistake you made - 87/199 committed rays trip the first and
+  17/199 the second, on shelves, banks and canyons. Do NOT chase them by re-aiming a
+  shore normal; the march skips such samples itself. They are worth reading only as a
+  hint that the ray crosses complicated ground. `land_samples` and `missing_samples` are
+  the two that actually mean "check something".
 - **A moved pin invalidates its angles.** Two spots this sweep aimed their depth ray and
   their sample point at different seas after moving (tangalle 51 deg apart, miura marched 5
   samples up a headland); `test_seaward_directions_agree_with_each_other` caught both. Always
