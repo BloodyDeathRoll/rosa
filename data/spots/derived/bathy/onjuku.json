@@ -2,68 +2,69 @@
   "spot": "onjuku",
   "source": "gebco2020 via opentopodata",
   "origin": [
-    35.1845,
-    140.3525
+    35.1808,
+    140.3556
   ],
   "bearing_seaward_deg": 160.0,
-  "nearshore_depth_m": -3.0,
-  "offshore_depth_m": 220.0,
-  "mean_slope_m_per_km": 12.56,
-  "land_samples": 1,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 230.0,
+  "mean_slope_m_per_km": 12.39,
+  "land_samples": 0,
+  "missing_samples": 0,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 35.18239,
-      "lon": 140.35344,
-      "depth_m": -3.0
+      "lat": 35.17869,
+      "lon": 140.35654,
+      "depth_m": 10.0
     },
     {
       "dist_km": 0.5,
-      "lat": 35.18027,
-      "lon": 140.35438,
-      "depth_m": 3.0
-    },
-    {
-      "dist_km": 1.0,
-      "lat": 35.17605,
-      "lon": 140.35626,
+      "lat": 35.17657,
+      "lon": 140.35748,
       "depth_m": 11.0
     },
     {
+      "dist_km": 1.0,
+      "lat": 35.17235,
+      "lon": 140.35936,
+      "depth_m": 14.0
+    },
+    {
       "dist_km": 2.0,
-      "lat": 35.1676,
-      "lon": 140.36003,
-      "depth_m": 17.0
+      "lat": 35.1639,
+      "lon": 140.36312,
+      "depth_m": 16.0
     },
     {
       "dist_km": 3.0,
-      "lat": 35.15915,
-      "lon": 140.36379,
-      "depth_m": 20.0
+      "lat": 35.15545,
+      "lon": 140.36689,
+      "depth_m": 23.0
     },
     {
       "dist_km": 5.0,
-      "lat": 35.14224,
-      "lon": 140.37131,
-      "depth_m": 36.0
+      "lat": 35.13854,
+      "lon": 140.37441,
+      "depth_m": 35.0
     },
     {
       "dist_km": 8.0,
-      "lat": 35.11689,
-      "lon": 140.38258,
-      "depth_m": 75.0
+      "lat": 35.11319,
+      "lon": 140.38568,
+      "depth_m": 77.0
     },
     {
       "dist_km": 12.0,
-      "lat": 35.08308,
-      "lon": 140.3976,
-      "depth_m": 119.0
+      "lat": 35.07938,
+      "lon": 140.4007,
+      "depth_m": 126.0
     },
     {
       "dist_km": 18.0,
-      "lat": 35.03237,
-      "lon": 140.42012,
-      "depth_m": 220.0
+      "lat": 35.02867,
+      "lon": 140.42321,
+      "depth_m": 230.0
     }
   ]
 }
