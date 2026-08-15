@@ -1,13 +1,17 @@
 """CLI: run --all publishes every spot with one fetch per unique offshore point."""
 
+import dataclasses
 import json
+from datetime import UTC, datetime
 from pathlib import Path
 
 import pytest
 
-from rosa_pipeline.cli import group_by_point, main
-from rosa_pipeline.models import Spot
+from rosa_pipeline.cli import _implausible_break_hours, group_by_point, main
+from rosa_pipeline.models import HourForecast, Spot, SwellPartition
+from rosa_pipeline.score import score_hour
 from rosa_pipeline.spots import load_spots
+from rosa_pipeline.transform import in_window, spread_exposure
 
 FIXTURES = Path(__file__).parent / "fixtures"
 
@@ -300,3 +304,72 @@ def test_archive_fleet_batch_failure_degrades_not_raises(tmp_path, monkeypatch, 
     assert rc == 1
     assert "open-meteo batch failed" in err
     assert not (tmp_path / "archive").exists() or not list((tmp_path / "archive").glob("*.jsonl"))
+
+
+class TestImplausibleBreakGuard:
+    """The precompute-time sanity check on breaker MAGNITUDE.
+
+    Nothing between ``breaker_height_from_profile`` and the CDN inspects how big
+    ``h_break_mid`` is - correct by design, the transform is the authority. But Rosa
+    serves static JSON with no request-time backend, so a bad number ships to every
+    client for a whole cycle. This warns; it never clamps, so no rating can move.
+    """
+
+    SPOT = Spot(
+        id="test",
+        name="Test",
+        lat=32.0,
+        lon=34.8,
+        timezone="Asia/Jerusalem",
+        offshore_point=(32.2, 34.55),
+        offshore_direction=90.0,
+        shore_normal=270.0,
+        swell_window=(250.0, 340.0),
+        height_coeff=1.0,
+        break_type="beach",
+        ideal_wind_dir=(45.0, 135.0),
+        ideal_size_m=(0.6, 1.5),
+    )
+
+    def _scored(self, h_break_mid: float, partitions):
+        h = HourForecast(
+            time=datetime(2026, 8, 15, 6, tzinfo=UTC),
+            partitions=partitions,
+            sst_c=25.0,
+            wind_speed_kph=10.0,
+            wind_dir_deg=90.0,
+            wind_gusts_kph=None,
+        )
+        return dataclasses.replace(score_hour(self.SPOT, h), h_break_mid=h_break_mid)
+
+    def test_plausible_height_is_silent(self):
+        parts = (SwellPartition(height_m=2.0, period_s=10.0, direction_deg=290.0),)
+        assert _implausible_break_hours(self.SPOT, [self._scored(2.6, parts)]) == []
+
+    def test_implausible_height_is_reported(self):
+        parts = (SwellPartition(height_m=3.0, period_s=8.0, direction_deg=290.0),)
+        hits = _implausible_break_hours(self.SPOT, [self._scored(24.96, parts)])
+        assert len(hits) == 1
+        _iso, h_mid, sea = hits[0]
+        assert (h_mid, sea) == (24.96, 3.0)
+
+    def test_denominator_is_the_soft_window_not_the_hard_bearing_test(self):
+        """The physics weights every partition by sqrt(spread_exposure), so a train whose
+        fan only CLIPS the window still feeds the breaker. Measuring against the hard
+        in_window() test instead undercounts the sea and fired on 42 sound fleet hours."""
+        # 345 deg is outside (250, 340) but its directional fan still reaches the spot
+        p = SwellPartition(height_m=3.0, period_s=12.0, direction_deg=345.0)
+        assert not in_window(p.direction_deg, self.SPOT.swell_window)
+        assert spread_exposure(p, self.SPOT.swell_window) > 0
+        assert _implausible_break_hours(self.SPOT, [self._scored(4.0, (p,))]) == []
+
+    def test_flat_sea_rounding_artefact_does_not_fire(self):
+        """The fleet-wide max ratio on the committed capture is 2.012, at onjuku - 0.04 m
+        from a 0.02 m sea. That is arithmetic at the flat end, not a physics failure, so
+        the floor keeps it quiet; the defect this guards against produces tens of metres."""
+        parts = (SwellPartition(height_m=0.02, period_s=4.0, direction_deg=290.0),)
+        assert _implausible_break_hours(self.SPOT, [self._scored(0.04, parts)]) == []
+
+    def test_no_in_window_sea_has_nothing_to_compare_against(self):
+        parts = (SwellPartition(height_m=2.0, period_s=10.0, direction_deg=90.0),)
+        assert _implausible_break_hours(self.SPOT, [self._scored(5.0, parts)]) == []

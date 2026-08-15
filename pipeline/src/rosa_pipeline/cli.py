@@ -82,6 +82,7 @@ from .spectra import (
     render_report as render_spectra_report,
 )
 from .spots import load_spots
+from .transform import spread_exposure
 from .verify import (
     ECMWF_VARIABLES,
     ENERGY_PERIOD_VARIABLES,
@@ -110,6 +111,46 @@ FEEDBACK_DIR = Path("data/verify/feedback")
 BATHY_DIR = Path("data/spots/derived/bathy")  # committed per-spot depth profiles (Stage 2A)
 TIDE_DIR = Path("data/spots/derived/tide")  # committed per-spot EOT20 constants (plan C1)
 TIDE_GRIDS = Path("data/tide-src/ocean_tides")  # local EOT20 grids (gitignored, 2.1 GB)
+
+# A shoaling wave cannot break at an arbitrary multiple of the sea that made it. Nothing
+# between breaker_height_from_profile and the CDN inspects the MAGNITUDE of h_break - by
+# design, the transform is the authority - but Rosa precomputes and serves static JSON, so
+# a bad number ships to every client for a whole cycle with no request-time backend to catch
+# it. This is the only place it can be seen. It WARNS, never clamps: no payload key, no
+# rating moves, so it sits outside pb_0049's A/B gate.
+# Measured, not invented: over the committed capture (199 spots x 384 h = 76,416 scored
+# hours) the fleet-wide max of h_break_mid / (largest in-window partition height) is 2.012,
+# at onjuku - 0.04 m from a 0.02 m sea, a rounding artefact at the flat end. 0 hours exceed 3.
+IMPLAUSIBLE_BREAK_RATIO = 3.0
+# ...and below this the ratio is meaningless (see onjuku above): 0.04/0.02 is arithmetic, not
+# a physics failure. The finding this guards against produces tens of metres, not centimetres.
+IMPLAUSIBLE_BREAK_FLOOR_M = 0.5
+
+
+def _implausible_break_hours(spot: Spot, scored: list) -> list[tuple[str, float, float]]:
+    """(iso hour, h_break_mid, largest in-window partition height) for every scored hour whose
+    breaker height exceeds IMPLAUSIBLE_BREAK_RATIO x the sea that produced it. Report only."""
+    out = []
+    for s in scored:
+        if s.h_break_mid < IMPLAUSIBLE_BREAK_FLOOR_M:
+            continue
+        # "in window" here is spread_exposure > 0, NOT the hard in_window() bearing test:
+        # breaker_height_from_profile weights every partition by sqrt(spread_exposure), so a
+        # train whose fan clips the window still delivers energy. Using the hard test as the
+        # denominator undercounts the sea and fires on 42 perfectly sound hours.
+        # Unweighted height, deliberately: the bound asks what the LARGEST train that reaches
+        # this spot at all could possibly break as, so it must not be discounted first.
+        seas = [
+            p.height_m
+            for p in s.hour.partitions
+            if p.height_m > 0 and spread_exposure(p, spot.swell_window) > 0
+        ]
+        if not seas:
+            continue
+        largest = max(seas)
+        if s.h_break_mid > IMPLAUSIBLE_BREAK_RATIO * largest:
+            out.append((s.hour.time.isoformat(), s.h_break_mid, largest))
+    return out
 
 
 def _build_parser() -> argparse.ArgumentParser:
@@ -465,6 +506,7 @@ def _cmd_run(args: argparse.Namespace) -> int:
         raws = source.fetch_many(points)
 
     published = 0
+    implausible = 0
     failures: list[tuple[str, Exception]] = []
     tide_by_point: dict = {}
     if getattr(args, "tide_source", "om") == "eot20":
@@ -511,6 +553,12 @@ def _cmd_run(args: argparse.Namespace) -> int:
                 failures.append((spot.id, e))
                 print(f"error: {spot.id}: {e!r}", file=sys.stderr)
                 continue
+            for iso, h_mid, sea in _implausible_break_hours(spot, scored):
+                print(
+                    f"warn: {spot.id} {iso}: h_break_mid {h_mid:.2f} m from a {sea:.2f} m sea",
+                    file=sys.stderr,
+                )
+                implausible += 1
             current = payload["current"]
             published += 1
             print(
@@ -528,6 +576,14 @@ def _cmd_run(args: argparse.Namespace) -> int:
         removed = prune_index(set(spots), args.out)
         if removed:
             print(f"pruned {len(removed)} spot(s) no longer in the DB: {', '.join(removed)}")
+    if implausible:
+        # beside the failure summary, not inside it: a run that publishes an implausible
+        # height still publishes, so this is a signal to read - not a failed cycle.
+        print(
+            f"warn: {implausible} published hour(s) broke above "
+            f"{IMPLAUSIBLE_BREAK_RATIO:.0f}x their in-window sea (see warn lines above)",
+            file=sys.stderr,
+        )
     if failures:
         # Still a failed cycle for publish.sh's trap - but only after doing every piece of
         # work that could be done, prune included (it is keyed on the DB, not on this run's
@@ -1224,6 +1280,12 @@ def _cmd_bathy(args: argparse.Namespace) -> int:
             # a hole reads as `nan m` in the numbers above and was otherwise silent -
             # land_samples can't see it, so a whole sweep could hide one in 199 lines
             warns.append(f"{profile.missing_samples} sample(s) with no GEBCO elevation")
+        if profile.non_monotone_samples:
+            # the geometry the shoaling march's premise depends on, made visible: the ray
+            # is ordered by distance, not depth, so a shelf inside the reference is silent
+            warns.append(f"{profile.non_monotone_samples} sample(s) deeper than the one before")
+        if not profile.deepest_is_reference:
+            warns.append("deepest wet sample is not the 18 km reference")
         warn = f"  ⚠ {'; '.join(warns)}" if warns else ""
         print(
             f"{spot.id}: near {profile.nearshore_depth_m:.0f} m → offshore "
