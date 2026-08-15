@@ -118,10 +118,17 @@ TIDE_GRIDS = Path("data/tide-src/ocean_tides")  # local EOT20 grids (gitignored,
 # a bad number ships to every client for a whole cycle with no request-time backend to catch
 # it. This is the only place it can be seen. It WARNS, never clamps: no payload key, no
 # rating moves, so it sits outside pb_0049's A/B gate.
-# Measured, not invented: over the committed capture (199 spots x 384 h = 76,416 scored
-# hours) the fleet-wide max of h_break_mid / (largest in-window partition height) is 2.012,
-# at onjuku - 0.04 m from a 0.02 m sea, a rounding artefact at the flat end. 0 hours exceed 3.
-IMPLAUSIBLE_BREAK_RATIO = 3.0
+# Measured on LIVE fleet data, across both swell regimes - and 3.0 was wrong.
+# The committed capture is one Mediterranean point: short-period windswell, fleet-wide max
+# ratio 2.012, nothing above 3. A live `run --all` (199 spots, 16,961 published hours with a
+# usable sea) put 19 hours over 3 - every one of them a long-period Pacific groundswell on
+# Central America (Tp 14.9-17.9 s), e.g. puerto-sandino 1.30 m from a 0.40 m sea at Tp 17.5 s.
+# That is what a 17 s groundswell DOES when it shoals; the Med capture simply contains no
+# example of it. Live p99.9 is 2.95 and the true maximum is 3.25, so 4.0 clears real physics
+# with headroom while still catching the defect class this exists for - the 2026-08-15
+# refraction singularity produced 8x-57x (up to 192.7 m from a 4.0 m swell).
+# Re-derive this from a live fleet run, never from the fixture capture alone.
+IMPLAUSIBLE_BREAK_RATIO = 4.0
 # ...and below this the ratio is meaningless (see onjuku above): 0.04/0.02 is arithmetic, not
 # a physics failure. The finding this guards against produces tens of metres, not centimetres.
 IMPLAUSIBLE_BREAK_FLOOR_M = 0.5

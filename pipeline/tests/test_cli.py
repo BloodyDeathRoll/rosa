@@ -346,6 +346,14 @@ class TestImplausibleBreakGuard:
         parts = (SwellPartition(height_m=2.0, period_s=10.0, direction_deg=290.0),)
         assert _implausible_break_hours(self.SPOT, [self._scored(2.6, parts)]) == []
 
+    def test_long_period_groundswell_shoaling_is_not_an_alarm(self):
+        """The regime the committed Med capture does not contain. A live fleet run put 19
+        hours over 3x, every one a Pacific groundswell at Tp 14.9-17.9 s - real physics, not
+        a defect. Live max is 3.25x, so the threshold must clear it. This is puerto-sandino
+        2026-08-27T15:00 (1.30 m from a 0.40 m sea, Tp 17.5 s), the worst real case seen."""
+        parts = (SwellPartition(height_m=0.40, period_s=15.8, direction_deg=290.0),)
+        assert _implausible_break_hours(self.SPOT, [self._scored(1.30, parts)]) == []
+
     def test_implausible_height_is_reported(self):
         parts = (SwellPartition(height_m=3.0, period_s=8.0, direction_deg=290.0),)
         hits = _implausible_break_hours(self.SPOT, [self._scored(24.96, parts)])
