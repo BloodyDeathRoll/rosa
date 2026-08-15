@@ -24,27 +24,27 @@ spots:
   - { id: betset,            name: Betset Beach,           lat: 33.0805, lon: 35.1048, offshore_direction: 92, swell_window: [200, 355], <<: *il }  # sat-verified 2026-08-15 (kept)
   - { id: achziv,            name: Achziv Beach,           lat: 33.0443, lon: 35.099, offshore_direction: 106, swell_window: [205, 5], <<: *il }  # sat-verified 2026-08-15 (kept)
   - { id: nahariya,          name: Nahariya (Galei Galil), lat: 33.0108, lon: 35.0887, offshore_direction: 104, swell_window: [205, 5], <<: *il }  # sat-verified 2026-08-15 (kept)
-  - { id: shavei-tzion,      name: Shavei Tzion,           lat: 32.9826, lon: 35.0798, offshore_direction: 100, swell_window: [205, 10], <<: *il }  # google-geocoded
+  - { id: shavei-tzion,      name: Shavei Tzion,           lat: 32.9826, lon: 35.0798, offshore_direction: 100, swell_window: [205, 10], <<: *il }  # sat-verified 2026-08-15 (kept)
   - { id: akko-argaman,      name: Argaman (Akko),         lat: 32.9156, lon: 35.0787, offshore_direction: 70, <<: *il }  # sat-verified 2026-08-15 (kept) -- offshore_direction TODO-verify (headland)
   - { id: kiryat-yam,        name: Kiryat Yam (Zevulun),   lat: 32.8495, lon: 35.0623, offshore_direction: 114, swell_window: [255, 5], <<: *il }  # sat-verified 2026-08-15 (kept) -- offshore_direction TODO-verify (headland)
   - { id: bat-galim,         name: Bat Galim,              lat: 32.8347, lon: 34.9778, offshore_direction: 164, <<: *il, swell_window: [255, 65] }  # sat-verified 2026-08-15 -- offshore_direction TODO-verify (headland)
   - { id: backdoor-haifa,    name: Backdoor (Haifa),       lat: 32.8325, lon: 34.9689, offshore_direction: 163, <<: *il, swell_window: [253, 70] }  # sat-verified 2026-08-15 -- offshore_direction TODO-verify (headland)
   - { id: dado,              name: Dado (Haifa),           lat: 32.7936, lon: 34.9546, offshore_direction: 96, swell_window: [195, 0], <<: *il }  # sat-verified 2026-08-15 (kept)
   - { id: atlit,             name: Atlit Beach,            lat: 32.7084, lon: 34.9408, offshore_direction: 126, swell_window: [216, 5], <<: *il }  # sat-verified 2026-08-15 (kept)
-  - { id: neve-yam,          name: Neve Yam,               lat: 32.679, lon: 34.9256, offshore_direction: 82, swell_window: [185, 352], <<: *il }  # google-geocoded
+  - { id: neve-yam,          name: Neve Yam,               lat: 32.679, lon: 34.9256, offshore_direction: 82, swell_window: [185, 352], <<: *il }  # sat-verified 2026-08-15 (kept)
   - { id: habonim,           name: HaBonim,                lat: 32.6566, lon: 34.9262, offshore_direction: 96, swell_window: [195, 6], <<: *il }  # sat-verified 2026-08-15 (kept)
   - { id: nahsholim,         name: Nahsholim,              lat: 32.6137, lon: 34.9165, offshore_direction: 95, swell_window: [195, 5], <<: *il }  # sat-verified 2026-08-15
   - { id: dor,               name: Dor,                    lat: 32.6072, lon: 34.9160, offshore_direction: 86, swell_window: [185, 356], <<: *il }  # sat-verified 2026-08-15
   # ---- central ----
   - { id: caesarea-aqueduct, name: Caesarea Aqueduct,      lat: 32.5139, lon: 34.8936, offshore_direction: 106, swell_window: [196, 10], <<: *il }  # sat-verified 2026-08-15 (kept)
-  - { id: sdot-yam,          name: Sdot Yam / Caesarea,    lat: 32.4926, lon: 34.8867, offshore_direction: 90, swell_window: [195, 0], <<: *il }  # google-geocoded
+  - { id: sdot-yam,          name: Sdot Yam / Caesarea,    lat: 32.4926, lon: 34.8867, offshore_direction: 90, swell_window: [195, 0], <<: *il }  # sat-verified 2026-08-15 (kept)
   - { id: olga,              name: Olga Beach,             lat: 32.4391, lon: 34.8780, offshore_direction: 103, swell_window: [200, 5], <<: *il }  # sat-verified 2026-07-20 (current was offshore; google beach POI on coast)
   - { id: michmoret,         name: Michmoret (Kushi),      lat: 32.4081, lon: 34.8620, offshore_direction: 107, swell_window: [197, 10], <<: *il }  # sat-verified 2026-08-15
   - { id: beit-yanai,        name: Beit Yanai,             lat: 32.3817, lon: 34.8612, offshore_direction: 102, swell_window: [210, 5], offshore_bearing: 270.0, offshore_km: 5.42, <<: *il }  # sat-verified 2026-08-15 (was ~700 m inland; offshore_bearing/km pin the sample point at 32.3817,34.8035 = the committed fixture key, so the calibration baseline is unchanged - CALIBRATION.md 2026-08-15)
   - { id: manao-neurim,      name: Manao Neurim,           lat: 32.36589, lon: 34.85736, offshore_direction: 102, swell_window: [200, 5], <<: *il }  # user-verified 2026-07-25 -- offshore_direction from neighbours
   - { id: netanya-sironit,   name: Sironit (Netanya),      lat: 32.3266, lon: 34.8456, offshore_direction: 102, swell_window: [200, 10], <<: *il }  # sat-verified 2026-08-15 (kept)
   - { id: kontiki,           name: Kontiki (Netanya),      lat: 32.3024, lon: 34.8438, offshore_direction: 103, swell_window: [200, 5], <<: *il }  # sat-verified 2026-08-15 (Argaman beach)
-  - { id: poleg,             name: Poleg Beach,            lat: 32.2737, lon: 34.83, offshore_direction: 102, swell_window: [200, 10], <<: *il }  # google-geocoded
+  - { id: poleg,             name: Poleg Beach,            lat: 32.2737, lon: 34.83, offshore_direction: 102, swell_window: [200, 10], <<: *il }  # sat-verified 2026-08-15 (kept)
   - { id: gaash,             name: Ga'ash,                 lat: 32.23, lon: 34.8205, offshore_direction: 106, swell_window: [200, 10], <<: *il }  # sat-verified 2026-08-15
   - { id: sidna-ali,         name: Sidna Ali,              lat: 32.1960, lon: 34.8035, offshore_direction: 107, swell_window: [197, 10], <<: *il }  # user-verified 2026-07-19
   - { id: kshatot,           name: Kshatot,                lat: 32.18111, lon: 34.80228, offshore_direction: 107, swell_window: [197, 5], <<: *il }  # user-verified 2026-07-25 -- offshore_direction from neighbours
