@@ -1850,7 +1850,7 @@ handshake timeouts mid-run while single requests succeeded in 0.3 s, and the fix
 first live run needed and survived exactly one such retry. HTTP-level handling (the
 ensemble-429 degrade) is unchanged.
 
-## 2026-08-15 - beit-yanai's pin is ~700 m INLAND, and the move is HELD
+## 2026-08-15 - beit-yanai's pin was ~700 m INLAND; MOVED, sample point pinned, score-neutral
 
 Found in the Israel sat-verification batch: the `beit-yanai` pin sits in the village,
 about 700 m east of the water. **This is not new and not an oversight** - the 2026-07-22
@@ -1874,8 +1874,22 @@ of the pin, i.e. genuinely offshore in open water, so the forecast Beit Yanai se
 sampled from the sea - it is the MAP DOT and the derived geometry that are wrong, not the
 wave data. That is why this has been survivable.
 
-**To resolve properly, in one change (not started):** move the pin to the waterline,
-re-derive `offshore_bearing`/`offshore_km` so the sample point lands where it does today
-(keeping the fixture key stable is the cheap version), re-cut bathy + tide, and re-run the
-Israel calibration frames to confirm the constants still hold. Until then the pin stays,
-annotated in `israel.yaml` so the next sat pass doesn't re-propose it blind.
+**RESOLVED the same day, exactly that way.** Pin moved 34.8635 -> **34.8612**, the
+waterline read off a z16 tile and confirmed at z16 before adopting. To keep the sample
+point fixed, the spot gained `offshore_bearing: 270.0` + `offshore_km: 5.42`, solved
+against `bathymetry.destination` so the derived point is **(32.3817, 34.8035) exactly** -
+byte-identical to the committed fixture key, so `test_pipeline_end_to_end` and every
+offline replay keep their input untouched.
+
+**The bathy profile still moved, because it is cast from the PIN, not the sample point** -
+nearshore depth 15 m -> 23 m. So the move was A/B'd like any scoring change, same captured
+fixture, old profile vs new: **127 paired hours, 0 rating moves, 0 bucket changes, 0.000 m
+height delta.** The reason it is exactly neutral is worth recording: GEBCO's ~450 m cells
+bottom this profile out at 15/23 m, both far deeper than where a Med windswell actually
+breaks, so the shoaling march never consumes the changed samples - the difference sits
+below the resolution the physics can use. (Which is also why CLAUDE.md forbids appending
+invented shallow samples: the nearshore band simply is not measured here.)
+
+Net: the map dot and the derived geometry are now honest, the forecast and every published
+number are unchanged, and Israel's fitted constants keep their baseline. `swell_window`
+[210,5] held against a derived [200,5] - no objective fault, the adoption rule's HOLD.
