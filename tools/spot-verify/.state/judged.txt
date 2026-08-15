@@ -126,3 +126,5 @@ wellamadama	2026-08-15
 manhattan-beach	2026-08-15
 santa-monica	2026-08-15
 pipeline	2026-08-15
+ollies-point	2026-08-15
+witchs-rock	2026-08-15

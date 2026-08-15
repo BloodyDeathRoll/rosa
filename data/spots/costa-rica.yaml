@@ -42,8 +42,8 @@ caribbean: &carib
 spots:
   # ==== PACIFIC ====
   # ---- Guanacaste / North Nicoya (N→S) ----
-  - { id: ollies-point,       name: "Ollie's Point",          lat: 10.8425, lon: -85.8146, offshore_direction: 105, shore_normal: 250, break_type: point, swell_window: [160, 290], <<: *pac }  # approx - TODO verify (Santa Rosa NP, boat access; coord nudged seaward off the headland - GEBCO reads the headland itself as land, so a pin ON the point cuts a profile with no clean seaward bearing; sat pass 2026-08-04 could not settle the exact break)
-  - { id: witchs-rock,        name: "Witch's Rock (Naranjo)", lat: 10.803, lon: -85.723, offshore_direction: 75,  swell_window: [165, 295], <<: *pac }  # approx - TODO verify (Santa Rosa NP, boat access)
+  - { id: ollies-point,       name: "Ollie's Point",          lat: 10.8521, lon: -85.8001, offshore_direction: 105, shore_normal: 210, offshore_bearing: 210.0, offshore_km: 8.0, break_type: point, swell_window: [160, 290], <<: *pac }  # user-verified 2026-08-15 (Santa Rosa NP, boat access; operator pin on the point's waterline - supersedes the old seaward nudge and two sat passes that could not settle it)
+  - { id: witchs-rock,        name: "Witch's Rock (Naranjo)", lat: 10.7951, lon: -85.6810, offshore_direction: 75,  shore_normal: 265, offshore_bearing: 265.0, offshore_km: 7.0,  swell_window: [165, 295], <<: *pac }  # user-verified 2026-08-15 (Santa Rosa NP, boat access; operator pin at the Naranjo rivermouth break, the rock visible offshore SW)
   - { id: playa-grande,       name: "Playa Grande",           lat: 10.3291, lon: -85.8460, offshore_direction: 90,  swell_window: [185, 310], <<: *pac }  # sat-verified 2026-08-15
   - { id: tamarindo,          name: "Tamarindo",              lat: 10.2941, lon: -85.8537, offshore_direction: 70,  swell_window: [165, 340], <<: *pac }  # sat-verified 2026-08-15 (kept)
   - { id: playa-avellanas,    name: "Playa Avellanas",        lat: 10.2293, lon: -85.8381, offshore_direction: 80,  swell_window: [185, 350], <<: *pac }  # sat-verified 2026-08-15
