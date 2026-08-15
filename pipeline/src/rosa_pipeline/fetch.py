@@ -102,13 +102,39 @@ WEATHER_HOURLY = [
 MARINE_WAVE_FIELDS = ["wave_height", "wave_period", "wave_direction"]
 
 
+def retrying_get(client: httpx.Client, url: str, params: dict) -> httpx.Response:
+    """One GET with bounded retries on TRANSPORT errors (handshake/connect timeouts).
+
+    A fleet run spans minutes of network exposure, and one transient TLS handshake
+    timeout used to kill a whole run - four consecutive fleet captures died that way
+    on 2026-08-15 while single requests succeeded in 0.3 s, and the same class of
+    failure could sink the ESSENTIAL archive step on the VM. Shared by every
+    open-meteo fetch in this module. HTTP errors (429, 5xx) are NOT retried here:
+    each caller's own handling (the ensemble-429 degrade, raise_for_status) stays
+    authoritative for those."""
+    last: Exception | None = None
+    for attempt in range(3):
+        if attempt:
+            time.sleep(10.0 * attempt)
+        try:
+            return client.get(url, params=params)
+        except httpx.TransportError as e:
+            last = e
+            print(
+                f"warn: open-meteo transport error ({e!r}), retry {attempt + 1}/2",
+                file=sys.stderr,
+            )
+    raise last  # type: ignore[misc]  # loop always sets it before falling through
+
+
 def fetch_marine_waves(lat: float, lon: float, *, timeout_s: float = 30.0) -> dict:
     """Total sea-state marine forecast at one point, for buoy validation (roadmap Stage 0).
     Single best_match model (plain hourly keys); caller handles any capture/replay."""
     with httpx.Client(timeout=timeout_s) as client:
-        resp = client.get(
+        resp = retrying_get(
+            client,
             MARINE_URL,
-            params={
+            {
                 "latitude": f"{lat:g}",
                 "longitude": f"{lon:g}",
                 "hourly": ",".join(MARINE_WAVE_FIELDS),
@@ -131,9 +157,10 @@ def fetch_marine_waves_many(
     if not coords:
         return []
     with httpx.Client(timeout=timeout_s) as client:
-        resp = client.get(
+        resp = retrying_get(
+            client,
             MARINE_URL,
-            params={
+            {
                 "latitude": ",".join(f"{lat:g}" for lat, _ in coords),
                 "longitude": ",".join(f"{lon:g}" for _, lon in coords),
                 "hourly": ",".join(MARINE_WAVE_FIELDS),
@@ -155,9 +182,10 @@ def fetch_wind_many(coords: list[tuple[float, float]], *, timeout_s: float = 30.
     if not coords:
         return []
     with httpx.Client(timeout=timeout_s) as client:
-        resp = client.get(
+        resp = retrying_get(
+            client,
             WEATHER_URL,
-            params={
+            {
                 "latitude": ",".join(f"{lat:g}" for lat, _ in coords),
                 "longitude": ",".join(f"{lon:g}" for _, lon in coords),
                 "hourly": "wind_speed_10m,wind_direction_10m",
@@ -233,26 +261,7 @@ class OpenMeteoSource:
         return out
 
     def _get_retrying(self, client: httpx.Client, url: str, params: dict) -> httpx.Response:
-        """One GET with bounded retries on TRANSPORT errors (handshake/connect timeouts).
-
-        A fleet run spans minutes of network exposure across batches, and one transient
-        TLS handshake timeout used to kill the whole run - four consecutive capture
-        attempts died that way on 2026-08-15 while single requests succeeded in 0.3 s.
-        HTTP errors (429, 5xx) are NOT retried here: the callers' own handling (the
-        ensemble-429 degrade, raise_for_status) stays authoritative for those."""
-        last: Exception | None = None
-        for attempt in range(3):
-            if attempt:
-                time.sleep(10.0 * attempt)
-            try:
-                return client.get(url, params=params)
-            except httpx.TransportError as e:
-                last = e
-                print(
-                    f"warn: open-meteo transport error ({e!r}), retry {attempt + 1}/2",
-                    file=sys.stderr,
-                )
-        raise last  # type: ignore[misc]  # loop always sets it before falling through
+        return retrying_get(client, url, params)
 
     def _fetch_batch(self, coords: list[tuple[float, float]]) -> list[RawForecast]:
         common = {

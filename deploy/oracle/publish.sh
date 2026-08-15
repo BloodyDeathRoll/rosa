@@ -52,9 +52,14 @@ trap 'on_fail "${BASH_COMMAND} (line $LINENO)"' ERR
   git pull --ff-only origin main || echo "warn: git pull skipped - running local code"
   uv sync --project pipeline --quiet
 
-  # 1) ESSENTIAL - append the model's forecast at every registered buoy
-  #    (lead-time archive on this disk; the clock that can't be back-filled)
-  uv run --project pipeline rosa-pipeline archive
+  # 1) append the model's forecast at every registered buoy (lead-time archive on
+  #    this disk; the clock that can't be back-filled). ALERT-AND-CONTINUE, not
+  #    fatal (2026-08-15, closes OPEN-ITEMS item 9): the archive hour is lost
+  #    either way when this fails, so aborting the cycle turned one unrecoverable
+  #    loss into two - a daily-quota 429 here once kept cam fixes undeployed and
+  #    the public forecast stale for 12 h. The admin alert still fires so a
+  #    silent archive rot cannot creep in.
+  uv run --project pipeline rosa-pipeline archive || on_fail "archive (non-fatal - cycle continues)"
 
   # 2) refresh the per-spot forecasts
   uv run --project pipeline rosa-pipeline run --all

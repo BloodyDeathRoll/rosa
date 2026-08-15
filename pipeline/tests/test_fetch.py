@@ -77,9 +77,12 @@ def test_over_cap_coords_split_into_batches_and_lose_no_point():
     assert marine_request_sizes == [MARINE_BATCH_SIZE, 50]
 
 
-def test_transient_transport_error_is_retried_not_fatal(capsys):
+def test_transient_transport_error_is_retried_not_fatal(capsys, monkeypatch):
     # 2026-08-15: four consecutive fleet captures died on one TLS handshake timeout
     # mid-run - a single transient must cost a retry, never the whole batch
+    import rosa_pipeline.fetch as fetch_mod
+
+    monkeypatch.setattr(fetch_mod.time, "sleep", lambda _s: None)  # no real backoff in tests
     calls = {"n": 0}
 
     def handler(request: httpx.Request) -> httpx.Response:
