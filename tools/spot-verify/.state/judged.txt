@@ -20,3 +20,15 @@ playa-negra	2026-08-15
 punta-banco	2026-08-15
 salsa-brava	2026-08-15
 santa-teresa	2026-08-15
+ashkelon	2026-08-15
+backdoor-haifa	2026-08-15
+habonim	2026-08-15
+kontiki	2026-08-15
+palmachim	2026-08-15
+tel-baruch	2026-08-15
+zikim	2026-08-15
+achziv	2026-08-15
+akko-argaman	2026-08-15
+ashdod-lido	2026-08-15
+atlit	2026-08-15
+bat-galim	2026-08-15

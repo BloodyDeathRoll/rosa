@@ -2,68 +2,69 @@
   "spot": "bat-galim",
   "source": "gebco2020 via opentopodata",
   "origin": [
-    32.8373,
-    34.9788
+    32.8347,
+    34.9778
   ],
   "bearing_seaward_deg": 344.0,
-  "nearshore_depth_m": 8.0,
-  "offshore_depth_m": 125.0,
-  "mean_slope_m_per_km": 6.59,
-  "land_samples": 0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 126.0,
+  "mean_slope_m_per_km": 7.1,
+  "land_samples": 1,
+  "missing_samples": 0,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 32.83946,
-      "lon": 34.97806,
-      "depth_m": 8.0
+      "lat": 32.83686,
+      "lon": 34.97706,
+      "depth_m": -0.0
     },
     {
       "dist_km": 0.5,
-      "lat": 32.84162,
-      "lon": 34.97732,
-      "depth_m": 10.0
+      "lat": 32.83902,
+      "lon": 34.97632,
+      "depth_m": 7.0
     },
     {
       "dist_km": 1.0,
-      "lat": 32.84594,
-      "lon": 34.97585,
-      "depth_m": 15.0
+      "lat": 32.84334,
+      "lon": 34.97485,
+      "depth_m": 14.0
     },
     {
       "dist_km": 2.0,
-      "lat": 32.85459,
-      "lon": 34.9729,
-      "depth_m": 20.0
+      "lat": 32.85199,
+      "lon": 34.9719,
+      "depth_m": 19.0
     },
     {
       "dist_km": 3.0,
-      "lat": 32.86323,
-      "lon": 34.96995,
-      "depth_m": 23.0
+      "lat": 32.86063,
+      "lon": 34.96895,
+      "depth_m": 22.0
     },
     {
       "dist_km": 5.0,
-      "lat": 32.88052,
-      "lon": 34.96404,
-      "depth_m": 29.0
+      "lat": 32.87792,
+      "lon": 34.96304,
+      "depth_m": 28.0
     },
     {
       "dist_km": 8.0,
-      "lat": 32.90646,
-      "lon": 34.95518,
+      "lat": 32.90386,
+      "lon": 34.95418,
       "depth_m": 34.0
     },
     {
       "dist_km": 12.0,
-      "lat": 32.94103,
-      "lon": 34.94336,
-      "depth_m": 48.0
+      "lat": 32.93843,
+      "lon": 34.94236,
+      "depth_m": 47.0
     },
     {
       "dist_km": 18.0,
-      "lat": 32.9929,
-      "lon": 34.9256,
-      "depth_m": 125.0
+      "lat": 32.9903,
+      "lon": 34.9246,
+      "depth_m": 126.0
     }
   ]
 }
