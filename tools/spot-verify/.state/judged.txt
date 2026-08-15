@@ -72,3 +72,9 @@ moledo	2026-08-15
 molhe-leste	2026-08-15
 ofir	2026-08-15
 po-sport	2026-08-15
+po-spot	2026-08-15
+salema	2026-08-15
+viana-castelo	2026-08-15
+vila-ancora	2026-08-15
+praia-do-meco	2026-08-15
+sao-torpes	2026-08-15
