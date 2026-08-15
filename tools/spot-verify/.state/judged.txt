@@ -9,3 +9,14 @@ marbella	2026-08-04
 matapalo-osa	2026-08-04
 nosara-guiones	2026-08-04
 ostional	2026-08-04
+pavones	2026-08-15
+playa-avellanas	2026-08-15
+playa-bejuco	2026-08-15
+playa-bonita	2026-08-15
+playa-cocles	2026-08-15
+playa-grande	2026-08-15
+playa-hermosa-jaco	2026-08-15
+playa-negra	2026-08-15
+punta-banco	2026-08-15
+salsa-brava	2026-08-15
+santa-teresa	2026-08-15

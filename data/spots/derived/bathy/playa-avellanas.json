@@ -2,68 +2,69 @@
   "spot": "playa-avellanas",
   "source": "gebco2020 via opentopodata",
   "origin": [
-    10.2089,
-    -85.855
+    10.2293,
+    -85.8381
   ],
   "bearing_seaward_deg": 260.0,
-  "nearshore_depth_m": 16.0,
-  "offshore_depth_m": 460.0,
-  "mean_slope_m_per_km": 25.01,
-  "land_samples": 0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 230.0,
+  "mean_slope_m_per_km": 12.96,
+  "land_samples": 1,
+  "missing_samples": 0,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 10.20851,
-      "lon": -85.85725,
-      "depth_m": 16.0
+      "lat": 10.22891,
+      "lon": -85.84035,
+      "depth_m": -0.0
     },
     {
       "dist_km": 0.5,
-      "lat": 10.20812,
-      "lon": -85.8595,
-      "depth_m": 25.0
+      "lat": 10.22852,
+      "lon": -85.8426,
+      "depth_m": 6.0
     },
     {
       "dist_km": 1.0,
-      "lat": 10.20734,
-      "lon": -85.864,
-      "depth_m": 36.0
+      "lat": 10.22774,
+      "lon": -85.8471,
+      "depth_m": 12.0
     },
     {
       "dist_km": 2.0,
-      "lat": 10.20578,
-      "lon": -85.873,
-      "depth_m": 46.0
+      "lat": 10.22618,
+      "lon": -85.8561,
+      "depth_m": 18.0
     },
     {
       "dist_km": 3.0,
-      "lat": 10.20421,
-      "lon": -85.882,
-      "depth_m": 38.0
+      "lat": 10.22461,
+      "lon": -85.8651,
+      "depth_m": 20.0
     },
     {
       "dist_km": 5.0,
-      "lat": 10.20109,
-      "lon": -85.89999,
-      "depth_m": 49.0
+      "lat": 10.22149,
+      "lon": -85.8831,
+      "depth_m": 15.0
     },
     {
       "dist_km": 8.0,
-      "lat": 10.1964,
-      "lon": -85.92699,
-      "depth_m": 85.0
+      "lat": 10.2168,
+      "lon": -85.91009,
+      "depth_m": 55.0
     },
     {
       "dist_km": 12.0,
-      "lat": 10.19014,
-      "lon": -85.96298,
-      "depth_m": 156.0
+      "lat": 10.21054,
+      "lon": -85.94609,
+      "depth_m": 69.0
     },
     {
       "dist_km": 18.0,
-      "lat": 10.18075,
-      "lon": -86.01697,
-      "depth_m": 460.0
+      "lat": 10.20115,
+      "lon": -86.00008,
+      "depth_m": 230.0
     }
   ]
 }
