@@ -156,5 +156,7 @@ matures → D1 → B1-B4 → C2 → C3 → C4 → D2-D4 region by region.**
   (part 5): both sources' 10 m wind now archives at every buoy each cycle, paired
   against the anemometers - the C3 decision becomes a measurement in a few weeks.
   Interim C3 posture: keep OM weather (1.2 units/pt; ceiling ~3,000 spots).
-  Next: C1-switch A/B (quota resets 00:00Z), A4 wait + C3 wind verdict, then D2-D3
-  promotion region by region.
+  **C1-switch FLIPPED 2026-08-15** on its
+  fleet A/B (max rating delta 1, 10,283 tail hours gain tide - CALIBRATION.md
+  2026-08-15): tide is EOT20 by default, quota-free, full-horizon. Remaining: A4 wait
+  + C3 wind verdict, then D2-D3 promotion region by region.

@@ -146,12 +146,13 @@ def _build_parser() -> argparse.ArgumentParser:
     run.add_argument(
         "--tide-source",
         choices=["om", "eot20"],
-        default="om",
-        help="om (default): Open-Meteo's sea_level_height_msl, the shipped path. "
-        "eot20: synthesise tide locally from the committed per-spot EOT20 constants "
-        "(fetch-plane plan C1-switch) - fills the day-10-16 tail the OM field leaves "
-        "null. The A/B arm; the default flips only with its pb_0049 evidence "
-        "(tide feeds score depths)",
+        default="eot20",
+        help="eot20 (default since 2026-08-15): tide synthesised locally from the "
+        "committed per-spot EOT20 constants - zero quota, and it fills the day-10-16 "
+        "tail the OM field leaves null. Flipped on its same-input fleet A/B "
+        "(CALIBRATION.md 2026-08-15: 199 spots, max rating delta 1, 3 bucket-change "
+        "hours, 10,283 tail hours gained tide). om: the pre-flip Open-Meteo field - "
+        "kept as the fallback arm and for A/B replays",
     )
     run.add_argument(
         "--wave-source",

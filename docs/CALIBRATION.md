@@ -1828,3 +1828,24 @@ regions that can move are the 2.5-3 m-range coasts (Portugal, Costa Rica, Japan)
 the fleet-wide same-input A/B needs a fresh `run --all --capture` after the quota reset
 (00:00Z). The flip - default om -> eot20, and dropping sea_level from the blend arm's
 light request - lands in ONE change with that A/B and its entry here, per pb_0049.
+
+## 2026-08-15 - C1-switch FLIPPED: tide is EOT20 by default (the pb_0049 A/B)
+
+**Same-input fleet A/B, 199 spots**: one live captured cycle (2026-08-15 ~05:30Z),
+replayed offline through both arms with identical inputs and `--skill /dev/null`.
+Result: **mean |rating delta| 0.001, maximum 1 point anywhere in the fleet, 17 spots
+moved at all (each by exactly 1 at their worst hour), 3 bucket-change hours out of
+~25,000** - the breaker march barely notices a <=0.8 m water-level offset at surf
+depths. Gain: **10,283 hours - the entire day-10-16 tail, fleet-wide - newly carry a
+tide value** (the OM field is null past day ~9), so the tide curve and tide windows now
+cover the whole horizon. `run --tide-source` default om -> eot20; `om` stays as the
+fallback arm. The blend arm's light marine request keeps `sea_level_height_msl`: at 2
+variables the request weight is already at its floor of 1, so dropping the field saves
+nothing and keeps a live fallback for a spot whose constants file ever goes missing.
+The VM installs pyTMD itself (publish.sh runs `uv sync` every cycle).
+
+Also shipped with the same evidence run: `OpenMeteoSource` now retries TRANSPORT
+errors (3 tries, backoff) - four consecutive fleet captures had died on single TLS
+handshake timeouts mid-run while single requests succeeded in 0.3 s, and the fix's
+first live run needed and survived exactly one such retry. HTTP-level handling (the
+ensemble-429 degrade) is unchanged.
