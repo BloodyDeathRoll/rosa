@@ -26,6 +26,13 @@ function HowItWorks() {
               ECMWF and NOAA).
             </li>
             <li>
+              <b>ECMWF</b> and <b>NOAA</b> open data directly, for wave detail and sea temperature.
+            </li>
+            <li>
+              <b>EOT20</b> tide harmonics, so every spot gets a real tide curve for the whole
+              forecast.
+            </li>
+            <li>
               <b>GEBCO</b> for the shape of the seabed near each spot.
             </li>
             <li>
@@ -199,8 +206,10 @@ function ReadingTheForecast() {
       <h2>Tide</h2>
       <p>
         The height of the water against its average level, hour by hour, with the high and low
-        marked. This is the <b>total</b> water level: the astronomical tide plus whatever the
-        weather is pushing on top of it.
+        marked, for the full forecast - even two weeks out. This is the <b>astronomical</b> tide,
+        computed from each spot's own harmonic constants (the same maths behind a printed tide
+        table). It does not include what the weather pushes on top - storm surge can sit above or
+        below it by a few tens of centimetres.
       </p>
       <p>
         How much it matters depends entirely on where you are. On the Mediterranean the tide moves
@@ -319,7 +328,19 @@ function Privacy() {
       <ul class="about-links">
         <li>
           <a href="https://open-meteo.com" target="_blank" rel="noopener noreferrer">Open-Meteo</a> ·
-          wave and weather forecasts
+          wave and weather forecasts (CC-BY 4.0)
+        </li>
+        <li>
+          <a href="https://www.ecmwf.int/en/forecasts/datasets/open-data" target="_blank" rel="noopener noreferrer">ECMWF open data</a> ·
+          wave spectra and forecasts (CC-BY 4.0)
+        </li>
+        <li>
+          <a href="https://www.noaa.gov" target="_blank" rel="noopener noreferrer">NOAA</a> ·
+          wave forecasts, sea temperature, and buoy observations
+        </li>
+        <li>
+          <a href="https://doi.org/10.17882/79489" target="_blank" rel="noopener noreferrer">EOT20</a> ·
+          tide model (Hart-Davis et al., SEANOE, CC-BY 4.0)
         </li>
         <li>
           <a href="https://www.gebco.net" target="_blank" rel="noopener noreferrer">GEBCO</a> ·

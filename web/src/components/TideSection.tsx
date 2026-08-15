@@ -2,7 +2,8 @@ import { dateOf } from "../format";
 import type { HourEntry } from "../types";
 
 /** Real tide curve for the selected day, from the pipeline's per-hour `tide`
-    series (total water level vs MSL - Open-Meteo SMOC; null beyond ~day 9).
+    series (astronomical tide vs MSL - EOT20 harmonics since 2026-08-15, covering
+    the FULL horizon; pre-flip payloads carried Open-Meteo SMOC, null past ~day 9).
     Replaces the session-3 mock M2 sine. Samples are 3-hourly, so the curve is
     Catmull-Rom-smoothed and high/low times are parabolically refined between
     neighbours. Med spots are micro-tidal (~0.15 m) - the header says so bluntly;
@@ -115,7 +116,9 @@ export function TideSection({
       <div class="tide-sec">
         <div class="head">
           <span class="eyebrow">Tide</span>
-          <span class="note">beyond the tide-model horizon - no data yet</span>
+          {/* every fresh payload carries full-horizon tide (EOT20); this state now
+              only appears on a stale pre-2026-08-15 payload's far days */}
+          <span class="note">no tide data for this day</span>
         </div>
       </div>
     );

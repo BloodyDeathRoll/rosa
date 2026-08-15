@@ -15,7 +15,7 @@ from .models import ScoredHour, Spot, SpotCam
 from .spectral import consistency_score, missed_swells, parametric_spread_deg
 from .transform import energy_kj_per_m, in_window, partition_closure
 
-ATTRIBUTION = "Weather data by Open-Meteo.com (CC-BY 4.0)"
+ATTRIBUTION = "Weather data by Open-Meteo.com (CC-BY 4.0) · Tides: EOT20 (CC-BY 4.0)"
 ATTRIBUTION_ECMWF = "Wave spectra: ECMWF open data (CC-BY 4.0)"
 TABLE_DAYS = 16
 TABLE_STEP_H = 3
