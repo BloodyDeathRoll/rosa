@@ -984,6 +984,9 @@ def _cmd_feedback(args: argparse.Namespace) -> int:
     if args.report:
         records = records_from_rows(store.read("feedback"))
         print(render_report(summarize(records)))
+        from .feedback import render_wind_fit, wind_fit
+
+        print(render_wind_fit(wind_fit(records)))
         if args.markdown and records:
             print("\n" + markdown_rows(records))
         return 0

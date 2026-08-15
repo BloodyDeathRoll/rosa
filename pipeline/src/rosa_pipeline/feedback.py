@@ -99,6 +99,10 @@ def predicted_from_payload(payload: dict, at: datetime) -> dict:
         "bucket": src.get("bucket"),
         "h": src.get("h"),
         "phrase": src.get("phrase"),
+        # the hour's wind rides along so the wind-coefficient fit (below) can pair the
+        # surfer's observed height with the wind Rosa predicted for that hour - the
+        # automated route to WIND_BREAKER_COEFF, no one tasked with watching waves
+        "wind": src.get("wind"),
     }
 
 
@@ -136,6 +140,78 @@ def summarize(records: list[FeedbackRecord]) -> dict:
         "n_height": len(h_errs),
         "height_bias_m": (sum(h_errs) / len(h_errs)) if h_errs else None,
     }
+
+
+# the fit needs real wind and a real height on both sides; cross-shore rows carry no
+# usable normal component and calm rows carry no signal
+WIND_FIT_MIN_KPH = 20.0
+WIND_FIT_MIN_N = 12
+_GRAVITY = 9.81
+_GAMMA = 0.78  # breaker index - h_b/gamma approximates the breaking depth
+
+
+def wind_fit(records: list[FeedbackRecord]) -> dict:
+    """Estimate WIND_BREAKER_COEFF from the surfer 👍👎 stream - the automated path
+    to the wind knob (OPEN-ITEMS item 4), replacing the graded-frames requirement.
+
+    Model: observed_h = predicted_h x (1 + c*w), w = U_n/sqrt(g*h_b) with U_n signed
+    positive-offshore (physics.wind_breaker_factor's parameter). Each windy feedback
+    row (>= WIND_FIT_MIN_KPH, class onshore/offshore) yields one (ratio-1, w) pair;
+    least squares through the origin gives c and its standard error. The wind class
+    gates the sign, the full speed stands in for the normal component, and the
+    breaking depth is approximated as predicted h / gamma - crude, but every
+    approximation is the SAME crudeness the scorer would apply, so the fitted c is
+    calibrated for the formula that will consume it. Recording only: switching the
+    coefficient on stays a pb_0049 change (same-input A/B + CALIBRATION.md entry)."""
+    import math
+
+    pairs: list[tuple[float, float]] = []
+    for r in records:
+        obs = r.observed.get("h_mid")
+        pred = _mid(r.predicted.get("h"))
+        wind = r.predicted.get("wind") or {}
+        kph, cls = wind.get("kph"), wind.get("class")
+        if obs is None or pred is None or not pred or kph is None:
+            continue
+        if cls not in ("onshore", "offshore") or float(kph) < WIND_FIT_MIN_KPH:
+            continue
+        sign = 1.0 if cls == "offshore" else -1.0
+        u_n = sign * float(kph) / 3.6
+        depth = float(pred) / _GAMMA
+        w = u_n / math.sqrt(_GRAVITY * depth)
+        pairs.append((float(obs) / float(pred) - 1.0, w))
+    n = len(pairs)
+    if n == 0:
+        return {"n_windy": 0, "coeff": None, "stderr": None, "usable": False}
+    sw2 = sum(w * w for _, w in pairs)
+    c = sum(r * w for r, w in pairs) / sw2 if sw2 else 0.0
+    resid = [r - c * w for r, w in pairs]
+    stderr = math.sqrt(sum(e * e for e in resid) / (n - 1) / sw2) if n > 1 and sw2 else None
+    usable = n >= WIND_FIT_MIN_N and stderr is not None and abs(c) > 2 * stderr
+    return {
+        "n_windy": n,
+        "coeff": round(c, 4),
+        "stderr": round(stderr, 4) if stderr else None,
+        "usable": usable,
+    }
+
+
+def render_wind_fit(fit: dict) -> str:
+    n = fit["n_windy"]
+    if n == 0:
+        return (
+            "wind fit: no windy-hour rows yet (needs feedback on >=20 kph on/offshore "
+            "hours; accumulates on its own)"
+        )
+    line = f"wind fit: c = {fit['coeff']}"
+    if fit["stderr"] is not None:
+        line += f" +- {fit['stderr']}"
+    line += f" over {n} windy row(s)"
+    if fit["usable"]:
+        line += "  -> FITTABLE: run the pb_0049 A/B to switch WIND_BREAKER_COEFF on"
+    else:
+        line += f"  (needs n>={WIND_FIT_MIN_N} and |c| > 2*stderr before it means anything)"
+    return line
 
 
 def render_report(summary: dict) -> str:
