@@ -136,6 +136,37 @@ class TestBuildProfile:
         profile = build_profile(StubSource(elevs), make_spot())
         assert math.isnan(profile.samples[0].depth_m)
 
+    def test_monotone_ray_counts_nothing_and_reference_is_deepest(self):
+        elevs = [-2.0, -5.0, -10.0, -20.0, -30.0, -50.0, -80.0, -120.0, -180.0]
+        profile = build_profile(StubSource(elevs), make_spot())
+        assert profile.non_monotone_samples == 0
+        assert profile.deepest_is_reference
+
+    def test_non_monotone_samples_counted(self):
+        # a bank at 5 km and a canyon at 12 km: walking deep->shallow (= reversed), the
+        # 12 km sample is deeper than the 18 km reference and the 3 km one deeper than 5 km
+        elevs = [-2.0, -5.0, -10.0, -20.0, -60.0, -40.0, -80.0, -200.0, -180.0]
+        profile = build_profile(StubSource(elevs), make_spot())
+        assert profile.non_monotone_samples == 2
+        # ...and the deepest wet point (200 m at 12 km) is not the 18 km reference the
+        # shoaling march measures Ks/Kr from
+        assert not profile.deepest_is_reference
+
+    def test_deepest_is_reference_survives_a_tie(self):
+        # equal-depth samples are not a geometry fault - the march's reference is still
+        # as deep as anything on the ray
+        elevs = [-2.0, -5.0, -10.0, -20.0, -30.0, -50.0, -80.0, -180.0, -180.0]
+        profile = build_profile(StubSource(elevs), make_spot())
+        assert profile.deepest_is_reference
+
+    def test_land_samples_do_not_count_as_non_monotone(self):
+        # dry points are dropped before the walk, so a shore-end land sample cannot
+        # masquerade as a bank (wet_depths_deep_to_shallow filters depth_m > 0)
+        elevs = [5.0, 1.0, -10.0, -20.0, -30.0, -50.0, -80.0, -120.0, -180.0]
+        profile = build_profile(StubSource(elevs), make_spot())
+        assert profile.land_samples == 2
+        assert profile.non_monotone_samples == 0
+
 
 class TestDepthProfileDict:
     def test_to_dict_shape(self):
@@ -150,6 +181,10 @@ class TestDepthProfileDict:
         assert d["bearing_seaward_deg"] == 270.0
         assert len(d["samples"]) == len(RAY_DISTANCES_KM)
         assert set(d["samples"][0]) == {"dist_km", "lat", "lon", "depth_m"}
+        # the geometry QC counters are persisted beside land/missing so the committed DB
+        # can be grepped for them, the same way a land sample can be today
+        assert d["non_monotone_samples"] == 0
+        assert d["deepest_is_reference"] is True
 
 
 class TestProfileLoad:

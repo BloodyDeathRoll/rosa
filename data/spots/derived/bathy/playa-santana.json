@@ -10,6 +10,9 @@
   "offshore_depth_m": 71.0,
   "mean_slope_m_per_km": 4.06,
   "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,

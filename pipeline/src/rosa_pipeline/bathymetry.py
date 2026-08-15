@@ -19,6 +19,7 @@ grid replaces the API, add EMODnet attribution too.
 
 from __future__ import annotations
 
+import itertools
 import json
 import math
 import time
@@ -96,6 +97,29 @@ class DepthProfile:
         return sum(1 for s in self.samples if not math.isfinite(s.depth_m))
 
     @property
+    def non_monotone_samples(self) -> int:
+        """Count of wet samples DEEPER than the one before them, walking the march's own
+        input order (``wet_depths_deep_to_shallow``).
+
+        The third geometry fault, beside land and holes, and the one the physics is most
+        sensitive to: ``physics.breaker_height_over_profile`` conserves energy flux inward
+        from ``depths[0]`` and its docstring assumes the ray only gets shallower. It does
+        not - the order is by DISTANCE, not depth, so a shelf, a bank or a canyon inside
+        the 18 km reference puts a deeper sample after a shallower one. Report only; the
+        march skips such samples itself."""
+        wet = self.wet_depths_deep_to_shallow()
+        return sum(1 for prev, d in itertools.pairwise(wet) if d > prev)
+
+    @property
+    def deepest_is_reference(self) -> bool:
+        """Is the march's reference sample (``depths[0]``, the 18 km end) actually the
+        deepest wet point on the ray? False means ``depths[0]`` is not the deep-water
+        reference the shoaling march measures ``Ks``/``Kr`` from - a cheaper, blunter
+        flag than the counter above, and the one that matters for the reference itself."""
+        wet = self.wet_depths_deep_to_shallow()
+        return bool(wet) and wet[0] == max(wet)
+
+    @property
     def mean_slope_m_per_km(self) -> float:
         near, far = self.samples[0], self.samples[-1]
         span = far.dist_km - near.dist_km
@@ -168,6 +192,8 @@ class DepthProfile:
             "mean_slope_m_per_km": _round(self.mean_slope_m_per_km, 2),
             "land_samples": self.land_samples,
             "missing_samples": self.missing_samples,
+            "non_monotone_samples": self.non_monotone_samples,
+            "deepest_is_reference": self.deepest_is_reference,
             "samples": [
                 {
                     "dist_km": s.dist_km,
