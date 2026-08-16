@@ -106,6 +106,41 @@ def test_run_refuses_before_it_fetches(tmp_path, monkeypatch, capsys):
     assert not (tmp_path / "out").exists()
 
 
+def test_crashed_run_still_charges_the_ledger(tmp_path, monkeypatch):
+    """The spend is recorded BEFORE the fetch. A run that dies mid-fleet has spent real
+    vendor quota; on 2026-08-16 a clean-exits-only ledger under-counted and let a fifth
+    fleet run through into a certain daily-cap 429."""
+    from rosa_pipeline import cli
+
+    class Explodes:
+        def __init__(self, *a, **k):
+            pass
+
+        def fetch_many(self, points):
+            raise RuntimeError("mid-fleet 429")
+
+    monkeypatch.setattr(cli, "OpenMeteoSource", Explodes)
+    monkeypatch.setattr(cli, "EcmwfSource", Explodes)  # constructing it is fine; unused
+    state = tmp_path / "quota.json"
+    with pytest.raises(RuntimeError):
+        cli.main(
+            [
+                "run",
+                "--spot",
+                "beit-yanai",
+                "--spots-dir",
+                str(SPOTS_DIR),
+                "--quota-state",
+                str(state),
+                "--out",
+                str(tmp_path / "out"),
+                "--skill",
+                "/dev/null",
+            ]
+        )
+    assert quota.Ledger.load(state).spent == pytest.approx(quota.marine_units(1))
+
+
 def test_fixture_replay_is_exempt(tmp_path, monkeypatch):
     """An offline replay costs no quota, so a spent day must not stop the tests, the
     same-input A/B, or an operator debugging on a plane."""

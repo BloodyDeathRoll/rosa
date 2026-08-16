@@ -482,8 +482,13 @@ def _cmd_run(args: argparse.Namespace) -> int:
     # Daily-quota guard (rosa_pipeline.quota), live path only - a fixture replay costs
     # nothing and has to stay runnable on a spent day. This sits ahead of EVERY fetch,
     # including ECMWF's: a run that is going to be refused should not spend someone else's
-    # bandwidth on the way to refusing. The spend is recorded after the Open-Meteo fetch
-    # returns, so the request either happens and is paid for or does not happen at all.
+    # bandwidth on the way to refusing. The spend is recorded BEFORE the fetch, not after:
+    # a run that dies mid-fleet has still spent real vendor quota, and a ledger that only
+    # counts clean exits under-counts exactly on the bad days - on 2026-08-16 that let a
+    # fifth fleet run through into a certain daily-cap 429. Pre-charging can only ever
+    # over-count (a refused-or-crashed run's partial spend is rounded up to a full one),
+    # which errs toward refusing - the failure mode that costs a stale-but-serving payload
+    # instead of a failed cycle.
     om_arm = getattr(args, "wave_source", "om") != "blend"
     ledger: quota.Ledger | None = None
     if args.fixtures is None and om_arm:
@@ -492,6 +497,7 @@ def _cmd_run(args: argparse.Namespace) -> int:
         if not ledger.affords(planned) and not args.ignore_quota:
             print(ledger.refusal(planned), file=sys.stderr)
             return quota.EXIT_QUOTA_EXHAUSTED
+        ledger.record(planned)
 
     # ECMWF spectral-lite member (Stage 3b) - guarded: an ECMWF outage must never sink
     # the forecast run. Offline replay (--fixtures) skips it unless --ecmwf-fixtures.
@@ -540,8 +546,6 @@ def _cmd_run(args: argparse.Namespace) -> int:
             else OpenMeteoSource(capture_dir=args.capture)
         )
         raws = source.fetch_many(points)
-        if ledger is not None:
-            ledger.record(quota.marine_units(len(points)))
 
     published = 0
     implausible = 0
