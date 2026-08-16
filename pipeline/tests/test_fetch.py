@@ -95,3 +95,82 @@ def test_transient_transport_error_is_retried_not_fatal(capsys, monkeypatch):
     raws = src.fetch_many(COORDS)
     assert len(raws) == len(COORDS)
     assert "transport error" in capsys.readouterr().err
+
+
+def test_transient_503_is_retried_not_fatal(capsys, monkeypatch):
+    # 2026-08-16: a lone 503 on the last of five weather batches killed the 08:20Z cycle
+    # after four minutes of successful paced fetching. A transient 5xx must cost a retry.
+    import rosa_pipeline.fetch as fetch_mod
+
+    monkeypatch.setattr(fetch_mod.time, "sleep", lambda _s: None)
+    calls = {"n": 0}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        calls["n"] += 1
+        if calls["n"] == 1:
+            return httpx.Response(503, text="Service Unavailable")
+        return httpx.Response(200, json=_body({"hourly": {"time": ["2026-08-16T00:00"]}}))
+
+    src = OpenMeteoSource(transport=httpx.MockTransport(handler), sleep_between_batches_s=0)
+    raws = src.fetch_many(COORDS)
+
+    assert len(raws) == len(COORDS)
+    assert "503" in capsys.readouterr().err
+
+
+def test_persistent_503_still_raises(monkeypatch):
+    """Bounded, not infinite - a host that is genuinely down must still fail the cycle."""
+    import rosa_pipeline.fetch as fetch_mod
+
+    monkeypatch.setattr(fetch_mod.time, "sleep", lambda _s: None)
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(503, text="Service Unavailable")
+
+    src = OpenMeteoSource(transport=httpx.MockTransport(handler), sleep_between_batches_s=0)
+    with pytest.raises(httpx.HTTPStatusError):
+        src.fetch_many(COORDS)
+
+
+def test_minutely_429_on_an_essential_request_is_waited_out(monkeypatch):
+    """The minutely cap reopens by itself, so the marine request waits rather than dying."""
+    import rosa_pipeline.fetch as fetch_mod
+
+    waits: list[float] = []
+    monkeypatch.setattr(fetch_mod.time, "sleep", lambda s: waits.append(s))
+    calls = {"n": 0}
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        if _is_ensemble(request):
+            return httpx.Response(200, json=_body({"hourly": {"time": ["2026-08-16T00:00"]}}))
+        calls["n"] += 1
+        if calls["n"] == 1:
+            return httpx.Response(
+                429,
+                json={"error": True, "reason": "Minutely API request limit exceeded."},
+            )
+        return httpx.Response(200, json=_body({"hourly": {"time": ["2026-08-16T00:00"]}}))
+
+    src = OpenMeteoSource(transport=httpx.MockTransport(handler), sleep_between_batches_s=0)
+    raws = src.fetch_many(COORDS)
+
+    assert len(raws) == len(COORDS)
+    assert waits == [fetch_mod._MINUTE_RETRY_WAIT_S]
+
+
+def test_daily_quota_429_is_not_waited_out(monkeypatch):
+    """The daily bucket does not reopen until 00:00Z - the quota guard owns this, not a retry."""
+    import rosa_pipeline.fetch as fetch_mod
+
+    waits: list[float] = []
+    monkeypatch.setattr(fetch_mod.time, "sleep", lambda s: waits.append(s))
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(
+            429, json={"error": True, "reason": "Daily API request limit exceeded."}
+        )
+
+    src = OpenMeteoSource(transport=httpx.MockTransport(handler), sleep_between_batches_s=0)
+    with pytest.raises(httpx.HTTPStatusError):
+        src.fetch_many(COORDS)
+    assert waits == []

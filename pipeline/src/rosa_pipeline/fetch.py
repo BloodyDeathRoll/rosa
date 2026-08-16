@@ -113,29 +113,84 @@ WEATHER_HOURLY = [
 MARINE_WAVE_FIELDS = ["wave_height", "wave_period", "wave_direction"]
 
 
-def retrying_get(client: httpx.Client, url: str, params: dict) -> httpx.Response:
-    """One GET with bounded retries on TRANSPORT errors (handshake/connect timeouts).
+# Transient server-side failures worth a second look. A single one of these used to
+# kill a whole cycle: a 503 on the last of five weather batches sank the 2026-08-16
+# 08:20Z run after four minutes of successful paced fetching.
+RETRY_STATUS = frozenset({500, 502, 503, 504})
+
+# Open-Meteo names the bucket that tripped in the 429 body. ONLY the minutely cap is
+# worth waiting out - it reopens by itself inside a minute. The hourly and daily buckets
+# do not, so waiting on them just burns cycle wall-clock in front of a failure
+# `rosa_pipeline.quota` already handles. A 429 we cannot positively identify as the
+# minutely cap is therefore not retried.
+_MINUTE_LIMIT_MARKER = "minutely api request limit"
+_MINUTE_RETRY_WAIT_S = 65.0
+
+
+def _retry_wait_s(resp: httpx.Response, attempt: int) -> float | None:
+    """Seconds to wait before retrying this response, or None if it is not retryable."""
+    if resp.status_code in RETRY_STATUS:
+        return 10.0 * (attempt + 1)
+    if resp.status_code == 429:
+        try:
+            reason = str(resp.json().get("reason", ""))
+        except Exception:  # a non-JSON 429 is simply unclassifiable
+            return None
+        return _MINUTE_RETRY_WAIT_S if _MINUTE_LIMIT_MARKER in reason.lower() else None
+    return None
+
+
+def retrying_get(
+    client: httpx.Client, url: str, params: dict, *, retry_429: bool = False
+) -> httpx.Response:
+    """One GET with bounded retries on transport errors and transient HTTP failures.
 
     A fleet run spans minutes of network exposure, and one transient TLS handshake
     timeout used to kill a whole run - four consecutive fleet captures died that way
     on 2026-08-15 while single requests succeeded in 0.3 s, and the same class of
-    failure could sink the ESSENTIAL archive step on the VM. Shared by every
-    open-meteo fetch in this module. HTTP errors (429, 5xx) are NOT retried here:
-    each caller's own handling (the ensemble-429 degrade, raise_for_status) stays
-    authoritative for those."""
-    last: Exception | None = None
+    failure could sink the ESSENTIAL archive step on the VM.
+
+    5xx is retried for every caller (2026-08-16: a lone 503 on the last of five weather
+    batches killed a cycle). 429 is retried only when `retry_429` is set - i.e. on the
+    two ESSENTIAL requests - and then only for the minutely cap, which clears by itself.
+    An hourly- or daily-bucket 429 is never retried: `rosa_pipeline.quota` is the
+    designed handler and those buckets do not reopen in time to help. The expendable
+    ensemble request leaves `retry_429` off so its documented degrade-to-horizon-proxy
+    path stays immediate.
+
+    Exhausted HTTP retries return the last response, so each caller's own handling
+    (the ensemble-429 degrade, raise_for_status) stays authoritative."""
+    last_exc: Exception | None = None
+    last_resp: httpx.Response | None = None
     for attempt in range(3):
-        if attempt:
-            time.sleep(10.0 * attempt)
         try:
-            return client.get(url, params=params)
+            resp = client.get(url, params=params)
         except httpx.TransportError as e:
-            last = e
+            last_exc = e
             print(
                 f"warn: open-meteo transport error ({e!r}), retry {attempt + 1}/2",
                 file=sys.stderr,
             )
-    raise last  # type: ignore[misc]  # loop always sets it before falling through
+            if attempt < 2:
+                time.sleep(10.0 * (attempt + 1))
+            continue
+        if resp.status_code == 429 and not retry_429:
+            return resp
+        wait_s = _retry_wait_s(resp, attempt)
+        if wait_s is None:
+            return resp
+        last_resp, last_exc = resp, None
+        if attempt == 2:
+            break
+        print(
+            f"warn: open-meteo HTTP {resp.status_code} on {url} - "
+            f"retry {attempt + 1}/2 in {wait_s:g}s",
+            file=sys.stderr,
+        )
+        time.sleep(wait_s)
+    if last_resp is not None:
+        return last_resp
+    raise last_exc  # type: ignore[misc]  # loop always sets one of the two before falling through
 
 
 def fetch_marine_waves(lat: float, lon: float, *, timeout_s: float = 30.0) -> dict:
@@ -271,8 +326,10 @@ class OpenMeteoSource:
             out.extend(self._fetch_batch(batch))
         return out
 
-    def _get_retrying(self, client: httpx.Client, url: str, params: dict) -> httpx.Response:
-        return retrying_get(client, url, params)
+    def _get_retrying(
+        self, client: httpx.Client, url: str, params: dict, *, retry_429: bool = False
+    ) -> httpx.Response:
+        return retrying_get(client, url, params, retry_429=retry_429)
 
     def _fetch_batch(self, coords: list[tuple[float, float]]) -> list[RawForecast]:
         common = {
@@ -290,10 +347,14 @@ class OpenMeteoSource:
                     "hourly": ",".join(MARINE_HOURLY),
                     "models": ",".join(MARINE_MODELS),
                 },
+                retry_429=True,
             )
             marine.raise_for_status()
             weather = self._get_retrying(
-                client, WEATHER_URL, {**common, "hourly": ",".join(WEATHER_HOURLY)}
+                client,
+                WEATHER_URL,
+                {**common, "hourly": ",".join(WEATHER_HOURLY)},
+                retry_429=True,
             )
             weather.raise_for_status()
             ensemble: httpx.Response | None = self._get_retrying(
