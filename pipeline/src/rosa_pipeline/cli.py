@@ -24,6 +24,7 @@ from pathlib import Path
 
 import httpx
 
+from . import quota
 from .archive import FileArchiveStore, rows_from_model, rows_from_spectral
 from .bathymetry import (
     BathymetrySource,
@@ -183,6 +184,20 @@ def _build_parser() -> argparse.ArgumentParser:
         "run the same-input A/B a ceiling change needs - CALIBRATION.md's rule - without "
         "touching the VM's real one; /dev/null (or any missing path) forces the static "
         "fallback, which is the A/B's control arm",
+    )
+    run.add_argument(
+        "--quota-state",
+        type=Path,
+        default=None,
+        help="daily Open-Meteo budget ledger (default data/verify/quota.json, VM-local and "
+        "gitignored). The minute cap is handled inside fetch.py; this guards the DAY cap, "
+        "which an ad-hoc fleet run on top of the cron's four exhausted on 2026-08-15",
+    )
+    run.add_argument(
+        "--ignore-quota",
+        action="store_true",
+        help="fetch even when today's budget is spent (still records the spend). For the "
+        "operator who knows the allowance changed - not for the cron",
     )
     run.add_argument(
         "--ecmwf-fixtures",
@@ -464,6 +479,20 @@ def _cmd_run(args: argparse.Namespace) -> int:
     groups = group_by_point(targets)
     points = list(groups)
 
+    # Daily-quota guard (rosa_pipeline.quota), live path only - a fixture replay costs
+    # nothing and has to stay runnable on a spent day. This sits ahead of EVERY fetch,
+    # including ECMWF's: a run that is going to be refused should not spend someone else's
+    # bandwidth on the way to refusing. The spend is recorded after the Open-Meteo fetch
+    # returns, so the request either happens and is paid for or does not happen at all.
+    om_arm = getattr(args, "wave_source", "om") != "blend"
+    ledger: quota.Ledger | None = None
+    if args.fixtures is None and om_arm:
+        ledger = quota.Ledger.load(args.quota_state)
+        planned = quota.marine_units(len(points))
+        if not ledger.affords(planned) and not args.ignore_quota:
+            print(ledger.refusal(planned), file=sys.stderr)
+            return quota.EXIT_QUOTA_EXHAUSTED
+
     # ECMWF spectral-lite member (Stage 3b) - guarded: an ECMWF outage must never sink
     # the forecast run. Offline replay (--fixtures) skips it unless --ecmwf-fixtures.
     # Fetched BEFORE the wave source because the blend arm reuses this same series as
@@ -511,6 +540,8 @@ def _cmd_run(args: argparse.Namespace) -> int:
             else OpenMeteoSource(capture_dir=args.capture)
         )
         raws = source.fetch_many(points)
+        if ledger is not None:
+            ledger.record(quota.marine_units(len(points)))
 
     published = 0
     implausible = 0

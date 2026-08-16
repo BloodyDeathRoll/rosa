@@ -61,8 +61,35 @@ trap 'on_fail "${BASH_COMMAND} (line $LINENO)"' ERR
   #    silent archive rot cannot creep in.
   uv run --project pipeline rosa-pipeline archive || on_fail "archive (non-fatal - cycle continues)"
 
-  # 2) refresh the per-spot forecasts
+  # 2) refresh the per-spot forecasts.
+  #    Exit 3 is the daily-quota guard refusing to fetch (rosa_pipeline.quota), NOT a
+  #    failure: at 265 spots four cycles already spend ~9,300 of Open-Meteo's 10,000/day,
+  #    so a fifth fleet run of any kind - an ad-hoc one, or a cycle after someone else's -
+  #    would 429 mid-fleet and kill the cycle, which is what happened on 2026-08-15.
+  #    Refusing costs one stale refresh; the previous payloads keep serving and the
+  #    freshness watchdog still covers real rot. Alert so it stays visible, then skip
+  #    straight past the deploy - re-publishing an unchanged tree buys nothing.
+  set +e
   uv run --project pipeline rosa-pipeline run --all
+  RUN_RC=$?
+  set -e
+  if [ "$RUN_RC" -eq 3 ]; then
+    uv run --project pipeline rosa-pipeline alert \
+      --message "Cycle SKIPPED: Open-Meteo daily quota spent ($(date -u +%H:%MZ)). Existing forecasts keep serving; the quota resets 00:00Z." \
+      || echo "warn: quota alert push failed"
+    # still ping the dead-man: the cycle ran and decided not to fetch, which is not the
+    # silence the healthcheck exists to catch. Skipping it would raise a SECOND alarm for
+    # one deliberate skip.
+    if [ -n "${HEALTHCHECK_URL:-}" ]; then
+      curl -fsS -m 10 --retry 3 -o /dev/null "$HEALTHCHECK_URL" || echo "warn: healthcheck ping failed"
+    fi
+    echo "=== $(date -u +%FT%TZ) skipped - daily quota spent ==="
+    exit 0
+  elif [ "$RUN_RC" -ne 0 ]; then
+    # set +e disarmed the ERR trap for this command, so raise the alert by hand
+    on_fail "rosa-pipeline run --all (exit $RUN_RC)"
+    exit "$RUN_RC"
+  fi
 
   # 2b) SwellMap basin frames (animated wave fields, ~5 min). Non-fatal: on a
   #     NOMADS outage the previous cycle's frames keep serving.
