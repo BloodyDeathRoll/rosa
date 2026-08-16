@@ -10,9 +10,9 @@ own - which is exactly why this is worth guarding rather than escalating: the co
 failure was a stale forecast and a false alarm, and both were avoidable.
 
 The arithmetic that matters, from ``fetch.py``'s own derivation: a marine batch costs about
-``MARINE_UNITS_PER_POINT`` weighted units per point (20 vars x 3 models -> 6.0, scaled by
-17/14 days -> 7.3, plus the ensemble's 1.5). At 265 spots a fleet run is ~2,300 units and
-the cron runs four of them, so a normal day already spends ~9,300 of a 10,000/day allowance.
+``MARINE_UNITS_PER_POINT`` weighted units per point (17 vars x 3 models -> 5.1, scaled by
+17/14 days -> 6.2, plus the ensemble's 1.5). At 265 spots a fleet run is ~2,040 units and
+the cron runs four of them, so a normal day spends ~8,150 of a 10,000/day allowance.
 **The fleet is at the edge of the daily cap by itself** - that is open item 14's ceiling
 arriving, not a bug in this module - so the budget below leaves only enough room for the
 archive and verify steps that share the host, and a fifth fleet run of any kind will be
@@ -36,13 +36,15 @@ from pathlib import Path
 
 # Weighted units per point for one marine + one ensemble request, per fetch.py's derivation.
 # Re-derive it there whenever MARINE_MODELS or MARINE_HOURLY changes; this is the same number
-# the minute-bucket batch size is cut from.
-MARINE_UNITS_PER_POINT = 8.8
+# the minute-bucket batch size is cut from. Was 8.8 until 2026-08-16, when three total-sea
+# fields nothing reads came out of MARINE_HOURLY (20 vars -> 17): a 12.5% cut of the marine
+# host's per-point cost, and the cheapest headroom available against this cap.
+MARINE_UNITS_PER_POINT = 7.69
 
 # Self-imposed daily ceiling for FLEET RUNS, not a measured vendor limit, and deliberately
-# below Open-Meteo's published 10,000 calls/day. The margin is thinner than it looks: at 265
-# spots the cron's four cycles cost 4 x 2,332 = 9,328 units by themselves, so this budget's
-# whole job is to refuse the FIFTH run, not to ration the first four.
+# below Open-Meteo's published 10,000 calls/day. At 265 spots the cron's four cycles cost
+# 4 x 2,038 = 8,152 units by themselves (9,328 before the 2026-08-16 variable trim), so this
+# budget's whole job is to refuse the FIFTH run, not to ration the first four.
 #
 # The buoy archive (~130 units/cycle, ~530/day) is deliberately NOT counted here and is not
 # reserved for. That is a choice about WHICH step absorbs an overrun: `run --all` is the
@@ -50,11 +52,11 @@ MARINE_UNITS_PER_POINT = 8.8
 # since 2026-08-15 (OPEN-ITEMS 9). If the real allowance ever bites, it should bite the step
 # that fails softly, not the one every user reads.
 #
-# It follows that this guard cannot buy room for more spots. It only stops one avoidable
-# failure mode. Four cycles plus the archive already sit at ~99% of the vendor allowance at
-# 265 spots, so the NEXT region is gated on the fetch-plane migration, not on this file
-# (OPEN-ITEMS 14, docs/rosa-fetch-plane-plan.md). Override with ROSA_OM_DAILY_BUDGET when the
-# fleet, the schedule or the allowance changes.
+# It follows that this guard cannot buy much room for more spots. It only stops one avoidable
+# failure mode. Four cycles plus the archive sit at ~87% of the vendor allowance at 265 spots
+# (99% before the trim), so a few more spots now fit but the NEXT region is still gated on the
+# fetch-plane migration, not on this file (OPEN-ITEMS 14, docs/rosa-fetch-plane-plan.md).
+# Override with ROSA_OM_DAILY_BUDGET when the fleet, the schedule or the allowance changes.
 DEFAULT_DAILY_BUDGET = 9_400.0
 
 DEFAULT_STATE = Path("data/verify/quota.json")

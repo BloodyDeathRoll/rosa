@@ -545,6 +545,7 @@ def _cmd_run(args: argparse.Namespace) -> int:
 
     published = 0
     implausible = 0
+    stale_profiles = 0
     failures: list[tuple[str, Exception]] = []
     tide_by_point: dict = {}
     if getattr(args, "tide_source", "om") == "eot20":
@@ -578,6 +579,27 @@ def _cmd_run(args: argparse.Namespace) -> int:
             # spots shipped as ghost cards from 2026-07-23 to 2026-08-02.
             try:
                 profile = load_profile(spot.id, BATHY_DIR)
+                # ...and check the ray still belongs to this spot. DepthProfile.matches_spot
+                # exists for exactly this and nothing on the publish path asked it: a profile
+                # goes stale when the pin moves or `shore_normal` is re-cut without a new
+                # `bathy` sweep, and the depths then describe a different piece of seabed -
+                # the Fishermen Bay failure (102 deg out, 69% of hours at 0.0-0.1 m). The
+                # committed suite catches it (test_spots.py), but there is no CI: the VM cron
+                # is `git pull` -> `run --all`, so a YAML edit pushed without a local pytest
+                # publishes 4x/day off the old ray with nothing said.
+                # WARNS, never substitutes: dropping or swapping the depths would move
+                # published heights fleet-wide, which is a pb_0049 tuning change. Fires on
+                # nothing in the DB as it stands (265/265 profiles match, 2026-08-16).
+                if profile is not None and not profile.matches_spot(spot):
+                    stale_profiles += 1
+                    print(
+                        f"warn: {spot.id}: committed bathy profile no longer matches the "
+                        f"spot (cast from {profile.origin_lat}, {profile.origin_lon} aiming "
+                        f"{profile.bearing_seaward_deg:.1f} deg; spot is at {spot.lat}, "
+                        f"{spot.lon} aiming {spot.shore_normal:.1f} deg) - re-run "
+                        f"`bathy --spot {spot.id}`",
+                        file=sys.stderr,
+                    )
                 wet_depths = profile.wet_depths_deep_to_shallow() if profile else None
                 scored = [score_hour(spot, h, wet_depths) for h in hours]
                 payload = build_payload(
@@ -614,6 +636,14 @@ def _cmd_run(args: argparse.Namespace) -> int:
         removed = prune_index(set(spots), args.out)
         if removed:
             print(f"pruned {len(removed)} spot(s) no longer in the DB: {', '.join(removed)}")
+    if stale_profiles:
+        # beside the failure summary like the implausible-break count: the cycle published,
+        # but its bathymetry is describing seabed the spots have moved away from.
+        print(
+            f"warn: {stale_profiles} spot(s) published off a bathy profile cast from "
+            "superseded coordinates - re-cut them with `bathy` (see warn lines above)",
+            file=sys.stderr,
+        )
     if implausible:
         # beside the failure summary, not inside it: a run that publishes an implausible
         # height still publishes, so this is a signal to read - not a failed cycle.

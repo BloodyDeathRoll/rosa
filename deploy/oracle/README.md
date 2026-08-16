@@ -40,8 +40,9 @@ the *published* data over HTTPS and never talks to the pipeline.
    marine-host units in `data/verify/quota.json` and refuses to fetch when the next fleet run
    would cross the budget (default 9,400 units; `ROSA_OM_DAILY_BUDGET` moves it,
    `--ignore-quota` overrides once). The cycle then alerts, pings the dead-man anyway, and
-   exits 0 with the previous payloads still serving. Four cycles at 265 spots cost ~9,330
-   units plus ~530 for the archive against a 10,000/day allowance, so a fifth fleet run of
+   exits 0 with the previous payloads still serving. Four cycles at 265 spots cost ~8,150
+   units plus ~530 for the archive against a 10,000/day allowance (it was ~9,330 until three
+   unread marine variables came out on 2026-08-16), so a fifth fleet run of
    any kind - including an ad-hoc one from a laptop against the same IP - is what the guard
    exists to stop. It fired for real on 2026-08-15 before it existed (OPEN-ITEMS 19).
 4. `vercel deploy --prebuilt` of `data/out` → the **rosa-data** project

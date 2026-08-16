@@ -87,6 +87,49 @@ _GFS_SINGLE = {
 }
 _GFS_TRIPLE = {"shts": "swell{}_h", "mpts": "swell{}_p", "swdir": "swell{}_d"}
 
+# The four keys extract._partition reads a partition's PEAK period from. GFS-Wave gridded
+# publishes none of them - shts/mpts/swdir and shww/mpww/wvdir carry MEAN periods, and the
+# only Tp in the file is `perpw`, the whole sea's. So on this arm every SwellPartition
+# reaches the transform with peak_period_s=None and both transform.rideability_period and
+# transform.energy_period fall back to the mean period. That fallback is not neutral: it is
+# the regime CALIBRATION.md 2026-07-30 measured as a 1.6-2x under-call (and the reason
+# fetch.TP_MODEL exists on the OM arm at all). Re-measured 2026-08-16 on the committed OM
+# fixture + Beit Yanai's real profile: stripping Tp moves 78 of 384 hours' ratings, changes
+# 41 buckets, and takes h_break_mid to x0.44 at worst - always DOWN, never up.
+#
+# Nothing here can repair it: inventing a per-partition Tp from `perpw` would be exactly the
+# fabrication rule out (and would move published heights, so pb_0049's A/B gate applies). So
+# this REPORTS. It matters because the blend arm's whole purpose is the source A/B that
+# gates promotion, and an A/B that carries this offset attributes it to source skill.
+_PARTITION_TP_KEYS: tuple[str, ...] = (
+    "swell_wave_peak_period",
+    "secondary_swell_wave_peak_period",
+    "tertiary_swell_wave_peak_period",
+    "wind_wave_peak_period",
+)
+
+
+def partition_peak_period_gap(raw: RawForecast) -> int:
+    """How many partition slots in this composed forecast carry no peak period.
+
+    Counts filled partition-height slots whose matching ``*_peak_period`` column is absent
+    or null - i.e. the partitions that will reach ``transform`` keyed on a mean period.
+    Report only; returns 0 for a source that does publish per-partition Tp."""
+    hourly = raw.marine.get("hourly", {})
+    gap = 0
+    for tp_key in _PARTITION_TP_KEYS:
+        h_key = tp_key.replace("_peak_period", "_height")
+        heights = hourly.get(h_key)
+        if not heights:
+            continue
+        tps = hourly.get(tp_key)
+        for i, h in enumerate(heights):
+            if h is None or h <= 0:
+                continue
+            if tps is None or i >= len(tps) or tps[i] is None:
+                gap += 1
+    return gap
+
 
 @dataclass(frozen=True, slots=True)
 class GfsSea:
@@ -498,7 +541,22 @@ class BlendedSource:
                 import sys
 
                 print(f"warn: oisst sst skipped: {e!r}", file=sys.stderr)
-        return [
+        raws = [
             compose_raw(g, sp, w, m, fetched_at, sst_daily=sst_v)
             for g, sp, (w, m), sst_v in zip(gfs_series, sp_series, aux, sst_vals, strict=True)
         ]
+        # ...and say what this arm cannot measure. Once per run, not per point: the gap is a
+        # property of the SOURCE SCHEMA, not of any one spot. See _PARTITION_TP_KEYS.
+        gap = sum(partition_peak_period_gap(r) for r in raws)
+        if gap:
+            import sys
+
+            print(
+                f"warn: blend arm: {gap} partition slot(s) have no peak period - GFS-Wave "
+                "gridded publishes only per-partition MEAN periods, so period_rideability "
+                "and energy_period key on the mean (CALIBRATION.md 2026-07-30 measured that "
+                "as a 1.6-2x under-call). A blend-vs-om A/B carries this offset on top of "
+                "any real source difference.",
+                file=sys.stderr,
+            )
+        return raws

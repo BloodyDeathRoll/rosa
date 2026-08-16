@@ -27,10 +27,14 @@ PAST_DAYS = 1
 # Open-Meteo caps calls at 600/min PER API HOST, billed by weight
 # (max(1, vars/10) x max(1, days/14) per location). The marine host carries both the marine
 # request and the ensemble, and a model multiplies the series count, so the arithmetic at
-# 16+1 days is: marine 20 vars x 3 models = 60 -> 6.0, x 17/14 = 7.3; ensemble 3 vars x 4
-# models = 12 -> 1.2, x 17/14 = 1.5. Together ~8.8/point, so 600 / 8.8 ~= 68 points fit in one
+# 16+1 days is: marine 17 vars x 3 models = 51 -> 5.1, x 17/14 = 6.2; ensemble 3 vars x 4
+# models = 12 -> 1.2, x 17/14 = 1.5. Together ~7.7/point, so 600 / 7.7 ~= 77 points fit in one
 # minute bucket. Batch under that and pause past a minute boundary between batches so each
 # lands in a fresh window; keeps the whole coast in-quota.
+#
+# Was 20 marine vars (~8.8/point, 68 points) until the three unread total-sea fields came out
+# on 2026-08-16 - see MARINE_HOURLY. The batch size deliberately stays at 65: the headroom is
+# the point, and raising it is a live-behaviour change that wants its own live run.
 #
 # Was 90 while MARINE_MODELS held two models (~6.4/point, 95 points). Adding gwam for the peak
 # period on 2026-08-02 pushed 90 points over the bucket and a live `run --all` took two 429s on
@@ -64,17 +68,24 @@ TP_SUFFIX = "_peak_period"
 MARINE_ENSEMBLE_MODELS = ["ncep_gfswave016", "ewam", "gwam", "meteofrance_wave"]
 ENSEMBLE_HOURLY = ["wave_height", "wave_period", "wave_direction"]
 
+# The TOTAL sea's direction / mean period / peak period are NOT here, deliberately.
+# `extract_hours` reads only wave_height (the horizon null-sentinel and `total_hs_m` for
+# closure), sea_surface_temperature, sea_level_height_msl and the four PARTITION families -
+# it has no use for the combined bearing or period, and the transform combines partitions by
+# wave field rather than off a total. They were requested and dropped: 3 of 20 variables x 3
+# MARINE_MODELS = 9 of the 60 series this request pays for, on the host that carries both the
+# marine and the ensemble call (see MARINE_BATCH_SIZE). Verified as a no-op by publishing the
+# committed fixture with those three families deleted: byte-identical payload.
+# `verify.parse_marine_waves` DOES read all three - off MARINE_WAVE_FIELDS below, which is a
+# separate three-variable request and is unaffected.
 MARINE_HOURLY = [
     "wave_height",
-    "wave_direction",
-    "wave_period",
     "wind_wave_height",
     "wind_wave_direction",
     "wind_wave_period",
     "swell_wave_height",
     "swell_wave_direction",
     "swell_wave_period",
-    "wave_peak_period",
     "swell_wave_peak_period",
     "wind_wave_peak_period",
     "secondary_swell_wave_height",

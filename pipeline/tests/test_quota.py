@@ -13,10 +13,11 @@ SPOTS_DIR = Path(__file__).resolve().parents[2] / "data" / "spots"
 
 
 def test_marine_units_scale_with_the_point_count():
-    assert quota.marine_units(1) == pytest.approx(8.8)
+    # marine_units rounds to 0.1 - one point is the per-point weight itself
+    assert quota.marine_units(1) == pytest.approx(round(quota.MARINE_UNITS_PER_POINT, 1))
     # a 265-spot fleet run against the default budget: the cron's four fit, a fifth does not.
     fleet = quota.marine_units(265)
-    assert fleet == pytest.approx(2332.0)
+    assert fleet == pytest.approx(2037.9)
     assert 4 * fleet < quota.DEFAULT_DAILY_BUDGET < 5 * fleet
 
 
@@ -32,8 +33,8 @@ def test_spend_accumulates_and_survives_a_reload(tmp_path):
     led.record(quota.marine_units(265))
     led.record(quota.marine_units(265))
     again = quota.Ledger.load(path)
-    assert again.spent == pytest.approx(2 * 2332.0)
-    assert again.remaining == pytest.approx(quota.DEFAULT_DAILY_BUDGET - 2 * 2332.0)
+    assert again.spent == pytest.approx(2 * 2037.9)
+    assert again.remaining == pytest.approx(quota.DEFAULT_DAILY_BUDGET - 2 * 2037.9)
 
 
 def test_yesterdays_spend_does_not_count_against_today(tmp_path):

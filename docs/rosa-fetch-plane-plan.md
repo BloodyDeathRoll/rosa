@@ -40,6 +40,19 @@
 
 ---
 
+> **Known handicap in the blend arm, measured 2026-08-16 - read before scoring any A/B.**
+> GFS-Wave gridded publishes no PER-PARTITION peak period (`shts/mpts/swdir` and
+> `shww/mpww/wvdir` are mean periods; the file's only Tp is `perpw`, the whole sea's), so
+> every partition the blend arm produces reaches the transform with `peak_period_s = None`
+> and both `rideability_period` and `energy_period` fall back to the mean - the regime
+> CALIBRATION.md 2026-07-30 measured as a 1.6-2x under-call, and the reason gwam was added
+> to the OM arm at all. Measured cost by stripping Tp from the OM arm over Beit Yanai's real
+> profile: 78 of 384 hours move rating, 41 change bucket, worst height ratio 0.44, and the
+> effect is one-directional (dropping Tp can only lower the breaker). `BlendedSource` now
+> prints the count once per run so an A/B cannot silently attribute this to source skill.
+> It is NOT repaired: there is no honest per-partition Tp in the source, and synthesising one
+> from `perpw` would move published heights, which is a tuning change.
+
 ## Phase A - prove the blend (evidence only, no pipeline changes)
 
 Everything here runs offline against the dual-source archive; the A/B script shape is
