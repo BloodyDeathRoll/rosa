@@ -1,9 +1,10 @@
 // Flowing-upwards particle field, ported from wtw
 // (src/modules/session/components/particles.ts, itself from its design handoff).
 // Each particle gets a depth (0 = far, 1 = near); depth drives size, alpha,
-// vertical speed, parallax drift, and blur. Blur is batched by integer-rounded
-// bucket so ctx.filter changes a handful of times per frame, not once per
-// particle.
+// vertical speed, parallax drift, and blur. Blur is baked into pre-rendered
+// sprites (one per color/bucket/quantized-radius, ctx.filter runs only at
+// sprite creation) and the loop is capped at ~30fps - per-frame filter blurs
+// ran the GPU hot on mobile.
 
 export interface ParticleOptions {
   palette?: string[]; // each entry "r, g, b" - particles pick one at spawn
@@ -65,6 +66,9 @@ export function mountParticles(
   let running = true;
   let lastT = performance.now();
 
+  const FRAME_MS = 1000 / 30;
+  const sprites = new Map<string, HTMLCanvasElement>();
+
   function size() {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     const r = canvas.getBoundingClientRect();
@@ -74,7 +78,35 @@ export function mountParticles(
     canvas.width = Math.round(w * dpr);
     canvas.height = Math.round(h * dpr);
     ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
+    sprites.clear(); // dpr may have changed
     seed();
+  }
+
+  // Sprite = one blurred dot rendered once at dpr resolution; radius is
+  // quantized to 0.25px so the cache stays small (colors x buckets x ~12).
+  function sprite(color: string, radius: number, blur: number): HTMLCanvasElement {
+    const rq = Math.max(0.25, Math.round(radius * 4) / 4);
+    const key = `${color}|${blur}|${rq}`;
+    let s = sprites.get(key);
+    if (s) return s;
+    const pad = blur * 3 + 2;
+    const px = Math.ceil((rq + pad) * 2 * dpr);
+    s = document.createElement("canvas");
+    s.width = s.height = px;
+    const sctx = s.getContext("2d")!;
+    if (blur > 0) sctx.filter = `blur(${blur * dpr}px)`;
+    sctx.fillStyle = `rgb(${color})`;
+    sctx.beginPath();
+    sctx.arc(px / 2, px / 2, rq * dpr, 0, Math.PI * 2);
+    sctx.fill();
+    sprites.set(key, s);
+    return s;
+  }
+
+  function drawSprite(s: HTMLCanvasElement, x: number, y: number, alpha: number) {
+    const side = s.width / dpr;
+    ctx!.globalAlpha = alpha;
+    ctx!.drawImage(s, x - side / 2, y - side / 2, side, side);
   }
 
   function seed() {
@@ -123,18 +155,21 @@ export function mountParticles(
 
   function step(now?: number) {
     if (!running) return;
+    raf = requestAnimationFrame(step);
     now = now || performance.now();
+    if (now - lastT < FRAME_MS - 1) return; // ~30fps cap
     const dt = Math.min(0.05, (now - lastT) / 1000);
     lastT = now;
+    const f = dt * 60; // per-frame speeds were tuned at 60fps
     ctx!.clearRect(0, 0, w, h);
 
     for (let i = 0; i < particles.length; i++) {
       const p = particles[i]!;
       p.age += dt;
-      p.wobblePhase += p.wobbleSpeed;
-      p.twinkle += p.twinkleSpeed;
-      p.x += p.vx + Math.sin(p.wobblePhase) * p.wobbleAmp;
-      p.y += p.vy;
+      p.wobblePhase += p.wobbleSpeed * f;
+      p.twinkle += p.twinkleSpeed * f;
+      p.x += (p.vx + Math.sin(p.wobblePhase) * p.wobbleAmp) * f;
+      p.y += p.vy * f;
       if (p.age >= p.lifespan || p.y < -10 || p.x < -20 || p.x > w + 20) {
         particles[i] = spawn(false);
       }
@@ -143,30 +178,17 @@ export function mountParticles(
     particles.sort((a, b) => a.depth - b.depth);
 
     // GLOW PASS - blurred halos for the big foreground particles
-    ctx!.filter = "blur(8px)";
     for (const p of particles) {
       if (p.bucket !== 0 || p.r <= 1.4) continue;
-      ctx!.beginPath();
-      ctx!.fillStyle = `rgba(${p.color}, ${alphaOf(p) * 0.55})`;
-      ctx!.arc(p.x, p.y, p.r * 2.6, 0, Math.PI * 2);
-      ctx!.fill();
+      drawSprite(sprite(p.color, p.r * 2.6, 8), p.x, p.y, alphaOf(p) * 0.55);
     }
 
-    // DOT PASS - depth-of-field crisp/blurred dots, batched by bucket
-    let currentBucket = -1;
+    // DOT PASS - depth-of-field crisp/blurred dots from pre-rendered sprites
     for (const p of particles) {
-      if (p.bucket !== currentBucket) {
-        currentBucket = p.bucket;
-        ctx!.filter = currentBucket > 0 ? `blur(${currentBucket}px)` : "none";
-      }
-      ctx!.beginPath();
-      ctx!.fillStyle = `rgba(${p.color}, ${alphaOf(p)})`;
-      ctx!.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx!.fill();
+      drawSprite(sprite(p.color, p.r, p.bucket), p.x, p.y, alphaOf(p));
     }
 
-    ctx!.filter = "none";
-    raf = requestAnimationFrame(step);
+    ctx!.globalAlpha = 1;
   }
 
   const ro = new ResizeObserver(size);
