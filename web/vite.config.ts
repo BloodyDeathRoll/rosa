@@ -11,11 +11,13 @@ export default defineConfig({
         name: "Rosa - surf forecast",
         short_name: "Rosa",
         description: "Should I surf, when, where?",
-        theme_color: "#ffffff",
         // Android's WebAPK splash (icon on background_color, shown until first
-        // paint) can't be skipped and its top bar (theme_color) stays white, so
-        // the background is white to match, with the transparent red wave mark
-        background_color: "#ffffff",
+        // paint) can't be skipped - paint it the icon tile's blue so icon and
+        // background merge into one solid brand-blue screen. theme_color kept
+        // in step or the splash gets a white status bar stripe; the in-app
+        // status bar still follows the meta theme-color tags in index.html.
+        theme_color: "#032afa",
+        background_color: "#032afa",
         display: "standalone",
         icons: [
           // PNGs first and non-negotiable: Chrome on Android mints a WebAPK from
