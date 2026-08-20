@@ -94,7 +94,10 @@ export function mountParticles(
     s = document.createElement("canvas");
     s.width = s.height = px;
     const sctx = s.getContext("2d")!;
-    if (blur > 0) sctx.filter = `blur(${blur * dpr}px)`;
+    // NOT scaled by dpr: ctx.filter ignores the canvas transform (Chrome), so the
+    // pre-sprite renderer's blur(Npx) was always N device pixels - match that,
+    // or faint far particles smear out below 1/255 alpha and vanish entirely
+    if (blur > 0) sctx.filter = `blur(${blur}px)`;
     sctx.fillStyle = `rgb(${color})`;
     sctx.beginPath();
     sctx.arc(px / 2, px / 2, rq * dpr, 0, Math.PI * 2);
