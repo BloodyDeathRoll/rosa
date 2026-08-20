@@ -14,7 +14,7 @@ Shell: **Today | Spots | Map | Profile**.
 
 **Push.** One swell = ONE notification: same region + peaks ≤12 h + dirs ≤45° cluster into a single push named for the best favorited spot "+N more"; sent-state carries ±1-day peak-drift tolerance; browser tag is a 2nd dedup layer. Notification tap deep-links `#/spot/{id}?ev=YYYY-MM-DD`. Opt-out must be clear and failures surfaced, never silent. iOS needs A2HS + a user gesture.
 
-**Feedback ask is two steps:** "Surfed X?" ✓/✗ first, thumbs only on yes. Selection never crosses regions (the device sends its nearest spot id, never coordinates).
+**Feedback ask is two steps:** "Surfed X?" ✓/✗ first, thumbs only on yes. Selection never crosses regions (the device sends its nearest spot id, never coordinates). Asked at most once a week, only about a GOOD-or-better day, and only for the favorite spot closest to the user's current location (2026-08-20).
 
 **Period display ≠ scoring** — the swell readouts show the PEAK period while `period_score` and the shoaling march run on the mean. Deliberate; see `docs/ALGORITHM.md`. Disclosed at `#/about/reading`.
 
