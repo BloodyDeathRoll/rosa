@@ -485,3 +485,49 @@ class TestSwellPushesToday:
         assert swell_keys_stamped_today(sent, eh, NOW) == 1
         assert swell_keys_stamped_today(sent, eh, NOW + timedelta(days=1)) == 0
         assert swell_keys_stamped_today({}, eh, NOW) == 0
+
+
+# --- one fleet read for both planners (2026-08-22 proposal) -------------------
+
+
+def test_send_notifications_reads_each_payload_once(tmp_path, monkeypatch):
+    """Both planners used to glob and json.loads the whole fleet independently."""
+    from rosa_pipeline import notify as N
+
+    spots = tmp_path / "spots"
+    spots.mkdir(parents=True)
+    for i in range(3):
+        (spots / f"s{i}.json").write_text(json.dumps({"spot": {"id": f"s{i}"}, "events": []}))
+
+    reads: list[str] = []
+    real_read = Path.read_text
+
+    def counting_read(self, *a, **k):
+        if self.suffix == ".json" and self.parent.name == "spots":
+            reads.append(self.name)
+        return real_read(self, *a, **k)
+
+    monkeypatch.setattr(Path, "read_text", counting_read)
+    N.send_notifications(
+        out_dir=tmp_path,
+        state_path=tmp_path / "state.json",
+        subs_url="https://example.invalid/subs",
+        admin_secret="x",
+        vapid_private_key=tmp_path / "k.pem",
+        vapid_sub="mailto:x@example.com",
+        now=datetime(2026, 8, 23, 12, tzinfo=UTC),
+        dry_run=True,
+    )
+    assert sorted(reads) == ["s0.json", "s1.json", "s2.json"]  # once each, not twice
+
+
+def test_loaders_still_glob_when_no_payloads_are_passed(tmp_path):
+    """The standalone path the CLI and the other tests use must keep working."""
+    from rosa_pipeline import notify as N
+
+    spots = tmp_path / "spots"
+    spots.mkdir(parents=True)
+    (spots / "a.json").write_text(json.dumps({"spot": {"id": "a"}, "events": []}))
+    now = datetime(2026, 8, 23, 12, tzinfo=UTC)
+    assert N.load_spot_events(tmp_path, now) == []
+    assert N.load_feedback_candidates(tmp_path, now) == []

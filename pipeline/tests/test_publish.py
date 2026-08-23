@@ -185,3 +185,52 @@ def test_confidence_keyed_on_lead_days_not_list_position():
     assert days["2026-07-29"]["confidence_score"] == 0.4
     assert days["2026-07-29"]["confidence"] == "low"
     assert days["2026-07-28"]["confidence_score"] == 0.85  # lead 9 keeps the mid tier
+
+
+# --- per-hour provenance, published as one boundary stamp (2026-08-21 proposal) ---
+
+
+def test_merge_models_reports_which_hours_came_from_the_tail():
+    from rosa_pipeline.extract import _merge_models
+
+    hourly = {
+        "time": ["2026-08-23T00:00", "2026-08-23T01:00", "2026-08-23T02:00"],
+        "wave_height_marine_best_match": [1.0, None, None],
+        "wave_height_ncep_gfswave016": [9.0, 2.0, 3.0],
+    }
+    merged, from_tail = _merge_models(hourly)
+    assert merged["wave_height"] == [1.0, 2.0, 3.0]  # unchanged merge
+    assert from_tail == [False, True, True]
+
+
+def test_merge_models_calls_a_single_model_response_all_best_match():
+    from rosa_pipeline.extract import _merge_models
+
+    hourly = {"time": ["2026-08-23T00:00", "2026-08-23T01:00"], "wave_height": [1.0, 2.0]}
+    merged, from_tail = _merge_models(hourly)
+    assert merged is hourly  # passthrough preserved
+    assert from_tail == [False, False]
+
+
+def test_tail_from_marks_the_first_tail_hour_and_is_none_without_one():
+    from datetime import UTC, datetime
+    from zoneinfo import ZoneInfo
+
+    from rosa_pipeline.publish import _tail_from
+
+    tz = ZoneInfo("UTC")
+
+    class _H:
+        def __init__(self, t, tail):
+            self.time = t
+            self.from_tail = tail
+
+    class _S:
+        def __init__(self, h):
+            self.hour = h
+
+    t0 = datetime(2026, 9, 2, 0, tzinfo=UTC)
+    hours = [_S(_H(t0.replace(hour=h), h >= 2)) for h in range(4)]
+    assert _tail_from(hours, tz) == "2026-09-02T02:00+00:00"
+    assert _tail_from([_S(_H(t0, False))], tz) is None
+    assert _tail_from([], tz) is None

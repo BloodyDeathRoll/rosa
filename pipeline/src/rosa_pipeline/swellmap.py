@@ -17,12 +17,14 @@ never fetch, mimic or trace ISRAMAR's imagery (CLAUDE.md legal red lines).
 from __future__ import annotations
 
 import json
+import math
 import tempfile
 import time
 from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
+from typing import TypeVar
 
 import httpx
 
@@ -134,32 +136,34 @@ def parse_grib_field(grib_bytes: bytes) -> dict | None:
     }
 
 
-def build_basin_payload(
-    basin: BasinBox,
-    cycle: datetime,
-    fetch: Callable[[int], bytes | None],
-    steps: tuple[int, ...],
-) -> dict | None:
-    """One region file: geometry + quantized per-step frames. `fetch(step) -> bytes|None`
-    so the network (or a fixture) stays injectable."""
-    frames: list[dict] = []
-    geom: dict | None = None
-    for step in steps:
-        raw = fetch(step)
-        if raw is None:
-            continue
-        field = parse_grib_field(raw)
+_GEOM_KEYS = ("ny", "nx", "lat_first", "lat_last", "lon_first", "lon_last")
+
+
+class BasinFrames:
+    """Push-driven accumulator for one basin file: feed it `add(step, field)` in step
+    order, then ask for `payload()`.
+
+    Push rather than pull so ONE global download can serve every basin in the same
+    pass (run_swellmap_all). `build_basin_payload` is the pull-shaped wrapper over
+    exactly this, so the per-basin filter path and the sliced path build byte-identical
+    frames from the same code."""
+
+    def __init__(self, basin: BasinBox, cycle: datetime) -> None:
+        self.basin = basin
+        self.cycle = cycle
+        self.geom: dict | None = None
+        self.frames: list[dict] = []
+
+    def add(self, step: int, field: dict | None) -> None:
         if field is None:
-            continue
-        if geom is None:
-            geom = {
-                k: field[k] for k in ("ny", "nx", "lat_first", "lat_last", "lon_first", "lon_last")
-            }
-        elif (field["ny"], field["nx"]) != (geom["ny"], geom["nx"]):
-            continue  # a malformed step must not corrupt the grid geometry
-        frames.append(
+            return
+        if self.geom is None:
+            self.geom = {k: field[k] for k in _GEOM_KEYS}
+        elif (field["ny"], field["nx"]) != (self.geom["ny"], self.geom["nx"]):
+            return  # a malformed step must not corrupt the grid geometry
+        self.frames.append(
             {
-                "t": (cycle + timedelta(hours=step)).strftime("%Y-%m-%dT%H:%MZ"),
+                "t": (self.cycle + timedelta(hours=step)).strftime("%Y-%m-%dT%H:%MZ"),
                 "hs": [_quantize(v, HS_SCALE) for v in field["hs"]],
                 "per": [_quantize(v, PER_SCALE) for v in field["per"]],
                 "dir": [_quantize(v, DIR_SCALE) for v in field["dir"]],
@@ -167,23 +171,115 @@ def build_basin_payload(
                 "wdir": [_quantize(v, DIR_SCALE) for v in field["wdir"]],
             }
         )
-    if geom is None or not frames:
+
+    def payload(self) -> dict | None:
+        if self.geom is None or not self.frames:
+            return None
+        return {
+            "basin": self.basin.name,
+            "regions": list(self.basin.regions),
+            "model": "noaa:gfswave.global.0p25",
+            "run": self.cycle.strftime("%Y-%m-%dT%H:%MZ"),
+            "attribution": "Wave data: NOAA GFS-Wave (WAVEWATCH III)",
+            "scales": {
+                "hs_m": HS_SCALE,
+                "per_s": PER_SCALE,
+                "dir_deg": DIR_SCALE,
+                "wind_ms": WIND_SCALE,
+                "missing": MISSING,
+            },
+            **self.geom,
+            "frames": self.frames,
+        }
+
+
+def build_basin_payload(
+    basin: BasinBox,
+    cycle: datetime,
+    fetch: Callable[[int], bytes | None],
+    steps: tuple[int, ...],
+) -> dict | None:
+    """One region file: geometry + quantized per-step frames. `fetch(step) -> bytes|None`
+    so the network (or a fixture) stays injectable. A thin pull-shaped view over
+    BasinFrames."""
+    acc = BasinFrames(basin, cycle)
+    for step in steps:
+        raw = fetch(step)
+        acc.add(step, parse_grib_field(raw) if raw is not None else None)
+    return acc.payload()
+
+
+def slice_basin_field(geom: dict, planes: dict, basin: BasinBox) -> dict | None:
+    """Cut one basin's field out of an already-downloaded GLOBAL plane set, in the exact
+    shape `parse_grib_field` returns.
+
+    Both layers read the same five shortNames off the same 0.25 deg global file, so the
+    basin layer's ~513 grib-filter subregion requests per cycle were re-downloading data
+    the world layer had already fetched. Slicing costs no request at all.
+
+    The row/column window is chosen to COVER the basin box (floor on the leading edge,
+    ceil on the trailing one), so the published grid is a superset of what grib-filter's
+    subregion returned, never a subset. The payload's own geometry keys are computed from
+    the slice that was actually taken, so the file stays self-describing either way.
+
+    Returns None when the box would wrap either seam - the file's 0/360 wrap or the
+    antimeridian the SIGNED published grid cannot express. No committed basin crosses
+    either, and the caller falls back to the per-basin filter request rather than guess.
+    """
+    import numpy as np
+
+    ny, nx = geom["ny"], geom["nx"]
+    if ny < 2 or nx < 2:
         return None
+    dlat = (geom["lat_last"] - geom["lat_first"]) / (ny - 1)
+    dlon = (geom["lon_last"] - geom["lon_first"]) / (nx - 1)
+    if dlat == 0 or dlon == 0:
+        return None
+
+    def span(a: float, b: float, first: float, d: float, n: int) -> tuple[int, int]:
+        # a/b in grid order (a reached before b as the index grows)
+        i0 = math.floor((a - first) / d)
+        i1 = math.ceil((b - first) / d)
+        return max(0, min(i0, n - 1)), max(0, min(i1, n - 1))
+
+    # rows run north -> south on the global grid (dlat < 0), so lat1 comes first
+    lat_a, lat_b = (basin.lat1, basin.lat0) if dlat < 0 else (basin.lat0, basin.lat1)
+    i0, i1 = span(lat_a, lat_b, geom["lat_first"], dlat, ny)
+    lon0, lon1 = _lon360(basin.lon0), _lon360(basin.lon1)
+    if lon1 < lon0:
+        return None  # crosses the 0/360 seam - let the caller fetch this basin directly
+    j0, j1 = span(lon0, lon1, geom["lon_first"], dlon, nx)
+    if i1 < i0 or j1 < j0:
+        return None
+
+    def flat(name: str) -> list[float | None]:
+        arr = np.asarray(planes[name], dtype=float)[i0 : i1 + 1, j0 : j1 + 1]
+        return [None if np.isnan(v) else float(v) for v in arr.ravel()]
+
+    def norm_lon(lon: float) -> float:
+        return lon - 360.0 if lon > 180.0 else lon
+
+    lon_first = norm_lon(geom["lon_first"] + j0 * dlon)
+    lon_last = norm_lon(geom["lon_first"] + j1 * dlon)
+    if lon_first > lon_last:
+        # the window straddles the ANTIMERIDIAN: fine in the file's 0-360 frame, but the
+        # published payload is signed (-180..180, what the web map draws in) and would
+        # come out with lon_first east of lon_last - a grid the client reads backwards.
+        # No committed basin crosses it; the caller fetches this one directly instead.
+        return None
+
     return {
-        "basin": basin.name,
-        "regions": list(basin.regions),
-        "model": "noaa:gfswave.global.0p25",
-        "run": cycle.strftime("%Y-%m-%dT%H:%MZ"),
-        "attribution": "Wave data: NOAA GFS-Wave (WAVEWATCH III)",
-        "scales": {
-            "hs_m": HS_SCALE,
-            "per_s": PER_SCALE,
-            "dir_deg": DIR_SCALE,
-            "wind_ms": WIND_SCALE,
-            "missing": MISSING,
-        },
-        **geom,
-        "frames": frames,
+        "ny": i1 - i0 + 1,
+        "nx": j1 - j0 + 1,
+        "lat_first": geom["lat_first"] + i0 * dlat,
+        "lat_last": geom["lat_first"] + i1 * dlat,
+        "lon_first": lon_first,
+        "lon_last": lon_last,
+        "hs": flat("hs"),
+        "per": flat("per"),
+        "dir": flat("dir"),
+        "wind": flat("wind"),
+        "wdir": flat("wdir"),
     }
 
 
@@ -205,6 +301,89 @@ def fetch_basin_step(
     return resp.content
 
 
+_T = TypeVar("_T")
+
+
+def _resolve_cycle(
+    cycle: datetime,
+    fetch: Callable[[datetime, int], _T | None],
+    first_step: int,
+) -> tuple[datetime, _T | None]:
+    """Probe `first_step` on `cycle`; if NOMADS has not published that cycle yet, drop
+    back one 6 h slot and probe again. Returns the cycle to build on plus the probe's
+    result, so the caller never pays for `first_step` twice.
+
+    Mirrors `GFSWaveSource.fetch_series` and `GfsFullSource.fetch_series`, which have
+    carried this drop-back since Stage 3a. Without it a late publication costs the
+    whole layer its refresh: every step misses, the layer keeps the previous file, and
+    the map serves up to ~10 h stale until the next cron slot. Resolved PER basin (and
+    once for the world layer) so each published file stays on a single cycle - its own
+    `run` stamp then still describes every frame in it.
+
+    A transient miss on `first_step` alone shifts the layer to the older cycle for this
+    run. That is the same trade the two in-repo precedents accept: one extra request on
+    late days, and a cycle-older map beats no refresh at all.
+    """
+    got = fetch(cycle, first_step)
+    if got is not None:
+        return cycle, got
+    older = cycle - timedelta(hours=6)
+    return older, fetch(older, first_step)
+
+
+def _write_basin_index(target: Path, spots_dir: Path, index: dict[str, dict]) -> None:
+    """Merge this run's basin entries over the previous index and prune basins the spot
+    DB no longer has. Shared by the per-basin and the sliced (combined) paths."""
+    # merge over the previous index so a skipped basin keeps its entry
+    idx_path = target / "index.json"
+    prev: dict = {}
+    if idx_path.exists():
+        try:
+            loaded = json.loads(idx_path.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            # a torn index (written non-atomically before write_json_atomic, or
+            # damaged any other way) parsed bare crash-looped every later run -
+            # after all basins
+            # had already been fetched, and before the world layer got to run. A
+            # basin skipped this run loses its entry until its next good fetch;
+            # degraded, but the map stays alive (same contract as publish._read_index).
+            print(f"warn: {idx_path} is unreadable - rebuilding from this run's basins")
+        else:
+            if isinstance(loaded, dict):
+                prev = loaded
+    prev.update(index)
+    # The DB is the authority on what exists (same rule as publish.prune_index):
+    # the merge above only ever upserts, so a basin whose spots left the DB kept
+    # its index entry and its <basin>.json forever - both shipping in every CDN
+    # deploy. Keyed on basin_boxes(spots_dir), NOT on this run's output, so a
+    # basin merely skipped for a failed fetch keeps serving its previous file.
+    known = {b.name for b in basin_boxes(spots_dir)}
+    for stale in sorted(set(prev) - known):
+        del prev[stale]
+        (target / f"{stale}.json").unlink(missing_ok=True)
+        print(f"swellmap: pruned basin {stale!r} - no longer in the DB")
+    write_json_atomic(idx_path, prev)
+
+
+def _publish_basin(
+    target: Path, basin: BasinBox, payload: dict | None, index: dict[str, dict]
+) -> bool:
+    """Write one basin file and record its index entry. Returns whether it was written -
+    a basin whose fetch produced nothing keeps its previous file and its old entry."""
+    if payload is None:
+        print(f"warn: swellmap {basin.name}: no frames fetched - keeping previous file")
+        return False
+    write_json_atomic(target / f"{basin.name}.json", payload)
+    index[basin.name] = {
+        "regions": payload["regions"],
+        "run": payload["run"],
+        "frames": len(payload["frames"]),
+        "bbox": [basin.lat0, basin.lon0, basin.lat1, basin.lon1],
+    }
+    print(f"swellmap {basin.name}: {len(payload['frames'])} frames")
+    return True
+
+
 def run_swellmap(
     spots_dir: Path,
     out_dir: Path,
@@ -222,54 +401,32 @@ def run_swellmap(
     with httpx.Client(timeout=60.0, follow_redirects=True) as client:
         for basin in basins if basins is not None else basin_boxes(spots_dir):
 
-            def fetch(step: int, _b: BasinBox = basin) -> bytes | None:
-                raw = fetch_basin_step(client, cycle, step, _b)
+            def fetch_at(cyc: datetime, step: int, _b: BasinBox = basin) -> bytes | None:
+                raw = fetch_basin_step(client, cyc, step, _b)
                 time.sleep(REQUEST_GAP_S)
                 return raw
 
-            payload = build_basin_payload(basin, cycle, fetch, steps)
-            if payload is None:
-                print(f"warn: swellmap {basin.name}: no frames fetched - keeping previous file")
-                continue
-            write_json_atomic(target / f"{basin.name}.json", payload)
-            written.append(basin.name)
-            index[basin.name] = {
-                "regions": payload["regions"],
-                "run": payload["run"],
-                "frames": len(payload["frames"]),
-                "bbox": [basin.lat0, basin.lon0, basin.lat1, basin.lon1],
-            }
-            print(f"swellmap {basin.name}: {len(payload['frames'])} frames")
+            b_cycle, first = _resolve_cycle(cycle, fetch_at, steps[0])
+            if b_cycle != cycle:
+                print(
+                    f"swellmap {basin.name}: {cycle:%Y-%m-%dT%H}Z not on NOMADS yet - "
+                    f"falling back to {b_cycle:%Y-%m-%dT%H}Z"
+                )
+
+            def fetch(
+                step: int,
+                _b: BasinBox = basin,
+                _c: datetime = b_cycle,
+                _first: bytes | None = first,
+            ) -> bytes | None:
+                # steps[0] was already paid for by the probe above
+                return _first if step == steps[0] else fetch_at(_c, step, _b)
+
+            payload = build_basin_payload(basin, b_cycle, fetch, steps)
+            if _publish_basin(target, basin, payload, index):
+                written.append(basin.name)
     if written:
-        # merge over the previous index so a skipped basin keeps its entry
-        idx_path = target / "index.json"
-        prev: dict = {}
-        if idx_path.exists():
-            try:
-                loaded = json.loads(idx_path.read_text(encoding="utf-8"))
-            except (json.JSONDecodeError, OSError):
-                # a torn index (written non-atomically before write_json_atomic, or
-                # damaged any other way) parsed bare crash-looped every later run -
-                # after all basins
-                # had already been fetched, and before the world layer got to run. A
-                # basin skipped this run loses its entry until its next good fetch;
-                # degraded, but the map stays alive (same contract as publish._read_index).
-                print(f"warn: {idx_path} is unreadable - rebuilding from this run's basins")
-            else:
-                if isinstance(loaded, dict):
-                    prev = loaded
-        prev.update(index)
-        # The DB is the authority on what exists (same rule as publish.prune_index):
-        # the merge above only ever upserts, so a basin whose spots left the DB kept
-        # its index entry and its <basin>.json forever - both shipping in every CDN
-        # deploy. Keyed on basin_boxes(spots_dir), NOT on this run's output, so a
-        # basin merely skipped for a failed fetch keeps serving its previous file.
-        known = {b.name for b in basin_boxes(spots_dir)}
-        for stale in sorted(set(prev) - known):
-            del prev[stale]
-            (target / f"{stale}.json").unlink(missing_ok=True)
-            print(f"swellmap: pruned basin {stale!r} - no longer in the DB")
-        write_json_atomic(idx_path, prev)
+        _write_basin_index(target, spots_dir, index)
     return written
 
 
@@ -397,32 +554,31 @@ def _subsample_geom(geom: dict, k: int) -> dict:
     }
 
 
-def build_world_frames(
-    cycle: datetime,
-    fetch_planes: Callable[[int], tuple[dict, dict] | None],
-    steps: tuple[int, ...],
-    world_dir: Path,
-) -> dict | None:
-    """Fetch every step, write one PNG per good step into `world_dir`, return the
-    world.json metadata (or None if nothing at all arrived). `fetch_planes` is
-    injectable so tests feed synthetic arrays instead of the network."""
-    import numpy as np
+class WorldFrames:
+    """Push-driven accumulator for the global layer - the twin of BasinFrames, so the
+    combined pass can feed one downloaded step to the world and every basin at once."""
 
-    geom: dict | None = None
-    frames: list[dict] = []
-    maxes = {"hs": 0.0, "per": 0.0, "wind": 0.0, "energy": 0.0}
-    world_dir.mkdir(parents=True, exist_ok=True)
-    for step in steps:
-        got = fetch_planes(step)
+    def __init__(self, cycle: datetime, world_dir: Path) -> None:
+        self.cycle = cycle
+        self.world_dir = world_dir
+        self.geom: dict | None = None
+        self.frames: list[dict] = []
+        self.maxes = {"hs": 0.0, "per": 0.0, "wind": 0.0, "energy": 0.0}
+        world_dir.mkdir(parents=True, exist_ok=True)
+
+    def add(self, step: int, got: tuple[dict, dict] | None) -> None:
+        import numpy as np
+
         if got is None:
-            continue
+            return
         raw_geom, planes = got
         sub = {n: np.asarray(planes[n])[::WORLD_SUBSAMPLE, ::WORLD_SUBSAMPLE] for n in WORLD_PLANES}
         sgeom = _subsample_geom(raw_geom, WORLD_SUBSAMPLE)
-        if geom is None:
-            geom = sgeom
-        elif (sgeom["ny"], sgeom["nx"]) != (geom["ny"], geom["nx"]):
-            continue  # malformed step must not corrupt the grid geometry
+        if self.geom is None:
+            self.geom = sgeom
+        elif (sgeom["ny"], sgeom["nx"]) != (self.geom["ny"], self.geom["nx"]):
+            return  # malformed step must not corrupt the grid geometry
+        geom = self.geom
         q = {n: _quantize_plane(sub[n], _PLANE_SCALES[n]) for n in WORLD_PLANES}
         stacked = np.concatenate([q[n] for n in WORLD_PLANES], axis=0)
         png = png_gray(geom["nx"], geom["ny"] * len(WORLD_PLANES), stacked.tobytes())
@@ -432,39 +588,155 @@ def build_world_frames(
         # the map just lies about which run it shows. New names per cycle keep the
         # surviving metadata pointing at its own frames; run_swellmap_world prunes
         # unreferenced frames after the new world.json lands.
-        name = f"{cycle:%Y%m%d%H}-f{step:03d}.png"
-        (world_dir / name).write_bytes(png)
-        frames.append(
-            {"t": (cycle + timedelta(hours=step)).strftime("%Y-%m-%dT%H:%MZ"), "png": name}
+        name = f"{self.cycle:%Y%m%d%H}-f{step:03d}.png"
+        (self.world_dir / name).write_bytes(png)
+        self.frames.append(
+            {"t": (self.cycle + timedelta(hours=step)).strftime("%Y-%m-%dT%H:%MZ"), "png": name}
         )
         # fixed per-run ramp scale, computed here so the client never scans frames
+        m = self.maxes
         hs, per, wind = sub["hs"], sub["per"], sub["wind"]
-        maxes["hs"] = max(maxes["hs"], float(np.nanmax(hs)) if np.isfinite(hs).any() else 0.0)
-        maxes["per"] = max(maxes["per"], float(np.nanmax(per)) if np.isfinite(per).any() else 0.0)
+        m["hs"] = max(m["hs"], float(np.nanmax(hs)) if np.isfinite(hs).any() else 0.0)
+        m["per"] = max(m["per"], float(np.nanmax(per)) if np.isfinite(per).any() else 0.0)
         if np.isfinite(wind).any():
-            maxes["wind"] = max(maxes["wind"], float(np.nanmax(wind)) * 1.94384)  # knots
+            m["wind"] = max(m["wind"], float(np.nanmax(wind)) * 1.94384)  # knots
         energy = 0.49 * hs**2 * (0.9 * per)  # kW/m, Te = 0.9*Tp - mirrors the client
         if np.isfinite(energy).any():
-            maxes["energy"] = max(maxes["energy"], float(np.nanmax(energy)))
-    if geom is None or not frames:
-        return None
-    return {
-        "model": "noaa:gfswave.global.0p25",
-        "grid_deg": 0.25 * WORLD_SUBSAMPLE,
-        "run": cycle.strftime("%Y-%m-%dT%H:%MZ"),
-        "attribution": "Wave data: NOAA GFS-Wave (WAVEWATCH III)",
-        "scales": {
-            "hs_m": HS_SCALE,
-            "per_s": PER_SCALE,
-            "dir_deg": DIR_SCALE,
-            "wind_ms": WIND_SCALE,
-            "missing": MISSING,
-        },
-        "planes": list(WORLD_PLANES),
-        "max": {k: round(v, 2) for k, v in maxes.items()},
-        **geom,
-        "frames": frames,
-    }
+            m["energy"] = max(m["energy"], float(np.nanmax(energy)))
+
+    def meta(self) -> dict | None:
+        if self.geom is None or not self.frames:
+            return None
+        return {
+            "model": "noaa:gfswave.global.0p25",
+            "grid_deg": 0.25 * WORLD_SUBSAMPLE,
+            "run": self.cycle.strftime("%Y-%m-%dT%H:%MZ"),
+            "attribution": "Wave data: NOAA GFS-Wave (WAVEWATCH III)",
+            "scales": {
+                "hs_m": HS_SCALE,
+                "per_s": PER_SCALE,
+                "dir_deg": DIR_SCALE,
+                "wind_ms": WIND_SCALE,
+                "missing": MISSING,
+            },
+            "planes": list(WORLD_PLANES),
+            "max": {k: round(v, 2) for k, v in self.maxes.items()},
+            **self.geom,
+            "frames": self.frames,
+        }
+
+
+def build_world_frames(
+    cycle: datetime,
+    fetch_planes: Callable[[int], tuple[dict, dict] | None],
+    steps: tuple[int, ...],
+    world_dir: Path,
+) -> dict | None:
+    """Fetch every step, write one PNG per good step into `world_dir`, return the
+    world.json metadata (or None if nothing at all arrived). `fetch_planes` is
+    injectable so tests feed synthetic arrays instead of the network. A thin
+    pull-shaped view over WorldFrames."""
+    acc = WorldFrames(cycle, world_dir)
+    for step in steps:
+        acc.add(step, fetch_planes(step))
+    return acc.meta()
+
+
+def run_swellmap_all(
+    spots_dir: Path,
+    out_dir: Path,
+    now: datetime | None = None,
+) -> tuple[list[str], int]:
+    """Publish BOTH layers off one download per step. Returns (basin names, world frames).
+
+    The two layers read the same five shortNames off the same 0.25 deg global GFS-Wave
+    file, so running them separately fetched everything twice: ~513 grib-filter subregion
+    requests for the basins (9 x 57, each behind a REQUEST_GAP_S courtesy sleep) on top of
+    the world layer's 57 global ones. Here the global step is downloaded once and every
+    basin is cut out of it with `slice_basin_field` - ~10x fewer requests on NOMADS and
+    several minutes off the VM cron, which is the shared-infrastructure etiquette this
+    module's docstring already commits to.
+
+    A basin the slice cannot serve (the 0/360 seam - no committed basin crosses it) is
+    fetched with its own subregion request, so no basin silently loses its layer. The
+    per-basin path stays the only route for `--basin` and `--skip-world` runs, which have
+    no global download to slice from.
+    """
+    cycle = pick_cycle(now or datetime.now(UTC))
+    steps = tuple(range(0, HORIZON_H + 1, STEP_H))
+    target = out_dir / "swellmap"
+    target.mkdir(parents=True, exist_ok=True)
+    world_dir = target / "world"
+    basins = basin_boxes(spots_dir)
+    index: dict[str, dict] = {}
+    written: list[str] = []
+
+    with httpx.Client(timeout=120.0, follow_redirects=True) as client:
+
+        def fetch_planes_at(cyc: datetime, step: int) -> tuple[dict, dict] | None:
+            try:
+                resp = client.get(world_filter_url(cyc, step))
+            except httpx.HTTPError:
+                return None
+            time.sleep(REQUEST_GAP_S)
+            if resp.status_code != 200 or not _is_grib(resp.content):
+                return None
+            return parse_grib_planes(resp.content)
+
+        run_cycle, first = _resolve_cycle(cycle, fetch_planes_at, steps[0])
+        if run_cycle != cycle:
+            print(
+                f"swellmap: {cycle:%Y-%m-%dT%H}Z not on NOMADS yet - "
+                f"falling back to {run_cycle:%Y-%m-%dT%H}Z"
+            )
+
+        world = WorldFrames(run_cycle, world_dir)
+        accs = {b.name: BasinFrames(b, run_cycle) for b in basins}
+        unsliceable: list[BasinBox] = []
+        for step in steps:
+            got = first if step == steps[0] else fetch_planes_at(run_cycle, step)
+            world.add(step, got)
+            if got is None:
+                continue
+            geom, planes = got
+            for b in basins:
+                if b in unsliceable:
+                    continue
+                field = slice_basin_field(geom, planes, b)
+                if field is None and step == steps[0]:
+                    # geometry the slicer will not guess at - this basin needs its own
+                    # subregion requests; decided once, on the first good step
+                    unsliceable.append(b)
+                    continue
+                accs[b.name].add(step, field)
+
+        for b in basins:
+            if b in unsliceable:
+                continue
+            if _publish_basin(target, b, accs[b.name].payload(), index):
+                written.append(b.name)
+
+        if unsliceable:
+            print(
+                "swellmap: fetching "
+                + ", ".join(b.name for b in unsliceable)
+                + " directly - outside the global slice"
+            )
+            for basin in unsliceable:
+
+                def fetch(step: int, _b: BasinBox = basin, _c: datetime = run_cycle):
+                    raw = fetch_basin_step(client, _c, step, _b)
+                    time.sleep(REQUEST_GAP_S)
+                    return raw
+
+                if _publish_basin(
+                    target, basin, build_basin_payload(basin, run_cycle, fetch, steps), index
+                ):
+                    written.append(basin.name)
+
+    if written:
+        _write_basin_index(target, spots_dir, index)
+    return written, _write_world(target, world_dir, world.meta())
 
 
 def _prune_world_frames(world_dir: Path, keep: set[str]) -> None:
@@ -487,9 +759,9 @@ def run_swellmap_world(out_dir: Path, now: datetime | None = None) -> int:
 
     with httpx.Client(timeout=120.0, follow_redirects=True) as client:
 
-        def fetch_planes(step: int) -> tuple[dict, dict] | None:
+        def fetch_planes_at(cyc: datetime, step: int) -> tuple[dict, dict] | None:
             try:
-                resp = client.get(world_filter_url(cycle, step))
+                resp = client.get(world_filter_url(cyc, step))
             except httpx.HTTPError:
                 return None
             time.sleep(REQUEST_GAP_S)
@@ -497,7 +769,23 @@ def run_swellmap_world(out_dir: Path, now: datetime | None = None) -> int:
                 return None
             return parse_grib_planes(resp.content)
 
-        meta = build_world_frames(cycle, fetch_planes, steps, world_dir)
+        w_cycle, first = _resolve_cycle(cycle, fetch_planes_at, steps[0])
+        if w_cycle != cycle:
+            print(
+                f"swellmap world: {cycle:%Y-%m-%dT%H}Z not on NOMADS yet - "
+                f"falling back to {w_cycle:%Y-%m-%dT%H}Z"
+            )
+
+        def fetch_planes(step: int) -> tuple[dict, dict] | None:
+            # steps[0] was already paid for by the probe above
+            return first if step == steps[0] else fetch_planes_at(w_cycle, step)
+
+        meta = build_world_frames(w_cycle, fetch_planes, steps, world_dir)
+    return _write_world(target, world_dir, meta)
+
+
+def _write_world(target: Path, world_dir: Path, meta: dict | None) -> int:
+    """Publish world.json + prune the frames it no longer names. Returns frames written."""
     if meta is None:
         print("warn: swellmap world: no frames fetched - keeping previous files")
         return 0

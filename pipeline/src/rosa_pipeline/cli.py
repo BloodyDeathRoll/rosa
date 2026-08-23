@@ -1425,7 +1425,7 @@ def _cmd_experiment(args: argparse.Namespace) -> int:
 
 
 def _cmd_swellmap(args: argparse.Namespace) -> int:
-    from .swellmap import basin_boxes, run_swellmap, run_swellmap_world
+    from .swellmap import basin_boxes, run_swellmap, run_swellmap_all, run_swellmap_world
 
     if args.world_only and args.basin is not None:
         # The two filters together select nothing: --basin narrows the basin layer, which
@@ -1433,6 +1433,14 @@ def _cmd_swellmap(args: argparse.Namespace) -> int:
         # returned 1 - which publish.sh's failure trap reads as a broken cycle, not a typo.
         print("swellmap: --world-only selects no basin - drop --basin", file=sys.stderr)
         return 2
+
+    # The default cron shape - both layers, every basin - shares one global download per
+    # step instead of fetching the same fields twice (~513 extra NOMADS requests/cycle).
+    # The narrowed forms below have no global pass to slice from, so they keep the
+    # per-basin filter path.
+    if not args.world_only and not args.skip_world and args.basin is None:
+        written, world_frames = run_swellmap_all(args.spots_dir, args.out)
+        return 0 if (written or world_frames) else 1
 
     written: list[str] = []
     if not args.world_only:

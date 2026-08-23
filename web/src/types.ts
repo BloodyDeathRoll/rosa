@@ -101,6 +101,12 @@ export interface SpotPayload {
   fetched_at: string;
   generated_at: string;
   attribution: string;
+  /** Local-time stamp of the first published hour served by the GFS-Wave tail rather
+      than best_match, or null when every visible hour is best_match. The payload is
+      stitched per hour, so this boundary is the only true model label there is - a
+      single constant name was wrong on ~40% of rows (retired 2026-08-14). Nothing
+      renders it yet; it is provenance, never an input to a rating. */
+  tail_from?: string | null;
   spectral_meta?: { member: string | null; spread: string };
   current: CurrentEntry;
   hours: HourEntry[];

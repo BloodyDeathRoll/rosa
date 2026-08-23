@@ -30,6 +30,8 @@ from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path
 
+from .geo import dlon180
+
 # EOT20's 17 constituents, named as pyTMD knows them; filename stems are upper-case.
 CONSTITUENTS: tuple[str, ...] = (
     "2n2",
@@ -157,9 +159,14 @@ def _nearest_wet(f, lats, lons, lat: float, lon360: float) -> tuple[int, int]:
     span = NEAREST_MAX_DEG
     i0 = int(np.searchsorted(lats, lat - span))
     i1 = int(np.searchsorted(lats, lat + span)) + 1
-    j0 = int(np.searchsorted(lons, lon360 - span))
-    j1 = int(np.searchsorted(lons, lon360 + span)) + 1
-    amp = f["amplitude"][i0:i1, j0:j1]
+    # The lon axis is periodic, so the window is taken by WRAPPED column index rather
+    # than by slicing: a spot just east of Greenwich needs the columns near 359.x too,
+    # and a plain searchsorted slice silently clips them (see geo.dlon180).
+    step = float(lons[1] - lons[0])
+    jc = int(np.argmin(np.abs(dlon180(lons, lon360))))
+    reach = int(np.ceil(span / abs(step)))
+    cols = np.mod(np.arange(jc - reach, jc + reach + 1), len(lons))
+    amp = f["amplitude"][i0:i1, :][:, cols]
     wet = np.argwhere(amp != 0.0)
     if len(wet) == 0:
         raise ValueError(
@@ -167,11 +174,11 @@ def _nearest_wet(f, lats, lons, lat: float, lon360: float) -> tuple[int, int]:
             "refusing to fabricate a tide constant on dry land"
         )
     cell_lat = lats[i0:i1][wet[:, 0]]
-    cell_lon = lons[j0:j1][wet[:, 1]]
+    cell_lon = lons[cols][wet[:, 1]]
     # planar closest is fine at this radius; cos-weight the lon axis
-    d2 = (cell_lat - lat) ** 2 + (np.cos(np.radians(lat)) * (cell_lon - lon360)) ** 2
+    d2 = (cell_lat - lat) ** 2 + (np.cos(np.radians(lat)) * dlon180(cell_lon, lon360)) ** 2
     k = int(np.argmin(d2))
-    return i0 + int(wet[k, 0]), j0 + int(wet[k, 1])
+    return i0 + int(wet[k, 0]), int(cols[wet[k, 1]])
 
 
 # ---------------------------------------------------------------------------

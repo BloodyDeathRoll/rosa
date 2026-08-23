@@ -29,6 +29,7 @@ from urllib.parse import quote
 
 import httpx
 
+from .geo import dlon180, lon360
 from .verify import WavePoint
 
 FILTER_URL = "https://nomads.ncep.noaa.gov/cgi-bin/filter_gfswave.pl"
@@ -58,8 +59,9 @@ class Box:
         return f"{self.bottom:g}_{self.top:g}_{self.left:g}_{self.right:g}"
 
 
-def _lon360(lon: float) -> float:
-    return lon % 360.0
+# re-exported: geo.lon360 is the shared definition, this name predates it and is
+# imported by swellmap and blend
+_lon360 = lon360
 
 
 def cluster_boxes(points: list[tuple[float, float]]) -> list[tuple[Box, list[int]]]:
@@ -76,18 +78,33 @@ def cluster_boxes(points: list[tuple[float, float]]) -> list[tuple[Box, list[int
         rest = []
         for i in unassigned:
             lat, lon = points[i][0], _lon360(points[i][1])
-            if abs(lat - s_lat) <= CLUSTER_SPAN_DEG and abs(lon - s_lon) <= CLUSTER_SPAN_DEG:
+            near_lat = abs(lat - s_lat) <= CLUSTER_SPAN_DEG
+            near_lon = abs(dlon180(lon, s_lon)) <= CLUSTER_SPAN_DEG
+            if near_lat and near_lon:
                 members.append(i)
             else:
                 rest.append(i)
         unassigned = rest
         lats = [points[i][0] for i in members]
-        lons = [_lon360(points[i][1]) for i in members]
+        # measure every member as a signed offset from the seed, so a cluster spanning
+        # the 0/360 seam stays contiguous instead of running from ~1 deg to ~359 deg
+        offs = [dlon180(_lon360(points[i][1]), s_lon) for i in members]
+        left, right = s_lon + min(offs) - BOX_PAD_DEG, s_lon + max(offs) + BOX_PAD_DEG
+        if left < 0.0 or right > 360.0:
+            # grib-filter takes leftlon/rightlon in 0-360 and has no way to express a
+            # box that wraps; splitting one cluster into two requests is the fix when a
+            # spot finally lands here. No committed spot does - closest is Portugal at
+            # ~347 deg - so this warns rather than silently sending a nonsense box.
+            print(
+                f"warn: gfswave cluster at lon {s_lon:.2f} crosses the 0/360 seam "
+                f"({left:.2f}..{right:.2f}) - the box will be clamped and may miss cells"
+            )
+            left, right = max(0.0, left), min(360.0, right)
         box = Box(
             bottom=min(lats) - BOX_PAD_DEG,
             top=max(lats) + BOX_PAD_DEG,
-            left=min(lons) - BOX_PAD_DEG,
-            right=max(lons) + BOX_PAD_DEG,
+            left=left,
+            right=right,
         )
         out.append((box, members))
     return out
@@ -145,7 +162,7 @@ def parse_grib_points(
                 vals_by_name[name] = None
                 continue
             vals, glats, glons = fields[name]
-            d2 = (glats - lat) ** 2 + (np.mod(glons, 360.0) - lon) ** 2
+            d2 = (glats - lat) ** 2 + dlon180(np.mod(glons, 360.0), lon) ** 2
             if hasattr(vals, "mask") and vals.mask is not np.ma.nomask:
                 d2 = np.where(vals.mask, np.inf, d2)
             idx = np.unravel_index(np.argmin(d2), d2.shape)

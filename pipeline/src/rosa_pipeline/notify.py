@@ -107,10 +107,17 @@ def _iter_payloads(out_dir: Path):
             print(f"warn: {path} is unreadable - skipped this notify run")
 
 
-def load_spot_events(out_dir: Path, now: datetime) -> list[SpotEvent]:
-    """Every not-yet-finished event across the published payloads."""
+def load_spot_events(
+    out_dir: Path, now: datetime, payloads: list[dict] | None = None
+) -> list[SpotEvent]:
+    """Every not-yet-finished event across the published payloads.
+
+    `payloads` lets a caller that already read the fleet hand them over instead of
+    re-globbing and re-parsing (send_notifications does). The two planners stay fully
+    independent - each still walks the whole fleet on its own terms - only the read is
+    shared. Default None keeps the standalone path for the CLI and the tests."""
     events: list[SpotEvent] = []
-    for payload in _iter_payloads(out_dir):
+    for payload in _iter_payloads(out_dir) if payloads is None else payloads:
         spot = payload.get("spot", {})
         for e in payload.get("events", []):
             end = datetime.fromisoformat(e["end"])
@@ -388,8 +395,11 @@ def send_notifications(
     Also pulls crowd 👍👎 rows into the calibration store (feedback_dir) - same
     cycle, same secrets."""
     now = now or datetime.now(UTC)
-    groups = group_events(load_spot_events(out_dir, now))
-    candidates = load_feedback_candidates(out_dir, now)
+    # one read of the fleet for both planners - at 265 spots each payload is a
+    # multi-hundred-KB JSON and this runs on the single-core VM every cycle
+    payloads = list(_iter_payloads(out_dir))
+    groups = group_events(load_spot_events(out_dir, now, payloads))
+    candidates = load_feedback_candidates(out_dir, now, payloads)
     if not groups and not candidates:
         print("notify: no active events, no feedback candidates")
     else:
@@ -499,12 +509,16 @@ class FeedbackCandidate:
     region: str = ""  # the ask never crosses regions - see plan_feedback_push
 
 
-def load_feedback_candidates(out_dir: Path, now: datetime) -> list[FeedbackCandidate]:
-    """Spots whose local clock is in the evening window and whose today was GOOD+."""
+def load_feedback_candidates(
+    out_dir: Path, now: datetime, payloads: list[dict] | None = None
+) -> list[FeedbackCandidate]:
+    """Spots whose local clock is in the evening window and whose today was GOOD+.
+
+    `payloads`: see load_spot_events - the same pre-read fleet, passed to both."""
     from zoneinfo import ZoneInfo
 
     out: list[FeedbackCandidate] = []
-    for payload in _iter_payloads(out_dir):
+    for payload in _iter_payloads(out_dir) if payloads is None else payloads:
         spot = payload.get("spot", {})
         try:
             local = now.astimezone(ZoneInfo(spot.get("timezone", "UTC")))

@@ -36,7 +36,6 @@ from __future__ import annotations
 import json
 import math
 import tempfile
-from bisect import bisect_left
 from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
 from itertools import pairwise
@@ -45,6 +44,7 @@ from typing import Protocol
 
 import httpx
 
+from .extract import SPECTRAL_JOIN_TOL_H, _nearest_spectral
 from .fetch import (
     FORECAST_DAYS,
     MARINE_URL,
@@ -55,6 +55,7 @@ from .fetch import (
     fixture_key,
     retrying_get,
 )
+from .geo import dlon180
 from .gfswave import (
     Box,
     _is_grib,
@@ -70,8 +71,9 @@ BLEND_STEPS: tuple[int, ...] = tuple(range(0, 385, 3))
 # equal weights, deliberately: tuning bought <=0.005 m out-of-sample on a 5-week archive
 # (CALIBRATION.md 2026-08-14 A2). Re-fit when the archive clears A4's >=8 weeks.
 W_GFS = 0.5
-# a 3-hourly hour joins the nearest 6-hourly ECMWF step within this (extract's own rule)
-JOIN_TOL_H = 3.0
+# a 3-hourly hour joins the nearest 6-hourly ECMWF step within this - extract's own
+# rule, imported rather than restated so the two arms can never drift apart
+JOIN_TOL_H = SPECTRAL_JOIN_TOL_H
 # the light OM legs batch like fetch_marine_waves_many; weight is tiny so one bucket is
 # plenty at any batch size we use
 AUX_BATCH_SIZE = 100
@@ -177,7 +179,7 @@ def parse_gfs_full(
         lon360 = lon % 360.0
         got: dict[str, float] = {}
         for key, (vals, glats, glons) in fields.items():
-            d2 = (glats - lat) ** 2 + (np.mod(glons, 360.0) - lon360) ** 2
+            d2 = (glats - lat) ** 2 + dlon180(np.mod(glons, 360.0), lon360) ** 2
             if hasattr(vals, "mask") and vals.mask is not np.ma.nomask:
                 d2 = np.where(vals.mask, np.inf, d2)
             idx = np.unravel_index(np.argmin(d2), d2.shape)
@@ -357,19 +359,6 @@ def _circ(a: float | None, b: float | None, w: float = W_GFS) -> float | None:
     return round(math.degrees(math.atan2(y, x)), 1) % 360.0
 
 
-def _nearest_sp(t: datetime, sp: list[SpectralSea], times: list[datetime]) -> SpectralSea | None:
-    if not sp:
-        return None
-    i = bisect_left(times, t)
-    best, best_gap = None, timedelta(hours=JOIN_TOL_H)
-    for j in (i - 1, i):
-        if 0 <= j < len(sp):
-            gap = abs(sp[j].time - t)
-            if gap <= best_gap:
-                best, best_gap = sp[j], gap
-    return best
-
-
 # fill hourly between consecutive samples this far apart or closer - covers the
 # native 3-hourly steps and the 6-hourly reduced sets fixtures use
 INTERP_MAX_GAP_H = 6.0
@@ -462,7 +451,7 @@ def compose_raw(
     for g in gfs:
         t_iso = g.time.astimezone(UTC).strftime("%Y-%m-%dT%H:%M")
         f = g.fields
-        sp = _nearest_sp(g.time, sp_series, sp_times)
+        sp = _nearest_spectral(g.time, sp_series, sp_times)
         cols["time"].append(t_iso)
         ens_hs.append(f.get("swh"))
         ens_dir.append(f.get("dirpw"))

@@ -21,7 +21,7 @@ _SWELL_PREFIXES: tuple[tuple[str, str], ...] = (
 )
 
 
-def _merge_models(hourly: dict) -> dict:
+def _merge_models(hourly: dict) -> tuple[dict, list[bool]]:
     """Collapse a multi-model marine response (fields suffixed `_marine_best_match`,
     `_ncep_gfswave016`, `_gwam`) into a single unsuffixed series, per hour: use best_match
     where it has data (days 0-9), else GFS-Wave (days 10-16). Anchored on wave_height so every
@@ -31,12 +31,18 @@ def _merge_models(hourly: dict) -> dict:
     ONE field family is exempt from the single-model rule: `*_peak_period` falls through to
     `fetch.TP_MODEL` (gwam) where the primary chain published none, which outside Europe is
     always - see the TP_MODEL note in fetch.py for why that join is safe and why gwam is
-    never a horizon fallback for anything else (it stops at ~7.3 days, short of best_match)."""
+    never a horizon fallback for anything else (it stops at ~7.3 days, short of best_match).
+
+    Returns (merged, from_tail) where from_tail[i] says the hour came from the GFS-Wave
+    tail rather than best_match. The merge has always KNOWN this per hour and threw it
+    away; publish turns it into one `tail_from` stamp. That is the only model label that
+    would be true - a single constant name was wrong on ~40% of rows (2026-08-14).
+    """
     if "wave_height" in hourly:  # single model (or fixture) - nothing to merge
-        return hourly
+        return hourly, [False] * len(hourly.get("time", []))
     suffixes = {k[len("wave_height_") :] for k in hourly if k.startswith("wave_height_")}
     if not suffixes:
-        return hourly
+        return hourly, [False] * len(hourly.get("time", []))
     bm = next((s for s in suffixes if "best_match" in s), None)
     tp = next((s for s in suffixes if s == TP_MODEL), None)
     # sorted() so the tail model is deterministic once there are three suffixes in play
@@ -55,6 +61,11 @@ def _merge_models(hourly: dict) -> dict:
 
     merged: dict = {"time": hourly["time"]}
     n = len(hourly["time"])
+    # anchored on wave_height, exactly like the per-field choice below, so the flag
+    # describes the whole hour and not whichever field happened to be iterated last
+    from_tail = [
+        not (anchor is not None and i < len(anchor) and anchor[i] is not None) for i in range(n)
+    ]
     for base in sorted(bases):
         bm_arr = hourly.get(f"{base}_{bm}") if bm else None
         gf_arr = hourly.get(f"{base}_{gf}") if gf else None
@@ -68,7 +79,7 @@ def _merge_models(hourly: dict) -> dict:
                 v = tp_arr[i]  # peak period only - never Hs / direction / mean period
             out.append(v)
         merged[base] = out
-    return merged
+    return merged, from_tail
 
 
 def _partition(hourly: dict, prefix: str, kind: str, i: int) -> SwellPartition | None:
@@ -119,7 +130,7 @@ def extract_hours(
     OM's field includes non-tidal sea level (steric/surge; offsets -0.81..+0.41 m
     measured fleet-wide, CALIBRATION.md 2026-08-14). Default None = the OM field,
     unchanged - the pb_0049 A/B decides the flip, not this parameter."""
-    marine = _merge_models(raw.marine["hourly"])
+    marine, from_tail = _merge_models(raw.marine["hourly"])
     weather = raw.weather["hourly"]
     weather_index = {t: i for i, t in enumerate(weather["time"])}
     eot20_tide: list[float] | None = None
@@ -224,6 +235,7 @@ def extract_hours(
                 n_dir_members=agreement.n_dirs if agreement else 0,
                 spectral=sp,
                 total_hs_m=total_hs,
+                from_tail=from_tail[i] if i < len(from_tail) else False,
             )
         )
     return hours

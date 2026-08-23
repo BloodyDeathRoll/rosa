@@ -287,6 +287,14 @@ def _hour_entry(spot: Spot, s: ScoredHour, tz: ZoneInfo) -> dict:
     return entry
 
 
+def _tail_from(visible: list, tz) -> str | None:
+    """Local-time stamp of the first visible hour served by the GFS-Wave tail."""
+    for sc in visible:
+        if getattr(sc.hour, "from_tail", False):
+            return sc.hour.time.astimezone(tz).isoformat(timespec="minutes")
+    return None
+
+
 def build_payload(
     spot: Spot,
     scored: list[ScoredHour],
@@ -429,9 +437,16 @@ def build_payload(
         },
         # No `model` key by design (2026-08-14): the payload is stitched per hour from
         # best_match and the GFS-Wave tail, so one constant name was wrong on ~40% of
-        # rows, and nothing rendered it. `attribution` carries the data credit; per-hour
-        # provenance would have to be per-hour, and is not published today.
+        # rows, and nothing rendered it. `attribution` carries the data credit.
+        # `tail_from` below is the per-hour version, and the only one that is true.
         "fetched_at": fetched_at,
+        # First published hour that came from the GFS-Wave tail instead of best_match
+        # (extract._merge_models anchors this on wave_height, so it describes the whole
+        # hour). The boundary is monotone per point, so one stamp says what a per-hour
+        # key would - at one key per payload instead of ~400. None when every visible
+        # hour is best_match, or when the source published a single model (fixtures,
+        # the blend arm). Display provenance only: nothing scores on it.
+        "tail_from": _tail_from(visible, tz),
         "generated_at": now.isoformat(timespec="seconds"),
         "attribution": (f"{ATTRIBUTION} · {ATTRIBUTION_ECMWF}" if has_spectral else ATTRIBUTION),
         # transparency labels for the Stage-3b fields ("why this rating" principle):

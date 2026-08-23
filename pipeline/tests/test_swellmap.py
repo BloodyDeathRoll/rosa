@@ -1,6 +1,6 @@
 """SwellMap basin layer - offline against the captured Med GRIB fixture."""
 
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
 from rosa_pipeline.swellmap import (
@@ -9,14 +9,17 @@ from rosa_pipeline.swellmap import (
     WORLD_PLANES,
     WORLD_SUBSAMPLE,
     BasinBox,
+    BasinFrames,
     _quantize,
     _quantize_plane,
+    _resolve_cycle,
     basin_boxes,
     build_basin_payload,
     build_world_frames,
     parse_grib_field,
     parse_grib_planes,
     png_gray,
+    slice_basin_field,
 )
 
 FIXTURES = Path(__file__).parent / "fixtures"
@@ -172,3 +175,167 @@ def test_payload_longitudes_are_wrapped_to_signed():
     assert payload is not None
     assert -180.0 <= payload["lon_first"] <= 180.0
     assert -180.0 <= payload["lon_last"] <= 180.0
+
+
+# --- late-NOMADS cycle fallback (2026-08-17 proposal) --------------------------
+# The layer used to pick pick_cycle(now) and never retry an older one, so a late
+# publication cost the whole refresh: every step missed, the previous file kept
+# serving, and the map went up to ~10 h stale until the next cron slot.
+
+CYC = datetime(2026, 8, 23, 12, tzinfo=UTC)
+
+
+def test_resolve_cycle_keeps_the_current_cycle_when_step_0_is_there():
+    asked: list[tuple[datetime, int]] = []
+
+    def fetch(cyc, step):
+        asked.append((cyc, step))
+        return b"GRIB-payload"
+
+    cycle, first = _resolve_cycle(CYC, fetch, 0)
+    assert cycle == CYC
+    assert first == b"GRIB-payload"
+    assert asked == [(CYC, 0)]  # no speculative second request on a normal day
+
+
+def test_resolve_cycle_drops_back_six_hours_when_nomads_is_late():
+    late = CYC - timedelta(hours=6)
+
+    def fetch(cyc, step):
+        return b"older" if cyc == late else None
+
+    cycle, first = _resolve_cycle(CYC, fetch, 0)
+    assert cycle == late
+    assert first == b"older"
+
+
+def test_resolve_cycle_gives_up_after_one_drop_back():
+    asked: list[datetime] = []
+
+    def fetch(cyc, step):
+        asked.append(cyc)
+        return None
+
+    _cycle, first = _resolve_cycle(CYC, fetch, 0)
+    assert first is None
+    assert asked == [CYC, CYC - timedelta(hours=6)]  # exactly one extra request
+
+
+def test_fallback_stamps_frames_on_the_cycle_it_actually_fetched():
+    """A basin that fell back must label its frames with the OLDER cycle - the file
+    carries one `run` stamp, so a mixed-cycle payload would lie about its own age."""
+    late = CYC - timedelta(hours=6)
+    steps = (0, 3)
+
+    def fetch_at(cyc, step):
+        return GRIB if cyc == late else None
+
+    cycle, first = _resolve_cycle(CYC, fetch_at, steps[0])
+
+    def fetch(step):
+        return first if step == steps[0] else fetch_at(cycle, step)
+
+    basin = BasinBox(name="med", regions=("Israel",), lat0=30.0, lon0=32.0, lat1=34.0, lon1=36.0)
+    payload = build_basin_payload(basin, cycle, fetch, steps)
+    assert payload is not None
+    assert payload["frames"][0]["t"] == "2026-08-23T06:00Z"
+    assert payload["frames"][1]["t"] == "2026-08-23T09:00Z"
+
+
+# --- basins sliced out of the global planes (2026-08-17 proposal) -------------
+# Both layers read the same five shortNames off the same 0.25 deg global file, so the
+# basin layer's ~513 subregion requests per cycle re-downloaded what the world layer
+# already had. The risk the proposal named is off-by-one in the lat/lon subsetting.
+
+
+def _synthetic_globe(ny=21, nx=40, lat0=90.0, dlat=-9.0, lon0=0.0, dlon=9.0):
+    """A coarse whole-globe grid whose cell values encode their own (row, col)."""
+    import numpy as np
+
+    geom = {
+        "ny": ny,
+        "nx": nx,
+        "lat_first": lat0,
+        "lat_last": lat0 + (ny - 1) * dlat,
+        "lon_first": lon0,
+        "lon_last": lon0 + (nx - 1) * dlon,
+    }
+    idx = np.arange(ny)[:, None] * 1000 + np.arange(nx)[None, :]
+    planes = {n: idx.astype(float) for n in ("hs", "per", "dir", "wind", "wdir")}
+    return geom, planes
+
+
+def test_slice_covers_the_basin_box_and_reports_its_own_geometry():
+    geom, planes = _synthetic_globe()
+    basin = BasinBox(name="b", regions=("R",), lat0=0.0, lat1=27.0, lon0=18.0, lon1=45.0)
+    f = slice_basin_field(geom, planes, basin)
+    assert f is not None
+    # the window must CONTAIN the box, never clip inside it
+    assert f["lat_first"] >= basin.lat1 and f["lat_last"] <= basin.lat0
+    assert f["lon_first"] <= basin.lon0 and f["lon_last"] >= basin.lon1
+    assert f["ny"] * f["nx"] == len(f["hs"])
+    # row-major, and the values still name the global cells they came from
+    top_left = f["hs"][0]
+    assert top_left == (90.0 - f["lat_first"]) / 9.0 * 1000 + f["lon_first"] / 9.0
+
+
+def test_slice_matches_the_grid_geometry_the_payload_would_publish():
+    geom, planes = _synthetic_globe()
+    basin = BasinBox(name="b", regions=("R",), lat0=-18.0, lat1=18.0, lon0=90.0, lon1=126.0)
+    f = slice_basin_field(geom, planes, basin)
+    assert f is not None
+    dlat = (f["lat_last"] - f["lat_first"]) / (f["ny"] - 1)
+    dlon = (f["lon_last"] - f["lon_first"]) / (f["nx"] - 1)
+    assert dlat == -9.0 and dlon == 9.0  # native spacing preserved, no resampling
+
+
+def test_slice_wraps_lon_to_signed_like_parse_grib_field():
+    geom, planes = _synthetic_globe()
+    # Portugal-ish: 347.5 deg east on the 0-360 grid must publish as negative
+    basin = BasinBox(name="pt", regions=("Portugal",), lat0=36.0, lat1=42.0, lon0=-13.0, lon1=-8.0)
+    f = slice_basin_field(geom, planes, basin)
+    assert f is not None
+    assert f["lon_first"] < 0 and f["lon_last"] < 0
+
+
+def test_slice_refuses_a_seam_crossing_box_instead_of_guessing():
+    geom, planes = _synthetic_globe()
+    # antimeridian: 170E..170W is contiguous in the file's 0-360 frame (170..190) but
+    # cannot be published as a signed lon_first < lon_last grid
+    anti = BasinBox(name="x", regions=("R",), lat0=-9.0, lat1=9.0, lon0=170.0, lon1=-170.0)
+    assert slice_basin_field(geom, planes, anti) is None
+    # 0/360 seam: Greenwich-crossing box, refused before any index arithmetic
+    seam = BasinBox(name="y", regions=("R",), lat0=-9.0, lat1=9.0, lon0=-10.0, lon1=10.0)
+    assert slice_basin_field(geom, planes, seam) is None
+
+
+def test_slice_marks_land_as_none_like_the_grib_parser():
+    import numpy as np
+
+    geom, planes = _synthetic_globe()
+    planes = {k: v.copy() for k, v in planes.items()}
+    for v in planes.values():
+        v[5, 5] = np.nan
+    basin = BasinBox(name="b", regions=("R",), lat0=-90.0, lat1=90.0, lon0=0.0, lon1=179.0)
+    f = slice_basin_field(geom, planes, basin)
+    assert f is not None
+    assert f["hs"][5 * f["nx"] + 5] is None
+
+
+def test_sliced_frames_equal_the_pull_path_on_the_real_fixture():
+    """The two paths must build the same frame - same accumulator, same quantization."""
+    geom, planes = parse_grib_planes(GRIB)
+    med = BasinBox(name="med", regions=("Israel",), lat0=30.0, lat1=34.0, lon0=32.0, lon1=36.0)
+    field = slice_basin_field(geom, planes, med)
+    assert field is not None
+    acc = BasinFrames(med, CYC)
+    acc.add(0, field)
+    pushed = acc.payload()
+    pulled = build_basin_payload(med, CYC, lambda step: GRIB, (0,))
+    assert pushed is not None and pulled is not None
+    # the slice is a window on the fixture's own subgrid, so it is a subset, not equal;
+    # what must match is the frame SHAPE and the quantization contract
+    assert pushed["frames"][0].keys() == pulled["frames"][0].keys()
+    assert pushed["scales"] == pulled["scales"]
+    assert pushed["run"] == pulled["run"]
+    assert pushed["ny"] * pushed["nx"] == len(pushed["frames"][0]["hs"])

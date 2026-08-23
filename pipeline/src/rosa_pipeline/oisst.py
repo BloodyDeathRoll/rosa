@@ -21,6 +21,8 @@ from typing import Protocol
 
 import httpx
 
+from .geo import dlon180
+
 BASE_URL = (
     "https://www.ncei.noaa.gov/data/sea-surface-temperature-optimum-interpolation/v2.1/access/avhrr"
 )
@@ -53,19 +55,23 @@ def parse_points(nc_bytes: bytes, points: list[tuple[float, float]]) -> list[flo
     for lat, lon in points:
         lon360 = lon % 360.0
         i = int(np.argmin(np.abs(lats - lat)))
-        j = int(np.argmin(np.abs(lons - lon360)))
+        j = int(np.argmin(np.abs(dlon180(lons, lon360))))
         # spiral out over the local window for a wet cell; the field is 0.25 deg so
-        # NEAREST_MAX_DEG is a 4-cell reach each way
+        # NEAREST_MAX_DEG is a 4-cell reach each way. The lon axis is periodic, so the
+        # window is taken by WRAPPED column index - clipping it at 0 would hide the
+        # cells just west of Greenwich from a spot just east of it (see geo.dlon180).
         reach = int(NEAREST_MAX_DEG / 0.25)
-        win = sst[max(0, i - reach) : i + reach + 1, max(0, j - reach) : j + reach + 1]
-        wlat = lats[max(0, i - reach) : i + reach + 1]
-        wlon = lons[max(0, j - reach) : j + reach + 1]
+        cols = np.mod(np.arange(j - reach, j + reach + 1), len(lons))
+        rows = slice(max(0, i - reach), i + reach + 1)  # lat is NOT periodic
+        win = sst[rows, :][:, cols]
+        wlat = lats[rows]
+        wlon = lons[cols]
         wet = np.argwhere(win != FILL)
         if len(wet) == 0:
             out.append(None)
             continue
         d2 = (wlat[wet[:, 0]] - lat) ** 2 + (
-            np.cos(np.radians(lat)) * (wlon[wet[:, 1]] - lon360)
+            np.cos(np.radians(lat)) * dlon180(wlon[wet[:, 1]], lon360)
         ) ** 2
         k = int(np.argmin(d2))
         out.append(round(float(win[wet[k, 0], wet[k, 1]]) * scale, 2))

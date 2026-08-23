@@ -26,6 +26,7 @@ from typing import Protocol
 
 import httpx
 
+from .geo import dlon180
 from .models import SpectralSea
 
 BASE_URL = "https://data.ecmwf.int/forecasts"
@@ -113,6 +114,8 @@ def _nearest_wet(vals, lats, lons, lat: float, lon: float) -> float | None:
     import numpy as np
 
     lon = ((lon + 180.0) % 360.0) - 180.0  # grid longitudes run -180..179.75
+    # the full-scan fallback below keeps the seam SAFE (nothing is clipped), but the
+    # distance must still wrap or a cell one step across the date line measures ~360 deg
     r = int(NEAREST_MAX_DEG / GRID_STEP_DEG) + 1
     i0 = int(np.argmin(np.abs(lats[:, 0] - lat)))
     j0 = int(np.argmin(np.abs(lons[0, :] - lon)))
@@ -123,7 +126,7 @@ def _nearest_wet(vals, lats, lons, lat: float, lon: float) -> float | None:
         i_sl = slice(max(0, i0 - r), min(n_i, i0 + r + 1))
         j_sl = slice(j0 - r, j0 + r + 1)
     v = vals[i_sl, j_sl]
-    d2 = (lats[i_sl, j_sl] - lat) ** 2 + (lons[i_sl, j_sl] - lon) ** 2
+    d2 = (lats[i_sl, j_sl] - lat) ** 2 + dlon180(lons[i_sl, j_sl], lon) ** 2
     if hasattr(v, "mask") and v.mask is not np.ma.nomask:
         d2 = np.where(v.mask, np.inf, d2)
     idx = np.unravel_index(np.argmin(d2), d2.shape)
