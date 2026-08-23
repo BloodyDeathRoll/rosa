@@ -17,7 +17,7 @@ from rosa_pipeline.notify import (
     plan_notifications,
     save_state,
     sent_for,
-    swell_pushes_today,
+    swell_keys_stamped_today,
 )
 
 NOW = datetime(2026, 7, 23, 12, 0, tzinfo=UTC)
@@ -482,6 +482,6 @@ class TestSwellPushesToday:
             f"{eh}|fb:zvulun:2026-07-23": NOW.isoformat(),
             f"{other}|swell:zvulun:2026-07-23": NOW.isoformat(),
         }
-        assert swell_pushes_today(sent, eh, NOW) == 1
-        assert swell_pushes_today(sent, eh, NOW + timedelta(days=1)) == 0
-        assert swell_pushes_today({}, eh, NOW) == 0
+        assert swell_keys_stamped_today(sent, eh, NOW) == 1
+        assert swell_keys_stamped_today(sent, eh, NOW + timedelta(days=1)) == 0
+        assert swell_keys_stamped_today({}, eh, NOW) == 0

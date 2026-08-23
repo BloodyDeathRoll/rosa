@@ -100,30 +100,18 @@ def _quantize(value: float | None, scale: float) -> int:
 
 def parse_grib_field(grib_bytes: bytes) -> dict | None:
     """The whole subgrid (not point samples): {lats, lons, hs, per, dir} row-major as
-    the file stores it, masked cells (land) -> None."""
+    the file stores it, masked cells (land) -> None. A thin view over
+    parse_grib_planes: same pygrib pass, but flattened to lists-with-None and lons
+    wrapped to -180..180 (basins only; the world path keeps 0-360)."""
     import numpy as np
-    import pygrib
 
-    with tempfile.NamedTemporaryFile(suffix=".grib2") as tf:
-        tf.write(grib_bytes)
-        tf.flush()
-        grbs = pygrib.open(tf.name)
-        fields: dict[str, object] = {}
-        lats = lons = None
-        for m in grbs:
-            if m.shortName in ("swh", "perpw", "dirpw", "ws", "wdir") and m.shortName not in fields:
-                fields[m.shortName] = m.values
-                if lats is None:
-                    lats, lons = m.latlons()
-        grbs.close()
-    if lats is None or "swh" not in fields:
+    parsed = parse_grib_planes(grib_bytes)
+    if parsed is None:
         return None
+    geom, planes = parsed
 
     def flat(name: str) -> list[float | None]:
-        vals = fields.get(name)
-        if vals is None:
-            return [None] * lats.size
-        arr = np.ma.filled(np.ma.masked_invalid(vals), np.nan)
+        arr = np.asarray(planes[name], dtype=float)
         return [None if np.isnan(v) else float(v) for v in arr.ravel()]
 
     def norm_lon(lon: float) -> float:
@@ -132,16 +120,16 @@ def parse_grib_field(grib_bytes: bytes) -> dict | None:
         return lon - 360.0 if lon > 180.0 else lon
 
     return {
-        "ny": lats.shape[0],
-        "nx": lats.shape[1],
-        "lat_first": float(lats[0, 0]),
-        "lat_last": float(lats[-1, 0]),
-        "lon_first": norm_lon(float(lons[0, 0])),
-        "lon_last": norm_lon(float(lons[0, -1])),
-        "hs": flat("swh"),
-        "per": flat("perpw"),
-        "dir": flat("dirpw"),
-        "wind": flat("ws"),
+        "ny": geom["ny"],
+        "nx": geom["nx"],
+        "lat_first": geom["lat_first"],
+        "lat_last": geom["lat_last"],
+        "lon_first": norm_lon(geom["lon_first"]),
+        "lon_last": norm_lon(geom["lon_last"]),
+        "hs": flat("hs"),
+        "per": flat("per"),
+        "dir": flat("dir"),
+        "wind": flat("wind"),
         "wdir": flat("wdir"),
     }
 
@@ -323,9 +311,9 @@ def world_filter_url(cycle: datetime, step: int) -> str:
 
 
 def parse_grib_planes(grib_bytes: bytes) -> tuple[dict, dict] | None:
-    """Like parse_grib_field but numpy-native: (geometry, {name: 2-D float array,
-    NaN = land/missing}). Longitudes stay as the file stores them (0-360 for the
-    global grid) - the world client handles the wrap; basins never use this."""
+    """The single pygrib pass: (geometry, {name: 2-D float array, NaN = land/missing}).
+    Longitudes stay as the file stores them (0-360 for the global grid) - the world
+    client handles the wrap; parse_grib_field wraps them for the basins."""
     import numpy as np
     import pygrib
 

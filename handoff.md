@@ -1,115 +1,114 @@
-# Session Handoff - 2026-08-15
+# Session Handoff — 2026-08-23
 
 ## Goal
-Work the 2026-08-15 Dream overnight review of `pipeline/` (via `/dream-review`): apply its one
-finding and two of its three proposals, then bring every doc and derived artifact the change
-touched back into sync. Operator directive mid-session: **ALWAYS UPDATE STALE DOCS** - fix them
-on sight, never report-and-wait.
+Work the Dream overnight codebase-reviewer report for rosa (2026-08-23,
+`pipeline/` scope): apply both verified findings and two of the three
+proposals. Nothing else was attempted this session.
 
 ## Current State
-- **`main` = `c932bae`. Tree is NOT clean: 211 uncommitted files, nothing pushed.**
-  443 tests green (was 434; 9 added, none edited), ruff check + format clean.
-- **The whole change set is a fleet-wide same-input NO-OP, proven not asserted.** 199-spot
-  payload SHA-256 with `generated_at` blanked is
-  `9745eaff58a2ee38a299dedfd3a02aa878583043849998c778a12108cdaf036d` on a clean
-  `git worktree --detach HEAD` and on the patched tree. So CLAUDE.md's knob-tuning gate
-  (pb_0049) does not apply to any of it.
-- **Applied:** the refraction-singularity fix (`physics.py`), two bathy QC counters
-  (`bathymetry.py` + `cli.py`), the implausible-breaker warning (`cli.py`).
-- **NOT applied, deliberately:** the review's third proposal, `d_ref = max(...)`. It moves
-  published numbers, so it is gated on a Stage-0 A/B that needs the VM-only archive.
-  Logged as DEFERRED (not rejected) in OPEN-ITEMS item 15 and in Dream's ledger.
-- **All 199 bathy profiles re-cut live and re-installed.** Diffed against the committed set
-  BEFORE installing: all 199 identical on every shared key, 551 insertions / 0 deletions.
-  GEBCO returned the same depths, so no profile's physics moved.
-- **Nothing is deployed.** The last cron cycle still runs the pre-change code.
+- All four accepted items are **applied and uncommitted** in the working tree.
+- **Repo suite: 459 passed** (`PYTHONPATH=pipeline/src pipeline/.venv/bin/python
+  -m pytest -q pipeline/tests`). `ruff check` + `ruff format --check` clean on
+  the three touched source files.
+- Dream's two shipped proof tests: **2 passed** against the live repo (see the
+  run command in Failed Attempts — the applier's own runner reports a bogus
+  FAIL).
+- **Not committed, not pushed, not deployed.** Per the standing rule "commit
+  implies deploy", and pipeline sources changed, so a local `run --all` smoke
+  is wanted before pushing (memory: pipeline-change-smoke-rule). That smoke has
+  NOT been run.
+- `docs/SESSIONS.md` and `handoff.md` were already dirty when the session
+  started (carried from session 33) and this session has NOT appended a
+  session-34 entry to `docs/SESSIONS.md`.
+- Dream ledger updated: 4 lines appended to
+  `~/Projects/Dream/assignments/codebase-reviewer/reports/.state/rosa.applied`.
+  Nothing committed in Dream (correct — Dream is never committed from here).
 
 ## Active Files
-- `pipeline/src/rosa_pipeline/physics.py` - the applied diff: skip any marched sample deeper
-  than the reference (12 lines, one `continue` plus its rationale).
-- `pipeline/src/rosa_pipeline/bathymetry.py` - NEW `DepthProfile.non_monotone_samples` and
-  `.deepest_is_reference`; both persisted in `to_dict()`.
-- `pipeline/src/rosa_pipeline/cli.py` - `IMPLAUSIBLE_BREAK_RATIO` 3.0 +
-  `IMPLAUSIBLE_BREAK_FLOOR_M` 0.5 + `_implausible_break_hours()`; per-hour warn line and a
-  run-summary count; the two new counters on the `bathy` warning line.
-- `pipeline/tests/test_bathymetry.py` (+5 tests), `pipeline/tests/test_cli.py` (+5 tests,
-  incl. `TestImplausibleBreakGuard`).
-- `data/spots/derived/bathy/*.json` (199) - two new QC keys; 153 of them ALSO gained
-  `missing_samples`, a key added 2026-08-07 that had never reached the committed DB.
-- `data/spots/derived/bathy/bathy_elevations.json` - refreshed capture (18 KB Jul-22 -> 43 KB).
-  The old one was stale since today's pin moves and broke offline `bathy --fixtures`.
-- `docs/ALGORITHM.md` (2 bullets), `docs/SPOT-DB.md` (3 bullets + a stale count),
-  `docs/spot-db-scraping-playbook.md` (1 bullet), `docs/SESSIONS.md` (SESSION 28),
-  `docs/OPEN-ITEMS.md` (items 15, 16).
+- `pipeline/src/rosa_pipeline/cli.py` — both Dream finding diffs: guarded tide
+  preload (~:558) and guarded per-point `extract_hours` (~:582).
+- `pipeline/src/rosa_pipeline/swellmap.py` — `parse_grib_field` rewritten as a
+  thin view over `parse_grib_planes`; the latter's docstring now describes it as
+  the single pygrib pass.
+- `pipeline/src/rosa_pipeline/notify.py` — `swell_pushes_today` renamed
+  `swell_keys_stamped_today`, honest docstring, call site at ~:417 and the
+  `plan_notifications` docstring reference updated.
+- `pipeline/tests/test_notify.py` — the rename, 3 call sites (import + 3
+  asserts). No assertion semantics changed.
+- `docs/SESSIONS.md`, `handoff.md` — dirty from the PREVIOUS session, untouched
+  by the Dream work.
 
 ## Changes Made This Session
-1. **Applied the MEDIUM finding.** `physics.breaker_height_over_profile` refracts with
-   `Kr = sqrt(cos a_ref / cos alpha)`, unbounded as `alpha -> 90`, and skipped a sample only at
-   `sin_a >= 1` - i.e. just PAST the blow-up. Reaching it needs a sample deeper than the
-   reference, which `wet_depths_deep_to_shallow()` permits because it orders by DISTANCE, not
-   depth. Measured before the fix: 24.96 m in 32 m of water from a 3.0 m swell
-   (cantinho-bah-a), 192.7 m from a 4.0 m swell (zvulun), published as breaker heights.
-2. **Proposal 1 by hand** - `non_monotone_samples` + `deepest_is_reference`, printed on the
-   same `bathy` line as land samples and GEBCO holes, persisted to the profile JSON. The
-   geometry the march's whole premise rests on was previously invisible in the DB.
-3. **Proposal 2 by hand** - a precompute-time magnitude check that WARNS, never clamps. No
-   payload key, no constant that scores, so it cannot move a rating. Rosa serves static JSON
-   with no request-time backend, so precompute is the only place a bad number can be caught.
-4. **Re-cut all 199 profiles + the elevations capture**, because nothing does this
-   automatically (`run --all` reads profiles; the cron never calls `bathy`).
-5. **Doc sweep** after the operator directive - five files, including two staleness bugs this
-   session did NOT cause: SPOT-DB.md still said "80/199 pins settled as of 2026-08-04" (it is
-   199/199), and handoff.md claimed a clean tree and 434 tests.
-6. **Dream loop closed** (append-only, nothing committed there): 4 lines to
-   `reports/.state/rosa.applied`, 3 untagged bullets to `playbook.md`.
+1. Resolved rosa against Dream's `targets.yaml`, loaded the 2026-08-23 report,
+   classified both `.diff` files as pending against the working tree.
+2. Applied finding 1 (corrupt EOT20 tide constants sink the whole `run --all`
+   fleet) via `DREAM_ROOT=~/Projects/Dream ~/Projects/Dream/bin/review-apply.sh
+   rosa 2026-08-23`. Behaviour: an unreadable constants file now warns and falls
+   back to the OM tide column — identical to the missing-file path, so no
+   healthy spot's published numbers move.
+3. Applied finding 2 (a malformed per-point forecast body raises `KeyError` in
+   `extract_hours` and strands every later point unpublished) with
+   `git apply -C1`, exactly as the report's "Shared file" note instructs — the
+   two hunks' 3-line contexts overlap by one line. Bad point's spots are
+   recorded as failures, rc 1, later points still publish.
+4. Proposal "simpler / swellmap": implemented `parse_grib_field` as
+   `parse_grib_planes` + adapter (ravel to lists-with-None, `norm_lon` on the two
+   corner lons). One pygrib code path now. The lon-normalization difference is
+   deliberate and preserved: basins wrap to -180..180, the world path keeps
+   0-360.
+5. Proposal "simpler / notify": renamed rather than only re-documented, because
+   the name was the actual defect — one push stamps one key per event in its
+   group, so a 6-spot group read as 6 "pushes". Only consumer is the boolean
+   `already_today > 0`, so behaviour is unchanged. Docstring now warns that a
+   future "N pushes/day" policy must count distinct sends.
+6. Appended 4 lines to Dream's `.state/rosa.applied` (append-only, no commit).
 
 ## Failed Attempts
-- **Proposal 2's own wording is wrong and implementing it literally ships a bug.** It says
-  "largest in-window partition height". Implemented with the hard `transform.in_window()`
-  bearing test, the guard fired on **42 perfectly sound fleet hours** (worst: ba-a, 0.54 m
-  breaker from a 0.02 m "sea"). The march weights every partition by
-  `sqrt(spread_exposure(p, window))` - a SOFT window - so a train whose fan merely clips the
-  window still feeds the breaker. With `spread_exposure(p, window) > 0` the report's numbers
-  reproduced exactly (fleet max ratio 2.012 at onjuku, 0 hours over 3x across 76,416 scored
-  hours). `test_cli.py::TestImplausibleBreakGuard` now pins the distinction.
-- **`review-apply.sh`'s test runner reported `ModuleNotFoundError: rosa_pipeline`** - purely
-  its own PYTHONPATH, not the code. The shipped test needs
-  `ROSA_REPO=/home/shahar/Projects/rosa PYTHONPATH=pipeline/src pipeline/.venv/bin/python -m pytest`
-  and passes 4/4 that way. Do not read that FAIL as a red tree.
-- **The report's counts did not reproduce: 88/15 vs the DB's 87/17.** Not a definition
-  disagreement - the review ran at 01:31 and the sat-verify pin moves landed 15:26-15:57 the
-  same day. Re-measure any DB-derived count before quoting it anywhere.
-- **`bathy --fixtures data/spots/derived/bathy` failed** with
-  `KeyError: no captured elevation for 39.3689,-9.3422` on every moved pin - the committed
-  capture was from Jul 22. Refreshed now. Also note `--fixtures` takes the DIRECTORY, not the
-  json path.
-- **ruff rejected `zip(wet, wet[1:], strict=False)`** (RUF007); use `itertools.pairwise`.
+- `review-apply.sh` printed **"WARNING: a shipped confirm-green test FAILED"**
+  and only applied ONE of the two diffs. Both are false alarms with known
+  causes:
+  - The FAIL is `ModuleNotFoundError: No module named 'rosa_pipeline'` — the
+    applier's own PYTHONPATH, not a red tree. This exact false FAIL is already
+    recorded in the ledger for 2026-08-15 and 2026-08-16. **Do not read it as a
+    regression.** Run the shipped tests directly instead:
+    `CBR_WORKTREE=$PWD PYTHONPATH=pipeline/src pipeline/.venv/bin/python -m
+    pytest -q ~/Projects/Dream/assignments/codebase-reviewer/reports/2026-08-23/rosa/tests/`
+  - The second diff was skipped because plain `git apply` cannot place it once
+    the first has landed. The report says so; apply it with `git apply -C1`.
+- The ledger is NOT at
+  `assignments/codebase-reviewer/.state/rosa.applied` (that path does not
+  exist). It lives at
+  `assignments/codebase-reviewer/reports/.state/rosa.applied`.
+- Carried from earlier sessions, still true: `npx vercel deploy --prod` (bare)
+  fails — always `npm run deploy` in `web/`.
 
 ## Next Step
-**Nothing is blocked. The immediate next thing is to commit and deploy** - 211 files, verified
-green and digest-identical, currently only on disk. Suggested split: `fix(physics):` the
-refraction skip, `feat(bathy):` the QC counters + the 199 re-cut profiles, `feat(publish):` the
-implausible-break warning, `docs:` the sweep. Per standing preference, commit implies push +
-deploy.
+Decide on committing this work. If yes, the pipeline-change rule applies first:
+```
+cd /home/shahar/Projects/rosa
+PYTHONPATH=pipeline/src pipeline/.venv/bin/python -m rosa_pipeline.cli run --all
+```
+then commit `pipeline/` as one `feat(pipeline): apply the 2026-08-23 Dream
+review` (matching `b8e39d8`'s shape), and append a session entry to
+`docs/SESSIONS.md`.
 
-Then, in value order:
-1. **Register more buoy networks** - unchanged from last session and still the highest-value
-   item. Must land BEFORE the 2026-09-17 promotion decisions or most regions get promoted on
-   pooled evidence alone. NDBC publishes 908 wave stations; `data/buoys/ndbc.yaml` has 8.
-2. **Route the new implausible-break warning somewhere a human sees it** (OPEN-ITEMS 16).
-   Today it is a stderr line the cron swallows into the publish log. The `rosa-backup`
-   freshness watchdog and the admin push snapshot are the existing precedents.
-3. **Run the A/B for `d_ref = max(depths_deep_to_shallow)`** (OPEN-ITEMS 15) at the 2026-09-17
-   archive-maturity gate, when the shipped harness is being run anyway. It needs a
-   CALIBRATION.md entry in the same change. Sized already: 13/199 spots, 55/76,416 ratings,
-   max |delta h_break_mid| 0.014 m.
-4. **Commit the blend/weight-fit script into `tools/`** - still only in a prior session's
-   scratchpad; September will otherwise re-derive it from CALIBRATION.md prose.
-5. Finish the fetch plane: phases B1 (whole-globe/per-basin fetch) and C3 (the weather call).
-
-**Useful rig discovered this session, worth reusing:** the whole scoring path runs offline in
-~5 s for the entire fleet - `FixtureSource(pipeline/tests/fixtures).fetch(32.3817, 34.8035)`
-gives 384 real hours and all 199 spots score against them. SHA-256 of the 199 payloads with
-`generated_at` blanked, computed on a `git worktree add --detach HEAD` baseline and on the
-patched tree, turns "this should move nothing" into a fact in two commands. The script is at
-`<scratchpad>/digest.py`; it is worth moving into `tools/`.
+Then, unchanged from the last two handoffs:
+1. **The thrice-carried-over VM check** — quota pre-charge `d6c9638` cron cycles
+   since 08-17, never verified:
+   ```
+   ssh -i web/.oracle/ssh-key-2026-07-23.key ubuntu@82.70.218.149 \
+     'cd ~/rosa && git log --oneline -1 && tail -20 publish.log && cat data/verify/quota.json'
+   ```
+2. Dream's third proposal, **NOT applied** (outcome / REASONED): charge the
+   blend arm's Open-Meteo aux legs to the day ledger — `cli.py:492-500`'s
+   `om_arm = wave_source != "blend"` gate skips the ledger while
+   `blend.fetch_aux_many` still hits the marine host (~0.2 units/point, ~40 per
+   fleet run). Small today; declined only for lack of a decision this session.
+3. Two findings from the **2026-08-22** report are still unfixed:
+   `feedback.from_row` accepts a non-dict `predicted`/`observed` (hostile
+   drop-box row raises `AttributeError` past `records_from_rows`'s guard), and
+   the blend arm's OM aux legs have no transient retry.
+4. Register more buoy networks before the 2026-09-17 promotion decisions —
+   NDBC has 908 wave stations, `data/buoys/ndbc.yaml` has 8.
+5. Fetch-plane migration (`docs/rosa-fetch-plane-plan.md` B1/C3, OPEN-ITEMS
+   14, 19).

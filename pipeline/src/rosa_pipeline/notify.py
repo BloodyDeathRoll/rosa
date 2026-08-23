@@ -189,7 +189,7 @@ def plan_notifications(
       much they like the look of Chigasaki.
     - **One swell push per device per day, maximum.** Even inside one region several
       groups can be live at once; only the best one is worth waking someone for.
-      `already_today` carries how many have gone out (see `swell_pushes_today`).
+      `already_today` carries whether any went out (see `swell_keys_stamped_today`).
 
     With no `home` known (a subscription made before the field existed) the region
     cannot be judged - the one-a-day cap still applies, so the worst case is one
@@ -289,8 +289,12 @@ def sent_for(sent: dict[str, str], ehash: str) -> set[str]:
     return {k.removeprefix(prefix) for k in sent if k.startswith(prefix)}
 
 
-def swell_pushes_today(sent: dict[str, str], ehash: str, now: datetime) -> int:
-    """Swell pushes already delivered to this device today - the one-a-day gate.
+def swell_keys_stamped_today(sent: dict[str, str], ehash: str, now: datetime) -> int:
+    """Swell sent-state keys stamped for this device today (>=1 means a push went out).
+
+    NOT a push count: one push stamps one key per event in its group, so a 6-spot
+    group reads as 6. Fine for the one-a-day gate (its only consumer, a boolean);
+    a future "N pushes/day" policy must count distinct sends, not keys.
 
     Feedback asks (`fb:` keys) carry their own daily limit and are not counted here.
     The day is UTC: the device's own timezone isn't in the subscription, and a cheap
@@ -414,7 +418,7 @@ def send_notifications(
                         now,
                         home=sub.get("home"),
                         regions=regions,
-                        already_today=swell_pushes_today(state, ehash, now),
+                        already_today=swell_keys_stamped_today(state, ehash, now),
                     )
                 ]
                 # evening 👍👎 ask - only for subs that keep "Spot feedback" on

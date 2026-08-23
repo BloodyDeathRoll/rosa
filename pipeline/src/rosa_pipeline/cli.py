@@ -558,16 +558,43 @@ def _cmd_run(args: argparse.Namespace) -> int:
         for point, group_spots in groups.items():
             # constants are extracted AT the offshore point, so any spot in the group
             # carries the same water - load by the first spot's id
-            c = load_constants(TIDE_DIR, group_spots[0].id)
-            if c is None:
+            try:
+                c = load_constants(TIDE_DIR, group_spots[0].id)
+            except Exception as e:
+                # A torn/hand-edited committed constants file must cost this point its
+                # EOT20 tide - the OM column stands in, exactly as when the file is
+                # missing - never the whole fleet run. This preload sat outside every
+                # guard, so one unreadable JSON stranded all 199 spots before the first
+                # publish (the per-spot-guard rule, one loop further out).
+                c = None
                 print(
-                    f"warn: no EOT20 constants for {group_spots[0].id} - "
-                    "OM tide stands in at this point",
+                    f"warn: EOT20 constants for {group_spots[0].id} are unreadable "
+                    f"({e!r}) - OM tide stands in at this point",
                     file=sys.stderr,
                 )
+            else:
+                if c is None:
+                    print(
+                        f"warn: no EOT20 constants for {group_spots[0].id} - "
+                        "OM tide stands in at this point",
+                        file=sys.stderr,
+                    )
             tide_by_point[point] = c
     for point, raw, spectral in zip(points, raws, spectral_series, strict=True):
-        hours = extract_hours(raw, spectral=spectral, tide_constants=tide_by_point.get(point))
+        try:
+            hours = extract_hours(raw, spectral=spectral, tide_constants=tide_by_point.get(point))
+        except Exception as e:
+            # Per-POINT guard, one loop outside the per-spot one: a body that parses as
+            # JSON but lacks the hourly schema (a capture torn mid-write, an old-schema
+            # fixture, a per-location error object in a batched response) raised here
+            # bare and stranded every LATER point's spots unpublished - the ghost-card
+            # failure mode again. Damage, not a dry cell: count the point's spots as
+            # failures so the cycle still exits 1 for publish.sh's trap.
+            for spot in groups[point]:
+                failures.append((spot.id, e))
+            ids = ", ".join(s.id for s in groups[point])
+            print(f"error: point {point} ({ids}): {e!r} - skipped", file=sys.stderr)
+            continue
         if not hours:
             # a derived point that landed on a dry grid cell - skip its spots, keep going
             ids = ", ".join(s.id for s in groups[point])
