@@ -17,7 +17,9 @@ What each leg contributes, per hour:
   GFS-Wave alone, honestly (plan B3; the horizon ceiling already prices that tail low).
 * **Open-Meteo, transitional** (plan C: these migrate later): the weather request
   (unchanged - C3 undecided) and a LIGHT marine request carrying only SST + tide,
-  ~0.2 weight/point vs ~8.8 for the full marine+ensemble pair.
+  ~1.2 weight/point (Open-Meteo floors each location at weight 1 - see
+  quota.MARINE_LIGHT_UNITS_PER_POINT) vs ~7.7 for the full marine+ensemble pair;
+  charged against the same daily ledger as the om arm.
 
 The composed ``RawForecast.marine`` uses plain UNSUFFIXED keys, which
 ``extract._merge_models`` passes through untouched - extract/transform/score need no
@@ -51,6 +53,7 @@ from .fetch import (
     WEATHER_URL,
     RawForecast,
     fixture_key,
+    retrying_get,
 )
 from .gfswave import (
     Box,
@@ -280,9 +283,13 @@ def fetch_aux_many(
             batch = coords[i : i + AUX_BATCH_SIZE]
             lat_s = ",".join(f"{lat:g}" for lat, _ in batch)
             lon_s = ",".join(f"{lon:g}" for _, lon in batch)
-            wresp = client.get(
+            # retrying_get, same as the OM arm's batches: a lone 503 on a weather
+            # batch killed the 2026-08-16 08:20Z cycle, and these two legs run AFTER
+            # the GFS/ECMWF downloads - a transient here throws all of that away
+            wresp = retrying_get(
+                client,
                 WEATHER_URL,
-                params={
+                {
                     "latitude": lat_s,
                     "longitude": lon_s,
                     "hourly": ",".join(WEATHER_HOURLY),
@@ -291,9 +298,10 @@ def fetch_aux_many(
                 },
             )
             wresp_ok = wresp.raise_for_status().json()
-            mresp = client.get(
+            mresp = retrying_get(
+                client,
                 MARINE_URL,
-                params={
+                {
                     "latitude": lat_s,
                     "longitude": lon_s,
                     "hourly": ",".join(MARINE_LIGHT_FIELDS),

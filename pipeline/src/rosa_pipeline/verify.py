@@ -505,8 +505,15 @@ def render_scorecard(buoy: Buoy, dist_km: float | None, scores: dict[str, VarSco
         f"model skill vs buoy {where}",
         f"  {'var':<18}{'n':>4}  {'bias':>8}  {'mae':>8}  {'rmse':>8}  {'SI':>6}",
     ]
-    # As in render_lead_scorecard: render what the card holds, not what VARIABLES lists.
+    # As in render_lead_scorecard: render what the card holds, not what VARIABLES lists -
+    # and, also as there, skip rows with no samples. The nowcast path never joins wind
+    # onto the model (that is the archive's join), so its ws/wdir rows are n=0 forever,
+    # and a permanent "+0.00" row is exactly the reads-like-a-measurement problem that
+    # keeps wind off the ECMWF tuple (see _WIND_VARIABLES). The all-zero card keeps its
+    # explicit no-overlap note below.
     for s in scores.values():
+        if not s.n:
+            continue
         si = f"{s.scatter_index:.2f}" if s.scatter_index is not None else "  -"
         unit = s.unit
         lines.append(

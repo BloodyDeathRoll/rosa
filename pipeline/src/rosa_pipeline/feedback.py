@@ -49,12 +49,19 @@ class FeedbackRecord:
 
     @classmethod
     def from_row(cls, row: dict) -> FeedbackRecord:
+        predicted = row.get("predicted", {})
+        observed = row.get("observed", {})
+        # the drop-box API admits any JS "object" here - including arrays - so a
+        # non-dict must fail THIS row's parse (records_from_rows skips it loudly)
+        # rather than surface later as an AttributeError that sinks the report
+        if not isinstance(predicted, dict) or not isinstance(observed, dict):
+            raise TypeError("predicted/observed must be objects")
         return cls(
             spot=row["spot"],
             at=datetime.fromisoformat(row["at"]),
             verdict=row["verdict"],
-            predicted=row.get("predicted", {}),
-            observed=row.get("observed", {}),
+            predicted=predicted,
+            observed=observed,
             source=row.get("source", "cli"),
         )
 
@@ -113,9 +120,21 @@ def bucket_delta(predicted_bucket: str | None, observed_bucket: str | None) -> i
     return BUCKET_ORDER.index(predicted_bucket) - BUCKET_ORDER.index(observed_bucket)
 
 
+def _as_float(x: object) -> float | None:
+    """A number, or None - drop-box values are validated for JSON shape only, never type."""
+    if isinstance(x, bool):
+        return None
+    try:
+        return float(x)  # type: ignore[arg-type]
+    except (TypeError, ValueError):
+        return None
+
+
 def _mid(h: object) -> float | None:
     if isinstance(h, (list, tuple)) and len(h) == 2:
-        return (float(h[0]) + float(h[1])) / 2
+        lo, hi = _as_float(h[0]), _as_float(h[1])
+        if lo is not None and hi is not None:
+            return (lo + hi) / 2
     return None
 
 
@@ -128,9 +147,10 @@ def summarize(records: list[FeedbackRecord]) -> dict:
         if (d := bucket_delta(r.predicted.get("bucket"), r.observed.get("bucket"))) is not None
     ]
     h_errs = [
-        m - float(r.observed["h_mid"])
+        m - o
         for r in records
-        if r.observed.get("h_mid") is not None and (m := _mid(r.predicted.get("h"))) is not None
+        if (o := _as_float(r.observed.get("h_mid"))) is not None
+        and (m := _mid(r.predicted.get("h"))) is not None
     ]
     return {
         "n": n,
@@ -167,19 +187,22 @@ def wind_fit(records: list[FeedbackRecord]) -> dict:
 
     pairs: list[tuple[float, float]] = []
     for r in records:
-        obs = r.observed.get("h_mid")
+        obs = _as_float(r.observed.get("h_mid"))
         pred = _mid(r.predicted.get("h"))
-        wind = r.predicted.get("wind") or {}
-        kph, cls = wind.get("kph"), wind.get("class")
-        if obs is None or pred is None or not pred or kph is None:
+        # `predicted` nests drop-box values - wind can be any JSON shape, kph any type
+        wind = r.predicted.get("wind")
+        if not isinstance(wind, dict):
+            wind = {}
+        kph, cls = _as_float(wind.get("kph")), wind.get("class")
+        if obs is None or pred is None or pred <= 0 or kph is None:
             continue
-        if cls not in ("onshore", "offshore") or float(kph) < WIND_FIT_MIN_KPH:
+        if cls not in ("onshore", "offshore") or kph < WIND_FIT_MIN_KPH:
             continue
         sign = 1.0 if cls == "offshore" else -1.0
-        u_n = sign * float(kph) / 3.6
-        depth = float(pred) / _GAMMA
+        u_n = sign * kph / 3.6
+        depth = pred / _GAMMA
         w = u_n / math.sqrt(_GRAVITY * depth)
-        pairs.append((float(obs) / float(pred) - 1.0, w))
+        pairs.append((obs / pred - 1.0, w))
     n = len(pairs)
     if n == 0:
         return {"n_windy": 0, "coeff": None, "stderr": None, "usable": False}

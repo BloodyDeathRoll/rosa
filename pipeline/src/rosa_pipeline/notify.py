@@ -4,7 +4,8 @@ Hard requirement (user, 2026-07-23): one swell = ONE notification. The same even
 seen from many adjacent spots (same region, peaks within GROUP_PEAK_H hours,
 directions within GROUP_DIR_DEG) is grouped, and each subscription gets a single
 push per group, spoken in the name of its best favorited spot ("+N more spots").
-The grouping rule mirrors web/src/events.ts (client-side alerts) - keep in sync.
+The grouping rule lives here alone: the old client-side mirror (web/src/events.ts)
+went away with in-app event banners (CLAUDE.md: swell events surface ONLY as push).
 
 Layers:
 - pure planning (unit-tested, offline): load_spot_events / group_events /
@@ -217,9 +218,15 @@ def plan_notifications(
             mine = [e for e in group if e.spot_id == home]
         if not mine:
             continue
-        best = max(mine, key=lambda e: (e.rating, e.h_peak))
-        if best.peak <= now:  # already peaked - too late to be a heads-up
+        # A heads-up is only worth sending for a peak still ahead - but judge that per
+        # event, not on the group's best. Ratings move between runs, so the flagship
+        # spot can cross GOOD only after its own peak has passed; picking it first and
+        # then testing `best.peak <= now` let that one spent event veto the whole
+        # swell, and a neighbour peaking tomorrow morning never got any push at all.
+        upcoming = [e for e in mine if e.peak > now]
+        if not upcoming:  # the whole swell already peaked - too late to be a heads-up
             continue
+        best = max(upcoming, key=lambda e: (e.rating, e.h_peak))
         if any(_was_sent(sent, e) for e in group):
             continue
         name = best.spot_name.split(" (")[0].split(" / ")[0]

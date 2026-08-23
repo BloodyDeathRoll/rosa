@@ -85,6 +85,20 @@ def marine_units(points: int) -> float:
     return round(points * MARINE_UNITS_PER_POINT, 1)
 
 
+# The blend arm's transitional marine-light leg (blend.MARINE_LIGHT_FIELDS: SST + tide)
+# bills the SAME marine host. Open-Meteo floors every location at weight 1
+# (max(1, vars/10) per fetch.py's derivation), so 2 vars is 1.0/point - not the ~0.2 a
+# bare vars/10 reads - scaled by 17/14 days -> 1.21. Small beside the om arm's 7.69,
+# but a live blend fleet run is an ad-hoc run on top of the cron's four, which is
+# exactly the 2026-08-15 scenario this ledger exists to refuse.
+MARINE_LIGHT_UNITS_PER_POINT = 1.21
+
+
+def marine_light_units(points: int) -> float:
+    """Weighted units one blend-arm fetch of `points` costs on the marine host."""
+    return round(points * MARINE_LIGHT_UNITS_PER_POINT, 1)
+
+
 @dataclass
 class Ledger:
     """Spend against today's budget. `day` is a UTC date string; a new day resets `spent`."""

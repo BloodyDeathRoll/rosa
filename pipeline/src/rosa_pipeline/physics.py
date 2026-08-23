@@ -148,7 +148,17 @@ def breaker_height_komar_gaughan(
     c_ref = phase_speed(period_s, depth_ref_m)
     hb = KOMAR_GAUGHAN_COEFF * GRAVITY**0.2 * (period_s * h0**2) ** 0.4
     for _ in range(KOMAR_GAUGHAN_ITERS):
-        sin_a = math.sin(a_ref) * phase_speed(period_s, hb / gamma) / c_ref
+        # The implied breaking depth hb/gamma can be DEEPER than the reference when the
+        # reference sits shallow and the sea is big. Snell forward from d_ref has nothing
+        # to say about deeper water - the march skips such samples (d > d_ref) for exactly
+        # this reason: a faster celerity than c_ref hands back sin_a just under 1 and
+        # Kr = sqrt(cos a_ref / cos alpha) is unbounded there (15.8 m from a 5.9 m sea at
+        # 60 deg over a 7.2 m reference, then a cliff to the march's 5.6 m half a degree
+        # later). Clamp the celerity at the reference's: breaking at-or-beyond the
+        # reference refracts as Kr = 1, continuous at the handoff (c -> c_ref as
+        # hb/gamma -> d_ref). Unreachable at today's committed profiles (shallowest
+        # reference 18 m), so this changes nothing the fleet publishes.
+        sin_a = math.sin(a_ref) * min(phase_speed(period_s, hb / gamma), c_ref) / c_ref
         if sin_a >= 1.0:
             return 0.0
         kr = math.sqrt(math.cos(a_ref) / math.cos(math.asin(sin_a)))

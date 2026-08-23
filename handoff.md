@@ -1,114 +1,116 @@
 # Session Handoff — 2026-08-23
 
 ## Goal
-Work the Dream overnight codebase-reviewer report for rosa (2026-08-23,
-`pipeline/` scope): apply both verified findings and two of the three
-proposals. Nothing else was attempted this session.
+Second Dream pass of the day. The first (session 34, commit `51f2b9d`) worked
+only the 2026-08-23 report; this session swept ALL 17 report nights and applied
+every still-open finding from the 2026-08-06 → 2026-08-22 backlog.
 
 ## Current State
-- All four accepted items are **applied and uncommitted** in the working tree.
-- **Repo suite: 459 passed** (`PYTHONPATH=pipeline/src pipeline/.venv/bin/python
-  -m pytest -q pipeline/tests`). `ruff check` + `ruff format --check` clean on
-  the three touched source files.
-- Dream's two shipped proof tests: **2 passed** against the live repo (see the
-  run command in Failed Attempts — the applier's own runner reports a bogus
-  FAIL).
-- **Not committed, not pushed, not deployed.** Per the standing rule "commit
-  implies deploy", and pipeline sources changed, so a local `run --all` smoke
-  is wanted before pushing (memory: pipeline-change-smoke-rule). That smoke has
-  NOT been run.
-- `docs/SESSIONS.md` and `handoff.md` were already dirty when the session
-  started (carried from session 33) and this session has NOT appended a
-  session-34 entry to `docs/SESSIONS.md`.
-- Dream ledger updated: 4 lines appended to
-  `~/Projects/Dream/assignments/codebase-reviewer/reports/.state/rosa.applied`.
-  Nothing committed in Dream (correct — Dream is never committed from here).
+- **12 finding diffs applied, UNCOMMITTED in the working tree.** Nothing was
+  committed, pushed or deployed this session.
+- Repo suite **459 passed**. `ruff check` + `ruff format --check` clean.
+- Every shipped Dream proof test for the applied diffs passes against the live
+  repo (see the env note under Failed Attempts).
+- **No `run --all` smoke has been run against these changes.** `fetch.py`,
+  `physics.py` and `verify.py` all changed, so the project's smoke rule applies
+  before any commit/push.
+- Dream findings backlog is now **0 open**. Proposals backlog is **6 open**.
+- `handoff.md` still carries the unresolved VM check from sessions 31-34.
 
 ## Active Files
-- `pipeline/src/rosa_pipeline/cli.py` — both Dream finding diffs: guarded tide
-  preload (~:558) and guarded per-point `extract_hours` (~:582).
-- `pipeline/src/rosa_pipeline/swellmap.py` — `parse_grib_field` rewritten as a
-  thin view over `parse_grib_planes`; the latter's docstring now describes it as
-  the single pygrib pass.
-- `pipeline/src/rosa_pipeline/notify.py` — `swell_pushes_today` renamed
-  `swell_keys_stamped_today`, honest docstring, call site at ~:417 and the
-  `plan_notifications` docstring reference updated.
-- `pipeline/tests/test_notify.py` — the rename, 3 call sites (import + 3
-  asserts). No assertion semantics changed.
-- `docs/SESSIONS.md`, `handoff.md` — dirty from the PREVIOUS session, untouched
-  by the Dream work.
+- `pipeline/src/rosa_pipeline/fetch.py` — three 08-21 diffs: ensemble 5xx no
+  longer sinks the batch; archive fleet marine request now passes
+  `retry_429=True`; the phantom "retry 3/2" log line moved inside the guard.
+- `pipeline/src/rosa_pipeline/feedback.py` — `from_row` rejects non-dict
+  `predicted`/`observed` (08-22).
+- `pipeline/src/rosa_pipeline/blend.py` + `quota.py` + `cli.py` — the blend
+  arm's OM aux legs get transient retry (08-22) and are now metered/refused
+  against the day ledger (08-17). **Note: this is OPEN-ITEMS 19's "next step",
+  now done via Dream's diff rather than by hand.**
+- `pipeline/src/rosa_pipeline/notify.py` — an already-peaked best event no
+  longer vetoes the swell push for the whole group (08-17); the dead
+  `web/src/events.ts` docstring reference removed (08-06).
+- `pipeline/src/rosa_pipeline/physics.py` — Komar-Gaughan celerity clamped at
+  `c_ref`, killing an unbounded `Kr` when the implied breaking depth is deeper
+  than the reference (08-18). Unreachable at today's profiles (shallowest
+  reference 18 m) — changes nothing the fleet publishes.
+- `pipeline/src/rosa_pipeline/verify.py` — skill scorecard skips n=0 rows so the
+  nowcast card stops printing permanent "+0.00" wind rows (08-18).
+- `pipeline/src/rosa_pipeline/cli.py` — `swellmap --basin X` now says it skipped
+  the world layer (08-13).
+- `handoff.md` — this file. `docs/SESSIONS.md` and `docs/OPEN-ITEMS.md` were
+  NOT updated this session.
 
 ## Changes Made This Session
-1. Resolved rosa against Dream's `targets.yaml`, loaded the 2026-08-23 report,
-   classified both `.diff` files as pending against the working tree.
-2. Applied finding 1 (corrupt EOT20 tide constants sink the whole `run --all`
-   fleet) via `DREAM_ROOT=~/Projects/Dream ~/Projects/Dream/bin/review-apply.sh
-   rosa 2026-08-23`. Behaviour: an unreadable constants file now warns and falls
-   back to the OM tide column — identical to the missing-file path, so no
-   healthy spot's published numbers move.
-3. Applied finding 2 (a malformed per-point forecast body raises `KeyError` in
-   `extract_hours` and strands every later point unpublished) with
-   `git apply -C1`, exactly as the report's "Shared file" note instructs — the
-   two hunks' 3-line contexts overlap by one line. Bad point's spots are
-   recorded as failures, rc 1, later points still publish.
-4. Proposal "simpler / swellmap": implemented `parse_grib_field` as
-   `parse_grib_planes` + adapter (ravel to lists-with-None, `norm_lon` on the two
-   corner lons). One pygrib code path now. The lon-normalization difference is
-   deliberate and preserved: basins wrap to -180..180, the world path keeps
-   0-360.
-5. Proposal "simpler / notify": renamed rather than only re-documented, because
-   the name was the actual defect — one push stamps one key per event in its
-   group, so a 6-spot group read as 6 "pushes". Only consumer is the boolean
-   `already_today > 0`, so behaviour is unchanged. Docstring now warns that a
-   future "N pushes/day" policy must count distinct sends.
-6. Appended 4 lines to Dream's `.state/rosa.applied` (append-only, no commit).
+1. Swept all 17 `reports/<date>/rosa/` dirs (2026-08-05 → 2026-08-23) and
+   classified all 55 diffs against the tree. Found the `.state/rosa.applied`
+   ledger existed but the git log was the real record: everything through
+   08-16 and all of 08-23 was applied; **08-17, 08-18, 08-21 and 08-22 had
+   never been worked at all.**
+2. Applied 12 diffs via `review-apply.sh`, one run per date (08-06, 08-13,
+   08-17, 08-18, 08-21, 08-22).
+3. **Skipped `feedback-poison-fixture.diff` (08-06)** and logged it REJECTED.
+   It is a test-only edit whose companion `feedback-poison.diff` was never
+   applied — `pull_feedback` still does not validate `at`, so the fixture
+   change has no fix behind it. Editing a passing test with no fix underneath
+   violates the project's rule 3.
+4. Skipped `blend-aux-retrying-get.diff` (08-18) as superseded by
+   `blend-aux-legs-no-retry.diff` (08-22), same finding re-filed.
+5. Ledger appended (12 applied lines + 1 REJECTED). No commit in Dream.
+6. **2026-08-18 has no `findings.md` or `proposals.md`** — that night's runner
+   died after writing diffs and tests but before the report. The two diffs were
+   read directly and applied on their own merits.
 
 ## Failed Attempts
-- `review-apply.sh` printed **"WARNING: a shipped confirm-green test FAILED"**
-  and only applied ONE of the two diffs. Both are false alarms with known
-  causes:
-  - The FAIL is `ModuleNotFoundError: No module named 'rosa_pipeline'` — the
-    applier's own PYTHONPATH, not a red tree. This exact false FAIL is already
-    recorded in the ledger for 2026-08-15 and 2026-08-16. **Do not read it as a
-    regression.** Run the shipped tests directly instead:
-    `CBR_WORKTREE=$PWD PYTHONPATH=pipeline/src pipeline/.venv/bin/python -m
-    pytest -q ~/Projects/Dream/assignments/codebase-reviewer/reports/2026-08-23/rosa/tests/`
-  - The second diff was skipped because plain `git apply` cannot place it once
-    the first has landed. The report says so; apply it with `git apply -C1`.
-- The ledger is NOT at
-  `assignments/codebase-reviewer/.state/rosa.applied` (that path does not
-  exist). It lives at
-  `assignments/codebase-reviewer/reports/.state/rosa.applied`.
-- Carried from earlier sessions, still true: `npx vercel deploy --prod` (bare)
-  fails — always `npm run deploy` in `web/`.
+- `review-apply.sh` again printed **"WARNING: a shipped confirm-green test
+  FAILED"** on every date. Same false alarm as sessions 32-34: the applier's
+  PYTHONPATH, not a red tree. Run the tests directly instead.
+- `test_blend_quota.py` (08-17) genuinely failed standalone with
+  `unknown spot 'beit-yanai'; known:` — it hardcodes a stale worktree path.
+  Fix is the env override the test header documents:
+  `CBR_WORKTREE=$PWD PYTHONPATH=pipeline/src pipeline/.venv/bin/python -m pytest -q <file>`
+  → 2 passed. **Always set `CBR_WORKTREE` when running shipped Dream tests.**
+- `test_retry_log_overcount.py` failed inside the applier but passes standalone
+  — ordering/env only.
+- `<date>/rosa/tests/run.py` is a harness, not a test; pytest errors on
+  collection. Ignore it.
+- Carried, still true: the ledger lives at
+  `assignments/codebase-reviewer/reports/.state/rosa.applied`, NOT
+  `assignments/codebase-reviewer/.state/rosa.applied`.
+- Carried, still true: `npx vercel deploy --prod` (bare) fails — always
+  `npm run deploy` in `web/`.
 
 ## Next Step
-Decide on committing this work. If yes, the pipeline-change rule applies first:
+**Smoke, then commit.** These are fetch/physics changes, so the project rule
+requires a full local run first:
 ```
-cd /home/shahar/Projects/rosa
-PYTHONPATH=pipeline/src pipeline/.venv/bin/python -m rosa_pipeline.cli run --all
+PYTHONPATH=pipeline/src pipeline/.venv/bin/python -m rosa_pipeline.cli run --all 2>&1 | tee /tmp/runall.log
 ```
-then commit `pipeline/` as one `feat(pipeline): apply the 2026-08-23 Dream
-review` (matching `b8e39d8`'s shape), and append a session entry to
-`docs/SESSIONS.md`.
+Expect 265/265 published, no new warnings. Note this spends ~2,038 local
+quota units (per-IP, does not touch the VM's cron budget). Then commit the 9
+files as one "apply the 2026-08-06 → 2026-08-22 Dream backlog" change, append
+session 35 to `docs/SESSIONS.md`, and **close OPEN-ITEMS 19** — the blend-arm
+ledger charge it describes is now implemented.
 
-Then, unchanged from the last two handoffs:
-1. **The thrice-carried-over VM check** — quota pre-charge `d6c9638` cron cycles
-   since 08-17, never verified:
+Then, in value order:
+1. **The VM check, now carried over five sessions:**
    ```
    ssh -i web/.oracle/ssh-key-2026-07-23.key ubuntu@82.70.218.149 \
      'cd ~/rosa && git log --oneline -1 && tail -20 publish.log && cat data/verify/quota.json'
    ```
-2. Dream's third proposal, **NOT applied** (outcome / REASONED): charge the
-   blend arm's Open-Meteo aux legs to the day ledger — `cli.py:492-500`'s
-   `om_arm = wave_source != "blend"` gate skips the ledger while
-   `blend.fetch_aux_many` still hits the marine host (~0.2 units/point, ~40 per
-   fleet run). Small today; declined only for lack of a decision this session.
-3. Two findings from the **2026-08-22** report are still unfixed:
-   `feedback.from_row` accepts a non-dict `predicted`/`observed` (hostile
-   drop-box row raises `AttributeError` past `records_from_rows`'s guard), and
-   the blend arm's OM aux legs have no transient retry.
-4. Register more buoy networks before the 2026-09-17 promotion decisions —
-   NDBC has 908 wave stations, `data/buoys/ndbc.yaml` has 8.
-5. Fetch-plane migration (`docs/rosa-fetch-plane-plan.md` B1/C3, OPEN-ITEMS
-   14, 19).
+   Expect HEAD at `51f2b9d` (or later) and a ledger pre-charged ~2,038/run.
+2. **6 open Dream proposals, all REASONED, none a live bug.** Cheap and safe:
+   dedupe `blend._nearest_sp` against `extract._nearest_spectral` (08-22); stop
+   notify parsing every payload twice per cycle (08-22); slice basin frames out
+   of the world layer's downloads (08-17). Real operational value: fall back one
+   GFS cycle when NOMADS publishes late (08-17). Product decision: per-hour
+   model provenance (08-21) — allowed ONLY as per-hour, never a constant label.
+   Insurance: longitude-seam handling in the four nearest-cell samplers (08-21),
+   not triggered by any committed spot.
+3. **Register more buoy networks** before the 2026-09-17 promotion decisions —
+   NDBC has 908 wave stations, `data/buoys/ndbc.yaml` has 8; also CMEMS,
+   NOWPHAS, INCOIS.
+4. **Fetch-plane migration** — `docs/rosa-fetch-plane-plan.md` B1/C3
+   (OPEN-ITEMS 14).
+5. **`d_ref = max(depths_deep_to_shallow)`** (OPEN-ITEMS 15) and **the two
+   GEBCO sources A/B** (OPEN-ITEMS 17), both at the 2026-09-17 gate.

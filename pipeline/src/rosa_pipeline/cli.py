@@ -489,11 +489,17 @@ def _cmd_run(args: argparse.Namespace) -> int:
     # over-count (a refused-or-crashed run's partial spend is rounded up to a full one),
     # which errs toward refusing - the failure mode that costs a stale-but-serving payload
     # instead of a failed cycle.
+    # The blend arm is charged too: its marine-light aux leg (SST + tide) rides the same
+    # marine host at ~1.21 units/point (see quota.MARINE_LIGHT_UNITS_PER_POINT), and a
+    # live blend run is by definition an ad-hoc run on top of the cron's four - the
+    # scenario this guard exists for. Only the weights differ between the arms.
     om_arm = getattr(args, "wave_source", "om") != "blend"
     ledger: quota.Ledger | None = None
-    if args.fixtures is None and om_arm:
+    if args.fixtures is None:
         ledger = quota.Ledger.load(args.quota_state)
-        planned = quota.marine_units(len(points))
+        planned = (
+            quota.marine_units(len(points)) if om_arm else quota.marine_light_units(len(points))
+        )
         if not ledger.affords(planned) and not args.ignore_quota:
             print(ledger.refusal(planned), file=sys.stderr)
             return quota.EXIT_QUOTA_EXHAUSTED
@@ -1438,7 +1444,14 @@ def _cmd_swellmap(args: argparse.Namespace) -> int:
                 return 2
         written = run_swellmap(args.spots_dir, args.out, basins=basins)
     world_frames = 0
-    if not args.skip_world and args.basin is None:
+    if args.skip_world or args.basin is not None:
+        # --skip-world is the operator asking for it and owes no message; --basin does,
+        # because narrowing the BASIN layer silently dropping the GLOBAL one leaves a log
+        # indistinguishable from a full run. Same contract as `skill: nothing to persist`
+        # and `spread: nothing to persist` above: say what did not happen.
+        if not args.skip_world:
+            print(f"swellmap: world layer skipped - --basin {args.basin!r} narrows this run")
+    else:
         world_frames = run_swellmap_world(args.out)
     return 0 if (written or world_frames) else 1
 

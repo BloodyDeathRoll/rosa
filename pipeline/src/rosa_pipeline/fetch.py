@@ -167,11 +167,11 @@ def retrying_get(
             resp = client.get(url, params=params)
         except httpx.TransportError as e:
             last_exc = e
-            print(
-                f"warn: open-meteo transport error ({e!r}), retry {attempt + 1}/2",
-                file=sys.stderr,
-            )
             if attempt < 2:
+                print(
+                    f"warn: open-meteo transport error ({e!r}), retry {attempt + 1}/2",
+                    file=sys.stderr,
+                )
                 time.sleep(10.0 * (attempt + 1))
             continue
         if resp.status_code == 429 and not retry_429:
@@ -219,7 +219,14 @@ def fetch_marine_waves_many(
     against the marine host instead of one per buoy. Open-Meteo answers a
     multi-location query with a list of per-location bodies (a single point comes
     back as a bare dict); each element matches ``fetch_marine_waves``'s shape, so
-    per-buoy capture files and ``parse_marine_waves`` are unaffected."""
+    per-buoy capture files and ``parse_marine_waves`` are unaffected.
+
+    ``retry_429``: this is the archive's fleet request (and verify --all-buoys' nowcast
+    batch), and the archive is append-only - an hour lost to a minutely 429 can never be
+    back-filled, so it is worth the 65 s wait exactly like the two ESSENTIAL requests in
+    ``_fetch_batch``. A daily-bucket 429 still fails fast (``_retry_wait_s`` refuses it);
+    ``fetch_wind_many`` stays fail-fast on purpose - wind columns are decision data the
+    archive already degrades without."""
     if not coords:
         return []
     with httpx.Client(timeout=timeout_s) as client:
@@ -232,6 +239,7 @@ def fetch_marine_waves_many(
                 "hourly": ",".join(MARINE_WAVE_FIELDS),
                 "forecast_days": FORECAST_DAYS,
             },
+            retry_429=True,
         )
         resp.raise_for_status()
     data = resp.json()
@@ -357,29 +365,38 @@ class OpenMeteoSource:
                 retry_429=True,
             )
             weather.raise_for_status()
-            ensemble: httpx.Response | None = self._get_retrying(
-                client,
-                MARINE_URL,
-                {
-                    **common,
-                    "hourly": ",".join(ENSEMBLE_HOURLY),
-                    "models": ",".join(MARINE_ENSEMBLE_MODELS),
-                },
-            )
-            # Open-Meteo bills call weight (locations x variables x days) against hourly and
-            # daily buckets, so a big run can drain them. The ensemble is the last and most
-            # expendable of the three requests: on 429 drop it and let confidence fall back to
-            # the horizon proxy, rather than throwing away the marine + weather data already
-            # fetched and publishing nothing at all.
-            if ensemble.status_code == 429:
+            # The ensemble is the last and most expendable of the three requests: on ANY
+            # failure - a 429 (Open-Meteo bills call weight against hourly and daily
+            # buckets, so a big run can drain them), a 5xx that outlasts the retries, or a
+            # transport error - drop it and let confidence fall back to the horizon proxy,
+            # rather than throwing away the marine + weather data already fetched and
+            # publishing nothing at all. Until 2026-08-21 only the literal-429 case
+            # degraded; the other two raised and sank the whole batch.
+            ensemble: httpx.Response | None
+            try:
+                ensemble = self._get_retrying(
+                    client,
+                    MARINE_URL,
+                    {
+                        **common,
+                        "hourly": ",".join(ENSEMBLE_HOURLY),
+                        "models": ",".join(MARINE_ENSEMBLE_MODELS),
+                    },
+                )
+            except httpx.TransportError as e:
                 print(
-                    "warn: open-meteo 429 on the ensemble request - publishing without the "
-                    "confidence ensemble (horizon proxy only)",
+                    f"warn: open-meteo transport error on the ensemble request ({e!r}) - "
+                    "publishing without the confidence ensemble (horizon proxy only)",
                     file=sys.stderr,
                 )
                 ensemble = None
-            else:
-                ensemble.raise_for_status()
+            if ensemble is not None and ensemble.status_code >= 400:
+                print(
+                    f"warn: open-meteo {ensemble.status_code} on the ensemble request - "
+                    "publishing without the confidence ensemble (horizon proxy only)",
+                    file=sys.stderr,
+                )
+                ensemble = None
         fetched_at = datetime.now(UTC).isoformat(timespec="seconds")
         mj, wj = marine.json(), weather.json()
         marine_list = mj if isinstance(mj, list) else [mj]
