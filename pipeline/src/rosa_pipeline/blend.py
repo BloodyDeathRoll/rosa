@@ -66,6 +66,7 @@ from .gfswave import (
     filter_url,
     pick_cycle,
 )
+from .gwam import GwamStep
 from .models import SpectralSea
 
 # 3-hourly to the full 16-day horizon - the published table is 3-hourly (TABLE_STEP_H),
@@ -417,6 +418,34 @@ def _circ(a: float | None, b: float | None, w: float = W_GFS) -> float | None:
 INTERP_MAX_GAP_H = 6.0
 
 
+def _tp_at(series: list[GwamStep], t: datetime, attr: str) -> float | None:
+    """A GWAM peak period at hour ``t``: exact step, else linear between the two steps
+    that bracket it when they are INTERP_MAX_GAP_H or closer and both carry a value.
+    Anything else is None - a peak is never extrapolated past the last step (174 h) or
+    across a purged one. Open-Meteo's hourly gwam column was the same 3-hourly model
+    interpolated, so this is the shape the transform was calibrated on."""
+    if not series:
+        return None
+    before = None
+    for s in series:
+        if s.time == t:
+            v = getattr(s, attr)
+            return round(v, 2) if v is not None else None
+        if s.time < t:
+            before = s
+            continue
+        # first step past t
+        if before is None:
+            return None
+        gap_h = (s.time - before.time).total_seconds() / 3600.0
+        a, b = getattr(before, attr), getattr(s, attr)
+        if gap_h > INTERP_MAX_GAP_H or a is None or b is None:
+            return None
+        w = (t - before.time).total_seconds() / 3600.0 / gap_h
+        return round(a + (b - a) * w, 2)
+    return None
+
+
 def _interp_hourly(gfs: list[GfsSea]) -> list[GfsSea]:
     """Expand a 3-hourly GFS series to hourly by linear (circular for bearings)
     interpolation between consecutive steps.
@@ -457,6 +486,7 @@ def compose_raw(
     marine_light: dict,
     fetched_at: str,
     sst_daily: float | None = None,
+    tp: list[GwamStep] | None = None,
 ) -> RawForecast:
     """One point's blended ``RawForecast``, in the unsuffixed shape extract passes through.
 
@@ -464,8 +494,12 @@ def compose_raw(
     each hour blends in the nearest ECMWF step within JOIN_TOL_H. Tide is looked up from
     the light OM marine body BY TIMESTAMP, so a missing hour is None, never misaligned.
     SST: ``sst_daily`` (OISST, plan C2 - intra-day drift ~0.1 C, below model error) fills
-    every hour when present; the OM light value is the per-hour fallback."""
+    every hour when present; the OM light value is the per-hour fallback.
+    ``tp`` (DWD GWAM, docs/rosa-peak-period-plan.md): the primary swell's and the wind
+    sea's PEAK period per hour, the two columns extract._partition reads a peak from -
+    what the OM arm's gwam join supplied. None past 174 h and for secondaries, as there."""
     gfs = _interp_hourly(sorted(gfs, key=lambda g: g.time))
+    tp_series = sorted(tp or [], key=lambda s: s.time)
     sp_series = sorted(ecmwf, key=lambda s: s.time)
     sp_times = [s.time for s in sp_series]
     ml = marine_light.get("hourly", {})
@@ -482,9 +516,11 @@ def compose_raw(
             "wind_wave_height",
             "wind_wave_direction",
             "wind_wave_period",
+            "wind_wave_peak_period",
             "swell_wave_height",
             "swell_wave_direction",
             "swell_wave_period",
+            "swell_wave_peak_period",
             "secondary_swell_wave_height",
             "secondary_swell_wave_direction",
             "secondary_swell_wave_period",
@@ -517,6 +553,14 @@ def compose_raw(
         cols["wind_wave_height"].append(f.get("windsea_h"))
         cols["wind_wave_direction"].append(f.get("windsea_d"))
         cols["wind_wave_period"].append(f.get("windsea_p"))
+        # GWAM's peaks ride on the partitions GFS actually publishes: a peak with no
+        # partition under it is dropped, so extract never sees a Tp for an empty slot
+        cols["wind_wave_peak_period"].append(
+            _tp_at(tp_series, g.time, "windsea_tp") if f.get("windsea_h") else None
+        )
+        cols["swell_wave_peak_period"].append(
+            _tp_at(tp_series, g.time, "swell_tp") if f.get("swell1_h") else None
+        )
         for n, prefix in (
             (1, "swell_wave"),
             (2, "secondary_swell_wave"),
@@ -566,10 +610,12 @@ class BlendedSource:
         gfs: GfsFullWaves,
         aux,  # callable(coords) -> list[(weather_body, marine_light_body)]
         sst=None,  # oisst.SstSource | None (plan C2); OM light value is the fallback
+        tp=None,  # gwam.GwamPeaks | None (peak-period plan A); None -> mean-period fallback
     ) -> None:
         self.gfs = gfs
         self.aux = aux
         self.sst = sst
+        self.tp = tp
 
     def fetch(self, lat: float, lon: float) -> RawForecast:
         return self.fetch_many([(lat, lon)])[0]
@@ -591,9 +637,19 @@ class BlendedSource:
                 import sys
 
                 print(f"warn: oisst sst skipped: {e!r}", file=sys.stderr)
+        tp_series: list[list[GwamStep]] = [[] for _ in coords]
+        if self.tp is not None:
+            try:  # guarded: a DWD outage costs the peaks (mean-period fallback), never the run
+                tp_series = self.tp.fetch_series(coords)
+            except Exception as e:
+                import sys
+
+                print(f"warn: gwam peak periods skipped: {e!r}", file=sys.stderr)
         raws = [
-            compose_raw(g, sp, w, m, fetched_at, sst_daily=sst_v)
-            for g, sp, (w, m), sst_v in zip(gfs_series, sp_series, aux, sst_vals, strict=True)
+            compose_raw(g, sp, w, m, fetched_at, sst_daily=sst_v, tp=tp_v)
+            for g, sp, (w, m), sst_v, tp_v in zip(
+                gfs_series, sp_series, aux, sst_vals, tp_series, strict=True
+            )
         ]
         # ...and say what this arm cannot measure. Once per run, not per point: the gap is a
         # property of the SOURCE SCHEMA, not of any one spot. See _PARTITION_TP_KEYS.

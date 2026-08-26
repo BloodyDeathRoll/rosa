@@ -261,7 +261,7 @@ export function SettingsPage({
         <footer class="settings-foot">
           <p>rosa 0.1 · forecasts are estimates - surf with your own eyes</p>
           <p>
-            Weather data by Open-Meteo.com · ECMWF open data · tides EOT20 (all CC-BY 4.0) · NOAA
+            Weather data by Open-Meteo.com · ECMWF open data · DWD GWAM · tides EOT20 (all CC-BY 4.0) · NOAA
           </p>
         </footer>
       </div>

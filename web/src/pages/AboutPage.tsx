@@ -26,6 +26,9 @@ function HowItWorks() {
               two global wave models itself, blends them, and takes sea temperature from NOAA too.
             </li>
             <li>
+              <b>DWD</b> (the German weather service) open data for each swell's peak period.
+            </li>
+            <li>
               <b>Open-Meteo</b> for wind and weather.
             </li>
             <li>
