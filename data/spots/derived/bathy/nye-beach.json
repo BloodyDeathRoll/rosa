@@ -1,0 +1,72 @@
+{
+  "spot": "nye-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    44.6423,
+    -124.0655
+  ],
+  "bearing_seaward_deg": 277.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 76.0,
+  "mean_slope_m_per_km": 4.06,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 44.64257,
+      "lon": -124.06864,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 44.64285,
+      "lon": -124.07177,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 44.6434,
+      "lon": -124.07805,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 44.64449,
+      "lon": -124.09059,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 44.64558,
+      "lon": -124.10314,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 44.64776,
+      "lon": -124.12823,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 44.65102,
+      "lon": -124.16588,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 44.65535,
+      "lon": -124.21608,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 44.66181,
+      "lon": -124.29139,
+      "depth_m": 76.0
+    }
+  ]
+}

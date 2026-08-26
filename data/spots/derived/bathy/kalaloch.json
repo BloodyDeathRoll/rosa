@@ -1,0 +1,72 @@
+{
+  "spot": "kalaloch",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    47.6515,
+    -124.3912
+  ],
+  "bearing_seaward_deg": 295.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 31.0,
+  "mean_slope_m_per_km": 1.75,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 47.65245,
+      "lon": -124.39422,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 47.6534,
+      "lon": -124.39725,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 47.6553,
+      "lon": -124.4033,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 47.6591,
+      "lon": -124.4154,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 47.6629,
+      "lon": -124.42751,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 47.67049,
+      "lon": -124.45172,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 47.68186,
+      "lon": -124.48805,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 47.69702,
+      "lon": -124.53652,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 47.71971,
+      "lon": -124.60927,
+      "depth_m": 31.0
+    }
+  ]
+}

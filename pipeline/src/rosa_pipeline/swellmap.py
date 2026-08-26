@@ -45,6 +45,8 @@ BASINS: dict[str, tuple[str, ...]] = {
     "japan": ("Japan",),
     "philippines": ("Philippines",),
     "california": ("California",),
+    # Oregon + Washington share one Pacific Northwest frame: 900 km of one coastline
+    "pacific-northwest": ("Oregon", "Washington"),
     "hawaii": ("Hawaii",),
 }
 BOX_PAD_DEG = 3.0  # sea-room around the spot extent so swell context is visible

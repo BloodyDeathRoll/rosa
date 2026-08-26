@@ -1,0 +1,45 @@
+# Rosa spot database - Washington (seeded 2026-08-26, the third US west coast region).
+# Outer Olympic coast plus the Strait of Juan de Fuca mouth: W-NW groundswell, cold water,
+# long drives, few crowds. Offshore wind is from the east. Every spot carries offshore_km
+# along its own seaward normal, so the sample point follows the pin.
+
+defaults: &wa
+  timezone: America/Los_Angeles
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [200, 330]
+  ideal:
+    wind_dir: [50, 130]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-08-26 - washington, 22 spots (primary coastline flow: 1 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 21 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/washington/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: hobuck-beach, name: "Hobuck Beach", town: "Wa'atch", lat: 48.3387, lon: -124.6666, offshore_direction: 40, swell_window: [155, 285], offshore_km: 5.0, <<: *wa }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: shi-shi-beach, name: "Shi Shi Beach", town: "Sooes", lat: 48.2759, lon: -124.6803, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, <<: *wa }  # sat-verified 2026-08-26 (websearch-seeded; shore normal set by hand off the tile)
+  - { id: clallam-bay, name: "Clallam Bay", town: "Clallam Bay", lat: 48.2564, lon: -124.2609, offshore_direction: 145, swell_window: [260, 30], offshore_km: 5.0, <<: *wa }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: pillar-point, name: "Pillar Point", town: "Pysht", lat: 48.1987, lon: -124.0998, offshore_direction: 224, swell_window: [339, 109], offshore_km: 5.0, <<: *wa }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: twin-river, name: "Twin River Surf Beach", town: "Twin", lat: 48.1654, lon: -123.9520, offshore_direction: 185, swell_window: [300, 70], offshore_km: 5.0, <<: *wa }  # sat-verified 2026-08-26 (osm-seeded)
+  - { id: crescent-bay-port-angeles, name: "Crescent Bay", town: "Port Crescent", lat: 48.1594, lon: -123.7118, offshore_direction: 153, swell_window: [268, 38], offshore_km: 5.0, <<: *wa }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: rialto-beach, name: "Rialto Beach", town: "La Push", lat: 47.9196, lon: -124.6383, offshore_direction: 141, swell_window: [256, 26], offshore_km: 5.0, <<: *wa }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: first-beach-la-push, name: "First Beach (La Push)", town: "La Push", lat: 47.9040, lon: -124.6333, offshore_direction: 52, swell_window: [167, 297], offshore_km: 5.0, <<: *wa }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: second-beach-la-push, name: "Second Beach (La Push)", town: "La Push", lat: 47.8916, lon: -124.6274, offshore_direction: 89, swell_window: [204, 334], offshore_km: 5.0, <<: *wa }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: ruby-beach, name: "Ruby Beach", town: "Hoh", lat: 47.7109, lon: -124.4154, offshore_direction: 58, swell_window: [173, 303], offshore_km: 5.0, <<: *wa }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: kalaloch, name: "Kalaloch", town: "Kalaloch", lat: 47.6515, lon: -124.3912, offshore_direction: 115, swell_window: [230, 0], offshore_km: 5.0, <<: *wa }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: moclips, name: "Moclips", town: "Moclips", lat: 47.2390, lon: -124.2176, offshore_direction: 82, swell_window: [197, 327], offshore_km: 5.0, <<: *wa }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: seabrook-pacific-beach, name: "Seabrook", town: "Seabrook", lat: 47.1959, lon: -124.2018, offshore_direction: 111, swell_window: [226, 356], offshore_km: 5.0, <<: *wa }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: copalis-beach, name: "Copalis Beach", town: "Ocean City", lat: 47.0864, lon: -124.1830, offshore_direction: 84, swell_window: [199, 329], offshore_km: 5.0, <<: *wa }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: ocean-shores-jetty, name: "Ocean Shores Jetty", town: "Ocean Shores", lat: 46.9297, lon: -124.1733, offshore_direction: 87, swell_window: [202, 332], offshore_km: 5.0, <<: *wa }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: half-moon-bay-westport, name: "Half Moon Bay (Westport)", town: "Westhaven", lat: 46.9048, lon: -124.1215, offshore_direction: 126, swell_window: [241, 11], offshore_km: 5.0, <<: *wa }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: westhaven-state-park, name: "The Cove (Westport)", town: "Westport", lat: 46.9026, lon: -124.1345, offshore_direction: 5, swell_window: [120, 250], offshore_km: 5.0, <<: *wa }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: ocean-park, name: "Ocean Park", town: "Ocean Park", lat: 46.4916, lon: -124.0620, offshore_direction: 88, swell_window: [203, 333], offshore_km: 5.0, <<: *wa }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: long-beach, name: "Long Beach", town: "Long Beach", lat: 46.3515, lon: -124.0680, offshore_direction: 94, swell_window: [209, 339], offshore_km: 5.0, <<: *wa }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: seaview, name: "Seaview", town: "Oceanview", lat: 46.3306, lon: -124.0700, offshore_direction: 94, swell_window: [209, 339], offshore_km: 5.0, <<: *wa }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: waikiki-beach-cape-disappointment, name: "Waikiki Beach (Cape Disappointment)", town: "Ilwaco", lat: 46.2810, lon: -124.0590, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, <<: *wa }  # sat-verified 2026-08-26 (websearch-seeded; shore normal set by hand off the tile)
+  - { id: benson-beach, name: "Benson Beach", town: "Ilwaco", lat: 46.2713, lon: -124.0757, offshore_direction: 52, swell_window: [167, 297], offshore_km: 5.0, <<: *wa }  # sat-verified 2026-08-26 (websearch-seeded)

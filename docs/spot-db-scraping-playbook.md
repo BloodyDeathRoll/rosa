@@ -176,7 +176,27 @@ Four things, in this order:
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-08-26, DB = 412 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-08-26, DB = 471 spots, ALL sat-verified)
+
+**Oregon 0 -> 37 and Washington 0 -> 22, the same evening, same recipe** (new `REGIONS`
+boxes, `oregon.yaml` / `washington.yaml` anchors, one shared `pacific-northwest` swellmap basin,
+Geofabrik `oregon` 253 MB + `washington` 362 MB). The primary flow found **0 and 1** OSM surf
+features respectively (Twin River, on the Strait) - the Pacific Northwest is web-search country
+outright. Secondary: 50 + 32 atlas names -> geocode -> `ca_xref.py` (8 + 1 OSM-confirmed) ->
+z16 render of all 83 -> judge (Oregon 18 keep / 14 move / 12 drop / 6 requery; Washington
+14 / 7 / 9 / 3), moves re-rendered, 3 nudged a third time, 5 a fourth. Requeries fixed 6 of 9
+(Nelscott, Peter Iredale, Cape Kiwanda, Umpqua South Jetty, The Cove at Westport, Cape
+Lookout); Gold Beach, Grayland and Salt Creek geocoded wrong twice and were dropped. 4 more
+shore normals re-aimed by hand after `test_committed_profiles_reach_open_water` (Bandon, Seal
+Rock, Shi Shi, Waikiki Beach). New: `emit_region.py` (the generalised emitter; `ca_*.py` now
+take a region argument), and **the Washington bbox was widened to -123.4 mid-pass** because
+Crescent Bay / Salt Creek on the Strait of Juan de Fuca fell outside the first box - a bbox is
+a surf-coast judgement and the geocodes are the check on it. **Spot ids are global**: the
+first Oregon build died on `rockaway-beach` (Pacifica has one) - `load_spots` raises, and the
+fix is a `-or` / `-wa` suffix on the newcomer. Next on this coast: British Columbia (Tofino)
+is a different country and pbf; Alaska is not surfed enough to seed.
+
+## 5b. California (as of 2026-08-26 afternoon, DB = 412 spots, ALL sat-verified)
 
 **California, 2 -> 149 in one pass (2026-08-26) - the first region seeded after the fetch-plane
 flip removed the per-spot quota ceiling.** Both flows, in the order the playbook prescribes:

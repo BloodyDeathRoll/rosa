@@ -1,0 +1,72 @@
+{
+  "spot": "roads-end-lincoln-city",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    45.0083,
+    -124.0124
+  ],
+  "bearing_seaward_deg": 273.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 142.0,
+  "mean_slope_m_per_km": 7.72,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 45.00842,
+      "lon": -124.01558,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 45.00854,
+      "lon": -124.01875,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 45.00877,
+      "lon": -124.0251,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 45.00924,
+      "lon": -124.03781,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 45.00971,
+      "lon": -124.05051,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 45.01064,
+      "lon": -124.07592,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 45.01202,
+      "lon": -124.11403,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 45.01385,
+      "lon": -124.16485,
+      "depth_m": 101.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 45.01654,
+      "lon": -124.24108,
+      "depth_m": 142.0
+    }
+  ]
+}

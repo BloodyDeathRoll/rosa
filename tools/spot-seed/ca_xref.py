@@ -3,7 +3,7 @@ and the primary flow's Tier-A hits, then emit render_in.json for the sat-verify 
 Rule (playbook §5): a geocode confirmed by an OSM name within 1 km is two-source; a
 provider spread > 5 km means one provider is wrong - the OSM feature wins if it is
 within 1.5 km of ANY provider, else the spot is flagged for a wide render.
-Usage: ca_xref.py <work/california>
+Usage: ca_xref.py <work/<region>>
 """
 import json
 import math
@@ -32,7 +32,7 @@ def norm(s):
 
 
 STOP = {"beach", "state", "park", "pier", "surf", "break", "the", "st", "street", "county",
-        "california", "reef", "point", "cove", "creek", "harbor", "jetty", "bay"}
+        "california", "oregon", "washington", "wa", "reef", "point", "cove", "creek", "harbor", "jetty", "bay"}
 
 
 def toks(s):

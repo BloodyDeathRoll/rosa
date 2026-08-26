@@ -1,0 +1,72 @@
+{
+  "spot": "agate-beach-newport",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    44.6591,
+    -124.0623
+  ],
+  "bearing_seaward_deg": 263.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 79.0,
+  "mean_slope_m_per_km": 4.34,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 44.65883,
+      "lon": -124.06544,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 44.65855,
+      "lon": -124.06857,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 44.658,
+      "lon": -124.07485,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 44.65691,
+      "lon": -124.0874,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 44.65581,
+      "lon": -124.09995,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 44.6536,
+      "lon": -124.12504,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 44.65029,
+      "lon": -124.16268,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 44.64585,
+      "lon": -124.21285,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 44.63915,
+      "lon": -124.28811,
+      "depth_m": 79.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "bastendorff-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    43.3455,
+    -124.3494
+  ],
+  "bearing_seaward_deg": 300.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 121.0,
+  "mean_slope_m_per_km": 6.99,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.34662,
+      "lon": -124.35208,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.34775,
+      "lon": -124.35476,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.35,
+      "lon": -124.36011,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.35449,
+      "lon": -124.37082,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.35899,
+      "lon": -124.38154,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.36797,
+      "lon": -124.40297,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.38144,
+      "lon": -124.43513,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.39939,
+      "lon": -124.47803,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.42628,
+      "lon": -124.54243,
+      "depth_m": 121.0
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+# Rosa spot database - Oregon (seeded 2026-08-26, the second US west coast region after
+# California). West-facing open-Pacific coast: NW winter groundswell, NW-W summer windswell,
+# cold water, strong N winds in summer. Offshore wind is from the east. Every spot carries
+# offshore_km along its own seaward normal, so the sample point follows the pin.
+
+defaults: &or
+  timezone: America/Los_Angeles
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [200, 330]
+  ideal:
+    wind_dir: [50, 130]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-08-26 - oregon, 37 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 37 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/oregon/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: fort-stevens, name: "Fort Stevens (Peter Iredale)", town: "Hammond", lat: 46.1784, lon: -123.9811, offshore_direction: 67, swell_window: [182, 312], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: sunset-beach-warrenton, name: "Sunset Beach", town: "Sunset Beach", lat: 46.0988, lon: -123.9449, offshore_direction: 81, swell_window: [196, 326], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: avenue-u-seaside, name: "Seaside Beach", town: "Seaside", lat: 45.9957, lon: -123.9343, offshore_direction: 99, swell_window: [214, 344], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: seaside-cove, name: "Seaside Cove", town: "Seaside", lat: 45.9757, lon: -123.9393, offshore_direction: 158, swell_window: [273, 43], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: indian-beach-ecola, name: "Indian Beach", town: "Cannon Beach", lat: 45.9299, lon: -123.9785, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: cannon-beach, name: "Cannon Beach", town: "Cannon Beach", lat: 45.8841, lon: -123.9645, offshore_direction: 101, swell_window: [216, 346], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: short-sands, name: "Short Sands", town: "Manzanita", lat: 45.7607, lon: -123.9677, offshore_direction: 47, swell_window: [162, 292], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: manzanita, name: "Manzanita", town: "Manzanita", lat: 45.7200, lon: -123.9435, offshore_direction: 79, swell_window: [194, 324], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: rockaway-beach-or, name: "Rockaway Beach", town: "Rockaway Beach", lat: 45.6135, lon: -123.9462, offshore_direction: 97, swell_window: [212, 342], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: oceanside, name: "Oceanside", town: "Oceanside", lat: 45.4612, lon: -123.9715, offshore_direction: 148, swell_window: [263, 33], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: cape-lookout, name: "Cape Lookout", town: "Netarts", lat: 45.3558, lon: -123.9750, offshore_direction: 104, swell_window: [219, 349], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: pacific-city, name: "Pacific City (Cape Kiwanda)", town: "Pacific City", lat: 45.2151, lon: -123.9722, offshore_direction: 69, swell_window: [184, 314], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: roads-end-lincoln-city, name: "Roads End", town: "Neotsu", lat: 45.0083, lon: -124.0124, offshore_direction: 93, swell_window: [208, 338], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: lincoln-city, name: "Nelscott", town: "Lincoln City", lat: 44.9426, lon: -124.0238, offshore_direction: 97, swell_window: [212, 342], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: gleneden-beach, name: "Gleneden Beach", town: "Kernville", lat: 44.8762, lon: -124.0410, offshore_direction: 103, swell_window: [218, 348], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: otter-rock, name: "Otter Rock", town: "Otter Rock", lat: 44.7465, lon: -124.0630, offshore_direction: 104, swell_window: [219, 349], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: beverly-beach, name: "Beverly Beach", town: "Beverly Beach", lat: 44.7287, lon: -124.0600, offshore_direction: 92, swell_window: [207, 337], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: moolack-beach, name: "Moolack Beach", town: "Beverly Beach", lat: 44.6994, lon: -124.0634, offshore_direction: 107, swell_window: [222, 352], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: agate-beach-newport, name: "Agate Beach", town: "Newport", lat: 44.6591, lon: -124.0623, offshore_direction: 83, swell_window: [198, 328], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: nye-beach, name: "Nye Beach", town: "Newport", lat: 44.6423, lon: -124.0655, offshore_direction: 97, swell_window: [212, 342], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: yaquina-bay-south-jetty, name: "South Jetty (Newport)", town: "Newport", lat: 44.6085, lon: -124.0740, offshore_direction: 54, swell_window: [169, 299], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: seal-rock, name: "Seal Rock", town: "Seal Rock", lat: 44.4964, lon: -124.0839, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded; shore normal set by hand off the tile)
+  - { id: waldport, name: "Waldport", town: "Bayshore", lat: 44.4477, lon: -124.0855, offshore_direction: 88, swell_window: [203, 333], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: yachats, name: "Yachats", town: "Yachats", lat: 44.3134, lon: -124.1081, offshore_direction: 50, swell_window: [165, 295], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: siuslaw-north-jetty, name: "North Jetty (Florence)", town: "Florence", lat: 44.0187, lon: -124.1393, offshore_direction: 61, swell_window: [176, 306], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: florence-south-jetty, name: "South Jetty (Florence)", town: "Florence", lat: 44.0133, lon: -124.1389, offshore_direction: 84, swell_window: [199, 329], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: winchester-bay, name: "Umpqua South Jetty", town: "Winchester Bay", lat: 43.6609, lon: -124.2105, offshore_direction: 97, swell_window: [212, 342], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: bastendorff-beach, name: "Bastendorff Beach", town: "Charleston", lat: 43.3455, lon: -124.3494, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: lighthouse-beach-coos-bay, name: "Lighthouse Beach", town: "Charleston", lat: 43.3390, lon: -124.3665, offshore_direction: 164, swell_window: [279, 49], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: sunset-bay, name: "Sunset Bay", town: "Charleston", lat: 43.3344, lon: -124.3732, offshore_direction: 30, swell_window: [145, 275], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: simpsons-reef, name: "Simpsons Reef", town: "Charleston", lat: 43.3124, lon: -124.3960, offshore_direction: 93, swell_window: [208, 338], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: bandon, name: "Bandon", town: "Bandon", lat: 43.1065, lon: -124.4359, offshore_direction: 80, swell_window: [195, 325], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded; shore normal set by hand off the tile)
+  - { id: battle-rock-port-orford, name: "Battle Rock", town: "Port Orford", lat: 42.7415, lon: -124.4924, offshore_direction: 341, swell_window: [96, 226], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: hubbard-creek-port-orford, name: "Hubbard Creek", town: "Port Orford", lat: 42.7357, lon: -124.4769, offshore_direction: 32, swell_window: [147, 277], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: pistol-river, name: "Pistol River", town: "Carpenterville", lat: 42.2745, lon: -124.4095, offshore_direction: 110, swell_window: [225, 355], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: harris-beach, name: "Harris Beach", town: "Brookings", lat: 42.0686, lon: -124.3159, offshore_direction: 51, swell_window: [166, 296], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)
+  - { id: brookings-sporthaven, name: "Sporthaven Beach", town: "Harbor", lat: 42.0407, lon: -124.2645, offshore_direction: 52, swell_window: [167, 297], offshore_km: 5.0, <<: *or }  # sat-verified 2026-08-26 (websearch-seeded)

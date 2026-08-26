@@ -1,0 +1,72 @@
+{
+  "spot": "lighthouse-beach-coos-bay",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    43.339,
+    -124.3665
+  ],
+  "bearing_seaward_deg": 344.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 106.0,
+  "mean_slope_m_per_km": 6.54,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.34116,
+      "lon": -124.36735,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.34332,
+      "lon": -124.3682,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.34764,
+      "lon": -124.36991,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.35629,
+      "lon": -124.37332,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.36493,
+      "lon": -124.37673,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.38222,
+      "lon": -124.38355,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.40816,
+      "lon": -124.3938,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.44273,
+      "lon": -124.40747,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.49459,
+      "lon": -124.42801,
+      "depth_m": 106.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "fort-stevens",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    46.1784,
+    -123.9811
+  ],
+  "bearing_seaward_deg": 247.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 82.0,
+  "mean_slope_m_per_km": 4.51,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.17752,
+      "lon": -123.98409,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.17664,
+      "lon": -123.98708,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.17489,
+      "lon": -123.99305,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 46.17137,
+      "lon": -124.00501,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 46.16785,
+      "lon": -124.01696,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.16081,
+      "lon": -124.04086,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.15025,
+      "lon": -124.0767,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.13614,
+      "lon": -124.12446,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.11495,
+      "lon": -124.19605,
+      "depth_m": 82.0
+    }
+  ]
+}

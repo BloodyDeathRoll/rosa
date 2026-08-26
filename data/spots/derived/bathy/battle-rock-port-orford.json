@@ -1,0 +1,72 @@
+{
+  "spot": "battle-rock-port-orford",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    42.7415,
+    -124.4924
+  ],
+  "bearing_seaward_deg": 161.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 22.0,
+  "mean_slope_m_per_km": 1.75,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.73937,
+      "lon": -124.4914,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.73725,
+      "lon": -124.49041,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.733,
+      "lon": -124.48841,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.72449,
+      "lon": -124.48443,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.71599,
+      "lon": -124.48044,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.69898,
+      "lon": -124.47248,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.67347,
+      "lon": -124.46054,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.63945,
+      "lon": -124.44464,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.58842,
+      "lon": -124.42082,
+      "depth_m": 22.0
+    }
+  ]
+}

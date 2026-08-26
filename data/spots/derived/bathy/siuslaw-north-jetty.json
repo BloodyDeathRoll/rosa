@@ -1,0 +1,72 @@
+{
+  "spot": "siuslaw-north-jetty",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    44.0187,
+    -124.1393
+  ],
+  "bearing_seaward_deg": 241.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 112.0,
+  "mean_slope_m_per_km": 6.14,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 44.01761,
+      "lon": -124.14203,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 44.01652,
+      "lon": -124.14477,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 44.01434,
+      "lon": -124.15024,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 44.00998,
+      "lon": -124.16117,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 44.00562,
+      "lon": -124.17211,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.99689,
+      "lon": -124.19397,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.98379,
+      "lon": -124.22675,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.96631,
+      "lon": -124.27044,
+      "depth_m": 83.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.94005,
+      "lon": -124.33592,
+      "depth_m": 112.0
+    }
+  ]
+}

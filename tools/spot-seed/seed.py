@@ -79,6 +79,11 @@ REGIONS = {
     # the whole Pacific coast, Imperial Beach to the Oregon line; the Channel Islands
     # fall inside it and are surfed, so they stay
     "california": (32.50, -124.60, 42.05, -117.05),
+    # the open Pacific coast only - the Columbia mouth is shared, Puget Sound is excluded
+    "oregon": (41.95, -124.70, 46.35, -123.30),
+    # outer coast from the Columbia to Cape Flattery plus the Strait of Juan de Fuca as far
+    # as Port Angeles (Crescent Bay / Salt Creek are surfed); Puget Sound is excluded
+    "washington": (46.20, -124.90, 48.45, -123.40),
 }
 
 

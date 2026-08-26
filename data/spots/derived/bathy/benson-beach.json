@@ -1,0 +1,72 @@
+{
+  "spot": "benson-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    46.2713,
+    -124.0757
+  ],
+  "bearing_seaward_deg": 232.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 89.0,
+  "mean_slope_m_per_km": 4.45,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.26992,
+      "lon": -124.07826,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.26853,
+      "lon": -124.08083,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.26576,
+      "lon": -124.08595,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 46.26022,
+      "lon": -124.0962,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 46.25469,
+      "lon": -124.10645,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.2436,
+      "lon": -124.12693,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.22698,
+      "lon": -124.15765,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.20479,
+      "lon": -124.19858,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.17149,
+      "lon": -124.2599,
+      "depth_m": 89.0
+    }
+  ]
+}

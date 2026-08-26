@@ -1,0 +1,72 @@
+{
+  "spot": "westhaven-state-park",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    46.9026,
+    -124.1345
+  ],
+  "bearing_seaward_deg": 185.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 11.0,
+  "mean_slope_m_per_km": 0.73,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.90036,
+      "lon": -124.13479,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.89812,
+      "lon": -124.13507,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.89364,
+      "lon": -124.13565,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 46.88468,
+      "lon": -124.13679,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 46.87572,
+      "lon": -124.13794,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.8578,
+      "lon": -124.14023,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.83093,
+      "lon": -124.14367,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.79509,
+      "lon": -124.14824,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.74134,
+      "lon": -124.15509,
+      "depth_m": 11.0
+    }
+  ]
+}

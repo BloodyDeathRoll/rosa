@@ -6,11 +6,14 @@ offshore_direction from the nearest coastline candidate, and write:
 import json
 import math
 import re
+import sys
 import unicodedata
 from pathlib import Path
 
 J = Path("/tmp/claude-1000/-home-shahar-Projects-rosa/5bb361ec-aaff-47bd-81d7-0ce19c2a70ec/scratchpad/judge.json")
-W = Path("tools/spot-seed/work/california")
+REGION_ID = sys.argv[1]
+REGION = REGION_ID.replace("-", " ").title()
+W = Path("tools/spot-seed/work") / REGION_ID
 j = json.loads(J.read_text())
 rows = {r["id"]: r for r in json.loads((W / "render_in_ca.json").read_text())}
 res = json.loads((W / "result.json").read_text())
@@ -67,7 +70,7 @@ for sid, v in j.items():
                   "offshore_direction": od[1], "coast_km": round(od[0], 2),
                   "src": "websearch-seeded", "conf": v.get("conf", 0.7)})
 # ids must be unique and not clash with the DB
-db_ids = set(re.findall(r"\bid:\s*([a-z0-9-]+)", Path("data/spots/california.yaml").read_text()))
+db_ids = set(re.findall(r"\bid:\s*([a-z0-9-]+)", Path(f"data/spots/{REGION_ID}.yaml").read_text()))
 seen = set()
 out = []
 for f in final:
@@ -80,7 +83,7 @@ for f in final:
     out.append(f)
 out.sort(key=lambda f: -f["lat"])  # north to south, the DB's ordering preference
 (W / "final.json").write_text(json.dumps(out, indent=1))
-(W / "spots.json").write_text(json.dumps([{"id": f["id"], "name": f["name"], "region": "California", "lat": f["lat"], "lon": f["lon"]} for f in out], indent=1))
+(W / "spots.json").write_text(json.dumps([{"id": f["id"], "name": f["name"], "region": REGION, "lat": f["lat"], "lon": f["lon"]} for f in out], indent=1))
 far = [f for f in out if f.get("coast_km", 0) > 0.6]
 print(f"final {len(out)} spots ({sum(1 for f in out if f['src']=='osm-seeded')} osm, {sum(1 for f in out if f['src']=='websearch-seeded')} web); {len(far)} more than 600 m from a coastline candidate:")
 for f in far:

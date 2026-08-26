@@ -25,6 +25,8 @@ CFG = {
     "el-salvador": ("sv", True, None, 5.0),
     "mexico": ("mx", True, None, 5.0),
     "california": ("ca", True, None, 5.0),
+    "oregon": ("or", True, None, 5.0),
+    "washington": ("wa", True, None, 5.0),
 }
 DROP_NAME = re.compile(r"kizakiham", re.I)  # dup of existing kisakihama (z/s spelling)
 GENERIC = re.compile(r"^(surf(ing)?\s*spot|spot\s*(de\s*)?surf|sport\s*de\s*surf)$", re.I)

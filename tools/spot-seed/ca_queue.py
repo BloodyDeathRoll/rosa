@@ -1,6 +1,6 @@
 """Build the secondary-flow geocode queue for California from web_names.json, skipping
 names the primary flow (result.json) or the DB already covers (fuzzy token match).
-Usage: ca_queue.py <work/california> <out queue.json>
+Usage: ca_queue.py <region> <work/<region>> <out queue.json>
 """
 import json
 import re
@@ -8,8 +8,10 @@ import sys
 import unicodedata
 from pathlib import Path
 
-work = Path(sys.argv[1])
-out = Path(sys.argv[2])
+region = sys.argv[1]
+REGION = region.replace("-", " ").title()
+work = Path(sys.argv[2])
+out = Path(sys.argv[3])
 STOP = {"beach", "state", "park", "pier", "point", "surf", "surfing", "the", "st", "street",
         "ave", "avenue", "reef", "cove", "creek", "harbor", "jetty", "county", "bay"}
 
@@ -32,7 +34,7 @@ if res.exists():
         for e in r.get(k, []):
             if e.get("name"):
                 have.append(e["name"])
-db = Path("data/spots/california.yaml").read_text()
+db = Path(f"data/spots/{region}.yaml").read_text()
 have += re.findall(r'name:\s*"([^"]+)"', db)
 have_t = [toks(h) for h in have]
 
@@ -47,7 +49,7 @@ for area, names in web["areas"].items():
         if t and any(t <= h or h <= t for h in have_t if h):
             matched.append((n, area))
             continue
-        queue.append([sid, f"{n} surf break {area} California", "California"])
+        queue.append([sid, f"{n} surf break {area} {REGION}", REGION])
 out.write_text(json.dumps(queue, indent=1))
 print(f"web names {len(seen)}, matched by primary/DB {len(matched)}, queued {len(queue)} -> {out}")
 for n, a in matched:

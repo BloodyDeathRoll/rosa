@@ -1,0 +1,72 @@
+{
+  "spot": "beverly-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    44.7287,
+    -124.06
+  ],
+  "bearing_seaward_deg": 272.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 89.0,
+  "mean_slope_m_per_km": 5.13,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 44.72878,
+      "lon": -124.06316,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 44.72886,
+      "lon": -124.06633,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 44.72901,
+      "lon": -124.07265,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 44.72932,
+      "lon": -124.0853,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 44.72964,
+      "lon": -124.09795,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 44.73025,
+      "lon": -124.12326,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 44.73117,
+      "lon": -124.16121,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 44.73237,
+      "lon": -124.21182,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 44.73412,
+      "lon": -124.28774,
+      "depth_m": 89.0
+    }
+  ]
+}

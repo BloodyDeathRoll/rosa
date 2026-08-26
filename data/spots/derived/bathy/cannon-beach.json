@@ -1,0 +1,72 @@
+{
+  "spot": "cannon-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    45.8841,
+    -123.9645
+  ],
+  "bearing_seaward_deg": 281.0,
+  "nearshore_depth_m": -14.0,
+  "offshore_depth_m": 97.0,
+  "mean_slope_m_per_km": 6.25,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 45.88453,
+      "lon": -123.96767,
+      "depth_m": -14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 45.88496,
+      "lon": -123.97084,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 45.88582,
+      "lon": -123.97718,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 45.88753,
+      "lon": -123.98987,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 45.88924,
+      "lon": -124.00255,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 45.89266,
+      "lon": -124.02792,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 45.89778,
+      "lon": -124.06598,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 45.90459,
+      "lon": -124.11674,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 45.91476,
+      "lon": -124.1929,
+      "depth_m": 97.0
+    }
+  ]
+}

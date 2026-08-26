@@ -1,0 +1,72 @@
+{
+  "spot": "otter-rock",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    44.7465,
+    -124.063
+  ],
+  "bearing_seaward_deg": 284.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 107.0,
+  "mean_slope_m_per_km": 6.59,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 44.74704,
+      "lon": -124.06607,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 44.74759,
+      "lon": -124.06914,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 44.74867,
+      "lon": -124.07529,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 44.75085,
+      "lon": -124.08757,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 44.75302,
+      "lon": -124.09986,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 44.75736,
+      "lon": -124.12444,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 44.76386,
+      "lon": -124.16132,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 44.77251,
+      "lon": -124.2105,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 44.78545,
+      "lon": -124.2843,
+      "depth_m": 107.0
+    }
+  ]
+}

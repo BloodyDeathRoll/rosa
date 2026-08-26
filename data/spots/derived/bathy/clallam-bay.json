@@ -1,0 +1,72 @@
+{
+  "spot": "clallam-bay",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    48.2564,
+    -124.2609
+  ],
+  "bearing_seaward_deg": 325.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 231.0,
+  "mean_slope_m_per_km": 12.96,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 48.25824,
+      "lon": -124.26284,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 48.26008,
+      "lon": -124.26477,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 48.26377,
+      "lon": -124.26865,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 48.27113,
+      "lon": -124.2764,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 48.2785,
+      "lon": -124.28415,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 48.29323,
+      "lon": -124.29967,
+      "depth_m": 110.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 48.31532,
+      "lon": -124.32295,
+      "depth_m": 138.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 48.34476,
+      "lon": -124.35403,
+      "depth_m": 192.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 48.38892,
+      "lon": -124.40072,
+      "depth_m": 231.0
+    }
+  ]
+}

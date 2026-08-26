@@ -26,6 +26,8 @@ REGION_PBF = {
     "Nicaragua": "nicaragua",
     "Philippines": "philippines",
     "California": "california",
+    "Oregon": "oregon",
+    "Washington": "washington",
     "Mexico": "mexico",
     "El Salvador": "el-salvador",
 }
