@@ -13,7 +13,7 @@ Rosa is a **worldwide, mobile-first PWA surf forecast app**: free, lean, fast, s
 | "What's still open?" | `docs/OPEN-ITEMS.md` |
 | "Why is it like this?" | `docs/SESSIONS.md` (session log) |
 | Live machine / deploy state | `handoff.md`, `deploy/oracle/README.md` |
-| **Where forecast data comes from, what replaces it, scale** | `docs/rosa-accuracy-roadmap.md` (§2 keep/join/replace, §4 stages, §9 scale) · `docs/rosa-stage3-plan.md` · `docs/rosa-fetch-plane-plan.md` (off the OM quota) |
+| **Where forecast data comes from, what replaces it, scale** | `docs/rosa-accuracy-roadmap.md` (§2 keep/join/replace, §4 stages, §9 scale) · `docs/rosa-stage3-plan.md` · `docs/rosa-fetch-plane-plan.md` (off the OM quota) · `docs/rosa-peak-period-plan.md` (Tp for the blend arm, from DWD GWAM) |
 | Product plan · competitor teardown | `docs/rosa-build-plan.md` · `docs/rosa-surfline-teardown.md` |
 
 **Do not re-derive the data-source strategy from first principles.** Stage 3a (raw NOAA GFS-Wave source + dual-source buoy A/B) and Stage 3b (ECMWF spectral-lite) are BUILT — `gfswave.py`, `ecmwf.py`, `verify --archive --source {om,gfswave,ecmwf}`, and a dual-source archive that has been accumulating since 2026-07-23. **Since 2026-08-26 the GFS-Wave+ECMWF blend (`blend.py`) IS the primary wave source, worldwide** - `run --wave-source` defaults to `blend`; `om` is the explicit fallback arm. The promotion was a product decision (`docs/CALIBRATION.md` 2026-08-26): buoys cover 45 of 265 spots and never will cover the rest, so a per-region buoy gate was a decision never to scale. Weather stays on Open-Meteo (plan C3, measured). Do not re-open either without new buoy evidence.
