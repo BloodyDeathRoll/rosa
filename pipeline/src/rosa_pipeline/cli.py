@@ -532,6 +532,7 @@ def _cmd_run(args: argparse.Namespace) -> int:
             fetch_aux_many,
             fixture_aux_many,
         )
+        from .gwam import GwamFixtureSource, GwamSource
         from .oisst import OisstFixtureSource, OisstSource
 
         if args.fixtures is not None:
@@ -539,12 +540,14 @@ def _cmd_run(args: argparse.Namespace) -> int:
                 gfs=GfsFullFixtureSource(args.fixtures),
                 aux=lambda coords: fixture_aux_many(coords, args.fixtures),
                 sst=OisstFixtureSource(args.fixtures),
+                tp=GwamFixtureSource(args.fixtures),
             )
         else:
             blend_src = BlendedSource(
                 gfs=GfsFullSource(capture_dir=args.capture),
                 aux=lambda coords: fetch_aux_many(coords, capture_dir=args.capture),
                 sst=OisstSource(capture_dir=args.capture),
+                tp=GwamSource(capture_dir=args.capture),
             )
         raws = blend_src.fetch_many(points, ecmwf_series=spectral_series)
     else:

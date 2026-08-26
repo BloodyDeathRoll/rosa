@@ -20,8 +20,9 @@ ATTRIBUTION_ECMWF = "Wave spectra: ECMWF open data (CC-BY 4.0)"
 # The promoted arm (2026-08-26): waves are NOAA GFS-Wave (public domain) blended with
 # ECMWF open data (CC-BY 4.0); SST is NOAA OISST; weather stays Open-Meteo (plan C3).
 ATTRIBUTION_BLEND = (
-    "Waves: NOAA GFS-Wave + ECMWF open data (CC-BY 4.0) · Weather by Open-Meteo.com "
-    "(CC-BY 4.0) · Sea temp: NOAA OISST · Tides: EOT20 (CC-BY 4.0)"
+    "Waves: NOAA GFS-Wave + ECMWF open data (CC-BY 4.0) · Peak periods: DWD GWAM "
+    "(CC-BY 4.0) · Weather by Open-Meteo.com (CC-BY 4.0) · Sea temp: NOAA OISST · "
+    "Tides: EOT20 (CC-BY 4.0)"
 )
 TABLE_DAYS = 16
 TABLE_STEP_H = 3
