@@ -2059,3 +2059,51 @@ fallback arm and the offline-replay arm (the committed OM fixtures replay throug
 tests say so explicitly). Payload `attribution` now credits NOAA GFS-Wave + ECMWF for
 waves and Open-Meteo for weather. `quota.py`'s prose, CLAUDE.md, roadmap §2, OPEN-ITEMS
 14/19 and the deploy README all say the blend is primary.
+
+## 2026-08-26 - peak-period plan A SHIPPED: DWD GWAM restores Tp on the blend arm (the pb_0049 A/B)
+
+Same design as the morning's promotion A/B: arm A = the 14:20Z cron cycle's own `data/out`
+(blend, no Tp - the first cycle on the promoted code); arm B = `run --all` from the
+`gwam-tp` branch in a worktree on the VM, started 15:20Z the minute that cycle finished,
+`--skill` pointed at the VM's live skill.json so confidence ceilings matched. 265/265 both
+arms, 32,856 paired hours.
+
+**What it restored, exactly as planned:** `swells[0].peak_period` non-null on **46% of
+primary-swell hours and 47% of wind-sea hours** (0% before) - the 174 h GWAM horizon over a
+384 h series is 45%, so coverage is the source's window and nothing else. The blend arm's
+gap warning went 318,918 -> 261,859 slots; what remains is secondaries (never had a peak on
+any arm) and the tail past 7.25 days.
+
+**What it moved - small, and NOT the direction the docstring predicted:**
+
+| | n | mean Δ | mean \|Δ\| | bucket moves | h_mid mean Δ |
+|---|---|---|---|---|---|
+| FLEET | 32,856 | +0.01 | 1.09 | 1,693 (5.2%: 602 up / 1,091 down) | -0.024 m |
+| portugal | 5,376 | -1.23 | 2.51 | 11.8% | -0.074 m |
+| philippines | 2,048 | +1.21 | 2.29 | 10.6% | -0.123 m |
+| japan | 2,880 | +2.04 | 2.20 | 9.1% | -0.053 m |
+| israel | 5,376 | -0.43 | 1.54 | 8.4% | -0.008 m |
+| mexico | 5,160 | +0.15 | 0.31 | 1.4% | +0.009 m |
+| costa-rica / el-salvador / nicaragua / sri-lanka | | ~0 | <0.25 | <1% | ~0 |
+
+89% of hours within ±10; max |Δ| 52 (portugal). The 2026-08-16 measurement said the Tp gap
+was a one-directional UNDER-call (stripping OM's Tp took h_break_mid to x0.44). Restoring a
+Tp here nudged heights slightly DOWN on average, and the groundswell coasts barely moved.
+Two readings, both recorded rather than resolved: (a) GFS's per-partition mean period
+(`mpts`) sits much closer to the peak than Open-Meteo's `swell_wave_period` did, so the
+mean-period fallback was under-calling far less on this arm than the OM-arm measurement
+implied; (b) GWAM's "total swell" peak is a different partitioning from GFS's primary
+swell, and where GWAM sees a short-period swell dominating, the join hands the primary a
+SHORTER period than its own mean - the Portugal/Israel sign. Neither is a reason not to
+ship: the join is the same cross-model rule the OM arm ran for a month, the numbers are
+now the same shape the transform was calibrated on, and the effect is inside the noise
+of the morning's flip. It IS a reason to keep OPEN-ITEMS 21's bulletin route alive if
+secondary-swell Tp ever matters.
+
+**Ops:** 35m26s wall for the whole fleet run - the parallel GFS fetch (e007605) cut the
+morning's 1h42m by 3x even with 118 extra DWD files - 370 MB peak RSS, zero DWD errors.
+Marine-host ledger +320.6 as before (GWAM costs no Open-Meteo units).
+
+**Shipped:** `gwam.py`, `blend.compose_raw(tp=...)`, `GwamSource` wired as the default arm's
+peak source, attribution names DWD (CC BY 4.0) in the payload, About and Settings; 3 real
+DWD files as fixtures; 8 tests. `--wave-source om` unchanged.

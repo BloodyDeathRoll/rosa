@@ -140,4 +140,9 @@ B (bulletins) only if a later calibration shows secondary-swell Tp matters.
 
 - 2026-08-26: plan authored; every source claim above verified live the same day (file
   listings, one PPTS + one PPWW file parsed, publish lags, licence page, NOMADS bulletin
-  tar opened, ECMWF index listed). Nothing built. OPEN-ITEMS 21 points here.
+  tar opened, ECMWF index listed).
+- **2026-08-26 (same evening): A1-A4 BUILT and SHIPPED** (CALIBRATION.md 2026-08-26, the
+  GWAM A/B). Coverage landed exactly at the source window (46% of primary hours = 174/384);
+  the rating effect was small and mixed (mean |Δ| 1.09, 5.2% bucket moves, h_mid -0.024 m)
+  rather than the predicted lift - see the entry for the two readings. A5 (CDN check) due
+  after the next cron cycle. B (bulletins) stays optional.
