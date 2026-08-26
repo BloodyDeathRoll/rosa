@@ -15,8 +15,9 @@ What each leg contributes, per hour:
   the spectral member): total swh/mwd/pp1d as the other member, mwp as the total mean
   period (GFS gridded publishes none). Stops at 240 h - past it the blend degrades to
   GFS-Wave alone, honestly (plan B3; the horizon ceiling already prices that tail low).
-* **Open-Meteo, transitional** (plan C: these migrate later): the weather request
-  (unchanged - C3 undecided) and a LIGHT marine request carrying only SST + tide,
+* **Open-Meteo, retained**: the weather request (C3 DECIDED 2026-08-26 - OM wins wind
+  at every lead before day 4, so it stays) and a LIGHT marine request carrying only
+  the SST + tide fallbacks,
   ~1.2 weight/point (Open-Meteo floors each location at weight 1 - see
   quota.MARINE_LIGHT_UNITS_PER_POINT) vs ~7.7 for the full marine+ensemble pair;
   charged against the same daily ledger as the om arm.
@@ -27,8 +28,9 @@ changes. ``ensemble`` carries our OWN members (plan
 C4): the raw pre-blend GFS totals ride as a one-member ensemble body and extract appends
 the ECMWF member - two independent voices, no OM ensemble request. dir_n=2 marks the era.
 
-NOT wired as the default. ``run --wave-source blend`` is the A/B arm; promotion is
-per-region on the plan's evidence, OM stays the fallback.
+THE DEFAULT since 2026-08-26 (plan D3, promoted worldwide by product decision -
+CALIBRATION.md 2026-08-26). ``run --wave-source om`` is the fallback arm and the
+offline-replay arm for the committed OM fixtures.
 """
 
 from __future__ import annotations
@@ -68,6 +70,30 @@ from .models import SpectralSea
 # 3-hourly to the full 16-day horizon - the published table is 3-hourly (TABLE_STEP_H),
 # so a finer fetch would be downloaded and thrown away. 129 steps/box/cycle.
 BLEND_STEPS: tuple[int, ...] = tuple(range(0, 385, 3))
+# Back-reach (OPEN-ITEMS 20, measured on the 2026-08-26 promotion A/B): the OM arm's
+# marine request carries past_days=1, so its series reaches back to local midnight at
+# any longitude; a GFS cycle's f000 is the cycle time, so without this the far-east
+# coasts lost today's first 1-6 table rows (157 of 265 spots, 833 rows fleet-wide). The
+# hours before f000 come from the PREVIOUS cycles' f000/f003 - the freshest analysis for
+# each 3 h window, the same thing OM's past_days is - back to 24 h, matching PAST_DAYS.
+# 8 extra requests per box (+6%); compose_raw's sort + hourly interpolation joins them.
+BACK_REACH_H = 24 * PAST_DAYS
+BACK_REACH_STEPS: tuple[int, ...] = (0, 3)
+
+
+def back_reach_plan(cycle: datetime) -> list[tuple[datetime, int]]:
+    """(cycle, step) pairs whose valid hours fill ``BACK_REACH_H`` before ``cycle``'s f000,
+    oldest first. Pure, so the request plan is testable without NOMADS."""
+    plan: list[tuple[datetime, int]] = []
+    back = 6
+    while back <= BACK_REACH_H:
+        prev = cycle - timedelta(hours=back)
+        plan.extend((prev, step) for step in BACK_REACH_STEPS)
+        back += 6
+    plan.sort(key=lambda cs: cs[0] + timedelta(hours=cs[1]))
+    return plan
+
+
 # equal weights, deliberately: tuning bought <=0.005 m out-of-sample on a 5-week archive
 # (CALIBRATION.md 2026-08-14 A2). Re-fit when the archive clears A4's >=8 weeks.
 W_GFS = 0.5
@@ -227,6 +253,23 @@ class GfsFullSource:
                         name = f"gfsfull_f{step:03d}_{box.key}.grib2"
                         (self.capture_dir / name).write_bytes(data)
                     valid = cyc + timedelta(hours=step)
+                    pts = [points[i] for i in members]
+                    for i, sea in zip(members, parse_gfs_full(data, pts, valid), strict=True):
+                        if sea is not None:
+                            series[i].append(sea)
+                # the hours BEFORE this cycle's f000, from the previous cycles (OPEN-ITEMS
+                # 20). Each miss is skipped on its own - a purged old cycle costs its 3 h
+                # window, never the forecast. Captured under a distinct prefix so the
+                # fixture source's `gfsfull_f*` glob keeps replaying the forecast alone.
+                for prev, step in back_reach_plan(cyc):
+                    data = self._get(client, prev, step, box)
+                    if data is None:
+                        continue
+                    if self.capture_dir is not None:
+                        self.capture_dir.mkdir(parents=True, exist_ok=True)
+                        name = f"gfsfull_p{prev:%Y%m%d%H}_f{step:03d}_{box.key}.grib2"
+                        (self.capture_dir / name).write_bytes(data)
+                    valid = prev + timedelta(hours=step)
                     pts = [points[i] for i in members]
                     for i, sea in zip(members, parse_gfs_full(data, pts, valid), strict=True):
                         if sea is not None:

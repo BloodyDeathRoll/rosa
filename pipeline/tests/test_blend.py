@@ -221,3 +221,45 @@ def test_blend_payload_credits_noaa_and_ecmwf(spot, point):
     assert "NOAA GFS-Wave" in credit and "ECMWF" in credit and "Open-Meteo" in credit
     om_credit = build_payload(spot, scored, fetched_at=raw.fetched_at, now=CYCLE)["attribution"]
     assert "GFS-Wave" not in om_credit
+
+
+def test_back_reach_plan_spans_the_previous_day():
+    """OPEN-ITEMS 20: the hours before f000 come from the previous cycles' f000/f003,
+    back exactly PAST_DAYS, oldest first, and never at or after this cycle's f000."""
+    from rosa_pipeline.blend import BACK_REACH_H, back_reach_plan
+
+    plan = back_reach_plan(CYCLE)
+    valids = [c + timedelta(hours=s) for c, s in plan]
+    assert valids == sorted(valids)
+    assert valids[0] == CYCLE - timedelta(hours=BACK_REACH_H)
+    assert valids[-1] == CYCLE - timedelta(hours=3)
+    assert all(v < CYCLE for v in valids)
+    assert len(plan) == BACK_REACH_H // 3
+    assert {s for _, s in plan} == {0, 3}
+
+
+def test_live_source_reaches_back_a_day(point, monkeypatch):
+    """The live fetcher asks for the back-reach after each box's forecast steps and the
+    series carries the previous day. No network: every request is answered with the
+    committed f000 grib, and the cycle is pinned to the fixture's."""
+    from rosa_pipeline import blend as blend_mod
+    from rosa_pipeline.blend import GfsFullSource
+
+    grib = next(FIX.glob("gfsfull_f000_*.grib2")).read_bytes()
+    asked: list[tuple[datetime, int]] = []
+
+    class Canned(GfsFullSource):
+        def _get(self, client, cycle, step, box):
+            asked.append((cycle, step))
+            return grib
+
+    monkeypatch.setattr(blend_mod, "pick_cycle", lambda now: CYCLE)
+    [series] = Canned(steps=(0, 3)).fetch_series([point])
+    times = sorted(s.time for s in series)
+    assert times[0] == CYCLE - timedelta(hours=24)
+    assert times[-1] == CYCLE + timedelta(hours=3)
+    assert len(times) == 2 + 8  # the two forecast steps + eight back-reach windows
+    assert (CYCLE - timedelta(hours=6), 0) in asked
+    assert (CYCLE - timedelta(hours=24), 3) in asked
+    # the forecast steps are asked first, so a late cycle drops back before any history
+    assert asked[0] == (CYCLE, 0)
