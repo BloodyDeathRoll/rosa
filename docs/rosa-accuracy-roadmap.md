@@ -40,7 +40,7 @@ the rating, no spectra, no directional spread, no confidence, no bathymetry, no 
 
 | Link | Today | Target | Decision |
 |------|-------|--------|----------|
-| Offshore field (primary) | Open-Meteo Marine (blended, 3 partitions) | Raw **NOAA WW3 / GFS-Wave** partitioned + **2-D spectra**; **ECMWF open-data** WAM | **Replace** as primary where spectra exist; Open-Meteo becomes the global fallback + the day 10-16 tail |
+| Offshore field (primary) | **DONE 2026-08-26:** GFS-Wave partitions + GFS/ECMWF 50/50 totals (`blend.py`), worldwide; Open-Meteo is the `--wave-source om` fallback | Raw **NOAA WW3 / GFS-Wave** partitioned + **2-D spectra**; **ECMWF open-data** WAM | **Replaced** as primary everywhere (product decision, CALIBRATION.md 2026-08-26); Open-Meteo is the global fallback arm |
 | Offshore field (ensemble) | none | Multi-model spread (GFS-Wave, ECMWF, MeteoFrance-WAM, ICON-EWAM) + GEFS-Wave | **Join** - new confidence axis |
 | Weather (wind/temp/pressure) | Open-Meteo Weather | Open-Meteo Weather (+ ensemble for wind confidence) | **Keep** - it's good and cheap; no reason to replace |
 | Bathymetry | none | **EMODnet** (~115 m, Med/Europe) + **GEBCO 2024** (~450 m, global fallback) | **New** - the missing link that makes physics possible |

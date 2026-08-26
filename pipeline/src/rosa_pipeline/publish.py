@@ -17,6 +17,12 @@ from .transform import energy_kj_per_m, in_window, partition_closure
 
 ATTRIBUTION = "Weather data by Open-Meteo.com (CC-BY 4.0) · Tides: EOT20 (CC-BY 4.0)"
 ATTRIBUTION_ECMWF = "Wave spectra: ECMWF open data (CC-BY 4.0)"
+# The promoted arm (2026-08-26): waves are NOAA GFS-Wave (public domain) blended with
+# ECMWF open data (CC-BY 4.0); SST is NOAA OISST; weather stays Open-Meteo (plan C3).
+ATTRIBUTION_BLEND = (
+    "Waves: NOAA GFS-Wave + ECMWF open data (CC-BY 4.0) · Weather by Open-Meteo.com "
+    "(CC-BY 4.0) · Sea temp: NOAA OISST · Tides: EOT20 (CC-BY 4.0)"
+)
 TABLE_DAYS = 16
 TABLE_STEP_H = 3
 OUTLOOK_DAYS = 16
@@ -302,7 +308,9 @@ def build_payload(
     fetched_at: str,
     now: datetime,
     skill: tuple[dict[int, float], str] | None = None,
+    wave_source: str = "om",
 ) -> dict:
+    """``wave_source`` ("om" | "blend") picks the data credit only; nothing scores on it."""
     tz = ZoneInfo(spot.timezone)
     ceilings, ceiling_source = skill if skill is not None else (None, "static defaults")
 
@@ -448,7 +456,11 @@ def build_payload(
         # the blend arm). Display provenance only: nothing scores on it.
         "tail_from": _tail_from(visible, tz),
         "generated_at": now.isoformat(timespec="seconds"),
-        "attribution": (f"{ATTRIBUTION} · {ATTRIBUTION_ECMWF}" if has_spectral else ATTRIBUTION),
+        "attribution": (
+            ATTRIBUTION_BLEND
+            if wave_source == "blend"
+            else (f"{ATTRIBUTION} · {ATTRIBUTION_ECMWF}" if has_spectral else ATTRIBUTION)
+        ),
         # transparency labels for the Stage-3b fields ("why this rating" principle):
         # swell spread is a per-class assumption until validated against buoy spectra
         "spectral_meta": {

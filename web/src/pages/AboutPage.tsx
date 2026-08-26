@@ -22,11 +22,11 @@ function HowItWorks() {
           use:
           <ul class="about-sub">
             <li>
-              <b>Open-Meteo</b> for worldwide waves and wind (it blends the big global models like
-              ECMWF and NOAA).
+              <b>NOAA</b> and <b>ECMWF</b> open data directly, for worldwide waves: Rosa reads the
+              two global wave models itself, blends them, and takes sea temperature from NOAA too.
             </li>
             <li>
-              <b>ECMWF</b> and <b>NOAA</b> open data directly, for wave detail and sea temperature.
+              <b>Open-Meteo</b> for wind and weather.
             </li>
             <li>
               <b>EOT20</b> tide harmonics, so every spot gets a real tide curve for the whole

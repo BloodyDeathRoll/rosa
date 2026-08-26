@@ -193,3 +193,31 @@ def test_own_member_ensemble_yields_agreement_and_dir_span(spot):
     assert h.n_models == 2
     assert h.n_dir_members == 2
     assert h.dir_span_deg == 10  # 270 vs 280
+
+
+def test_blend_is_the_default_wave_source():
+    """Plan D3, promoted worldwide 2026-08-26: a bare `run --all` (publish.sh) is the
+    blend arm, and OM is the explicit fallback. Pinned so a refactor cannot quietly put
+    the fleet back on the per-spot quota."""
+    from rosa_pipeline.cli import _build_parser
+
+    args = _build_parser().parse_args(["run", "--all"])
+    assert args.wave_source == "blend"
+    assert _build_parser().parse_args(["run", "--all", "--wave-source", "om"]).wave_source == "om"
+
+
+def test_blend_payload_credits_noaa_and_ecmwf(spot, point):
+    """The data credit follows the arm: the promoted payload must name NOAA GFS-Wave and
+    ECMWF (CC-BY, a legal red line), and keep Open-Meteo for the weather it still serves."""
+    src = BlendedSource(
+        gfs=GfsFullFixtureSource(FIX, cycle=CYCLE),
+        aux=lambda coords: fixture_aux_many(coords, FIX),
+    )
+    [raw] = src.fetch_many([point])
+    scored = [score_hour(spot, h) for h in extract_hours(raw)]
+    credit = build_payload(spot, scored, fetched_at=raw.fetched_at, now=CYCLE, wave_source="blend")[
+        "attribution"
+    ]
+    assert "NOAA GFS-Wave" in credit and "ECMWF" in credit and "Open-Meteo" in credit
+    om_credit = build_payload(spot, scored, fetched_at=raw.fetched_at, now=CYCLE)["attribution"]
+    assert "GFS-Wave" not in om_credit

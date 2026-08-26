@@ -9,16 +9,19 @@ admin alert fired. The quota resets at 00:00Z, so the next scheduled cycle recov
 own - which is exactly why this is worth guarding rather than escalating: the cost of the
 failure was a stale forecast and a false alarm, and both were avoidable.
 
-The arithmetic that matters, from ``fetch.py``'s own derivation: a marine batch costs about
-``MARINE_UNITS_PER_POINT`` weighted units per point (17 vars x 3 models -> 5.1, scaled by
-17/14 days -> 6.2, plus the ensemble's 1.5). At 265 spots a fleet run is ~2,040 units and
-the cron runs four of them, so a normal day spends ~8,150 of a 10,000/day allowance.
-**The fleet is at the edge of the daily cap by itself** - that is open item 14's ceiling
-arriving, not a bug in this module - so the budget below leaves only enough room for the
-archive and verify steps that share the host, and a fifth fleet run of any kind will be
-refused. Refused, not throttled: there is no useful way to wait out a daily quota inside a
-cycle, and a skipped refresh (the previous payloads keep serving, ~6 h old at worst) is a
-far better outcome than a failed cycle.
+The arithmetic that matters, from ``fetch.py``'s own derivation: an OM-arm marine batch
+costs about ``MARINE_UNITS_PER_POINT`` weighted units per point (17 vars x 3 models -> 5.1,
+scaled by 17/14 days -> 6.2, plus the ensemble's 1.5). At 265 spots that was ~2,040 units
+a fleet run, four cron runs ~8,150 of a 10,000/day allowance - the fleet at the edge of
+the daily cap by itself, open item 14's ceiling. **Since 2026-08-26 the default arm is the
+blend** (docs/rosa-fetch-plane-plan.md D3): waves come from global GFS-Wave + ECMWF files
+downloaded once per cycle, and the only marine-host traffic left is the 2-variable
+SST/tide-fallback leg at ``MARINE_LIGHT_UNITS_PER_POINT`` - ~320 units a fleet run, ~1,280
+a day. Spot count no longer sets the ceiling. The guard stays for the ``--wave-source om``
+fallback arm and for the archive/verify steps that share the host: a fifth OM-arm fleet
+run of any kind will still be refused. Refused, not throttled: there is no useful way to
+wait out a daily quota inside a cycle, and a skipped refresh (the previous payloads keep
+serving, ~6 h old at worst) is a far better outcome than a failed cycle.
 
 The ledger is VM-local state under ``data/verify/`` (gitignored, like the archive and
 skill.json). A missing or corrupt file is treated as a fresh day: this guard must never be
@@ -52,10 +55,12 @@ MARINE_UNITS_PER_POINT = 7.69
 # since 2026-08-15 (OPEN-ITEMS 9). If the real allowance ever bites, it should bite the step
 # that fails softly, not the one every user reads.
 #
-# It follows that this guard cannot buy much room for more spots. It only stops one avoidable
-# failure mode. Four cycles plus the archive sit at ~87% of the vendor allowance at 265 spots
-# (99% before the trim), so a few more spots now fit but the NEXT region is still gated on the
-# fetch-plane migration, not on this file (OPEN-ITEMS 14, docs/rosa-fetch-plane-plan.md).
+# This guard never bought room for more spots; it only stopped one avoidable failure mode.
+# Under the OM arm four cycles plus the archive sat at ~87% of the vendor allowance at 265
+# spots (99% before the trim). Under the blend arm (the default since 2026-08-26) the same
+# four cycles are ~1,280 units, so the budget is no longer near the fleet: it is the ceiling
+# on OM-arm fallback runs and ad-hoc A/Bs. The number is left where it was on purpose - it
+# still fits exactly four OM-arm fleet runs, so a region-wide fallback to OM keeps working.
 # Override with ROSA_OM_DAILY_BUDGET when the fleet, the schedule or the allowance changes.
 DEFAULT_DAILY_BUDGET = 9_400.0
 

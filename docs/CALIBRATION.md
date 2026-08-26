@@ -1893,3 +1893,169 @@ invented shallow samples: the nearshore band simply is not measured here.)
 Net: the map dot and the derived geometry are now honest, the forecast and every published
 number are unchanged, and Israel's fitted constants keep their baseline. `swell_window`
 [210,5] held against a derived [200,5] - no objective fault, the adoption rule's HOLD.
+
+## 2026-08-26 - plan C3 DECIDED: weather stays on Open-Meteo, on the measured wind
+
+Part 5 (2026-08-14) put both sources' 10 m wind into the archive and set the decision
+rule: "OM weather remains until the scorecard says otherwise - re-run the C3 comparison
+once a few weeks accumulate." Re-run today on the VM, `verify --archive --all-buoys
+--source {om,gfswave}`, pooled MAE weighted by each buoy's n. **The scorecard does not
+say otherwise. C3 closes in favour of keeping OM, and the interim posture becomes the
+decision.**
+
+Wind speed, pooled MAE (m/s), the 7 NDBC stations that carry both waves and an anemometer
+(41008 41013 44013 46022 46026 46042 46059):
+
+| lead | n | OM | GFS-Wave | GFS-OM |
+|---|---|---|---|---|
+| 0-1d | 1926 | **1.056** | 1.187 | +0.131 |
+| 1-3d | 1758 | **1.417** | 1.433 | +0.016 |
+| 3-4d | 1422 | **1.834** | 1.851 | +0.017 |
+| 4-5d | 1254 | 1.983 | **1.961** | -0.021 |
+| 5-7d | 1086 | 2.190 | **2.154** | -0.035 |
+| 7-9d | 750 | 2.365 | **2.323** | -0.042 |
+| 9d+ | 246 | 2.690 | **2.384** | -0.305 |
+
+Wind direction is noise either way (OM ahead at 5 of 7 leads, every gap 0.4-3.7 deg,
+against a 21-62 deg MAE). By region, all leads pooled: us-west a dead tie (1.855 vs
+1.855 m/s), us-east OM ahead by 0.038.
+
+**Why this is a decision and not a wash.** The crossover sits at day 4. OM wins every
+lead before it and GFS wins every lead after it, and the wind gate is a rating-critical
+input at SHORT lead - that is where a surfer acts on the forecast, and past day 4 the
+horizon ceiling has already priced the rating down. A migration would trade 0.131 m/s at
+0-1d for 0.3 m/s at 9d+, i.e. give up accuracy exactly where it is consumed. Keep OM.
+
+**Equal samples, unlike A4's wave arms.** Both arms scored n=1926 at 0-1d - identical,
+because both are joined onto the same archived wave rows. This is the same weather on
+both sides, so the A4 maturity caveat does NOT apply to the comparison itself.
+
+**What is genuinely thin, recorded rather than papered over.** 12 days of wind pairs
+(the columns start 2026-08-14, None on all history) and 7 stations, ALL mid-latitude US.
+Hawaii's 51201/51202/51205 and the three CMEMS Portugal buoys pair no wind - 51201 is in
+the NDBC registry but returns no anemometer column, and the CMEMS wave stream carries
+none. So there is no tropical or European wind evidence, and none for any region Rosa
+actually has spots in. Re-run at the 2026-09-17 A4 gate, when 8 weeks are in and the
+comparison is being run anyway; the verdict flips only if the short-lead sign flips.
+
+**Quota consequence: none, and that is the point.** C3 was never the ceiling. The binding
+constraint is the MARINE host at 7.69 units/point; weather is a separate host at ~1.2 and
+was already measured (part 2) at a ~3,000-spot ceiling. Keeping OM weather costs nothing
+against the 265-spot fleet's real cap. The 6x cut is still the blend promotion
+(7.69 -> 1.21), which waits on A4.
+
+Ledger the same day, for the record: `data/verify/quota.json` read 2,037.9 after the
+02:20Z cycle = 265 points x 7.69, so four cycles are 8,152 against a 9,400 budget and a
+10,000 vendor cap. **Fleet headroom on the current plane is ~305 spots, i.e. ~40 more.**
+
+## 2026-08-26 - plan A3's no-buoy policy DECIDED: promote WORLDWIDE, verify after
+
+A3 left one question open since 2026-08-14: when a source clears the bar, does it get
+promoted in regions that have no buoy to check it against? It was explicitly recorded as
+"a policy, not a measurement". **Decided by the product owner 2026-08-26: promote
+worldwide. Buoy verification and tests follow once the fleet can cover all the spots.**
+
+**The shape of the problem.** The buoy registry covers 45 of 265 spots - portugal 42,
+california 2, hawaii 1. The other 220 (mexico 43, israel 42, sri-lanka 32, japan 24,
+el-salvador 23, philippines 16, nicaragua 15) have no station at all. That is not a gap
+that registration closes: public wave buoys cluster in US and European waters, and large
+stretches of the coasts Rosa serves have none at any price.
+
+**Why the alternative was rejected.** A per-region gate ("no buoy, no promotion") reads
+as the cautious option and is in fact the self-defeating one. It would promote Portugal's
+42 spots, save 42 x (7.69 - 1.21) = ~272 units a cycle, buy roughly 35 more spots, and
+leave the ceiling exactly where it is. Every new spot would land in a region with no buoy
+and therefore stay on the expensive per-spot call forever. A gate that can never open for
+the regions being added is a decision never to scale.
+
+**The reasoning that carries the promotion.** A buoy validates the MODEL, not the spot.
+GFS-Wave, ECMWF and Open-Meteo are global grids running the same physics at every
+latitude; a buoy is simply a place where the model's homework can be checked. Spot-level
+coverage was never the right unit and was never achievable.
+
+**The risk, stated plainly and accepted.** The evidence base is four buoyed regions, and
+one of them - hawaii, the only tropical sample - is one where OM is clearly ahead
+(measured 2026-08-14). 220 of the 265 spots are tropical or subtropical. So the worldwide
+flip extrapolates from a sample that under-represents the regime most of the fleet sits
+in. **This was raised, and the decision stands: go worldwide, add buoy verification
+afterwards.** D3's per-region OM fallback stays in the code, so a region that later
+measures badly can be reverted without a redeploy.
+
+**What this does NOT waive.** The blend still has to clear the bar against OM on the
+evidence that does exist before anything flips - pb_0049's same-input A/B and an entry
+here, per CLAUDE.md's tuning rule. A3 decides WHERE a cleared source is applied, not
+WHETHER it cleared. That A/B is the remaining gate.
+
+## 2026-08-26 - plan D3 FLIPPED: the blend is the default wave source, worldwide (the pb_0049 A/B)
+
+**Fleet A/B, 265 spots, same cycle window, run on the VM.** OM arm = the 08:20Z cron
+cycle's own `data/out` (fetched 08:20-08:50Z). Blend arm = `run --all --wave-source
+blend --out ~/ab/blend` started 08:57Z the moment that cycle finished, so both arms saw
+the same model cycles (GFS 00Z, ECMWF 00Z, OM's best_match of the same morning). Not a
+fixture replay: a source swap has no shared input to replay, so "same input" here means
+same weather, same hour. Diffed per spot per shared timestamp (`abdiff.py`, scratch).
+
+**Result: the change is large and it is the SOURCE, not a bug.** 32,223 paired hours:
+
+| | n | mean Δ | mean \|Δ\| | p90 \|Δ\| | bucket moves | h_mid mean Δ |
+|---|---|---|---|---|---|---|
+| FLEET | 32,223 | +3.72 | 6.64 | 17 | 7,966 (24.7%: 3,625 up / 4,341 down) | +0.115 m |
+| philippines | 1,952 | +6.91 | 12.66 | 30 | 48.3% | +0.179 m |
+| hawaii | 123 | +5.14 | 7.56 | 14 | 47.2% | +0.133 m |
+| japan | 3,000 | +1.74 | 7.67 | 20 | 34.1% | +0.256 m |
+| portugal | 5,334 | +5.84 | 7.59 | 20 | 32.8% | +0.124 m |
+| israel | 5,334 | +4.50 | 5.62 | 17 | 24.0% | +0.040 m |
+| sri-lanka | 3,520 | +0.62 | 5.02 | 12 | 23.9% | +0.076 m |
+| mexico | 5,160 | +3.06 | 5.94 | 15 | 18.5% | +0.104 m |
+| costa-rica | 3,000 | +3.85 | 6.01 | 12 | 18.1% | +0.142 m |
+| el-salvador | 2,760 | +3.41 | 6.67 | 16 | 16.8% | +0.162 m |
+| nicaragua | 1,800 | +3.52 | 4.74 | 11 | 2.8% | +0.019 m |
+| california | 240 | -0.06 | 6.78 | 20 | 24.6% | -0.046 m |
+
+Rating delta histogram: 60% of hours within ±10, 29% in ±10..20, 5% beyond ±30, max 89.
+The blend rates HIGHER on average and publishes a LARGER breaker (+0.115 m mean). That is
+the opposite sign to the known blend handicap (below), so the handicap is not what moved
+the fleet - the partition fields themselves differ. Worst spot pairs, read by hand:
+boca-barranca (costa-rica, h ratio 3.0): at the same hour OM's primary swell is 0.26 m @
+9.1 s mean / 18.0 s peak from 206 deg, GFS's is 0.77 m @ 17.8 s mean from 231 deg - a
+different partitioning of the same groundswell, not an artefact. bagasbas (philippines,
+ratio 0.5): OM 1.2 m falling to 0, GFS 0.6 m flat at 0.2 - a typhoon-season windsea the
+two models place differently. **Neither can be adjudicated: there is no buoy within reach
+of either coast.** That is the A3 decision, applied.
+
+**What this A/B is and is not.** It is the pb_0049 artifact - it measures HOW MUCH the
+published numbers move, which is what the tuning rule requires before a fleet-wide change
+ships. It is NOT an accuracy verdict. The accuracy evidence is the archive scorecard
+(2026-08-14: blend ahead in portugal and us-west, parity us-east, behind in hawaii), and
+220 of 265 spots have no evidence either way. The product decision to promote worldwide
+on that basis is recorded under A3 above, with its risk stated. This entry does not
+re-argue it.
+
+**The known handicap, now live.** `blend arm: 318,918 partition slot(s) have no peak
+period` - GFS-Wave gridded carries per-partition MEAN periods only, so every published
+partition has `peak_period: null` and `period_rideability` keys on the mean (the 1.6-2x
+under-call regime of 2026-07-30). It is one-directional (down) and the fleet moved UP,
+so it is a floor under the numbers, not the driver. Open item; no honest repair exists in
+the source (blend.py's docstring says why inventing one is out).
+
+**A real regression, recorded not fixed: the current day's first hours are missing.**
+OM reaches `past_days=1` back to local midnight; the blend series starts at the GFS
+cycle's f000 (00Z here = 03:00 Lisbon, 09:00 Tokyo, 06:30 Colombo). 157 of 265 spots lose
+today's first 1-6 three-hourly rows (833 rows fleet-wide, 33,056 -> 32,223), worst
+furthest east. `days[0]` still publishes (16 days in both arms) but its daylight max can
+miss a dawn session on the far-east coasts. Fix is a back-reach: sample the PREVIOUS
+GFS cycle's f000-f006 for the hours before this cycle's f000. Open item.
+
+**Ops, measured on the run.** 8 auto-clustered boxes x 129 steps = 1,032 grib-filter
+requests to NOMADS, sequential, zero 4xx/5xx, no throttling. Wall 1h42m (5% CPU -
+network-bound), peak RSS 338 MB on the 954 MB VM. Fits inside the 6 h cron gap;
+publish.sh's flock covers an overrun. Marine-host ledger: 4,075.8 -> 4,396.4 = 320.6
+units, exactly `marine_light_units(265)`. A cron day on this arm is ~1,280 units against
+the 10,000 allowance; spot count no longer sets the ceiling. `tail_from` is null on this
+arm by design (one model, no tail seam).
+
+**Shipped with this entry:** `run --wave-source` default om -> blend; `om` stays as the
+fallback arm and the offline-replay arm (the committed OM fixtures replay through it, the
+tests say so explicitly). Payload `attribution` now credits NOAA GFS-Wave + ECMWF for
+waves and Open-Meteo for weather. `quota.py`'s prose, CLAUDE.md, roadmap §2, OPEN-ITEMS
+14/19 and the deploy README all say the blend is primary.

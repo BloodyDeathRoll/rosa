@@ -69,6 +69,7 @@ in the 2026-08-14 CALIBRATION entry.
   Rica, Sri Lanka, Japan, Nicaragua, Philippines) and DECIDE the no-buoy rule:
   promote on pooled-fleet evidence + the 👍👎 feedback stream, or hold OM there.
   Write the decision down in CALIBRATION.md; it is a policy, not a measurement.
+  **DECIDED 2026-08-26: promote WORLDWIDE, verify after. See Status.**
 - **A4. Equal samples.** The raw arms hold ~6x fewer rows than OM (archive starts
   2026-07-23). Let the dual-source archive mature to >=8 weeks of rows before the
   promotion A/B, or the arms are not the same weather.
@@ -106,7 +107,8 @@ the same per-spot request family). Order: easiest first, each independently ship
   for one cycle before switching (amplitude+phase, not just correlation).
 - **C2. SST -> NOAA OISST** (approved list), one 0.25-deg file per day, carried into
   the tail exactly as today.
-- **C3. Weather -> decide, then migrate.** Re-open §2's "keep weather on OM" against
+- **C3. Weather -> decide, then migrate. DECIDED 2026-08-26: NOT migrating - weather
+  stays on Open-Meteo on the measured wind scorecard. See Status.** Re-open §2's "keep weather on OM" against
   the scale goal. Two candidates: GFS 0.25 global GRIB (one download, same pattern as
   B1) or keep OM weather and MEASURE that host's own cap (it becomes the new ceiling
   - the 8.8-unit arithmetic above is the marine host only). Wind feeds the wind gate,
@@ -171,5 +173,37 @@ matures → D1 → B1-B4 → C2 → C3 → C4 → D2-D4 region by region.**
   Interim C3 posture: keep OM weather (1.2 units/pt; ceiling ~3,000 spots).
   **C1-switch FLIPPED 2026-08-15** on its
   fleet A/B (max rating delta 1, 10,283 tail hours gain tide - CALIBRATION.md
-  2026-08-15): tide is EOT20 by default, quota-free, full-horizon. Remaining: A4 wait
-  + C3 wind verdict, then D2-D3 promotion region by region.
+  2026-08-15): tide is EOT20 by default, quota-free, full-horizon.
+- **2026-08-26: C3 DECIDED - weather STAYS on Open-Meteo** (CALIBRATION.md 2026-08-26).
+  The interim posture is now the verdict, measured: pooled wind-speed MAE over the 7 NDBC
+  stations carrying an anemometer has OM ahead at every lead before day 4 (1.056 vs 1.187
+  m/s at 0-1d) and GFS-Wave ahead at every lead after it, so a migration would trade
+  accuracy exactly where the wind gate is consumed. Direction is noise. Both arms scored
+  identical n, so this is not a sample artifact. Thin where it is thin: 12 days, 7
+  stations, all mid-latitude US - Hawaii and the CMEMS buoys pair no wind at all. Re-run
+  at the A4 gate; it flips only if the short-lead sign flips. **C3 was never the ceiling**
+  - weather is a separate host at ~1.2 units/pt.
+  **Remaining: A4 wait + the blend-vs-OM A/B, then D2-D3.**
+- **2026-08-26: A3's no-buoy policy DECIDED - promote WORLDWIDE** (CALIBRATION.md
+  2026-08-26). The buoy registry covers 45 of 265 spots; the other 220 have no station,
+  and public buoys cluster in US/European waters so registration cannot close that. A
+  per-region gate would promote Portugal alone, buy ~35 spots, and leave every future
+  spot on the expensive call - a gate that never opens for the regions being added. A
+  buoy validates the MODEL, not the spot. Accepted risk, raised and overruled: the
+  evidence is four buoyed regions and the only tropical one (hawaii) favours OM, while
+  220 spots are tropical. D3's per-region OM fallback stays in the code for reverts.
+  **This decides WHERE a cleared source applies, not WHETHER it cleared** - the
+  blend-vs-OM A/B is still the gate.
+- **2026-08-26: D3 FLIPPED - `run --wave-source` defaults to `blend`, worldwide**
+  (CALIBRATION.md 2026-08-26, the fleet A/B). 265 spots, same cycle window: mean
+  |Δrating| 6.64, 24.7% of hours change bucket, h_mid +0.115 m - the source, not the Tp
+  handicap (which pulls DOWN). NOMADS took 1,032 requests with no pushback; 1h42m wall,
+  338 MB peak; ledger +320.6 = `marine_light_units(265)`. `om` stays as the fallback and
+  replay arm. Two open items came out of the run: the blend series has no back-reach
+  (today's first 1-6 rows missing on 157 spots, worst far-east) and the per-partition
+  Tp gap is now live fleet-wide. B3's tail label (`tail_from`) is null on this arm.
+  **Remaining: A4 re-fit of the 50/50 weights at 8 weeks; back-reach; D4 footer sweep.**
+- **2026-08-26: the ceiling, measured from the live ledger.** 265 points x 7.69 = 2,037.9
+  per cycle; four cycles 8,152 against a 9,400 budget / 10,000 cap. **The current fetch
+  plane tops out at ~305 spots - ~40 more than today.** Only the blend promotion
+  (7.69 -> 1.21 units/pt, BUILT) lifts it, and it is gated on A4 (2026-09-17).

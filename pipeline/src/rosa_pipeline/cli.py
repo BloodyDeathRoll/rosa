@@ -220,12 +220,14 @@ def _build_parser() -> argparse.ArgumentParser:
     run.add_argument(
         "--wave-source",
         choices=["om", "blend"],
-        default="om",
-        help="om (default): Open-Meteo, the shipped path. blend: the GFS-Wave+ECMWF "
-        "50/50 blend (fetch-plane plan B) - the A/B arm, NOT promoted; weather + "
-        "SST/tide still ride light OM requests, ensemble is not fetched (confidence "
-        "degrades to the horizon proxy). With --fixtures, expects gfsfull_*.grib2 + "
-        "weather_*/marine_light_*.json captures in the fixtures dir",
+        default="blend",
+        help="blend (default since 2026-08-26): the GFS-Wave+ECMWF 50/50 blend "
+        "(fetch-plane plan B), PROMOTED worldwide - waves come from global files "
+        "downloaded once per cycle, so spot count no longer costs marine quota; weather "
+        "+ SST/tide fallback still ride light OM requests. With --fixtures, expects "
+        "gfsfull_*.grib2 + weather_*/marine_light_*.json captures in the fixtures dir. "
+        "om: the per-spot Open-Meteo path - the fallback arm and the A/B replay arm "
+        "(the committed OM fixtures replay through it)",
     )
 
     verify = sub.add_parser("verify", help="score the offshore model against buoy observations")
@@ -640,7 +642,12 @@ def _cmd_run(args: argparse.Namespace) -> int:
                 wet_depths = profile.wet_depths_deep_to_shallow() if profile else None
                 scored = [score_hour(spot, h, wet_depths) for h in hours]
                 payload = build_payload(
-                    spot, scored, fetched_at=raw.fetched_at, now=now, skill=skill
+                    spot,
+                    scored,
+                    fetched_at=raw.fetched_at,
+                    now=now,
+                    skill=skill,
+                    wave_source=getattr(args, "wave_source", "om"),
                 )
                 path = write_spot_json(payload, args.out)
                 update_index(payload, args.out)

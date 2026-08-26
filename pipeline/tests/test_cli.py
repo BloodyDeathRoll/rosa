@@ -72,6 +72,8 @@ def test_run_all_from_fixtures(tmp_path, capsys):
     rc = main(
         [
             "run",
+            "--wave-source",
+            "om",
             "--all",
             "--spots-dir",
             str(spots_dir),
@@ -93,6 +95,8 @@ def test_run_unknown_spot(tmp_path):
     rc = main(
         [
             "run",
+            "--wave-source",
+            "om",
             "--spot",
             "nope",
             "--spots-dir",
@@ -136,6 +140,8 @@ def test_run_all_survives_one_failing_spot(tmp_path, monkeypatch, capsys):
     rc = main(
         [
             "run",
+            "--wave-source",
+            "om",
             "--all",
             "--spots-dir",
             str(spots_dir),

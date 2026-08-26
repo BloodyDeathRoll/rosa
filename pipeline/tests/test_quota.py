@@ -89,6 +89,8 @@ def test_run_refuses_before_it_fetches(tmp_path, monkeypatch, capsys):
     rc = cli.main(
         [
             "run",
+            "--wave-source",
+            "om",
             "--spot",
             "beit-yanai",
             "--spots-dir",
@@ -126,6 +128,8 @@ def test_crashed_run_still_charges_the_ledger(tmp_path, monkeypatch):
         cli.main(
             [
                 "run",
+                "--wave-source",
+                "om",
                 "--spot",
                 "beit-yanai",
                 "--spots-dir",
@@ -150,6 +154,8 @@ def test_fixture_replay_is_exempt(tmp_path, monkeypatch):
     rc = cli.main(
         [
             "run",
+            "--wave-source",
+            "om",
             "--spot",
             "beit-yanai",
             "--spots-dir",

@@ -16,7 +16,7 @@ Rosa is a **worldwide, mobile-first PWA surf forecast app**: free, lean, fast, s
 | **Where forecast data comes from, what replaces it, scale** | `docs/rosa-accuracy-roadmap.md` (§2 keep/join/replace, §4 stages, §9 scale) · `docs/rosa-stage3-plan.md` · `docs/rosa-fetch-plane-plan.md` (off the OM quota) |
 | Product plan · competitor teardown | `docs/rosa-build-plan.md` · `docs/rosa-surfline-teardown.md` |
 
-**Do not re-derive the data-source strategy from first principles.** Stage 3a (raw NOAA GFS-Wave source + dual-source buoy A/B) and Stage 3b (ECMWF spectral-lite) are BUILT — `gfswave.py`, `ecmwf.py`, `verify --archive --source {om,gfswave,ecmwf}`, and a dual-source archive that has been accumulating since 2026-07-23. What is NOT done is the promotion of a raw source to primary, which is gated on buoy skill ≥ Open-Meteo per region. Check the archive before proposing anything here.
+**Do not re-derive the data-source strategy from first principles.** Stage 3a (raw NOAA GFS-Wave source + dual-source buoy A/B) and Stage 3b (ECMWF spectral-lite) are BUILT — `gfswave.py`, `ecmwf.py`, `verify --archive --source {om,gfswave,ecmwf}`, and a dual-source archive that has been accumulating since 2026-07-23. **Since 2026-08-26 the GFS-Wave+ECMWF blend (`blend.py`) IS the primary wave source, worldwide** - `run --wave-source` defaults to `blend`; `om` is the explicit fallback arm. The promotion was a product decision (`docs/CALIBRATION.md` 2026-08-26): buoys cover 45 of 265 spots and never will cover the rest, so a per-region buoy gate was a decision never to scale. Weather stays on Open-Meteo (plan C3, measured). Do not re-open either without new buoy evidence.
 
 ## Non-negotiable principles
 1. Every screen answers "should I surf, when, where?" — cut anything that doesn't.
@@ -49,10 +49,11 @@ Each was learned the hard way and each has a rationale in the linked doc. **Do n
 ## Architecture
 ```
 pipeline/ (Python 3.11+, uv)              web/ (Vite + Preact PWA, TS strict)
-  fetch    → Open-Meteo Marine+Weather      MapLibre GL for maps
-             + gwam (Tp only) + ECMWF       Static hosting: Vercel
-             + GFS-Wave (archive/A-B)       Reads /data/spots/{id}.json via VITE_DATA_BASE
-  extract  → sample at derived offshore_point (+ tide via sea_level_height_msl)
+  fetch    → GFS-Wave + ECMWF global files   MapLibre GL for maps
+             blended 50/50 (blend.py);       Static hosting: Vercel
+             weather: Open-Meteo; SST: OISST Reads /data/spots/{id}.json via VITE_DATA_BASE
+             (--wave-source om = fallback)
+  extract  → sample at derived offshore_point (+ tide from committed EOT20 constants)
   transform→ spread exposure; hybrid physics breaker
   score    → rating 0-100 → bucket
   publish  → data/out/spots/{id}.json (~5 KB), index.json, share-card data

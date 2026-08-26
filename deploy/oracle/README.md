@@ -35,7 +35,10 @@ the *published* data over HTTPS and never talks to the pipeline.
 2. `rosa-pipeline archive` - append the model's forecast at every registered buoy to the VM's
    persistent disk (`data/verify/archive/`). This is the calibration lead-time clock - the one
    thing that can't be back-filled.
-3. `rosa-pipeline run --all` - refresh all per-spot forecasts. **Exit 3 is the daily-quota
+3. `rosa-pipeline run --all` - refresh all per-spot forecasts. Since 2026-08-26 this is the
+   GFS-Wave+ECMWF blend arm by default (waves from global files downloaded once per cycle,
+   ~320 marine-host units a run; `--wave-source om` is the per-spot fallback at ~2,040).
+   **Exit 3 is the daily-quota
    guard, not a failure**: `rosa_pipeline.quota` keeps a per-UTC-day ledger of Open-Meteo
    marine-host units in `data/verify/quota.json` and refuses to fetch when the next fleet run
    would cross the budget (default 9,400 units; `ROSA_OM_DAILY_BUDGET` moves it,
