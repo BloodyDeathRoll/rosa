@@ -263,3 +263,39 @@ def test_live_source_reaches_back_a_day(point, monkeypatch):
     assert (CYCLE - timedelta(hours=24), 3) in asked
     # the forecast steps are asked first, so a late cycle drops back before any history
     assert asked[0] == (CYCLE, 0)
+
+
+def test_live_source_fetches_a_box_concurrently(point, monkeypatch):
+    """The 1h42m promotion run was 1,032 requests one at a time. After the cycle probe,
+    a box's remaining steps go through a pool of NOMADS_WORKERS; the probe itself stays
+    alone because it decides the cycle. Observed concurrency, not timing, so no flake."""
+    import threading
+    import time
+
+    from rosa_pipeline import blend as blend_mod
+    from rosa_pipeline.blend import NOMADS_WORKERS, GfsFullSource
+
+    grib = next(FIX.glob("gfsfull_f000_*.grib2")).read_bytes()
+    lock = threading.Lock()
+    active = 0
+    peak = 0
+    first_seen_alone = []
+
+    class Canned(GfsFullSource):
+        def _get(self, client, cycle, step, box):
+            nonlocal active, peak
+            with lock:
+                active += 1
+                peak = max(peak, active)
+                if not first_seen_alone:
+                    first_seen_alone.append(active)
+            time.sleep(0.02)
+            with lock:
+                active -= 1
+            return grib
+
+    monkeypatch.setattr(blend_mod, "pick_cycle", lambda now: CYCLE)
+    [series] = Canned(steps=tuple(range(0, 49, 3))).fetch_series([point])
+    assert first_seen_alone == [1]  # the probe ran before anything else was in flight
+    assert 2 <= peak <= NOMADS_WORKERS
+    assert len(series) == 17 + 8  # every forecast step and every back-reach window landed

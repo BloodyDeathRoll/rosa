@@ -38,6 +38,7 @@ from __future__ import annotations
 import json
 import math
 import tempfile
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
 from itertools import pairwise
@@ -79,6 +80,13 @@ BLEND_STEPS: tuple[int, ...] = tuple(range(0, 385, 3))
 # 8 extra requests per box (+6%); compose_raw's sort + hourly interpolation joins them.
 BACK_REACH_H = 24 * PAST_DAYS
 BACK_REACH_STEPS: tuple[int, ...] = (0, 3)
+# Concurrent grib-filter requests per box. The promotion run (2026-08-26) took 1h42m for
+# 1,032 requests fetched one at a time - 5.9 s each, 5% CPU, pure network wait - which
+# fits the 6 h cron gap but leaves no slack for more regions. Four in flight is ~40
+# requests/min, a third of NOMADS' published 120/min courtesy limit; the archive's
+# sequential fetch and the swellmap layers share that budget in the same cycle. Parsing
+# stays on the main thread (pygrib via temp files); a box's responses are a few KB each.
+NOMADS_WORKERS = 4
 
 
 def back_reach_plan(cycle: datetime) -> list[tuple[datetime, int]]:
@@ -238,39 +246,41 @@ class GfsFullSource:
     def fetch_series(self, points: list[tuple[float, float]]) -> list[list[GfsSea]]:
         series: list[list[GfsSea]] = [[] for _ in points]
         cycle = pick_cycle(datetime.now(UTC))
-        with httpx.Client(timeout=self.timeout_s) as client:
+        with (
+            httpx.Client(timeout=self.timeout_s) as client,
+            ThreadPoolExecutor(max_workers=NOMADS_WORKERS) as pool,
+        ):
             for box, members in cluster_boxes(points):
+                pts = [points[i] for i in members]
+                # The first step is probed ALONE: it decides the cycle (drop back 6 h when
+                # NOMADS has not published yet), and every other request depends on it.
                 cyc = cycle
-                for step in self.steps:
-                    data = self._get(client, cyc, step, box)
-                    if data is None and step == self.steps[0]:
-                        cyc = cyc - timedelta(hours=6)  # cycle not on NOMADS yet
-                        data = self._get(client, cyc, step, box)
+                first = self._get(client, cyc, self.steps[0], box)
+                if first is None:
+                    cyc = cyc - timedelta(hours=6)  # cycle not on NOMADS yet
+                    first = self._get(client, cyc, self.steps[0], box)
+                # The rest of the forecast plus the hours BEFORE f000 from the previous
+                # cycles (OPEN-ITEMS 20) go through the pool; each miss is skipped on its
+                # own - a purged old cycle costs its 3 h window, never the forecast.
+                # Back-reach captures use a distinct prefix so the fixture source's
+                # `gfsfull_f*` glob keeps replaying the forecast alone.
+                wanted: list[tuple[datetime, int, bool]] = [
+                    *((cyc, step, False) for step in self.steps[1:]),
+                    *((prev, step, True) for prev, step in back_reach_plan(cyc)),
+                ]
+                fetched = pool.map(lambda w, b=box: self._get(client, w[0], w[1], b), wanted)
+                for (run, step, back), data in zip(
+                    [(cyc, self.steps[0], False), *wanted], [first, *fetched], strict=True
+                ):
                     if data is None:
                         continue
                     if self.capture_dir is not None:
                         self.capture_dir.mkdir(parents=True, exist_ok=True)
-                        name = f"gfsfull_f{step:03d}_{box.key}.grib2"
-                        (self.capture_dir / name).write_bytes(data)
-                    valid = cyc + timedelta(hours=step)
-                    pts = [points[i] for i in members]
-                    for i, sea in zip(members, parse_gfs_full(data, pts, valid), strict=True):
-                        if sea is not None:
-                            series[i].append(sea)
-                # the hours BEFORE this cycle's f000, from the previous cycles (OPEN-ITEMS
-                # 20). Each miss is skipped on its own - a purged old cycle costs its 3 h
-                # window, never the forecast. Captured under a distinct prefix so the
-                # fixture source's `gfsfull_f*` glob keeps replaying the forecast alone.
-                for prev, step in back_reach_plan(cyc):
-                    data = self._get(client, prev, step, box)
-                    if data is None:
-                        continue
-                    if self.capture_dir is not None:
-                        self.capture_dir.mkdir(parents=True, exist_ok=True)
-                        name = f"gfsfull_p{prev:%Y%m%d%H}_f{step:03d}_{box.key}.grib2"
-                        (self.capture_dir / name).write_bytes(data)
-                    valid = prev + timedelta(hours=step)
-                    pts = [points[i] for i in members]
+                        prefix = f"gfsfull_p{run:%Y%m%d%H}" if back else "gfsfull"
+                        (self.capture_dir / f"{prefix}_f{step:03d}_{box.key}.grib2").write_bytes(
+                            data
+                        )
+                    valid = run + timedelta(hours=step)
                     for i, sea in zip(members, parse_gfs_full(data, pts, valid), strict=True):
                         if sea is not None:
                             series[i].append(sea)
