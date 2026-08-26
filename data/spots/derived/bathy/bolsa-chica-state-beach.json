@@ -1,0 +1,72 @@
+{
+  "spot": "bolsa-chica-state-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    33.6946,
+    -118.0475
+  ],
+  "bearing_seaward_deg": 232.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 55.0,
+  "mean_slope_m_per_km": 2.99,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.69322,
+      "lon": -118.04963,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.69183,
+      "lon": -118.05176,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.68906,
+      "lon": -118.05602,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.68353,
+      "lon": -118.06453,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.67799,
+      "lon": -118.07305,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.66691,
+      "lon": -118.09007,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.65029,
+      "lon": -118.11561,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.62812,
+      "lon": -118.14963,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.59484,
+      "lon": -118.20064,
+      "depth_m": 55.0
+    }
+  ]
+}

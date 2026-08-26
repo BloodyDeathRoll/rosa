@@ -1,0 +1,72 @@
+{
+  "spot": "balboa-pier",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    33.6005,
+    -117.9008
+  ],
+  "bearing_seaward_deg": 200.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 545.0,
+  "mean_slope_m_per_km": 30.54,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.59839,
+      "lon": -117.90172,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.59627,
+      "lon": -117.90265,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.59205,
+      "lon": -117.90449,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.5836,
+      "lon": -117.90818,
+      "depth_m": 76.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.57515,
+      "lon": -117.91188,
+      "depth_m": 210.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.55824,
+      "lon": -117.91926,
+      "depth_m": 330.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.53289,
+      "lon": -117.93032,
+      "depth_m": 408.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.49908,
+      "lon": -117.94506,
+      "depth_m": 490.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.44837,
+      "lon": -117.96715,
+      "depth_m": 545.0
+    }
+  ]
+}

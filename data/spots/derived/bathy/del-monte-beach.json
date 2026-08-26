@@ -1,0 +1,72 @@
+{
+  "spot": "del-monte-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    36.6041,
+    -121.8716
+  ],
+  "bearing_seaward_deg": 333.0,
+  "nearshore_depth_m": -18.0,
+  "offshore_depth_m": 370.0,
+  "mean_slope_m_per_km": 21.86,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.6061,
+      "lon": -121.87287,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.60811,
+      "lon": -121.87414,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.61211,
+      "lon": -121.87669,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.62013,
+      "lon": -121.88177,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.62814,
+      "lon": -121.88686,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.64416,
+      "lon": -121.89704,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.6682,
+      "lon": -121.91232,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.70024,
+      "lon": -121.93271,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.7483,
+      "lon": -121.96332,
+      "depth_m": 370.0
+    }
+  ]
+}

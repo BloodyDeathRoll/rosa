@@ -1,0 +1,72 @@
+{
+  "spot": "scotchman-s-cove",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    33.5652,
+    -117.8322
+  ],
+  "bearing_seaward_deg": 201.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 623.0,
+  "mean_slope_m_per_km": 34.65,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.5631,
+      "lon": -117.83317,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.561,
+      "lon": -117.83413,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.5568,
+      "lon": -117.83607,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.54841,
+      "lon": -117.83993,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.54001,
+      "lon": -117.8438,
+      "depth_m": 254.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.52322,
+      "lon": -117.85153,
+      "depth_m": 461.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.49803,
+      "lon": -117.86312,
+      "depth_m": 542.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.46444,
+      "lon": -117.87856,
+      "depth_m": 591.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.41405,
+      "lon": -117.9017,
+      "depth_m": 623.0
+    }
+  ]
+}

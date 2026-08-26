@@ -1,0 +1,72 @@
+{
+  "spot": "the-hook",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    36.9598,
+    -121.965
+  ],
+  "bearing_seaward_deg": 155.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 80.0,
+  "mean_slope_m_per_km": 4.45,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.95776,
+      "lon": -121.96381,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.95572,
+      "lon": -121.96262,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.95165,
+      "lon": -121.96024,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.9435,
+      "lon": -121.95549,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.93535,
+      "lon": -121.95074,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.91904,
+      "lon": -121.94123,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.89459,
+      "lon": -121.92698,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.86198,
+      "lon": -121.908,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.81306,
+      "lon": -121.87955,
+      "depth_m": 80.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "devereux",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    34.4087,
+    -119.8741
+  ],
+  "bearing_seaward_deg": 169.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 394.0,
+  "mean_slope_m_per_km": 21.86,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.40649,
+      "lon": -119.87358,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.40429,
+      "lon": -119.87306,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.39987,
+      "lon": -119.87202,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.39104,
+      "lon": -119.86994,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.38222,
+      "lon": -119.86786,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.36456,
+      "lon": -119.86371,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.33808,
+      "lon": -119.85747,
+      "depth_m": 278.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.30276,
+      "lon": -119.84917,
+      "depth_m": 341.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.24979,
+      "lon": -119.83673,
+      "depth_m": 394.0
+    }
+  ]
+}

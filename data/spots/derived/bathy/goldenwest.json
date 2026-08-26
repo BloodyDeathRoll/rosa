@@ -1,0 +1,72 @@
+{
+  "spot": "goldenwest",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    33.6901,
+    -118.0425
+  ],
+  "bearing_seaward_deg": 232.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 56.0,
+  "mean_slope_m_per_km": 3.27,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.68872,
+      "lon": -118.04463,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.68733,
+      "lon": -118.04676,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.68456,
+      "lon": -118.05102,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.67903,
+      "lon": -118.05953,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.67349,
+      "lon": -118.06805,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.66241,
+      "lon": -118.08507,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.64579,
+      "lon": -118.1106,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.62362,
+      "lon": -118.14463,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.59034,
+      "lon": -118.19563,
+      "depth_m": 56.0
+    }
+  ]
+}

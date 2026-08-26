@@ -1,0 +1,72 @@
+{
+  "spot": "morro-rock",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    35.3732,
+    -120.8639
+  ],
+  "bearing_seaward_deg": 266.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 219.0,
+  "mean_slope_m_per_km": 12.11,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.37304,
+      "lon": -120.86665,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.37289,
+      "lon": -120.8694,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.37257,
+      "lon": -120.8749,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.37194,
+      "lon": -120.8859,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.37131,
+      "lon": -120.89691,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.37005,
+      "lon": -120.91891,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.36815,
+      "lon": -120.95191,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.3656,
+      "lon": -120.99592,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.36175,
+      "lon": -121.06191,
+      "depth_m": 219.0
+    }
+  ]
+}

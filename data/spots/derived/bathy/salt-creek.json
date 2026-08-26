@@ -1,0 +1,72 @@
+{
+  "spot": "salt-creek",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    33.4776,
+    -117.7232
+  ],
+  "bearing_seaward_deg": 242.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 638.0,
+  "mean_slope_m_per_km": 35.77,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.47654,
+      "lon": -117.72558,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.47549,
+      "lon": -117.72796,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.47338,
+      "lon": -117.73272,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.46915,
+      "lon": -117.74224,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.46493,
+      "lon": -117.75176,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.45648,
+      "lon": -117.77079,
+      "depth_m": 482.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.4438,
+      "lon": -117.79933,
+      "depth_m": 641.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.42688,
+      "lon": -117.83737,
+      "depth_m": 643.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.40149,
+      "lon": -117.89441,
+      "depth_m": 638.0
+    }
+  ]
+}

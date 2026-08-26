@@ -1,0 +1,72 @@
+{
+  "spot": "doran-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    38.3112,
+    -123.0499
+  ],
+  "bearing_seaward_deg": 162.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 44.0,
+  "mean_slope_m_per_km": 1.97,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.30906,
+      "lon": -123.04901,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.30692,
+      "lon": -123.04813,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.30265,
+      "lon": -123.04636,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.29409,
+      "lon": -123.04282,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.28554,
+      "lon": -123.03928,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.26843,
+      "lon": -123.0322,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.24277,
+      "lon": -123.02159,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.20856,
+      "lon": -123.00746,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.15723,
+      "lon": -122.98628,
+      "depth_m": 44.0
+    }
+  ]
+}

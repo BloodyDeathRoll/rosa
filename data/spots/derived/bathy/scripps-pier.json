@@ -1,0 +1,72 @@
+{
+  "spot": "scripps-pier",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.8663,
+    -117.2546
+  ],
+  "bearing_seaward_deg": 292.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 670.0,
+  "mean_slope_m_per_km": 37.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.86714,
+      "lon": -117.25708,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.86798,
+      "lon": -117.25956,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.86967,
+      "lon": -117.26453,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.87304,
+      "lon": -117.27446,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.8764,
+      "lon": -117.28439,
+      "depth_m": 124.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.88313,
+      "lon": -117.30425,
+      "depth_m": 242.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.89323,
+      "lon": -117.33404,
+      "depth_m": 393.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.90667,
+      "lon": -117.37378,
+      "depth_m": 513.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.92681,
+      "lon": -117.43341,
+      "depth_m": 670.0
+    }
+  ]
+}

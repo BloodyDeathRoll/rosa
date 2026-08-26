@@ -1,0 +1,72 @@
+{
+  "spot": "del-mar",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.9608,
+    -117.2681
+  ],
+  "bearing_seaward_deg": 266.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 699.0,
+  "mean_slope_m_per_km": 39.77,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.96064,
+      "lon": -117.27077,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.96049,
+      "lon": -117.27345,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.96017,
+      "lon": -117.27879,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.95954,
+      "lon": -117.28948,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.95891,
+      "lon": -117.30018,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.95765,
+      "lon": -117.32156,
+      "depth_m": 309.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.95575,
+      "lon": -117.35363,
+      "depth_m": 466.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.95321,
+      "lon": -117.3964,
+      "depth_m": 569.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.94936,
+      "lon": -117.46054,
+      "depth_m": 699.0
+    }
+  ]
+}

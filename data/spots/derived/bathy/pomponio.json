@@ -1,0 +1,72 @@
+{
+  "spot": "pomponio",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    37.2997,
+    -122.4053
+  ],
+  "bearing_seaward_deg": 270.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 94.0,
+  "mean_slope_m_per_km": 5.86,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.2997,
+      "lon": -122.40813,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.2997,
+      "lon": -122.41095,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.2997,
+      "lon": -122.41661,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.2997,
+      "lon": -122.42791,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.2997,
+      "lon": -122.43922,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.29969,
+      "lon": -122.46183,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.29967,
+      "lon": -122.49574,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.29962,
+      "lon": -122.54097,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.29953,
+      "lon": -122.6088,
+      "depth_m": 94.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "cowells",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    36.9616,
+    -122.0253
+  ],
+  "bearing_seaward_deg": 180.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 536.0,
+  "mean_slope_m_per_km": 30.65,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.95935,
+      "lon": -122.0253,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.9571,
+      "lon": -122.0253,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.95261,
+      "lon": -122.0253,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.94361,
+      "lon": -122.0253,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.93462,
+      "lon": -122.0253,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.91663,
+      "lon": -122.0253,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.88965,
+      "lon": -122.0253,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.85368,
+      "lon": -122.0253,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.79972,
+      "lon": -122.0253,
+      "depth_m": 536.0
+    }
+  ]
+}

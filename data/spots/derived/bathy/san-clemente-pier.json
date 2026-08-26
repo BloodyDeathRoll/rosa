@@ -1,0 +1,72 @@
+{
+  "spot": "san-clemente-pier",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    33.4188,
+    -117.6216
+  ],
+  "bearing_seaward_deg": 234.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 697.0,
+  "mean_slope_m_per_km": 39.04,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.41748,
+      "lon": -117.62378,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.41616,
+      "lon": -117.62596,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.41351,
+      "lon": -117.63032,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.40823,
+      "lon": -117.63903,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.40294,
+      "lon": -117.64775,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.39236,
+      "lon": -117.66517,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.37649,
+      "lon": -117.6913,
+      "depth_m": 386.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.35532,
+      "lon": -117.72613,
+      "depth_m": 659.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.32355,
+      "lon": -117.77833,
+      "depth_m": 697.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "ocean-beach-noriega",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    37.7594,
+    -122.5107
+  ],
+  "bearing_seaward_deg": 264.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 41.0,
+  "mean_slope_m_per_km": 2.37,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.75916,
+      "lon": -122.51353,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.75893,
+      "lon": -122.51636,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.75846,
+      "lon": -122.52201,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.75752,
+      "lon": -122.53333,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.75657,
+      "lon": -122.54464,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.75469,
+      "lon": -122.56726,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.75185,
+      "lon": -122.60119,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.74804,
+      "lon": -122.64644,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.7423,
+      "lon": -122.71429,
+      "depth_m": 41.0
+    }
+  ]
+}

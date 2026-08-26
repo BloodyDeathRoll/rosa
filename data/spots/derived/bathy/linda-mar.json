@@ -1,0 +1,72 @@
+{
+  "spot": "linda-mar",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    37.5989,
+    -122.5019
+  ],
+  "bearing_seaward_deg": 289.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 37.0,
+  "mean_slope_m_per_km": 2.42,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.59963,
+      "lon": -122.50458,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.60036,
+      "lon": -122.50727,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.60183,
+      "lon": -122.51263,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.60475,
+      "lon": -122.52337,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.60768,
+      "lon": -122.5341,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.61353,
+      "lon": -122.55557,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.62229,
+      "lon": -122.58779,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.63396,
+      "lon": -122.63075,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.65144,
+      "lon": -122.69522,
+      "depth_m": 37.0
+    }
+  ]
+}

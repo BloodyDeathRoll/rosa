@@ -1,0 +1,72 @@
+{
+  "spot": "mitchell-s-cove",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    36.9524,
+    -122.0408
+  ],
+  "bearing_seaward_deg": 273.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 76.0,
+  "mean_slope_m_per_km": 4.85,
+  "land_samples": 6,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.95252,
+      "lon": -122.04361,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.95264,
+      "lon": -122.04642,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.95287,
+      "lon": -122.05204,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.95334,
+      "lon": -122.06328,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.95381,
+      "lon": -122.07452,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.95474,
+      "lon": -122.09699,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.95613,
+      "lon": -122.13071,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.95797,
+      "lon": -122.17567,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.9607,
+      "lon": -122.24311,
+      "depth_m": 76.0
+    }
+  ]
+}

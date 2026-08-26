@@ -1,0 +1,72 @@
+{
+  "spot": "refugio",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    34.4632,
+    -120.0701
+  ],
+  "bearing_seaward_deg": 189.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 552.0,
+  "mean_slope_m_per_km": 31.72,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.46098,
+      "lon": -120.07053,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.45876,
+      "lon": -120.07095,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.45432,
+      "lon": -120.07181,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.44543,
+      "lon": -120.07351,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.43655,
+      "lon": -120.07522,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.41879,
+      "lon": -120.07863,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.39214,
+      "lon": -120.08374,
+      "depth_m": 226.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.35661,
+      "lon": -120.09055,
+      "depth_m": 503.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.30331,
+      "lon": -120.10076,
+      "depth_m": 552.0
+    }
+  ]
+}

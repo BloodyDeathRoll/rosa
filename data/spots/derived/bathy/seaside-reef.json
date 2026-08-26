@@ -1,0 +1,72 @@
+{
+  "spot": "seaside-reef",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    33.0098,
+    -117.2796
+  ],
+  "bearing_seaward_deg": 254.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 724.0,
+  "mean_slope_m_per_km": 40.9,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.00918,
+      "lon": -117.28218,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.00856,
+      "lon": -117.28475,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.00732,
+      "lon": -117.28991,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.00484,
+      "lon": -117.30022,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.00236,
+      "lon": -117.31052,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.9974,
+      "lon": -117.33114,
+      "depth_m": 291.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.98994,
+      "lon": -117.36205,
+      "depth_m": 438.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.97999,
+      "lon": -117.40327,
+      "depth_m": 589.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.96504,
+      "lon": -117.46507,
+      "depth_m": 724.0
+    }
+  ]
+}

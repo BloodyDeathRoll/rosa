@@ -1,0 +1,72 @@
+{
+  "spot": "scott-creek",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    37.0383,
+    -122.2282
+  ],
+  "bearing_seaward_deg": 285.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 84.0,
+  "mean_slope_m_per_km": 4.9,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.03888,
+      "lon": -122.23092,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.03946,
+      "lon": -122.23364,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.04063,
+      "lon": -122.23908,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.04295,
+      "lon": -122.24997,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.04528,
+      "lon": -122.26085,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.04993,
+      "lon": -122.28262,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.05689,
+      "lon": -122.31528,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.06616,
+      "lon": -122.35884,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.08004,
+      "lon": -122.42419,
+      "depth_m": 84.0
+    }
+  ]
+}

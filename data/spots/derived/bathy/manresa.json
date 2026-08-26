@@ -1,0 +1,72 @@
+{
+  "spot": "manresa",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    36.9322,
+    -121.863
+  ],
+  "bearing_seaward_deg": 235.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 90.0,
+  "mean_slope_m_per_km": 5.24,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.93091,
+      "lon": -121.8653,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.92962,
+      "lon": -121.86761,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.92704,
+      "lon": -121.87222,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.92188,
+      "lon": -121.88143,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.91672,
+      "lon": -121.89064,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.9064,
+      "lon": -121.90906,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.89091,
+      "lon": -121.93669,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.87025,
+      "lon": -121.9735,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.83924,
+      "lon": -122.02869,
+      "depth_m": 90.0
+    }
+  ]
+}

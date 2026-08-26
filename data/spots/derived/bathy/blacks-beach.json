@@ -1,0 +1,72 @@
+{
+  "spot": "blacks-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.8935,
+    -117.2538
+  ],
+  "bearing_seaward_deg": 269.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 607.0,
+  "mean_slope_m_per_km": 34.37,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.89346,
+      "lon": -117.25648,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.89342,
+      "lon": -117.25915,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.89334,
+      "lon": -117.26451,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.89318,
+      "lon": -117.27522,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.89303,
+      "lon": -117.28593,
+      "depth_m": 190.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.8927,
+      "lon": -117.30734,
+      "depth_m": 360.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.89222,
+      "lon": -117.33947,
+      "depth_m": 398.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.89155,
+      "lon": -117.3823,
+      "depth_m": 488.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.89053,
+      "lon": -117.44655,
+      "depth_m": 607.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "garbage-beach-sunset-cliffs",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.73,
+    -117.257
+  ],
+  "bearing_seaward_deg": 233.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 167.0,
+  "mean_slope_m_per_km": 9.69,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.72865,
+      "lon": -117.25913,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.72729,
+      "lon": -117.26127,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.72459,
+      "lon": -117.26554,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.71917,
+      "lon": -117.27407,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.71376,
+      "lon": -117.28261,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.70293,
+      "lon": -117.29968,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.68668,
+      "lon": -117.32527,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.66501,
+      "lon": -117.35938,
+      "depth_m": 196.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.63249,
+      "lon": -117.41051,
+      "depth_m": 167.0
+    }
+  ]
+}

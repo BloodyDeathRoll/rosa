@@ -1,0 +1,72 @@
+{
+  "spot": "san-simeon",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    35.7649,
+    -121.3247
+  ],
+  "bearing_seaward_deg": 267.0,
+  "nearshore_depth_m": 15.0,
+  "offshore_depth_m": 508.0,
+  "mean_slope_m_per_km": 27.77,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.76478,
+      "lon": -121.32747,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.76466,
+      "lon": -121.33023,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.76443,
+      "lon": -121.33577,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.76396,
+      "lon": -121.34684,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.76348,
+      "lon": -121.3579,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.76253,
+      "lon": -121.38004,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.7611,
+      "lon": -121.41324,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.75918,
+      "lon": -121.45751,
+      "depth_m": 231.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.75626,
+      "lon": -121.5239,
+      "depth_m": 508.0
+    }
+  ]
+}

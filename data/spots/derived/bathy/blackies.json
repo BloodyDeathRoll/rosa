@@ -1,0 +1,72 @@
+{
+  "spot": "blackies",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    33.6089,
+    -117.9293
+  ],
+  "bearing_seaward_deg": 254.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 215.0,
+  "mean_slope_m_per_km": 12.17,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.60828,
+      "lon": -117.93189,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.60766,
+      "lon": -117.93449,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.60642,
+      "lon": -117.93968,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.60394,
+      "lon": -117.95006,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.60146,
+      "lon": -117.96044,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.59649,
+      "lon": -117.98119,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.58904,
+      "lon": -118.01232,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.57909,
+      "lon": -118.05382,
+      "depth_m": 121.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.56414,
+      "lon": -118.11604,
+      "depth_m": 215.0
+    }
+  ]
+}

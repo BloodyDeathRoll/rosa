@@ -1,0 +1,72 @@
+{
+  "spot": "emma-wood",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    34.2804,
+    -119.3177
+  ],
+  "bearing_seaward_deg": 234.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 97.0,
+  "mean_slope_m_per_km": 5.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.27908,
+      "lon": -119.3199,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.27776,
+      "lon": -119.3221,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.27511,
+      "lon": -119.3265,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.26983,
+      "lon": -119.33531,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.26454,
+      "lon": -119.34411,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.25396,
+      "lon": -119.36171,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.23809,
+      "lon": -119.38811,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.21692,
+      "lon": -119.42328,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.18515,
+      "lon": -119.47601,
+      "depth_m": 97.0
+    }
+  ]
+}

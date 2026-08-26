@@ -1,0 +1,72 @@
+{
+  "spot": "cardiff-reef",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    33.015,
+    -117.2825
+  ],
+  "bearing_seaward_deg": 248.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 710.0,
+  "mean_slope_m_per_km": 40.23,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.01416,
+      "lon": -117.28499,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.01332,
+      "lon": -117.28747,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.01163,
+      "lon": -117.29244,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.00826,
+      "lon": -117.30239,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.00489,
+      "lon": -117.31233,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.99815,
+      "lon": -117.33221,
+      "depth_m": 295.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.98802,
+      "lon": -117.36203,
+      "depth_m": 444.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.97452,
+      "lon": -117.40177,
+      "depth_m": 589.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.95423,
+      "lon": -117.46137,
+      "depth_m": 710.0
+    }
+  ]
+}

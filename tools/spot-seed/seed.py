@@ -76,6 +76,9 @@ REGIONS = {
     "philippines": (4.50, 116.90, 21.20, 126.70),
     "el-salvador": (13.10, -90.20, 13.65, -87.65),
     "mexico": (14.30, -118.60, 32.80, -91.90),
+    # the whole Pacific coast, Imperial Beach to the Oregon line; the Channel Islands
+    # fall inside it and are surfed, so they stay
+    "california": (32.50, -124.60, 42.05, -117.05),
 }
 
 

@@ -1,0 +1,72 @@
+{
+  "spot": "new-brighton",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    36.9773,
+    -121.9409
+  ],
+  "bearing_seaward_deg": 143.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 8.0,
+  "mean_slope_m_per_km": 0.45,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.9755,
+      "lon": -121.93921,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.97371,
+      "lon": -121.93751,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.97012,
+      "lon": -121.93413,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.96293,
+      "lon": -121.92735,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.95575,
+      "lon": -121.92058,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.94138,
+      "lon": -121.90704,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.91983,
+      "lon": -121.88674,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.89108,
+      "lon": -121.85969,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.84796,
+      "lon": -121.81916,
+      "depth_m": 8.0
+    }
+  ]
+}

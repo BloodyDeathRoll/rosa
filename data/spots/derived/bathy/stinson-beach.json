@@ -1,0 +1,72 @@
+{
+  "spot": "stinson-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    37.8962,
+    -122.6409
+  ],
+  "bearing_seaward_deg": 221.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 45.0,
+  "mean_slope_m_per_km": 2.14,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.8945,
+      "lon": -122.64277,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.89281,
+      "lon": -122.64464,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.88941,
+      "lon": -122.64838,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.88262,
+      "lon": -122.65585,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.87584,
+      "lon": -122.66332,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.86226,
+      "lon": -122.67827,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.84189,
+      "lon": -122.70067,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.81472,
+      "lon": -122.73052,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.77395,
+      "lon": -122.77526,
+      "depth_m": 45.0
+    }
+  ]
+}

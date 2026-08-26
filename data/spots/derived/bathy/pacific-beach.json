@@ -1,0 +1,72 @@
+{
+  "spot": "pacific-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.7905,
+    -117.2561
+  ],
+  "bearing_seaward_deg": 260.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 515.0,
+  "mean_slope_m_per_km": 28.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.79011,
+      "lon": -117.25873,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.78972,
+      "lon": -117.26137,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.78894,
+      "lon": -117.26664,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.78737,
+      "lon": -117.27717,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.78581,
+      "lon": -117.2877,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.78268,
+      "lon": -117.30877,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.77798,
+      "lon": -117.34037,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.7717,
+      "lon": -117.3825,
+      "depth_m": 184.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.76225,
+      "lon": -117.44568,
+      "depth_m": 515.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "la-jolla-shores",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.8614,
+    -117.2553
+  ],
+  "bearing_seaward_deg": 280.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 601.0,
+  "mean_slope_m_per_km": 33.69,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.86179,
+      "lon": -117.25794,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.86218,
+      "lon": -117.26057,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.86296,
+      "lon": -117.26584,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.86452,
+      "lon": -117.27639,
+      "depth_m": 123.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.86608,
+      "lon": -117.28693,
+      "depth_m": 115.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.8692,
+      "lon": -117.30802,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.87386,
+      "lon": -117.33966,
+      "depth_m": 244.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.88008,
+      "lon": -117.38185,
+      "depth_m": 432.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.88937,
+      "lon": -117.44515,
+      "depth_m": 601.0
+    }
+  ]
+}

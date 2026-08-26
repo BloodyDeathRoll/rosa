@@ -1,0 +1,72 @@
+{
+  "spot": "hermosa-beach-pier",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    33.8617,
+    -118.4021
+  ],
+  "bearing_seaward_deg": 255.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 468.0,
+  "mean_slope_m_per_km": 26.25,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.86112,
+      "lon": -118.40472,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.86054,
+      "lon": -118.40733,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.85937,
+      "lon": -118.41256,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.85704,
+      "lon": -118.42302,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.85471,
+      "lon": -118.43348,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.85005,
+      "lon": -118.4544,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.84305,
+      "lon": -118.48577,
+      "depth_m": 125.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.83371,
+      "lon": -118.52759,
+      "depth_m": 121.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.81966,
+      "lon": -118.59031,
+      "depth_m": 468.0
+    }
+  ]
+}

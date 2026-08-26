@@ -1,0 +1,72 @@
+{
+  "spot": "torrance-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    33.8131,
+    -118.3916
+  ],
+  "bearing_seaward_deg": 280.0,
+  "nearshore_depth_m": -13.0,
+  "offshore_depth_m": 167.0,
+  "mean_slope_m_per_km": 10.14,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.81349,
+      "lon": -118.39426,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.81388,
+      "lon": -118.39693,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.81466,
+      "lon": -118.40226,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.81622,
+      "lon": -118.41292,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.81778,
+      "lon": -118.42358,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.8209,
+      "lon": -118.4449,
+      "depth_m": 267.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.82556,
+      "lon": -118.47689,
+      "depth_m": 158.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.83177,
+      "lon": -118.51954,
+      "depth_m": 130.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.84106,
+      "lon": -118.58354,
+      "depth_m": 167.0
+    }
+  ]
+}

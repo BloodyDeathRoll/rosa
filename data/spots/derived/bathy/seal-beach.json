@@ -1,0 +1,72 @@
+{
+  "spot": "seal-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    33.7387,
+    -118.1063
+  ],
+  "bearing_seaward_deg": 203.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 52.0,
+  "mean_slope_m_per_km": 2.87,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.73663,
+      "lon": -118.10736,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.73456,
+      "lon": -118.10841,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.73042,
+      "lon": -118.11053,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.72214,
+      "lon": -118.11475,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.71386,
+      "lon": -118.11897,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.69731,
+      "lon": -118.12742,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.67247,
+      "lon": -118.14008,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.63935,
+      "lon": -118.15695,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.58967,
+      "lon": -118.18223,
+      "depth_m": 52.0
+    }
+  ]
+}

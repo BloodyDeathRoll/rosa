@@ -1,0 +1,72 @@
+{
+  "spot": "carmel-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    36.5374,
+    -121.9279
+  ],
+  "bearing_seaward_deg": 272.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 1662.0,
+  "mean_slope_m_per_km": 93.86,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.53748,
+      "lon": -121.9307,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.53756,
+      "lon": -121.93349,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.53771,
+      "lon": -121.93909,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.53803,
+      "lon": -121.95027,
+      "depth_m": 182.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.53834,
+      "lon": -121.96146,
+      "depth_m": 308.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.53896,
+      "lon": -121.98383,
+      "depth_m": 329.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.53988,
+      "lon": -122.01739,
+      "depth_m": 434.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.54109,
+      "lon": -122.06214,
+      "depth_m": 990.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.54288,
+      "lon": -122.12927,
+      "depth_m": 1662.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "capitola-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    36.9716,
+    -121.9524
+  ],
+  "bearing_seaward_deg": 195.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 369.0,
+  "mean_slope_m_per_km": 20.85,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.96943,
+      "lon": -121.95313,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.96726,
+      "lon": -121.95386,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.96291,
+      "lon": -121.95531,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.95423,
+      "lon": -121.95823,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.94554,
+      "lon": -121.96114,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.92817,
+      "lon": -121.96696,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.9021,
+      "lon": -121.97569,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.86735,
+      "lon": -121.98731,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.81523,
+      "lon": -122.00473,
+      "depth_m": 369.0
+    }
+  ]
+}

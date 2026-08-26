@@ -1,0 +1,72 @@
+{
+  "spot": "swamis",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    33.0344,
+    -117.2928
+  ],
+  "bearing_seaward_deg": 227.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 671.0,
+  "mean_slope_m_per_km": 38.2,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.03287,
+      "lon": -117.29476,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.03133,
+      "lon": -117.29672,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.02827,
+      "lon": -117.30064,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.02213,
+      "lon": -117.30849,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.016,
+      "lon": -117.31633,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.00373,
+      "lon": -117.33201,
+      "depth_m": 231.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.98532,
+      "lon": -117.35553,
+      "depth_m": 447.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.96076,
+      "lon": -117.38687,
+      "depth_m": 546.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.92392,
+      "lon": -117.43384,
+      "depth_m": 671.0
+    }
+  ]
+}

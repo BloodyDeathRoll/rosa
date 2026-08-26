@@ -1,0 +1,72 @@
+{
+  "spot": "huntington-beach-pier",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    33.6563,
+    -118.0029
+  ],
+  "bearing_seaward_deg": 225.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 237.0,
+  "mean_slope_m_per_km": 13.24,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.65471,
+      "lon": -118.00481,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.65312,
+      "lon": -118.00672,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.64994,
+      "lon": -118.01054,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.64358,
+      "lon": -118.01818,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.63722,
+      "lon": -118.02581,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.6245,
+      "lon": -118.04108,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.60541,
+      "lon": -118.06398,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.57996,
+      "lon": -118.0945,
+      "depth_m": 213.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.54176,
+      "lon": -118.14023,
+      "depth_m": 237.0
+    }
+  ]
+}

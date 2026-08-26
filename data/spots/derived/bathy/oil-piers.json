@@ -1,0 +1,72 @@
+{
+  "spot": "oil-piers",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    34.3538,
+    -119.4298
+  ],
+  "bearing_seaward_deg": 232.0,
+  "nearshore_depth_m": -28.0,
+  "offshore_depth_m": 96.0,
+  "mean_slope_m_per_km": 6.99,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.35242,
+      "lon": -119.43195,
+      "depth_m": -28.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.35103,
+      "lon": -119.43409,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.34826,
+      "lon": -119.43838,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.34273,
+      "lon": -119.44697,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.33719,
+      "lon": -119.45555,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.32611,
+      "lon": -119.47271,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.30949,
+      "lon": -119.49844,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.28732,
+      "lon": -119.53273,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.25404,
+      "lon": -119.58413,
+      "depth_m": 96.0
+    }
+  ]
+}

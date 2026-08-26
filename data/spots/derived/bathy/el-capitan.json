@@ -1,0 +1,72 @@
+{
+  "spot": "el-capitan",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    34.458,
+    -120.0245
+  ],
+  "bearing_seaward_deg": 212.0,
+  "nearshore_depth_m": 22.0,
+  "offshore_depth_m": 521.0,
+  "mean_slope_m_per_km": 28.11,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.45609,
+      "lon": -120.02594,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.45419,
+      "lon": -120.02739,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.45037,
+      "lon": -120.03028,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.44275,
+      "lon": -120.03606,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.43512,
+      "lon": -120.04183,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.41986,
+      "lon": -120.05339,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.39698,
+      "lon": -120.0707,
+      "depth_m": 170.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.36646,
+      "lon": -120.09378,
+      "depth_m": 456.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.32068,
+      "lon": -120.12837,
+      "depth_m": 521.0
+    }
+  ]
+}

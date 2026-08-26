@@ -1,0 +1,72 @@
+{
+  "spot": "natural-bridges",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    36.9503,
+    -122.0576
+  ],
+  "bearing_seaward_deg": 200.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 342.0,
+  "mean_slope_m_per_km": 18.93,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.94819,
+      "lon": -122.05856,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.94607,
+      "lon": -122.05952,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.94185,
+      "lon": -122.06145,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.9334,
+      "lon": -122.0653,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.92495,
+      "lon": -122.06914,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.90804,
+      "lon": -122.07683,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.88269,
+      "lon": -122.08836,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.84888,
+      "lon": -122.10373,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.79816,
+      "lon": -122.12674,
+      "depth_m": 342.0
+    }
+  ]
+}

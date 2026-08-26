@@ -176,7 +176,41 @@ Four things, in this order:
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-08-16, DB = 265 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-08-26, DB = 412 spots, ALL sat-verified)
+
+**California, 2 -> 149 in one pass (2026-08-26) - the first region seeded after the fetch-plane
+flip removed the per-spot quota ceiling.** Both flows, in the order the playbook prescribes:
+- **Primary** (`seed.py california --osm local --bathy local`, new `REGIONS` bbox = the whole
+  Pacific coast incl. the Channel Islands; Geofabrik `california-latest` 1.3 GB): 3,606 coastline
+  ways -> 5,970 candidates -> 4,275 bathy-passed -> **only 17 OSM surf features in the whole
+  state**, 11 Tier-A (Santa Cruz east side, Ventura, San Clemente), 394 named beaches. California
+  is web-search country like Latin America, despite being the most-surfed coast on Earth.
+- **Secondary**: surf-atlas county pages -> 182 names -> `ca_queue.py` (fuzzy cross-ref) ->
+  `multi_geocode.py` 177 queries -> `ca_xref.py` (OSM beach/beacon within 1.5 km of any
+  provider confirms 48; 4 geocodes landed outside the state - New Jersey, Massachusetts, Bali,
+  Baja) -> **z16 render of all 173** -> judge. First pass: 80 keep, 47 move, 22 requery, 21 drop,
+  3 wide (z13). Every moved pin was re-rendered; 15 needed a THIRD render; one (Venice Pier) a
+  fourth. 22 refined queries fixed 10 (Rincon Point, Seaside Reef, Blackies, Cottons, Oceanside
+  Harbor, Ventura Harbor, Surf Beach, Arena Cove, Whaler Island, Sandspit) and left 12 at the
+  same wrong place - those were dropped, not nudged. Net **138 web + 9 OSM = 147 added**, 33
+  dropped (generic town names, duplicates within 400 m, geocodes that would not land on the
+  coast after two tries: Hospitals, Horseshoe, Kelly Avenue, Gaviota, Andrew Molera,
+  Patricks Point, Magnolia St, Princeton Jetty). Judge log: `work/california/judge.json`;
+  helpers `ca_queue.py`, `ca_xref.py`, `ca_final.py` beside `seed.py`.
+- **What this pass taught:** (1) Google geocodes street-named breaks ("28th St", "Newland St",
+  "Magnolia St") to the STREET inland, every time - render decides, and a second query with the
+  beach name rarely helps. (2) OSM's 9 surf beacons were on the break 9/9; the 48 OSM-confirmed
+  geocodes were 46/48. (3) A pin in the surf zone 50-100 m off the sand is fine - the sample
+  point is 5 km seaward and the ray marches from the pin - so "move" only when the pin is on
+  land or the wrong feature. (4) `offshore_direction` came from the nearest coastline candidate
+  (`ca_final.py`, all within 730 m); harbours and points can hand a spot the inner shore's normal
+  - `test_committed_profiles_reach_open_water` and `horizon` are the check. (5) `towns.py` misses
+  a town for ~4% (6/147) - `town_overrides.json` grew by six. (6) The tile shooter needs node >= 22
+  (`WebSocket` global); use nvm's v24, system node 18 dies with `ReferenceError`.
+- Not seeded yet on the US west coast: **Oregon and Washington** (Geofabrik `oregon`,
+  `washington`; new REGIONS boxes + `oregon.yaml` / `washington.yaml` anchors + basins).
+
+## 5a. Earlier log (as of 2026-08-16, DB = 265 spots, ALL sat-verified)
 **Seeded (generation + web-search):** Sri Lanka 16→32, Portugal 16→42, Japan 17→24,
 Philippines 12→16, Nicaragua +1, **Mexico 0→43 and El Salvador 0→23 (2026-08-15/16)**.
 **Curated already-complete:** Costa Rica, Israel.

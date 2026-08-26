@@ -1,0 +1,72 @@
+{
+  "spot": "doheny-state-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    33.4625,
+    -117.6857
+  ],
+  "bearing_seaward_deg": 184.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 692.0,
+  "mean_slope_m_per_km": 39.27,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.46026,
+      "lon": -117.68589,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.45801,
+      "lon": -117.68608,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.45353,
+      "lon": -117.68645,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.44456,
+      "lon": -117.6872,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.43559,
+      "lon": -117.68796,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.41764,
+      "lon": -117.68946,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.39073,
+      "lon": -117.69171,
+      "depth_m": 322.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.35484,
+      "lon": -117.69471,
+      "depth_m": 491.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.30102,
+      "lon": -117.69921,
+      "depth_m": 692.0
+    }
+  ]
+}

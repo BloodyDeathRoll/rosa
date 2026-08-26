@@ -1,0 +1,72 @@
+{
+  "spot": "lunada-bay",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    33.7725,
+    -118.4233
+  ],
+  "bearing_seaward_deg": 151.0,
+  "nearshore_depth_m": -36.0,
+  "offshore_depth_m": 574.0,
+  "mean_slope_m_per_km": 34.37,
+  "land_samples": 5,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.77053,
+      "lon": -118.42199,
+      "depth_m": -36.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.76857,
+      "lon": -118.42068,
+      "depth_m": -40.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.76463,
+      "lon": -118.41806,
+      "depth_m": -51.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.75677,
+      "lon": -118.41281,
+      "depth_m": -66.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.7489,
+      "lon": -118.40757,
+      "depth_m": -79.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.73317,
+      "lon": -118.39709,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.70957,
+      "lon": -118.38137,
+      "depth_m": 155.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.6781,
+      "lon": -118.36043,
+      "depth_m": 635.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.63088,
+      "lon": -118.32904,
+      "depth_m": 574.0
+    }
+  ]
+}

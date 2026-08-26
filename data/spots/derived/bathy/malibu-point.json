@@ -1,0 +1,72 @@
+{
+  "spot": "malibu-point",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    34.0311,
+    -118.6822
+  ],
+  "bearing_seaward_deg": 195.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 639.0,
+  "mean_slope_m_per_km": 35.72,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.02893,
+      "lon": -118.6829,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.02676,
+      "lon": -118.6836,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.02241,
+      "lon": -118.68501,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.01373,
+      "lon": -118.68782,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.00504,
+      "lon": -118.69062,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.98767,
+      "lon": -118.69624,
+      "depth_m": 96.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.9616,
+      "lon": -118.70465,
+      "depth_m": 364.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.92685,
+      "lon": -118.71586,
+      "depth_m": 477.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.87473,
+      "lon": -118.73266,
+      "depth_m": 639.0
+    }
+  ]
+}
