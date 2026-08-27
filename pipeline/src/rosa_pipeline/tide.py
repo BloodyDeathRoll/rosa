@@ -30,7 +30,9 @@ from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path
 
+from .buoys import haversine_km
 from .geo import dlon180
+from .models import Spot
 
 # EOT20's 17 constituents, named as pyTMD knows them; filename stems are upper-case.
 CONSTITUENTS: tuple[str, ...] = (
@@ -58,6 +60,10 @@ _MJD_TIDE = 48622.0
 # how far from the requested point a wet cell may be adopted (deg); the grid is 0.125 deg,
 # so this allows a ~4-cell search ring for pins whose offshore point sits in a masked cell
 NEAREST_MAX_DEG = 0.5
+# how far the committed origin may sit from the spot's offshore point before the constants
+# count as stale. Both are rounded to 4 dp (~11 m), so this is exact-match with slack for
+# the rounding, matching bathymetry.ORIGIN_TOLERANCE_M.
+ORIGIN_TOLERANCE_M = 10.0
 
 
 @dataclass(frozen=True, slots=True)
@@ -70,6 +76,20 @@ class TideConstants:
     method: str  # "bilinear" | "nearest"
     # constituent -> (re, im) in meters, EOT20 convention (re = A cos phi, im = A sin phi)
     coeffs: dict[str, tuple[float, float]]
+
+    def matches_spot(self, spot: Spot, tol_m: float = ORIGIN_TOLERANCE_M) -> bool:
+        """Were these constants sampled at the offshore point the spot casts NOW?
+
+        Same rot the bathy profile has ``matches_spot`` for, and the same fix (re-run
+        `tide --spot <id>`): a pin move or an ``offshore_direction`` re-aim moves
+        ``offshore_point``, and the committed constants keep predicting the tide at
+        where the spot used to be. Caught 2026-08-27 with 18 CA/OR/WA spots stale, one
+        of them (`bandon`) 12 km off - nothing had been checking.
+
+        Only the origin is checked, not the aim: unlike the bathy ray, the constants are
+        a point sample, so the bearing only matters through the point it produced.
+        """
+        return haversine_km(self.origin[0], self.origin[1], *spot.offshore_point) * 1000.0 <= tol_m
 
 
 # ---------------------------------------------------------------------------
