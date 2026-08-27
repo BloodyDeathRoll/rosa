@@ -65,6 +65,16 @@ def test_missing_peak_column_is_none_not_error() -> None:
     assert swell.period_s == 9.0 and swell.peak_period_s is None  # graceful
 
 
+def test_peak_below_mean_is_discarded_as_a_join_mismatch() -> None:
+    """Tp < Tm is spectrally impossible - it means the cross-model GWAM join stamped
+    another sea's peak on this partition (2026-08-27: Tp 2.2 s on a 1.31 m / 7.8 s sea).
+    The partition must fall back to its mean period, not carry the impostor."""
+    raw = RawForecast(fetched_at="x", marine=_marine(4.0), weather=_weather())  # Tm is 9.0
+    hour = extract_hours(raw)[0]
+    swell = next(p for p in hour.partitions if p.kind == "swell")
+    assert swell.period_s == 9.0 and swell.peak_period_s is None
+
+
 def _multi_model(*, gwam_peak: float | None = 13.0, bm_hours: int = N) -> dict:
     """A three-model marine response shaped like the live one: best_match carries the sea
     state but no peak period (meteofrance_wave publishes none outside Europe), GFS-Wave

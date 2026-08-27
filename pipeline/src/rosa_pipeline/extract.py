@@ -92,6 +92,14 @@ def _partition(hourly: dict, prefix: str, kind: str, i: int) -> SwellPartition |
     # and absent from pre-Stage-1 fixtures - .get keeps those partitions valid with None
     peak_arr = hourly.get(f"{prefix}_peak_period")
     peak = peak_arr[i] if peak_arr is not None and i < len(peak_arr) else None
+    # Tp < Tm is spectrally impossible for the partition it claims to describe, and it
+    # happens: the Tp join is cross-model (GWAM's one swell + one wind sea onto GFS-Wave's
+    # partitions), so GWAM's "wind sea" can be a different sea than the partition it lands
+    # on (measured 2026-08-27: Tp 2.2 s stamped on a 1.31 m / 7.8 s poleg sea, crushing
+    # rideability and swinging the published day 3x while Surfline's stayed flat - 35/74
+    # poleg partitions). A mismatched peak is no peak: fall back to the mean.
+    if peak is not None and peak < period:
+        peak = None
     return SwellPartition(
         height_m=height,
         period_s=period,
