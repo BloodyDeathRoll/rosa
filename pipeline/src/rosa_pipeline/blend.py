@@ -446,6 +446,52 @@ def _tp_at(series: list[GwamStep], t: datetime, attr: str) -> float | None:
     return None
 
 
+# GFS-Wave's wind-sea field and its swell partitions are NOT always disjoint: at some
+# cells the same wave system is written into BOTH `shww/mpww/wvdir` and a `shts/mpts/swdir`
+# slot, so the partition set carries more energy than the `swh` it partitions. Handed
+# through unchanged the transform then breaks one wave twice - Poleg on 2026-08-30 published
+# 1.4-2.1 m against a 1.6 m swell both Surfline and the OM arm agreed on.
+#
+# Measured on the 2026-08-27 00Z cycle over 350 grid cells carrying both a wind sea and a
+# swell partition (Israel, California, Sri Lanka, Portugal, Japan, Peru x f024/f078/f120):
+#   - 6 cells (1.7%) RMS to >1.25x their own swh. In EVERY one the wind sea and swell 1 are
+#     one system written twice - median |dir_ww - dir_sw1| 1.7 deg, |dT|/T 0.002, h ratio 0.99.
+#   - the 328 cells that do close sit median 63.7 deg and 53% of period apart, and NOT ONE
+#     falls inside the thresholds below.
+# The separation is clean, which is what makes this de-duplication rather than the partition
+# SCALING docs/ALGORITHM.md forbids: no height is changed and no energy is invented - one of
+# two identical copies is dropped, and a sea that is genuinely bimodal is never touched.
+#
+# The wind-sea copy is the one dropped, for three reasons: the swell slots are POSITIONAL
+# (extract indexes swell 1/2/3 in order, so blanking slot 1 under a filled slot 2 would
+# misread the rest), the swell copy carries GWAM's `pp1ds` while the wind-sea copy carries
+# `pp1dw` - 2.2 s against a measured 8.4 s mean at Poleg, plainly the wrong spectrum - and
+# these systems are too long for their wind to have raised them (6.7 m/s supports ~5 s, not
+# 8.4 s), so `swell` is the honest label.
+DEDUPE_DIR_DEG = 20.0
+DEDUPE_PERIOD_FRAC = 0.15
+
+
+def drop_duplicate_windsea(fields: dict) -> dict:
+    """Blank GFS's wind-sea partition when it restates a swell partition.
+
+    Returns `fields` untouched unless the duplicate is present, so the common path keeps
+    the source's own numbers verbatim."""
+    h_w, d_w, p_w = (fields.get(k) for k in ("windsea_h", "windsea_d", "windsea_p"))
+    if not h_w or d_w is None or not p_w:
+        return fields
+    for n in (1, 2, 3):
+        h_s, d_s, p_s = (fields.get(f"swell{n}_{k}") for k in ("h", "d", "p"))
+        if not h_s or d_s is None or not p_s:
+            continue
+        if abs((d_w - d_s + 180.0) % 360.0 - 180.0) > DEDUPE_DIR_DEG:
+            continue
+        if abs(p_w - p_s) / p_s > DEDUPE_PERIOD_FRAC:
+            continue
+        return {k: v for k, v in fields.items() if not k.startswith("windsea_")}
+    return fields
+
+
 def _interp_hourly(gfs: list[GfsSea]) -> list[GfsSea]:
     """Expand a 3-hourly GFS series to hourly by linear (circular for bearings)
     interpolation between consecutive steps.
@@ -539,7 +585,7 @@ def compose_raw(
     ens_dir: list = []
     for g in gfs:
         t_iso = g.time.astimezone(UTC).strftime("%Y-%m-%dT%H:%M")
-        f = g.fields
+        f = drop_duplicate_windsea(g.fields)
         sp = _nearest_spectral(g.time, sp_series, sp_times)
         cols["time"].append(t_iso)
         ens_hs.append(f.get("swh"))
