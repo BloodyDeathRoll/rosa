@@ -30,6 +30,10 @@ REGION_PBF = {
     "Washington": "washington",
     "Mexico": "mexico",
     "El Salvador": "el-salvador",
+    "Morocco": "morocco",
+    "Angola": "angola",
+    "Peru": "peru",
+    "Panama": "panama",
 }
 
 

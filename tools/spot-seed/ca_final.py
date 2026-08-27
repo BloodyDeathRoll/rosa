@@ -10,10 +10,12 @@ import sys
 import unicodedata
 from pathlib import Path
 
-J = Path("/tmp/claude-1000/-home-shahar-Projects-rosa/5bb361ec-aaff-47bd-81d7-0ce19c2a70ec/scratchpad/judge.json")
 REGION_ID = sys.argv[1]
 REGION = REGION_ID.replace("-", " ").title()
 W = Path("tools/spot-seed/work") / REGION_ID
+# judge log: argv[2], else the region's own work dir (the California pass wrote it to a
+# session scratchpad, which does not survive the session)
+J = Path(sys.argv[2]) if len(sys.argv) > 2 else W / "judge.json"
 j = json.loads(J.read_text())
 rows = {r["id"]: r for r in json.loads((W / "render_in_ca.json").read_text())}
 res = json.loads((W / "result.json").read_text())
@@ -45,15 +47,17 @@ def title(s):
 
 
 final = []
-# Tier-A (OSM surf beacons), all sat-confirmed on tiles5; two are duplicates
-skipA = {"pier": "same as san-clemente-pier", "cowell-s-children-s-surfing-area": "same as cowells"}
+# Per-region skips, {"tierA": {id: why}, "web": {id: why}}. The California pass hardcoded
+# these; every later region carries its own file next to the judge log.
+_skip = json.loads((W / "skip.json").read_text()) if (W / "skip.json").exists() else {}
+skipA = _skip.get("tierA", {})
 for r in res["new"]:
     if r["id"] in skipA:
         continue
     final.append({"id": r["id"], "name": r["name"], "lat": r["lat"], "lon": r["lon"],
                   "offshore_direction": r["offshore_direction"], "src": "osm-seeded", "conf": 0.9})
 # web-sourced keeps/moves
-drop_now = {"ventura-harbor": "same beach as Tier-A surfer-s-knoll"}
+drop_now = _skip.get("web", {})
 for sid, v in j.items():
     if v["action"] not in ("keep", "move") or sid in drop_now:
         continue
@@ -66,7 +70,8 @@ for sid, v in j.items():
     if od is None:
         print(f"warn: {sid}: no coastline candidate within reach - skipped")
         continue
-    final.append({"id": sid, "name": title(name), "lat": round(lat, 4), "lon": round(lon, 4),
+    out_id = re.sub(r"[^a-z0-9]+", "-", title(name).lower()).strip("-") if v.get("rename") else sid
+    final.append({"id": out_id, "name": title(name), "lat": round(lat, 4), "lon": round(lon, 4),
                   "offshore_direction": od[1], "coast_km": round(od[0], 2),
                   "src": "websearch-seeded", "conf": v.get("conf", 0.7)})
 # ids must be unique and not clash with the DB
