@@ -1,0 +1,48 @@
+# Rosa spot database - Panama (seeded 2026-08-27). Two coasts with opposite seasons: the
+# Pacific side (Santa Catalina, Playa Venao, Morro Negrito) runs on S-SW groundswell from
+# April to October, and the Caribbean side (Bocas del Toro, Colon) on N-NE swell from
+# December to March. Because the two shores face opposite ways, the per-spot offshore_km /
+# offshore_bearing carry the geometry - the region default below is the Pacific case and
+# every Caribbean spot overrides it.
+
+defaults: &pa
+  timezone: America/Panama
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [160, 290]
+  ideal:
+    wind_dir: [340, 70]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-08-27 - panama, 23 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 23 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/panama/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: isla-grande-portobelo, name: "Isla Grande", town: "Isla Grande", lat: 9.6367, lon: -79.5661, offshore_direction: 183, swell_window: [298, 68], offshore_km: 5.0, ideal: {wind_dir: [140, 280], size_m: [0.8, 2.5]}, <<: *pa }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: maria-chiquita, name: "María Chiquita", town: "María Chiquita", lat: 9.4468, lon: -79.7630, offshore_direction: 198, swell_window: [313, 83], offshore_km: 5.0, ideal: {wind_dir: [140, 280], size_m: [0.8, 2.5]}, <<: *pa }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: playa-bluff, name: "Playa Bluff", town: "Bocas del Toro", lat: 9.4049, lon: -82.2484, offshore_direction: 233, swell_window: [348, 118], offshore_km: 5.0, ideal: {wind_dir: [140, 280], size_m: [0.8, 2.5]}, <<: *pa }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: playa-paunch, name: "Paunch", town: "Big Creek", lat: 9.3691, lon: -82.2397, offshore_direction: 246, swell_window: [1, 131], offshore_km: 5.0, ideal: {wind_dir: [140, 280], size_m: [0.8, 2.5]}, <<: *pa }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: old-mans-carenero, name: "Old Man's", town: "Bocas del Toro", lat: 9.3538, lon: -82.2276, offshore_direction: 177, swell_window: [292, 62], offshore_km: 5.0, ideal: {wind_dir: [140, 280], size_m: [0.8, 2.5]}, <<: *pa }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: wizard-beach, name: "Wizard Beach", town: "Old Bank", lat: 9.3519, lon: -82.1975, offshore_direction: 219, swell_window: [334, 104], offshore_km: 5.0, ideal: {wind_dir: [140, 280], size_m: [0.8, 2.5]}, <<: *pa }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: black-rock-carenero, name: "Black Rock", town: "Bocas del Toro", lat: 9.3494, lon: -82.2287, offshore_direction: 246, swell_window: [1, 131], offshore_km: 5.0, ideal: {wind_dir: [140, 280], size_m: [0.8, 2.5]}, <<: *pa }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: playa-malibu-gorgona, name: "Playa Malibú", town: "Chame", lat: 8.5589, lon: -79.8425, offshore_direction: 346, swell_window: [101, 231], offshore_km: 5.0, <<: *pa }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: playa-coronado, name: "Playa Coronado", town: "Coronado", lat: 8.5294, lon: -79.8783, offshore_direction: 335, swell_window: [90, 220], offshore_km: 5.0, <<: *pa }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: playa-teta, name: "Playa Teta", town: "Coronado", lat: 8.5070, lon: -79.9165, offshore_direction: 343, swell_window: [98, 228], offshore_km: 5.0, <<: *pa }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: playa-el-palmar, name: "Playa El Palmar", town: "San Carlos", lat: 8.4674, lon: -79.9542, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, <<: *pa }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: rio-mar-san-carlos, name: "Río Mar", town: "San Carlos", lat: 8.4562, lon: -79.9693, offshore_direction: 328, swell_window: [83, 213], offshore_km: 5.0, <<: *pa }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: playa-corona, name: "Playa Corona", town: "El Higo", lat: 8.4337, lon: -80.0052, offshore_direction: 316, swell_window: [71, 201], offshore_km: 5.0, <<: *pa }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: playa-santa-clara, name: "Playa Santa Clara", town: "Santa Clara", lat: 8.3754, lon: -80.1035, offshore_direction: 328, swell_window: [83, 213], offshore_km: 5.0, <<: *pa }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: playa-la-barqueta, name: "Playa La Barqueta", town: "Guarumal", lat: 8.2697, lon: -82.4875, offshore_direction: 18, swell_window: [133, 263], offshore_km: 5.0, <<: *pa }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: playa-las-lajas, name: "Playa Las Lajas", town: "Las Lajas", lat: 8.1714, lon: -81.8754, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, <<: *pa }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: morro-negrito, name: "Morro Negrito", town: "Quebrada de Piedra", lat: 8.0452, lon: -81.7124, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, <<: *pa }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: santa-catalina, name: "Santa Catalina", town: "Santa Catalina", lat: 7.6257, lon: -81.2515, offshore_direction: 346, swell_window: [101, 231], offshore_km: 5.0, <<: *pa }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: playa-estero, name: "Playa Estero", town: "Santa Catalina", lat: 7.6241, lon: -81.2450, offshore_direction: 26, swell_window: [141, 271], offshore_km: 5.0, <<: *pa }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: playa-destiladeros, name: "Playa Destiladeros", town: "Pedasí", lat: 7.4508, lon: -80.0393, offshore_direction: 19, swell_window: [134, 264], offshore_km: 5.0, <<: *pa }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: playa-venao, name: "Playa Venao", town: "Pedasí", lat: 7.4321, lon: -80.1929, offshore_direction: 6, swell_window: [121, 251], offshore_km: 5.0, <<: *pa }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: playa-guanico, name: "Playa Guánico", town: "Guanico Abajo", lat: 7.2743, lon: -80.4166, offshore_direction: 354, swell_window: [109, 239], offshore_km: 5.0, <<: *pa }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: playa-cambutal, name: "Playa Cambutal", town: "Cambutal", lat: 7.2492, lon: -80.5036, offshore_direction: 47, swell_window: [162, 292], offshore_km: 5.0, <<: *pa }  # sat-verified 2026-08-27 (websearch-seeded)

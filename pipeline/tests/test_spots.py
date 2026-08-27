@@ -83,6 +83,26 @@ def test_committed_bathy_profiles_match_their_spots():
     assert stale == [], f"profiles cast from superseded coordinates - re-cut them: {stale}"
 
 
+def test_committed_tide_constants_match_their_spots():
+    """Every committed constant set belongs to a live spot AND was sampled at the
+    offshore point that spot casts now. The bathy profile has had this guard since
+    2026-07; tide never did, and on 2026-08-27 a `tide --all` re-run silently rewrote
+    18 California/Oregon/Washington spots whose origin came from a superseded pin -
+    `bandon` was predicting the tide 12 km from where the spot sits. Re-run
+    `tide --spot <id>` (needs the local EOT20 grids) to fix a failure here."""
+    from rosa_pipeline.tide import load_constants
+
+    tide_dir = SPOTS_DIR / "derived" / "tide"
+    spots = load_spots(SPOTS_DIR)
+    ids = sorted(p.stem for p in tide_dir.glob("*.json"))
+
+    orphans = [i for i in ids if i not in spots]
+    assert orphans == [], f"tide constants with no spot: {orphans}"
+
+    stale = [i for i in ids if not load_constants(tide_dir, i).matches_spot(spots[i])]
+    assert stale == [], f"tide constants sampled at superseded points - re-cut them: {stale}"
+
+
 def test_seaward_directions_agree_with_each_other():
     """``shore_normal`` aims the seabed ray the wave physics marches along, while
     ``offshore_bearing`` aims the forecast sample point. Both mean "out to sea", so

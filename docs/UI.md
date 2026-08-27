@@ -6,7 +6,7 @@ Read this before touching `web/`.
 
 Shell: **Today | Spots | Map | Profile**.
 - **Today** — region chips + `planToday()` (chips from where you are + favorites + the ONE last-viewed spot; ≥5 spots per region; anchor leads; payloads load per region).
-- **Map** — full-bleed MapLibre + viewport-synced card carousel (cards are exactly the spots visible on the map, minus those under the sheet), screen-space clustering with tier-blend rings, focused-spot surf-pill dot, search overlaid on the live map, locate + rotating-north fabs. Lazy-loaded, excluded from PWA precache; CARTO raster basemaps by theme (attribution required).
+- **Map** — full-bleed MapLibre + viewport-synced card carousel (cards are exactly the spots visible on the map, minus those under the sheet), screen-space clustering with tier-blend rings, focused-spot surf-pill dot, search overlaid on the live map, locate + rotating-north fabs. Lazy-loaded, excluded from PWA precache; OpenFreeMap vector basemaps by theme - keyless (attribution required).
 - **Spot page** — one-row header, DayScrubber (date label over that day's 3 bars, one draggable track, leftmost = selected, live re-render on scrub, bars condense on scroll), rating card, hourly grid (wind in knots), TideSection from the real per-hour series, "Other nearby spots" strip.
 - All date strips anchor to the spot's real today via `todayIn(tz)` and drop past days.
 

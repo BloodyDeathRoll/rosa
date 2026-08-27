@@ -299,3 +299,70 @@ def test_live_source_fetches_a_box_concurrently(point, monkeypatch):
     assert first_seen_alone == [1]  # the probe ran before anything else was in flight
     assert 2 <= peak <= NOMADS_WORKERS
     assert len(series) == 17 + 8  # every forecast step and every back-reach window landed
+
+
+# --- the duplicated wind sea (2026-08-27) -----------------------------------------------
+# GFS-Wave writes some cells' single wave system into BOTH shww and a shts slot; the
+# transform then breaks one wave twice. Numbers below are the real 00Z f078 values at the
+# grid cell serving Poleg (32.50N 34.75E): swh 1.780, shww 1.740/8.39s/280.49,
+# shts1 1.830/8.38s/281.89 - which RMS to 2.52 m against a 1.78 m total.
+_DUP = {
+    "swh": 1.78,
+    "perpw": 8.38,
+    "dirpw": 286.2,
+    "windsea_h": 1.74,
+    "windsea_p": 8.39,
+    "windsea_d": 280.49,
+    "swell1_h": 1.83,
+    "swell1_p": 8.38,
+    "swell1_d": 281.89,
+}
+
+
+def test_duplicated_windsea_is_dropped_and_the_swell_kept():
+    from rosa_pipeline.blend import drop_duplicate_windsea
+
+    out = drop_duplicate_windsea(_DUP)
+    assert "windsea_h" not in out
+    assert out["swell1_h"] == 1.83  # the swell copy is kept verbatim, never rescaled
+    rms = out["swell1_h"] ** 2
+    assert rms**0.5 / out["swh"] < 1.1  # partitions now close against the source's own total
+
+
+@pytest.mark.parametrize(
+    "field,value",
+    [
+        ("windsea_d", 320.0),  # 38 deg off - a real crossed sea
+        ("windsea_p", 4.9),  # 42% shorter - a young sea under an old swell
+    ],
+)
+def test_a_genuinely_bimodal_sea_keeps_both_partitions(field, value):
+    from rosa_pipeline.blend import drop_duplicate_windsea
+
+    out = drop_duplicate_windsea({**_DUP, field: value})
+    assert out["windsea_h"] == 1.74
+    assert out["swell1_h"] == 1.83
+
+
+def test_duplicate_is_matched_against_any_swell_slot():
+    from rosa_pipeline.blend import drop_duplicate_windsea
+
+    shifted = {
+        **{k: v for k, v in _DUP.items() if not k.startswith("swell1_")},
+        "swell1_h": 0.4,
+        "swell1_p": 14.0,
+        "swell1_d": 200.0,
+        "swell2_h": 1.83,
+        "swell2_p": 8.38,
+        "swell2_d": 281.89,
+    }
+    out = drop_duplicate_windsea(shifted)
+    assert "windsea_h" not in out
+    assert out["swell1_h"] == 0.4 and out["swell2_h"] == 1.83
+
+
+def test_a_windsea_with_no_swell_beside_it_survives():
+    from rosa_pipeline.blend import drop_duplicate_windsea
+
+    lone = {k: v for k, v in _DUP.items() if not k.startswith("swell1_")}
+    assert drop_duplicate_windsea(lone)["windsea_h"] == 1.74

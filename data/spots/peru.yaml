@@ -1,0 +1,74 @@
+# Rosa spot database - Peru (seeded 2026-08-27). A west-facing Pacific coast that gets both
+# hemispheres: big S-SW groundswell out of the Southern Ocean in the austral winter and NW
+# North-Pacific swell in the austral summer. Long left points on the north coast (Chicama is
+# the longest wave on earth), heavy reef and beachbreak around Lima. Cold Humboldt water the
+# whole way. Offshore wind is easterly off the land. Every spot carries offshore_km along its
+# own seaward normal, so the sample point follows the pin.
+
+defaults: &pe
+  timezone: America/Lima
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [180, 310]
+  ideal:
+    wind_dir: [45, 135]
+    size_m: [0.8, 3.0]
+
+spots:
+
+  # ==== SEEDED 2026-08-27 - peru, 49 spots (primary coastline flow: 7 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 42 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/peru/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: zorritos, name: "Zorritos", town: "Zorritos", lat: -3.6778, lon: -80.6768, offshore_direction: 179, swell_window: [294, 64], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: bocapan, name: "Bocapan", town: "Bocapán", lat: -3.7115, lon: -80.7291, offshore_direction: 143, swell_window: [258, 28], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: punta-sal, name: "Punta Sal", town: "Nuevo Cancas", lat: -3.9566, lon: -80.9558, offshore_direction: 160, swell_window: [275, 45], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: vichayito, name: "Vichayito", town: "Máncora", lat: -4.0985, lon: -81.0507, offshore_direction: 119, swell_window: [234, 4], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: punta-mancora, name: "Punta Máncora", town: "Máncora", lat: -4.1075, lon: -81.0614, offshore_direction: 138, swell_window: [253, 23], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: las-pocitas, name: "Las Pocitas", town: "Máncora", lat: -4.1148, lon: -81.0795, offshore_direction: 145, swell_window: [260, 30], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: los-organos, name: "Los Órganos", town: "Los Órganos", lat: -4.1747, lon: -81.1293, offshore_direction: 130, swell_window: [245, 15], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: punta-veleros, name: "Punta Veleros", town: "Los Órganos", lat: -4.1795, lon: -81.1383, offshore_direction: 187, swell_window: [302, 72], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: el-nuro, name: "El Ñuro", town: "El Ñuro", lat: -4.2184, lon: -81.1813, offshore_direction: 189, swell_window: [304, 74], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: panic-point, name: "Panic Point", town: "Cabo Blanco", lat: -4.2505, lon: -81.2295, offshore_direction: 160, swell_window: [275, 45], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: cabo-blanco, name: "Cabo Blanco", town: "Cabo Blanco", lat: -4.2508, lon: -81.2339, offshore_direction: 172, swell_window: [287, 57], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: lobitos, name: "Lobitos", town: "Lobitos", lat: -4.4532, lon: -81.2840, offshore_direction: 133, swell_window: [248, 18], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: piedritas, name: "Piedritas", town: "Lobitos", lat: -4.5506, lon: -81.2802, offshore_direction: 128, swell_window: [243, 13], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: negritos, name: "Negritos", town: "Negritos", lat: -4.6510, lon: -81.3064, offshore_direction: 108, swell_window: [223, 353], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: yacila, name: "Yacila", town: "Yacila", lat: -5.1315, lon: -81.1702, offshore_direction: 147, swell_window: [262, 32], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: pimentel, name: "Pimentel", town: "Pimentel", lat: -6.8366, lon: -79.9379, offshore_direction: 93, swell_window: [208, 338], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: puerto-eten, name: "Puerto Eten", town: "Puerto Etén", lat: -6.9283, lon: -79.8695, offshore_direction: 56, swell_window: [171, 301], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: pacasmayo, name: "Pacasmayo", town: "Pacasmayo", lat: -7.4137, lon: -79.5888, offshore_direction: 123, swell_window: [238, 8], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: poemape, name: "Poémape", town: "Puémape", lat: -7.5171, lon: -79.5386, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: chicama, name: "Chicama", town: "Puerto Malabrigo", lat: -7.7010, lon: -79.4462, offshore_direction: 144, swell_window: [259, 29], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: huanchaco, name: "Huanchaco", town: "Huanchaco", lat: -8.0831, lon: -79.1230, offshore_direction: 104, swell_window: [219, 349], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: las-delicias, name: "Las Delicias", town: "Moche", lat: -8.1847, lon: -79.0111, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: puerto-huarmey, name: "Puerto Huarmey", town: "Huarmey", lat: -10.0182, lon: -78.1938, offshore_direction: 62, swell_window: [177, 307], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded; shore normal re-aimed by hand off the GEBCO grid - the nearest coastline candidate handed it an inner shore)
+  - { id: punta-roquitas, name: "Punta Roquitas", town: "Lima", lat: -12.1215, lon: -77.0457, offshore_direction: 7, swell_window: [122, 252], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (osm-seeded)
+  - { id: pampilla, name: "La Pampilla", town: "Lima", lat: -12.1234, lon: -77.0425, offshore_direction: 25, swell_window: [140, 270], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (osm-seeded)
+  - { id: waikiki, name: "Waikiki", town: "Lima", lat: -12.1272, lon: -77.0380, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded; shore normal re-aimed by hand off the GEBCO grid - the nearest coastline candidate handed it an inner shore)
+  - { id: makaha, name: "Makaha", town: "Lima", lat: -12.1291, lon: -77.0366, offshore_direction: 62, swell_window: [177, 307], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded; shore normal re-aimed by hand off the GEBCO grid - the nearest coastline candidate handed it an inner shore)
+  - { id: redondo, name: "Playa Redondo", town: "Lima", lat: -12.1334, lon: -77.0317, offshore_direction: 52, swell_window: [167, 297], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (osm-seeded)
+  - { id: barranquito, name: "Barranquito", town: "Lima", lat: -12.1436, lon: -77.0268, offshore_direction: 88, swell_window: [203, 333], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded; shore normal re-aimed by hand off the GEBCO grid - the nearest coastline candidate handed it an inner shore)
+  - { id: herradura, name: "Playa La Herradura", town: "Lima", lat: -12.1770, lon: -77.0337, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (osm-seeded)
+  - { id: silencio, name: "Playa El Silencio", town: "Punta Hermosa", lat: -12.3143, lon: -76.8381, offshore_direction: 35, swell_window: [150, 280], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (osm-seeded)
+  - { id: senoritas, name: "Señoritas", town: "Punta Hermosa", lat: -12.3252, lon: -76.8353, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: caballeros, name: "Playa Caballeros", town: "Punta Hermosa", lat: -12.3306, lon: -76.8315, offshore_direction: 35, swell_window: [150, 280], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (osm-seeded)
+  - { id: playa-norte, name: "Playa Norte", town: "Punta Hermosa", lat: -12.3354, lon: -76.8293, offshore_direction: 47, swell_window: [162, 292], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: blanca, name: "Playa Blanca", town: "Punta Hermosa", lat: -12.3403, lon: -76.8185, offshore_direction: 51, swell_window: [166, 296], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (osm-seeded)
+  - { id: punta-rocas, name: "Punta Rocas", town: "Punta Hermosa", lat: -12.3529, lon: -76.8163, offshore_direction: 18, swell_window: [133, 263], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: santa-maria-del-mar, name: "Santa María del Mar", town: "San Bartolo", lat: -12.3793, lon: -76.7896, offshore_direction: 63, swell_window: [178, 308], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: penascal, name: "Peñascal", town: "San Bartolo", lat: -12.3849, lon: -76.7871, offshore_direction: 353, swell_window: [108, 238], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: san-bartolo, name: "San Bartolo", town: "San Bartolo", lat: -12.3887, lon: -76.7820, offshore_direction: 68, swell_window: [183, 313], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: totoritas, name: "Totoritas", town: "La Huaca", lat: -12.6862, lon: -76.6546, offshore_direction: 55, swell_window: [170, 300], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: bujama, name: "Bujama", town: "Bujama", lat: -12.7178, lon: -76.6307, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: sarapampa-asia, name: "Sarapampa (Asia)", town: "Sarapampa", lat: -12.8313, lon: -76.5402, offshore_direction: 34, swell_window: [149, 279], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: puerto-fiel, name: "Puerto Fiel", town: "Puerto Fiel", lat: -12.9464, lon: -76.5070, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded; shore normal re-aimed by hand off the GEBCO grid - the nearest coastline candidate handed it an inner shore)
+  - { id: cerro-azul, name: "Cerro Azul", town: "Cerro Azul", lat: -13.0233, lon: -76.4822, offshore_direction: 84, swell_window: [199, 329], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: camana-la-punta, name: "Camaná (La Punta)", town: "La Punta", lat: -16.6552, lon: -72.6848, offshore_direction: 18, swell_window: [133, 263], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: mollendo, name: "Mollendo", town: "Mollendo", lat: -17.0357, lon: -72.0052, offshore_direction: 27, swell_window: [142, 272], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: pozo-de-lisas, name: "Pozo de Lisas", town: "Gentillares", lat: -17.6931, lon: -71.3554, offshore_direction: 353, swell_window: [108, 238], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: boca-del-rio, name: "Boca del Río", town: "Boca del Río", lat: -18.1588, lon: -70.6818, offshore_direction: 34, swell_window: [149, 279], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: los-palos, name: "Los Palos", town: "Culauta", lat: -18.2985, lon: -70.4470, offshore_direction: 35, swell_window: [150, 280], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-08-27 (websearch-seeded)

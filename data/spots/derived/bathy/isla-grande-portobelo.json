@@ -1,0 +1,72 @@
+{
+  "spot": "isla-grande-portobelo",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    9.6367,
+    -79.5661
+  ],
+  "bearing_seaward_deg": 3.0,
+  "nearshore_depth_m": 14.0,
+  "offshore_depth_m": 1337.0,
+  "mean_slope_m_per_km": 74.54,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 9.63895,
+      "lon": -79.56598,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 9.64119,
+      "lon": -79.56586,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 9.64568,
+      "lon": -79.56562,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 9.65466,
+      "lon": -79.56515,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 9.66364,
+      "lon": -79.56467,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 9.6816,
+      "lon": -79.56371,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 9.70855,
+      "lon": -79.56228,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 9.74447,
+      "lon": -79.56037,
+      "depth_m": 388.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 9.79836,
+      "lon": -79.5575,
+      "depth_m": 1337.0
+    }
+  ]
+}

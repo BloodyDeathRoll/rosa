@@ -1,0 +1,72 @@
+{
+  "spot": "old-mans-carenero",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    9.3538,
+    -82.2276
+  ],
+  "bearing_seaward_deg": 357.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 618.0,
+  "mean_slope_m_per_km": 34.42,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 9.35605,
+      "lon": -82.22772,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 9.35829,
+      "lon": -82.22784,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 9.36278,
+      "lon": -82.22808,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 9.37176,
+      "lon": -82.22855,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 9.38074,
+      "lon": -82.22903,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 9.3987,
+      "lon": -82.22999,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 9.42565,
+      "lon": -82.23142,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 9.46157,
+      "lon": -82.23333,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 9.51546,
+      "lon": -82.23619,
+      "depth_m": 618.0
+    }
+  ]
+}

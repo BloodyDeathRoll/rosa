@@ -1,0 +1,72 @@
+{
+  "spot": "sangano",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -9.5533,
+    13.2015
+  ],
+  "bearing_seaward_deg": 323.0,
+  "nearshore_depth_m": -16.0,
+  "offshore_depth_m": 16.0,
+  "mean_slope_m_per_km": 1.8,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -9.5515,
+      "lon": 13.20013,
+      "depth_m": -16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -9.54971,
+      "lon": 13.19876,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -9.54612,
+      "lon": 13.19601,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -9.53894,
+      "lon": 13.19052,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -9.53175,
+      "lon": 13.18504,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -9.51739,
+      "lon": 13.17406,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -9.49584,
+      "lon": 13.1576,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -9.46711,
+      "lon": 13.13566,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -9.424,
+      "lon": 13.10275,
+      "depth_m": 16.0
+    }
+  ]
+}

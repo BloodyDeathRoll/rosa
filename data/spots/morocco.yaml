@@ -1,0 +1,67 @@
+# Rosa spot database - Morocco (seeded 2026-08-27). The Atlantic coast from Cap Spartel
+# to Dakhla: North Atlantic NW groundswell in winter, a long right-point coast around
+# Taghazout, beachbreak north of Agadir. Offshore wind is the easterly off the land
+# (the chergui). Every spot carries offshore_km along its own seaward normal, so the
+# sample point follows the pin. The Mediterranean coast is out of scope (see the
+# seed.py bbox comment).
+
+defaults: &ma
+  timezone: Africa/Casablanca
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [230, 350]
+  ideal:
+    wind_dir: [50, 130]
+    size_m: [0.8, 3.0]
+
+spots:
+
+  # ==== SEEDED 2026-08-27 - morocco, 42 spots (primary coastline flow: 9 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 33 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/morocco/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: 3-me-piscine, name: "3ème piscine", town: "Moulay Bousselham", lat: 34.8897, lon: -6.2933, offshore_direction: 115, swell_window: [230, 0], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (osm-seeded)
+  - { id: moulay-bousselham, name: "Moulay Bousselham", town: "Moulay Bousselham", lat: 34.8741, lon: -6.3002, offshore_direction: 123, swell_window: [238, 8], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: mehdia-plage, name: "Mehdia Plage", town: "Mehdya", lat: 34.2560, lon: -6.6788, offshore_direction: 98, swell_window: [213, 343], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: des-nations, name: "Plage des nations", town: "Oulad Sbita", lat: 34.1530, lon: -6.7349, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (osm-seeded)
+  - { id: oudayas, name: "Oudayas", town: "Rabat", lat: 34.0322, lon: -6.8435, offshore_direction: 110, swell_window: [225, 355], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded; shore normal re-aimed by hand off the tile - the nearest coastline candidate handed it an inner shore)
+  - { id: temara, name: "Temara", town: "Harhoura", lat: 33.9196, lon: -6.9696, offshore_direction: 133, swell_window: [248, 18], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: skhirat, name: "Skhirat", town: "Skhirat", lat: 33.8698, lon: -7.0604, offshore_direction: 168, swell_window: [283, 53], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (osm-seeded)
+  - { id: oued-cherrat, name: "Oued Cherrat", town: "Bouznika", lat: 33.8287, lon: -7.1276, offshore_direction: 134, swell_window: [249, 19], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (osm-seeded)
+  - { id: bouznika, name: "Bouznika", town: "Bouznika", lat: 33.8249, lon: -7.1391, offshore_direction: 145, swell_window: [260, 30], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: dahomey, name: "Dahomey", town: "Bouznika", lat: 33.8104, lon: -7.1798, offshore_direction: 139, swell_window: [254, 24], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (osm-seeded)
+  - { id: mohammedia, name: "Mohammedia", town: "Mohammedia", lat: 33.7186, lon: -7.3484, offshore_direction: 160, swell_window: [275, 45], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: ain-diab, name: "Ain Diab", town: "Casablanca", lat: 33.5856, lon: -7.6917, offshore_direction: 144, swell_window: [259, 29], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: dar-bouazza, name: "Dar Bouazza", town: "Dar Bouazza", lat: 33.5304, lon: -7.8314, offshore_direction: 128, swell_window: [243, 13], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: jack-beach, name: "Jack Beach", town: "Dar Bouazza", lat: 33.5234, lon: -7.8427, offshore_direction: 151, swell_window: [266, 36], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: el-jadida, name: "El Jadida", town: "El Jadida", lat: 33.2453, lon: -8.4897, offshore_direction: 224, swell_window: [339, 109], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: sidi-bouzid, name: "Sidi Bouzid", town: "Sidi Bouzid", lat: 33.2253, lon: -8.5554, offshore_direction: 105, swell_window: [220, 350], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: oualidia, name: "Oualidia", town: "Oualidia", lat: 32.7362, lon: -9.0457, offshore_direction: 125, swell_window: [240, 10], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded; shore normal re-aimed by hand off the tile - the nearest coastline candidate handed it an inner shore)
+  - { id: lalla-fatna, name: "Lalla Fatna", town: "Ait Mouli", lat: 32.4002, lon: -9.2607, offshore_direction: 132, swell_window: [247, 17], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: moulay-bouzerktoun, name: "Moulay Bouzerktoun", town: "Moulay Bouzarqtoune", lat: 31.6443, lon: -9.6769, offshore_direction: 91, swell_window: [206, 336], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: essaouira-bay, name: "Essaouira Bay", town: "Essaouira", lat: 31.5010, lon: -9.7665, offshore_direction: 91, swell_window: [206, 336], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: sidi-kaouki, name: "Sidi Kaouki", town: "Sidi Kaouki", lat: 31.3559, lon: -9.7990, offshore_direction: 65, swell_window: [180, 310], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: tafedna, name: "Tafedna", town: "Tafedna", lat: 31.0961, lon: -9.8224, offshore_direction: 43, swell_window: [158, 288], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (osm-seeded)
+  - { id: cathedral, name: "Cathedral Point", town: "Imsouane", lat: 30.8444, lon: -9.8224, offshore_direction: 55, swell_window: [170, 300], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (osm-seeded)
+  - { id: imsouane, name: "Imsouane (The Bay)", town: "Imsouane", lat: 30.8376, lon: -9.8217, offshore_direction: 77, swell_window: [192, 322], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (osm-seeded)
+  - { id: tamri, name: "Tamri", town: "Idorane", lat: 30.7111, lon: -9.8578, offshore_direction: 128, swell_window: [243, 13], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: boilers, name: "Boilers", town: "Borj Daou", lat: 30.6260, lon: -9.8860, offshore_direction: 59, swell_window: [174, 304], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: killer-point, name: "Killer Point", town: "Taghazout", lat: 30.5502, lon: -9.7399, offshore_direction: 10, swell_window: [125, 255], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: la-source, name: "La Source", town: "Taghazout", lat: 30.5495, lon: -9.7322, offshore_direction: 42, swell_window: [157, 287], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: anchor, name: "Anchor Point", town: "Taghazout", lat: 30.5458, lon: -9.7251, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (osm-seeded)
+  - { id: hash-point, name: "Hash Point", town: "Taghazout", lat: 30.5449, lon: -9.7110, offshore_direction: 33, swell_window: [148, 278], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: panorama, name: "Panorama", town: "Taghazout", lat: 30.5432, lon: -9.7079, offshore_direction: 37, swell_window: [152, 282], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: k17, name: "K17", town: "Tamraght", lat: 30.5235, lon: -9.6917, offshore_direction: 69, swell_window: [184, 314], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: cro-cro, name: "Cro Cro", town: "Tamraght", lat: 30.5118, lon: -9.6878, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded; shore normal re-aimed by hand off the tile - the nearest coastline candidate handed it an inner shore)
+  - { id: devil-s-rock, name: "Devil's Rock", town: "Aourir", lat: 30.5068, lon: -9.6888, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded; shore normal re-aimed by hand off the tile - the nearest coastline candidate handed it an inner shore)
+  - { id: banana-point, name: "Banana Point", town: "Aourir", lat: 30.5020, lon: -9.6807, offshore_direction: 53, swell_window: [168, 298], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: anza, name: "Anza", town: "Agadir", lat: 30.4471, lon: -9.6614, offshore_direction: 63, swell_window: [178, 308], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: agadir-beach, name: "Agadir Beach", town: "Agadir", lat: 30.4041, lon: -9.6040, offshore_direction: 74, swell_window: [189, 319], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: tifnit, name: "Tifnit", town: "Tifnit", lat: 30.1974, lon: -9.6380, offshore_direction: 80, swell_window: [195, 325], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded; shore normal re-aimed by hand off the tile - the nearest coastline candidate handed it an inner shore)
+  - { id: aglou-plage, name: "Aglou Plage", town: "Aglou", lat: 29.8061, lon: -9.8329, offshore_direction: 128, swell_window: [243, 13], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: mirleft, name: "Mirleft", town: "Mirleft", lat: 29.5785, lon: -10.0481, offshore_direction: 63, swell_window: [178, 308], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: legzira, name: "Legzira", town: "Legzira", lat: 29.4441, lon: -10.1176, offshore_direction: 114, swell_window: [229, 359], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: sidi-ifni, name: "Sidi Ifni", town: "Sidi Ifni", lat: 29.3834, lon: -10.1748, offshore_direction: 131, swell_window: [246, 16], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)

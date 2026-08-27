@@ -1,0 +1,72 @@
+{
+  "spot": "black-rock-carenero",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    9.3494,
+    -82.2287
+  ],
+  "bearing_seaward_deg": 66.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 1060.0,
+  "mean_slope_m_per_km": 59.38,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 9.35031,
+      "lon": -82.22662,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 9.35123,
+      "lon": -82.22454,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 9.35306,
+      "lon": -82.22037,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 9.35672,
+      "lon": -82.21205,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 9.36037,
+      "lon": -82.20372,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 9.36769,
+      "lon": -82.18707,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 9.37866,
+      "lon": -82.16208,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 9.39328,
+      "lon": -82.12877,
+      "depth_m": 447.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 9.41521,
+      "lon": -82.0788,
+      "depth_m": 1060.0
+    }
+  ]
+}

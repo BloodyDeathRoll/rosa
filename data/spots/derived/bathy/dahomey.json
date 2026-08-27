@@ -1,0 +1,72 @@
+{
+  "spot": "dahomey",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    33.8104,
+    -7.1798
+  ],
+  "bearing_seaward_deg": 319.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 100.0,
+  "mean_slope_m_per_km": 5.92,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.8121,
+      "lon": -7.18158,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.81379,
+      "lon": -7.18335,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.81719,
+      "lon": -7.1869,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.82397,
+      "lon": -7.194,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.83076,
+      "lon": -7.20111,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.84433,
+      "lon": -7.21532,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.86469,
+      "lon": -7.23664,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.89182,
+      "lon": -7.26509,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.9325,
+      "lon": -7.3078,
+      "depth_m": 100.0
+    }
+  ]
+}

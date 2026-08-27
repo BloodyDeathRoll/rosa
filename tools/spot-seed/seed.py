@@ -84,6 +84,15 @@ REGIONS = {
     # outer coast from the Columbia to Cape Flattery plus the Strait of Juan de Fuca as far
     # as Port Angeles (Crescent Bay / Salt Creek are surfed); Puget Sound is excluded
     "washington": (46.20, -124.90, 48.45, -123.40),
+    # the Atlantic coast only, Cap Spartel down through Western Sahara to Dakhla; the
+    # Mediterranean side is barely surfed and would drag in 400 km of flat coastline
+    "morocco": (20.70, -17.40, 36.00, -5.30),
+    # the whole Angolan coast incl. the Cabinda exclave - one open west-facing shore
+    "angola": (-17.30, 11.40, -4.30, 13.90),
+    # the whole Pacific coast, Tumbes to Tacna - Peru has no other shore
+    "peru": (-18.40, -81.40, -3.35, -70.20),
+    # both coasts: the Pacific (Santa Catalina, Venao) and the Caribbean (Bocas del Toro)
+    "panama": (7.10, -83.10, 9.70, -77.10),
 }
 
 

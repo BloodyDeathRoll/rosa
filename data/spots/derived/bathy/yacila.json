@@ -1,0 +1,72 @@
+{
+  "spot": "yacila",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -5.1315,
+    -81.1702
+  ],
+  "bearing_seaward_deg": 327.0,
+  "nearshore_depth_m": 17.0,
+  "offshore_depth_m": 74.0,
+  "mean_slope_m_per_km": 3.21,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -5.12961,
+      "lon": -81.17143,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -5.12773,
+      "lon": -81.17266,
+      "depth_m": 94.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -5.12396,
+      "lon": -81.17512,
+      "depth_m": 210.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -5.11642,
+      "lon": -81.18004,
+      "depth_m": 286.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -5.10887,
+      "lon": -81.18495,
+      "depth_m": 153.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -5.09379,
+      "lon": -81.19479,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -5.07116,
+      "lon": -81.20954,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -5.04099,
+      "lon": -81.2292,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -4.99573,
+      "lon": -81.2587,
+      "depth_m": 74.0
+    }
+  ]
+}

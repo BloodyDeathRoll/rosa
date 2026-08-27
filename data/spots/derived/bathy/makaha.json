@@ -1,0 +1,72 @@
+{
+  "spot": "makaha",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -12.1291,
+    -77.0366
+  ],
+  "bearing_seaward_deg": 242.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 66.0,
+  "mean_slope_m_per_km": 4.34,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -12.13016,
+      "lon": -77.03863,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -12.13121,
+      "lon": -77.04066,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -12.13332,
+      "lon": -77.04472,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -12.13754,
+      "lon": -77.05284,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -12.14177,
+      "lon": -77.06097,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -12.15021,
+      "lon": -77.07721,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -12.16287,
+      "lon": -77.10158,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -12.17975,
+      "lon": -77.13408,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -12.20506,
+      "lon": -77.18283,
+      "depth_m": 66.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "playa-el-palmar",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    8.4674,
+    -79.9542
+  ],
+  "bearing_seaward_deg": 150.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 23.0,
+  "mean_slope_m_per_km": 1.35,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 8.46545,
+      "lon": -79.95306,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 8.46351,
+      "lon": -79.95193,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 8.45961,
+      "lon": -79.94965,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 8.45182,
+      "lon": -79.94511,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 8.44403,
+      "lon": -79.94056,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 8.42846,
+      "lon": -79.93147,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 8.40509,
+      "lon": -79.91784,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 8.37394,
+      "lon": -79.89966,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 8.3272,
+      "lon": -79.8724,
+      "depth_m": 23.0
+    }
+  ]
+}

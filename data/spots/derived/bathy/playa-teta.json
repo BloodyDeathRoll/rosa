@@ -1,0 +1,72 @@
+{
+  "spot": "playa-teta",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    8.507,
+    -79.9165
+  ],
+  "bearing_seaward_deg": 163.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 21.0,
+  "mean_slope_m_per_km": 1.52,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 8.50485,
+      "lon": -79.91584,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 8.5027,
+      "lon": -79.91517,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 8.4984,
+      "lon": -79.91384,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 8.4898,
+      "lon": -79.91118,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 8.4812,
+      "lon": -79.90852,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 8.464,
+      "lon": -79.90321,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 8.4382,
+      "lon": -79.89523,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 8.4038,
+      "lon": -79.88461,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 8.35219,
+      "lon": -79.86866,
+      "depth_m": 21.0
+    }
+  ]
+}

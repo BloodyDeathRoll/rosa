@@ -25,7 +25,9 @@ def wrap(a):
 
 lines = []
 for f in final:
-    t = (towns.get(f["id"]) or {}).get("town") or ov.get(f["id"])
+    # the hand override wins: it exists because OSM's nearest place node was wrong
+    # (a hamlet named after the break, a typo, a beach that is not a settlement)
+    t = ov.get(f["id"]) or (towns.get(f["id"]) or {}).get("town")
     if not t:
         raise SystemExit(f"no town for {f['id']} - add it to town_overrides.json")
     od = f["offshore_direction"]

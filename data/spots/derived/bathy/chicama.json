@@ -1,0 +1,72 @@
+{
+  "spot": "chicama",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -7.701,
+    -79.4462
+  ],
+  "bearing_seaward_deg": 324.0,
+  "nearshore_depth_m": -14.0,
+  "offshore_depth_m": 16.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 4,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -7.69918,
+      "lon": -79.44753,
+      "depth_m": -14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -7.69736,
+      "lon": -79.44887,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -7.69372,
+      "lon": -79.45153,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -7.68645,
+      "lon": -79.45687,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -7.67917,
+      "lon": -79.4622,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -7.66462,
+      "lon": -79.47287,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -7.64279,
+      "lon": -79.48887,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -7.61369,
+      "lon": -79.5102,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -7.57003,
+      "lon": -79.54219,
+      "depth_m": 16.0
+    }
+  ]
+}

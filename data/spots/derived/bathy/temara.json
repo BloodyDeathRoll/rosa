@@ -1,0 +1,72 @@
+{
+  "spot": "temara",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    33.9196,
+    -6.9696
+  ],
+  "bearing_seaward_deg": 313.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 114.0,
+  "mean_slope_m_per_km": 6.65,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.92113,
+      "lon": -6.97158,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.92267,
+      "lon": -6.97356,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.92573,
+      "lon": -6.97753,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.93187,
+      "lon": -6.98545,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.938,
+      "lon": -6.99338,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.95026,
+      "lon": -7.00924,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.96865,
+      "lon": -7.03305,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.99316,
+      "lon": -7.06479,
+      "depth_m": 99.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.02992,
+      "lon": -7.11245,
+      "depth_m": 114.0
+    }
+  ]
+}

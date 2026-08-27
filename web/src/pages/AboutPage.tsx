@@ -350,8 +350,8 @@ function Privacy() {
           seabed depth data
         </li>
         <li>
-          <a href="https://carto.com" target="_blank" rel="noopener noreferrer">CARTO</a> · map
-          background tiles
+          <a href="https://openfreemap.org" target="_blank" rel="noopener noreferrer">OpenFreeMap</a>
+          · map background tiles, © <a href="https://openmaptiles.org" target="_blank" rel="noopener noreferrer">OpenMapTiles</a>
         </li>
         <li>
           <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">Vercel</a> ·

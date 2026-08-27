@@ -1,0 +1,72 @@
+{
+  "spot": "sidi-bouzid",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    33.2253,
+    -8.5554
+  ],
+  "bearing_seaward_deg": 285.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 104.0,
+  "mean_slope_m_per_km": 6.37,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.22588,
+      "lon": -8.558,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.22646,
+      "lon": -8.56059,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.22763,
+      "lon": -8.56578,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.22995,
+      "lon": -8.57617,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.23228,
+      "lon": -8.58656,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.23693,
+      "lon": -8.60733,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.24389,
+      "lon": -8.63849,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.25317,
+      "lon": -8.68005,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.26706,
+      "lon": -8.74241,
+      "depth_m": 104.0
+    }
+  ]
+}

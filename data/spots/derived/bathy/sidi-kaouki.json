@@ -1,0 +1,72 @@
+{
+  "spot": "sidi-kaouki",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    31.3559,
+    -9.799
+  ],
+  "bearing_seaward_deg": 245.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 98.0,
+  "mean_slope_m_per_km": 5.69,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 31.35495,
+      "lon": -9.80139,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 31.354,
+      "lon": -9.80377,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 31.3521,
+      "lon": -9.80854,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 31.3483,
+      "lon": -9.81809,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 31.34449,
+      "lon": -9.82763,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 31.33689,
+      "lon": -9.84671,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 31.32547,
+      "lon": -9.87533,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 31.31024,
+      "lon": -9.91348,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 31.28737,
+      "lon": -9.97068,
+      "depth_m": 98.0
+    }
+  ]
+}

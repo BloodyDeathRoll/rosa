@@ -1,0 +1,72 @@
+{
+  "spot": "bouznika",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    33.8249,
+    -7.1391
+  ],
+  "bearing_seaward_deg": 325.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 103.0,
+  "mean_slope_m_per_km": 5.97,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.82674,
+      "lon": -7.14065,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.82858,
+      "lon": -7.1422,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.83227,
+      "lon": -7.14531,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.83963,
+      "lon": -7.15152,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.847,
+      "lon": -7.15773,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.86173,
+      "lon": -7.17016,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.88382,
+      "lon": -7.18881,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.91328,
+      "lon": -7.21369,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.95745,
+      "lon": -7.25104,
+      "depth_m": 103.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "aglou-plage",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    29.8061,
+    -9.8329
+  ],
+  "bearing_seaward_deg": 308.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 115.0,
+  "mean_slope_m_per_km": 6.76,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 29.80748,
+      "lon": -9.83494,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 29.80887,
+      "lon": -9.83698,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 29.81164,
+      "lon": -9.84107,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 29.81717,
+      "lon": -9.84924,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 29.82271,
+      "lon": -9.85741,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 29.83378,
+      "lon": -9.87375,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 29.85038,
+      "lon": -9.89827,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 29.87251,
+      "lon": -9.93097,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 29.90568,
+      "lon": -9.98006,
+      "depth_m": 115.0
+    }
+  ]
+}

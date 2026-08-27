@@ -1,0 +1,72 @@
+{
+  "spot": "lalla-fatna",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.4002,
+    -9.2607
+  ],
+  "bearing_seaward_deg": 312.0,
+  "nearshore_depth_m": -35.0,
+  "offshore_depth_m": 64.0,
+  "mean_slope_m_per_km": 5.58,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.4017,
+      "lon": -9.26268,
+      "depth_m": -35.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.40321,
+      "lon": -9.26466,
+      "depth_m": -14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.40622,
+      "lon": -9.26862,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.41223,
+      "lon": -9.27653,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.41825,
+      "lon": -9.28445,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.43028,
+      "lon": -9.30029,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.44833,
+      "lon": -9.32406,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.47238,
+      "lon": -9.35576,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.50844,
+      "lon": -9.40335,
+      "depth_m": 64.0
+    }
+  ]
+}

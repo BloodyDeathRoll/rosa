@@ -176,7 +176,71 @@ Four things, in this order:
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-08-26, DB = 471 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-08-27, DB = 601 spots, ALL sat-verified)
+
+**Peru 0 -> 49, Panama 0 -> 23, El Salvador 23 -> 32 (2026-08-27) - the Pacific Latin-America
+block.** New `REGIONS` boxes (Peru = the whole Pacific coast, Tumbes to Tacna, it has no other
+shore; Panama = both coasts, so every Caribbean spot must override the Pacific-facing default),
+`peru.yaml` / `panama.yaml` anchors, a `peru` swellmap basin, Panama joined the existing
+`central-america` frame, Geofabrik `peru` 256 MB + `panama` 36 MB. El Salvador was NOT a fresh
+seed: it already had 23 spots, so it ran as a gap-finding pass over 12 atlas names.
+- **Primary:** Peru -> **9 OSM surf beacons** (Punta Roquitas, La Pampilla, Playa Redondo,
+  La Herradura, El Silencio, Caballeros, Playa Blanca, El Huaico, Huancarute); Panama -> **1**
+  ("Surf Dojo", a surf camp `is_business` missed); El Salvador -> **0** new.
+- **Secondary:** 58 + 36 + 12 names rendered at z16 and judged one tile at a time. Peru 35 keep
+  / 7 move / 16 drop; Panama 21 / 2 / 13; El Salvador 7 / 2 / 3. Every moved pin was
+  re-rendered and read again before it entered.
+- **What this pass taught:** (1) The coordinate-collapse lesson from Morocco repeated harder:
+  Google put **Dumpers, Playa Larga and Paunch on one pin**, Venao and Madrono on another,
+  Las Tunas and Torola on a third, and Colan and Cabo Verde both on Paita's port. Collapsed
+  pairs are now a routine drop, not an investigation.
+  (2) **Two Tier-A beacons lost to a web name on purpose** - `huancarute` (55 m from
+  Huanchaco) and `huaico` (56 m from Santa Maria del Mar). When an OSM beacon and a web name
+  are the same break, keep the name a surfer would search. `ca_final.py` now reads the skip
+  list from `work/<region>/skip.json` instead of the hardcoded California dict.
+  (3) **A rename must move the id too** - `ca_final.py` re-slugs from the rename now, so
+  "Santa Catalina" no longer ships as `punta-roca-santa-catalina`.
+  (4) **A hand town override now outranks OSM**, not just fills a null: OSM's nearest place
+  node was a hamlet named after the break (`Playa San Marcelino`, `Las Escobas del Venado`),
+  a typo (`Puerto Fiiel`) or a neighbouring beach 11 times in 81 spots.
+  (5) Five Peruvian shore normals (`waikiki`, `makaha`, `barranquito`, `puerto-fiel`,
+  `puerto-huarmey`) came back with a dry deep end. Instead of eyeballing the tile, this pass
+  **swept bearings against the local GEBCO grid** and took the mid-bearing of the widest
+  unobstructed arc - faster and reproducible. Lima's Costa Verde is the failure mode: a
+  seawall coast where the nearest coastline candidate faces the wrong way.
+  (6) The pipeline entry point is **`rosa-pipeline`**, not `rosa`; `uv run --project pipeline
+  rosa bathy` fails with "Failed to spawn" and the loop silently writes nothing.
+
+**Morocco 0 -> 42 and Angola 0 -> 9 (2026-08-27) - the first African regions.** New `REGIONS`
+boxes (Morocco = the Atlantic coast only, Cap Spartel to Dakhla; the Mediterranean side is
+barely surfed and would drag in 400 km of flat coastline. Angola = the whole coast incl. the
+Cabinda exclave), `morocco.yaml` / `angola.yaml` anchors, own basins, Geofabrik `morocco`
+243 MB + `angola` 85 MB.
+- **Primary:** Morocco 607 coastline ways -> 4,616 candidates -> 3,911 bathy-passed -> **9 OSM
+  surf beacons** (Anchor Point, Imsouane Bay, Cathedral, Tafedna, Skhirat, Oued Cherrat,
+  Dahomey, Plage des Nations, 3eme piscine) + 169 named beaches. Angola -> 2,933 bathy-passed
+  -> **1 beacon** (Praia dos Surfistas = Cabo Ledo). Both are web-search country.
+- **Secondary:** 51 + 19 atlas names -> `ca_queue.py` -> `multi_geocode.py` -> `ca_xref.py`
+  (9 + 1 OSM-confirmed) -> z16 render of all 43 + 17 -> judge. Morocco 16 keep / 16 move /
+  11 drop; Angola 5 keep / 3 move / 9 drop. Every moved pin was re-rendered and read again.
+  A requery round fixed **Temara** (first pin was the Rabat kasbah), **Tifnit** (an inland
+  village of the same name), **Baia Azul** and **Barra do Kwanza**; Dakhla, Tan-Tan Plage,
+  Praia das Namoradas and Praia Amelia geocoded wrong twice and were dropped.
+- **What this pass taught:** (1) **Nominatim returns nothing for surf-vocabulary queries** -
+  it is in `PROV` but contributed 1 result in 61; Google+Photon is the real pair, and
+  "single provider - render decides" is the normal case outside Europe/US, not an alarm.
+  (2) Google collapses several names onto one place: Safi Garden / Ras Lafaa / Souiria Kdima
+  all returned Safi's Sidi Bouzid beach, Cabo Ledo / Miradouro one pin, Shipwreck /
+  Praia das Palmeirinhas another. **Dedup by coordinate before rendering, not only by name.**
+  (3) Angola's guides name 15 spots and only 9 survive imagery - Luanda's Chicala, the
+  Mussulo lagoon shore and the Lobito restinga are all inside sheltered bays with no break.
+  (4) Five Moroccan shore normals (`cro-cro`, `devil-s-rock`, `oualidia`, `oudayas`, `tifnit`)
+  came back blocked by land and were re-aimed by hand off the tile - the same
+  point/harbour/river-mouth failure California saw.
+  (5) `tools/spot-seed/.venv` had a dead base interpreter (a rotated snap path); rebuild with
+  `uv venv --python 3.12` + the four deps rather than debugging the symlink.
+  (6) **Run `bathy` from the repo root**, or `--out` defaults cwd-relative and 50 profiles
+  land in `pipeline/data/spots/derived/bathy` where no test looks.
 
 **Oregon 0 -> 37 and Washington 0 -> 22, the same evening, same recipe** (new `REGIONS`
 boxes, `oregon.yaml` / `washington.yaml` anchors, one shared `pacific-northwest` swellmap basin,
@@ -307,7 +371,7 @@ once bathymetry allows); Mexico detail - the East Cape between Shipwrecks and Ni
 Punta Mita sub-breaks, Oaxaca's Salina Cruz points beyond Conejo/Chipehua; Japan Hokkaido /
 Okinawa / Wakayama detail; Philippines more (Daku, Zambales Liwliwa neighbours); Portugal
 Ericeira micro-spots & the **Azores**; Nicaragua north (Puerto Sandino cluster). Regions with
-zero spots today: everywhere else - Indonesia, Australia, Morocco, Peru, Chile, France/Spain,
+zero spots today: everywhere else - Indonesia, Australia, Chile, Ecuador, France/Spain,
 South Africa.
 **The real frontier = Tier-B.** Tens of thousands of physics-valid, *unnamed* coastline
 stretches (Japan 22k, Philippines 37k). OSM/guides never named them; this is the sat-verify +

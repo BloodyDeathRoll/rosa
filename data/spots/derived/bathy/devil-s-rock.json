@@ -1,0 +1,72 @@
+{
+  "spot": "devil-s-rock",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    30.5068,
+    -9.6888
+  ],
+  "bearing_seaward_deg": 255.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 100.0,
+  "mean_slope_m_per_km": 4.96,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 30.50622,
+      "lon": -9.69132,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 30.50564,
+      "lon": -9.69384,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 30.50447,
+      "lon": -9.69888,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 30.50214,
+      "lon": -9.70896,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 30.49981,
+      "lon": -9.71905,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 30.49515,
+      "lon": -9.73921,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 30.48815,
+      "lon": -9.76944,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 30.47881,
+      "lon": -9.80976,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 30.46478,
+      "lon": -9.87021,
+      "depth_m": 100.0
+    }
+  ]
+}

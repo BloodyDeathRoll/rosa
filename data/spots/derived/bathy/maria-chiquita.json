@@ -1,0 +1,72 @@
+{
+  "spot": "maria-chiquita",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    9.4468,
+    -79.763
+  ],
+  "bearing_seaward_deg": 18.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 58.0,
+  "mean_slope_m_per_km": 2.76,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 9.44894,
+      "lon": -79.7623,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 9.45108,
+      "lon": -79.76159,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 9.45535,
+      "lon": -79.76018,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 9.46391,
+      "lon": -79.75737,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 9.47246,
+      "lon": -79.75455,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 9.48956,
+      "lon": -79.74891,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 9.51522,
+      "lon": -79.74046,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 9.54943,
+      "lon": -79.72918,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 9.60075,
+      "lon": -79.71227,
+      "depth_m": 58.0
+    }
+  ]
+}

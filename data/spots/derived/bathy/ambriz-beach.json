@@ -1,0 +1,72 @@
+{
+  "spot": "ambriz-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -7.8531,
+    13.106
+  ],
+  "bearing_seaward_deg": 231.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 72.0,
+  "mean_slope_m_per_km": 4.73,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -7.85451,
+      "lon": 13.10424,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -7.85593,
+      "lon": 13.10247,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -7.85876,
+      "lon": 13.09894,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -7.86442,
+      "lon": 13.09189,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -7.87008,
+      "lon": 13.08483,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -7.8814,
+      "lon": 13.07072,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -7.89837,
+      "lon": 13.04955,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -7.92101,
+      "lon": 13.02132,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -7.95495,
+      "lon": 12.97898,
+      "depth_m": 72.0
+    }
+  ]
+}

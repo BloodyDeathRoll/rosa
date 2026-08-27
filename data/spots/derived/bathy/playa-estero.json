@@ -1,0 +1,72 @@
+{
+  "spot": "playa-estero",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    7.6241,
+    -81.245
+  ],
+  "bearing_seaward_deg": 206.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 174.0,
+  "mean_slope_m_per_km": 9.58,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 7.62208,
+      "lon": -81.24599,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 7.62006,
+      "lon": -81.24699,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 7.61602,
+      "lon": -81.24898,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 7.60793,
+      "lon": -81.25295,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 7.59985,
+      "lon": -81.25693,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 7.58368,
+      "lon": -81.26489,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 7.55943,
+      "lon": -81.27682,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 7.5271,
+      "lon": -81.29272,
+      "depth_m": 107.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 7.4786,
+      "lon": -81.31657,
+      "depth_m": 174.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "punta-roquitas",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -12.1215,
+    -77.0457
+  ],
+  "bearing_seaward_deg": 187.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 83.0,
+  "mean_slope_m_per_km": 5.3,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -12.12373,
+      "lon": -77.04598,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -12.12596,
+      "lon": -77.04626,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -12.13043,
+      "lon": -77.04682,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -12.13935,
+      "lon": -77.04794,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -12.14828,
+      "lon": -77.04906,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -12.16613,
+      "lon": -77.05131,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -12.19291,
+      "lon": -77.05467,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -12.22861,
+      "lon": -77.05916,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -12.28217,
+      "lon": -77.06589,
+      "depth_m": 83.0
+    }
+  ]
+}

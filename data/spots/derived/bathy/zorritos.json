@@ -1,0 +1,72 @@
+{
+  "spot": "zorritos",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -3.6778,
+    -80.6768
+  ],
+  "bearing_seaward_deg": 359.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 65.0,
+  "mean_slope_m_per_km": 3.77,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -3.67555,
+      "lon": -80.67684,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -3.6733,
+      "lon": -80.67688,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -3.66881,
+      "lon": -80.67696,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -3.65982,
+      "lon": -80.67711,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -3.65082,
+      "lon": -80.67727,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -3.63284,
+      "lon": -80.67759,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -3.60587,
+      "lon": -80.67806,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -3.5699,
+      "lon": -80.67869,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -3.51595,
+      "lon": -80.67963,
+      "depth_m": 65.0
+    }
+  ]
+}

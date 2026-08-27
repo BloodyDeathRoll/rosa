@@ -1,0 +1,72 @@
+{
+  "spot": "amatecampo",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    13.411,
+    -89.1421
+  ],
+  "bearing_seaward_deg": 209.0,
+  "nearshore_depth_m": 62.0,
+  "offshore_depth_m": 36.0,
+  "mean_slope_m_per_km": -1.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 5,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.40903,
+      "lon": -89.14322,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.40707,
+      "lon": -89.14434,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.40313,
+      "lon": -89.14658,
+      "depth_m": 113.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.39527,
+      "lon": -89.15106,
+      "depth_m": 110.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.3874,
+      "lon": -89.15555,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.37167,
+      "lon": -89.16451,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.34807,
+      "lon": -89.17795,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.31661,
+      "lon": -89.19587,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.26941,
+      "lon": -89.22273,
+      "depth_m": 36.0
+    }
+  ]
+}
