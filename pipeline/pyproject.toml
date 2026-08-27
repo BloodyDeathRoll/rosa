@@ -9,6 +9,10 @@ dependencies = [
     # heavy xarray/copernicusmarine stack is NOT needed - see observe.parse_cmems_nc.
     "h5py>=3.11",
     "httpx>=0.27",
+    # Blosc/LZ4 for the CMEMS coastal SDB Zarr store (sdb.py). numpy is already here via
+    # pygrib; numcodecs is ~1.5 MB on top and is the whole of what reading that store needs -
+    # the zarr/xarray stack is NOT required, same call as h5py-not-xarray for the buoy files.
+    "numcodecs>=0.13",
     "pygrib>=2.1",
     "pytmd>=3.0.9",
     "pywebpush>=2.0",
@@ -22,6 +26,10 @@ rosa-pipeline = "rosa_pipeline.cli:main"
 dev = [
     "pytest>=8.0",
     "ruff>=0.6",
+    # ICESat-2 ATL24 arrives as Parquet inside SlideRule's record stream (atl24.py). That
+    # module is a hand-run validation harness, never the forecast path, so pyarrow stays out
+    # of the runtime deps the VM installs - and out of the 400 MB `sliderule` client too.
+    "pyarrow>=17.0",
 ]
 
 [build-system]

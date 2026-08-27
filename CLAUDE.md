@@ -29,19 +29,19 @@ Rosa is a **worldwide, mobile-first PWA surf forecast app**: free, lean, fast, s
 - NEVER fetch, proxy, or reproduce Surfline API output, spot guide text, cams, or their spot database. The teardown is for structural understanding only.
 - NEVER scrape third-party camera streams (any provider). Cams enter Rosa only as officially embeddable/permitted public streams (per-spot `cam_url`) or via partnerships.
 - ISRAMAR (isramar.ocean.org.il) is all-rights-reserved: manual validation during calibration only; partnership before any integration.
-- Open-Meteo: free tier non-commercial, attribution required (in footer); re-verify before public launch. CMEMS/Copernicus: free with registration, attribution required.
+- Open-Meteo: free tier non-commercial, attribution required (in footer); re-verify before public launch. CMEMS/Copernicus: free with registration, attribution required. **CMEMS coastal SDB** (`sdb.py`, DOI 10.48670/mds-00364): royalty-free, commercial use permitted, attribution required, free of charge only **to 2028-06-30 - re-verify before then**. **ICESat-2 ATL24** (`atl24.py`): NASA CC0, citation requested.
 - Free to build on: NOAA (WW3/GFS/OISST/NDBC/CO-OPS), ECMWF open data, EOT20 tides (CC-BY), GEBCO, OSM.
 
 ## Standing prohibitions
 Each was learned the hard way and each has a rationale in the linked doc. **Do not re-litigate from first principles — read the doc.**
 
 - **Never import competitor spot data.** (`docs/SPOT-DB.md`)
-- **Never append invented shallow samples** to a bathy profile — the answer becomes γ × a made-up depth. (`docs/ALGORITHM.md`)
+- **Never append invented shallow samples** to a bathy profile — the answer becomes γ × a made-up depth. (`docs/ALGORITHM.md`) Patching a ray point from a *measured* grid (`sdb`) is a source swap, not this — but it moves published heights, so it needs the A/B in OPEN-ITEMS 23 first.
 - **Combine partitions by wave field, never `sqrt(Σ Hb²)`.** (`docs/ALGORITHM.md`)
 - **Do NOT scale partitions to close `closure`** — it is diagnostic only, nothing scores on it. (`docs/ALGORITHM.md`)
 - **Period display ≠ scoring is deliberate — do not "fix" it by unifying.** (`docs/ALGORITHM.md`)
 - **Do not build temporal smoothing for partition direction wander** — closed, the transform is order-independent. (`docs/CALIBRATION.md`)
-- **The `horizon` and cam tools report, never apply.** `verify --resolve --apply` is not safe unattended. (`docs/SPOT-DB.md`)
+- **The `horizon`, `atl24` and cam tools report, never apply.** `verify --resolve --apply` and `sdb --apply` are not safe unattended. (`docs/SPOT-DB.md`)
 - **Swell events surface ONLY as push** — do not rebuild in-app event banners, cards, or alert strips. (`docs/UI.md`)
 - **Tune knobs only from `docs/CALIBRATION.md` + the Stage-0 scorecard.** `height_coeff` is 1.0 at all 265 spots. Fleet impact is only valid as a same-input A/B, scored with the shipped harness.
 - **Inspect live infra before designing for it.** A session once built a competing scheduler off a stale handoff while another had already provisioned the box.

@@ -338,6 +338,56 @@ def _build_parser() -> argparse.ArgumentParser:
         "--sleep", type=float, default=1.0, help="seconds between spots (OpenTopoData rate limit)"
     )
 
+    sdb_p = sub.add_parser(
+        "sdb",
+        help="sample CMEMS coastal SDB along each spot's ray and report where it disagrees "
+        "with the committed GEBCO profile (OPEN-ITEMS 23). --apply patches the profiles, "
+        "which MOVES PUBLISHED HEIGHTS - see the tuning rule in CLAUDE.md",
+    )
+    which_s = sdb_p.add_mutually_exclusive_group(required=True)
+    which_s.add_argument("--spot", help="spot id, e.g. cokes")
+    which_s.add_argument("--all", action="store_true", help="every spot in the DB")
+    sdb_p.add_argument("--spots-dir", type=Path, default=Path("data/spots"))
+    sdb_p.add_argument("--bathy-dir", type=Path, default=BATHY_DIR)
+    sdb_p.add_argument(
+        "--apply",
+        action="store_true",
+        help="write the merged profiles. NOT the default: this is a source swap that moves "
+        "published heights, so it needs a same-input A/B and a CALIBRATION.md entry first",
+    )
+    sdb_p.add_argument(
+        "--min-delta", type=float, default=1.0, help="ignore disagreements below this (m)"
+    )
+    sdb_p.add_argument(
+        "--max-quality",
+        type=int,
+        default=None,
+        help="Quality_indicator ceiling, 0 (highly reliable) to 4 (unknown); default 2",
+    )
+    sdb_p.add_argument("--cache", type=Path, default=None, help="on-disk chunk cache dir")
+    sdb_p.add_argument("--fixtures", type=Path, default=None, help="replay a captured SDB map")
+    sdb_p.add_argument("--capture", type=Path, default=None, help="write an SDB fixture here")
+
+    atl_p = sub.add_parser(
+        "atl24",
+        help="grade the committed profiles (and CMEMS SDB) against ICESat-2 ATL24 lidar. "
+        "REPORTS ONLY - never writes a profile",
+    )
+    which_a = atl_p.add_mutually_exclusive_group(required=True)
+    which_a.add_argument("--spot", help="spot id; the box is drawn around it")
+    which_a.add_argument("--region", help="region stem, e.g. maldives")
+    atl_p.add_argument("--spots-dir", type=Path, default=Path("data/spots"))
+    atl_p.add_argument("--bathy-dir", type=Path, default=BATHY_DIR)
+    atl_p.add_argument(
+        "--radius-m", type=float, default=150.0, help="pair a ray point with photons inside this"
+    )
+    atl_p.add_argument("--pad-deg", type=float, default=0.05, help="box padding around the spots")
+    atl_p.add_argument("--cache", type=Path, default=None, help="cache the photon pull here")
+    atl_p.add_argument(
+        "--sdb", action="store_true", help="also score CMEMS SDB at the same ray points"
+    )
+    atl_p.add_argument("--sdb-cache", type=Path, default=None, help="SDB chunk cache dir")
+
     tide_p = sub.add_parser(
         "tide",
         help="extract per-spot EOT20 tide constants (fetch-plane plan C1; needs the "
@@ -1205,6 +1255,164 @@ def _cmd_feedback(args: argparse.Namespace) -> int:
     return 0
 
 
+def _sdb_source(args: argparse.Namespace):
+    from .sdb import MAX_QUALITY_FLAG, CmemsSdbSource, FixtureSdbSource
+
+    if args.fixtures is not None:
+        return FixtureSdbSource.from_file(args.fixtures)
+    return CmemsSdbSource(
+        cache_dir=args.cache,
+        max_quality=(
+            MAX_QUALITY_FLAG if getattr(args, "max_quality", None) is None else args.max_quality
+        ),
+    )
+
+
+def _cmd_sdb(args: argparse.Namespace) -> int:
+    """Sample CMEMS coastal SDB along each committed ray and report the disagreement.
+
+    Reporting is the point. --apply exists because the operator will eventually want the
+    merged profiles for an A/B arm, but it is off by default: patching a ray point changes
+    h_break, and CLAUDE.md's tuning rule says a change that moves published numbers needs a
+    same-input A/B on the shipped harness plus a CALIBRATION.md entry in the SAME change.
+    """
+    from .bathymetry import load_profile
+    from .sdb import ATTRIBUTION, merge_profile
+
+    spots = load_spots(args.spots_dir)
+    if args.all:
+        targets = list(spots.values())
+    else:
+        target = spots.get(args.spot)
+        if target is None:
+            print(f"unknown spot {args.spot!r}; known: {', '.join(sorted(spots))}", file=sys.stderr)
+            return 2
+        targets = [target]
+
+    source = _sdb_source(args)
+    captured: list[tuple[float, float]] = []
+    n_profiles = n_patched = n_points = 0
+    deltas: list[float] = []
+    for spot in targets:
+        profile = load_profile(spot.id, args.bathy_dir)
+        if profile is None:
+            print(f"warn: {spot.id}: no committed profile - run `bathy` first", file=sys.stderr)
+            continue
+        points = [(s.lat, s.lon) for s in profile.samples]
+        captured.extend(points)
+        readings = source.readings(points)
+        merged, patched = merge_profile(profile, readings, min_delta_m=args.min_delta)
+        n_profiles += 1
+        n_points += sum(1 for r in readings if r is not None)
+        if not patched:
+            continue
+        n_patched += 1
+        for ps in patched:
+            was = "none" if ps.was_m is None else f"{ps.was_m:.1f}"
+            if ps.was_m is not None:
+                deltas.append(ps.was_m - ps.now_m)
+            print(
+                f"{spot.id:24s} {ps.dist_km:5.2f} km  gebco {was:>7s} m -> sdb "
+                f"{ps.now_m:6.1f} m  (quality {ps.quality})"
+            )
+        if args.apply:
+            path = args.bathy_dir / f"{spot.id}.json"
+            path.write_text(json.dumps(merged.to_dict(), indent=2) + "\n", encoding="utf-8")
+
+    if args.capture is not None:
+        source.capture(captured, args.capture)
+        print(f"captured {len(captured)} SDB points -> {args.capture}")
+    print(
+        f"\n{n_profiles} profile(s); SDB had a gated reading at {n_points} ray point(s); "
+        f"{n_patched} profile(s) disagree by more than {args.min_delta} m"
+    )
+    if deltas:
+        deltas.sort()
+        mid = len(deltas) // 2
+        median = deltas[mid] if len(deltas) % 2 else 0.5 * (deltas[mid - 1] + deltas[mid])
+        print(f"median gebco-minus-sdb over the patched points: {median:+.1f} m")
+    print(ATTRIBUTION)
+    if not args.apply and n_patched:
+        print("nothing written - re-run with --apply once the A/B says the swap is right")
+    return 0
+
+
+def _cmd_atl24(args: argparse.Namespace) -> int:
+    """Grade depth sources against ICESat-2 lidar. Reports, never writes - same discipline
+    as `horizon` and the cam tools (CLAUDE.md standing prohibitions)."""
+    from . import atl24
+    from .bathymetry import load_profile
+
+    spots = load_spots(args.spots_dir)
+    if args.region:
+        want = args.region.replace("-", " ").lower()
+        targets = [s for s in spots.values() if s.region.lower() == want]
+        if not targets:
+            regions = sorted({s.region for s in spots.values()})
+            print(f"unknown region {args.region!r}; known: {', '.join(regions)}", file=sys.stderr)
+            return 2
+    else:
+        target = spots.get(args.spot)
+        if target is None:
+            print(f"unknown spot {args.spot!r}; known: {', '.join(sorted(spots))}", file=sys.stderr)
+            return 2
+        targets = [target]
+
+    pad = args.pad_deg
+    south = min(s.lat for s in targets) - pad
+    north = max(s.lat for s in targets) + pad
+    west = min(s.lon for s in targets) - pad
+    east = max(s.lon for s in targets) + pad
+    print(f"ATL24 box {south:.3f},{west:.3f} .. {north:.3f},{east:.3f} for {len(targets)} spot(s)")
+    photons = atl24.fetch_photons(
+        south, west, north, east, cache=args.cache, on_note=lambda m: print(f"  {m}")
+    )
+    print(f"{len(photons)} classified seafloor photon(s)")
+    if not photons:
+        print("no lidar coverage in this box - ICESat-2 flies fixed repeat tracks, so this is")
+        print("an expected outcome, not a failure. Nothing can be graded here.")
+        return 0
+
+    gebco_pairs: list[tuple[float, float]] = []
+    sdb_pairs: list[tuple[float, float]] = []
+    source = (
+        _sdb_source(argparse.Namespace(fixtures=None, cache=args.sdb_cache)) if args.sdb else None
+    )
+    reached = 0
+    for spot in targets:
+        profile = load_profile(spot.id, args.bathy_dir)
+        if profile is None:
+            continue
+        points = atl24.profile_points(profile)
+        pairs = atl24.pair(points, photons, radius_m=args.radius_m)
+        if pairs:
+            reached += 1
+        gebco_pairs.extend(pairs)
+        if source is not None:
+            readings = source.readings([(lat, lon) for lat, lon, _ in points])
+            sdb_points = [
+                (lat, lon, r.depth_m)
+                for (lat, lon, _), r in zip(points, readings, strict=True)
+                if r is not None
+            ]
+            sdb_pairs.extend(atl24.pair(sdb_points, photons, radius_m=args.radius_m))
+
+    print(
+        f"{reached} of {len(targets)} spot(s) had a ray point within "
+        f"{args.radius_m:.0f} m of a photon\n"
+    )
+    print(atl24.score(profile_source_label(args), gebco_pairs).as_row())
+    if source is not None:
+        print(atl24.score("CMEMS coastal SDB 100 m", sdb_pairs).as_row())
+    print(f"\n{atl24.CITATION}")
+    return 0
+
+
+def profile_source_label(args: argparse.Namespace) -> str:
+    """The committed profiles are GEBCO unless `sdb --apply` has patched them."""
+    return "committed profile (gebco2020)"
+
+
 def _cmd_horizon(args: argparse.Namespace) -> int:
     """Report the geometry-derived swell window next to the one in the YAML. Deliberately does
     NOT apply: per CLAUDE.md's coordinate authority ladder a derived value ranks below a human's
@@ -1547,6 +1755,10 @@ def main(argv: list[str] | None = None) -> int:
         return _cmd_tide(args)
     if args.command == "bathy":
         return _cmd_bathy(args)
+    if args.command == "sdb":
+        return _cmd_sdb(args)
+    if args.command == "atl24":
+        return _cmd_atl24(args)
     if args.command == "horizon":
         return _cmd_horizon(args)
     if args.command == "notify":

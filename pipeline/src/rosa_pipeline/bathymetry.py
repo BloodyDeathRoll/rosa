@@ -72,6 +72,11 @@ class DepthProfile:
     # None only for profiles written before the field existed.
     origin_lat: float | None = None
     origin_lon: float | None = None
+    # Which grid each sample came from. A profile whose nearshore points were patched from
+    # CMEMS SDB (sdb.merge_profile) is NOT "gebco2020 via opentopodata" any more, and a
+    # reader that cannot tell has no way to know why two spots shoal differently. Distances
+    # of the patched ray points, in km; empty = a pure GEBCO cut.
+    sdb_patched_km: tuple[float, ...] = ()
 
     @property
     def nearshore_depth_m(self) -> float:
@@ -150,6 +155,7 @@ class DepthProfile:
             samples=samples,
             origin_lat=origin[0],
             origin_lon=origin[1],
+            sdb_patched_km=tuple(d.get("sdb_patched_km") or ()),
         )
 
     def matches_spot(
@@ -181,9 +187,12 @@ class DepthProfile:
         def _round(x: float, digits: int) -> float | None:
             return round(x, digits) if math.isfinite(x) else None
 
+        source = "gebco2020 via opentopodata"
+        if self.sdb_patched_km:
+            source += " + CMEMS coastal SDB (10.48670/mds-00364) nearshore"
         return {
             "spot": self.spot_id,
-            "source": "gebco2020 via opentopodata",
+            "source": source,
             # full precision, not the samples' 5 dp: this is an identity, not a measurement
             "origin": [self.origin_lat, self.origin_lon],
             "bearing_seaward_deg": round(self.bearing_seaward_deg, 1),
@@ -194,6 +203,7 @@ class DepthProfile:
             "missing_samples": self.missing_samples,
             "non_monotone_samples": self.non_monotone_samples,
             "deepest_is_reference": self.deepest_is_reference,
+            **({"sdb_patched_km": list(self.sdb_patched_km)} if self.sdb_patched_km else {}),
             "samples": [
                 {
                     "dist_km": s.dist_km,
