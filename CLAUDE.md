@@ -62,7 +62,7 @@ Frontend never computes forecasts; it renders pipeline JSON. Keep the fetch laye
 
 **Scheduler:** Oracle VM `rosa-instance`, cron 4×/day (02:20/08:20/14:20/20:20 UTC) → `deploy/oracle/publish.sh` = git pull → buoy archive → `run --all` → prebuilt Vercel deploy of `data/out` to the separate `rosa-data` project. **NO GitHub Actions, NO systemd.** `rosa-backup` VM runs an hourly freshness watchdog (pages if `fetched_at` > 8 h). Crash alerts go to the admin push snapshot, never the public list.
 
-**Spot DB: 471 spots** — california 149, mexico 43, israel 42, portugal 42, oregon 37, sri-lanka 32, costa-rica 25, japan 24, el-salvador 23, washington 22, philippines 16, nicaragua 15, hawaii 1. One committed bathy profile each. Changing the count updates `docs/SPOT-DB.md` AND `test_every_committed_spot_picks_the_same_oisst_cell_as_before` — no approval needed.
+**Spot DB: 469 spots** — california 149, mexico 43, israel 42, portugal 42, oregon 37, sri-lanka 32, costa-rica 25, japan 24, el-salvador 23, washington 20, philippines 16, nicaragua 15, hawaii 1. One committed bathy profile each. Changing the count updates `docs/SPOT-DB.md` AND `test_every_committed_spot_picks_the_same_oisst_cell_as_before` — no approval needed.
 
 ## Conventions
 - Python: uv, ruff, pytest; type hints everywhere; pipeline stages pure functions (input → output, no hidden state) so fixtures test everything offline.

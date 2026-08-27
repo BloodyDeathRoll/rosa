@@ -90,7 +90,7 @@ def test_oisst_finds_the_wet_cell_across_the_seam():
 def test_every_committed_spot_picks_the_same_oisst_cell_as_before():
     """The no-op proof the smoke rule wants, run offline.
 
-    The wrapped window and the old clipped one must select the SAME cell for all 471
+    The wrapped window and the old clipped one must select the SAME cell for all 469
     committed spots - none is within a search radius of the seam - so no published SST,
     and nothing downstream of it, moves.
     """
@@ -102,7 +102,7 @@ def test_every_committed_spot_picks_the_same_oisst_cell_as_before():
     lons = np.arange(0.125, 360.0, 0.25)
     reach = int(NEAREST_MAX_DEG / 0.25)
     spots = load_spots(Path(__file__).resolve().parents[2] / "data" / "spots")
-    assert len(spots) == 471
+    assert len(spots) == 469
 
     for s in spots.values():
         lon360_v = s.lon % 360.0
