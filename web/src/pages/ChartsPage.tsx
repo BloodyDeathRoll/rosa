@@ -22,12 +22,12 @@ import { signalReady } from "../splash";
     variable, monotonic lightness, themed ramps - never a rainbow (dataviz method;
     also keeps us visually distinct from all-rights-reserved chart imagery). */
 
-// CARTO raster basemaps - same source + attribution terms as the Map tab.
-const TILE_URLS = {
-  dark: "https://basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png",
-  light: "https://basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png",
+// OpenFreeMap vector basemaps - same source + attribution terms as the Map tab.
+const STYLE_URLS = {
+  dark: "https://tiles.openfreemap.org/styles/dark",
+  light: "https://tiles.openfreemap.org/styles/positron",
 };
-const ATTRIBUTION = "© OpenStreetMap contributors © CARTO";
+const ATTRIBUTION = "OpenFreeMap © OpenMapTiles Data from OpenStreetMap";
 
 type Variable = "hs" | "per" | "energy" | "wind";
 
@@ -313,18 +313,7 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
         setWorld(worldR.v);
         const m = new maplibregl.Map({
           container: wrapRef.current,
-          style: {
-            version: 8,
-            sources: {
-              carto: {
-                type: "raster",
-                tiles: [TILE_URLS[theme]],
-                tileSize: 256,
-                attribution: ATTRIBUTION,
-              },
-            },
-            layers: [{ id: "carto", type: "raster", source: "carto" }],
-          },
+          style: STYLE_URLS[theme],
           // open on your own coast at basin scale - the swell heading at you is
           // the point; the whole world is one pinch away
           center: at ? [at.lon, at.lat] : [20, (DATA_LAT_N + DATA_LAT_S) / 2],
@@ -334,7 +323,10 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
           minZoom: minZoomFor(wrapRef.current.clientHeight),
           attributionControl: false,
         });
-        m.addControl(new maplibregl.AttributionControl({ compact: true }), "bottom-left");
+        m.addControl(
+          new maplibregl.AttributionControl({ compact: true, customAttribution: ATTRIBUTION }),
+          "bottom-left"
+        );
         // the floor follows the container (rotation, split screen, desktop resize)
         m.on("resize", () => m.setMinZoom(minZoomFor(m.getContainer().clientHeight)));
         mapRef.current = m;
@@ -353,12 +345,12 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Basemap follows the theme without rebuilding the map.
+  // Basemap follows the theme without rebuilding the map. The chart overlay is a
+  // canvas on top of the map, not a GL layer, so swapping the style leaves it alone.
   useEffect(() => {
     const m = mapRef.current;
     if (!m) return;
-    const src = m.getSource("carto") as { setTiles?: (t: string[]) => void } | undefined;
-    src?.setTiles?.([TILE_URLS[theme]]);
+    m.setStyle(STYLE_URLS[theme]);
   }, [theme]);
 
   // Load the selection - the world layer, one basin, or every published basin

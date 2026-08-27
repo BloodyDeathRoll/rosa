@@ -15,13 +15,14 @@ import type { Map as MLMap, Marker as MLMarker } from "maplibre-gl";
 
 type Entry = [string, IndexEntry];
 
-// CARTO raster basemaps (free tier, attribution required) - swap to self-hosted
-// vector tiles before public launch.
-const TILE_URLS: Record<Theme, string> = {
-  dark: "https://basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png",
-  light: "https://basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png",
+// OpenFreeMap vector basemaps - keyless, no registration, no request limits
+// (CARTO's free raster tiles started stamping "API KEY REQUIRED" over every tile).
+// Attribution is required and passed to the AttributionControl below.
+const STYLE_URLS: Record<Theme, string> = {
+  dark: "https://tiles.openfreemap.org/styles/dark",
+  light: "https://tiles.openfreemap.org/styles/positron",
 };
-const ATTRIBUTION = "© OpenStreetMap contributors © CARTO";
+const ATTRIBUTION = "OpenFreeMap © OpenMapTiles Data from OpenStreetMap";
 
 // Overlapping pins within this many screen pixels collapse into one count bubble.
 const CLUSTER_PX = 46;
@@ -131,18 +132,7 @@ export function MapPage({ theme }: { theme: Theme }) {
         const startEntry = start ? index.spots[start] : undefined;
         const m = new maplibregl.Map({
           container: wrapRef.current,
-          style: {
-            version: 8,
-            sources: {
-              carto: {
-                type: "raster",
-                tiles: [TILE_URLS[theme]],
-                tileSize: 256,
-                attribution: ATTRIBUTION,
-              },
-            },
-            layers: [{ id: "carto", type: "raster", source: "carto" }],
-          },
+          style: STYLE_URLS[theme],
           center: area
             ? boundsCenter(area.bounds)
             : startEntry
@@ -156,10 +146,13 @@ export function MapPage({ theme }: { theme: Theme }) {
         map = m;
         mapRef.current = m;
 
-        // Attribution is required (CARTO/OSM). Bottom-left, riding just above the
+        // Attribution is required (OpenFreeMap/OMT/OSM). Bottom-left, riding just above the
         // sheet (--sheet-h), themed via CSS; collapsed to the (i) by default -
         // it expands on tap, which satisfies the license terms. No zoom buttons.
-        m.addControl(new maplibregl.AttributionControl({ compact: true }), "bottom-left");
+        m.addControl(
+          new maplibregl.AttributionControl({ compact: true, customAttribution: ATTRIBUTION }),
+          "bottom-left"
+        );
         const collapseAttrib = () => {
           const d = m.getContainer().querySelector("details.maplibregl-ctrl-attrib");
           d?.removeAttribute("open");
