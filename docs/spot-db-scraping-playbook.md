@@ -176,9 +176,9 @@ Four things, in this order:
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-08-27, DB = 623 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-08-27, DB = 624 spots, ALL sat-verified)
 
-**Maldives 0 -> 22 (2026-08-27) - the first atoll nation, and the recipe needed three changes
+**Maldives 0 -> 23 (2026-08-27) - the first atoll nation, and the recipe needed three changes
 to work there.** New `REGIONS` box (the whole chain, Haa Alif to Addu - it is only ~130 km wide,
 so one box is the country), `maldives.yaml` anchor with `break_type: reef` throughout, own
 swellmap basin, Geofabrik `maldives` 3.6 MB.
@@ -186,7 +186,7 @@ swellmap basin, Geofabrik `maldives` 3.6 MB.
   beacons** (Raalhugandu on Male, a "Surfing Point" at Kandooma, an "eff one surf point" at
   Muli). Two of the three were dropped for a web name that a surfer would actually search.
 - **Secondary:** 45 atlas names from five guides -> geocode -> z16 render of 36 -> judge:
-  13 keep / 8 move / 15 drop. Every moved pin was re-rendered and read again; two of the ten
+  13 keep / 8 move / 15 drop, plus Ninjas reinstated from user-supplied coordinates. Every moved pin was re-rendered and read again; two of the ten
   moves failed on the second read and were dropped rather than nudged a third time.
 - **What this pass taught, and it is mostly about where the standard recipe breaks:**
   (1) **Google collapses far harder in a country whose breaks are offshore reef passes.** Eight
