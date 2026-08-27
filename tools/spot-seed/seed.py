@@ -93,6 +93,9 @@ REGIONS = {
     "peru": (-18.40, -81.40, -3.35, -70.20),
     # both coasts: the Pacific (Santa Catalina, Venao) and the Caribbean (Bocas del Toro)
     "panama": (7.10, -83.10, 9.70, -77.10),
+    # every atoll, Haa Alif in the north down to Addu; the chain is only ~130 km wide
+    # so one box is the whole country
+    "maldives": (-0.80, 72.50, 7.20, 73.85),
 }
 
 

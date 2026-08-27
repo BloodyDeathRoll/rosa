@@ -1,0 +1,72 @@
+{
+  "spot": "raalhugandu",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    4.1722,
+    73.5182
+  ],
+  "bearing_seaward_deg": 166.0,
+  "nearshore_depth_m": 46.0,
+  "offshore_depth_m": 157.0,
+  "mean_slope_m_per_km": 6.25,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 4.17002,
+      "lon": 73.51875,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 4.16784,
+      "lon": 73.51929,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 4.16347,
+      "lon": 73.52038,
+      "depth_m": 180.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 4.15475,
+      "lon": 73.52256,
+      "depth_m": 304.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 4.14602,
+      "lon": 73.52474,
+      "depth_m": 532.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 4.12857,
+      "lon": 73.52911,
+      "depth_m": 349.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 4.10239,
+      "lon": 73.53565,
+      "depth_m": 176.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 4.06749,
+      "lon": 73.54437,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 4.01513,
+      "lon": 73.55746,
+      "depth_m": 157.0
+    }
+  ]
+}

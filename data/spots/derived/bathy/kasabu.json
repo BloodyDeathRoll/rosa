@@ -1,0 +1,72 @@
+{
+  "spot": "kasabu",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    2.666,
+    72.9027
+  ],
+  "bearing_seaward_deg": 121.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 266.0,
+  "mean_slope_m_per_km": 14.7,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 2.66484,
+      "lon": 72.90463,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 2.66368,
+      "lon": 72.90656,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 2.66137,
+      "lon": 72.91042,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 2.65674,
+      "lon": 72.91813,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 2.6521,
+      "lon": 72.92585,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 2.64284,
+      "lon": 72.94128,
+      "depth_m": 308.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 2.62894,
+      "lon": 72.96443,
+      "depth_m": 418.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 2.61041,
+      "lon": 72.9953,
+      "depth_m": 385.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 2.58262,
+      "lon": 73.0416,
+      "depth_m": 266.0
+    }
+  ]
+}

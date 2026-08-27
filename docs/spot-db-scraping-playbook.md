@@ -176,7 +176,44 @@ Four things, in this order:
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-08-27, DB = 601 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-08-27, DB = 623 spots, ALL sat-verified)
+
+**Maldives 0 -> 22 (2026-08-27) - the first atoll nation, and the recipe needed three changes
+to work there.** New `REGIONS` box (the whole chain, Haa Alif to Addu - it is only ~130 km wide,
+so one box is the country), `maldives.yaml` anchor with `break_type: reef` throughout, own
+swellmap basin, Geofabrik `maldives` 3.6 MB.
+- **Primary:** 1,367 coastline ways -> 2,924 candidates -> 2,712 bathy-passed -> **3 OSM surf
+  beacons** (Raalhugandu on Male, a "Surfing Point" at Kandooma, an "eff one surf point" at
+  Muli). Two of the three were dropped for a web name that a surfer would actually search.
+- **Secondary:** 45 atlas names from five guides -> geocode -> z16 render of 36 -> judge:
+  13 keep / 8 move / 15 drop. Every moved pin was re-rendered and read again; two of the ten
+  moves failed on the second read and were dropped rather than nudged a third time.
+- **What this pass taught, and it is mostly about where the standard recipe breaks:**
+  (1) **Google collapses far harder in a country whose breaks are offshore reef passes.** Eight
+  Gaafu Dhaalu names came back on ONE coordinate; five more landed on Cokes' pin. When a name
+  is not in its index Google returns a generic nearby surf POI, so **the dedup rule needs an
+  owner**: the name that holds a coordinate is the one that got it in round 1 without a
+  requery; a requeried name landing on someone else's round-1 pin is the fallback and drops.
+  A first pass that dropped by bare collision killed Cokes and Pasta Point - the two most
+  famous waves in the country - and kept the impostors.
+  (2) **The GEBCO arc sweep from the Peru pass does NOT work on atolls.** GEBCO's ~460 m cells
+  do not resolve a 300 m-wide reef island, so the "widest unobstructed arc" reads 355 deg at
+  Love Charms and 270 deg at Cokes - deep in every direction, no information. What DOES work is
+  **the bearing away from the island's own coastline**: take every `natural=coastline` vertex
+  within 2.5 km, inverse-distance-weight it into a centroid, and point the normal straight away
+  from it. That agreed with every tile read this pass and fixed the four spots where the
+  nearest single coastline candidate sat on the far side of the island.
+  (3) **OSM place nodes are useless as towns here** - the whole North Male chain resolved to
+  "Thulusdhoo" up to 11 km away, because the resort and uninhabited islands carry no settlement
+  node. The island the break sits off IS the search key, and it came from the surf guides plus
+  OSM hotel/attraction names on the tile (`Cinnamon Dhonveli` 271 m confirmed Pasta Point,
+  `Jail Break City` 417 m confirmed Jailbreaks). 12 of 22 needed a hand override.
+  (4) The same island-amenity check killed a spot: Ninjas' pin sat 850 m along Lohi's own reef
+  on Hudhuranfushi while the guides put Ninjas at Club Med Kani. Two sources disagreeing is a
+  drop, not a nudge.
+  (5) **The committed profiles are honest but nearly blind** - see OPEN-ITEMS 23. 10 of 22
+  Maldivian spots have a first wet sample deeper than 50 m (19 of the other 600 do), because
+  GEBCO steps straight from island to 2,000 m. Do NOT fix this by appending shallow samples.
 
 **Peru 0 -> 49, Panama 0 -> 23, El Salvador 23 -> 32 (2026-08-27) - the Pacific Latin-America
 block.** New `REGIONS` boxes (Peru = the whole Pacific coast, Tumbes to Tacna, it has no other

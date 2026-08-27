@@ -1,0 +1,72 @@
+{
+  "spot": "tombstones",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    4.3071,
+    73.5774
+  ],
+  "bearing_seaward_deg": 151.0,
+  "nearshore_depth_m": 241.0,
+  "offshore_depth_m": 2251.0,
+  "mean_slope_m_per_km": 113.24,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 4.30513,
+      "lon": 73.57849,
+      "depth_m": 241.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 4.30317,
+      "lon": 73.57959,
+      "depth_m": 312.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 4.29923,
+      "lon": 73.58177,
+      "depth_m": 458.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 4.29137,
+      "lon": 73.58614,
+      "depth_m": 771.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 4.2835,
+      "lon": 73.59052,
+      "depth_m": 1079.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 4.26777,
+      "lon": 73.59926,
+      "depth_m": 1414.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 4.24417,
+      "lon": 73.61238,
+      "depth_m": 1389.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 4.21271,
+      "lon": 73.62986,
+      "depth_m": 1591.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 4.16551,
+      "lon": 73.65609,
+      "depth_m": 2251.0
+    }
+  ]
+}

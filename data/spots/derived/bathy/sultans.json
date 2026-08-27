@@ -1,0 +1,72 @@
+{
+  "spot": "sultans",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    4.3135,
+    73.5855
+  ],
+  "bearing_seaward_deg": 160.0,
+  "nearshore_depth_m": 255.0,
+  "offshore_depth_m": 2190.0,
+  "mean_slope_m_per_km": 109.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 4.31139,
+      "lon": 73.58627,
+      "depth_m": 255.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 4.30927,
+      "lon": 73.58704,
+      "depth_m": 355.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 4.30505,
+      "lon": 73.58858,
+      "depth_m": 549.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 4.2966,
+      "lon": 73.59167,
+      "depth_m": 844.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 4.28815,
+      "lon": 73.59475,
+      "depth_m": 1126.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 4.27125,
+      "lon": 73.60092,
+      "depth_m": 1398.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 4.24589,
+      "lon": 73.61017,
+      "depth_m": 1437.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 4.21209,
+      "lon": 73.62251,
+      "depth_m": 1354.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 4.16138,
+      "lon": 73.64101,
+      "depth_m": 2190.0
+    }
+  ]
+}

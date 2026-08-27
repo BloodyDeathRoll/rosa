@@ -34,6 +34,7 @@ REGION_PBF = {
     "Angola": "angola",
     "Peru": "peru",
     "Panama": "panama",
+    "Maldives": "maldives",
 }
 
 

@@ -1,0 +1,72 @@
+{
+  "spot": "cokes",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    4.3717,
+    73.6553
+  ],
+  "bearing_seaward_deg": 133.0,
+  "nearshore_depth_m": -18.0,
+  "offshore_depth_m": 2317.0,
+  "mean_slope_m_per_km": 131.55,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 4.37017,
+      "lon": 73.65695,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 4.36863,
+      "lon": 73.6586,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 4.36557,
+      "lon": 73.6619,
+      "depth_m": 120.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 4.35943,
+      "lon": 73.66849,
+      "depth_m": 540.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 4.3533,
+      "lon": 73.67509,
+      "depth_m": 997.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 4.34103,
+      "lon": 73.68828,
+      "depth_m": 1188.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 4.32263,
+      "lon": 73.70807,
+      "depth_m": 1148.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 4.2981,
+      "lon": 73.73445,
+      "depth_m": 1939.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 4.26129,
+      "lon": 73.77402,
+      "depth_m": 2317.0
+    }
+  ]
+}

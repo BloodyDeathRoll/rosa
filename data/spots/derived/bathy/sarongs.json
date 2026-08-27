@@ -1,0 +1,72 @@
+{
+  "spot": "sarongs",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    2.0172,
+    73.5329
+  ],
+  "bearing_seaward_deg": 324.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 1083.0,
+  "mean_slope_m_per_km": 60.85,
+  "land_samples": 4,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 2.01902,
+      "lon": 73.53158,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 2.02084,
+      "lon": 73.53026,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 2.02448,
+      "lon": 73.52761,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 2.03175,
+      "lon": 73.52232,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 2.03903,
+      "lon": 73.51703,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 2.05358,
+      "lon": 73.50645,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 2.0754,
+      "lon": 73.49058,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 2.10451,
+      "lon": 73.46942,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 2.14816,
+      "lon": 73.43768,
+      "depth_m": 1083.0
+    }
+  ]
+}
