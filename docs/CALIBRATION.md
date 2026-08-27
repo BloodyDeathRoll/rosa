@@ -2107,3 +2107,64 @@ Marine-host ledger +320.6 as before (GWAM costs no Open-Meteo units).
 **Shipped:** `gwam.py`, `blend.compose_raw(tp=...)`, `GwamSource` wired as the default arm's
 peak source, attribution names DWD (CC BY 4.0) in the payload, About and Settings; 3 real
 DWD files as fixtures; 8 tests. `--wave-source om` unchanged.
+
+## 2026-08-27 - pb_0049: GFS-Wave's duplicated wind sea, dropped (the A/B that gates the merge)
+
+At some GFS-Wave cells one wave system is written into BOTH `shww/mpww/wvdir` and a
+`shts/mpts/swdir` slot, so the partition set carries more energy than the `swh` it
+partitions and the transform breaks the same wave twice. Found from Poleg publishing
+1.4-2.1 m for 2026-08-30 09:00 against a 1.6 m swell that Surfline and Rosa's own OM arm
+agreed on, `closure` 1.43 where healthy is 1.00. Source-side measurement (2026-08-27 00Z,
+350 cells across Israel / California / Sri Lanka / Portugal / Japan / Peru x f024/f078/f120):
+**6 cells (1.7%) carry the duplicate**, and in every one the pair is the same system twice -
+median |Δdir| 1.7 deg, |ΔT|/T 0.002, height ratio 0.99. The 328 that close sit median 63.7
+deg and 53% of period apart, and **not one falls inside the 20 deg / 15% window**. Clean
+separation, so this is de-duplication, not the partition scaling ALGORITHM.md forbids: no
+height is altered, no energy invented, a bimodal sea is untouched.
+
+**Design.** Arm A = the 08:20Z cron cycle's own `data/out` (blend at `main`, WITH the
+duplicate), snapshotted the moment that cycle finished. Arm B = `run --all` from the
+`windsea-dedup` worktree, started 09:26:30Z, `--skill` pointed at the VM's live skill.json
+so confidence ceilings matched. 469/469 both arms, **57,536 paired hours**. The arms are an
+hour apart in wall clock, which is only a same-input A/B if both drew the same GFS cycle -
+they did, and the diff itself is the proof: **93.1% of hours are bit-identical in rating and
+97.2% in `h_mid`**. A different source cycle would have moved nearly every hour.
+
+| | n | mean Δ | mean \|Δ\| | max \|Δ\| | hours moved | bucket moves | h_mid mean Δ |
+|---|---|---|---|---|---|---|---|
+| FLEET | 57,536 | +0.04 | 0.36 | 73 | 3,977 (6.9%) | 1,095 (1.9%) | -0.007 m |
+| israel | 5,376 | -0.47 | 1.24 | 29 | 1,527 (28.4%) | 360 (6.7%) | -0.008 m |
+| portugal | 5,376 | -0.20 | 0.96 | 28 | 1,376 (25.6%) | 308 (5.7%) | -0.011 m |
+| japan | 3,072 | +0.11 | 0.77 | 73 | 229 (7.5%) | 112 (3.6%) | -0.061 m |
+| california | 17,880 | +0.25 | 0.28 | 31 | 531 (3.0%) | 247 (1.4%) | -0.003 m |
+| philippines | 2,048 | -0.08 | 0.18 | 18 | 69 (3.4%) | 19 (0.9%) | -0.007 m |
+| mexico / sri-lanka / oregon / washington / costa-rica / el-salvador / nicaragua / hawaii | | ~0 | <0.11 | | <3.5% | <0.6% | ~0 |
+
+**closure >1.25: 7.82% -> 4.53% of hours; median 1.000 -> 0.990; max 7.31 -> 7.31.** It
+halves, it does not collapse - the handoff expected collapse and that expectation was wrong.
+The residual is spread over 323 spots (boca-barranca 80 h, pillar-point 67, salema 57), i.e.
+a different, still-open cause, and the unchanged max says the very worst hour was never a
+duplicate at all. **Do not chase the residual off the back of this entry** - `closure` is
+diagnostic only and nothing scores on it.
+
+**Direction of the move.** `h_mid` changed on 1,603 hours: **1,546 down, 57 up**; the 57 up
+average +0.123 m, max +0.400 m, and 50 of them land on a single far-horizon hour
+(2026-09-05T15:00+09:00) on the Japan coast. This is not energy appearing from nowhere:
+dropping a short-period wind sea raises the effective period of what is left, and shoaling
+gain is period-dependent, so a smaller offshore sea can break slightly bigger. Their
+`closure` improves in the same move (okuragahama 1.29 -> 1.02, praia-do-meco 1.29 -> 1.23),
+which is the expected sign.
+
+**Rating goes down where waves are small and up where they are big** - israel -0.47 and
+portugal -0.20 against california +0.25 - because the removed duplicate was inflating
+heights, and inflation reads as a better rating on a small day and a worse one on a big day.
+Fleet mean +0.04 is inside the noise; the honest number is that 6.9% of hours changed rating
+at all and 1.9% changed bucket.
+
+**Ops:** 42m33s wall for the 469-spot treatment run, 457 MB peak RSS, exit 0. No extra
+Open-Meteo units - the de-dup is pure post-processing of files already fetched.
+
+**Shipped:** `blend.drop_duplicate_windsea()` with `DEDUPE_DIR_DEG` / `DEDUPE_PERIOD_FRAC`,
+applied in `compose_raw`'s per-hour loop; 5 tests. `--wave-source om` is untouched.
+**Re-derive the two constants if GFS-Wave's partitioning changes** - they are the measured
+gap between the duplicate cluster and the nearest genuine bimodal sea, not round numbers.

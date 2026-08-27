@@ -1,93 +1,64 @@
-# Session Handoff - 2026-08-26
+# Session Handoff — 2026-08-27 (sessions 38-40)
 
 ## Goal
-Resume from the 2026-08-23 handoff, whose sole open item was "run the `run --all`
-fleet smoke on the next quota day". Ended up proving that smoke never needed a
-local run at all, verifying the six Dream proposals live instead, and rewriting the
-rule that had produced the false blocker.
+Three things landed: the basemap moved off CARTO, five regions were seeded (DB 469 -> 601),
+and the pb_0049 wind-sea A/B was read and the fix merged.
 
 ## Current State
-- **HEAD `cc5331b`, unchanged this session. No code was touched.** Only `handoff.md`
-  is modified; nothing committed, nothing deployed.
-- **The six-proposal change (swellmap accumulators, 0/360 seam fix, `tail_from`
-  provenance) is VERIFIED LIVE and healthy.** The smoke the last handoff was waiting
-  for had in fact been passing on the VM 4x/day since 08-23.
-- Verified from the CDN at 07:40Z against the 02:47Z cycle, zero Open-Meteo quota:
-  - 265/265 spots fetched OK, no errors
-  - `tail_from` present and non-null on **all 265** (e.g. acadia `2026-09-04T03:00+03:00`)
-  - zero null `h`, zero null `rating` across every published hour
-  - `hours` is 120 or 128; `fetched_at` spread 02:46:00Z..02:50:07Z (5 distinct)
-- VM `rosa-instance` on `cc5331b`, cycle done clean 2026-08-26T02:56:32Z.
-  swellmap published 9 basins + world, 57 frames each.
-- **"crosses the 0/360 seam" and "outside the global slice" have NEVER appeared** in
-  `publish.log` (grep count 0 over all 145 cycles).
-- Every traceback/warning in `publish.log` predates **2026-08-19**: historic 429s,
-  one `ConnectTimeout`, one Faro-coast-buoy `ReadTimeout` (08-18), and one
-  `TypeError: NoneType - float` from **2026-07-28** (the already-fixed wind-null bug).
-  **Nothing has failed since the change landed.**
-- Dream backlog still 0 findings / 0 proposals.
+- **Working tree carries sessions 38, 39 and 40** — none of it was committed until the end
+  of session 40. `windsea-dedup` merged to `main`.
+- **Spot DB = 601 spots.** morocco 42, angola 9 (session 38); peru 49, panama 23,
+  el-salvador 23->32 (session 39). Every pin rendered at z16 and judged; every move
+  re-rendered and re-read. Bathy + EOT20 committed for all 132 new spots.
+- **501 tests green, ruff clean, `npm run build` clean.**
+- **pb_0049 is CLOSED.** `blend.drop_duplicate_windsea()` is on `main`. Full A/B table in
+  `docs/CALIBRATION.md` 2026-08-27; the residual is OPEN-ITEMS 22.
+- **Basemap is OpenFreeMap** (keyless vector), not CARTO — CARTO started stamping
+  "API KEY REQUIRED" over every free raster tile.
+
+## Not yet verified on the CDN
+The next cron cycle (20:20Z) is the **first** carrying BOTH the de-dup fix and 601 spots.
+After it lands, check from the CDN — never by burning local quota:
+- `index.json` lists 601 spots.
+- A Peru spot (`chicama`) and a Panama Caribbean spot (`playa-bluff`) both publish.
+- `closure` on `poleg` for a 2026-08-30-ish hour is ~1.0, not ~1.43.
+- The run's `implausible break` warn count did not jump.
 
 ## Active Files
-- `handoff.md` - rewritten. Its "Next Step" no longer asks for a local smoke.
-- `~/.claude/projects/-home-shahar-Projects-rosa/memory/pipeline-change-smoke-rule.md`
-  - rewritten (see below). `MEMORY.md` index line updated to match.
-- Scratch (not in repo):
-  `/tmp/claude-1000/-home-shahar-Projects-rosa/<session>/scratchpad/sweep.py`
-  + `ids.txt` + `sweep.json` - the 265-spot CDN sweep, reusable.
+- `pipeline/src/rosa_pipeline/tide.py` — new `TideConstants.matches_spot()`.
+- `pipeline/tests/test_spots.py` — new `test_committed_tide_constants_match_their_spots`.
+- `tools/spot-seed/ca_final.py`, `emit_region.py` — de-Californianised (see below).
+- `data/spots/{peru,panama,morocco,angola}.yaml`, `el-salvador.yaml`.
+- VM `~/ab-dedup.sh`, `~/abdiff.py` — the A/B runner and diff tool, scratch on the VM.
 
-## Changes Made This Session
-1. **Read the handoff, then checked it rather than relaying it** (global rule 5).
-   Confirmed HEAD `cc5331b` and that local `data/out` had no `tail_from`.
-2. **Proposed the local smoke - user pushed back: it eats the data.** Correct. The
-   Oracle VM already runs `run --all` 4x/day. A local run duplicates it for ~2,038
-   quota units and risks 429-ing the shared workstation IP into the next real cycle.
-3. **Verified from the published CDN instead.** Wrote a 16-thread sweep over all 265
-   payloads at `https://rosa-data-opal.vercel.app/data/spots/{id}.json`.
-4. **Date-stamped every `publish.log` warning against its cycle** with an awk pass,
-   rather than reporting a raw grep count. This turned "29 warnings" into "29
-   warnings, newest 2026-08-18, none since the change" - the opposite conclusion.
-5. **Rewrote the smoke-rule memory.** It used to mandate a local `run --all` before
-   push; it now says: push, wait for a cycle, verify free from the CDN. The old rule
-   is what manufactured this session's blocker and burned a run last session.
-6. Stripped em-dashes from `handoff.md` (standing preference).
+## What changed in the seeding tools (all general, not one-off)
+- `ca_final.py` reads its skip list from `work/<region>/skip.json` instead of a hardcoded
+  California dict, and **a rename now re-slugs the id**.
+- `emit_region.py`: **a hand town override outranks OSM**, it no longer only fills a null.
+  OSM's nearest place node was wrong 11 times in 81 spots.
+- Re-aiming a bad shore normal: **sweep bearings against the local GEBCO grid and take the
+  mid of the widest unobstructed arc.** Faster and reproducible; this is the default now.
 
-## Failed Attempts
-- **First CDN URL was wrong** - `/spots/{id}.json` 404s. The real path is
-  `/data/spots/{id}.json` (and `/data/index.json`). Confirmed in `web/src/api.ts:10`.
-- **I first reported `tail_from` as MISSING and called it a real bug.** Wrong: I
-  looked for it per-hour. **`tail_from` is a single TOP-LEVEL payload key**
-  (`publish.py:449`), which was the deliberate design choice recorded in the last
-  handoff. Check `d['tail_from']`, never `d['hours'][0]['tail_from']`.
-- **`source .../activate` does nothing for me** - every Bash call is a fresh shell,
-  so env never persists. Use `pipeline/.venv/bin/python` by absolute path.
-- Carried, still true: **never run `run --all` locally to "smoke" a change**, and
-  never `--ignore-quota`.
-- Carried, still true: `npm run deploy` in `web/`; bare `npx vercel deploy --prod` fails.
-- Carried, still true: the antimeridian guard in `slice_basin_field` tests the
-  PUBLISHED geometry, not the source frame. Do not "simplify" it back.
-- Carried, still true: `load_spots` returns a dict - use `.values()`.
-- Carried, still true: Dream ledger is at
-  `assignments/codebase-reviewer/reports/.state/rosa.applied`.
-- Carried, watch for it: a stray 0-byte `/home/shahar/package.json` breaks
-  `npm run deploy`. Reappeared Aug 21. Not seen this session.
+## Failed Attempts / traps
+- The pipeline entry point is **`rosa-pipeline`**, not `rosa`. `uv run --project pipeline
+  rosa bathy` fails with "Failed to spawn" and a loop around it silently writes nothing.
+- **Run `bathy` from the repo root** or `--out` resolves cwd-relative into `pipeline/data/`.
+- **A stale `work/<region>/geocode.json` from an earlier session will fool a file-watcher.**
+  El Salvador's was 12 days old with 21 rows against the 12 queued.
+- Google collapses distinct spot names onto one coordinate — three names on the Paunch pin,
+  two on Venao. **Dedup by coordinate before rendering, not only by name.**
+- Do not trust an A/B ETA in a handoff. Read `~/ab-dedup.log` and `pgrep` first.
 
 ## Next Step
-Nothing is blocked and nothing is in flight. Pick from the value-ordered list:
-
-1. **Register more buoy networks** before the 2026-09-17 promotion decisions.
-   `data/buoys/ndbc.yaml` has 8 stations; NDBC has 908 wave stations. Also CMEMS,
-   NOWPHAS, INCOIS. This is the gate on promoting a raw source to primary.
-2. **Fetch-plane migration** - `docs/rosa-fetch-plane-plan.md` B1/C3 (OPEN-ITEMS 14).
-3. **`d_ref = max(depths_deep_to_shallow)`** (OPEN-ITEMS 15) and **two GEBCO sources
-   A/B** (OPEN-ITEMS 17), both at the 2026-09-17 archive-maturity gate.
-4. Optional, cheap: render `tail_from` in the UI. Published on all 265, nothing
-   renders it today, by choice.
-
-To re-verify the fleet any time, for free:
-```
-curl -s https://rosa-data-opal.vercel.app/data/index.json
-curl -s https://rosa-data-opal.vercel.app/data/spots/<id>.json | python3 -m json.tool
-ssh -i web/.oracle/ssh-key-2026-07-23.key ubuntu@82.70.218.149 \
-  'cd ~/rosa && git log --oneline -1 && tail -40 publish.log'
-```
-Date-stamp any `publish.log` warning before treating it as new.
+1. **Confirm the 20:20Z cycle on the CDN** (the checks above). This is the only outstanding
+   verification for everything in sessions 38-40.
+2. **Re-run the OM-vs-blend A/B** — still owed from the 08-26 promotion, and now doubly so:
+   that A/B carried BOTH the peak-period handicap and the wind-sea duplicate, so its
+   `+0.115 m` fleet `h_mid` was attributed to source skill and part of it was this bug.
+3. **Characterise the residual `closure >1.25`** (OPEN-ITEMS 22): 4.53% of hours over 323
+   spots, fleet max unchanged at 7.31. It is a lead, not a defect —
+   **do not scale partitions to close it.**
+4. More regions: British Columbia (separate pbf), then Indonesia, Australia, Chile,
+   France/Spain, South Africa.
+5. The 2026-09-17 archive-maturity gate: A4 weight re-fit, `d_ref` (item 15), two-GEBCO
+   A/B (item 17).
