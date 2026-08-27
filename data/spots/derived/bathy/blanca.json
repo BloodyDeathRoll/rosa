@@ -1,0 +1,72 @@
+{
+  "spot": "blanca",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -12.3403,
+    -76.8185
+  ],
+  "bearing_seaward_deg": 231.0,
+  "nearshore_depth_m": 51.0,
+  "offshore_depth_m": 105.0,
+  "mean_slope_m_per_km": 3.04,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -12.34171,
+      "lon": -76.82029,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -12.34313,
+      "lon": -76.82208,
+      "depth_m": 106.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -12.34596,
+      "lon": -76.82565,
+      "depth_m": 107.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -12.35162,
+      "lon": -76.83281,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -12.35728,
+      "lon": -76.83996,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -12.3686,
+      "lon": -76.85428,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -12.38557,
+      "lon": -76.87574,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -12.4082,
+      "lon": -76.90437,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -12.44214,
+      "lon": -76.94733,
+      "depth_m": 105.0
+    }
+  ]
+}

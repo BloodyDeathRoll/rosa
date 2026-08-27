@@ -1,0 +1,72 @@
+{
+  "spot": "el-jadida",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    33.2453,
+    -8.4897
+  ],
+  "bearing_seaward_deg": 44.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 9.0,
+  "mean_slope_m_per_km": 0.68,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.24692,
+      "lon": -8.48783,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.24853,
+      "lon": -8.48596,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.25177,
+      "lon": -8.48223,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.25824,
+      "lon": -8.47476,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.26471,
+      "lon": -8.46729,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.27764,
+      "lon": -8.45234,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.29704,
+      "lon": -8.42991,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.3229,
+      "lon": -8.39998,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.36167,
+      "lon": -8.35506,
+      "depth_m": 9.0
+    }
+  ]
+}

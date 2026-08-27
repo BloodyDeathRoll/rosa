@@ -1,0 +1,72 @@
+{
+  "spot": "oued-cherrat",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    33.8287,
+    -7.1276
+  ],
+  "bearing_seaward_deg": 314.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 94.0,
+  "mean_slope_m_per_km": 5.58,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.83026,
+      "lon": -7.12955,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.83182,
+      "lon": -7.13149,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.83495,
+      "lon": -7.13539,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.84119,
+      "lon": -7.14318,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.84744,
+      "lon": -7.15097,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.85993,
+      "lon": -7.16655,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.87866,
+      "lon": -7.18994,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.90363,
+      "lon": -7.22113,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.94107,
+      "lon": -7.26796,
+      "depth_m": 94.0
+    }
+  ]
+}

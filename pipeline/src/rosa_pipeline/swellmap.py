@@ -36,7 +36,7 @@ from .spots import load_spots
 BASINS: dict[str, tuple[str, ...]] = {
     "israel": ("Israel",),
     "portugal": ("Portugal",),
-    "central-america": ("Costa Rica", "Nicaragua", "El Salvador"),
+    "central-america": ("Costa Rica", "Nicaragua", "El Salvador", "Panama"),
     # Mexico gets its own box rather than joining central-america: its spots run from
     # Tijuana to the Oaxaca isthmus, and merging them would stretch one frame over
     # 30 deg of latitude and drown the Central American detail in sea room.
@@ -48,6 +48,9 @@ BASINS: dict[str, tuple[str, ...]] = {
     # Oregon + Washington share one Pacific Northwest frame: 900 km of one coastline
     "pacific-northwest": ("Oregon", "Washington"),
     "hawaii": ("Hawaii",),
+    "morocco": ("Morocco",),
+    "angola": ("Angola",),
+    "peru": ("Peru",),
 }
 BOX_PAD_DEG = 3.0  # sea-room around the spot extent so swell context is visible
 STEP_H = 3

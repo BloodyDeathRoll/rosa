@@ -1,0 +1,72 @@
+{
+  "spot": "camana-la-punta",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -16.6552,
+    -72.6848
+  ],
+  "bearing_seaward_deg": 198.0,
+  "nearshore_depth_m": -30.0,
+  "offshore_depth_m": 123.0,
+  "mean_slope_m_per_km": 8.62,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -16.65734,
+      "lon": -72.68553,
+      "depth_m": -30.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -16.65948,
+      "lon": -72.68625,
+      "depth_m": -20.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -16.66375,
+      "lon": -72.6877,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -16.67231,
+      "lon": -72.6906,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -16.68086,
+      "lon": -72.6935,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -16.69796,
+      "lon": -72.69931,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -16.72362,
+      "lon": -72.70801,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -16.75783,
+      "lon": -72.71963,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -16.80915,
+      "lon": -72.73706,
+      "depth_m": 123.0
+    }
+  ]
+}

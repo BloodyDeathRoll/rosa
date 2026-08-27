@@ -1,0 +1,72 @@
+{
+  "spot": "playa-venao",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    7.4321,
+    -80.1929
+  ],
+  "bearing_seaward_deg": 186.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 75.0,
+  "mean_slope_m_per_km": 4.56,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 7.42986,
+      "lon": -80.19314,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 7.42763,
+      "lon": -80.19337,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 7.42316,
+      "lon": -80.19385,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 7.41421,
+      "lon": -80.1948,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 7.40527,
+      "lon": -80.19574,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 7.38738,
+      "lon": -80.19764,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 7.36055,
+      "lon": -80.20048,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 7.32477,
+      "lon": -80.20427,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 7.27111,
+      "lon": -80.20996,
+      "depth_m": 75.0
+    }
+  ]
+}

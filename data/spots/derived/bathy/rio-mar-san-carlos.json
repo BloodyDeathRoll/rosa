@@ -1,0 +1,72 @@
+{
+  "spot": "rio-mar-san-carlos",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    8.4562,
+    -79.9693
+  ],
+  "bearing_seaward_deg": 148.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 24.0,
+  "mean_slope_m_per_km": 2.03,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 8.45429,
+      "lon": -79.9681,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 8.45239,
+      "lon": -79.96689,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 8.44857,
+      "lon": -79.96448,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 8.44095,
+      "lon": -79.95966,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 8.43332,
+      "lon": -79.95485,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 8.41807,
+      "lon": -79.94521,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 8.39518,
+      "lon": -79.93076,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 8.36468,
+      "lon": -79.9115,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 8.31891,
+      "lon": -79.88261,
+      "depth_m": 24.0
+    }
+  ]
+}

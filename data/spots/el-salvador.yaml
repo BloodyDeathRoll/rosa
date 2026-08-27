@@ -57,3 +57,20 @@ spots:
   - { id: las-flores,        name: "Las Flores", town: "El Cuco",        lat: 13.1725, lon: -88.1122, offshore_direction: 355, swell_window: [110, 240], offshore_km: 5.0, break_type: point, <<: *sv }  # sat-verified 2026-08-15 (long sand-bottom right point)
   - { id: el-cuco,           name: "El Cuco", town: "El Cuco",           lat: 13.1722, lon: -88.1046, offshore_direction: 354, swell_window: [109, 239], offshore_km: 5.0, <<: *sv }  # sat-verified 2026-08-15
   - { id: el-esteron,        name: "El Esterón", town: "Intipucá",        lat: 13.1693, lon: -88.0679, offshore_direction: 15, swell_window: [130, 260], offshore_km: 5.0, <<: *sv }  # sat-verified 2026-08-15
+
+  # ==== SEEDED 2026-08-27 - el-salvador, 9 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 9 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/el-salvador/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: siguapilapa, name: "Siguapilapa", town: "Mizata", lat: 13.5173, lon: -89.6156, offshore_direction: 27, swell_window: [142, 272], offshore_km: 5.0, <<: *sv }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: restaurants, name: "Restaurants", town: "La Libertad", lat: 13.4865, lon: -89.3079, offshore_direction: 344, swell_window: [99, 229], offshore_km: 5.0, <<: *sv }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: la-paz, name: "La Paz", town: "Puerto de La Libertad", lat: 13.4864, lon: -89.3199, offshore_direction: 63, swell_window: [178, 308], offshore_km: 5.0, <<: *sv }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: el-cocal, name: "El Cocal", town: "El Cocal", lat: 13.4863, lon: -89.3481, offshore_direction: 13, swell_window: [128, 258], offshore_km: 5.0, <<: *sv }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: amatecampo, name: "Amatecampo", town: "Amatecampo", lat: 13.4110, lon: -89.1421, offshore_direction: 29, swell_window: [144, 274], offshore_km: 5.0, <<: *sv }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: san-marcelino, name: "San Marcelino", town: "Costa del Sol", lat: 13.3512, lon: -89.0270, offshore_direction: 21, swell_window: [136, 266], offshore_km: 5.0, <<: *sv }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: el-icacal, name: "El Icacal", town: "Intipucá", lat: 13.1656, lon: -88.0228, offshore_direction: 5, swell_window: [120, 250], offshore_km: 5.0, <<: *sv }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: las-tunas, name: "Las Tunas", town: "Las Tunas", lat: 13.1611, lon: -87.9641, offshore_direction: 56, swell_window: [171, 301], offshore_km: 5.0, <<: *sv }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: punta-amapala, name: "Punta Amapala", town: "Conchagua", lat: 13.1587, lon: -87.8962, offshore_direction: 316, swell_window: [71, 201], offshore_km: 5.0, <<: *sv }  # sat-verified 2026-08-27 (websearch-seeded)

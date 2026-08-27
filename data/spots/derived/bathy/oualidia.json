@@ -1,0 +1,72 @@
+{
+  "spot": "oualidia",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    32.7362,
+    -9.0457
+  ],
+  "bearing_seaward_deg": 305.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 85.0,
+  "mean_slope_m_per_km": 4.73,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.73749,
+      "lon": -9.04789,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.73878,
+      "lon": -9.05008,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.74136,
+      "lon": -9.05446,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.74652,
+      "lon": -9.06322,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.75167,
+      "lon": -9.07198,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.76198,
+      "lon": -9.0895,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.77745,
+      "lon": -9.11579,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.79806,
+      "lon": -9.15087,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.82895,
+      "lon": -9.20351,
+      "depth_m": 85.0
+    }
+  ]
+}

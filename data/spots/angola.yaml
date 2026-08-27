@@ -1,0 +1,33 @@
+# Rosa spot database - Angola (seeded 2026-08-27). A west-facing South Atlantic coast:
+# SW groundswell out of the Southern Ocean, most consistent in the austral winter, with
+# long sand-bottom points (Cabo Ledo) south of Luanda. Offshore wind is easterly off the
+# land. Every spot carries offshore_km along its own seaward normal, so the sample point
+# follows the pin.
+
+defaults: &ao
+  timezone: Africa/Luanda
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [205, 335]
+  ideal:
+    wind_dir: [45, 135]
+    size_m: [0.6, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-08-27 - angola, 9 spots (primary coastline flow: 1 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 8 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/angola/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: ambriz-beach, name: "Ambriz Beach", town: "Ambriz", lat: -7.8531, lon: 13.1060, offshore_direction: 51, swell_window: [166, 296], offshore_km: 5.0, <<: *ao }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: buraco, name: "Buraco", town: "Palmeirinhas", lat: -9.0288, lon: 13.0004, offshore_direction: 143, swell_window: [258, 28], offshore_km: 5.0, <<: *ao }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: barra-do-kwanza, name: "Barra do Kwanza", town: "Barra do Cuanza", lat: -9.3430, lon: 13.1462, offshore_direction: 59, swell_window: [174, 304], offshore_km: 5.0, <<: *ao }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: sangano, name: "Sangano", town: "Sangano", lat: -9.5533, lon: 13.2015, offshore_direction: 143, swell_window: [258, 28], offshore_km: 5.0, <<: *ao }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: cabo-ledo, name: "Cabo Ledo", town: "Cabo Ledo", lat: -9.6779, lon: 13.2020, offshore_direction: 170, swell_window: [285, 55], offshore_km: 5.0, <<: *ao }  # sat-verified 2026-08-27 (osm-seeded)
+  - { id: porto-amboim, name: "Porto Amboim", town: "Porto Amboim", lat: -10.7246, lon: 13.7545, offshore_direction: 125, swell_window: [240, 10], offshore_km: 5.0, <<: *ao }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: praia-morena, name: "Praia Morena", town: "Benguela", lat: -12.5779, lon: 13.3954, offshore_direction: 129, swell_window: [244, 14], offshore_km: 5.0, <<: *ao }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: caota, name: "Caota", town: "Caotinha", lat: -12.5868, lon: 13.2700, offshore_direction: 173, swell_window: [288, 58], offshore_km: 5.0, <<: *ao }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: baia-azul, name: "Baia Azul", town: "Baía Azul", lat: -12.6215, lon: 13.2393, offshore_direction: 166, swell_window: [281, 51], offshore_km: 5.0, <<: *ao }  # sat-verified 2026-08-27 (websearch-seeded)

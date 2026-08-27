@@ -1,0 +1,72 @@
+{
+  "spot": "siguapilapa",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    13.5173,
+    -89.6156
+  ],
+  "bearing_seaward_deg": 207.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 63.0,
+  "mean_slope_m_per_km": 4.11,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.5153,
+      "lon": -89.61665,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.51329,
+      "lon": -89.6177,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.50929,
+      "lon": -89.6198,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.50127,
+      "lon": -89.624,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.49326,
+      "lon": -89.6282,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.47723,
+      "lon": -89.63659,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.45319,
+      "lon": -89.64918,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.42114,
+      "lon": -89.66597,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.37305,
+      "lon": -89.69114,
+      "depth_m": 63.0
+    }
+  ]
+}

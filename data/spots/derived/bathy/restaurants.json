@@ -1,0 +1,72 @@
+{
+  "spot": "restaurants",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    13.4865,
+    -89.3079
+  ],
+  "bearing_seaward_deg": 164.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 39.0,
+  "mean_slope_m_per_km": 2.48,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.48434,
+      "lon": -89.30726,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.48218,
+      "lon": -89.30663,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.47786,
+      "lon": -89.30535,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.46921,
+      "lon": -89.3028,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.46057,
+      "lon": -89.30025,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.44328,
+      "lon": -89.29516,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.41734,
+      "lon": -89.28751,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.38276,
+      "lon": -89.27732,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.33089,
+      "lon": -89.26204,
+      "depth_m": 39.0
+    }
+  ]
+}

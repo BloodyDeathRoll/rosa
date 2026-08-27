@@ -1,0 +1,72 @@
+{
+  "spot": "cabo-ledo",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -9.6779,
+    13.202
+  ],
+  "bearing_seaward_deg": 350.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 22.0,
+  "mean_slope_m_per_km": 1.86,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -9.67569,
+      "lon": 13.2016,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -9.67347,
+      "lon": 13.20121,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -9.66904,
+      "lon": 13.20042,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -9.66019,
+      "lon": 13.19883,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -9.65133,
+      "lon": 13.19725,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -9.63362,
+      "lon": 13.19408,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -9.60705,
+      "lon": 13.18933,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -9.57162,
+      "lon": 13.183,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -9.51848,
+      "lon": 13.1735,
+      "depth_m": 22.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "barranquito",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -12.1436,
+    -77.0268
+  ],
+  "bearing_seaward_deg": 268.0,
+  "nearshore_depth_m": -13.0,
+  "offshore_depth_m": 26.0,
+  "mean_slope_m_per_km": 2.2,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -12.14368,
+      "lon": -77.0291,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -12.14376,
+      "lon": -77.0314,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -12.14391,
+      "lon": -77.03599,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -12.14423,
+      "lon": -77.04519,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -12.14454,
+      "lon": -77.05438,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -12.14517,
+      "lon": -77.07277,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -12.1461,
+      "lon": -77.10035,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -12.14734,
+      "lon": -77.13712,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -12.1492,
+      "lon": -77.19229,
+      "depth_m": 26.0
+    }
+  ]
+}

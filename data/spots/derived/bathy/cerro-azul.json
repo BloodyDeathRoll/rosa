@@ -1,0 +1,72 @@
+{
+  "spot": "cerro-azul",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -13.0233,
+    -76.4822
+  ],
+  "bearing_seaward_deg": 264.0,
+  "nearshore_depth_m": -52.0,
+  "offshore_depth_m": 113.0,
+  "mean_slope_m_per_km": 9.3,
+  "land_samples": 4,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -13.02354,
+      "lon": -76.4845,
+      "depth_m": -52.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -13.02377,
+      "lon": -76.48679,
+      "depth_m": -68.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -13.02424,
+      "lon": -76.49138,
+      "depth_m": -91.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -13.02518,
+      "lon": -76.50056,
+      "depth_m": -56.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -13.02612,
+      "lon": -76.50974,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -13.028,
+      "lon": -76.5281,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -13.03081,
+      "lon": -76.55564,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -13.03456,
+      "lon": -76.59237,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -13.04017,
+      "lon": -76.64745,
+      "depth_m": 113.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "playa-cambutal",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    7.2492,
+    -80.5036
+  ],
+  "bearing_seaward_deg": 227.0,
+  "nearshore_depth_m": 115.0,
+  "offshore_depth_m": 1228.0,
+  "mean_slope_m_per_km": 62.7,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 7.24767,
+      "lon": -80.50526,
+      "depth_m": 115.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 7.24613,
+      "lon": -80.50692,
+      "depth_m": 148.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 7.24307,
+      "lon": -80.51023,
+      "depth_m": 218.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 7.23693,
+      "lon": -80.51686,
+      "depth_m": 135.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 7.2308,
+      "lon": -80.52349,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 7.21853,
+      "lon": -80.53675,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 7.20013,
+      "lon": -80.55664,
+      "depth_m": 101.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 7.17559,
+      "lon": -80.58315,
+      "depth_m": 499.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 7.13878,
+      "lon": -80.62291,
+      "depth_m": 1228.0
+    }
+  ]
+}

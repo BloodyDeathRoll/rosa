@@ -1,0 +1,72 @@
+{
+  "spot": "cabo-blanco",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -4.2508,
+    -81.2339
+  ],
+  "bearing_seaward_deg": 352.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 512.0,
+  "mean_slope_m_per_km": 29.52,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -4.24857,
+      "lon": -81.23421,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -4.24635,
+      "lon": -81.23453,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -4.24189,
+      "lon": -81.23516,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -4.23299,
+      "lon": -81.23641,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -4.22408,
+      "lon": -81.23767,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -4.20627,
+      "lon": -81.24017,
+      "depth_m": 102.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -4.17955,
+      "lon": -81.24394,
+      "depth_m": 130.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -4.14393,
+      "lon": -81.24896,
+      "depth_m": 344.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -4.0905,
+      "lon": -81.25649,
+      "depth_m": 512.0
+    }
+  ]
+}

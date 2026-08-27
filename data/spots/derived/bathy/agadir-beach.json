@@ -1,0 +1,72 @@
+{
+  "spot": "agadir-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    30.4041,
+    -9.604
+  ],
+  "bearing_seaward_deg": 254.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 87.0,
+  "mean_slope_m_per_km": 4.62,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 30.40348,
+      "lon": -9.60651,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 30.40286,
+      "lon": -9.60901,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 30.40162,
+      "lon": -9.61402,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 30.39914,
+      "lon": -9.62405,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 30.39666,
+      "lon": -9.63407,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 30.3917,
+      "lon": -9.65411,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 30.38424,
+      "lon": -9.68417,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 30.3743,
+      "lon": -9.72424,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 30.35936,
+      "lon": -9.78434,
+      "depth_m": 87.0
+    }
+  ]
+}

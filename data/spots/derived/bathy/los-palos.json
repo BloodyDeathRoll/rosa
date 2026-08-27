@@ -1,0 +1,72 @@
+{
+  "spot": "los-palos",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -18.2985,
+    -70.447
+  ],
+  "bearing_seaward_deg": 215.0,
+  "nearshore_depth_m": -57.0,
+  "offshore_depth_m": 155.0,
+  "mean_slope_m_per_km": 11.94,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -18.30034,
+      "lon": -70.44836,
+      "depth_m": -57.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -18.30218,
+      "lon": -70.44972,
+      "depth_m": -52.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -18.30587,
+      "lon": -70.45243,
+      "depth_m": -25.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -18.31323,
+      "lon": -70.45787,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -18.3206,
+      "lon": -70.4633,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -18.33533,
+      "lon": -70.47417,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -18.35743,
+      "lon": -70.49048,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -18.38689,
+      "lon": -70.51223,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -18.43108,
+      "lon": -70.54487,
+      "depth_m": 155.0
+    }
+  ]
+}

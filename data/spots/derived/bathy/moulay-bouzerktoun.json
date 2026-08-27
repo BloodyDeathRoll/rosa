@@ -1,0 +1,72 @@
+{
+  "spot": "moulay-bouzerktoun",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    31.6443,
+    -9.6769
+  ],
+  "bearing_seaward_deg": 271.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 59.0,
+  "mean_slope_m_per_km": 3.38,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 31.64434,
+      "lon": -9.67954,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 31.64438,
+      "lon": -9.68218,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 31.64446,
+      "lon": -9.68746,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 31.64461,
+      "lon": -9.69802,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 31.64477,
+      "lon": -9.70859,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 31.64507,
+      "lon": -9.72971,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 31.64553,
+      "lon": -9.7614,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 31.64612,
+      "lon": -9.80365,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 31.64698,
+      "lon": -9.86703,
+      "depth_m": 59.0
+    }
+  ]
+}

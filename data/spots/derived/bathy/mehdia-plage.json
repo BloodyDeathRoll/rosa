@@ -1,0 +1,72 @@
+{
+  "spot": "mehdia-plage",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    34.256,
+    -6.6788
+  ],
+  "bearing_seaward_deg": 278.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 130.0,
+  "mean_slope_m_per_km": 7.72,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.25631,
+      "lon": -6.68149,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.25663,
+      "lon": -6.68419,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.25725,
+      "lon": -6.68957,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.2585,
+      "lon": -6.70035,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.25975,
+      "lon": -6.71113,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.26225,
+      "lon": -6.73268,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.26598,
+      "lon": -6.76501,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.27095,
+      "lon": -6.80812,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.27838,
+      "lon": -6.8728,
+      "depth_m": 130.0
+    }
+  ]
+}
