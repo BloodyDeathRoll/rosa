@@ -40,31 +40,40 @@ def test_messages_surface_sliderules_own_explanation():
     assert "341 > 300" in atl24._messages(blob)[0]
 
 
-def test_parquet_files_collects_every_part():
-    blob = (
-        _except("progress")
-        + _record("arrowrec.data", b"\x00\x00PAR1one PAR1")
-        + _record("arrowrec.data", b"\x00\x00PAR1two PAR1")
-    )
-    assert atl24._parquet_files(blob) == [b"PAR1one PAR1", b"PAR1two PAR1"]
+def _data(chunk: bytes) -> bytes:
+    """An arrowrec.data record: 128-byte preamble, then this slice of the Parquet file."""
+    return _record("arrowrec.data", b"\x00" * atl24._ARROW_PREAMBLE + chunk)
 
 
-def test_parquet_files_is_empty_rather_than_raising_on_a_message_only_reply():
-    assert atl24._parquet_files(_except("nothing here")) == []
+def test_one_parquet_file_is_reassembled_from_many_records():
+    """SlideRule caps a payload at 32 MiB and splits ONE Parquet file across records - the
+    Maldivian north took four, 129 MB. Reading each record as a complete file (the obvious
+    first guess) fails on exactly the boxes worth measuring: the middle records carry no
+    PAR1 at all, so they look empty, and the first looks corrupt."""
+    blob = _except("progress") + _data(b"PAR1head") + _data(b"middle") + _data(b"tailPAR1")
+    assert atl24._parquet_blob(blob) == b"PAR1headmiddletailPAR1"
+
+
+def test_a_single_record_answer_still_works():
+    assert atl24._parquet_blob(_data(b"PAR1body PAR1")) == b"PAR1body PAR1"
+
+
+def test_no_data_records_means_no_photons_not_an_error():
+    assert atl24._parquet_blob(_except("nothing here")) is None
 
 
 def test_a_tile_with_no_photons_is_empty_not_broken():
     """Most tiles of a country-sized box have no lidar at all - ICESat-2 flies fixed repeat
-    tracks - and they come back as an arrowrec.data holding only a preamble. Raising there
-    would abort the sweep on the normal case."""
-    assert atl24._parquet_files(_record("arrowrec.data", b"\x00" * 32)) == []
+    tracks - and they come back as preamble only. Raising would abort the sweep on the
+    normal case."""
+    assert atl24._parquet_blob(_data(b"")) is None
 
 
 def test_a_half_written_parquet_still_raises():
-    """Empty is fine; truncated is not. Dropping a payload that starts a Parquet file but
-    never ends one would silently lose real photons."""
+    """Empty is fine; corrupt is not. Silently dropping bytes that are not a Parquet file
+    would lose real photons and read as 'no coverage here'."""
     with pytest.raises(ValueError, match="corrupt, not empty"):
-        atl24._parquet_files(_record("arrowrec.data", b"\x00\x00PAR1rows-but-no-footer"))
+        atl24._parquet_blob(_data(b"PAR1rows-but-no-footer"))
 
 
 def test_wkb_point_decodes_lon_then_lat():

@@ -46,9 +46,10 @@ CITATION = (
 # 2026-08-27: 254 `exceptrec` progress records, one `arrowrec.meta`, one `arrowrec.data`.
 _REC_HEADER = ">HHI"
 _REC_VERSION = 2
-# The arrow payload carries a fixed-size preamble before the Parquet file itself; rather than
-# hardcode its length, find the magic - Parquet files start AND end with b"PAR1".
 _PARQUET_MAGIC = b"PAR1"
+# Each arrowrec.data payload opens with a fixed 128-byte preamble before its slice of the
+# Parquet file. Measured against live responses 2026-08-27, single- and multi-record alike.
+_ARROW_PREAMBLE = 128
 
 
 @dataclass(frozen=True, slots=True)
@@ -124,29 +125,32 @@ def _messages(blob: bytes) -> list[str]:
     return out
 
 
-def _parquet_files(blob: bytes) -> list[bytes]:
-    """Every complete Parquet file in the record stream (a large answer arrives in parts).
+def _parquet_blob(blob: bytes) -> bytes | None:
+    """The single Parquet file the stream carries, or None when the tile had no photons.
 
-    A tile with no photons still gets an ``arrowrec.data`` record - just a preamble with no
-    Parquet in it. That is an empty answer, not a broken one, and over a country-sized box
-    most tiles are empty (ICESat-2 flies fixed repeat tracks), so it must not abort the
-    sweep. A payload that STARTS a Parquet file without finishing it is a different thing
-    and still raises: that is corruption, and silently dropping it would lose real photons.
+    SlideRule caps an ``arrowrec.data`` payload at 32 MiB and splits ONE Parquet file
+    across as many records as it needs - the Maldivian north took four, 129 MB in total.
+    Each payload opens with a 128-byte preamble; the file is the concatenation of what
+    follows. Treating each record as a complete file (the obvious reading, and the first
+    one written here) fails on exactly the boxes worth measuring: the middle records carry
+    no PAR1 at all, so they look "empty", and the first looks corrupt.
+
+    A tile with no photons yields either no ``arrowrec.data`` at all or preamble-only
+    records. Over a country-sized box most tiles are empty - ICESat-2 flies fixed repeat
+    tracks - so that must return None, not raise.
     """
-    files: list[bytes] = []
-    for name, payload in _split_records(blob):
-        if name != "arrowrec.data":
-            continue
-        start = payload.find(_PARQUET_MAGIC)
-        if start < 0:
-            continue  # no rows for this tile
-        if not payload.endswith(_PARQUET_MAGIC):
-            raise ValueError(
-                f"arrowrec.data starts a Parquet file at byte {start} but does not end one "
-                f"({len(payload)} bytes) - corrupt, not empty"
-            )
-        files.append(payload[start:])
-    return files
+    parts = [payload for name, payload in _split_records(blob) if name == "arrowrec.data"]
+    if not parts:
+        return None
+    joined = b"".join(p[_ARROW_PREAMBLE:] for p in parts)
+    if not joined:
+        return None
+    if not (joined.startswith(_PARQUET_MAGIC) and joined.endswith(_PARQUET_MAGIC)):
+        raise ValueError(
+            f"reassembled {len(parts)} arrowrec.data record(s) into {len(joined)} bytes that "
+            "are not a Parquet file (expected PAR1 at both ends) - corrupt, not empty"
+        )
+    return joined
 
 
 def _fetch_box(
@@ -177,9 +181,8 @@ def _fetch_box(
             resp.raise_for_status()
             blob = resp.content
             try:
-                photons: list[Photon] = []
-                for parquet in _parquet_files(blob):
-                    photons.extend(_parse_parquet(parquet))
+                parquet = _parquet_blob(blob)
+                photons: list[Photon] = [] if parquet is None else _parse_parquet(parquet)
             except TruncatedStream as e:
                 last = e
                 continue
