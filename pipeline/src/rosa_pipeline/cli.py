@@ -692,8 +692,8 @@ def _cmd_run(args: argparse.Namespace) -> int:
                         f"`bathy --spot {spot.id}`",
                         file=sys.stderr,
                     )
-                wet_depths = profile.wet_depths_deep_to_shallow() if profile else None
-                scored = [score_hour(spot, h, wet_depths) for h in hours]
+                wet_samples = profile.wet_samples_deep_to_shallow() if profile else None
+                scored = [score_hour(spot, h, wet_samples) for h in hours]
                 payload = build_payload(
                     spot,
                     scored,

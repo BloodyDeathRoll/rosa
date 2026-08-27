@@ -135,6 +135,12 @@ class DepthProfile:
         wants (samples are stored nearshore-first, so reverse and drop dry/land points)."""
         return [s.depth_m for s in reversed(self.samples) if s.depth_m > 0]
 
+    def wet_samples_deep_to_shallow(self) -> list[tuple[float, float]]:
+        """(dist_m, depth_m) wet samples ordered deep -> shallow - what the random-sea march
+        wants: bottom-friction dissipation acts per metre travelled, so the march needs the
+        along-ray distance between samples, not just their depths."""
+        return [(s.dist_km * 1000.0, s.depth_m) for s in reversed(self.samples) if s.depth_m > 0]
+
     @classmethod
     def from_dict(cls, d: dict) -> DepthProfile:
         samples = tuple(

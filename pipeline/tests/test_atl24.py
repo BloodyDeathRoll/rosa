@@ -172,9 +172,7 @@ def test_index_finds_the_same_photons_as_a_brute_force_scan():
     idx = atl24.PhotonIndex(photons, radius_m=150.0)
     for lat, lon in ((4.0, 73.0), (4.0009, 73.0), (4.0, 72.9994), (3.9991, 73.0012)):
         brute = {
-            (p.lat, p.lon)
-            for p in photons
-            if atl24._haversine_m(lat, lon, p.lat, p.lon) <= 150.0
+            (p.lat, p.lon) for p in photons if atl24._haversine_m(lat, lon, p.lat, p.lon) <= 150.0
         }
         assert {(p.lat, p.lon) for p in idx.near(lat, lon)} == brute
 

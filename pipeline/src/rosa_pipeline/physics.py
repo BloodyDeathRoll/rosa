@@ -290,3 +290,138 @@ def breaker_height_over_profile(
             offshore_height_m, period_s, incidence_deg, d_ref, gamma=gamma
         ),
     )
+
+
+# --- Random-sea surf height (2026-08-28) -------------------------------------------------
+#
+# The march above transforms ONE monochromatic wave carrying the partition's whole Hs, and
+# breaker_height_komar_gaughan closes the unresolved last stretch from the un-attenuated
+# offshore state. Both choices run hot for a real (random, spread) sea, and the error is
+# regime-dependent: worst for short-period windswell over a wide shallow shelf (the Med),
+# smallest for long-period groundswell onto a steep coast. Measured at poleg 2026-08-27
+# (offshore Hs 1.55 m @ 8 s): monochromatic pipeline 1.9-2.0 m vs 1.4 m from a
+# Battjes-Janssen reference march - vs Surfline's 0.6-1.1 m published band.
+#
+# Three literature-backed corrections, no eyes involved:
+#   * JONSWAP bottom friction (Hasselmann et al. 1973; SWAN's default formulation,
+#     Cb = 0.038 m^2 s^-3): dissipation per metre travelled, which is why this march needs
+#     the along-ray DISTANCE of each sample, not just its depth. At poleg the shelf takes
+#     ~20% off the height before the wave ever breaks; a steep coast loses ~nothing.
+#   * Battjes & Janssen (1978) breaking dissipation inside the resolved profile: a random
+#     sea does not break as one wave at gamma*d - the tallest fraction Qb breaks first and
+#     the sea saturates gradually. Replaces the hard gamma*d cap.
+#   * The Komar & Gaughan close estimates the TOP-TENTH breaker, not the significant one:
+#     Caldwell & Aucan 2007 (J. Coastal Research 23(5):1237) validated exactly this
+#     estimator against 404 paired days of Waimea buoy + North Shore observations and
+#     found it tracks H1/10; their eq. 4 gives H1/3 = 0.79 x H1/10 (Rayleigh). Publishing
+#     K&G raw was publishing the top-tenth wave as the typical one.
+BOTTOM_FRICTION_CB = 0.038  # m^2 s^-3, JONSWAP swell value (SWAN default)
+BJ_GAMMA = 0.73  # Battjes-Janssen breaker parameter (their fitted value, SWAN default)
+H13_OVER_H110 = 0.79  # Rayleigh: significant height of the breakers vs their top tenth
+_SUBSTEP_M = 25.0  # dissipation substep; segments between samples are km apart
+_RHO = 1025.0  # kg/m^3 seawater
+
+
+def _breaking_fraction(hrms: float, hmax: float) -> float:
+    """Battjes-Janssen Qb: the fraction of waves breaking, from (1-Qb)/ln(Qb) = -(Hrms/Hmax)^2.
+    Fixed-point iteration on Qb = exp((Qb-1)/b); b >= 1 means the whole sea is breaking."""
+    if hmax <= 0.0:
+        return 1.0
+    b = (hrms / hmax) ** 2
+    if b >= 1.0:
+        return 1.0
+    if b < 1e-4:
+        return 0.0
+    qb = 0.5
+    for _ in range(50):
+        nxt = math.exp((qb - 1.0) / b)
+        if abs(nxt - qb) < 1e-6:
+            break
+        qb = nxt
+    return qb
+
+
+def surf_height_over_profile(
+    offshore_height_m: float,
+    period_s: float,
+    incidence_deg: float,
+    samples_deep_to_shallow: list[tuple[float, float]],
+    *,
+    gamma: float = BREAK_GAMMA,
+    friction_cb: float = BOTTOM_FRICTION_CB,
+) -> float:
+    """Significant surf height of a random sea over the measured profile.
+
+    Same skeleton as ``breaker_height_over_profile`` - conserve energy flux inward from the
+    deep reference, Snell refraction, skip samples deeper than the reference and rays
+    refracted to grazing, close the stretch GEBCO cannot resolve with Komar & Gaughan - with
+    the three random-sea corrections documented above. ``samples_deep_to_shallow`` is
+    (dist_m, depth_m) pairs, ordered deep to shallow (``DepthProfile.wet_samples_deep_to_shallow``).
+
+    Between accepted samples the depth is interpolated linearly in ~100 m substeps so a
+    4 km segment cannot swallow a dissipation zone whole. Interpolating between MEASURED
+    points is not the prohibited invented-shallow-sample append: the march never continues
+    past the shallowest measured sample - the K&G close covers that stretch, fed the
+    friction-attenuated offshore height instead of the raw one."""
+    if (
+        offshore_height_m <= 0
+        or period_s <= 0
+        or not samples_deep_to_shallow
+        or incidence_deg >= 90.0
+    ):
+        return 0.0
+    x_ref, d_ref = samples_deep_to_shallow[0]
+    c_ref, cg_ref = celerities(period_s, d_ref)
+    a_ref = math.radians(incidence_deg)
+    sin_a_ref = math.sin(a_ref)
+    fm = 1.0 / period_s
+    atten = 1.0  # cumulative dissipation factor on height (friction + breaking)
+    surf_in_profile = 0.0
+    prev_x, prev_d = x_ref, d_ref
+    for x, d in samples_deep_to_shallow[1:]:
+        if d > d_ref:
+            continue  # non-monotone ray - same skip, same rationale as the march above
+        seg_len = abs(prev_x - x)
+        n_sub = max(1, int(seg_len / _SUBSTEP_M))
+        dx = seg_len / n_sub
+        for i in range(1, n_sub + 1):
+            f = i / n_sub
+            d_mid = prev_d + (d - prev_d) * (f - 0.5 / n_sub)  # substep-centre depth
+            k = wavenumber(period_s, d_mid)
+            c, cg = celerities(period_s, d_mid)
+            sin_a = sin_a_ref * c / c_ref
+            if sin_a >= 1.0:
+                continue  # grazing - no transform, no dissipation accounted
+            ks = math.sqrt(cg_ref / cg)
+            kr = math.sqrt(math.cos(a_ref) / math.cos(math.asin(sin_a)))
+            height = offshore_height_m * ks * kr * atten
+            if height <= 0.0:
+                continue
+            hrms = height / math.sqrt(2.0)
+            energy = _RHO * GRAVITY * hrms * hrms / 8.0
+            flux = energy * cg
+            # JONSWAP bottom friction (guard the sinh overflow in deep water)
+            kd = k * d_mid
+            d_fric = 0.0
+            if kd < 25.0:
+                orbital = 2.0 * math.pi * fm / math.sinh(kd)
+                d_fric = friction_cb / GRAVITY * orbital * orbital * energy
+            # Battjes-Janssen breaking
+            hmax = 0.88 / k * math.tanh(BJ_GAMMA * kd / 0.88)
+            qb = _breaking_fraction(hrms, hmax)
+            d_break = 0.25 * qb * fm * _RHO * GRAVITY * hmax * hmax
+            if qb > 0.1:  # the sea is actively breaking here - this IS surf
+                surf_in_profile = max(surf_in_profile, height)
+            loss = (d_fric + d_break) * dx
+            if flux > 0.0 and loss > 0.0:
+                # exp(-x/2) == sqrt(1-x) to first order, but stays positive when a
+                # saturated substep dissipates more than the segment's flux carries
+                atten *= math.exp(-0.5 * loss / flux)
+        prev_x, prev_d = x, d
+    return max(
+        surf_in_profile,
+        H13_OVER_H110
+        * breaker_height_komar_gaughan(
+            offshore_height_m * atten, period_s, incidence_deg, d_ref, gamma=gamma
+        ),
+    )

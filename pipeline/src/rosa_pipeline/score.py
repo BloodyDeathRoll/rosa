@@ -89,26 +89,28 @@ def bucket(rating: int) -> Bucket:
     return "FIRING"
 
 
-def score_hour(spot: Spot, hour: HourForecast, wet_depths: list[float] | None = None) -> ScoredHour:
+def score_hour(
+    spot: Spot, hour: HourForecast, wet_samples: list[tuple[float, float]] | None = None
+) -> ScoredHour:
     window = spot.swell_window
     dominant = dominant_partition(hour.partitions, window)
     energy = energy_in_window(hour.partitions, window)
     # Stage 2B: with the spot's bathymetry profile, breaker height comes from real physics
     # (shoaling + refraction + depth-limited breaking). Falls back to the q(T) transform
     # when no profile is available (retired fully in Stage 2E once physics is recalibrated).
-    if wet_depths:
+    if wet_samples:
         # tide raises/lowers the water column, so the wave breaks at a deeper/shallower point
         # (Stage 2D). Micro-tidal Med barely moves; macro-tidal spots (Costa Rica) shift a lot.
-        depths = wet_depths
+        samples = wet_samples
         if hour.tide_m:
-            depths = [d + hour.tide_m for d in wet_depths if d + hour.tide_m > 0]
+            samples = [(x, d + hour.tide_m) for x, d in wet_samples if d + hour.tide_m > 0]
         # open item 4 (product call 2026-08-03): a blown-out sea reads smaller, a groomed one
         # bigger. Inert until WIND_BREAKER_COEFF is graded - see physics.wind_breaker_factor.
         h_eff = breaker_height_from_profile(
             hour.partitions,
             window,
             spot.shore_normal,
-            depths,
+            samples,
             wind_normal_ms=shore_normal_wind_ms(
                 hour.wind_speed_kph, hour.wind_dir_deg, spot.offshore_direction
             ),

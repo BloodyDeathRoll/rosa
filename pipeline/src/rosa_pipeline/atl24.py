@@ -37,9 +37,7 @@ import httpx
 from .bathymetry import DepthProfile
 
 SLIDERULE_ATL24_URL = "https://sliderule.slideruleearth.io/source/atl24x"
-CITATION = (
-    "ICESat-2 ATL24 (NASA/NSIDC, doi:10.5067/ATLAS/ATL24.001), subset via SlideRule Earth"
-)
+CITATION = "ICESat-2 ATL24 (NASA/NSIDC, doi:10.5067/ATLAS/ATL24.001), subset via SlideRule Earth"
 
 # SlideRule frames every record as: version(u16) type-name-length(u16) payload-length(u32),
 # then the NUL-terminated type name, then the payload. Verified against a live response

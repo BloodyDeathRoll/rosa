@@ -2168,3 +2168,59 @@ Open-Meteo units - the de-dup is pure post-processing of files already fetched.
 applied in `compose_raw`'s per-hour loop; 5 tests. `--wave-source om` is untouched.
 **Re-derive the two constants if GFS-Wave's partitioning changes** - they are the measured
 gap between the duplicate cluster and the nearest genuine bimodal sea, not round numbers.
+
+## 2026-08-28 - Random-sea surf height: friction + Battjes-Janssen + the 0.79 close (session 25)
+
+**Trigger.** User side-by-side, Poleg, Sun 2026-08-30: Rosa published 1.5-2.3 m against
+Surfline's 0.6-1.1 m on near-identical inputs (offshore Hs 1.55 vs 1.6 m, 8 s, 280-284 deg,
+identical 142 kJ at midnight). Two independent causes found; both fixed.
+
+### Fix 1 - `extract._partition` discards a peak period below the mean (`ef5a658`, on main)
+
+The GWAM Tp join stamped another sea's peak on GFS partitions: 35/74 poleg partitions carried
+Tp < Tm (worst: Tp 2.2 s on a 1.31 m / 7.8 s sea), crushing rideability and swinging the
+published day 3x (0.55-1.9 m mids) while the sea itself barely moved. Tp < Tm is spectrally
+impossible - such a peak is now dropped to None (mean fallback). Effect confined to
+blend-arm hours whose GWAM cell disagrees with GFS partitioning; Sunday's 15:00-21:00 mids
+went 0.55-0.89 -> 1.20-1.45 under old physics.
+
+### Fix 2 - the transform ran monochromatic-hot; random-sea march (this entry)
+
+**The claim, measured before any code:** a Battjes-Janssen reference march (SWAN-class
+random-wave breaking + JONSWAP friction) over poleg's committed profile gives 1.4 m where
+the shipped march + K&G close gave 1.9-2.0. Two independent routes agree at ~1.4:
+BJ numerics, and Caldwell & Aucan 2007's finding that K&G(Hs) tracks the TOP-TENTH breaker
+(H1/10) with H1/3 = 0.79 x H1/10 (their eq. 4, Rayleigh) - 2.01 x 0.79 x friction ~ 1.4.
+The same paper flags physics estimators as overestimating short-period (<11 s) surf.
+
+**Shipped** (`physics.surf_height_over_profile`, replaces the monochromatic
+`breaker_height_over_profile` in the production path):
+- JONSWAP bottom friction (Cb 0.038, Hasselmann et al. 1973) - needs along-ray DISTANCE, so
+  the whole path switched from bare depth lists to `(dist_m, depth_m)` samples
+  (`DepthProfile.wet_samples_deep_to_shallow`). Poleg's 12+ km shelf takes ~20% off an 8-9 s
+  sea; a steep groundswell coast loses ~nothing - the correction is regime-dependent in
+  exactly the direction the July side-by-sides kept hinting at.
+- Battjes-Janssen (1978) breaking dissipation in ~25 m substeps between measured samples,
+  replacing the hard gamma*d cap. Interpolating between MEASURED samples; the march still
+  never continues past the shallowest one - no invented bathymetry.
+- The K&G close is fed the friction-attenuated offshore height and multiplied by
+  H13_OVER_H110 = 0.79: publish the significant breaker, not the top-tenth wave.
+
+**Poleg Sunday, end to end (blend arm, both fixes):** flat 0.84-1.29 m mids across the day
+against Surfline's flat 0.6-1.1 band; was 0.55-1.9 swinging 3x. Small Med windswell
+(0.6 m / 5 s) moves 0.78 -> 0.60; a 2.5 m / 14 s groundswell case 2.9 -> 2.3.
+
+**The July eye frames no longer gate physics (product call, 2026-08-28).** Under the new
+march the five frames conflict internally - 07-19 beit-yanai demands the transform DOWN at
+~7 s where 07-26 hilton demands it 1.6x UP - and their inputs are OM hindcast
+reconstructions, not the blend production serves. Doctrine set by the user: **the math must
+carry the forecast on its own; eye reports are never required or waited for, but when one
+arrives it is ground truth and the calibration layer re-fits on it.** The frames stay
+committed as history + future recalibration material; the 07-26 pin in
+`test_experiment.py` now asserts the new (0.3, 0.4) range with the full story in its
+docstring. `height_coeff` remains 1.0 at all 624 spots; rideability untouched.
+
+**Owed:** the same-input fleet A/B on the VM (469+ paired spots, old vs new physics arm) to
+size the worldwide move - expected: short-period shelf regions (Israel, wide-shelf beach
+breaks) down 25-40%, groundswell coasts down ~21% flat (the 0.79). And the OM-vs-blend A/B
+from 08-26 is still owed, now on top of both fixes.

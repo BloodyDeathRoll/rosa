@@ -157,16 +157,18 @@ def load_frames(path: Path) -> list[Frame]:
     return frames
 
 
-def predict_frame(frame: Frame, spot: Spot, wet_depths: list[float], candidate: Candidate) -> float:
+def predict_frame(
+    frame: Frame, spot: Spot, wet_samples: list[tuple[float, float]], candidate: Candidate
+) -> float:
     """Raw h_mid for one frame under one candidate - the exact production path
     (tide-shifted depths -> physics march -> rideability -> height_coeff), minus
     only the display snapping, which would quantize grading."""
-    depths = [d + frame.tide_m for d in wet_depths if d + frame.tide_m > 0]
+    samples = [(x, d + frame.tide_m) for x, d in wet_samples if d + frame.tide_m > 0]
     h = breaker_height_from_profile(
         frame.partitions,
         spot.swell_window,
         spot.shore_normal,
-        depths,
+        samples,
         rideability=candidate.rideability,
     )
     return h * spot.height_coeff
@@ -193,14 +195,14 @@ def run_experiment(
         profile = load_profile(fr.spot_id, bathy_dir)
         if profile is None:
             raise FileNotFoundError(f"frame {fr.id}: no bathy profile for {fr.spot_id}")
-        resolved[fr.spot_id] = (spot, profile.wet_depths_deep_to_shallow())
+        resolved[fr.spot_id] = (spot, profile.wet_samples_deep_to_shallow())
 
     results: list[CandidateResult] = []
     for cand in candidates:
         frame_results = []
         for fr in frames:
-            spot, wet_depths = resolved[fr.spot_id]
-            mid = predict_frame(fr, spot, wet_depths, cand)
+            spot, wet_samples = resolved[fr.spot_id]
+            mid = predict_frame(fr, spot, wet_samples, cand)
             frame_results.append(FrameResult(frame=fr, h_mid_m=mid))
         results.append(CandidateResult(candidate=cand, frames=tuple(frame_results)))
     return results

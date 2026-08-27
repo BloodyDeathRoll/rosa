@@ -49,8 +49,7 @@ SDB_ZARR_URL = (
     "cmems_obs-sdb_glo_phy_comp_my_100m-l4-s2_static_202511/static.zarr"
 )
 ATTRIBUTION = (
-    "Generated using E.U. Copernicus Marine Service Information; "
-    "https://doi.org/10.48670/mds-00364"
+    "Generated using E.U. Copernicus Marine Service Information; https://doi.org/10.48670/mds-00364"
 )
 
 # Grid geometry, read off the store's own .zmetadata 2026-08-27 and pinned here so a
@@ -224,11 +223,15 @@ class CmemsSdbSource:
         if path.exists():
             store = json.loads(path.read_text(encoding="utf-8"))
         for (lat, lon), r in zip(points, self.readings(points), strict=True):
-            store[_round_key(lat, lon)] = None if r is None else [
-                round(r.depth_m, 2),
-                r.quality,
-                r.n_pixels,
-            ]
+            store[_round_key(lat, lon)] = (
+                None
+                if r is None
+                else [
+                    round(r.depth_m, 2),
+                    r.quality,
+                    r.n_pixels,
+                ]
+            )
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(store, separators=(",", ":"), sort_keys=True), encoding="utf-8")
 
@@ -295,8 +298,7 @@ def merge_profile(
 
     if len(readings) != len(profile.samples):
         raise ValueError(
-            f"{profile.spot_id}: {len(readings)} SDB readings for "
-            f"{len(profile.samples)} ray points"
+            f"{profile.spot_id}: {len(readings)} SDB readings for {len(profile.samples)} ray points"
         )
     patched: list[PatchedSample] = []
     samples: list[DepthSample] = []
@@ -317,9 +319,7 @@ def merge_profile(
             )
         )
         samples.append(
-            DepthSample(
-                dist_km=sample.dist_km, lat=sample.lat, lon=sample.lon, depth_m=r.depth_m
-            )
+            DepthSample(dist_km=sample.dist_km, lat=sample.lat, lon=sample.lon, depth_m=r.depth_m)
         )
     merged = DepthProfile(
         spot_id=profile.spot_id,

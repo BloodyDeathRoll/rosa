@@ -4,7 +4,7 @@ import math
 import pytest
 
 from rosa_pipeline.models import SwellPartition
-from rosa_pipeline.physics import breaker_height_over_profile, wind_breaker_factor
+from rosa_pipeline.physics import surf_height_over_profile, wind_breaker_factor
 from rosa_pipeline.transform import (
     EXPOSURE_SHOULDER_DEG,
     FIELD_ENERGY_EXP,
@@ -73,7 +73,15 @@ class TestRideabilityPeriod:
     def test_breaker_height_uses_the_peak_period(self):
         """The production default must attenuate on Tp: the same sea with a peak period
         declared has to break higher than one the model gave only a mean for."""
-        depths = [40.0, 20.0, 10.0, 6.0, 3.0, 1.5, 0.8]
+        depths = [
+            (8000.0, 40.0),
+            (4000.0, 20.0),
+            (2000.0, 10.0),
+            (1000.0, 6.0),
+            (500.0, 3.0),
+            (250.0, 1.5),
+            (100.0, 0.8),
+        ]
         mean_only = (SwellPartition(height_m=1.4, period_s=5.9, direction_deg=290.0),)
         with_peak = (
             SwellPartition(height_m=1.4, period_s=5.9, direction_deg=290.0, peak_period_s=8.4),
@@ -85,7 +93,15 @@ class TestRideabilityPeriod:
     def test_long_period_swell_is_unchanged_by_the_key(self):
         """Above the 1.0 cap the key cannot matter - this is why the change left every
         groundswell region bit-identical (CALIBRATION.md 2026-07-30)."""
-        depths = [40.0, 20.0, 10.0, 6.0, 3.0, 1.5, 0.8]
+        depths = [
+            (8000.0, 40.0),
+            (4000.0, 20.0),
+            (2000.0, 10.0),
+            (1000.0, 6.0),
+            (500.0, 3.0),
+            (250.0, 1.5),
+            (100.0, 0.8),
+        ]
         mean_only = (SwellPartition(height_m=1.4, period_s=12.0, direction_deg=290.0),)
         with_peak = (
             SwellPartition(height_m=1.4, period_s=12.0, direction_deg=290.0, peak_period_s=15.0),
@@ -145,10 +161,17 @@ class TestExposureWeight:
 
 
 # deep -> shallow depth profile for the transform tests (straight-in when shore_normal == dir)
-PROFILE_FIX = [180.0, 50.0, 20.0, 8.0, 3.0, 1.5]
+PROFILE_FIX = [
+    (18000.0, 180.0),
+    (8000.0, 50.0),
+    (2000.0, 20.0),
+    (1000.0, 8.0),
+    (500.0, 3.0),
+    (250.0, 1.5),
+]
 # As above but stopping where GEBCO really does (~8 m), so every partition takes the
 # breaker-index branch and no march/index step can be mistaken for combine behaviour.
-DEEP_FIX = [180.0, 50.0, 20.0, 8.0]
+DEEP_FIX = [(18000.0, 180.0), (8000.0, 50.0), (2000.0, 20.0), (1000.0, 8.0)]
 
 
 class TestBreakerHeightFromProfile:
@@ -187,7 +210,7 @@ class TestBreakerHeightFromProfile:
         one = breaker_height_from_profile((swell(0.8, 12.0, 290.0),), WINDOW, 290.0, PROFILE_FIX)
         w = spread_exposure(swell(0.8, 12.0, 290.0), WINDOW)
         expect = (
-            breaker_height_over_profile(0.8, 12.0, 0.0, PROFILE_FIX)
+            surf_height_over_profile(0.8, 12.0, 0.0, PROFILE_FIX)
             * period_rideability(12.0)
             * math.sqrt(w)
         )

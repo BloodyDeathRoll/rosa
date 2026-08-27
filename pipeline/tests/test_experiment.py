@@ -43,8 +43,8 @@ def test_baseline_reproduces_production_path():
     spots = load_spots(SPOTS_DIR)
     for fr in frames.values():
         spot = spots[fr.spot_id]
-        wet = load_profile(fr.spot_id, BATHY_DIR).wet_depths_deep_to_shallow()
-        depths = [d + fr.tide_m for d in wet if d + fr.tide_m > 0]
+        wet = load_profile(fr.spot_id, BATHY_DIR).wet_samples_deep_to_shallow()
+        depths = [(x, d + fr.tide_m) for x, d in wet if d + fr.tide_m > 0]
         production = (
             breaker_height_from_profile(fr.partitions, spot.swell_window, spot.shore_normal, depths)
             * spot.height_coeff
@@ -52,18 +52,25 @@ def test_baseline_reproduces_production_path():
         assert predict_frame(fr, spot, wet, BASELINE) == pytest.approx(production), fr.id
 
 
-def test_shipping_transform_calls_the_2026_07_26_hilton_frame_at_its_observed_size():
-    """Stage 2E's outcome, pinned (docs/CALIBRATION.md 2026-07-30): the 07-26 Hilton frame
-    displayed 0.2-0.3 m under the old mean-keyed rideability against 0.5-0.6 m of observed
-    surf. Peak-keyed, it lands inside the observed band."""
+def test_shipping_transform_on_the_2026_07_26_hilton_frame_is_pinned():
+    """Pins the shipping transform's answer on the 07-26 Hilton frame so any physics or
+    rideability change shows up here deliberately, not silently.
+
+    History: under Stage 2E's monochromatic march this asserted the mid landed inside the
+    frame's observed 0.5-0.6 m eye band (docs/CALIBRATION.md 2026-07-30). The random-sea
+    march (2026-08-28) grades this frame under that band - a KNOWN, accepted divergence:
+    the July frames' inputs are OM hindcast reconstructions, not the blend production now
+    serves, and they conflict internally under the new physics (07-19 demands the transform
+    go down at ~7 s where 07-26 demands it up). Product call 2026-08-28: physics ships on
+    its own; the frames recalibrate the day fresh eye reports arrive - they no longer gate.
+    If a fresh eye frame lands, re-fit and re-pin; do not tune blind to un-break the band."""
     frames = {f.id: f for f in load_frames(FRAMES)}
     fr = frames["2026-07-26-hilton-undercall"]
     spot = load_spots(SPOTS_DIR)["hilton"]
-    wet = load_profile("hilton", BATHY_DIR).wet_depths_deep_to_shallow()
+    wet = load_profile("hilton", BATHY_DIR).wet_samples_deep_to_shallow()
     mid = predict_frame(fr, spot, wet, BASELINE)
     lo, _, hi = breaker_range(mid, spot.height_coeff)
-    assert (lo, hi) == (0.4, 0.5), f"harness diverged from production: mid={mid:.3f}"
-    assert fr.observed_lo_m - fr.slack_m <= mid <= fr.observed_hi_m + fr.slack_m
+    assert (lo, hi) == (0.3, 0.4), f"transform moved on the pinned frame: mid={mid:.3f}"
 
 
 def test_peak_keyed_candidate_raises_the_hilton_frames():
@@ -71,7 +78,7 @@ def test_peak_keyed_candidate_raises_the_hilton_frames():
     peak-keyed shipping baseline must predict strictly higher than a mean-keyed one."""
     frames = {f.id: f for f in load_frames(FRAMES)}
     spot = load_spots(SPOTS_DIR)["hilton"]
-    wet = load_profile("hilton", BATHY_DIR).wet_depths_deep_to_shallow()
+    wet = load_profile("hilton", BATHY_DIR).wet_samples_deep_to_shallow()
     mean = Candidate(key="mean", exp=BASELINE.exp)
     for fid in ("2026-07-25-hilton-undercall", "2026-07-26-hilton-undercall"):
         fr = frames[fid]

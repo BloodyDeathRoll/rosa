@@ -138,7 +138,7 @@ class TestScoreHour:
         # deeper point -> a bigger breaker. Micro-tidal spots barely move; this is a big swing.
         from dataclasses import replace
 
-        wet = [30.0, 12.0, 5.0, 2.0]
+        wet = [(4000.0, 30.0), (1000.0, 12.0), (400.0, 5.0), (150.0, 2.0)]
         parts = (SwellPartition(2.0, 14.0, 290.0),)
         low = score_hour(SPOT, hour(parts), wet)  # tide_m None
         high = score_hour(SPOT, replace(hour(parts), tide_m=1.5), wet)

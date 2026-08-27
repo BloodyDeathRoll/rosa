@@ -10,7 +10,7 @@ from collections.abc import Callable
 from functools import lru_cache
 
 from .models import SwellPartition, WindClass
-from .physics import BREAK_GAMMA, breaker_height_over_profile, wind_breaker_factor
+from .physics import BREAK_GAMMA, surf_height_over_profile, wind_breaker_factor
 
 
 def angle_diff(a: float, b: float) -> float:
@@ -293,7 +293,7 @@ def breaker_height_from_profile(
     partitions: tuple[SwellPartition, ...],
     window: tuple[float, float],
     shore_normal: float,
-    wet_depths: list[float],
+    wet_samples: list[tuple[float, float]],
     *,
     rideability: Callable[[SwellPartition], float] | None = None,
     wind_normal_ms: float = 0.0,
@@ -346,7 +346,7 @@ def breaker_height_from_profile(
         # honour it at grazing incidence rather than letting the derived normal
         # cancel it outright - refraction leaves little, but never nothing.
         incidence = min(incidence, GRAZING_INCIDENCE_DEG)
-        hb = breaker_height_over_profile(p.height_m, p.period_s, incidence, wet_depths)
+        hb = surf_height_over_profile(p.height_m, p.period_s, incidence, wet_samples)
         factor = (
             rideability(p) if rideability is not None else period_rideability(rideability_period(p))
         )
