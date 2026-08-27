@@ -158,3 +158,41 @@ def test_truncated_stream_is_its_own_error():
     blob = struct.pack(">HHI", 2, 5, 999) + b"data\0" + b"only-a-few"
     with pytest.raises(atl24.TruncatedStream, match="declares 999 bytes"):
         atl24._split_records(blob)
+
+
+def test_index_finds_the_same_photons_as_a_brute_force_scan():
+    """The index is an optimisation, so it must not change an answer. ATL24 returns
+    millions of photons for a region (5,068,562 for the Maldives) and a bare scan per ray
+    point does not finish - but a bucketing bug would silently drop matches instead."""
+    photons = [
+        Photon(4.0 + i * 0.0003, 73.0 + j * 0.0003, 5.0 + i + j)
+        for i in range(-6, 7)
+        for j in range(-6, 7)
+    ]
+    idx = atl24.PhotonIndex(photons, radius_m=150.0)
+    for lat, lon in ((4.0, 73.0), (4.0009, 73.0), (4.0, 72.9994), (3.9991, 73.0012)):
+        brute = {
+            (p.lat, p.lon)
+            for p in photons
+            if atl24._haversine_m(lat, lon, p.lat, p.lon) <= 150.0
+        }
+        assert {(p.lat, p.lon) for p in idx.near(lat, lon)} == brute
+
+
+def test_pair_accepts_a_prebuilt_index_or_a_bare_list():
+    pts = [(4.0, 73.0, 10.0)]
+    photons = [Photon(4.0, 73.0, 5.0), Photon(4.00001, 73.0, 5.5)]
+    assert pair(pts, photons, radius_m=150.0) == pair(
+        pts, atl24.PhotonIndex(photons, 150.0), radius_m=150.0
+    )
+
+
+def test_index_is_correct_away_from_the_equator():
+    """Longitude cells are narrower than the radius at high latitude, so the search widens
+    in x by 1/cos(lat). Without that, half the ring is missed north of ~45 deg."""
+    photons = [Photon(60.0, -1.0 + j * 0.001, 5.0) for j in range(-5, 6)]
+    idx = atl24.PhotonIndex(photons, radius_m=200.0)
+    brute = {
+        (p.lat, p.lon) for p in photons if atl24._haversine_m(60.0, -1.0, p.lat, p.lon) <= 200.0
+    }
+    assert {(p.lat, p.lon) for p in idx.near(60.0, -1.0)} == brute

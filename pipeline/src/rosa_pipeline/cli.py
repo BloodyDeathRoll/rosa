@@ -1373,6 +1373,9 @@ def _cmd_atl24(args: argparse.Namespace) -> int:
         print("an expected outcome, not a failure. Nothing can be graded here.")
         return 0
 
+    # build the spatial index ONCE: it is O(photons) to build and 9 cells to query, where
+    # a bare list is a 5-million-photon scan per ray point
+    index = atl24.PhotonIndex(photons, args.radius_m)
     gebco_pairs: list[tuple[float, float]] = []
     sdb_pairs: list[tuple[float, float]] = []
     source = (
@@ -1384,7 +1387,7 @@ def _cmd_atl24(args: argparse.Namespace) -> int:
         if profile is None:
             continue
         points = atl24.profile_points(profile)
-        pairs = atl24.pair(points, photons, radius_m=args.radius_m)
+        pairs = atl24.pair(points, index, radius_m=args.radius_m)
         if pairs:
             reached += 1
         gebco_pairs.extend(pairs)
@@ -1395,7 +1398,7 @@ def _cmd_atl24(args: argparse.Namespace) -> int:
                 for (lat, lon, _), r in zip(points, readings, strict=True)
                 if r is not None
             ]
-            sdb_pairs.extend(atl24.pair(sdb_points, photons, radius_m=args.radius_m))
+            sdb_pairs.extend(atl24.pair(sdb_points, index, radius_m=args.radius_m))
 
     print(
         f"{reached} of {len(targets)} spot(s) had a ray point within "

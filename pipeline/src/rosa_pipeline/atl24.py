@@ -299,9 +299,45 @@ def _haversine_m(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
     return 2 * r * math.asin(math.sqrt(a))
 
 
+class PhotonIndex:
+    """Photons bucketed into a lat/lon grid so a lookup touches 9 cells, not 5 million.
+
+    ATL24 returns millions of photons for a country-sized box (5,068,562 for the Maldives),
+    and a ray-point query is a small radius. Scanning the whole list per point is
+    O(points x photons) - about 2e9 haversine calls in pure Python for one region, which
+    does not finish. The cell is sized to the search radius, so the 3x3 neighbourhood is
+    guaranteed to contain every photon within it.
+    """
+
+    def __init__(self, photons: list[Photon], radius_m: float) -> None:
+        self.radius_m = radius_m
+        # a degree of latitude is ~111.32 km everywhere; longitude shrinks with cos(lat),
+        # so sizing the cell in latitude degrees keeps it >= the radius in both axes
+        self.cell_deg = max(radius_m / 111_320.0, 1e-6)
+        self.buckets: dict[tuple[int, int], list[Photon]] = {}
+        for p in photons:
+            self.buckets.setdefault(self._key(p.lat, p.lon), []).append(p)
+
+    def _key(self, lat: float, lon: float) -> tuple[int, int]:
+        return (math.floor(lat / self.cell_deg), math.floor(lon / self.cell_deg))
+
+    def near(self, lat: float, lon: float) -> list[Photon]:
+        i, j = self._key(lat, lon)
+        # longitude cells are narrower than the radius away from the equator, so widen the
+        # search in x by 1/cos(lat) - at 60 deg that is 2 cells, at the equator 1
+        span = max(1, math.ceil(1.0 / max(math.cos(math.radians(lat)), 1e-6)))
+        out: list[Photon] = []
+        for di in (-1, 0, 1):
+            for dj in range(-span, span + 1):
+                for p in self.buckets.get((i + di, j + dj), ()):
+                    if _haversine_m(lat, lon, p.lat, p.lon) <= self.radius_m:
+                        out.append(p)
+        return out
+
+
 def pair(
     points: list[tuple[float, float, float]],
-    photons: list[Photon],
+    photons: list[Photon] | PhotonIndex,
     radius_m: float = 150.0,
 ) -> list[tuple[float, float]]:
     """(source depth, lidar depth) for each point with a photon inside ``radius_m``.
@@ -309,15 +345,18 @@ def pair(
     The lidar side is the MEDIAN of every photon in range, not the nearest one: a single
     ICESat-2 photon carries real per-photon noise, and a source is being graded on the
     seabed, not on one return.
+
+    Pass a ``PhotonIndex`` when scoring more than a handful of points - building it once
+    and reusing it is the difference between seconds and hours over a whole region.
     """
+    index = photons if isinstance(photons, PhotonIndex) else PhotonIndex(photons, radius_m)
     out: list[tuple[float, float]] = []
     for lat, lon, depth in points:
         if not math.isfinite(depth):
             continue
-        near = [p.depth_m for p in photons if _haversine_m(lat, lon, p.lat, p.lon) <= radius_m]
+        near = sorted(p.depth_m for p in index.near(lat, lon))
         if not near:
             continue
-        near.sort()
         mid = len(near) // 2
         lidar = near[mid] if len(near) % 2 else 0.5 * (near[mid - 1] + near[mid])
         out.append((depth, lidar))
