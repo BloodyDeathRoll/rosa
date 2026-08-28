@@ -341,7 +341,13 @@ def fetch_aux_many(
             lon_s = ",".join(f"{lon:g}" for _, lon in batch)
             # retrying_get, same as the OM arm's batches: a lone 503 on a weather
             # batch killed the 2026-08-16 08:20Z cycle, and these two legs run AFTER
-            # the GFS/ECMWF downloads - a transient here throws all of that away
+            # the GFS/ECMWF downloads - a transient here throws all of that away.
+            # retry_429=True since 2026-08-28: these legs are ESSENTIAL to the cycle
+            # (the whole run dies at raise_for_status below), and the DB growth to 624
+            # spots pushed the burst past the MINUTELY cap - the 20:20Z and 02:20Z
+            # cycles both died on the same aux weather batch ~64 min in. Only the
+            # minutely-cap 429 is retried (fetch._retry_wait_s); hourly/daily still
+            # fail fast, which is rosa_pipeline.quota's job.
             wresp = retrying_get(
                 client,
                 WEATHER_URL,
@@ -352,6 +358,7 @@ def fetch_aux_many(
                     "forecast_days": FORECAST_DAYS,
                     "past_days": PAST_DAYS,
                 },
+                retry_429=True,
             )
             wresp_ok = wresp.raise_for_status().json()
             mresp = retrying_get(
@@ -364,6 +371,7 @@ def fetch_aux_many(
                     "forecast_days": FORECAST_DAYS,
                     "past_days": PAST_DAYS,
                 },
+                retry_429=True,
             )
             mresp_ok = mresp.raise_for_status().json()
             wb = [wresp_ok] if isinstance(wresp_ok, dict) else list(wresp_ok)

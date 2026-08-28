@@ -6,6 +6,7 @@ from __future__ import annotations
 import httpx
 import pytest
 
+from rosa_pipeline import fetch
 from rosa_pipeline.fetch import MARINE_BATCH_SIZE, MARINE_URL, OpenMeteoSource
 
 COORDS = [(32.38, 34.80), (9.61, -84.63)]
@@ -174,3 +175,32 @@ def test_daily_quota_429_is_not_waited_out(monkeypatch):
     with pytest.raises(httpx.HTTPStatusError):
         src.fetch_many(COORDS)
     assert waits == []
+
+
+def test_minutely_429_is_retried_when_asked() -> None:
+    """The aux legs of the blend fetch pass retry_429=True: a minutely-cap 429 (which
+    reopens by itself) must be waited out and retried, not returned to raise_for_status -
+    it killed the 2026-08-27T20:20Z and 2026-08-28T02:20Z cycles at 624 spots."""
+    calls = {"n": 0}
+
+    class _Resp:
+        def __init__(self, status: int, reason: str = "") -> None:
+            self.status_code = status
+            self._reason = reason
+
+        def json(self) -> dict:
+            return {"reason": self._reason}
+
+    class _Client:
+        def get(self, url: str, params: dict) -> _Resp:
+            calls["n"] += 1
+            if calls["n"] == 1:
+                return _Resp(429, "Minutely API request limit exceeded")
+            return _Resp(200)
+
+    from unittest.mock import patch
+
+    with patch("rosa_pipeline.fetch.time.sleep") as slept:
+        resp = fetch.retrying_get(_Client(), "http://x", {}, retry_429=True)  # type: ignore[arg-type]
+    assert resp.status_code == 200 and calls["n"] == 2
+    assert slept.called  # waited out the minute bucket rather than hammering
