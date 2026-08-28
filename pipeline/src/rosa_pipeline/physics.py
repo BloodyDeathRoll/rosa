@@ -148,6 +148,14 @@ def breaker_height_komar_gaughan(
     c_ref = phase_speed(period_s, depth_ref_m)
     hb = KOMAR_GAUGHAN_COEFF * GRAVITY**0.2 * (period_s * h0**2) ** 0.4
     for _ in range(KOMAR_GAUGHAN_ITERS):
+        if hb <= 0.0:
+            # h0 SQUARED underflowed to zero, so hb did too and hb/gamma is not a depth to
+            # ask a wavenumber for. Reachable since the random-sea march (2026-08-28): it
+            # feeds this the friction-attenuated H0, and a sub-second wind-wave period -
+            # 0.25 s at beit-yanai, and OM publishes wind_wave_period down to 0.0 - drives
+            # atten to ~1e-210, which squares to exactly 0.0. A sea that thin has no
+            # breaker, which is what the caller's max() then reads.
+            return 0.0
         # The implied breaking depth hb/gamma can be DEEPER than the reference when the
         # reference sits shallow and the sea is big. Snell forward from d_ref has nothing
         # to say about deeper water - the march skips such samples (d > d_ref) for exactly

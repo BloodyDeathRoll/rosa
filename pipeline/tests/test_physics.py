@@ -247,3 +247,17 @@ class TestDeepWaterEquivalent:
     def test_round_trips_against_the_shoaling_coefficient(self):
         h0 = deep_water_equivalent(1.0, 14.0, 20.0)
         assert h0 * shoaling_coeff(14.0, 1e5, 20.0) == pytest.approx(1.0, rel=1e-3)
+
+
+def test_komar_gaughan_survives_an_underflowed_offshore_height() -> None:
+    """A sea attenuated to ~1e-210 m has no breaker - and must not raise asking for one.
+
+    The random-sea march feeds this the FRICTION-ATTENUATED H0, so a degenerate partition
+    (beit-yanai's 0.25 s wind wave; OM publishes wind_wave_period down to 0.0) drives atten
+    to ~1e-210. h0 SQUARED then underflows to exactly 0.0, hb with it, and the refraction
+    iteration asked phase_speed() for the celerity at depth hb/gamma = 0.0 - which is not a
+    depth. That killed the whole spot: one hour's ValueError aborted beit-yanai's publish
+    (test_quota.py::test_fixture_replay_is_exempt, regression from 2026-08-28's cdd6e1a).
+    """
+    assert breaker_height_komar_gaughan(2.98820516805073e-210, 0.25, 59.0, 192.039) == 0.0
+
