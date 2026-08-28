@@ -48,6 +48,14 @@ the *published* data over HTTPS and never talks to the pipeline.
    unread marine variables came out on 2026-08-16), so a fifth fleet run of
    any kind - including an ad-hoc one from a laptop against the same IP - is what the guard
    exists to stop. It fired for real on 2026-08-15 before it existed (OPEN-ITEMS 19).
+   **Exit 4 is a PARTIAL run, and it DEPLOYS**: a small share of the fleet failed and the
+   rest published, so the cycle alerts and ships anyway. The failed spots keep serving their
+   previous payload - prune is keyed on the DB, not on this run's output - so the cost is a
+   few stale spots instead of every spot going stale. Above `PARTIAL_FAILURE_MAX_SHARE` (5%
+   of the fleet), or with nothing published at all, `run --all` still returns 1 and the trap
+   kills the cycle: a schema break hits ~100% of spots and must never reach the CDN. Added
+   2026-08-28, after 3 shallow-profile spots raising one ValueError kept 621 healthy spots
+   and six freshly seeded regions off the CDN for a day.
 4. `vercel deploy --prebuilt` of `data/out` → the **rosa-data** project
    (https://rosa-data-opal.vercel.app, `/data/*` with permissive CORS; the app fetches it via
    `VITE_DATA_BASE`). Logs to `~/rosa/publish.log`.

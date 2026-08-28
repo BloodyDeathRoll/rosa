@@ -121,7 +121,11 @@ def test_run_all_survives_one_failing_spot(tmp_path, monkeypatch, capsys):
     """Dream review 2026-08-05: this loop ran bare while every other step in _cmd_run was
     guarded, so one raising spot stranded every spot after it AND skipped prune_index -
     the ghost-card failure mode. The rest of the batch must publish, and the cycle must
-    still exit 1 so publish.sh's trap sees a failed cycle."""
+    still exit 1 so publish.sh's trap sees a failed cycle.
+
+    1 of 2 is a 50% fleet-failure share, far above PARTIAL_FAILURE_MAX_SHARE, so this is
+    the hard-failure side of that rule (2026-08-28) - the shape a schema break has, which
+    must never reach the CDN."""
     import rosa_pipeline.cli as cli_mod
 
     spots_dir = tmp_path / "spots"
@@ -158,6 +162,84 @@ def test_run_all_survives_one_failing_spot(tmp_path, monkeypatch, capsys):
     assert set(json.loads((out / "index.json").read_text())["spots"]) == {"spot-a"}
     assert "error: spot-b: ValueError('boom')" in err  # repr - the type is the signal
     assert "1 of 2 spot(s) failed (ValueError): spot-b" in err
+
+
+def test_a_small_share_of_failures_still_publishes(tmp_path, monkeypatch, capsys):
+    """2026-08-28: three shallow-profile spots raised the same ValueError, `run --all`
+    returned 1, publish.sh's trap killed the cycle - and 621 healthy spots plus six freshly
+    seeded regions sat off the CDN for a day. Withholding the whole forecast over a handful
+    of spots is the more expensive failure, so under the share threshold the run exits
+    EXIT_PARTIAL: publish.sh deploys on it and alerts instead of aborting.
+
+    The share is patched rather than fabricating 20 spots - the rule under test is the
+    comparison, not the constant."""
+    import rosa_pipeline.cli as cli_mod
+
+    spots_dir = tmp_path / "spots"
+    spots_dir.mkdir()
+    (spots_dir / "test.yaml").write_text(SPOTS_YAML, encoding="utf-8")
+    out = tmp_path / "out"
+
+    real = cli_mod.load_profile
+
+    def sabotaged(spot_id, bathy_dir):
+        if spot_id == "spot-b":
+            raise ValueError("boom")
+        return real(spot_id, bathy_dir)
+
+    monkeypatch.setattr(cli_mod, "load_profile", sabotaged)
+    monkeypatch.setattr(cli_mod, "PARTIAL_FAILURE_MAX_SHARE", 0.5)  # 1 of 2 now counts
+    rc = main(
+        [
+            "run",
+            "--wave-source",
+            "om",
+            "--all",
+            "--spots-dir",
+            str(spots_dir),
+            "--out",
+            str(out),
+            "--fixtures",
+            str(FIXTURES),
+        ]
+    )
+    err = capsys.readouterr().err
+    assert rc == cli_mod.EXIT_PARTIAL
+    assert rc != 0  # still not a clean cycle - the alert must fire
+    assert (out / "spots" / "spot-a.json").exists()
+    assert "1 of 2 spot(s) failed" in err  # the failure is still reported in full
+    assert "publishing the other 1 spot(s) anyway" in err
+
+
+def test_nothing_published_is_a_hard_failure_whatever_the_share(tmp_path, monkeypatch):
+    """The share is meaningless at zero published, and an empty deploy is the one outcome
+    that must never reach the CDN. Guarded before the share is ever computed."""
+    import rosa_pipeline.cli as cli_mod
+
+    spots_dir = tmp_path / "spots"
+    spots_dir.mkdir()
+    (spots_dir / "test.yaml").write_text(SPOTS_YAML, encoding="utf-8")
+
+    def sabotaged(spot_id, bathy_dir):
+        raise ValueError("boom")
+
+    monkeypatch.setattr(cli_mod, "load_profile", sabotaged)
+    monkeypatch.setattr(cli_mod, "PARTIAL_FAILURE_MAX_SHARE", 1.0)  # would allow anything
+    rc = main(
+        [
+            "run",
+            "--wave-source",
+            "om",
+            "--all",
+            "--spots-dir",
+            str(spots_dir),
+            "--out",
+            str(tmp_path / "out"),
+            "--fixtures",
+            str(FIXTURES),
+        ]
+    )
+    assert rc == 1
 
 
 def test_swellmap_world_only_with_basin_is_a_usage_error(capsys):

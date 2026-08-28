@@ -134,6 +134,24 @@ IMPLAUSIBLE_BREAK_RATIO = 4.0
 # a physics failure. The finding this guards against produces tens of metres, not centimetres.
 IMPLAUSIBLE_BREAK_FLOOR_M = 0.5
 
+# A few broken spots must not withhold the forecast from every other one. On 2026-08-28
+# three shallow-profile spots raised the same ValueError, `run --all` returned 1, and
+# publish.sh's ERR trap killed the cycle - so 621 healthy spots plus six freshly seeded
+# regions sat off the CDN for a day over 3 failures. Same lesson as the archive coupling
+# (OPEN-ITEMS 9): aborting turned one loss into many.
+#
+# So a run that failed only a small share of the fleet exits EXIT_PARTIAL instead of 1.
+# publish.sh deploys on it and raises the admin alert; the failed spots keep serving their
+# previous payload (prune is keyed on the DB, not on this run's output). Above the share, or
+# with nothing published at all, it is still a hard failure - a schema break hits every spot
+# and must never reach the CDN.
+#
+# 5% is deliberately far below any systemic fault (those are ~100%) and far above the
+# handful of bad bathy profiles this exists for: 31 of 624 spots. It is a fleet-health
+# threshold, not a tuned knob - widen it only with a reason written down here.
+EXIT_PARTIAL = 4
+PARTIAL_FAILURE_MAX_SHARE = 0.05
+
 
 def _implausible_break_hours(spot: Spot, scored: list) -> list[tuple[str, float, float]]:
     """(iso hour, h_break_mid, largest in-window partition height) for every scored hour whose
@@ -754,12 +772,22 @@ def _cmd_run(args: argparse.Namespace) -> int:
         # work that could be done, prune included (it is keyed on the DB, not on this run's
         # output, so a failed spot is never pruned for having failed). A schema break that
         # hits all 199 spots reads as 199 lines plus this summary, not one traceback.
+        attempted = published + len(failures)
         kinds = ", ".join(sorted({type(e).__name__ for _, e in failures}))
         print(
-            f"error: {len(failures)} of {published + len(failures)} spot(s) failed ({kinds}): "
+            f"error: {len(failures)} of {attempted} spot(s) failed ({kinds}): "
             f"{', '.join(sid for sid, _ in failures)}",
             file=sys.stderr,
         )
+        if len(failures) / attempted <= PARTIAL_FAILURE_MAX_SHARE:
+            print(
+                f"warn: publishing the other {published} spot(s) anyway - "
+                f"{len(failures)}/{attempted} is under the "
+                f"{PARTIAL_FAILURE_MAX_SHARE:.0%} fleet-failure share. The failed spots keep "
+                "serving their previous payload; fix them before they go stale.",
+                file=sys.stderr,
+            )
+            return EXIT_PARTIAL
         return 1
     return 0
 

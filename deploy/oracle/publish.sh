@@ -117,6 +117,18 @@ trap 'on_fail "${BASH_COMMAND} (line $LINENO)"' ERR
     fi
     echo "=== $(date -u +%FT%TZ) skipped - daily quota spent ==="
     exit 0
+  elif [ "$RUN_RC" -eq 4 ]; then
+    # Exit 4 is a PARTIAL run: a small share of the fleet failed and the rest published.
+    # Deploy it. Withholding the whole forecast over a handful of spots is what kept 621
+    # healthy spots and six freshly seeded regions off the CDN for a day on 2026-08-28
+    # (3 spots raising the same ValueError). The failed spots keep serving their previous
+    # payload, so the cost of deploying is that those few go stale - much cheaper than
+    # every spot going stale. Alert so the failures cannot rot unnoticed, then fall
+    # through to the deploy. rosa-pipeline draws the line, not this script: above its
+    # share threshold it still returns 1 and the branch below kills the cycle.
+    uv run --project pipeline rosa-pipeline alert \
+      --message "Cycle PARTIAL: some spots failed and kept their previous payload ($(date -u +%H:%MZ)). The rest published. See publish.log for the ids." \
+      || echo "warn: partial-run alert push failed"
   elif [ "$RUN_RC" -ne 0 ]; then
     # set +e disarmed the ERR trap for this command, so raise the alert by hand
     on_fail "rosa-pipeline run --all (exit $RUN_RC)"
