@@ -41,7 +41,7 @@ Each was learned the hard way and each has a rationale in the linked doc. **Do n
 - **Do NOT scale partitions to close `closure`** — it is diagnostic only, nothing scores on it. (`docs/ALGORITHM.md`)
 - **Period display ≠ scoring is deliberate — do not "fix" it by unifying.** (`docs/ALGORITHM.md`)
 - **Do not build temporal smoothing for partition direction wander** — closed, the transform is order-independent. (`docs/CALIBRATION.md`)
-- **The `horizon`, `atl24` and cam tools report, never apply.** `verify --resolve --apply` and `sdb --apply` are not safe unattended. (`docs/SPOT-DB.md`)
+- **The `horizon`, `atl24` and `sdb` tools report, never apply.** `sdb --apply` is not safe unattended. (`docs/SPOT-DB.md`) **The cam tool is the exception since 2026-08-28**: `verify --resolve --apply` runs in every publish cycle, because it only ever swaps a dead id for a same-TITLE replacement and its patch is reset before the next `git pull`. Committing the new id is still the durable fix.
 - **Swell events surface ONLY as push** — do not rebuild in-app event banners, cards, or alert strips. (`docs/UI.md`)
 - **Tune knobs only from `docs/CALIBRATION.md` + the Stage-0 scorecard.** `height_coeff` is 1.0 at all 265 spots. Fleet impact is only valid as a same-input A/B, scored with the shipped harness.
 - **Inspect live infra before designing for it.** A session once built a competing scheduler off a stale handoff while another had already provisioned the box.

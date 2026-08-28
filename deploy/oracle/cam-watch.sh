@@ -6,15 +6,16 @@
 # notices. This checks every assigned cam once a week and pushes ONE admin alert
 # when something is dead.
 #
-# It deliberately does NOT run `--apply`. This box holds a READ-ONLY deploy key,
-# so it cannot push a repair; applying here would leave data/spots dirty and the
-# next `git pull --ff-only` in publish.sh would fail, silently freezing the VM on
-# local code. Repair stays a one-command human action, run from a clone that can
-# push:
+# It deliberately does NOT run `--apply` - publish.sh step 1b does, every cycle,
+# and this stays the read-only reporter so the two never race over data/spots.
+# Since 2026-08-28 a title-matched id is therefore repaired within ~6 h instead of
+# a week. What this alert is FOR is the other half: the cams cam-scan refuses to
+# touch (channel dark, no title match) and the ones repaired over and over, which
+# means nobody has committed the new id. The VM's patch is local and thrown away
+# each cycle - it holds a READ-ONLY deploy key - so the durable repair is still a
+# human action from a clone that can push:
 #     YOUTUBE_API_KEY=$GOOGLE_MAPS_API_KEY \
 #       python tools/cam-scan/scan.py verify --resolve --apply
-# (that only rewrites cams whose replacement still carries the same title; the
-# rest it prints as NEEDS A HUMAN - see tools/cam-scan/scan.py).
 #
 # Cost: a clean week is ~1 API unit (one batched videos.list for all cams).
 # Each dead cam adds a 100-unit channel search, against a 10,000/day quota.

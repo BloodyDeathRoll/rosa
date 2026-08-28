@@ -48,9 +48,41 @@ trap 'on_fail "${BASH_COMMAND} (line $LINENO)"' ERR
   cd "$HOME/rosa"
 
   # stay current with main (code pushes reach the box on the next cycle);
-  # data/ and .env are gitignored, so a pull never touches archive/forecasts
+  # data/ and .env are gitignored, so a pull never touches archive/forecasts.
+  # data/spots IS tracked, and step 1b rewrites cam ids in it every cycle - drop
+  # those local edits first so the pull stays a clean fast-forward. Nothing else on
+  # this box is allowed to hand-edit a spot YAML; a real cam fix is committed to main.
+  git checkout -- data/spots || true
   git pull --ff-only origin main || echo "warn: git pull skipped - running local code"
   uv sync --project pipeline --quiet
+
+  # 1b) refresh dead cam ids. YouTube rotates the video id whenever a 24/7 stream
+  #     restarts, so a pinned id in data/spots rots on its own - the daylight-only cams
+  #     die every night (santa-teresa died twice in two days, OPEN-ITEMS 8). Until now
+  #     repair was a weekly human action behind cam-watch.sh's alert, so a spot could sit
+  #     dark for a week. --resolve --apply swaps in a replacement ONLY when the new
+  #     stream's title still matches the dead one; everything else it prints as
+  #     "NEEDS A HUMAN" and leaves alone (a channel's OTHER live stream is a different
+  #     beach - it once proposed Miura's cam, 30 km away, for chigasaki, 2026-07-29).
+  #
+  #     cam-watch.sh would not --apply because this box holds a READ-ONLY deploy key:
+  #     a dirty data/spots breaks the next `git pull --ff-only` and silently freezes the
+  #     VM on local code. The `git checkout -- data/spots` above is what makes it safe -
+  #     the patch lives for exactly one cycle and the pull is always clean. So this is a
+  #     stopgap that keeps a cam live, NOT the durable fix: committing the new id to main
+  #     from a clone that can push is still the repair. cam-watch.sh keeps its weekly
+  #     admin push, which is where the NEEDS-A-HUMAN cases surface.
+  #
+  #     Cost: ~1 unit for a clean cycle, +100 per dead cam, against 10,000/day.
+  #     Non-fatal: a cam is never worth a forecast cycle.
+  KEY="${YOUTUBE_API_KEY:-${GOOGLE_MAPS_API_KEY:-}}"
+  if [ -n "$KEY" ]; then
+    YOUTUBE_API_KEY="$KEY" uv run --project pipeline python tools/cam-scan/scan.py \
+      verify --resolve --apply \
+      || echo "warn: cam refresh failed - cams keep their current ids"
+  else
+    echo "warn: no YOUTUBE_API_KEY/GOOGLE_MAPS_API_KEY in ~/rosa/.env - cam refresh skipped"
+  fi
 
   # 1) append the model's forecast at every registered buoy (lead-time archive on
   #    this disk; the clock that can't be back-filled). ALERT-AND-CONTINUE, not
