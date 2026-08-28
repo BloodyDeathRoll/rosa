@@ -43,10 +43,13 @@ spots:
     lon: -9.2365
     offshore_direction: 80
     swell_window: [170, 285]
-    cams:  # Playocean covers the whole strip - three angles on one spot
+    # Playocean covers the whole strip. A third angle ("Praia do Infante", TxI7MEJIGWc) was
+    # removed 2026-08-28: its stream ended 08-23 23:00 and the channel's only unmatched live
+    # stream is Marina de Portimao - a sheltered harbour ~200 km south with no surf and no
+    # Rosa spot within 33 km. Removed rather than re-pointed, the same call as 2026-08-04.
+    cams:
       - { yt: "qhU5x83fUt8", label: "Panorâmica 2", by: "Playocean", by_url: "https://www.youtube.com/@PlayoceanLive", note: "town-beach panorama" }
       - { yt: "oDbKeeojgyk", label: "Panorâmica 1", by: "Playocean", by_url: "https://www.youtube.com/@PlayoceanLive" }
-      - { yt: "TxI7MEJIGWc", label: "Praia do Infante", by: "Playocean", by_url: "https://www.youtube.com/@PlayoceanLive" }
     <<: *pt  # sat-verified 2026-07-23 (jetty peaks)
   # ---- Setúbal / Alentejo ----
   - { id: praia-do-meco,      name: "Praia do Meco (Sesimbra)", town: "Torrões", lat: 38.48911, lon: -9.18464, offshore_direction: 85, cam: { yt: "EqnyST2s53I", by: "Playocean", by_url: "https://www.youtube.com/@PlayoceanLive" }, swell_window: [205, 340], <<: *pt }  # sat-verified 2026-08-15 2026-07-27 (cam-scan discovery - W-facing Atlantic beach)
