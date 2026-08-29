@@ -21,6 +21,7 @@ per-point) and sequential.
 from __future__ import annotations
 
 import tempfile
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
@@ -43,6 +44,16 @@ CYCLE_LAG_H = 4.0
 BOX_PAD_DEG = 1.0  # padding around each point cluster
 CLUSTER_SPAN_DEG = 20.0  # points within this span share one box
 NEAREST_MAX_DEG = 0.6  # nearest wet grid node must be within this of the point
+# concurrent grib-filter downloads, matching blend.NOMADS_WORKERS. This source feeds the
+# buoy ARCHIVE, not the publish path (blend.GfsFullSource is that, parallel since
+# 2026-08-26) - 15 registered buoys cluster to 4 boxes, so a cycle spends 4 x 65 = 260
+# requests here. Each costs ~5 s of NOMADS-side subsetting almost regardless of box size
+# (measured 2026-08-29: 4.6-5.1 s for boxes returning 17-200 KB), which is most of the
+# ~46 min the archive step took on 2026-08-28. Four in flight is ~40 requests/min, a
+# third of NOMADS' published 120/min courtesy limit, and never runs alongside the blend
+# fetch or the swellmap layers. Chunked, so at most 4 subsets are in memory - the VM has
+# under 1 GB.
+WORKERS = 4
 
 
 @dataclass(frozen=True, slots=True)
@@ -210,27 +221,58 @@ class GFSWaveSource:
     def fetch_series(self, points: list[tuple[float, float]]) -> list[list[WavePoint]]:
         series: list[list[WavePoint]] = [[] for _ in points]
         cycle = pick_cycle(datetime.now(UTC))
-        with httpx.Client(timeout=self.timeout_s) as client:
+        with (
+            httpx.Client(timeout=self.timeout_s) as client,
+            ThreadPoolExecutor(max_workers=WORKERS) as pool,
+        ):
             for box, members in cluster_boxes(points):
+                pts = [points[i] for i in members]
+                # the first step is probed alone: it decides this box's cycle, and every
+                # other step of the box depends on that answer. Per box, not once for the
+                # fleet - a box whose region is late on NOMADS drops back on its own,
+                # exactly as it did when the whole loop was serial.
                 cyc = cycle
-                for step in self.steps:
-                    data = self._get(client, cyc, step, box)
-                    if data is None and step == self.steps[0]:
-                        # cycle not on NOMADS yet - drop back one and retry this box
-                        cyc = cyc - timedelta(hours=6)
-                        data = self._get(client, cyc, step, box)
-                    if data is None:
-                        continue
-                    if self.capture_dir is not None:
-                        self.capture_dir.mkdir(parents=True, exist_ok=True)
-                        name = f"gfswave_f{step:03d}_{box.key}.grib2"
-                        (self.capture_dir / name).write_bytes(data)
-                    valid = cyc + timedelta(hours=step)
-                    pts = [points[i] for i in members]
-                    for i, wp in zip(members, parse_grib_points(data, pts, valid), strict=True):
-                        if wp is not None:
-                            series[i].append(wp)
+                first = self._get(client, cyc, self.steps[0], box)
+                if first is None:
+                    # cycle not on NOMADS yet - drop back one and retry this box
+                    cyc = cyc - timedelta(hours=6)
+                    first = self._get(client, cyc, self.steps[0], box)
+                self._absorb(series, members, pts, box, cyc, self.steps[0], first)
+                # the remaining steps fan out WORKERS at a time. Chunked rather than
+                # mapped over all 64 at once: ThreadPoolExecutor.map submits everything
+                # immediately, which would hold a whole box's subsets in memory on a
+                # under-1-GB VM. Results are absorbed in step order, so each point's
+                # series stays ascending in time whatever order the downloads finish in.
+                rest = self.steps[1:]
+                for i in range(0, len(rest), WORKERS):
+                    chunk = rest[i : i + WORKERS]
+                    got = pool.map(lambda s, c=cyc, b=box: self._get(client, c, s, b), chunk)
+                    for step, data in zip(chunk, got, strict=True):
+                        self._absorb(series, members, pts, box, cyc, step, data)
         return series
+
+    def _absorb(
+        self,
+        series: list[list[WavePoint]],
+        members: list[int],
+        pts: list[tuple[float, float]],
+        box: Box,
+        cycle: datetime,
+        step: int,
+        data: bytes | None,
+    ) -> None:
+        """Parse one downloaded subset into the per-point series. Called on the main
+        thread only - parse_grib_points goes through pygrib and a temp file."""
+        if data is None:
+            return
+        if self.capture_dir is not None:
+            self.capture_dir.mkdir(parents=True, exist_ok=True)
+            name = f"gfswave_f{step:03d}_{box.key}.grib2"
+            (self.capture_dir / name).write_bytes(data)
+        valid = cycle + timedelta(hours=step)
+        for i, wp in zip(members, parse_grib_points(data, pts, valid), strict=True):
+            if wp is not None:
+                series[i].append(wp)
 
     def _get(self, client: httpx.Client, cycle: datetime, step: int, box: Box) -> bytes | None:
         try:

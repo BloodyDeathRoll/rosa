@@ -7,12 +7,14 @@ The grib fixture is a REAL NOMADS grib-filter capture (2026-07-23 00z f000, Med 
 from __future__ import annotations
 
 import shutil
+import threading
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
 from rosa_pipeline.gfswave import (
     Box,
     GFSWaveFixtureSource,
+    GFSWaveSource,
     cluster_boxes,
     filter_url,
     parse_grib_points,
@@ -158,3 +160,44 @@ def test_cli_archive_gfswave_writes_suffixed_key(tmp_path) -> None:
     assert len(gfs_rows) == 1
     assert gfs_rows[0]["hs"] is not None and gfs_rows[0]["tp"] is not None
     assert not (archive_dir / "TEST1.jsonl").exists()  # OM key untouched in gfswave-only mode
+
+
+class _StubNomads(GFSWaveSource):
+    """GFSWaveSource with the network swapped for a fixed grib. ``miss_first_step``
+    replays NOMADS not having published the cycle yet, which the live loop answers by
+    dropping the whole box back one cycle."""
+
+    def __init__(self, data: bytes, *, miss_first_step: bool = False, **kw) -> None:
+        super().__init__(**kw)
+        self._data = data
+        self._miss_first_step = miss_first_step
+        self._lock = threading.Lock()
+        self.cycles: list[datetime] = []
+
+    def _get(self, client, cycle: datetime, step: int, box: Box) -> bytes | None:
+        with self._lock:
+            self.cycles.append(cycle)
+        if self._miss_first_step and step == self.steps[0] and len(self.cycles) == 1:
+            return None
+        return self._data
+
+
+def test_live_fetch_returns_steps_in_order_under_concurrency() -> None:
+    """The step downloads fan out across WORKERS threads and finish in any order; each
+    point's series must still come back ascending in time, as the serial loop left it."""
+    steps = tuple(range(0, 49, 6))  # 9 steps - more than one WORKERS-sized chunk
+    src = _StubNomads(FIXTURE.read_bytes(), steps=steps)
+    (series,) = src.fetch_series([SEA_POINT])
+    cycle = src.cycles[0]
+    assert [wp.time for wp in series] == [cycle + timedelta(hours=s) for s in steps]
+
+
+def test_live_fetch_drops_the_box_back_a_cycle_when_the_first_step_is_missing() -> None:
+    """The first step is probed alone precisely so this decision is made before the rest
+    fan out - every step of the box must then be stamped from the older cycle."""
+    steps = (0, 6, 12, 18, 24)
+    src = _StubNomads(FIXTURE.read_bytes(), miss_first_step=True, steps=steps)
+    (series,) = src.fetch_series([SEA_POINT])
+    picked, used = src.cycles[0], src.cycles[1]
+    assert used == picked - timedelta(hours=6)
+    assert [wp.time for wp in series] == [used + timedelta(hours=s) for s in steps]

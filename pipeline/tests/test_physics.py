@@ -263,7 +263,6 @@ def test_komar_gaughan_survives_an_underflowed_offshore_height() -> None:
     assert breaker_height_komar_gaughan(2.98820516805073e-210, 0.25, 59.0, 192.039) == 0.0
 
 
-
 def test_wave_state_and_celerities_agree_exactly() -> None:
     """wave_state is celerities plus the k it already solved for. The random-sea march asked
     wavenumber() and then celerities() for the SAME (T, d), solving the dispersion relation

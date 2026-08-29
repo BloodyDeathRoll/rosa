@@ -9,12 +9,14 @@ real global masked fields."""
 from __future__ import annotations
 
 import shutil
+import threading
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
 from rosa_pipeline.ecmwf import (
     DEFAULT_PARAMS,
     EcmwfFixtureSource,
+    EcmwfSource,
     coalesce,
     data_url,
     index_url,
@@ -155,3 +157,44 @@ def test_cli_archive_ecmwf_writes_suffixed_key(tmp_path) -> None:
     assert rows[0]["dir"] is None  # mwd absent from the fixture - honest gap
     assert not (archive_dir / "TEST1.jsonl").exists()
     assert not (archive_dir / "TEST1.gfswave.jsonl").exists()
+
+
+class _StubEcmwf(EcmwfSource):
+    """EcmwfSource with the network swapped for a fixed grib. ``miss_first_step``
+    replays a cycle that is not fully published, which the live loop answers by dropping
+    back 12 h before any other step is fetched."""
+
+    def __init__(self, data: bytes, *, miss_first_step: bool = False, **kw) -> None:
+        super().__init__(**kw)
+        self._data = data
+        self._miss_first_step = miss_first_step
+        self._lock = threading.Lock()
+        self.cycles: list[datetime] = []
+
+    def _get_step(self, client, cycle: datetime, step: int) -> bytes | None:
+        with self._lock:
+            self.cycles.append(cycle)
+        if self._miss_first_step and step == self.steps[0] and len(self.cycles) == 1:
+            return None
+        return self._data
+
+
+def test_live_fetch_returns_steps_in_order_under_concurrency() -> None:
+    """Steps download across WORKERS threads and finish in any order; each point's
+    series must still come back ascending in time, as the serial loop left it."""
+    steps = tuple(range(0, 49, 6))  # 9 steps - more than one WORKERS-sized chunk
+    src = _StubEcmwf(GRIB.read_bytes(), steps=steps, params=("swh",))
+    (series,) = src.fetch_series([SEA_POINT])
+    cycle = src.cycles[0]
+    assert [sp.time for sp in series] == [cycle + timedelta(hours=s) for s in steps]
+
+
+def test_live_fetch_drops_back_a_cycle_when_the_first_step_is_missing() -> None:
+    """The first step is fetched alone precisely so this decision is made before the
+    rest fan out - every step must then be stamped from the older cycle."""
+    steps = (0, 6, 12, 18, 24)
+    src = _StubEcmwf(GRIB.read_bytes(), miss_first_step=True, steps=steps, params=("swh",))
+    (series,) = src.fetch_series([SEA_POINT])
+    picked, used = src.cycles[0], src.cycles[1]
+    assert used == picked - timedelta(hours=12)
+    assert [sp.time for sp in series] == [used + timedelta(hours=s) for s in steps]

@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import json
 import tempfile
+from concurrent.futures import ThreadPoolExecutor
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Protocol
@@ -49,6 +50,14 @@ NEAREST_MAX_DEG = 0.6  # nearest wet grid node must be within this of the point
 # bands and periods) cost less than a second request round-trip
 RANGE_GAP_MAX = 600_000
 GRID_STEP_DEG = 0.25
+# concurrent step downloads. A step is one index GET plus the coalesced range GETs of a
+# global 0.25 deg field - ~9.3 MB and ~2 s each off a workstation link (measured
+# 2026-08-29; the VM's is slower, so its serial cost is the larger one). This source runs
+# TWICE a cycle - the spectral member of `run --all` and the Stage-3b archive arm - so
+# 41 steps are paid for twice. Four at a time caps the bytes in flight at ~37 MB, which
+# is what decides the worker count here: forty 9 MB fields at once is most of a
+# sub-1-GB VM.
+WORKERS = 4
 
 
 def pick_cycle(now: datetime) -> datetime:
@@ -213,23 +222,49 @@ class EcmwfSource:
         if not points:
             return series
         cycle = pick_cycle(datetime.now(UTC))
-        with httpx.Client(timeout=self.timeout_s) as client:
-            for step in self.steps:
-                data = self._get_step(client, cycle, step)
-                if data is None and step == self.steps[0]:
-                    # cycle not fully published yet - drop back one and retry
-                    cycle = cycle - timedelta(hours=12)
-                    data = self._get_step(client, cycle, step)
-                if data is None:
-                    continue
-                if self.capture_dir is not None:
-                    self.capture_dir.mkdir(parents=True, exist_ok=True)
-                    (self.capture_dir / f"ecmwf_f{step:03d}.grib2").write_bytes(data)
-                valid = cycle + timedelta(hours=step)
-                for i, sp in enumerate(parse_grib_points(data, points, valid, self.params)):
-                    if sp is not None:
-                        series[i].append(sp)
+        with (
+            httpx.Client(timeout=self.timeout_s) as client,
+            ThreadPoolExecutor(max_workers=WORKERS) as pool,
+        ):
+            # the first step is fetched alone: it decides the cycle, and every other step
+            # depends on that answer
+            first = self._get_step(client, cycle, self.steps[0])
+            if first is None:
+                # cycle not fully published yet - drop back one and retry
+                cycle = cycle - timedelta(hours=12)
+                first = self._get_step(client, cycle, self.steps[0])
+            self._absorb(series, points, cycle, self.steps[0], first)
+            # the rest fan out WORKERS at a time. Chunked rather than mapped over all 40:
+            # ThreadPoolExecutor.map submits everything immediately, and forty 9 MB global
+            # fields held at once is most of this VM's memory. Absorbed in step order, so
+            # each point's series stays ascending in time however the downloads finish.
+            rest = self.steps[1:]
+            for i in range(0, len(rest), WORKERS):
+                chunk = rest[i : i + WORKERS]
+                got = pool.map(lambda s, c=cycle: self._get_step(client, c, s), chunk)
+                for step, data in zip(chunk, got, strict=True):
+                    self._absorb(series, points, cycle, step, data)
         return series
+
+    def _absorb(
+        self,
+        series: list[list[SpectralSea]],
+        points: list[tuple[float, float]],
+        cycle: datetime,
+        step: int,
+        data: bytes | None,
+    ) -> None:
+        """Parse one downloaded step into the per-point series. Called on the main thread
+        only - parse_grib_points goes through pygrib and a temp file."""
+        if data is None:
+            return
+        if self.capture_dir is not None:
+            self.capture_dir.mkdir(parents=True, exist_ok=True)
+            (self.capture_dir / f"ecmwf_f{step:03d}.grib2").write_bytes(data)
+        valid = cycle + timedelta(hours=step)
+        for i, sp in enumerate(parse_grib_points(data, points, valid, self.params)):
+            if sp is not None:
+                series[i].append(sp)
 
     def _get_step(self, client: httpx.Client, cycle: datetime, step: int) -> bytes | None:
         try:

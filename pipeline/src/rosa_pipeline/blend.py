@@ -85,7 +85,8 @@ BACK_REACH_STEPS: tuple[int, ...] = (0, 3)
 # 1,032 requests fetched one at a time - 5.9 s each, 5% CPU, pure network wait - which
 # fits the 6 h cron gap but leaves no slack for more regions. Four in flight is ~40
 # requests/min, a third of NOMADS' published 120/min courtesy limit; the archive's
-# sequential fetch and the swellmap layers share that budget in the same cycle. Parsing
+# GFSWaveSource (four workers of its own since 2026-08-29) and the swellmap layers share
+# that budget, but they run at different points in the cycle, never alongside. Parsing
 # stays on the main thread (pygrib via temp files); a box's responses are a few KB each.
 NOMADS_WORKERS = 4
 
