@@ -127,6 +127,16 @@ quiet, and healthchecks.io catches both boxes going quiet together:
   "every 6 h", so a missed 08:20 is caught at 10:20 instead of drifting. Both paths were
   tested end to end on 2026-08-04 (fail → DOWN email → success → recovery email).
   Unset = no-op, which is how it silently did nothing from 07-28 until 08-04.
+  **What pings and what does not (read this before chasing a DOWN email):** a cycle that
+  COMPLETES pings, and so does one that skips on the Open-Meteo daily quota - that skip
+  is a decision, not silence. A cycle that skips on the single-instance lock pings
+  NOTHING, deliberately: an overrun is the thing the dead-man is for. So while a cycle
+  takes longer than the 6 h cron gap (OPEN-ITEMS 24), every other cron slot skips on the
+  lock and pings land ~12 h apart - past the 6 h + 2 h window - and the check goes DOWN
+  on a fleet that is publishing fine. First seen 2026-08-29: last ping 09:20:06Z for the
+  02:20Z cycle, 08:20Z skipped on the lock, 10:20Z deadline missed. **The fix is the
+  cycle duration, not the check** - pinging on a lock-skip would trade a false alarm for
+  silence about a real overrun.
 - **Weekly cam rot check (this VM, 2026-07-29):** `deploy/oracle/cam-watch.sh`, cron
   Mondays 05:40 UTC, log `~/rosa/cam-watch.log`. A cam dies with nobody touching it -
   YouTube rotates the video id whenever a 24/7 stream restarts - so an embed can sit
