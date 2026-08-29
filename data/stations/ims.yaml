@@ -1,0 +1,9 @@
+# IMS (Israel Meteorological Service) wind-station registry - beach-level wind truth for Israel.
+# Open data; the API needs a free token (mail ims@ims.gov.il), set as IMS_API_TOKEN in the VM's
+# ~/rosa/.env. EMPTY until the token exists: station ids are only readable through the API, and
+# an id written from memory is an invented one. Fill it with
+#   IMS_API_TOKEN=... rosa-pipeline stations --discover ims
+# which lists every active IMS station with a wind channel within 25 km of a Rosa spot.
+# Observation times on the wire are Israel WINTER time (UTC+2) whatever suffix they carry - the
+# adapter (observe.parse_ims_json) corrects that; do not "fix" it here.
+stations: []

@@ -167,6 +167,14 @@ JSON
   uv run --project pipeline rosa-pipeline verify --all-buoys --archive --write-skill \
     || echo "warn: skill measurement failed - published ceilings stay as-is"
 
+  # 4c) coastal wind truth: the model's 10 m wind (archived at every station in
+  #     data/stations by step 1) vs the airports' METARs and IMS's beach stations, by
+  #     lead. Evidence only - nothing reads it yet (OPEN-ITEMS 25); ~90 small
+  #     aviationweather.gov requests, a few minutes, after the deploy and non-fatal
+  #     for the same reason as 4b. IMS stations need IMS_API_TOKEN in ~/rosa/.env.
+  uv run --project pipeline rosa-pipeline verify --stations --archive \
+    || echo "warn: station wind measurement failed"
+
   # 5) dead-man ping: "a cycle completed" - its absence is the alarm
   if [ -n "${HEALTHCHECK_URL:-}" ]; then
     curl -fsS -m 10 --retry 3 -o /dev/null "$HEALTHCHECK_URL" \

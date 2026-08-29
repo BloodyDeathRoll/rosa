@@ -1,10 +1,12 @@
-"""NDBC + CMEMS observation parsing and fixture replay."""
+"""NDBC + CMEMS observation parsing, the coastal wind-station adapters, and fixture replay."""
 
 from __future__ import annotations
 
 from datetime import UTC, date, datetime
 from itertools import pairwise
 from pathlib import Path
+
+import pytest
 
 from rosa_pipeline.buoys import Buoy
 from rosa_pipeline.observe import (
@@ -125,3 +127,77 @@ def test_cmems_drops_qc_rejected_values() -> None:
     assert len(obs) == 48
     assert all(o.hs_m is None for o in obs)
     assert any(o.apd_s is not None for o in obs)  # other variables untouched
+
+
+# --- coastal wind stations (2026-08-29) -------------------------------------------------
+
+
+def test_metar_fixture_parses_the_real_capture() -> None:
+    """metar_LLBG.json is a live aviationweather.gov capture (2026-08-29, 24 h). Speeds
+    arrive in knots and are stored as m/s; the rows come newest-first and leave oldest-first."""
+    from rosa_pipeline.observe import KT_TO_MS, MetarFixtureSource
+    from rosa_pipeline.stations import Station
+
+    obs = MetarFixtureSource(FIX).fetch(Station("LLBG", "Ben Gurion", 32.011, 34.887, "metar"))
+    assert len(obs) == 48
+    assert all(a.time < b.time for a, b in pairwise(obs))
+    assert obs[-1].time == datetime(2026, 8, 29, 19, 0, tzinfo=UTC)
+    assert obs[-1].wspd_ms == pytest.approx(12 * KT_TO_MS)
+    assert obs[-1].wdir_deg == 260.0
+    assert obs[-1].hs_m is None and obs[-1].gust_ms is None
+
+
+def test_metar_variable_wind_keeps_speed_drops_direction() -> None:
+    from rosa_pipeline.observe import KT_TO_MS, parse_metar_json
+
+    rows = [
+        {"reportTime": "2026-08-29T10:00:00.000Z", "wdir": "VRB", "wspd": 3, "wgst": None},
+        {"reportTime": "2026-08-29T09:00:00.000Z", "wdir": 250, "wspd": 8, "wgst": 15},
+        {"reportTime": "2026-08-29T08:00:00.000Z", "wdir": None, "wspd": None},  # no wind group
+    ]
+    obs = parse_metar_json(rows, "X")
+    assert [o.time.hour for o in obs] == [9, 10]
+    assert obs[1].wdir_deg is None and obs[1].wspd_ms == pytest.approx(3 * KT_TO_MS)
+    assert obs[0].gust_ms == pytest.approx(15 * KT_TO_MS)
+
+
+def test_ims_parse_applies_the_winter_time_rule() -> None:
+    """Shape per IMS's API_Explanation_en.pdf (data[].datetime + channels[]{name,value,
+    valid,status}); NOT a live capture - the API needs a token. The doc's own rule: the
+    stamp is always UTC+2 whatever suffix it carries, so 10:00+03:00 is 08:00Z, not 07:00Z."""
+    from rosa_pipeline.observe import parse_ims_json
+
+    body = {
+        "stationId": 178,
+        "data": [
+            {
+                "datetime": "2026-08-29T10:00:00+03:00",
+                "channels": [
+                    {"id": 1, "name": "WS", "value": 5.2, "valid": True, "status": 1},
+                    {"id": 2, "name": "WD", "value": 289, "valid": True, "status": 1},
+                    {"id": 3, "name": "WSmax", "value": 8.1, "valid": True, "status": 1},
+                ],
+            },
+            {
+                "datetime": "2026-08-29T09:50:00+03:00",
+                "channels": [
+                    {"id": 1, "name": "WS", "value": 99.0, "valid": False, "status": 1},
+                    {"id": 2, "name": "WD", "value": 300, "valid": True, "status": 2},
+                    {"id": 4, "name": "TD", "value": 30.1, "valid": True, "status": 1},
+                ],
+            },
+        ],
+    }
+    obs = parse_ims_json(body, "178")
+    assert len(obs) == 1  # the second row has no valid wind channel at all
+    assert obs[0].time == datetime(2026, 8, 29, 8, 0, tzinfo=UTC)
+    assert obs[0].wspd_ms == 5.2 and obs[0].wdir_deg == 289.0 and obs[0].gust_ms == 8.1
+
+
+def test_ims_source_refuses_without_a_token(monkeypatch) -> None:
+    from rosa_pipeline.observe import IMS_TOKEN_ENV, IMSSource
+    from rosa_pipeline.stations import Station
+
+    monkeypatch.delenv(IMS_TOKEN_ENV, raising=False)
+    with pytest.raises(RuntimeError, match=IMS_TOKEN_ENV):
+        IMSSource().fetch(Station("178", "Tel Aviv Coast", 32.06, 34.76, "ims"))

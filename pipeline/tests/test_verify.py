@@ -302,3 +302,44 @@ def test_windless_history_scores_empty_not_crashing() -> None:
     )
     assert scores["ws"].n == 0
     assert scores["hs"].n == 1
+
+
+# --- coastal wind stations (2026-08-29) -------------------------------------------------
+
+
+def test_wind_points_shape_a_weather_body_as_wind_only_rows() -> None:
+    from rosa_pipeline.verify import wind_points
+
+    body = {
+        "hourly": {
+            "time": ["2026-08-29T00:00", "2026-08-29T01:00"],
+            "wind_speed_10m": [3.1, None],
+            "wind_direction_10m": [280, 285],
+        }
+    }
+    pts = wind_points(body)
+    assert [p.time for p in pts] == [
+        datetime(2026, 8, 29, 0, tzinfo=UTC),
+        datetime(2026, 8, 29, 1, tzinfo=UTC),
+    ]
+    assert pts[0].ws == 3.1 and pts[0].wdir == 280 and pts[0].hs is None
+    assert pts[1].ws is None and pts[1].wdir == 285
+
+
+def test_pooled_lead_card_merges_n_weighted() -> None:
+    from rosa_pipeline.verify import STATION_VARIABLES, render_pooled_lead
+
+    def card(bias: float, n: int) -> dict:
+        return {
+            "0-1d": {
+                "ws": VarScore("ws", "Wind speed", "m/s", n, bias, abs(bias), abs(bias), None),
+                "wdir": VarScore("wdir", "Wind direction", "°", 0, 0.0, 0.0, 0.0, None),
+            }
+        }
+
+    out = render_pooled_lead([card(1.0, 10), card(-1.0, 30)], "pooled")
+    # (1.0*10 + -1.0*30) / 40 = -0.5
+    assert "0-1d  Wind speed            40    -0.50m/s" in out
+    assert "Wind direction" not in out  # n=0 rows are not printed
+    assert render_pooled_lead([], "pooled").endswith("(nothing scored)")
+    assert STATION_VARIABLES[0][0] == "ws"

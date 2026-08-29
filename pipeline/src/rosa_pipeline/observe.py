@@ -26,6 +26,8 @@ without them. See docs/CALIBRATION.md 2026-08-03 and open item 4.
 
 from __future__ import annotations
 
+import json
+import os
 from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
@@ -34,6 +36,7 @@ from typing import Protocol
 import httpx
 
 from .buoys import Buoy
+from .stations import Station
 
 NDBC_REALTIME = "https://www.ndbc.noaa.gov/data/realtime2"
 
@@ -53,6 +56,9 @@ class BuoyObs:
     # co-located wind, same line of the same file (see module docstring)
     wdir_deg: float | None = None  # direction the wind blows FROM
     wspd_ms: float | None = None  # m/s, as NDBC reports it - not kph
+    # gust, m/s - only the coastal wind stations report it (METAR wgst, IMS WSmax);
+    # None on every buoy row. Nothing scores it yet; recorded so it CAN be.
+    gust_ms: float | None = None
 
 
 def _num(token: str) -> float | None:
@@ -329,3 +335,182 @@ class ISRAMARLocalSource:
         if not path.exists():
             return []
         return parse_isramar_csv(path.read_text(encoding="utf-8"), buoy.id)
+
+
+# ---------------------------------------------------------------------------------------
+# Coastal wind stations (rosa_pipeline.stations, 2026-08-29). Both adapters return BuoyObs
+# with the wave fields None and only wdir/wspd/gust set, so the lead-time harness scores
+# them with the wind pairing (verify.STATION_VARIABLES) and nothing else.
+
+METAR_API = "https://aviationweather.gov/api/data/metar"
+# aviationweather.gov caps one response at 400 reports whatever the id list, so the source
+# asks per station; 240 h is ~8 days at a half-hourly field, which covers every lead bucket
+# the buoy harness scores (the valid hour must fall in the obs window, not the run time).
+METAR_HOURS = 240
+KT_TO_MS = 0.514444
+
+
+def _kt(v: object) -> float | None:
+    """A METAR speed field (knots, int) as m/s; None for missing or a non-number."""
+    return float(v) * KT_TO_MS if isinstance(v, (int, float)) else None
+
+
+def parse_metar_json(data: list[dict], station: str) -> list[BuoyObs]:
+    """Parse aviationweather.gov's ``format=json`` METAR list, oldest-first.
+
+    ``wspd``/``wgst`` are knots; ``wdir`` is degrees FROM, or the literal "VRB" when the
+    wind is light and variable - kept as a speed with no direction (the harness pairs
+    speed and direction separately, so a directionless row still scores speed). Reports
+    with no wind group at all are dropped - a station that publishes none is not truth."""
+    obs: list[BuoyObs] = []
+    for r in data:
+        ws = _kt(r.get("wspd"))
+        if ws is None:
+            continue
+        raw_t = r.get("reportTime") or ""
+        try:
+            t = datetime.fromisoformat(raw_t.replace("Z", "+00:00")).astimezone(UTC)
+        except ValueError:
+            continue
+        wd = r.get("wdir")
+        obs.append(
+            BuoyObs(
+                station=station,
+                time=t,
+                hs_m=None,
+                dpd_s=None,
+                apd_s=None,
+                mwd_deg=None,
+                wtmp_c=None,
+                wdir_deg=float(wd) if isinstance(wd, (int, float)) else None,
+                wspd_ms=ws,
+                gust_ms=_kt(r.get("wgst")),
+            )
+        )
+    obs.sort(key=lambda o: o.time)
+    return obs
+
+
+class MetarSource:
+    def __init__(
+        self, capture_dir: Path | None = None, timeout_s: float = 30.0, hours: int = METAR_HOURS
+    ) -> None:
+        self.capture_dir = capture_dir
+        self.timeout_s = timeout_s
+        self.hours = hours
+
+    def fetch(self, station: Station) -> list[BuoyObs]:
+        with httpx.Client(timeout=self.timeout_s) as client:
+            resp = client.get(
+                METAR_API, params={"ids": station.id, "format": "json", "hours": self.hours}
+            )
+            resp.raise_for_status()
+        if self.capture_dir is not None:
+            self.capture_dir.mkdir(parents=True, exist_ok=True)
+            (self.capture_dir / f"metar_{station.id}.json").write_text(resp.text, encoding="utf-8")
+        return parse_metar_json(resp.json(), station.id)
+
+
+class MetarFixtureSource:
+    def __init__(self, fixtures_dir: Path) -> None:
+        self.fixtures_dir = fixtures_dir
+
+    def fetch(self, station: Station) -> list[BuoyObs]:
+        path = self.fixtures_dir / f"metar_{station.id}.json"
+        return parse_metar_json(json.loads(path.read_text(encoding="utf-8")), station.id)
+
+
+IMS_API = "https://api.ims.gov.il/v1/envista"
+IMS_TOKEN_ENV = "IMS_API_TOKEN"
+# The API doc (ims.gov.il, API_Explanation_en.pdf): "The observation date is always in
+# Israel winter time (UTC + 2), and not as mentioned in the output datetime +03:00". So the
+# suffix on the wire is ignored and this fixed offset applied instead.
+IMS_FIXED_OFFSET = timedelta(hours=2)
+IMS_GOOD_STATUS = 1  # channel status: 1 = correct, 2 = incorrect
+
+
+def parse_ims_json(body: dict, station: str) -> list[BuoyObs]:
+    """Parse an Envista ``/stations/{id}/data`` body, oldest-first.
+
+    Rows are ``{"datetime": ..., "channels": [{"name","value","valid","status"}, ...]}``.
+    Channels read: WS (m/s), WD (deg FROM), WSmax (gust, m/s). A channel that is not
+    ``valid`` or whose status is not 1 is treated as missing, never as a value."""
+    obs: list[BuoyObs] = []
+    for r in body.get("data") or []:
+        raw_t = str(r.get("datetime") or "")
+        try:
+            naive = datetime.fromisoformat(raw_t).replace(tzinfo=None)
+        except ValueError:
+            continue
+        t = (naive - IMS_FIXED_OFFSET).replace(tzinfo=UTC)
+        vals: dict[str, float] = {}
+        for ch in r.get("channels") or []:
+            if not ch.get("valid", False) or ch.get("status") != IMS_GOOD_STATUS:
+                continue
+            v = ch.get("value")
+            if isinstance(v, (int, float)):
+                vals[str(ch.get("name"))] = float(v)
+        if "WS" not in vals and "WD" not in vals:
+            continue
+        obs.append(
+            BuoyObs(
+                station=station,
+                time=t,
+                hs_m=None,
+                dpd_s=None,
+                apd_s=None,
+                mwd_deg=None,
+                wtmp_c=None,
+                wdir_deg=vals.get("WD"),
+                wspd_ms=vals.get("WS"),
+                gust_ms=vals.get("WSmax"),
+            )
+        )
+    obs.sort(key=lambda o: o.time)
+    return obs
+
+
+def ims_token() -> str | None:
+    return os.environ.get(IMS_TOKEN_ENV) or None
+
+
+class IMSSource:
+    """IMS Envista 10-minute data, ``from``/``to`` date range (inclusive, calendar days)."""
+
+    def __init__(
+        self,
+        token: str | None = None,
+        capture_dir: Path | None = None,
+        timeout_s: float = 30.0,
+        days: int = 8,
+    ) -> None:
+        self.token = token if token is not None else ims_token()
+        self.capture_dir = capture_dir
+        self.timeout_s = timeout_s
+        self.days = days
+
+    def fetch(self, station: Station) -> list[BuoyObs]:
+        if not self.token:
+            raise RuntimeError(f"{IMS_TOKEN_ENV} not set - IMS stations need a token")
+        today = datetime.now(UTC).date()
+        start = today - timedelta(days=self.days)
+        with httpx.Client(timeout=self.timeout_s) as client:
+            resp = client.get(
+                f"{IMS_API}/stations/{station.id}/data",
+                params={"from": start.strftime("%Y/%m/%d"), "to": today.strftime("%Y/%m/%d")},
+                headers={"Authorization": f"ApiToken {self.token}"},
+            )
+            resp.raise_for_status()
+        if self.capture_dir is not None:
+            self.capture_dir.mkdir(parents=True, exist_ok=True)
+            (self.capture_dir / f"ims_{station.id}.json").write_text(resp.text, encoding="utf-8")
+        return parse_ims_json(resp.json(), station.id)
+
+
+class IMSFixtureSource:
+    def __init__(self, fixtures_dir: Path) -> None:
+        self.fixtures_dir = fixtures_dir
+
+    def fetch(self, station: Station) -> list[BuoyObs]:
+        path = self.fixtures_dir / f"ims_{station.id}.json"
+        return parse_ims_json(json.loads(path.read_text(encoding="utf-8")), station.id)

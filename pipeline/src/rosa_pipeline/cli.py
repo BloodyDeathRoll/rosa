@@ -59,7 +59,11 @@ from .models import Spot
 from .observe import (
     CMEMSFixtureSource,
     CMEMSSource,
+    IMSFixtureSource,
+    IMSSource,
     ISRAMARLocalSource,
+    MetarFixtureSource,
+    MetarSource,
     NDBCFixtureSource,
     NDBCSource,
 )
@@ -83,19 +87,23 @@ from .spectra import (
     render_report as render_spectra_report,
 )
 from .spots import load_spots
+from .stations import Station, load_stations
 from .transform import spread_exposure
 from .verify import (
     ECMWF_VARIABLES,
     ENERGY_PERIOD_VARIABLES,
     GFSWAVE_VARIABLES,
+    STATION_VARIABLES,
     VARIABLES,
     build_scorecard,
     join_wind,
     lead_time_scorecard,
     parse_marine_waves,
     render_lead_scorecard,
+    render_pooled_lead,
     render_scorecard,
     skill_payload,
+    wind_points,
     with_energy_period,
 )
 
@@ -107,6 +115,10 @@ SOURCE_KEY_SUFFIX = {"om": "", "gfswave": GFSWAVE_KEY_SUFFIX, "ecmwf": ECMWF_KEY
 SOURCE_VARIABLES = {"om": VARIABLES, "gfswave": GFSWAVE_VARIABLES, "ecmwf": ECMWF_VARIABLES}
 
 ARCHIVE_DIR = Path("data/verify/archive")
+# coastal wind stations (rosa_pipeline.stations): the registry is committed, the archive of
+# the model's wind at each station is VM-local like the buoy archive, one file per station
+STATIONS_DIR = Path("data/stations")
+STATIONS_ARCHIVE_DIR = Path("data/verify/stations")
 ISRAMAR_DIR = Path("data/verify/isramar")  # local-only, gitignored (all-rights-reserved)
 FEEDBACK_DIR = Path("data/verify/feedback")
 BATHY_DIR = Path("data/spots/derived/bathy")  # committed per-spot depth profiles (Stage 2A)
@@ -258,6 +270,15 @@ def _build_parser() -> argparse.ArgumentParser:
         help="score every registered buoy (the scheduled fleet skill pass). ISRAMAR "
         "buoys are skipped: their data is manual-calibration-only (legal red line)",
     )
+    target.add_argument(
+        "--stations",
+        action="store_true",
+        help="score the model's 10 m wind against every coastal wind station "
+        "(data/stations, METAR + IMS) by lead, plus a pooled fleet card. Needs --archive",
+    )
+    target.add_argument("--station", help="one station id (ICAO or IMS id); needs --archive")
+    verify.add_argument("--stations-dir", type=Path, default=STATIONS_DIR)
+    verify.add_argument("--stations-archive-dir", type=Path, default=STATIONS_ARCHIVE_DIR)
     verify.add_argument("--buoys-dir", type=Path, default=Path("data/buoys"))
     verify.add_argument("--spots-dir", type=Path, default=Path("data/spots"))
     verify.add_argument("--radius-km", type=float, default=150.0, help="--near search radius")
@@ -324,6 +345,34 @@ def _build_parser() -> argparse.ArgumentParser:
         "--ecmwf-fixtures", type=Path, default=None, help="replay captured ECMWF gribs (offline)"
     )
     archive.add_argument("--capture", type=Path, default=None, help="capture responses to this dir")
+    archive.add_argument(
+        "--stations-dir",
+        type=Path,
+        default=STATIONS_DIR,
+        help="coastal wind-station registry; the model's 10 m wind is archived at each "
+        "station (an empty or missing dir skips the arm)",
+    )
+    archive.add_argument("--stations-archive-dir", type=Path, default=STATIONS_ARCHIVE_DIR)
+    archive.add_argument(
+        "--wind-fixtures",
+        type=Path,
+        default=None,
+        help="replay weather_<station>.json bodies for the station arm (offline)",
+    )
+
+    stations = sub.add_parser(
+        "stations", help="coastal wind-station registry tools (data/stations/*.yaml)"
+    )
+    stations.add_argument(
+        "--discover",
+        choices=["metar", "ims"],
+        required=True,
+        help="print a registry yaml of every station within --radius-km of a spot: metar "
+        "reads aviationweather.gov's worldwide cache (no key); ims reads the IMS station "
+        "list (IMS_API_TOKEN) and keeps stations with a wind channel",
+    )
+    stations.add_argument("--radius-km", type=float, default=25.0)
+    stations.add_argument("--spots-dir", type=Path, default=Path("data/spots"))
 
     fb = sub.add_parser("feedback", help="record/report surfer 👍👎 vs the published rating")
     fb.add_argument("--report", action="store_true", help="summarise instead of adding")
@@ -854,7 +903,80 @@ def _model_for(buoy: Buoy, args: argparse.Namespace, marine: dict | None = None)
     return parse_marine_waves(marine)
 
 
+def _station_obs_for(station: Station, args: argparse.Namespace):
+    fixtures = getattr(args, "obs_fixtures", None)
+    if station.source == "ims":
+        if fixtures is not None:
+            return IMSFixtureSource(fixtures).fetch(station)
+        return IMSSource(capture_dir=args.capture).fetch(station)
+    if fixtures is not None:
+        return MetarFixtureSource(fixtures).fetch(station)
+    return MetarSource(capture_dir=args.capture).fetch(station)
+
+
+def _cmd_verify_stations(args: argparse.Namespace) -> int:
+    """Lead-time wind skill at the coastal stations - the per-station cards and one pooled
+    fleet card. Wind only: STATION_VARIABLES. Degrades per station like the buoy pass."""
+    if not args.archive:
+        print("--stations/--station score the archive only: add --archive", file=sys.stderr)
+        return 2
+    stations = load_stations(args.stations_dir)
+    if args.station:
+        st = stations.get(str(args.station))
+        if st is None:
+            print(
+                f"unknown station {args.station!r}; known: {', '.join(sorted(stations))}",
+                file=sys.stderr,
+            )
+            return 2
+        targets = [st]
+    else:
+        targets = sorted(stations.values(), key=lambda s: s.id)
+    if not targets:
+        print(f"no stations registered under {args.stations_dir}")
+        return 0
+    store = FileArchiveStore(args.stations_archive_dir)
+    cards: list[dict] = []
+    scored = 0
+    failures: list[tuple[str, Exception]] = []
+    for st in targets:
+        rows = store.read(st.id)
+        if not rows:
+            print(f"{st.id}: no archived wind yet - the archive arm fills this each cycle")
+            continue
+        try:
+            obs = _station_obs_for(st, args)
+            by_lead = lead_time_scorecard(
+                rows, obs, tol_min=args.tol_min, variables=STATION_VARIABLES
+            )
+        except Exception as e:
+            if args.station:
+                raise
+            failures.append((st.id, e))
+            print(f"{st.id}: FAILED ({e}) - left out of this station pass", file=sys.stderr)
+            continue
+        print(render_lead_scorecard(st, by_lead, kind="station"))
+        cards.append(by_lead)
+        scored += 1
+    if not args.station:
+        print(
+            render_pooled_lead(
+                cards, f"pooled coastal wind skill - {scored} of {len(targets)} station(s)"
+            )
+        )
+    if failures:
+        kinds = ", ".join(sorted({type(e).__name__ for _, e in failures}))
+        print(
+            f"error: {len(failures)} of {len(targets)} station(s) failed ({kinds}): "
+            f"{', '.join(sid for sid, _ in failures)}",
+            file=sys.stderr,
+        )
+    return 1 if failures and not scored else 0
+
+
 def _cmd_verify(args: argparse.Namespace) -> int:
+    if getattr(args, "stations", False) or getattr(args, "station", None):
+        return _cmd_verify_stations(args)
     buoys = load_all_buoys(args.buoys_dir, args.isramar_dir)
 
     targets: list[tuple[Buoy, float | None]]
@@ -1084,6 +1206,47 @@ def _archive_om_rows(
     )
 
 
+def _archive_stations(args: argparse.Namespace, now: datetime) -> None:
+    """The coastal-station arm: the model's 10 m wind at every registered station, one
+    weather-host request for the whole registry (2 vars, ~1 unit/point - ~90 units a
+    cycle at 90 stations, not charged to the marine ledger, same choice as the buoy
+    archive). Guarded top to bottom: this is evidence, and it must never sink the
+    essential buoy archive or fail the cycle."""
+    stations = load_stations(args.stations_dir)
+    if not stations:
+        return
+    targets = sorted(stations.values(), key=lambda s: s.id)
+    store = FileArchiveStore(args.stations_archive_dir)
+    try:
+        if args.wind_fixtures is not None:
+            bodies = [
+                json.loads(
+                    (args.wind_fixtures / f"weather_{st.id}.json").read_text(encoding="utf-8")
+                )
+                for st in targets
+            ]
+        else:
+            bodies = fetch_wind_many([(st.lat, st.lon) for st in targets])
+    except Exception as e:
+        print(f"warn: station wind batch failed ({e!r}) - station arm skipped", file=sys.stderr)
+        return
+    for st, body in zip(targets, bodies, strict=True):
+        try:
+            if args.capture is not None and args.wind_fixtures is None:
+                args.capture.mkdir(parents=True, exist_ok=True)
+                (args.capture / f"weather_{st.id}.json").write_text(
+                    json.dumps(body), encoding="utf-8"
+                )
+            rows = rows_from_model(now, wind_points(body))
+            store.append(st.id, rows)
+            print(
+                f"{st.id}: archived {len(rows)} wind rows"
+                f" → {args.stations_archive_dir / (st.id + '.jsonl')}"
+            )
+        except Exception as e:
+            print(f"warn: {st.id}: {e!r} - station left out of this run", file=sys.stderr)
+
+
 def _cmd_archive(args: argparse.Namespace) -> int:
     buoys = load_all_buoys(args.buoys_dir, args.isramar_dir)
     if args.buoy:
@@ -1215,6 +1378,8 @@ def _cmd_archive(args: argparse.Namespace) -> int:
                 )
         except Exception as e:
             print(f"warn: ecmwf archive skipped: {e}", file=sys.stderr)
+    # coastal wind stations - after every buoy member, and never able to fail the run
+    _archive_stations(args, now)
     if failures:
         # still a failed cycle for the cron trap - but only after archiving every
         # buoy and member that could be archived (mirrors _cmd_run's summary)
@@ -1225,6 +1390,95 @@ def _cmd_archive(args: argparse.Namespace) -> int:
             file=sys.stderr,
         )
         return 1
+    return 0
+
+
+METAR_CACHE_URL = "https://aviationweather.gov/data/cache/metars.cache.csv.gz"
+
+
+def _cmd_stations(args: argparse.Namespace) -> int:
+    """Print a station registry yaml: every station within --radius-km of any spot."""
+    import csv
+    import gzip
+    import io
+
+    from .buoys import haversine_km
+    from .observe import IMS_API, ims_token
+
+    spots = list(load_spots(args.spots_dir).values())
+
+    def near(lat: float, lon: float) -> tuple[int, str] | None:
+        hits = [(haversine_km(s.lat, s.lon, lat, lon), s.region) for s in spots]
+        hits = [(d, r) for d, r in hits if d <= args.radius_km]
+        return (len(hits), min(hits)[1]) if hits else None
+
+    found: list[tuple[str, str, float, float, str, int, str]] = []
+    with httpx.Client(timeout=60.0) as client:
+        if args.discover == "metar":
+            resp = client.get(METAR_CACHE_URL)
+            resp.raise_for_status()
+            text = gzip.decompress(resp.content).decode("utf-8", errors="replace")
+            coords: dict[str, tuple[float, float]] = {}
+            for row in csv.reader(io.StringIO(text)):
+                # columns: raw_text, station_id, observation_time, latitude, longitude, ...
+                if len(row) < 5 or not row[1] or row[1] == "station_id":
+                    continue
+                try:
+                    coords[row[1]] = (float(row[3]), float(row[4]))
+                except ValueError:
+                    continue
+            hits = {k: n for k, (la, lo) in coords.items() if (n := near(la, lo))}
+            names: dict[str, str] = {}
+            ids = sorted(hits)
+            for i in range(0, len(ids), 40):
+                chunk = ids[i : i + 40]
+                r = client.get(
+                    "https://aviationweather.gov/api/data/metar",
+                    params={"ids": ",".join(chunk), "format": "json", "hours": 2},
+                )
+                r.raise_for_status()
+                for ob in r.json():
+                    names.setdefault(ob["icaoId"], str(ob.get("name") or ob["icaoId"]))
+            for k in ids:
+                la, lo = coords[k]
+                n, region = hits[k]
+                found.append((k, names.get(k, k), la, lo, "metar", n, region))
+        else:
+            token = ims_token()
+            if not token:
+                print("IMS_API_TOKEN not set (mail ims@ims.gov.il for one)", file=sys.stderr)
+                return 2
+            r = client.get(f"{IMS_API}/stations", headers={"Authorization": f"ApiToken {token}"})
+            r.raise_for_status()
+            for st in r.json():
+                loc = st.get("location") or {}
+                monitors = st.get("monitors") or []
+                if not st.get("active", True) or not any(m.get("name") == "WS" for m in monitors):
+                    continue
+                try:
+                    la, lo = float(loc["latitude"]), float(loc["longitude"])
+                except (KeyError, TypeError, ValueError):
+                    continue
+                if n := near(la, lo):
+                    found.append(
+                        (
+                            str(st["stationId"]),
+                            str(st.get("name") or st["stationId"]),
+                            la,
+                            lo,
+                            "ims",
+                            n[0],
+                            n[1],
+                        )
+                    )
+    print("stations:")
+    for sid, name, la, lo, source, n, region in sorted(found):
+        name = name.replace('"', "")
+        print(
+            f'  - {{ id: "{sid}", name: "{name}", lat: {la}, lon: {lo}, source: {source} }}'
+            f"  # {region}, {n} spot(s) within {args.radius_km:g} km"
+        )
+    print(f"# {len(found)} station(s)", file=sys.stderr)
     return 0
 
 
@@ -1780,6 +2034,8 @@ def main(argv: list[str] | None = None) -> int:
         return _cmd_verify(args)
     if args.command == "archive":
         return _cmd_archive(args)
+    if args.command == "stations":
+        return _cmd_stations(args)
     if args.command == "feedback":
         return _cmd_feedback(args)
     if args.command == "tide":

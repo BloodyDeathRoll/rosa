@@ -30,6 +30,7 @@ from datetime import UTC, datetime, timedelta
 from .buoys import Buoy
 from .observe import BuoyObs
 from .spectra import SpectrumMeasures
+from .stations import Station
 
 # the APD-paired period label; the renderers footnote it so a reader can never mistake
 # this row for a calibratable bias (see module docstring)
@@ -79,6 +80,10 @@ ECMWF_VARIABLES = (
     ("tp", "Peak period", "s", "tp", "dpd_s", False),
     ("dir", "Wave direction", "°", "dir", "mwd_deg", True),
 )
+
+# Coastal wind stations (rosa_pipeline.stations) archive the model's 10 m wind only, so
+# their card is the wind pair alone - a wave row against an airport would be nonsense.
+STATION_VARIABLES = _WIND_VARIABLES
 
 
 @dataclass(frozen=True, slots=True)
@@ -145,6 +150,28 @@ def join_wind(model: list[WavePoint], weather: dict) -> list[WavePoint]:
     for p in model:
         w = by_time.get(p.time.strftime("%Y-%m-%dT%H:%M"))
         out.append(replace(p, ws=w[0], wdir=w[1]) if w is not None else p)
+    return out
+
+
+def wind_points(weather: dict) -> list[WavePoint]:
+    """A weather-host body (fetch.fetch_wind_many, m/s) as wind-only points: the archive
+    row shape for a coastal station, where there is no wave field to attach wind to."""
+    hourly = weather.get("hourly", {})
+    times = hourly.get("time", [])
+    ws = hourly.get("wind_speed_10m", [])
+    wd = hourly.get("wind_direction_10m", [])
+    out: list[WavePoint] = []
+    for i, t in enumerate(times):
+        out.append(
+            WavePoint(
+                time=datetime.fromisoformat(t).replace(tzinfo=UTC),
+                hs=None,
+                tp=None,
+                dir=None,
+                ws=ws[i] if i < len(ws) else None,
+                wdir=wd[i] if i < len(wd) else None,
+            )
+        )
     return out
 
 
@@ -467,14 +494,16 @@ def _apd_footnote(*scorecards: dict[str, VarScore]) -> list[str]:
     ]
 
 
-def render_lead_scorecard(buoy: Buoy, by_lead: dict[str, dict[str, VarScore]]) -> str:
+def render_lead_scorecard(
+    buoy: Buoy | Station, by_lead: dict[str, dict[str, VarScore]], *, kind: str = "buoy"
+) -> str:
     """One row per lead x variable, **bias first**.
 
     Bias is the calibratable quantity - it is what an input-side de-bias would correct, and
     what tells a hot model from a cold one. An rmse-only card hid a +2.8 s period bias for
     six days (CALIBRATION.md 2026-07-29); rmse alone cannot show sign."""
     lines = [
-        f"lead-time skill vs buoy {buoy.id} - {buoy.name}",
+        f"lead-time skill vs {kind} {buoy.id} - {buoy.name}",
         f"  {'lead':<6}{'var':<18}{'n':>6}  {'bias':>8}  {'mae':>8}  {'rmse':>8}",
     ]
     for lead_label, scores in by_lead.items():
@@ -494,6 +523,34 @@ def render_lead_scorecard(buoy: Buoy, by_lead: dict[str, dict[str, VarScore]]) -
                 f"{s.mae:>7.2f}{s.unit}  {s.rmse:>7.2f}{s.unit}"
             )
     lines.extend(_apd_footnote(*by_lead.values()))
+    return "\n".join(lines)
+
+
+def render_pooled_lead(cards: list[dict[str, dict[str, VarScore]]], title: str) -> str:
+    """One fleet card from many per-station lead cards - each (lead, variable) cell is the
+    n-weighted merge (merge_var_scores). Sign survives the merge, so a fleet-wide hot or
+    cold model reads straight off the bias column."""
+    lines = [
+        title,
+        f"  {'lead':<6}{'var':<18}{'n':>6}  {'bias':>8}  {'mae':>8}  {'rmse':>8}",
+    ]
+    if not cards:
+        lines.append("  (nothing scored)")
+        return "\n".join(lines)
+    for lead_label in cards[0]:
+        keys = list(cards[0][lead_label])
+        merged = [
+            merge_var_scores([c[lead_label][k] for c in cards if lead_label in c]) for k in keys
+        ]
+        rows = [m for m in merged if m is not None and m.n]
+        if not rows:
+            lines.append(f"  {lead_label:<6}(no matured forecasts yet)")
+            continue
+        for s in rows:
+            lines.append(
+                f"  {lead_label:<6}{s.label:<18}{s.n:>6}  {s.bias:>+7.2f}{s.unit}  "
+                f"{s.mae:>7.2f}{s.unit}  {s.rmse:>7.2f}{s.unit}"
+            )
     return "\n".join(lines)
 
 

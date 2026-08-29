@@ -345,8 +345,116 @@ def _archive_argv(tmp_path: Path, buoys_dir: Path, extra: list[str] | None = Non
         str(tmp_path / "no-isramar"),
         "--archive-dir",
         str(tmp_path / "archive"),
+        "--stations-dir",
+        str(tmp_path / "no-stations"),  # keep the coastal-station arm offline
         *(extra or []),
     ]
+
+
+STATIONS_YAML = """\
+stations:
+  - {id: "LLBG", name: "Ben Gurion", lat: 32.011, lon: 34.887, source: metar}
+"""
+
+
+def _wind_body(hours: list[str]) -> dict:
+    return {
+        "hourly": {
+            "time": hours,
+            "wind_speed_10m": [4.0 for _ in hours],
+            "wind_direction_10m": [270 for _ in hours],
+        }
+    }
+
+
+def test_archive_station_arm_writes_wind_rows_and_never_raises(tmp_path, monkeypatch, capsys):
+    """The coastal-station arm rides the buoy archive: one weather-host batch for the
+    whole registry, wind-only rows per station under its own dir, and a batch failure
+    is a warning - the buoy archive's exit code is untouched."""
+    import rosa_pipeline.cli as cli
+
+    buoys_dir = tmp_path / "buoys"
+    buoys_dir.mkdir()
+    (buoys_dir / "test.yaml").write_text(BUOYS_YAML, encoding="utf-8")
+    stations_dir = tmp_path / "stations"
+    stations_dir.mkdir()
+    (stations_dir / "metar.yaml").write_text(STATIONS_YAML, encoding="utf-8")
+    monkeypatch.setattr(
+        cli, "fetch_marine_waves_many", lambda coords: [_marine_body() for _ in coords]
+    )
+    calls: list[list[tuple[float, float]]] = []
+
+    def fake_wind(coords):
+        calls.append(coords)
+        return [_wind_body(["2026-08-09T00:00", "2026-08-09T01:00"]) for _ in coords]
+
+    monkeypatch.setattr(cli, "fetch_wind_many", fake_wind)
+    argv = _archive_argv(tmp_path, buoys_dir)
+    argv[argv.index("--stations-dir") + 1] = str(stations_dir)
+    st_archive = tmp_path / "st-archive"
+    rc = main([*argv, "--stations-archive-dir", str(st_archive)])
+    assert rc == 0
+    # the buoy fleet path's own wind join calls fetch_wind_many too; the station batch is
+    # the one carrying the station's coordinate
+    assert [(32.011, 34.887)] in calls
+    rows = [json.loads(line) for line in (st_archive / "LLBG.jsonl").read_text().splitlines()]
+    assert len(rows) == 2 and rows[0]["ws"] == 4.0 and rows[0]["hs"] is None
+
+    def boom(coords):
+        raise RuntimeError("weather host down")
+
+    monkeypatch.setattr(cli, "fetch_wind_many", boom)
+    rc = main([*argv, "--stations-archive-dir", str(tmp_path / "st-archive-2")])
+    assert rc == 0
+    assert "station arm skipped" in capsys.readouterr().err
+
+
+def test_verify_stations_scores_wind_by_lead_from_the_real_metar_capture(tmp_path, capsys):
+    """verify --stations --archive: archived model wind vs the station's METARs, wind
+    columns only, per-station card + pooled card; a station with no archive is skipped,
+    not failed. Model rows are hand-written 1 m/s above a flat 4 m/s so the bias is known."""
+    root = Path(__file__).resolve().parents[2]
+    stations_dir = tmp_path / "stations"
+    stations_dir.mkdir()
+    (stations_dir / "metar.yaml").write_text(
+        STATIONS_YAML + '  - {id: "NOPE", name: "no archive", lat: 0, lon: 0, source: metar}\n',
+        encoding="utf-8",
+    )
+    st_archive = tmp_path / "st-archive"
+    st_archive.mkdir()
+    run = "2026-08-28T18:00:00+00:00"
+    obs_start = datetime(2026, 8, 28, 19, tzinfo=UTC)
+    with (st_archive / "LLBG.jsonl").open("w") as fh:
+        for h in range(25):
+            valid = (obs_start + __import__("datetime").timedelta(hours=h)).isoformat()
+            fh.write(json.dumps({"run": run, "valid": valid, "ws": 99.0, "wdir": 260}) + "\n")
+    rc = main(
+        [
+            "verify",
+            "--stations",
+            "--archive",
+            "--stations-dir",
+            str(stations_dir),
+            "--stations-archive-dir",
+            str(st_archive),
+            "--obs-fixtures",
+            str(root / "pipeline" / "tests" / "fixtures" / "verify"),
+        ]
+    )
+    out = capsys.readouterr().out
+    assert rc == 0
+    assert "lead-time skill vs station LLBG" in out
+    assert "NOPE: no archived wind yet" in out
+    assert "pooled coastal wind skill - 1 of 2 station(s)" in out
+    # 99 m/s against a ~4-7 m/s airport reads as a huge positive bias - sign is the point
+    lines = [ln for ln in out.splitlines() if "Wind speed" in ln]
+    assert lines and all("+9" in ln for ln in lines)
+    assert "Sig. wave height" not in out
+
+
+def test_verify_stations_needs_archive(capsys):
+    assert main(["verify", "--stations"]) == 2
+    assert "add --archive" in capsys.readouterr().err
 
 
 def test_archive_fleet_batches_om_into_one_request(tmp_path, monkeypatch):
