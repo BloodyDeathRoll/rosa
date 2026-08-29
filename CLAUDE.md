@@ -8,6 +8,7 @@ Rosa is a **worldwide, mobile-first PWA surf forecast app**: free, lean, fast, s
 |---|---|
 | `pipeline/` — transform, score, physics, spectral, extract | `docs/ALGORITHM.md` |
 | `data/spots/`, `tools/spot-verify/`, `bathy` / `horizon` commands | `docs/SPOT-DB.md` |
+| `data/stations/`, `stations.py`, `verify --stations` (coastal wind truth) | `docs/CALIBRATION.md` 2026-08-29, `docs/OPEN-ITEMS.md` 25 |
 | `web/` | `docs/UI.md` |
 | Tuning a constant, running a sweep, grading a frame | `docs/CALIBRATION.md` (method rules at top) |
 | "What's still open?" | `docs/OPEN-ITEMS.md` |

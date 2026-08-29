@@ -2224,3 +2224,57 @@ docstring. `height_coeff` remains 1.0 at all 624 spots; rideability untouched.
 size the worldwide move - expected: short-period shelf regions (Israel, wide-shelf beach
 breaks) down 25-40%, groundswell coasts down ~21% flat (the 0.79). And the OM-vs-blend A/B
 from 08-26 is still owed, now on top of both fixes.
+
+## 2026-08-29 - Wind: hot at sea, damped at the coast; the coastal-station arm (session 46)
+
+**Trigger.** User, over several sessions: "we have been way too light on wind." Side-by-side
+Zvulun, Sun 2026-08-30: Rosa 19/15/4/9/13/17/16 kph at 00/03/.../18 vs Surfline
+31/23/17/15/17/20/21 kph, on the same swell (1.9/1.75/1.6/1.5/1.3 m vs 1.8/1.7/1.6/1.5/1.3 m,
+WNW, ~8-9 s both). The swell input is not in dispute; the wind is.
+
+**Measured, not guessed - three facts.**
+
+1. **Against the buoys the model is HOT, not light.** `verify --archive --all-buoys --source om`
+   on the VM archive (15 anemometers, 358 pairs at 0-1 d): wind-speed bias is positive at
+   nearly every station and every lead - +0.3 to +1.6 m/s at 0-1 d, growing to +1 to +4 m/s
+   past day 4. So the offshore wind field is not under-forecast.
+2. **The published wind is a mixed land-sea cell.** Live check, Zvulun: the 5.5 km offshore
+   point returns the IDENTICAL series to the beach pin - same ~13 km `best_match` (ICON)
+   cell. Same hours, knots:
+
+   | | 00 | 03 | 06 | 09 | 12 | 15 | 18 |
+   |---|---|---|---|---|---|---|---|
+   | our cell | 9.0 | 4.5 | 2.4 | 7.8 | 9.8 | 8.6 | 4.9 |
+   | 40 km out | 10.8 | 8.9 | 6.3 | 6.7 | 12.8 | 13.4 | 10.6 |
+   | GFS, same cell | 11.7 | 8.3 | 8.7 | 9.5 | 11.9 | 10.7 | 7.2 |
+   | Surfline | 16.7 | 12.4 | 9.2 | 8.1 | 9.2 | 10.8 | 11.3 |
+
+   The 2.4 kn 06:00 lull - the hour that makes the green "best session" - is the most
+   damped one, and no other source agrees with it.
+3. **The harness had no coastal truth.** Every anemometer in `data/buoys` is offshore, so
+   the bias a surfer sees has never been measured. Nothing can be tuned off it until it is.
+
+**What Surfline does (public record, no API touched).** Wind is bought, not built: GFS
+globally, NAM in North America and Hawaii; no proprietary atmospheric model - LOTUS and
+the "Nearshore Model" are wave products. Their coastal fix is ~500 stations at spots,
+about half their own, feeding a "Predicted" correction whose method is unpublished.
+The one published algorithmic fix in the industry is Windguru's CS+ (sample the model
+half a grid cell seaward of the model's coastline; shipped OFF by default, "may be
+detrimental in others").
+
+**Built.** The free-data version of their stations: `data/stations/metar.yaml` (90
+aviationweather.gov airfields within 25 km of a spot, generated; 280 of 624 spots have
+one), the IMS Envista adapter for Israel's beach-level 10-minute stations (token
+pending - `ims.yaml` stays empty rather than carry ids from memory; the API doc's rule
+that stamps are always UTC+2 whatever suffix they carry is applied in the parser), the
+archive arm (the model's 10 m wind at every station each cycle, one weather-host request,
+`data/verify/stations/<id>.jsonl`, never able to fail the buoy archive) and
+`verify --stations --archive` (per-station + pooled lead cards, wind columns only).
+Live smoke: 90 stations archived (384 hourly rows each), 89 of 90 scored (one 504,
+degraded per station), nothing matured yet - the archive was ten minutes old.
+
+**Method rule, restated.** Nothing was tuned. No wind gain, no gate change,
+`height_coeff` 1.0 everywhere. The correction is chosen AFTER ~2 weeks of station pairs,
+from the measured bias by wind sector and hour of day, as an A/B against the same
+stations (OPEN-ITEMS 25). An airport is 5-20 km from the beach: this measures the
+regional and diurnal bias, not the last 5 km.
