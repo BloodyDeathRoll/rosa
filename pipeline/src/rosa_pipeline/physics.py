@@ -47,19 +47,32 @@ def wavenumber(period_s: float, depth_m: float, *, iterations: int = 12) -> floa
     return k
 
 
-def celerities(period_s: float, depth_m: float) -> tuple[float, float]:
-    """(C, Cg) from ONE dispersion solve.
+def wave_state(period_s: float, depth_m: float) -> tuple[float, float, float]:
+    """(k, C, Cg) from ONE dispersion solve.
 
-    The shoaling march needs both at every sampled depth and used to ask for them separately,
-    which solved w^2 = g*k*tanh(k*d) twice for the same (T, d). Identical arithmetic, half the
-    Newton iterations; ``phase_speed``/``group_speed`` stay as the single-value views."""
+    The random-sea march needs the WAVENUMBER as well as both celerities at every substep -
+    k sets the friction orbital velocity and the Battjes-Janssen Hmax - and it was asking
+    ``wavenumber`` and then ``celerities`` separately, which solved w^2 = g*k*tanh(k*d) twice
+    for the same (T, d). Measured 2026-08-29: 1,097,443 wavenumber calls for ONE spot against
+    550,743 celerities calls, exactly 2x, and 75% of a spot's 6.3 s went into that march.
+    Returning k alongside makes it one solve. Identical arithmetic, bit-identical results."""
     k = wavenumber(period_s, depth_m)
     kd = k * depth_m
     c = angular_frequency(period_s) / k
     if 2.0 * kd > 350.0:  # sinh overflows and the ratio vanishes - deep-water n = 1/2
-        return c, 0.5 * c
+        return k, c, 0.5 * c
     n = 0.5 * (1.0 + 2.0 * kd / math.sinh(2.0 * kd))
-    return c, n * c
+    return k, c, n * c
+
+
+def celerities(period_s: float, depth_m: float) -> tuple[float, float]:
+    """(C, Cg) from ONE dispersion solve - the k-free view of ``wave_state``.
+
+    The shoaling march needs both at every sampled depth and used to ask for them separately,
+    which solved w^2 = g*k*tanh(k*d) twice for the same (T, d). Identical arithmetic, half the
+    Newton iterations; ``phase_speed``/``group_speed`` stay as the single-value views."""
+    _, c, cg = wave_state(period_s, depth_m)
+    return c, cg
 
 
 def phase_speed(period_s: float, depth_m: float) -> float:
@@ -395,8 +408,7 @@ def surf_height_over_profile(
         for i in range(1, n_sub + 1):
             f = i / n_sub
             d_mid = prev_d + (d - prev_d) * (f - 0.5 / n_sub)  # substep-centre depth
-            k = wavenumber(period_s, d_mid)
-            c, cg = celerities(period_s, d_mid)
+            k, c, cg = wave_state(period_s, d_mid)  # ONE dispersion solve, not two
             sin_a = sin_a_ref * c / c_ref
             if sin_a >= 1.0:
                 continue  # grazing - no transform, no dissipation accounted

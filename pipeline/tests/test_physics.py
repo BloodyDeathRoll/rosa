@@ -15,6 +15,7 @@ from rosa_pipeline.physics import (
     refracted_angle,
     refraction_coeff,
     shoaling_coeff,
+    wave_state,
     wavenumber,
 )
 
@@ -261,3 +262,16 @@ def test_komar_gaughan_survives_an_underflowed_offshore_height() -> None:
     """
     assert breaker_height_komar_gaughan(2.98820516805073e-210, 0.25, 59.0, 192.039) == 0.0
 
+
+
+def test_wave_state_and_celerities_agree_exactly() -> None:
+    """wave_state is celerities plus the k it already solved for. The random-sea march asked
+    wavenumber() and then celerities() for the SAME (T, d), solving the dispersion relation
+    twice per substep - 1,097,443 solves for one spot, measured 2026-08-29. Collapsing them
+    is only safe if it is the same arithmetic, so pin bit-equality, not approximate equality.
+    """
+    for T, d in [(10.0, 1000.0), (8.0, 40.0), (14.0, 5.0), (6.0, 2.0), (20.0, 1.0), (2.0, 900.0)]:
+        k, c, cg = wave_state(T, d)
+        assert (c, cg) == celerities(T, d)
+        assert k == wavenumber(T, d)
+        assert phase_speed(T, d) == c
