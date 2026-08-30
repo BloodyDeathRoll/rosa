@@ -2326,6 +2326,15 @@ tune a transform** - `height_coeff` stays 1.0, the breaker constants stay. This 
 the first graded one for wind; the transform gets re-examined when there are enough
 graded frames to sweep, as an A/B with the shipped harness.
 
+**Second frame, same morning - Hilton (TLV), ~09:00 local, eyes: wind 10-15 kn, faces
+1.0-1.2 m.** Published (ICON, 20:33Z run): 2.8 kn onshore, faces 0.9-1.4, FAIR 49. Same
+hour, same pin: GFS 6.7 kn (gust 7.4) W, ICON 4.7 kn. METAR 06:00Z: Ben Gurion 300/10 kn,
+Haifa 290/8 kn. So on this hour the beach and the airport agree (10 kn) and BOTH models are
+light - GFS by ~5 kn, ICON by ~8. The switch halves the miss; it does not close it. That
+remainder is what OPEN-ITEMS 25 step (3) - the per-sector, per-hour bias table from the
+station pairs - is for, now measured on top of GFS. Faces: 1.0-1.2 seen inside our
+0.9-1.4 - this 8.4 s 305 swell at Hilton the transform had right.
+
 **Method rule, restated.** The model switch is a source change on eyes + one night of
 station pairs + an exact match of a competitor's published numbers to a public model; it
 is NOT a tuned knob and it is reversible in one constant. The measured A/B (`--wind-model
