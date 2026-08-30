@@ -1,27 +1,38 @@
 # Rosa on the Oracle VM - the single scheduling home
 
-## The two machines
+## The machines
 
-Rosa's whole backend is two small always-on Oracle VMs. Nothing else runs on a schedule -
+Rosa's whole backend is always-on Oracle VMs in one VCN. Nothing else runs on a schedule -
 no GitHub Actions, no systemd timers, no request-time backend.
 
-| | **`rosa-instance`** - "the box" | **`rosa-backup`** |
-|---|---|---|
-| Address | `82.70.218.149` (public) | `10.0.0.11` (private, reach it *through* the box) |
-| Job | **Does the work.** Runs the whole forecast cycle. | **Watches the box.** Holds the off-box archive copy. |
-| Schedule | `publish.sh` 4×/day (02:20/08:20/14:20/20:20 UTC); `cam-watch.sh` Mondays 05:40 | `freshness-watch.py` hourly at :17; receives the 03:40 archive rsync |
-| Checkout | `~/rosa`, **read-only** deploy key - it can pull, never push | `~/rosa-watch` (watchdog), `~/rosa-archive-backup` (rsync target) |
-| Key logs | `~/rosa/publish.log`, `~/rosa/cam-watch.log` | `~/rosa-watch/watch.log` |
+| | **`rosa-arm`** - "the box" (since 2026-08-30) | **`rosa-backup`** | `rosa-instance` (spare) |
+|---|---|---|---|
+| Shape | A1.Flex, 4 OCPU / 24 GB, aarch64 | E2.1.Micro, 1/8 OCPU / 1 GB | E2.1.Micro |
+| Address | `82.70.253.255` (public), `10.0.0.35` | `10.0.0.11` (private, reach it *through* the box) | `82.70.218.149`, `10.0.0.28` |
+| Job | **Does the work.** Runs the whole forecast cycle. | **Watches the box.** Holds the off-box archive copy. | Nothing. Ran the cycle 2026-07-23 → 2026-08-30; crontab emptied (`~/crontab.before-arm-move.bak`), checkout and `.env` left in place as a fallback. |
+| Schedule | `publish.sh` 4×/day (02:20/08:20/14:20/20:20 UTC); 03:40 archive rsync to the backup; `cam-watch.sh` Mondays 05:40 | `freshness-watch.py` hourly at :17; receives the 03:40 archive rsync | - |
+| Checkout | `~/rosa`, **read-only** deploy key - it can pull, never push | `~/rosa-watch` (watchdog), `~/rosa-archive-backup` (rsync target) | `~/rosa` |
+| Key logs | `~/rosa/publish.log`, `~/rosa/cam-watch.log` | `~/rosa-watch/watch.log` | `~/rosa/publish.log` (history to 2026-08-30) |
 
 ```bash
-ssh -i web/.oracle/ssh-key-2026-07-23.key ubuntu@82.70.218.149          # the box
-ssh -i web/.oracle/ssh-key-2026-07-23.key ubuntu@82.70.218.149 \
+ssh -i web/.oracle/ssh-key-2026-07-23.key ubuntu@82.70.253.255          # the box
+ssh -i web/.oracle/ssh-key-2026-07-23.key ubuntu@82.70.253.255 \
   'ssh ubuntu@10.0.0.11 "tail -3 ~/rosa-watch/watch.log"'               # the backup, via the box
 ```
 
-When these docs say **"the box"** they mean `rosa-instance`, and "reaches the box on the next
+When these docs say **"the box"** they mean `rosa-arm`, and "reaches the box on the next
 pull" means the change is on `main` and `publish.sh` will `git pull` it at the top of the next
 cycle - there is no separate deploy step for VM code.
+
+**Why the move (2026-08-30, OPEN-ITEMS 24):** the E2 micro is a burstable 1/8-OCPU shape.
+`sar` during a 624-spot cycle read 6% user / ~45% steal for six hours - the box was getting
+about 1/16 of a core - so a cycle took 6-7 h and every other cron slot was skipped on the
+lock. `rosa-arm` had been launched by the capacity watcher on 2026-07-26 and sat idle (SWAN
+is built on it for Stage 4; the two share the box). Migration = deploy key + Node 20 (NodeSource
+arm64) + Vercel CLI + `uv sync` + `rsync` of `data/verify/`, `data/out/`, `~/rosa/.env`,
+`~/rosa-push/` from the micro, then the same three cron lines. The micro's crontab was emptied
+first so no two boxes ever ran a cycle at once. Its `id_ed25519` is authorized on the backup
+for the rsync; the old box's key is NOT authorized on rosa-arm.
 
 **Why two:** a watchdog on the machine it watches is not a watchdog. `rosa-backup` exists so a
 dead box, a dead cron, or a hung cycle still pages someone. It is deliberately dumb - it reads
@@ -84,6 +95,11 @@ right: anyone holding it can suppress your outage alerts). Open-Meteo and NDBC a
 5. Force a cycle and watch it: `~/rosa/deploy/oracle/publish.sh; tail -f ~/rosa/publish.log`
 6. Verify: `wc -l ~/rosa/data/verify/archive/*.jsonl` grows each cycle, and
    `curl -s https://rosa-data-opal.vercel.app/data/index.json` shows a fresh `generated_at`.
+7. Moving the cycle to another box: empty the old crontab FIRST (`crontab -l > bak; crontab -r`),
+   then `rsync` `data/verify/` (the calibration clock - it cannot be back-filled), `data/out/`
+   (so a partial first run has previous payloads to keep), `~/rosa/.env`, `~/rosa-push/`, and
+   only then install the cron on the new box. On arm64, Node comes from NodeSource
+   (`setup_20.x`), not Ubuntu's `nodejs` package.
 
 ## Notes
 - **Archive persistence:** lives on the VM's block volume; back it up by copying
