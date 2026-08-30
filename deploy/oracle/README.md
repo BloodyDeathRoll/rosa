@@ -94,10 +94,11 @@ right: anyone holding it can suppress your outage alerts). Open-Meteo and NDBC a
   `uv run --project pipeline rosa-pipeline verify --buoy 46042 --archive`
 - **Coastal wind truth (2026-08-29):** step 1 also archives the model's 10 m wind at
   every station in `data/stations/` (90 METAR airfields within 25 km of a spot) to
-  `data/verify/stations/<id>.jsonl`, and step 4c scores it by lead with
-  `verify --stations --archive` (one station: `verify --station LLBG --archive`).
-  Wind columns only, evidence only - the bias it measures is the coastal-cell damping
-  OPEN-ITEMS 25 is about. IMS beach stations (`data/stations/ims.yaml`) need
+  `data/verify/stations/<id>.jsonl` (the published model, GFS since 2026-08-30) and
+  `<id>.icon.jsonl` (ICON, the A/B member), and step 4c scores the published one by lead
+  with `verify --stations --archive` (one station: `verify --station LLBG --archive`;
+  the A/B member: `--wind-model icon`). Wind columns only, evidence only - the bias it
+  measures is the coastal-cell damping OPEN-ITEMS 25 is about. IMS beach stations (`data/stations/ims.yaml`) need
   `IMS_API_TOKEN=...` in `~/rosa/.env` (free, by mail from ims@ims.gov.il); until the
   token exists the file is empty and the pass is METAR-only.
 - **Measured confidence ceilings (2026-08-07):** every cycle ends with

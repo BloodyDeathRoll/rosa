@@ -53,6 +53,7 @@ from .fetch import (
     MARINE_URL,
     PAST_DAYS,
     WEATHER_HOURLY,
+    WEATHER_MODEL,
     WEATHER_URL,
     RawForecast,
     fixture_key,
@@ -358,6 +359,7 @@ def fetch_aux_many(
                     "hourly": ",".join(WEATHER_HOURLY),
                     "forecast_days": FORECAST_DAYS,
                     "past_days": PAST_DAYS,
+                    "models": WEATHER_MODEL,
                 },
                 retry_429=True,
             )

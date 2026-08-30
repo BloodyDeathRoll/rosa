@@ -169,7 +169,9 @@ JSON
 
   # 4c) coastal wind truth: the model's 10 m wind (archived at every station in
   #     data/stations by step 1) vs the airports' METARs and IMS's beach stations, by
-  #     lead. Evidence only - nothing reads it yet (OPEN-ITEMS 25); ~90 small
+  #     lead. Scores the published model (GFS since 2026-08-30); `--wind-model icon`
+  #     scores the archived A/B member. Evidence only - nothing reads it yet
+  #     (OPEN-ITEMS 25); ~90 small
   #     aviationweather.gov requests, a few minutes, after the deploy and non-fatal
   #     for the same reason as 4b. IMS stations need IMS_API_TOKEN in ~/rosa/.env.
   uv run --project pipeline rosa-pipeline verify --stations --archive \

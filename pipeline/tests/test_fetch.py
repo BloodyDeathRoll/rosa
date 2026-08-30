@@ -36,6 +36,37 @@ def test_ensemble_429_degrades_instead_of_sinking_the_run(capsys):
     assert "429" in capsys.readouterr().err
 
 
+def test_weather_requests_name_the_published_wind_model():
+    """The 10 m wind is GFS since 2026-08-30 (fetch.WEATHER_MODEL): the run's weather leg
+    and the archive's wind batch both send `models=`, and the A/B member is a different
+    model on request. A single model keeps the hourly keys unsuffixed."""
+    seen: list[str] = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        if str(request.url).startswith(fetch.WEATHER_URL):
+            seen.append(request.url.params.get("models", ""))
+        return httpx.Response(200, json=_body({"hourly": {"time": ["2026-07-24T00:00"]}}))
+
+    OpenMeteoSource(transport=httpx.MockTransport(handler)).fetch_many(COORDS)
+    assert seen == ["gfs_seamless"]
+
+    seen.clear()
+    with_mock = httpx.MockTransport(handler)
+    orig = httpx.Client
+
+    class _Client(orig):
+        def __init__(self, *a, **kw):
+            super().__init__(*a, transport=with_mock, **kw)
+
+    fetch.httpx.Client = _Client  # type: ignore[attr-defined]
+    try:
+        fetch.fetch_wind_many(COORDS)
+        fetch.fetch_wind_many(COORDS, model=fetch.WEATHER_AB_MODEL)
+    finally:
+        fetch.httpx.Client = orig  # type: ignore[attr-defined]
+    assert seen == ["gfs_seamless", "icon_seamless"]
+
+
 def test_marine_429_still_raises():
     def handler(request: httpx.Request) -> httpx.Response:
         return httpx.Response(429, text="rate limit")

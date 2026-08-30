@@ -357,11 +357,11 @@ stations:
 """
 
 
-def _wind_body(hours: list[str]) -> dict:
+def _wind_body(hours: list[str], speed: float = 4.0) -> dict:
     return {
         "hourly": {
             "time": hours,
-            "wind_speed_10m": [4.0 for _ in hours],
+            "wind_speed_10m": [speed for _ in hours],
             "wind_direction_10m": [270 for _ in hours],
         }
     }
@@ -382,11 +382,12 @@ def test_archive_station_arm_writes_wind_rows_and_never_raises(tmp_path, monkeyp
     monkeypatch.setattr(
         cli, "fetch_marine_waves_many", lambda coords: [_marine_body() for _ in coords]
     )
-    calls: list[list[tuple[float, float]]] = []
+    calls: list[tuple[list[tuple[float, float]], str]] = []
 
-    def fake_wind(coords):
-        calls.append(coords)
-        return [_wind_body(["2026-08-09T00:00", "2026-08-09T01:00"]) for _ in coords]
+    def fake_wind(coords, *, model=cli.WEATHER_MODEL):
+        calls.append((coords, model))
+        speed = 4.0 if model == cli.WEATHER_MODEL else 2.0
+        return [_wind_body(["2026-08-09T00:00", "2026-08-09T01:00"], speed) for _ in coords]
 
     monkeypatch.setattr(cli, "fetch_wind_many", fake_wind)
     argv = _archive_argv(tmp_path, buoys_dir)
@@ -394,13 +395,30 @@ def test_archive_station_arm_writes_wind_rows_and_never_raises(tmp_path, monkeyp
     st_archive = tmp_path / "st-archive"
     rc = main([*argv, "--stations-archive-dir", str(st_archive)])
     assert rc == 0
-    # the buoy fleet path's own wind join calls fetch_wind_many too; the station batch is
-    # the one carrying the station's coordinate
-    assert [(32.011, 34.887)] in calls
+    # the buoy fleet path's own wind join calls fetch_wind_many too; the station batches
+    # are the ones carrying the station's coordinate - one per model, published + A/B
+    assert ([(32.011, 34.887)], "gfs_seamless") in calls
+    assert ([(32.011, 34.887)], "icon_seamless") in calls
     rows = [json.loads(line) for line in (st_archive / "LLBG.jsonl").read_text().splitlines()]
     assert len(rows) == 2 and rows[0]["ws"] == 4.0 and rows[0]["hs"] is None
+    ab = [json.loads(line) for line in (st_archive / "LLBG.icon.jsonl").read_text().splitlines()]
+    assert len(ab) == 2 and ab[0]["ws"] == 2.0
 
-    def boom(coords):
+    def ab_boom(coords, *, model=cli.WEATHER_MODEL):
+        if model != cli.WEATHER_MODEL:
+            raise RuntimeError("icon leg down")
+        return [_wind_body(["2026-08-09T00:00"], 4.0) for _ in coords]
+
+    # losing the A/B member keeps the published model's rows
+    monkeypatch.setattr(cli, "fetch_wind_many", ab_boom)
+    st_archive_ab = tmp_path / "st-archive-ab"
+    rc = main([*argv, "--stations-archive-dir", str(st_archive_ab)])
+    assert rc == 0
+    assert (st_archive_ab / "LLBG.jsonl").exists()
+    assert not (st_archive_ab / "LLBG.icon.jsonl").exists()
+    assert "A/B member skipped" in capsys.readouterr().err
+
+    def boom(coords, *, model=cli.WEATHER_MODEL):
         raise RuntimeError("weather host down")
 
     monkeypatch.setattr(cli, "fetch_wind_many", boom)
@@ -424,32 +442,42 @@ def test_verify_stations_scores_wind_by_lead_from_the_real_metar_capture(tmp_pat
     st_archive.mkdir()
     run = "2026-08-28T18:00:00+00:00"
     obs_start = datetime(2026, 8, 28, 19, tzinfo=UTC)
-    with (st_archive / "LLBG.jsonl").open("w") as fh:
-        for h in range(25):
-            valid = (obs_start + __import__("datetime").timedelta(hours=h)).isoformat()
-            fh.write(json.dumps({"run": run, "valid": valid, "ws": 99.0, "wdir": 260}) + "\n")
-    rc = main(
-        [
-            "verify",
-            "--stations",
-            "--archive",
-            "--stations-dir",
-            str(stations_dir),
-            "--stations-archive-dir",
-            str(st_archive),
-            "--obs-fixtures",
-            str(root / "pipeline" / "tests" / "fixtures" / "verify"),
-        ]
-    )
+    for key, ws in (("LLBG", 99.0), ("LLBG.icon", 0.0)):
+        with (st_archive / f"{key}.jsonl").open("w") as fh:
+            for h in range(25):
+                valid = (obs_start + __import__("datetime").timedelta(hours=h)).isoformat()
+                fh.write(json.dumps({"run": run, "valid": valid, "ws": ws, "wdir": 260}) + "\n")
+    argv = [
+        "verify",
+        "--stations",
+        "--archive",
+        "--stations-dir",
+        str(stations_dir),
+        "--stations-archive-dir",
+        str(st_archive),
+        "--obs-fixtures",
+        str(root / "pipeline" / "tests" / "fixtures" / "verify"),
+    ]
+    rc = main(argv)
     out = capsys.readouterr().out
     assert rc == 0
+    assert "wind model: gfs" in out
     assert "lead-time skill vs station LLBG" in out
-    assert "NOPE: no archived wind yet" in out
-    assert "pooled coastal wind skill - 1 of 2 station(s)" in out
+    assert "NOPE: no archived gfs wind yet" in out
+    assert "pooled coastal wind skill (gfs) - 1 of 2 station(s)" in out
     # 99 m/s against a ~4-7 m/s airport reads as a huge positive bias - sign is the point
     lines = [ln for ln in out.splitlines() if "Wind speed" in ln]
     assert lines and all("+9" in ln for ln in lines)
     assert "Sig. wave height" not in out
+
+    # the A/B member is scored from its own key against the same METARs: 0 m/s model
+    # rows read as a negative bias of the airport's own mean
+    rc = main([*argv, "--wind-model", "icon"])
+    out = capsys.readouterr().out
+    assert rc == 0
+    assert "wind model: icon" in out and "pooled coastal wind skill (icon)" in out
+    lines = [ln for ln in out.splitlines() if "Wind speed" in ln]
+    assert lines and all("-" in ln.split("m/s")[0] for ln in lines)
 
 
 def test_verify_stations_needs_archive(capsys):

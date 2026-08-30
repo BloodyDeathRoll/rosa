@@ -106,6 +106,15 @@ WEATHER_HOURLY = [
     "pressure_msl",
     "temperature_2m",
 ]
+# The 10 m wind model. No `models` param = Open-Meteo's best_match, which over Israel
+# and Europe resolves to ICON. Switched to GFS on 2026-08-30 (CALIBRATION.md): the
+# ~13 km ICON coastal cell damps the beach wind - Zvulun 06:00 read 3.4 kn from ICON,
+# 8.3 kn from GFS, and the beach had ~9 kn (eyes). Surfline's wind is raw GFS. One
+# model name, so the hourly keys stay plain (a single model is served unsuffixed).
+# ICON is still fetched at the coastal stations as the A/B member (WEATHER_AB_MODEL,
+# archive key "<station>.icon"); nothing is decided from one morning.
+WEATHER_MODEL = "gfs_seamless"
+WEATHER_AB_MODEL = "icon_seamless"
 
 
 # verification harness samples the total sea-state at a buoy - no models suffix, so the
@@ -249,10 +258,14 @@ def fetch_marine_waves_many(
     return bodies
 
 
-def fetch_wind_many(coords: list[tuple[float, float]], *, timeout_s: float = 30.0) -> list[dict]:
+def fetch_wind_many(
+    coords: list[tuple[float, float]], *, model: str = WEATHER_MODEL, timeout_s: float = 30.0
+) -> list[dict]:
     """10 m wind at many points, one comma-joined WEATHER-host request, in m/s so the
     values pair with NDBC WSPD without conversion (fetch-plane plan C3 evidence).
-    Tiny: 2 vars -> weight 1/point on a host the archive otherwise never touches."""
+    Tiny: 2 vars -> weight 1/point on a host the archive otherwise never touches.
+    ``model`` defaults to the published wind model; the station arm also asks for
+    WEATHER_AB_MODEL so the two can be scored against the same observations."""
     if not coords:
         return []
     with httpx.Client(timeout=timeout_s) as client:
@@ -265,6 +278,7 @@ def fetch_wind_many(coords: list[tuple[float, float]], *, timeout_s: float = 30.
                 "hourly": "wind_speed_10m,wind_direction_10m",
                 "wind_speed_unit": "ms",
                 "forecast_days": FORECAST_DAYS,
+                "models": model,
             },
         )
         resp.raise_for_status()
@@ -361,7 +375,7 @@ class OpenMeteoSource:
             weather = self._get_retrying(
                 client,
                 WEATHER_URL,
-                {**common, "hourly": ",".join(WEATHER_HOURLY)},
+                {**common, "hourly": ",".join(WEATHER_HOURLY), "models": WEATHER_MODEL},
                 retry_429=True,
             )
             weather.raise_for_status()

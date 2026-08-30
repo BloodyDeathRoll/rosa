@@ -47,6 +47,8 @@ from .feedback import (
     summarize,
 )
 from .fetch import (
+    WEATHER_AB_MODEL,
+    WEATHER_MODEL,
     FixtureSource,
     ForecastSource,
     OpenMeteoSource,
@@ -113,6 +115,11 @@ GFSWAVE_KEY_SUFFIX = ".gfswave"
 ECMWF_KEY_SUFFIX = ".ecmwf"
 SOURCE_KEY_SUFFIX = {"om": "", "gfswave": GFSWAVE_KEY_SUFFIX, "ecmwf": ECMWF_KEY_SUFFIX}
 SOURCE_VARIABLES = {"om": VARIABLES, "gfswave": GFSWAVE_VARIABLES, "ecmwf": ECMWF_VARIABLES}
+# coastal-station archive keys: the published wind model (fetch.WEATHER_MODEL, GFS since
+# 2026-08-30) lives at "<station>", the A/B member (fetch.WEATHER_AB_MODEL, ICON - the
+# best_match model it replaced) at "<station>.icon". Same observations score both.
+STATION_AB_KEY_SUFFIX = ".icon"
+STATION_WIND_MODELS = {"gfs": "", "icon": STATION_AB_KEY_SUFFIX}
 
 ARCHIVE_DIR = Path("data/verify/archive")
 # coastal wind stations (rosa_pipeline.stations): the registry is committed, the archive of
@@ -277,6 +284,14 @@ def _build_parser() -> argparse.ArgumentParser:
         "(data/stations, METAR + IMS) by lead, plus a pooled fleet card. Needs --archive",
     )
     target.add_argument("--station", help="one station id (ICAO or IMS id); needs --archive")
+    verify.add_argument(
+        "--wind-model",
+        choices=sorted(STATION_WIND_MODELS),
+        default="gfs",
+        help="with --stations/--station: which archived wind model to score - gfs (the "
+        "published model since 2026-08-30) or icon (the A/B member, best_match's ICON "
+        "before that). Same METAR/IMS observations either way",
+    )
     verify.add_argument("--stations-dir", type=Path, default=STATIONS_DIR)
     verify.add_argument("--stations-archive-dir", type=Path, default=STATIONS_ARCHIVE_DIR)
     verify.add_argument("--buoys-dir", type=Path, default=Path("data/buoys"))
@@ -936,13 +951,19 @@ def _cmd_verify_stations(args: argparse.Namespace) -> int:
         print(f"no stations registered under {args.stations_dir}")
         return 0
     store = FileArchiveStore(args.stations_archive_dir)
+    wind_model = getattr(args, "wind_model", "gfs")
+    key_suffix = STATION_WIND_MODELS[wind_model]
+    print(f"wind model: {wind_model} (archive key '<station>{key_suffix}')")
     cards: list[dict] = []
     scored = 0
     failures: list[tuple[str, Exception]] = []
     for st in targets:
-        rows = store.read(st.id)
+        rows = store.read(st.id + key_suffix)
         if not rows:
-            print(f"{st.id}: no archived wind yet - the archive arm fills this each cycle")
+            print(
+                f"{st.id}: no archived {wind_model} wind yet - "
+                "the archive arm fills this each cycle"
+            )
             continue
         try:
             obs = _station_obs_for(st, args)
@@ -961,7 +982,8 @@ def _cmd_verify_stations(args: argparse.Namespace) -> int:
     if not args.station:
         print(
             render_pooled_lead(
-                cards, f"pooled coastal wind skill - {scored} of {len(targets)} station(s)"
+                cards,
+                f"pooled coastal wind skill ({wind_model}) - {scored} of {len(targets)} station(s)",
             )
         )
     if failures:
@@ -1217,6 +1239,8 @@ def _archive_stations(args: argparse.Namespace, now: datetime) -> None:
         return
     targets = sorted(stations.values(), key=lambda s: s.id)
     store = FileArchiveStore(args.stations_archive_dir)
+    coords = [(st.lat, st.lon) for st in targets]
+    ab_bodies: list[dict | None]
     try:
         if args.wind_fixtures is not None:
             bodies = [
@@ -1225,22 +1249,47 @@ def _archive_stations(args: argparse.Namespace, now: datetime) -> None:
                 )
                 for st in targets
             ]
+            ab_bodies = []
+            for st in targets:
+                f = args.wind_fixtures / f"weather_{st.id}{STATION_AB_KEY_SUFFIX}.json"
+                ab_bodies.append(json.loads(f.read_text(encoding="utf-8")) if f.exists() else None)
         else:
-            bodies = fetch_wind_many([(st.lat, st.lon) for st in targets])
+            bodies = fetch_wind_many(coords, model=WEATHER_MODEL)
+            # the A/B member is the more expendable of the two: lose it, keep the
+            # published model's rows
+            try:
+                ab_bodies = list(fetch_wind_many(coords, model=WEATHER_AB_MODEL))
+            except Exception as e:
+                print(
+                    f"warn: station {WEATHER_AB_MODEL} batch failed ({e!r}) - "
+                    "A/B member skipped this run",
+                    file=sys.stderr,
+                )
+                ab_bodies = [None] * len(targets)
     except Exception as e:
         print(f"warn: station wind batch failed ({e!r}) - station arm skipped", file=sys.stderr)
         return
-    for st, body in zip(targets, bodies, strict=True):
+    for st, body, ab in zip(targets, bodies, ab_bodies, strict=True):
         try:
             if args.capture is not None and args.wind_fixtures is None:
                 args.capture.mkdir(parents=True, exist_ok=True)
                 (args.capture / f"weather_{st.id}.json").write_text(
                     json.dumps(body), encoding="utf-8"
                 )
+                if ab is not None:
+                    (args.capture / f"weather_{st.id}{STATION_AB_KEY_SUFFIX}.json").write_text(
+                        json.dumps(ab), encoding="utf-8"
+                    )
             rows = rows_from_model(now, wind_points(body))
             store.append(st.id, rows)
+            n_ab = 0
+            if ab is not None:
+                ab_rows = rows_from_model(now, wind_points(ab))
+                store.append(st.id + STATION_AB_KEY_SUFFIX, ab_rows)
+                n_ab = len(ab_rows)
             print(
-                f"{st.id}: archived {len(rows)} wind rows"
+                f"{st.id}: archived {len(rows)} wind rows ({WEATHER_MODEL})"
+                f" + {n_ab} ({WEATHER_AB_MODEL})"
                 f" → {args.stations_archive_dir / (st.id + '.jsonl')}"
             )
         except Exception as e:

@@ -2278,3 +2278,57 @@ degraded per station), nothing matured yet - the archive was ten minutes old.
 from the measured bias by wind sector and hour of day, as an A/B against the same
 stations (OPEN-ITEMS 25). An airport is 5-20 km from the beach: this measures the
 regional and diurnal bias, not the last 5 km.
+
+## 2026-08-30 - Zvulun graded by eye; the published wind moved from ICON to GFS (session 47)
+
+**Trigger.** Same spot, next morning. Surfline vs Rosa at 07:16, Sun 2026-08-30, then the
+user AT THE BEACH: "wind and wave as surfline predicted". First volunteered eyes on the
+wind question - truth per the doctrine at the top of this file.
+
+**The frame (06:00-07:00 local, Zvulun).**
+
+| | swell in | face | wind |
+|---|---|---|---|
+| Rosa (20:33Z cycle, ICON) | 1.75 m 8.3 s, Tp 9.2, 299 | 1.1-1.6 m "head-high", GOOD 52 | 3.4 kn NW |
+| Surfline | 1.7 m 8 s, 297 | 0.9-1.2 m | 16 kph = 8.6 kn NW |
+| Eyes | | 0.9-1.2 m | ~9 kn NW |
+| METAR LLBG (15 km inland) | | | VRB 2-3 kn |
+| METAR LLHA (Haifa, coastal, 06:50) | | | 5 kn |
+
+**Wind - three facts.**
+
+1. **Surfline's wind IS raw GFS.** Open-Meteo `gfs_seamless` at the pin gave 15.0 / 11.5 /
+   8.3 kn at 00 / 03 / 06; Surfline showed 29 / 23 / 16 kph = 15.7 / 12.4 / 8.6 kn. Every
+   hour of the day matched to the rounding. The "Surfline vs Rosa" wind gap was ICON vs GFS.
+2. **The beach sided with GFS; the airport did not.** Ben Gurion read 2-3 kn at 06:20
+   while the beach had ~9 - so an inland METAR cannot referee the beach-hour wind. It can
+   referee the regional bias, and its first matured pairs (last night's westerly, 21-04Z)
+   say the model was LIGHT by 2.6 m/s at LLBG (n = 8) and 2.0 m/s at Haifa (n = 4) - the
+   direction OPEN-ITEMS 25 predicted for the coastal cell.
+3. **Offshore, GFS is hotter still** (2026-08-29: the model is already +0.3..+1.6 m/s at
+   the buoys). Beach outranks sea for a surf app; noted, not hidden.
+
+**Done.** `fetch.WEATHER_MODEL = "gfs_seamless"` - the run's weather leg (both arms:
+`OpenMeteoSource._fetch_batch` and the blend's aux weather batch) and the archive's wind
+batch all name it; a single model keeps the hourly keys plain. Same host, same weight,
+plan C3 untouched. **The A/B is kept:** the station arm also fetches
+`WEATHER_AB_MODEL = "icon_seamless"` and archives it at `<station>.icon`, and
+`verify --stations --archive --wind-model {gfs,icon}` scores either against the same
+METAR/IMS observations. The 2 ICON cycles archived before the switch were renamed to
+`.icon` on the VM so the history is not mixed. Smoke, Zvulun OM arm: 28 / 21 / 15 / 14 /
+18 / 22 / 23 / 16 kph at 00..21 vs Surfline 29 / 23 / 16 / 15 / 18 / 24 / 24 / 16;
+06:00 dropped GOOD 52 -> FAIR 45 and the false "best session" with it.
+
+**Height - the transform, not the swell.** Same swell in (1.75 vs 1.7 m, 8.3 vs 8 s), faces
+1.1-1.6 vs 0.9-1.2, eyes with Surfline: our breaker gives mid 0.77 x Hs where the beach
+showed ~0.62 x Hs on this 8-9 s WNW swell at a Herzliya beach break. **One frame does not
+tune a transform** - `height_coeff` stays 1.0, the breaker constants stay. This frame is
+the first graded one for wind; the transform gets re-examined when there are enough
+graded frames to sweep, as an A/B with the shipped harness.
+
+**Method rule, restated.** The model switch is a source change on eyes + one night of
+station pairs + an exact match of a competitor's published numbers to a public model; it
+is NOT a tuned knob and it is reversible in one constant. The measured A/B (`--wind-model
+icon` vs `gfs` after ~2 weeks) is what confirms or reverts it. Buoy-archive `ws` rows
+before 2026-08-30 04:35Z are ICON; after, GFS - a wind card that straddles the date mixes
+them.

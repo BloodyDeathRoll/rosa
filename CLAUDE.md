@@ -8,7 +8,7 @@ Rosa is a **worldwide, mobile-first PWA surf forecast app**: free, lean, fast, s
 |---|---|
 | `pipeline/` — transform, score, physics, spectral, extract | `docs/ALGORITHM.md` |
 | `data/spots/`, `tools/spot-verify/`, `bathy` / `horizon` commands | `docs/SPOT-DB.md` |
-| `data/stations/`, `stations.py`, `verify --stations` (coastal wind truth) | `docs/CALIBRATION.md` 2026-08-29, `docs/OPEN-ITEMS.md` 25 |
+| `data/stations/`, `stations.py`, `verify --stations --wind-model` (coastal wind truth, GFS vs ICON A/B) | `docs/CALIBRATION.md` 2026-08-29 + 2026-08-30, `docs/OPEN-ITEMS.md` 25 |
 | `web/` | `docs/UI.md` |
 | Tuning a constant, running a sweep, grading a frame | `docs/CALIBRATION.md` (method rules at top) |
 | "What's still open?" | `docs/OPEN-ITEMS.md` |
@@ -17,7 +17,7 @@ Rosa is a **worldwide, mobile-first PWA surf forecast app**: free, lean, fast, s
 | **Where forecast data comes from, what replaces it, scale** | `docs/rosa-accuracy-roadmap.md` (§2 keep/join/replace, §4 stages, §9 scale) · `docs/rosa-stage3-plan.md` · `docs/rosa-fetch-plane-plan.md` (off the OM quota) · `docs/rosa-peak-period-plan.md` (Tp for the blend arm, from DWD GWAM) |
 | Product plan · competitor teardown | `docs/rosa-build-plan.md` · `docs/rosa-surfline-teardown.md` |
 
-**Do not re-derive the data-source strategy from first principles.** Stage 3a (raw NOAA GFS-Wave source + dual-source buoy A/B) and Stage 3b (ECMWF spectral-lite) are BUILT — `gfswave.py`, `ecmwf.py`, `verify --archive --source {om,gfswave,ecmwf}`, and a dual-source archive that has been accumulating since 2026-07-23. **Since 2026-08-26 the GFS-Wave+ECMWF blend (`blend.py`) IS the primary wave source, worldwide** - `run --wave-source` defaults to `blend`; `om` is the explicit fallback arm. The promotion was a product decision (`docs/CALIBRATION.md` 2026-08-26): buoys covered 45 of the 265 spots the fleet had when the call was made (2026-08-26; it is 624 now, and the added regions registered no buoys) and never will cover the rest, so a per-region buoy gate was a decision never to scale. Weather stays on Open-Meteo (plan C3, measured). Do not re-open either without new buoy evidence.
+**Do not re-derive the data-source strategy from first principles.** Stage 3a (raw NOAA GFS-Wave source + dual-source buoy A/B) and Stage 3b (ECMWF spectral-lite) are BUILT — `gfswave.py`, `ecmwf.py`, `verify --archive --source {om,gfswave,ecmwf}`, and a dual-source archive that has been accumulating since 2026-07-23. **Since 2026-08-26 the GFS-Wave+ECMWF blend (`blend.py`) IS the primary wave source, worldwide** - `run --wave-source` defaults to `blend`; `om` is the explicit fallback arm. The promotion was a product decision (`docs/CALIBRATION.md` 2026-08-26): buoys covered 45 of the 265 spots the fleet had when the call was made (2026-08-26; it is 624 now, and the added regions registered no buoys) and never will cover the rest, so a per-region buoy gate was a decision never to scale. Weather stays on Open-Meteo (plan C3, measured); **its 10 m wind model is GFS (`fetch.WEATHER_MODEL`) since 2026-08-30** - ICON (`best_match`) damped the beach wind and the beach was graded by eye (`docs/CALIBRATION.md` 2026-08-30); ICON is still archived at the stations as the A/B member. Do not re-open either without new buoy evidence.
 
 ## Non-negotiable principles
 1. Every screen answers "should I surf, when, where?" — cut anything that doesn't.
