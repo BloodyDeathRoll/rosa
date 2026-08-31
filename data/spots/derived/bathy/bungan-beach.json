@@ -1,0 +1,72 @@
+{
+  "spot": "bungan-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -33.6672,
+    151.3193
+  ],
+  "bearing_seaward_deg": 124.0,
+  "nearshore_depth_m": -26.0,
+  "offshore_depth_m": 120.0,
+  "mean_slope_m_per_km": 8.23,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.66846,
+      "lon": 151.32154,
+      "depth_m": -26.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.66971,
+      "lon": 151.32378,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.67223,
+      "lon": 151.32826,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.67726,
+      "lon": 151.33722,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.68228,
+      "lon": 151.34618,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.69234,
+      "lon": 151.3641,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.70741,
+      "lon": 151.391,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.7275,
+      "lon": 151.42687,
+      "depth_m": 94.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.75762,
+      "lon": 151.48072,
+      "depth_m": 120.0
+    }
+  ]
+}

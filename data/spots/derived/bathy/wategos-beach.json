@@ -1,0 +1,72 @@
+{
+  "spot": "wategos-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -28.6357,
+    153.6345
+  ],
+  "bearing_seaward_deg": 70.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 107.0,
+  "mean_slope_m_per_km": 5.8,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -28.63493,
+      "lon": 153.63691,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -28.63416,
+      "lon": 153.63931,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -28.63262,
+      "lon": 153.64413,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -28.62955,
+      "lon": 153.65376,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -28.62647,
+      "lon": 153.66338,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -28.62031,
+      "lon": 153.68264,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -28.61107,
+      "lon": 153.71151,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -28.59874,
+      "lon": 153.75,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -28.58022,
+      "lon": 153.80772,
+      "depth_m": 107.0
+    }
+  ]
+}

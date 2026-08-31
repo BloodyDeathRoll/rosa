@@ -35,6 +35,8 @@ REGION_PBF = {
     "Peru": "peru",
     "Panama": "panama",
     "Maldives": "maldives",
+    "Sydney": "sydney",
+    "Byron Bay": "byron-bay",
 }
 
 

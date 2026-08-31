@@ -1,0 +1,72 @@
+{
+  "spot": "wanda-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -34.0427,
+    151.1629
+  ],
+  "bearing_seaward_deg": 130.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 137.0,
+  "mean_slope_m_per_km": 8.11,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.04415,
+      "lon": 151.16498,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.04559,
+      "lon": 151.16706,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.04848,
+      "lon": 151.17121,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.05426,
+      "lon": 151.17953,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.06004,
+      "lon": 151.18785,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.0716,
+      "lon": 151.20448,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.08893,
+      "lon": 151.22945,
+      "depth_m": 96.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.11203,
+      "lon": 151.26275,
+      "depth_m": 127.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.14666,
+      "lon": 151.31274,
+      "depth_m": 137.0
+    }
+  ]
+}

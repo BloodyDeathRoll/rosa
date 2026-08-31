@@ -1,0 +1,72 @@
+{
+  "spot": "bronte-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -33.9033,
+    151.2687
+  ],
+  "bearing_seaward_deg": 82.0,
+  "nearshore_depth_m": -20.0,
+  "offshore_depth_m": 127.0,
+  "mean_slope_m_per_km": 8.28,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.90299,
+      "lon": 151.27138,
+      "depth_m": -20.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.90267,
+      "lon": 151.27406,
+      "depth_m": -15.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.90205,
+      "lon": 151.27943,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.90079,
+      "lon": 151.29016,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.89954,
+      "lon": 151.30089,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.89703,
+      "lon": 151.32235,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.89326,
+      "lon": 151.35453,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.88821,
+      "lon": 151.39744,
+      "depth_m": 112.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.88062,
+      "lon": 151.46179,
+      "depth_m": 127.0
+    }
+  ]
+}

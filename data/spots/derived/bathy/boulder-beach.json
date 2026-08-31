@@ -1,0 +1,72 @@
+{
+  "spot": "boulder-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -28.8191,
+    153.6038
+  ],
+  "bearing_seaward_deg": 81.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 90.0,
+  "mean_slope_m_per_km": 5.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -28.81875,
+      "lon": 153.60633,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -28.8184,
+      "lon": 153.60887,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -28.81769,
+      "lon": 153.61394,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -28.81628,
+      "lon": 153.62408,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -28.81488,
+      "lon": 153.63421,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -28.81206,
+      "lon": 153.65449,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -28.80782,
+      "lon": 153.6849,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -28.80216,
+      "lon": 153.72544,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -28.79365,
+      "lon": 153.78624,
+      "depth_m": 90.0
+    }
+  ]
+}

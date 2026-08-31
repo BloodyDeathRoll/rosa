@@ -1,0 +1,72 @@
+{
+  "spot": "newport-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -33.653,
+    151.3241
+  ],
+  "bearing_seaward_deg": 92.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 111.0,
+  "mean_slope_m_per_km": 6.93,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.65308,
+      "lon": 151.3268,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.65316,
+      "lon": 151.3295,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.65331,
+      "lon": 151.3349,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.65363,
+      "lon": 151.34569,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.65394,
+      "lon": 151.35649,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.65456,
+      "lon": 151.37809,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.65548,
+      "lon": 151.41048,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.6567,
+      "lon": 151.45367,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.6585,
+      "lon": 151.51846,
+      "depth_m": 111.0
+    }
+  ]
+}

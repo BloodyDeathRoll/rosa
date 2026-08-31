@@ -1,0 +1,72 @@
+{
+  "spot": "new-brighton-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -28.5186,
+    153.5521
+  ],
+  "bearing_seaward_deg": 88.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 70.0,
+  "mean_slope_m_per_km": 4.0,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -28.51852,
+      "lon": 153.55466,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -28.51844,
+      "lon": 153.55721,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -28.51829,
+      "lon": 153.56233,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -28.51797,
+      "lon": 153.57256,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -28.51765,
+      "lon": 153.58279,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -28.51702,
+      "lon": 153.60324,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -28.51606,
+      "lon": 153.63393,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -28.51478,
+      "lon": 153.67484,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -28.51283,
+      "lon": 153.73621,
+      "depth_m": 70.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "maroubra-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -33.948,
+    151.2591
+  ],
+  "bearing_seaward_deg": 113.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 137.0,
+  "mean_slope_m_per_km": 8.0,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.94888,
+      "lon": 151.26159,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.94976,
+      "lon": 151.26409,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.95151,
+      "lon": 151.26908,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.95503,
+      "lon": 151.27906,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.95854,
+      "lon": 151.28904,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.96556,
+      "lon": 151.30901,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.97609,
+      "lon": 151.33896,
+      "depth_m": 90.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.99011,
+      "lon": 151.37891,
+      "depth_m": 132.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.01112,
+      "lon": 151.43886,
+      "depth_m": 137.0
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+# Rosa spot database - Sydney (seeded 2026-08-31, the first Australian region together with
+# byron-bay). East-facing Tasman/Pacific coast: S-SE groundswell year-round (biggest in
+# winter), NE windswell in summer, warm-temperate water. Offshore wind is from the west.
+# Every spot carries offshore_km along its own seaward normal, so the sample point follows
+# the pin.
+
+defaults: &syd
+  timezone: Australia/Sydney
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [25, 155]
+  ideal:
+    wind_dir: [225, 315]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-08-31 - sydney, 35 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 35 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/sydney/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: palm-beach, name: "Palm Beach", town: "Palm Beach", lat: -33.5987, lon: 151.3245, offshore_direction: 242, swell_window: [357, 127], offshore_km: 5.0, <<: *syd }  # shore-normal re-aimed by GEBCO arc sweep; sat-verified 2026-08-31 (websearch-seeded)
+  - { id: whale-beach, name: "Whale Beach", town: "Whale Beach", lat: -33.6106, lon: 151.3320, offshore_direction: 267, swell_window: [22, 152], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: avalon, name: "Avalon", town: "Avalon Beach", lat: -33.6359, lon: 151.3315, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, <<: *syd }  # shore-normal re-aimed by GEBCO arc sweep; sat-verified 2026-08-31 (websearch-seeded)
+  - { id: bilgola-beach, name: "Bilgola Beach", town: "Bilgola", lat: -33.6449, lon: 151.3286, offshore_direction: 308, swell_window: [63, 193], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: newport-beach, name: "Newport Beach", town: "Newport", lat: -33.6530, lon: 151.3241, offshore_direction: 272, swell_window: [27, 157], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: bungan-beach, name: "Bungan Beach", town: "Mona Vale", lat: -33.6672, lon: 151.3193, offshore_direction: 304, swell_window: [59, 189], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: mona-vale-beach, name: "Mona Vale Beach", town: "Mona Vale", lat: -33.6820, lon: 151.3124, offshore_direction: 285, swell_window: [40, 170], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: warriewood-beach, name: "Warriewood Beach", town: "Warriewood", lat: -33.6908, lon: 151.3086, offshore_direction: 286, swell_window: [41, 171], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: turimetta-beach, name: "Turimetta Beach", town: "Narrabeen", lat: -33.6991, lon: 151.3097, offshore_direction: 272, swell_window: [27, 157], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: north-narrabeen, name: "North Narrabeen", town: "Narrabeen", lat: -33.7058, lon: 151.3050, offshore_direction: 295, swell_window: [50, 180], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: collaroy-beach, name: "Collaroy Beach", town: "Collaroy", lat: -33.7294, lon: 151.3013, offshore_direction: 263, swell_window: [18, 148], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: long-reef, name: "Long Reef", town: "Collaroy", lat: -33.7439, lon: 151.3092, offshore_direction: 338, swell_window: [93, 223], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: dee-why-beach, name: "Dee Why Beach", town: "Dee Why", lat: -33.7507, lon: 151.2995, offshore_direction: 294, swell_window: [49, 179], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: dee-why-point, name: "Dee Why Point", town: "Dee Why", lat: -33.7557, lon: 151.3009, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, <<: *syd }  # shore-normal re-aimed by GEBCO arc sweep; sat-verified 2026-08-31 (websearch-seeded)
+  - { id: north-curl-curl, name: "North Curl Curl", town: "Curl Curl", lat: -33.7694, lon: 151.2963, offshore_direction: 307, swell_window: [62, 192], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: freshwater-beach, name: "Freshwater Beach", town: "Freshwater", lat: -33.7816, lon: 151.2908, offshore_direction: 282, swell_window: [37, 167], offshore_km: 5.0, <<: *syd }  # shore-normal re-aimed by GEBCO arc sweep; sat-verified 2026-08-31 (websearch-seeded)
+  - { id: queenscliff-beach, name: "Queenscliff Beach", town: "Queenscliff", lat: -33.7881, lon: 151.2881, offshore_direction: 278, swell_window: [33, 163], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: manly-beach, name: "Manly Beach", town: "Manly", lat: -33.7982, lon: 151.2895, offshore_direction: 246, swell_window: [1, 131], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: fairy-bower, name: "Fairy Bower", town: "Manly", lat: -33.7989, lon: 151.2965, offshore_direction: 212, swell_window: [327, 97], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: bondi-beach, name: "Bondi Beach", town: "Bondi", lat: -33.8913, lon: 151.2781, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: tamarama-beach, name: "Tamarama Beach", town: "Tamarama", lat: -33.9004, lon: 151.2704, offshore_direction: 285, swell_window: [40, 170], offshore_km: 5.0, <<: *syd }  # shore-normal re-aimed by GEBCO arc sweep; sat-verified 2026-08-31 (websearch-seeded)
+  - { id: bronte-beach, name: "Bronte Beach", town: "Bronte", lat: -33.9033, lon: 151.2687, offshore_direction: 262, swell_window: [17, 147], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: coogee-beach, name: "Coogee Beach", town: "Coogee", lat: -33.9205, lon: 151.2582, offshore_direction: 268, swell_window: [23, 153], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: maroubra-beach, name: "Maroubra Beach", town: "Maroubra", lat: -33.9480, lon: 151.2591, offshore_direction: 293, swell_window: [48, 178], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: malabar-beach, name: "Malabar Beach", town: "Malabar", lat: -33.9642, lon: 151.2523, offshore_direction: 261, swell_window: [16, 146], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: cape-solander, name: "Cape Solander", town: "Kurnell", lat: -34.0171, lon: 151.2309, offshore_direction: 225, swell_window: [340, 110], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: voodoo, name: "Voodoo", town: "Kurnell", lat: -34.0415, lon: 151.2110, offshore_direction: 23, swell_window: [138, 268], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: wanda-beach, name: "Wanda Beach", town: "Cronulla", lat: -34.0427, lon: 151.1629, offshore_direction: 310, swell_window: [65, 195], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: elouera-beach, name: "Elouera Beach", town: "Cronulla", lat: -34.0467, lon: 151.1591, offshore_direction: 298, swell_window: [53, 183], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: north-cronulla, name: "North Cronulla", town: "Cronulla", lat: -34.0511, lon: 151.1562, offshore_direction: 299, swell_window: [54, 184], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: cronulla-point, name: "Cronulla Point", town: "Cronulla", lat: -34.0568, lon: 151.1573, offshore_direction: 235, swell_window: [350, 120], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: shark-island, name: "Shark Island", town: "Cronulla", lat: -34.0598, lon: 151.1599, offshore_direction: 284, swell_window: [39, 169], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: sandshoes-reef, name: "Sandshoes Reef", town: "Cronulla", lat: -34.0630, lon: 151.1565, offshore_direction: 284, swell_window: [39, 169], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: garie-beach, name: "Garie Beach", town: "Royal National Park", lat: -34.1696, lon: 151.0689, offshore_direction: 314, swell_window: [69, 199], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: era-beach, name: "Era Beach", town: "Royal National Park", lat: -34.1810, lon: 151.0531, offshore_direction: 297, swell_window: [52, 182], offshore_km: 5.0, <<: *syd }  # sat-verified 2026-08-31 (websearch-seeded)

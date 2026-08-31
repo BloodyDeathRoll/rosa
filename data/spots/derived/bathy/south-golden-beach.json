@@ -1,0 +1,72 @@
+{
+  "spot": "south-golden-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -28.4973,
+    153.553
+  ],
+  "bearing_seaward_deg": 90.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 67.0,
+  "mean_slope_m_per_km": 3.66,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -28.4973,
+      "lon": 153.55556,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -28.4973,
+      "lon": 153.55812,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -28.4973,
+      "lon": 153.56323,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -28.4973,
+      "lon": 153.57347,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -28.4973,
+      "lon": 153.5837,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -28.49729,
+      "lon": 153.60417,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -28.49728,
+      "lon": 153.63486,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -28.49724,
+      "lon": 153.6758,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -28.49718,
+      "lon": 153.73719,
+      "depth_m": 67.0
+    }
+  ]
+}

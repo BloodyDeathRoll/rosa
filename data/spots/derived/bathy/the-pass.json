@@ -1,0 +1,72 @@
+{
+  "spot": "the-pass",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -28.6372,
+    153.6283
+  ],
+  "bearing_seaward_deg": 20.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 50.0,
+  "mean_slope_m_per_km": 2.54,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -28.63509,
+      "lon": 153.62918,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -28.63297,
+      "lon": 153.63005,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -28.62875,
+      "lon": 153.6318,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -28.6203,
+      "lon": 153.63531,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -28.61185,
+      "lon": 153.63881,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -28.59494,
+      "lon": 153.64582,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -28.56959,
+      "lon": 153.65632,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -28.53578,
+      "lon": 153.67031,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -28.48507,
+      "lon": 153.69129,
+      "depth_m": 50.0
+    }
+  ]
+}

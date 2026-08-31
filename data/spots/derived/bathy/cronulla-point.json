@@ -1,0 +1,72 @@
+{
+  "spot": "cronulla-point",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -34.0568,
+    151.1573
+  ],
+  "bearing_seaward_deg": 55.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 81.0,
+  "mean_slope_m_per_km": 4.34,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.05551,
+      "lon": 151.15952,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.05422,
+      "lon": 151.16175,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.05164,
+      "lon": 151.16619,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.04648,
+      "lon": 151.17508,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.04132,
+      "lon": 151.18397,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.031,
+      "lon": 151.20175,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.01551,
+      "lon": 151.2284,
+      "depth_m": -29.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.99485,
+      "lon": 151.26393,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.96385,
+      "lon": 151.31718,
+      "depth_m": 81.0
+    }
+  ]
+}

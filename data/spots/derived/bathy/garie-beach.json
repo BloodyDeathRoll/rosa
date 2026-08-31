@@ -1,0 +1,72 @@
+{
+  "spot": "garie-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -34.1696,
+    151.0689
+  ],
+  "bearing_seaward_deg": 134.0,
+  "nearshore_depth_m": -24.0,
+  "offshore_depth_m": 133.0,
+  "mean_slope_m_per_km": 8.85,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.17116,
+      "lon": 151.07085,
+      "depth_m": -24.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.17272,
+      "lon": 151.07281,
+      "depth_m": -34.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.17585,
+      "lon": 151.07672,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.18209,
+      "lon": 151.08454,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.18834,
+      "lon": 151.09236,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.20083,
+      "lon": 151.10801,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.21956,
+      "lon": 151.13149,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.24453,
+      "lon": 151.16281,
+      "depth_m": 112.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.28197,
+      "lon": 151.20983,
+      "depth_m": 133.0
+    }
+  ]
+}

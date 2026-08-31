@@ -1,0 +1,72 @@
+{
+  "spot": "clarkes-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -28.6404,
+    153.622
+  ],
+  "bearing_seaward_deg": 22.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 50.0,
+  "mean_slope_m_per_km": 2.48,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -28.63832,
+      "lon": 153.62296,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -28.63623,
+      "lon": 153.62392,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -28.63206,
+      "lon": 153.62584,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -28.62372,
+      "lon": 153.62968,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -28.61538,
+      "lon": 153.63351,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -28.59871,
+      "lon": 153.64119,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -28.57369,
+      "lon": 153.65269,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -28.54033,
+      "lon": 153.66802,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -28.49029,
+      "lon": 153.691,
+      "depth_m": 50.0
+    }
+  ]
+}

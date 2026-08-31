@@ -1,0 +1,72 @@
+{
+  "spot": "mona-vale-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -33.682,
+    151.3124
+  ],
+  "bearing_seaward_deg": 105.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 119.0,
+  "mean_slope_m_per_km": 7.15,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.68258,
+      "lon": 151.31501,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.68316,
+      "lon": 151.31762,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.68433,
+      "lon": 151.32284,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.68665,
+      "lon": 151.33328,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.68898,
+      "lon": 151.34372,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.69363,
+      "lon": 151.3646,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.70059,
+      "lon": 151.39593,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.70987,
+      "lon": 151.43771,
+      "depth_m": 96.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.72375,
+      "lon": 151.5004,
+      "depth_m": 119.0
+    }
+  ]
+}

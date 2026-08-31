@@ -176,7 +176,39 @@ Four things, in this order:
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-08-27, DB = 624 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-08-31, DB = 685 spots, ALL sat-verified)
+
+**Sydney 0 -> 35 and Byron Bay 0 -> 26 (2026-08-31) - the first Australian regions.** Two
+`REGIONS` boxes scoped to what was asked, not the whole NSW coast between them (Sydney = Palm
+Beach to Garie in the Royal NP; Byron = Tweed Heads to Ballina), `sydney.yaml` / `byron-bay.yaml`
+anchors (east-facing defaults: swell_window [25,155], offshore wind from the W), one shared
+`australia-east` swellmap basin, one Geofabrik `australia` pbf (960 MB) symlinked to both region
+names.
+- **Primary:** 16,523 coastline ways -> 401 + 172 candidates -> **1 Tier-A each**, and both were
+  dropped via skip.json: Sydney's "Bower" lost to the web name Fairy Bower (same break), and
+  Byron's "Ripcurl" by the Tweed mouth is a brand-name node the business filter missed. Even
+  Australia, the most OSM-mature surf country attempted, is web-search country.
+- **Secondary:** 41 + 29 guide names -> geocode -> z16 render of all 70 -> judge: Sydney 26 keep /
+  8 move / 6 drop / 2 requery, Byron 21 keep / 2 move / 3 drop / 1 requery. Every moved pin
+  re-rendered; Salt Beach needed a second nudge off the resort roof.
+- **What this pass taught:** (1) Google collapses metro sub-spots onto their parent beach pin
+  (Dee Why Point/Beach, Cronulla Point/North Cronulla, The Peak/Newport, Narrabeen/North
+  Narrabeen) - the reef/point half of the pair needs a hand move off the tile, or a drop when it
+  is genuinely the same peak (North Steyne 320 m from Queenscliff, Kiddies Corner 180 m from the
+  Palm Beach pin). (2) `boat-harbour-kurnell` failed both rounds (Google returns Silver Beach
+  INSIDE Botany Bay, OSM's node is mid-peninsula) - dropped, the standing two-strikes rule.
+  (3) **Eight shore normals came off the nearest coastline candidate pointing into a headland or
+  across an estuary** (Byron's cape spots got the cape's own normal; Palm Beach got Pittwater) -
+  the Peru GEBCO arc sweep re-aimed all eight, and `test_committed_profiles_reach_open_water` +
+  `horizon --spot` caught every one. (4) `horizon`'s "blocked by land" flag fires on correct
+  east-facing normals here (dee-why-beach at seaward 112, freshwater at 102 - open Tasman both):
+  the API grid's nearshore noise, item 17's two-GEBCO dispute again. The local-grid sweep is the
+  tiebreak; do not chase the flag when the sweep and the tile agree. (5) Towns needed 33 hand
+  overrides out of 61 - metro OSM place nodes resolve to the municipal centre (all of the
+  Northern Beaches read "Mona Vale", all of Cronulla read "Boat Harbour"), and the suburb IS the
+  search key in a city.
+
+## 5c. Earlier log (as of 2026-08-27, DB = 624 spots, ALL sat-verified)
 
 **Maldives 0 -> 23 (2026-08-27) - the first atoll nation, and the recipe needed three changes
 to work there.** New `REGIONS` box (the whole chain, Haa Alif to Addu - it is only ~130 km wide,
@@ -331,7 +363,7 @@ flip removed the per-spot quota ceiling.** Both flows, in the order the playbook
 - Not seeded yet on the US west coast: **Oregon and Washington** (Geofabrik `oregon`,
   `washington`; new REGIONS boxes + `oregon.yaml` / `washington.yaml` anchors + basins).
 
-## 5a. Earlier log (as of 2026-08-16, DB = 265 spots, ALL sat-verified)
+## 5d. Earlier log (as of 2026-08-16, DB = 265 spots, ALL sat-verified)
 **Seeded (generation + web-search):** Sri Lanka 16→32, Portugal 16→42, Japan 17→24,
 Philippines 12→16, Nicaragua +1, **Mexico 0→43 and El Salvador 0→23 (2026-08-15/16)**.
 **Curated already-complete:** Costa Rica, Israel.

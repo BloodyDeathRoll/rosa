@@ -1,0 +1,72 @@
+{
+  "spot": "bilgola-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -33.6449,
+    151.3286
+  ],
+  "bearing_seaward_deg": 128.0,
+  "nearshore_depth_m": -26.0,
+  "offshore_depth_m": 120.0,
+  "mean_slope_m_per_km": 8.23,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.64628,
+      "lon": 151.33073,
+      "depth_m": -26.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.64767,
+      "lon": 151.33286,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.65044,
+      "lon": 151.33711,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.65597,
+      "lon": 151.34563,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.66151,
+      "lon": 151.35414,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.67258,
+      "lon": 151.37118,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.68918,
+      "lon": 151.39674,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.7113,
+      "lon": 151.43083,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.74447,
+      "lon": 151.48201,
+      "depth_m": 120.0
+    }
+  ]
+}

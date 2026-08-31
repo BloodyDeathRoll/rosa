@@ -1,0 +1,72 @@
+{
+  "spot": "whale-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -33.6106,
+    151.332
+  ],
+  "bearing_seaward_deg": 87.0,
+  "nearshore_depth_m": -20.0,
+  "offshore_depth_m": 86.0,
+  "mean_slope_m_per_km": 5.97,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.61048,
+      "lon": 151.3347,
+      "depth_m": -20.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.61036,
+      "lon": 151.33739,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.61013,
+      "lon": 151.34278,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.60966,
+      "lon": 151.35357,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.60918,
+      "lon": 151.36435,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.60823,
+      "lon": 151.38592,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.6068,
+      "lon": 151.41827,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.60488,
+      "lon": 151.4614,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.60198,
+      "lon": 151.52609,
+      "depth_m": 86.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "shelly-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -28.8617,
+    153.5942
+  ],
+  "bearing_seaward_deg": 119.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 87.0,
+  "mean_slope_m_per_km": 5.35,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -28.86279,
+      "lon": 153.59645,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -28.86388,
+      "lon": 153.59869,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -28.86606,
+      "lon": 153.60318,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -28.87042,
+      "lon": 153.61216,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -28.87478,
+      "lon": 153.62115,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -28.88349,
+      "lon": 153.63912,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -28.89656,
+      "lon": 153.66607,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -28.91398,
+      "lon": 153.70203,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -28.94008,
+      "lon": 153.75598,
+      "depth_m": 87.0
+    }
+  ]
+}

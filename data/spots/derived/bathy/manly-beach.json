@@ -1,0 +1,72 @@
+{
+  "spot": "manly-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -33.7982,
+    151.2895
+  ],
+  "bearing_seaward_deg": 66.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 121.0,
+  "mean_slope_m_per_km": 7.44,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.79729,
+      "lon": 151.29197,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.79637,
+      "lon": 151.29444,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.79454,
+      "lon": 151.29939,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.79088,
+      "lon": 151.30927,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.78722,
+      "lon": 151.31916,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.7799,
+      "lon": 151.33892,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.76891,
+      "lon": 151.36856,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.75425,
+      "lon": 151.40808,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.73223,
+      "lon": 151.46732,
+      "depth_m": 121.0
+    }
+  ]
+}

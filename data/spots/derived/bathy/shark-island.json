@@ -1,0 +1,72 @@
+{
+  "spot": "shark-island",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -34.0598,
+    151.1599
+  ],
+  "bearing_seaward_deg": 104.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 137.0,
+  "mean_slope_m_per_km": 8.11,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.06034,
+      "lon": 151.16253,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.06089,
+      "lon": 151.16517,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.06198,
+      "lon": 151.17043,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.06415,
+      "lon": 151.18097,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.06632,
+      "lon": 151.1915,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.07067,
+      "lon": 151.21257,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.07718,
+      "lon": 151.24418,
+      "depth_m": 94.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.08584,
+      "lon": 151.28633,
+      "depth_m": 129.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.09882,
+      "lon": 151.34958,
+      "depth_m": 137.0
+    }
+  ]
+}

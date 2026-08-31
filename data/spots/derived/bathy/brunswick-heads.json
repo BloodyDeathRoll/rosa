@@ -1,0 +1,72 @@
+{
+  "spot": "brunswick-heads",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -28.5417,
+    153.5566
+  ],
+  "bearing_seaward_deg": 92.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 71.0,
+  "mean_slope_m_per_km": 3.83,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -28.54178,
+      "lon": 153.55916,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -28.54186,
+      "lon": 153.56172,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -28.54201,
+      "lon": 153.56683,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -28.54233,
+      "lon": 153.57706,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -28.54264,
+      "lon": 153.58729,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -28.54326,
+      "lon": 153.60776,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -28.54419,
+      "lon": 153.63845,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -28.54541,
+      "lon": 153.67938,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -28.54723,
+      "lon": 153.74077,
+      "depth_m": 71.0
+    }
+  ]
+}

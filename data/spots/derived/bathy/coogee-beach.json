@@ -1,0 +1,72 @@
+{
+  "spot": "coogee-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -33.9205,
+    151.2582
+  ],
+  "bearing_seaward_deg": 88.0,
+  "nearshore_depth_m": -14.0,
+  "offshore_depth_m": 127.0,
+  "mean_slope_m_per_km": 7.94,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.92042,
+      "lon": 151.26091,
+      "depth_m": -14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.92034,
+      "lon": 151.26362,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.92019,
+      "lon": 151.26903,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.91987,
+      "lon": 151.27986,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.91955,
+      "lon": 151.29069,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.91892,
+      "lon": 151.31235,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.91796,
+      "lon": 151.34485,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.91667,
+      "lon": 151.38817,
+      "depth_m": 109.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.9147,
+      "lon": 151.45315,
+      "depth_m": 127.0
+    }
+  ]
+}

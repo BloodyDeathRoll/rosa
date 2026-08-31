@@ -1,0 +1,50 @@
+# Rosa spot database - Byron Bay area (seeded 2026-08-31, the first Australian region together
+# with sydney). East-facing Tasman/Pacific coast: S-SE groundswell year-round (biggest in
+# winter), NE windswell in summer, subtropical water. Offshore wind is from the west.
+# Every spot carries offshore_km along its own seaward normal, so the sample point follows
+# the pin.
+
+defaults: &byr
+  timezone: Australia/Sydney
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [25, 155]
+  ideal:
+    wind_dir: [225, 315]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-08-31 - byron-bay, 26 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 26 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/byron-bay/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: duranbah, name: "Duranbah", town: "Tweed Heads", lat: -28.1669, lon: 153.5514, offshore_direction: 234, swell_window: [349, 119], offshore_km: 5.0, <<: *byr }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: fingal-head, name: "Fingal Head", town: "Fingal Head", lat: -28.1988, lon: 153.5696, offshore_direction: 283, swell_window: [38, 168], offshore_km: 5.0, <<: *byr }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: kingscliff, name: "Kingscliff", town: "Chinderah", lat: -28.2519, lon: 153.5745, offshore_direction: 235, swell_window: [350, 120], offshore_km: 5.0, <<: *byr }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: salt-beach, name: "Salt Beach", town: "Casuarina", lat: -28.2772, lon: 153.5805, offshore_direction: 283, swell_window: [38, 168], offshore_km: 5.0, <<: *byr }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: cabarita-beach, name: "Cabarita Beach", town: "Cabarita Beach", lat: -28.3358, lon: 153.5755, offshore_direction: 277, swell_window: [32, 162], offshore_km: 5.0, <<: *byr }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: hastings-point, name: "Hastings Point", town: "Hastings Point", lat: -28.3625, lon: 153.5794, offshore_direction: 233, swell_window: [348, 118], offshore_km: 5.0, <<: *byr }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: pottsville-beach, name: "Pottsville Beach", town: "Pottsville", lat: -28.4035, lon: 153.5657, offshore_direction: 276, swell_window: [31, 161], offshore_km: 5.0, <<: *byr }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: south-golden-beach, name: "South Golden Beach", town: "South Golden Beach", lat: -28.4973, lon: 153.5530, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, <<: *byr }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: new-brighton-beach, name: "New Brighton Beach", town: "New Brighton", lat: -28.5186, lon: 153.5521, offshore_direction: 268, swell_window: [23, 153], offshore_km: 5.0, <<: *byr }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: brunswick-heads, name: "Brunswick Heads", town: "Brunswick Heads", lat: -28.5417, lon: 153.5566, offshore_direction: 272, swell_window: [27, 157], offshore_km: 5.0, <<: *byr }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: belongil-beach, name: "Belongil Beach", town: "Byron Bay", lat: -28.6298, lon: 153.5976, offshore_direction: 227, swell_window: [342, 112], offshore_km: 5.0, <<: *byr }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: wategos-beach, name: "Wategos Beach", town: "Byron Bay", lat: -28.6357, lon: 153.6345, offshore_direction: 250, swell_window: [5, 135], offshore_km: 5.0, <<: *byr }  # shore-normal re-aimed by GEBCO arc sweep; sat-verified 2026-08-31 (websearch-seeded)
+  - { id: the-pass, name: "The Pass", town: "Byron Bay", lat: -28.6372, lon: 153.6283, offshore_direction: 200, swell_window: [315, 85], offshore_km: 5.0, <<: *byr }  # shore-normal re-aimed by GEBCO arc sweep; sat-verified 2026-08-31 (websearch-seeded)
+  - { id: the-wreck, name: "The Wreck", town: "Byron Bay", lat: -28.6382, lon: 153.6110, offshore_direction: 223, swell_window: [338, 108], offshore_km: 5.0, <<: *byr }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: clarkes-beach, name: "Clarkes Beach", town: "Byron Bay", lat: -28.6404, lon: 153.6220, offshore_direction: 202, swell_window: [317, 87], offshore_km: 5.0, <<: *byr }  # shore-normal re-aimed by GEBCO arc sweep; sat-verified 2026-08-31 (websearch-seeded)
+  - { id: cosy-corner, name: "Cosy Corner", town: "Byron Bay", lat: -28.6422, lon: 153.6347, offshore_direction: 278, swell_window: [33, 163], offshore_km: 5.0, <<: *byr }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: tallow-beach, name: "Tallow Beach", town: "Byron Bay", lat: -28.6688, lon: 153.6220, offshore_direction: 289, swell_window: [44, 174], offshore_km: 5.0, <<: *byr }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: suffolk-park, name: "Suffolk Park", town: "Suffolk Park", lat: -28.6904, lon: 153.6160, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, <<: *byr }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: broken-head, name: "Broken Head", town: "Suffolk Park", lat: -28.7034, lon: 153.6157, offshore_direction: 236, swell_window: [351, 121], offshore_km: 5.0, <<: *byr }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: lennox-head, name: "Lennox Head", town: "Lennox Head", lat: -28.8086, lon: 153.6059, offshore_direction: 218, swell_window: [333, 103], offshore_km: 5.0, <<: *byr }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: boulder-beach, name: "Boulder Beach", town: "Skennars Head", lat: -28.8191, lon: 153.6038, offshore_direction: 261, swell_window: [16, 146], offshore_km: 5.0, <<: *byr }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: sharpes-beach, name: "Sharpes Beach", town: "Skennars Head", lat: -28.8339, lon: 153.6051, offshore_direction: 278, swell_window: [33, 163], offshore_km: 5.0, <<: *byr }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: flat-rock, name: "Flat Rock", town: "Skennars Head", lat: -28.8429, lon: 153.6080, offshore_direction: 252, swell_window: [7, 137], offshore_km: 5.0, <<: *byr }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: shelly-beach, name: "Shelly Beach", town: "Ballina", lat: -28.8617, lon: 153.5942, offshore_direction: 299, swell_window: [54, 184], offshore_km: 5.0, <<: *byr }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: north-wall, name: "North Wall", town: "Ballina", lat: -28.8731, lon: 153.5877, offshore_direction: 314, swell_window: [69, 199], offshore_km: 5.0, <<: *byr }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: south-wall, name: "South Wall", town: "Ballina", lat: -28.8769, lon: 153.5879, offshore_direction: 314, swell_window: [69, 199], offshore_km: 5.0, <<: *byr }  # sat-verified 2026-08-31 (websearch-seeded)

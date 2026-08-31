@@ -1,0 +1,72 @@
+{
+  "spot": "suffolk-park",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -28.6904,
+    153.616
+  ],
+  "bearing_seaward_deg": 95.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 91.0,
+  "mean_slope_m_per_km": 5.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -28.6906,
+      "lon": 153.61855,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -28.69079,
+      "lon": 153.62111,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -28.69118,
+      "lon": 153.62621,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -28.69197,
+      "lon": 153.63643,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -28.69275,
+      "lon": 153.64664,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -28.69431,
+      "lon": 153.66707,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -28.69665,
+      "lon": 153.69771,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -28.69975,
+      "lon": 153.73857,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -28.70438,
+      "lon": 153.79986,
+      "depth_m": 91.0
+    }
+  ]
+}

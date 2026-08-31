@@ -96,6 +96,13 @@ REGIONS = {
     # every atoll, Haa Alif in the north down to Addu; the chain is only ~130 km wide
     # so one box is the whole country
     "maldives": (-0.80, 72.50, 7.20, 73.85),
+    # Sydney metro surf coast: Palm Beach down through the Northern Beaches, the eastern
+    # suburbs and Cronulla to Garie in the Royal National Park; Sydney Harbour is inside
+    # the box but bathy-prunes itself (enclosed water)
+    "sydney": (-34.25, 150.80, -33.55, 151.40),
+    # the far-north NSW surf coast around Byron Bay: Tweed Heads (the QLD line) down
+    # through Cabarita, Brunswick Heads, Byron and Lennox Head to Ballina
+    "byron-bay": (-28.95, 153.30, -28.15, 153.70),
 }
 
 

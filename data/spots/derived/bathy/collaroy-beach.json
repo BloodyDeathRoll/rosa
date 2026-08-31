@@ -1,0 +1,72 @@
+{
+  "spot": "collaroy-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -33.7294,
+    151.3013
+  ],
+  "bearing_seaward_deg": 83.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 119.0,
+  "mean_slope_m_per_km": 7.1,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.72913,
+      "lon": 151.30398,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.72885,
+      "lon": 151.30667,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.7283,
+      "lon": 151.31203,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.72721,
+      "lon": 151.32277,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.72611,
+      "lon": 151.3335,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.72391,
+      "lon": 151.35496,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.7206,
+      "lon": 151.38715,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.71618,
+      "lon": 151.43007,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.70952,
+      "lon": 151.49445,
+      "depth_m": 119.0
+    }
+  ]
+}
