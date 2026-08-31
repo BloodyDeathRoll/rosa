@@ -176,7 +176,23 @@ Four things, in this order:
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-08-31, DB = 685 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-08-31, DB = 702 spots, ALL sat-verified)
+
+**French Polynesia 0 -> 17 (2026-08-31) - the first Oceania island region; the Maldives
+recipe, confirmed portable.** Society Islands + Rangiroa/Tikehau box only. What transferred:
+0 usable Tier-A (but OSM's `Teahupoo Reef` node IS the break - use OSM surf nodes as pin
+truth even when they miss the 450 m gate), Google returning villages for pass waves, the
+island-centroid normal (nearest-candidate normals were 60-130 deg off on every pass wave),
+island/commune names as towns. What was new: (1) **wide z14 renders are the pass-finder** -
+Matauvau, Paopao, Rautoanui and Tuheiava were all located by eye off a 6 km tile after
+geocoding failed, then pinned at z16; (2) a pass wave legitimately takes 3-4 renders -
+budget for it; (3) vairao dropped on the two-strikes rule even though it is a Surfline zone
+(three placements failed; Teahupoo covers the stretch); (4) the north-shore-of-a-round-island
+case (Temae) breaks the centroid method too - the centroid ray pointed at Tahiti 14 km east;
+the GEBCO arc sweep is the fallback. OPEN-ITEMS 23 blindness confirmed here (first wet
+sample 29-476 m); do not chase it per-spot.
+
+## 5a. Australia (as of 2026-08-31, DB = 685 spots)
 
 **Sydney 0 -> 35 and Byron Bay 0 -> 26 (2026-08-31) - the first Australian regions.** Two
 `REGIONS` boxes scoped to what was asked, not the whole NSW coast between them (Sydney = Palm

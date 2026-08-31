@@ -37,6 +37,7 @@ REGION_PBF = {
     "Maldives": "maldives",
     "Sydney": "sydney",
     "Byron Bay": "byron-bay",
+    "French Polynesia": "french-polynesia",
 }
 
 

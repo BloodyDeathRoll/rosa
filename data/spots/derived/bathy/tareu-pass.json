@@ -1,0 +1,72 @@
+{
+  "spot": "tareu-pass",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -17.4871,
+    -149.8591
+  ],
+  "bearing_seaward_deg": 354.0,
+  "nearshore_depth_m": 223.0,
+  "offshore_depth_m": 2731.0,
+  "mean_slope_m_per_km": 141.3,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -17.48486,
+      "lon": -149.85935,
+      "depth_m": 223.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -17.48263,
+      "lon": -149.85959,
+      "depth_m": 271.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -17.47816,
+      "lon": -149.86009,
+      "depth_m": 408.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -17.46921,
+      "lon": -149.86107,
+      "depth_m": 704.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -17.46027,
+      "lon": -149.86206,
+      "depth_m": 1021.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -17.44238,
+      "lon": -149.86403,
+      "depth_m": 1545.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -17.41555,
+      "lon": -149.86698,
+      "depth_m": 2139.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -17.37977,
+      "lon": -149.87092,
+      "depth_m": 2432.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -17.32611,
+      "lon": -149.87683,
+      "depth_m": 2731.0
+    }
+  ]
+}

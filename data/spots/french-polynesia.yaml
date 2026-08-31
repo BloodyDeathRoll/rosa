@@ -1,0 +1,44 @@
+# Rosa spot database - French Polynesia (seeded 2026-08-31, the first Oceania island region).
+# Volcanic islands ringed by barrier reef plus true atolls (Tuamotus): every break is a reef
+# pass or reef edge, so `break_type` is reef throughout and deep ocean starts a few hundred
+# metres past the reef. Swell is S-SW Southern Ocean groundswell (Apr-Oct season, Teahupoo's
+# engine); the north shores (Papenoo, Point Venus, Temae, Avatoru) instead take N Pacific
+# winter swell and summer NE trades windswell, so their windows point N-NE. Offshore wind is
+# the SE trade blowing off the island; north-facing spots override. Every spot carries
+# offshore_km along its own seaward normal, so the sample point follows the pin.
+
+defaults: &pf
+  timezone: Pacific/Tahiti
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [150, 280]
+  ideal:
+    wind_dir: [20, 140]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-08-31 - french-polynesia, 17 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 17 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/french-polynesia/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: avatoru-pass, name: "Avatoru Pass", town: "Rangiroa", lat: -14.9361, lon: -147.7101, offshore_direction: 202, swell_window: [317, 87], offshore_km: 5.0, <<: *pf }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: tuheiava-pass, name: "Tuheiava Pass", town: "Tikehau", lat: -15.0090, lon: -148.2800, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, <<: *pf }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: fare-pass, name: "Fare Pass", town: "Fare", lat: -16.7073, lon: -151.0438, offshore_direction: 99, swell_window: [214, 344], offshore_km: 5.0, <<: *pf }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: miri-miri, name: "Miri Miri", town: "Raiatea", lat: -16.7570, lon: -151.5050, offshore_direction: 92, swell_window: [207, 337], offshore_km: 5.0, <<: *pf }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: paopao-pass, name: "Paopao Pass", town: "Paopao", lat: -17.4764, lon: -149.8238, offshore_direction: 172, swell_window: [287, 57], offshore_km: 5.0, <<: *pf }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: tareu-pass, name: "Tareu Pass", town: "Papetoai", lat: -17.4871, lon: -149.8591, offshore_direction: 174, swell_window: [289, 59], offshore_km: 5.0, <<: *pf }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: point-venus, name: "Point Venus", town: "Mahina", lat: -17.4952, lon: -149.4957, offshore_direction: 141, swell_window: [256, 26], offshore_km: 5.0, <<: *pf }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: temae, name: "Temae", town: "Moorea", lat: -17.5000, lon: -149.7554, offshore_direction: 212, swell_window: [327, 97], offshore_km: 5.0, <<: *pf }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: ahonu, name: "Ahonu", town: "Mahina", lat: -17.5073, lon: -149.4669, offshore_direction: 170, swell_window: [285, 55], offshore_km: 5.0, <<: *pf }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: orofara, name: "Orofara", town: "Mahina", lat: -17.5078, lon: -149.4618, offshore_direction: 182, swell_window: [297, 67], offshore_km: 5.0, <<: *pf }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: papenoo, name: "Papenoo", town: "Papenoo", lat: -17.5117, lon: -149.4199, offshore_direction: 128, swell_window: [243, 13], offshore_km: 5.0, <<: *pf }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: haapiti, name: "Haapiti", town: "Haapiti", lat: -17.5737, lon: -149.8782, offshore_direction: 50, swell_window: [165, 295], offshore_km: 5.0, <<: *pf }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: taapuna, name: "Taapuna", town: "Punaauia", lat: -17.6032, lon: -149.6224, offshore_direction: 81, swell_window: [196, 326], offshore_km: 5.0, <<: *pf }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: sapinus, name: "Sapinus", town: "Punaauia", lat: -17.6228, lon: -149.6183, offshore_direction: 88, swell_window: [203, 333], offshore_km: 5.0, <<: *pf }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: maraa, name: "Maraa", town: "Paea", lat: -17.7523, lon: -149.5786, offshore_direction: 38, swell_window: [153, 283], offshore_km: 5.0, <<: *pf }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: papara, name: "Papara", town: "Papara", lat: -17.7762, lon: -149.4832, offshore_direction: 30, swell_window: [145, 275], offshore_km: 5.0, <<: *pf }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: teahupoo, name: "Teahupoo", town: "Teahupoo", lat: -17.8667, lon: -149.2537, offshore_direction: 24, swell_window: [139, 269], offshore_km: 5.0, <<: *pf }  # sat-verified 2026-08-31 (websearch-seeded)

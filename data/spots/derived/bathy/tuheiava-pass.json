@@ -1,0 +1,72 @@
+{
+  "spot": "tuheiava-pass",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -15.009,
+    -148.28
+  ],
+  "bearing_seaward_deg": 265.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 1522.0,
+  "mean_slope_m_per_km": 85.18,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -15.0092,
+      "lon": -148.28232,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -15.00939,
+      "lon": -148.28464,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -15.00978,
+      "lon": -148.28928,
+      "depth_m": 454.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -15.01057,
+      "lon": -148.29855,
+      "depth_m": 878.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -15.01135,
+      "lon": -148.30783,
+      "depth_m": 1128.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -15.01291,
+      "lon": -148.32638,
+      "depth_m": 1305.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -15.01526,
+      "lon": -148.35421,
+      "depth_m": 1397.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -15.01838,
+      "lon": -148.39131,
+      "depth_m": 1518.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -15.02305,
+      "lon": -148.44697,
+      "depth_m": 1522.0
+    }
+  ]
+}

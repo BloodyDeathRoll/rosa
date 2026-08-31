@@ -1,0 +1,72 @@
+{
+  "spot": "haapiti",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -17.5737,
+    -149.8782
+  ],
+  "bearing_seaward_deg": 230.0,
+  "nearshore_depth_m": 139.0,
+  "offshore_depth_m": 3083.0,
+  "mean_slope_m_per_km": 165.86,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -17.57515,
+      "lon": -149.88001,
+      "depth_m": 139.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -17.57659,
+      "lon": -149.88181,
+      "depth_m": 244.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -17.57948,
+      "lon": -149.88543,
+      "depth_m": 554.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -17.58526,
+      "lon": -149.89265,
+      "depth_m": 920.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -17.59104,
+      "lon": -149.89988,
+      "depth_m": 1204.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -17.6026,
+      "lon": -149.91434,
+      "depth_m": 1058.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -17.61994,
+      "lon": -149.93603,
+      "depth_m": 1310.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -17.64305,
+      "lon": -149.96495,
+      "depth_m": 2296.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -17.67771,
+      "lon": -150.00835,
+      "depth_m": 3083.0
+    }
+  ]
+}

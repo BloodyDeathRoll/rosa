@@ -103,6 +103,10 @@ REGIONS = {
     # the far-north NSW surf coast around Byron Bay: Tweed Heads (the QLD line) down
     # through Cabarita, Brunswick Heads, Byron and Lennox Head to Ballina
     "byron-bay": (-28.95, 153.30, -28.15, 153.70),
+    # the surfed islands only: the Society group (Tahiti, Moorea, Huahine, Raiatea,
+    # Bora Bora) plus Rangiroa/Tikehau in the western Tuamotus; Marquesas and Australs
+    # are barely surfed and would triple the box
+    "french-polynesia": (-18.20, -152.10, -14.80, -147.50),
 }
 
 

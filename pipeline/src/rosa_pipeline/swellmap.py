@@ -55,6 +55,7 @@ BASINS: dict[str, tuple[str, ...]] = {
     "maldives": ("Maldives",),
     # Sydney + Byron Bay share one east-Australian frame: same Tasman/Coral Sea swell
     "australia-east": ("Sydney", "Byron Bay"),
+    "french-polynesia": ("French Polynesia",),
 }
 BOX_PAD_DEG = 3.0  # sea-room around the spot extent so swell context is visible
 STEP_H = 3

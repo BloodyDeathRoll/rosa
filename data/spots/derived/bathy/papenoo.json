@@ -1,0 +1,72 @@
+{
+  "spot": "papenoo",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -17.5117,
+    -149.4199
+  ],
+  "bearing_seaward_deg": 308.0,
+  "nearshore_depth_m": -44.0,
+  "offshore_depth_m": 1802.0,
+  "mean_slope_m_per_km": 104.0,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -17.51032,
+      "lon": -149.42176,
+      "depth_m": -44.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -17.50893,
+      "lon": -149.42362,
+      "depth_m": -38.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -17.50616,
+      "lon": -149.42733,
+      "depth_m": -32.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -17.50063,
+      "lon": -149.43476,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -17.49509,
+      "lon": -149.44219,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -17.48401,
+      "lon": -149.45705,
+      "depth_m": 187.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -17.4674,
+      "lon": -149.47933,
+      "depth_m": 878.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -17.44524,
+      "lon": -149.50904,
+      "depth_m": 1444.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -17.41199,
+      "lon": -149.55359,
+      "depth_m": 1802.0
+    }
+  ]
+}

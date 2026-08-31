@@ -1,0 +1,72 @@
+{
+  "spot": "sapinus",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -17.6228,
+    -149.6183
+  ],
+  "bearing_seaward_deg": 268.0,
+  "nearshore_depth_m": 64.0,
+  "offshore_depth_m": 1297.0,
+  "mean_slope_m_per_km": 69.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -17.62288,
+      "lon": -149.62066,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -17.62296,
+      "lon": -149.62302,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -17.62311,
+      "lon": -149.62773,
+      "depth_m": 280.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -17.62343,
+      "lon": -149.63716,
+      "depth_m": 572.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -17.62374,
+      "lon": -149.64659,
+      "depth_m": 1011.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -17.62436,
+      "lon": -149.66545,
+      "depth_m": 1522.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -17.6253,
+      "lon": -149.69374,
+      "depth_m": 2062.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -17.62653,
+      "lon": -149.73147,
+      "depth_m": 2288.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -17.62838,
+      "lon": -149.78805,
+      "depth_m": 1297.0
+    }
+  ]
+}
