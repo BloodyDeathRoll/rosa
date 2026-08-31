@@ -3,6 +3,8 @@
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
+import pytest
+
 from rosa_pipeline.swellmap import (
     BASINS,
     MISSING,
@@ -339,3 +341,64 @@ def test_sliced_frames_equal_the_pull_path_on_the_real_fixture():
     assert pushed["scales"] == pulled["scales"]
     assert pushed["run"] == pulled["run"]
     assert pushed["ny"] * pushed["nx"] == len(pushed["frames"][0]["hs"])
+
+
+# --- seam-safe basin extents (2026-08-31) -------------------------------------------------
+
+_FIJI_YAML = """\
+spots:
+  - id: test-fiji-w
+    name: Test Fiji W
+    lat: -17.8
+    lon: 177.2
+    timezone: Pacific/Fiji
+    offshore_direction: 250
+    swell_window: [180, 300]
+    height_coeff: 1.0
+    break_type: reef
+    ideal: {wind_dir: [45, 135], size_m: [0.6, 2.5]}
+  - id: test-fiji-e
+    name: Test Fiji E
+    lat: -18.1
+    lon: -178.8
+    timezone: Pacific/Fiji
+    offshore_direction: 110
+    swell_window: [0, 120]
+    height_coeff: 1.0
+    break_type: reef
+    ideal: {wind_dir: [225, 315], size_m: [0.6, 2.5]}
+"""
+
+
+def test_basin_boxes_seed_offsets_are_a_noop_for_every_committed_basin():
+    """The signed-offset extent (cluster_boxes idiom) must reproduce the old plain
+    min/max box for every committed basin - none crosses a seam today."""
+    from rosa_pipeline.spots import load_spots
+    from rosa_pipeline.swellmap import BOX_PAD_DEG
+
+    spots = load_spots(SPOTS_DIR)
+    boxes = basin_boxes(SPOTS_DIR)
+    assert boxes
+    for b in boxes:
+        lons = [s.lon for s in spots.values() if s.region in b.regions]
+        assert b.lon0 == pytest.approx(min(lons) - BOX_PAD_DEG, abs=1e-9)
+        assert b.lon1 == pytest.approx(max(lons) + BOX_PAD_DEG, abs=1e-9)
+        assert b.lon0 < b.lon1
+
+
+def test_basin_box_across_the_antimeridian_stays_local_and_warns(tmp_path, monkeypatch, capsys):
+    """Fiji-shaped region (+177.2 and -178.8): the old min/max gave lon0=-181.8,
+    lon1=+180.2 - a box covering the ~356 deg the region is NOT in. The offset extent
+    keeps it 10 deg wide; the signed pair cannot express it (lon1 < lon0), which routes
+    it to the per-basin direct fetch whose 0-360 box CAN."""
+    import rosa_pipeline.swellmap as swellmap
+    from rosa_pipeline.gfswave import _lon360
+
+    (tmp_path / "fiji.yaml").write_text(_FIJI_YAML, encoding="utf-8")
+    monkeypatch.setattr(swellmap, "BASINS", {"fiji": ("Fiji",)})
+    [b] = swellmap.basin_boxes(tmp_path)
+    assert b.lon0 == pytest.approx(174.2)
+    assert b.lon1 == pytest.approx(-175.8)
+    assert b.lon1 < b.lon0  # slice_basin_field returns None for this - direct fetch
+    assert _lon360(b.lon0) < _lon360(b.lon1)  # ...and fetch_basin_step's box is valid
+    assert "crosses the antimeridian" in capsys.readouterr().out

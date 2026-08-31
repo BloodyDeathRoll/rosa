@@ -28,6 +28,7 @@ from typing import TypeVar
 
 import httpx
 
+from .geo import dlon180, lon360
 from .gfswave import FILTER_URL, RESOLUTION, Box, _is_grib, _lon360, filter_url, pick_cycle
 from .publish import write_json_atomic
 from .spots import load_spots
@@ -85,15 +86,34 @@ def basin_boxes(spots_dir: Path) -> list[BasinBox]:
         if not pts:
             continue
         lats = [p[0] for p in pts]
-        lons = [p[1] for p in pts]
+        # lon extent measured as signed offsets from the first spot (cluster_boxes'
+        # idiom, gfswave.py): plain min/max over signed longitudes turns a region
+        # straddling the antimeridian (Fiji: +177.2 and -178.8) into a degenerate box
+        # covering the ~356 deg the region is NOT in. No committed basin crosses either
+        # seam today (nearest is Portugal, lon ~ -13); offsets keep a future one whole.
+        seed = lon360(pts[0][1])
+        offs = [dlon180(lon360(p[1]), seed) for p in pts]
+        lon0 = (seed + min(offs) - BOX_PAD_DEG + 180.0) % 360.0 - 180.0
+        lon1 = (seed + max(offs) + BOX_PAD_DEG + 180.0) % 360.0 - 180.0
+        if lon1 < lon0:
+            # the published signed pair cannot express an antimeridian-crossing box.
+            # Do NOT clamp: slice_basin_field treats lon1 < lon0 as unsliceable, the
+            # combined pass falls back to this basin's own subregion requests, and
+            # fetch_basin_step's 0-360 geometry expresses the box fine - so the basin
+            # still publishes correctly. Warn like the gfswave cluster seam does.
+            print(
+                f"warn: swellmap basin {name!r} crosses the antimeridian "
+                f"({lon0:.2f}..{lon1:.2f} signed) - unsliceable from the global file, "
+                "it will be fetched with its own subregion requests"
+            )
         out.append(
             BasinBox(
                 name=name,
                 regions=regions,
                 lat0=min(lats) - BOX_PAD_DEG,
                 lat1=max(lats) + BOX_PAD_DEG,
-                lon0=min(lons) - BOX_PAD_DEG,
-                lon1=max(lons) + BOX_PAD_DEG,
+                lon0=lon0,
+                lon1=lon1,
             )
         )
     return out
@@ -709,9 +729,14 @@ def run_swellmap_all(
                 if b in unsliceable:
                     continue
                 field = slice_basin_field(geom, planes, b)
-                if field is None and step == steps[0]:
+                if field is None and accs[b.name].geom is None:
                     # geometry the slicer will not guess at - this basin needs its own
-                    # subregion requests; decided once, on the first good step
+                    # subregion requests; decided once, on the first good step. Keyed on
+                    # "no frame accepted yet", NOT on step == steps[0]: f000 itself can be
+                    # the missing step (the exact gap _resolve_cycle anticipates), and the
+                    # first GOOD step then arrives with a later number - the old test never
+                    # matched and the basin lost its refresh with only the generic
+                    # "keeping previous file" warning to show for it.
                     unsliceable.append(b)
                     continue
                 accs[b.name].add(step, field)

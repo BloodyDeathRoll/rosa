@@ -235,3 +235,39 @@ def test_minutely_429_is_retried_when_asked() -> None:
         resp = fetch.retrying_get(_Client(), "http://x", {}, retry_429=True)  # type: ignore[arg-type]
     assert resp.status_code == 200 and calls["n"] == 2
     assert slept.called  # waited out the minute bucket rather than hammering
+
+
+# --- 429 classification beyond the vendor's exact wording (2026-08-31) --------------------
+
+
+def test_retry_after_header_is_honored_on_a_429_whatever_the_body_says():
+    """An explicit Retry-After is the server's own answer - it wins over the body text."""
+    resp = httpx.Response(
+        429, headers={"Retry-After": "7"}, json={"error": True, "reason": "brand new wording"}
+    )
+    assert fetch._retry_wait_s(resp, 0) == 7.0
+    capped = httpx.Response(429, headers={"Retry-After": "9000"}, text="")
+    assert fetch._retry_wait_s(capped, 0) == fetch._RETRY_AFTER_CAP_S
+
+
+def test_unclassifiable_429_is_retried_once_when_the_ledger_has_room(monkeypatch):
+    """No header, no readable reason: if today's budget still has room the daily bucket
+    cannot be what tripped, so treat it as the minutely cap instead of reverting to the
+    2026-08-28 dead-cycle mode the day Open-Meteo rewords its error body."""
+    monkeypatch.setenv("ROSA_OM_DAILY_BUDGET", "9400")
+    resp = httpx.Response(429, text="Too Many Requests")  # non-JSON body
+    assert fetch._retry_wait_s(resp, 0) == fetch._MINUTE_RETRY_WAIT_S
+
+
+def test_unclassifiable_429_is_not_retried_when_the_budget_is_spent(monkeypatch):
+    monkeypatch.setenv("ROSA_OM_DAILY_BUDGET", "0")
+    resp = httpx.Response(429, text="Too Many Requests")
+    assert fetch._retry_wait_s(resp, 0) is None
+
+
+def test_named_other_bucket_429_still_skips_the_ledger(monkeypatch):
+    """A 429 that names a non-minutely bucket is never retried, budget or no budget -
+    only the UNclassifiable case consults the ledger."""
+    monkeypatch.setenv("ROSA_OM_DAILY_BUDGET", "9400")
+    resp = httpx.Response(429, json={"error": True, "reason": "Hourly API request limit"})
+    assert fetch._retry_wait_s(resp, 0) is None

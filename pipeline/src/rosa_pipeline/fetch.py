@@ -130,23 +130,42 @@ RETRY_STATUS = frozenset({500, 502, 503, 504})
 # Open-Meteo names the bucket that tripped in the 429 body. ONLY the minutely cap is
 # worth waiting out - it reopens by itself inside a minute. The hourly and daily buckets
 # do not, so waiting on them just burns cycle wall-clock in front of a failure
-# `rosa_pipeline.quota` already handles. A 429 we cannot positively identify as the
-# minutely cap is therefore not retried.
+# `rosa_pipeline.quota` already handles. The classification no longer hangs on that one
+# vendor sentence alone (2026-08-31, Dream proposal): a Retry-After header is honored
+# first, and a 429 with NO readable reason is treated as the minutely cap when the local
+# quota ledger says today's budget still has room - if the daily bucket cannot be what
+# tripped, waiting 65 s once is cheap next to the alternative, which is the exact
+# 2026-08-28 failure mode (aux-leg 429 -> raise_for_status -> dead cycle) returning the
+# day Open-Meteo rewords its error body. A 429 whose reason reads as another bucket is
+# still never retried.
 _MINUTE_LIMIT_MARKER = "minutely api request limit"
 _MINUTE_RETRY_WAIT_S = 65.0
+_RETRY_AFTER_CAP_S = 300.0
 
 
 def _retry_wait_s(resp: httpx.Response, attempt: int) -> float | None:
     """Seconds to wait before retrying this response, or None if it is not retryable."""
     if resp.status_code in RETRY_STATUS:
         return 10.0 * (attempt + 1)
-    if resp.status_code == 429:
+    if resp.status_code != 429:
+        return None
+    # the server's own answer, when it gives one - bounded, wording-independent
+    retry_after = getattr(resp, "headers", {}).get("Retry-After")
+    if retry_after is not None:
         try:
-            reason = str(resp.json().get("reason", ""))
-        except Exception:  # a non-JSON 429 is simply unclassifiable
-            return None
+            return min(max(float(retry_after), 0.0), _RETRY_AFTER_CAP_S)
+        except ValueError:
+            pass  # an HTTP-date Retry-After: fall through to the body
+    try:
+        reason = str(resp.json().get("reason", ""))
+    except Exception:
+        reason = ""  # a non-JSON 429 body is unclassifiable
+    if reason:
         return _MINUTE_RETRY_WAIT_S if _MINUTE_LIMIT_MARKER in reason.lower() else None
-    return None
+    # unclassifiable: let the ledger arbitrate (see the block comment above)
+    from . import quota
+
+    return _MINUTE_RETRY_WAIT_S if quota.Ledger.load().remaining > 0.0 else None
 
 
 def retrying_get(

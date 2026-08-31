@@ -500,6 +500,15 @@ def test_archive_fleet_batches_om_into_one_request(tmp_path, monkeypatch):
         return [_marine_body() for _ in coords]
 
     monkeypatch.setattr(cli, "fetch_marine_waves_many", fake_many)
+    # the fleet path's own wind join fetches the weather host too - mock it like the
+    # station-arm test does, or this test needs (and silently uses) the real network
+    monkeypatch.setattr(
+        cli,
+        "fetch_wind_many",
+        lambda coords, *, model=cli.WEATHER_MODEL: [
+            _wind_body([f"2026-08-09T{h:02d}:00" for h in range(3)]) for _ in coords
+        ],
+    )
     capture = tmp_path / "capture"
     rc = main(_archive_argv(tmp_path, buoys_dir, ["--capture", str(capture)]))
     assert rc == 0
