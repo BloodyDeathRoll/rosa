@@ -1,105 +1,91 @@
-# Session Handoff — 2026-08-29
+# Session Handoff — 2026-08-31 (session 47)
 
 ## Goal
-Opened on "santa teresa camera not available again"; that led into a stale CDN, a crash on
-main, and a cycle-duration problem. All three closed. No work is mid-flight.
+Settle "Surfline is right" on Zvulun's wind and faces with measurements, then fix the
+two things the measuring exposed: the published wind model and the 6-7 h publish cycle.
 
 ## Current State
-- **`main` at `74065f8`, pushed. 545 tests pass, ruff clean, tree clean.**
-- **CDN healthy: 624 spots, median age 7.6 h, zero spots over 24 h.** All six regions that
-  had never published are there (Maldives 23, Peru 49, Morocco 42, Panama 23, Angola 9,
-  El Salvador 32).
-- **No cycle running.** The 02:20Z cycle ran 02:20:01Z -> 09:20:06Z (7 h) and 08:20Z skipped
-  on the lock. Next cron is 14:20Z (17:20 IDT).
-- **The VM is at `352779a`, two docs commits behind main** - it pulls on the next cycle.
-- **Open, not broken: a cycle takes ~7 h against a 6 h cron, so every other one is skipped
-  and the fleet publishes twice a day instead of four times.** OPEN-ITEMS 24.
-- **Every timing in OPEN-ITEMS 24 is PROVISIONAL.** Taken 2026-08-29 against a pipeline that
-  had just changed its breaker physics, wave source, failure handling and spot count
-  (469 -> 624). **User decision: do not use them as a baseline; wait a couple of days of
-  settled cycles and re-measure.** The same-day A/Bs (one variable, same box) are sound; the
-  absolute durations are not.
+- **`main` at `a41aa3d`, pushed. 582 tests pass, ruff clean.** Five commits this session
+  (`1bd68a6` GFS wind, `d73ba2f` physics perf, `f5d977a`+`1235b5c` docs, `a41aa3d` Dream).
+- **Published wind is GFS (`fetch.WEATHER_MODEL="gfs_seamless"`) since 2026-08-30**, on
+  all three legs (OM arm, blend aux batch, archive wind batch). Proven: Surfline's wind
+  IS raw GFS (matched their kph hour-by-hour via Open-Meteo `gfs_seamless`), and the
+  user's eyes at Zvulun 06-07 (9 kn NW, faces 0.9-1.2 m) sided with GFS over ICON's
+  3.4 kn. ICON stays archived at every station under `<id>.icon`;
+  `verify --stations --archive --wind-model {gfs,icon}` scores either. VM's 2 pre-switch
+  ICON cycles renamed to `.icon`. First pooled GFS card (n=895, 0-1d): bias +0.31 m/s.
+- **Faces**: same swell in, our breaker gave 0.77×Hs where eyes saw ~0.62×Hs (Zvulun);
+  Hilton same morning was inside our band. Logged as graded frames (CALIBRATION.md
+  2026-08-30), `height_coeff` untouched — one frame does not tune a transform.
+- **The publish cron now runs on `rosa-arm`** (A1.Flex 4 OCPU/24 GB, 82.70.253.255,
+  same key; it existed since 26 Jul, idle). Cycle measured **1 h 29 m** (archive 14 m +
+  NOMADS fetch 48 m + 624 spots in 18 m @1.75 s/spot + deploy/verify 9 m) vs 6-7 h on
+  the micro (sar: 6% user/45% steal = ~1/16 core). Cron kept 4×/day at 6 h; overnight
+  cycles ran clean (1h11m, 1h10m), backup rsync + watchdog verified. `rosa-instance` is
+  an idle spare (crontab emptied, backup in `~/crontab.before-arm-move.bak`).
+- **physics 3.1x** (`d73ba2f`): breaker-march state-independent terms precomputed with
+  numpy; A/B all 623 profiles × 48 cases worst 2.4e-15; scalar march kept in the test.
+- **Dream 2026-08-31 review fully worked** (`a41aa3d`): 2 findings applied via applier,
+  2 proposals by hand (Retry-After/ledger 429 classification; seam-safe `basin_boxes`),
+  1 rejected (quantize vectorization — ~1-3 s of a 1.5 h cycle). Ledger + playbook
+  bullet written in Dream.
+- **IMS token: still not received** (requested by mail 2026-08-29). `ims.yaml` empty.
+- `a41aa3d` not yet on the box — the 08:20Z (11:20 local) cycle pulls it.
 
 ## Active Files
-- `pipeline/src/rosa_pipeline/physics.py` - `hb <= 0.0` guard in
-  `breaker_height_komar_gaughan`; new `wave_state()` returning (k, C, Cg) from one solve,
-  `celerities()` is now its k-free view.
-- `pipeline/src/rosa_pipeline/cli.py` - `EXIT_PARTIAL = 4`, `PARTIAL_FAILURE_MAX_SHARE = 0.05`.
-- `deploy/oracle/publish.sh` - `git checkout -- data/spots` before the pull; step 1b cam
-  repair; exit-4 branch that alerts and deploys.
-- `deploy/oracle/cam-watch.sh` - header rewritten; stays weekly and read-only.
-- `deploy/backup/freshness-watch.py` - per-spot rot sweep off `index.json`. **Deployed to
-  rosa-backup (`~/rosa-watch/`), md5 verified equal to the repo copy.**
-- `data/spots/{israel,japan,portugal}.yaml`, `data/cams/seen.json` - cam ids.
-- `pipeline/tests/{test_physics,test_cli,test_freshness_watch}.py` - the new pins.
-- `CLAUDE.md`, `docs/{SPOT-DB,OPEN-ITEMS,SESSIONS}.md`, `deploy/oracle/README.md`.
+- `pipeline/src/rosa_pipeline/fetch.py` — WEATHER_MODEL/WEATHER_AB_MODEL,
+  `fetch_wind_many(model=)`, `_retry_wait_s` (Retry-After capped 300 s; unclassifiable
+  429 retried iff quota ledger has room).
+- `pipeline/src/rosa_pipeline/blend.py` — aux weather leg sends `models=WEATHER_MODEL`.
+- `pipeline/src/rosa_pipeline/cli.py` — station arm archives both models
+  (`STATION_AB_KEY_SUFFIX=".icon"`), `verify --wind-model`.
+- `pipeline/src/rosa_pipeline/physics.py` — `_march_terms` (numpy precompute);
+  `surf_height_over_profile` keeps only the dissipation recurrence as a loop.
+- `pipeline/src/rosa_pipeline/swellmap.py` — seam-safe `basin_boxes` (signed offsets,
+  warn, no clamp), unsliceable keyed on first GOOD step (Dream diff).
+- `pipeline/tests/` — test_physics (scalar-march reference), test_fetch (429 cases,
+  models param), test_swellmap (no-op + Fiji seam), test_cli (dual-model station arm,
+  offline fleet-archive test).
+- Docs: CALIBRATION.md 2026-08-30, OPEN-ITEMS 24 (RESOLVED) + 25, SESSIONS 47,
+  CLAUDE.md, deploy/oracle/README.md (three-machine table, bootstrap §7).
 
 ## Changes Made This Session
-1. **santa-teresa cam: nothing broken.** `@malpaisurfcam1` is daylight-only and YouTube mints
-   a new video id on every restart, so any pinned id dies within a day.
-2. **Cam repair moved onto the cycle** (`5e878c3`). `verify --resolve --apply` runs in
-   publish.sh step 1b. The read-only-deploy-key objection that kept `cam-watch.sh` from
-   applying is answered by `git checkout -- data/spots` BEFORE the pull: the patch lives one
-   cycle, the pull stays a clean fast-forward. Dark window a week -> ~6 h. Makes the cam tool
-   an explicit exception to CLAUDE.md's "report, never apply", written into the prohibition.
-3. **Cam audit: 6 of 21 dead.** Four auto-repaired by title match (`f4c6d37`);
-   costa-caparica's Praia do Infante retired (`8a3bf0f`, user-approved).
-4. **Fixed a crash on main** (`d021154`). `test_quota.py::test_fixture_replay_is_exempt` had
-   been red since `cdd6e1a`. The random-sea march feeds K&G the friction-attenuated H0, so a
-   0.25 s partition drives `atten` to ~1e-210, `h0**2` underflows to 0.0, and the refraction
-   iteration asked for the celerity at depth 0.
-5. **A partial fleet failure now publishes** (`c3a72e9`). Exit 4 when failures are <=5% of the
-   fleet; publish.sh deploys and alerts. **This was the actual cause of the stale CDN**: three
-   spots raised the K&G ValueError, `run --all` returned 1, the ERR trap killed the cycle, and
-   621 healthy spots plus 155 newly seeded ones sat off the CDN for a day.
-6. **Closed the hole that opened** (`9183082`). The watchdog read exactly ONE payload
-   (`beit-yanai.json`) - verified on the box - so a spot left behind by a partial cycle would
-   have rotted invisibly. It now sweeps `index.json`'s per-spot `generated_at`, pages past
-   24 h (not 8 h: a spot that missed one cycle reads 6-12 h and must not page).
-7. **Forced the publish out by hand.** Killed the 6 h 47 m cycle, staged `data/out` (already
-   624 spots at 6.8 h median from the run that completed then failed on the exit code) and
-   ran `vercel deploy --prebuilt --prod`. CDN 469 -> 624, age 31 h -> 7 h.
-8. **`352779a`:** the march solved the dispersion relation twice per substep - `wavenumber()`
-   then `celerities()` for the same (T, d) - which is the exact waste `celerities`' docstring
-   says it exists to remove. **VM 10.91 -> 6.22 s/spot, -43%, payload bit-identical.**
-9. **`1d623c2` + `74065f8`:** removed an invented "laptop" (machine type was never
-   established) and marked the timings provisional per the user's decision.
+1. Measured the wind dispute: Surfline = raw GFS; METARs + eyes → switched to GFS,
+   kept ICON as station A/B. No knob touched; the switch is reversible in one constant
+   and the A/B after ~2 weeks confirms or reverts it (OPEN-ITEMS 25).
+2. Diagnosed the cycle: burstable micro at ~1/16 core (sar steal), not code alone.
+   Found rosa-arm already existed (watcher launched it 26 Jul; its log ends BEFORE the
+   launch — `oci compute instance list` is the truth). Migrated: deploy key, NodeSource
+   Node 20 arm64, Vercel CLI, uv sync, 563 tests on aarch64, rsync data/verify+out+.env+
+   rosa-push, micro's crontab emptied FIRST, same 3 cron lines on arm.
+3. Vectorized the breaker march (identical to 2.4e-15, 3.1x).
+4. Worked the first Dream report for rosa (details above).
 
 ## Failed Attempts
-- **The channel-embed cam fix - built end to end, then reverted.**
-  `/embed/live_stream?channel=UC...` was wired through SpotCam/payload/iframe before
-  `docs/OPEN-ITEMS.md` 8 turned out to have recorded it dead on 2026-08-03. Re-verified
-  against a channel live at that moment: `previewPlayabilityStatus: ERROR / "Video player
-  configuration error" / Error 153`. **Read OPEN-ITEMS before building; it was one grep away.**
-- **Benchmarked the physics with samples sorted by DEPTH.** Production reverses by DISTANCE
-  (`wet_samples_deep_to_shallow`). The depth sort made distances non-monotone, inflating
-  `seg_len`, and reported 10 ms/call where the truth is 2.7 ms.
-- **Read a cProfile number as wall time** (6.31 s/spot). Fair best-of-3 on the pc is 2.21 s.
-- **Generalised a pc measurement to the VM** without measuring the VM, whose core is ~5x
-  slower. Every headline number was re-taken on the box afterwards.
-- **A caller-level regression test for the K&G underflow** - not reachable through
-  `surf_height_over_profile`: `surf_in_profile` latches the height on the first breaking
-  substep before `atten` collapses, so the K&G close never decides the answer.
-- **`pkill -f "deploy/oracle/publish.sh"` LOOKS successful but leaves the `uv` and python
-  children running.** Needed `kill -9` by PID. Check with `pgrep -af "rosa-pipeline run"`.
-- **`grep -E "^===" publish.log` misses cycle markers.** The log glues `=== run start ===`
-  onto the end of a spot line. Use `grep -o "=== 2026-..-..T[0-9:]*Z \(run start\|done\|skipped\)"`.
-- **`awk "/14:20:01Z run start/,0"` matched earlier days** - the pattern needs the full date.
+- **`pgrep -f publish.sh` over ssh matches the ssh command line itself** — showed a
+  phantom running cycle twice; filter out `bash -c` (noted in oracle-vm memory).
+- **`crontab -l | ... | crontab -` under `set -e` installed an EMPTY crontab** on arm
+  (no prior crontab → `crontab -l` exits 1, subshell died, empty stdin piped through).
+  Re-ran without set -e.
+- **py-spy needs the real python pid** (a wrapper/false pid gives "Failed to find
+  python version"); on the VMs use `sudo ~/.local/bin/uvx py-spy dump` (sudo drops PATH).
+- **rosa-instance's `id_ed25519` is NOT authorized on rosa-arm** — hop with the project
+  key from the workstation instead.
+- **The A/B-test yaml for fake spots must carry `ideal:`** (and swell_window etc.) —
+  `load_spots` KeyErrors otherwise; copy the shape from Dream's rig or israel.yaml.
+- The arm cycle's ~1 h fetch phase is NOMADS' grib-filter pace (4 idle-ish conns,
+  ~12 KB/s stretches) — not the box, not a bug; don't kill a "stuck" cycle for it.
 
 ## Next Step
-1. **Do nothing to the cycle for a couple of days** (user decision). Then take the cycle
-   duration and per-spot cost from a few consecutive settled cycles and REPLACE the
-   provisional figures in OPEN-ITEMS 24. Only then decide whether to tune further.
-2. **Attribute the other ~5 h** before touching the physics again. The archive step alone ran
-   46 min on 2026-08-28; swellmap, the skill measurement and the global-file fetch are
-   unmeasured. The next FREE per-spot win is a memo on exact `(period_s, d_mid)` - 771 march
-   calls per spot cover only 170 distinct periods. **`_SUBSTEP_M` (25 m) moves published
-   heights - it needs the A/B; the double solve did not.**
-3. **Confirm publish.sh step 1b actually runs.** It has never executed cleanly: the 14:20Z
-   cycle pulled a modified publish.sh while bash was executing it. After the next cycle,
-   `grep -E "OK   |DEAD " ~/rosa/publish.log` on the VM should show the cam verify output.
-4. **Verify exit 4 in the wild** - it has never fired. `moclips` and
-   `seabrook-pacific-beach` were the two stale spots and are now fixed, so nothing is failing.
-5. Still owed from before: the physics fleet A/B (`~/ab/physics-report.md` was never
-   produced - the recovery script died with the cycle), OM-vs-blend A/B, bathymetry A/B
-   (OPEN-ITEMS 23), `closure >1.25` residuals (OPEN-ITEMS 22), more regions.
+1. **Verify `a41aa3d` from the CDN after the 08:20Z cycle** (pipeline-change smoke
+   rule): `curl -s https://rosa-data-opal.vercel.app/data/spots/zvulun.json | jq .fetched_at`.
+2. **IMS token when it arrives**: add `IMS_API_TOKEN=...` to `~/rosa/.env` on **rosa-arm**
+   (82.70.253.255 now, not the micro), then locally
+   `IMS_API_TOKEN=... uv run --project pipeline rosa-pipeline stations --discover ims > data/stations/ims.yaml`,
+   review, commit; smoke `verify --station <id> --archive`.
+3. **In ~2 weeks**: the GFS-vs-ICON station A/B
+   (`verify --stations --archive --wind-model gfs|icon` on rosa-arm) confirms or
+   reverts the wind switch; then pick the residual per-sector/hour correction
+   (OPEN-ITEMS 25 — Hilton showed GFS itself still ~5 kn light at the beach some hours).
+4. Optional, only if cycle time matters again: NOMADS fetch (~1 h) is the remaining
+   chunk — fewer/fatter subset requests or a mirror (OPEN-ITEMS 24 tail note).

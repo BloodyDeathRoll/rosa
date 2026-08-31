@@ -1,0 +1,72 @@
+{
+  "spot": "sigatoka-rivermouth",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -18.1705,
+    177.4865
+  ],
+  "bearing_seaward_deg": 225.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 1821.0,
+  "mean_slope_m_per_km": 102.31,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -18.17209,
+      "lon": 177.48483,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -18.17368,
+      "lon": 177.48315,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -18.17686,
+      "lon": 177.47981,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -18.18322,
+      "lon": 177.47311,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -18.18958,
+      "lon": 177.46642,
+      "depth_m": 193.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -18.20229,
+      "lon": 177.45303,
+      "depth_m": 548.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -18.22137,
+      "lon": 177.43294,
+      "depth_m": 1185.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -18.24679,
+      "lon": 177.40615,
+      "depth_m": 1593.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -18.28493,
+      "lon": 177.36595,
+      "depth_m": 1821.0
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+# Rosa spot database - Fiji (seeded 2026-08-31, the second Oceania island region after
+# french-polynesia). Barrier-reef passes, not a coastline: `break_type` reef throughout.
+# The bbox is scoped to the surfed zone (SW Viti Levu / Mamanucas, the Coral Coast,
+# Beqa lagoon, Kadavu) at 176.7-179.0 E, which keeps the whole region WEST of the
+# antimeridian - the Lau group would cross it and is not surfed enough to seed.
+# Swell is S-SW Southern Ocean groundswell year-round; offshore on the SW-facing passes
+# is the prevailing SE trade. Every spot carries offshore_km along its own seaward normal.
+
+defaults: &fj
+  timezone: Pacific/Fiji
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [150, 270]
+  ideal:
+    wind_dir: [40, 160]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-08-31 - fiji, 11 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 11 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/fiji/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: desperations, name: "Desperations", town: "Namotu", lat: -17.8350, lon: 177.1630, offshore_direction: 50, swell_window: [165, 295], offshore_km: 5.0, <<: *fj }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: wilkes, name: "Wilkes", town: "Namotu", lat: -17.8374, lon: 177.1740, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, <<: *fj }  # shore-normal re-aimed by GEBCO arc sweep; sat-verified 2026-08-31 (websearch-seeded)
+  - { id: swimming-pools, name: "Swimming Pools", town: "Namotu", lat: -17.8416, lon: 177.1823, offshore_direction: 164, swell_window: [279, 49], offshore_km: 5.0, <<: *fj }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: namotu-left, name: "Namotu Left", town: "Namotu", lat: -17.8460, lon: 177.1790, offshore_direction: 71, swell_window: [186, 316], offshore_km: 5.0, <<: *fj }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: tavarua-rights, name: "Tavarua Rights", town: "Tavarua", lat: -17.8534, lon: 177.2010, offshore_direction: 233, swell_window: [348, 118], offshore_km: 5.0, <<: *fj }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: restaurants-fj, name: "Restaurants", town: "Tavarua", lat: -17.8603, lon: 177.1951, offshore_direction: 23, swell_window: [138, 268], offshore_km: 5.0, <<: *fj }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: kiddieland, name: "Kiddieland", town: "Tavarua", lat: -17.8611, lon: 177.2024, offshore_direction: 95, swell_window: [210, 340], offshore_km: 5.0, <<: *fj }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: cloudbreak, name: "Cloudbreak", town: "Tavarua", lat: -17.8860, lon: 177.1869, offshore_direction: 40, swell_window: [155, 285], offshore_km: 5.0, <<: *fj }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: natadola, name: "Natadola", town: "Natadola", lat: -18.1039, lon: 177.3183, offshore_direction: 152, swell_window: [267, 37], offshore_km: 5.0, <<: *fj }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: sigatoka-rivermouth, name: "Sigatoka Rivermouth", town: "Sigatoka", lat: -18.1705, lon: 177.4865, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, <<: *fj }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: frigates-pass, name: "Frigates Pass", town: "Pacific Harbour", lat: -18.4060, lon: 177.9500, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, <<: *fj }  # sat-verified 2026-08-31 (websearch-seeded)

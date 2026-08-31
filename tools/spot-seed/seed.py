@@ -107,6 +107,10 @@ REGIONS = {
     # Bora Bora) plus Rangiroa/Tikehau in the western Tuamotus; Marquesas and Australs
     # are barely surfed and would triple the box
     "french-polynesia": (-18.20, -152.10, -14.80, -147.50),
+    # the surfed zone only: SW Viti Levu / Mamanucas, the Coral Coast, Beqa lagoon and
+    # Kadavu - all west of 179 E, so the box never touches the antimeridian (the Lau
+    # group would, and is not surfed enough to seed)
+    "fiji": (-19.30, 176.70, -16.00, 179.00),
 }
 
 

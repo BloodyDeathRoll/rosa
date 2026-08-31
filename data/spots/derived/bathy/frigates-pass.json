@@ -1,0 +1,72 @@
+{
+  "spot": "frigates-pass",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -18.406,
+    177.95
+  ],
+  "bearing_seaward_deg": 265.0,
+  "nearshore_depth_m": 65.0,
+  "offshore_depth_m": 1448.0,
+  "mean_slope_m_per_km": 77.92,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -18.4062,
+      "lon": 177.94764,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -18.40639,
+      "lon": 177.94528,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -18.40678,
+      "lon": 177.94056,
+      "depth_m": 162.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -18.40757,
+      "lon": 177.93112,
+      "depth_m": 353.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -18.40835,
+      "lon": 177.92167,
+      "depth_m": 546.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -18.40991,
+      "lon": 177.90279,
+      "depth_m": 914.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -18.41226,
+      "lon": 177.87446,
+      "depth_m": 1329.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -18.41537,
+      "lon": 177.83669,
+      "depth_m": 1463.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -18.42003,
+      "lon": 177.78003,
+      "depth_m": 1448.0
+    }
+  ]
+}

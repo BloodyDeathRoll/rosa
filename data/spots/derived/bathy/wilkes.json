@@ -1,0 +1,72 @@
+{
+  "spot": "wilkes",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -17.8374,
+    177.174
+  ],
+  "bearing_seaward_deg": 240.0,
+  "nearshore_depth_m": 42.0,
+  "offshore_depth_m": 1991.0,
+  "mean_slope_m_per_km": 109.8,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -17.83852,
+      "lon": 177.17195,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -17.83965,
+      "lon": 177.16991,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -17.8419,
+      "lon": 177.16582,
+      "depth_m": 137.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -17.84639,
+      "lon": 177.15764,
+      "depth_m": 317.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -17.85089,
+      "lon": 177.14945,
+      "depth_m": 554.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -17.85988,
+      "lon": 177.13309,
+      "depth_m": 1041.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -17.87336,
+      "lon": 177.10853,
+      "depth_m": 1499.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -17.89133,
+      "lon": 177.07579,
+      "depth_m": 1811.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -17.91828,
+      "lon": 177.02666,
+      "depth_m": 1991.0
+    }
+  ]
+}

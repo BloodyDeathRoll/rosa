@@ -56,6 +56,7 @@ BASINS: dict[str, tuple[str, ...]] = {
     # Sydney + Byron Bay share one east-Australian frame: same Tasman/Coral Sea swell
     "australia-east": ("Sydney", "Byron Bay"),
     "french-polynesia": ("French Polynesia",),
+    "fiji": ("Fiji",),
 }
 BOX_PAD_DEG = 3.0  # sea-room around the spot extent so swell context is visible
 STEP_H = 3
@@ -96,8 +97,21 @@ def basin_boxes(spots_dir: Path) -> list[BasinBox]:
         # seam today (nearest is Portugal, lon ~ -13); offsets keep a future one whole.
         seed = lon360(pts[0][1])
         offs = [dlon180(lon360(p[1]), seed) for p in pts]
-        lon0 = (seed + min(offs) - BOX_PAD_DEG + 180.0) % 360.0 - 180.0
-        lon1 = (seed + max(offs) + BOX_PAD_DEG + 180.0) % 360.0 - 180.0
+        west = (seed + min(offs) + 180.0) % 360.0 - 180.0
+        east = (seed + max(offs) + 180.0) % 360.0 - 180.0
+        if east >= west:
+            # The SPOTS do not cross the seam - only the padding would (Fiji reaches
+            # 177.95 E, +3 deg of sea-room lands at 180.95 = -179.05 signed, and the
+            # box reads inside-out from there: unsliceable, and the published grid
+            # comes out with lon_first east of lon_last for the web map to draw
+            # backwards). Padding must never INVENT a crossing, so clamp it at the
+            # seam; a genuinely straddling region still takes the wrap path below.
+            # clamp in SIGNED space, before any wrap: wrapping first would turn
+            # 180.95 into -179.05 and min() would keep it.
+            lon0, lon1 = max(west - BOX_PAD_DEG, -180.0), min(east + BOX_PAD_DEG, 180.0)
+        else:
+            lon0 = (seed + min(offs) - BOX_PAD_DEG + 180.0) % 360.0 - 180.0
+            lon1 = (seed + max(offs) + BOX_PAD_DEG + 180.0) % 360.0 - 180.0
         if lon1 < lon0:
             # the published signed pair cannot express an antimeridian-crossing box.
             # Do NOT clamp: slice_basin_field treats lon1 < lon0 as unsliceable, the

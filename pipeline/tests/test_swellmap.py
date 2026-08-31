@@ -372,7 +372,9 @@ spots:
 
 def test_basin_boxes_seed_offsets_are_a_noop_for_every_committed_basin():
     """The signed-offset extent (cluster_boxes idiom) must reproduce the old plain
-    min/max box for every committed basin - none crosses a seam today."""
+    min/max box for every committed basin - none has SPOTS crossing a seam today.
+    Padding is clamped at the antimeridian (Fiji's +3 deg of sea-room would otherwise
+    land at 180.95), so the expected edge is the padded one capped at +/-180."""
     from rosa_pipeline.spots import load_spots
     from rosa_pipeline.swellmap import BOX_PAD_DEG
 
@@ -381,9 +383,23 @@ def test_basin_boxes_seed_offsets_are_a_noop_for_every_committed_basin():
     assert boxes
     for b in boxes:
         lons = [s.lon for s in spots.values() if s.region in b.regions]
-        assert b.lon0 == pytest.approx(min(lons) - BOX_PAD_DEG, abs=1e-9)
-        assert b.lon1 == pytest.approx(max(lons) + BOX_PAD_DEG, abs=1e-9)
+        assert b.lon0 == pytest.approx(max(min(lons) - BOX_PAD_DEG, -180.0), abs=1e-9)
+        assert b.lon1 == pytest.approx(min(max(lons) + BOX_PAD_DEG, 180.0), abs=1e-9)
         assert b.lon0 < b.lon1
+
+
+def test_padding_never_invents_an_antimeridian_crossing():
+    """Fiji's easternmost spot is at 177.95 E: inside the seam, but +3 deg of padding
+    is not. The box must clamp at 180 rather than wrap to -179.05, which would make it
+    unsliceable AND publish a grid whose lon_first sits east of its lon_last."""
+    from rosa_pipeline.spots import load_spots
+
+    spots = load_spots(SPOTS_DIR)
+    [fiji] = [b for b in basin_boxes(SPOTS_DIR) if b.name == "fiji"]
+    east = max(s.lon for s in spots.values() if s.region in fiji.regions)
+    assert east < 180.0
+    assert fiji.lon1 == pytest.approx(180.0)
+    assert fiji.lon0 < fiji.lon1
 
 
 def test_basin_box_across_the_antimeridian_stays_local_and_warns(tmp_path, monkeypatch, capsys):
