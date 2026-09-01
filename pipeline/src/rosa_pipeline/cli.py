@@ -1228,6 +1228,37 @@ def _archive_om_rows(
     )
 
 
+def _is_replay(args: argparse.Namespace) -> bool:
+    """Was `archive` asked to replay captured responses instead of fetching? True when any
+    of its "(offline)" fixture flags is set - the wave members each honour their own, and
+    this is what lets the arms that have no flag of their own honour them too."""
+    return any(
+        getattr(args, name, None) is not None
+        for name in ("fixtures", "gfs_fixtures", "ecmwf_fixtures")
+    )
+
+
+def _warn_member_empty(member: str, rows: int, targets: list) -> None:
+    """An A/B member that archived NOTHING at any buoy has to say so, once, on stderr.
+
+    The per-step fetchers turn every non-200 and every httpx error into a missing step
+    (ecmwf._get_step, gfswave._get), so a total outage is not an exception - it is an
+    empty series, which archives 0 rows per buoy and returns a clean exit. The existing
+    `warn: <member> archive skipped` line only fires when something RAISES, so the one
+    failure mode that costs the whole cycle's rows for this member is the one that says
+    the least. The archive is append-only and cannot be back-filled, so those hours are
+    gone; the A/B scorecard just gets quieter. Same shape as _cmd_run's `implausible` /
+    `stale_profiles` summaries: a signal to read, never a failed cycle - the essential
+    OM archive still decides the exit code."""
+    if targets and rows == 0:
+        print(
+            f"warn: {member} archived 0 rows at all {len(targets)} buoy(s) - the member "
+            "fetched nothing this cycle (outage or a moved endpoint); these hours cannot "
+            "be back-filled",
+            file=sys.stderr,
+        )
+
+
 def _archive_stations(args: argparse.Namespace, now: datetime) -> None:
     """The coastal-station arm: the model's 10 m wind at every registered station, one
     weather-host request for the whole registry (2 vars, ~1 unit/point - ~90 units a
@@ -1236,6 +1267,21 @@ def _archive_stations(args: argparse.Namespace, now: datetime) -> None:
     essential buoy archive or fail the cycle."""
     stations = load_stations(args.stations_dir)
     if not stations:
+        return
+    if args.wind_fixtures is None and _is_replay(args):
+        # A fixture replay is OFFLINE - every `archive` fixture flag says so in its help,
+        # and `_cmd_run` already treats `--fixtures` that way (it suppresses the live ECMWF
+        # member too). This arm only ever checked its OWN flag, so a replay of the wave
+        # members still fired two live weather-host requests for the whole registry - ~90
+        # points of someone else's quota, and the registry's coordinates, from a run the
+        # operator asked to be offline. The guard below then swallowed the failure, so
+        # nothing said it happened: two shipped tests have been doing it every suite run.
+        # Skipping is the honest answer - `--wind-fixtures` is how a replay archives wind.
+        print(
+            "warn: station arm skipped - this is a fixture replay (offline) and "
+            "--wind-fixtures was not given",
+            file=sys.stderr,
+        )
         return
     targets = sorted(stations.values(), key=lambda s: s.id)
     store = FileArchiveStore(args.stations_archive_dir)
@@ -1398,14 +1444,17 @@ def _cmd_archive(args: argparse.Namespace) -> int:
                 else GFSWaveSource(capture_dir=args.capture)
             )
             points = [(b.lat, b.lon) for b in targets]
+            total = 0
             for buoy, series in zip(targets, src.fetch_series(points), strict=True):
                 rows = rows_from_model(now, series)
+                total += len(rows)
                 key = buoy.id + GFSWAVE_KEY_SUFFIX
                 store.append(key, rows)
                 print(
                     f"{buoy.id}: archived {len(rows)} gfswave rows"
                     f" → {args.archive_dir / (key + '.jsonl')}"
                 )
+            _warn_member_empty("gfswave", total, targets)
         except Exception as e:  # A/B member must never sink the essential archive
             print(f"warn: gfswave archive skipped: {e}", file=sys.stderr)
     if args.wave_source in ("ecmwf", "all"):
@@ -1417,14 +1466,17 @@ def _cmd_archive(args: argparse.Namespace) -> int:
                 else EcmwfSource(capture_dir=args.capture, params=ARCHIVE_PARAMS)
             )
             points = [(b.lat, b.lon) for b in targets]
+            total = 0
             for buoy, series in zip(targets, esrc.fetch_series(points), strict=True):
                 rows = rows_from_spectral(now, series)
+                total += len(rows)
                 key = buoy.id + ECMWF_KEY_SUFFIX
                 store.append(key, rows)
                 print(
                     f"{buoy.id}: archived {len(rows)} ecmwf rows"
                     f" → {args.archive_dir / (key + '.jsonl')}"
                 )
+            _warn_member_empty("ecmwf", total, targets)
         except Exception as e:
             print(f"warn: ecmwf archive skipped: {e}", file=sys.stderr)
     # coastal wind stations - after every buoy member, and never able to fail the run
