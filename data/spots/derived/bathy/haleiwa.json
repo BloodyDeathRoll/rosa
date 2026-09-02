@@ -1,0 +1,72 @@
+{
+  "spot": "haleiwa",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    21.5942,
+    -158.108
+  ],
+  "bearing_seaward_deg": 303.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 658.0,
+  "mean_slope_m_per_km": 37.18,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 21.59542,
+      "lon": -158.11003,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 21.59665,
+      "lon": -158.11206,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 21.5991,
+      "lon": -158.11611,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 21.604,
+      "lon": -158.12422,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 21.60889,
+      "lon": -158.13234,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 21.61869,
+      "lon": -158.14857,
+      "depth_m": 136.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 21.63337,
+      "lon": -158.17291,
+      "depth_m": 295.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 21.65295,
+      "lon": -158.20538,
+      "depth_m": 396.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.6823,
+      "lon": -158.2541,
+      "depth_m": 658.0
+    }
+  ]
+}

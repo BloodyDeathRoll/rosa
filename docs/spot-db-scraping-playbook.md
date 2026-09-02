@@ -176,7 +176,37 @@ Four things, in this order:
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-08-31, DB = 702 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-09-02, DB = 792 spots, ALL sat-verified)
+
+**Hawaii 1 -> 80 (2026-09-02) - Kauai, Oahu and Maui in one box; the Big Island is not
+seeded.** `REGIONS["hawaii"]` = (20.50, -159.85, 22.30, -155.90), Geofabrik `north-america/us/hawaii`
+(27 MB), the existing `hawaii.yaml` `&hi` anchor reused (its `ideal.wind_dir` is metadata only -
+the scorer uses `offshore_direction`). Primary flow: 1,551 bathy-passed candidates, 217 named
+beaches, **2 Tier-A** (Keaau Beach, Makapuu Beach Park) - web-search country like Australia.
+Secondary: 87 guide names over 10 areas -> 86 queued -> 86 geocoded (Google alone on 55; Photon
+gave Kaanapali for every West Maui query) -> all 86 rendered at z16 -> 36 keep / 41 move / 9 drop.
+What was new: (1) **Google collapses a whole reef cluster onto one POI** - six Waikiki breaks
+(Kaisers, Threes, Fours, Pops, Publics, Cunhas) all returned the Ala Moana Bowls pin, and the three
+Hanalei reefs returned Hanalei town; the fix was a **z15 read** (4.4 m/px, 2.8 km field - between
+z16 and the z14 pass-finder) of the reef, then z16 confirmation of each placement (`z15_tiles/`).
+(2) **Island shadow**: seven West Maui / North Shore normals reached open water on the tile but hit
+Molokai or Lanai at the 18 km reference (`honolua-bay -425 m`), so `test_committed_profiles_reach_
+open_water` failed after `bathy` - re-aimed with a GEBCO arc sweep that picks the deepest 18 km
+sample within 35 deg of the observed seaward (`kaanapali` 250 -> 284, `lahaina-harbor` 240 -> 210).
+(3) Twelve more normals were inverted by the nearest coastline way running the wrong direction
+(Kealia 76 -> 250, Kalapaki 99 -> 300, Hanalei 72 -> 150, Peahi 117 -> 200) - read every `od`
+against the tile before `emit_region`, it is cheaper than re-cutting. (4) Two global id clashes
+(`makaha` Peru, `shipwrecks` Mexico) took the `-hi` suffix. Drops: Backdoor (the Pipeline peak's
+right, 50 m from the DB pin - a sub-spot), Gas Chambers (Google -> Sharks Cove), Fours/Cunhas
+(sub-spots not separable at z15), Castles (Google -> Kailua's Castles), Ewa Beach (Google -> Pokai
+Bay), Barbers Point, Kawela Bay and Kahana Bay (sheltered). 47 town overrides (Waikiki / Pupukea /
+Diamond Head are the search keys, not "Honolulu"/"Waiale'e"). Judge log `work/hawaii/judge.json`.
+
+**Fiji 0 -> 11 (2026-09-01)** - see commit `ae9ff7c`: bbox scoped to SW Viti Levu / Mamanucas /
+Coral Coast / Beqa / Kadavu (176.7-179.0 E) so no spot crosses the antimeridian; the swellmap
+basin's +3 deg padding did, and `basin_boxes` now clamps at the seam. Cloudbreak and Frigates
+have no coastline within 2.5 km - the arc sweep is their only normal source.
+
 
 **French Polynesia 0 -> 17 (2026-08-31) - the first Oceania island region; the Maldives
 recipe, confirmed portable.** Society Islands + Rangiroa/Tikehau box only. What transferred:
@@ -456,8 +486,8 @@ once bathymetry allows); Mexico detail - the East Cape between Shipwrecks and Ni
 Punta Mita sub-breaks, Oaxaca's Salina Cruz points beyond Conejo/Chipehua; Japan Hokkaido /
 Okinawa / Wakayama detail; Philippines more (Daku, Zambales Liwliwa neighbours); Portugal
 Ericeira micro-spots & the **Azores**; Nicaragua north (Puerto Sandino cluster). Regions with
-zero spots today: everywhere else - Indonesia, Australia, Chile, Ecuador, France/Spain,
-South Africa.
+zero spots today: everywhere else - Indonesia, Chile, Ecuador, France/Spain, South Africa;
+Australia beyond Sydney/Byron (Gold Coast, Victoria, WA); Hawaii's Big Island.
 **The real frontier = Tier-B.** Tens of thousands of physics-valid, *unnamed* coastline
 stretches (Japan 22k, Philippines 37k). OSM/guides never named them; this is the sat-verify +
 community-contribution layer, and it's where "all the spots" ultimately lives.

@@ -1,0 +1,72 @@
+{
+  "spot": "yokohama-bay",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    21.5488,
+    -158.242
+  ],
+  "bearing_seaward_deg": 232.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 2302.0,
+  "mean_slope_m_per_km": 129.75,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 21.54742,
+      "lon": -158.2439,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 21.54603,
+      "lon": -158.24581,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 21.54326,
+      "lon": -158.24962,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 21.53773,
+      "lon": -158.25724,
+      "depth_m": 281.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 21.53219,
+      "lon": -158.26486,
+      "depth_m": 518.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 21.52111,
+      "lon": -158.28009,
+      "depth_m": 724.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 21.50449,
+      "lon": -158.30294,
+      "depth_m": 985.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 21.48233,
+      "lon": -158.33339,
+      "depth_m": 1513.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.44908,
+      "lon": -158.37905,
+      "depth_m": 2302.0
+    }
+  ]
+}

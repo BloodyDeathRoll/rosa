@@ -1,0 +1,72 @@
+{
+  "spot": "poipu-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    21.8714,
+    -159.4542
+  ],
+  "bearing_seaward_deg": 200.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 2422.0,
+  "mean_slope_m_per_km": 136.06,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 21.86929,
+      "lon": -159.45503,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 21.86717,
+      "lon": -159.45586,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 21.86295,
+      "lon": -159.45751,
+      "depth_m": 84.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 21.8545,
+      "lon": -159.46083,
+      "depth_m": 443.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 21.84605,
+      "lon": -159.46414,
+      "depth_m": 753.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 21.82914,
+      "lon": -159.47077,
+      "depth_m": 1184.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 21.80379,
+      "lon": -159.4807,
+      "depth_m": 1406.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 21.76999,
+      "lon": -159.49394,
+      "depth_m": 1701.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.71927,
+      "lon": -159.5138,
+      "depth_m": 2422.0
+    }
+  ]
+}

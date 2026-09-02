@@ -1,0 +1,72 @@
+{
+  "spot": "tunnels",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    22.2281,
+    -159.5628
+  ],
+  "bearing_seaward_deg": 315.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 2799.0,
+  "mean_slope_m_per_km": 157.24,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 22.22969,
+      "lon": -159.56452,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 22.23128,
+      "lon": -159.56623,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 22.23446,
+      "lon": -159.56967,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 22.24082,
+      "lon": -159.57654,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 22.24718,
+      "lon": -159.58341,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 22.25989,
+      "lon": -159.59716,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 22.27896,
+      "lon": -159.61778,
+      "depth_m": 498.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 22.30439,
+      "lon": -159.64528,
+      "depth_m": 1519.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 22.34252,
+      "lon": -159.68656,
+      "depth_m": 2799.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "kalama-park",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    20.7314,
+    -156.4529
+  ],
+  "bearing_seaward_deg": 234.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 210.0,
+  "mean_slope_m_per_km": 11.83,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 20.73008,
+      "lon": -156.45484,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 20.72876,
+      "lon": -156.45679,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 20.72611,
+      "lon": -156.46068,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 20.72083,
+      "lon": -156.46846,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 20.71554,
+      "lon": -156.47624,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 20.70497,
+      "lon": -156.49179,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 20.6891,
+      "lon": -156.51512,
+      "depth_m": 112.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 20.66794,
+      "lon": -156.54621,
+      "depth_m": 229.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 20.63619,
+      "lon": -156.59284,
+      "depth_m": 210.0
+    }
+  ]
+}

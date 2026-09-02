@@ -1,0 +1,72 @@
+{
+  "spot": "pakala",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    21.9422,
+    -159.6611
+  ],
+  "bearing_seaward_deg": 203.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 2391.0,
+  "mean_slope_m_per_km": 134.54,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 21.94013,
+      "lon": -159.66205,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 21.93806,
+      "lon": -159.66299,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 21.93392,
+      "lon": -159.66489,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 21.92564,
+      "lon": -159.66868,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 21.91736,
+      "lon": -159.67246,
+      "depth_m": 125.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 21.90081,
+      "lon": -159.68004,
+      "depth_m": 694.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 21.87597,
+      "lon": -159.69139,
+      "depth_m": 1669.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 21.84285,
+      "lon": -159.70653,
+      "depth_m": 2038.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.79318,
+      "lon": -159.72922,
+      "depth_m": 2391.0
+    }
+  ]
+}

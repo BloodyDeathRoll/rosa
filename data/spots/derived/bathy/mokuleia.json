@@ -1,0 +1,72 @@
+{
+  "spot": "mokuleia",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    21.5825,
+    -158.1879
+  ],
+  "bearing_seaward_deg": 15.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 487.0,
+  "mean_slope_m_per_km": 27.89,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 21.58467,
+      "lon": -158.18727,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 21.58684,
+      "lon": -158.18665,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 21.59119,
+      "lon": -158.1854,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 21.59987,
+      "lon": -158.18289,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 21.60856,
+      "lon": -158.18039,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 21.62593,
+      "lon": -158.17538,
+      "depth_m": 268.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 21.65199,
+      "lon": -158.16787,
+      "depth_m": 328.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 21.68674,
+      "lon": -158.15784,
+      "depth_m": 386.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.73886,
+      "lon": -158.1428,
+      "depth_m": 487.0
+    }
+  ]
+}

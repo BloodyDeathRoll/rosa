@@ -1,0 +1,72 @@
+{
+  "spot": "olowalu",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    20.8091,
+    -156.6156
+  ],
+  "bearing_seaward_deg": 225.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 266.0,
+  "mean_slope_m_per_km": 14.65,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 20.80751,
+      "lon": -156.6173,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 20.80592,
+      "lon": -156.619,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 20.80274,
+      "lon": -156.6224,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 20.79638,
+      "lon": -156.6292,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 20.79002,
+      "lon": -156.63601,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 20.7773,
+      "lon": -156.64961,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 20.75822,
+      "lon": -156.67,
+      "depth_m": 119.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 20.73277,
+      "lon": -156.69719,
+      "depth_m": 158.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 20.69459,
+      "lon": -156.73796,
+      "depth_m": 266.0
+    }
+  ]
+}

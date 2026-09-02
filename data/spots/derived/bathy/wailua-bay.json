@@ -1,0 +1,72 @@
+{
+  "spot": "wailua-bay",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    22.0485,
+    -159.3335
+  ],
+  "bearing_seaward_deg": 113.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 2358.0,
+  "mean_slope_m_per_km": 132.62,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 22.04762,
+      "lon": -159.33127,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 22.04674,
+      "lon": -159.32903,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 22.04499,
+      "lon": -159.32457,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 22.04147,
+      "lon": -159.31564,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 22.03796,
+      "lon": -159.30671,
+      "depth_m": 236.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 22.03092,
+      "lon": -159.28885,
+      "depth_m": 586.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 22.02037,
+      "lon": -159.26206,
+      "depth_m": 1035.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 22.0063,
+      "lon": -159.22635,
+      "depth_m": 1602.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.98517,
+      "lon": -159.17281,
+      "depth_m": 2358.0
+    }
+  ]
+}

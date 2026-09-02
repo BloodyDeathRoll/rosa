@@ -1,0 +1,72 @@
+{
+  "spot": "ukumehame",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    20.7947,
+    -156.5816
+  ],
+  "bearing_seaward_deg": 202.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 265.0,
+  "mean_slope_m_per_km": 14.59,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 20.79262,
+      "lon": -156.5825,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 20.79053,
+      "lon": -156.5834,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 20.78636,
+      "lon": -156.5852,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 20.77802,
+      "lon": -156.58881,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 20.76968,
+      "lon": -156.59241,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 20.75301,
+      "lon": -156.59961,
+      "depth_m": 84.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 20.72799,
+      "lon": -156.61042,
+      "depth_m": 186.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 20.69463,
+      "lon": -156.62482,
+      "depth_m": 161.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 20.6446,
+      "lon": -156.6464,
+      "depth_m": 265.0
+    }
+  ]
+}

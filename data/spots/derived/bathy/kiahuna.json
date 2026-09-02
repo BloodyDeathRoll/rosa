@@ -1,0 +1,72 @@
+{
+  "spot": "kiahuna",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    21.8756,
+    -159.4597
+  ],
+  "bearing_seaward_deg": 153.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 2356.0,
+  "mean_slope_m_per_km": 133.35,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 21.8736,
+      "lon": -159.4586,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 21.87159,
+      "lon": -159.4575,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 21.86759,
+      "lon": -159.4553,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 21.85957,
+      "lon": -159.4509,
+      "depth_m": 108.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 21.85156,
+      "lon": -159.4465,
+      "depth_m": 452.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 21.83553,
+      "lon": -159.43771,
+      "depth_m": 890.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 21.81149,
+      "lon": -159.42452,
+      "depth_m": 1115.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 21.77944,
+      "lon": -159.40694,
+      "depth_m": 1813.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.73135,
+      "lon": -159.38059,
+      "depth_m": 2356.0
+    }
+  ]
+}

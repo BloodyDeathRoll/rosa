@@ -1,0 +1,72 @@
+{
+  "spot": "turtle-bay",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    21.7069,
+    -157.9997
+  ],
+  "bearing_seaward_deg": 330.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 2015.0,
+  "mean_slope_m_per_km": 113.18,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 21.70885,
+      "lon": -158.00091,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 21.71079,
+      "lon": -158.00212,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 21.71469,
+      "lon": -158.00454,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 21.72248,
+      "lon": -158.00938,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 21.73026,
+      "lon": -158.01422,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 21.74584,
+      "lon": -158.02391,
+      "depth_m": 141.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 21.7692,
+      "lon": -158.03844,
+      "depth_m": 331.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 21.80035,
+      "lon": -158.05782,
+      "depth_m": 473.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.84707,
+      "lon": -158.0869,
+      "depth_m": 2015.0
+    }
+  ]
+}

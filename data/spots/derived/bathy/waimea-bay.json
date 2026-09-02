@@ -1,0 +1,72 @@
+{
+  "spot": "waimea-bay",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    21.6396,
+    -158.0637
+  ],
+  "bearing_seaward_deg": 289.0,
+  "nearshore_depth_m": -19.0,
+  "offshore_depth_m": 542.0,
+  "mean_slope_m_per_km": 31.61,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 21.64033,
+      "lon": -158.06599,
+      "depth_m": -19.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 21.64106,
+      "lon": -158.06827,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 21.64253,
+      "lon": -158.07285,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 21.64545,
+      "lon": -158.082,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 21.64838,
+      "lon": -158.09115,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 21.65423,
+      "lon": -158.10944,
+      "depth_m": 99.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 21.66301,
+      "lon": -158.1369,
+      "depth_m": 273.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 21.6747,
+      "lon": -158.1735,
+      "depth_m": 395.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.69222,
+      "lon": -158.22842,
+      "depth_m": 542.0
+    }
+  ]
+}

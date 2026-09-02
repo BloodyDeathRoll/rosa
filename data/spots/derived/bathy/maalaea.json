@@ -1,0 +1,72 @@
+{
+  "spot": "maalaea",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    20.7908,
+    -156.5092
+  ],
+  "bearing_seaward_deg": 175.0,
+  "nearshore_depth_m": 16.0,
+  "offshore_depth_m": 128.0,
+  "mean_slope_m_per_km": 6.31,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 20.78856,
+      "lon": -156.50899,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 20.78632,
+      "lon": -156.50878,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 20.78184,
+      "lon": -156.50836,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 20.77288,
+      "lon": -156.50752,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 20.76392,
+      "lon": -156.50669,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 20.74601,
+      "lon": -156.50501,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 20.71913,
+      "lon": -156.5025,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 20.68329,
+      "lon": -156.49915,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 20.62954,
+      "lon": -156.49412,
+      "depth_m": 128.0
+    }
+  ]
+}

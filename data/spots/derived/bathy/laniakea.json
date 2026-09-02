@@ -1,0 +1,72 @@
+{
+  "spot": "laniakea",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    21.6188,
+    -158.0854
+  ],
+  "bearing_seaward_deg": 295.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 701.0,
+  "mean_slope_m_per_km": 39.83,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 21.61975,
+      "lon": -158.08759,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 21.6207,
+      "lon": -158.08978,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 21.6226,
+      "lon": -158.09417,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 21.6264,
+      "lon": -158.10294,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 21.6302,
+      "lon": -158.1117,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 21.6378,
+      "lon": -158.12924,
+      "depth_m": 124.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 21.64919,
+      "lon": -158.15555,
+      "depth_m": 292.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 21.66438,
+      "lon": -158.19064,
+      "depth_m": 396.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.68714,
+      "lon": -158.24329,
+      "depth_m": 701.0
+    }
+  ]
+}

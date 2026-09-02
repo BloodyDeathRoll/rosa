@@ -1,0 +1,72 @@
+{
+  "spot": "honokohau-bay",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    21.0234,
+    -156.6106
+  ],
+  "bearing_seaward_deg": 44.0,
+  "nearshore_depth_m": -38.0,
+  "offshore_depth_m": 495.0,
+  "mean_slope_m_per_km": 30.03,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 21.02502,
+      "lon": -156.60893,
+      "depth_m": -38.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 21.02663,
+      "lon": -156.60725,
+      "depth_m": -41.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 21.02987,
+      "lon": -156.60391,
+      "depth_m": -42.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 21.03634,
+      "lon": -156.59721,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 21.04281,
+      "lon": -156.59052,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 21.05574,
+      "lon": -156.57713,
+      "depth_m": 176.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 21.07514,
+      "lon": -156.55704,
+      "depth_m": 304.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 21.10101,
+      "lon": -156.53025,
+      "depth_m": 442.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.1398,
+      "lon": -156.49004,
+      "depth_m": 495.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "lahaina-harbor",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    20.8696,
+    -156.6783
+  ],
+  "bearing_seaward_deg": 210.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 147.0,
+  "mean_slope_m_per_km": 7.83,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 20.86765,
+      "lon": -156.6795,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 20.86571,
+      "lon": -156.68071,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 20.86181,
+      "lon": -156.68311,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 20.85402,
+      "lon": -156.68792,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 20.84623,
+      "lon": -156.69273,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 20.83066,
+      "lon": -156.70236,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 20.80729,
+      "lon": -156.71678,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 20.77613,
+      "lon": -156.73601,
+      "depth_m": 117.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 20.72939,
+      "lon": -156.76484,
+      "depth_m": 147.0
+    }
+  ]
+}

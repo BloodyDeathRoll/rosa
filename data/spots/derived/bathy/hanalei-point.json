@@ -1,0 +1,72 @@
+{
+  "spot": "hanalei-point",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    22.2206,
+    -159.4988
+  ],
+  "bearing_seaward_deg": 330.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 1339.0,
+  "mean_slope_m_per_km": 75.89,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 22.22255,
+      "lon": -159.50001,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 22.22449,
+      "lon": -159.50123,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 22.22839,
+      "lon": -159.50366,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 22.23618,
+      "lon": -159.50852,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 22.24396,
+      "lon": -159.51337,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 22.25954,
+      "lon": -159.52309,
+      "depth_m": 137.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 22.2829,
+      "lon": -159.53768,
+      "depth_m": 271.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 22.31405,
+      "lon": -159.55713,
+      "depth_m": 531.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 22.36077,
+      "lon": -159.58632,
+      "depth_m": 1339.0
+    }
+  ]
+}

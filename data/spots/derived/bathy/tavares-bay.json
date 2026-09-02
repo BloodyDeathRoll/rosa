@@ -1,0 +1,72 @@
+{
+  "spot": "tavares-bay",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    20.9312,
+    -156.3684
+  ],
+  "bearing_seaward_deg": 316.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 288.0,
+  "mean_slope_m_per_km": 15.55,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 20.93282,
+      "lon": -156.37007,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 20.93443,
+      "lon": -156.37174,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 20.93767,
+      "lon": -156.37509,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 20.94414,
+      "lon": -156.38178,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 20.95061,
+      "lon": -156.38847,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 20.96354,
+      "lon": -156.40185,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 20.98295,
+      "lon": -156.42193,
+      "depth_m": 121.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 21.00881,
+      "lon": -156.4487,
+      "depth_m": 172.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.0476,
+      "lon": -156.48889,
+      "depth_m": 288.0
+    }
+  ]
+}

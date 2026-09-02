@@ -111,6 +111,10 @@ REGIONS = {
     # Kadavu - all west of 179 E, so the box never touches the antimeridian (the Lau
     # group would, and is not surfed enough to seed)
     "fiji": (-19.30, 176.70, -16.00, 179.00),
+    # the three surfed islands - Kauai, Oahu and Maui (Molokai and Lanai fall inside the
+    # box and are barely surfed); the Big Island is left out, it would add 2 deg of
+    # mostly cliff coast for a handful of Hilo/Kona breaks
+    "hawaii": (20.50, -159.85, 22.30, -155.90),
 }
 
 

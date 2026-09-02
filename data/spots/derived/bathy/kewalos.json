@@ -1,0 +1,72 @@
+{
+  "spot": "kewalos",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    21.2902,
+    -157.8564
+  ],
+  "bearing_seaward_deg": 224.0,
+  "nearshore_depth_m": 667.0,
+  "offshore_depth_m": 456.0,
+  "mean_slope_m_per_km": -11.89,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 5,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 21.28858,
+      "lon": -157.85808,
+      "depth_m": 667.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 21.28697,
+      "lon": -157.85975,
+      "depth_m": 666.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 21.28373,
+      "lon": -157.8631,
+      "depth_m": 641.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 21.27726,
+      "lon": -157.86981,
+      "depth_m": 328.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 21.27079,
+      "lon": -157.87651,
+      "depth_m": 309.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 21.25785,
+      "lon": -157.88992,
+      "depth_m": 449.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 21.23844,
+      "lon": -157.91002,
+      "depth_m": 478.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 21.21255,
+      "lon": -157.93681,
+      "depth_m": 528.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.17371,
+      "lon": -157.97699,
+      "depth_m": 456.0
+    }
+  ]
+}

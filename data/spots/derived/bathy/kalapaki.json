@@ -1,0 +1,72 @@
+{
+  "spot": "kalapaki",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    21.9604,
+    -159.3507
+  ],
+  "bearing_seaward_deg": 120.0,
+  "nearshore_depth_m": -13.0,
+  "offshore_depth_m": 2737.0,
+  "mean_slope_m_per_km": 154.93,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 21.95928,
+      "lon": -159.3486,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 21.95815,
+      "lon": -159.3465,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 21.9559,
+      "lon": -159.3423,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 21.95141,
+      "lon": -159.33391,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 21.94691,
+      "lon": -159.32551,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 21.93791,
+      "lon": -159.30872,
+      "depth_m": 453.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 21.92441,
+      "lon": -159.28354,
+      "depth_m": 850.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 21.90641,
+      "lon": -159.24997,
+      "depth_m": 1995.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.87939,
+      "lon": -159.19963,
+      "depth_m": 2737.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "kaanapali",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    20.9167,
+    -156.6967
+  ],
+  "bearing_seaward_deg": 284.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 108.0,
+  "mean_slope_m_per_km": 5.69,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 20.91724,
+      "lon": -156.69904,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 20.91779,
+      "lon": -156.70137,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 20.91888,
+      "lon": -156.70604,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 20.92105,
+      "lon": -156.71538,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 20.92322,
+      "lon": -156.72473,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 20.92757,
+      "lon": -156.74341,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 20.93409,
+      "lon": -156.77144,
+      "depth_m": 106.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 20.94277,
+      "lon": -156.80882,
+      "depth_m": 134.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 20.95578,
+      "lon": -156.86489,
+      "depth_m": 108.0
+    }
+  ]
+}

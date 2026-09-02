@@ -1,0 +1,72 @@
+{
+  "spot": "queens",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    21.2712,
+    -157.8291
+  ],
+  "bearing_seaward_deg": 234.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 501.0,
+  "mean_slope_m_per_km": 28.79,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 21.26988,
+      "lon": -157.83105,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 21.26856,
+      "lon": -157.833,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 21.26591,
+      "lon": -157.83691,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 21.26063,
+      "lon": -157.84471,
+      "depth_m": 173.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 21.25534,
+      "lon": -157.85252,
+      "depth_m": 339.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 21.24477,
+      "lon": -157.86813,
+      "depth_m": 485.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 21.2289,
+      "lon": -157.89154,
+      "depth_m": 532.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 21.20774,
+      "lon": -157.92275,
+      "depth_m": 516.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.17599,
+      "lon": -157.96955,
+      "depth_m": 501.0
+    }
+  ]
+}

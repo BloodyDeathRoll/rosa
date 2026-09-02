@@ -1,0 +1,72 @@
+{
+  "spot": "peahi-jaws",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    20.9429,
+    -156.3008
+  ],
+  "bearing_seaward_deg": 20.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 576.0,
+  "mean_slope_m_per_km": 32.96,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 20.94501,
+      "lon": -156.29998,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 20.94713,
+      "lon": -156.29915,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 20.95135,
+      "lon": -156.29751,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 20.9598,
+      "lon": -156.29421,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 20.96825,
+      "lon": -156.29092,
+      "depth_m": 105.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 20.98515,
+      "lon": -156.28433,
+      "depth_m": 154.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 21.0105,
+      "lon": -156.27444,
+      "depth_m": 241.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 21.04431,
+      "lon": -156.26125,
+      "depth_m": 367.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.095,
+      "lon": -156.24146,
+      "depth_m": 576.0
+    }
+  ]
+}

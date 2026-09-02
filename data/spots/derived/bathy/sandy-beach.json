@@ -1,0 +1,72 @@
+{
+  "spot": "sandy-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    21.2855,
+    -157.6727
+  ],
+  "bearing_seaward_deg": 151.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 597.0,
+  "mean_slope_m_per_km": 33.63,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 21.28353,
+      "lon": -157.67153,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 21.28157,
+      "lon": -157.67036,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 21.27763,
+      "lon": -157.66802,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 21.26977,
+      "lon": -157.66334,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 21.2619,
+      "lon": -157.65866,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 21.24617,
+      "lon": -157.64931,
+      "depth_m": 450.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 21.22257,
+      "lon": -157.63528,
+      "depth_m": 628.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 21.1911,
+      "lon": -157.61659,
+      "depth_m": 674.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.1439,
+      "lon": -157.58856,
+      "depth_m": 597.0
+    }
+  ]
+}

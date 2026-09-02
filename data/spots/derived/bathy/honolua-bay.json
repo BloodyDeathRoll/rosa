@@ -1,0 +1,72 @@
+{
+  "spot": "honolua-bay",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    21.0168,
+    -156.6398
+  ],
+  "bearing_seaward_deg": 350.0,
+  "nearshore_depth_m": -18.0,
+  "offshore_depth_m": 159.0,
+  "mean_slope_m_per_km": 9.97,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 21.01901,
+      "lon": -156.64022,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 21.02123,
+      "lon": -156.64064,
+      "depth_m": -14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 21.02566,
+      "lon": -156.64147,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 21.03451,
+      "lon": -156.64315,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 21.04337,
+      "lon": -156.64482,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 21.06108,
+      "lon": -156.64817,
+      "depth_m": 171.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 21.08765,
+      "lon": -156.65319,
+      "depth_m": 271.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 21.12308,
+      "lon": -156.65989,
+      "depth_m": 282.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.17622,
+      "lon": -156.66995,
+      "depth_m": 159.0
+    }
+  ]
+}

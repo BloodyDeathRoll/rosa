@@ -39,6 +39,7 @@ REGION_PBF = {
     "Byron Bay": "byron-bay",
     "French Polynesia": "french-polynesia",
     "Fiji": "fiji",
+    "Hawaii": "hawaii",
 }
 
 
