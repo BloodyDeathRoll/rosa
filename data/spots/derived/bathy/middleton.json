@@ -1,0 +1,72 @@
+{
+  "spot": "middleton",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -35.5138,
+    138.7201
+  ],
+  "bearing_seaward_deg": 183.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 44.0,
+  "mean_slope_m_per_km": 2.42,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.51605,
+      "lon": 138.71996,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.51829,
+      "lon": 138.71981,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.52278,
+      "lon": 138.71952,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.53176,
+      "lon": 138.71894,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.54074,
+      "lon": 138.71836,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.5587,
+      "lon": 138.71721,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.58565,
+      "lon": 138.71547,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.62157,
+      "lon": 138.71315,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.67546,
+      "lon": 138.70967,
+      "depth_m": 44.0
+    }
+  ]
+}

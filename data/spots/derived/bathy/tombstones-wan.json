@@ -1,0 +1,72 @@
+{
+  "spot": "tombstones-wan",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -23.8214,
+    113.5182
+  ],
+  "bearing_seaward_deg": 286.0,
+  "nearshore_depth_m": 18.0,
+  "offshore_depth_m": 42.0,
+  "mean_slope_m_per_km": 1.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.82078,
+      "lon": 113.51584,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.82016,
+      "lon": 113.51348,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.81892,
+      "lon": 113.50875,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.81644,
+      "lon": 113.4993,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.81396,
+      "lon": 113.48985,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.809,
+      "lon": 113.47096,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.80155,
+      "lon": 113.44261,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.79161,
+      "lon": 113.40483,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.77669,
+      "lon": 113.34816,
+      "depth_m": 42.0
+    }
+  ]
+}

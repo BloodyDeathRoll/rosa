@@ -1,0 +1,40 @@
+# Rosa spot database - South Australia (seeded 2026-09-02). Fleurieu and Yorke peninsulas, Southern Ocean SW groundswell, offshore from the N/NE.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &sa
+  timezone: Australia/Adelaide
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [150, 270]
+  ideal:
+    wind_dir: [330, 90]
+    size_m: [1.0, 3.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-03 - south-australia, 19 spots (primary coastline flow: 2 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 17 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/south-australia/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: berry, name: "Berry Bay", town: "Corny Point", lat: -34.9106, lon: 137.0140, offshore_direction: 82, swell_window: [197, 327], offshore_km: 5.0, <<: *sa }  # sat-verified 2026-09-03 (osm-seeded)
+  - { id: daly-head, name: "Daly Head", town: "Corny Point", lat: -35.0234, lon: 136.9346, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, <<: *sa }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: christies-beach, name: "Christies Beach", town: "Christies Beach", lat: -35.1353, lon: 138.4693, offshore_direction: 98, swell_window: [213, 343], offshore_km: 5.0, <<: *sa }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: southport, name: "Southport", town: "Port Noarlunga", lat: -35.1577, lon: 138.4689, offshore_direction: 94, swell_window: [209, 339], offshore_km: 5.0, <<: *sa }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: seaford, name: "Seaford", town: "Seaford", lat: -35.1817, lon: 138.4674, offshore_direction: 98, swell_window: [213, 343], offshore_km: 5.0, <<: *sa }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: moana, name: "Moana", town: "Moana", lat: -35.1986, lon: 138.4706, offshore_direction: 121, swell_window: [236, 6], offshore_km: 5.0, <<: *sa }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: pondalowie, name: "Pondalowie", town: "Marion Bay", lat: -35.2314, lon: 136.8334, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, <<: *sa }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: chinamans, name: "Chinamans", town: "Marion Bay", lat: -35.2341, lon: 136.8283, offshore_direction: 50, swell_window: [165, 295], offshore_km: 5.0, <<: *sa }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: butlers-beach, name: "Butlers Beach", town: "Marion Bay", lat: -35.2376, lon: 137.1182, offshore_direction: 19, swell_window: [134, 264], offshore_km: 5.0, <<: *sa }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: ethel-beach, name: "Ethel Beach", town: "Marion Bay", lat: -35.2699, lon: 136.8439, offshore_direction: 56, swell_window: [171, 301], offshore_km: 5.0, <<: *sa }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: sellicks, name: "Sellicks", town: "Sellicks Beach", lat: -35.3349, lon: 138.4466, offshore_direction: 91, swell_window: [206, 336], offshore_km: 5.0, <<: *sa }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: middleton, name: "Middleton", town: "Middleton", lat: -35.5138, lon: 138.7201, offshore_direction: 3, swell_window: [118, 248], offshore_km: 5.0, <<: *sa }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: surfers, name: "Surfers Beach", town: "Middleton", lat: -35.5150, lon: 138.7273, offshore_direction: 11, swell_window: [126, 256], offshore_km: 5.0, <<: *sa }  # sat-verified 2026-09-03 (osm-seeded)
+  - { id: goolwa, name: "Goolwa", town: "Goolwa", lat: -35.5204, lon: 138.7601, offshore_direction: 15, swell_window: [130, 260], offshore_km: 5.0, <<: *sa }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: boomer-beach, name: "Boomer Beach", town: "Port Elliot", lat: -35.5362, lon: 138.6732, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, <<: *sa }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: knights-beach, name: "Knights Beach", town: "Port Elliot", lat: -35.5364, lon: 138.6782, offshore_direction: 4, swell_window: [119, 249], offshore_km: 5.0, <<: *sa }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: chiton-rocks, name: "Chiton Rocks", town: "Port Elliot", lat: -35.5386, lon: 138.6539, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, <<: *sa }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: parsons, name: "Parsons", town: "Victor Harbor", lat: -35.6306, lon: 138.4680, offshore_direction: 14, swell_window: [129, 259], offshore_km: 5.0, <<: *sa }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: waitpinga, name: "Waitpinga", town: "Victor Harbor", lat: -35.6341, lon: 138.4946, offshore_direction: 12, swell_window: [127, 257], offshore_km: 5.0, <<: *sa }  # sat-verified 2026-09-03 (websearch-seeded)

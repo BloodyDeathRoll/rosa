@@ -1,0 +1,72 @@
+{
+  "spot": "goats-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -43.0223,
+    147.4997
+  ],
+  "bearing_seaward_deg": 165.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 51.0,
+  "mean_slope_m_per_km": 2.87,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -43.02447,
+      "lon": 147.5005,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -43.02664,
+      "lon": 147.50129,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -43.03099,
+      "lon": 147.50288,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -43.03967,
+      "lon": 147.50607,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -43.04836,
+      "lon": 147.50926,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -43.06573,
+      "lon": 147.51563,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -43.09179,
+      "lon": 147.5252,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -43.12653,
+      "lon": 147.53797,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -43.17865,
+      "lon": 147.55715,
+      "depth_m": 51.0
+    }
+  ]
+}

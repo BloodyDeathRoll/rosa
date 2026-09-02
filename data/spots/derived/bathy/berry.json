@@ -1,0 +1,72 @@
+{
+  "spot": "berry",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -34.9106,
+    137.014
+  ],
+  "bearing_seaward_deg": 262.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 45.0,
+  "mean_slope_m_per_km": 2.03,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.91091,
+      "lon": 137.01128,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.91123,
+      "lon": 137.00857,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.91185,
+      "lon": 137.00314,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.9131,
+      "lon": 136.99228,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.91435,
+      "lon": 136.98142,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.91685,
+      "lon": 136.9597,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.92058,
+      "lon": 136.92711,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.92555,
+      "lon": 136.88366,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.93297,
+      "lon": 136.81847,
+      "depth_m": 45.0
+    }
+  ]
+}

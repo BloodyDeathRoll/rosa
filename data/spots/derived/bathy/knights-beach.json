@@ -1,0 +1,72 @@
+{
+  "spot": "knights-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -35.5364,
+    138.6782
+  ],
+  "bearing_seaward_deg": 184.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 41.0,
+  "mean_slope_m_per_km": 2.14,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.53864,
+      "lon": 138.67801,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.54089,
+      "lon": 138.67781,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.54537,
+      "lon": 138.67743,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.55434,
+      "lon": 138.67666,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.56331,
+      "lon": 138.67589,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.58126,
+      "lon": 138.67434,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.60817,
+      "lon": 138.67203,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.64406,
+      "lon": 138.66894,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.69788,
+      "lon": 138.6643,
+      "depth_m": 41.0
+    }
+  ]
+}

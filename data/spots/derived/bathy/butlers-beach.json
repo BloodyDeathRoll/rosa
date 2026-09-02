@@ -1,0 +1,72 @@
+{
+  "spot": "butlers-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -35.2376,
+    137.1182
+  ],
+  "bearing_seaward_deg": 199.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 39.0,
+  "mean_slope_m_per_km": 2.87,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.23973,
+      "lon": 137.1173,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.24185,
+      "lon": 137.11641,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.2461,
+      "lon": 137.11461,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.25461,
+      "lon": 137.11103,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.26311,
+      "lon": 137.10744,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.28011,
+      "lon": 137.10027,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.30562,
+      "lon": 137.0895,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.33963,
+      "lon": 137.07513,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.39064,
+      "lon": 137.05355,
+      "depth_m": 39.0
+    }
+  ]
+}

@@ -176,7 +176,26 @@ Four things, in this order:
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-09-02, DB = 1008 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-09-03, DB = 1051 spots, ALL sat-verified)
+
+**South Australia 0 -> 19, Tasmania 0 -> 13, WA North 0 -> 11 (2026-09-03) - the last three
+Australian gaps, in one pass.** SA = Fleurieu + Yorke (Cactus on the Eyre and Kangaroo Island's
+south left for later), Tasmania = east and south coasts (Marrawah left), WA North = Geraldton to
+Gnaraloo on `australia-west`; SA and Tasmania join Victoria on `australia-south`. `wa-north.yaml`
+is the first file that sets `region:` explicitly ("WA North") because the stem would have read
+"Wa North". Primary flow: 2 + 0 + 0 Tier-A (OSM's Berry Bay and Middleton "Surfers Beach" nodes,
+both kept - Berry Bay's node beat Google, which returned that beach for "Corny Point"). Secondary:
+21 + 16 + 13 guide names -> 50 rendered -> 28 keep / 13 move / 9 drop over five rounds. Drops were
+Google's inland pins (West Cape, Trespassers, Marion Bay, Headbutts had no geocode at all), a pin in
+open sea (Cloudy Bay - OSM's beach node used instead), sheltered water (Adventure Bay), and
+collapses (Fencies onto Tombstones, Corny Point onto Berry Bay). Remote WA came out well: Google
+gives the station or camp (Gnaraloo, Quobba) and the reef line 300-400 m W is unmistakable on the
+tile. Six normals set by hand (Pondalowie and Chinamans came back facing SE/N off the headland
+ways; Beerbarrel and Carlton likewise), and Carlton / Park Beach re-aimed S by arc sweep - Frederick
+Henry Bay is enclosed and their SE rays hit the Tasman Peninsula at 18 km. `tombstones` and
+`sunset-beach` clashed with the Maldives and Hawaii and took `-wan`. Judge logs in `work/<region>/judge.json`. **Australia is
+now covered end to end except Cactus / Eyre, Kangaroo Island, Esperance and Marrawah.**
+
 
 **Victoria 0 -> 30 (2026-09-02) - the first south-facing Australian region, on a new
 `australia-south` swellmap basin.** One box from Lorne to Phillip Island (Surf Coast, Mornington
@@ -610,7 +629,7 @@ Punta Mita sub-breaks, Oaxaca's Salina Cruz points beyond Conejo/Chipehua; Japan
 Okinawa / Wakayama detail; Philippines more (Daku, Zambales Liwliwa neighbours); Portugal
 Ericeira micro-spots & the **Azores**; Nicaragua north (Puerto Sandino cluster). Regions with
 zero spots today: everywhere else - Indonesia beyond Bali / Lombok / Sumbawa / Java's south coast, Chile, Ecuador, France/Spain, South Africa;
-Australia beyond Sydney/Byron/Gold Coast/Sunshine Coast/Victoria/Perth/Margaret River (SA, Tasmania, WA north of Perth - Geraldton, Kalbarri, Gnaraloo - and Esperance); Hawaii's Big Island.
+Australia's remaining corners (Cactus / Eyre Peninsula, Kangaroo Island, Esperance, Marrawah); Hawaii's Big Island.
 **The real frontier = Tier-B.** Tens of thousands of physics-valid, *unnamed* coastline
 stretches (Japan 22k, Philippines 37k). OSM/guides never named them; this is the sat-verify +
 community-contribution layer, and it's where "all the spots" ultimately lives.

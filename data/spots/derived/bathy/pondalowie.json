@@ -1,0 +1,72 @@
+{
+  "spot": "pondalowie",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -35.2314,
+    136.8334
+  ],
+  "bearing_seaward_deg": 240.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 64.0,
+  "mean_slope_m_per_km": 3.38,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.23252,
+      "lon": 136.83102,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.23365,
+      "lon": 136.82863,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.2359,
+      "lon": 136.82386,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.24039,
+      "lon": 136.81433,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.24489,
+      "lon": 136.80479,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.25387,
+      "lon": 136.78571,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.26735,
+      "lon": 136.75709,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.28531,
+      "lon": 136.71891,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.31222,
+      "lon": 136.6616,
+      "depth_m": 64.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "parsons",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -35.6306,
+    138.468
+  ],
+  "bearing_seaward_deg": 194.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 27.0,
+  "mean_slope_m_per_km": 1.3,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.63278,
+      "lon": 138.46733,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.63496,
+      "lon": 138.46666,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.63933,
+      "lon": 138.46532,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.64805,
+      "lon": 138.46265,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.65678,
+      "lon": 138.45997,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.67423,
+      "lon": 138.45461,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.70041,
+      "lon": 138.44657,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.73531,
+      "lon": 138.43584,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.78766,
+      "lon": 138.41972,
+      "depth_m": 27.0
+    }
+  ]
+}

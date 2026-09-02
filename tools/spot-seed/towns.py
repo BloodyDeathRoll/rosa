@@ -50,6 +50,9 @@ REGION_PBF = {
     "Gold Coast": "gold-coast",
     "Sunshine Coast": "sunshine-coast",
     "Victoria": "victoria",
+    "South Australia": "south-australia",
+    "Tasmania": "tasmania",
+    "WA North": "wa-north",
 }
 
 

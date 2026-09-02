@@ -149,6 +149,16 @@ REGIONS = {
     # the Mornington Peninsula back beaches and Phillip Island; Port Phillip Bay is inside
     # the box but bathy-prunes itself (enclosed water)
     "victoria": (-38.75, 143.85, -38.15, 145.45),
+    # South Australia's surfed peninsulas: the Fleurieu (Middleton, Waitpinga, Parsons) and
+    # the Yorke's southern foot (Pondalowie, Chinamans, Berry Bay); Kangaroo Island's north
+    # coast is inside and flat, Cactus on the Eyre is its own region later
+    "south-australia": (-35.70, 136.85, -34.85, 138.80),
+    # Tasmania's east and south coasts: St Helens down through Bicheno, the Tasman Peninsula
+    # (Shipstern, Eaglehawk Neck), Clifton and Bruny; Marrawah in the NW is left for later
+    "tasmania": (-43.65, 146.80, -40.80, 148.40),
+    # WA's Coral Coast north of Perth: Geraldton, Kalbarri, then Red Bluff and Gnaraloo;
+    # 600 km of mostly empty coast, the box is what keeps the candidate count sane
+    "wa-north": (-29.20, 113.30, -23.70, 114.90),
 }
 
 

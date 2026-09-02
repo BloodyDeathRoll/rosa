@@ -1,0 +1,72 @@
+{
+  "spot": "carlton-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -42.8731,
+    147.6365
+  ],
+  "bearing_seaward_deg": 190.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 24.0,
+  "mean_slope_m_per_km": 1.46,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -42.87531,
+      "lon": 147.63597,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -42.87753,
+      "lon": 147.63543,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -42.88196,
+      "lon": 147.63437,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -42.89081,
+      "lon": 147.63224,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -42.89967,
+      "lon": 147.6301,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -42.91738,
+      "lon": 147.62584,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -42.94395,
+      "lon": 147.61943,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -42.97938,
+      "lon": 147.61089,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -43.03251,
+      "lon": 147.59804,
+      "depth_m": 24.0
+    }
+  ]
+}

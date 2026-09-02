@@ -1,0 +1,72 @@
+{
+  "spot": "seaford",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -35.1817,
+    138.4674
+  ],
+  "bearing_seaward_deg": 278.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 1.52,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.18139,
+      "lon": 138.46468,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.18107,
+      "lon": 138.46195,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.18045,
+      "lon": 138.4565,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.17919,
+      "lon": 138.44561,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.17794,
+      "lon": 138.43471,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.17543,
+      "lon": 138.41292,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.17166,
+      "lon": 138.38024,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.16661,
+      "lon": 138.33667,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.15901,
+      "lon": 138.27133,
+      "depth_m": 35.0
+    }
+  ]
+}

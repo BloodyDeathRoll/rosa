@@ -1,0 +1,72 @@
+{
+  "spot": "roaring-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -43.0883,
+    147.6733
+  ],
+  "bearing_seaward_deg": 214.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 56.0,
+  "mean_slope_m_per_km": 3.83,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -43.09016,
+      "lon": 147.67158,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -43.09203,
+      "lon": 147.66986,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -43.09576,
+      "lon": 147.66641,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -43.10321,
+      "lon": 147.65952,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -43.11067,
+      "lon": 147.65263,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -43.12557,
+      "lon": 147.63885,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -43.14793,
+      "lon": 147.61816,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -43.17774,
+      "lon": 147.59055,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -43.22244,
+      "lon": 147.54908,
+      "depth_m": 56.0
+    }
+  ]
+}

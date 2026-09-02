@@ -1,0 +1,72 @@
+{
+  "spot": "southport",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -35.1577,
+    138.4689
+  ],
+  "bearing_seaward_deg": 274.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 34.0,
+  "mean_slope_m_per_km": 1.58,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.15754,
+      "lon": 138.46616,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.15739,
+      "lon": 138.46341,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.15707,
+      "lon": 138.45793,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.15644,
+      "lon": 138.44695,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.15581,
+      "lon": 138.43598,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.15455,
+      "lon": 138.41404,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.15265,
+      "lon": 138.38112,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.1501,
+      "lon": 138.33723,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.14625,
+      "lon": 138.27141,
+      "depth_m": 34.0
+    }
+  ]
+}

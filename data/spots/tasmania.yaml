@@ -1,0 +1,34 @@
+# Rosa spot database - Tasmania (seeded 2026-09-02). East and south coasts: Tasman Sea E swell and Southern Ocean S-SW swell, cold water, offshore from the W.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &tas
+  timezone: Australia/Hobart
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [60, 200]
+  ideal:
+    wind_dir: [225, 315]
+    size_m: [1.0, 3.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-03 - tasmania, 13 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 13 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/tasmania/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: beerbarrel, name: "Beerbarrel", town: "St Helens", lat: -41.2834, lon: 148.3550, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, <<: *tas }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: scamander, name: "Scamander", town: "Scamander", lat: -41.4621, lon: 148.2668, offshore_direction: 273, swell_window: [28, 158], offshore_km: 5.0, <<: *tas }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: four-mile-creek, name: "Four Mile Creek", town: "Four Mile Creek", lat: -41.5500, lon: 148.2852, offshore_direction: 251, swell_window: [6, 136], offshore_km: 5.0, <<: *tas }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: redbill, name: "Redbill", town: "Bicheno", lat: -41.8631, lon: 148.2867, offshore_direction: 222, swell_window: [337, 107], offshore_km: 5.0, <<: *tas }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: friendly-beaches, name: "Friendly Beaches", town: "Coles Bay", lat: -42.0480, lon: 148.2886, offshore_direction: 238, swell_window: [353, 123], offshore_km: 5.0, <<: *tas }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: park-beach, name: "Park Beach", town: "Dodges Ferry", lat: -42.8676, lon: 147.6135, offshore_direction: 4, swell_window: [119, 249], offshore_km: 5.0, <<: *tas }  # sat-verified 2026-09-03 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: Frederick Henry Bay mouth]
+  - { id: carlton-beach, name: "Carlton Beach", town: "Carlton", lat: -42.8731, lon: 147.6365, offshore_direction: 10, swell_window: [125, 255], offshore_km: 5.0, <<: *tas }  # sat-verified 2026-09-03 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: Frederick Henry Bay mouth]
+  - { id: clifton-beach, name: "Clifton Beach", town: "Clifton Beach", lat: -42.9891, lon: 147.5340, offshore_direction: 335, swell_window: [90, 220], offshore_km: 5.0, <<: *tas }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: eaglehawk-neck, name: "Eaglehawk Neck", town: "Eaglehawk Neck", lat: -43.0197, lon: 147.9268, offshore_direction: 272, swell_window: [27, 157], offshore_km: 5.0, <<: *tas }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: goats-beach, name: "Goats Beach", town: "South Arm", lat: -43.0223, lon: 147.4997, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, <<: *tas }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: roaring-beach, name: "Roaring Beach", town: "Nubeena", lat: -43.0883, lon: 147.6733, offshore_direction: 34, swell_window: [149, 279], offshore_km: 5.0, <<: *tas }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: shipstern-bluff, name: "Shipstern Bluff", town: "Port Arthur", lat: -43.2093, lon: 147.7510, offshore_direction: 42, swell_window: [157, 287], offshore_km: 5.0, <<: *tas }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: cloudy-bay, name: "Cloudy Bay", town: "Bruny Island", lat: -43.4376, lon: 147.2218, offshore_direction: 4, swell_window: [119, 249], offshore_km: 5.0, <<: *tas }  # sat-verified 2026-09-03 (websearch-seeded)
