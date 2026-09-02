@@ -176,7 +176,32 @@ Four things, in this order:
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-09-02, DB = 792 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-09-02, DB = 854 spots, ALL sat-verified)
+
+**Perth 0 -> 34 and Margaret River 0 -> 28 (2026-09-02) - the first West Australian regions.**
+Two `REGIONS` boxes like Sydney/Byron: Perth = Mandurah to Two Rocks plus Rottnest; Margaret
+River = Cape Naturaliste to Cape Leeuwin. `perth.yaml` (`&per`, beach) and `margaret-river.yaml`
+(`&mr`, reef) are the first WEST-facing anchors (swell_window [180,300], offshore from the E),
+one shared `australia-west` swellmap basin, both pbf names symlinked to the 960 MB australia
+extract (`towns.py` scans the whole file - ~5 min per region, run it in the background). Primary
+flow: 398 + 257 bathy-passed candidates, **1 Tier-A** (an OSM `sport=surfing` node on a Mandurah
+groyne, kept under its OSM name) - web-search country again. Secondary: 40 + 36 guide names -> all
+76 geocoded (Google alone on 46) -> all rendered at z16 -> 35 keep / 26 move / 15 drop over three
+rounds, with z15 reads of Marmion, Cottesloe, Gracetown, Prevelly and Gnarabup and z13/z14 reads of
+Wilyabrup, Rottnest and Boranup. Same Google failure modes as Hawaii: whole clusters collapsed onto
+one POI (Surfers Point / Southside / Gallows -> one pin; Huzzas -> South Point; Boranup / Hamelin ->
+Redgate) and out-of-region returns (Rocky Point, Gallows, Guillotines -> Margaret River town; The
+Spot -> Two Rocks; Transits -> Perth CBD). Dropped the sheltered Cockburn/Warnbro/Geographe bays,
+the Rottnest reefs Google could not place, and the Bombie (no visual evidence on a small day).
+Eight normals set by hand off the tile (Salmon Bay and Madora Bay came back pointing N), and four more
+(Cottesloe, Isolators, The Cove, Leighton) re-aimed by the GEBCO arc sweep because their due-west ray
+hit Rottnest at the 18 km reference (offshore 1-2 m - wet, so the test passed, but the island's shore).
+The Perth shelf is genuinely 30 m deep 18 km out; that is not a warning. Three
+global id clashes took `-wa` (`the-cove`, `windmills` vs Hawaii, `south-point` vs Sri Lanka).
+64 town overrides - metro OSM place nodes resolve to Joondalup / Perth / Fremantle, and the whole
+Capes stretch had none inside 12 km. Judge logs in `work/perth/judge.json` and
+`work/margaret-river/judge.json`.
+
 
 **Hawaii 1 -> 80 (2026-09-02) - Kauai, Oahu and Maui in one box; the Big Island is not
 seeded.** `REGIONS["hawaii"]` = (20.50, -159.85, 22.30, -155.90), Geofabrik `north-america/us/hawaii`
@@ -487,7 +512,7 @@ Punta Mita sub-breaks, Oaxaca's Salina Cruz points beyond Conejo/Chipehua; Japan
 Okinawa / Wakayama detail; Philippines more (Daku, Zambales Liwliwa neighbours); Portugal
 Ericeira micro-spots & the **Azores**; Nicaragua north (Puerto Sandino cluster). Regions with
 zero spots today: everywhere else - Indonesia, Chile, Ecuador, France/Spain, South Africa;
-Australia beyond Sydney/Byron (Gold Coast, Victoria, WA); Hawaii's Big Island.
+Australia beyond Sydney/Byron/Perth/Margaret River (Gold Coast, Victoria, WA north of Perth - Geraldton, Kalbarri, Gnaraloo - and Esperance); Hawaii's Big Island.
 **The real frontier = Tier-B.** Tens of thousands of physics-valid, *unnamed* coastline
 stretches (Japan 22k, Philippines 37k). OSM/guides never named them; this is the sat-verify +
 community-contribution layer, and it's where "all the spots" ultimately lives.

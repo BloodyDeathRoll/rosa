@@ -1,0 +1,72 @@
+{
+  "spot": "san-remo",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -32.4858,
+    115.7446
+  ],
+  "bearing_seaward_deg": 284.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 27.0,
+  "mean_slope_m_per_km": 1.63,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.48526,
+      "lon": 115.74201,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.48471,
+      "lon": 115.73943,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -32.48362,
+      "lon": 115.73426,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.48145,
+      "lon": 115.72391,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -32.47927,
+      "lon": 115.71357,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.47491,
+      "lon": 115.69288,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -32.46837,
+      "lon": 115.66186,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -32.45963,
+      "lon": 115.6205,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -32.4465,
+      "lon": 115.55848,
+      "depth_m": 27.0
+    }
+  ]
+}

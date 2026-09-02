@@ -1,0 +1,57 @@
+# Rosa spot database - Perth (seeded 2026-09-02, with margaret-river - the first West Australian
+# regions). West-facing Indian Ocean coast: SW groundswell year-round, biggest in winter, and
+# the afternoon sea breeze ("the Fremantle Doctor") blows onshore from the SW most summer days.
+# Offshore wind is from the east. Every spot carries offshore_km along its own seaward normal.
+
+defaults: &per
+  timezone: Australia/Perth
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [180, 300]
+  ideal:
+    wind_dir: [45, 135]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-02 - perth, 34 spots (primary coastline flow: 1 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 33 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/perth/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: two-rocks, name: "Two Rocks", town: "Two Rocks", lat: -31.5217, lon: 115.6039, offshore_direction: 65, swell_window: [180, 310], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: yanchep-lagoon, name: "Yanchep Lagoon", town: "Yanchep", lat: -31.5499, lon: 115.6242, offshore_direction: 52, swell_window: [167, 297], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: quinns-rocks, name: "Quinns Rocks", town: "Quinns Rocks", lat: -31.6663, lon: 115.6905, offshore_direction: 72, swell_window: [187, 317], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: mindarie, name: "Mindarie", town: "Mindarie", lat: -31.6968, lon: 115.7032, offshore_direction: 41, swell_window: [156, 286], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: burns-beach, name: "Burns Beach", town: "Burns Beach", lat: -31.7250, lon: 115.7141, offshore_direction: 51, swell_window: [166, 296], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: mullaloo, name: "Mullaloo", town: "Mullaloo", lat: -31.7854, lon: 115.7333, offshore_direction: 94, swell_window: [209, 339], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: the-wall, name: "The Wall", town: "Hillarys", lat: -31.8271, lon: 115.7400, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: ders, name: "Ders", town: "Sorrento", lat: -31.8301, lon: 115.7451, offshore_direction: 40, swell_window: [155, 285], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: the-spot, name: "The Spot", town: "Watermans Bay", lat: -31.8501, lon: 115.7493, offshore_direction: 80, swell_window: [195, 325], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: trigg-point, name: "Trigg Point", town: "Trigg", lat: -31.8764, lon: 115.7510, offshore_direction: 77, swell_window: [192, 322], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: trigg-beach, name: "Trigg Beach", town: "Trigg", lat: -31.8786, lon: 115.7518, offshore_direction: 92, swell_window: [207, 337], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: scarborough, name: "Scarborough", town: "Scarborough", lat: -31.8958, lon: 115.7550, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: floreat, name: "Floreat", town: "Floreat", lat: -31.9290, lon: 115.7549, offshore_direction: 91, swell_window: [206, 336], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: city-beach, name: "City Beach", town: "City Beach", lat: -31.9344, lon: 115.7551, offshore_direction: 88, swell_window: [203, 333], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: swanbourne, name: "Swanbourne", town: "Swanbourne", lat: -31.9725, lon: 115.7536, offshore_direction: 91, swell_window: [206, 336], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: cottesloe, name: "Cottesloe", town: "Cottesloe", lat: -31.9957, lon: 115.7510, offshore_direction: 42, swell_window: [157, 287], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: Rottnest shadow]
+  - { id: isolators, name: "Isolators", town: "Cottesloe", lat: -31.9996, lon: 115.7503, offshore_direction: 112, swell_window: [227, 357], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: Rottnest shadow]
+  - { id: the-cove-wa, name: "The Cove", town: "Cottesloe", lat: -32.0025, lon: 115.7505, offshore_direction: 116, swell_window: [231, 1], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: Rottnest shadow]
+  - { id: stark-bay, name: "Stark Bay", town: "Rottnest Island", lat: -32.0082, lon: 115.4812, offshore_direction: 121, swell_window: [236, 6], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: strickland-bay, name: "Strickland Bay", town: "Rottnest Island", lat: -32.0172, lon: 115.4764, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: leighton, name: "Leighton", town: "North Fremantle", lat: -32.0225, lon: 115.7505, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: Rottnest shadow]
+  - { id: salmon-bay, name: "Salmon Bay", town: "Rottnest Island", lat: -32.0261, lon: 115.5235, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: port-beach, name: "Port Beach", town: "North Fremantle", lat: -32.0361, lon: 115.7444, offshore_direction: 111, swell_window: [226, 356], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: secret-harbour, name: "Secret Harbour", town: "Secret Harbour", lat: -32.4124, lon: 115.7459, offshore_direction: 88, swell_window: [203, 333], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: golden-bay, name: "Golden Bay", town: "Golden Bay", lat: -32.4275, lon: 115.7484, offshore_direction: 78, swell_window: [193, 323], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: singleton, name: "Singleton", town: "Singleton", lat: -32.4445, lon: 115.7488, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: san-remo, name: "San Remo", town: "San Remo", lat: -32.4858, lon: 115.7446, offshore_direction: 104, swell_window: [219, 349], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: forth-rock-groin, name: "Forth Rock Groin", town: "Halls Head", lat: -32.5062, lon: 115.7350, offshore_direction: 112, swell_window: [227, 357], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (osm-seeded)
+  - { id: halls-head, name: "Halls Head", town: "Halls Head", lat: -32.5236, lon: 115.6980, offshore_direction: 121, swell_window: [236, 6], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: falcon-bay, name: "Falcon Bay", town: "Falcon", lat: -32.5798, lon: 115.6504, offshore_direction: 101, swell_window: [216, 346], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: madora-bay, name: "Madora Bay", town: "Madora Bay", lat: -32.5928, lon: 115.6369, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: avalon-point, name: "Avalon Point", town: "Wannanup", lat: -32.5948, lon: 115.6337, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: pyramids, name: "Pyramids", town: "Dawesville", lat: -32.6031, lon: 115.6299, offshore_direction: 53, swell_window: [168, 298], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: tims-thicket, name: "Tims Thicket", town: "Dawesville", lat: -32.6602, lon: 115.6109, offshore_direction: 116, swell_window: [231, 1], offshore_km: 5.0, <<: *per }  # sat-verified 2026-09-02 (websearch-seeded)

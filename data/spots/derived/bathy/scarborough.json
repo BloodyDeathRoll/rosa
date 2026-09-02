@@ -1,0 +1,72 @@
+{
+  "spot": "scarborough",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -31.8958,
+    115.755
+  ],
+  "bearing_seaward_deg": 265.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 32.0,
+  "mean_slope_m_per_km": 2.31,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -31.896,
+      "lon": 115.75236,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -31.89619,
+      "lon": 115.74972,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -31.89658,
+      "lon": 115.74445,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -31.89737,
+      "lon": 115.7339,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -31.89815,
+      "lon": 115.72334,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -31.89971,
+      "lon": 115.70224,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -31.90204,
+      "lon": 115.67058,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -31.90514,
+      "lon": 115.62836,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -31.90977,
+      "lon": 115.56503,
+      "depth_m": 32.0
+    }
+  ]
+}

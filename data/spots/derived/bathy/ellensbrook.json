@@ -1,0 +1,72 @@
+{
+  "spot": "ellensbrook",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -33.9083,
+    114.9874
+  ],
+  "bearing_seaward_deg": 307.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 44.0,
+  "mean_slope_m_per_km": 1.8,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.90695,
+      "lon": 114.98524,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.90559,
+      "lon": 114.98307,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.90289,
+      "lon": 114.97875,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.89747,
+      "lon": 114.97009,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.89206,
+      "lon": 114.96144,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.88123,
+      "lon": 114.94414,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.86498,
+      "lon": 114.9182,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.84331,
+      "lon": 114.88363,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.81078,
+      "lon": 114.8318,
+      "depth_m": 44.0
+    }
+  ]
+}

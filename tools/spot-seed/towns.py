@@ -40,6 +40,8 @@ REGION_PBF = {
     "French Polynesia": "french-polynesia",
     "Fiji": "fiji",
     "Hawaii": "hawaii",
+    "Perth": "perth",
+    "Margaret River": "margaret-river",
 }
 
 

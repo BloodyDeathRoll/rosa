@@ -1,0 +1,72 @@
+{
+  "spot": "mullaloo",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -31.7854,
+    115.7333
+  ],
+  "bearing_seaward_deg": 274.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 2.65,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -31.78524,
+      "lon": 115.73066,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -31.78509,
+      "lon": 115.72802,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -31.78477,
+      "lon": 115.72275,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -31.78414,
+      "lon": 115.71219,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -31.78351,
+      "lon": 115.70164,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -31.78225,
+      "lon": 115.68053,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -31.78035,
+      "lon": 115.64887,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -31.77781,
+      "lon": 115.60666,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -31.77397,
+      "lon": 115.54335,
+      "depth_m": 35.0
+    }
+  ]
+}

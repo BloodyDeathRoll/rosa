@@ -1,0 +1,72 @@
+{
+  "spot": "halls-head",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -32.5236,
+    115.698
+  ],
+  "bearing_seaward_deg": 301.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 31.0,
+  "mean_slope_m_per_km": 1.3,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.52244,
+      "lon": 115.69571,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.52128,
+      "lon": 115.69343,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -32.51897,
+      "lon": 115.68886,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.51433,
+      "lon": 115.67972,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -32.5097,
+      "lon": 115.67058,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.50043,
+      "lon": 115.6523,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -32.48652,
+      "lon": 115.62489,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -32.46797,
+      "lon": 115.58836,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -32.44012,
+      "lon": 115.53359,
+      "depth_m": 31.0
+    }
+  ]
+}

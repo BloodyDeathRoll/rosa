@@ -1,0 +1,72 @@
+{
+  "spot": "burns-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -31.725,
+    115.7141
+  ],
+  "bearing_seaward_deg": 231.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 32.0,
+  "mean_slope_m_per_km": 2.03,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -31.72641,
+      "lon": 115.71205,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -31.72783,
+      "lon": 115.70999,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -31.73066,
+      "lon": 115.70588,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -31.73632,
+      "lon": 115.69766,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -31.74198,
+      "lon": 115.68945,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -31.75329,
+      "lon": 115.673,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -31.77026,
+      "lon": 115.64833,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -31.79288,
+      "lon": 115.61543,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -31.82679,
+      "lon": 115.56604,
+      "depth_m": 32.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "falcon-bay",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -32.5798,
+    115.6504
+  ],
+  "bearing_seaward_deg": 281.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 33.0,
+  "mean_slope_m_per_km": 1.58,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.57937,
+      "lon": 115.64778,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.57894,
+      "lon": 115.64516,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -32.57808,
+      "lon": 115.63992,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.57637,
+      "lon": 115.62945,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -32.57465,
+      "lon": 115.61897,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.57121,
+      "lon": 115.59802,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -32.56604,
+      "lon": 115.5666,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -32.55915,
+      "lon": 115.52471,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -32.54877,
+      "lon": 115.46189,
+      "depth_m": 33.0
+    }
+  ]
+}

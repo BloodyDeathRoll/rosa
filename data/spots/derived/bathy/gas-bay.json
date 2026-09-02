@@ -1,0 +1,72 @@
+{
+  "spot": "gas-bay",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -34.0013,
+    114.9941
+  ],
+  "bearing_seaward_deg": 255.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 51.0,
+  "mean_slope_m_per_km": 2.65,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.00188,
+      "lon": 114.99148,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.00246,
+      "lon": 114.98886,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.00363,
+      "lon": 114.98362,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.00595,
+      "lon": 114.97314,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.00828,
+      "lon": 114.96266,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.01293,
+      "lon": 114.9417,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.01989,
+      "lon": 114.91026,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.02917,
+      "lon": 114.86832,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.04305,
+      "lon": 114.8054,
+      "depth_m": 51.0
+    }
+  ]
+}

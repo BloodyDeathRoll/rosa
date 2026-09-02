@@ -115,6 +115,13 @@ REGIONS = {
     # box and are barely surfed); the Big Island is left out, it would add 2 deg of
     # mostly cliff coast for a handful of Hilo/Kona breaks
     "hawaii": (20.50, -159.85, 22.30, -155.90),
+    # Perth metro surf coast: Mandurah up through Cottesloe, Scarborough/Trigg and the
+    # northern beaches to Two Rocks, plus Rottnest Island offshore
+    "perth": (-32.65, 115.40, -31.40, 115.85),
+    # the Capes: Cape Naturaliste (Yallingup, Injidup) down through Gracetown and the
+    # Margaret River mouth to Cape Leeuwin; Geographe Bay's sheltered east side is inside
+    # the box but bathy-prunes itself
+    "margaret-river": (-34.40, 114.90, -33.50, 115.25),
 }
 
 

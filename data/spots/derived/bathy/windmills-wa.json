@@ -1,0 +1,72 @@
+{
+  "spot": "windmills-wa",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -33.5422,
+    115.0091
+  ],
+  "bearing_seaward_deg": 280.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 45.0,
+  "mean_slope_m_per_km": 2.7,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.54181,
+      "lon": 115.00644,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.54142,
+      "lon": 115.00379,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.54064,
+      "lon": 114.99847,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.53907,
+      "lon": 114.98785,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.53751,
+      "lon": 114.97722,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.53438,
+      "lon": 114.95597,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.52968,
+      "lon": 114.9241,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.52339,
+      "lon": 114.88162,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.51394,
+      "lon": 114.81789,
+      "depth_m": 45.0
+    }
+  ]
+}
