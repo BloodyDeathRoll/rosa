@@ -1,0 +1,72 @@
+{
+  "spot": "hyatt-reef",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -8.7139,
+    115.2714
+  ],
+  "bearing_seaward_deg": 132.0,
+  "nearshore_depth_m": 21.0,
+  "offshore_depth_m": 265.0,
+  "mean_slope_m_per_km": 13.75,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -8.7154,
+      "lon": 115.27309,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -8.71691,
+      "lon": 115.27478,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -8.71992,
+      "lon": 115.27816,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -8.72594,
+      "lon": 115.28492,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -8.73195,
+      "lon": 115.29168,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -8.74399,
+      "lon": 115.30521,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -8.76204,
+      "lon": 115.3255,
+      "depth_m": 141.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -8.7861,
+      "lon": 115.35255,
+      "depth_m": 109.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -8.8222,
+      "lon": 115.39314,
+      "depth_m": 265.0
+    }
+  ]
+}

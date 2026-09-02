@@ -176,7 +176,31 @@ Four things, in this order:
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-09-02, DB = 854 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-09-02, DB = 893 spots, ALL sat-verified)
+
+**Bali 0 -> 39 (2026-09-02) - the first Indonesian region.** One box (-8.90..-8.05, 114.45..115.75)
+holding both coasts plus Nusa Lembongan / Ceningan; Java's tip and Lombok stay out for their own
+regions. `bali.yaml` (`&bali`, reef, Asia/Makassar, west-coast defaults), new `indonesia` swellmap
+basin, Geofabrik `asia/indonesia` (1.7 GB - the coastline stage and `towns.py` each take ~10 min;
+run both in the background). Primary flow: 809 bathy-passed candidates, 75 named beaches, 5 Tier-A -
+all skipped (two duplicated web names, one business node, one generic "Surf break" node, one the
+Suluban beach). Secondary: 43 guide names -> all geocoded (Google alone on 38) -> all rendered at
+z16 -> 17 keep / 22 move / 4 drop over four rounds, with z15 reads of Uluwatu-Padang, Bingin-Dreamland,
+the airport reefs, Nusa Dua, Sanur, Lembongan and Ceningan. What was new: (1) **reef-pass country
+like the Maldives, but with visible whitewater** - every Bukit and Nusa Dua peak could be placed on
+a breaking line, and the sub-metre ESRI imagery showed the Kuta Reef / Airport Lefts / Airport Rights
+peaks as three separate lines on one reef; (2) Google's Bali failure mode is the RESORT - Nusa Dua,
+Sri Lanka, Mushrooms, Hyatt Reef, Dreamland and Keramas all returned a hotel or a field, and the reef
+had to be found on the wide tile; (3) ten normals set by hand where the nearest coastline way ran the
+wrong direction (Serangan, Black Stone and Sri Lanka came back pointing S/N on an E-facing reef; the
+airport-lefts normal pointed N along the runway). Playgrounds took four renders (the reef's southern
+tip, not the bay). All five Lembongan / Ceningan normals hit Bali across the Badung Strait at 18 km
+(Shipwrecks -107 m) and were re-aimed SW by the GEBCO arc sweep - the island-shadow case again, one
+strait wide. Dropped Jimbaran (Google -> Balangan cliff), Pekutatan (= Medewi), Ketewel and
+Klotok (inland pins). Towns are the search keys surfers use (Uluwatu, Canggu, Nusa Dua, Nusa
+Lembongan) - 39 overrides. `shipwrecks` clashes with Mexico's and took `-bali`. Judge log `work/bali/judge.json`. **Next Indonesian regions:** Lombok /
+Sumbawa (Desert Point, Lakey Peak), Java (G-Land, Cimaja, Pacitan), Mentawai, Sumba, Nias.
+
 
 **Perth 0 -> 34 and Margaret River 0 -> 28 (2026-09-02) - the first West Australian regions.**
 Two `REGIONS` boxes like Sydney/Byron: Perth = Mandurah to Two Rocks plus Rottnest; Margaret
@@ -511,7 +535,7 @@ once bathymetry allows); Mexico detail - the East Cape between Shipwrecks and Ni
 Punta Mita sub-breaks, Oaxaca's Salina Cruz points beyond Conejo/Chipehua; Japan Hokkaido /
 Okinawa / Wakayama detail; Philippines more (Daku, Zambales Liwliwa neighbours); Portugal
 Ericeira micro-spots & the **Azores**; Nicaragua north (Puerto Sandino cluster). Regions with
-zero spots today: everywhere else - Indonesia, Chile, Ecuador, France/Spain, South Africa;
+zero spots today: everywhere else - Indonesia beyond Bali, Chile, Ecuador, France/Spain, South Africa;
 Australia beyond Sydney/Byron/Perth/Margaret River (Gold Coast, Victoria, WA north of Perth - Geraldton, Kalbarri, Gnaraloo - and Esperance); Hawaii's Big Island.
 **The real frontier = Tier-B.** Tens of thousands of physics-valid, *unnamed* coastline
 stretches (Japan 22k, Philippines 37k). OSM/guides never named them; this is the sat-verify +

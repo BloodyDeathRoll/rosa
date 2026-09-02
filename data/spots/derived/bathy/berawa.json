@@ -1,0 +1,72 @@
+{
+  "spot": "berawa",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -8.6638,
+    115.1359
+  ],
+  "bearing_seaward_deg": 210.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 45.0,
+  "mean_slope_m_per_km": 2.7,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -8.66575,
+      "lon": 115.13476,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -8.66769,
+      "lon": 115.13363,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -8.67159,
+      "lon": 115.13135,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -8.67938,
+      "lon": 115.1268,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -8.68716,
+      "lon": 115.12225,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -8.70274,
+      "lon": 115.11316,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -8.72611,
+      "lon": 115.09951,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -8.75726,
+      "lon": 115.0813,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -8.80398,
+      "lon": 115.054,
+      "depth_m": 45.0
+    }
+  ]
+}

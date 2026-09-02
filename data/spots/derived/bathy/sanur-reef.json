@@ -1,0 +1,72 @@
+{
+  "spot": "sanur-reef",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -8.7037,
+    115.2723
+  ],
+  "bearing_seaward_deg": 114.0,
+  "nearshore_depth_m": 25.0,
+  "offshore_depth_m": 141.0,
+  "mean_slope_m_per_km": 6.54,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -8.70461,
+      "lon": 115.27438,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -8.70553,
+      "lon": 115.27646,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -8.70736,
+      "lon": 115.28061,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -8.71102,
+      "lon": 115.28892,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -8.71467,
+      "lon": 115.29723,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -8.72199,
+      "lon": 115.31386,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -8.73296,
+      "lon": 115.3388,
+      "depth_m": 125.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -8.74758,
+      "lon": 115.37205,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -8.76951,
+      "lon": 115.42193,
+      "depth_m": 141.0
+    }
+  ]
+}

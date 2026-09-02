@@ -1,0 +1,72 @@
+{
+  "spot": "padang-galak",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -8.6611,
+    115.2633
+  ],
+  "bearing_seaward_deg": 115.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 104.0,
+  "mean_slope_m_per_km": 5.8,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -8.66205,
+      "lon": 115.26536,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -8.663,
+      "lon": 115.26742,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -8.6649,
+      "lon": 115.27154,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -8.6687,
+      "lon": 115.27979,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -8.6725,
+      "lon": 115.28803,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -8.6801,
+      "lon": 115.30453,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -8.6915,
+      "lon": 115.32926,
+      "depth_m": 125.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -8.7067,
+      "lon": 115.36225,
+      "depth_m": 182.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -8.72948,
+      "lon": 115.41173,
+      "depth_m": 104.0
+    }
+  ]
+}

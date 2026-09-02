@@ -1,0 +1,72 @@
+{
+  "spot": "nusa-dua",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -8.7967,
+    115.2373
+  ],
+  "bearing_seaward_deg": 77.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 181.0,
+  "mean_slope_m_per_km": 10.03,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -8.79619,
+      "lon": 115.23952,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -8.79569,
+      "lon": 115.24173,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -8.79468,
+      "lon": 115.24617,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -8.79265,
+      "lon": 115.25503,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -8.79063,
+      "lon": 115.2639,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -8.78658,
+      "lon": 115.28163,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -8.78051,
+      "lon": 115.30823,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -8.77241,
+      "lon": 115.3437,
+      "depth_m": 147.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -8.76025,
+      "lon": 115.39689,
+      "depth_m": 181.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "airport-rights",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -8.7488,
+    115.1511
+  ],
+  "bearing_seaward_deg": 259.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 106.0,
+  "mean_slope_m_per_km": 5.69,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -8.74923,
+      "lon": 115.14887,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -8.74966,
+      "lon": 115.14663,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -8.75052,
+      "lon": 115.14217,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -8.75223,
+      "lon": 115.13324,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -8.75395,
+      "lon": 115.1243,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -8.75738,
+      "lon": 115.10644,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -8.76252,
+      "lon": 115.07964,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -8.76938,
+      "lon": 115.04391,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -8.77965,
+      "lon": 114.99031,
+      "depth_m": 106.0
+    }
+  ]
+}

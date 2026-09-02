@@ -1,0 +1,64 @@
+# Rosa spot database - Bali (seeded 2026-09-02, the first Indonesian region). Two coasts in
+# one box: the Bukit and west coast face SW into Indian Ocean groundswell and are offshore
+# on the dry-season SE trade (May-Oct); the east coast (Keramas, Sanur, Nusa Dua) and Nusa
+# Lembongan face E-SE, work in the wet-season W wind, and take the same S swell wrapping in.
+# swell_window and offshore_direction are per spot; the anchor's default is the west coast.
+# Reef throughout except the Kuta-Canggu and Medewi beaches, set per spot.
+
+defaults: &bali
+  timezone: Asia/Makassar
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [180, 290]
+  ideal:
+    wind_dir: [60, 150]
+    size_m: [1.0, 3.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-02 - bali, 39 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 39 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/bali/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: medewi, name: "Medewi", town: "Medewi", lat: -8.4198, lon: 114.8052, offshore_direction: 40, swell_window: [155, 285], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: balian, name: "Balian", town: "Balian", lat: -8.5027, lon: 114.9643, offshore_direction: 28, swell_window: [143, 273], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: lebih, name: "Lebih", town: "Gianyar", lat: -8.5808, lon: 115.3557, offshore_direction: 319, swell_window: [74, 204], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: yeh-gangga, name: "Yeh Gangga", town: "Tabanan", lat: -8.5914, lon: 115.0690, offshore_direction: 51, swell_window: [166, 296], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: keramas, name: "Keramas", town: "Keramas", lat: -8.5975, lon: 115.3393, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: seseh, name: "Seseh", town: "Seseh", lat: -8.6479, lon: 115.1158, offshore_direction: 26, swell_window: [141, 271], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: pererenan, name: "Pererenan", town: "Pererenan", lat: -8.6516, lon: 115.1211, offshore_direction: 36, swell_window: [151, 281], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: echo-beach, name: "Echo Beach", town: "Canggu", lat: -8.6537, lon: 115.1238, offshore_direction: 40, swell_window: [155, 285], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: batu-bolong, name: "Batu Bolong", town: "Canggu", lat: -8.6595, lon: 115.1301, offshore_direction: 54, swell_window: [169, 299], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: padang-galak, name: "Padang Galak", town: "Sanur", lat: -8.6611, lon: 115.2633, offshore_direction: 295, swell_window: [50, 180], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: berawa, name: "Berawa", town: "Canggu", lat: -8.6638, lon: 115.1359, offshore_direction: 30, swell_window: [145, 275], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: shipwrecks-bali, name: "Shipwrecks", town: "Nusa Lembongan", lat: -8.6700, lon: 115.4425, offshore_direction: 66, swell_window: [181, 311], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: Bali shadow across the Badung Strait]
+  - { id: lacerations, name: "Lacerations", town: "Nusa Lembongan", lat: -8.6723, lon: 115.4421, offshore_direction: 66, swell_window: [181, 311], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: Bali shadow across the Badung Strait]
+  - { id: playgrounds, name: "Playgrounds", town: "Nusa Lembongan", lat: -8.6757, lon: 115.4420, offshore_direction: 96, swell_window: [211, 341], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: Bali shadow across the Badung Strait]
+  - { id: seminyak, name: "Seminyak", town: "Seminyak", lat: -8.6944, lon: 115.1585, offshore_direction: 54, swell_window: [169, 299], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: legian, name: "Legian", town: "Legian", lat: -8.7033, lon: 115.1643, offshore_direction: 67, swell_window: [182, 312], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: razors, name: "Razors", town: "Nusa Lembongan", lat: -8.7033, lon: 115.4381, offshore_direction: 44, swell_window: [159, 289], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: Bali shadow across the Badung Strait]
+  - { id: sanur-reef, name: "Sanur Reef", town: "Sanur", lat: -8.7037, lon: 115.2723, offshore_direction: 294, swell_window: [49, 179], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: ceningan-point, name: "Ceningan Point", town: "Nusa Ceningan", lat: -8.7063, lon: 115.4377, offshore_direction: 42, swell_window: [157, 287], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: Bali shadow across the Badung Strait]
+  - { id: hyatt-reef, name: "Hyatt Reef", town: "Sanur", lat: -8.7139, lon: 115.2714, offshore_direction: 312, swell_window: [67, 197], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: kuta-beach, name: "Kuta Beach", town: "Kuta", lat: -8.7189, lon: 115.1684, offshore_direction: 73, swell_window: [188, 318], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: kuta-reef, name: "Kuta Reef", town: "Kuta", lat: -8.7322, lon: 115.1554, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: airport-lefts, name: "Airport Lefts", town: "Kuta", lat: -8.7403, lon: 115.1509, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: serangan, name: "Serangan", town: "Serangan", lat: -8.7413, lon: 115.2447, offshore_direction: 315, swell_window: [70, 200], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: airport-rights, name: "Airport Rights", town: "Kuta", lat: -8.7488, lon: 115.1511, offshore_direction: 79, swell_window: [194, 324], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: sri-lanka, name: "Sri Lanka", town: "Nusa Dua", lat: -8.7887, lon: 115.2327, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: balangan, name: "Balangan", town: "Pecatu", lat: -8.7923, lon: 115.1233, offshore_direction: 136, swell_window: [251, 21], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: nusa-dua, name: "Nusa Dua", town: "Nusa Dua", lat: -8.7967, lon: 115.2373, offshore_direction: 257, swell_window: [12, 142], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: dreamland, name: "Dreamland", town: "Pecatu", lat: -8.7990, lon: 115.1160, offshore_direction: 91, swell_window: [206, 336], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: mushrooms, name: "Mushrooms", town: "Nusa Dua", lat: -8.8001, lon: 115.2397, offshore_direction: 257, swell_window: [12, 142], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: bingin, name: "Bingin", town: "Bingin", lat: -8.8041, lon: 115.1133, offshore_direction: 143, swell_window: [258, 28], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: black-stone, name: "Black Stone", town: "Nusa Dua", lat: -8.8050, lon: 115.2390, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: impossibles, name: "Impossibles", town: "Bingin", lat: -8.8083, lon: 115.1058, offshore_direction: 147, swell_window: [262, 32], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: padang-padang, name: "Padang Padang", town: "Uluwatu", lat: -8.8101, lon: 115.1000, offshore_direction: 141, swell_window: [256, 26], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: thomas-beach, name: "Thomas Beach", town: "Uluwatu", lat: -8.8131, lon: 115.0966, offshore_direction: 144, swell_window: [259, 29], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: uluwatu, name: "Uluwatu", town: "Uluwatu", lat: -8.8153, lon: 115.0875, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: geger, name: "Geger", town: "Nusa Dua", lat: -8.8193, lon: 115.2329, offshore_direction: 319, swell_window: [74, 204], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: nyang-nyang, name: "Nyang Nyang", town: "Pecatu", lat: -8.8399, lon: 115.0958, offshore_direction: 29, swell_window: [144, 274], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: green-bowl, name: "Green Bowl", town: "Ungasan", lat: -8.8503, lon: 115.1706, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)

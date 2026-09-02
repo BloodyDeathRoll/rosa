@@ -122,6 +122,9 @@ REGIONS = {
     # Margaret River mouth to Cape Leeuwin; Geographe Bay's sheltered east side is inside
     # the box but bathy-prunes itself
     "margaret-river": (-34.40, 114.90, -33.50, 115.25),
+    # Bali plus Nusa Lembongan / Ceningan / Penida; the west edge stays east of Java's
+    # tip (G-Land is a Java region) and the east edge short of Lombok
+    "bali": (-8.90, 114.45, -8.05, 115.75),
 }
 
 

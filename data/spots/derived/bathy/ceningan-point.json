@@ -1,0 +1,72 @@
+{
+  "spot": "ceningan-point",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -8.7063,
+    115.4377
+  ],
+  "bearing_seaward_deg": 222.0,
+  "nearshore_depth_m": 32.0,
+  "offshore_depth_m": 139.0,
+  "mean_slope_m_per_km": 6.03,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -8.70797,
+      "lon": 115.43618,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -8.70964,
+      "lon": 115.43466,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -8.71298,
+      "lon": 115.43161,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -8.71967,
+      "lon": 115.42552,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -8.72635,
+      "lon": 115.41944,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -8.73972,
+      "lon": 115.40726,
+      "depth_m": 138.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -8.75976,
+      "lon": 115.38899,
+      "depth_m": 141.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -8.78649,
+      "lon": 115.36463,
+      "depth_m": 123.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -8.82658,
+      "lon": 115.32808,
+      "depth_m": 139.0
+    }
+  ]
+}

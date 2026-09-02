@@ -42,6 +42,7 @@ REGION_PBF = {
     "Hawaii": "hawaii",
     "Perth": "perth",
     "Margaret River": "margaret-river",
+    "Bali": "bali",
 }
 
 

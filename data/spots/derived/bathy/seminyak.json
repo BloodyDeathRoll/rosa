@@ -1,0 +1,72 @@
+{
+  "spot": "seminyak",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -8.6944,
+    115.1585
+  ],
+  "bearing_seaward_deg": 234.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 61.0,
+  "mean_slope_m_per_km": 3.32,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -8.69572,
+      "lon": 115.15666,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -8.69704,
+      "lon": 115.15482,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -8.69969,
+      "lon": 115.15114,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -8.70497,
+      "lon": 115.14378,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -8.71026,
+      "lon": 115.13642,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -8.72083,
+      "lon": 115.1217,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -8.73668,
+      "lon": 115.09961,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -8.75782,
+      "lon": 115.07016,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -8.78953,
+      "lon": 115.02598,
+      "depth_m": 61.0
+    }
+  ]
+}

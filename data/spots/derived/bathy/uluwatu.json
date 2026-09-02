@@ -1,0 +1,72 @@
+{
+  "spot": "uluwatu",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -8.8153,
+    115.0875
+  ],
+  "bearing_seaward_deg": 240.0,
+  "nearshore_depth_m": -14.0,
+  "offshore_depth_m": 824.0,
+  "mean_slope_m_per_km": 47.21,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -8.81642,
+      "lon": 115.08553,
+      "depth_m": -14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -8.81755,
+      "lon": 115.08356,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -8.8198,
+      "lon": 115.07962,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -8.82429,
+      "lon": 115.07174,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -8.82879,
+      "lon": 115.06385,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -8.83778,
+      "lon": 115.04809,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -8.85127,
+      "lon": 115.02444,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -8.86925,
+      "lon": 114.99291,
+      "depth_m": 306.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -8.89621,
+      "lon": 114.9456,
+      "depth_m": 824.0
+    }
+  ]
+}

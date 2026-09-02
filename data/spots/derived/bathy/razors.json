@@ -1,0 +1,72 @@
+{
+  "spot": "razors",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -8.7033,
+    115.4381
+  ],
+  "bearing_seaward_deg": 224.0,
+  "nearshore_depth_m": 25.0,
+  "offshore_depth_m": 137.0,
+  "mean_slope_m_per_km": 6.31,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -8.70492,
+      "lon": 115.43652,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -8.70653,
+      "lon": 115.43494,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -8.70977,
+      "lon": 115.43178,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -8.71624,
+      "lon": 115.42546,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -8.72271,
+      "lon": 115.41914,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -8.73564,
+      "lon": 115.4065,
+      "depth_m": 136.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -8.75505,
+      "lon": 115.38753,
+      "depth_m": 122.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -8.78092,
+      "lon": 115.36224,
+      "depth_m": 122.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -8.81973,
+      "lon": 115.3243,
+      "depth_m": 137.0
+    }
+  ]
+}
