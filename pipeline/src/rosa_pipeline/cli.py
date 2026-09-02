@@ -1218,7 +1218,8 @@ def _cmd_verify(args: argparse.Namespace) -> int:
 
 def _archive_om_rows(
     store: FileArchiveStore, args: argparse.Namespace, now: datetime, buoy: Buoy, model
-) -> None:
+) -> int:
+    """Archive one buoy's om rows; returns how many, so the arm can total them."""
     rows = rows_from_model(now, model)
     store.append(buoy.id, rows)
     stamp = now.isoformat(timespec="seconds")
@@ -1226,6 +1227,7 @@ def _archive_om_rows(
         f"{buoy.id}: archived {len(rows)} forecast rows @ {stamp}"
         f" → {args.archive_dir / (buoy.id + '.jsonl')}"
     )
+    return len(rows)
 
 
 def _is_replay(args: argparse.Namespace) -> bool:
@@ -1238,7 +1240,7 @@ def _is_replay(args: argparse.Namespace) -> bool:
     )
 
 
-def _warn_member_empty(member: str, rows: int, targets: list) -> None:
+def _warn_member_empty(member: str, rows: int, targets: list, noun: str = "buoy") -> None:
     """An A/B member that archived NOTHING at any buoy has to say so, once, on stderr.
 
     The per-step fetchers turn every non-200 and every httpx error into a missing step
@@ -1252,7 +1254,7 @@ def _warn_member_empty(member: str, rows: int, targets: list) -> None:
     OM archive still decides the exit code."""
     if targets and rows == 0:
         print(
-            f"warn: {member} archived 0 rows at all {len(targets)} buoy(s) - the member "
+            f"warn: {member} archived 0 rows at all {len(targets)} {noun}(s) - the member "
             "fetched nothing this cycle (outage or a moved endpoint); these hours cannot "
             "be back-filled",
             file=sys.stderr,
@@ -1315,6 +1317,7 @@ def _archive_stations(args: argparse.Namespace, now: datetime) -> None:
     except Exception as e:
         print(f"warn: station wind batch failed ({e!r}) - station arm skipped", file=sys.stderr)
         return
+    total = 0
     for st, body, ab in zip(targets, bodies, ab_bodies, strict=True):
         try:
             if args.capture is not None and args.wind_fixtures is None:
@@ -1328,6 +1331,7 @@ def _archive_stations(args: argparse.Namespace, now: datetime) -> None:
                     )
             rows = rows_from_model(now, wind_points(body))
             store.append(st.id, rows)
+            total += len(rows)
             n_ab = 0
             if ab is not None:
                 ab_rows = rows_from_model(now, wind_points(ab))
@@ -1340,6 +1344,11 @@ def _archive_stations(args: argparse.Namespace, now: datetime) -> None:
             )
         except Exception as e:
             print(f"warn: {st.id}: {e!r} - station left out of this run", file=sys.stderr)
+    # Same silent shape as the wave members: the batch guard above catches a raise, but a
+    # 200 that parses to no hours archives 0 rows at every station and returns cleanly -
+    # 89 lines of "archived 0 wind rows" and no summary. Only the published model is
+    # totalled: the A/B member has its own warn on the one path that can empty it.
+    _warn_member_empty(WEATHER_MODEL, total, targets, noun="station")
 
 
 def _cmd_archive(args: argparse.Namespace) -> int:
@@ -1356,6 +1365,8 @@ def _cmd_archive(args: argparse.Namespace) -> int:
     store = FileArchiveStore(args.archive_dir)
     now = datetime.now(UTC)
     failures: list[tuple[str, Exception]] = []
+    om_total = 0
+    om_batch_failed = False
     if args.wave_source in ("om", "both", "all"):
         # Failure must not sink the fleet run (same philosophy as run --all per spot
         # and verify --all-buoys per buoy): the archive is append-only and can never
@@ -1389,7 +1400,7 @@ def _cmd_archive(args: argparse.Namespace) -> int:
                             f"warn: {buoy.id}: wind fetch failed ({e!r}) - archiving without wind",
                             file=sys.stderr,
                         )
-                _archive_om_rows(store, args, now, buoy, model)
+                om_total += _archive_om_rows(store, args, now, buoy, model)
         else:
             # fleet live run: one comma-joined request for all buoys instead of one
             # request (fresh TCP+TLS) per buoy - 15 calls/cycle -> 1, and one
@@ -1397,6 +1408,7 @@ def _cmd_archive(args: argparse.Namespace) -> int:
             try:
                 marines = fetch_marine_waves_many([(b.lat, b.lon) for b in targets])
             except Exception as e:
+                om_batch_failed = True
                 failures.extend((b.id, e) for b in targets)
                 print(
                     f"error: open-meteo batch failed ({e!r}) - om rows left out of "
@@ -1434,7 +1446,14 @@ def _cmd_archive(args: argparse.Namespace) -> int:
                             file=sys.stderr,
                         )
                         continue
-                    _archive_om_rows(store, args, now, buoy, model)
+                    om_total += _archive_om_rows(store, args, now, buoy, model)
+        if not om_batch_failed:
+            # The om arm raises on a total outage (it calls raise_for_status), and the
+            # branch above already says so - but a 200 that parses to no hours is the
+            # other half of the shape _warn_member_empty exists for: 15 lines each
+            # saying "archived 0 rows" and a clean exit. Suppressed when the batch
+            # already errored, so the loud path stays one line, like the members below.
+            _warn_member_empty("om", om_total, targets)
     if args.wave_source in ("gfswave", "both", "all"):
         # Stage 3a A/B member. Guarded so a NOMADS outage never breaks OM archiving.
         try:
@@ -1479,8 +1498,19 @@ def _cmd_archive(args: argparse.Namespace) -> int:
             _warn_member_empty("ecmwf", total, targets)
         except Exception as e:
             print(f"warn: ecmwf archive skipped: {e}", file=sys.stderr)
-    # coastal wind stations - after every buoy member, and never able to fail the run
-    _archive_stations(args, now)
+    # coastal wind stations - after every buoy member, and never able to fail the run.
+    # The arm guards every FETCH it makes, but its first two statements (the registry
+    # load and the archive store) sit outside every try, and `load_stations` raises on a
+    # duplicate id, a missing id/name/lat/lon, a bad coordinate or unparseable YAML -
+    # and data/stations/*.yaml is regenerated by `stations --discover metar` after every
+    # spot-DB change, with the IMS rows hand-maintained beside it. Escaping here bypassed
+    # the exit contract below (0 clean / 1 some buoy failed) and reported an already-
+    # complete essential archive as a crashed cycle. Same shape as the gfswave/ecmwf
+    # members' guards: warn, and let the archive keep its own answer.
+    try:
+        _archive_stations(args, now)
+    except Exception as e:
+        print(f"warn: station arm skipped: {e!r}", file=sys.stderr)
     if failures:
         # still a failed cycle for the cron trap - but only after archiving every
         # buoy and member that could be archived (mirrors _cmd_run's summary)

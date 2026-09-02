@@ -139,6 +139,16 @@ RETRY_STATUS = frozenset({500, 502, 503, 504})
 # day Open-Meteo rewords its error body. A 429 whose reason reads as another bucket is
 # still never retried.
 _MINUTE_LIMIT_MARKER = "minutely api request limit"
+# ...and the two buckets that do NOT reopen inside a cycle, named the same way. A body
+# that positively identifies one of these vetoes every retry path below, Retry-After
+# included: the header says how long the SERVER wants us to wait (Open-Meteo's daily
+# bucket resets at 00:00Z, so that is hours), and honoring it would spend up to
+# _RETRY_AFTER_CAP_S twice per essential request in front of a failure
+# `rosa_pipeline.quota` is the designed handler for. Unrecognised wording still falls
+# through to the header - that is the wording-independence the 2026-08-31 change bought,
+# and what test_fetch.py::test_retry_after_header_is_honored_on_a_429_whatever_the_body_says
+# pins; only a bucket we can NAME is vetoed here.
+_OTHER_LIMIT_MARKERS = ("hourly api request limit", "daily api request limit")
 _MINUTE_RETRY_WAIT_S = 65.0
 _RETRY_AFTER_CAP_S = 300.0
 
@@ -149,6 +159,12 @@ def _retry_wait_s(resp: httpx.Response, attempt: int) -> float | None:
         return 10.0 * (attempt + 1)
     if resp.status_code != 429:
         return None
+    try:
+        named = str(resp.json().get("reason", "")).lower()
+    except Exception:
+        named = ""  # a non-JSON 429 body is unclassifiable
+    if any(m in named for m in _OTHER_LIMIT_MARKERS):
+        return None  # a bucket that cannot reopen in time - see _OTHER_LIMIT_MARKERS
     # the server's own answer, when it gives one - bounded, wording-independent
     retry_after = getattr(resp, "headers", {}).get("Retry-After")
     if retry_after is not None:
