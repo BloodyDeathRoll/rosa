@@ -4,7 +4,6 @@ import { BottomGlow } from "./components/BottomGlow";
 import { InstallPrompt } from "./components/InstallPrompt";
 import { AboutPage, type AboutDoc } from "./pages/AboutPage";
 import { ChartsPage } from "./pages/ChartsPage";
-import { ContactPage } from "./pages/ContactPage";
 import { MapPage } from "./pages/MapPage";
 import { SettingsPage } from "./pages/SettingsPage";
 import { SearchPage } from "./pages/SearchPage";
@@ -23,7 +22,6 @@ export type Route =
   | { page: "charts" }
   | { page: "settings" }
   | { page: "about"; doc: AboutDoc }
-  | { page: "contact" }
   | { page: "spot"; id: string };
 
 export function parseRoute(hash: string): Route {
@@ -34,9 +32,8 @@ export function parseRoute(hash: string): Route {
   if (hash.startsWith("#/search")) return { page: "search" };
   // #/favorites is a pre-handoff route folded into Spots
   if (hash.startsWith("#/spots") || hash.startsWith("#/favorites")) return { page: "spots" };
-  const about = /^#\/about\/(how|reading|terms|privacy)/.exec(hash);
+  const about = /^#\/about\/(how|reading|terms|privacy|contact)/.exec(hash);
   if (about?.[1]) return { page: "about", doc: about[1] as AboutDoc };
-  if (hash.startsWith("#/contact")) return { page: "contact" };
   if (hash.startsWith("#/settings") || hash.startsWith("#/account")) return { page: "settings" };
   return { page: "today" };
 }
@@ -109,21 +106,15 @@ export function App() {
         <SettingsPage theme={theme} onSetTheme={onSetTheme} />
       ) : route.page === "about" ? (
         <AboutPage doc={route.doc} />
-      ) : route.page === "contact" ? (
-        <ContactPage />
       ) : (
         <TodayPage />
       )}
       {/* Search stays focused (no nav). Spot pages show the nav but light no tab
-          (you're deeper than any section). About and Contact live under Profile. */}
+          (you're deeper than any section). About lives under Profile. */}
       {route.page !== "search" && (
         <TabBar
           active={
-            route.page === "spot"
-              ? null
-              : route.page === "about" || route.page === "contact"
-                ? "settings"
-                : route.page
+            route.page === "spot" ? null : route.page === "about" ? "settings" : route.page
           }
         />
       )}

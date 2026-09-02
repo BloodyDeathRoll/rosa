@@ -256,7 +256,7 @@ export function SettingsPage({
           <button class="settings-row tall about-link" onClick={() => (location.hash = "#/about/privacy")}>
             <span class="label">Privacy Policy</span>
           </button>
-          <button class="settings-row tall about-link" onClick={() => (location.hash = "#/contact")}>
+          <button class="settings-row tall about-link" onClick={() => (location.hash = "#/about/contact")}>
             <span class="label">Contact us</span>
           </button>
         </section>

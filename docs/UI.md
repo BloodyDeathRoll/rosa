@@ -18,6 +18,6 @@ Shell: **Today | Spots | Map | Profile**.
 
 **Period display ≠ scoring** — the swell readouts show the PEAK period while `period_score` and the shoaling march run on the mean. Deliberate; see `docs/ALGORITHM.md`. Disclosed at `#/about/reading`.
 
-**Contact Us** (`#/contact`, `ContactPage.tsx`, linked from Profile > About Rosa): one text block + Send. POSTs to the push API's `/api/contact` (`deploy/push-api/api/contact.js`), which stores every message as a private blob under `contact/` and emails it via Resend (`RESEND_API_KEY`, `CONTACT_TO`); a failed POST falls back to a `mailto:` link carrying the text. Added 2026-09-02.
+**Contact Us** (`#/about/contact`, an `AboutDoc` rendered by `AboutPage.tsx` like the other static pages, linked from Profile > About Rosa): one text block + Send. POSTs to the push API's `/api/contact` (`deploy/push-api/api/contact.js`), which stores every message as a private blob under `contact/` and emails it via Resend (`RESEND_API_KEY`, `CONTACT_TO`); a failed POST falls back to a `mailto:` link carrying the text. Added 2026-09-02.
 
 Data-point glossary lives in `AboutPage.tsx` → `ReadingTheForecast` (`#/about/reading`) — **keep in sync when a displayed field changes.**

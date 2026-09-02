@@ -1,14 +1,15 @@
-import { useEffect } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import { ChevronLeftIcon } from "../components/icons";
 import { signalReady } from "../splash";
 
-export type AboutDoc = "how" | "reading" | "terms" | "privacy";
+export type AboutDoc = "how" | "reading" | "terms" | "privacy" | "contact";
 
 const DOCS: Record<AboutDoc, { title: string; img: string }> = {
   how: { title: "How it works", img: "/about/how.jpg" },
   reading: { title: "Reading the forecast", img: "/about/reading.jpg" },
   terms: { title: "Terms of Use", img: "/about/terms.jpg" },
   privacy: { title: "Privacy Policy", img: "/about/privacy.jpg" },
+  contact: { title: "Contact Us", img: "/about/contact.jpg" },
 };
 
 function HowItWorks() {
@@ -362,6 +363,78 @@ function Privacy() {
   );
 }
 
+/** Contact Us: one text block and a Send button. The message goes to the push API's
+    /contact endpoint, which emails it to the maintainer; if the API is unreachable the
+    page falls back to a mailto: link so the message is never lost. */
+const CONTACT_API = (import.meta.env.VITE_PUSH_API as string | undefined) ?? "";
+const CONTACT_EMAIL = "einhanamer@gmail.com";
+const CONTACT_MAX = 2000;
+
+function ContactUs() {
+  const [text, setText] = useState("");
+  const [state, setState] = useState<"idle" | "sending" | "sent" | "failed">("idle");
+
+  const send = async () => {
+    const message = text.trim();
+    if (!message || state === "sending") return;
+    setState("sending");
+    try {
+      const res = await fetch(`${CONTACT_API}/api/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message, page: location.hash, ua: navigator.userAgent }),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      setState("sent");
+      setText("");
+    } catch {
+      setState("failed");
+    }
+  };
+
+  const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Rosa feedback")}&body=${encodeURIComponent(text)}`;
+
+  return (
+    <>
+      <p class="about-lead">We would love your feedback!</p>
+      {state === "sent" ? (
+        <p class="contact-status" role="status">
+          Sent. Thank you!
+        </p>
+      ) : (
+        <form
+          class="contact-form"
+          onSubmit={(e) => {
+            e.preventDefault();
+            void send();
+          }}
+        >
+          <textarea
+            class="contact-text"
+            value={text}
+            maxLength={CONTACT_MAX}
+            rows={7}
+            placeholder="What's on your mind?"
+            aria-label="Your message"
+            onInput={(e) => setText((e.currentTarget as HTMLTextAreaElement).value)}
+          />
+          <div class="contact-actions">
+            <button type="submit" class="contact-send" disabled={!text.trim() || state === "sending"}>
+              {state === "sending" ? "Sending…" : "Send"}
+            </button>
+          </div>
+          {state === "failed" && (
+            <p class="contact-status contact-failed" role="alert">
+              Could not send right now. <a href={mailto}>Email us instead</a> - your message is kept
+              in the link.
+            </p>
+          )}
+        </form>
+      )}
+    </>
+  );
+}
+
 export function AboutPage({ doc }: { doc: AboutDoc }) {
   // static content, ready as soon as it mounts (lets the splash lift promptly)
   useEffect(signalReady, []);
@@ -393,8 +466,10 @@ export function AboutPage({ doc }: { doc: AboutDoc }) {
           <ReadingTheForecast />
         ) : doc === "terms" ? (
           <Terms />
-        ) : (
+        ) : doc === "privacy" ? (
           <Privacy />
+        ) : (
+          <ContactUs />
         )}
       </div>
     </main>
