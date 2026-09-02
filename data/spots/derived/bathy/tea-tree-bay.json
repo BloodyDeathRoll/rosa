@@ -1,0 +1,72 @@
+{
+  "spot": "tea-tree-bay",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -26.3793,
+    153.1033
+  ],
+  "bearing_seaward_deg": 54.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 57.0,
+  "mean_slope_m_per_km": 3.66,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -26.37798,
+      "lon": 153.10533,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -26.37666,
+      "lon": 153.10736,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -26.37401,
+      "lon": 153.11142,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -26.36873,
+      "lon": 153.11954,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -26.36344,
+      "lon": 153.12766,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -26.35286,
+      "lon": 153.1439,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -26.337,
+      "lon": 153.16825,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -26.31583,
+      "lon": 153.2007,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -26.28408,
+      "lon": 153.24936,
+      "depth_m": 57.0
+    }
+  ]
+}

@@ -139,6 +139,12 @@ REGIONS = {
     # West: Sawarna and Pelabuhan Ratu / Cimaja, Ujung Genteng, then Batu Karas and
     # Pangandaran; the Bogor/Jakarta north stays out
     "west-java": (-7.85, 106.25, -6.90, 108.70),
+    # Gold Coast: the QLD line at Coolangatta/Snapper up through Kirra, Currumbin, Burleigh
+    # and Surfers to The Spit and South Stradbroke; Byron's box already holds Tweed Heads
+    "gold-coast": (-28.18, 153.35, -27.80, 153.60),
+    # Sunshine Coast: Caloundra up through Alexandra Headland, Coolum and Peregian to
+    # Noosa's points
+    "sunshine-coast": (-26.85, 152.95, -26.35, 153.20),
 }
 
 

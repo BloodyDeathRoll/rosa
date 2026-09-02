@@ -176,7 +176,24 @@ Four things, in this order:
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-09-02, DB = 936 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-09-02, DB = 978 spots, ALL sat-verified)
+
+**Gold Coast 0 -> 20 and Sunshine Coast 0 -> 22 (2026-09-02) - south-east Queensland, joining
+Sydney and Byron on the `australia-east` basin.** Two boxes (Coolangatta-The Spit; Caloundra-Noosa),
+`Australia/Brisbane` anchors on the Sydney recipe, the Australia extract symlinked twice. Primary
+flow: 3 + 0 Tier-A (two duplicated web names and a "Ripcurl" brand node - skipped, as in Byron).
+Secondary: 22 + 22 guide names -> all rendered -> 28 keep / 14 move / 2 drop over five rounds.
+The cleanest pass yet: Australian suburbs geocode to their beach, so most pins were keeps; the
+moves were points (Snapper, Greenmount, Burleigh, Currumbin Alley, Moffat, Alexandra Headland,
+Noosa's First Point / National Park / Tea Tree / Granite) nudged from the sand onto the rocks
+where the wave starts, and the Seaway pair (The Spit, South Stradbroke) placed either side of the
+wall off a z14 read after Google returned the island for four different names. Eight normals set
+by hand - the Superbank points came back facing W because their coastline ways run N-S along
+the headland - and three Noosa points (National Park, Johnsons, Tea Tree) re-aimed NE by arc sweep
+because their N/NW rays hit the Noosa North Shore at 18 km. Judge logs in `work/gold-coast/judge.json` and `work/sunshine-coast/judge.json`.
+**Next in Australia:** Victoria (Bells, Torquay, Phillip Island), then Margaret River's north
+(Geraldton, Kalbarri).
+
 
 **East Java 0 -> 12 and West Java 0 -> 6 (2026-09-02) - Java's south coast in two boxes.** East =
 Pacitan to G-Land, West = Sawarna to Pangandaran; Central Java (Parangtritis, Kebumen) is not
@@ -575,7 +592,7 @@ Punta Mita sub-breaks, Oaxaca's Salina Cruz points beyond Conejo/Chipehua; Japan
 Okinawa / Wakayama detail; Philippines more (Daku, Zambales Liwliwa neighbours); Portugal
 Ericeira micro-spots & the **Azores**; Nicaragua north (Puerto Sandino cluster). Regions with
 zero spots today: everywhere else - Indonesia beyond Bali / Lombok / Sumbawa / Java's south coast, Chile, Ecuador, France/Spain, South Africa;
-Australia beyond Sydney/Byron/Perth/Margaret River (Gold Coast, Victoria, WA north of Perth - Geraldton, Kalbarri, Gnaraloo - and Esperance); Hawaii's Big Island.
+Australia beyond Sydney/Byron/Gold Coast/Sunshine Coast/Perth/Margaret River (Victoria, WA north of Perth - Geraldton, Kalbarri, Gnaraloo - and Esperance); Hawaii's Big Island.
 **The real frontier = Tier-B.** Tens of thousands of physics-valid, *unnamed* coastline
 stretches (Japan 22k, Philippines 37k). OSM/guides never named them; this is the sat-verify +
 community-contribution layer, and it's where "all the spots" ultimately lives.

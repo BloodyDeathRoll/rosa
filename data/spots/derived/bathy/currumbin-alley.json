@@ -1,0 +1,72 @@
+{
+  "spot": "currumbin-alley",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -28.1264,
+    153.4868
+  ],
+  "bearing_seaward_deg": 69.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 65.0,
+  "mean_slope_m_per_km": 3.44,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -28.12559,
+      "lon": 153.48918,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -28.12479,
+      "lon": 153.49156,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -28.12318,
+      "lon": 153.49632,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -28.11995,
+      "lon": 153.50584,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -28.11673,
+      "lon": 153.51536,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -28.11028,
+      "lon": 153.53439,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -28.1006,
+      "lon": 153.56294,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -28.08768,
+      "lon": 153.601,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -28.06828,
+      "lon": 153.65807,
+      "depth_m": 65.0
+    }
+  ]
+}

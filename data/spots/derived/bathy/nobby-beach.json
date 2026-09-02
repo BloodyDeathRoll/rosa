@@ -1,0 +1,72 @@
+{
+  "spot": "nobby-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -28.058,
+    153.442
+  ],
+  "bearing_seaward_deg": 77.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 59.0,
+  "mean_slope_m_per_km": 3.21,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -28.05749,
+      "lon": 153.44448,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -28.05699,
+      "lon": 153.44696,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -28.05598,
+      "lon": 153.45193,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -28.05395,
+      "lon": 153.46186,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -28.05193,
+      "lon": 153.47179,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -28.04788,
+      "lon": 153.49164,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -28.04179,
+      "lon": 153.52143,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -28.03367,
+      "lon": 153.56113,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -28.02147,
+      "lon": 153.62067,
+      "depth_m": 59.0
+    }
+  ]
+}

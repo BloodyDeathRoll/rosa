@@ -47,6 +47,8 @@ REGION_PBF = {
     "Sumbawa": "sumbawa",
     "East Java": "east-java",
     "West Java": "west-java",
+    "Gold Coast": "gold-coast",
+    "Sunshine Coast": "sunshine-coast",
 }
 
 

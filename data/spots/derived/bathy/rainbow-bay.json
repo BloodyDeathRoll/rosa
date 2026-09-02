@@ -1,0 +1,72 @@
+{
+  "spot": "rainbow-bay",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -28.1641,
+    153.5468
+  ],
+  "bearing_seaward_deg": 10.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 49.0,
+  "mean_slope_m_per_km": 2.42,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -28.16189,
+      "lon": 153.54724,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -28.15967,
+      "lon": 153.54769,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -28.15524,
+      "lon": 153.54857,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -28.14639,
+      "lon": 153.55034,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -28.13753,
+      "lon": 153.55211,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -28.11982,
+      "lon": 153.55565,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -28.09325,
+      "lon": 153.56096,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -28.05782,
+      "lon": 153.56804,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -28.00468,
+      "lon": 153.57864,
+      "depth_m": 49.0
+    }
+  ]
+}

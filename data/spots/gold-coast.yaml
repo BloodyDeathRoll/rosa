@@ -1,0 +1,44 @@
+# Rosa spot database - Gold Coast (seeded 2026-09-02, with sunshine-coast - south-east Queensland on
+# the Sydney/Byron recipe). East-facing Coral Sea coast: S-SE groundswell in winter, E-NE
+# cyclone and trade swell in summer, warm water. Offshore wind is from the W/SW. Sand-bottom
+# points and beach breaks; break_type per spot. Every spot carries offshore_km along its own
+# seaward normal.
+
+defaults: &gc
+  timezone: Australia/Brisbane
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [25, 155]
+  ideal:
+    wind_dir: [225, 315]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-02 - gold-coast, 20 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 20 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/gold-coast/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: south-stradbroke, name: "South Stradbroke", town: "South Stradbroke Island", lat: -27.9314, lon: 153.4300, offshore_direction: 255, swell_window: [10, 140], offshore_km: 5.0, <<: *gc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: the-spit, name: "The Spit", town: "Main Beach", lat: -27.9382, lon: 153.4308, offshore_direction: 284, swell_window: [39, 169], offshore_km: 5.0, <<: *gc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: main-beach, name: "Main Beach", town: "Main Beach", lat: -27.9776, lon: 153.4296, offshore_direction: 262, swell_window: [17, 147], offshore_km: 5.0, <<: *gc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: narrowneck, name: "Narrowneck", town: "Main Beach", lat: -27.9851, lon: 153.4301, offshore_direction: 268, swell_window: [23, 153], offshore_km: 5.0, <<: *gc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: surfers-paradise, name: "Surfers Paradise", town: "Surfers Paradise", lat: -27.9979, lon: 153.4313, offshore_direction: 262, swell_window: [17, 147], offshore_km: 5.0, <<: *gc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: broadbeach, name: "Broadbeach", town: "Broadbeach", lat: -28.0212, lon: 153.4341, offshore_direction: 264, swell_window: [19, 149], offshore_km: 5.0, <<: *gc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: mermaid-beach, name: "Mermaid Beach", town: "Mermaid Beach", lat: -28.0407, lon: 153.4388, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, <<: *gc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: nobby-beach, name: "Nobby Beach", town: "Nobby Beach", lat: -28.0580, lon: 153.4420, offshore_direction: 257, swell_window: [12, 142], offshore_km: 5.0, <<: *gc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: north-burleigh, name: "North Burleigh", town: "Burleigh Heads", lat: -28.0746, lon: 153.4471, offshore_direction: 253, swell_window: [8, 138], offshore_km: 5.0, <<: *gc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: burleigh-heads, name: "Burleigh Heads", town: "Burleigh Heads", lat: -28.0894, lon: 153.4556, offshore_direction: 210, swell_window: [325, 95], offshore_km: 5.0, <<: *gc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: tallebudgera, name: "Tallebudgera", town: "Burleigh Heads", lat: -28.1007, lon: 153.4633, offshore_direction: 249, swell_window: [4, 134], offshore_km: 5.0, <<: *gc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: palm-beach-qld, name: "Palm Beach", town: "Palm Beach", lat: -28.1227, lon: 153.4763, offshore_direction: 223, swell_window: [338, 108], offshore_km: 5.0, <<: *gc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: currumbin-alley, name: "Currumbin Alley", town: "Currumbin", lat: -28.1264, lon: 153.4868, offshore_direction: 249, swell_window: [4, 134], offshore_km: 5.0, <<: *gc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: tugun, name: "Tugun", town: "Tugun", lat: -28.1432, lon: 153.4969, offshore_direction: 238, swell_window: [353, 123], offshore_km: 5.0, <<: *gc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: bilinga, name: "Bilinga", town: "Bilinga", lat: -28.1562, lon: 153.5086, offshore_direction: 221, swell_window: [336, 106], offshore_km: 5.0, <<: *gc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: snapper-rocks, name: "Snapper Rocks", town: "Coolangatta", lat: -28.1623, lon: 153.5487, offshore_direction: 220, swell_window: [335, 105], offshore_km: 5.0, <<: *gc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: north-kirra, name: "North Kirra", town: "Kirra", lat: -28.1637, lon: 153.5200, offshore_direction: 208, swell_window: [323, 93], offshore_km: 5.0, <<: *gc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: rainbow-bay, name: "Rainbow Bay", town: "Coolangatta", lat: -28.1641, lon: 153.5468, offshore_direction: 190, swell_window: [305, 75], offshore_km: 5.0, <<: *gc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: greenmount, name: "Greenmount", town: "Coolangatta", lat: -28.1656, lon: 153.5436, offshore_direction: 200, swell_window: [315, 85], offshore_km: 5.0, <<: *gc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: kirra, name: "Kirra", town: "Kirra", lat: -28.1663, lon: 153.5333, offshore_direction: 197, swell_window: [312, 82], offshore_km: 5.0, <<: *gc }  # sat-verified 2026-09-02 (websearch-seeded)

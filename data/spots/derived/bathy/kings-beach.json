@@ -1,0 +1,72 @@
+{
+  "spot": "kings-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -26.8042,
+    153.1414
+  ],
+  "bearing_seaward_deg": 138.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 15.0,
+  "mean_slope_m_per_km": 0.96,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -26.80587,
+      "lon": 153.14309,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -26.80754,
+      "lon": 153.14477,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -26.81088,
+      "lon": 153.14814,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -26.81757,
+      "lon": 153.15489,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -26.82425,
+      "lon": 153.16163,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -26.83761,
+      "lon": 153.17512,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -26.85766,
+      "lon": 153.19536,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -26.88438,
+      "lon": 153.22236,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -26.92445,
+      "lon": 153.26289,
+      "depth_m": 15.0
+    }
+  ]
+}

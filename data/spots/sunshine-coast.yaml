@@ -1,0 +1,46 @@
+# Rosa spot database - Sunshine Coast (seeded 2026-09-02, with gold-coast - south-east Queensland on
+# the Sydney/Byron recipe). East-facing Coral Sea coast: S-SE groundswell in winter, E-NE
+# cyclone and trade swell in summer, warm water. Offshore wind is from the W/SW. Sand-bottom
+# points and beach breaks; break_type per spot. Every spot carries offshore_km along its own
+# seaward normal.
+
+defaults: &sc
+  timezone: Australia/Brisbane
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [25, 155]
+  ideal:
+    wind_dir: [225, 315]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-02 - sunshine-coast, 22 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 22 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/sunshine-coast/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: granite-bay, name: "Granite Bay", town: "Noosa Heads", lat: -26.3778, lon: 153.1097, offshore_direction: 200, swell_window: [315, 85], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: tea-tree-bay, name: "Tea Tree Bay", town: "Noosa Heads", lat: -26.3793, lon: 153.1033, offshore_direction: 234, swell_window: [349, 119], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-02 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: Noosa North Shore shadow]
+  - { id: national-park, name: "National Park", town: "Noosa Heads", lat: -26.3819, lon: 153.0985, offshore_direction: 234, swell_window: [349, 119], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-02 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: Noosa North Shore shadow]
+  - { id: johnsons, name: "Johnsons", town: "Noosa Heads", lat: -26.3840, lon: 153.0959, offshore_direction: 208, swell_window: [323, 93], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-02 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: Noosa North Shore shadow]
+  - { id: first-point, name: "First Point", town: "Noosa Heads", lat: -26.3848, lon: 153.0948, offshore_direction: 210, swell_window: [325, 95], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: sunshine-beach, name: "Sunshine Beach", town: "Sunshine Beach", lat: -26.4156, lon: 153.1108, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: peregian, name: "Peregian", town: "Peregian Beach", lat: -26.4810, lon: 153.0971, offshore_direction: 277, swell_window: [32, 162], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: coolum, name: "Coolum", town: "Coolum Beach", lat: -26.5317, lon: 153.0929, offshore_direction: 238, swell_window: [353, 123], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: point-arkwright, name: "Point Arkwright", town: "Coolum Beach", lat: -26.5454, lon: 153.1018, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: yaroomba, name: "Yaroomba", town: "Coolum Beach", lat: -26.5515, lon: 153.1014, offshore_direction: 277, swell_window: [32, 162], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: marcoola, name: "Marcoola", town: "Marcoola", lat: -26.5828, lon: 153.0971, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: mudjimba, name: "Mudjimba", town: "Mudjimba", lat: -26.6148, lon: 153.1008, offshore_direction: 254, swell_window: [9, 139], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: maroochydore, name: "Maroochydore", town: "Maroochydore", lat: -26.6567, lon: 153.1041, offshore_direction: 256, swell_window: [11, 141], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: alexandra-headland, name: "Alexandra Headland", town: "Alexandra Headland", lat: -26.6724, lon: 153.1134, offshore_direction: 210, swell_window: [325, 95], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: mooloolaba, name: "Mooloolaba", town: "Mooloolaba", lat: -26.6818, lon: 153.1258, offshore_direction: 204, swell_window: [319, 89], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: kawana, name: "Kawana", town: "Kawana Waters", lat: -26.7039, lon: 153.1360, offshore_direction: 277, swell_window: [32, 162], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: wurtulla, name: "Wurtulla", town: "Wurtulla", lat: -26.7482, lon: 153.1362, offshore_direction: 273, swell_window: [28, 158], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: currimundi, name: "Currimundi", town: "Currimundi", lat: -26.7653, lon: 153.1362, offshore_direction: 269, swell_window: [24, 154], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: dicky-beach, name: "Dicky Beach", town: "Caloundra", lat: -26.7724, lon: 153.1371, offshore_direction: 268, swell_window: [23, 153], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: moffat-beach, name: "Moffat Beach", town: "Caloundra", lat: -26.7895, lon: 153.1443, offshore_direction: 205, swell_window: [320, 90], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: kings-beach, name: "Kings Beach", town: "Caloundra", lat: -26.8042, lon: 153.1414, offshore_direction: 318, swell_window: [73, 203], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: caloundra-bar, name: "Caloundra Bar", town: "Caloundra", lat: -26.8074, lon: 153.1364, offshore_direction: 316, swell_window: [71, 201], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-02 (websearch-seeded)

@@ -1,0 +1,72 @@
+{
+  "spot": "wurtulla",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -26.7482,
+    153.1362
+  ],
+  "bearing_seaward_deg": 93.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 46.0,
+  "mean_slope_m_per_km": 2.25,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -26.74832,
+      "lon": 153.13871,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -26.74844,
+      "lon": 153.14123,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -26.74867,
+      "lon": 153.14626,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -26.74914,
+      "lon": 153.15631,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -26.74961,
+      "lon": 153.16637,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -26.75054,
+      "lon": 153.18649,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -26.75194,
+      "lon": 153.21666,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -26.7538,
+      "lon": 153.25689,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -26.75656,
+      "lon": 153.31724,
+      "depth_m": 46.0
+    }
+  ]
+}

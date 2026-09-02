@@ -54,7 +54,7 @@ BASINS: dict[str, tuple[str, ...]] = {
     "peru": ("Peru",),
     "maldives": ("Maldives",),
     # Sydney + Byron Bay share one east-Australian frame: same Tasman/Coral Sea swell
-    "australia-east": ("Sydney", "Byron Bay"),
+    "australia-east": ("Sydney", "Byron Bay", "Gold Coast", "Sunshine Coast"),
     # Perth + Margaret River share one Indian Ocean frame: the same SW groundswell
     "australia-west": ("Perth", "Margaret River"),
     # Bali first; later Indonesian regions (Lombok/Sumbawa, Java, Mentawai) join here

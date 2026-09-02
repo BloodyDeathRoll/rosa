@@ -1,0 +1,72 @@
+{
+  "spot": "palm-beach-qld",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -28.1227,
+    153.4763
+  ],
+  "bearing_seaward_deg": 43.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 53.0,
+  "mean_slope_m_per_km": 2.76,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -28.12106,
+      "lon": 153.47804,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -28.11941,
+      "lon": 153.47978,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -28.11612,
+      "lon": 153.48325,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -28.10954,
+      "lon": 153.49021,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -28.10297,
+      "lon": 153.49716,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -28.08981,
+      "lon": 153.51106,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -28.07007,
+      "lon": 153.53191,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -28.04375,
+      "lon": 153.55969,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -28.00425,
+      "lon": 153.60134,
+      "depth_m": 53.0
+    }
+  ]
+}

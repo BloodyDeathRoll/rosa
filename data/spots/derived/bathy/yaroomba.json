@@ -1,0 +1,72 @@
+{
+  "spot": "yaroomba",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -26.5515,
+    153.1014
+  ],
+  "bearing_seaward_deg": 97.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 52.0,
+  "mean_slope_m_per_km": 3.21,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -26.55177,
+      "lon": 153.10389,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -26.55205,
+      "lon": 153.10639,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -26.5526,
+      "lon": 153.11138,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -26.55369,
+      "lon": 153.12136,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -26.55478,
+      "lon": 153.13134,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -26.55697,
+      "lon": 153.1513,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -26.56025,
+      "lon": 153.18123,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -26.5646,
+      "lon": 153.22116,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -26.57112,
+      "lon": 153.28105,
+      "depth_m": 52.0
+    }
+  ]
+}

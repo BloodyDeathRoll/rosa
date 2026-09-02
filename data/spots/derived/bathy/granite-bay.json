@@ -1,0 +1,72 @@
+{
+  "spot": "granite-bay",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -26.3778,
+    153.1097
+  ],
+  "bearing_seaward_deg": 20.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 47.0,
+  "mean_slope_m_per_km": 3.32,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -26.37569,
+      "lon": 153.11056,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -26.37357,
+      "lon": 153.11142,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -26.36935,
+      "lon": 153.11313,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -26.3609,
+      "lon": 153.11657,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -26.35245,
+      "lon": 153.12,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -26.33554,
+      "lon": 153.12686,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -26.31019,
+      "lon": 153.13715,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -26.27638,
+      "lon": 153.15086,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -26.22567,
+      "lon": 153.17142,
+      "depth_m": 47.0
+    }
+  ]
+}

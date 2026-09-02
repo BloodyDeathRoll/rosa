@@ -1,0 +1,72 @@
+{
+  "spot": "dicky-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -26.7724,
+    153.1371
+  ],
+  "bearing_seaward_deg": 88.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 46.0,
+  "mean_slope_m_per_km": 2.31,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -26.77232,
+      "lon": 153.13962,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -26.77224,
+      "lon": 153.14213,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -26.77209,
+      "lon": 153.14717,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -26.77177,
+      "lon": 153.15723,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -26.77146,
+      "lon": 153.1673,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -26.77082,
+      "lon": 153.18743,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -26.76987,
+      "lon": 153.21763,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -26.76858,
+      "lon": 153.2579,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -26.76664,
+      "lon": 153.31829,
+      "depth_m": 46.0
+    }
+  ]
+}

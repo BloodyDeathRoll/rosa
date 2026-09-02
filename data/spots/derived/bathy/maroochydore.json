@@ -1,0 +1,72 @@
+{
+  "spot": "maroochydore",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -26.6567,
+    153.1041
+  ],
+  "bearing_seaward_deg": 76.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 48.0,
+  "mean_slope_m_per_km": 2.2,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -26.65616,
+      "lon": 153.10654,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -26.65561,
+      "lon": 153.10898,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -26.65452,
+      "lon": 153.11386,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -26.65235,
+      "lon": 153.12363,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -26.65017,
+      "lon": 153.13339,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -26.64581,
+      "lon": 153.15291,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -26.63927,
+      "lon": 153.1822,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -26.63054,
+      "lon": 153.22124,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -26.61743,
+      "lon": 153.27979,
+      "depth_m": 48.0
+    }
+  ]
+}

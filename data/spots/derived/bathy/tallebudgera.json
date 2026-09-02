@@ -1,0 +1,72 @@
+{
+  "spot": "tallebudgera",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -28.1007,
+    153.4633
+  ],
+  "bearing_seaward_deg": 69.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 60.0,
+  "mean_slope_m_per_km": 3.32,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -28.09989,
+      "lon": 153.46568,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -28.09909,
+      "lon": 153.46806,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -28.09748,
+      "lon": 153.47282,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -28.09425,
+      "lon": 153.48233,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -28.09103,
+      "lon": 153.49185,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -28.08458,
+      "lon": 153.51088,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -28.0749,
+      "lon": 153.53942,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -28.06198,
+      "lon": 153.57747,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -28.04258,
+      "lon": 153.63453,
+      "depth_m": 60.0
+    }
+  ]
+}
