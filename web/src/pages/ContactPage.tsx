@@ -39,7 +39,7 @@ export function ContactPage() {
 
   return (
     <main class="page about-page contact-page">
-      <div class="about-hero contact-hero">
+      <div class="about-hero" style="background-image:url(/about/contact.jpg)">
         <button
           class="about-back"
           onClick={() => (location.hash = "#/settings")}

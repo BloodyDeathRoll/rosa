@@ -3358,10 +3358,6 @@ a.rank-card:hover {
    CONTACT (Profile > Contact us) - one text block and a Send button
    ========================================================================== */
 
-.contact-hero {
-  aspect-ratio: 2 / 1;
-  background: var(--primary);
-}
 .contact-form {
   display: flex;
   flex-direction: column;
