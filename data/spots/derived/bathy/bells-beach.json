@@ -1,0 +1,72 @@
+{
+  "spot": "bells-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -38.3693,
+    144.2832
+  ],
+  "bearing_seaward_deg": 130.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 72.0,
+  "mean_slope_m_per_km": 4.17,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.37075,
+      "lon": 144.2854,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.37219,
+      "lon": 144.28759,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.37508,
+      "lon": 144.29199,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.38086,
+      "lon": 144.30078,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.38664,
+      "lon": 144.30957,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.3982,
+      "lon": 144.32715,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.41552,
+      "lon": 144.35354,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.43862,
+      "lon": 144.38874,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.47325,
+      "lon": 144.44159,
+      "depth_m": 72.0
+    }
+  ]
+}

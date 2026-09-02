@@ -1,0 +1,72 @@
+{
+  "spot": "cathedral-rock",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -38.4376,
+    144.1303
+  ],
+  "bearing_seaward_deg": 140.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 74.0,
+  "mean_slope_m_per_km": 4.68,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.43932,
+      "lon": 144.13215,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.44104,
+      "lon": 144.13399,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.44449,
+      "lon": 144.13768,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.45138,
+      "lon": 144.14506,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.45827,
+      "lon": 144.15245,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.47204,
+      "lon": 144.16722,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.4927,
+      "lon": 144.18939,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.52024,
+      "lon": 144.21896,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.56153,
+      "lon": 144.26337,
+      "depth_m": 74.0
+    }
+  ]
+}

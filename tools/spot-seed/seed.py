@@ -145,6 +145,10 @@ REGIONS = {
     # Sunshine Coast: Caloundra up through Alexandra Headland, Coolum and Peregian to
     # Noosa's points
     "sunshine-coast": (-26.85, 152.95, -26.35, 153.20),
+    # Victoria's Bass Strait surf: the Surf Coast from Lorne through Bells and Torquay,
+    # the Mornington Peninsula back beaches and Phillip Island; Port Phillip Bay is inside
+    # the box but bathy-prunes itself (enclosed water)
+    "victoria": (-38.75, 143.85, -38.15, 145.45),
 }
 
 

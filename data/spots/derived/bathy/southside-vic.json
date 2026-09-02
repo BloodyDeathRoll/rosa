@@ -1,0 +1,72 @@
+{
+  "spot": "southside-vic",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -38.3713,
+    144.2818
+  ],
+  "bearing_seaward_deg": 120.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 71.0,
+  "mean_slope_m_per_km": 3.89,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.37242,
+      "lon": 144.28428,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.37355,
+      "lon": 144.28677,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.3758,
+      "lon": 144.29173,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.38029,
+      "lon": 144.30167,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.38479,
+      "lon": 144.31161,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.39377,
+      "lon": 144.33149,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.40725,
+      "lon": 144.36131,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.4252,
+      "lon": 144.4011,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.4521,
+      "lon": 144.46081,
+      "depth_m": 71.0
+    }
+  ]
+}

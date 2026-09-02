@@ -176,7 +176,25 @@ Four things, in this order:
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-09-02, DB = 978 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-09-02, DB = 1008 spots, ALL sat-verified)
+
+**Victoria 0 -> 30 (2026-09-02) - the first south-facing Australian region, on a new
+`australia-south` swellmap basin.** One box from Lorne to Phillip Island (Surf Coast, Mornington
+Peninsula back beaches, Phillip Island; Port Phillip Bay inside and self-pruning), `Australia/Melbourne`
+anchor with N/NW offshore. Primary flow: 2 Tier-A (Point Lonsdale Back, kept under the web name; Torquay
+Back Beach, kept and renamed Torquay Surf Beach). Secondary: 30 guide names -> all rendered -> 15 keep /
+14 move / 1 drop over five rounds. **Google's Victoria failure mode is returning Torquay for anything on
+the Surf Coast it does not know** - Lorne Point and Steps both came back as Torquay - and OSM's Woolamai
+node sits on the sheltered Cleeland Bight side, not the surf beach; both were recovered from z14/z15
+reads, and the OSM `Princess Street (Steps/Boobs)`, `Urquhart Bluff` and `Summerland Beach` nodes were
+better than any geocode for those three. Six normals set by hand: the Bells / Winkipop / Southside /
+Steps ways run N-S so the reefs came back facing E; they face SE. Cat Bay's NW ray hit the Mornington
+Peninsula across the Western Port entrance at 18 km and was re-aimed W by arc sweep. Six ids clashed
+with California / Byron / Margaret River names (Steps, Bird Rock, Summerland, Cosy Corner, Southside,
+Smiths Beach) and took `-vic`. Judge log `work/victoria/judge.json`.
+**Next in Australia:** WA north of Perth (Geraldton, Kalbarri, Gnaraloo), Esperance, South Australia
+(Yorke Peninsula, Fleurieu), Tasmania.
+
 
 **Gold Coast 0 -> 20 and Sunshine Coast 0 -> 22 (2026-09-02) - south-east Queensland, joining
 Sydney and Byron on the `australia-east` basin.** Two boxes (Coolangatta-The Spit; Caloundra-Noosa),
@@ -592,7 +610,7 @@ Punta Mita sub-breaks, Oaxaca's Salina Cruz points beyond Conejo/Chipehua; Japan
 Okinawa / Wakayama detail; Philippines more (Daku, Zambales Liwliwa neighbours); Portugal
 Ericeira micro-spots & the **Azores**; Nicaragua north (Puerto Sandino cluster). Regions with
 zero spots today: everywhere else - Indonesia beyond Bali / Lombok / Sumbawa / Java's south coast, Chile, Ecuador, France/Spain, South Africa;
-Australia beyond Sydney/Byron/Gold Coast/Sunshine Coast/Perth/Margaret River (Victoria, WA north of Perth - Geraldton, Kalbarri, Gnaraloo - and Esperance); Hawaii's Big Island.
+Australia beyond Sydney/Byron/Gold Coast/Sunshine Coast/Victoria/Perth/Margaret River (SA, Tasmania, WA north of Perth - Geraldton, Kalbarri, Gnaraloo - and Esperance); Hawaii's Big Island.
 **The real frontier = Tier-B.** Tens of thousands of physics-valid, *unnamed* coastline
 stretches (Japan 22k, Philippines 37k). OSM/guides never named them; this is the sat-verify +
 community-contribution layer, and it's where "all the spots" ultimately lives.

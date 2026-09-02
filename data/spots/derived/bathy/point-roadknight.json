@@ -1,0 +1,72 @@
+{
+  "spot": "point-roadknight",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -38.4256,
+    144.1803
+  ],
+  "bearing_seaward_deg": 85.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 66.0,
+  "mean_slope_m_per_km": 4.06,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.4254,
+      "lon": 144.18316,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.42521,
+      "lon": 144.18602,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.42482,
+      "lon": 144.19174,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.42403,
+      "lon": 144.20317,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.42324,
+      "lon": 144.21461,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.42167,
+      "lon": 144.23748,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.41929,
+      "lon": 144.27178,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.41611,
+      "lon": 144.31751,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.41131,
+      "lon": 144.3861,
+      "depth_m": 66.0
+    }
+  ]
+}

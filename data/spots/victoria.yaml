@@ -1,0 +1,54 @@
+# Rosa spot database - Victoria (seeded 2026-09-02 - the first south-facing Australian
+# region). Bass Strait coast: Southern Ocean SW groundswell year-round, biggest in winter,
+# cold water; offshore wind is from the N/NW. Reef points (Bells, Winkipop) and exposed
+# beach breaks (Gunnamatta, Woolamai) mixed - break_type per spot. Every spot carries
+# offshore_km along its own seaward normal.
+
+defaults: &vic
+  timezone: Australia/Melbourne
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [150, 270]
+  ideal:
+    wind_dir: [300, 60]
+    size_m: [1.0, 3.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-02 - victoria, 30 spots (primary coastline flow: 1 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 29 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/victoria/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: ocean-grove, name: "Ocean Grove", town: "Ocean Grove", lat: -38.2729, lon: 144.5151, offshore_direction: 341, swell_window: [96, 226], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: thirteenth-beach, name: "Thirteenth Beach", town: "Barwon Heads", lat: -38.2860, lon: 144.4643, offshore_direction: 358, swell_window: [113, 243], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: point-lonsdale, name: "Point Lonsdale", town: "Point Lonsdale", lat: -38.2903, lon: 144.6079, offshore_direction: 36, swell_window: [151, 281], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: portsea, name: "Portsea", town: "Portsea", lat: -38.3347, lon: 144.7032, offshore_direction: 37, swell_window: [152, 282], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: cosy-corner-vic, name: "Cosy Corner", town: "Torquay", lat: -38.3383, lon: 144.3280, offshore_direction: 279, swell_window: [34, 164], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: torquay-surf-beach, name: "Torquay Surf Beach", town: "Torquay", lat: -38.3456, lon: 144.3186, offshore_direction: 349, swell_window: [104, 234], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (osm-seeded)
+  - { id: jan-juc, name: "Jan Juc", town: "Jan Juc", lat: -38.3467, lon: 144.3100, offshore_direction: 332, swell_window: [87, 217], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: sorrento, name: "Sorrento", town: "Sorrento", lat: -38.3468, lon: 144.7284, offshore_direction: 37, swell_window: [152, 282], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: bird-rock-vic, name: "Bird Rock", town: "Jan Juc", lat: -38.3492, lon: 144.3049, offshore_direction: 322, swell_window: [77, 207], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: steps-vic, name: "Steps", town: "Jan Juc", lat: -38.3557, lon: 144.2965, offshore_direction: 315, swell_window: [70, 200], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: winkipop, name: "Winkipop", town: "Bells Beach", lat: -38.3681, lon: 144.2850, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: bells-beach, name: "Bells Beach", town: "Bells Beach", lat: -38.3693, lon: 144.2832, offshore_direction: 310, swell_window: [65, 195], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: southside-vic, name: "Southside", town: "Bells Beach", lat: -38.3713, lon: 144.2818, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: point-addis, name: "Point Addis", town: "Anglesea", lat: -38.3950, lon: 144.2533, offshore_direction: 295, swell_window: [50, 180], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: anglesea, name: "Anglesea", town: "Anglesea", lat: -38.4144, lon: 144.1877, offshore_direction: 349, swell_window: [104, 234], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: rye, name: "Rye", town: "Rye", lat: -38.4144, lon: 144.8173, offshore_direction: 51, swell_window: [166, 296], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: point-leo, name: "Point Leo", town: "Point Leo", lat: -38.4251, lon: 145.0761, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: point-roadknight, name: "Point Roadknight", town: "Anglesea", lat: -38.4256, lon: 144.1803, offshore_direction: 265, swell_window: [20, 150], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: st-andrews, name: "St Andrews", town: "St Andrews Beach", lat: -38.4313, lon: 144.8401, offshore_direction: 48, swell_window: [163, 293], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: urquharts-bluff, name: "Urquharts Bluff", town: "Aireys Inlet", lat: -38.4325, lon: 144.1484, offshore_direction: 347, swell_window: [102, 232], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: cathedral-rock, name: "Cathedral Rock", town: "Aireys Inlet", lat: -38.4376, lon: 144.1303, offshore_direction: 320, swell_window: [75, 205], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: gunnamatta, name: "Gunnamatta", town: "Fingal", lat: -38.4604, lon: 144.8723, offshore_direction: 51, swell_window: [166, 296], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: fairhaven, name: "Fairhaven", town: "Fairhaven", lat: -38.4707, lon: 144.0685, offshore_direction: 358, swell_window: [113, 243], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: cyrils, name: "Cyrils", town: "Flinders", lat: -38.4811, lon: 145.0104, offshore_direction: 321, swell_window: [76, 206], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: smiths-beach-vic, name: "Smiths Beach", town: "Smiths Beach", lat: -38.5054, lon: 145.2572, offshore_direction: 11, swell_window: [126, 256], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: cat-bay, name: "Cat Bay", town: "Ventnor", lat: -38.5060, lon: 145.1387, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: Western Port entrance shadow]
+  - { id: express-point, name: "Express Point", town: "Surf Beach", lat: -38.5103, lon: 145.2785, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: summerland-vic, name: "Summerland", town: "Summerlands", lat: -38.5107, lon: 145.1576, offshore_direction: 10, swell_window: [125, 255], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: woolamai, name: "Woolamai", town: "Cape Woolamai", lat: -38.5409, lon: 145.3324, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: lorne-point, name: "Lorne Point", town: "Lorne", lat: -38.5460, lon: 143.9867, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)

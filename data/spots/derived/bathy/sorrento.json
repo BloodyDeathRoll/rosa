@@ -1,0 +1,72 @@
+{
+  "spot": "sorrento",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -38.3468,
+    144.7284
+  ],
+  "bearing_seaward_deg": 217.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 71.0,
+  "mean_slope_m_per_km": 3.72,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.3486,
+      "lon": 144.72667,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.35039,
+      "lon": 144.72495,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.35398,
+      "lon": 144.7215,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.36116,
+      "lon": 144.7146,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.36835,
+      "lon": 144.70769,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.38271,
+      "lon": 144.69388,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.40425,
+      "lon": 144.67315,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.43296,
+      "lon": 144.64549,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.47602,
+      "lon": 144.60396,
+      "depth_m": 71.0
+    }
+  ]
+}

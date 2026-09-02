@@ -1,0 +1,72 @@
+{
+  "spot": "fairhaven",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -38.4707,
+    144.0685
+  ],
+  "bearing_seaward_deg": 178.0,
+  "nearshore_depth_m": -130.0,
+  "offshore_depth_m": 74.0,
+  "mean_slope_m_per_km": 11.49,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.47295,
+      "lon": 144.0686,
+      "depth_m": -130.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.47519,
+      "lon": 144.0687,
+      "depth_m": -54.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.47969,
+      "lon": 144.0689,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.48868,
+      "lon": 144.0693,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.49766,
+      "lon": 144.0697,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.51564,
+      "lon": 144.07051,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.5426,
+      "lon": 144.07171,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.57855,
+      "lon": 144.07332,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.63248,
+      "lon": 144.07573,
+      "depth_m": 74.0
+    }
+  ]
+}

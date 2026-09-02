@@ -1,0 +1,72 @@
+{
+  "spot": "smiths-beach-vic",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -38.5054,
+    145.2572
+  ],
+  "bearing_seaward_deg": 191.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 72.0,
+  "mean_slope_m_per_km": 4.45,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.50761,
+      "lon": 145.25665,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.50981,
+      "lon": 145.2561,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.51423,
+      "lon": 145.25501,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.52306,
+      "lon": 145.25281,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.53188,
+      "lon": 145.25062,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.54954,
+      "lon": 145.24623,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.57602,
+      "lon": 145.23964,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.61133,
+      "lon": 145.23085,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.6643,
+      "lon": 145.21764,
+      "depth_m": 72.0
+    }
+  ]
+}

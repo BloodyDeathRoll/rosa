@@ -1,0 +1,72 @@
+{
+  "spot": "woolamai",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -38.5409,
+    145.3324
+  ],
+  "bearing_seaward_deg": 225.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 73.0,
+  "mean_slope_m_per_km": 4.17,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.54249,
+      "lon": 145.33037,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.54408,
+      "lon": 145.32833,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.54726,
+      "lon": 145.32427,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.55362,
+      "lon": 145.31614,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.55997,
+      "lon": 145.308,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.57269,
+      "lon": 145.29173,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.59176,
+      "lon": 145.26731,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.61717,
+      "lon": 145.23473,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.65527,
+      "lon": 145.18582,
+      "depth_m": 73.0
+    }
+  ]
+}

@@ -49,6 +49,7 @@ REGION_PBF = {
     "West Java": "west-java",
     "Gold Coast": "gold-coast",
     "Sunshine Coast": "sunshine-coast",
+    "Victoria": "victoria",
 }
 
 

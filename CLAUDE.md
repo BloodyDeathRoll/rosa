@@ -44,7 +44,7 @@ Each was learned the hard way and each has a rationale in the linked doc. **Do n
 - **Do not build temporal smoothing for partition direction wander** — closed, the transform is order-independent. (`docs/CALIBRATION.md`)
 - **The `horizon`, `atl24` and `sdb` tools report, never apply.** `sdb --apply` is not safe unattended. (`docs/SPOT-DB.md`) **The cam tool is the exception since 2026-08-28**: `verify --resolve --apply` runs in every publish cycle, because it only ever swaps a dead id for a same-TITLE replacement and its patch is reset before the next `git pull`. Committing the new id is still the durable fix.
 - **Swell events surface ONLY as push** — do not rebuild in-app event banners, cards, or alert strips. (`docs/UI.md`)
-- **Tune knobs only from `docs/CALIBRATION.md` + the Stage-0 scorecard.** `height_coeff` is 1.0 at all 978 spots. Fleet impact is only valid as a same-input A/B, scored with the shipped harness.
+- **Tune knobs only from `docs/CALIBRATION.md` + the Stage-0 scorecard.** `height_coeff` is 1.0 at all 1008 spots. Fleet impact is only valid as a same-input A/B, scored with the shipped harness.
 - **Inspect live infra before designing for it.** A session once built a competing scheduler off a stale handoff while another had already provisioned the box.
 
 ## Architecture
@@ -63,7 +63,7 @@ Frontend never computes forecasts; it renders pipeline JSON. Keep the fetch laye
 
 **Scheduler:** Oracle VM `rosa-arm` (A1.Flex 4 OCPU/24 GB, since 2026-08-30; `rosa-instance` is the idle micro it replaced), cron 4×/day (02:20/08:20/14:20/20:20 UTC) → `deploy/oracle/publish.sh` = git pull → buoy archive → `run --all` → prebuilt Vercel deploy of `data/out` to the separate `rosa-data` project. **NO GitHub Actions, NO systemd.** `rosa-backup` VM runs an hourly freshness watchdog (pages if `fetched_at` > 8 h). Crash alerts go to the admin push snapshot, never the public list.
 
-**Spot DB: 978 spots** — california 149, hawaii 80, peru 49, mexico 43, israel 42, morocco 42, portugal 42, bali 39, oregon 37, sydney 35, perth 34, sunshine-coast 22, gold-coast 20, el-salvador 32, sri-lanka 32, margaret-river 28, byron-bay 26, costa-rica 25, japan 24, maldives 23, panama 23, washington 20, french-polynesia 17, philippines 16, lombok 16, nicaragua 15, east-java 12, fiji 11, angola 9, sumbawa 9, west-java 6. One committed bathy profile each. Changing the count updates `docs/SPOT-DB.md` AND `test_every_committed_spot_picks_the_same_oisst_cell_as_before` — no approval needed.
+**Spot DB: 1008 spots** — california 149, hawaii 80, peru 49, mexico 43, israel 42, morocco 42, portugal 42, bali 39, oregon 37, sydney 35, perth 34, victoria 30, sunshine-coast 22, gold-coast 20, el-salvador 32, sri-lanka 32, margaret-river 28, byron-bay 26, costa-rica 25, japan 24, maldives 23, panama 23, washington 20, french-polynesia 17, philippines 16, lombok 16, nicaragua 15, east-java 12, fiji 11, angola 9, sumbawa 9, west-java 6. One committed bathy profile each. Changing the count updates `docs/SPOT-DB.md` AND `test_every_committed_spot_picks_the_same_oisst_cell_as_before` — no approval needed.
 
 ## Conventions
 - Python: uv, ruff, pytest; type hints everywhere; pipeline stages pure functions (input → output, no hidden state) so fixtures test everything offline.
