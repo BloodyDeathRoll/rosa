@@ -125,6 +125,13 @@ REGIONS = {
     # Bali plus Nusa Lembongan / Ceningan / Penida; the west edge stays east of Java's
     # tip (G-Land is a Java region) and the east edge short of Lombok
     "bali": (-8.90, 114.45, -8.05, 115.75),
+    # Lombok: Desert Point on the SW tip, the whole south coast (Selong Belanak, Mawi,
+    # Kuta, Gerupuk, Ekas) and the Senggigi west coast; the Gilis are inside and flat
+    "lombok": (-9.15, 115.80, -8.20, 116.80),
+    # Sumbawa's south and west coasts only: Sekongkang/Maluk (Scar Reef, Supersuck,
+    # Yoyo's) in the west and Hu'u (Lakey Peak) in the south; the north coast is not
+    # surfed and is left out
+    "sumbawa": (-9.15, 116.70, -8.55, 118.65),
 }
 
 

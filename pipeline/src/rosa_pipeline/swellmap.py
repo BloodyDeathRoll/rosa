@@ -58,7 +58,7 @@ BASINS: dict[str, tuple[str, ...]] = {
     # Perth + Margaret River share one Indian Ocean frame: the same SW groundswell
     "australia-west": ("Perth", "Margaret River"),
     # Bali first; later Indonesian regions (Lombok/Sumbawa, Java, Mentawai) join here
-    "indonesia": ("Bali",),
+    "indonesia": ("Bali", "Lombok", "Sumbawa"),
     "french-polynesia": ("French Polynesia",),
     "fiji": ("Fiji",),
 }

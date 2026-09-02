@@ -1,0 +1,72 @@
+{
+  "spot": "gerupuk-don-don",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -8.9109,
+    116.3548
+  ],
+  "bearing_seaward_deg": 180.0,
+  "nearshore_depth_m": 69.0,
+  "offshore_depth_m": 1289.0,
+  "mean_slope_m_per_km": 68.73,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -8.91315,
+      "lon": 116.3548,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -8.9154,
+      "lon": 116.3548,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -8.91989,
+      "lon": 116.3548,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -8.92889,
+      "lon": 116.3548,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -8.93788,
+      "lon": 116.3548,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -8.95587,
+      "lon": 116.3548,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -8.98285,
+      "lon": 116.3548,
+      "depth_m": 137.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -9.01882,
+      "lon": 116.3548,
+      "depth_m": 243.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -9.07278,
+      "lon": 116.3548,
+      "depth_m": 1289.0
+    }
+  ]
+}

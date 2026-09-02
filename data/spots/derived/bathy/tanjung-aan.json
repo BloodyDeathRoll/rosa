@@ -1,0 +1,72 @@
+{
+  "spot": "tanjung-aan",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -8.9095,
+    116.3288
+  ],
+  "bearing_seaward_deg": 180.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 1318.0,
+  "mean_slope_m_per_km": 74.7,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -8.91175,
+      "lon": 116.3288,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -8.914,
+      "lon": 116.3288,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -8.91849,
+      "lon": 116.3288,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -8.92749,
+      "lon": 116.3288,
+      "depth_m": 459.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -8.93648,
+      "lon": 116.3288,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -8.95447,
+      "lon": 116.3288,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -8.98145,
+      "lon": 116.3288,
+      "depth_m": 153.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -9.01742,
+      "lon": 116.3288,
+      "depth_m": 235.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -9.07138,
+      "lon": 116.3288,
+      "depth_m": 1318.0
+    }
+  ]
+}

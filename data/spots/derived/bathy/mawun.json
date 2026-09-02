@@ -1,0 +1,72 @@
+{
+  "spot": "mawun",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -8.9001,
+    116.2297
+  ],
+  "bearing_seaward_deg": 221.0,
+  "nearshore_depth_m": -17.0,
+  "offshore_depth_m": 1195.0,
+  "mean_slope_m_per_km": 68.28,
+  "land_samples": 4,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -8.9018,
+      "lon": 116.22821,
+      "depth_m": -17.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -8.90349,
+      "lon": 116.22671,
+      "depth_m": -35.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -8.90689,
+      "lon": 116.22373,
+      "depth_m": -61.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -8.91367,
+      "lon": 116.21776,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -8.92046,
+      "lon": 116.21178,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -8.93404,
+      "lon": 116.19984,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -8.9544,
+      "lon": 116.18192,
+      "depth_m": 130.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -8.98154,
+      "lon": 116.15802,
+      "depth_m": 359.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -9.02226,
+      "lon": 116.12217,
+      "depth_m": 1195.0
+    }
+  ]
+}

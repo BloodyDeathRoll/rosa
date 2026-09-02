@@ -1,0 +1,32 @@
+# Rosa spot database - Sumbawa (seeded 2026-09-02, with lombok - the second and third
+# Indonesian regions after bali, same recipe). West coast (Sekongkang, Maluk) and the south coast at Hu'u; the north coast is out.
+# SW Indian Ocean groundswell year-round, biggest May-Oct with the SE trade offshore on the
+# south and west coasts. Reef throughout; swell_window and offshore_direction are per spot.
+
+defaults: &sbw
+  timezone: Asia/Makassar
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [180, 290]
+  ideal:
+    wind_dir: [60, 150]
+    size_m: [1.0, 3.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-02 - sumbawa, 9 spots (primary coastline flow: 2 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 7 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/sumbawa/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: periscopes, name: "Periscopes", town: "Lakey", lat: -8.7859, lon: 118.3785, offshore_direction: 54, swell_window: [169, 299], offshore_km: 5.0, <<: *sbw }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: lakey-peak, name: "Lakey Peak", town: "Lakey", lat: -8.8049, lon: 118.3789, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, <<: *sbw }  # sat-verified 2026-09-02 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: island/bay shadow]
+  - { id: lakey-pipe, name: "Lakey Pipe", town: "Lakey", lat: -8.8083, lon: 118.3790, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, <<: *sbw }  # sat-verified 2026-09-02 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: island/bay shadow]
+  - { id: nungas, name: "Nungas", town: "Lakey", lat: -8.8132, lon: 118.3782, offshore_direction: 16, swell_window: [131, 261], offshore_km: 5.0, <<: *sbw }  # sat-verified 2026-09-02 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: island/bay shadow]
+  - { id: cobblestones, name: "Cobblestones", town: "Lakey", lat: -8.8247, lon: 118.3803, offshore_direction: 6, swell_window: [121, 251], offshore_km: 5.0, <<: *sbw }  # sat-verified 2026-09-02 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: island/bay shadow]
+  - { id: scar-reef, name: "Scar Reef", town: "Jelenga", lat: -8.8544, lon: 116.7614, offshore_direction: 134, swell_window: [249, 19], offshore_km: 5.0, <<: *sbw }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: supersuck, name: "Supersuck", town: "Maluk", lat: -8.9348, lon: 116.7372, offshore_direction: 64, swell_window: [179, 309], offshore_km: 5.0, <<: *sbw }  # sat-verified 2026-09-02 (osm-seeded)
+  - { id: yoyos, name: "Yoyo's", town: "Sekongkang", lat: -8.9753, lon: 116.7195, offshore_direction: 26, swell_window: [141, 271], offshore_km: 5.0, <<: *sbw }  # sat-verified 2026-09-02 (osm-seeded)
+  - { id: tropicals, name: "Tropicals", town: "Sekongkang", lat: -8.9996, lon: 116.7399, offshore_direction: 52, swell_window: [167, 297], offshore_km: 5.0, <<: *sbw }  # sat-verified 2026-09-02 (websearch-seeded)

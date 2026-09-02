@@ -176,7 +176,29 @@ Four things, in this order:
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-09-02, DB = 893 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-09-02, DB = 918 spots, ALL sat-verified)
+
+**Lombok 0 -> 16 and Sumbawa 0 -> 9 (2026-09-02) - Indonesia's second and third regions, on the
+Bali recipe.** Two boxes (Lombok whole island; Sumbawa's west and south coasts only - the north
+is not surfed), both symlinked to the Indonesia extract and both on the `indonesia` swellmap
+basin. The boxes overlap by 0.1 deg at 116.7-116.8 E, so Supersuck and Hook surfaced as Lombok
+Tier-A too and were skipped there. Primary flow: 758 + 860 bathy-passed candidates and **10
+Tier-A - the first regions where OSM carried the famous breaks** (Lakey Peak, Lakey Pipe,
+Periscopes, Supersuck, Hook = Yoyo's, plus Mangsit, Montong and a Gili T node). Three of the
+Lakey nodes sat on the beach rather than the wave and were re-placed as moves off the tile.
+Secondary: 15 + 11 guide names -> all geocoded -> all rendered -> 4 keep / 17 move / 6 drop
+over three rounds (Sumbawa's Lakey Pipe / Nungas took five: the three peaks sit 200-500 m
+apart on one reef and Google gave them all the beach). Wide reads located Desert Point (Google
+gave Bangko-Bangko village), the Gerupuk mouth (Outside Left / Right off the E headland) and
+Ekas (village 1.5 km inland). Ten normals set by hand - the south-coast bays came back E/W - and seven more re-aimed by arc sweep:
+Gili T's south ray hit Lombok, and the Lakey and Ekas rays hit the far side of their own bays at 18 km
+(Cempi Bay and Ekas Bay both open SOUTH, so the seaward normal is SSW even though the beach faces W).
+GEBCO reads Ekas Bay's inner reef as +6..+23 m for the first 3 km - the march drops those, judge on
+the 18 km end. Towns are the surf towns (Kuta Lombok, Gerupuk, Ekas, Lakey, Sekongkang, Maluk) - all
+overrides, `towns.py` not run on the 1.7 GB extract. Judge logs in `work/lombok/judge.json`
+and `work/sumbawa/judge.json`. **Next in Indonesia:** Java (G-Land, Cimaja, Pacitan), Mentawai,
+Sumba, Nias.
+
 
 **Bali 0 -> 39 (2026-09-02) - the first Indonesian region.** One box (-8.90..-8.05, 114.45..115.75)
 holding both coasts plus Nusa Lembongan / Ceningan; Java's tip and Lombok stay out for their own
@@ -535,7 +557,7 @@ once bathymetry allows); Mexico detail - the East Cape between Shipwrecks and Ni
 Punta Mita sub-breaks, Oaxaca's Salina Cruz points beyond Conejo/Chipehua; Japan Hokkaido /
 Okinawa / Wakayama detail; Philippines more (Daku, Zambales Liwliwa neighbours); Portugal
 Ericeira micro-spots & the **Azores**; Nicaragua north (Puerto Sandino cluster). Regions with
-zero spots today: everywhere else - Indonesia beyond Bali, Chile, Ecuador, France/Spain, South Africa;
+zero spots today: everywhere else - Indonesia beyond Bali / Lombok / Sumbawa, Chile, Ecuador, France/Spain, South Africa;
 Australia beyond Sydney/Byron/Perth/Margaret River (Gold Coast, Victoria, WA north of Perth - Geraldton, Kalbarri, Gnaraloo - and Esperance); Hawaii's Big Island.
 **The real frontier = Tier-B.** Tens of thousands of physics-valid, *unnamed* coastline
 stretches (Japan 22k, Philippines 37k). OSM/guides never named them; this is the sat-verify +

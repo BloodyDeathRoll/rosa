@@ -1,0 +1,39 @@
+# Rosa spot database - Lombok (seeded 2026-09-02, with sumbawa - the second and third
+# Indonesian regions after bali, same recipe). Desert Point on the SW tip, the south-coast bays around Kuta, Senggigi in the west.
+# SW Indian Ocean groundswell year-round, biggest May-Oct with the SE trade offshore on the
+# south and west coasts. Reef throughout; swell_window and offshore_direction are per spot.
+
+defaults: &lom
+  timezone: Asia/Makassar
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [180, 290]
+  ideal:
+    wind_dir: [60, 150]
+    size_m: [1.0, 3.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-02 - lombok, 16 spots (primary coastline flow: 2 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 14 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/lombok/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: gili-trawangan, name: "Gili Trawangan", town: "Gili Trawangan", lat: -8.3621, lon: 116.0394, offshore_direction: 64, swell_window: [179, 309], offshore_km: 5.0, <<: *lom }  # sat-verified 2026-09-02 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: island/bay shadow]
+  - { id: mangsit, name: "Mangsit", town: "Senggigi", lat: -8.4757, lon: 116.0372, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, <<: *lom }  # sat-verified 2026-09-02 (osm-seeded)
+  - { id: montong, name: "Montong", town: "Mataram", lat: -8.5484, lon: 116.0691, offshore_direction: 103, swell_window: [218, 348], offshore_km: 5.0, <<: *lom }  # sat-verified 2026-09-02 (osm-seeded)
+  - { id: desert-point, name: "Desert Point", town: "Bangko-Bangko", lat: -8.7219, lon: 115.8491, offshore_direction: 144, swell_window: [259, 29], offshore_km: 5.0, <<: *lom }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: selong-belanak, name: "Selong Belanak", town: "Selong Belanak", lat: -8.8724, lon: 116.1620, offshore_direction: 61, swell_window: [176, 306], offshore_km: 5.0, <<: *lom }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: mawi, name: "Mawi", town: "Selong Belanak", lat: -8.8776, lon: 116.1569, offshore_direction: 50, swell_window: [165, 295], offshore_km: 5.0, <<: *lom }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: ekas-inside, name: "Ekas Inside", town: "Ekas", lat: -8.8910, lon: 116.4483, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, <<: *lom }  # sat-verified 2026-09-02 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: island/bay shadow]
+  - { id: seger-reef, name: "Seger Reef", town: "Kuta Lombok", lat: -8.8957, lon: 116.2833, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, <<: *lom }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: ekas-outside, name: "Ekas Outside", town: "Ekas", lat: -8.8974, lon: 116.4451, offshore_direction: 26, swell_window: [141, 271], offshore_km: 5.0, <<: *lom }  # sat-verified 2026-09-02 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: island/bay shadow]
+  - { id: mawun, name: "Mawun", town: "Kuta Lombok", lat: -8.9001, lon: 116.2297, offshore_direction: 41, swell_window: [156, 286], offshore_km: 5.0, <<: *lom }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: are-guling, name: "Are Guling", town: "Kuta Lombok", lat: -8.9061, lon: 116.2482, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, <<: *lom }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: tanjung-aan, name: "Tanjung Aan", town: "Kuta Lombok", lat: -8.9095, lon: 116.3288, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, <<: *lom }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: gerupuk-inside, name: "Gerupuk Inside", town: "Gerupuk", lat: -8.9104, lon: 116.3472, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, <<: *lom }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: gerupuk-don-don, name: "Gerupuk Don-Don", town: "Gerupuk", lat: -8.9109, lon: 116.3548, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, <<: *lom }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: gerupuk-outside-left, name: "Gerupuk Outside Left", town: "Gerupuk", lat: -8.9248, lon: 116.3514, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, <<: *lom }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: gerupuk-outside-right, name: "Gerupuk Outside Right", town: "Gerupuk", lat: -8.9305, lon: 116.3511, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, <<: *lom }  # sat-verified 2026-09-02 (websearch-seeded)

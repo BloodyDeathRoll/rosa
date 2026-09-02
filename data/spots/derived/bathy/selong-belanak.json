@@ -1,0 +1,72 @@
+{
+  "spot": "selong-belanak",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -8.8724,
+    116.162
+  ],
+  "bearing_seaward_deg": 241.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 152.0,
+  "mean_slope_m_per_km": 9.24,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -8.87349,
+      "lon": 116.16001,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -8.87458,
+      "lon": 116.15802,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -8.87676,
+      "lon": 116.15404,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -8.88112,
+      "lon": 116.14608,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -8.88548,
+      "lon": 116.13812,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -8.8942,
+      "lon": 116.12219,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -8.90727,
+      "lon": 116.09831,
+      "depth_m": 121.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -8.92471,
+      "lon": 116.06646,
+      "depth_m": 251.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -8.95085,
+      "lon": 116.01867,
+      "depth_m": 152.0
+    }
+  ]
+}

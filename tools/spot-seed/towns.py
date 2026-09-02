@@ -43,6 +43,8 @@ REGION_PBF = {
     "Perth": "perth",
     "Margaret River": "margaret-river",
     "Bali": "bali",
+    "Lombok": "lombok",
+    "Sumbawa": "sumbawa",
 }
 
 
