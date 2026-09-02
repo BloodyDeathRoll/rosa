@@ -3353,3 +3353,62 @@ a.rank-card:hover {
     height: var(--frame-h);
   }
 }
+
+/* ==========================================================================
+   CONTACT (Profile > Contact us) - one text block and a Send button
+   ========================================================================== */
+
+.contact-hero {
+  aspect-ratio: 2 / 1;
+  background: var(--primary);
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+.contact-text {
+  width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+  font-size: 16px; /* keeps iOS from zooming the field */
+  line-height: 1.45;
+  color: inherit;
+  background: var(--card, rgba(127, 127, 127, 0.12));
+  border: 1px solid rgba(127, 127, 127, 0.35);
+  border-radius: 12px;
+  padding: 12px 14px;
+  resize: vertical;
+  min-height: 160px;
+}
+.contact-text:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+.contact-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+.contact-send {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 12px 28px;
+  border-radius: 999px;
+}
+.contact-send:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.contact-send:not(:disabled):active {
+  opacity: 0.85;
+}
+.contact-status {
+  margin-top: 8px;
+}
+.contact-failed a {
+  text-decoration: underline;
+}
+
