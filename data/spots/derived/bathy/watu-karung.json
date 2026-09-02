@@ -1,0 +1,72 @@
+{
+  "spot": "watu-karung",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -8.2373,
+    110.9733
+  ],
+  "bearing_seaward_deg": 192.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 284.0,
+  "mean_slope_m_per_km": 16.62,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -8.2395,
+      "lon": 110.97283,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -8.2417,
+      "lon": 110.97236,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -8.2461,
+      "lon": 110.97141,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -8.25489,
+      "lon": 110.96952,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -8.26369,
+      "lon": 110.96763,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -8.28128,
+      "lon": 110.96385,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -8.30767,
+      "lon": 110.95818,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -8.34286,
+      "lon": 110.95062,
+      "depth_m": 157.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -8.39564,
+      "lon": 110.93928,
+      "depth_m": 284.0
+    }
+  ]
+}

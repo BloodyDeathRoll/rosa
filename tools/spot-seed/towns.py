@@ -45,6 +45,8 @@ REGION_PBF = {
     "Bali": "bali",
     "Lombok": "lombok",
     "Sumbawa": "sumbawa",
+    "East Java": "east-java",
+    "West Java": "west-java",
 }
 
 

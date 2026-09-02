@@ -176,7 +176,24 @@ Four things, in this order:
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-09-02, DB = 918 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-09-02, DB = 936 spots, ALL sat-verified)
+
+**East Java 0 -> 12 and West Java 0 -> 6 (2026-09-02) - Java's south coast in two boxes.** East =
+Pacitan to G-Land, West = Sawarna to Pangandaran; Central Java (Parangtritis, Kebumen) is not
+seeded. Same extract, same `indonesia` basin, `Asia/Jakarta` anchors. Primary flow: 830 + 637
+bathy-passed candidates, 0 + 2 Tier-A (a surf-camp node and a generic "The Reef" node, both
+skipped). Secondary: 13 + 13 guide names -> all rendered -> 12 keep / 7 move / 8 drop over three
+rounds. **Google collapsed every Pelabuhan Ratu break onto Cimaja** (Karang Haji, Indicators, Karang
+Papak, Karang Hawu, Cikembang, Loji - one coordinate for seven names) and every Pangandaran name
+onto Batu Karas 13 km away; the z14 tile of the bay is river-plume and cloud, so only Karang Haji
+could be placed and the other five were dropped rather than guessed - **the bay is the gap to close
+next time, ideally from a guide with coordinates or a local**. G-Land came from the z15 read: the
+three sections sit along one reef N->S (Kongs at the camp, Moneytrees mid-point, Speedies at the
+tip - Google had Speedies NE of Kongs, backwards), each pin nudged onto its breaking line on a
+second render. Eleven normals set by hand (Batu Karas and Teleng Ria came back facing N/E). Judge
+logs in `work/east-java/judge.json` and `work/west-java/judge.json`. **Next in Indonesia:**
+Mentawai, Sumba, Nias; **Pelabuhan Ratu detail** as a gap-fill.
+
 
 **Lombok 0 -> 16 and Sumbawa 0 -> 9 (2026-09-02) - Indonesia's second and third regions, on the
 Bali recipe.** Two boxes (Lombok whole island; Sumbawa's west and south coasts only - the north
@@ -557,7 +574,7 @@ once bathymetry allows); Mexico detail - the East Cape between Shipwrecks and Ni
 Punta Mita sub-breaks, Oaxaca's Salina Cruz points beyond Conejo/Chipehua; Japan Hokkaido /
 Okinawa / Wakayama detail; Philippines more (Daku, Zambales Liwliwa neighbours); Portugal
 Ericeira micro-spots & the **Azores**; Nicaragua north (Puerto Sandino cluster). Regions with
-zero spots today: everywhere else - Indonesia beyond Bali / Lombok / Sumbawa, Chile, Ecuador, France/Spain, South Africa;
+zero spots today: everywhere else - Indonesia beyond Bali / Lombok / Sumbawa / Java's south coast, Chile, Ecuador, France/Spain, South Africa;
 Australia beyond Sydney/Byron/Perth/Margaret River (Gold Coast, Victoria, WA north of Perth - Geraldton, Kalbarri, Gnaraloo - and Esperance); Hawaii's Big Island.
 **The real frontier = Tier-B.** Tens of thousands of physics-valid, *unnamed* coastline
 stretches (Japan 22k, Philippines 37k). OSM/guides never named them; this is the sat-verify +

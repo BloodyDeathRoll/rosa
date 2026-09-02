@@ -1,0 +1,72 @@
+{
+  "spot": "balekambang",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -8.4033,
+    112.5398
+  ],
+  "bearing_seaward_deg": 178.0,
+  "nearshore_depth_m": -22.0,
+  "offshore_depth_m": 717.0,
+  "mean_slope_m_per_km": 41.63,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -8.40555,
+      "lon": 112.53988,
+      "depth_m": -22.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -8.40779,
+      "lon": 112.53996,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -8.41229,
+      "lon": 112.54012,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -8.42128,
+      "lon": 112.54043,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -8.43026,
+      "lon": 112.54075,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -8.44824,
+      "lon": 112.54139,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -8.4752,
+      "lon": 112.54234,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -8.51115,
+      "lon": 112.54361,
+      "depth_m": 367.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -8.56508,
+      "lon": 112.54551,
+      "depth_m": 717.0
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+# Rosa spot database - West Java (seeded 2026-09-02, with east-java - Java's south coast in two
+# boxes on the Bali recipe). Sawarna and the Pelabuhan Ratu bay (Cimaja) in the west, Ujung Genteng, Batu Karas and Pangandaran in the east.
+# SW Indian Ocean groundswell year-round, biggest May-Oct with the SE trade offshore.
+# Reef points and river-mouth beaches mixed; break_type, swell_window and offshore_direction
+# are per spot.
+
+defaults: &wjv
+  timezone: Asia/Jakarta
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [160, 270]
+  ideal:
+    wind_dir: [45, 135]
+    size_m: [1.0, 3.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-02 - west-java, 6 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 6 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/west-java/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: cimaja, name: "Cimaja", town: "Cimaja", lat: -6.9608, lon: 106.4871, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, <<: *wjv }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: karang-haji, name: "Karang Haji", town: "Cimaja", lat: -6.9632, lon: 106.4976, offshore_direction: 30, swell_window: [145, 275], offshore_km: 5.0, <<: *wjv }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: sawarna, name: "Sawarna", town: "Sawarna", lat: -6.9856, lon: 106.3071, offshore_direction: 51, swell_window: [166, 296], offshore_km: 5.0, <<: *wjv }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: ombak-tujuh, name: "Ombak Tujuh", town: "Ujung Genteng", lat: -7.2768, lon: 106.3744, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, <<: *wjv }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: turtles, name: "Turtles", town: "Ujung Genteng", lat: -7.3696, lon: 106.3963, offshore_direction: 95, swell_window: [210, 340], offshore_km: 5.0, <<: *wjv }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: batu-karas, name: "Batu Karas", town: "Batu Karas", lat: -7.7497, lon: 108.5021, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, <<: *wjv }  # sat-verified 2026-09-02 (websearch-seeded)

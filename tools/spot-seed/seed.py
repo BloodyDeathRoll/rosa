@@ -132,6 +132,13 @@ REGIONS = {
     # Yoyo's) in the west and Hu'u (Lakey Peak) in the south; the north coast is not
     # surfed and is left out
     "sumbawa": (-9.15, 116.70, -8.55, 118.65),
+    # Java's south coast only, in two boxes (the north coast is unsurfed). East: Pacitan
+    # (Watu Karung, Srau) through Malang's south coast and Red Island to G-Land at the
+    # Blambangan tip
+    "east-java": (-8.85, 110.95, -7.95, 114.45),
+    # West: Sawarna and Pelabuhan Ratu / Cimaja, Ujung Genteng, then Batu Karas and
+    # Pangandaran; the Bogor/Jakarta north stays out
+    "west-java": (-7.85, 106.25, -6.90, 108.70),
 }
 
 

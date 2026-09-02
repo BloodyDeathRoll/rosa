@@ -1,0 +1,72 @@
+{
+  "spot": "red-island",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -8.591,
+    114.0174
+  ],
+  "bearing_seaward_deg": 207.0,
+  "nearshore_depth_m": 53.0,
+  "offshore_depth_m": 496.0,
+  "mean_slope_m_per_km": 24.96,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -8.593,
+      "lon": 114.01637,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -8.59501,
+      "lon": 114.01534,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -8.59901,
+      "lon": 114.01327,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -8.60703,
+      "lon": 114.00914,
+      "depth_m": 76.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -8.61504,
+      "lon": 114.00501,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -8.63106,
+      "lon": 113.99675,
+      "depth_m": 181.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -8.6551,
+      "lon": 113.98436,
+      "depth_m": 450.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -8.68715,
+      "lon": 113.96784,
+      "depth_m": 542.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -8.73523,
+      "lon": 113.94305,
+      "depth_m": 496.0
+    }
+  ]
+}
