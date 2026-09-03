@@ -32,15 +32,25 @@ def test_lon360_and_dlon180_compose_across_the_seam():
     assert abs(dlon180(359.9, lon360(-0.2))) < 0.5
 
 
-def test_cluster_boxes_keeps_a_seam_crossing_cluster_contiguous(capsys):
-    """A cluster at 359.8 / 0.2 used to produce left=~-0.2 or a 359-wide box."""
+def test_cluster_boxes_splits_a_seam_crossing_cluster_in_two(capsys):
+    """A cluster at 359.8 / 0.2 used to produce left=~-0.2 or a 359-wide box.
+
+    grib-filter cannot express a wrapping box, and clamping would drop every cell on the
+    far side of the seam - which is where half the members are. So the cluster is split
+    and each side fetched: every member is still covered exactly once, each box is valid
+    in 0-360, and neither is near-global."""
     pts = [(5.0, -0.2), (5.1, 0.2), (5.2, -0.4)]
     boxes = cluster_boxes(pts)
-    assert len(boxes) == 1  # they are neighbours, not two clusters 360 deg apart
-    box, members = boxes[0]
-    assert sorted(members) == [0, 1, 2]
-    assert box.right - box.left < 5.0  # a tight box, not a near-global one
-    assert "crosses the 0/360 seam" in capsys.readouterr().out  # says so out loud
+    assert len(boxes) == 2
+    assert sorted(i for _, m in boxes for i in m) == [0, 1, 2]
+    for box, members in boxes:
+        assert members  # no empty side
+        assert 0.0 <= box.left <= box.right <= 360.0
+        assert box.right - box.left < 5.0
+        # every member of a side really sits inside that side's box
+        for i in members:
+            assert box.left <= lon360(pts[i][1]) <= box.right
+    assert "seam" not in capsys.readouterr().out  # splitting is the fix, not a warning
 
 
 def test_cluster_boxes_is_unchanged_for_a_normal_cluster(capsys):
@@ -59,6 +69,29 @@ def test_cluster_boxes_clamps_padding_silently_when_no_member_crosses(capsys):
     assert sorted(members) == [0, 1]
     assert box.right == 360.0 and box.left > 350.0
     assert "seam" not in capsys.readouterr().out
+
+
+def test_committed_spots_are_each_in_exactly_one_fetch_box():
+    """Splitting a seam-crossing cluster must not lose or duplicate a spot.
+
+    Ghana (358-360 deg) clusters with Angola (13 deg) - 15 deg apart, inside
+    CLUSTER_SPAN_DEG - so the group straddles the seam and is split. Every committed spot
+    must still appear exactly once, inside a box that really contains it."""
+    from pathlib import Path
+
+    from rosa_pipeline.spots import load_spots
+
+    spots = load_spots(Path(__file__).resolve().parents[2] / "data" / "spots")
+    pts = [(s.lat, s.lon) for s in spots.values()]
+    boxes = cluster_boxes(pts)
+    seen = sorted(i for _, m in boxes for i in m)
+    assert seen == list(range(len(pts))), "a spot was dropped or double-counted"
+    for box, members in boxes:
+        assert 0.0 <= box.left <= box.right <= 360.0
+        for i in members:
+            lat, lon = pts[i]
+            assert box.bottom <= lat <= box.top
+            assert box.left <= lon360(lon) <= box.right
 
 
 def test_committed_spots_produce_no_seam_warning(capsys):
@@ -103,10 +136,10 @@ def test_every_committed_spot_picks_the_same_oisst_cell_as_before():
     For every spot FARTHER than the search radius from the 0/360 seam the wrapped window
     and the old clipped one select the same cells, so no published SST - and nothing
     downstream of it - moves. Spots inside that radius are the reason the wrap exists:
-    since 2026-09-03 the Yorkshire coast (Saltburn to Cayton Bay, 0.97 W to 0.36 W) sits
-    inside it, and the old code clipped those windows at column 0 and lost the cells
-    across the seam. They are asserted separately: same centre cell, full-width window,
-    and it must actually wrap.
+    since 2026-09-03 the Yorkshire coast (Saltburn to Cayton Bay, 0.97 W to 0.36 W) and
+    Ghana's Accra pair (Kokrobite and Labadi, 0.36 W to 0.14 W) sit inside it, and the old
+    code clipped those windows at column 0 and lost the cells across the seam. They are
+    asserted separately: same centre cell, full-width window, and it must actually wrap.
     """
     from pathlib import Path
 
@@ -116,7 +149,7 @@ def test_every_committed_spot_picks_the_same_oisst_cell_as_before():
     lons = np.arange(0.125, 360.0, 0.25)
     reach = int(NEAREST_MAX_DEG / 0.25)
     spots = load_spots(Path(__file__).resolve().parents[2] / "data" / "spots")
-    assert len(spots) == 1253
+    assert len(spots) == 1270
 
     near_seam = []
     for s in spots.values():
@@ -139,6 +172,8 @@ def test_every_committed_spot_picks_the_same_oisst_cell_as_before():
     # every column within the search radius by the signed distance
     assert sorted(s.id for s, _ in near_seam) == [
         "cayton-bay",
+        "kokrobite",
+        "labadi",
         "runswick-bay",
         "saltburn",
         "sandsend",

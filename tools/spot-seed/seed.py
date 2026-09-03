@@ -200,6 +200,17 @@ REGIONS = {
     "landes": (43.35, -1.85, 45.10, -1.05),
     # Brittany's Atlantic tip: La Torche and the Pays Bigouden, Crozon, Quiberon
     "brittany": (47.45, -4.85, 48.75, -3.00),
+    # Senegal: the Dakar peninsula (Ngor, Ouakam, the Almadies reefs, Yoff, Virage),
+    # the Petite Cote south to Toubab Dialaw and Somone, and Cap Skirring in Casamance
+    "senegal": (12.25, -17.60, 14.90, -16.65),
+    # Cape Verde's surfed islands: Sal and Boa Vista in the east, Sao Vicente in the
+    # north-west; Santiago's south coast is barely surfed and is left out
+    "cape-verde": (15.95, -25.10, 16.95, -22.65),
+    # Ghana's west coast (Busua, Dixcove) east through Cape Coast to Accra and Kokrobite.
+    # Togo is NOT in here: it needs its own Geofabrik extract, and Lome fell out of the
+    # 2026-09-03 pass with "no coastline candidate within reach" because only ghana.pbf
+    # was linked. Seed it as its own region when someone wants Lome.
+    "ghana": (4.65, -2.65, 6.30, 0.20),
 }
 
 

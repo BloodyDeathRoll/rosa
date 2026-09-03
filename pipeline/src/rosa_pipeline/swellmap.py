@@ -56,6 +56,9 @@ BASINS: dict[str, tuple[str, ...]] = {
     "pacific-northwest": ("Oregon", "Washington"),
     "hawaii": ("Hawaii",),
     "morocco": ("Morocco",),
+    # the West African Atlantic: the same NW groundswell that lights Morocco, arriving
+    # smaller and from further north; Cape Verde sits in the same frame
+    "west-africa": ("Senegal", "Cape Verde", "Ghana"),
     "angola": ("Angola",),
     "peru": ("Peru",),
     "maldives": ("Maldives",),

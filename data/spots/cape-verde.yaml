@@ -1,0 +1,27 @@
+# Rosa spot database - Cape Verde (seeded 2026-09-03 - West Africa). Sal, Boa Vista and Sao Vicente: reef points on the north and east shores. NW groundswell Nov-Mar with the NE trade blowing offshore on the classic right-handers.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &cv
+  timezone: Atlantic/Cape_Verde
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [280, 40]
+  ideal:
+    wind_dir: [20, 110]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-03 - cape-verde, 6 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 6 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/cape-verde/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: sao-pedro, name: "Sao Pedro", town: "Sao Pedro", lat: 16.8257, lon: -25.0653, offshore_direction: 30, swell_window: [145, 275], offshore_km: 5.0, <<: *cv }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: praia-grande-cv, name: "Praia Grande", town: "Calhau", lat: 16.7918, lon: -24.9445, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, <<: *cv }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: monte-leao, name: "Monte Leao", town: "Santa Maria", lat: 16.6992, lon: -22.9938, offshore_direction: 128, swell_window: [243, 13], offshore_km: 5.0, <<: *cv }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: kite-beach, name: "Kite Beach", town: "Santa Maria", lat: 16.6146, lon: -22.8972, offshore_direction: 245, swell_window: [0, 130], offshore_km: 5.0, <<: *cv }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: ponta-preta, name: "Ponta Preta", town: "Santa Maria", lat: 16.6066, lon: -22.9297, offshore_direction: 113, swell_window: [228, 358], offshore_km: 5.0, <<: *cv }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: ponta-do-sino, name: "Ponta do Sino", town: "Santa Maria", lat: 16.5861, lon: -22.9232, offshore_direction: 355, swell_window: [110, 240], offshore_km: 5.0, <<: *cv }  # sat-verified 2026-09-03 (websearch-seeded)

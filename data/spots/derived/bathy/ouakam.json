@@ -1,0 +1,72 @@
+{
+  "spot": "ouakam",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    14.7145,
+    -17.4918
+  ],
+  "bearing_seaward_deg": 241.0,
+  "nearshore_depth_m": -19.0,
+  "offshore_depth_m": 377.0,
+  "mean_slope_m_per_km": 22.31,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 14.71341,
+      "lon": -17.49383,
+      "depth_m": -19.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 14.71232,
+      "lon": -17.49587,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 14.71014,
+      "lon": -17.49993,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 14.70578,
+      "lon": -17.50806,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 14.70142,
+      "lon": -17.5162,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 14.6927,
+      "lon": -17.53246,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 14.67961,
+      "lon": -17.55685,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 14.66216,
+      "lon": -17.58936,
+      "depth_m": 112.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 14.63597,
+      "lon": -17.63813,
+      "depth_m": 377.0
+    }
+  ]
+}

@@ -181,7 +181,27 @@ Four things, in this order:
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-09-03, DB = 1253 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-09-03, DB = 1270 spots, ALL sat-verified)
+
+**West Africa 0 -> 17 (2026-09-03): Senegal 8, Cape Verde 6, Ghana 3** - the first regions on a
+`west-africa` basin. Three boxes on `africa/{senegal-and-gambia,cape-verde,ghana}`. 46 guide names
+-> 9 keep / 9 move / 28 drop, **the worst keep rate of any pass so far, and the drops are the
+point.** Google collapses hard here: Palmeira, Santa Maria, Fragata and Alibaba all returned one Sal
+coordinate; Cape Three Points, Butre, Akwidaa and Cape Coast returned one Ghanaian coordinate;
+Club Med (Dakar) returned Cap Skirring 250 km south. **Anything that missed twice was dropped, not
+guessed** - the Almadies reef cluster (Vivier, Secret Spot) could not be told apart on two rendered
+passes, and Palmeira's shore showed no break on a z15 read. Ngor's right and left were separated on
+a z15 read of the island. **Two process notes worth keeping:** (1) Senegal's OSM had a Tier-A
+`Ouakam` node 250 m from the break, and `ca_final` prefers Tier-A over a web move on an id clash -
+it took the shore pin and dropped my rendered one, silently, with only a `duplicate id` warn. The
+fix is a `skip.json` entry; **check the emitted coordinate whenever a Tier-A name matches a web
+name.** (2) `ghana-togo` was one box over a Ghana-only extract, so Lome had no coastline candidate
+and `ca_final` skipped it. Scoped the box to Ghana; **Togo needs its own extract and region.**
+**Ghana also broke the 0/360 seam open:** it clusters with Angola 15 deg away, the box wrapped past 0, and
+clamping would have dropped Ghana's cells - `gfswave.cluster_boxes` now SPLITS such a cluster and fetches
+both sides (SESSIONS 51). **Gap queue:** Togo and Benin, Morocco's Atlantic south (Dakhla is seeded, Imsouane-to-Tarfaya is
+not), Sierra Leone / Liberia (Robertsport), Gabon, Angola's north.
+
 
 **UK and France in one pass (2026-09-03): Cornwall & Devon 0 -> 36, Wales 0 -> 14, North Scotland
 0 -> 8, North East England 0 -> 10, Landes 0 -> 28, Brittany 0 -> 24.** Six boxes on four Geofabrik

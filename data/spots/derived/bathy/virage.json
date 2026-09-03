@@ -1,0 +1,72 @@
+{
+  "spot": "virage",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    14.7562,
+    -17.4975
+  ],
+  "bearing_seaward_deg": 347.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 334.0,
+  "mean_slope_m_per_km": 18.99,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 14.75839,
+      "lon": -17.49802,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 14.76058,
+      "lon": -17.49855,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 14.76496,
+      "lon": -17.49959,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 14.77373,
+      "lon": -17.50168,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 14.78249,
+      "lon": -17.50378,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 14.80001,
+      "lon": -17.50796,
+      "depth_m": 106.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 14.8263,
+      "lon": -17.51424,
+      "depth_m": 126.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 14.86135,
+      "lon": -17.52262,
+      "depth_m": 166.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 14.91393,
+      "lon": -17.53518,
+      "depth_m": 334.0
+    }
+  ]
+}

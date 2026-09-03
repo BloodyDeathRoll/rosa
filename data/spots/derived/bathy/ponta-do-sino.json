@@ -1,0 +1,72 @@
+{
+  "spot": "ponta-do-sino",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    16.5861,
+    -22.9232
+  ],
+  "bearing_seaward_deg": 175.0,
+  "nearshore_depth_m": 109.0,
+  "offshore_depth_m": 905.0,
+  "mean_slope_m_per_km": 44.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 16.58386,
+      "lon": -22.923,
+      "depth_m": 109.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 16.58162,
+      "lon": -22.92279,
+      "depth_m": 267.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 16.57714,
+      "lon": -22.92238,
+      "depth_m": 364.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 16.56818,
+      "lon": -22.92156,
+      "depth_m": 498.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 16.55922,
+      "lon": -22.92075,
+      "depth_m": 674.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.54131,
+      "lon": -22.91911,
+      "depth_m": 958.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.51443,
+      "lon": -22.91666,
+      "depth_m": 1377.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.47859,
+      "lon": -22.91339,
+      "depth_m": 1375.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.42484,
+      "lon": -22.90849,
+      "depth_m": 905.0
+    }
+  ]
+}

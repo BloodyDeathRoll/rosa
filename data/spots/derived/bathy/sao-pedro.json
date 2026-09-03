@@ -1,0 +1,72 @@
+{
+  "spot": "sao-pedro",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    16.8257,
+    -25.0653
+  ],
+  "bearing_seaward_deg": 210.0,
+  "nearshore_depth_m": 189.0,
+  "offshore_depth_m": 1833.0,
+  "mean_slope_m_per_km": 92.62,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 16.82375,
+      "lon": -25.06647,
+      "depth_m": 189.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 16.82181,
+      "lon": -25.06765,
+      "depth_m": 396.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 16.81791,
+      "lon": -25.07,
+      "depth_m": 397.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 16.81012,
+      "lon": -25.07469,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 16.80233,
+      "lon": -25.07939,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.78676,
+      "lon": -25.08878,
+      "depth_m": 460.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.76339,
+      "lon": -25.10287,
+      "depth_m": 1074.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.73223,
+      "lon": -25.12164,
+      "depth_m": 1451.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.68549,
+      "lon": -25.1498,
+      "depth_m": 1833.0
+    }
+  ]
+}

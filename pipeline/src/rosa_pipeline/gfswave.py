@@ -96,33 +96,42 @@ def cluster_boxes(points: list[tuple[float, float]]) -> list[tuple[Box, list[int
             else:
                 rest.append(i)
         unassigned = rest
-        lats = [points[i][0] for i in members]
         # measure every member as a signed offset from the seed, so a cluster spanning
         # the 0/360 seam stays contiguous instead of running from ~1 deg to ~359 deg
         offs = [dlon180(_lon360(points[i][1]), s_lon) for i in members]
         raw_left, raw_right = s_lon + min(offs), s_lon + max(offs)
-        left, right = raw_left - BOX_PAD_DEG, raw_right + BOX_PAD_DEG
         if raw_left < 0.0 or raw_right > 360.0:
-            # grib-filter takes leftlon/rightlon in 0-360 and has no way to express a
-            # box that wraps; splitting one cluster into two requests is the fix when a
-            # spot finally lands here. No committed spot does - closest is Scarborough at
-            # ~359.6 deg - so this warns rather than silently sending a nonsense box.
-            print(
-                f"warn: gfswave cluster at lon {s_lon:.2f} crosses the 0/360 seam "
-                f"({left:.2f}..{right:.2f}) - the box will be clamped and may miss cells"
-            )
-        # Only the PADDING may cross (the UK cluster runs 354-359.6 deg and pads to
-        # 360.6): every member is inside the file, so clamp silently - the sea-room lost
-        # beyond the seam holds no spot and no offshore sample.
-        left, right = max(0.0, left), min(360.0, right)
-        box = Box(
-            bottom=min(lats) - BOX_PAD_DEG,
-            top=max(lats) + BOX_PAD_DEG,
-            left=left,
-            right=right,
-        )
-        out.append((box, members))
+            # A MEMBER is on the far side of the seam. grib-filter takes leftlon/rightlon
+            # in 0-360 and cannot express a wrapping box, and clamping would silently drop
+            # every cell beyond the seam - which is where those members are. So split the
+            # cluster in two and fetch each side, exactly as this comment promised before
+            # a spot landed here: Ghana (358-360 deg) joins Angola (13 deg) at 15 deg of
+            # separation, well inside CLUSTER_SPAN_DEG, and Ghana's cells were the ones
+            # the clamp would have thrown away (2026-09-03).
+            east = [i for i in members if _lon360(points[i][1]) < 180.0]
+            west = [i for i in members if _lon360(points[i][1]) >= 180.0]
+            for side in (east, west):
+                if side:
+                    out.append((_box(points, side), side))
+            continue
+        out.append((_box(points, members), members))
     return out
+
+
+def _box(points: list[tuple[float, float]], members: list[int]) -> Box:
+    """The padded box around one group, in the filter's 0-360 convention.
+
+    Every member is on the same side of the seam by the time this is called, so only the
+    PADDING can cross 360 (the UK group runs 354-359.6 and pads to 360.6). Clamping that
+    is safe: the sea-room lost beyond the seam holds no spot and no offshore sample."""
+    lats = [points[i][0] for i in members]
+    lons = [_lon360(points[i][1]) for i in members]
+    return Box(
+        bottom=min(lats) - BOX_PAD_DEG,
+        top=max(lats) + BOX_PAD_DEG,
+        left=max(0.0, min(lons) - BOX_PAD_DEG),
+        right=min(360.0, max(lons) + BOX_PAD_DEG),
+    )
 
 
 def pick_cycle(now: datetime) -> datetime:

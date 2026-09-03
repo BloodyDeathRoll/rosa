@@ -1,0 +1,72 @@
+{
+  "spot": "monte-leao",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    16.6992,
+    -22.9938
+  ],
+  "bearing_seaward_deg": 308.0,
+  "nearshore_depth_m": -78.0,
+  "offshore_depth_m": 1605.0,
+  "mean_slope_m_per_km": 94.82,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 16.70058,
+      "lon": -22.99565,
+      "depth_m": -78.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 16.70197,
+      "lon": -22.9975,
+      "depth_m": -52.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 16.70474,
+      "lon": -23.0012,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 16.71027,
+      "lon": -23.0086,
+      "depth_m": 149.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 16.71581,
+      "lon": -23.016,
+      "depth_m": 195.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.72688,
+      "lon": -23.0308,
+      "depth_m": 194.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.74349,
+      "lon": -23.053,
+      "depth_m": 307.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.76562,
+      "lon": -23.08262,
+      "depth_m": 920.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.79882,
+      "lon": -23.12705,
+      "depth_m": 1605.0
+    }
+  ]
+}
