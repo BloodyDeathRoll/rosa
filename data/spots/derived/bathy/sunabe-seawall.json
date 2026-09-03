@@ -1,0 +1,72 @@
+{
+  "spot": "sunabe-seawall",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    26.3306,
+    127.7421
+  ],
+  "bearing_seaward_deg": 246.0,
+  "nearshore_depth_m": 16.0,
+  "offshore_depth_m": 27.0,
+  "mean_slope_m_per_km": 0.62,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 26.32969,
+      "lon": 127.73981,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 26.32877,
+      "lon": 127.73752,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 26.32694,
+      "lon": 127.73293,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 26.32328,
+      "lon": 127.72377,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 26.31962,
+      "lon": 127.7146,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 26.3123,
+      "lon": 127.69627,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 26.30132,
+      "lon": 127.66878,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 26.28666,
+      "lon": 127.63214,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 26.26466,
+      "lon": 127.57719,
+      "depth_m": 27.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "katoku",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    28.1931,
+    129.405
+  ],
+  "bearing_seaward_deg": 140.0,
+  "nearshore_depth_m": -33.0,
+  "offshore_depth_m": 631.0,
+  "mean_slope_m_per_km": 37.41,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.19138,
+      "lon": 129.40664,
+      "depth_m": -33.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.18966,
+      "lon": 129.40828,
+      "depth_m": -15.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.18621,
+      "lon": 129.41156,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.17932,
+      "lon": 129.41812,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.17243,
+      "lon": 129.42467,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.15865,
+      "lon": 129.43778,
+      "depth_m": 139.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.13798,
+      "lon": 129.45744,
+      "depth_m": 199.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.11041,
+      "lon": 129.48365,
+      "depth_m": 393.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.06904,
+      "lon": 129.52292,
+      "depth_m": 631.0
+    }
+  ]
+}

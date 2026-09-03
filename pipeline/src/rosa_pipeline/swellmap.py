@@ -44,6 +44,8 @@ BASINS: dict[str, tuple[str, ...]] = {
     "mexico": ("Mexico",),
     "sri-lanka": ("Sri Lanka",),
     "japan": ("Japan",),
+    # the Ryukyu arc is 600-1,000 km SW of Honshu's surf coast: its own frame
+    "ryukyu": ("Tanegashima Amami", "Okinawa"),
     "philippines": ("Philippines",),
     "california": ("California",),
     # Oregon + Washington share one Pacific Northwest frame: 900 km of one coastline

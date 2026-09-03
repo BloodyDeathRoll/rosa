@@ -1,0 +1,72 @@
+{
+  "spot": "cape-zanpa",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    26.4407,
+    127.711
+  ],
+  "bearing_seaward_deg": 240.0,
+  "nearshore_depth_m": 96.0,
+  "offshore_depth_m": 660.0,
+  "mean_slope_m_per_km": 31.77,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 26.43958,
+      "lon": 127.70883,
+      "depth_m": 96.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 26.43845,
+      "lon": 127.70665,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 26.4362,
+      "lon": 127.7023,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 26.43171,
+      "lon": 127.6936,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 26.42721,
+      "lon": 127.68491,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 26.41821,
+      "lon": 127.66752,
+      "depth_m": 139.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 26.40471,
+      "lon": 127.64144,
+      "depth_m": 380.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 26.3867,
+      "lon": 127.60667,
+      "depth_m": 567.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 26.35968,
+      "lon": 127.55454,
+      "depth_m": 660.0
+    }
+  ]
+}

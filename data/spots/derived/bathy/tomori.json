@@ -1,0 +1,72 @@
+{
+  "spot": "tomori",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    28.4652,
+    129.7179
+  ],
+  "bearing_seaward_deg": 80.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 288.0,
+  "mean_slope_m_per_km": 16.06,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.46559,
+      "lon": 129.72042,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.46598,
+      "lon": 129.72294,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.46676,
+      "lon": 129.72797,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.46832,
+      "lon": 129.73805,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.46988,
+      "lon": 129.74812,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.473,
+      "lon": 129.76828,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.47767,
+      "lon": 129.79851,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.48389,
+      "lon": 129.83882,
+      "depth_m": 164.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.49319,
+      "lon": 129.89929,
+      "depth_m": 288.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "maeda-point",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    26.4451,
+    127.7702
+  ],
+  "bearing_seaward_deg": 288.0,
+  "nearshore_depth_m": 42.0,
+  "offshore_depth_m": 553.0,
+  "mean_slope_m_per_km": 28.79,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 26.44579,
+      "lon": 127.76781,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 26.44649,
+      "lon": 127.76542,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 26.44788,
+      "lon": 127.76065,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 26.45066,
+      "lon": 127.75109,
+      "depth_m": 141.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 26.45343,
+      "lon": 127.74154,
+      "depth_m": 198.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 26.45899,
+      "lon": 127.72243,
+      "depth_m": 349.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 26.46731,
+      "lon": 127.69376,
+      "depth_m": 464.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 26.4784,
+      "lon": 127.65554,
+      "depth_m": 521.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 26.49502,
+      "lon": 127.59818,
+      "depth_m": 553.0
+    }
+  ]
+}

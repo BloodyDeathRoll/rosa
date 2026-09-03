@@ -1,0 +1,72 @@
+{
+  "spot": "nakayama",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    30.5294,
+    130.9924
+  ],
+  "bearing_seaward_deg": 143.0,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 282.0,
+  "mean_slope_m_per_km": 15.15,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 30.5276,
+      "lon": 130.99397,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 30.52581,
+      "lon": 130.99554,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 30.52222,
+      "lon": 130.99868,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 30.51503,
+      "lon": 131.00496,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 30.50785,
+      "lon": 131.01125,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 30.49348,
+      "lon": 131.0238,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 30.47193,
+      "lon": 131.04264,
+      "depth_m": 118.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 30.44319,
+      "lon": 131.06773,
+      "depth_m": 178.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 30.40007,
+      "lon": 131.10535,
+      "depth_m": 282.0
+    }
+  ]
+}

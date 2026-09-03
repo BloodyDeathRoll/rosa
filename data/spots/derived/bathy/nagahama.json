@@ -1,0 +1,72 @@
+{
+  "spot": "nagahama",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    30.5433,
+    130.9296
+  ],
+  "bearing_seaward_deg": 299.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 114.0,
+  "mean_slope_m_per_km": 6.08,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 30.54439,
+      "lon": 130.92732,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 30.54548,
+      "lon": 130.92503,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 30.54766,
+      "lon": 130.92047,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 30.55202,
+      "lon": 130.91133,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 30.55638,
+      "lon": 130.9022,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 30.56509,
+      "lon": 130.88393,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 30.57816,
+      "lon": 130.85651,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 30.59557,
+      "lon": 130.81995,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 30.62168,
+      "lon": 130.76508,
+      "depth_m": 114.0
+    }
+  ]
+}

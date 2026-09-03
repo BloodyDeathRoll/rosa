@@ -162,6 +162,12 @@ REGIONS = {
     # the Mentawai chain, Siberut down to South Pagai; the Sumatran mainland stays east of
     # the box (Padang is at 100.35, the chain's east edge is ~100.5)
     "mentawai": (-3.30, 98.60, -0.85, 100.55),
+    # Japan's southern islands, north half: Tanegashima and Yakushima (just south of the
+    # japan box's 30.0 edge), Amami Oshima, Tokunoshima and Okinoerabu
+    "tanegashima-amami": (27.0, 128.3, 30.9, 131.2),
+    # south half: Okinawa main island and the Keramas, Miyako and the Yaeyamas (Ishigaki,
+    # Iriomote); Daito and Yonaguni are out
+    "okinawa": (24.0, 122.9, 27.0, 128.5),
 }
 
 

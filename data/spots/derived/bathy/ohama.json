@@ -1,0 +1,72 @@
+{
+  "spot": "ohama",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    28.404,
+    129.4549
+  ],
+  "bearing_seaward_deg": 285.0,
+  "nearshore_depth_m": 41.0,
+  "offshore_depth_m": 689.0,
+  "mean_slope_m_per_km": 36.51,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.40458,
+      "lon": 129.45243,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.40516,
+      "lon": 129.44996,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.40633,
+      "lon": 129.44502,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.40865,
+      "lon": 129.43515,
+      "depth_m": 94.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.41098,
+      "lon": 129.42527,
+      "depth_m": 105.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.41563,
+      "lon": 129.40552,
+      "depth_m": 125.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.4226,
+      "lon": 129.37588,
+      "depth_m": 176.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.43188,
+      "lon": 129.33636,
+      "depth_m": 345.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.44578,
+      "lon": 129.27707,
+      "depth_m": 689.0
+    }
+  ]
+}

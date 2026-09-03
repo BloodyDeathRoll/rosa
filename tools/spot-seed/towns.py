@@ -54,6 +54,8 @@ REGION_PBF = {
     "Tasmania": "tasmania",
     "WA North": "wa-north",
     "Mentawai": "mentawai",
+    "Tanegashima Amami": "tanegashima-amami",
+    "Okinawa": "okinawa",
 }
 
 

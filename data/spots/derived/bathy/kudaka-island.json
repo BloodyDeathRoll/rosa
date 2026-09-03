@@ -1,0 +1,72 @@
+{
+  "spot": "kudaka-island",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    26.1585,
+    127.8981
+  ],
+  "bearing_seaward_deg": 126.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 918.0,
+  "mean_slope_m_per_km": 51.21,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 26.15718,
+      "lon": 127.90013,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 26.15586,
+      "lon": 127.90215,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 26.15321,
+      "lon": 127.90621,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 26.14793,
+      "lon": 127.91431,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 26.14264,
+      "lon": 127.92241,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 26.13206,
+      "lon": 127.93862,
+      "depth_m": 98.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 26.1162,
+      "lon": 127.96292,
+      "depth_m": 283.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 26.09503,
+      "lon": 127.99532,
+      "depth_m": 566.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 26.06328,
+      "lon": 128.04389,
+      "depth_m": 918.0
+    }
+  ]
+}

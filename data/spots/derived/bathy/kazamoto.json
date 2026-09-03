@@ -1,0 +1,72 @@
+{
+  "spot": "kazamoto",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    30.69,
+    131.0659
+  ],
+  "bearing_seaward_deg": 60.0,
+  "nearshore_depth_m": -15.0,
+  "offshore_depth_m": 88.0,
+  "mean_slope_m_per_km": 5.8,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 30.69112,
+      "lon": 131.06816,
+      "depth_m": -15.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 30.69225,
+      "lon": 131.07043,
+      "depth_m": -16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 30.6945,
+      "lon": 131.07496,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 30.69899,
+      "lon": 131.08402,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 30.70349,
+      "lon": 131.09307,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 30.71248,
+      "lon": 131.11119,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 30.72595,
+      "lon": 131.13838,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 30.74391,
+      "lon": 131.17464,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 30.77084,
+      "lon": 131.22906,
+      "depth_m": 88.0
+    }
+  ]
+}

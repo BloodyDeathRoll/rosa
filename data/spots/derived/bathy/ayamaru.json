@@ -1,0 +1,72 @@
+{
+  "spot": "ayamaru",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    28.4737,
+    129.7201
+  ],
+  "bearing_seaward_deg": 60.0,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 248.0,
+  "mean_slope_m_per_km": 13.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.47482,
+      "lon": 129.72232,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.47595,
+      "lon": 129.72453,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.4782,
+      "lon": 129.72896,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.48269,
+      "lon": 129.73782,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.48719,
+      "lon": 129.74668,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.49618,
+      "lon": 129.76441,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.50965,
+      "lon": 129.791,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.52762,
+      "lon": 129.82648,
+      "depth_m": 122.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.55455,
+      "lon": 129.8797,
+      "depth_m": 248.0
+    }
+  ]
+}

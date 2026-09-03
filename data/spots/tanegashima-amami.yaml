@@ -1,0 +1,40 @@
+# Rosa spot database - Tanegashima & Amami (seeded 2026-09-03 - Japan's southern islands, the north half of the arc).
+# Tanegashima's east-coast beach breaks, Yakushima, Amami Oshima's reefs. Typhoon swell Jul-Oct from the S-SE and winter monsoon swell from the N-NW; the
+# islands catch both, so every spot carries its own swell_window and offshore_direction.
+# Reef throughout except the Tanegashima beaches; break_type per spot.
+
+defaults: &tan
+  timezone: Asia/Tokyo
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [90, 220]
+  ideal:
+    wind_dir: [270, 30]
+    size_m: [1.0, 3.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-03 - tanegashima-amami, 17 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 17 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/tanegashima-amami/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: kazamoto, name: "Kazamoto", town: "Nishinoomote", lat: 30.6900, lon: 131.0659, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, <<: *tan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: sumiyoshi, name: "Sumiyoshi", town: "Nishinoomote", lat: 30.6703, lon: 130.9397, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, <<: *tan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: kanehama, name: "Kanehama", town: "Nakatane", lat: 30.6631, lon: 131.0527, offshore_direction: 284, swell_window: [39, 169], offshore_km: 5.0, <<: *tan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: anjo, name: "Anjo", town: "Nishinoomote", lat: 30.6516, lon: 131.0504, offshore_direction: 273, swell_window: [28, 158], offshore_km: 5.0, <<: *tan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: yokino, name: "Yokino", town: "Nakatane", lat: 30.5788, lon: 131.0333, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, <<: *tan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: nagahama, name: "Nagahama", town: "Nakatane", lat: 30.5433, lon: 130.9296, offshore_direction: 119, swell_window: [234, 4], offshore_km: 5.0, <<: *tan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: nakayama, name: "Nakayama", town: "Nakatane", lat: 30.5294, lon: 130.9924, offshore_direction: 323, swell_window: [78, 208], offshore_km: 5.0, <<: *tan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: isso, name: "Isso", town: "Yakushima", lat: 30.4551, lon: 130.4959, offshore_direction: 180, swell_window: [295, 65], offshore_km: 5.0, <<: *tan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: tanegashima-lighthouse, name: "Tanegashima Lighthouse", town: "Minamitane", lat: 30.4472, lon: 130.9721, offshore_direction: 110, swell_window: [225, 355], offshore_km: 5.0, <<: *tan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: nagata-inakahama, name: "Nagata Inakahama", town: "Yakushima", lat: 30.4104, lon: 130.4352, offshore_direction: 122, swell_window: [237, 7], offshore_km: 5.0, <<: *tan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: takezaki, name: "Takezaki", town: "Minamitane", lat: 30.3795, lon: 130.9639, offshore_direction: 243, swell_window: [358, 128], offshore_km: 5.0, <<: *tan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: ayamaru, name: "Ayamaru", town: "Amami", lat: 28.4737, lon: 129.7201, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, <<: *tan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: tomori, name: "Tomori", town: "Amami", lat: 28.4652, lon: 129.7179, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, <<: *tan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: bira, name: "Bira", town: "Tatsugo", lat: 28.4068, lon: 129.6324, offshore_direction: 210, swell_window: [325, 95], offshore_km: 5.0, <<: *tan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: ohama, name: "Ohama", town: "Amami", lat: 28.4040, lon: 129.4549, offshore_direction: 105, swell_window: [220, 350], offshore_km: 5.0, <<: *tan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: tebiro, name: "Tebiro", town: "Tatsugo", lat: 28.4029, lon: 129.6186, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, <<: *tan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: katoku, name: "Katoku", town: "Setouchi", lat: 28.1931, lon: 129.4050, offshore_direction: 320, swell_window: [75, 205], offshore_km: 5.0, <<: *tan }  # sat-verified 2026-09-03 (websearch-seeded)

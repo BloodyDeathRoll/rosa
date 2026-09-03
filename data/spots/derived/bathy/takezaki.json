@@ -1,0 +1,72 @@
+{
+  "spot": "takezaki",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    30.3795,
+    130.9639
+  ],
+  "bearing_seaward_deg": 63.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 324.0,
+  "mean_slope_m_per_km": 18.14,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 30.38052,
+      "lon": 130.96622,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 30.38154,
+      "lon": 130.96854,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 30.38358,
+      "lon": 130.97319,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 30.38766,
+      "lon": 130.98248,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 30.39175,
+      "lon": 130.99177,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 30.39991,
+      "lon": 131.01035,
+      "depth_m": 90.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 30.41214,
+      "lon": 131.03823,
+      "depth_m": 136.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 30.42845,
+      "lon": 131.07542,
+      "depth_m": 194.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 30.45288,
+      "lon": 131.13122,
+      "depth_m": 324.0
+    }
+  ]
+}

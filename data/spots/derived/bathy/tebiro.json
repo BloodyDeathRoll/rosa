@@ -1,0 +1,72 @@
+{
+  "spot": "tebiro",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    28.4029,
+    129.6186
+  ],
+  "bearing_seaward_deg": 110.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 171.0,
+  "mean_slope_m_per_km": 10.14,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.40213,
+      "lon": 129.621,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.40136,
+      "lon": 129.6234,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.39982,
+      "lon": 129.62821,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.39675,
+      "lon": 129.63781,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.39367,
+      "lon": 129.64742,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.38751,
+      "lon": 129.66663,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.37827,
+      "lon": 129.69544,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.36594,
+      "lon": 129.73385,
+      "depth_m": 111.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.34743,
+      "lon": 129.79144,
+      "depth_m": 171.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "ikei-island",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    26.3936,
+    127.9911
+  ],
+  "bearing_seaward_deg": 80.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 660.0,
+  "mean_slope_m_per_km": 36.73,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 26.39399,
+      "lon": 127.99357,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 26.39438,
+      "lon": 127.99604,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 26.39516,
+      "lon": 128.00099,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 26.39672,
+      "lon": 128.01087,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 26.39828,
+      "lon": 128.02076,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 26.4014,
+      "lon": 128.04054,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 26.40607,
+      "lon": 128.07021,
+      "depth_m": 187.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 26.41229,
+      "lon": 128.10977,
+      "depth_m": 556.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 26.4216,
+      "lon": 128.16911,
+      "depth_m": 660.0
+    }
+  ]
+}

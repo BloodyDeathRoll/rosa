@@ -1,0 +1,72 @@
+{
+  "spot": "toguchi",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    26.365,
+    127.7375
+  ],
+  "bearing_seaward_deg": 270.0,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 669.0,
+  "mean_slope_m_per_km": 36.96,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 26.365,
+      "lon": 127.73499,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 26.365,
+      "lon": 127.73248,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 26.365,
+      "lon": 127.72746,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 26.365,
+      "lon": 127.71743,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 26.365,
+      "lon": 127.70739,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 26.36499,
+      "lon": 127.68731,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 26.36498,
+      "lon": 127.6572,
+      "depth_m": 206.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 26.36495,
+      "lon": 127.61705,
+      "depth_m": 448.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 26.36489,
+      "lon": 127.55683,
+      "depth_m": 669.0
+    }
+  ]
+}

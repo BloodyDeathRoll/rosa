@@ -1,0 +1,34 @@
+# Rosa spot database - Okinawa (seeded 2026-09-03 - Japan's southern islands, the south half of the arc).
+# Okinawa main island's reef passes (Suicides, Sunabe), the Keramas, Miyako and the Yaeyamas. Typhoon swell Jul-Oct from the S-SE and winter monsoon swell from the N-NW; the
+# islands catch both, so every spot carries its own swell_window and offshore_direction.
+# Reef throughout except the Tanegashima beaches; break_type per spot.
+
+defaults: &oki
+  timezone: Asia/Tokyo
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [90, 220]
+  ideal:
+    wind_dir: [270, 30]
+    size_m: [1.0, 3.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-03 - okinawa, 11 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 11 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/okinawa/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: hedo-point, name: "Hedo Point", town: "Kunigami", lat: 26.8750, lon: 128.2622, offshore_direction: 205, swell_window: [320, 90], offshore_km: 5.0, <<: *oki }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: maeda-point, name: "Maeda Point", town: "Onna", lat: 26.4451, lon: 127.7702, offshore_direction: 108, swell_window: [223, 353], offshore_km: 5.0, <<: *oki }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: cape-zanpa, name: "Cape Zanpa", town: "Yomitan", lat: 26.4407, lon: 127.7110, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, <<: *oki }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: ikei-island, name: "Ikei Island", town: "Uruma", lat: 26.3936, lon: 127.9911, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, <<: *oki }  # sat-verified 2026-09-03 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: the N ray hits the Katsuren peninsula]
+  - { id: toguchi, name: "Toguchi", town: "Yomitan", lat: 26.3650, lon: 127.7375, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, <<: *oki }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: sunabe-ii, name: "Sunabe II", town: "Chatan", lat: 26.3356, lon: 127.7421, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, <<: *oki }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: sunabe-seawall, name: "Sunabe Seawall", town: "Chatan", lat: 26.3306, lon: 127.7421, offshore_direction: 66, swell_window: [181, 311], offshore_km: 5.0, <<: *oki }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: bowls, name: "Bowls", town: "Chatan", lat: 26.3227, lon: 127.7455, offshore_direction: 61, swell_window: [176, 306], offshore_km: 5.0, <<: *oki }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: kudaka-island, name: "Kudaka Island", town: "Nanjo", lat: 26.1585, lon: 127.8981, offshore_direction: 306, swell_window: [61, 191], offshore_km: 5.0, <<: *oki }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: suicide-cliffs, name: "Suicide Cliffs", town: "Itoman", lat: 26.0778, lon: 127.6706, offshore_direction: 26, swell_window: [141, 271], offshore_km: 5.0, <<: *oki }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: irabu, name: "Irabu", town: "Miyakojima", lat: 24.8091, lon: 125.1871, offshore_direction: 40, swell_window: [155, 285], offshore_km: 5.0, <<: *oki }  # sat-verified 2026-09-03 (websearch-seeded)

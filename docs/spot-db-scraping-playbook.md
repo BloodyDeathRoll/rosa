@@ -176,7 +176,25 @@ Four things, in this order:
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-09-03, DB = 1066 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-09-03, DB = 1094 spots, ALL sat-verified)
+
+**Tanegashima & Amami 0 -> 17 and Okinawa 0 -> 11 (2026-09-03) - Japan's southern islands, on a
+new `ryukyu` basin.** Two boxes on the Japan extract (2.5 GB - ~15 min per coastline parse), the
+`japan` box's 30.0 S edge left Tanegashima out until now. Primary flow: 0 Tier-A and almost no
+named beaches on Tanegashima. **What was new: geocode in Japanese.** The English queries collapsed
+all thirteen Tanegashima names onto Minamitane town and put "Miyanoura" on Amami; a second
+`multi_geocode.py --file` round with Japanese queries (鉄浜海岸 種子島, 残波岬, 喜屋武岬 ...) resolved
+most of them, and Nominatim / Photon came back to life on kanji - the provider that was dead
+outside Europe/US works here in the local script. The z15 read of the Sunabe seawall put the three
+Chatan reefs on the reef edge (the first z16 placements landed in deep water 300 m out). 20 keep /
+15 move / 15 drop over three rounds: drops were inland pins, sheltered coves (Urata, Mibaru) and the
+Miyako / Yaeyama snorkel beaches that are not surf spots. Fourteen normals set by hand - the island
+coastline ways here run every which way, so the nearest-candidate normal was wrong more often than
+right. Ikei Island's N ray hit the Katsuren peninsula at 18 km and was re-aimed E by arc sweep. Towns are the municipalities (Chatan, Yomitan, Nakatane, Tatsugo). Judge logs in
+`work/okinawa/judge.json` and `work/tanegashima-amami/judge.json`. **Gap queue:** the Playgrounds-
+style Sunabe sub-breaks (Hawaiians, California, Hotels), Miyako's Irabu / Shimoji reefs, Amami's
+Gamou and Ohama's neighbours - all need a local source.
+
 
 **Mentawai 0 -> 15 (2026-09-03) - the first boat-access chain.** One box from Siberut to South
 Pagai on the Indonesia extract and the `indonesia` basin. Primary flow: 0 Tier-A and 0 OSM surf
@@ -644,7 +662,7 @@ operator-supplied coordinates and are tagged `user-verified`.
 **Next gap queue:** the six drops above (Killers, Punta Baja, La Saladita's neighbours, Matanchén
 once bathymetry allows); Mexico detail - the East Cape between Shipwrecks and Nine Palms, the
 Punta Mita sub-breaks, Oaxaca's Salina Cruz points beyond Conejo/Chipehua; Japan Hokkaido /
-Okinawa / Wakayama detail; Philippines more (Daku, Zambales Liwliwa neighbours); Portugal
+Wakayama detail (Okinawa and Tanegashima seeded 2026-09-03); Philippines more (Daku, Zambales Liwliwa neighbours); Portugal
 Ericeira micro-spots & the **Azores**; Nicaragua north (Puerto Sandino cluster). Regions with
 zero spots today: everywhere else - Indonesia beyond Bali / Lombok / Sumbawa / Java / Mentawai (Sumba, Nias, Rote), Chile, Ecuador, France/Spain, South Africa;
 Australia's remaining corners (Cactus / Eyre Peninsula, Kangaroo Island, Esperance, Marrawah); Hawaii's Big Island.

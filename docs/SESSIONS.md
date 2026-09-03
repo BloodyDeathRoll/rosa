@@ -158,3 +158,5 @@ SESSION 51 (2026-09-03): **South Australia 0 -> 19, Tasmania 0 -> 13, WA North 0
 
 SESSION 51 (cont., 2026-09-03): **Mentawai 0 -> 15, DB 1051 -> 1066 - the first boat-access chain**, per playbook §5 (2026-09-03 Mentawai entry). OSM has nothing there; 31 guide names, Google gave the surf camps, 1 keep / 14 move / 16 drop - every kept pin placed on its visible reef line, and the 16 that could not be told apart on the tiles (Playgrounds inner breaks, the Silabu lagoon group) dropped and logged as the gap queue. Five normals set by hand, six re-aimed SW by arc sweep (the Playgrounds channel is walled by Siberut and Karangmajat).
 
+SESSION 51 (cont., 2026-09-03): **Tanegashima & Amami 0 -> 17 and Okinawa 0 -> 11, DB 1066 -> 1094 - Japan's southern islands on a new `ryukyu` basin**, per playbook §5 (2026-09-03 Ryukyu entry). The English geocodes collapsed every Tanegashima name onto one town; a second round in Japanese resolved them and woke Nominatim / Photon. The Sunabe reefs were placed off a z15 read after the z16 pins landed in deep water. 20 keep / 15 move / 15 drop; fourteen normals set by hand, Ikei re-aimed E by arc sweep.
+
