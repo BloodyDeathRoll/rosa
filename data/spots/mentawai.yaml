@@ -1,0 +1,39 @@
+# Rosa spot database - Mentawai (seeded 2026-09-03 - Indonesia's fourth region, the first
+# boat-access chain). Siberut, Sipora and the Pagais: reef passes and points facing SW into
+# Indian Ocean groundswell year-round, biggest Apr-Oct; the dry-season SE trade is offshore
+# on the west-facing breaks. Reef throughout; swell_window and offshore_direction per spot.
+# Towns are the island or the nearest village - most breaks have no settlement within 12 km.
+
+defaults: &mtw
+  timezone: Asia/Jakarta
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [170, 290]
+  ideal:
+    wind_dir: [60, 150]
+    size_m: [1.0, 3.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-03 - mentawai, 15 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 15 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/mentawai/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: rifles, name: "Rifles", town: "Playgrounds", lat: -1.7914, lon: 99.2546, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, <<: *mtw }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: ebay, name: "Ebay", town: "Nyang Nyang", lat: -1.8260, lon: 99.2574, offshore_direction: 58, swell_window: [173, 303], offshore_km: 5.0, <<: *mtw }  # sat-verified 2026-09-03 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: Playgrounds channel / Sipora shelf]
+  - { id: bengbengs, name: "Bengbengs", town: "Nyang Nyang", lat: -1.8295, lon: 99.2533, offshore_direction: 30, swell_window: [145, 275], offshore_km: 5.0, <<: *mtw }  # sat-verified 2026-09-03 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: Playgrounds channel / Sipora shelf]
+  - { id: pitstops, name: "Pitstops", town: "Nyang Nyang", lat: -1.8321, lon: 99.2527, offshore_direction: 30, swell_window: [145, 275], offshore_km: 5.0, <<: *mtw }  # sat-verified 2026-09-03 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: Playgrounds channel / Sipora shelf]
+  - { id: bank-vaults, name: "Bank Vaults", town: "Karangmajat", lat: -1.8443, lon: 99.2424, offshore_direction: 36, swell_window: [151, 281], offshore_km: 5.0, <<: *mtw }  # sat-verified 2026-09-03 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: Playgrounds channel / Sipora shelf]
+  - { id: kandui-left, name: "Kandui Left", town: "Karangmajat", lat: -1.8999, lon: 99.2923, offshore_direction: 42, swell_window: [157, 287], offshore_km: 5.0, <<: *mtw }  # sat-verified 2026-09-03 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: Playgrounds channel / Sipora shelf]
+  - { id: awera-right, name: "Awera Right", town: "Tua Pejat", lat: -2.0238, lon: 99.5672, offshore_direction: 56, swell_window: [171, 301], offshore_km: 5.0, <<: *mtw }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: scarecrows, name: "Scarecrows", town: "Sipora", lat: -2.1241, lon: 99.5198, offshore_direction: 59, swell_window: [174, 304], offshore_km: 5.0, <<: *mtw }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: lances-left, name: "Lances Left", town: "Katiet", lat: -2.3732, lon: 99.8567, offshore_direction: 255, swell_window: [10, 140], offshore_km: 5.0, <<: *mtw }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: lances-right-hts, name: "Lances Right (HTs)", town: "Katiet", lat: -2.3782, lon: 99.8607, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, <<: *mtw }  # sat-verified 2026-09-03 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: Playgrounds channel / Sipora shelf]
+  - { id: bintangs, name: "Bintangs", town: "Katiet", lat: -2.3821, lon: 99.8645, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, <<: *mtw }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: macaronis, name: "Macaronis", town: "Silabu", lat: -2.7763, lon: 99.9832, offshore_direction: 40, swell_window: [155, 285], offshore_km: 5.0, <<: *mtw }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: greenbush, name: "Greenbush", town: "Silabu", lat: -2.8213, lon: 100.0608, offshore_direction: 66, swell_window: [181, 311], offshore_km: 5.0, <<: *mtw }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: roxies-right, name: "Roxies Right", town: "South Pagai", lat: -2.9474, lon: 100.1919, offshore_direction: 68, swell_window: [183, 313], offshore_km: 5.0, <<: *mtw }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: thunders, name: "Thunders", town: "South Pagai", lat: -3.0563, lon: 100.1838, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, <<: *mtw }  # sat-verified 2026-09-03 (websearch-seeded)

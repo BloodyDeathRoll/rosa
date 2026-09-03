@@ -176,7 +176,25 @@ Four things, in this order:
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-09-03, DB = 1051 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-09-03, DB = 1066 spots, ALL sat-verified)
+
+**Mentawai 0 -> 15 (2026-09-03) - the first boat-access chain.** One box from Siberut to South
+Pagai on the Indonesia extract and the `indonesia` basin. Primary flow: 0 Tier-A and 0 OSM surf
+nodes of any kind - OSM has nothing here. Secondary: 31 guide names -> all geocoded (Google only) ->
+all rendered -> 1 keep / 14 move / 16 drop. **The Mentawai failure mode is the surf camp:** Google
+returned Kandui Villas, the Playgrounds camp islet and Katiet village for a dozen names each, so every
+kept pin was placed on its reef line off the tile - which the sub-metre imagery shows unusually well
+here (Rifles, Kandui, HTs, Bank Vaults, Roxies, Thunders all have a visible breaking line). What
+could NOT be separated was dropped rather than guessed: the Playgrounds inner breaks (Nipussi,
+Burgerworld, Hideaways, A-Frames, Four Bobs, Playgrounds Left), Sipora's Telescopes / Suicides /
+Seven Palms, and the whole Rags / Hole / Bat Caves / Silabu Left group in the Silabu lagoon - the
+tiles show reef everywhere and no way to tell which reef carries which name. **Those 16 are the
+Mentawai gap queue and need a source with coordinates (a charter operator's map or a local), not
+another geocode.** Five normals set by hand, and six more re-aimed by arc sweep: the Playgrounds breaks sit in a channel
+walled by Siberut and Karangmajat, so their W rays hit land at 18 km and the open water is SW (the
+direction the swell actually arrives from); HTs' SE ray ran along Sipora's shelf and was turned to ESE.
+Towns are the islands / camps (Playgrounds, Nyang Nyang, Karangmajat, Katiet, Silabu). Judge log `work/mentawai/judge.json`.
+
 
 **South Australia 0 -> 19, Tasmania 0 -> 13, WA North 0 -> 11 (2026-09-03) - the last three
 Australian gaps, in one pass.** SA = Fleurieu + Yorke (Cactus on the Eyre and Kangaroo Island's
@@ -628,7 +646,7 @@ once bathymetry allows); Mexico detail - the East Cape between Shipwrecks and Ni
 Punta Mita sub-breaks, Oaxaca's Salina Cruz points beyond Conejo/Chipehua; Japan Hokkaido /
 Okinawa / Wakayama detail; Philippines more (Daku, Zambales Liwliwa neighbours); Portugal
 Ericeira micro-spots & the **Azores**; Nicaragua north (Puerto Sandino cluster). Regions with
-zero spots today: everywhere else - Indonesia beyond Bali / Lombok / Sumbawa / Java's south coast, Chile, Ecuador, France/Spain, South Africa;
+zero spots today: everywhere else - Indonesia beyond Bali / Lombok / Sumbawa / Java / Mentawai (Sumba, Nias, Rote), Chile, Ecuador, France/Spain, South Africa;
 Australia's remaining corners (Cactus / Eyre Peninsula, Kangaroo Island, Esperance, Marrawah); Hawaii's Big Island.
 **The real frontier = Tier-B.** Tens of thousands of physics-valid, *unnamed* coastline
 stretches (Japan 22k, Philippines 37k). OSM/guides never named them; this is the sat-verify +

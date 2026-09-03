@@ -53,6 +53,7 @@ REGION_PBF = {
     "South Australia": "south-australia",
     "Tasmania": "tasmania",
     "WA North": "wa-north",
+    "Mentawai": "mentawai",
 }
 
 

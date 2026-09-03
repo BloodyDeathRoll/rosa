@@ -159,6 +159,9 @@ REGIONS = {
     # WA's Coral Coast north of Perth: Geraldton, Kalbarri, then Red Bluff and Gnaraloo;
     # 600 km of mostly empty coast, the box is what keeps the candidate count sane
     "wa-north": (-29.20, 113.30, -23.70, 114.90),
+    # the Mentawai chain, Siberut down to South Pagai; the Sumatran mainland stays east of
+    # the box (Padang is at 100.35, the chain's east edge is ~100.5)
+    "mentawai": (-3.30, 98.60, -0.85, 100.55),
 }
 
 
