@@ -1,0 +1,26 @@
+# Rosa spot database - Madagascar (seeded 2026-09-04). East coast faces open Indian Ocean swell; south tip catches Southern Ocean groundswell.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &mad
+  timezone: Indian/Antananarivo
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [120, 220]
+  ideal:
+    wind_dir: [250, 20]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-04 - madagascar, 5 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 5 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/madagascar/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: flameballs, name: "Flameballs", town: "Anakao", lat: -23.6330, lon: 43.6250, offshore_direction: 40, swell_window: [155, 285], offshore_km: 5.0, <<: *mad }  # sat-verified 2026-09-04 (websearch-seeded)
+  - { id: jelly-baby, name: "Jelly Baby", town: "Anakao", lat: -23.6800, lon: 43.6350, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, <<: *mad }  # sat-verified 2026-09-04 (websearch-seeded)
+  - { id: lavanono, name: "Lavanono", town: "Lavanono", lat: -25.4280, lon: 44.9370, offshore_direction: 110, swell_window: [225, 355], offshore_km: 5.0, <<: *mad }  # sat-verified 2026-09-04 (websearch-seeded)
+  - { id: baie-maxime, name: "Baie Maxime", town: "Mahambo", lat: -17.4852, lon: 49.4755, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, <<: *mad }  # sat-verified 2026-09-04 (websearch-seeded)
+  - { id: libanona, name: "Libanona", town: "Fort Dauphin", lat: -25.0360, lon: 46.9830, offshore_direction: 320, swell_window: [75, 205], offshore_km: 5.0, <<: *mad }  # sat-verified 2026-09-04 (websearch-seeded)

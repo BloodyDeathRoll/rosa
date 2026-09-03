@@ -24,3 +24,19 @@ spots:
   - { id: tofinho, name: "Tofinho", town: "Tofo", lat: -23.8607, lon: 35.5532, offshore_direction: 279, swell_window: [34, 164], offshore_km: 5.0, <<: *moz }  # sat-verified 2026-09-03 (websearch-seeded)
   - { id: ponta-malongane, name: "Ponta Malongane", town: "Ponta Malongane", lat: -26.7958, lon: 32.8931, offshore_direction: 278, swell_window: [33, 163], offshore_km: 5.0, <<: *moz }  # sat-verified 2026-09-03 (websearch-seeded)
   - { id: ponta-do-ouro, name: "Ponta do Ouro", town: "Ponta do Ouro", lat: -26.8430, lon: 32.8938, offshore_direction: 234, swell_window: [349, 119], offshore_km: 5.0, <<: *moz }  # sat-verified 2026-09-03 (websearch-seeded)
+
+  # ==== SEEDED 2026-09-04 - mozambique, 8 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 8 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/mozambique/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: mussage, name: "Mussage", town: "Pemba", lat: -12.9576, lon: 40.5724, offshore_direction: 248, swell_window: [3, 133], offshore_km: 5.0, <<: *moz }  # sat-verified 2026-09-04 (websearch-seeded)
+  - { id: diamonds, name: "Diamonds", town: "Mecufi", lat: -13.1860, lon: 40.5630, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, <<: *moz }  # sat-verified 2026-09-04 (websearch-seeded)
+  - { id: pomene, name: "Pomene", town: "Pomene", lat: -22.9220, lon: 35.6012, offshore_direction: 238, swell_window: [353, 123], offshore_km: 5.0, <<: *moz }  # sat-verified 2026-09-04 (websearch-seeded)
+  - { id: praia-morrungulo, name: "Praia Morrungulo", town: "Morrungulo", lat: -23.2336, lon: 35.4955, offshore_direction: 262, swell_window: [17, 147], offshore_km: 5.0, <<: *moz }  # sat-verified 2026-09-04 (websearch-seeded)
+  - { id: guinjata-bay, name: "Guinjata Bay", town: "Guinjata", lat: -24.0723, lon: 35.4994, offshore_direction: 288, swell_window: [43, 173], offshore_km: 5.0, <<: *moz }  # sat-verified 2026-09-04 (websearch-seeded)
+  - { id: ponta-zavora, name: "Ponta Zavora", town: "Zavora", lat: -24.5175, lon: 35.2052, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, <<: *moz }  # sat-verified 2026-09-04 (websearch-seeded)
+  - { id: maragra, name: "Maragra", town: "Maragra", lat: -25.4763, lon: 32.9717, offshore_direction: 292, swell_window: [47, 177], offshore_km: 5.0, <<: *moz }  # sat-verified 2026-09-04 (websearch-seeded)
+  - { id: ponta-mamoli, name: "Ponta Mamoli", town: "Zitundo", lat: -26.6980, lon: 32.9020, offshore_direction: 282, swell_window: [37, 167], offshore_km: 5.0, <<: *moz }  # sat-verified 2026-09-04 (websearch-seeded)

@@ -1,0 +1,72 @@
+{
+  "spot": "ponta-mamoli",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -26.698,
+    32.902
+  ],
+  "bearing_seaward_deg": 102.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 346.0,
+  "mean_slope_m_per_km": 19.15,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -26.69847,
+      "lon": 32.90446,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -26.69893,
+      "lon": 32.90692,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -26.69987,
+      "lon": 32.91185,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -26.70174,
+      "lon": 32.92169,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -26.70361,
+      "lon": 32.93154,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -26.70734,
+      "lon": 32.95124,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -26.71294,
+      "lon": 32.98078,
+      "depth_m": 142.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -26.72039,
+      "lon": 33.02018,
+      "depth_m": 217.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -26.73155,
+      "lon": 33.07929,
+      "depth_m": 346.0
+    }
+  ]
+}

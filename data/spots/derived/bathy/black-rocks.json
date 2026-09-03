@@ -1,0 +1,72 @@
+{
+  "spot": "black-rocks",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -20.315,
+    57.362
+  ],
+  "bearing_seaward_deg": 238.0,
+  "nearshore_depth_m": 204.0,
+  "offshore_depth_m": 1887.0,
+  "mean_slope_m_per_km": 94.82,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -20.31619,
+      "lon": 57.35997,
+      "depth_m": 204.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -20.31738,
+      "lon": 57.35793,
+      "depth_m": 234.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -20.31977,
+      "lon": 57.35387,
+      "depth_m": 94.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -20.32453,
+      "lon": 57.34573,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -20.3293,
+      "lon": 57.3376,
+      "depth_m": 285.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -20.33882,
+      "lon": 57.32133,
+      "depth_m": 1055.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -20.35311,
+      "lon": 57.29692,
+      "depth_m": 1428.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -20.37216,
+      "lon": 57.26437,
+      "depth_m": 1602.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -20.40072,
+      "lon": 57.21553,
+      "depth_m": 1887.0
+    }
+  ]
+}

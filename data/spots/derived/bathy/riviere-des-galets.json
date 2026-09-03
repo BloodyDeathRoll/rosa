@@ -1,0 +1,72 @@
+{
+  "spot": "riviere-des-galets",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -20.51,
+    57.46
+  ],
+  "bearing_seaward_deg": 146.0,
+  "nearshore_depth_m": 140.0,
+  "offshore_depth_m": 2734.0,
+  "mean_slope_m_per_km": 146.14,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -20.51186,
+      "lon": 57.46134,
+      "depth_m": 140.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -20.51373,
+      "lon": 57.46268,
+      "depth_m": 341.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -20.51746,
+      "lon": 57.46537,
+      "depth_m": 389.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -20.52491,
+      "lon": 57.47074,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -20.53237,
+      "lon": 57.47611,
+      "depth_m": 129.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -20.54728,
+      "lon": 57.48685,
+      "depth_m": 503.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -20.56964,
+      "lon": 57.50297,
+      "depth_m": 1533.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -20.59946,
+      "lon": 57.52447,
+      "depth_m": 2146.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -20.64418,
+      "lon": 57.55673,
+      "depth_m": 2734.0
+    }
+  ]
+}

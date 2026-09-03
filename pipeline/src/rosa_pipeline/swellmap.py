@@ -61,7 +61,7 @@ BASINS: dict[str, tuple[str, ...]] = {
     "west-africa": ("Senegal", "Cape Verde", "Ghana"),
     # the south-west Indian Ocean: Southern Ocean groundswell up the South African
     # coast into Mozambique, and the monsoon swell on the equatorial reefs
-    "east-africa": ("South Africa East", "Mozambique", "Kenya", "Zanzibar"),
+    "east-africa": ("South Africa East", "Mozambique", "Madagascar", "Mauritius", "Kenya", "Zanzibar"),
     # the US east coast: North Atlantic groundswell and, Aug-Oct, hurricane swell
     # tracking up the seaboard; one frame from Florida to New England
     "us-east": (

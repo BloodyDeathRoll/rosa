@@ -74,6 +74,8 @@ REGION_PBF = {
     "Mozambique": "mozambique",
     "Kenya": "kenya",
     "Zanzibar": "zanzibar",
+    "Madagascar": "madagascar",
+    "Mauritius": "mauritius",
     "Long Island": "long-island",
     "New Jersey": "new-jersey",
     "Outer Banks": "outer-banks",

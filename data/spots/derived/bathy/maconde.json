@@ -1,0 +1,72 @@
+{
+  "spot": "maconde",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -20.5,
+    57.37
+  ],
+  "bearing_seaward_deg": 176.0,
+  "nearshore_depth_m": 18.0,
+  "offshore_depth_m": 2655.0,
+  "mean_slope_m_per_km": 148.56,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -20.50224,
+      "lon": 57.37017,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -20.50449,
+      "lon": 57.37033,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -20.50897,
+      "lon": 57.37067,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -20.51794,
+      "lon": 57.37134,
+      "depth_m": 180.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -20.52691,
+      "lon": 57.37201,
+      "depth_m": 420.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -20.54486,
+      "lon": 57.37335,
+      "depth_m": 887.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -20.57177,
+      "lon": 57.37536,
+      "depth_m": 1194.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -20.60766,
+      "lon": 57.37804,
+      "depth_m": 1879.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -20.66148,
+      "lon": 57.38207,
+      "depth_m": 2655.0
+    }
+  ]
+}

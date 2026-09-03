@@ -1,0 +1,72 @@
+{
+  "spot": "grand-sancho",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -20.508,
+    57.45
+  ],
+  "bearing_seaward_deg": 252.0,
+  "nearshore_depth_m": 184.0,
+  "offshore_depth_m": 1628.0,
+  "mean_slope_m_per_km": 81.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -20.50869,
+      "lon": 57.44772,
+      "depth_m": 184.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -20.50939,
+      "lon": 57.44543,
+      "depth_m": 107.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -20.51078,
+      "lon": 57.44087,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -20.51356,
+      "lon": 57.43174,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -20.51634,
+      "lon": 57.4226,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -20.52189,
+      "lon": 57.40434,
+      "depth_m": 146.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -20.53022,
+      "lon": 57.37694,
+      "depth_m": 506.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -20.54131,
+      "lon": 57.34039,
+      "depth_m": 1287.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -20.55795,
+      "lon": 57.28557,
+      "depth_m": 1628.0
+    }
+  ]
+}

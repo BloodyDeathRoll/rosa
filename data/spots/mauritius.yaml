@@ -1,0 +1,31 @@
+# Rosa spot database - Mauritius (seeded 2026-09-04). Volcanic island exposed to Indian Ocean and Southern Ocean swell on all sides; reef breaks dominate.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &mau
+  timezone: Indian/Mauritius
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [120, 220]
+  ideal:
+    wind_dir: [250, 20]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-04 - mauritius, 10 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 10 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/mauritius/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: black-rocks, name: "Black Rocks", town: "Tamarin", lat: -20.3150, lon: 57.3620, offshore_direction: 58, swell_window: [173, 303], offshore_km: 5.0, <<: *mau }  # sat-verified 2026-09-04 (websearch-seeded)
+  - { id: one-eye, name: "One Eye", town: "Le Morne", lat: -20.4700, lon: 57.3000, offshore_direction: 116, swell_window: [231, 1], offshore_km: 5.0, <<: *mau }  # sat-verified 2026-09-04 (websearch-seeded)
+  - { id: le-morne, name: "Le Morne", town: "Le Morne", lat: -20.4400, lon: 57.3150, offshore_direction: 180, swell_window: [295, 65], offshore_km: 5.0, <<: *mau }  # sat-verified 2026-09-04 (websearch-seeded)
+  - { id: manawa, name: "Manawa", town: "Le Morne", lat: -20.4820, lon: 57.3130, offshore_direction: 180, swell_window: [295, 65], offshore_km: 5.0, <<: *mau }  # sat-verified 2026-09-04 (websearch-seeded)
+  - { id: maconde, name: "Maconde", town: "Baie du Cap", lat: -20.5000, lon: 57.3700, offshore_direction: 356, swell_window: [111, 241], offshore_km: 5.0, <<: *mau }  # sat-verified 2026-09-04 (websearch-seeded)
+  - { id: grand-sancho, name: "Grand Sancho", town: "Riviere des Galets", lat: -20.5080, lon: 57.4500, offshore_direction: 72, swell_window: [187, 317], offshore_km: 5.0, <<: *mau }  # sat-verified 2026-09-04 (websearch-seeded)
+  - { id: ilot-sancho, name: "Ilot Sancho", town: "Riviere des Galets", lat: -20.5040, lon: 57.4470, offshore_direction: 342, swell_window: [97, 227], offshore_km: 5.0, <<: *mau }  # sat-verified 2026-09-04 (websearch-seeded)
+  - { id: riviere-des-galets, name: "Riviere des Galets", town: "Riviere des Galets", lat: -20.5100, lon: 57.4600, offshore_direction: 326, swell_window: [81, 211], offshore_km: 5.0, <<: *mau }  # sat-verified 2026-09-04 (websearch-seeded)
+  - { id: souillac, name: "Souillac", town: "Souillac", lat: -20.5250, lon: 57.5180, offshore_direction: 338, swell_window: [93, 223], offshore_km: 5.0, <<: *mau }  # sat-verified 2026-09-04 (websearch-seeded)
+  - { id: graveyards, name: "Graveyards", town: "Souillac", lat: -20.5300, lon: 57.5100, offshore_direction: 268, swell_window: [23, 153], offshore_km: 5.0, <<: *mau }  # sat-verified 2026-09-04 (websearch-seeded)

@@ -217,13 +217,18 @@ REGIONS = {
     "south-africa-east": (-34.30, 24.60, -29.30, 31.40),
     # Mozambique's surfed south: Ponta do Ouro and Ponta Malongane on the border, then
     # Tofo and Tofinho up at Inhambane
-    "mozambique": (-27.00, 32.60, -23.30, 35.60),
+    "mozambique": (-27.00, 32.60, -10.40, 40.90),
     # Kenya's Diani coast and Tanzania's Zanzibar: reef and lagoon breaks on the
     # monsoon swell. Two countries, but ONE box needs ONE extract - kenya.pbf covers
     # Diani; Zanzibar is in tanzania.pbf and gets its own region below.
     "kenya": (-4.75, 39.10, -3.90, 39.90),
     # Zanzibar's east coast: Paje, Jambiani, Dongwe
     "zanzibar": (-6.60, 39.30, -5.70, 39.65),
+    # Madagascar: the east coast faces open Indian Ocean swell; the south tip
+    # catches Southern Ocean groundswell. West coast is sheltered by Mozambique Channel.
+    "madagascar": (-25.70, 43.10, -12.00, 50.60),
+    # Mauritius: small volcanic island fully exposed to Indian Ocean + S.O. swell
+    "mauritius": (-20.60, 57.25, -19.95, 57.85),
     # ---- the US east coast. Every box is Atlantic-facing only; bays, sounds and the
     # Gulf side are excluded, and each box is scoped to ONE state extract.
     # New York's ocean beaches: Rockaway and Long Beach west, the Fire Island barrier,

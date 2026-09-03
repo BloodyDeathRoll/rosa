@@ -214,7 +214,20 @@ profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-09-03, DB = 1383 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-09-04, DB = 1406 spots, ALL sat-verified)
+
+**Indian Ocean 0 -> 28 (2026-09-04): Mozambique north extension +8 (-> 13 total), Madagascar 5,
+Mauritius 10** - all three zero-OSM regions, web-search only with 3 rounds of sat-tile verification
+and two-strikes-then-drop. Northern Mozambique bbox widened from -23.30 to -10.40, picking up
+Inhambane coast spots (mussage to ponta-mamoli). Madagascar yielded only the southwest (Anakao reefs:
+flameballs, jelly-baby) and south tip (lavanono, libanona, baie-maxime on the east coast); 9 of 14
+candidates dropped across 3 passes. Mauritius concentrated on the southwest Le Morne peninsula (one-eye,
+le-morne, manawa) and south coast (souillac, graveyards, riviere-des-galets cluster); ilot-sancho and
+grand-sancho converged to 104 m on pass 3 and were reverted to pass-2 coordinates (543 m apart). All
+joined the `east-africa` swellmap basin. Several bathy profiles have land samples in their nearest
+ray points (diamonds, maragra, black-rocks, grand-sancho, ilot-sancho, riviere-des-galets, souillac,
+graveyards, lavanono, maconde) but the geography (volcanic islands, steep reef margins) makes this
+reasonable.
 
 **US East 0 -> 84 (2026-09-03): New Jersey 25, Long Island 20, Outer Banks 16, Florida Space Coast 12,
 Rhode Island 11** - a new `us-east` basin, five boxes on the `north-america/us/{new-york,new-jersey,

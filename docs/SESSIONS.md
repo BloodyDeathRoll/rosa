@@ -264,3 +264,30 @@ Judging ran as four parallel subagents, one per region, with a fifth and sixth f
 passes; Rhode Island was judged directly. 1383 profiles, 1383 tide files, no gaps and no orphans, and
 no spot in the fleet has a ray that ends inland.
 
+
+## SESSION 2026-09-04 - Indian Ocean seeded (23 spots, DB 1383 -> 1406)
+
+**Healthcheck investigation.** The `rosa-publish` Healthchecks.io dead-man switch went DOWN. Root
+cause: the 130 spots added in the 2026-09-03 sessions pushed the ARM VM cycle from ~89 min to
+~131 min (2h11m), 11 minutes past the 2h grace period. Same false alarm as SESSION 45 (2026-08-29).
+Fix: grace period increased to 6h in the Healthchecks.io dashboard (no API key exists for
+programmatic changes).
+
+**Northern Mozambique extended** (bbox north limit -23.30 -> -10.40). The original 2026-09-03 seed
+had only covered the southern coast. 9 web-search candidates, 8 accepted after sat-tile verification
+(mussage, diamonds, pomene, praia-morrungulo, guinjata-bay, ponta-zavora, maragra, ponta-mamoli).
+Mozambique 5 -> 13.
+
+**Madagascar seeded** (5 spots). Zero OSM surf features. 14 web-search candidates, 5 accepted after
+3 rounds of verification: flameballs, jelly-baby (Anakao, southwest), lavanono (south tip),
+baie-maxime (east coast), libanona (Fort Dauphin). The east coast is largely unsurfed or unnamed; 9
+candidates dropped under the two-strikes rule.
+
+**Mauritius seeded** (10 spots). Zero OSM surf features. 13 web-search candidates, 10 accepted:
+black-rocks, one-eye, le-morne, manawa, maconde, grand-sancho, ilot-sancho, riviere-des-galets,
+souillac, graveyards. The Le Morne peninsula and south coast dominate. Ilot Sancho and Grand Sancho
+converged to 104 m on pass 3; reverted to pass-2 coordinates (543 m apart).
+
+All three joined the `east-africa` swellmap basin. Shore normals computed via `aim_normal.py` for all
+23 new spots. Several bathy profiles have land samples in the nearest ray points (volcanic islands,
+steep reef margins) but this is expected for the geography. 1406 profiles, 1406 tide files, no gaps.

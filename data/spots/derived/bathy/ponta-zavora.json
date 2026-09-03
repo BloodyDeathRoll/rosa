@@ -1,0 +1,72 @@
+{
+  "spot": "ponta-zavora",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -24.5175,
+    35.2052
+  ],
+  "bearing_seaward_deg": 90.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 81.0,
+  "mean_slope_m_per_km": 4.17,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -24.5175,
+      "lon": 35.20767,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -24.5175,
+      "lon": 35.21014,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -24.5175,
+      "lon": 35.21508,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -24.5175,
+      "lon": 35.22497,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -24.5175,
+      "lon": 35.23485,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -24.51749,
+      "lon": 35.25462,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -24.51748,
+      "lon": 35.28428,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -24.51745,
+      "lon": 35.32381,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -24.5174,
+      "lon": 35.38312,
+      "depth_m": 81.0
+    }
+  ]
+}

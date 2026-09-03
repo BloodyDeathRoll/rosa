@@ -1,0 +1,72 @@
+{
+  "spot": "guinjata-bay",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -24.0723,
+    35.4994
+  ],
+  "bearing_seaward_deg": 108.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 251.0,
+  "mean_slope_m_per_km": 13.75,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -24.07299,
+      "lon": 35.50174,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -24.07369,
+      "lon": 35.50408,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -24.07508,
+      "lon": 35.50877,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -24.07786,
+      "lon": 35.51814,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -24.08063,
+      "lon": 35.52751,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -24.08619,
+      "lon": 35.54624,
+      "depth_m": 102.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -24.09451,
+      "lon": 35.57435,
+      "depth_m": 142.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -24.10561,
+      "lon": 35.61184,
+      "depth_m": 187.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -24.12223,
+      "lon": 35.66809,
+      "depth_m": 251.0
+    }
+  ]
+}

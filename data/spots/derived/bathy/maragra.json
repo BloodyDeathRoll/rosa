@@ -1,0 +1,72 @@
+{
+  "spot": "maragra",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -25.4763,
+    32.9717
+  ],
+  "bearing_seaward_deg": 112.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 43.0,
+  "mean_slope_m_per_km": 3.04,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -25.47714,
+      "lon": 32.97401,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -25.47798,
+      "lon": 32.97632,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -25.47967,
+      "lon": 32.98094,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -25.48304,
+      "lon": 32.99017,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -25.4864,
+      "lon": 32.99941,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -25.49314,
+      "lon": 33.01789,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -25.50323,
+      "lon": 33.04561,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -25.51669,
+      "lon": 33.08258,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -25.53685,
+      "lon": 33.13804,
+      "depth_m": 43.0
+    }
+  ]
+}
