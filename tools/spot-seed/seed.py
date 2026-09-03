@@ -178,6 +178,11 @@ REGIONS = {
     # north of Gnaraloo: Coral Bay to Exmouth and the Ningaloo reef breaks around the North
     # West Cape (wa-north ends at -23.70)
     "exmouth": (-23.70, 113.60, -21.75, 114.35),
+    # WA's south coast: Augusta (east of the margaret-river box) through Windy Harbour,
+    # Walpole, Denmark and Albany to Bremer Bay
+    "wa-south": (-35.20, 115.25, -34.20, 119.50),
+    # Esperance and the Cape Le Grand beaches; the Recherche islands are inside and flat
+    "esperance": (-34.10, 121.40, -33.60, 122.60),
 }
 
 

@@ -1,0 +1,72 @@
+{
+  "spot": "salmon-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -34.8098,
+    116.0007
+  ],
+  "bearing_seaward_deg": 253.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 44.0,
+  "mean_slope_m_per_km": 2.25,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.81046,
+      "lon": 115.99808,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.81111,
+      "lon": 115.99546,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.81243,
+      "lon": 115.99022,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.81506,
+      "lon": 115.97975,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.81768,
+      "lon": 115.96927,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.82294,
+      "lon": 115.94832,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.83081,
+      "lon": 115.91688,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.84129,
+      "lon": 115.87496,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.85698,
+      "lon": 115.81205,
+      "depth_m": 44.0
+    }
+  ]
+}

@@ -162,3 +162,5 @@ SESSION 51 (cont., 2026-09-03): **Tanegashima & Amami 0 -> 17 and Okinawa 0 -> 1
 
 SESSION 51 (cont., 2026-09-03): **WA Midwest 0 -> 12, Bunbury 0 -> 7, Exmouth 0 -> 2, DB 1094 -> 1115 - the west-coast gaps between the WA boxes**, per playbook §5 (2026-09-03 WA-gaps entry). 29 names, 21 keep / 6 move / 8 drop, no hand-fixed normals. Google put Dongara's Home Reef 3 km inland and "Seven Mile Beach" on the Port Denison marina; the reef N of that seawall is Home Reef, so the pin was re-labelled. Exmouth is thin (Ningaloo's cape breaks collapsed onto the town) and is logged as a gap. Australia's west coast is now continuous from Cape Leeuwin to the North West Cape.
 
+SESSION 51 (cont., 2026-09-03): **WA South 0 -> 12 and Esperance 0 -> 6, DB 1115 -> 1133 - WA's south coast**, per playbook §5 (2026-09-03 south-coast entry). 24 names, 12 keep / 6 move / 6 drop; three normals set by hand, Cheynes Point re-aimed E by arc sweep. Australia's mainland surf coast is now continuous from Exmouth clockwise to the Sunshine Coast.
+

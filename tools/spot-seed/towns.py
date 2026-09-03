@@ -59,6 +59,8 @@ REGION_PBF = {
     "WA Midwest": "wa-midwest",
     "Bunbury": "bunbury",
     "Exmouth": "exmouth",
+    "WA South": "wa-south",
+    "Esperance": "esperance",
 }
 
 

@@ -1,0 +1,29 @@
+# Rosa spot database - Esperance (seeded 2026-09-03 - closing WA's south coast). Esperance's West Beach and Twilight, and the Cape Le Grand beaches.
+# South-facing Southern Ocean coast: SW groundswell year-round, biggest in winter, cold water;
+# offshore wind is from the N. Granite points and exposed beach breaks; break_type per spot.
+# Every spot carries offshore_km along its own seaward normal.
+
+defaults: &esp
+  timezone: Australia/Perth
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [150, 270]
+  ideal:
+    wind_dir: [315, 45]
+    size_m: [1.0, 3.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-03 - esperance, 6 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 6 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/esperance/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: west-beach, name: "West Beach", town: "Esperance", lat: -33.8777, lon: 121.8785, offshore_direction: 10, swell_window: [125, 255], offshore_km: 5.0, <<: *esp }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: fourth-beach, name: "Fourth Beach", town: "Esperance", lat: -33.8874, lon: 121.8418, offshore_direction: 4, swell_window: [119, 249], offshore_km: 5.0, <<: *esp }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: twilight-beach, name: "Twilight Beach", town: "Esperance", lat: -33.8881, lon: 121.8352, offshore_direction: 349, swell_window: [104, 234], offshore_km: 5.0, <<: *esp }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: nine-mile-beach, name: "Nine Mile Beach", town: "Esperance", lat: -33.9025, lon: 121.7796, offshore_direction: 58, swell_window: [173, 303], offshore_km: 5.0, <<: *esp }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: observatory-beach, name: "Observatory Beach", town: "Esperance", lat: -33.9027, lon: 121.7805, offshore_direction: 58, swell_window: [173, 303], offshore_km: 5.0, <<: *esp }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: lucky-bay, name: "Lucky Bay", town: "Cape Le Grand", lat: -33.9882, lon: 122.2316, offshore_direction: 18, swell_window: [133, 263], offshore_km: 5.0, <<: *esp }  # sat-verified 2026-09-03 (websearch-seeded)

@@ -1,0 +1,72 @@
+{
+  "spot": "nanarup",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -34.9914,
+    118.0848
+  ],
+  "bearing_seaward_deg": 159.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 69.0,
+  "mean_slope_m_per_km": 3.66,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.9935,
+      "lon": 118.08578,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.9956,
+      "lon": 118.08677,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.9998,
+      "lon": 118.08873,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.00819,
+      "lon": 118.09267,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.01659,
+      "lon": 118.09661,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.03338,
+      "lon": 118.10448,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.05856,
+      "lon": 118.1163,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.09214,
+      "lon": 118.13207,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.14251,
+      "lon": 118.15574,
+      "depth_m": 69.0
+    }
+  ]
+}

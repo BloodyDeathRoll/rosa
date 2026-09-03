@@ -176,7 +176,19 @@ Four things, in this order:
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-09-03, DB = 1115 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-09-03, DB = 1133 spots, ALL sat-verified)
+
+**WA South 0 -> 12 and Esperance 0 -> 6 (2026-09-03) - WA's south coast, the last gap in Australia's
+mainland surf coast.** Two boxes (Augusta-Bremer Bay; Esperance-Duke of Orleans) on `australia-south`.
+0 Tier-A. 24 guide names -> 12 keep / 6 move / 6 drop. The drops were sheltered water (Peaceful Bay,
+Parry, Wylie Bay, Hellfire) and two Google placements on the wrong side of a bay (Windy Harbour's
+village, Wharton's calm E shore - the surf beach faces S and was not placeable). Three normals set by
+hand (Ocean Beach, Mutton Bird and Salmon Holes came back facing E/N off the granite-point ways). Cheynes Point's N ray hit the shelf at 18 km and was re-aimed E by arc sweep; `ocean-beach` clashes with
+California's and took `-was`.
+Judge logs in `work/wa-south/judge.json` and `work/esperance/judge.json`. **Australia's mainland surf
+coast is now continuous from Exmouth clockwise to the Sunshine Coast**; what remains are islands and
+corners: Cactus / the Eyre Peninsula, Kangaroo Island, Marrawah, Exmouth's Ningaloo reefs.
+
 
 **WA Midwest 0 -> 12, Bunbury 0 -> 7, Exmouth 0 -> 2 (2026-09-03) - the west-coast gaps between
 the existing WA boxes, closed in one pass.** Three boxes that butt against perth / margaret-river /
@@ -679,7 +691,7 @@ Punta Mita sub-breaks, Oaxaca's Salina Cruz points beyond Conejo/Chipehua; Japan
 Wakayama detail (Okinawa and Tanegashima seeded 2026-09-03); Philippines more (Daku, Zambales Liwliwa neighbours); Portugal
 Ericeira micro-spots & the **Azores**; Nicaragua north (Puerto Sandino cluster). Regions with
 zero spots today: everywhere else - Indonesia beyond Bali / Lombok / Sumbawa / Java / Mentawai (Sumba, Nias, Rote), Chile, Ecuador, France/Spain, South Africa;
-Australia's remaining corners (the WA south coast Albany / Denmark / Esperance, Cactus / Eyre Peninsula, Kangaroo Island, Marrawah, Exmouth's Ningaloo reefs); Hawaii's Big Island.
+Australia's remaining corners (Cactus / Eyre Peninsula, Kangaroo Island, Marrawah, Exmouth's Ningaloo reefs); Hawaii's Big Island.
 **The real frontier = Tier-B.** Tens of thousands of physics-valid, *unnamed* coastline
 stretches (Japan 22k, Philippines 37k). OSM/guides never named them; this is the sat-verify +
 community-contribution layer, and it's where "all the spots" ultimately lives.

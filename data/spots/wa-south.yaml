@@ -1,0 +1,36 @@
+# Rosa spot database - WA South (seeded 2026-09-03 - closing WA's south coast). Augusta to Bremer Bay: Windy Harbour, Walpole, Denmark's Ocean Beach, Albany's Middleton and Nanarup.
+# South-facing Southern Ocean coast: SW groundswell year-round, biggest in winter, cold water;
+# offshore wind is from the N. Granite points and exposed beach breaks; break_type per spot.
+# Every spot carries offshore_km along its own seaward normal.
+region: "WA South"
+
+defaults: &was
+  timezone: Australia/Perth
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [150, 270]
+  ideal:
+    wind_dir: [315, 45]
+    size_m: [1.0, 3.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-03 - wa-south, 12 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 12 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/wa-south/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: native-dog-beach, name: "Native Dog Beach", town: "Bremer Bay", lat: -34.4528, lon: 119.3598, offshore_direction: 317, swell_window: [72, 202], offshore_km: 5.0, <<: *was }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: blossoms-beach, name: "Blossoms Beach", town: "Bremer Bay", lat: -34.4606, lon: 119.3656, offshore_direction: 68, swell_window: [183, 313], offshore_km: 5.0, <<: *was }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: salmon-beach, name: "Salmon Beach", town: "Windy Harbour", lat: -34.8098, lon: 116.0007, offshore_direction: 73, swell_window: [188, 318], offshore_km: 5.0, <<: *was }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: cheynes-point, name: "Cheynes Point", town: "Cheynes Beach", lat: -34.8791, lon: 118.4081, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, <<: *was }  # sat-verified 2026-09-03 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: the N ray hits the Bald Island shelf]
+  - { id: nanarup, name: "Nanarup", town: "Albany", lat: -34.9914, lon: 118.0848, offshore_direction: 339, swell_window: [94, 224], offshore_km: 5.0, <<: *was }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: middleton-beach, name: "Middleton Beach", town: "Albany", lat: -35.0152, lon: 117.9209, offshore_direction: 304, swell_window: [59, 189], offshore_km: 5.0, <<: *was }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: lights-beach, name: "Lights Beach", town: "Denmark", lat: -35.0225, lon: 117.2778, offshore_direction: 51, swell_window: [166, 296], offshore_km: 5.0, <<: *was }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: ocean-beach-was, name: "Ocean Beach", town: "Denmark", lat: -35.0291, lon: 117.3307, offshore_direction: 320, swell_window: [75, 205], offshore_km: 5.0, <<: *was }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: conspicuous-cliff, name: "Conspicuous Cliff", town: "Walpole", lat: -35.0400, lon: 116.8428, offshore_direction: 47, swell_window: [162, 292], offshore_km: 5.0, <<: *was }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: mutton-bird, name: "Mutton Bird", town: "Albany", lat: -35.0480, lon: 117.6936, offshore_direction: 50, swell_window: [165, 295], offshore_km: 5.0, <<: *was }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: sand-patch, name: "Sand Patch", town: "Albany", lat: -35.0695, lon: 117.7978, offshore_direction: 342, swell_window: [97, 227], offshore_km: 5.0, <<: *was }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: salmon-holes, name: "Salmon Holes", town: "Albany", lat: -35.1021, lon: 117.9685, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, <<: *was }  # sat-verified 2026-09-03 (websearch-seeded)
