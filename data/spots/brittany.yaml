@@ -1,0 +1,45 @@
+# Rosa spot database - Brittany (seeded 2026-09-03). Finistere and Morbihan: La Torche's bay, Crozon's beaches, Quiberon's Cote Sauvage - W-SW Atlantic swell, offshore on an E-NE wind.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &bre
+  timezone: Europe/Paris
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [210, 310]
+  ideal:
+    wind_dir: [30, 130]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-03 - brittany, 24 spots (primary coastline flow: 9 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 15 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/brittany/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: dossen, name: "Dossen", town: "Santec", lat: 48.6951, lon: -4.0595, offshore_direction: 150, swell_window: [265, 35], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: porz-ar-villiec, name: "Plage de Porz ar Villiec", town: "Locquirec", lat: 48.6945, lon: -3.6462, offshore_direction: 118, swell_window: [233, 3], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (osm-seeded)
+  - { id: mogueric, name: "Mogueric", town: "Santec", lat: 48.6908, lon: -4.0865, offshore_direction: 197, swell_window: [312, 82], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (osm-seeded)
+  - { id: moulin-de-la-rive, name: "Moulin de la Rive", town: "Locquirec", lat: 48.6867, lon: -3.6779, offshore_direction: 159, swell_window: [274, 44], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (osm-seeded)
+  - { id: le-vougot, name: "Le Vougot", town: "Guisseny", lat: 48.6298, lon: -4.4595, offshore_direction: 121, swell_window: [236, 6], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: les-blancs-sablons, name: "Les Blancs Sablons", town: "Le Conquet", lat: 48.3668, lon: -4.7675, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: le-petit-minou, name: "Le Petit Minou", town: "Plouzane", lat: 48.3559, lon: -4.6784, offshore_direction: 33, swell_window: [148, 278], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: pen-hat, name: "Pen Hat", town: "Camaret-sur-Mer", lat: 48.2734, lon: -4.6161, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (osm-seeded)
+  - { id: goulien, name: "Goulien", town: "Crozon", lat: 48.2465, lon: -4.5454, offshore_direction: 78, swell_window: [193, 323], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: lostmarc-h, name: "Lostmarc'H", town: "Crozon", lat: 48.2099, lon: -4.5537, offshore_direction: 96, swell_window: [211, 341], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: la-palue, name: "La Palue", town: "Crozon", lat: 48.2003, lon: -4.5517, offshore_direction: 82, swell_window: [197, 327], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: baie-des-trepasses, name: "Baie des Trepasses", town: "Plogoff", lat: 48.0463, lon: -4.7081, offshore_direction: 111, swell_window: [226, 356], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (osm-seeded)
+  - { id: cabestan, name: "Cabestan", town: "Cleden-Cap-Sizun", lat: 48.0118, lon: -4.5943, offshore_direction: 61, swell_window: [176, 306], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (osm-seeded)
+  - { id: penhors, name: "Penhors", town: "Pouldreuzic", lat: 47.9392, lon: -4.4054, offshore_direction: 37, swell_window: [152, 282], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: la-torche, name: "La Torche", town: "Plomeur", lat: 47.8411, lon: -4.3509, offshore_direction: 86, swell_window: [201, 331], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: pors-carn, name: "Pors Carn", town: "Penmarch", lat: 47.8292, lon: -4.3570, offshore_direction: 50, swell_window: [165, 295], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: kersidan, name: "Plage de Kersidan", town: "Tregunc", lat: 47.7967, lon: -3.8228, offshore_direction: 1, swell_window: [116, 246], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (osm-seeded)
+  - { id: dourveil, name: "Plage de Dourveil", town: "Tregunc", lat: 47.7934, lon: -3.8102, offshore_direction: 61, swell_window: [176, 306], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (osm-seeded)
+  - { id: le-kerou, name: "Le Kerou", town: "Clohars-Carnoet", lat: 47.7682, lon: -3.5636, offshore_direction: 16, swell_window: [131, 261], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: guidel, name: "Guidel", town: "Guidel-Plages", lat: 47.7648, lon: -3.5268, offshore_direction: 39, swell_window: [154, 284], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: sainte-barbe, name: "Sainte Barbe", town: "Plouharnel", lat: 47.5982, lon: -3.1527, offshore_direction: 62, swell_window: [177, 307], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: grande-plage-quiberon, name: "Grande Plage (Quiberon)", town: "Quiberon", lat: 47.5860, lon: -3.1447, offshore_direction: 66, swell_window: [181, 311], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (osm-seeded)
+  - { id: port-blanc, name: "Port Blanc", town: "Quiberon", lat: 47.5211, lon: -3.1541, offshore_direction: 58, swell_window: [173, 303], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: port-bara, name: "Port Bara", town: "Quiberon", lat: 47.5141, lon: -3.1513, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, <<: *bre }  # sat-verified 2026-09-03 (websearch-seeded)

@@ -1,0 +1,72 @@
+{
+  "spot": "harlyn-bay",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    50.5422,
+    -5.0009
+  ],
+  "bearing_seaward_deg": 54.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 21.0,
+  "mean_slope_m_per_km": 0.85,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 50.54352,
+      "lon": -4.99804,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 50.54484,
+      "lon": -4.99518,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 50.54749,
+      "lon": -4.98945,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 50.55277,
+      "lon": -4.978,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 50.55805,
+      "lon": -4.96654,
+      "depth_m": -22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 50.56862,
+      "lon": -4.94363,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 50.58445,
+      "lon": -4.90923,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.60555,
+      "lon": -4.86333,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.63717,
+      "lon": -4.79441,
+      "depth_m": 21.0
+    }
+  ]
+}

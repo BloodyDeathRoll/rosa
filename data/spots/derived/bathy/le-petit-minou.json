@@ -1,0 +1,72 @@
+{
+  "spot": "le-petit-minou",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    48.3559,
+    -4.6784
+  ],
+  "bearing_seaward_deg": 213.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 51.0,
+  "mean_slope_m_per_km": 2.87,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 48.35401,
+      "lon": -4.68024,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 48.35213,
+      "lon": -4.68209,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 48.34836,
+      "lon": -4.68577,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 48.34081,
+      "lon": -4.69314,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 48.33327,
+      "lon": -4.7005,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 48.31818,
+      "lon": -4.71523,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 48.29555,
+      "lon": -4.7373,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 48.26536,
+      "lon": -4.7667,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 48.22006,
+      "lon": -4.81073,
+      "depth_m": 51.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "port-blanc",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    47.5211,
+    -3.1541
+  ],
+  "bearing_seaward_deg": 238.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 41.0,
+  "mean_slope_m_per_km": 2.2,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 47.51991,
+      "lon": -3.15692,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 47.51872,
+      "lon": -3.15975,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 47.51633,
+      "lon": -3.16539,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 47.51157,
+      "lon": -3.17668,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 47.5068,
+      "lon": -3.18797,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 47.49726,
+      "lon": -3.21054,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 47.48294,
+      "lon": -3.24438,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 47.46383,
+      "lon": -3.28947,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 47.43514,
+      "lon": -3.35705,
+      "depth_m": 41.0
+    }
+  ]
+}

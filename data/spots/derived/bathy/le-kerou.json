@@ -1,0 +1,72 @@
+{
+  "spot": "le-kerou",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    47.7682,
+    -3.5636
+  ],
+  "bearing_seaward_deg": 196.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 61.0,
+  "mean_slope_m_per_km": 3.61,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 47.76604,
+      "lon": -3.56452,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 47.76388,
+      "lon": -3.56544,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 47.75956,
+      "lon": -3.56729,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 47.75091,
+      "lon": -3.57097,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 47.74227,
+      "lon": -3.57466,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 47.72497,
+      "lon": -3.58202,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 47.69904,
+      "lon": -3.59307,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 47.66445,
+      "lon": -3.60777,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 47.61257,
+      "lon": -3.62979,
+      "depth_m": 61.0
+    }
+  ]
+}

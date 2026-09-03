@@ -1,0 +1,72 @@
+{
+  "spot": "les-cavaliers",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    43.5223,
+    -1.5263
+  ],
+  "bearing_seaward_deg": 295.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 261.0,
+  "mean_slope_m_per_km": 14.7,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.52325,
+      "lon": -1.52911,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.5242,
+      "lon": -1.53192,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.5261,
+      "lon": -1.53754,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.5299,
+      "lon": -1.54878,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.5337,
+      "lon": -1.56003,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.54129,
+      "lon": -1.58252,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.55267,
+      "lon": -1.61627,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.56783,
+      "lon": -1.66129,
+      "depth_m": 95.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.59053,
+      "lon": -1.72886,
+      "depth_m": 261.0
+    }
+  ]
+}

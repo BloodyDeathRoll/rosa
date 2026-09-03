@@ -1,0 +1,72 @@
+{
+  "spot": "tenby-south-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    51.6653,
+    -4.7057
+  ],
+  "bearing_seaward_deg": 132.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 28.0,
+  "mean_slope_m_per_km": 1.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 51.6638,
+      "lon": -4.70301,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 51.66229,
+      "lon": -4.70031,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 51.65928,
+      "lon": -4.69493,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 51.65326,
+      "lon": -4.68416,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 51.64724,
+      "lon": -4.67339,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 51.6352,
+      "lon": -4.65186,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 51.61713,
+      "lon": -4.61959,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 51.59302,
+      "lon": -4.57661,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 51.55682,
+      "lon": -4.51221,
+      "depth_m": 28.0
+    }
+  ]
+}

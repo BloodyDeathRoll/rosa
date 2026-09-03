@@ -1,0 +1,72 @@
+{
+  "spot": "croyde",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    51.1318,
+    -4.2394
+  ],
+  "bearing_seaward_deg": 303.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 44.0,
+  "mean_slope_m_per_km": 2.99,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 51.13302,
+      "lon": -4.2424,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 51.13425,
+      "lon": -4.24541,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 51.1367,
+      "lon": -4.25142,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 51.14159,
+      "lon": -4.26344,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 51.14649,
+      "lon": -4.27547,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 51.15627,
+      "lon": -4.29953,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 51.17094,
+      "lon": -4.33563,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 51.19049,
+      "lon": -4.38381,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 51.21976,
+      "lon": -4.45616,
+      "depth_m": 44.0
+    }
+  ]
+}

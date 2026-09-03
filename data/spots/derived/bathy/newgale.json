@@ -1,0 +1,72 @@
+{
+  "spot": "newgale",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    51.8568,
+    -5.1264
+  ],
+  "bearing_seaward_deg": 243.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 50.0,
+  "mean_slope_m_per_km": 3.21,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 51.85578,
+      "lon": -5.12964,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 51.85476,
+      "lon": -5.13289,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 51.85272,
+      "lon": -5.13937,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 51.84863,
+      "lon": -5.15234,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 51.84455,
+      "lon": -5.16531,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 51.83637,
+      "lon": -5.19124,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 51.82409,
+      "lon": -5.23012,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 51.8077,
+      "lon": -5.28192,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 51.78308,
+      "lon": -5.35955,
+      "depth_m": 50.0
+    }
+  ]
+}

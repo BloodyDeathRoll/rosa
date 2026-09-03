@@ -1,0 +1,72 @@
+{
+  "spot": "dunnet-bay",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    58.6038,
+    -3.3578
+  ],
+  "bearing_seaward_deg": 330.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 88.0,
+  "mean_slope_m_per_km": 4.96,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 58.60575,
+      "lon": -3.35996,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 58.60769,
+      "lon": -3.36212,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 58.61159,
+      "lon": -3.36643,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 58.61938,
+      "lon": -3.37507,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 58.62716,
+      "lon": -3.38371,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 58.64273,
+      "lon": -3.40101,
+      "depth_m": -98.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 58.66609,
+      "lon": -3.42698,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 58.69722,
+      "lon": -3.46166,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 58.7439,
+      "lon": -3.51379,
+      "depth_m": 88.0
+    }
+  ]
+}

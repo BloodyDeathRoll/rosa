@@ -1,0 +1,72 @@
+{
+  "spot": "labenne-ocean",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    43.6575,
+    -1.4454
+  ],
+  "bearing_seaward_deg": 297.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 100.0,
+  "mean_slope_m_per_km": 5.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.65852,
+      "lon": -1.44817,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.65954,
+      "lon": -1.45094,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.66158,
+      "lon": -1.45648,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.66566,
+      "lon": -1.46755,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.66974,
+      "lon": -1.47863,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.6779,
+      "lon": -1.5008,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.69013,
+      "lon": -1.53405,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.70642,
+      "lon": -1.57842,
+      "depth_m": 119.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.73082,
+      "lon": -1.64501,
+      "depth_m": 100.0
+    }
+  ]
+}

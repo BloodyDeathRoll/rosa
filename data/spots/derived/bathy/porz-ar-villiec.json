@@ -1,0 +1,72 @@
+{
+  "spot": "porz-ar-villiec",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    48.6945,
+    -3.6462
+  ],
+  "bearing_seaward_deg": 298.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 48.0,
+  "mean_slope_m_per_km": 3.15,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 48.69556,
+      "lon": -3.64921,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 48.69661,
+      "lon": -3.65222,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 48.69872,
+      "lon": -3.65823,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 48.70294,
+      "lon": -3.67026,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 48.70716,
+      "lon": -3.6823,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 48.71559,
+      "lon": -3.70637,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 48.72824,
+      "lon": -3.7425,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 48.74507,
+      "lon": -3.7907,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 48.77029,
+      "lon": -3.86306,
+      "depth_m": 48.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "trebarwith-strand",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    50.6448,
+    -4.7617
+  ],
+  "bearing_seaward_deg": 309.0,
+  "nearshore_depth_m": -36.0,
+  "offshore_depth_m": 53.0,
+  "mean_slope_m_per_km": 5.01,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 50.64621,
+      "lon": -4.76446,
+      "depth_m": -36.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 50.64763,
+      "lon": -4.76721,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 50.65046,
+      "lon": -4.77272,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 50.65612,
+      "lon": -4.78375,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 50.66177,
+      "lon": -4.79478,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 50.67309,
+      "lon": -4.81684,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 50.69004,
+      "lon": -4.84996,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.71264,
+      "lon": -4.89415,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.7465,
+      "lon": -4.96052,
+      "depth_m": 53.0
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+# Rosa spot database - Wales (seeded 2026-09-03). Gower and Pembrokeshire: SW-facing beaches and reefs, offshore on a NE wind.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &wal
+  timezone: Europe/London
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [190, 300]
+  ideal:
+    wind_dir: [10, 110]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-03 - wales, 14 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 14 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/wales/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: whitesands, name: "Whitesands", town: "St Davids", lat: 51.8959, lon: -5.2958, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, <<: *wal }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: newgale, name: "Newgale", town: "Newgale", lat: 51.8568, lon: -5.1264, offshore_direction: 63, swell_window: [178, 308], offshore_km: 5.0, <<: *wal }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: marloes-sands, name: "Marloes Sands", town: "Marloes", lat: 51.7206, lon: -5.2119, offshore_direction: 39, swell_window: [154, 284], offshore_km: 5.0, <<: *wal }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: tenby-south-beach, name: "Tenby South Beach", town: "Tenby", lat: 51.6653, lon: -4.7057, offshore_direction: 312, swell_window: [67, 197], offshore_km: 5.0, <<: *wal }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: freshwater-west, name: "Freshwater West", town: "Freshwater West", lat: 51.6589, lon: -5.0640, offshore_direction: 64, swell_window: [179, 309], offshore_km: 5.0, <<: *wal }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: manorbier, name: "Manorbier", town: "Manorbier", lat: 51.6427, lon: -4.8054, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, <<: *wal }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: broughton-bay, name: "Broughton Bay", town: "Llangennith", lat: 51.6193, lon: -4.2780, offshore_direction: 115, swell_window: [230, 0], offshore_km: 5.0, <<: *wal }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: broad-haven-south, name: "Broad Haven South", town: "Bosherston", lat: 51.6088, lon: -4.9206, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, <<: *wal }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: llangennith, name: "Llangennith", town: "Llangennith", lat: 51.5919, lon: -4.2946, offshore_direction: 72, swell_window: [187, 317], offshore_km: 5.0, <<: *wal }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: rhossili, name: "Rhossili", town: "Rhossili", lat: 51.5721, lon: -4.2931, offshore_direction: 94, swell_window: [209, 339], offshore_km: 5.0, <<: *wal }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: caswell-bay, name: "Caswell Bay", town: "Caswell", lat: 51.5686, lon: -4.0325, offshore_direction: 31, swell_window: [146, 276], offshore_km: 5.0, <<: *wal }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: langland-bay, name: "Langland Bay", town: "Langland", lat: 51.5672, lon: -4.0128, offshore_direction: 354, swell_window: [109, 239], offshore_km: 5.0, <<: *wal }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: oxwich-bay, name: "Oxwich Bay", town: "Oxwich", lat: 51.5610, lon: -4.1507, offshore_direction: 310, swell_window: [65, 195], offshore_km: 5.0, <<: *wal }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: rest-bay, name: "Rest Bay", town: "Porthcawl", lat: 51.4891, lon: -3.7235, offshore_direction: 69, swell_window: [184, 314], offshore_km: 5.0, <<: *wal }  # sat-verified 2026-09-03 (websearch-seeded)

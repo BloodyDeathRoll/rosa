@@ -1,0 +1,72 @@
+{
+  "spot": "penhors",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    47.9392,
+    -4.4054
+  ],
+  "bearing_seaward_deg": 217.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 74.0,
+  "mean_slope_m_per_km": 4.06,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 47.9374,
+      "lon": -4.40742,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 47.93561,
+      "lon": -4.40944,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 47.93202,
+      "lon": -4.41348,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 47.92483,
+      "lon": -4.42155,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 47.91765,
+      "lon": -4.42963,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 47.90328,
+      "lon": -4.44577,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 47.88172,
+      "lon": -4.46996,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 47.85297,
+      "lon": -4.50219,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 47.80983,
+      "lon": -4.55046,
+      "depth_m": 74.0
+    }
+  ]
+}

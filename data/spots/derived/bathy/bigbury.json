@@ -1,0 +1,72 @@
+{
+  "spot": "bigbury",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    50.2816,
+    -3.892
+  ],
+  "bearing_seaward_deg": 202.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 62.0,
+  "mean_slope_m_per_km": 3.77,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 50.27952,
+      "lon": -3.89332,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 50.27743,
+      "lon": -3.89464,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 50.27326,
+      "lon": -3.89727,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 50.26492,
+      "lon": -3.90254,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 50.25658,
+      "lon": -3.90781,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 50.23991,
+      "lon": -3.91834,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 50.21489,
+      "lon": -3.93412,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.18152,
+      "lon": -3.95513,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.13147,
+      "lon": -3.9866,
+      "depth_m": 62.0
+    }
+  ]
+}

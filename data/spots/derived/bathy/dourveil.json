@@ -1,0 +1,72 @@
+{
+  "spot": "dourveil",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    47.7934,
+    -3.8102
+  ],
+  "bearing_seaward_deg": 241.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 3.0,
+  "mean_slope_m_per_km": 0.45,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 47.79231,
+      "lon": -3.81313,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 47.79122,
+      "lon": -3.81605,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 47.78904,
+      "lon": -3.82191,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 47.78468,
+      "lon": -3.83361,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 47.78031,
+      "lon": -3.84532,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 47.77159,
+      "lon": -3.86872,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 47.75848,
+      "lon": -3.9038,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 47.74099,
+      "lon": -3.95056,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 47.71473,
+      "lon": -4.02063,
+      "depth_m": 3.0
+    }
+  ]
+}

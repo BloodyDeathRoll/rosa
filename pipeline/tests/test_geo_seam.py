@@ -51,6 +51,16 @@ def test_cluster_boxes_is_unchanged_for_a_normal_cluster(capsys):
     assert "seam" not in capsys.readouterr().out
 
 
+def test_cluster_boxes_clamps_padding_silently_when_no_member_crosses(capsys):
+    """Cornwall to Scarborough spans 354-359.6 deg: the members are inside the file and
+    only the 1-degree pad would cross, so the box is clamped at 360 without a warning."""
+    pts = [(50.1, -5.7), (54.3, -0.4)]
+    ((box, members),) = cluster_boxes(pts)
+    assert sorted(members) == [0, 1]
+    assert box.right == 360.0 and box.left > 350.0
+    assert "seam" not in capsys.readouterr().out
+
+
 def test_committed_spots_produce_no_seam_warning(capsys):
     """The whole fleet must still cluster silently - this change is a no-op today."""
     from pathlib import Path
@@ -90,9 +100,13 @@ def test_oisst_finds_the_wet_cell_across_the_seam():
 def test_every_committed_spot_picks_the_same_oisst_cell_as_before():
     """The no-op proof the smoke rule wants, run offline.
 
-    The wrapped window and the old clipped one must select the SAME cell for all 469
-    committed spots - none is within a search radius of the seam - so no published SST,
-    and nothing downstream of it, moves.
+    For every spot FARTHER than the search radius from the 0/360 seam the wrapped window
+    and the old clipped one select the same cells, so no published SST - and nothing
+    downstream of it - moves. Spots inside that radius are the reason the wrap exists:
+    since 2026-09-03 the Yorkshire coast (Saltburn to Cayton Bay, 0.97 W to 0.36 W) sits
+    inside it, and the old code clipped those windows at column 0 and lost the cells
+    across the seam. They are asserted separately: same centre cell, full-width window,
+    and it must actually wrap.
     """
     from pathlib import Path
 
@@ -102,17 +116,38 @@ def test_every_committed_spot_picks_the_same_oisst_cell_as_before():
     lons = np.arange(0.125, 360.0, 0.25)
     reach = int(NEAREST_MAX_DEG / 0.25)
     spots = load_spots(Path(__file__).resolve().parents[2] / "data" / "spots")
-    assert len(spots) == 1133
+    assert len(spots) == 1253
 
+    near_seam = []
     for s in spots.values():
         lon360_v = s.lon % 360.0
         j_old = int(np.argmin(np.abs(lons - lon360_v)))
         j_new = int(np.argmin(np.abs(dlon180(lons, lon360_v))))
         assert j_old == j_new, f"{s.id}: centre cell moved"
         cols_new = np.mod(np.arange(j_new - reach, j_new + reach + 1), len(lons))
-        cols_old = np.arange(max(0, j_old - reach), j_old + reach + 1)
+        if j_new - reach < 0 or j_new + reach >= len(lons):
+            near_seam.append((s, cols_new))
+            continue
+        cols_old = np.arange(j_old - reach, j_old + reach + 1)
         assert list(cols_new) == list(cols_old), f"{s.id}: window moved"
         # and the cos-weighted distance is identical over that window
         old_d = np.cos(np.radians(s.lat)) * (lons[cols_old] - lon360_v)
         new_d = np.cos(np.radians(s.lat)) * dlon180(lons[cols_new], lon360_v)
         assert np.allclose(old_d, new_d), f"{s.id}: distance moved"
+
+    # the seam spots the wrap exists for: a full-width window that really wraps, and
+    # every column within the search radius by the signed distance
+    assert sorted(s.id for s, _ in near_seam) == [
+        "cayton-bay",
+        "runswick-bay",
+        "saltburn",
+        "sandsend",
+        "scarborough-north-bay",
+        "whitby",
+    ], "seam-spot set changed"
+    for s, cols in near_seam:
+        assert len(cols) == 2 * reach + 1, f"{s.id}: window truncated at the seam"
+        assert len(set(cols.tolist())) == len(cols), f"{s.id}: window repeats a column"
+        assert cols.max() - cols.min() > reach, f"{s.id}: window did not wrap"
+        d = np.abs(dlon180(lons[cols], s.lon % 360.0))
+        assert d.max() <= NEAREST_MAX_DEG + 0.25, f"{s.id}: window reaches too far"

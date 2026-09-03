@@ -1,0 +1,49 @@
+# Rosa spot database - Landes & Basque coast (seeded 2026-09-03). Biscay's west-facing beach breaks (Hossegor, Seignosse, Capbreton) and the Basque reefs (Guethary, Anglet): W-NW groundswell, offshore on an E wind.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &lan
+  timezone: Europe/Paris
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [230, 330]
+  ideal:
+    wind_dir: [50, 150]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-03 - landes, 28 spots (primary coastline flow: 2 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 26 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/landes/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: lacanau, name: "Lacanau", town: "Lacanau-Ocean", lat: 44.9936, lon: -1.2031, offshore_direction: 89, swell_window: [204, 334], offshore_km: 5.0, <<: *lan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: le-porge, name: "Le Porge", town: "Le Porge", lat: 44.8941, lon: -1.2180, offshore_direction: 96, swell_window: [211, 341], offshore_km: 5.0, <<: *lan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: grand-crohot, name: "Le Grand Crohot", town: "Lege-Cap-Ferret", lat: 44.7986, lon: -1.2346, offshore_direction: 91, swell_window: [206, 336], offshore_km: 5.0, <<: *lan }  # sat-verified 2026-09-03 (osm-seeded)
+  - { id: la-nord-biscarrosse, name: "La Nord (Biscarrosse)", town: "Biscarrosse-Plage", lat: 44.4502, lon: -1.2563, offshore_direction: 105, swell_window: [220, 350], offshore_km: 5.0, <<: *lan }  # sat-verified 2026-09-03 (osm-seeded)
+  - { id: biscarrosse, name: "Biscarrosse", town: "Biscarrosse-Plage", lat: 44.4442, lon: -1.2577, offshore_direction: 94, swell_window: [209, 339], offshore_km: 5.0, <<: *lan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: mimizan, name: "Mimizan", town: "Mimizan-Plage", lat: 44.2089, lon: -1.2995, offshore_direction: 101, swell_window: [216, 346], offshore_km: 5.0, <<: *lan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: moliets, name: "Moliets", town: "Moliets-et-Maa", lat: 43.8552, lon: -1.3953, offshore_direction: 102, swell_window: [217, 347], offshore_km: 5.0, <<: *lan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: vieux-boucau, name: "Vieux Boucau", town: "Vieux-Boucau", lat: 43.7923, lon: -1.4102, offshore_direction: 104, swell_window: [219, 349], offshore_km: 5.0, <<: *lan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: le-penon, name: "Le Penon", town: "Seignosse", lat: 43.7094, lon: -1.4366, offshore_direction: 104, swell_window: [219, 349], offshore_km: 5.0, <<: *lan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: les-bourdaines, name: "Les Bourdaines", town: "Seignosse", lat: 43.6982, lon: -1.4387, offshore_direction: 102, swell_window: [217, 347], offshore_km: 5.0, <<: *lan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: les-estagnots, name: "Les Estagnots", town: "Seignosse", lat: 43.6873, lon: -1.4407, offshore_direction: 102, swell_window: [217, 347], offshore_km: 5.0, <<: *lan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: les-culs-nus, name: "Les Culs Nus", town: "Hossegor", lat: 43.6799, lon: -1.4408, offshore_direction: 89, swell_window: [204, 334], offshore_km: 5.0, <<: *lan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: la-graviere, name: "La Graviere", town: "Hossegor", lat: 43.6739, lon: -1.4420, offshore_direction: 118, swell_window: [233, 3], offshore_km: 5.0, <<: *lan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: la-sud, name: "La Sud", town: "Hossegor", lat: 43.6640, lon: -1.4425, offshore_direction: 95, swell_window: [210, 340], offshore_km: 5.0, <<: *lan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: labenne-ocean, name: "Labenne Ocean", town: "Labenne", lat: 43.6575, lon: -1.4454, offshore_direction: 117, swell_window: [232, 2], offshore_km: 5.0, <<: *lan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: le-prevent, name: "Le Prevent", town: "Capbreton", lat: 43.6497, lon: -1.4460, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, <<: *lan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: santocha, name: "Santocha", town: "Capbreton", lat: 43.6458, lon: -1.4457, offshore_direction: 109, swell_window: [224, 354], offshore_km: 5.0, <<: *lan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: la-piste, name: "La Piste", town: "Capbreton", lat: 43.6418, lon: -1.4475, offshore_direction: 111, swell_window: [226, 356], offshore_km: 5.0, <<: *lan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: la-barre, name: "La Barre", town: "Anglet", lat: 43.5262, lon: -1.5240, offshore_direction: 110, swell_window: [225, 355], offshore_km: 5.0, <<: *lan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: les-cavaliers, name: "Les Cavaliers", town: "Anglet", lat: 43.5223, lon: -1.5263, offshore_direction: 115, swell_window: [230, 0], offshore_km: 5.0, <<: *lan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: grande-plage, name: "Grande Plage", town: "Biarritz", lat: 43.4801, lon: -1.5681, offshore_direction: 140, swell_window: [255, 25], offshore_km: 5.0, <<: *lan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: cote-des-basques, name: "Cote des Basques", town: "Biarritz", lat: 43.4772, lon: -1.5670, offshore_direction: 111, swell_window: [226, 356], offshore_km: 5.0, <<: *lan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: marbella-fr, name: "Marbella", town: "Biarritz", lat: 43.4678, lon: -1.5726, offshore_direction: 123, swell_window: [238, 8], offshore_km: 5.0, <<: *lan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: milady, name: "Milady", town: "Biarritz", lat: 43.4644, lon: -1.5755, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, <<: *lan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: erretegia, name: "Erretegia", town: "Bidart", lat: 43.4462, lon: -1.5898, offshore_direction: 121, swell_window: [236, 6], offshore_km: 5.0, <<: *lan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: parlementia, name: "Parlementia", town: "Guethary", lat: 43.4301, lon: -1.6085, offshore_direction: 136, swell_window: [251, 21], offshore_km: 5.0, <<: *lan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: lafitenia, name: "Lafitenia", town: "Saint-Jean-de-Luz", lat: 43.4162, lon: -1.6296, offshore_direction: 140, swell_window: [255, 25], offshore_km: 5.0, <<: *lan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: hendaye, name: "Hendaye", town: "Hendaye", lat: 43.3784, lon: -1.7571, offshore_direction: 150, swell_window: [265, 35], offshore_km: 5.0, <<: *lan }  # sat-verified 2026-09-03 (websearch-seeded)

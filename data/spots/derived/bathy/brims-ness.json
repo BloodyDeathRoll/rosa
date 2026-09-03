@@ -1,0 +1,72 @@
+{
+  "spot": "brims-ness",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    58.6709,
+    -3.3684
+  ],
+  "bearing_seaward_deg": 298.0,
+  "nearshore_depth_m": 14.0,
+  "offshore_depth_m": 90.0,
+  "mean_slope_m_per_km": 4.28,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 58.67196,
+      "lon": -3.37222,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 58.67301,
+      "lon": -3.37604,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 58.67512,
+      "lon": -3.38367,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 58.67934,
+      "lon": -3.39895,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 58.68356,
+      "lon": -3.41423,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 58.69199,
+      "lon": -3.4448,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 58.70462,
+      "lon": -3.49069,
+      "depth_m": 76.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 58.72143,
+      "lon": -3.55193,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 58.7466,
+      "lon": -3.64389,
+      "depth_m": 90.0
+    }
+  ]
+}

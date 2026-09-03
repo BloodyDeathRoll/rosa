@@ -1,0 +1,72 @@
+{
+  "spot": "watergate-bay",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    50.4443,
+    -5.0419
+  ],
+  "bearing_seaward_deg": 278.0,
+  "nearshore_depth_m": -32.0,
+  "offshore_depth_m": 48.0,
+  "mean_slope_m_per_km": 4.51,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 50.44461,
+      "lon": -5.0454,
+      "depth_m": -32.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 50.44493,
+      "lon": -5.04889,
+      "depth_m": -22.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 50.44555,
+      "lon": -5.05588,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 50.4468,
+      "lon": -5.06987,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 50.44805,
+      "lon": -5.08386,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 50.45054,
+      "lon": -5.11183,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 50.45426,
+      "lon": -5.1538,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.4592,
+      "lon": -5.20977,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.46656,
+      "lon": -5.29374,
+      "depth_m": 48.0
+    }
+  ]
+}

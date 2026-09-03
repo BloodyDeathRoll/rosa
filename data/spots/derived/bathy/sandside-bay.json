@@ -1,0 +1,72 @@
+{
+  "spot": "sandside-bay",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    58.5653,
+    -3.7935
+  ],
+  "bearing_seaward_deg": 29.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 72.0,
+  "mean_slope_m_per_km": 3.89,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 58.56727,
+      "lon": -3.79141,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 58.56923,
+      "lon": -3.78932,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 58.57317,
+      "lon": -3.78514,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 58.58103,
+      "lon": -3.77677,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 58.58889,
+      "lon": -3.7684,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 58.60462,
+      "lon": -3.75165,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 58.62821,
+      "lon": -3.7265,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 58.65965,
+      "lon": -3.69291,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 58.70679,
+      "lon": -3.64241,
+      "depth_m": 72.0
+    }
+  ]
+}

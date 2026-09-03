@@ -1,0 +1,72 @@
+{
+  "spot": "torrisdale",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    58.5276,
+    -4.2419
+  ],
+  "bearing_seaward_deg": 346.0,
+  "nearshore_depth_m": -34.0,
+  "offshore_depth_m": 98.0,
+  "mean_slope_m_per_km": 7.44,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 58.52978,
+      "lon": -4.24294,
+      "depth_m": -34.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 58.53196,
+      "lon": -4.24398,
+      "depth_m": -28.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 58.53633,
+      "lon": -4.24607,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 58.54505,
+      "lon": -4.25024,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 58.55378,
+      "lon": -4.25441,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 58.57123,
+      "lon": -4.26276,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 58.5974,
+      "lon": -4.2753,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 58.6323,
+      "lon": -4.29206,
+      "depth_m": 76.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 58.68465,
+      "lon": -4.31725,
+      "depth_m": 98.0
+    }
+  ]
+}

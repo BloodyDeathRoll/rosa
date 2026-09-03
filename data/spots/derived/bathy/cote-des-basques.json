@@ -1,0 +1,72 @@
+{
+  "spot": "cote-des-basques",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    43.4772,
+    -1.567
+  ],
+  "bearing_seaward_deg": 291.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 130.0,
+  "mean_slope_m_per_km": 7.55,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.47801,
+      "lon": -1.56989,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.47881,
+      "lon": -1.57279,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.48042,
+      "lon": -1.57857,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.48364,
+      "lon": -1.59014,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.48686,
+      "lon": -1.60172,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.4933,
+      "lon": -1.62487,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.50295,
+      "lon": -1.6596,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.51579,
+      "lon": -1.70593,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.53502,
+      "lon": -1.77546,
+      "depth_m": 130.0
+    }
+  ]
+}

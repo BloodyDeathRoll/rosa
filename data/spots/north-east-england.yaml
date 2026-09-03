@@ -1,0 +1,31 @@
+# Rosa spot database - North East England (seeded 2026-09-03). North Sea coast facing E-NE: short-period N-NE windswell, biggest in autumn and winter; offshore on a W-SW wind.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &nee
+  timezone: Europe/London
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [340, 120]
+  ideal:
+    wind_dir: [200, 300]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-03 - north-east-england, 10 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 10 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/north-east-england/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: blyth, name: "Blyth", town: "Blyth", lat: 55.1125, lon: -1.4966, offshore_direction: 279, swell_window: [34, 164], offshore_km: 5.0, <<: *nee }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: seaton-sluice, name: "Seaton Sluice", town: "Seaton Sluice", lat: 55.0880, lon: -1.4788, offshore_direction: 239, swell_window: [354, 124], offshore_km: 5.0, <<: *nee }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: whitley-bay, name: "Whitley Bay", town: "Whitley Bay", lat: 55.0521, lon: -1.4471, offshore_direction: 245, swell_window: [0, 130], offshore_km: 5.0, <<: *nee }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: tynemouth-longsands, name: "Tynemouth Longsands", town: "Tynemouth", lat: 55.0271, lon: -1.4261, offshore_direction: 243, swell_window: [358, 128], offshore_km: 5.0, <<: *nee }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: saltburn, name: "Saltburn", town: "Saltburn-by-the-Sea", lat: 54.5876, lon: -0.9729, offshore_direction: 199, swell_window: [314, 84], offshore_km: 5.0, <<: *nee }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: runswick-bay, name: "Runswick Bay", town: "Runswick Bay", lat: 54.5308, lon: -0.7467, offshore_direction: 238, swell_window: [353, 123], offshore_km: 5.0, <<: *nee }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: sandsend, name: "Sandsend", town: "Sandsend", lat: 54.5027, lon: -0.6695, offshore_direction: 236, swell_window: [351, 121], offshore_km: 5.0, <<: *nee }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: whitby, name: "Whitby", town: "Whitby", lat: 54.4971, lon: -0.6428, offshore_direction: 199, swell_window: [314, 84], offshore_km: 5.0, <<: *nee }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: scarborough-north-bay, name: "Scarborough North Bay", town: "Scarborough", lat: 54.2951, lon: -0.4082, offshore_direction: 246, swell_window: [1, 131], offshore_km: 5.0, <<: *nee }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: cayton-bay, name: "Cayton Bay", town: "Cayton Bay", lat: 54.2459, lon: -0.3621, offshore_direction: 201, swell_window: [316, 86], offshore_km: 5.0, <<: *nee }  # sat-verified 2026-09-03 (websearch-seeded)

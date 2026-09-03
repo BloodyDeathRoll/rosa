@@ -1,0 +1,72 @@
+{
+  "spot": "baie-des-trepasses",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    48.0463,
+    -4.7081
+  ],
+  "bearing_seaward_deg": 291.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 80.0,
+  "mean_slope_m_per_km": 4.9,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 48.04711,
+      "lon": -4.71124,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 48.04791,
+      "lon": -4.71438,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 48.04952,
+      "lon": -4.72066,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 48.05274,
+      "lon": -4.73322,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 48.05596,
+      "lon": -4.74578,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 48.0624,
+      "lon": -4.77091,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 48.07204,
+      "lon": -4.80862,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 48.08488,
+      "lon": -4.85892,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 48.10409,
+      "lon": -4.93441,
+      "depth_m": 80.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "hendaye",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    43.3784,
+    -1.7571
+  ],
+  "bearing_seaward_deg": 330.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 126.0,
+  "mean_slope_m_per_km": 7.44,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.38035,
+      "lon": -1.75865,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.38229,
+      "lon": -1.76019,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.38619,
+      "lon": -1.76329,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.39398,
+      "lon": -1.76948,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.40176,
+      "lon": -1.77567,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.41734,
+      "lon": -1.78805,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.4407,
+      "lon": -1.80664,
+      "depth_m": 83.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.47184,
+      "lon": -1.83145,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.51854,
+      "lon": -1.86872,
+      "depth_m": 126.0
+    }
+  ]
+}

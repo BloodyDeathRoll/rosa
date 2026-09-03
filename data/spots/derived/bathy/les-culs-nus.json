@@ -1,0 +1,72 @@
+{
+  "spot": "les-culs-nus",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    43.6799,
+    -1.4408
+  ],
+  "bearing_seaward_deg": 269.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 125.0,
+  "mean_slope_m_per_km": 6.99,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.67986,
+      "lon": -1.44391,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.67982,
+      "lon": -1.44702,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.67974,
+      "lon": -1.45323,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.67958,
+      "lon": -1.46567,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.67942,
+      "lon": -1.4781,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.6791,
+      "lon": -1.50297,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.6786,
+      "lon": -1.54026,
+      "depth_m": 165.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.67792,
+      "lon": -1.58999,
+      "depth_m": 298.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.67686,
+      "lon": -1.66459,
+      "depth_m": 125.0
+    }
+  ]
+}

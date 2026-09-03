@@ -1,0 +1,72 @@
+{
+  "spot": "porthtowan",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    50.2874,
+    -5.242
+  ],
+  "bearing_seaward_deg": 315.0,
+  "nearshore_depth_m": -22.0,
+  "offshore_depth_m": 50.0,
+  "mean_slope_m_per_km": 4.06,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 50.28899,
+      "lon": -5.24449,
+      "depth_m": -22.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 50.29058,
+      "lon": -5.24698,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 50.29376,
+      "lon": -5.25195,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 50.30012,
+      "lon": -5.26191,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 50.30647,
+      "lon": -5.27187,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 50.31919,
+      "lon": -5.2918,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 50.33825,
+      "lon": -5.32171,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.36365,
+      "lon": -5.36162,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.40173,
+      "lon": -5.42158,
+      "depth_m": 50.0
+    }
+  ]
+}

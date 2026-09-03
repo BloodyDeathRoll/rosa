@@ -1,0 +1,72 @@
+{
+  "spot": "lynmouth",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    51.2325,
+    -3.8268
+  ],
+  "bearing_seaward_deg": 31.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 1.07,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 51.23443,
+      "lon": -3.82495,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 51.23635,
+      "lon": -3.8231,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 51.24021,
+      "lon": -3.8194,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 51.24792,
+      "lon": -3.812,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 51.25562,
+      "lon": -3.8046,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 51.27104,
+      "lon": -3.78978,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 51.29415,
+      "lon": -3.76754,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 51.32497,
+      "lon": -3.73785,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 51.37118,
+      "lon": -3.69325,
+      "depth_m": 20.0
+    }
+  ]
+}

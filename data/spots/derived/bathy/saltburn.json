@@ -1,0 +1,72 @@
+{
+  "spot": "saltburn",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    54.5876,
+    -0.9729
+  ],
+  "bearing_seaward_deg": 19.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 52.0,
+  "mean_slope_m_per_km": 2.82,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 54.58973,
+      "lon": -0.97164,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 54.59185,
+      "lon": -0.97037,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 54.5961,
+      "lon": -0.96785,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 54.60461,
+      "lon": -0.96279,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 54.61311,
+      "lon": -0.95773,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 54.63011,
+      "lon": -0.94761,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 54.65562,
+      "lon": -0.93241,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 54.68962,
+      "lon": -0.91211,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 54.74062,
+      "lon": -0.88161,
+      "depth_m": 52.0
+    }
+  ]
+}

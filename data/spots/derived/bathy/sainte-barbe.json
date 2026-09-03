@@ -1,0 +1,72 @@
+{
+  "spot": "sainte-barbe",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    47.5982,
+    -3.1527
+  ],
+  "bearing_seaward_deg": 242.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 31.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 47.59714,
+      "lon": -3.15564,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 47.59609,
+      "lon": -3.15859,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 47.59398,
+      "lon": -3.16447,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 47.58975,
+      "lon": -3.17625,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 47.58553,
+      "lon": -3.18802,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 47.57707,
+      "lon": -3.21155,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 47.56439,
+      "lon": -3.24684,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 47.54745,
+      "lon": -3.29387,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 47.52201,
+      "lon": -3.36435,
+      "depth_m": 31.0
+    }
+  ]
+}

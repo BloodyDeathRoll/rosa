@@ -61,6 +61,12 @@ REGION_PBF = {
     "Exmouth": "exmouth",
     "WA South": "wa-south",
     "Esperance": "esperance",
+    "Cornwall Devon": "cornwall-devon",
+    "Wales": "wales",
+    "North Scotland": "north-scotland",
+    "North East England": "north-east-england",
+    "Landes": "landes",
+    "Brittany": "brittany",
 }
 
 

@@ -1,0 +1,72 @@
+{
+  "spot": "booby-s-bay",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    50.5384,
+    -5.0265
+  ],
+  "bearing_seaward_deg": 346.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 56.0,
+  "mean_slope_m_per_km": 3.66,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 50.54058,
+      "lon": -5.02736,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 50.54276,
+      "lon": -5.02821,
+      "depth_m": -17.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 50.54713,
+      "lon": -5.02992,
+      "depth_m": -45.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 50.55585,
+      "lon": -5.03335,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 50.56458,
+      "lon": -5.03678,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 50.58203,
+      "lon": -5.04363,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 50.60821,
+      "lon": -5.05393,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.64311,
+      "lon": -5.06767,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.69545,
+      "lon": -5.08832,
+      "depth_m": 56.0
+    }
+  ]
+}

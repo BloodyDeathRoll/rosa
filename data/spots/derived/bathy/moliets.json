@@ -1,0 +1,72 @@
+{
+  "spot": "moliets",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    43.8552,
+    -1.3953
+  ],
+  "bearing_seaward_deg": 282.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 86.0,
+  "mean_slope_m_per_km": 4.68,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.85567,
+      "lon": -1.39835,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.85613,
+      "lon": -1.4014,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.85707,
+      "lon": -1.4075,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.85894,
+      "lon": -1.4197,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.8608,
+      "lon": -1.4319,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.86453,
+      "lon": -1.45631,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.87012,
+      "lon": -1.49292,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.87754,
+      "lon": -1.54174,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.88865,
+      "lon": -1.61501,
+      "depth_m": 86.0
+    }
+  ]
+}

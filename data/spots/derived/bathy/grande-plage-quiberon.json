@@ -1,0 +1,72 @@
+{
+  "spot": "grande-plage-quiberon",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    47.586,
+    -3.1447
+  ],
+  "bearing_seaward_deg": 246.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 29.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 47.58509,
+      "lon": -3.14775,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 47.58417,
+      "lon": -3.15079,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 47.58234,
+      "lon": -3.15688,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 47.57868,
+      "lon": -3.16906,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 47.57502,
+      "lon": -3.18123,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 47.56769,
+      "lon": -3.20558,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 47.5567,
+      "lon": -3.24209,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 47.54201,
+      "lon": -3.29075,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 47.51995,
+      "lon": -3.36368,
+      "depth_m": 29.0
+    }
+  ]
+}

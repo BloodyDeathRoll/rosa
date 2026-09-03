@@ -1,0 +1,72 @@
+{
+  "spot": "cayton-bay",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    54.2459,
+    -0.3621
+  ],
+  "bearing_seaward_deg": 21.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 52.0,
+  "mean_slope_m_per_km": 2.82,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 54.248,
+      "lon": -0.36072,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 54.2501,
+      "lon": -0.35934,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 54.2543,
+      "lon": -0.35658,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 54.26269,
+      "lon": -0.35106,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 54.27109,
+      "lon": -0.34554,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 54.28788,
+      "lon": -0.33449,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 54.31306,
+      "lon": -0.3179,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 54.34663,
+      "lon": -0.29575,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 54.39698,
+      "lon": -0.26245,
+      "depth_m": 52.0
+    }
+  ]
+}

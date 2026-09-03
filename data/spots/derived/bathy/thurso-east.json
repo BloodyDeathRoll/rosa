@@ -1,0 +1,72 @@
+{
+  "spot": "thurso-east",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    58.6011,
+    -3.5085
+  ],
+  "bearing_seaward_deg": 323.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 79.0,
+  "mean_slope_m_per_km": 4.34,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 58.6029,
+      "lon": -3.5111,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 58.60469,
+      "lon": -3.51369,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 58.60828,
+      "lon": -3.51889,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 58.61546,
+      "lon": -3.52929,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 58.62264,
+      "lon": -3.53968,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 58.637,
+      "lon": -3.56049,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 58.65853,
+      "lon": -3.59174,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 58.68723,
+      "lon": -3.63347,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 58.73024,
+      "lon": -3.69618,
+      "depth_m": 79.0
+    }
+  ]
+}

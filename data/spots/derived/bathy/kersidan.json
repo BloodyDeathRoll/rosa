@@ -1,0 +1,72 @@
+{
+  "spot": "kersidan",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    47.7967,
+    -3.8228
+  ],
+  "bearing_seaward_deg": 181.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 64.0,
+  "mean_slope_m_per_km": 3.72,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 47.79445,
+      "lon": -3.82286,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 47.7922,
+      "lon": -3.82292,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 47.78771,
+      "lon": -3.82303,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 47.77872,
+      "lon": -3.82327,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 47.76972,
+      "lon": -3.8235,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 47.75174,
+      "lon": -3.82397,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 47.72477,
+      "lon": -3.82467,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 47.6888,
+      "lon": -3.8256,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 47.63485,
+      "lon": -3.82699,
+      "depth_m": 64.0
+    }
+  ]
+}

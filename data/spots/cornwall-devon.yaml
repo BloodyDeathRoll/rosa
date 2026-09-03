@@ -1,0 +1,57 @@
+# Rosa spot database - Cornwall & Devon (seeded 2026-09-03). Atlantic W-NW groundswell, biggest Sep-Mar; the north coast faces NW and is offshore on an E-SE wind, the south coast the reverse.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &cd
+  timezone: Europe/London
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [230, 340]
+  ideal:
+    wind_dir: [60, 160]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-03 - cornwall-devon, 36 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 36 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/cornwall-devon/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: lynmouth, name: "Lynmouth", town: "Lynmouth", lat: 51.2325, lon: -3.8268, offshore_direction: 211, swell_window: [326, 96], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: woolacombe, name: "Woolacombe", town: "Woolacombe", lat: 51.1627, lon: -4.2125, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: putsborough, name: "Putsborough", town: "Putsborough", lat: 51.1480, lon: -4.2202, offshore_direction: 119, swell_window: [234, 4], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: croyde, name: "Croyde", town: "Croyde", lat: 51.1318, lon: -4.2394, offshore_direction: 123, swell_window: [238, 8], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: saunton, name: "Saunton", town: "Saunton", lat: 51.0915, lon: -4.2251, offshore_direction: 89, swell_window: [204, 334], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: westward-ho, name: "Westward Ho!", town: "Westward Ho!", lat: 51.0443, lon: -4.2376, offshore_direction: 98, swell_window: [213, 343], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: duckpool, name: "Duckpool", town: "Bude", lat: 50.8753, lon: -4.5587, offshore_direction: 110, swell_window: [225, 355], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: crooklets, name: "Crooklets", town: "Bude", lat: 50.8360, lon: -4.5544, offshore_direction: 88, swell_window: [203, 333], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: summerleaze, name: "Summerleaze", town: "Bude", lat: 50.8304, lon: -4.5521, offshore_direction: 135, swell_window: [250, 20], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: widemouth-bay, name: "Widemouth Bay", town: "Widemouth Bay", lat: 50.7896, lon: -4.5587, offshore_direction: 154, swell_window: [269, 39], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: trebarwith-strand, name: "Trebarwith Strand", town: "Trebarwith", lat: 50.6448, lon: -4.7617, offshore_direction: 129, swell_window: [244, 14], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: polzeath, name: "Polzeath", town: "Polzeath", lat: 50.5754, lon: -4.9165, offshore_direction: 182, swell_window: [297, 67], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: harlyn-bay, name: "Harlyn Bay", town: "Harlyn", lat: 50.5422, lon: -5.0009, offshore_direction: 234, swell_window: [349, 119], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: booby-s-bay, name: "Booby's Bay", town: "Constantine Bay", lat: 50.5384, lon: -5.0265, offshore_direction: 166, swell_window: [281, 51], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: constantine-bay, name: "Constantine Bay", town: "Constantine Bay", lat: 50.5336, lon: -5.0241, offshore_direction: 83, swell_window: [198, 328], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: treyarnon, name: "Treyarnon", town: "Treyarnon", lat: 50.5269, lon: -5.0246, offshore_direction: 62, swell_window: [177, 307], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: mawgan-porth, name: "Mawgan Porth", town: "Mawgan Porth", lat: 50.4669, lon: -5.0323, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: watergate-bay, name: "Watergate Bay", town: "Watergate Bay", lat: 50.4443, lon: -5.0419, offshore_direction: 98, swell_window: [213, 343], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: fistral, name: "Fistral", town: "Newquay", lat: 50.4189, lon: -5.0987, offshore_direction: 114, swell_window: [229, 359], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: towan, name: "Towan", town: "Newquay", lat: 50.4161, lon: -5.0845, offshore_direction: 170, swell_window: [285, 55], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: crantock, name: "Crantock", town: "Crantock", lat: 50.4069, lon: -5.1228, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: holywell-bay, name: "Holywell Bay", town: "Holywell", lat: 50.3919, lon: -5.1473, offshore_direction: 115, swell_window: [230, 0], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: perranporth, name: "Perranporth", town: "Perranporth", lat: 50.3497, lon: -5.1541, offshore_direction: 91, swell_window: [206, 336], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: chapel-porth, name: "Chapel Porth", town: "St Agnes", lat: 50.3003, lon: -5.2347, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: challaborough, name: "Challaborough", town: "Challaborough", lat: 50.2875, lon: -3.8981, offshore_direction: 30, swell_window: [145, 275], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: porthtowan, name: "Porthtowan", town: "Porthtowan", lat: 50.2874, lon: -5.2420, offshore_direction: 135, swell_window: [250, 20], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: bigbury, name: "Bigbury", town: "Bigbury-on-Sea", lat: 50.2816, lon: -3.8920, offshore_direction: 22, swell_window: [137, 267], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: bantham, name: "Bantham", town: "Bantham", lat: 50.2786, lon: -3.8834, offshore_direction: 34, swell_window: [149, 279], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: godrevy, name: "Godrevy", town: "Gwithian", lat: 50.2365, lon: -5.3932, offshore_direction: 140, swell_window: [255, 25], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: the SW ray crosses St Ives Bay into Penwith]
+  - { id: gwithian, name: "Gwithian", town: "Gwithian", lat: 50.2295, lon: -5.3918, offshore_direction: 110, swell_window: [225, 355], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: porthmeor, name: "Porthmeor", town: "St Ives", lat: 50.2159, lon: -5.4823, offshore_direction: 199, swell_window: [314, 84], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: perranuthnoe, name: "Perranuthnoe", town: "Perranuthnoe", lat: 50.1120, lon: -5.4426, offshore_direction: 316, swell_window: [71, 201], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: praa-sands, name: "Praa Sands", town: "Praa Sands", lat: 50.1021, lon: -5.3883, offshore_direction: 21, swell_window: [136, 266], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: gwenver, name: "Gwenver", town: "Sennen", lat: 50.0890, lon: -5.6886, offshore_direction: 97, swell_window: [212, 342], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: porthleven, name: "Porthleven", town: "Porthleven", lat: 50.0814, lon: -5.3187, offshore_direction: 40, swell_window: [155, 285], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: sennen-cove, name: "Sennen Cove", town: "Sennen", lat: 50.0813, lon: -5.6948, offshore_direction: 131, swell_window: [246, 16], offshore_km: 5.0, <<: *cd }  # sat-verified 2026-09-03 (websearch-seeded)

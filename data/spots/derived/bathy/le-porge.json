@@ -1,0 +1,72 @@
+{
+  "spot": "le-porge",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    44.8941,
+    -1.218
+  ],
+  "bearing_seaward_deg": 276.0,
+  "nearshore_depth_m": 42.0,
+  "offshore_depth_m": 45.0,
+  "mean_slope_m_per_km": 0.17,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 44.89433,
+      "lon": -1.22116,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 44.89457,
+      "lon": -1.22431,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 44.89504,
+      "lon": -1.23063,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 44.89598,
+      "lon": -1.24325,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 44.89691,
+      "lon": -1.25588,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 44.89878,
+      "lon": -1.28113,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 44.90158,
+      "lon": -1.31902,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 44.90528,
+      "lon": -1.36953,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 44.9108,
+      "lon": -1.44532,
+      "depth_m": 45.0
+    }
+  ]
+}

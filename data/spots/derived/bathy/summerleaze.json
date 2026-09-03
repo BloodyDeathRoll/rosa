@@ -1,0 +1,72 @@
+{
+  "spot": "summerleaze",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    50.8304,
+    -4.5521
+  ],
+  "bearing_seaward_deg": 315.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 42.0,
+  "mean_slope_m_per_km": 2.7,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 50.83199,
+      "lon": -4.55462,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 50.83358,
+      "lon": -4.55713,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 50.83676,
+      "lon": -4.56217,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 50.84312,
+      "lon": -4.57224,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 50.84947,
+      "lon": -4.58232,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 50.86218,
+      "lon": -4.60247,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 50.88125,
+      "lon": -4.63273,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.90665,
+      "lon": -4.67311,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.94472,
+      "lon": -4.73377,
+      "depth_m": 42.0
+    }
+  ]
+}

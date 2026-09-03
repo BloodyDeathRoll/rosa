@@ -1,0 +1,72 @@
+{
+  "spot": "freshwater-west",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    51.6589,
+    -5.064
+  ],
+  "bearing_seaward_deg": 244.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 59.0,
+  "mean_slope_m_per_km": 3.49,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 51.65791,
+      "lon": -5.06726,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 51.65693,
+      "lon": -5.07051,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 51.65496,
+      "lon": -5.07703,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 51.65101,
+      "lon": -5.09006,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 51.64707,
+      "lon": -5.10308,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 51.63917,
+      "lon": -5.12912,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 51.62732,
+      "lon": -5.16817,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 51.61149,
+      "lon": -5.2202,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 51.5877,
+      "lon": -5.29817,
+      "depth_m": 59.0
+    }
+  ]
+}

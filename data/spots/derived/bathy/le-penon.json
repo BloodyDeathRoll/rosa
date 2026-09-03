@@ -1,0 +1,72 @@
+{
+  "spot": "le-penon",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    43.7094,
+    -1.4366
+  ],
+  "bearing_seaward_deg": 284.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 99.0,
+  "mean_slope_m_per_km": 5.52,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.70994,
+      "lon": -1.43962,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.71049,
+      "lon": -1.44264,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.71158,
+      "lon": -1.44867,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.71375,
+      "lon": -1.46075,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.71592,
+      "lon": -1.47282,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.72026,
+      "lon": -1.49697,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.72676,
+      "lon": -1.5332,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.73542,
+      "lon": -1.58152,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.74836,
+      "lon": -1.65403,
+      "depth_m": 99.0
+    }
+  ]
+}

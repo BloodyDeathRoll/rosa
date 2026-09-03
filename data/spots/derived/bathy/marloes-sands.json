@@ -1,0 +1,72 @@
+{
+  "spot": "marloes-sands",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    51.7206,
+    -5.2119
+  ],
+  "bearing_seaward_deg": 219.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 56.0,
+  "mean_slope_m_per_km": 2.87,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 51.71885,
+      "lon": -5.21418,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 51.71711,
+      "lon": -5.21647,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 51.71361,
+      "lon": -5.22103,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 51.70662,
+      "lon": -5.23017,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 51.69963,
+      "lon": -5.23929,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 51.68565,
+      "lon": -5.25754,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 51.66467,
+      "lon": -5.2849,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 51.63668,
+      "lon": -5.32133,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 51.59468,
+      "lon": -5.37589,
+      "depth_m": 56.0
+    }
+  ]
+}

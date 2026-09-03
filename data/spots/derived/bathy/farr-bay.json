@@ -1,0 +1,72 @@
+{
+  "spot": "farr-bay",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    58.5321,
+    -4.2119
+  ],
+  "bearing_seaward_deg": 55.0,
+  "nearshore_depth_m": -27.0,
+  "offshore_depth_m": 73.0,
+  "mean_slope_m_per_km": 5.63,
+  "land_samples": 6,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 58.53339,
+      "lon": -4.20837,
+      "depth_m": -27.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 58.53468,
+      "lon": -4.20484,
+      "depth_m": -42.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 58.53726,
+      "lon": -4.19779,
+      "depth_m": -69.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 58.54241,
+      "lon": -4.18367,
+      "depth_m": -52.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 58.54757,
+      "lon": -4.16955,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 58.55787,
+      "lon": -4.14129,
+      "depth_m": -114.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 58.57332,
+      "lon": -4.09887,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 58.59389,
+      "lon": -4.04226,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 58.6247,
+      "lon": -3.95721,
+      "depth_m": 73.0
+    }
+  ]
+}

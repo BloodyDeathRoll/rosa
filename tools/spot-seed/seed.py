@@ -183,6 +183,23 @@ REGIONS = {
     "wa-south": (-35.20, 115.25, -34.20, 119.50),
     # Esperance and the Cape Le Grand beaches; the Recherche islands are inside and flat
     "esperance": (-34.10, 121.40, -33.60, 122.60),
+    # UK: Cornwall and Devon, both coasts (Sennen and Porthleven in the far west, Newquay,
+    # Bude, then Croyde / Saunton / Woolacombe on the north Devon coast and Bantham in
+    # the south); the Bristol Channel side of Somerset is out
+    "cornwall-devon": (49.95, -5.75, 51.25, -3.85),
+    # Wales: the Gower (Llangennith, Rhossili) and Pembrokeshire (Freshwater West,
+    # Manorbier, Newgale); Cardigan Bay is out
+    "wales": (51.55, -5.35, 51.80, -3.95),
+    # the north Scottish coast around Thurso (Thurso East, Brims Ness, Melvich, Torrisdale)
+    "north-scotland": (58.45, -4.45, 58.70, -3.05),
+    # the north-east English coast from Tynemouth down through Saltburn and Whitby to
+    # Scarborough and Cayton Bay
+    "north-east-england": (54.20, -1.65, 55.10, -0.30),
+    # France, the Landes / Basque coast: Anglet and Biarritz up through Hossegor and
+    # Capbreton, Mimizan and Biscarrosse to Lacanau
+    "landes": (43.35, -1.85, 45.10, -1.05),
+    # Brittany's Atlantic tip: La Torche and the Pays Bigouden, Crozon, Quiberon
+    "brittany": (47.45, -4.85, 48.75, -3.00),
 }
 
 

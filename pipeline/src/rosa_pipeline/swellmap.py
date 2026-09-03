@@ -37,6 +37,10 @@ from .spots import load_spots
 BASINS: dict[str, tuple[str, ...]] = {
     "israel": ("Israel",),
     "portugal": ("Portugal",),
+    # Biscay and the Celtic Sea share one North Atlantic frame
+    "biscay-celtic": ("Landes", "Brittany", "Cornwall Devon", "Wales"),
+    # the North Sea / Pentland Firth coasts face the other way
+    "north-sea": ("North East England", "North Scotland"),
     "central-america": ("Costa Rica", "Nicaragua", "El Salvador", "Panama"),
     # Mexico gets its own box rather than joining central-america: its spots run from
     # Tijuana to the Oaxaca isthmus, and merging them would stretch one frame over

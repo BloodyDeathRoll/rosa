@@ -100,17 +100,21 @@ def cluster_boxes(points: list[tuple[float, float]]) -> list[tuple[Box, list[int
         # measure every member as a signed offset from the seed, so a cluster spanning
         # the 0/360 seam stays contiguous instead of running from ~1 deg to ~359 deg
         offs = [dlon180(_lon360(points[i][1]), s_lon) for i in members]
-        left, right = s_lon + min(offs) - BOX_PAD_DEG, s_lon + max(offs) + BOX_PAD_DEG
-        if left < 0.0 or right > 360.0:
+        raw_left, raw_right = s_lon + min(offs), s_lon + max(offs)
+        left, right = raw_left - BOX_PAD_DEG, raw_right + BOX_PAD_DEG
+        if raw_left < 0.0 or raw_right > 360.0:
             # grib-filter takes leftlon/rightlon in 0-360 and has no way to express a
             # box that wraps; splitting one cluster into two requests is the fix when a
-            # spot finally lands here. No committed spot does - closest is Portugal at
-            # ~347 deg - so this warns rather than silently sending a nonsense box.
+            # spot finally lands here. No committed spot does - closest is Scarborough at
+            # ~359.6 deg - so this warns rather than silently sending a nonsense box.
             print(
                 f"warn: gfswave cluster at lon {s_lon:.2f} crosses the 0/360 seam "
                 f"({left:.2f}..{right:.2f}) - the box will be clamped and may miss cells"
             )
-            left, right = max(0.0, left), min(360.0, right)
+        # Only the PADDING may cross (the UK cluster runs 354-359.6 deg and pads to
+        # 360.6): every member is inside the file, so clamp silently - the sea-room lost
+        # beyond the seam holds no spot and no offshore sample.
+        left, right = max(0.0, left), min(360.0, right)
         box = Box(
             bottom=min(lats) - BOX_PAD_DEG,
             top=max(lats) + BOX_PAD_DEG,

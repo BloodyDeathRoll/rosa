@@ -1,0 +1,72 @@
+{
+  "spot": "broughton-bay",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    51.6193,
+    -4.278
+  ],
+  "bearing_seaward_deg": 295.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 9.0,
+  "mean_slope_m_per_km": 0.68,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 51.62025,
+      "lon": -4.28128,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 51.6212,
+      "lon": -4.28456,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 51.6231,
+      "lon": -4.29113,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 51.6269,
+      "lon": -4.30426,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 51.6307,
+      "lon": -4.31739,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 51.63829,
+      "lon": -4.34366,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 51.64966,
+      "lon": -4.38309,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 51.6648,
+      "lon": -4.43569,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 51.68747,
+      "lon": -4.51465,
+      "depth_m": 9.0
+    }
+  ]
+}

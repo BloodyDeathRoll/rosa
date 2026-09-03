@@ -1,0 +1,72 @@
+{
+  "spot": "langland-bay",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    51.5672,
+    -4.0128
+  ],
+  "bearing_seaward_deg": 174.0,
+  "nearshore_depth_m": -16.0,
+  "offshore_depth_m": 27.0,
+  "mean_slope_m_per_km": 2.42,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 51.56496,
+      "lon": -4.01242,
+      "depth_m": -16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 51.56273,
+      "lon": -4.01204,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 51.55826,
+      "lon": -4.01129,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 51.54931,
+      "lon": -4.00978,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 51.54037,
+      "lon": -4.00827,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 51.52248,
+      "lon": -4.00525,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 51.49565,
+      "lon": -4.00072,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 51.45987,
+      "lon": -3.9947,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 51.40621,
+      "lon": -3.98567,
+      "depth_m": 27.0
+    }
+  ]
+}

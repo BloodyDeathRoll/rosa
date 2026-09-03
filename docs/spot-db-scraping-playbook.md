@@ -176,7 +176,28 @@ Four things, in this order:
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-09-03, DB = 1133 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-09-03, DB = 1253 spots, ALL sat-verified)
+
+**UK and France in one pass (2026-09-03): Cornwall & Devon 0 -> 36, Wales 0 -> 14, North Scotland
+0 -> 8, North East England 0 -> 10, Landes 0 -> 28, Brittany 0 -> 24.** Six boxes on four Geofabrik
+extracts (`europe/united-kingdom/{england,wales,scotland}` - NOT `great-britain/...`, that path 404s to
+a 9 KB HTML page that the seeder then reads as an empty extract - plus `europe/france/aquitaine` and
+`bretagne`), two new basins (`biscay-celtic`: Landes, Brittany, Cornwall Devon, Wales; `north-sea`:
+North East England, North Scotland). **Europe is the easy case:** Google, Nominatim and Photon all
+answer and agree, the beaches are named on OSM (Brittany carried 11 surf nodes - Pen Hat, Cabestan,
+Trépassés, the Trégunc and Locquirec beaches - the most of any region so far), and most pins were keeps:
+across the six, 141 names -> 88 keep / 26 move / 27 drop. Moves were the usual (a pin 400 m out to
+sea, a car park, a harbour instead of its reef); the drops were sheltered coves, collapses (Hunts Bay
+onto Caswell, Scarborough South onto North, Murkle onto Brims) and two names outside their box. Two
+placements needed the coastline candidates rather than any geocode: **Brims Ness** (Google gave the
+Brims farm 4 km inland; the reef ledge was found from the candidate list at 58.667 N and a z15 read) and
+**Home Reef**-style relabels (La Gravière and La Sud were OSM-snapped onto one Hossegor beach node and
+spread 300 m N and S along the bank). Twenty-one normals set by hand - Cornwall's coves and Brittany's
+points run every direction. Two more re-aimed by arc sweep: Godrevy's SW ray crossed St Ives Bay into Penwith
+and Brims Ness's N ray hit Hoy (Orkney) at 18 km. `marbella` clashed with Costa Rica's and took `-fr`. Judge logs in `work/<region>/judge.json`. **Two seam findings, both from the UK box:** `gfswave.cluster_boxes` padded the 354-359.6 deg cluster to 360.6 and warned; only the PAD crosses, so it now clamps silently and warns only when a member does. And the Yorkshire coast (0.97 W to 0.36 W) is the first inside OISST's 1 deg search radius of the seam, so the no-op test had to be split - see SESSIONS 51. **Gap queue:** Devon's south
+coast beyond Bantham, Ireland (Bundoran, Lahinch, Mullaghmore), Scotland's west (Tiree, Machrihanish),
+France's Vendée / Charente (Les Sables, Oléron) and the Basque sub-breaks.
+
 
 **WA South 0 -> 12 and Esperance 0 -> 6 (2026-09-03) - WA's south coast, the last gap in Australia's
 mainland surf coast.** Two boxes (Augusta-Bremer Bay; Esperance-Duke of Orleans) on `australia-south`.
@@ -690,7 +711,7 @@ once bathymetry allows); Mexico detail - the East Cape between Shipwrecks and Ni
 Punta Mita sub-breaks, Oaxaca's Salina Cruz points beyond Conejo/Chipehua; Japan Hokkaido /
 Wakayama detail (Okinawa and Tanegashima seeded 2026-09-03); Philippines more (Daku, Zambales Liwliwa neighbours); Portugal
 Ericeira micro-spots & the **Azores**; Nicaragua north (Puerto Sandino cluster). Regions with
-zero spots today: everywhere else - Indonesia beyond Bali / Lombok / Sumbawa / Java / Mentawai (Sumba, Nias, Rote), Chile, Ecuador, France/Spain, South Africa;
+zero spots today: everywhere else - Indonesia beyond Bali / Lombok / Sumbawa / Java / Mentawai (Sumba, Nias, Rote), Ireland, Spain, Chile, Ecuador, France/Spain, South Africa;
 Australia's remaining corners (Cactus / Eyre Peninsula, Kangaroo Island, Marrawah, Exmouth's Ningaloo reefs); Hawaii's Big Island.
 **The real frontier = Tier-B.** Tens of thousands of physics-valid, *unnamed* coastline
 stretches (Japan 22k, Philippines 37k). OSM/guides never named them; this is the sat-verify +

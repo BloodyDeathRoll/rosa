@@ -1,0 +1,29 @@
+# Rosa spot database - North Scotland (seeded 2026-09-03). Thurso's reefs face N into Atlantic swell wrapping through the Pentland Firth; offshore on a S wind, cold water.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &nsc
+  timezone: Europe/London
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [300, 60]
+  ideal:
+    wind_dir: [140, 220]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-03 - north-scotland, 8 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 8 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/north-scotland/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: brims-ness, name: "Brims Ness", town: "Thurso", lat: 58.6709, lon: -3.3684, offshore_direction: 118, swell_window: [233, 3], offshore_km: 5.0, <<: *nsc }  # sat-verified 2026-09-03 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: the N ray hits Hoy at 18 km]
+  - { id: dunnet-bay, name: "Dunnet Bay", town: "Dunnet", lat: 58.6038, lon: -3.3578, offshore_direction: 150, swell_window: [265, 35], offshore_km: 5.0, <<: *nsc }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: thurso-east, name: "Thurso East", town: "Thurso", lat: 58.6011, lon: -3.5085, offshore_direction: 143, swell_window: [258, 28], offshore_km: 5.0, <<: *nsc }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: strathy, name: "Strathy", town: "Strathy", lat: 58.5677, lon: -4.0007, offshore_direction: 163, swell_window: [278, 48], offshore_km: 5.0, <<: *nsc }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: sandside-bay, name: "Sandside Bay", town: "Reay", lat: 58.5653, lon: -3.7935, offshore_direction: 209, swell_window: [324, 94], offshore_km: 5.0, <<: *nsc }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: melvich, name: "Melvich", town: "Melvich", lat: 58.5592, lon: -3.9142, offshore_direction: 173, swell_window: [288, 58], offshore_km: 5.0, <<: *nsc }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: farr-bay, name: "Farr Bay", town: "Bettyhill", lat: 58.5321, lon: -4.2119, offshore_direction: 235, swell_window: [350, 120], offshore_km: 5.0, <<: *nsc }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: torrisdale, name: "Torrisdale", town: "Bettyhill", lat: 58.5276, lon: -4.2419, offshore_direction: 166, swell_window: [281, 51], offshore_km: 5.0, <<: *nsc }  # sat-verified 2026-09-03 (websearch-seeded)

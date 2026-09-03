@@ -1,0 +1,72 @@
+{
+  "spot": "parlementia",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    43.4301,
+    -1.6085
+  ],
+  "bearing_seaward_deg": 316.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 128.0,
+  "mean_slope_m_per_km": 7.1,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.43172,
+      "lon": -1.61065,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.43333,
+      "lon": -1.6128,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.43657,
+      "lon": -1.6171,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.44304,
+      "lon": -1.62571,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.4495,
+      "lon": -1.63432,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.46244,
+      "lon": -1.65154,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.48183,
+      "lon": -1.67738,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.50768,
+      "lon": -1.71186,
+      "depth_m": 95.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.54644,
+      "lon": -1.76364,
+      "depth_m": 128.0
+    }
+  ]
+}
