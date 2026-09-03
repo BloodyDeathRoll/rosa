@@ -1,0 +1,26 @@
+# Rosa spot database - Mozambique (seeded 2026-09-03 - East Africa). Ponta do Ouro and Malongane on the South African border, Tofo and Tofinho at Inhambane. S-SE swell, warm water, offshore on the W land breeze.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &moz
+  timezone: Africa/Maputo
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [120, 220]
+  ideal:
+    wind_dir: [250, 20]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-03 - mozambique, 5 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 5 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/mozambique/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: praia-da-barra, name: "Praia da Barra", town: "Inhambane", lat: -23.7957, lon: 35.5396, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, <<: *moz }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: tofo, name: "Tofo", town: "Tofo", lat: -23.8515, lon: 35.5492, offshore_direction: 215, swell_window: [330, 100], offshore_km: 5.0, <<: *moz }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: tofinho, name: "Tofinho", town: "Tofo", lat: -23.8607, lon: 35.5532, offshore_direction: 279, swell_window: [34, 164], offshore_km: 5.0, <<: *moz }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: ponta-malongane, name: "Ponta Malongane", town: "Ponta Malongane", lat: -26.7958, lon: 32.8931, offshore_direction: 278, swell_window: [33, 163], offshore_km: 5.0, <<: *moz }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: ponta-do-ouro, name: "Ponta do Ouro", town: "Ponta do Ouro", lat: -26.8430, lon: 32.8938, offshore_direction: 234, swell_window: [349, 119], offshore_km: 5.0, <<: *moz }  # sat-verified 2026-09-03 (websearch-seeded)

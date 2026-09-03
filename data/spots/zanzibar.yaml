@@ -1,0 +1,23 @@
+# Rosa spot database - Zanzibar (seeded 2026-09-03 - East Africa). Paje, Jambiani and Dongwe on the east coast: shallow reef and lagoon breaks working on the kusi monsoon swell, Jun-Sep.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &zan
+  timezone: Africa/Dar_es_Salaam
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [60, 180]
+  ideal:
+    wind_dir: [240, 340]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-03 - zanzibar, 2 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 2 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/zanzibar/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: dongwe, name: "Dongwe", town: "Michamvi", lat: -6.1849, lon: 39.5448, offshore_direction: 255, swell_window: [10, 140], offshore_km: 5.0, <<: *zan }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: paje, name: "Paje", town: "Paje", lat: -6.2680, lon: 39.5560, offshore_direction: 268, swell_window: [23, 153], offshore_km: 5.0, <<: *zan }  # sat-verified 2026-09-03 (websearch-seeded)

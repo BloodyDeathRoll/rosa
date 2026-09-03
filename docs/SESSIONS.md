@@ -168,3 +168,52 @@ SESSION 51 (cont., 2026-09-03): **UK and France, DB 1133 -> 1253: Cornwall & Dev
 
 SESSION 51 (cont., 2026-09-03): **West Africa 0 -> 17, DB 1253 -> 1270: Senegal 8, Cape Verde 6, Ghana 3** on a new `west-africa` basin, per playbook §5 (2026-09-03 West Africa entry). 46 names, 9 keep / 9 move / 28 drop - the worst keep rate of any pass, because Google returns a single coordinate for four different breaks (four Sal names, four Ghanaian ones) and sent Dakar's Club Med to Cap Skirring 250 km away. Everything that missed twice was dropped rather than guessed: the Almadies cluster, Palmeira, Boa Vista. **Two traps found:** `ca_final` prefers a Tier-A OSM node over a web move on an id clash, so Senegal's `Ouakam` silently emitted the OSM shore pin 250 m from the break I had verified - only a `duplicate id` warn said so, and the fix is a `skip.json` entry. And `ghana-togo` was one box over a Ghana-only extract, so Lome had no coastline candidate and was skipped; the box is now Ghana alone and Togo is logged as needing its own extract. **Ghana also forced the seam split that gfswave.py had only promised.** Ghana (358-360 deg) clusters with Angola (13 deg) - 15 deg apart, inside CLUSTER_SPAN_DEG - so the box genuinely wrapped past 0 and clamping it would have silently dropped every Ghanaian cell. `cluster_boxes` now splits a cluster whose MEMBERS straddle the seam into an east side and a west side and fetches both, which is what the code comment had said the fix would be; padding-only crossings still clamp silently. Two new tests: the split covers every member exactly once inside a box that contains it, fleet-wide, and the synthetic 359.8/0.2 case now asserts a split rather than a warning. The OISST seam set grew by Kokrobite and Labadi.
 
+---
+
+## SESSION 2026-09-03 - East Africa seeded (29 spots, DB 1270 → 1299), and shore normals got a gate
+
+**Seeded a new `east-africa` basin: South Africa East 21, Mozambique 5, Zanzibar 2, Kenya 1.**
+Four boxes on the `africa/{south-africa,mozambique,kenya,tanzania}` Geofabrik extracts, run through
+the usual primary + secondary flows. South Africa is the first region where OSM carried an entire
+point break: Jeffreys Bay has seven Tier-A `sport=surfing` nodes and all seven verified on the
+point, so the Tier-A path did work the web flow normally has to do. The other three regions
+produced zero Tier-A between them - Kenya 271 candidates, Mozambique 1394, Zanzibar 299, none
+tagged for surfing - so everything there came from the web flow and a rendered read.
+
+**Four names were dropped rather than guessed**, per the two-strikes rule: Cave Rock (the tile
+showed straight Bluff beach and the rock it is named for never appeared), Galu and Tiwi (inside the
+lagoon, no break line on two passes), and Jambiani, which missed three times - every pass landed on
+the reef flat and the breaking edge sits further east than I could pin. Zanzibar and Kenya break on
+the outer reef, past the edge of a z16 tile, so Paje and Dongwe each needed a z13 read before the
+edge was findable at all.
+
+**The finding that outlasts the region: `bathy` will cut a profile over dry land and not complain.**
+`seed.py` derives `offshore_direction` from the nearest OSM coastline segment; at a headland, a bay
+mouth or a spit that normal can point along the shore or straight inland. Three spots did it here.
+St Michaels' ray ran 18 km inland and reported `offshore_depth_m: -103` - a hilltop wearing a
+depth's name. The Point (J-Bay) ran over the town at -158. Praia da Barra crossed the Barra spit,
+and that one turned out to be a **misplaced pin**, not a bad bearing: the coordinate sat on the
+sheltered north-facing bay beach, so re-aiming alone would have fitted a clean profile to the wrong
+water. Rendering first is what caught it.
+
+Built `tools/spot-seed/aim_normal.py` for this: it sweeps the seaward bearing every 2 deg on the
+local GEBCO grid and scores each 0.25-18 km ray. **It reports only, never applies** - same reason
+as `horizon`, `atl24` and `sdb`, since re-aiming a normal moves published heights. Two rules came
+out of using it and are written into the playbook (§3c) and `docs/SPOT-DB.md`:
+
+1. **The global argmax is a trap.** Along-shore rays are land-free and score well, so the argmax
+   quietly aims spots down the coast. Seal Point's best-scoring bearing was 99 deg off its correct
+   one. Read the bearing table and pick the middle of the open arc.
+2. **A land count is not a defect on its own.** One land sample at 0.25 km is just GEBCO's ~450 m
+   shoreline cell reporting the land side. 104 of 1299 committed profiles carry 3+ land samples and
+   every one still reaches real water. The disqualifying signals are `offshore_depth_m <= 0` and
+   land past the first sample. After this pass **no spot in the fleet has a ray that ends inland**.
+
+Also worth keeping: two Geofabrik downloads truncated silently under a 10-minute command timeout
+(Mozambique 191 MB of 255, Tanzania 93 MB of 705). The header read fine and the size looked
+plausible; it only surfaced later as `unexpected EOF` from pyosmium. Compare against
+`Content-Length`, not against a guess. And `cd data/osm && ... seed.py` runs the seeder from the
+wrong cwd, which exits 1 on all four flows - run it from the repo root.
+
+585 tests pass. `test_geo_seam.py`'s spot-count assertion moved 1270 → 1299.
+

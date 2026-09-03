@@ -59,6 +59,9 @@ BASINS: dict[str, tuple[str, ...]] = {
     # the West African Atlantic: the same NW groundswell that lights Morocco, arriving
     # smaller and from further north; Cape Verde sits in the same frame
     "west-africa": ("Senegal", "Cape Verde", "Ghana"),
+    # the south-west Indian Ocean: Southern Ocean groundswell up the South African
+    # coast into Mozambique, and the monsoon swell on the equatorial reefs
+    "east-africa": ("South Africa East", "Mozambique", "Kenya", "Zanzibar"),
     "angola": ("Angola",),
     "peru": ("Peru",),
     "maldives": ("Maldives",),

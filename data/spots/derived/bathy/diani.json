@@ -1,0 +1,72 @@
+{
+  "spot": "diani",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -4.2798,
+    39.601
+  ],
+  "bearing_seaward_deg": 118.0,
+  "nearshore_depth_m": 22.0,
+  "offshore_depth_m": 457.0,
+  "mean_slope_m_per_km": 24.51,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -4.28086,
+      "lon": 39.60299,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -4.28191,
+      "lon": 39.60498,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -4.28402,
+      "lon": 39.60896,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -4.28824,
+      "lon": 39.61693,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -4.29247,
+      "lon": 39.62489,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -4.30091,
+      "lon": 39.64081,
+      "depth_m": 210.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -4.31357,
+      "lon": 39.6647,
+      "depth_m": 327.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -4.33046,
+      "lon": 39.69656,
+      "depth_m": 351.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -4.35578,
+      "lon": 39.74434,
+      "depth_m": 457.0
+    }
+  ]
+}

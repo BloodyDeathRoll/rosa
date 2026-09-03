@@ -1,0 +1,72 @@
+{
+  "spot": "boneyards",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -34.0353,
+    24.9321
+  ],
+  "bearing_seaward_deg": 115.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 71.0,
+  "mean_slope_m_per_km": 4.06,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.03625,
+      "lon": 24.93456,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.0372,
+      "lon": 24.93702,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.0391,
+      "lon": 24.94194,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.0429,
+      "lon": 24.95177,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.0467,
+      "lon": 24.96161,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.05429,
+      "lon": 24.98129,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.06568,
+      "lon": 25.01081,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.08085,
+      "lon": 25.05019,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.10359,
+      "lon": 25.10928,
+      "depth_m": 71.0
+    }
+  ]
+}

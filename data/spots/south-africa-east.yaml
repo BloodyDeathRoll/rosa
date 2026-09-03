@@ -1,0 +1,42 @@
+# Rosa spot database - South Africa (east coast) (seeded 2026-09-03 - East Africa). Jeffreys Bay's right-hand points and the KwaZulu-Natal beach and reef breaks. Southern Ocean SW-S groundswell year-round, biggest in winter; the land breeze is offshore in the morning.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &sae
+  timezone: Africa/Johannesburg
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [130, 250]
+  ideal:
+    wind_dir: [270, 30]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-03 - south-africa-east, 21 spots (primary coastline flow: 7 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 14 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/south-africa-east/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: salt-rock, name: "Salt Rock", town: "Salt Rock", lat: -29.5068, lon: 31.2383, offshore_direction: 298, swell_window: [53, 183], offshore_km: 5.0, <<: *sae }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: ballito, name: "Ballito", town: "Ballito", lat: -29.5318, lon: 31.2256, offshore_direction: 268, swell_window: [23, 153], offshore_km: 5.0, <<: *sae }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: umdloti, name: "Umdloti", town: "Umdloti", lat: -29.6737, lon: 31.1176, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, <<: *sae }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: umhlanga, name: "Umhlanga", town: "Umhlanga Rocks", lat: -29.7142, lon: 31.0948, offshore_direction: 305, swell_window: [60, 190], offshore_km: 5.0, <<: *sae }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: north-beach, name: "North Beach", town: "Durban", lat: -29.8476, lon: 31.0392, offshore_direction: 264, swell_window: [19, 149], offshore_km: 5.0, <<: *sae }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: dairy-beach, name: "Dairy Beach", town: "Durban", lat: -29.8516, lon: 31.0412, offshore_direction: 252, swell_window: [7, 137], offshore_km: 5.0, <<: *sae }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: new-pier, name: "New Pier", town: "Durban", lat: -29.8529, lon: 31.0424, offshore_direction: 252, swell_window: [7, 137], offshore_km: 5.0, <<: *sae }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: bay-of-plenty, name: "Bay of Plenty", town: "Durban", lat: -29.8546, lon: 31.0418, offshore_direction: 252, swell_window: [7, 137], offshore_km: 5.0, <<: *sae }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: ansteys, name: "Ansteys", town: "Durban", lat: -29.9239, lon: 31.0215, offshore_direction: 306, swell_window: [61, 191], offshore_km: 5.0, <<: *sae }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: scottburgh, name: "Scottburgh", town: "Scottburgh", lat: -30.2805, lon: 30.7588, offshore_direction: 272, swell_window: [27, 157], offshore_km: 5.0, <<: *sae }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: green-point, name: "Green Point", town: "Umzumbe", lat: -30.6190, lon: 30.5480, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, <<: *sae }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: st-michaels, name: "St Michaels", town: "Margate", lat: -30.8201, lon: 30.4067, offshore_direction: 295, swell_window: [50, 180], offshore_km: 5.0, <<: *sae }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: albatross, name: "Albatross", town: "Jeffreys Bay", lat: -34.0157, lon: 24.9281, offshore_direction: 262, swell_window: [17, 147], offshore_km: 5.0, <<: *sae }  # sat-verified 2026-09-03 (osm-seeded)
+  - { id: the-point-jbay, name: "The Point (J-Bay)", town: "Jeffreys Bay", lat: -34.0257, lon: 24.9330, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, <<: *sae }  # sat-verified 2026-09-03 (osm-seeded)
+  - { id: tubes, name: "Tubes", town: "Jeffreys Bay", lat: -34.0290, lon: 24.9322, offshore_direction: 257, swell_window: [12, 142], offshore_km: 5.0, <<: *sae }  # sat-verified 2026-09-03 (osm-seeded)
+  - { id: supertubes-za, name: "Supertubes", town: "Jeffreys Bay", lat: -34.0332, lon: 24.9352, offshore_direction: 295, swell_window: [50, 180], offshore_km: 5.0, <<: *sae }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: boneyards, name: "Boneyards", town: "Jeffreys Bay", lat: -34.0353, lon: 24.9321, offshore_direction: 295, swell_window: [50, 180], offshore_km: 5.0, <<: *sae }  # sat-verified 2026-09-03 (osm-seeded)
+  - { id: magna-tubes, name: "Magna Tubes", town: "Jeffreys Bay", lat: -34.0401, lon: 24.9312, offshore_direction: 286, swell_window: [41, 171], offshore_km: 5.0, <<: *sae }  # sat-verified 2026-09-03 (osm-seeded)
+  - { id: sandkasteel, name: "Sandkasteel", town: "Jeffreys Bay", lat: -34.0451, lon: 24.9284, offshore_direction: 267, swell_window: [22, 152], offshore_km: 5.0, <<: *sae }  # sat-verified 2026-09-03 (osm-seeded)
+  - { id: kitchen-windows, name: "Kitchen Windows", town: "Jeffreys Bay", lat: -34.0604, lon: 24.9273, offshore_direction: 278, swell_window: [33, 163], offshore_km: 5.0, <<: *sae }  # sat-verified 2026-09-03 (osm-seeded)
+  - { id: seal-point, name: "Seal Point", town: "Cape St Francis", lat: -34.2135, lon: 24.8345, offshore_direction: 53, swell_window: [168, 298], offshore_km: 5.0, <<: *sae }  # sat-verified 2026-09-03 (websearch-seeded)

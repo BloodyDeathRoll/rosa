@@ -70,6 +70,10 @@ REGION_PBF = {
     "Senegal": "senegal",
     "Cape Verde": "cape-verde",
     "Ghana": "ghana",
+    "South Africa East": "south-africa-east",
+    "Mozambique": "mozambique",
+    "Kenya": "kenya",
+    "Zanzibar": "zanzibar",
 }
 
 

@@ -1,0 +1,72 @@
+{
+  "spot": "sandkasteel",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -34.0451,
+    24.9284
+  ],
+  "bearing_seaward_deg": 87.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 64.0,
+  "mean_slope_m_per_km": 3.77,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.04498,
+      "lon": 24.93111,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.04486,
+      "lon": 24.93382,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.04463,
+      "lon": 24.93924,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.04416,
+      "lon": 24.95008,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.04368,
+      "lon": 24.96092,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.04273,
+      "lon": 24.98259,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.0413,
+      "lon": 25.01511,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.03938,
+      "lon": 25.05846,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.03647,
+      "lon": 25.12348,
+      "depth_m": 64.0
+    }
+  ]
+}

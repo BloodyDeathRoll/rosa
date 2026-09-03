@@ -50,6 +50,7 @@ big datasets are gitignored (`data/bathy/`, `data/osm/`).
 | `render.py` | **sat-verify**: renders ESRI crosshair tiles for candidates → read+judge |
 | `multi_geocode.py` | secondary: Google Places + Nominatim + Photon, agreement-spread cross-check. `--file <queue.json>` takes `[[id, query, region], ...]`, `--out <path>` writes the result |
 | `emit_spots.py` | turn a region's reviewed `result.json` into DB YAML (offshore_point/swell derived) |
+| `aim_normal.py` | **post-emit gate**: sweeps seaward bearing every 2 deg on the GEBCO grid and scores the 0.25-18 km ray. **Reports only, never edits a YAML.** Run it after every emit - see 3c |
 | `work/<region>/` | cached stages: coastline / candidates / bathy / beacons / result.json (resumable) |
 
 ---
@@ -173,6 +174,38 @@ Four things, in this order:
    `test_committed_constants_match_the_spot_db`) - a region seeded without the tide step
    fails the suite. Then re-check the three angles with `rosa-pipeline horizon --spot <id>`.
 
+## 3c. Check the shore normal after every emit (added 2026-09-03)
+
+`seed.py` takes `offshore_direction` from the nearest OSM coastline segment. On a headland, at a
+bay mouth, or across a sand spit that normal can point **along** the shore or **into land**, and
+`bathy` will then happily cut its profile over dry ground. Nothing fails; you get a committed
+profile whose depths are negative, which is a land elevation wearing a depth's name.
+
+Run after `emit_region.py` and the bathy cut:
+
+```
+tools/spot-seed/.venv/bin/python tools/spot-seed/aim_normal.py --yaml data/spots/<region>.yaml
+python3 -c "..."   # or read land_samples / offshore_depth_m straight off the profiles
+```
+
+**The only disqualifying signals are `offshore_depth_m <= 0` and land samples past 0.25 km.** One
+land sample at 0.25 km is just the shoreline cell: GEBCO's ~450 m cell straddles the beach and
+reports the land side. 104 of 1299 committed profiles have 3+ land samples and every one of them
+still reaches real water, so a land count on its own proves nothing.
+
+Two rules learned the hard way on East Africa:
+
+1. **Do not take the sweep's global argmax.** Along-shore rays are usually land-free and often
+   score best, so the argmax will quietly aim a spot down the coast. Read the full bearing table,
+   find the arc that is open water, and pick the middle of it.
+2. **A broken normal is often a broken pin.** Praia da Barra's ray crossed the Barra spit because
+   the pin was on the sheltered north-facing bay beach, not the ocean side. Re-aiming would have
+   produced a plausible profile for the wrong water. Render before you re-aim.
+
+`aim_normal.py` reads GEBCO_2024 from disk; `rosa-pipeline bathy` reads gebco2020 via
+OpenTopoData. They disagree by a cell at the shoreline, so **judge the fix on the committed
+profile, not on the sweep**.
+
 ## 4. Chunked, long-running workflow
 - Do **one region (or one gap area) at a time**; the `work/<region>/` cache makes every stage
   resumable and re-runnable cheaply (`--fresh <stage>` forces a refetch).
@@ -181,7 +214,38 @@ Four things, in this order:
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-09-03, DB = 1270 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-09-03, DB = 1299 spots, ALL sat-verified)
+
+**East Africa 0 -> 29 (2026-09-03): South Africa East 21, Mozambique 5, Zanzibar 2, Kenya 1** - a new
+`east-africa` basin, four boxes on `africa/{south-africa,mozambique,kenya,tanzania}`. **South Africa is
+the first region where OSM carried a whole point break**: Jeffreys Bay has 7 Tier-A `sport=surfing`
+nodes (Albatross, The Point, Tubes, Boneyards, Magna Tubes, Sandkasteel, Kitchen Windows) that all
+verified on the point, so the Tier-A path did the work the web flow usually does. The other three
+regions produced **zero** Tier-A between them - Kenya 271 candidates, Mozambique 1394, Zanzibar 299,
+none tagged for surfing - and every spot there came from the web flow.
+
+Drops, all under the two-strikes rule: Cave Rock (the pin showed straight Bluff beach and the rock the
+spot is named for was never visible), Galu and Tiwi (inside the lagoon, no break line on two passes),
+**Jambiani (three passes, all on the reef flat; the breaking edge sits further east than I could fix)**.
+Zanzibar and Kenya break on the **outer** reef, well past a z16 tile, so Paje and Dongwe both needed
+a z13 read before the edge was findable at all.
+
+Three process notes:
+1. **Two truncated Geofabrik downloads got through the size check.** Mozambique arrived at 191 MB of
+   255 MB and Tanzania at 93 MB of 705 MB, because a 10-minute command timeout killed the curl. The
+   header read fine and the byte count looked plausible; the failure only appeared later as
+   `RuntimeError: PBF error: unexpected EOF`. **Compare against `Content-Length`, not against a
+   guess at what the file should weigh.**
+2. **`cd data/osm && ... seed.py` runs the seeder from the wrong cwd** and all four flows exit 1.
+   Run it from the repo root.
+3. **Three shore normals pointed into land and `bathy` cut the profile anyway** - see 3c, which is
+   now a required step. St Michaels' ray ran 18 km inland to a 103 m hilltop; The Point (J-Bay) ran
+   over the town; Praia da Barra crossed the spit and turned out to be a misplaced pin, not just a
+   bad bearing.
+
+**Gap queue after this pass:** Durban's Cave Rock and the Bluff, Jambiani's outer edge, Zanzibar's
+north (Nungwi, Matemwe), Kenya's Malindi/Watamu, Mozambique's Ponta Mamoli and the Bazaruto
+archipelago, Tanzania's mainland, Madagascar, Reunion, Somalia's Indian Ocean coast.
 
 **West Africa 0 -> 17 (2026-09-03): Senegal 8, Cape Verde 6, Ghana 3** - the first regions on a
 `west-africa` basin. Three boxes on `africa/{senegal-and-gambia,cape-verde,ghana}`. 46 guide names
@@ -750,3 +814,7 @@ community-contribution layer, and it's where "all the spots" ultimately lives.
 - O(n²) clustering hangs on 100k-way coastlines → use the spatial grid.
 - whole-country coastline explodes candidate counts → scope to the surf bbox.
 - external API caps/flakiness (Open-Meteo, OpenTopoData, Overpass) → the local grids above.
+- a truncated Geofabrik download reads as a small-but-plausible extract and only fails later at
+  `unexpected EOF` → check the byte count against `Content-Length` (Mozambique, Tanzania).
+- the coastline shore-normal points inland at a headland, bay mouth or spit, and `bathy` cuts a
+  land profile without failing → run `aim_normal.py` after every emit (3c).

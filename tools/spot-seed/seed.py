@@ -211,6 +211,19 @@ REGIONS = {
     # 2026-09-03 pass with "no coastline candidate within reach" because only ghana.pbf
     # was linked. Seed it as its own region when someone wants Lome.
     "ghana": (4.65, -2.65, 6.30, 0.20),
+    # South Africa's Indian Ocean coast: Jeffreys Bay and Cape St Francis in the Eastern
+    # Cape, then the KwaZulu-Natal points from Scottburgh through Durban to Ballito.
+    # The Cape Peninsula and the west coast are their own region later.
+    "south-africa-east": (-34.30, 24.60, -29.30, 31.40),
+    # Mozambique's surfed south: Ponta do Ouro and Ponta Malongane on the border, then
+    # Tofo and Tofinho up at Inhambane
+    "mozambique": (-27.00, 32.60, -23.30, 35.60),
+    # Kenya's Diani coast and Tanzania's Zanzibar: reef and lagoon breaks on the
+    # monsoon swell. Two countries, but ONE box needs ONE extract - kenya.pbf covers
+    # Diani; Zanzibar is in tanzania.pbf and gets its own region below.
+    "kenya": (-4.75, 39.10, -3.90, 39.90),
+    # Zanzibar's east coast: Paje, Jambiani, Dongwe
+    "zanzibar": (-6.60, 39.30, -5.70, 39.65),
 }
 
 

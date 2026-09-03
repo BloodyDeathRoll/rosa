@@ -1,0 +1,72 @@
+{
+  "spot": "ponta-do-ouro",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -26.843,
+    32.8938
+  ],
+  "bearing_seaward_deg": 54.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 262.0,
+  "mean_slope_m_per_km": 15.27,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -26.84168,
+      "lon": 32.89584,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -26.84036,
+      "lon": 32.89788,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -26.83771,
+      "lon": 32.90195,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -26.83243,
+      "lon": 32.91011,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -26.82714,
+      "lon": 32.91826,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -26.81656,
+      "lon": 32.93456,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -26.8007,
+      "lon": 32.95901,
+      "depth_m": 106.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -26.77953,
+      "lon": 32.9916,
+      "depth_m": 198.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -26.74778,
+      "lon": 33.04045,
+      "depth_m": 262.0
+    }
+  ]
+}

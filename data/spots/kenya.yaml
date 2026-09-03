@@ -1,0 +1,22 @@
+# Rosa spot database - Kenya (seeded 2026-09-03 - East Africa). The Diani and Galu reefs south of Mombasa: lagoon and reef-pass waves on the kaskazi and kusi monsoon swells, best Jun-Sep.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &ken
+  timezone: Africa/Nairobi
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [60, 180]
+  ideal:
+    wind_dir: [240, 340]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-03 - kenya, 1 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 1 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/kenya/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: diani, name: "Diani", town: "Diani Beach", lat: -4.2798, lon: 39.6010, offshore_direction: 298, swell_window: [53, 183], offshore_km: 5.0, <<: *ken }  # sat-verified 2026-09-03 (websearch-seeded)
