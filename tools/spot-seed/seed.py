@@ -224,6 +224,26 @@ REGIONS = {
     "kenya": (-4.75, 39.10, -3.90, 39.90),
     # Zanzibar's east coast: Paje, Jambiani, Dongwe
     "zanzibar": (-6.60, 39.30, -5.70, 39.65),
+    # ---- the US east coast. Every box is Atlantic-facing only; bays, sounds and the
+    # Gulf side are excluded, and each box is scoped to ONE state extract.
+    # New York's ocean beaches: Rockaway and Long Beach west, the Fire Island barrier,
+    # then the Hamptons out to Montauk. Long Island Sound is north of the box and is not
+    # surfed; NYC's harbour is west of it.
+    "long-island": (40.53, -74.05, 41.10, -71.83),
+    # the whole Jersey Shore, Sandy Hook to Cape May. Delaware Bay is west of the box.
+    "new-jersey": (38.90, -75.00, 40.50, -73.90),
+    # North Carolina's barrier islands: Nags Head and Cape Hatteras out to Ocracoke, plus
+    # Wrightsville in the south. Pamlico and Albemarle Sounds fall inside the box's
+    # rectangle but carry no ocean swell - the bathy gate drops them.
+    "outer-banks": (33.70, -78.10, 36.60, -75.40),
+    # Florida's Space Coast: Sebastian Inlet, Melbourne, Cocoa Beach, Playalinda and New
+    # Smyrna. The box stops short of the Gulf side; Florida's south-east and north-east
+    # are their own regions later.
+    "florida-space-coast": (27.30, -80.95, 29.30, -80.30),
+    # Rhode Island's ocean shore: Narragansett and Point Judith, Matunuck and the south
+    # county beaches, and Newport's Atlantic side. Narragansett Bay is inside the
+    # rectangle and carries no swell.
+    "rhode-island": (41.13, -71.90, 41.55, -71.10),
 }
 
 

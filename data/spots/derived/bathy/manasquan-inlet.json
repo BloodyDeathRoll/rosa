@@ -1,0 +1,72 @@
+{
+  "spot": "manasquan-inlet",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    40.1032,
+    -74.0331
+  ],
+  "bearing_seaward_deg": 107.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 24.0,
+  "mean_slope_m_per_km": 0.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.10254,
+      "lon": -74.03029,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.10189,
+      "lon": -74.02748,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.10057,
+      "lon": -74.02186,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.09794,
+      "lon": -74.01061,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.09531,
+      "lon": -73.99937,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.09004,
+      "lon": -73.97689,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.08213,
+      "lon": -73.94318,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.07157,
+      "lon": -73.89824,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.0557,
+      "lon": -73.83085,
+      "depth_m": 24.0
+    }
+  ]
+}

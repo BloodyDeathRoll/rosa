@@ -1,0 +1,72 @@
+{
+  "spot": "narragansett-town-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    41.4352,
+    -71.4548
+  ],
+  "bearing_seaward_deg": 140.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 28.0,
+  "mean_slope_m_per_km": 1.75,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.43348,
+      "lon": -71.45287,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.43176,
+      "lon": -71.45094,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.42831,
+      "lon": -71.44709,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.42142,
+      "lon": -71.43938,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.41453,
+      "lon": -71.43168,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.40075,
+      "lon": -71.41627,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.38007,
+      "lon": -71.39317,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.35249,
+      "lon": -71.36239,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.31111,
+      "lon": -71.31627,
+      "depth_m": 28.0
+    }
+  ]
+}

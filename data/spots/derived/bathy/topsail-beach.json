@@ -1,0 +1,72 @@
+{
+  "spot": "topsail-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    34.3634,
+    -77.6281
+  ],
+  "bearing_seaward_deg": 135.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 19.0,
+  "mean_slope_m_per_km": 0.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.36181,
+      "lon": -77.62617,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.36022,
+      "lon": -77.62425,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.35704,
+      "lon": -77.6204,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.35068,
+      "lon": -77.6127,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.34432,
+      "lon": -77.60499,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.3316,
+      "lon": -77.5896,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.31251,
+      "lon": -77.56651,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.28706,
+      "lon": -77.53574,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.24886,
+      "lon": -77.48962,
+      "depth_m": 19.0
+    }
+  ]
+}

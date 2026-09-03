@@ -1,0 +1,72 @@
+{
+  "spot": "lavallette",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    39.9706,
+    -74.064
+  ],
+  "bearing_seaward_deg": 97.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 24.0,
+  "mean_slope_m_per_km": 0.96,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 39.97033,
+      "lon": -74.06109,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 39.97005,
+      "lon": -74.05818,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 39.9695,
+      "lon": -74.05235,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 39.96841,
+      "lon": -74.04071,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 39.96731,
+      "lon": -74.02906,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 39.96511,
+      "lon": -74.00577,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 39.96179,
+      "lon": -73.97083,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 39.95736,
+      "lon": -73.92426,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 39.95068,
+      "lon": -73.85441,
+      "depth_m": 24.0
+    }
+  ]
+}

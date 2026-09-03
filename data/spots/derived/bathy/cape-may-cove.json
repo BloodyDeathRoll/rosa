@@ -1,0 +1,72 @@
+{
+  "spot": "cape-may-cove",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    38.9277,
+    -74.9363
+  ],
+  "bearing_seaward_deg": 175.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 12.0,
+  "mean_slope_m_per_km": 0.51,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.92546,
+      "lon": -74.93605,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.92322,
+      "lon": -74.9358,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.91874,
+      "lon": -74.93529,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.90978,
+      "lon": -74.93429,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.90082,
+      "lon": -74.93328,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.8829,
+      "lon": -74.93127,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.85603,
+      "lon": -74.92825,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.82019,
+      "lon": -74.92423,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.76644,
+      "lon": -74.91821,
+      "depth_m": 12.0
+    }
+  ]
+}

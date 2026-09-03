@@ -1,0 +1,72 @@
+{
+  "spot": "point-pleasant-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    40.0917,
+    -74.0346
+  ],
+  "bearing_seaward_deg": 105.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 24.0,
+  "mean_slope_m_per_km": 0.79,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.09112,
+      "lon": -74.03176,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.09054,
+      "lon": -74.02892,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.08937,
+      "lon": -74.02325,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.08704,
+      "lon": -74.01189,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.08471,
+      "lon": -74.00054,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.08005,
+      "lon": -73.97783,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.07304,
+      "lon": -73.94378,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.06369,
+      "lon": -73.8984,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.04962,
+      "lon": -73.83034,
+      "depth_m": 24.0
+    }
+  ]
+}

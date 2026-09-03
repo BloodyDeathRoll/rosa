@@ -1,0 +1,72 @@
+{
+  "spot": "rockaway-67th-street",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    40.5852,
+    -73.796
+  ],
+  "bearing_seaward_deg": 163.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 27.0,
+  "mean_slope_m_per_km": 1.18,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.58305,
+      "lon": -73.79513,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.5809,
+      "lon": -73.79427,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.5766,
+      "lon": -73.79254,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.568,
+      "lon": -73.78908,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.5594,
+      "lon": -73.78562,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.5422,
+      "lon": -73.7787,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.51639,
+      "lon": -73.76833,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.48199,
+      "lon": -73.75452,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.43038,
+      "lon": -73.73382,
+      "depth_m": 27.0
+    }
+  ]
+}

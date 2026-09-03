@@ -1,0 +1,72 @@
+{
+  "spot": "kitty-hawk-pier",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    36.1011,
+    -75.7092
+  ],
+  "bearing_seaward_deg": 67.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 25.0,
+  "mean_slope_m_per_km": 1.07,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.10198,
+      "lon": -75.70664,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.10286,
+      "lon": -75.70408,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.10461,
+      "lon": -75.69895,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.10813,
+      "lon": -75.68871,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.11164,
+      "lon": -75.67846,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.11866,
+      "lon": -75.65796,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.12918,
+      "lon": -75.62721,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.1432,
+      "lon": -75.58619,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.16421,
+      "lon": -75.52463,
+      "depth_m": 25.0
+    }
+  ]
+}

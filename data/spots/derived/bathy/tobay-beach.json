@@ -1,0 +1,72 @@
+{
+  "spot": "tobay-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    40.6077,
+    -73.428
+  ],
+  "bearing_seaward_deg": 165.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 0.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.60553,
+      "lon": -73.42723,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.60336,
+      "lon": -73.42647,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.59901,
+      "lon": -73.42493,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.59033,
+      "lon": -73.42187,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.58164,
+      "lon": -73.41881,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.56427,
+      "lon": -73.41268,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.5382,
+      "lon": -73.4035,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.50345,
+      "lon": -73.39127,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.45133,
+      "lon": -73.37294,
+      "depth_m": 20.0
+    }
+  ]
+}

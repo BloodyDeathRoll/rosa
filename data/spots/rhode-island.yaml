@@ -1,0 +1,34 @@
+# Rosa spot database - Rhode Island (seeded 2026-09-03). The south-facing ocean shore from Westerly
+# to Newport: New England's most exposed surf, on autumn hurricane swell and winter NE storms;
+# offshore on a N-NW wind. Cobble reefs and breachway bars mixed - break_type per spot.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &ri
+  timezone: America/New_York
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [115, 245]
+  ideal:
+    wind_dir: [315, 45]
+    size_m: [0.6, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-03 - rhode-island, 11 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 11 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/rhode-island/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: first-beach, name: "First Beach", town: "Newport", lat: 41.4873, lon: -71.2915, offshore_direction: 335, swell_window: [90, 220], offshore_km: 5.0, <<: *ri }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: second-beach, name: "Second Beach", town: "Middletown", lat: 41.4863, lon: -71.2572, offshore_direction: 17, swell_window: [132, 262], offshore_km: 5.0, <<: *ri }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: ruggles, name: "Ruggles", town: "Newport", lat: 41.4667, lon: -71.2980, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, <<: *ri }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: narragansett-town-beach, name: "Narragansett Town Beach", town: "Narragansett", lat: 41.4352, lon: -71.4548, offshore_direction: 320, swell_window: [75, 205], offshore_km: 5.0, <<: *ri }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: monahan-s, name: "Monahan'S", town: "Narragansett", lat: 41.4222, lon: -71.4546, offshore_direction: 269, swell_window: [24, 154], offshore_km: 5.0, <<: *ri }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: east-matunuck, name: "East Matunuck", town: "South Kingstown", lat: 41.3765, lon: -71.5244, offshore_direction: 4, swell_window: [119, 249], offshore_km: 5.0, <<: *ri }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: matunuck, name: "Matunuck", town: "South Kingstown", lat: 41.3728, lon: -71.5387, offshore_direction: 350, swell_window: [105, 235], offshore_km: 5.0, <<: *ri }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: green-hill, name: "Green Hill", town: "South Kingstown", lat: 41.3645, lon: -71.6011, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, <<: *ri }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: point-judith, name: "Point Judith", town: "Narragansett", lat: 41.3607, lon: -71.4804, offshore_direction: 348, swell_window: [103, 233], offshore_km: 5.0, <<: *ri }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: charlestown-breachway, name: "Charlestown Breachway", town: "Charlestown", lat: 41.3567, lon: -71.6376, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, <<: *ri }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: misquamicut, name: "Misquamicut", town: "Westerly", lat: 41.3228, lon: -71.8027, offshore_direction: 344, swell_window: [99, 229], offshore_km: 5.0, <<: *ri }  # sat-verified 2026-09-03 (websearch-seeded)

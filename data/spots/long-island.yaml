@@ -1,0 +1,44 @@
+# Rosa spot database - Long Island (seeded 2026-09-03 - the first US east-coast region). New York's
+# south-facing Atlantic shore, Rockaway out to Montauk: North Atlantic groundswell in winter and
+# hurricane swell Aug-Oct, flat and windswept in between; offshore on a N-NW wind. Sandbars and
+# jetties throughout, with Montauk's cobble points the only reef-like breaks.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &li
+  timezone: America/New_York
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [115, 245]
+  ideal:
+    wind_dir: [330, 50]
+    size_m: [0.6, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-03 - long-island, 20 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 20 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/long-island/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: montauk-point, name: "Montauk Point", town: "Montauk", lat: 41.0727, lon: -71.8562, offshore_direction: 205, swell_window: [320, 90], offshore_km: 5.0, <<: *li }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: turtle-cove, name: "Turtle Cove", town: "Montauk", lat: 41.0675, lon: -71.8586, offshore_direction: 314, swell_window: [69, 199], offshore_km: 5.0, <<: *li }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: ditch-plains, name: "Ditch Plains", town: "Montauk", lat: 41.0384, lon: -71.9173, offshore_direction: 355, swell_window: [110, 240], offshore_km: 5.0, <<: *li }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: two-mile-hollow, name: "Two Mile Hollow", town: "East Hampton", lat: 40.9541, lon: -72.1591, offshore_direction: 334, swell_window: [89, 219], offshore_km: 5.0, <<: *li }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: main-beach-east-hampton, name: "Main Beach East Hampton", town: "East Hampton", lat: 40.9420, lon: -72.1919, offshore_direction: 336, swell_window: [91, 221], offshore_km: 5.0, <<: *li }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: georgica-beach, name: "Georgica Beach", town: "East Hampton", lat: 40.9348, lon: -72.2123, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, <<: *li }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: flying-point, name: "Flying Point", town: "Southampton", lat: 40.8855, lon: -72.3382, offshore_direction: 333, swell_window: [88, 218], offshore_km: 5.0, <<: *li }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: coopers-beach, name: "Coopers Beach", town: "Southampton", lat: 40.8619, lon: -72.4039, offshore_direction: 337, swell_window: [92, 222], offshore_km: 5.0, <<: *li }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: shinnecock-inlet, name: "Shinnecock Inlet", town: "Southampton", lat: 40.8397, lon: -72.4784, offshore_direction: 343, swell_window: [98, 228], offshore_km: 5.0, <<: *li }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: ponquogue-beach, name: "Ponquogue Beach", town: "Hampton Bays", lat: 40.8342, lon: -72.4950, offshore_direction: 349, swell_window: [104, 234], offshore_km: 5.0, <<: *li }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: smith-point, name: "Smith Point", town: "Shirley", lat: 40.7316, lon: -72.8595, offshore_direction: 338, swell_window: [93, 223], offshore_km: 5.0, <<: *li }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: robert-moses-field-5, name: "Robert Moses Field 5", town: "Fire Island", lat: 40.6251, lon: -73.2328, offshore_direction: 347, swell_window: [102, 232], offshore_km: 5.0, <<: *li }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: democrat-point, name: "Democrat Point", town: "Fire Island", lat: 40.6198, lon: -73.3072, offshore_direction: 355, swell_window: [110, 240], offshore_km: 5.0, <<: *li }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: gilgo-beach, name: "Gilgo Beach", town: "Gilgo", lat: 40.6143, lon: -73.4060, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, <<: *li }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: tobay-beach, name: "Tobay Beach", town: "Massapequa", lat: 40.6077, lon: -73.4280, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, <<: *li }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: jones-beach, name: "Jones Beach", town: "Wantagh", lat: 40.5912, lon: -73.5023, offshore_direction: 349, swell_window: [104, 234], offshore_km: 5.0, <<: *li }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: rockaway-67th-street, name: "Rockaway 67th Street", town: "Queens", lat: 40.5852, lon: -73.7960, offshore_direction: 343, swell_window: [98, 228], offshore_km: 5.0, <<: *li }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: lido-beach, name: "Lido Beach", town: "Lido Beach", lat: 40.5843, lon: -73.6166, offshore_direction: 2, swell_window: [117, 247], offshore_km: 5.0, <<: *li }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: rockaway-90th-street, name: "Rockaway 90th Street", town: "Queens", lat: 40.5822, lon: -73.8096, offshore_direction: 360, swell_window: [115, 245], offshore_km: 5.0, <<: *li }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: long-beach-ny, name: "Long Beach", town: "Long Beach", lat: 40.5816, lon: -73.6658, offshore_direction: 1, swell_window: [116, 246], offshore_km: 5.0, <<: *li }  # sat-verified 2026-09-03 (websearch-seeded)

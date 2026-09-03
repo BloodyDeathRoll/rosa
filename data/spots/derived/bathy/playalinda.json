@@ -1,0 +1,72 @@
+{
+  "spot": "playalinda",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    28.6555,
+    -80.6304
+  ],
+  "bearing_seaward_deg": 58.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 18.0,
+  "mean_slope_m_per_km": 0.79,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.65669,
+      "lon": -80.62823,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.65788,
+      "lon": -80.62605,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.66027,
+      "lon": -80.62171,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.66503,
+      "lon": -80.61302,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.66979,
+      "lon": -80.60432,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.67932,
+      "lon": -80.58693,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.69361,
+      "lon": -80.56085,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.71265,
+      "lon": -80.52605,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.74119,
+      "lon": -80.47383,
+      "depth_m": 18.0
+    }
+  ]
+}

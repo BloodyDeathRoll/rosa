@@ -1,0 +1,72 @@
+{
+  "spot": "belmar",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    40.1749,
+    -74.0116
+  ],
+  "bearing_seaward_deg": 100.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 28.0,
+  "mean_slope_m_per_km": 1.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.17451,
+      "lon": -74.0087,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.17412,
+      "lon": -74.0058,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.17334,
+      "lon": -74.00001,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.17177,
+      "lon": -73.98842,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.17021,
+      "lon": -73.97683,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.16708,
+      "lon": -73.95365,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.16237,
+      "lon": -73.91889,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.15608,
+      "lon": -73.87254,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.1466,
+      "lon": -73.80305,
+      "depth_m": 28.0
+    }
+  ]
+}

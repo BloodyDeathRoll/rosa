@@ -1,0 +1,72 @@
+{
+  "spot": "lido-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    40.5843,
+    -73.6166
+  ],
+  "bearing_seaward_deg": 182.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 0.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.58205,
+      "lon": -73.6167,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.57981,
+      "lon": -73.61681,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.57531,
+      "lon": -73.61701,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.56632,
+      "lon": -73.61743,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.55734,
+      "lon": -73.61784,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.53936,
+      "lon": -73.61866,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.5124,
+      "lon": -73.6199,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.47645,
+      "lon": -73.62155,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.42252,
+      "lon": -73.62402,
+      "depth_m": 20.0
+    }
+  ]
+}

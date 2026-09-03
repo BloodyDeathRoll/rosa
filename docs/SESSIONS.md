@@ -217,3 +217,50 @@ wrong cwd, which exits 1 on all four flows - run it from the repo root.
 
 585 tests pass. `test_geo_seam.py`'s spot-count assertion moved 1270 → 1299.
 
+---
+
+## SESSION 2026-09-03 (cont.) - the US east coast seeded (84 spots, DB 1299 -> 1383)
+
+**New Jersey 25, Long Island 20, Outer Banks 16, Florida Space Coast 12, Rhode Island 11**, on a new
+`us-east` swellmap basin. Five boxes over five state extracts, every box Atlantic-facing only, with
+the sounds, bays and the Gulf side excluded.
+
+**All 92 web names geocoded - the best rate of any pass.** US place names are unambiguous in a way
+Ghana's and Mentawai's are not, and only one Tier-A OSM node turned up on the whole seaboard (a
+Sebastian Inlet node named just `jetty`, skipped as the same wave under a name no surfer uses). So
+this was a web-flow region end to end.
+
+**The new failure mode: the geocode is right and still useless.** US towns geocode to their civic
+centre, which on a barrier island is 0.9-2.0 km inland of the surf. A first judging pass dropped 8 of
+25 New Jersey names, plus Sebastian Inlet and New Smyrna - the two marquee Florida waves - not
+because the pin was wrong about the place but because the break sat outside a 640 px z16 tile. A
+recovery pass at z13 got all 10 back. Everywhere else the habit has been "two strikes and drop";
+here the right first move is to **zoom out**, because the coast is reliably due east. That is now in
+the playbook.
+
+Two things that look like problems and are not: the large geocoder spreads were **false alarms** -
+Carolina Beach Pier at 277 km, Montauk Point at 485 km, Ocracoke at 104 km all landed on the correct
+named place, with the spread coming from a bad second provider rather than a bad chosen pin. A
+spread flags a tile to read, not a spot to drop. And `ca_queue.py`'s query template
+(`"{name} surf break {area} {REGION}"`) returned nothing for 73 of the 92 names until it was
+rewritten as plain `"<place>, <state>"`; non-US regions still need the qualifier, so that is a
+US-specific override rather than a template fix.
+
+Eight names were dropped under the two-strikes rule: K39 (a local nickname for a utility pole, with
+nothing in the imagery to identify the break), Weekapaug (cloud over the breachway mouth at both z16
+and z14), Rodanthe Pier and Ponce Inlet (duplicates of S-Turns and New Smyrna Inlet), Patrick AFB
+(the same wave as Second Light), Atlantic Beach (pin in Fort Macon salt marsh), Masonboro Inlet
+(single provider, no shoreline in frame), and Monster Hole (an offshore bar with no landmark to fix
+it against).
+
+**The shore-normal gate added earlier today earned its place immediately.** Six of the 84 needed
+re-aiming: Charlestown Breachway pointed into the salt pond, Democrat Point ran along the Fire Island
+inlet, Narragansett Town Beach crossed its own headland, Ocean City pointed back over the barrier
+island, and Matunuck and Green Hill both had rays that **ended on Block Island** - a real geographic
+shadow, not a bad bearing, but an unusable reference depth either way. All six were fixed by reading
+the bearing table and picking the middle of the open arc, never the sweep's argmax.
+
+Judging ran as four parallel subagents, one per region, with a fifth and sixth for the recovery
+passes; Rhode Island was judged directly. 1383 profiles, 1383 tide files, no gaps and no orphans, and
+no spot in the fleet has a ray that ends inland.
+

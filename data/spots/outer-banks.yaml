@@ -1,0 +1,40 @@
+# Rosa spot database - Outer Banks (seeded 2026-09-03). North Carolina's barrier islands, Corolla
+# through Cape Hatteras to Ocracoke plus the Cape Fear beaches: the most swell-exposed stretch of
+# the US east coast, with Hatteras sitting far enough offshore to catch swell the mainland misses.
+# Peak season is hurricane swell Aug-Oct; offshore on a W-SW wind.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &obx
+  timezone: America/New_York
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [25, 155]
+  ideal:
+    wind_dir: [250, 340]
+    size_m: [0.8, 3.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-03 - outer-banks, 16 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 16 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/outer-banks/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: corolla, name: "Corolla", town: "Corolla", lat: 36.3815, lon: -75.8241, offshore_direction: 258, swell_window: [13, 143], offshore_km: 5.0, <<: *obx }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: kitty-hawk-pier, name: "Kitty Hawk Pier", town: "Kitty Hawk", lat: 36.1011, lon: -75.7092, offshore_direction: 247, swell_window: [2, 132], offshore_km: 5.0, <<: *obx }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: avalon-pier, name: "Avalon Pier", town: "Kill Devil Hills", lat: 36.0439, lon: -75.6726, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, <<: *obx }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: nags-head-pier, name: "Nags Head Pier", town: "Nags Head", lat: 35.9730, lon: -75.6295, offshore_direction: 244, swell_window: [359, 129], offshore_km: 5.0, <<: *obx }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: jennette-s-pier, name: "Jennette's Pier", town: "Nags Head", lat: 35.9096, lon: -75.5939, offshore_direction: 248, swell_window: [3, 133], offshore_km: 5.0, <<: *obx }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: s-turns-nc, name: "S-Turns", town: "Rodanthe", lat: 35.5945, lon: -75.4613, offshore_direction: 263, swell_window: [18, 148], offshore_km: 5.0, <<: *obx }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: avon-pier, name: "Avon Pier", town: "Avon", lat: 35.3470, lon: -75.4997, offshore_direction: 284, swell_window: [39, 169], offshore_km: 5.0, <<: *obx }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: cape-hatteras-lighthouse, name: "Cape Hatteras Lighthouse", town: "Buxton", lat: 35.2539, lon: -75.5197, offshore_direction: 302, swell_window: [57, 187], offshore_km: 5.0, <<: *obx }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: the-cove-nc, name: "The Cove", town: "Buxton", lat: 35.2262, lon: -75.5280, offshore_direction: 1, swell_window: [116, 246], offshore_km: 5.0, <<: *obx }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: frisco-pier, name: "Frisco Pier", town: "Frisco", lat: 35.2233, lon: -75.6424, offshore_direction: 343, swell_window: [98, 228], offshore_km: 5.0, <<: *obx }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: ocracoke-beach, name: "Ocracoke Beach", town: "Ocracoke", lat: 35.1051, lon: -75.9504, offshore_direction: 325, swell_window: [80, 210], offshore_km: 5.0, <<: *obx }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: emerald-isle, name: "Emerald Isle", town: "Emerald Isle", lat: 34.6589, lon: -77.0328, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, <<: *obx }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: topsail-beach, name: "Topsail Beach", town: "Topsail Beach", lat: 34.3634, lon: -77.6281, offshore_direction: 315, swell_window: [70, 200], offshore_km: 5.0, <<: *obx }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: crystal-pier, name: "Crystal Pier", town: "Wrightsville Beach", lat: 34.1926, lon: -77.8033, offshore_direction: 299, swell_window: [54, 184], offshore_km: 5.0, <<: *obx }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: carolina-beach-pier, name: "Carolina Beach Pier", town: "Carolina Beach", lat: 34.0564, lon: -77.8797, offshore_direction: 291, swell_window: [46, 176], offshore_km: 5.0, <<: *obx }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: kure-beach, name: "Kure Beach", town: "Kure Beach", lat: 33.9864, lon: -77.9077, offshore_direction: 285, swell_window: [40, 170], offshore_km: 5.0, <<: *obx }  # sat-verified 2026-09-03 (websearch-seeded)

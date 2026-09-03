@@ -1,0 +1,72 @@
+{
+  "spot": "the-cove-nc",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    35.2262,
+    -75.528
+  ],
+  "bearing_seaward_deg": 181.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 25.0,
+  "mean_slope_m_per_km": 1.3,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.22395,
+      "lon": -75.52805,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.2217,
+      "lon": -75.5281,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.21721,
+      "lon": -75.52819,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.20822,
+      "lon": -75.52838,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.19922,
+      "lon": -75.52858,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.18124,
+      "lon": -75.52896,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.15427,
+      "lon": -75.52954,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.1183,
+      "lon": -75.5303,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.06435,
+      "lon": -75.53145,
+      "depth_m": 25.0
+    }
+  ]
+}

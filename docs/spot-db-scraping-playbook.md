@@ -214,7 +214,51 @@ profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-09-03, DB = 1299 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-09-03, DB = 1383 spots, ALL sat-verified)
+
+**US East 0 -> 84 (2026-09-03): New Jersey 25, Long Island 20, Outer Banks 16, Florida Space Coast 12,
+Rhode Island 11** - a new `us-east` basin, five boxes on the `north-america/us/{new-york,new-jersey,
+north-carolina,florida,rhode-island}` extracts. **All 92 web names geocoded, the best rate of any
+pass** - US place names are unambiguous in a way Ghana's and Mentawai's are not. Only 1 Tier-A node
+in the whole seaboard (a Sebastian Inlet node named just `jetty`, skipped as the same wave under a
+name no surfer uses), so this was a web-flow region end to end.
+
+**The failure mode here is new and worth naming: the geocode is RIGHT and still useless.** US towns
+geocode to their civic centre, which on a barrier island is 0.9-2.0 km inland of the surf. A first
+judging pass dropped 8 of 25 New Jersey names and 2 of the Florida marquee waves - Sebastian Inlet
+and New Smyrna - not because the pin was wrong about the place but because the break fell outside a
+640 px z16 tile. **A recovery pass at z13 recovered all 10.** Elsewhere the rule has been "two
+strikes and drop"; here the right first move is *zoom out*, because the coast is always due east.
+Add a wide read before dropping any US east-coast name.
+
+Two more notes:
+1. **The big geocoder spreads were false alarms.** Carolina Beach Pier (277 km), Montauk Point
+   (485 km), Ocracoke (104 km) and The Cove (130 km) all landed on the correct named place - the
+   spread came from a bad *second* provider, not a bad chosen pin. The only genuinely unusable
+   candidates were the two with a single provider. **Spread flags a tile to read, not a spot to
+   drop.**
+2. **`ca_queue.py`'s query template collapses US geocoding.** `"{name} surf break {area} {REGION}"`
+   returned nothing for 73 of 92 names; rewritten as plain `"<place>, <state>"` all 92 resolved.
+   Non-US regions still need the qualifier - this is a US-specific override, not a template fix.
+
+Dropped, all under the two-strikes rule: **K39** (a local nickname for a utility pole on Ocean Road;
+nothing in the imagery identifies which break it is), **Weekapaug** (cloud over the breachway mouth
+at both z16 and z14), **Rodanthe Pier** (same coordinate and tile as S-Turns), **Atlantic Beach**
+(pin in Fort Macon salt marsh, ocean clipped at the tile edge), **Masonboro Inlet** (single provider,
+pin in open water with no shoreline in frame), **Monster Hole** (an offshore bar with no landmark to
+fix it against), **Patrick AFB** (the same wave as Second Light, 650 m of featureless beach apart),
+**Ponce Inlet** (duplicate of New Smyrna Inlet).
+
+Six shore normals needed re-aiming under 3c: Charlestown Breachway pointed into the salt pond,
+Matunuck's and Green Hill's rays ended on **Block Island**, Democrat Point's ran along the Fire
+Island inlet, Narragansett Town Beach's crossed the headland, and Ocean City's pointed back over the
+barrier island.
+
+**Gap queue after this pass:** Massachusetts (Cape Cod, the South Shore - the extract is already
+downloaded), New Hampshire and Maine, Delaware and Maryland (Assateague, Ocean City MD), Virginia
+Beach, the Carolina gaps between Emerald Isle and Wrightsville, Folly Beach and Tybee, Florida's
+south-east (Miami to Stuart) and north-east (Daytona to Fernandina), the Gulf coast, and Long
+Island's Montauk Point / Turtle Cove pair if one entry per headland is ever preferred.
 
 **East Africa 0 -> 29 (2026-09-03): South Africa East 21, Mozambique 5, Zanzibar 2, Kenya 1** - a new
 `east-africa` basin, four boxes on `africa/{south-africa,mozambique,kenya,tanzania}`. **South Africa is
@@ -818,3 +862,8 @@ community-contribution layer, and it's where "all the spots" ultimately lives.
   `unexpected EOF` → check the byte count against `Content-Length` (Mozambique, Tanzania).
 - the coastline shore-normal points inland at a headland, bay mouth or spit, and `bathy` cuts a
   land profile without failing → run `aim_normal.py` after every emit (3c).
+- a US town geocodes correctly to its civic centre, 1-2 km inland of the surf, so the break falls
+  outside the z16 tile and reads as "no break visible" → zoom out to z13 BEFORE dropping (10 of 10
+  recovered that way on the Jersey Shore and the Florida inlets).
+- `ca_queue.py`'s `"{name} surf break {area} {REGION}"` template returns nothing for US names →
+  query plain `"<place>, <state>"` there.

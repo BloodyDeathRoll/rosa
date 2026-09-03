@@ -1,0 +1,72 @@
+{
+  "spot": "turtle-cove",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    41.0675,
+    -71.8586
+  ],
+  "bearing_seaward_deg": 134.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 51.0,
+  "mean_slope_m_per_km": 2.65,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.06594,
+      "lon": -71.85645,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.06438,
+      "lon": -71.85431,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.06125,
+      "lon": -71.85002,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.055,
+      "lon": -71.84144,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.04876,
+      "lon": -71.83287,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.03626,
+      "lon": -71.81572,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.0175,
+      "lon": -71.79001,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.99249,
+      "lon": -71.75575,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.95495,
+      "lon": -71.70441,
+      "depth_m": 51.0
+    }
+  ]
+}

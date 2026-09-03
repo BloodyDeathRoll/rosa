@@ -1,0 +1,72 @@
+{
+  "spot": "crystal-pier",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    34.1926,
+    -77.8033
+  ],
+  "bearing_seaward_deg": 119.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 0.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.19151,
+      "lon": -77.80092,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.19042,
+      "lon": -77.79855,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.18824,
+      "lon": -77.79379,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.18388,
+      "lon": -77.78428,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.17952,
+      "lon": -77.77478,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.17079,
+      "lon": -77.75577,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.1577,
+      "lon": -77.72726,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.14023,
+      "lon": -77.68926,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.114,
+      "lon": -77.63229,
+      "depth_m": 20.0
+    }
+  ]
+}

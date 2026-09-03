@@ -1,0 +1,48 @@
+# Rosa spot database - New Jersey (seeded 2026-09-03). The Jersey Shore, Sandy Hook to Cape May:
+# east-facing barrier beach with groin-held sandbars, best on autumn hurricane swell and winter
+# NE windswell; offshore on a W-NW wind.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &nj
+  timezone: America/New_York
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [35, 165]
+  ideal:
+    wind_dir: [250, 340]
+    size_m: [0.6, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-03 - new-jersey, 25 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 25 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/new-jersey/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: sandy-hook, name: "Sandy Hook", town: "Sandy Hook", lat: 40.4333, lon: -73.9830, offshore_direction: 261, swell_window: [16, 146], offshore_km: 5.0, <<: *nj }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: sea-bright, name: "Sea Bright", town: "Sea Bright", lat: 40.3654, lon: -73.9712, offshore_direction: 266, swell_window: [21, 151], offshore_km: 5.0, <<: *nj }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: monmouth-beach, name: "Monmouth Beach", town: "Monmouth Beach", lat: 40.3320, lon: -73.9721, offshore_direction: 236, swell_window: [351, 121], offshore_km: 5.0, <<: *nj }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: long-branch, name: "Long Branch", town: "Long Branch", lat: 40.3135, lon: -73.9754, offshore_direction: 277, swell_window: [32, 162], offshore_km: 5.0, <<: *nj }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: deal, name: "Deal", town: "Deal", lat: 40.2469, lon: -73.9901, offshore_direction: 303, swell_window: [58, 188], offshore_km: 5.0, <<: *nj }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: asbury-park, name: "Asbury Park", town: "Asbury Park", lat: 40.2252, lon: -73.9964, offshore_direction: 285, swell_window: [40, 170], offshore_km: 5.0, <<: *nj }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: ocean-grove-nj, name: "Ocean Grove", town: "Ocean Grove", lat: 40.2121, lon: -74.0007, offshore_direction: 284, swell_window: [39, 169], offshore_km: 5.0, <<: *nj }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: belmar, name: "Belmar", town: "Belmar", lat: 40.1749, lon: -74.0116, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, <<: *nj }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: manasquan-inlet, name: "Manasquan Inlet", town: "Manasquan", lat: 40.1032, lon: -74.0331, offshore_direction: 287, swell_window: [42, 172], offshore_km: 5.0, <<: *nj }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: point-pleasant-beach, name: "Point Pleasant Beach", town: "Point Pleasant Beach", lat: 40.0917, lon: -74.0346, offshore_direction: 285, swell_window: [40, 170], offshore_km: 5.0, <<: *nj }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: bay-head, name: "Bay Head", town: "Bay Head", lat: 40.0703, lon: -74.0405, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, <<: *nj }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: lavallette, name: "Lavallette", town: "Lavallette", lat: 39.9706, lon: -74.0640, offshore_direction: 277, swell_window: [32, 162], offshore_km: 5.0, <<: *nj }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: seaside-heights, name: "Seaside Heights", town: "Seaside Heights", lat: 39.9429, lon: -74.0684, offshore_direction: 246, swell_window: [1, 131], offshore_km: 5.0, <<: *nj }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: island-beach, name: "Island Beach", town: "Seaside Park", lat: 39.8348, lon: -74.0863, offshore_direction: 274, swell_window: [29, 159], offshore_km: 5.0, <<: *nj }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: barnegat-light, name: "Barnegat Light", town: "Barnegat Light", lat: 39.7563, lon: -74.0988, offshore_direction: 318, swell_window: [73, 203], offshore_km: 5.0, <<: *nj }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: ship-bottom, name: "Ship Bottom", town: "Ship Bottom", lat: 39.6450, lon: -74.1739, offshore_direction: 303, swell_window: [58, 188], offshore_km: 5.0, <<: *nj }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: beach-haven, name: "Beach Haven", town: "Beach Haven", lat: 39.5603, lon: -74.2347, offshore_direction: 301, swell_window: [56, 186], offshore_km: 5.0, <<: *nj }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: brigantine, name: "Brigantine", town: "Brigantine", lat: 39.4081, lon: -74.3584, offshore_direction: 306, swell_window: [61, 191], offshore_km: 5.0, <<: *nj }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: atlantic-city, name: "Atlantic City", town: "Atlantic City", lat: 39.3624, lon: -74.4068, offshore_direction: 328, swell_window: [83, 213], offshore_km: 5.0, <<: *nj }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: ocean-city, name: "Ocean City", town: "Ocean City", lat: 39.2781, lon: -74.5571, offshore_direction: 305, swell_window: [60, 190], offshore_km: 5.0, <<: *nj }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: sea-isle-city, name: "Sea Isle City", town: "Sea Isle City", lat: 39.1555, lon: -74.6866, offshore_direction: 289, swell_window: [44, 174], offshore_km: 5.0, <<: *nj }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: avalon-nj, name: "Avalon", town: "Avalon", lat: 39.1027, lon: -74.7050, offshore_direction: 296, swell_window: [51, 181], offshore_km: 5.0, <<: *nj }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: stone-harbor, name: "Stone Harbor", town: "Stone Harbor", lat: 39.0501, lon: -74.7540, offshore_direction: 302, swell_window: [57, 187], offshore_km: 5.0, <<: *nj }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: wildwood, name: "Wildwood", town: "Wildwood", lat: 38.9814, lon: -74.8076, offshore_direction: 318, swell_window: [73, 203], offshore_km: 5.0, <<: *nj }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: cape-may-cove, name: "Cape May Cove", town: "Cape May", lat: 38.9277, lon: -74.9363, offshore_direction: 355, swell_window: [110, 240], offshore_km: 5.0, <<: *nj }  # sat-verified 2026-09-03 (websearch-seeded)

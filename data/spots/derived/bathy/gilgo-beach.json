@@ -1,0 +1,72 @@
+{
+  "spot": "gilgo-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    40.6143,
+    -73.406
+  ],
+  "bearing_seaward_deg": 160.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 26.0,
+  "mean_slope_m_per_km": 1.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.61219,
+      "lon": -73.40499,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.61007,
+      "lon": -73.40397,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.60585,
+      "lon": -73.40195,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.5974,
+      "lon": -73.3979,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.58895,
+      "lon": -73.39385,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.57204,
+      "lon": -73.38575,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.54669,
+      "lon": -73.37362,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.51288,
+      "lon": -73.35745,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.46216,
+      "lon": -73.33323,
+      "depth_m": 26.0
+    }
+  ]
+}

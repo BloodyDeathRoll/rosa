@@ -1,0 +1,72 @@
+{
+  "spot": "brigantine",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    39.4081,
+    -74.3584
+  ],
+  "bearing_seaward_deg": 126.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 21.0,
+  "mean_slope_m_per_km": 1.07,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 39.40678,
+      "lon": -74.35605,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 39.40546,
+      "lon": -74.35369,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 39.40281,
+      "lon": -74.34898,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 39.39753,
+      "lon": -74.33957,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 39.39224,
+      "lon": -74.33016,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 39.38166,
+      "lon": -74.31133,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 39.36579,
+      "lon": -74.28311,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 39.34461,
+      "lon": -74.2455,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 39.31283,
+      "lon": -74.18913,
+      "depth_m": 21.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "main-beach-east-hampton",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    40.942,
+    -72.1919
+  ],
+  "bearing_seaward_deg": 156.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 41.0,
+  "mean_slope_m_per_km": 1.8,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.93995,
+      "lon": -72.19069,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.93789,
+      "lon": -72.18948,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.93378,
+      "lon": -72.18706,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.92557,
+      "lon": -72.18222,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.91735,
+      "lon": -72.17738,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.90092,
+      "lon": -72.1677,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.87627,
+      "lon": -72.1532,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.8434,
+      "lon": -72.13388,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.79408,
+      "lon": -72.10493,
+      "depth_m": 41.0
+    }
+  ]
+}

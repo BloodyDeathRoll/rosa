@@ -1,0 +1,72 @@
+{
+  "spot": "avon-pier",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    35.347,
+    -75.4997
+  ],
+  "bearing_seaward_deg": 104.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 23.0,
+  "mean_slope_m_per_km": 1.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.34646,
+      "lon": -75.49703,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.34591,
+      "lon": -75.49435,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.34482,
+      "lon": -75.489,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.34265,
+      "lon": -75.4783,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.34047,
+      "lon": -75.46761,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.33611,
+      "lon": -75.44622,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.32956,
+      "lon": -75.41413,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.32082,
+      "lon": -75.37136,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.30769,
+      "lon": -75.30723,
+      "depth_m": 23.0
+    }
+  ]
+}

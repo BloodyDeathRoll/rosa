@@ -1,0 +1,72 @@
+{
+  "spot": "ocean-grove-nj",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    40.2121,
+    -74.0007
+  ],
+  "bearing_seaward_deg": 104.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 1.18,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.21156,
+      "lon": -73.99784,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.21101,
+      "lon": -73.99499,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.20992,
+      "lon": -73.98927,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.20775,
+      "lon": -73.97785,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.20557,
+      "lon": -73.96642,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.20121,
+      "lon": -73.94358,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.19466,
+      "lon": -73.90931,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.18591,
+      "lon": -73.86363,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.17276,
+      "lon": -73.79514,
+      "depth_m": 30.0
+    }
+  ]
+}

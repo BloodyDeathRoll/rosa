@@ -1,0 +1,72 @@
+{
+  "spot": "carolina-beach-pier",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    34.0564,
+    -77.8797
+  ],
+  "bearing_seaward_deg": 111.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 17.0,
+  "mean_slope_m_per_km": 0.79,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.05559,
+      "lon": -77.87717,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.05479,
+      "lon": -77.87463,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.05318,
+      "lon": -77.86957,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.04995,
+      "lon": -77.85943,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.04673,
+      "lon": -77.8493,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.04028,
+      "lon": -77.82904,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.03059,
+      "lon": -77.79865,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.01767,
+      "lon": -77.75815,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.99825,
+      "lon": -77.69741,
+      "depth_m": 17.0
+    }
+  ]
+}

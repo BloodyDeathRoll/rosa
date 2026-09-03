@@ -1,0 +1,35 @@
+# Rosa spot database - Florida Space Coast (seeded 2026-09-03). Sebastian Inlet north to New Smyrna:
+# small, warm and consistent, on hurricane swell Aug-Oct and winter NE windswell. The Bahamas shadow
+# most east and south-east swell, so the inlets and their jetty sandbars carry the region.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &fsc
+  timezone: America/New_York
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [20, 150]
+  ideal:
+    wind_dir: [250, 340]
+    size_m: [0.5, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-03 - florida-space-coast, 12 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 12 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/florida-space-coast/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: new-smyrna-inlet, name: "New Smyrna Inlet", town: "New Smyrna Beach", lat: 29.0726, lon: -80.9092, offshore_direction: 233, swell_window: [348, 118], offshore_km: 5.0, <<: *fsc }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: flagler-avenue, name: "Flagler Avenue", town: "New Smyrna Beach", lat: 29.0289, lon: -80.8880, offshore_direction: 245, swell_window: [0, 130], offshore_km: 5.0, <<: *fsc }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: playalinda, name: "Playalinda", town: "Titusville", lat: 28.6555, lon: -80.6304, offshore_direction: 238, swell_window: [353, 123], offshore_km: 5.0, <<: *fsc }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: jetty-park, name: "Jetty Park", town: "Cape Canaveral", lat: 28.4076, lon: -80.5891, offshore_direction: 293, swell_window: [48, 178], offshore_km: 5.0, <<: *fsc }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: cocoa-beach-pier, name: "Cocoa Beach Pier", town: "Cocoa Beach", lat: 28.3674, lon: -80.6011, offshore_direction: 278, swell_window: [33, 163], offshore_km: 5.0, <<: *fsc }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: lori-wilson-park, name: "Lori Wilson Park", town: "Cocoa Beach", lat: 28.3371, lon: -80.6044, offshore_direction: 273, swell_window: [28, 158], offshore_km: 5.0, <<: *fsc }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: second-light, name: "Second Light", town: "Cocoa Beach", lat: 28.2523, lon: -80.6018, offshore_direction: 262, swell_window: [17, 147], offshore_km: 5.0, <<: *fsc }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: hightower, name: "Hightower", town: "Satellite Beach", lat: 28.1938, lon: -80.5928, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, <<: *fsc }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: indialantic-boardwalk, name: "Indialantic Boardwalk", town: "Indialantic", lat: 28.0918, lon: -80.5643, offshore_direction: 252, swell_window: [7, 137], offshore_km: 5.0, <<: *fsc }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: melbourne-beach, name: "Melbourne Beach", town: "Melbourne Beach", lat: 28.0683, lon: -80.5538, offshore_direction: 249, swell_window: [4, 134], offshore_km: 5.0, <<: *fsc }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: spanish-house, name: "Spanish House", town: "Melbourne Beach", lat: 27.8762, lon: -80.4538, offshore_direction: 243, swell_window: [358, 128], offshore_km: 5.0, <<: *fsc }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: sebastian-inlet, name: "Sebastian Inlet", town: "Melbourne Beach", lat: 27.8623, lon: -80.4457, offshore_direction: 274, swell_window: [29, 159], offshore_km: 5.0, <<: *fsc }  # sat-verified 2026-09-03 (websearch-seeded)

@@ -1,0 +1,72 @@
+{
+  "spot": "shinnecock-inlet",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    40.8397,
+    -72.4784
+  ],
+  "bearing_seaward_deg": 163.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 36.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.83755,
+      "lon": -72.47753,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.8354,
+      "lon": -72.47666,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.8311,
+      "lon": -72.47492,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.8225,
+      "lon": -72.47145,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.8139,
+      "lon": -72.46798,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.7967,
+      "lon": -72.46103,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.77089,
+      "lon": -72.45062,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.73649,
+      "lon": -72.43676,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.68488,
+      "lon": -72.41599,
+      "depth_m": 36.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "misquamicut",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    41.3228,
+    -71.8027
+  ],
+  "bearing_seaward_deg": 164.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 21.0,
+  "mean_slope_m_per_km": 1.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.32064,
+      "lon": -71.80187,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.31848,
+      "lon": -71.80105,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.31416,
+      "lon": -71.7994,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.30551,
+      "lon": -71.7961,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.29687,
+      "lon": -71.7928,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.27957,
+      "lon": -71.78621,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.25364,
+      "lon": -71.77632,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.21906,
+      "lon": -71.76315,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.16718,
+      "lon": -71.74343,
+      "depth_m": 21.0
+    }
+  ]
+}
