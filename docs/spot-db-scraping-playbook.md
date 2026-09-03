@@ -176,7 +176,21 @@ Four things, in this order:
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-09-03, DB = 1094 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-09-03, DB = 1115 spots, ALL sat-verified)
+
+**WA Midwest 0 -> 12, Bunbury 0 -> 7, Exmouth 0 -> 2 (2026-09-03) - the west-coast gaps between
+the existing WA boxes, closed in one pass.** Three boxes that butt against perth / margaret-river /
+wa-north's edges, all on `australia-west`. 0 Tier-A anywhere. 29 guide names -> 21 keep / 6 move /
+8 drop. Clean where there are towns (Lancelin, Jurien, Bunbury's beaches all geocode to the sand);
+the drops were sheltered water (Leeman, Cervantes' front beach), inland pins (Dongara's Home Reef,
+which Google put 3 km up the road while it put "Seven Mile Beach" ON the Port Denison marina - the
+reef N of that seawall is Home Reef, so the pin was re-labelled rather than lost), one pin 2 km out to
+sea (Preston Beach) and Exmouth's cape breaks (Lighthouse Bombie, Hunters, Wobiri) that Google collapsed
+onto the town or the caravan park - **Exmouth is thin (Dunes, Mildura Wreck only) and needs a local
+source for the Ningaloo reefs.** No normals needed a hand fix - a straight west coast is the easy case.
+Judge logs in `work/<region>/judge.json`. With these, **Australia's west coast is continuous from Cape
+Leeuwin to the North West Cape**; the south coast (Cape Leeuwin -> Esperance) is the remaining WA gap.
+
 
 **Tanegashima & Amami 0 -> 17 and Okinawa 0 -> 11 (2026-09-03) - Japan's southern islands, on a
 new `ryukyu` basin.** Two boxes on the Japan extract (2.5 GB - ~15 min per coastline parse), the
@@ -665,7 +679,7 @@ Punta Mita sub-breaks, Oaxaca's Salina Cruz points beyond Conejo/Chipehua; Japan
 Wakayama detail (Okinawa and Tanegashima seeded 2026-09-03); Philippines more (Daku, Zambales Liwliwa neighbours); Portugal
 Ericeira micro-spots & the **Azores**; Nicaragua north (Puerto Sandino cluster). Regions with
 zero spots today: everywhere else - Indonesia beyond Bali / Lombok / Sumbawa / Java / Mentawai (Sumba, Nias, Rote), Chile, Ecuador, France/Spain, South Africa;
-Australia's remaining corners (Cactus / Eyre Peninsula, Kangaroo Island, Esperance, Marrawah); Hawaii's Big Island.
+Australia's remaining corners (the WA south coast Albany / Denmark / Esperance, Cactus / Eyre Peninsula, Kangaroo Island, Marrawah, Exmouth's Ningaloo reefs); Hawaii's Big Island.
 **The real frontier = Tier-B.** Tens of thousands of physics-valid, *unnamed* coastline
 stretches (Japan 22k, Philippines 37k). OSM/guides never named them; this is the sat-verify +
 community-contribution layer, and it's where "all the spots" ultimately lives.

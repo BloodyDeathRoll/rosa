@@ -1,0 +1,72 @@
+{
+  "spot": "dunes",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -21.8014,
+    114.1394
+  ],
+  "bearing_seaward_deg": 310.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 189.0,
+  "mean_slope_m_per_km": 10.25,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -21.79995,
+      "lon": 114.13755,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -21.79851,
+      "lon": 114.13569,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -21.79562,
+      "lon": 114.13198,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -21.78984,
+      "lon": 114.12456,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -21.78406,
+      "lon": 114.11714,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -21.77249,
+      "lon": 114.10231,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -21.75514,
+      "lon": 114.08006,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -21.73201,
+      "lon": 114.0504,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -21.69729,
+      "lon": 114.00594,
+      "depth_m": 189.0
+    }
+  ]
+}

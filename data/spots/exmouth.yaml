@@ -1,0 +1,25 @@
+# Rosa spot database - Exmouth (seeded 2026-09-03 - closing the WA west-coast gaps). Coral Bay to the North West Cape: the Ningaloo reef passes and points (Dunes, Lighthouse Bombie, Wobiri).
+# West-facing Indian Ocean coast: SW groundswell year-round, the SE trade / land breeze offshore
+# in the morning and the sea breeze onshore by afternoon. Every spot carries offshore_km along
+# its own seaward normal; break_type per spot.
+
+defaults: &exm
+  timezone: Australia/Perth
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [180, 300]
+  ideal:
+    wind_dir: [45, 135]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-03 - exmouth, 2 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 2 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/exmouth/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: mildura-wreck, name: "Mildura Wreck", town: "Exmouth", lat: -21.7841, lon: 114.1676, offshore_direction: 210, swell_window: [325, 95], offshore_km: 5.0, <<: *exm }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: dunes, name: "Dunes", town: "Exmouth", lat: -21.8014, lon: 114.1394, offshore_direction: 130, swell_window: [245, 15], offshore_km: 5.0, <<: *exm }  # sat-verified 2026-09-03 (websearch-seeded)

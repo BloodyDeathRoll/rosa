@@ -60,7 +60,7 @@ BASINS: dict[str, tuple[str, ...]] = {
     # Bass Strait: Southern Ocean swell from the SW, a different frame from the east coast
     "australia-south": ("Victoria", "South Australia", "Tasmania"),
     # Perth + Margaret River share one Indian Ocean frame: the same SW groundswell
-    "australia-west": ("Perth", "Margaret River", "WA North"),
+    "australia-west": ("Perth", "Margaret River", "WA North", "WA Midwest", "Bunbury", "Exmouth"),
     # Bali first; later Indonesian regions (Lombok/Sumbawa, Java, Mentawai) join here
     "indonesia": ("Bali", "Lombok", "Sumbawa", "East Java", "West Java", "Mentawai"),
     "french-polynesia": ("French Polynesia",),

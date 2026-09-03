@@ -1,0 +1,72 @@
+{
+  "spot": "dalyellup",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -33.4061,
+    115.6008
+  ],
+  "bearing_seaward_deg": 287.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 29.0,
+  "mean_slope_m_per_km": 1.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.40544,
+      "lon": 115.59822,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.40479,
+      "lon": 115.59565,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.40347,
+      "lon": 115.5905,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.40084,
+      "lon": 115.5802,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.39821,
+      "lon": 115.5699,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.39294,
+      "lon": 115.5493,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.38504,
+      "lon": 115.5184,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.37449,
+      "lon": 115.47722,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.35863,
+      "lon": 115.41546,
+      "depth_m": 29.0
+    }
+  ]
+}

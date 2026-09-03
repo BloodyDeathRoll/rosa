@@ -1,0 +1,72 @@
+{
+  "spot": "buffalo-beach",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -33.2084,
+    115.6837
+  ],
+  "bearing_seaward_deg": 266.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 28.0,
+  "mean_slope_m_per_km": 1.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.20856,
+      "lon": 115.68102,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.20871,
+      "lon": 115.67834,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.20903,
+      "lon": 115.67298,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.20965,
+      "lon": 115.66225,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.21028,
+      "lon": 115.65153,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.21153,
+      "lon": 115.63009,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.21339,
+      "lon": 115.59792,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.21586,
+      "lon": 115.55502,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.21954,
+      "lon": 115.49067,
+      "depth_m": 28.0
+    }
+  ]
+}

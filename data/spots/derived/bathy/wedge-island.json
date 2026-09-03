@@ -1,0 +1,72 @@
+{
+  "spot": "wedge-island",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -30.8311,
+    115.1844
+  ],
+  "bearing_seaward_deg": 237.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 1.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -30.83232,
+      "lon": 115.1822,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -30.83355,
+      "lon": 115.18001,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -30.836,
+      "lon": 115.17562,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -30.84089,
+      "lon": 115.16683,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -30.84579,
+      "lon": 115.15805,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -30.85558,
+      "lon": 115.14047,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -30.87027,
+      "lon": 115.1141,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -30.88983,
+      "lon": 115.07893,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -30.91917,
+      "lon": 115.02615,
+      "depth_m": 30.0
+    }
+  ]
+}

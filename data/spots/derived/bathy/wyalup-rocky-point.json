@@ -1,0 +1,72 @@
+{
+  "spot": "wyalup-rocky-point",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -33.3231,
+    115.6308
+  ],
+  "bearing_seaward_deg": 301.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 1.58,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.32194,
+      "lon": 115.62849,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.32078,
+      "lon": 115.62619,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.31847,
+      "lon": 115.62158,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.31383,
+      "lon": 115.61235,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.3092,
+      "lon": 115.60313,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.29993,
+      "lon": 115.58468,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.28602,
+      "lon": 115.55703,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.26747,
+      "lon": 115.52016,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.23962,
+      "lon": 115.4649,
+      "depth_m": 30.0
+    }
+  ]
+}

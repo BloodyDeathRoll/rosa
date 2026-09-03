@@ -168,6 +168,16 @@ REGIONS = {
     # south half: Okinawa main island and the Keramas, Miyako and the Yaeyamas (Ishigaki,
     # Iriomote); Daito and Yonaguni are out
     "okinawa": (24.0, 122.9, 27.0, 128.5),
+    # the WA west-coast gaps, closed 2026-09-03: Two Rocks up through Lancelin, Cervantes,
+    # Jurien Bay and Green Head to Dongara (the perth box ends at -31.40, wa-north starts
+    # at -29.20)
+    "wa-midwest": (-31.40, 114.80, -29.20, 115.45),
+    # Mandurah down to Cape Naturaliste: Myalup, Binningup, Bunbury's back beach; Geographe
+    # Bay is inside and sheltered (the perth box ends at -32.65, margaret-river starts at -33.50)
+    "bunbury": (-33.55, 115.35, -32.65, 115.80),
+    # north of Gnaraloo: Coral Bay to Exmouth and the Ningaloo reef breaks around the North
+    # West Cape (wa-north ends at -23.70)
+    "exmouth": (-23.70, 113.60, -21.75, 114.35),
 }
 
 

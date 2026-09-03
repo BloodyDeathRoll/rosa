@@ -1,0 +1,72 @@
+{
+  "spot": "sandy-cape",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -30.186,
+    114.9932
+  ],
+  "bearing_seaward_deg": 258.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 51.0,
+  "mean_slope_m_per_km": 2.54,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -30.18647,
+      "lon": 114.99066,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -30.18693,
+      "lon": 114.98811,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -30.18787,
+      "lon": 114.98302,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -30.18974,
+      "lon": 114.97285,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -30.19161,
+      "lon": 114.96267,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -30.19534,
+      "lon": 114.94231,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -30.20093,
+      "lon": 114.91177,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -30.20838,
+      "lon": 114.87105,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -30.21953,
+      "lon": 114.80996,
+      "depth_m": 51.0
+    }
+  ]
+}

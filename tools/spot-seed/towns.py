@@ -56,6 +56,9 @@ REGION_PBF = {
     "Mentawai": "mentawai",
     "Tanegashima Amami": "tanegashima-amami",
     "Okinawa": "okinawa",
+    "WA Midwest": "wa-midwest",
+    "Bunbury": "bunbury",
+    "Exmouth": "exmouth",
 }
 
 

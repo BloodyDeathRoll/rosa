@@ -1,0 +1,72 @@
+{
+  "spot": "peppermint-grove",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -33.5146,
+    115.5165
+  ],
+  "bearing_seaward_deg": 317.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 1.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.51296,
+      "lon": 115.51466,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.51131,
+      "lon": 115.51282,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.50802,
+      "lon": 115.50914,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.50144,
+      "lon": 115.50179,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.49487,
+      "lon": 115.49444,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.48171,
+      "lon": 115.47973,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.46197,
+      "lon": 115.45768,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.43564,
+      "lon": 115.4283,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.39614,
+      "lon": 115.38427,
+      "depth_m": 30.0
+    }
+  ]
+}

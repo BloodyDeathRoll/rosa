@@ -1,0 +1,72 @@
+{
+  "spot": "jurien-bay",
+  "source": "gebco2020 via opentopodata",
+  "origin": [
+    -30.3026,
+    115.0366
+  ],
+  "bearing_seaward_deg": 298.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 44.0,
+  "mean_slope_m_per_km": 2.65,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -30.30154,
+      "lon": 115.0343,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -30.30049,
+      "lon": 115.032,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -30.29838,
+      "lon": 115.0274,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -30.29415,
+      "lon": 115.01821,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -30.28993,
+      "lon": 115.00901,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -30.28148,
+      "lon": 114.99062,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -30.2688,
+      "lon": 114.96305,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -30.25189,
+      "lon": 114.92629,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -30.2265,
+      "lon": 114.87118,
+      "depth_m": 44.0
+    }
+  ]
+}
