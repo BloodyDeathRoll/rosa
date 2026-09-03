@@ -49,7 +49,7 @@ async function mailViaResend(row) {
     body: JSON.stringify({
       from: CONTACT_FROM,
       to: [CONTACT_TO],
-      subject: "Rosa feedback",
+      subject: row.kind === "report" ? `Rosa report: ${row.spot ?? "spot"}` : "Rosa feedback",
       text: bodyText(row),
     }),
   });
@@ -73,7 +73,7 @@ async function mailViaFormSubmit(row) {
       "User-Agent": "rosa-push/1.0 (+https://rosa-rust.vercel.app)",
     },
     body: JSON.stringify({
-      _subject: "Rosa feedback",
+      _subject: row.kind === "report" ? `Rosa report: ${row.spot ?? "spot"}` : "Rosa feedback",
       _captcha: "false",
       message: bodyText(row),
     }),
@@ -110,6 +110,11 @@ export default async function handler(req, res) {
   }
   const row = {
     message,
+    // "report" rows carry the spot and the reader's chosen issue, so a human review can
+    // group them per spot without re-parsing the body
+    kind: b.kind === "report" ? "report" : "feedback",
+    reason: typeof b.reason === "string" ? b.reason.slice(0, 80) : null,
+    spot: typeof b.spot === "string" && /^[\w-]{1,64}$/.test(b.spot) ? b.spot : null,
     page: typeof b.page === "string" ? b.page.slice(0, 120) : "",
     ua: typeof b.ua === "string" ? b.ua.slice(0, 300) : "",
     received: new Date().toISOString(),

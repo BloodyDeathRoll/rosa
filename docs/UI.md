@@ -20,4 +20,6 @@ Shell: **Today | Spots | Map | Profile**.
 
 **Contact Us** (`#/about/contact`, an `AboutDoc` rendered by `AboutPage.tsx` like the other static pages, linked from Profile > About Rosa): one text block + Send. POSTs to the push API's `/api/contact` (`deploy/push-api/api/contact.js`), which stores every message as a private blob under `contact/` and emails it via Resend (`RESEND_API_KEY`, `CONTACT_TO`); a failed POST falls back to a `mailto:` link carrying the text. Added 2026-09-02.
 
+**Report** (per spot, `components/ReportSheet.tsx`, CTA in `SpotPage.tsx`'s `.day-title`): six fixed reasons (wrong location, wrong name, forecast too high, too low, wind wrong, camera offline) plus an optional note. Mailed to the maintainer tagged `[report]` with the spot's name, id and coordinates; **nothing is applied automatically, every report is read by a human first.** Shares the Contact Us transport in `web/src/contact.ts`. Added 2026-09-03.
+
 Data-point glossary lives in `AboutPage.tsx` → `ReadingTheForecast` (`#/about/reading`) — **keep in sync when a displayed field changes.**

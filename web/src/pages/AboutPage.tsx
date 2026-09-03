@@ -1,5 +1,6 @@
 import { useEffect, useState } from "preact/hooks";
 import { ChevronLeftIcon } from "../components/icons";
+import { mailtoFor, send as sendOutbound, MESSAGE_MAX } from "../contact";
 import { signalReady } from "../splash";
 
 export type AboutDoc = "how" | "reading" | "terms" | "privacy" | "contact";
@@ -363,62 +364,23 @@ function Privacy() {
   );
 }
 
-/** Contact Us: one text block and a Send button.
-
-    Two hops, both fired on send:
-      - the push API's /contact endpoint STORES the message as a private blob, so it
-        survives even when mail fails;
-      - FormSubmit MAILS it to the maintainer. It has to run here, in the browser:
-        FormSubmit answers 403 to a serverless caller from a datacenter IP whatever
-        headers it sends (measured 2026-09-03), and it is built for browser forms.
-    Neither needs an API key. If both fail the page offers a mailto: link carrying the
-    text, so a message is never silently lost. */
-const CONTACT_API = (import.meta.env.VITE_PUSH_API as string | undefined) ?? "";
-const CONTACT_EMAIL = "einhanamer@gmail.com";
-const CONTACT_FORM = `https://formsubmit.co/ajax/${encodeURIComponent(CONTACT_EMAIL)}`;
-const CONTACT_MAX = 2000;
+/** Contact Us: one text block and a Send button. Delivery lives in ../contact - the
+    same path a per-spot Report takes. */
 
 function ContactUs() {
   const [text, setText] = useState("");
   const [state, setState] = useState<"idle" | "sending" | "sent" | "failed">("idle");
 
-  const send = async () => {
+  const submit = async () => {
     const message = text.trim();
     if (!message || state === "sending") return;
     setState("sending");
-
-    // the record: never blocks delivery, so its failure is logged and swallowed
-    const stored = fetch(`${CONTACT_API}/api/contact`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message, page: location.hash, ua: navigator.userAgent }),
-    }).catch(() => null);
-
-    // the delivery
-    let mailed = false;
-    try {
-      const res = await fetch(CONTACT_FORM, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          _subject: "Rosa feedback",
-          _captcha: "false",
-          message: `${message}\n\n---\npage: ${location.hash}\nua: ${navigator.userAgent}`,
-        }),
-      });
-      mailed = res.ok && String(((await res.json()) as { success?: unknown }).success) === "true";
-    } catch {
-      mailed = false;
-    }
-
-    const kept = (await stored)?.ok ?? false;
-    // sent when the message is at least safely stored; only a total failure asks the
-    // reader to fall back to email
-    setState(mailed || kept ? "sent" : "failed");
-    if (mailed || kept) setText("");
+    const ok = await sendOutbound({ kind: "feedback", message });
+    setState(ok ? "sent" : "failed");
+    if (ok) setText("");
   };
 
-  const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("Rosa feedback")}&body=${encodeURIComponent(text)}`;
+  const mailto = mailtoFor({ kind: "feedback", message: text });
 
   return (
     <>
@@ -432,13 +394,13 @@ function ContactUs() {
           class="contact-form"
           onSubmit={(e) => {
             e.preventDefault();
-            void send();
+            void submit();
           }}
         >
           <textarea
             class="contact-text"
             value={text}
-            maxLength={CONTACT_MAX}
+            maxLength={MESSAGE_MAX}
             rows={7}
             placeholder="What's on your mind?"
             aria-label="Your message"

@@ -13,6 +13,7 @@ import {
   WindDirIcon,
 } from "../components/icons";
 import { DayScrubber } from "../components/CoastChart";
+import { ReportSheet } from "../components/ReportSheet";
 import { Pill, StarButton } from "../components/parts";
 import { ratingVar } from "../conditions";
 import { getFavorites, toggleFavorite } from "../favorites";
@@ -346,6 +347,7 @@ export function SpotPage({ id }: { id: string }) {
   const [daySel, setDaySel] = useState(0);
   const [liveDay, setLiveDay] = useState(0);
   const [condensed, setCondensed] = useState(false);
+  const [reporting, setReporting] = useState(false);
   const [spots, setSpots] = useState<[string, IndexEntry][]>([]);
   const units = useUnits();
   // commit a day: settle both the highlight (live) and the content (daySel)
@@ -534,10 +536,20 @@ export function SpotPage({ id }: { id: string }) {
           </section>
 
           <div class="day-title">
-            <b>
-              {dayLabel(day.date, today)} · {dayDate(day.date)}
-            </b>
-            <span>{dayNote(days, i, dayHours)}</span>
+            <div class="day-title-text">
+              <b>
+                {dayLabel(day.date, today)} · {dayDate(day.date)}
+              </b>
+              <span>{dayNote(days, i, dayHours)}</span>
+            </div>
+            {/* Reports are read by a human before anything changes - see ReportSheet. */}
+            <button
+              class="report-cta"
+              onClick={() => setReporting(true)}
+              aria-label={`Report an issue with ${data.spot.name}`}
+            >
+              Report
+            </button>
           </div>
           <div class="hour-grid head">
             <span aria-hidden="true" />
@@ -639,6 +651,18 @@ export function SpotPage({ id }: { id: string }) {
         />
       </div>
       {panel}
+      {reporting && data && (
+        <ReportSheet
+          spot={{
+            id: data.spot.id,
+            name: data.spot.name,
+            town: data.spot.town,
+            lat: data.spot.lat,
+            lon: data.spot.lon,
+          }}
+          onClose={() => setReporting(false)}
+        />
+      )}
       {nearby.length > 0 && (
         <section class="nearby-sec">
           <span class="eyebrow">Other nearby spots:</span>
