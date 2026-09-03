@@ -28,6 +28,11 @@ big datasets are gitignored (`data/bathy/`, `data/osm/`).
 - **Local OSM Geofabrik extracts** - `data/osm/<region>.osm.pbf` per country
   (`download.geofabrik.de/<continent>/<country>-latest.osm.pbf`). Read by
   `tools/spot-seed/osm_local.py` (pyosmium). Replaces Overpass (which 504s under load).
+  **CHECK THE FILE SIZE AFTER EVERY DOWNLOAD.** A wrong path does not fail: Geofabrik
+  serves a ~9 KB HTML 404 page, `curl -sL -o` saves it happily, and `seed.py` reads it as
+  an extract with zero coastline ways - a silent empty region. Britain is the live trap:
+  it is `europe/united-kingdom/{england,wales,scotland}`, NOT `europe/great-britain/...`
+  (2026-09-03). Any real country extract is tens of MB or more.
 - **Tool venv** - `tools/spot-seed/.venv` (`uv venv` + `uv pip install netCDF4 numpy osmium pyyaml`).
   Run every tool with `tools/spot-seed/.venv/bin/python`.
 - Headless render needs `google-chrome` + `node` (already present); tiles via
