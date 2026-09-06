@@ -22,6 +22,7 @@ from __future__ import annotations
 import itertools
 import json
 import math
+import sys
 import time
 from dataclasses import dataclass
 from pathlib import Path
@@ -35,6 +36,7 @@ from .models import Spot
 EARTH_R_KM = 6371.0088
 OPENTOPODATA_URL = "https://api.opentopodata.org/v1/gebco2020"
 MAX_LOCATIONS_PER_REQ = 100
+_RETRY_AFTER_CAP_S = 300.0
 
 # Seaward ray sample distances (km from the spot along the shore-normal). Dense nearshore to
 # catch the shoaling gradient GEBCO can resolve, out to ~18 km for a deep-water reference.
@@ -295,7 +297,25 @@ class OpenTopoDataSource:
         for attempt in range(self.max_retries + 1):
             resp = client.get(OPENTOPODATA_URL, params={"locations": locations})
             if resp.status_code == 429 and attempt < self.max_retries:
-                wait = float(resp.headers.get("retry-after", delay))
+                retry_after = resp.headers.get("retry-after")
+                if retry_after is not None:
+                    try:
+                        wait = min(max(float(retry_after), 0.0), _RETRY_AFTER_CAP_S)
+                    except ValueError:
+                        print(
+                            f"warn: bathy: unreadable Retry-After {retry_after!r}, "
+                            f"falling back to {delay:.0f} s",
+                            file=sys.stderr,
+                        )
+                        wait = delay
+                    if wait >= _RETRY_AFTER_CAP_S:
+                        print(
+                            f"warn: bathy: Retry-After {retry_after} capped to "
+                            f"{_RETRY_AFTER_CAP_S:.0f} s",
+                            file=sys.stderr,
+                        )
+                else:
+                    wait = delay
                 time.sleep(wait)
                 delay = min(delay * 2, 30.0)
                 continue

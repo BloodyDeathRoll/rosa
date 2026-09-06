@@ -302,6 +302,20 @@ def _tail_from(visible: list, tz) -> str | None:
     return None
 
 
+def _blend_attribution(has_spectral: bool, has_peak_periods: bool) -> str:
+    """Build the blend-arm credit from what the run actually had, not a constant."""
+    waves = "Waves: NOAA GFS-Wave"
+    if has_spectral:
+        waves += " + ECMWF open data (CC-BY 4.0)"
+    parts = [waves]
+    if has_peak_periods:
+        parts.append("Peak periods: DWD GWAM (CC-BY 4.0)")
+    parts.append("Weather by Open-Meteo.com (CC-BY 4.0)")
+    parts.append("Sea temp: NOAA OISST")
+    parts.append("Tides: EOT20 (CC-BY 4.0)")
+    return " · ".join(parts)
+
+
 def build_payload(
     spot: Spot,
     scored: list[ScoredHour],
@@ -397,6 +411,7 @@ def build_payload(
         )
 
     has_spectral = any(s.hour.spectral is not None for s in scored)
+    has_peak_periods = any(p.peak_period_s is not None for s in visible for p in s.hour.partitions)
     # swell events (CLAUDE.md spec): >= 12 h of >= 2x-baseline energy, GOOD+ at peak -
     # the alerts/swell-stories seed; local-time ISO like every other timestamp here.
     #
@@ -457,11 +472,9 @@ def build_payload(
         # the blend arm). Display provenance only: nothing scores on it.
         "tail_from": _tail_from(visible, tz),
         "generated_at": now.isoformat(timespec="seconds"),
-        "attribution": (
-            ATTRIBUTION_BLEND
-            if wave_source == "blend"
-            else (f"{ATTRIBUTION} · {ATTRIBUTION_ECMWF}" if has_spectral else ATTRIBUTION)
-        ),
+        "attribution": _blend_attribution(has_spectral, has_peak_periods)
+        if wave_source == "blend"
+        else (f"{ATTRIBUTION} · {ATTRIBUTION_ECMWF}" if has_spectral else ATTRIBUTION),
         # transparency labels for the Stage-3b fields ("why this rating" principle):
         # swell spread is a per-class assumption until validated against buoy spectra
         "spectral_meta": {

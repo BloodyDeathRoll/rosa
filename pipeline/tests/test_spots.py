@@ -114,12 +114,16 @@ def test_seaward_directions_agree_with_each_other():
     from rosa_pipeline.transform import angle_diff
 
     bad = []
+    # loaded ONCE: this used to re-read and re-derive the whole DB per hand-set bearing,
+    # which is 109 full loads today and grows with the fleet (40.7 s of the suite at 1383
+    # spots, against 0.4 s for every sibling test that loads it once).
+    spots = load_spots(SPOTS_DIR)
     for path in sorted(SPOTS_DIR.glob("*.yaml")):
         for entry in (yaml.safe_load(path.read_text()) or {}).get("spots", []):
             bearing = entry.get("offshore_bearing")
             if bearing is None:
                 continue  # no hand-set sample ray: the derived normal is all there is
-            spot = load_spots(SPOTS_DIR)[entry["id"]]
+            spot = spots[entry["id"]]
             off = angle_diff(float(bearing), spot.shore_normal)
             if off > 45:
                 bad.append(f"{entry['id']} ({off:.0f} deg)")

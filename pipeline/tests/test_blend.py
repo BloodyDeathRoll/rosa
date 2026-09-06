@@ -207,8 +207,8 @@ def test_blend_is_the_default_wave_source():
 
 
 def test_blend_payload_credits_noaa_and_ecmwf(spot, point):
-    """The data credit follows the arm: the promoted payload must name NOAA GFS-Wave and
-    ECMWF (CC-BY, a legal red line), and keep Open-Meteo for the weather it still serves."""
+    """The data credit follows the arm: names NOAA GFS-Wave always, ECMWF only when the
+    spectral member was present, and keeps Open-Meteo for the weather it still serves."""
     src = BlendedSource(
         gfs=GfsFullFixtureSource(FIX, cycle=CYCLE),
         aux=lambda coords: fixture_aux_many(coords, FIX),
@@ -218,7 +218,10 @@ def test_blend_payload_credits_noaa_and_ecmwf(spot, point):
     credit = build_payload(spot, scored, fetched_at=raw.fetched_at, now=CYCLE, wave_source="blend")[
         "attribution"
     ]
-    assert "NOAA GFS-Wave" in credit and "ECMWF" in credit and "Open-Meteo" in credit
+    # This fixture has no ECMWF spectral member and no GWAM peak periods, so the
+    # dynamic attribution correctly omits both credits.
+    assert "NOAA GFS-Wave" in credit and "Open-Meteo" in credit
+    assert "ECMWF" not in credit
     om_credit = build_payload(spot, scored, fetched_at=raw.fetched_at, now=CYCLE)["attribution"]
     assert "GFS-Wave" not in om_credit
 

@@ -693,6 +693,8 @@ def _cmd_run(args: argparse.Namespace) -> int:
     published = 0
     implausible = 0
     stale_profiles = 0
+    stale_tides = 0
+    no_profile = 0
     failures: list[tuple[str, Exception]] = []
     tide_by_point: dict = {}
     if getattr(args, "tide_source", "om") == "eot20":
@@ -720,6 +722,31 @@ def _cmd_run(args: argparse.Namespace) -> int:
                     print(
                         f"warn: no EOT20 constants for {group_spots[0].id} - "
                         "OM tide stands in at this point",
+                        file=sys.stderr,
+                    )
+                # ...and check the constants still belong to this point. Exactly the
+                # rot DepthProfile.matches_spot is checked for a loop further in, for
+                # exactly the same reason: `data/spots/derived/tide/*.json` is committed
+                # state whose only guard is test_spots.py, and the VM cron is
+                # `git pull` -> `run --all` with no CI in between - so a pin move or an
+                # `offshore_bearing`/`offshore_km` edit pushed without a local pytest
+                # publishes 4x/day off constants sampled where the spot used to be
+                # (2026-08-27: 18 CA/OR/WA spots stale, `bandon` 12 km off).
+                # It costs more here than on the bathy ray: since 2026-08-15 eot20 is the
+                # DEFAULT arm and owns the whole column - extract_hours synthesises
+                # tide_m for every hour from it and ignores the OM field, publish prints
+                # it, and score_hour shifts the depth profile by it before the march, so
+                # a stale set moves published breaker heights at macro-tidal spots.
+                # WARNS, never substitutes: swapping in the OM column or dropping the
+                # tide would move published heights fleet-wide, which is a pb_0049
+                # tuning change, not a code fix.
+                elif not c.matches_spot(group_spots[0]):
+                    stale_tides += 1
+                    print(
+                        f"warn: {group_spots[0].id}: committed EOT20 tide constants no "
+                        f"longer match the spot (sampled at {c.origin[0]}, {c.origin[1]}; "
+                        f"the spot's offshore point is now {point[0]}, {point[1]}) - "
+                        f"re-run `tide --spot {group_spots[0].id}`",
                         file=sys.stderr,
                     )
             tide_by_point[point] = c
@@ -775,6 +802,8 @@ def _cmd_run(args: argparse.Namespace) -> int:
                         file=sys.stderr,
                     )
                 wet_samples = profile.wet_samples_deep_to_shallow() if profile else None
+                if profile is None:
+                    no_profile += 1
                 scored = [score_hour(spot, h, wet_samples) for h in hours]
                 payload = build_payload(
                     spot,
@@ -823,12 +852,52 @@ def _cmd_run(args: argparse.Namespace) -> int:
             "superseded coordinates - re-cut them with `bathy` (see warn lines above)",
             file=sys.stderr,
         )
+    if stale_tides:
+        # beside the stale-profile summary, and for the same reason: the cycle published,
+        # but its tide - and every breaker height the tide shifted - describes water the
+        # spots have moved away from.
+        print(
+            f"warn: {stale_tides} offshore point(s) published off EOT20 constants sampled "
+            "at superseded coordinates - re-cut them with `tide` (see warn lines above)",
+            file=sys.stderr,
+        )
+    if no_profile:
+        print(
+            f"warn: {no_profile} spot(s) published without a bathy profile (q(T) fallback) "
+            "- cut them with `bathy --spot <id>`",
+            file=sys.stderr,
+        )
     if implausible:
         # beside the failure summary, not inside it: a run that publishes an implausible
         # height still publishes, so this is a signal to read - not a failed cycle.
         print(
             f"warn: {implausible} published hour(s) broke above "
             f"{IMPLAUSIBLE_BREAK_RATIO:.0f}x their in-window sea (see warn lines above)",
+            file=sys.stderr,
+        )
+    dropped = len(targets) - published - len(failures)
+    if dropped:
+        # The per-point "no forecast at point" skip, summarised - every other partial
+        # outcome of this command already is (implausible, stale_profiles, failures), and
+        # this is the only one that costs a spot its refresh outright. Derived rather than
+        # counted: a spot ends this loop published, failed, or skipped, never two of them.
+        #
+        # Worth a line because "a dry grid cell" is not the only way in. Both wave sources
+        # turn a total outage into an EMPTY SERIES rather than an exception
+        # (blend.GfsFullSource._get and ecmwf._get_step return None on every non-200 and
+        # every httpx error - the shape _warn_member_empty was added to `archive` for), so
+        # one NOMADS box out for a cycle empties `extract_hours` for every spot in it. Boxes
+        # cluster by region (gfswave.CLUSTER_SPAN_DEG = 20 deg), so the unit of loss is a
+        # coast. Those spots keep serving their previous payload, up to 6 h stale by the next
+        # cron slot, and until now the cycle said only "published N" and exited 0.
+        # Exit code deliberately unchanged: a partial cycle is a signal to read, not a
+        # failure, and publish.sh's trap keys on the code.
+        print(
+            f"warn: {dropped} of {len(targets)} spot(s) published nothing - their offshore "
+            "point returned no forecast hours (see the 'no forecast at point' lines above). "
+            "A dry grid cell does this; so does a wave-source box that was out this cycle, "
+            "which empties the series rather than raising. They keep serving their previous "
+            "payload.",
             file=sys.stderr,
         )
     if failures:
@@ -1270,15 +1339,11 @@ def _archive_stations(args: argparse.Namespace, now: datetime) -> None:
     stations = load_stations(args.stations_dir)
     if not stations:
         return
-    if args.wind_fixtures is None and _is_replay(args):
-        # A fixture replay is OFFLINE - every `archive` fixture flag says so in its help,
-        # and `_cmd_run` already treats `--fixtures` that way (it suppresses the live ECMWF
-        # member too). This arm only ever checked its OWN flag, so a replay of the wave
-        # members still fired two live weather-host requests for the whole registry - ~90
-        # points of someone else's quota, and the registry's coordinates, from a run the
-        # operator asked to be offline. The guard below then swallowed the failure, so
-        # nothing said it happened: two shipped tests have been doing it every suite run.
-        # Skipping is the honest answer - `--wind-fixtures` is how a replay archives wind.
+    if args.wind_fixtures is None and args.fixtures is not None:
+        # The OM arm's own fixture flag (`--fixtures`) means this run is offline for the
+        # marine side. A partial replay (`--gfs-fixtures` or `--ecmwf-fixtures` only) is
+        # live by construction - the OM arm still fetches, so the station arm should too.
+        # Skipping is the honest answer only when the OM arm itself is offline.
         print(
             "warn: station arm skipped - this is a fixture replay (offline) and "
             "--wind-fixtures was not given",
@@ -1453,7 +1518,16 @@ def _cmd_archive(args: argparse.Namespace) -> int:
             # other half of the shape _warn_member_empty exists for: 15 lines each
             # saying "archived 0 rows" and a clean exit. Suppressed when the batch
             # already errored, so the loud path stays one line, like the members below.
-            _warn_member_empty("om", om_total, targets)
+            #
+            # `om_batch_failed` only covers the fleet-live branch; the per-buoy branch
+            # (--buoy / --fixtures) records its own loud path in `failures` instead. So
+            # count only the buoys this arm actually GOT to archive: a replay whose
+            # bodies are all missing already prints one error line per buoy and a
+            # failure summary, and must not also be told an outage emptied a member it
+            # never asked anything of. _warn_member_empty no-ops on an empty list, and
+            # a partial failure now names the buoys it really covers rather than "all N".
+            failed_ids = {bid for bid, _ in failures}
+            _warn_member_empty("om", om_total, [b for b in targets if b.id not in failed_ids])
     if args.wave_source in ("gfswave", "both", "all"):
         # Stage 3a A/B member. Guarded so a NOMADS outage never breaks OM archiving.
         try:

@@ -143,34 +143,62 @@ def extract_constants(
     with h5py.File(grids_dir / "M2_ocean_eot20.nc", "r") as f:
         lats, lons = f["lat"][:], f["lon"][:]
         i = max(0, min(int(np.searchsorted(lats, lat)) - 1, len(lats) - 2))
-        j = max(0, min(int(np.searchsorted(lons, lon360)) - 1, len(lons) - 2))
-        if (f["amplitude"][i : i + 2, j : j + 2] != 0.0).all():
+        # The lon axis is PERIODIC and this is the last sampler that did not say so
+        # (geo.py's docstring names this exact failure; _nearest_wet below already
+        # wraps). EOT20 runs 0.0..359.875, so a point in the final half-cell - lon in
+        # (-0.125, 0), i.e. the Ghana coast east of Labadi - has its east neighbour at
+        # COLUMN 0, not at len(lons)-1. Clamping j to len(lons)-2 there picked a pair
+        # that does not bracket the point at all: wx came out at 1.52, so the "bilinear"
+        # weights included a negative one, the true neighbour was never read, and a cell
+        # 0.19 deg away was weighted instead - while the record still said
+        # method="bilinear", sample=(lat, lon). Away from the seam jn == j + 1 and every
+        # number below is bit-identical to the clamped form.
+        nlon = len(lons)
+        j = (int(np.searchsorted(lons, lon360)) - 1) % nlon
+        jn = (j + 1) % nlon
+        if (_cell_block(f["amplitude"], i, j, jn) != 0.0).all():
             method = "bilinear"
             wy = (lat - lats[i]) / (lats[i + 1] - lats[i])
-            wx = (lon360 - lons[j]) / (lons[j + 1] - lons[j])
+            # dlon180 on both the offset and the step: at the seam lons[jn] < lons[j]
+            wx = dlon180(lon360, float(lons[j])) / dlon180(float(lons[jn]), float(lons[j]))
             weights = np.array([[(1 - wy) * (1 - wx), (1 - wy) * wx], [wy * (1 - wx), wy * wx]])
-            cells = (i, j)
+            cells = (i, j, jn)
             sample = (lat, lon)
         else:
             method = "nearest"
             weights = None
-            cells = _nearest_wet(f, lats, lons, lat, lon360)
-            ii, jj = cells
+            cells = (*_nearest_wet(f, lats, lons, lat, lon360), -1)
+            ii, jj, _ = cells
             sample = (float(lats[ii]), float(((lons[jj] + 180) % 360) - 180))
 
     coeffs: dict[str, tuple[float, float]] = {}
     for name in CONSTITUENTS:
         with h5py.File(grids_dir / f"{name.upper()}_ocean_eot20.nc", "r") as f:
             if method == "bilinear":
-                i, j = cells
-                re_v = float((f["real"][i : i + 2, j : j + 2] * weights).sum())
-                im_v = float((f["imag"][i : i + 2, j : j + 2] * weights).sum())
+                i, j, jn = cells
+                re_v = float((_cell_block(f["real"], i, j, jn) * weights).sum())
+                im_v = float((_cell_block(f["imag"], i, j, jn) * weights).sum())
             else:
-                ii, jj = cells
+                ii, jj, _ = cells
                 re_v = float(f["real"][ii, jj])
                 im_v = float(f["imag"][ii, jj])
             coeffs[name] = (re_v / 100.0, im_v / 100.0)  # cm -> m
     return TideConstants(spot_id=spot_id, origin=point, sample=sample, method=method, coeffs=coeffs)
+
+
+def _cell_block(ds, i: int, j: int, jn: int):
+    """The 2x2 (lat, lon) cell block at rows i..i+1 and columns j, jn.
+
+    ``jn`` is ``j + 1`` everywhere except across the 0/360 seam, where it wraps to 0 and
+    the columns are no longer contiguous - h5py cannot express that as a slice, and its
+    fancy indexing needs increasing indices, so the two columns are read separately
+    there. The contiguous case keeps the original single slice, so no existing spot's
+    read pattern or numbers change."""
+    import numpy as np
+
+    if jn == j + 1:
+        return np.asarray(ds[i : i + 2, j : j + 2])
+    return np.stack([np.asarray(ds[i : i + 2, j]), np.asarray(ds[i : i + 2, jn])], axis=1)
 
 
 def _nearest_wet(f, lats, lons, lat: float, lon360: float) -> tuple[int, int]:
