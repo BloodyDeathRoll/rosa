@@ -16,7 +16,9 @@ import { put } from "@vercel/blob";
 import { randomUUID } from "node:crypto";
 
 const ALLOWED_ORIGINS = new Set([
-  "https://rosa-rust.vercel.app",
+  "https://rosa.surf",
+  "https://www.rosa.surf",
+  "https://rosa-rust.vercel.app", // legacy origin, installed PWAs still live here
   "https://rosa-demo.vercel.app",
   "http://localhost:5173",
   "http://localhost:4173",
@@ -70,7 +72,7 @@ async function mailViaFormSubmit(row) {
       Referer: "https://rosa-push.vercel.app/",
       // without a User-Agent FormSubmit answers 403 to a serverless caller (it 200s
       // for curl, which sends one) - measured 2026-09-03, this line is load-bearing
-      "User-Agent": "rosa-push/1.0 (+https://rosa-rust.vercel.app)",
+      "User-Agent": "rosa-push/1.0 (+https://rosa.surf)",
     },
     body: JSON.stringify({
       _subject: row.kind === "report" ? `Rosa report: ${row.spot ?? "spot"}` : "Rosa feedback",

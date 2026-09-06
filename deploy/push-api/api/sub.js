@@ -10,7 +10,9 @@ import { del, put } from "@vercel/blob";
 import { createHash } from "node:crypto";
 
 const ALLOWED_ORIGINS = new Set([
-  "https://rosa-rust.vercel.app",
+  "https://rosa.surf",
+  "https://www.rosa.surf",
+  "https://rosa-rust.vercel.app", // legacy origin, installed PWAs still live here
   "https://rosa-demo.vercel.app", // look-and-feel demo deploys (synthetic events)
   "http://localhost:5173",
   "http://localhost:4173",

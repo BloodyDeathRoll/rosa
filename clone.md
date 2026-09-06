@@ -107,7 +107,7 @@ VITE_VAPID_PUBLIC=<same value as in web/.env.production>
 
 ```bash
 npx vercel login
-cd web && npx vercel link          # -> the rosa (rosa-rust) project
+cd web && npx vercel link          # -> the rosa project (https://rosa.surf, legacy rosa-rust.vercel.app)
 ```
 
 ---

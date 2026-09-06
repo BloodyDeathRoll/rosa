@@ -29,7 +29,7 @@ from pathlib import Path
 GROUP_PEAK_H = 12.0
 GROUP_DIR_DEG = 45.0
 SENT_TTL_DAYS = 30
-APP_ORIGIN = "https://rosa-rust.vercel.app"
+APP_ORIGIN = "https://rosa.surf"
 
 # bucket → the app's display word (conditions.ts WORD map)
 BUCKET_WORD = {"FLAT": "Flat", "POOR": "Poor", "FAIR": "Fair", "GOOD": "Good", "FIRING": "Epic"}
