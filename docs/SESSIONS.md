@@ -317,3 +317,12 @@ missed. All working-tree only, on top of the still-uncommitted 2026-09-04 change
   and is pb_0049-gated: needs a same-input A/B first. OPEN-ITEMS 27.
 
 590 passed in 21.7 s (+5 tests). ruff clean except the pre-existing `swellmap.py:64` E501.
+
+**Same day - Sri Lanka Midigama split (DB 1406 -> 1408), shelly-beach pin moved.** The user
+replaced `midigama` (one pin for two breaks) with `lazy-right`, `lazy-left` and `rams`, all
+user-supplied coordinates, each rendered at z16 and confirmed on visible reef whitewater. All
+three inherit midigama's angles (offshore_direction 15, seaward 195): aim_normal scores 195
+within 5 points of the best bearing at every one. Profiles cut (near -1 to -8 m, offshore
+836-961 m, 1-2 land samples - same shape as gas-station and weligama-west); EOT20 constants
+cut, nearest-cell like every neighbour. `shelly-beach` (Byron Bay) moved ~180 m to the user's
+pin and re-cut; horizon reports a wider window than committed, held.
