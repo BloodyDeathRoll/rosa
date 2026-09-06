@@ -326,3 +326,13 @@ within 5 points of the best bearing at every one. Profiles cut (near -1 to -8 m,
 836-961 m, 1-2 land samples - same shape as gas-station and weligama-west); EOT20 constants
 cut, nearest-cell like every neighbour. `shelly-beach` (Byron Bay) moved ~180 m to the user's
 pin and re-cut; horizon reports a wider window than committed, held.
+
+**2026-09-06 (evening) - rosa.surf is the app origin.** Domain bought at GoDaddy (nameservers stay
+there); `A @ 76.76.21.21` and `CNAME www cname.vercel-dns.com`, both attached to the `rosa` Vercel
+project, cert issued via `vercel certs issue`. `rosa-rust.vercel.app/*` and `www.rosa.surf/*` 308
+to `rosa.surf/*` through host routes in `web/vercel-output.json`, which `prepare-output` now copies
+into the Build Output config. `notify.py` deep links and the push-api CORS lists use rosa.surf
+(rosa-rust stays allowed). Open Graph tags in `index.html` so a shared link previews the icon.
+Decision: PWAs installed from the old origin are frozen (a redirected `sw.js` is rejected by the
+browser, so they never update but keep reading fresh data from rosa-data); users reinstall from
+rosa.surf. Not exempting `sw.js` from the redirect.
