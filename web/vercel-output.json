@@ -1,0 +1,17 @@
+{
+  "version": 3,
+  "routes": [
+    {
+      "src": "/(.*)",
+      "has": [{ "type": "host", "value": "rosa-rust.vercel.app" }],
+      "status": 308,
+      "headers": { "Location": "https://rosa.surf/$1" }
+    },
+    {
+      "src": "/(.*)",
+      "has": [{ "type": "host", "value": "www.rosa.surf" }],
+      "status": 308,
+      "headers": { "Location": "https://rosa.surf/$1" }
+    }
+  ]
+}
