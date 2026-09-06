@@ -291,3 +291,29 @@ converged to 104 m on pass 3; reverted to pass-2 coordinates (543 m apart).
 All three joined the `east-africa` swellmap basin. Shore normals computed via `aim_normal.py` for all
 23 new spots. Several bathy profiles have land samples in the nearest ray points (volcanic islands,
 steep reef margins) but this is expected for the geography. 1406 profiles, 1406 tide files, no gaps.
+
+
+## SESSION 2026-09-06 - Dream review 2026-09-05 worked (1 finding + 4 cleanups applied, 1 held)
+
+Overnight reviewer's 2026-09-05 report, plus one proposal from 2026-08-13 that the 2026-08-23 sweep
+missed. All working-tree only, on top of the still-uncommitted 2026-09-04 changes.
+
+- **Two shipped tests hit live Open-Meteo.** `test_ecmwf` / `test_gfswave` drive `archive` with a
+  PARTIAL replay flag; since the 2026-09-04 station-arm fix that is live by design, so each loaded
+  the real 89-station registry and fired `fetch_wind_many`. Both tests now pass `--stations-dir` to an
+  empty dir, like their `--isramar-dir`. Suite 83 s -> 22 s.
+- **`merge_var_scores` refuses to pool two period pairings** (Energy period vs APD) and
+  `render_pooled_lead` carries the APD footnote the other two renderers had. No number printed today
+  changes; the only pooled card is wind.
+- **`scan_horizon` raises when the elevation source returns fewer samples than points** - rays are
+  sliced by position, so a short batch misaligned every later ray silently.
+- **`blend` imports `gfswave.NEAREST_MAX_DEG`** instead of restating 0.6.
+- **Batch bodies must be the buoy they were asked for.** `fetch_marine_waves_many` and
+  `fetch_wind_many` check each body's returned coordinate against its request (cap 0.3 deg, inside
+  the registry's closest pair at 0.44 deg). A swapped body raises before it reaches the append-only
+  archive.
+- **HELD: the three GRIB wave samplers measure lon in raw degrees, not `cos(lat)`-scaled.** Defect
+  confirmed (oisst/gwam/tide already scale), but it moves the sampled node at up to 1024/1406 spots
+  and is pb_0049-gated: needs a same-input A/B first. OPEN-ITEMS 27.
+
+590 passed in 21.7 s (+5 tests). ruff clean except the pre-existing `swellmap.py:64` E501.

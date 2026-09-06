@@ -343,3 +343,15 @@ def test_pooled_lead_card_merges_n_weighted() -> None:
     assert "Wind direction" not in out  # n=0 rows are not printed
     assert render_pooled_lead([], "pooled").endswith("(nothing scored)")
     assert STATION_VARIABLES[0][0] == "ws"
+
+
+def test_pooled_lead_card_carries_the_apd_footnote() -> None:
+    """An APD-paired period row reaches a fleet card with the same warning the per-buoy
+    cards print - the pooled renderer was the one of the three without it."""
+    from rosa_pipeline.verify import APD_FALLBACK_LABEL, render_pooled_lead
+
+    apd = {"0-1d": {"tp": VarScore("tp", APD_FALLBACK_LABEL, "s", 10, 2.7, 2.8, 3.0, 0.3)}}
+    out = render_pooled_lead([apd, apd], "pooled")
+    assert "never calibrate against it" in out
+    wind = {"0-1d": {"ws": VarScore("ws", "Wind speed", "m/s", 10, 0.1, 0.2, 0.3, None)}}
+    assert "never calibrate" not in render_pooled_lead([wind], "pooled")

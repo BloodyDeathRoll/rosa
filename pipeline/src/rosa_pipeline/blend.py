@@ -60,6 +60,7 @@ from .fetch import (
     retrying_get,
 )
 from .geo import dlon180
+from .gfswave import NEAREST_MAX_DEG as GFS_NEAREST_MAX_DEG
 from .gfswave import (
     Box,
     _is_grib,
@@ -220,7 +221,7 @@ def parse_gfs_full(
             if hasattr(vals, "mask") and vals.mask is not np.ma.nomask:
                 d2 = np.where(vals.mask, np.inf, d2)
             idx = np.unravel_index(np.argmin(d2), d2.shape)
-            if d2[idx] > 0.6**2:  # gfswave.NEAREST_MAX_DEG
+            if d2[idx] > GFS_NEAREST_MAX_DEG**2:  # the archive arm's reach, never a copy
                 continue
             got[key] = round(float(vals[idx]), 3)
         out.append(GfsSea(time=valid, fields=got) if "swh" in got else None)

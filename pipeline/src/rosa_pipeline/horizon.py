@@ -164,6 +164,15 @@ def scan_horizon(
     elevations: list[float | None] = []
     for i in range(0, len(points), 100):  # OpenTopoData caps a request at 100 locations
         elevations.extend(source.elevations(points[i : i + 100]))
+    if len(elevations) != len(points):
+        # Rays are recovered from this list BY POSITION, so one short batch misaligns
+        # every ray after it and the window is read off other bearings' samples - a
+        # plausible wrong answer handed to a human as the derived truth. build_profile
+        # enforces the same contract with zip(strict=True); this is its equivalent.
+        raise ValueError(
+            f"{spot.id}: elevation source returned {len(elevations)} samples for "
+            f"{len(points)} points - refusing to slice the fan by position"
+        )
 
     per_ray = len(distances)
     open_bearings = {

@@ -134,6 +134,19 @@ def test_scan_horizon_end_to_end() -> None:
     assert 250 in scan.open_bearings and 0 not in scan.open_bearings
 
 
+def test_scan_horizon_refuses_a_short_elevation_batch() -> None:
+    """Rays are sliced out of the pooled elevation list by position, so a batch that
+    comes back one sample short would shift every later ray onto its neighbour's samples
+    and yield a plausible, wrong window. Loud failure instead."""
+
+    class _ShortSource(_FakeSource):
+        def elevations(self, points: list[tuple[float, float]]) -> list[float | None]:
+            return super().elevations(points)[:-1]
+
+    with pytest.raises(ValueError, match="refusing to slice the fan by position"):
+        scan_horizon(_ShortSource(), make_spot())
+
+
 def test_scan_horizon_raises_when_the_shore_normal_faces_land() -> None:
     """A spot whose ray marches up a hillside has a geometry fault, not a narrow window -
     the same failure the 2026-07-29 shore_normal audit found at fishermen."""

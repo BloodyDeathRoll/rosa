@@ -146,6 +146,15 @@ def test_cli_archive_ecmwf_writes_suffixed_key(tmp_path) -> None:
             str(grib_dir),
             "--isramar-dir",
             str(tmp_path / "no-isramar"),
+            # ...and an empty station registry, for the same reason. `--ecmwf-fixtures`
+            # is a PARTIAL replay, which `_archive_stations` treats as live by design
+            # (cli.py:1342 - only the OM arm's own `--fixtures` means offline), so
+            # without this the test loads data/stations and fires a real
+            # fetch_wind_many at api.open-meteo.com. The station arm's own guard turns
+            # that into a warn, so the assertions below never noticed - it only cost the
+            # suite a live request and retrying_get's 10 s + 20 s backoff.
+            "--stations-dir",
+            str(tmp_path / "no-stations"),
         ]
     )
     assert rc == 0

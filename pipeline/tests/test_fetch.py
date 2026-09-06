@@ -67,13 +67,87 @@ def test_weather_requests_name_the_published_wind_model():
     assert seen == ["gfs_seamless", "icon_seamless"]
 
 
-def test_marine_429_still_raises():
+def _many_with(handler):
+    """Route fetch_*_many's own httpx.Client through a MockTransport (the idiom above)."""
+    with_mock = httpx.MockTransport(handler)
+    orig = httpx.Client
+
+    class _Client(orig):
+        def __init__(self, *a, **kw):
+            super().__init__(*a, transport=with_mock, **kw)
+
+    return _Client, orig
+
+
+def test_batch_bodies_must_be_the_locations_they_were_asked_for():
+    """A multi-location response is attributed to buoys by list POSITION and feeds the
+    append-only archive. Each body carries the coordinate it answers for: a grid-cell
+    snap (well under MAX_GRID_SNAP_DEG) is accepted, a body that sits at another buoy's
+    coordinate is refused, and a body with no coordinate (old captures) is let through."""
+    coords = [(32.3817, 34.8035), (36.6, -122.0)]
+
+    def body(lat, lon):
+        return {"latitude": lat, "longitude": lon, "hourly": {"time": []}}
+
+    def snapped(request):
+        return httpx.Response(200, json=[body(32.375, 34.8125), body(36.625, -122.0)])
+
+    def swapped(request):
+        return httpx.Response(200, json=[body(36.625, -122.0), body(32.375, 34.8125)])
+
+    def bare(request):
+        return httpx.Response(200, json=[{"hourly": {"time": []}}, {"hourly": {"time": []}}])
+
+    for handler, ok in ((snapped, True), (swapped, False), (bare, True)):
+        client, orig = _many_with(handler)
+        fetch.httpx.Client = client  # type: ignore[attr-defined]
+        try:
+            if ok:
+                assert len(fetch.fetch_marine_waves_many(coords)) == 2
+                assert len(fetch.fetch_wind_many(coords)) == 2
+            else:
+                with pytest.raises(ValueError, match="refusing to attribute it by position"):
+                    fetch.fetch_marine_waves_many(coords)
+                with pytest.raises(ValueError, match="refusing to attribute it by position"):
+                    fetch.fetch_wind_many(coords)
+        finally:
+            fetch.httpx.Client = orig  # type: ignore[attr-defined]
+
+
+def test_grid_snap_cap_is_inside_the_closest_registered_buoy_pair():
+    """The cap only catches a swap between points further apart than itself; the
+    registry's two closest buoys must therefore sit further apart than the cap."""
+    from itertools import combinations
+    from pathlib import Path
+
+    from rosa_pipeline.buoys import load_buoys
+
+    buoys = load_buoys(Path(__file__).resolve().parents[2] / "data" / "buoys").values()
+    gaps = [max(abs(a.lat - b.lat), abs(a.lon - b.lon)) for a, b in combinations(buoys, 2)]
+    assert min(gaps) > fetch.MAX_GRID_SNAP_DEG
+
+
+def test_marine_429_still_raises(monkeypatch):
+    """...and the retries it takes on the way are RECORDED, not served.
+
+    "rate limit" is not JSON and names no bucket, so since 2026-08-31 the essential marine
+    request is unclassifiable and `_retry_wait_s` lets the quota ledger arbitrate: with the
+    day's budget unspent it waits `_MINUTE_RETRY_WAIT_S` before each of the two retries.
+    That is 130 s of real `time.sleep` inside one unit test - two thirds of the whole
+    suite's wall-clock - and nothing here ever asserted on it. Asserting on the waits
+    instead pins the classification (the thing this test is about) and gives the seconds
+    back."""
+    waits: list[float] = []
+    monkeypatch.setattr(fetch.time, "sleep", waits.append)
+
     def handler(request: httpx.Request) -> httpx.Response:
         return httpx.Response(429, text="rate limit")
 
     src = OpenMeteoSource(transport=httpx.MockTransport(handler))
     with pytest.raises(httpx.HTTPStatusError):
         src.fetch_many(COORDS)
+    # two retries, both on the minutely-cap wait the ledger arbitration grants
+    assert waits == [fetch._MINUTE_RETRY_WAIT_S, fetch._MINUTE_RETRY_WAIT_S]
 
 
 def test_ensemble_kept_when_the_request_succeeds():

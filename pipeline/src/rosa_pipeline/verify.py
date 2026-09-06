@@ -355,6 +355,17 @@ def merge_var_scores(scores: list[VarScore]) -> VarScore | None:
     scored = [s for s in scores if s.n > 0]
     if not scored:
         return None
+    labels = {s.label for s in scored}
+    if len(labels) > 1:
+        # The label names the PAIRING (Tm-1,0 "Energy period" vs Tm02 APD_FALLBACK_LABEL),
+        # and the fleet loop picks it per buoy (_with_measured_energy_period), so a pool of
+        # buoy cards can mix both. n-weighting a ~2 s definitional offset into one bias and
+        # labelling it after whichever buoy sorted first is the exact number the module
+        # docstring forbids calibrating against - fail loudly instead of printing it.
+        raise ValueError(
+            f"refusing to merge '{scored[0].key}' across different pairings: "
+            + ", ".join(sorted(labels))
+        )
     n = sum(s.n for s in scored)
     first = scored[0]
     bias = sum(s.bias * s.n for s in scored) / n
@@ -551,6 +562,10 @@ def render_pooled_lead(cards: list[dict[str, dict[str, VarScore]]], title: str) 
                 f"  {lead_label:<6}{s.label:<18}{s.n:>6}  {s.bias:>+7.2f}{s.unit}  "
                 f"{s.mae:>7.2f}{s.unit}  {s.rmse:>7.2f}{s.unit}"
             )
+    # Same tail as the two per-buoy renderers: an APD-paired period row never reaches a
+    # fleet card without its warning. (Today the only pooled card is wind, so this is a
+    # no-op - it is here for the first pooled buoy card.)
+    lines.extend(_apd_footnote(*(c[lead] for c in cards for lead in c)))
     return "\n".join(lines)
 
 

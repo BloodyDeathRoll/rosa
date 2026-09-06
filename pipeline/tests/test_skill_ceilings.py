@@ -15,6 +15,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import pytest
+
 from rosa_pipeline.publish import (
     _CEILING_TIERS,
     SKILL_N_FLOOR,
@@ -157,6 +159,22 @@ def test_merge_var_scores_is_n_weighted() -> None:
     assert merged.n == 400
     assert abs(merged.scatter_index - 0.25) < 1e-9  # (100*0.1 + 300*0.3)/400
     assert merge_var_scores([_vs(0)]) is None  # empty buckets merge to None, not zeros
+
+
+def test_merge_var_scores_refuses_to_pool_two_period_pairings() -> None:
+    """The fleet loop picks the period pairing PER BUOY (Energy period where a spectrum is
+    published, APD elsewhere), so a pool of buoy cards can hold both. Their ~2 s
+    definitional offset must never be n-weighted into one bias under whichever label
+    sorted first - verify.py's docstring forbids calibrating against exactly that."""
+    from rosa_pipeline.verify import APD_FALLBACK_LABEL
+
+    energy = VarScore("tp", "Energy period", "s", 100, 0.5, 1.0, 1.2, 0.1)
+    apd = VarScore("tp", APD_FALLBACK_LABEL, "s", 100, 2.7, 2.8, 3.0, 0.3)
+    with pytest.raises(ValueError, match=r"Energy period.*Mean per\. vs APD"):
+        merge_var_scores([energy, apd])
+    # an n=0 cell carries no samples, so its label cannot poison the pool
+    assert merge_var_scores([energy, VarScore("tp", APD_FALLBACK_LABEL, "s", 0, 0, 0, 0, 0)])
+    assert merge_var_scores([energy, energy]).n == 200
 
 
 def test_skill_payload_covers_every_bucket_and_carries_provenance() -> None:

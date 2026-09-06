@@ -151,6 +151,14 @@ def test_cli_archive_gfswave_writes_suffixed_key(tmp_path) -> None:
             str(gfs_dir),
             "--isramar-dir",
             str(tmp_path / "no-isramar"),
+            # ...and an empty station registry: `--gfs-fixtures` is a PARTIAL replay,
+            # which `_archive_stations` treats as live by design (cli.py:1342 - only the
+            # OM arm's own `--fixtures` means offline). Without this the test loads
+            # data/stations and fires a real fetch_wind_many at api.open-meteo.com; the
+            # arm's guard turns the failure into a warn, so the assertions below never
+            # noticed and the suite just paid retrying_get's 10 s + 20 s backoff.
+            "--stations-dir",
+            str(tmp_path / "no-stations"),
         ]
     )
     assert rc == 0

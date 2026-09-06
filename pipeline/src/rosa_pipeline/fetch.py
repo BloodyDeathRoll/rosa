@@ -17,6 +17,8 @@ from typing import Protocol
 
 import httpx
 
+from .geo import dlon180
+
 MARINE_URL = "https://marine-api.open-meteo.com/v1/marine"
 WEATHER_URL = "https://api.open-meteo.com/v1/forecast"
 FORECAST_DAYS = 16
@@ -120,6 +122,14 @@ WEATHER_AB_MODEL = "icon_seamless"
 # verification harness samples the total sea-state at a buoy - no models suffix, so the
 # hourly keys stay plain (wave_height/period/direction), tiny payload
 MARINE_WAVE_FIELDS = ["wave_height", "wave_period", "wave_direction"]
+
+# How far a returned location may sit from the one requested before the batch is refused
+# as mis-attributed (see _check_batch_order). Open-Meteo answers with the grid CELL
+# CENTRE: the coarsest wave grid behind these fields is 0.25 deg, whose worst-case centre
+# offset is half a cell = 0.125 deg per axis. 0.3 deg is that with headroom, and still
+# inside the 0.44 deg separating the two closest registered buoys (51201/51202), so a
+# swap between any registered pair is over the cap.
+MAX_GRID_SNAP_DEG = 0.3
 
 
 # Transient server-side failures worth a second look. A single one of these used to
@@ -290,6 +300,7 @@ def fetch_marine_waves_many(
     bodies = [data] if isinstance(data, dict) else list(data)
     if len(bodies) != len(coords):
         raise ValueError(f"open-meteo returned {len(bodies)} locations for {len(coords)} buoys")
+    _check_batch_order(bodies, coords)
     return bodies
 
 
@@ -321,7 +332,35 @@ def fetch_wind_many(
     bodies = [data] if isinstance(data, dict) else list(data)
     if len(bodies) != len(coords):
         raise ValueError(f"open-meteo returned {len(bodies)} locations for {len(coords)} buoys")
+    _check_batch_order(bodies, coords)
     return bodies
+
+
+def _check_batch_order(bodies: list[dict], coords: list[tuple[float, float]]) -> None:
+    """Every body must be the location it was asked for, not just the right count.
+
+    The list is matched to ``coords`` BY POSITION and nothing else, and what it feeds is
+    the append-only lead-time archive: a mis-ordered response would file one buoy's model
+    series under another's id, permanently, in the store every accuracy claim is scored
+    from. Each body already carries the coordinate it answers for; only the count was read.
+
+    ``MAX_GRID_SNAP_DEG`` bounds each body's OWN offset from its request rather than asking
+    "which request is this body nearest to" - that test fires falsely the moment two
+    requested points share a grid cell, which spot samples ~0.05 deg apart routinely do.
+    So: a swap between two points further apart than the cap is caught; a swap between
+    two points closer than that is not, and no coordinate test could tell them apart."""
+    for i, (body, (lat, lon)) in enumerate(zip(bodies, coords, strict=True)):
+        blat, blon = body.get("latitude"), body.get("longitude")
+        if blat is None or blon is None:
+            continue  # nothing to check against (older captures replayed as fixtures)
+        dlat = abs(float(blat) - lat)
+        dlon = abs(dlon180(float(blon), lon))
+        if max(dlat, dlon) > MAX_GRID_SNAP_DEG:
+            raise ValueError(
+                f"open-meteo location {i} came back at ({blat}, {blon}), "
+                f"{max(dlat, dlon):.3f} deg from the ({lat}, {lon}) it was asked for "
+                f"(cap {MAX_GRID_SNAP_DEG} deg) - refusing to attribute it by position"
+            )
 
 
 @dataclass(frozen=True, slots=True)
