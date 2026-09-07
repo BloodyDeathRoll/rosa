@@ -410,3 +410,14 @@ project (consent screen `rosa`, External, In production, brand + domain verified
 Cloudflare account, `wrangler login`, D1 `rosa-users` created. NOT deployed yet: secrets,
 `wrangler deploy`, schema on the remote D1, web deploy.
 
+**2026-09-07 (late) - old-origin apps are un-frozen and told to move.** The 2026-09-06
+decision left apps installed from `rosa-rust.vercel.app` frozen (their `sw.js` update check
+hit the 308 and was rejected). Reversed at the user's request so they can be forced onto the
+new build: the old host's 308 now applies only to real navigations (`sec-fetch-mode:
+navigate` in the route's `has`), so `sw.js`, `index.html` and `/assets/*` are served there
+again and the old worker updates itself. `main.tsx` renders `components/MovedScreen.tsx`
+instead of the app when `location.hostname` is the legacy host: splash-look screen, "Rosa
+has moved", an Open rosa.surf link (`target=_blank`, so it leaves the installed shell for
+the browser where Add to Home Screen lives). Two launches: one fetches the update, the next
+shows the screen. Browsers still land on rosa.surf; www unchanged. Verified live with curl.
+

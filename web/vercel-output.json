@@ -3,15 +3,34 @@
   "routes": [
     {
       "src": "/(.*)",
-      "has": [{ "type": "host", "value": "rosa-rust.vercel.app" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "rosa-rust.vercel.app"
+        },
+        {
+          "type": "header",
+          "key": "sec-fetch-mode",
+          "value": "navigate"
+        }
+      ],
       "status": 308,
-      "headers": { "Location": "https://rosa.surf/$1" }
+      "headers": {
+        "Location": "https://rosa.surf/$1"
+      }
     },
     {
       "src": "/(.*)",
-      "has": [{ "type": "host", "value": "www.rosa.surf" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "www.rosa.surf"
+        }
+      ],
       "status": 308,
-      "headers": { "Location": "https://rosa.surf/$1" }
+      "headers": {
+        "Location": "https://rosa.surf/$1"
+      }
     }
   ]
 }

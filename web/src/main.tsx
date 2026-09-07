@@ -2,13 +2,14 @@ import { render } from "preact";
 import { syncFavorites } from "./account";
 import { initAnalytics } from "./analytics";
 import { App } from "./app";
+import { MovedScreen, onLegacyOrigin } from "./components/MovedScreen";
 import { mountParticles } from "./components/particles";
 import { appReady } from "./splash";
 import "@fontsource-variable/inter";
 import "./styles.css";
 
 const root = document.getElementById("app");
-if (root) render(<App />, root);
+if (root) render(onLegacyOrigin() ? <MovedScreen /> : <App />, root);
 
 initAnalytics();
 
