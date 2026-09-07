@@ -326,10 +326,16 @@ def breaker_height_over_profile(
 # Battjes-Janssen reference march - vs Surfline's 0.6-1.1 m published band.
 #
 # Three literature-backed corrections, no eyes involved:
-#   * JONSWAP bottom friction (Hasselmann et al. 1973; SWAN's default formulation,
-#     Cb = 0.038 m^2 s^-3): dissipation per metre travelled, which is why this march needs
-#     the along-ray DISTANCE of each sample, not just its depth. At poleg the shelf takes
-#     ~20% off the height before the wave ever breaks; a steep coast loses ~nothing.
+#   * JONSWAP-form bottom friction (Hasselmann et al. 1973 shape): dissipation per metre
+#     travelled, which is why this march needs the along-ray DISTANCE of each sample, not
+#     just its depth. NOTE the coefficient is NOT SWAN's 0.038: the march applies
+#     BOTTOM_FRICTION_CB over g where the SWAN energy form divides by g^2, so the effective
+#     Cb is 0.038 * g ~ 0.37 m^2 s^-3, ten times the textbook swell value. The heights this
+#     produces are the ones graded by eye (CALIBRATION.md 2026-08-28 and 2026-09-07); the
+#     textbook coefficient would raise heights at ~2/3 of the fleet. Do not "correct" the
+#     g without re-tuning the coefficient - see CALIBRATION.md 2026-09-07. At poleg the
+#     shelf takes ~11% off the height before the wave ever breaks; a steep coast loses
+#     ~nothing.
 #   * Battjes & Janssen (1978) breaking dissipation inside the resolved profile: a random
 #     sea does not break as one wave at gamma*d - the tallest fraction Qb breaks first and
 #     the sea saturates gradually. Replaces the hard gamma*d cap.
@@ -338,7 +344,8 @@ def breaker_height_over_profile(
 #     estimator against 404 paired days of Waimea buoy + North Shore observations and
 #     found it tracks H1/10; their eq. 4 gives H1/3 = 0.79 x H1/10 (Rayleigh). Publishing
 #     K&G raw was publishing the top-tenth wave as the typical one.
-BOTTOM_FRICTION_CB = 0.038  # m^2 s^-3, JONSWAP swell value (SWAN default)
+BOTTOM_FRICTION_CB = 0.038  # applied over g, not g^2: effective Cb ~0.37 m^2 s^-3, tuned by
+# eye, NOT SWAN's 0.038 - see the header note and CALIBRATION.md 2026-09-07
 BJ_GAMMA = 0.73  # Battjes-Janssen breaker parameter (their fitted value, SWAN default)
 H13_OVER_H110 = 0.79  # Rayleigh: significant height of the breakers vs their top tenth
 _SUBSTEP_M = 25.0  # dissipation substep; segments between samples are km apart
@@ -500,7 +507,10 @@ def surf_height_over_profile(
         hrms = height / sqrt2
         energy = _RHO * GRAVITY * hrms * hrms / 8.0
         flux = energy * cg[i]
-        # JONSWAP bottom friction (guard the sinh overflow in deep water)
+        # JONSWAP-form bottom friction (guard the sinh overflow in deep water). The law's
+        # energy form is Cb / g^2 * (sigma/sinh kd)^2 * E; this line divides by g once, so
+        # friction_cb is an EFFECTIVE coefficient ~g times the textbook Cb. Deliberate and
+        # calibrated (CALIBRATION.md 2026-09-07) - changing it moves published heights.
         d_fric = 0.0
         if kd[i] < 25.0:
             d_fric = friction_cb / GRAVITY * orbital[i] * orbital[i] * energy

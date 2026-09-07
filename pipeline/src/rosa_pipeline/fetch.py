@@ -220,7 +220,10 @@ def retrying_get(
         try:
             resp = client.get(url, params=params)
         except httpx.TransportError as e:
-            last_exc = e
+            # the LAST failure is what the caller must see: an earlier attempt's 5xx kept
+            # here would be returned in its place, and raise_for_status would then blame
+            # the server for what was a local transport outage on the final attempts
+            last_exc, last_resp = e, None
             if attempt < 2:
                 print(
                     f"warn: open-meteo transport error ({e!r}), retry {attempt + 1}/2",
@@ -494,6 +497,23 @@ class OpenMeteoSource:
         else:
             ej = ensemble.json()
             ensemble_list = ej if isinstance(ej, list) else [ej]
+        # The same by-position attribution the archive's fetch_*_many guard: each body
+        # names the coordinate it answers for, and a mis-ordered trio would publish one
+        # spot's sea under another spot's id for a whole cycle. The strict zip below only
+        # checks the COUNT. Bodies without a coordinate (old captures) pass through.
+        _check_batch_order(marine_list, coords)
+        _check_batch_order(weather_list, coords)
+        if ensemble is not None:
+            try:
+                _check_batch_order(ensemble_list, coords)
+            except ValueError as e:
+                # expendable, like every other ensemble failure: degrade, never sink
+                print(
+                    f"warn: open-meteo ensemble batch mis-attributed ({e}) - "
+                    "publishing without the confidence ensemble (horizon proxy only)",
+                    file=sys.stderr,
+                )
+                ensemble_list = [None] * len(coords)
         out: list[RawForecast] = []
         for (lat, lon), m, w, e in zip(
             coords, marine_list, weather_list, ensemble_list, strict=True

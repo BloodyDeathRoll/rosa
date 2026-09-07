@@ -2341,3 +2341,34 @@ is NOT a tuned knob and it is reversible in one constant. The measured A/B (`--w
 icon` vs `gfs` after ~2 weeks) is what confirms or reverts it. Buoy-archive `ws` rows
 before 2026-08-30 04:35Z are ICON; after, GFS - a wind card that straddles the date mixes
 them.
+
+## 2026-09-07 - Bottom friction: the coefficient is effective, not textbook (Dream review)
+
+**What was found.** The 2026-09-07 Dream review checked the friction line against the law it
+cites. SWAN's JONSWAP energy form is `S_bot = -Cb * sigma^2 / (g^2 sinh^2 kd) * E`; the march
+(`physics.surf_height_over_profile`) computes `Cb / g * (sigma/sinh kd)^2 * E` - one factor
+of g short, so with `BOTTOM_FRICTION_CB = 0.038` the dissipation is 9.81x what Hasselmann's
+0.038 gives. Dimensionally the term is kg m s^-5 summed with Battjes-Janssen in W m^-2. The
+suite could not see it because `test_physics._scalar_march` transcribes the same line.
+The reviewer's offline probe over all 1407 profiles (straight-in, single partition): under
+the textbook coefficient heights rise at ~2/3 of spots (median x1.09-1.30 by sea, p90 up to
+x2.7), and 25-31 spots that publish <0.05 m today would publish >=0.3 m. Poleg 1.55 m @ 8 s:
+1.416 m now, 1.568 m under textbook Cb, 1.587 m with no friction - the shelf takes 11% off
+today, not the "~20%" the 2026-08-28 entry wrote.
+
+**Decision - keep the heights, fix the label.** The 2026-08-28 entry's "two routes agree at
+~1.4" and every eye grade since were produced by this line, and the operator's standing
+read is that the fleet is close and, where wrong, still a little HIGH. Removing 90% of the
+friction loss is therefore the wrong direction on the evidence we have; the textbook value
+is not truth, the graded frames are. So nothing in the output moves: the constant stays
+0.038, the line stays `/ GRAVITY`, and the code, ALGORITHM.md and this entry now say what
+that means - an EFFECTIVE Cb of 0.038 * g ~ 0.37 m^2 s^-3, ten times SWAN's swell default,
+a tuned knob and not a literature constant. Same-input A/B: byte-identical, by construction.
+
+**Standing rule.** Do not "correct" the g to g^2 as a code fix. A future change to friction
+is a re-tune of the effective coefficient under pb_0049 (Stage-0 same-input A/B scored with
+the shipped harness, buoys where they exist, graded frames where they do not), and it must
+start from the fact that today's 0.37 is what the eyes agreed with. Dream diff
+`2026-09-07/rosa/jonswap-friction-over-g-squared.diff` is REJECTED in the ledger for this
+reason; its test proves the label, not the surf.
+

@@ -96,10 +96,15 @@ def load_skill_ceilings(path: Path) -> tuple[dict[int, float], str] | None:
                 for e in entries
                 if e.get("scatter_index") is not None
             ]
-            if n < SKILL_N_FLOOR or not sis:
+            weight = sum(w for _, w in sis)
+            if n < SKILL_N_FLOOR or not sis or weight <= 0:
+                # weight == 0: every bucket that carries a scatter_index has n == 0 while
+                # the tier's summed n clears the floor - a shape the writer never emits
+                # (merge_var_scores drops n == 0) but a hand-edited or damaged file can.
+                # It is "no measurement", not a ZeroDivisionError before the per-spot guard.
                 ceilings[tier_i] = static
                 continue
-            si = sum(v * w for v, w in sis) / sum(w for _, w in sis)
+            si = sum(v * w for v, w in sis) / weight
             ceilings[tier_i] = max(SKILL_CEILING_MIN, min(1.0, 1.0 - si))
         for tier_i in range(1, len(_CEILING_TIERS)):
             ceilings[tier_i] = min(ceilings[tier_i], ceilings[tier_i - 1])
@@ -284,9 +289,10 @@ def _hour_entry(spot: Spot, s: ScoredHour, tz: ZoneInfo) -> dict:
         # so it grows with the member count on its own (k members = k(k-1)/2 pairs), and
         # the count moves with lead time as shorter-horizon members drop out. Published
         # beside the span because nothing else in the payload carries it: `models` on
-        # `current` counts HEIGHT members and includes the ECMWF member, whose bearing the
-        # fan excludes. Without it a calibration entry pooling these hours would read
-        # member attrition as direction disagreement.
+        # `current` counts HEIGHT members, and the fan (ECMWF bearing included since
+        # 2026-08-11) can be smaller than it when a member's bearing is missing. Without it a
+        # calibration entry pooling these hours would read member attrition as direction
+        # disagreement.
         entry["dir_n"] = s.hour.n_dir_members
     spectral = _spectral_entry(s)
     if spectral is not None:

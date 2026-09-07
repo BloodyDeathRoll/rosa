@@ -61,7 +61,14 @@ BASINS: dict[str, tuple[str, ...]] = {
     "west-africa": ("Senegal", "Cape Verde", "Ghana"),
     # the south-west Indian Ocean: Southern Ocean groundswell up the South African
     # coast into Mozambique, and the monsoon swell on the equatorial reefs
-    "east-africa": ("South Africa East", "Mozambique", "Madagascar", "Mauritius", "Kenya", "Zanzibar"),
+    "east-africa": (
+        "South Africa East",
+        "Mozambique",
+        "Madagascar",
+        "Mauritius",
+        "Kenya",
+        "Zanzibar",
+    ),
     # the US east coast: North Atlantic groundswell and, Aug-Oct, hurricane swell
     # tracking up the seaboard; one frame from Florida to New England
     "us-east": (
@@ -145,6 +152,8 @@ def basin_boxes(spots_dir: Path) -> list[BasinBox]:
             # combined pass falls back to this basin's own subregion requests, and
             # fetch_basin_step's 0-360 geometry expresses the box fine - so the basin
             # still publishes correctly. Warn like the gfswave cluster seam does.
+            # (A GREENWICH-crossing box is the opposite case: monotone here, wrapped in
+            # 0-360, and the slice joins it - see slice_basin_field's `periodic`.)
             print(
                 f"warn: swellmap basin {name!r} crosses the antimeridian "
                 f"({lon0:.2f}..{lon1:.2f} signed) - unsliceable from the global file, "
@@ -279,7 +288,9 @@ def build_basin_payload(
     return acc.payload()
 
 
-def slice_basin_field(geom: dict, planes: dict, basin: BasinBox) -> dict | None:
+def slice_basin_field(
+    geom: dict, planes: dict, basin: BasinBox, *, periodic: bool = False
+) -> dict | None:
     """Cut one basin's field out of an already-downloaded GLOBAL plane set, in the exact
     shape `parse_grib_field` returns.
 
@@ -292,9 +303,20 @@ def slice_basin_field(geom: dict, planes: dict, basin: BasinBox) -> dict | None:
     subregion returned, never a subset. The payload's own geometry keys are computed from
     the slice that was actually taken, so the file stays self-describing either way.
 
-    Returns None when the box would wrap either seam - the file's 0/360 wrap or the
-    antimeridian the SIGNED published grid cannot express. No committed basin crosses
-    either, and the caller falls back to the per-basin filter request rather than guess.
+    Returns None when the box would wrap the antimeridian - the SIGNED published grid
+    cannot express lon_first east of lon_last, and no committed basin crosses it.
+
+    The file's own 0/360 seam is different: a box that is monotone in the signed frame
+    (lon0 < 0 < lon1 - Greenwich) only LOOKS wrapped in the 0-360 frame the file is stored
+    in, and on a full global field the columns just west of 360 and just east of 0 are
+    neighbours. With ``periodic`` (the combined pass, whose planes come from the whole-globe
+    request) such a box is cut as two column ranges joined - j0..nx-1 then 0..j1 - and
+    published with the monotone signed axis the web map draws in. Since 2026-09-03 three
+    committed basins sit on this seam (biscay-celtic, north-sea, west-africa); without the
+    wrap they were refused here and sent to the per-basin fallback with a leftlon >
+    rightlon box, which `gfswave.cluster_boxes` documents grib-filter cannot express.
+    Without ``periodic`` (a regional field, where the far side of the seam is simply not
+    in the planes) the refusal stands and the caller fetches the basin directly.
     """
     import numpy as np
 
@@ -317,18 +339,33 @@ def slice_basin_field(geom: dict, planes: dict, basin: BasinBox) -> dict | None:
     i0, i1 = span(lat_a, lat_b, geom["lat_first"], dlat, ny)
     lon0, lon1 = _lon360(basin.lon0), _lon360(basin.lon1)
     if lon1 < lon0:
-        return None  # crosses the 0/360 seam - let the caller fetch this basin directly
-    j0, j1 = span(lon0, lon1, geom["lon_first"], dlon, nx)
-    if i1 < i0 or j1 < j0:
+        # the box straddles the file's 0/360 seam. Joinable only when the planes are the
+        # whole circle (the last column's east neighbour really is column 0), the lon
+        # axis ascends, and the box is monotone in the signed frame (Greenwich, not the
+        # antimeridian - a Fiji-shaped box has lon1 < lon0 signed and stays refused).
+        covers_circle = abs(nx * dlon - 360.0) < 1e-6
+        if not (periodic and covers_circle and dlon > 0 and basin.lon1 >= basin.lon0):
+            return None
+        j0, _ = span(lon0, lon0, geom["lon_first"], dlon, nx)
+        _, j1 = span(lon1, lon1, geom["lon_first"], dlon, nx)
+        cols = np.concatenate([np.arange(j0, nx), np.arange(0, j1 + 1)])
+    else:
+        j0, j1 = span(lon0, lon1, geom["lon_first"], dlon, nx)
+        if j1 < j0:
+            return None
+        cols = np.arange(j0, j1 + 1)
+    if i1 < i0:
         return None
 
     def flat(name: str) -> list[float | None]:
-        arr = np.asarray(planes[name], dtype=float)[i0 : i1 + 1, j0 : j1 + 1]
+        arr = np.asarray(planes[name], dtype=float)[i0 : i1 + 1][:, cols]
         return [None if np.isnan(v) else float(v) for v in arr.ravel()]
 
     def norm_lon(lon: float) -> float:
         return lon - 360.0 if lon > 180.0 else lon
 
+    # j1 is the last column either way: for a joined window it sits just east of 0, so
+    # the published axis comes out negative-to-positive and monotone
     lon_first = norm_lon(geom["lon_first"] + j0 * dlon)
     lon_last = norm_lon(geom["lon_first"] + j1 * dlon)
     if lon_first > lon_last:
@@ -340,7 +377,7 @@ def slice_basin_field(geom: dict, planes: dict, basin: BasinBox) -> dict | None:
 
     return {
         "ny": i1 - i0 + 1,
-        "nx": j1 - j0 + 1,
+        "nx": len(cols),
         "lat_first": geom["lat_first"] + i0 * dlat,
         "lat_last": geom["lat_first"] + i1 * dlat,
         "lon_first": lon_first,
@@ -727,10 +764,12 @@ def run_swellmap_all(
     several minutes off the VM cron, which is the shared-infrastructure etiquette this
     module's docstring already commits to.
 
-    A basin the slice cannot serve (the 0/360 seam - no committed basin crosses it) is
-    fetched with its own subregion request, so no basin silently loses its layer. The
-    per-basin path stays the only route for `--basin` and `--skip-world` runs, which have
-    no global download to slice from.
+    A basin the slice cannot serve (one straddling the antimeridian - no committed basin
+    does) is fetched with its own subregion request, so no basin silently loses its layer.
+    A basin straddling Greenwich IS served by the slice (`periodic`): the global planes
+    wrap, and the fallback's 0-360 box could not express it anyway. The per-basin path
+    stays the only route for `--basin` and `--skip-world` runs, which have no global
+    download to slice from.
     """
     cycle = pick_cycle(now or datetime.now(UTC))
     steps = tuple(range(0, HORIZON_H + 1, STEP_H))
@@ -772,7 +811,9 @@ def run_swellmap_all(
             for b in basins:
                 if b in unsliceable:
                     continue
-                field = slice_basin_field(geom, planes, b)
+                # periodic: these planes are the whole-globe request, so a Greenwich
+                # basin is joined across the file's 0/360 seam instead of refused
+                field = slice_basin_field(geom, planes, b, periodic=True)
                 if field is None and accs[b.name].geom is None:
                     # geometry the slicer will not guess at - this basin needs its own
                     # subregion requests; decided once, on the first good step. Keyed on

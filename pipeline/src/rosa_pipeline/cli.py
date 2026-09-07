@@ -398,7 +398,12 @@ def _build_parser() -> argparse.ArgumentParser:
     fb.add_argument("--observed-h", type=float, help="observed breaker height midpoint, m")
     fb.add_argument("--observed-phrase")
     fb.add_argument("--note")
-    fb.add_argument("--at", help="ISO time of the observation (default: now)")
+    fb.add_argument(
+        "--at",
+        help="ISO time of the observation WITH a UTC offset, e.g. 2026-09-07T09:00+03:00 "
+        "(default: now). A bare time is refused: payload hours are spot-local, so a naive "
+        "value read as UTC would grade the session against the wrong forecast hour.",
+    )
     fb.add_argument("--out", type=Path, default=Path("data/out"), help="published payload dir")
     fb.add_argument("--feedback-dir", type=Path, default=FEEDBACK_DIR)
 
@@ -1702,14 +1707,28 @@ def _cmd_feedback(args: argparse.Namespace) -> int:
     if not args.spot or not args.verdict:
         print("adding feedback needs --spot and --verdict (or use --report)", file=sys.stderr)
         return 2
+    if args.at:
+        try:
+            at = datetime.fromisoformat(args.at)
+        except ValueError:
+            print(f"--at {args.at!r} is not an ISO time", file=sys.stderr)
+            return 2
+        if at.tzinfo is None:
+            # Every payload hour is spot-local ISO and a surfer's clock is local too, so a
+            # naive value has no honest reading: stamped UTC it graded a Maldives dawn
+            # session against the 14:00 forecast. Refuse rather than guess.
+            print(
+                f"--at {args.at!r} has no UTC offset - write it like 2026-09-07T09:00+03:00",
+                file=sys.stderr,
+            )
+            return 2
+    else:
+        at = datetime.now(UTC)
     payload_path = args.out / "spots" / f"{args.spot}.json"
     if not payload_path.exists():
         print(f"no published forecast at {payload_path} - run the pipeline first", file=sys.stderr)
         return 2
     payload = json.loads(payload_path.read_text(encoding="utf-8"))
-    at = datetime.fromisoformat(args.at) if args.at else datetime.now(UTC)
-    if at.tzinfo is None:
-        at = at.replace(tzinfo=UTC)
 
     predicted = predicted_from_payload(payload, at)
     observed: dict = {}
@@ -2197,7 +2216,8 @@ def _cmd_notify(args: argparse.Namespace) -> int:
         print(f"notify: missing {', '.join(missing)}", file=sys.stderr)
         return 2
     assert subs_url and admin_secret and vapid_key and vapid_sub
-    send_notifications(
+    failures: list[str] = []
+    sent = send_notifications(
         out_dir=args.out,
         state_path=args.state,
         subs_url=subs_url,
@@ -2206,7 +2226,22 @@ def _cmd_notify(args: argparse.Namespace) -> int:
         vapid_sub=vapid_sub,
         dry_run=args.dry_run,
         feedback_dir=FEEDBACK_DIR,
+        failures=failures,
     )
+    if failures and not sent:
+        # Same rule as _cmd_verify's `1 if failures and not scored`: pushes were planned
+        # and every one of them failed - a rotated VAPID key, pywebpush gone from the
+        # venv, the admin API changing shape. Returning 0 here left publish.sh's
+        # `notify || echo "warn: notify failed"` unable to fire, so a cycle that
+        # delivered nothing read exactly like a quiet one. A partial failure still
+        # exits 0 - the per-subscription degrade is the design.
+        print(
+            f"notify: {len(failures)} failure(s) and nothing sent - "
+            + "; ".join(failures[:3])
+            + (" ..." if len(failures) > 3 else ""),
+            file=sys.stderr,
+        )
+        return 1
     return 0
 
 

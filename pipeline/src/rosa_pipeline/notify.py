@@ -102,9 +102,19 @@ def _iter_payloads(out_dir: Path):
     as publish._read_index)."""
     for path in sorted((out_dir / "spots").glob("*.json")):
         try:
-            yield json.loads(path.read_text())
+            payload = json.loads(path.read_text())
         except (json.JSONDecodeError, OSError):
             print(f"warn: {path} is unreadable - skipped this notify run")
+            continue
+        # parseable is not readable: `null`, a list, or a spot block with no id all raise
+        # AttributeError/KeyError out of the planners below, outside every guard, and one
+        # such file took the whole fleet's pushes with it. The same shape check
+        # publish._read_index makes on the index.
+        spot = payload.get("spot") if isinstance(payload, dict) else None
+        if not isinstance(spot, dict) or not spot.get("id"):
+            print(f"warn: {path} has no spot id - skipped this notify run")
+            continue
+        yield payload
 
 
 def load_spot_events(
@@ -119,24 +129,29 @@ def load_spot_events(
     events: list[SpotEvent] = []
     for payload in _iter_payloads(out_dir) if payloads is None else payloads:
         spot = payload.get("spot", {})
-        for e in payload.get("events", []):
-            end = datetime.fromisoformat(e["end"])
-            if end < now:
-                continue
-            events.append(
-                SpotEvent(
-                    spot_id=spot["id"],
-                    spot_name=spot.get("name", spot["id"]),
-                    region=spot.get("region"),
-                    start=datetime.fromisoformat(e["start"]),
-                    peak=datetime.fromisoformat(e["peak"]),
-                    end=end,
-                    h_peak=float(e["h_peak"]),
-                    direction_deg=e["dir"],
-                    rating=int(e["rating"]),
-                    bucket=e["bucket"],
+        try:
+            for e in payload.get("events", []):
+                end = datetime.fromisoformat(e["end"])
+                if end < now:
+                    continue
+                events.append(
+                    SpotEvent(
+                        spot_id=spot["id"],
+                        spot_name=spot.get("name", spot["id"]),
+                        region=spot.get("region"),
+                        start=datetime.fromisoformat(e["start"]),
+                        peak=datetime.fromisoformat(e["peak"]),
+                        end=end,
+                        h_peak=float(e["h_peak"]),
+                        direction_deg=e["dir"],
+                        rating=int(e["rating"]),
+                        bucket=e["bucket"],
+                    )
                 )
-            )
+        except (KeyError, TypeError, ValueError, AttributeError) as exc:
+            # a payload whose events block lost a field costs its own spot's pushes,
+            # never the run - the _iter_payloads contract, kept past the parse
+            print(f"warn: spot {spot.get('id')!r}: events unreadable ({exc!r}) - skipped")
     return events
 
 
@@ -389,11 +404,19 @@ def send_notifications(
     now: datetime | None = None,
     dry_run: bool = False,
     feedback_dir: Path | None = None,
+    failures: list[str] | None = None,
 ) -> int:
     """Plan and send per subscription; returns the number of pushes sent.
 
     Also pulls crowd 👍👎 rows into the calibration store (feedback_dir) - same
-    cycle, same secrets."""
+    cycle, same secrets.
+
+    ``failures``, when given, collects one line per push or subscription that failed.
+    The return value alone cannot tell "quiet cycle" from "every push failed" (both are
+    0), and the per-subscription guard below turns a systemic fault - a rotated VAPID
+    key, pywebpush missing from the venv - into N warn lines. The CLI reads this list to
+    exit non-zero when pushes were planned and none went out, so publish.sh's
+    `|| echo "warn: notify failed"` can fire (the verify step's 2026-08 fix, same shape)."""
     now = now or datetime.now(UTC)
     # one read of the fleet for both planners - at 265 spots each payload is a
     # multi-hundred-KB JSON and this runs on the single-core VM every cycle
@@ -461,6 +484,9 @@ def send_notifications(
                         print(f"  push failed ({status}) for {ehash}: {exc}")
                         if status in (404, 410):  # endpoint gone - forget the device
                             prune_subscription(subs_url, admin_secret, sub["endpoint"])
+                        elif failures is not None:
+                            # a gone endpoint is housekeeping, not a failed delivery
+                            failures.append(f"{ehash}: push failed ({status})")
                         continue
                     mark_sent(state, ehash, n.keys, now)
                     sent_count += 1
@@ -472,6 +498,8 @@ def send_notifications(
                     f"  sub {endpoint_hash(str(sub.get('endpoint', '?')))} failed: {exc!r}"
                     " - skipped this run"
                 )
+                if failures is not None:
+                    failures.append(f"{endpoint_hash(str(sub.get('endpoint', '?')))}: {exc!r}")
         if not dry_run:
             save_state(state_path, state, now)
         print(f"notify: {sent_count} pushes sent")
@@ -522,36 +550,40 @@ def load_feedback_candidates(
         spot = payload.get("spot", {})
         try:
             local = now.astimezone(ZoneInfo(spot.get("timezone", "UTC")))
-        except (KeyError, ValueError):
+        except (KeyError, ValueError, TypeError):
             continue
         if not (FEEDBACK_LOCAL_HOUR[0] <= local.hour <= FEEDBACK_LOCAL_HOUR[1]):
             continue
         today = local.date().isoformat()
-        day = next((d for d in payload.get("days", []) if d.get("date") == today), None)
-        if day is None or int(day.get("rating_max", 0)) < FEEDBACK_MIN_RATING:
-            continue
-        hours = [h for h in payload.get("hours", []) if h.get("t", "").startswith(today)]
-        if not hours:
-            continue
-        best = max(hours, key=lambda h: h.get("rating", 0))
-        out.append(
-            FeedbackCandidate(
-                spot_id=spot["id"],
-                spot_name=spot.get("name", spot["id"]),
-                date=today,
-                rating=int(day.get("rating_max", 0)),
-                bucket=day.get("bucket", ""),
-                h=tuple(day["h_max"]) if day.get("h_max") else None,
-                at=best.get("t", f"{today}T12:00"),
-                predicted={
-                    "rating": best.get("rating"),
-                    "bucket": best.get("bucket"),
-                    "h": best.get("h"),
-                    "phrase": best.get("phrase"),
-                },
-                region=spot.get("region", ""),
+        try:
+            day = next((d for d in payload.get("days", []) if d.get("date") == today), None)
+            if day is None or int(day.get("rating_max", 0)) < FEEDBACK_MIN_RATING:
+                continue
+            hours = [h for h in payload.get("hours", []) if h.get("t", "").startswith(today)]
+            if not hours:
+                continue
+            best = max(hours, key=lambda h: h.get("rating", 0))
+            out.append(
+                FeedbackCandidate(
+                    spot_id=spot["id"],
+                    spot_name=spot.get("name", spot["id"]),
+                    date=today,
+                    rating=int(day.get("rating_max", 0)),
+                    bucket=day.get("bucket", ""),
+                    h=tuple(day["h_max"]) if day.get("h_max") else None,
+                    at=best.get("t", f"{today}T12:00"),
+                    predicted={
+                        "rating": best.get("rating"),
+                        "bucket": best.get("bucket"),
+                        "h": best.get("h"),
+                        "phrase": best.get("phrase"),
+                    },
+                    region=spot.get("region", ""),
+                )
             )
-        )
+        except (KeyError, TypeError, ValueError, AttributeError) as exc:
+            # same contract as load_spot_events: one spot's days/hours block, not the run
+            print(f"warn: spot {spot.get('id')!r}: days/hours unreadable ({exc!r}) - skipped")
     return out
 
 
@@ -559,7 +591,10 @@ def spot_regions(out_dir: Path) -> dict[str, str]:
     """spot id → region, read from the published index (cheap, one small file)."""
     try:
         index = json.loads((out_dir / "index.json").read_text())
-    except (json.JSONDecodeError, OSError):
+    except (json.JSONDecodeError, OSError) as e:
+        # Fail open, but never silently: with no regions every home_region is "" and both
+        # region filters in plan_pushes are skipped for the whole run.
+        print(f"warn: index.json unreadable ({e!r}) - region lock off this run")
         return {}
     return {sid: e.get("region", "") for sid, e in index.get("spots", {}).items()}
 

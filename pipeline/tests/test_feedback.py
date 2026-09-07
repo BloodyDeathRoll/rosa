@@ -103,3 +103,52 @@ def test_markdown_rows_render() -> None:
     md = markdown_rows([_rec("GOOD", "POOR", "down")])
     assert md.startswith("| 2026-07-21 | 09:00 | s | GOOD 0")
     assert "👎" in md and "POOR" in md
+
+
+def test_cli_refuses_a_naive_at(tmp_path, capsys) -> None:
+    """A bare `--at` has no honest reading (payload hours are spot-local), so it is refused
+    before any payload is read - a naive value stamped UTC graded a dawn session against the
+    afternoon forecast."""
+    from rosa_pipeline.cli import main
+
+    rc = main(
+        [
+            "feedback",
+            "--spot",
+            "x",
+            "--verdict",
+            "up",
+            "--at",
+            "2026-09-07T09:00",
+            "--out",
+            str(tmp_path),
+            "--feedback-dir",
+            str(tmp_path / "fb"),
+        ]
+    )
+    assert rc == 2
+    err = capsys.readouterr().err
+    assert "no UTC offset" in err and "+03:00" in err
+    assert not (tmp_path / "fb").exists()
+
+
+def test_cli_rejects_an_unparseable_at(tmp_path, capsys) -> None:
+    from rosa_pipeline.cli import main
+
+    rc = main(
+        [
+            "feedback",
+            "--spot",
+            "x",
+            "--verdict",
+            "up",
+            "--at",
+            "yesterday",
+            "--out",
+            str(tmp_path),
+            "--feedback-dir",
+            str(tmp_path / "fb"),
+        ]
+    )
+    assert rc == 2
+    assert "not an ISO time" in capsys.readouterr().err

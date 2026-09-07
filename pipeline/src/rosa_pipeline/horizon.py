@@ -108,8 +108,16 @@ def ray_reaches_open_ocean(
         ),
         None,
     )
+    # The same resolution guard on the deep test: the nearshore cell the land test cannot
+    # trust as a blocker is no more trustworthy as open water. Without it, on any steep
+    # coast whose 0.5 km cell reads below deep_m, `deep == 0.5 < land` for every possible
+    # land and the ordered test is vacuous - a wall of land from 1 km to 40 km read "open".
     deep = next(
-        (d for d, e in zip(distances, elevations, strict=False) if e is not None and e < deep_m),
+        (
+            d
+            for d, e in zip(distances, elevations, strict=False)
+            if e is not None and e < deep_m and d >= min_blocker_km
+        ),
         None,
     )
     if deep is None:

@@ -49,6 +49,11 @@ class FeedbackRecord:
 
     @classmethod
     def from_row(cls, row: dict) -> FeedbackRecord:
+        # a JSONL line parses as ANY JSON value, and the store hands every parsed line
+        # over as a row: a bare string/number/array must fail THIS row's parse with the
+        # TypeError records_from_rows catches, not the AttributeError `.get` raises
+        if not isinstance(row, dict):
+            raise TypeError(f"row must be an object, got {type(row).__name__}")
         predicted = row.get("predicted", {})
         observed = row.get("observed", {})
         # the drop-box API admits any JS "object" here - including arrays - so a

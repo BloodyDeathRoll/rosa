@@ -44,9 +44,10 @@ class Agreement:
     n_models: int
     hs_spread_m: float  # population stdev of member Hs
     dir_span_deg: float | None = None  # widest pairwise member bearing gap; None = <2 dirs
-    # How many bearings that gap spans. NOT the same as n_models, which counts HEIGHT
-    # members and includes the ECMWF spectral member (extract.extract_hours) whose bearing
-    # is deliberately kept out of the fan. The widest PAIRWISE gap is n-dependent by
+    # How many bearings that gap spans. Since 2026-08-11 the ECMWF spectral member's mwd IS
+    # in the fan (extract.extract_hours appends it), so n_dirs differs from n_models only
+    # when a member's bearing is missing while its height is present - on the blend arm the
+    # fan is GFS + ECMWF, half of it that member. The widest PAIRWISE gap is n-dependent by
     # construction - k members give k(k-1)/2 pairs, so the expected maximum grows with k
     # even at identical disagreement - and k moves with lead time as the shorter-horizon
     # members (gwam ~7.3 d) drop out. A calibration entry pooling spans without k would
