@@ -3,10 +3,30 @@ import { syncFavorites } from "./account";
 import { initAnalytics } from "./analytics";
 import { App } from "./app";
 import { MovedScreen, onLegacyOrigin } from "./components/MovedScreen";
+import { getFavorites, setFavorites } from "./favorites";
+import { signedIn } from "./session";
 import { mountParticles } from "./components/particles";
 import { appReady } from "./splash";
 import "@fontsource-variable/inter";
 import "./styles.css";
+
+/** `#/spots?import=a,b,c` - favorites handed over from the old origin's app
+    (MovedScreen). Storage is per origin, so this is the only way they cross.
+    Merged into this device's list before anything renders; the sign-in screen
+    then asks for the account they get saved to (signInWithCode merges local
+    into the account). The parameter is stripped so a reload does not re-import. */
+function importFromHash(): void {
+  const m = /[?&]import=([^&]+)/.exec(location.hash);
+  if (!m?.[1]) return;
+  const ids = decodeURIComponent(m[1])
+    .split(",")
+    .filter((id) => /^[\w-]{1,64}$/.test(id));
+  const current = getFavorites();
+  const merged = [...current, ...ids.filter((id) => !current.includes(id))];
+  if (merged.length !== current.length) setFavorites(merged, { dirty: signedIn() });
+  history.replaceState(null, "", location.hash.replace(/[?&]import=[^&]+/, ""));
+}
+if (!onLegacyOrigin()) importFromHash();
 
 const root = document.getElementById("app");
 if (root) render(onLegacyOrigin() ? <MovedScreen /> : <App />, root);

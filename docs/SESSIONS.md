@@ -420,4 +420,9 @@ instead of the app when `location.hostname` is the legacy host: splash-look scre
 has moved", an Open rosa.surf link (`target=_blank`, so it leaves the installed shell for
 the browser where Add to Home Screen lives). Two launches: one fetches the update, the next
 shows the screen. Browsers still land on rosa.surf; www unchanged. Verified live with curl.
+Follow-up the same evening: the user's favorites did NOT import after reinstalling, because
+storage is per origin - the old app's list sat under rosa-rust.vercel.app and rosa.surf
+started empty. MovedScreen's link now carries them (`#/spots?import=a,b,c`); `main.tsx`
+on rosa.surf merges the ids into the local list before rendering, strips the parameter,
+and the sign-in screen then saves them to the account. Verified headless.
 
