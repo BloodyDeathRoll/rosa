@@ -32,7 +32,7 @@
 - Cams: embed free public cams where they exist; partner program later.
 
 ### Explicitly out
-Editorial/video content, travel guides, sessions tracking, hurricanes center, multi-cam, human forecaster notes, accounts-as-gate (account only needed for favorites sync + alerts, and favorites work logged-out via local storage).
+Editorial/video content, travel guides, sessions tracking, hurricanes center, multi-cam, human forecaster notes, accounts as a gate on the FORECAST (the forecast never needs an account). Since 2026-09-07 saving favorites DOES need one - Google sign-in, so a cleared browser costs nothing and users can be counted - but every screen still works signed out.
 
 ## 3. Architecture
 
@@ -50,7 +50,7 @@ EOT20 tides (offline harmonics, computed at build per spot)
 
 - **Pipeline**: Python (xarray + cfgrib + pyTMD), runs on a scheduled worker (GitHub Actions is enough at first; then a small VM/Cloud Run). Each run: download GRIB subsets → sample extraction points → transform → write JSON + frames to object storage behind a CDN.
 - **Frontend**: React/Preact PWA, MapLibre GL for the animated map (vector basemap + raster/particle overlay tiles), no server-side rendering needed beyond static hosting. Share cards via a tiny edge function (or pre-rendered per model run).
-- **No request-time backend** for forecasts. Only alerts/accounts need a small API + push service (v0.2).
+- **No request-time backend** for forecasts. Only alerts/accounts need a small API + push service (v0.2). BUILT: alerts on `deploy/push-api` (Vercel Blob), accounts + favorites on `deploy/user-api` (Cloudflare Worker + D1, 2026-09-07).
 - **Start with Open-Meteo Marine+Weather API** in the pipeline instead of raw GRIBs to ship v0.1 in weeks, then swap the fetch layer for NOMADS/ECMWF/CMEMS without touching anything downstream. (Open-Meteo is CC-BY / free for non-commercial; a free app with attribution is compatible, verify before launch.)
 
 ## 4. Data Sources (worldwide + regional enhancers)

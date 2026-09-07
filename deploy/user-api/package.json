@@ -1,0 +1,19 @@
+{
+  "name": "rosa-user-api",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "node --test",
+    "typecheck": "tsc --noEmit",
+    "db:local": "wrangler d1 execute rosa-users --local --file schema.sql",
+    "db:remote": "wrangler d1 execute rosa-users --remote --file schema.sql"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260907.1",
+    "typescript": "^5.6.0",
+    "wrangler": "^4.129.1"
+  }
+}

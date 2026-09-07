@@ -16,7 +16,7 @@ import { DayScrubber } from "../components/CoastChart";
 import { ReportSheet } from "../components/ReportSheet";
 import { Pill, StarButton } from "../components/parts";
 import { ratingVar } from "../conditions";
-import { getFavorites, toggleFavorite } from "../favorites";
+import { useFavorites } from "../favorites";
 import { stashView } from "../feedback";
 import { pushRecent } from "../recents";
 import { onScroll as onAppScroll, scrollTop } from "../scroller";
@@ -343,7 +343,7 @@ let stickyDate: string | null = null;
 export function SpotPage({ id }: { id: string }) {
   const [data, setData] = useState<SpotPayload | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [favs, setFavs] = useState<string[]>(getFavorites);
+  const [favs, toggleFav] = useFavorites();
   const [daySel, setDaySel] = useState(0);
   const [liveDay, setLiveDay] = useState(0);
   const [condensed, setCondensed] = useState(false);
@@ -615,7 +615,7 @@ export function SpotPage({ id }: { id: string }) {
         <StarButton
           on={favs.includes(id)}
           name={spotName}
-          onToggle={() => setFavs(toggleFavorite(id))}
+          onToggle={() => toggleFav(id)}
         />
       )}
       <a class="icon-btn spot-top-search" href="#/search" aria-label="Search spots">

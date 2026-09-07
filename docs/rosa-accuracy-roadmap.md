@@ -282,7 +282,17 @@ precompute fixes that. These are dynamic, per-user, authenticated, write-ish:
 - the **👍👎 accuracy feedback** stream (feeds the Stage-0 calibration loop)
 - **community spot contributions** + edits + moderation (the long-term spot-DB moat)
 
-This plane wants a managed **Postgres + Auth**, and **Supabase is a sensible default pick** -
+**BUILT 2026-09-07 - accounts + favorites-sync are a Cloudflare Worker + D1 (`deploy/user-api`),
+NOT Supabase.** The earlier pick below was superseded on price at scale: Supabase bills per monthly
+active user (free to 50k MAU, then $25/mo + $0.00325/MAU past 100k - about $3k/mo at 1M), Cloudflare
+bills per request (Workers Free 100k req/day, D1 Free 5M reads + 100k writes/day + 5 GB; the paid
+step is $5/mo for 10M requests - about $5-15/mo at 1M users). Sign-in is Google Identity Services in
+the browser, verified in the Worker; the user key is Google's `sub` and the web app talks only to
+`GET /me` / `PUT /me/favorites`, so the rows move to any other host without re-linking users.
+Push subscriptions stay on `deploy/push-api` (Vercel Blob). The paragraph below stands only for the
+spot CATALOG, where PostGIS would earn its place:
+
+This plane wanted a managed **Postgres + Auth**, and **Supabase was the default pick** -
 Postgres + **PostGIS** (geo "nearby spots" at 10k+ scale), Row-Level Security, Auth, Realtime, and
 Edge Functions, with a free tier and nothing to run. It fits the lean/free ethos *precisely because
 it stays off the forecast read-path* - it serves the (far lower-volume) user-write traffic only.
@@ -305,7 +315,7 @@ the durable archive store is an S3-compatible bucket, not a database.
 |------|---------------|----------------|
 | Forecast JSON / map frames / spot pages | read-heavy, identical per user, precomputed | **Static files on CDN** - never a DB |
 | Spot catalog (worldwide, contributed, geo-queried) | writable + moderated; read via compiled artifact | **Postgres + PostGIS** (Supabase) → compiled to static index/tiles |
-| Accounts, favorites-sync, alert subscriptions | per-user, dynamic, authenticated | **Managed DB + Auth** (Supabase) |
+| Accounts, favorites-sync | per-user, dynamic, authenticated | **BUILT: Cloudflare Worker + D1** (`deploy/user-api`); alert subscriptions stay on Vercel Blob (`deploy/push-api`) |
 | 👍👎 feedback / calibration rows | append, low-QPS, feeds pipeline | Small DB table (Supabase) *or* object storage |
 | Verification / forecast archive | append-only time-series, internal analytics | **Object storage (Parquet/JSONL) + DuckDB** - not a transactional DB |
 | Precompute (fetch → … → publish, incl. SWAN) | batch, scheduled | GitHub Actions → **scheduled VM/runner** (§6) |
@@ -325,7 +335,8 @@ read-path behind one."**
 | Light pipeline (Stages 0-2) | **GitHub Actions cron** (2,000 min/mo private; unlimited if repo public) | Fine at 4×/day short runs |
 | Heavy pipeline (Stages 3-4: GRIB + SWAN) | **Oracle Always Free ARM (now 2 OCPU / 12 GB)** or a **self-hosted runner** (home box) | Oracle *halved* the free ARM tier June 2026 + capacity can be scarce → self-hosted runner is the fallback; keep SWAN grids regional |
 | Forecast/verification archive | **R2 as Parquet/JSONL + DuckDB** | 10 GB free covers years (archive self-prunes to scored rollups) |
-| **Write-plane** (accounts, favorites-sync, feedback, spot catalog) | **Supabase free** (500 MB DB, 50k MAU, 1 GB storage, 5 GB egress, PostGIS) | Pauses after **7 days inactivity** → a cron keep-alive ping fixes it; 500 MB DB → Pro ($25/mo) only once real user/community data grows |
+| **Write-plane** (accounts, favorites-sync) | **Cloudflare Workers + D1 free** (100k req/day, 5M reads + 100k writes/day, 5 GB) - BUILT 2026-09-07 | First ceiling is D1 writes at ~100k toggles/day → Workers Paid $5/mo (10M req, 50M writes). Supabase was dropped because it bills per MAU (~$3k/mo at 1M) |
+| **Write-plane, later** (feedback rows, spot catalog) | object storage today; Supabase/PostGIS only if the catalog needs geo queries | Pauses after **7 days inactivity** → a cron keep-alive ping; 500 MB DB → Pro ($25/mo) |
 | Alerts / push | **Web Push (VAPID)** - standards-based, no vendor; alert evaluation runs in the free pipeline | none meaningful |
 | Domain | - | the one unavoidable cost (~$10-15/yr) |
 

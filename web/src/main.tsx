@@ -1,4 +1,5 @@
 import { render } from "preact";
+import { syncFavorites } from "./account";
 import { initAnalytics } from "./analytics";
 import { App } from "./app";
 import { mountParticles } from "./components/particles";
@@ -10,6 +11,11 @@ const root = document.getElementById("app");
 if (root) render(<App />, root);
 
 initAnalytics();
+
+/** Favorites live on the server since 2026-09-07: push a list the last session
+    could not save, or pull what another device changed. Silent, after paint. */
+void appReady.then(() => syncFavorites());
+addEventListener("online", () => void syncFavorites());
 
 /** Pick up a new deploy on the first launch instead of the second.
     The worker is built with skipWaiting + clientsClaim, so an update activates and

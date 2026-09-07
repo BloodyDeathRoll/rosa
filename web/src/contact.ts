@@ -10,6 +10,8 @@
     Neither needs an API key. A caller that gets `false` should offer the mailto: link,
     so a message is never silently lost. */
 
+import { profile } from "./session";
+
 const API = (import.meta.env.VITE_PUSH_API as string | undefined) ?? "";
 export const CONTACT_EMAIL = "einhanamer@gmail.com";
 const FORM = `https://formsubmit.co/ajax/${encodeURIComponent(CONTACT_EMAIL)}`;
@@ -43,8 +45,18 @@ function body(o: Outbound): string {
     lines.push("");
   }
   if (o.message) lines.push(o.message, "");
-  lines.push("---", `page: ${location.hash}`, `ua: ${navigator.userAgent}`);
+  lines.push("---");
+  const who = sender();
+  if (who) lines.push(`from: ${who.name ? `${who.name} <${who.email}>` : who.email}`);
+  lines.push(`page: ${location.hash}`, `ua: ${navigator.userAgent}`);
   return lines.join("\n");
+}
+
+/** The signed-in user, so a report or message can be answered. Null when signed
+    out or when Google gave no email - nothing is ever asked for. */
+function sender(): { email: string; name: string | null } | null {
+  const p = profile();
+  return p?.email ? { email: p.email, name: p.name } : null;
 }
 
 export function mailtoFor(o: Outbound): string {
@@ -64,6 +76,8 @@ export async function send(o: Outbound): Promise<boolean> {
       kind: o.kind,
       reason: o.reason ?? null,
       spot: o.spot?.id ?? null,
+      email: sender()?.email ?? null,
+      name: sender()?.name ?? null,
       page: location.hash,
       ua: navigator.userAgent,
     }),
@@ -77,6 +91,8 @@ export async function send(o: Outbound): Promise<boolean> {
       body: JSON.stringify({
         _subject: o.kind === "report" ? `Rosa report: ${o.spot?.name ?? "spot"}` : "Rosa feedback",
         _captcha: "false",
+        // signed in: Reply in the mail client answers the surfer directly
+        ...(sender() ? { _replyto: sender()!.email, name: sender()!.name ?? "" } : {}),
         message: text,
       }),
     });

@@ -136,6 +136,10 @@ quiet, and healthchecks.io catches both boxes going quiet together:
   `~/rosa-push/admin-subs.json` (a hand-maintained snapshot of the ADMIN's own
   subscriptions, never the public list; refresh it after re-subscribing:
   `curl -s -H "x-admin-secret: $PUSH_ADMIN_SECRET" $PUSH_SUBS_URL > ~/rosa-push/admin-subs.json`).
+- **How many users (not a monitor, a recipe):** signed-in accounts live on the Cloudflare
+  user API, not here - `curl -s -H "x-admin-secret: <ADMIN_SECRET of rosa-user-api>"
+  https://rosa-user-api.einhanamer.workers.dev/admin/stats` (`deploy/user-api/README.md`).
+  `$PUSH_SUBS_URL` still counts devices that opted into push; Vercel Analytics counts visitors.
 - **Stale-data watchdog (rosa-backup, 10.0.0.11):** hourly cron runs
   `~/rosa-watch/freshness-watch.py` (source: `deploy/backup/freshness-watch.py`) -
   alerts when rosa-data's `fetched_at` is > 8 h old or unreadable, so a dead VM or

@@ -99,7 +99,12 @@ than to copy:
 ```
 VITE_PUSH_API=https://rosa-push.vercel.app
 VITE_VAPID_PUBLIC=<same value as in web/.env.production>
+VITE_USER_API=http://localhost:8787
+VITE_GOOGLE_CLIENT_ID=<same value as in web/.env.production>
 ```
+
+`VITE_USER_API` points at `wrangler dev` of `deploy/user-api` (see its README); use the
+production URL `https://rosa-user-api.einhanamer.workers.dev` if you are not running it.
 
 ### Vercel project links
 

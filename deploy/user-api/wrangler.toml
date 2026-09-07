@@ -1,0 +1,18 @@
+# Rosa user API - Google sign-in + per-user favorites on Cloudflare Workers + D1.
+# Deploy: `npx wrangler deploy` from this directory (see README.md).
+name = "rosa-user-api"
+main = "src/index.ts"
+compatibility_date = "2026-08-01"
+
+[observability]
+enabled = true
+
+[vars]
+# Public OAuth client id (the same value the web app ships as VITE_GOOGLE_CLIENT_ID).
+GOOGLE_CLIENT_ID = "889597220636-g818ovtnfo4ecgf49ap34ih52dk4qrcv.apps.googleusercontent.com"
+# Secrets, NOT here: `npx wrangler secret put SESSION_SECRET` and `... ADMIN_SECRET`.
+
+[[d1_databases]]
+binding = "DB"
+database_name = "rosa-users"
+database_id = "b252d46b-7356-4ab2-9d11-b3e932cd9fc5"

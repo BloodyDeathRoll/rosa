@@ -1,4 +1,4 @@
-// Contact Us drop-box: POST (app origins) {message, page?, ua?} → emailed to the
+// Contact Us drop-box: POST (app origins) {message, page?, ua?, email?, name?} → emailed to the
 // maintainer and stored as a private blob either way, so a message is never lost when
 // the mail hop fails.
 //
@@ -39,7 +39,8 @@ function cors(req, res) {
 }
 
 function bodyText(row) {
-  return `${row.message}\n\n---\nreceived: ${row.received}\npage: ${row.page}\nua: ${row.ua}`;
+  const from = row.email ? `\nfrom: ${row.name ? `${row.name} <${row.email}>` : row.email}` : "";
+  return `${row.message}\n\n---\nreceived: ${row.received}${from}\npage: ${row.page}\nua: ${row.ua}`;
 }
 
 async function mailViaResend(row) {
@@ -53,6 +54,7 @@ async function mailViaResend(row) {
       to: [CONTACT_TO],
       subject: row.kind === "report" ? `Rosa report: ${row.spot ?? "spot"}` : "Rosa feedback",
       text: bodyText(row),
+      ...(row.email ? { reply_to: row.email } : {}),
     }),
   });
   if (!r.ok) return { mailed: false, why: `resend ${r.status}` };
@@ -77,6 +79,7 @@ async function mailViaFormSubmit(row) {
     body: JSON.stringify({
       _subject: row.kind === "report" ? `Rosa report: ${row.spot ?? "spot"}` : "Rosa feedback",
       _captcha: "false",
+      ...(row.email ? { _replyto: row.email, name: row.name ?? "" } : {}),
       message: bodyText(row),
     }),
   });
@@ -117,6 +120,13 @@ export default async function handler(req, res) {
     kind: b.kind === "report" ? "report" : "feedback",
     reason: typeof b.reason === "string" ? b.reason.slice(0, 80) : null,
     spot: typeof b.spot === "string" && /^[\w-]{1,64}$/.test(b.spot) ? b.spot : null,
+    // the signed-in sender (Google account email), when there is one - so a report
+    // can be answered. Never required; the app sends null when signed out.
+    email:
+      typeof b.email === "string" && b.email.length <= 254 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(b.email)
+        ? b.email
+        : null,
+    name: typeof b.name === "string" ? b.name.slice(0, 200) : null,
     page: typeof b.page === "string" ? b.page.slice(0, 120) : "",
     ua: typeof b.ua === "string" ? b.ua.slice(0, 300) : "",
     received: new Date().toISOString(),

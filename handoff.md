@@ -1,91 +1,87 @@
-# Session Handoff — 2026-08-31 (session 47)
+# Session Handoff - 2026-09-07
 
 ## Goal
-Settle "Surfline is right" on Zvulun's wind and faces with measurements, then fix the
-two things the measuring exposed: the published wind model and the 6-7 h publish cycle.
+Work the Dream overnight review of 2026-09-07 (8 findings, 5 proposals) into the rosa
+pipeline, close the loop back into Dream's ledger, and commit nothing until the user says so.
 
 ## Current State
-- **`main` at `a41aa3d`, pushed. 582 tests pass, ruff clean.** Five commits this session
-  (`1bd68a6` GFS wind, `d73ba2f` physics perf, `f5d977a`+`1235b5c` docs, `a41aa3d` Dream).
-- **Published wind is GFS (`fetch.WEATHER_MODEL="gfs_seamless"`) since 2026-08-30**, on
-  all three legs (OM arm, blend aux batch, archive wind batch). Proven: Surfline's wind
-  IS raw GFS (matched their kph hour-by-hour via Open-Meteo `gfs_seamless`), and the
-  user's eyes at Zvulun 06-07 (9 kn NW, faces 0.9-1.2 m) sided with GFS over ICON's
-  3.4 kn. ICON stays archived at every station under `<id>.icon`;
-  `verify --stations --archive --wind-model {gfs,icon}` scores either. VM's 2 pre-switch
-  ICON cycles renamed to `.icon`. First pooled GFS card (n=895, 0-1d): bias +0.31 m/s.
-- **Faces**: same swell in, our breaker gave 0.77×Hs where eyes saw ~0.62×Hs (Zvulun);
-  Hilton same morning was inside our band. Logged as graded frames (CALIBRATION.md
-  2026-08-30), `height_coeff` untouched — one frame does not tune a transform.
-- **The publish cron now runs on `rosa-arm`** (A1.Flex 4 OCPU/24 GB, 82.70.253.255,
-  same key; it existed since 26 Jul, idle). Cycle measured **1 h 29 m** (archive 14 m +
-  NOMADS fetch 48 m + 624 spots in 18 m @1.75 s/spot + deploy/verify 9 m) vs 6-7 h on
-  the micro (sar: 6% user/45% steal = ~1/16 core). Cron kept 4×/day at 6 h; overnight
-  cycles ran clean (1h11m, 1h10m), backup rsync + watchdog verified. `rosa-instance` is
-  an idle spare (crontab emptied, backup in `~/crontab.before-arm-move.bak`).
-- **physics 3.1x** (`d73ba2f`): breaker-march state-independent terms precomputed with
-  numpy; A/B all 623 profiles × 48 cases worst 2.4e-15; scalar march kept in the test.
-- **Dream 2026-08-31 review fully worked** (`a41aa3d`): 2 findings applied via applier,
-  2 proposals by hand (Retry-After/ledger 429 classification; seam-safe `basin_boxes`),
-  1 rejected (quantize vectorization — ~1-3 s of a 1.5 h cycle). Ledger + playbook
-  bullet written in Dream.
-- **IMS token: still not received** (requested by mail 2026-08-29). `ims.yaml` empty.
-- `a41aa3d` not yet on the box — the 08:20Z (11:20 local) cycle pulls it.
+All review work is applied and verified in the WORKING TREE. NOTHING IS COMMITTED. 15 files
+modified on top of HEAD `8e94156`.
+
+- Repo suite: 592 passed (590 + 2 new). `ruff check` and `ruff format --check` fully clean
+  (the old swellmap.py:64 E501 was reformatted this session).
+- All 8 shipped Dream probe tests PASS against the live repo when run as
+  `PYTHONPATH=pipeline/src pipeline/.venv/bin/python <test> $PWD`. Dream's own applier
+  SKIPs them every night (no `test_*` functions); that is expected.
+- Dream ledger `~/Projects/Dream/assignments/codebase-reviewer/reports/.state/rosa.applied`
+  is up to date through this session. Backlog across all 24 report dates is zero open.
+- The VM has not run this code. Nothing here changes published numbers except the
+  Greenwich swellmap slice (3 basins) and the new refusals/exit codes listed below.
+- Vercel and the Oracle VM were not touched.
 
 ## Active Files
-- `pipeline/src/rosa_pipeline/fetch.py` — WEATHER_MODEL/WEATHER_AB_MODEL,
-  `fetch_wind_many(model=)`, `_retry_wait_s` (Retry-After capped 300 s; unclassifiable
-  429 retried iff quota ledger has room).
-- `pipeline/src/rosa_pipeline/blend.py` — aux weather leg sends `models=WEATHER_MODEL`.
-- `pipeline/src/rosa_pipeline/cli.py` — station arm archives both models
-  (`STATION_AB_KEY_SUFFIX=".icon"`), `verify --wind-model`.
-- `pipeline/src/rosa_pipeline/physics.py` — `_march_terms` (numpy precompute);
-  `surf_height_over_profile` keeps only the dissipation recurrence as a loop.
-- `pipeline/src/rosa_pipeline/swellmap.py` — seam-safe `basin_boxes` (signed offsets,
-  warn, no clamp), unsliceable keyed on first GOOD step (Dream diff).
-- `pipeline/tests/` — test_physics (scalar-march reference), test_fetch (429 cases,
-  models param), test_swellmap (no-op + Fiji seam), test_cli (dual-model station arm,
-  offline fleet-archive test).
-- Docs: CALIBRATION.md 2026-08-30, OPEN-ITEMS 24 (RESOLVED) + 25, SESSIONS 47,
-  CLAUDE.md, deploy/oracle/README.md (three-machine table, bootstrap §7).
+- `pipeline/src/rosa_pipeline/swellmap.py` - `slice_basin_field(periodic=True)` on the cron
+  path: Greenwich-crossing basins are cut from the global file as two joined column ranges.
+- `pipeline/src/rosa_pipeline/fetch.py` - `retrying_get` raises the real last transport
+  error (no stale 5xx); `_fetch_batch` runs `_check_batch_order` on marine + weather
+  (raise) and ensemble (degrade to None with a warn).
+- `pipeline/src/rosa_pipeline/notify.py` - shape-broken payload costs one spot, not the run;
+  `send_notifications(failures=...)`; `spot_regions` warns when index.json is unreadable.
+- `pipeline/src/rosa_pipeline/cli.py` - `notify` exits 1 when every push failed and nothing
+  sent; `feedback --at` REFUSES a value with no UTC offset (exit 2) and an unparseable one.
+- `pipeline/src/rosa_pipeline/publish.py` - `load_skill_ceilings` zero-weight tier is
+  static, not ZeroDivisionError; `dir_n` comment corrected.
+- `pipeline/src/rosa_pipeline/feedback.py` - `from_row` raises TypeError on a non-dict row
+  (caught by `records_from_rows`).
+- `pipeline/src/rosa_pipeline/horizon.py` - deep test shares the 1 km resolution guard.
+- `pipeline/src/rosa_pipeline/confidence.py` - `n_dirs` comment corrected (ECMWF bearing IS
+  in the fan since 2026-08-11).
+- `pipeline/src/rosa_pipeline/physics.py` - COMMENTS ONLY: friction coefficient relabelled
+  as effective ~0.37, applied over g on purpose. Constant and march line untouched.
+- `pipeline/tests/test_feedback.py` - 2 new tests for the `--at` refusal.
+- `docs/CALIBRATION.md` - new 2026-09-07 entry: friction is a tuned effective coefficient,
+  standing rule "no g² fix, only a re-tune under pb_0049".
+- `docs/ALGORITHM.md` - friction sentence relabelled; new `agreement_score` pooling note.
+- `docs/OPEN-ITEMS.md` - 28 (friction) added and CLOSED; 29 (k-biased agreement score) added.
+- `docs/SESSIONS.md` - session entry written.
+- `~/Projects/Dream/playbook.md` - one untagged learning: never re-propose the friction g² fix.
 
 ## Changes Made This Session
-1. Measured the wind dispute: Surfline = raw GFS; METARs + eyes → switched to GFS,
-   kept ICON as station A/B. No knob touched; the switch is reversible in one constant
-   and the A/B after ~2 weeks confirms or reverts it (OPEN-ITEMS 25).
-2. Diagnosed the cycle: burstable micro at ~1/16 core (sar steal), not code alone.
-   Found rosa-arm already existed (watcher launched it 26 Jul; its log ends BEFORE the
-   launch — `oci compute instance list` is the truth). Migrated: deploy key, NodeSource
-   Node 20 arm64, Vercel CLI, uv sync, 563 tests on aarch64, rsync data/verify+out+.env+
-   rosa-push, micro's crontab emptied FIRST, same 3 cron lines on arm.
-3. Vectorized the breaker march (identical to 2.4e-15, 3.1x).
-4. Worked the first Dream report for rosa (details above).
+1. Classified every `.diff` across all 24 Dream report dates for rosa against the working
+   tree. Everything through 2026-09-05 was already applied, superseded, or ledgered
+   (verified by checking the diffs' added lines exist in the source, not by trusting the
+   ledger). Only 2026-09-07 was open.
+2. Applied 8 of 9 diffs via `review-apply.sh rosa 2026-09-07`, fed `"5 4 7 6 1 2 8 9"` so
+   the report's apply order held (notify one-bad-payload BEFORE notify exit-code;
+   retrying-get BEFORE publish-batch-bodies). `--all` would have gone alphabetically.
+3. Hand-applied proposals 2 (docstrings), 5 (`spot_regions` warn), 4's doc half
+   (ALGORITHM.md note; the k-aware spread itself is pb_0049-gated, OPEN-ITEMS 29).
+4. Proposal 3, naive `feedback --at`: user chose REFUSE ("always type the timezone").
+5. Friction finding (HIGH, `/ GRAVITY` where SWAN has `/ GRAVITY**2`): first HELD, then
+   the user ruled it out. Their read: fleet heights are close and if anything slightly
+   HIGH, so removing 90% of the friction loss is the wrong direction. Resolved as a LABEL
+   fix: zero output change, code + docs now say the coefficient is effective ~0.37 and
+   tuned by eye. Diff REJECTED in the ledger, playbook learning added.
+6. Reformatted the pre-existing swellmap.py:64 long line on request.
 
 ## Failed Attempts
-- **`pgrep -f publish.sh` over ssh matches the ssh command line itself** — showed a
-  phantom running cycle twice; filter out `bash -c` (noted in oracle-vm memory).
-- **`crontab -l | ... | crontab -` under `set -e` installed an EMPTY crontab** on arm
-  (no prior crontab → `crontab -l` exits 1, subshell died, empty stdin piped through).
-  Re-ran without set -e.
-- **py-spy needs the real python pid** (a wrapper/false pid gives "Failed to find
-  python version"); on the VMs use `sudo ~/.local/bin/uvx py-spy dump` (sudo drops PATH).
-- **rosa-instance's `id_ed25519` is NOT authorized on rosa-arm** — hop with the project
-  key from the workstation instead.
-- **The A/B-test yaml for fake spots must carry `ideal:`** (and swell_window etc.) —
-  `load_spots` KeyErrors otherwise; copy the shape from Dream's rig or israel.yaml.
-- The arm cycle's ~1 h fetch phase is NOMADS' grib-filter pace (4 idle-ish conns,
-  ~12 KB/s stretches) — not the box, not a bug; don't kill a "stuck" cycle for it.
+- The first `/dream-review` invocation failed its shell permission check (the skill's
+  inline `ls` preamble); a re-run passed. Not a code problem.
+- Wrote "(session 50)" into the CALIBRATION.md heading by guess; removed it after checking
+  SESSIONS.md has no such numbering for this date. Do not invent session numbers.
+- `notify.spot_regions` warn first used `file=sys.stderr`; notify.py has no `sys` import
+  and its sibling warns use bare `print`. Fixed to match.
 
 ## Next Step
-1. **Verify `a41aa3d` from the CDN after the 08:20Z cycle** (pipeline-change smoke
-   rule): `curl -s https://rosa-data-opal.vercel.app/data/spots/zvulun.json | jq .fetched_at`.
-2. **IMS token when it arrives**: add `IMS_API_TOKEN=...` to `~/rosa/.env` on **rosa-arm**
-   (82.70.253.255 now, not the micro), then locally
-   `IMS_API_TOKEN=... uv run --project pipeline rosa-pipeline stations --discover ims > data/stations/ims.yaml`,
-   review, commit; smoke `verify --station <id> --archive`.
-3. **In ~2 weeks**: the GFS-vs-ICON station A/B
-   (`verify --stations --archive --wind-model gfs|icon` on rosa-arm) confirms or
-   reverts the wind switch; then pick the residual per-sector/hour correction
-   (OPEN-ITEMS 25 — Hilton showed GFS itself still ~5 kn light at the beach some hours).
-4. Optional, only if cycle time matters again: NOMADS fetch (~1 h) is the remaining
-   chunk — fewer/fatter subset requests or a mirror (OPEN-ITEMS 24 tail note).
+1. Ask the user whether to commit. Suggested split, all from the working tree:
+   - `fix(pipeline): Dream 2026-09-07 - Greenwich basins sliced, notify/feedback/skill
+     robustness, batch-body guard on the publish path, feedback --at needs an offset`
+   - `docs(calibration): friction coefficient is effective ~0.37, not SWAN's 0.038`
+   Then push. Deploy is the VM's next cron pull (02:20/08:20/14:20/20:20 UTC).
+2. After the first VM cycle with this code, verify from the CDN that
+   `swellmap/index.json` now carries fresh frames for `biscay-celtic`, `north-sea` and
+   `west-africa` (they were refused every cycle before). Never `run --all` locally.
+3. Watch the first live cycle's log for a `_check_batch_order` refusal on a WEATHER body
+   (the one new false-positive risk the proposal named: `MAX_GRID_SNAP_DEG` 0.3° cap).
+4. Open: OPEN-ITEMS 27 (lon-in-ground-distance sampler diff, HELD, needs A/B) and 29
+   (k-aware agreement spread, needs a CALIBRATION.md entry first).

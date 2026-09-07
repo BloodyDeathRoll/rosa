@@ -1,9 +1,12 @@
 import { useEffect, useState } from "preact/hooks";
+import { accountSupported, deleteAccount, signOut } from "../account";
+import { GoogleButton } from "../components/GoogleButton";
 import { MoonIcon, SunIcon } from "../components/icons";
 import { AppHeader } from "../components/parts";
 import { feedbackPref, setFeedbackPref } from "../feedback";
 import { manualInstallOffer, runInstall, type InstallOffer } from "../install";
 import { disablePush, enablePush, pushState, syncPushSpots, type PushState } from "../push";
+import { ACCOUNT_EVENT, profile, type Profile } from "../session";
 import { signalReady } from "../splash";
 import { setUnits, useUnits } from "../units";
 import type { Theme } from "../theme";
@@ -62,6 +65,77 @@ function InstallCard() {
           "Opens full screen, starts faster, and keeps your last forecast readable offline."
         )}
       </p>
+    </section>
+  );
+}
+
+/** Who you are signed in as, and the way out. Signed out, one button opens the
+    same sign-in screen the star does. Favorites need an account (2026-09-07). */
+function AccountCard() {
+  const [who, setWho] = useState<Profile | null>(profile);
+  const [busy, setBusy] = useState(false);
+  const [failed, setFailed] = useState<string | null>(null);
+  useEffect(() => {
+    const onAccount = (e: Event) => setWho((e as CustomEvent<Profile | null>).detail);
+    addEventListener(ACCOUNT_EVENT, onAccount);
+    return () => removeEventListener(ACCOUNT_EVENT, onAccount);
+  }, []);
+  if (!accountSupported()) return null;
+
+  const out = async () => {
+    setBusy(true);
+    setFailed(null);
+    await signOut(); // never throws - local sign-out always happens
+    setBusy(false);
+  };
+  const remove = async () => {
+    if (!confirm("Delete your Rosa account and its saved spots? This cannot be undone.")) return;
+    setBusy(true);
+    setFailed(null);
+    try {
+      await deleteAccount();
+    } catch {
+      setFailed("Couldn't reach the account service - check your connection and try again.");
+    }
+    setBusy(false);
+  };
+
+  return (
+    <section class="settings-card">
+      <div class="card-title">
+        <span class="eyebrow">Account</span>
+      </div>
+      {who ? (
+        <>
+          <div class="settings-row tall account-row">
+            {who.picture ? (
+              <img class="account-avatar" src={who.picture} alt="" width="32" height="32" referrerpolicy="no-referrer" />
+            ) : (
+              <span class="account-avatar account-avatar-blank" aria-hidden="true" />
+            )}
+            <span class="account-who">
+              <span class="label">{who.name ?? "Signed in"}</span>
+              {who.email && <span class="value">{who.email}</span>}
+            </span>
+          </div>
+          <p class="settings-note">
+            {failed ?? "Your favorite spots are saved to this account and follow you to every device."}
+          </p>
+          <button class="settings-row tall about-link" disabled={busy} onClick={() => void out()}>
+            <span class="label">Sign out</span>
+          </button>
+          <button class="settings-row tall about-link account-danger" disabled={busy} onClick={() => void remove()}>
+            <span class="label">Delete account</span>
+          </button>
+        </>
+      ) : (
+        <>
+          <div class="settings-row tall account-signin">
+            <GoogleButton size="medium" width={240} />
+          </div>
+          <p class="settings-note">Sign in to save your favorite spots and keep them on every device.</p>
+        </>
+      )}
     </section>
   );
 }
@@ -183,6 +257,8 @@ export function SettingsPage({
     <main class="page">
       <AppHeader right={<span class="head-note">profile</span>} />
       <div class="settings-page">
+        <AccountCard />
+
         <section class="settings-card">
           <div class="card-title">
             <span class="eyebrow">Preferences</span>

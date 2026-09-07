@@ -2,6 +2,7 @@ import { useEffect, useState } from "preact/hooks";
 import { HomeIcon, MapIcon, StarIcon, UserIcon, WavesIcon } from "./components/icons";
 import { BottomGlow } from "./components/BottomGlow";
 import { InstallPrompt } from "./components/InstallPrompt";
+import { SignInScreen } from "./components/SignInScreen";
 import { AboutPage, type AboutDoc } from "./pages/AboutPage";
 import { ChartsPage } from "./pages/ChartsPage";
 import { MapPage } from "./pages/MapPage";
@@ -119,6 +120,7 @@ export function App() {
         />
       )}
       <InstallPrompt />
+      <SignInScreen />
     </div>
   );
 }

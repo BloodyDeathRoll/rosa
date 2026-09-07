@@ -336,3 +336,77 @@ into the Build Output config. `notify.py` deep links and the push-api CORS lists
 Decision: PWAs installed from the old origin are frozen (a redirected `sw.js` is rejected by the
 browser, so they never update but keep reading fresh data from rosa-data); users reinstall from
 rosa.surf. Not exempting `sw.js` from the redirect.
+
+**2026-09-07 - Dream review 2026-09-07 worked (8 findings, 5 proposals).** Applied via Dream's
+applier, in the report's order (notify one-bad-payload before notify exit-code; retrying_get
+before the batch-body guard): `swellmap.slice_basin_field(periodic=True)` on the cron path, so
+the three Greenwich-crossing basins (biscay-celtic, north-sea, west-africa, 137 spots) are cut
+from the single global download as two column ranges joined instead of being refused and sent
+to grib-filter as a `leftlon > rightlon` box the repo documents as inexpressible (the 2026-08-23
+"no committed basin crosses a seam" invariant died with the 2026-09-03 Ghana seeding; the
+antimeridian case is still refused, and `--basin`/`--skip-world` still has no global field);
+`retrying_get` raises the real last transport error instead of a stale earlier 5xx; `notify`
+exits 1 when every planned push failed and nothing was sent (the verify rule, so publish.sh's
+`|| echo` can fire); one shape-broken payload costs its own spot, not the notify run;
+`load_skill_ceilings` treats a zero-weight tier as static instead of ZeroDivisionError-ing the
+publish cycle; `feedback --report` skips a non-object JSON line; `horizon`'s deep test now
+shares the 1 km resolution guard the land test had, so a steep coast's 0.5 km cell no longer
+votes "open" against every headland (report-only tool, fleet windows unchanged until re-run);
+and the publish path's `_fetch_batch` gets the `_check_batch_order` guard the archive got on
+2026-09-06 (marine + weather raise on a mismatch, ensemble degrades to None with a warn). By
+hand: the two docstrings that still said the ECMWF bearing is kept out of the fan (in since
+2026-08-11) rewritten; `notify.spot_regions` warns when index.json is unreadable instead of
+silently switching the region lock off; ALGORITHM.md gained the `agreement_score` pooling
+note. The JONSWAP friction finding (the march divides by g where the cited law has g²,
+so friction is 9.81× the textbook) was CLOSED as a labelling fix: the user's read is that
+the fleet is close and if anything high, so the textbook coefficient is the wrong
+direction; the constant and the line are untouched, and physics.py, ALGORITHM.md and a
+CALIBRATION.md 2026-09-07 entry now state the effective Cb ≈ 0.37 as a tuned knob
+(OPEN-ITEMS 28 closed). The pre-existing swellmap.py:64 E501 was reformatted. Naive `feedback --at` (read as UTC
+until now, so a Maldives dawn session graded against the 14:00 forecast) is REFUSED with a
+message showing the +03:00 form - the user's call, always type the offset. Suite 592 passed, ruff check + format clean. Working tree only, nothing committed.
+
+## SESSION 2026-09-07 (evening) - Google sign-in + synced favorites (Cloudflare Worker + D1)
+
+**Why.** Favorites lived only in localStorage, so clearing the browser deleted them, and
+nothing could answer "how many users". Decisions: sign-in is OPTIONAL for the forecast and
+REQUIRED to save a favorite; the backend is a Cloudflare Worker + D1, not Supabase, because
+Supabase bills per monthly active user (~$3k/mo at 1M) and Cloudflare per request (~$5-15/mo at
+1M; free to ~100k). Portability rules: the user key is Google's `sub`, and the web app talks
+only to two calls of our own API (`GET /me`, `PUT /me/favorites`) - never a vendor SDK.
+
+**Built.** `deploy/user-api/` (TypeScript, wrangler): `POST /auth/google` verifies the Google
+ID token against Google's JWKS (RS256, iss, aud, exp, email_verified) and mints a stateless
+180-day HMAC session carrying the user's `session_epoch` (logout bumps it, every device's
+token dies, zero writes per request); `GET /me`, `PUT /me/favorites` (cap 200, id regex,
+dedupe), `POST /auth/logout`, `DELETE /me`, `GET /admin/stats` (users, new/active 7d/30d,
+favorites) behind `x-admin-secret`. One `users` row per `sub`, favorites as a JSON column (one
+row write per toggle), `last_seen_at` touched at most daily. `node --test` covers the verifier
+(expired/aud/iss/unverified/unknown kid/forged/tampered/alg=none) and the session HMAC.
+Web: `session.ts` (who is signed in, three window events), `account.ts` (lazy GIS script,
+button, sign-in with a one-time merge of the pre-account list, sign-out, delete, debounced
+PUT, boot/reconnect sync with a dirty flag), `favorites.ts` (`toggleFavorite` keeps its
+signature: signed out it opens the sign-in screen and the tapped spot is saved when sign-in
+lands; `useFavorites()` hook so pages re-render on a sync), `components/SignInScreen.tsx` - the
+user's ask: the SPLASH, continued. Same photo/scrim/glow/mark/wordmark one z-index under
+`#splash`, so a signed-out launch lifts the splash onto "Save your spots" + Google's button +
+Not now (holds for the launch). Profile > Account card (avatar, name, email, Sign out, Delete
+account). Spots tab signed-out empty state has the button. Privacy page rewritten to say what
+is stored where (also the analytics/push/feedback debt from session 16). Docs: UI.md,
+build-plan (accounts-as-gate line reversed), roadmap write-plane (superseded, with numbers),
+CLAUDE.md architecture, oracle README stats recipe, OPEN-ITEMS 30 (iOS standalone popup
+unverified).
+
+**Verified.** Worker: 6 node tests; `wrangler dev` + local D1 curl pass over every route
+(CORS allow/deny, garbage/expired credential 401, bad id and 201 ids 400, dedupe, last_seen
+throttle, logout kills the old token, delete). Web: `tsc` strict green, main chunk 122.9 →
+133.7 kB (gzip 44.3 → 47.6; Google's script is not bundled). Headless Chrome against both
+dev servers: sign-in screen under the splash with Google's iframe rendered, Not now, star
+signed out → screen with the pending spot, seeded session → boot PUT of the dirty list, two
+fast toggles → one PUT, Profile card, Sign out → logout call + empty list. A real Google
+sign-in was NOT exercised (no interactive browser here) - that is the first thing to do on
+the deployed demo. Setup done by the user: Google OAuth client in the existing "Rosa" GCP
+project (consent screen `rosa`, External, In production, brand + domain verified),
+Cloudflare account, `wrangler login`, D1 `rosa-users` created. NOT deployed yet: secrets,
+`wrangler deploy`, schema on the remote D1, web deploy.
+

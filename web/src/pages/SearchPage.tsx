@@ -9,7 +9,7 @@ import {
 } from "../components/icons";
 import { SpotTitle, StarButton, TierDot } from "../components/parts";
 import { ratingWord } from "../conditions";
-import { getFavorites, toggleFavorite } from "../favorites";
+import { useFavorites } from "../favorites";
 import { splitName } from "../format";
 import { getRecents } from "../recents";
 import { regionsFrom, type RegionInfo } from "../regions";
@@ -85,8 +85,7 @@ function RegionRow({ region }: { region: RegionInfo }) {
 export function SearchPage() {
   const [index, setIndex] = useState<Record<string, IndexEntry> | null>(null);
   const [query, setQuery] = useState("");
-  const [favs, setFavs] = useState<string[]>(getFavorites);
-  const onToggle = (id: string) => setFavs(toggleFavorite(id));
+  const [favs, onToggle] = useFavorites();
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {

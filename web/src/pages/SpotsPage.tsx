@@ -14,7 +14,9 @@ import { SearchIcon } from "../components/icons";
 import { AppHeader, SpotTitle, StarButton, TierDot } from "../components/parts";
 import { SpotCard } from "../components/SpotCard";
 import { ratingWord } from "../conditions";
-import { getFavorites, toggleFavorite } from "../favorites";
+import { GoogleButton } from "../components/GoogleButton";
+import { useFavorites } from "../favorites";
+import { signedIn } from "../session";
 import { signalReady } from "../splash";
 import { bestWindow, dateOf, splitName, todayIn, windLabel } from "../format";
 import { fmtH, fmtRange, heightUnit, useUnits, type Units } from "../units";
@@ -63,11 +65,10 @@ export function SpotsPage() {
   const [index, setIndex] = useState<Record<string, IndexEntry> | null>(null);
   const [payloads, setPayloads] = useState<Record<string, SpotPayload>>({});
   const [error, setError] = useState<string | null>(null);
-  const [favs, setFavs] = useState<string[]>(getFavorites);
+  const [favs, onToggle] = useFavorites();
   // the chip survives a relaunch; if that region is no longer among your
   // favourites, `activeGroup` below falls back to All.
   const [group, setGroup] = useState<string>(savedGroup);
-  const onToggle = (id: string) => setFavs(toggleFavorite(id));
 
   useEffect(() => {
     let disposed = false;
@@ -76,15 +77,8 @@ export function SpotsPage() {
         const idx = await fetchIndex();
         if (disposed) return;
         setIndex(idx.spots);
-        const favIds = getFavorites().filter((id) => idx.spots[id]);
-        const results = await Promise.allSettled(favIds.map(fetchSpot));
-        if (disposed) return;
-        const loaded: Record<string, SpotPayload> = {};
-        for (const r of results) if (r.status === "fulfilled") loaded[r.value.spot.id] = r.value;
-        setPayloads(loaded);
       } catch (e) {
         if (!disposed) setError((e as Error).message);
-      } finally {
         signalReady();
       }
     })();
@@ -92,6 +86,31 @@ export function SpotsPage() {
       disposed = true;
     };
   }, []);
+
+  // Payloads follow the list: the first pass loads every favorite, and a later
+  // change (a sign-in merge, a sync from another device) loads only what is new.
+  useEffect(() => {
+    if (!index) return;
+    const missing = favs.filter((id) => index[id] && !payloads[id]);
+    if (missing.length === 0) {
+      signalReady();
+      return;
+    }
+    let disposed = false;
+    (async () => {
+      const results = await Promise.allSettled(missing.map(fetchSpot));
+      if (disposed) return;
+      const loaded: Record<string, SpotPayload> = {};
+      for (const r of results) if (r.status === "fulfilled") loaded[r.value.spot.id] = r.value;
+      setPayloads((prev) => ({ ...prev, ...loaded }));
+      signalReady();
+    })();
+    return () => {
+      disposed = true;
+    };
+    // payloads is read, not a trigger: a fetch result must not start another round
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [index, favs]);
 
   const search = (
     <a class="icon-btn" href="#/search" aria-label="Search spots">
@@ -130,7 +149,14 @@ export function SpotsPage() {
       {!index ? (
         <p class="state">Loading…</p>
       ) : favRows.length === 0 ? (
-        <p class="empty-center">No favorites yet</p>
+        signedIn() ? (
+          <p class="empty-center">No favorites yet</p>
+        ) : (
+          <div class="empty-center empty-signin">
+            <p>Sign in to save spots</p>
+            <GoogleButton size="large" width={260} />
+          </div>
+        )
       ) : (
         <div class="spots-page">
           {groups.length > 1 && (

@@ -313,17 +313,40 @@ function Terms() {
 function Privacy() {
   return (
     <>
-      <p class="about-muted">Last updated: July 2026</p>
-      <p>Rosa is built to respect your privacy. In short: your data stays on your device.</p>
+      <p class="about-muted">Last updated: September 2026</p>
+      <p>
+        Rosa is built to respect your privacy. In short: we keep only what the app needs to work
+        for you, and you can delete it at any time.
+      </p>
       <h2>What is stored on your device</h2>
       <p>
-        Your preferences, units, theme, and favorite spots are saved locally in your browser. They
-        stay on your device and are not sent to us.
+        Your preferences, units, theme, recent spots, and a copy of your favorite spots are saved
+        locally in your browser.
+      </p>
+      <h2>Your account</h2>
+      <p>
+        Saving favorite spots needs a Rosa account, which you create by signing in with Google.
+        We store the name, email address, and profile picture Google shares, your list of favorite
+        spots, and when you last used Rosa. We use them only to keep your favorites in sync across
+        your devices and to count how many people use Rosa. Nothing is sold or shared. The data
+        lives on Cloudflare's servers. Profile › Account › Delete account removes all of it.
+      </p>
+      <h2>Notifications and feedback</h2>
+      <p>
+        If you turn on swell alerts, your browser's push address, your favorite spot ids, and the id
+        of the spot nearest you are stored so we can send the alert. They are deleted when you turn
+        alerts off. If you answer a "was the call right?" question, the spot, date, and your answer
+        are stored to tune the forecast. Contact and report messages are stored so we can read them.
       </p>
       <h2>Location</h2>
       <p>
         If you allow location access, Rosa uses it only to show the spots nearest you. Your location
-        is not stored and is not sent to us.
+        is not stored and is not sent to us; only the id of the nearest spot is, as above.
+      </p>
+      <h2>Analytics</h2>
+      <p>
+        We count visits and page views with Vercel Web Analytics, which does not use cookies and does
+        not identify you.
       </p>
       <h2>Third-party services</h2>
       <p>
@@ -357,7 +380,15 @@ function Privacy() {
         </li>
         <li>
           <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">Vercel</a> ·
-          hosting
+          hosting and visit counts
+        </li>
+        <li>
+          <a href="https://www.cloudflare.com" target="_blank" rel="noopener noreferrer">Cloudflare</a> ·
+          account and favorites storage
+        </li>
+        <li>
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google</a> ·
+          sign-in
         </li>
       </ul>
     </>
