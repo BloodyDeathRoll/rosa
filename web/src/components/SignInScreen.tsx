@@ -126,8 +126,7 @@ export function SignInScreen() {
         <span class="signin-word">
           rosa<i class="signin-dot" />
         </span>
-        <h2 id="signin-title">Save your spots</h2>
-        <p>Sign in to keep your favorite spots on every device.</p>
+        <h2 id="signin-title" class="sr-only">Sign in</h2>
         <div class="signin-google">
           <GoogleButton size="large" width={280} onDone={onDone} />
         </div>

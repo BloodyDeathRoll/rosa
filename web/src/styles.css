@@ -3377,6 +3377,14 @@ a.rank-card:hover {
   background: #11b7f2;
   vertical-align: baseline;
 }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
 .signin-inner h2 {
   margin: 22px 0 0;
   font-size: 20px;
@@ -3392,7 +3400,7 @@ a.rank-card:hover {
 }
 .signin-google {
   width: 100%;
-  margin-top: 14px;
+  margin-top: 34px;
   display: flex;
   justify-content: center;
 }
