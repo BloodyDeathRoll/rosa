@@ -26,6 +26,15 @@ export function movedLink(): string {
   return `${APP_ORIGIN}/#/spots${q}`;
 }
 
+/** Where this platform hides "remove": there is no web API for uninstalling, the
+    OS owns the home screen, so the screen has to say it. */
+function removeHint(): string {
+  const ua = navigator.userAgent;
+  if (/iPhone|iPad|iPod/.test(ua)) return "To remove this one: press and hold its icon, then Remove App.";
+  if (/Android/.test(ua)) return "To remove this one: press and hold its icon, then Uninstall.";
+  return "To remove this one: open its menu (\u22ee) and choose Uninstall Rosa.";
+}
+
 export function MovedScreen() {
   useEffect(signalReady, []);
   const n = getFavorites().length;
@@ -40,9 +49,10 @@ export function MovedScreen() {
         <h2 id="moved-title">Rosa has moved</h2>
         <p>
           The app now lives at <b>rosa.surf</b>. Open it there, sign in
-          {n > 0 ? ` to keep your ${n} saved ${n === 1 ? "spot" : "spots"}` : ""}, add it to your home
-          screen, then delete this one.
+          {n > 0 ? ` to keep your ${n} saved ${n === 1 ? "spot" : "spots"}` : ""}, and add it to your
+          home screen when it offers.
         </p>
+        <p class="moved-remove">{removeHint()}</p>
         <div class="signin-google">
           <a class="google-btn google-btn-large moved-go" href={movedLink()} target="_blank" rel="noopener">
             Open rosa.surf

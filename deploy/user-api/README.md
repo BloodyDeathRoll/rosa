@@ -102,6 +102,8 @@ signs in - they keep seeing their local list, they just cannot change it.
 
 ## How many users
 
+`./stats.sh` (from this directory), or by hand:
+
 ```sh
 curl -s -H "x-admin-secret: $(cat ~/rosa-push/user-api-admin-secret.txt)" \
   https://rosa-user-api.einhanamer.workers.dev/admin/stats

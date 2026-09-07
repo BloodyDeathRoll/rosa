@@ -3416,6 +3416,10 @@ a.rank-card:hover {
   text-decoration: none;
   color: #1f1f1f;
 }
+.moved-remove {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.62);
+}
 .signin-later {
   margin-top: 6px;
   color: rgba(255, 255, 255, 0.72);
