@@ -86,6 +86,7 @@ class SpectralSea:
     pp1d: float | None = None  # peak period Tp, s
     mp2: float | None = None  # mean zero-crossing period Tm02, s
     bands: tuple[tuple[str, float], ...] = ()  # (param, Hs m), e.g. ("h1417", 0.4)
+    run: datetime | None = None  # model cycle (provenance, publish.model_run); None on fixtures
 
 
 @dataclass(frozen=True, slots=True)

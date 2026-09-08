@@ -817,6 +817,7 @@ def _cmd_run(args: argparse.Namespace) -> int:
                     now=now,
                     skill=skill,
                     wave_source=getattr(args, "wave_source", "om"),
+                    model_run=raw.model_run,
                 )
                 path = write_spot_json(payload, args.out)
                 update_index(payload, args.out)

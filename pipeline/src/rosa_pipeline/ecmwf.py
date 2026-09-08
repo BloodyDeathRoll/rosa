@@ -149,6 +149,7 @@ def parse_grib_points(
     points: list[tuple[float, float]],
     valid: datetime,
     params: tuple[str, ...] = DEFAULT_PARAMS,
+    run: datetime | None = None,
 ) -> list[SpectralSea | None]:
     """Sample every wanted message at each point's nearest wet node.
 
@@ -190,6 +191,7 @@ def parse_grib_points(
                 pp1d=d.get("pp1d"),
                 mp2=d.get("mp2"),
                 bands=tuple((k, d[k]) for k in BAND_PARAMS if k in d),
+                run=run,
             )
         )
     return out
@@ -262,7 +264,7 @@ class EcmwfSource:
             self.capture_dir.mkdir(parents=True, exist_ok=True)
             (self.capture_dir / f"ecmwf_f{step:03d}.grib2").write_bytes(data)
         valid = cycle + timedelta(hours=step)
-        for i, sp in enumerate(parse_grib_points(data, points, valid, self.params)):
+        for i, sp in enumerate(parse_grib_points(data, points, valid, self.params, run=cycle)):
             if sp is not None:
                 series[i].append(sp)
 

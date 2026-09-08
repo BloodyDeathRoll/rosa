@@ -27,6 +27,7 @@ quadratic q confirmed against ISRAMAR Hadera buoy + cam observation).
 from __future__ import annotations
 
 from .models import Bucket, HourForecast, ScoredHour, Spot
+from .physics import tide_shifted_samples
 from .transform import (
     angle_diff,
     breaker_height_from_profile,
@@ -101,9 +102,9 @@ def score_hour(
     if wet_samples:
         # tide raises/lowers the water column, so the wave breaks at a deeper/shallower point
         # (Stage 2D). Micro-tidal Med barely moves; macro-tidal spots (Costa Rica) shift a lot.
-        samples = wet_samples
-        if hour.tide_m:
-            samples = [(x, d + hour.tide_m) for x, d in wet_samples if d + hour.tide_m > 0]
+        # A sample that dries at this tide becomes the shoreline (interpolated), never a
+        # hole the march skips over - see physics.tide_shifted_samples.
+        samples = tide_shifted_samples(wet_samples, hour.tide_m or 0.0)
         # open item 4 (product call 2026-08-03): a blown-out sea reads smaller, a groomed one
         # bigger. Inert until WIND_BREAKER_COEFF is graded - see physics.wind_breaker_factor.
         h_eff = breaker_height_from_profile(

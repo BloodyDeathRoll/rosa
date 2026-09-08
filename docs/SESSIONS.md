@@ -426,3 +426,23 @@ started empty. MovedScreen's link now carries them (`#/spots?import=a,b,c`); `ma
 on rosa.surf merges the ids into the local list before rendering, strips the parameter,
 and the sign-in screen then saves them to the account. Verified headless.
 
+**2026-09-08 - Dream review 2026-09-08 worked (1 finding applied, 1 measured gap recorded) plus
+the 2026-09-02 run-timestamp proposal.** (a) The HIGH: `score_hour` deleted a bathy sample that
+dried at this tide, so the march saw a profile ending a whole segment further out and the same
+swell published 1.29 m at one tide and 0.00 m 5 cm higher at 72 spots. Applied from the report's
+diff via Dream's applier: `physics.tide_shifted_samples` turns the dried sample into the
+interpolated shoreline, shared by `score_hour` and `experiment.predict_frame`. Bit-identical at
+tide 0; heights move DOWN at ~115 macro-tidal spots for ~0.6 % of hours (the fix no longer
+marches around dry land). Decision and the reviewer's fleet A/B in `docs/CALIBRATION.md`
+2026-09-08; ALGORITHM.md tides paragraph updated; 5 repo tests pin it. The MEDIUM (the
+`qb > 0.1` gate vs the K&G close still steps 0.2-1.0 m across 5 cm of tide at ~148 spots, no
+fix drafted) is OPEN-ITEMS 31. (b) The 2026-09-02 proposal SESSION 50 left open is done: the
+blend arm now publishes `model_run` `{"gfswave": iso, "ecmwf": iso | null}` beside
+`fetched_at` - PER POINT, as the proposal's gotcha demanded, because the GFS drop-back is per
+box. `GfsSea.run` / `SpectralSea.run` are stamped by the live sources (`parse_gfs_full` /
+`parse_grib_points` take `run=`), `blend._model_run` takes the NEWEST stamp so back-reach
+steps from earlier cycles never label the forecast, `RawForecast.model_run` carries it,
+`build_payload(model_run=)` emits it only when present (omitted, not null, on the OM arm and
+on fixtures). Nothing reads or scores on it; `web/src/types.ts` documents the key. 4 tests.
+Verification: 601 passed (592 + 9), ruff check + format clean, tsc clean. Working tree only,
+nothing committed. Smoke rule: verify `model_run` on a CDN payload after the next VM cycle.

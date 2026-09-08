@@ -445,6 +445,36 @@ def _march_terms(
     )
 
 
+def tide_shifted_samples(
+    samples_deep_to_shallow: list[tuple[float, float]], tide_m: float
+) -> list[tuple[float, float]]:
+    """The (dist_m, depth_m) profile with the water column raised by ``tide_m``.
+
+    The march ends where the seabed meets the water surface. A sample that dries at this
+    tide is the SHORELINE: it is replaced by the point where the depth crosses zero,
+    interpolated linearly between it and the last wet sample - the same interpolation
+    between measured points the march already does - and everything shoreward of it is
+    dropped, because a wave cannot pass through dry land. Deleting the dried sample instead
+    (the rule until 2026-09-08) handed the march two different profiles either side of a
+    5 cm tide change - one ending centimetres deep, one a whole segment further out - and
+    the same 1.5 m / 10 s swell published 1.29 m at one tide and 0.00 m 5 cm higher
+    (mona-vale-beach; 72 of 1407 spots stepped >= 0.2 m, Dream review 2026-09-08).
+    A profile whose deep reference itself dries has no water to march in: empty."""
+    if not tide_m:
+        return list(samples_deep_to_shallow)
+    out: list[tuple[float, float]] = []
+    for x, d in samples_deep_to_shallow:
+        dd = d + tide_m
+        if dd > 0.0:
+            out.append((x, dd))
+            continue
+        if out:
+            px, pd = out[-1]
+            out.append((px + (x - px) * pd / (pd - dd), 0.0))
+        break
+    return out
+
+
 def surf_height_over_profile(
     offshore_height_m: float,
     period_s: float,

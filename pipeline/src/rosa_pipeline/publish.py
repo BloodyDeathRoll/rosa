@@ -330,8 +330,12 @@ def build_payload(
     now: datetime,
     skill: tuple[dict[int, float], str] | None = None,
     wave_source: str = "om",
+    model_run: dict | None = None,
 ) -> dict:
-    """``wave_source`` ("om" | "blend") picks the data credit only; nothing scores on it."""
+    """``wave_source`` ("om" | "blend") picks the data credit only; nothing scores on it.
+    ``model_run`` (blend arm, per point - see blend._model_run) is published beside
+    ``fetched_at`` when present: the cycle the numbers came from, which on the blend arm
+    Rosa itself chose and may have dropped back 6-12 h from. Provenance only."""
     tz = ZoneInfo(spot.timezone)
     ceilings, ceiling_source = skill if skill is not None else (None, "static defaults")
 
@@ -477,6 +481,9 @@ def build_payload(
         # hour is best_match, or when the source published a single model (fixtures,
         # the blend arm). Display provenance only: nothing scores on it.
         "tail_from": _tail_from(visible, tz),
+        # Blend arm: when the model RAN, per point - fetched_at says only when Rosa asked.
+        # Omitted (not null) on the OM arm and on fixtures, where the cycle is not known.
+        **({"model_run": model_run} if model_run else {}),
         "generated_at": now.isoformat(timespec="seconds"),
         "attribution": _blend_attribution(has_spectral, has_peak_periods)
         if wave_source == "blend"

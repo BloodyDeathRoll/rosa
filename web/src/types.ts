@@ -107,6 +107,10 @@ export interface SpotPayload {
       single constant name was wrong on ~40% of rows (retired 2026-08-14). Nothing
       renders it yet; it is provenance, never an input to a rating. */
   tail_from?: string | null;
+  /** Blend arm only: when each wave model RAN (ISO UTC), per spot - `fetched_at` says
+      only when Rosa asked, and Rosa may have dropped back one cycle (6-12 h) for this
+      spot's box. Absent on the OM arm and on fixtures. Provenance, never an input. */
+  model_run?: { gfswave: string; ecmwf: string | null };
   spectral_meta?: { member: string | null; spread: string };
   current: CurrentEntry;
   hours: HourEntry[];

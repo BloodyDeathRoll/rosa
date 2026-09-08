@@ -180,10 +180,16 @@ class GfsSea:
 
     time: datetime
     fields: dict  # keys per _GFS_SINGLE/_GFS_TRIPLE values; missing -> absent
+    # The model cycle this step came from (display provenance, publish.model_run). None on
+    # fixtures and on interpolated hours; compose_raw takes the newest over the series.
+    run: datetime | None = None
 
 
 def parse_gfs_full(
-    grib_bytes: bytes, points: list[tuple[float, float]], valid: datetime
+    grib_bytes: bytes,
+    points: list[tuple[float, float]],
+    valid: datetime,
+    run: datetime | None = None,
 ) -> list[GfsSea | None]:
     """Sample the full wave schema at each point's nearest wet node (one step's bytes)."""
     import numpy as np
@@ -224,7 +230,7 @@ def parse_gfs_full(
             if d2[idx] > GFS_NEAREST_MAX_DEG**2:  # the archive arm's reach, never a copy
                 continue
             got[key] = round(float(vals[idx]), 3)
-        out.append(GfsSea(time=valid, fields=got) if "swh" in got else None)
+        out.append(GfsSea(time=valid, fields=got, run=run) if "swh" in got else None)
     return out
 
 
@@ -285,7 +291,9 @@ class GfsFullSource:
                             data
                         )
                     valid = run + timedelta(hours=step)
-                    for i, sea in zip(members, parse_gfs_full(data, pts, valid), strict=True):
+                    for i, sea in zip(
+                        members, parse_gfs_full(data, pts, valid, run=run), strict=True
+                    ):
                         if sea is not None:
                             series[i].append(sea)
         return series
@@ -555,7 +563,11 @@ def compose_raw(
     every hour when present; the OM light value is the per-hour fallback.
     ``tp`` (DWD GWAM, docs/rosa-peak-period-plan.md): the primary swell's and the wind
     sea's PEAK period per hour, the two columns extract._partition reads a peak from -
-    what the OM arm's gwam join supplied. None past 174 h and for secondaries, as there."""
+    what the OM arm's gwam join supplied. None past 174 h and for secondaries, as there.
+    ``model_run``: the cycle each leg's numbers came from, resolved PER POINT (the GFS
+    drop-back is per box, so a fleet-wide constant would be wrong for whichever boxes
+    fell back - the mistake that retired the ``model`` key). None on fixtures."""
+    model_run = _model_run(gfs, ecmwf)
     gfs = _interp_hourly(sorted(gfs, key=lambda g: g.time))
     tp_series = sorted(tp or [], key=lambda s: s.time)
     sp_series = sorted(ecmwf, key=lambda s: s.time)
@@ -655,7 +667,22 @@ def compose_raw(
         # plan C4: our own members, no OM ensemble request - GFS here, ECMWF appended
         # by extract from the spectral series. dir_n reports the 2-member era honestly.
         ensemble=ensemble,
+        model_run=model_run,
     )
+
+
+def _model_run(gfs: list[GfsSea], ecmwf: list[SpectralSea]) -> dict[str, str | None] | None:
+    """``{"gfswave": iso, "ecmwf": iso | None}`` for one point, or None when the GFS leg
+    carries no cycle stamp (fixtures). Newest stamp wins: back-reach steps
+    (``back_reach_plan``) come from EARLIER cycles and must not label the forecast."""
+    runs = [g.run for g in gfs if g.run is not None]
+    if not runs:
+        return None
+    sp_runs = [s.run for s in ecmwf if s.run is not None]
+    return {
+        "gfswave": max(runs).isoformat(timespec="minutes"),
+        "ecmwf": max(sp_runs).isoformat(timespec="minutes") if sp_runs else None,
+    }
 
 
 class BlendedSource:

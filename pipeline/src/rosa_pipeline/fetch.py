@@ -372,6 +372,9 @@ class RawForecast:
     marine: dict
     weather: dict
     ensemble: dict | None = None  # multi-model Hs/period/dir for confidence (Stage 1)
+    # Blend arm only: {"gfswave": iso, "ecmwf": iso | None} - the cycle the numbers came
+    # from, per point (blend._model_run). None on the OM arm and on fixtures.
+    model_run: dict | None = None
 
 
 class ForecastSource(Protocol):

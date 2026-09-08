@@ -207,3 +207,11 @@ def test_live_fetch_drops_back_a_cycle_when_the_first_step_is_missing() -> None:
     picked, used = src.cycles[0], src.cycles[1]
     assert used == picked - timedelta(hours=12)
     assert [sp.time for sp in series] == [used + timedelta(hours=s) for s in steps]
+
+
+def test_parse_grib_points_stamps_the_cycle_it_is_given() -> None:
+    valid = datetime(2026, 7, 22, 0, tzinfo=UTC)
+    (sea,) = parse_grib_points(GRIB.read_bytes(), [SEA_POINT], valid, run=valid)
+    assert sea is not None and sea.run == valid
+    (sea,) = parse_grib_points(GRIB.read_bytes(), [SEA_POINT], valid)
+    assert sea is not None and sea.run is None

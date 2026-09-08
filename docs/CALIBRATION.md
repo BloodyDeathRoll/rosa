@@ -2372,3 +2372,42 @@ start from the fact that today's 0.37 is what the eyes agreed with. Dream diff
 `2026-09-07/rosa/jonswap-friction-over-g-squared.diff` is REJECTED in the ledger for this
 reason; its test proves the label, not the surf.
 
+## 2026-09-08 - Tide: a dried bathy sample is the shoreline, not a hole (Dream review)
+
+**What was found.** `score.score_hour` (and its copy in `experiment.predict_frame`) shifted
+the depth profile by the EOT20 tide and DELETED every sample whose depth went to zero or
+below. On a monotone ray the dried sample is the beach; deleting it handed the march a
+profile ending one whole GEBCO segment further out (median 0.5-1 km, 4-8 m deeper), so the
+K&G close ran from a barely-attenuated offshore height. Five centimetres higher the same
+sample was back at 0.05 m, the march ran the wave into centimetres of water where the
+friction term annihilates it, and the close got ~0. The hour table stepped from a real wave
+to FLAT and back as the tide crossed the sample's depth. Reachable since the 2026-09-03
+seedings: 130 of 1408 spots have an EOT20 amplitude sum larger than their shallowest wet
+sample. Reviewer's fleet sweep (1.5 m / 10 s down the normal, 0.05 m tide steps, all 1407
+profiles): 72 spots stepped >= 0.2 m at a sample drop-out, 40 of them >= 0.5 m, worst
+1.289 m -> 0.001 m at mona-vale-beach; saunton 0.51 -> 0.00 m between -2.00 and -1.95 m.
+
+**Fix.** `physics.tide_shifted_samples`: the dried sample becomes the shoreline, placed
+where the shifted depth crosses zero by linear interpolation between it and the last wet
+sample (the same between-measured-points interpolation the march already does - nothing
+invented, no new constant), everything shoreward is dropped. `score_hour` and
+`predict_frame` share it, so the calibration harness is the production path again.
+
+**Same-input A/B (reviewer's, offline, all 1407 profiles x 3 swells).** At tide 0 the march
+is BIT-IDENTICAL. Drop-out steps 72 -> 0; >= 0.5 m steps 40 -> 4; 0.8 m / 7 s: 54 -> 4.
+The footprint is ~115 macro-tidal spots for ~0.6 % of fleet hours (~3,400 of 540,288 in
+one 16-day table; median 3.2 % of a touched spot's own hours, up to 41 % at lynmouth), and
+at those hours the height moves DOWN: median new-minus-old -0.23 m, < 0.05 m at 149 of 575
+sampled spot-levels vs 38 before. That is the fix no longer marching AROUND a dry sample:
+the old non-zero numbers at those hours were not physics either. Goulien's low-tide range
+goes 0.17-0.69 m -> 0.00 m; perranporth and strathy barely move (-0.04 m).
+
+**Decision - applied 2026-09-08.** Continuity in the tide is the same contract
+`breaker_height_over_profile` states in incidence, and the discontinuity was a defect, not
+a tune. Accepted with eyes open that macro-tidal beaches (Goulien/Saunton/Rhossili class)
+now read consistently flat at low water where the shallow-shelf friction eats the wave; the
+reviewer's paired remedy (a shallow-shelf friction re-tune) was never filed, and any such
+change is an effective-Cb re-tune under pb_0049 (see 2026-09-07), not part of this fix.
+Repo pin: `test_score.TestTideShiftedSamples` (unit rules + a 0.05 m sweep on a synthetic
+shelf, worst step < 0.2 m). 148 further spots still step 0.2-1.0 m across 5 cm of tide with
+the sample set UNCHANGED - the `qb > 0.1` gate vs the K&G close - recorded as OPEN-ITEMS 31.

@@ -369,3 +369,38 @@ def test_a_windsea_with_no_swell_beside_it_survives():
 
     lone = {k: v for k, v in _DUP.items() if not k.startswith("swell1_")}
     assert drop_duplicate_windsea(lone)["windsea_h"] == 1.74
+
+
+def test_model_run_is_the_newest_cycle_per_point_and_absent_on_fixtures():
+    # Dream 2026-09-02 proposal: publish when the model RAN, per point - the GFS drop-back
+    # is per box, so a fleet-wide constant would be wrong for whichever boxes fell back.
+    # Back-reach steps come from earlier cycles and must not label the forecast.
+    from rosa_pipeline.blend import _model_run
+
+    t = CYCLE
+    prev = CYCLE - timedelta(hours=6)
+    gfs = [
+        GfsSea(time=t - timedelta(hours=3), fields={"swh": 1.0}, run=prev),  # back-reach
+        GfsSea(time=t, fields={"swh": 1.0}, run=CYCLE),
+        GfsSea(time=t + timedelta(hours=1), fields={"swh": 1.0}),  # interpolated: no stamp
+    ]
+    sp = [SpectralSea(time=t, swh=1.0, run=CYCLE - timedelta(hours=12))]
+    assert _model_run(gfs, sp) == {
+        "gfswave": "2026-08-14T00:00+00:00",
+        "ecmwf": "2026-08-13T12:00+00:00",
+    }
+    assert _model_run(gfs, []) == {"gfswave": "2026-08-14T00:00+00:00", "ecmwf": None}
+    assert _model_run([_gfs(t)], sp) is None  # fixtures carry no cycle
+
+    raw = compose_raw([_gfs(t)], [], *_aux([t]), "x")
+    assert raw.model_run is None
+    raw = compose_raw([GfsSea(time=t, fields=_gfs(t).fields, run=CYCLE)], [], *_aux([t]), "x")
+    assert raw.model_run == {"gfswave": "2026-08-14T00:00+00:00", "ecmwf": None}
+
+
+def test_parse_gfs_full_stamps_the_cycle_it_is_given(point):
+    grib = next(FIX.glob("gfsfull_f000_*.grib2")).read_bytes()
+    [sea] = parse_gfs_full(grib, [point], CYCLE, run=CYCLE)
+    assert sea.run == CYCLE
+    [sea] = parse_gfs_full(grib, [point], CYCLE)
+    assert sea.run is None

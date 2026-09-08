@@ -234,3 +234,12 @@ def test_tail_from_marks_the_first_tail_hour_and_is_none_without_one():
     assert _tail_from(hours, tz) == "2026-09-02T02:00+00:00"
     assert _tail_from([_S(_H(t0, False))], tz) is None
     assert _tail_from([], tz) is None
+
+
+def test_model_run_is_published_only_when_the_source_knew_it():
+    hours = [scored(9, 42)]
+    payload = build_payload(SPOT, hours, fetched_at="t", now=hours[0].hour.time)
+    assert "model_run" not in payload  # OM arm / fixtures: omitted, not null
+    run = {"gfswave": "2026-09-08T06:00+00:00", "ecmwf": None}
+    payload = build_payload(SPOT, hours, fetched_at="t", now=hours[0].hour.time, model_run=run)
+    assert payload["model_run"] == run

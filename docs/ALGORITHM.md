@@ -36,7 +36,7 @@ Implement exactly; unit-test all. Why each constant holds its value: `docs/CALIB
 
 **Swell-event detection.** A contiguous ≥12 h window where in-window energy ≥ 2× trailing 48 h median and rating ≥ GOOD at peak. Emit `{start, peak, end, peak_height, direction}`.
 
-**Tides.** Open-Meteo Marine `sea_level_height_msl` (MeteoFrance SMOC, ~8 km hourly) — **total** water level (astronomical + surge). Feeds the breaking depth (`d_break = profile_depth + tide`) and publishes as a per-hour series. Med spots micro-tidal (~0.15 m, sparkline only); macro-tidal spots (Costa Rica ~1.5–2 m) genuinely move the forecast.
+**Tides.** Open-Meteo Marine `sea_level_height_msl` (MeteoFrance SMOC, ~8 km hourly) — **total** water level (astronomical + surge). Feeds the breaking depth (`d_break = profile_depth + tide`) and publishes as a per-hour series. The tide shifts the whole committed profile before the march (`physics.tide_shifted_samples`, since 2026-09-08): a sample that DRIES at this level is the shoreline - replaced by the point where the shifted depth crosses zero, interpolated between it and the last wet sample - and everything shoreward of it is dropped. It is never deleted as a hole: deleting it handed the march a profile ending a whole GEBCO segment further out, and the published height stepped from 1.29 m to 0.00 m across 5 cm of tide (`docs/CALIBRATION.md` 2026-09-08). Med spots micro-tidal (~0.15 m, sparkline only); macro-tidal spots (Costa Rica ~1.5–2 m) genuinely move the forecast.
 
 **Sun.** `astral`; show first light / sunrise / sunset / last light.
 

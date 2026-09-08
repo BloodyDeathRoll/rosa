@@ -181,3 +181,57 @@ def test_wind_gate_docstring_matches_the_constant():
 
     assert score_mod.__doc__ is not None
     assert f"(size + period) / {score_mod.WIND_GATE_PTS:.0f}" in score_mod.__doc__
+
+
+class TestTideShiftedSamples:
+    """Dream 2026-09-08: a sample that dries at this tide is the SHORELINE, never a hole.
+    Deleting it handed the march a profile ending a whole GEBCO segment further out, and
+    the same swell published 1.29 m at one tide and 0.00 m 5 cm higher (mona-vale-beach)."""
+
+    SHELF = ((18000.0, 40.0), (8000.0, 20.0), (3000.0, 8.0), (1000.0, 4.0), (500.0, 1.0))
+
+    def test_zero_tide_is_the_profile_itself(self):
+        from rosa_pipeline.physics import tide_shifted_samples
+
+        assert tide_shifted_samples(list(self.SHELF), 0.0) == list(self.SHELF)
+
+    def test_dried_sample_becomes_the_interpolated_shoreline(self):
+        from rosa_pipeline.physics import tide_shifted_samples
+
+        out = tide_shifted_samples(list(self.SHELF), -2.0)  # the 1 m sample dries by 1 m
+        assert len(out) == 5
+        assert out[:4] == [(x, d - 2.0) for x, d in self.SHELF[:4]]
+        x, d = out[-1]
+        assert d == 0.0
+        # depth crosses zero two thirds of the way from the 4 m sample (now 2 m) to the
+        # 1 m sample (now -1 m): 1000 + (500 - 1000) * 2 / 3
+        assert abs(x - 666.667) < 0.01
+
+    def test_everything_shoreward_of_the_first_dried_sample_is_dropped(self):
+        from rosa_pipeline.physics import tide_shifted_samples
+
+        out = tide_shifted_samples([*self.SHELF, (200.0, 0.5)], -2.0)
+        assert len(out) == 5 and out[-1][1] == 0.0
+
+    def test_deep_reference_drying_leaves_no_water(self):
+        from rosa_pipeline.physics import tide_shifted_samples
+
+        assert tide_shifted_samples(list(self.SHELF), -50.0) == []
+
+    def test_breaker_height_is_continuous_in_the_tide_at_a_drop_out(self):
+        # The contract physics.breaker_height_over_profile states in incidence, pinned in
+        # tide: sweeping 5 cm steps through the level where the 1 m sample dries, no
+        # h_break_mid step exceeds 0.2 m (the old rule stepped 0.32 m -> 0.00 m here).
+        from dataclasses import replace
+
+        parts = (SwellPartition(1.5, 10.0, 270.0, "swell", 12.0),)
+        h = replace(hour(parts), wind_speed_kph=5.0, wind_dir_deg=90.0)
+        prev = None
+        worst = 0.0
+        for k in range(-40, 41):
+            tide = k * 0.05
+            mid = score_hour(SPOT, replace(h, tide_m=tide), list(self.SHELF)).h_break_mid
+            if prev is not None:
+                worst = max(worst, abs(mid - prev))
+            prev = mid
+        assert worst < 0.2, worst

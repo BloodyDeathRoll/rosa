@@ -23,6 +23,7 @@ import yaml
 
 from .bathymetry import load_profile
 from .models import Spot, SwellPartition
+from .physics import tide_shifted_samples
 from .transform import (
     RIDEABILITY_EXP,
     breaker_height_from_profile,
@@ -163,7 +164,7 @@ def predict_frame(
     """Raw h_mid for one frame under one candidate - the exact production path
     (tide-shifted depths -> physics march -> rideability -> height_coeff), minus
     only the display snapping, which would quantize grading."""
-    samples = [(x, d + frame.tide_m) for x, d in wet_samples if d + frame.tide_m > 0]
+    samples = tide_shifted_samples(wet_samples, frame.tide_m)  # the production shift, shared
     h = breaker_height_from_profile(
         frame.partitions,
         spot.swell_window,
