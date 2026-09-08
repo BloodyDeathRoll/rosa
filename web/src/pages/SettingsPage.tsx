@@ -255,7 +255,7 @@ export function SettingsPage({
 
   return (
     <main class="page">
-      <AppHeader right={<span class="head-note">profile</span>} />
+      <AppHeader right={<span class="head-note">profile</span>} title="Profile" />
       <div class="settings-page">
         <AccountCard />
 

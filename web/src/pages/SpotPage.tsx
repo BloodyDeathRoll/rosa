@@ -535,6 +535,9 @@ export function SpotPage({ id }: { id: string }) {
             </div>
           </section>
 
+          {/* one box around the day's table, so the wide layout can seat it
+              beside the rating/tide column (styles.css DESKTOP) */}
+          <div class="spot-hours">
           <div class="day-title">
             <div class="day-title-text">
               <b>
@@ -568,6 +571,7 @@ export function SpotPage({ id }: { id: string }) {
           {dayHours.length === 0 && (
             <p class="state">Beyond the model horizon - no hourly detail yet.</p>
           )}
+          </div>
 
           <TideSection
             hours={data.hours}

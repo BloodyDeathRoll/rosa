@@ -86,7 +86,9 @@ export function DayBars({ data, date, maxH }: { data: SpotPayload; date: string;
   );
 }
 
-const COL = 56; // .day-col width in px - keep in sync with styles.css
+/** Width of one day column, measured: 56px on a phone, a share of the row on a
+    wide screen (styles.css DESKTOP), so the scrub math follows the layout. */
+const colW = (el: HTMLElement): number => (el.children[0] as HTMLElement | undefined)?.offsetWidth || 56;
 
 /** The spot screen's date selector: one horizontal track where each column is a
     day - its label/number/condition-dot stacked directly over that day's bars -
@@ -152,7 +154,7 @@ export function DayScrubber({
     if (!el || !onScrub) return;
     const onScroll = () => {
       if (programmatic.current) return;
-      const i = Math.round(el.scrollLeft / COL);
+      const i = Math.round(el.scrollLeft / colW(el));
       if (i !== lastScrub.current && i >= 0 && i < days.length) {
         lastScrub.current = i;
         onScrub(i);
@@ -171,7 +173,7 @@ export function DayScrubber({
         programmatic.current = false;
         return;
       }
-      const i = Math.round(el.scrollLeft / COL);
+      const i = Math.round(el.scrollLeft / colW(el));
       if (i !== selected && i >= 0 && i < days.length) onSelect(i);
     };
     el.addEventListener("scrollend", onScrollEnd);
@@ -272,7 +274,7 @@ export function CoastChart({
   }, []);
 
   return (
-    <div class="coast">
+    <div class="coast" style={`--days:${dates.length}`}>
       <div class="coast-head track" ref={register} onScroll={onScroll}>
         {dates.map((date) => (
           <span key={date} class="coast-day">

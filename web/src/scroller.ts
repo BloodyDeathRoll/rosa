@@ -1,11 +1,9 @@
 /** Whatever is actually scrolling the app.
  *
- * On a phone the document scrolls. On a wide screen the app renders inside a
- * device-shaped frame and .page owns the scrollbar instead - the frame itself
- * must stay put, because it is the containing block for the fixed bottom glow
- * (see the desktop block at the end of styles.css). These helpers work either
- * way, so callers never have to know which one is live - including across a
- * resize that flips the breakpoint. */
+ * The document scrolls at every width now (the phone frame that once gave .page
+ * its own scrollbar on wide screens is gone, 2026-09-08), but the full-bleed
+ * screens still own an inner scroller of their own, so these helpers keep
+ * reading both - callers never have to know which one is live. */
 
 const inner = (): HTMLElement | null => document.querySelector<HTMLElement>(".app .page");
 

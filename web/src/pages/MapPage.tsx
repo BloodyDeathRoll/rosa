@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "preact/hooks";
+import { isDesk } from "../desk";
 import { fetchIndex } from "../api";
 import { CamIcon, ChevronLeftIcon, CompassNorthIcon, LocateIcon, SearchIcon} from "../components/icons";
 import { SatMap } from "../components/MiniMap";
@@ -234,7 +235,8 @@ export function MapPage({ theme }: { theme: Theme }) {
           // behind the bottom sheet (a dot under the cards isn't "showing"). Ordered
           // S→N, so scrolling the cards to the right travels north up the coast the
           // same way the map does. spotsRef stays N→S for everything else.
-          const visH = H - SHEET_H;
+          // on a wide screen the cards sit in a band under the map, not over it
+          const visH = isDesk() ? H : H - SHEET_H;
           const onScreen = (e: IndexEntry) => {
             const p = m.project([e.lon, e.lat]);
             return p.x >= 0 && p.x <= W && p.y >= 0 && p.y <= visH;
@@ -442,6 +444,8 @@ export function MapPage({ theme }: { theme: Theme }) {
         </button>
         <div class="map-sheet" ref={sheetRef}>
           <span class="sheet-grip" aria-hidden="true" />
+          {/* wide screens only (CSS): the cards are a sidebar list there */}
+          <span class="sheet-title">Spots on the map</span>
           {visible.length ? (
             <div class="map-cards" ref={cardsRef} onScroll={onCardsScroll}>
               {visible.map((id, i) => {

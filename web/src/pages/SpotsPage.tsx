@@ -137,7 +137,7 @@ export function SpotsPage() {
   if (error) {
     return (
       <main class="page">
-        <AppHeader right={search} />
+        <AppHeader right={search} title="Your spots" />
         <p class="state">{error}</p>
       </main>
     );
@@ -145,7 +145,7 @@ export function SpotsPage() {
 
   return (
     <main class="page">
-      <AppHeader right={search} />
+      <AppHeader right={search} title="Your spots" />
       {!index ? (
         <p class="state">Loading…</p>
       ) : favRows.length === 0 ? (

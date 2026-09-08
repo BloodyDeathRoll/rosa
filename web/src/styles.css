@@ -3319,6 +3319,12 @@ a.rank-card:hover {
   justify-content: center;
   color: #fff;
 }
+/* Wide screens get the 16:9 cut of the same photo; keep in step with index.html. */
+@media (min-width: 900px) and (min-aspect-ratio: 4/3) {
+  .signin-screen {
+    background-image: url(/splash_16-9.png);
+  }
+}
 .signin-screen::before {
   content: "";
   position: absolute;
@@ -3542,64 +3548,646 @@ a.rank-card:hover {
 
 /* ==========================================================================
    DESKTOP
-   Wide-screen presentation - the whole app inside a phone frame.
+   Wide screens (the DESK_MQ in desk.ts): the phone column becomes a full-width
+   page under a top bar - brand, section links, search, account, and a ticker
+   of your favorites - the way Surfline lays its site out, in Rosa's own
+   clothes. Nothing here changes what a screen says, only where it sits: the
+   Today cards go from a swipe to a grid, the coast chart shows every day at
+   once, the spot page seats the rating and tide beside the hourly table, the
+   map gets its cards as a sidebar. Below the breakpoint none of this applies
+   and the pill nav below stays the shell.
    ========================================================================== */
 
-@media (min-width: 900px) and (min-height: 620px) {
+.desk-bar,
+.sheet-title {
+  display: none;
+}
+
+@media (min-width: 900px) {
   :root {
-    --frame-h: min(932px, calc(100dvh - 40px));
-    --frame-backdrop: #dcd8d3;
-    --frame-face: var(--body-bg);
-    --frame-edge: rgba(0, 0, 0, 0.14);
+    --desk-bar-h: 60px;
+    --desk-ticker-h: 40px;
+    /* where sticky things pin: under the bar, or under the ticker when shown */
+    --desk-top: var(--desk-bar-h);
+    --desk-pad: 40px;
+    --desk-max: 1440px;
+    /* the reading column for text-and-rows screens (Spots, Profile, About, Search) */
+    --desk-narrow: 760px;
   }
-  :root[data-theme="dark"] {
-    --frame-backdrop: #000000;
-    --frame-face: var(--background);
-    --frame-edge: rgba(255, 255, 255, 0.1);
-  }
-
-  html,
-  body {
-    height: 100%;
-    overflow: hidden;
-  }
-  body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--frame-backdrop);
+  :root:has(.desk-ticker) {
+    --desk-top: calc(var(--desk-bar-h) + var(--desk-ticker-h));
   }
 
-  /* The frame itself must not scroll: it is the containing block for the fixed
-     backdrop (its transform makes it one), and a fixed box inside a scrolling
-     ancestor rides the content instead of staying put. So the frame is a fixed
-     box and .page carries the scrollbar. */
   .app {
-    width: 430px;
-    height: var(--frame-h);
-    min-height: 0;
-    overflow: hidden;
-    background: var(--frame-face);
-    border: 1px solid var(--frame-edge);
-    border-radius: 30px;
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-    transform: translateZ(0);
+    max-width: none;
+    box-shadow: none;
   }
-  .page {
-    min-height: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
-    overscroll-behavior: contain;
-    scrollbar-width: none;
-  }
-  .page::-webkit-scrollbar {
+  .tabs {
     display: none;
   }
-  /* the nav sticks to the frame, not to a scrollport it no longer lives in */
+  /* no pill to clear any more - just room to breathe over the glow */
+  .app:has(.tabs) .page:not(.map-page) {
+    padding-bottom: 72px;
+  }
 
-  /* map fills the frame, not the viewport - full bleed, nav floating over it */
-  .map-canvas {
-    height: var(--frame-h);
+  /* ----- Top bar */
+  .desk-bar {
+    display: block;
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: color-mix(in srgb, var(--body-bg) 82%, transparent);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .desk-bar-row {
+    height: var(--desk-bar-h);
+    max-width: var(--desk-max);
+    margin: 0 auto;
+    padding: 0 var(--desk-pad);
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+  .desk-bar .brand {
+    gap: 10px;
+  }
+  .desk-bar .brand:hover {
+    color: var(--foreground);
+  }
+  .desk-bar .brand-mark {
+    height: 21px;
+  }
+  .desk-bar .brand-word {
+    font-size: 22px;
+  }
+  .desk-nav {
+    display: flex;
+    gap: 2px;
+  }
+  .desk-nav a {
+    padding: 8px 13px;
+    border-radius: 9999px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--muted-foreground);
+    transition: color 0.15s, background 0.15s;
+  }
+  .desk-nav a:hover {
+    color: var(--foreground);
+    background: var(--secondary);
+  }
+  .desk-nav a.on {
+    color: var(--foreground);
+  }
+  /* A field that opens the search screen: reads as the input it leads to. */
+  .desk-search {
+    margin-left: auto;
+    width: min(380px, 30vw);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 16px;
+    border-radius: 9999px;
+    border: 1px solid var(--input-border);
+    background: var(--input-bg);
+    box-shadow: var(--input-shadow);
+    color: var(--muted-foreground);
+    font-size: 14.5px;
+    transition: border-color 0.15s;
+  }
+  .desk-search:hover {
+    color: var(--foreground);
+    border-color: var(--foreground);
+  }
+  .desk-search svg {
+    flex: none;
+  }
+  .desk-account {
+    flex: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    color: var(--foreground);
+    background: var(--secondary);
+    border: 2px solid transparent;
+    transition: border-color 0.15s;
+  }
+  .desk-account:hover,
+  .desk-account.on {
+    border-color: var(--foreground);
+  }
+  .desk-account img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Favorites ticker under the bar: tier dot, name, today's range. */
+  .desk-ticker {
+    height: var(--desk-ticker-h);
+    border-top: 1px solid var(--border);
+  }
+  .desk-ticker-row {
+    height: 100%;
+    max-width: var(--desk-max);
+    margin: 0 auto;
+    padding: 0 var(--desk-pad);
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .desk-ticker-row::-webkit-scrollbar {
+    display: none;
+  }
+  .desk-ticker-label {
+    flex: none;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--muted-foreground);
+  }
+  .desk-tick {
+    flex: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    color: var(--foreground);
+  }
+  .desk-tick:hover {
+    color: var(--foreground);
+  }
+  .desk-tick:hover span {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .desk-tick i {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+  .desk-tick b {
+    font-weight: 700;
+  }
+
+  /* ----- Page column */
+  .page:not(.map-page) {
+    width: 100%;
+    max-width: var(--desk-max);
+    margin: 0 auto;
+    padding-left: var(--desk-pad);
+    padding-right: var(--desk-pad);
+  }
+
+  /* Page heading in place of the phone's sticky header: the greeting (Today)
+     or the title, big, on the page - the bar above carries the brand. */
+  .app-head {
+    position: static;
+    height: auto;
+    padding: 34px 0 10px;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .app-head .brand-mark,
+  .app-head .brand-word,
+  .app-head .icon-btn,
+  .app-head .head-note {
+    display: none;
+  }
+  .brand-lead,
+  .brand-title {
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  .brand-title {
+    display: inline;
+  }
+
+  /* ----- Today */
+  .home {
+    --cw: 100%;
+    --edge: 0px;
+  }
+  .fb-row {
+    margin: 4px 0 8px;
+    max-width: var(--desk-narrow);
+  }
+  .home .group-chips {
+    padding: 8px 0 4px;
+    flex-wrap: wrap;
+  }
+  /* the swipe becomes a grid: every spot in view at once */
+  .home-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+    padding: 12px 0 28px;
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+  .home-cards .hc-slide {
+    flex: none;
+    width: auto;
+  }
+  .detail-card {
+    border-radius: 18px;
+  }
+  .detail-card .dc-cam {
+    height: 160px;
+  }
+  .detail-card {
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .detail-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--sheet-shadow);
+  }
+
+  /* Coast chart: the whole forecast period across the row, no scrolling */
+  .coast {
+    --coast-pad: 16px;
+    --col-w: calc(100% / var(--days, 7));
+  }
+  .coast .track {
+    overflow-x: hidden;
+  }
+  /* --col-w is a share of the row; a % width on the plot resolves against the
+     column, so it needs its own share (the phone's px value composes, this
+     does not) */
+  .coast .chart-plot {
+    width: 84%;
+  }
+  .coast-head {
+    top: var(--desk-top);
+    padding: 12px calc(var(--edge) + var(--coast-pad)) 14px;
+  }
+  .coast-day .dow {
+    font-size: 13.5px;
+  }
+  .coast-day .dnum {
+    font-size: 20px;
+  }
+  .coast-row {
+    margin: 0 0 12px;
+    padding: 14px 0;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .coast-row:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--sheet-shadow);
+  }
+  .coast-name {
+    font-size: 17px;
+  }
+  .coast .chart-val {
+    font-size: 13px;
+  }
+  .group-label {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /* ----- Spot page */
+  .spot-sticky {
+    top: var(--desk-top);
+    padding-top: 0;
+    background: color-mix(in srgb, var(--body-bg) 88%, transparent);
+  }
+  .spot-top {
+    padding: 26px 0 10px;
+    gap: 14px;
+  }
+  .spot-top .spot-back,
+  .spot-top .spot-top-search {
+    display: none;
+  }
+  .spot-top .spot-top-name {
+    font-size: 34px;
+    letter-spacing: -0.02em;
+    transition: font-size 0.2s ease;
+  }
+  /* scrolled into the forecast: the pinned header shrinks to a title line */
+  .spot-sticky.condensed .spot-top {
+    padding: 12px 0 4px;
+  }
+  .spot-sticky.condensed .spot-top-name {
+    font-size: 22px;
+  }
+  .spot-top .star-btn svg {
+    width: 24px;
+    height: 24px;
+  }
+  /* every day across the row, the selected one still leftmost by default */
+  .day-scrub .track {
+    padding: 4px 0 10px;
+    scroll-padding-left: 0;
+  }
+  .day-col {
+    flex: 1 1 0;
+    width: auto;
+    min-width: 64px;
+  }
+  .dcol-head .dow {
+    font-size: 12px;
+  }
+  .dcol-head .dnum {
+    font-size: 17px;
+  }
+
+  /* Two columns: cam and the hourly table on the left, the rating card, tide
+     and sun on the right. The card spans the cam's row and the first table row
+     so it starts at the top whether or not there is a cam; the table starts at
+     the very top when there is none. */
+  /* Two columns: the hourly forecast on the left, straight under the day
+     selector; on the right the cam (when there is one) and beneath it the
+     rating card, tide and sun. */
+  .spot-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 420px;
+    grid-template-rows: auto auto auto 1fr;
+    column-gap: 32px;
+    row-gap: 18px;
+    padding: 18px 0 40px;
+  }
+  .spot-main .cam {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .cam-frame {
+    border-radius: 18px;
+  }
+  .cam-credit {
+    padding: 8px 4px 0;
+  }
+  .spot-hours {
+    grid-column: 1;
+    grid-row: 1 / span 4;
+    align-self: start;
+    background: var(--card);
+    border-radius: 18px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+  }
+  .spot-card {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start;
+    margin: 0;
+    padding: 20px;
+    border-radius: 18px;
+  }
+  .spot-main .tide-sec {
+    grid-column: 2;
+    grid-row: 3;
+    align-self: start;
+    margin: 0;
+    padding: 16px 20px 8px;
+    border-top: none;
+    background: var(--card);
+    border-radius: 18px;
+    box-shadow: var(--card-shadow);
+  }
+  .spot-main .sun-row {
+    grid-column: 2;
+    grid-row: 4;
+    align-self: start;
+    margin: 0;
+    padding: 16px 20px;
+    border-top: none;
+    background: var(--card);
+    border-radius: 18px;
+    box-shadow: var(--card-shadow);
+  }
+  .day-title {
+    padding: 20px 22px 12px;
+  }
+  .hour-grid {
+    grid-template-columns: 56px 6px 1.1fr 1fr 1.2fr 0.8fr;
+    gap: 10px;
+    padding: 10px 22px;
+  }
+  .hour-grid.head {
+    padding: 8px 22px 8px;
+  }
+  .hour-grid .t {
+    writing-mode: horizontal-tb;
+    transform: none;
+    justify-self: start;
+    font-size: 13px;
+  }
+  .hour-grid.row:hover {
+    background: var(--emphasis-bg);
+  }
+
+  .nearby-sec {
+    padding: 28px 0 40px;
+    margin-top: 0;
+    border-top: none;
+  }
+  .nearby-sec .eyebrow {
+    padding: 0 0 14px;
+    font-size: 13px;
+    letter-spacing: 0;
+    text-transform: none;
+    font-weight: 700;
+    color: var(--foreground);
+  }
+  .map-cards.nearby-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px;
+    padding: 2px 0;
+    overflow: visible;
+  }
+  .map-cards.nearby-cards .map-card {
+    width: auto;
+  }
+
+  /* ----- Map & Charts: full bleed under the bar */
+  .map-page,
+  .app:has(.map-page) .map-canvas {
+    height: calc(100dvh - var(--desk-top));
+  }
+  .map-screen {
+    height: 100%;
+  }
+  .map-fab.back {
+    display: none;
+  }
+
+  /* The map runs full width; the card carousel sits in a band under it
+     (not over it), scrolling sideways as on the phone. */
+  .map-page:has(.map-sheet) .map-screen {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+  }
+  .map-page:has(.map-sheet) .map-canvas {
+    grid-row: 1;
+    height: 100%;
+    min-height: 0;
+  }
+  .map-sheet {
+    position: static;
+    grid-row: 2;
+    padding: 14px 0 22px;
+    border-top: 1px solid var(--border);
+    background: var(--body-bg);
+  }
+  .sheet-title {
+    display: block;
+    max-width: var(--desk-max);
+    margin: 0 auto;
+    padding: 0 var(--desk-pad) 10px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .map-sheet .map-cards {
+    --cw: 250px;
+    gap: 14px;
+    padding: 4px var(--desk-pad) 4px;
+    scroll-snap-type: none;
+    scroll-padding-left: var(--desk-pad);
+  }
+  .map-sheet .map-card {
+    height: 140px;
+    scroll-snap-align: start;
+    transition: opacity 0.2s, outline-color 0.2s;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+  .map-sheet .map-card.center {
+    outline-color: var(--foreground);
+  }
+  .map-sheet .map-card:hover {
+    opacity: 1;
+  }
+  .sheet-empty {
+    height: 140px;
+  }
+  /* search overlays the map only; its field and results read in the narrow column */
+  .map-page:has(.map-sheet) .map-search {
+    inset: 0;
+  }
+  .map-search .search-head,
+  .map-search .map-locations {
+    width: 100%;
+    max-width: var(--desk-narrow);
+    margin: 0 auto;
+  }
+  .map-page:has(.map-sheet) .maplibregl-ctrl-bottom-left {
+    bottom: 8px;
+  }
+  .map-page:has(.map-sheet) .map-fab.locate {
+    bottom: 20px;
+  }
+
+  /* Charts: the deck rides the bottom of the map, no nav to clear */
+  .charts-deck {
+    padding-bottom: 22px;
+  }
+  .charts-deck .deck-head,
+  .charts-deck .deck-timeline {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  /* ----- Reading-column screens */
+  .page:has(.brand-title) .app-head,
+  .spots-page,
+  .settings-page,
+  .page:not(.map-page) .search-head,
+  .app:has(.search-head) .spots-page {
+    width: 100%;
+    max-width: var(--desk-narrow);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .spots-page .group-chips {
+    margin: 0;
+    padding: 8px 0;
+    flex-wrap: wrap;
+  }
+  .page:not(.map-page) .search-head {
+    top: var(--desk-top);
+    padding: 20px 0 10px;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .page:not(.map-page) .search-head .spot-back {
+    display: none;
+  }
+  .page:not(.map-page) .search-head .search-box input {
+    height: 48px;
+    font-size: 16px;
+    border-radius: 9999px;
+    padding-left: 42px;
+  }
+  .search-head .search-box svg {
+    top: 16px;
+    left: 16px;
+  }
+  .empty-center {
+    padding: 80px 0;
+  }
+  .settings-page {
+    padding-top: 6px;
+  }
+  /* About pages: the photo and title fill the left half, pinned while the
+     text scrolls on the right. */
+  .page.about-page {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+  /* fixed to the viewport's left half, flush with the edge; the grid's first
+     column is the space it covers */
+  .about-hero {
+    position: fixed;
+    left: 0;
+    top: var(--desk-top);
+    width: 50vw;
+    height: calc(100dvh - var(--desk-top));
+    aspect-ratio: auto;
+    align-items: center;
+    z-index: 1;
+  }
+  .about-hero::after {
+    background:
+      linear-gradient(to right, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.15) 60%, transparent),
+      linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.4));
+  }
+  .about-hero-cap {
+    padding: 0 56px;
+  }
+  .about-hero-title {
+    font-size: clamp(40px, 4.2vw, 64px);
+    line-height: 1.02;
+  }
+  .about-back {
+    top: 20px;
+    left: 20px;
+  }
+  .about-body {
+    grid-column: 2; /* the fixed hero is out of flow, so the body must be told */
+    padding: 48px 56px 80px;
+    max-width: 720px;
   }
 }
 

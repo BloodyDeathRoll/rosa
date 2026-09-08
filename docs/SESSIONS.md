@@ -446,3 +446,54 @@ steps from earlier cycles never label the forecast, `RawForecast.model_run` carr
 on fixtures). Nothing reads or scores on it; `web/src/types.ts` documents the key. 4 tests.
 Verification: 601 passed (592 + 9), ruff check + format clean, tsc clean. Working tree only,
 nothing committed. Smoke rule: verify `model_run` on a CDN payload after the next VM cycle.
+
+## SESSION 2026-09-08 (evening) - desktop layout
+
+The user asked for a desktop layout in Surfline's structure (top nav + search + account,
+favorites ticker, cards in a row, the forecast beside the conditions, map with a sidebar)
+in Rosa's own look, and a localhost to review it on. Until now a wide screen showed the
+phone app inside a device frame. Built, not committed - pending the user's review at
+http://127.0.0.1:5173/.
+
+- **Shell.** `components/DesktopBar.tsx` (CSS-hidden below 900px): brand, Today / Spots /
+  Map / Charts as text links, a search field that opens `#/search`, the avatar as the way
+  into Profile, and a favorites ticker (tier dot, name, today's range, N to S). The pill
+  nav is hidden; the document scrolls at every width (`scroller.ts` comment updated).
+  `desk.ts` holds the one breakpoint (`DESK_MQ`) for the two JS guards below.
+- **Today.** Card swipe becomes an auto-fill grid; the coast chart shows every day across
+  the row (`CoastChart` sets `--days` on `.coast`, the CSS divides the row by it).
+- **Spot.** Name as a 34px heading, days spread across the row (the scrubber measures its
+  column width from the DOM instead of the 56px constant), and a grid: the hourly table
+  straight under the days on the left (wrapped in `.spot-hours`), the cam then rating card,
+  tide and sun in a 420px column on the right (the user's call on review - the first cut
+  had the cam on the left, pushing the forecast down). The pinned header shrinks to a
+  22px title line once scrolled (`.condensed`) on a body-bg ground (the translucent
+  light-theme card let the table bleed through). Nearby spots become a card grid.
+- **Map.** Full width, with the card carousel in a band under the map rather than over
+  it (the user's call on review; the first cut was a sidebar list), the focused card
+  outlined; `isDesk()` turns off the sheet's bottom-strip exclusion from "visible".
+  Search overlays the map, field and results in the reading column. Charts: full bleed
+  under the bar, deck capped at 1100px.
+- **Spots / Profile / Search** sit in a 760px reading column; `AppHeader` grew a `title`
+  prop that is the desktop heading (the phone keeps the wordmark). **About** pages split
+  in two: photo, brand and title pinned on the left half, the text on the right (the
+  user's call on review, after a demo from another project).
+- Second review round: the About hero is `position: fixed` on the viewport's left half,
+  flush with the edge (the centred 1440px column had left a gutter), the body placed in
+  column 2 explicitly since the hero is out of flow. Sign-in on the review server failed
+  twice for env reasons, not code: Google's OAuth client allows `localhost:5173`, not
+  `127.0.0.1`, and `.env.development` points `VITE_USER_API` at a local Worker
+  (`localhost:8787`) that was not running - the review server runs on `localhost` with
+  `VITE_USER_API` set to the live Worker. Committed and deployed on the user's call.
+- The dates looked wrong on review (starting Aug 23): the local `data/out` is a stale
+  run and the dev server copies it. The review server runs with
+  `VITE_DATA_BASE=https://rosa-data-opal.vercel.app` against the live CDN instead.
+- Review fixes: the Map's search overlay had caught the Search page's reading-column
+  rules (sticky head, hidden close button - results landed under the field and nothing
+  took a click), now scoped to `.page:not(.map-page)`; the coast chart's bars vanished
+  because `.chart-plot`'s `calc(var(--col-w) * 0.84)` re-resolved the row-share `%`
+  against the column - it is `84%` on desktop. The user's `public/splash_16-9.png`
+  (2521x1418, 3.9 MB PNG) is the splash and sign-in backdrop on wide landscape screens.
+- Verified headless at 1440, 1024 and 390 px in both themes (Today, Spot with and without
+  cam, scrolled, Map, Charts, Spots, Profile, Search); the phone layout is pixel-unchanged.
+  `tsc` clean. `docs/UI.md` has the Desktop paragraph.

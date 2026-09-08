@@ -66,6 +66,12 @@
         width: 100%;
         mix-blend-mode: screen;
       }
+      /* wide screens: the 16:9 cut of the same photo (public/splash_16-9.png) */
+      @media (min-width: 900px) and (min-aspect-ratio: 4/3) {
+        #splash {
+          background-image: url(/splash_16-9.png);
+        }
+      }
       #splash.hide {
         opacity: 0;
         pointer-events: none;

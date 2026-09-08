@@ -1,6 +1,7 @@
 import { useEffect, useState } from "preact/hooks";
 import { HomeIcon, MapIcon, StarIcon, UserIcon, WavesIcon } from "./components/icons";
 import { BottomGlow } from "./components/BottomGlow";
+import { DesktopBar } from "./components/DesktopBar";
 import { InstallPrompt } from "./components/InstallPrompt";
 import { SignInScreen } from "./components/SignInScreen";
 import { AboutPage, type AboutDoc } from "./pages/AboutPage";
@@ -90,9 +91,19 @@ export function App() {
     saveTheme(next);
   };
 
+  // the section a route belongs to: none on a spot page, Profile for About
+  const active: Tab | null =
+    route.page === "spot" || route.page === "search"
+      ? null
+      : route.page === "about"
+        ? "settings"
+        : route.page;
+
   return (
     <div class="app">
       <BottomGlow theme={theme} />
+      {/* wide screens only (CSS) - the phone keeps the pill below */}
+      <DesktopBar active={active} />
       {route.page === "spot" ? (
         <SpotPage id={route.id} />
       ) : route.page === "map" ? (
@@ -112,13 +123,7 @@ export function App() {
       )}
       {/* Search stays focused (no nav). Spot pages show the nav but light no tab
           (you're deeper than any section). About lives under Profile. */}
-      {route.page !== "search" && (
-        <TabBar
-          active={
-            route.page === "spot" ? null : route.page === "about" ? "settings" : route.page
-          }
-        />
-      )}
+      {route.page !== "search" && <TabBar active={active} />}
       <InstallPrompt />
       <SignInScreen />
     </div>

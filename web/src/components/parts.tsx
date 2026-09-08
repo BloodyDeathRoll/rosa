@@ -55,7 +55,18 @@ export function SpotTitle({ name, region }: { name: string; region: string | nul
   );
 }
 
-export function AppHeader({ lead, right }: { lead?: ComponentChildren; right?: ComponentChildren }) {
+/** `title` is the wide-screen page heading: on a phone the wordmark stands in
+    for it (the tab bar already says where you are), on desktop the bar carries
+    the wordmark and this becomes the heading (styles.css DESKTOP). */
+export function AppHeader({
+  lead,
+  right,
+  title,
+}: {
+  lead?: ComponentChildren;
+  right?: ComponentChildren;
+  title?: string;
+}) {
   return (
     <header class="app-head">
       <span class="brand">
@@ -67,6 +78,7 @@ export function AppHeader({ lead, right }: { lead?: ComponentChildren; right?: C
             rosa<span class="brand-dot" aria-hidden="true" />
           </span>
         )}
+        {title && <span class="brand-title">{title}</span>}
       </span>
       {right}
     </header>
