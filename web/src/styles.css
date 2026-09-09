@@ -3568,83 +3568,83 @@ a.rank-card:hover {
 
 /* ==========================================================================
    REPORT NUDGE
-   Full-screen "you can report a spot" note (schedule in nudge.ts). Opaque
-   like the report page, one step under the install sheet (60) and the
-   sign-in screen, so those are answered first on a fresh install.
+   A drop-in note that a spot can be reported (schedule in nudge.ts). It was a
+   full-screen page until 2026-09-09; on a phone that stood between the user and
+   the forecast they opened the app for, so it now speaks in the same card
+   language as the "Surfed it yesterday?" row, drops in over the top of whatever
+   screen is up, and leaves by itself. One step under the install sheet (60) and
+   the sign-in screen, so those are answered first on a fresh install.
    ========================================================================== */
 
-.nudge-page {
+.nudge-drop {
   position: fixed;
-  inset: 0;
   z-index: 59;
-  background: var(--body-bg);
-  color: var(--foreground);
-  display: flex;
-  justify-content: center;
-  animation: installFade 0.25s ease;
-}
-/* the reading column: phone width on every screen, the ground fills the rest */
-.nudge-inner {
-  position: relative;
-  width: 100%;
+  top: calc(10px + env(safe-area-inset-top));
+  left: 16px;
+  right: 16px;
+  margin: 0 auto;
   max-width: 402px;
   display: flex;
-  flex-direction: column;
-  padding-bottom: calc(40px + env(safe-area-inset-bottom));
-}
-.nudge-close {
-  position: absolute;
-  top: calc(20px + env(safe-area-inset-top));
-  right: 20px;
-  width: 24px;
-  height: 24px;
-  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  color: var(--muted-foreground);
+  gap: 8px;
+  padding: 11px 8px 11px 14px;
+  /* --card is translucent by design (it sits on the page ground); a notification
+     floats OVER content, so the ground behind it has to be opaque or the forecast
+     reads straight through the words. */
+  background: linear-gradient(var(--card), var(--card)) var(--body-bg);
+  border-radius: 14px;
+  box-shadow: var(--card-shadow), 0 6px 20px rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  animation: nudgeDrop 0.28s cubic-bezier(0.2, 0.9, 0.3, 1);
 }
-.nudge-body {
+.nudge-drop-text {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 40px;
-  padding: 40px;
-  text-align: center;
+  gap: 2px;
+  min-width: 0;
 }
-.nudge-title {
-  margin: 0;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: normal;
-}
-.nudge-lead {
-  margin: 0;
-  font-size: 16px;
-  line-height: 1.6;
-}
-/* the mock's blank line between the two body paragraphs */
-.nudge-lead + .nudge-lead {
-  margin-top: calc(-40px + 1.6em);
-}
-.nudge-lead b {
+.nudge-drop-text b {
+  font-size: 14px;
   font-weight: 700;
 }
-.nudge-foot {
+.nudge-drop-text small {
+  font-size: 12.7px;
+  line-height: 1.35;
+  color: var(--muted-foreground);
+}
+/* the inline "Report an issue" is the thing to look for on the spot page, so it
+   keeps its weight against the muted line it sits in */
+.nudge-drop-text small b {
+  font-size: inherit;
+  color: var(--foreground);
+}
+.nudge-drop-close {
   flex: none;
-  padding: 0 40px;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  color: var(--muted-foreground);
 }
-.nudge-ok {
-  width: 100%;
-  padding: 15px 24px;
-  border-radius: 16px;
-  font-size: 16px;
-  font-weight: 400;
-  background: var(--accent);
-  color: #fff;
+.nudge-drop-close:active {
+  background: var(--secondary);
+}
+@keyframes nudgeDrop {
+  from {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 @media (prefers-reduced-motion: reduce) {
-  .nudge-page {
+  .nudge-drop {
     animation: none;
   }
 }
@@ -4299,35 +4299,14 @@ a.rank-card:hover {
     max-width: 720px;
   }
 
-  /* REPORT NUDGE: a modal card over the app (Figma `Rosa` node 1:42), not the
-     full-screen page the phone gets - the ground behind it is the forecast,
-     dimmed by a scrim in whichever theme is on. */
-  .nudge-page {
-    background: color-mix(in srgb, var(--body-bg) 60%, transparent);
-    align-items: center;
-  }
-  .nudge-inner {
-    max-width: 582px;
-    padding: 80px;
-    padding-bottom: 80px;
-    background: var(--body-bg);
-    border-radius: 16px;
-    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.06));
-  }
-  /* the mock's 6%-black shadow is invisible on the dark ground - a hairline
-     gives the card its edge back */
-  :root[data-theme="dark"] .nudge-inner {
-    border: 1px solid var(--border);
-  }
-  .nudge-close {
-    top: 20px;
-    right: 20px;
-  }
-  .nudge-body {
-    flex: none;
-  }
-  .nudge-foot {
-    padding: 13px 40px 0;
+  /* REPORT NUDGE: the drop clears the top bar and sits in from the right edge
+     rather than spanning a 1400 px screen. */
+  .nudge-drop {
+    top: calc(var(--desk-top) + 12px);
+    left: auto;
+    right: var(--desk-pad);
+    margin: 0;
+    max-width: 380px;
   }
 }
 

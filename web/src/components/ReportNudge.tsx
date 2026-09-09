@@ -1,18 +1,20 @@
 import { useEffect, useState } from "preact/hooks";
 import { markNudgeShown, nudgeDue, nudgeDueOnSignIn } from "../nudge";
-import { lockScroll } from "../scroller";
 import { ACCOUNT_EVENT } from "../session";
 import { appReady } from "../splash";
 import { XIcon } from "./icons";
 
 const AFTER_SPLASH_MS = 700; // the splash fades over 450ms - let it clear first
 const SPLASH_CAP_MS = 10_000; // same safety net main.tsx uses to lift the splash
+const DISMISS_MS = 9_000; // long enough to read twice, short enough to ignore
 
-/** Full-screen note that spots can be reported from the spot page (schedule in
-    nudge.ts). Painted opaque like the report page - a translucent overlay lets
-    the forecast bleed through. Sits one step under the install sheet and the
-    sign-in screen, so on a first launch those are answered first and this is
-    waiting underneath. X and OK both just close it. */
+/** A drop-in note that spots can be reported from the spot page (schedule
+    unchanged, in nudge.ts). It used to be a full-screen page, which on a phone
+    stood between you and the forecast you opened the app for - so it now reads
+    as one line in the same card language as the "Surfed it yesterday?" row,
+    drops in over the top of whatever screen you are on, and leaves by itself.
+    Sits one step under the install sheet and the sign-in screen, so on a first
+    launch those are answered first and this arrives after them. */
 export function ReportNudge() {
   const [open, setOpen] = useState(false);
 
@@ -44,38 +46,27 @@ export function ReportNudge() {
     };
   }, []);
 
+  // A notification leaves on its own; the X is for whoever wants it gone now.
+  // No scroll lock any more - the page underneath stays usable while it shows.
   useEffect(() => {
     if (!open) return;
-    return lockScroll();
+    const t = setTimeout(() => setOpen(false), DISMISS_MS);
+    return () => clearTimeout(t);
   }, [open]);
 
   if (!open) return null;
 
-  const close = () => setOpen(false);
-
   return (
-    <main class="nudge-page" role="dialog" aria-modal="true" aria-labelledby="nudge-title">
-      <div class="nudge-inner">
-        <button class="nudge-close" onClick={close} aria-label="Close">
-          <XIcon size={24} />
-        </button>
-        <div class="nudge-body">
-          <h1 id="nudge-title" class="nudge-title">
-            Know a spot better than we do?
-          </h1>
-          <p class="nudge-lead">
-            Check your favorites.
-            <br />
-            Wrong pin, wrong name, missing break? Tap <b>Report an issue</b> on the spot.
-          </p>
-          <p class="nudge-lead">A person reads every one.</p>
-        </div>
-        <div class="nudge-foot">
-          <button class="nudge-ok" onClick={close}>
-            OK
-          </button>
-        </div>
-      </div>
-    </main>
+    <div class="nudge-drop" role="status">
+      <span class="nudge-drop-text">
+        <b>Spot look wrong?</b>
+        <small>
+          Tap <b>Report an issue</b> on the spot.
+        </small>
+      </span>
+      <button class="nudge-drop-close" onClick={() => setOpen(false)} aria-label="Dismiss">
+        <XIcon size={16} />
+      </button>
+    </div>
   );
 }
