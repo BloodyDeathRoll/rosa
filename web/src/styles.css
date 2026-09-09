@@ -3567,6 +3567,85 @@ a.rank-card:hover {
 }
 
 /* ==========================================================================
+   CONSENT BAR
+   The analytics question, asked once per device and only when GA is configured.
+   Bottom of the screen above the nav, in the card language the rest of the app
+   uses; it deliberately does not block the forecast - a modal over a
+   twenty-second check would cost more than the measurement is worth.
+   ========================================================================== */
+
+.consent-bar {
+  position: fixed;
+  z-index: 58;
+  left: 16px;
+  right: 16px;
+  bottom: calc(var(--tabbar-clear, 76px) + 8px);
+  margin: 0 auto;
+  max-width: 402px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  /* opaque: --card carries alpha for use on the page ground, and this floats */
+  background: linear-gradient(var(--card), var(--card)) var(--body-bg);
+  border-radius: 14px;
+  box-shadow: var(--card-shadow), 0 6px 20px rgba(0, 0, 0, 0.16);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.consent-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.consent-text b {
+  font-size: 14px;
+  font-weight: 700;
+}
+.consent-text small {
+  font-size: 12.4px;
+  line-height: 1.35;
+  color: var(--muted-foreground);
+}
+.consent-text a {
+  color: var(--accent);
+  text-underline-offset: 2px;
+}
+.consent-actions {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+/* both answers the same weight - declining is a real choice, not a dark pattern */
+.consent-actions button {
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.consent-no {
+  color: var(--muted-foreground);
+  background: var(--secondary);
+}
+.consent-yes {
+  color: #fff;
+  background: var(--accent);
+}
+@media (min-width: 900px) {
+  .consent-bar {
+    left: auto;
+    right: var(--desk-pad);
+    bottom: 20px;
+    margin: 0;
+    max-width: 420px;
+  }
+}
+
+/* ==========================================================================
    REPORT NUDGE
    A drop-in note that a spot can be reported (schedule in nudge.ts). It was a
    full-screen page until 2026-09-09; on a phone that stood between the user and

@@ -3,6 +3,7 @@ import { HomeIcon, MapIcon, StarIcon, UserIcon, WavesIcon } from "./components/i
 import { BottomGlow } from "./components/BottomGlow";
 import { DesktopBar } from "./components/DesktopBar";
 import { InstallPrompt } from "./components/InstallPrompt";
+import { ConsentBar } from "./components/ConsentBar";
 import { ReportNudge } from "./components/ReportNudge";
 import { SignInScreen } from "./components/SignInScreen";
 import { AboutPage, type AboutDoc } from "./pages/AboutPage";
@@ -125,6 +126,7 @@ export function App() {
       {/* Search stays focused (no nav). Spot pages show the nav but light no tab
           (you're deeper than any section). About lives under Profile. */}
       {route.page !== "search" && <TabBar active={active} />}
+      <ConsentBar />
       <ReportNudge />
       <InstallPrompt />
       <SignInScreen />

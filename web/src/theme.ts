@@ -1,3 +1,5 @@
+import { gaSetPrefs } from "./ga";
+
 export type Theme = "dark" | "light";
 
 const KEY = "rosa.theme";
@@ -16,5 +18,6 @@ export function applyTheme(theme: Theme): void {
 }
 
 export function saveTheme(theme: Theme): void {
+  gaSetPrefs({ theme: String(theme) });
   localStorage.setItem(KEY, theme);
 }

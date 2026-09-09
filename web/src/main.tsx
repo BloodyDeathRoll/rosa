@@ -1,10 +1,13 @@
 import { render } from "preact";
 import { syncFavorites } from "./account";
 import { initAnalytics } from "./analytics";
+import { initGa, gaSetPrefs } from "./ga";
 import { App } from "./app";
 import { MovedScreen, onLegacyOrigin } from "./components/MovedScreen";
 import { getFavorites, setFavorites } from "./favorites";
 import { signedIn } from "./session";
+import { getUnits } from "./units";
+import { initialTheme } from "./theme";
 import { mountParticles } from "./components/particles";
 import { appReady } from "./splash";
 import "@fontsource-variable/inter";
@@ -32,6 +35,16 @@ const root = document.getElementById("app");
 if (root) render(onLegacyOrigin() ? <MovedScreen /> : <App />, root);
 
 initAnalytics();
+// GA4 alongside it, and inert without VITE_GA_ID. Consent defaults are pushed inside
+// initGa BEFORE gtag.js loads, which is the order Consent Mode requires.
+initGa();
+gaSetPrefs({
+  units: String(getUnits()),
+  theme: String(initialTheme()),
+  signed_in: signedIn(),
+  favorites: getFavorites().length,
+  installed: matchMedia("(display-mode: standalone)").matches,
+});
 
 /** Favorites live on the server since 2026-09-07: push a list the last session
     could not save, or pull what another device changed. Silent, after paint. */

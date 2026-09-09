@@ -9,6 +9,7 @@
         2026-09-03), and it is built for browser forms.
     Neither needs an API key. A caller that gets `false` should offer the mailto: link,
     so a message is never silently lost. */
+import { gaEvent } from "./ga";
 
 import { profile } from "./session";
 
@@ -66,6 +67,7 @@ export function mailtoFor(o: Outbound): string {
 
 /** Sends both hops. Resolves true when the message is at least safely stored. */
 export async function send(o: Outbound): Promise<boolean> {
+  gaEvent("message_send", { kind: o.kind ?? "contact" });
   const text = body(o);
 
   const stored = fetch(`${API}/api/contact`, {

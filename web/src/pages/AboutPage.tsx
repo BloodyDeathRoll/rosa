@@ -348,6 +348,18 @@ function Privacy() {
         We count visits and page views with Vercel Web Analytics, which does not use cookies and does
         not identify you.
       </p>
+      <p>
+        We also use Google Analytics to see which spots and screens get used, and roughly where in
+        the world Rosa is being opened. It records the screen you are on, the spot you opened and its
+        region, and settings like your units and theme. It never receives your name, email address,
+        or anything else that identifies you, and Rosa runs no advertising.
+      </p>
+      <p>
+        The first time you open Rosa we ask whether you are happy with this. If you say no - or have
+        not answered yet - Google Analytics runs without cookies and without any identifier, so we
+        see a country and a screen and nothing that follows you between visits. Your answer is
+        remembered on this device; clearing your browser data asks again.
+      </p>
       <h2>Third-party services</h2>
       <p>
         Rosa is built on open data and services from these providers, each with their own privacy
@@ -388,7 +400,7 @@ function Privacy() {
         </li>
         <li>
           <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google</a> ·
-          sign-in
+          sign-in and analytics
         </li>
       </ul>
     </>

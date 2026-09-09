@@ -1,6 +1,7 @@
 /** Web Push client: subscribe this device to swell alerts for the user's
     favorite spots. The subscription is stored by a tiny API (VITE_PUSH_API);
     the pipeline VM sends grouped pushes after each publish cycle. */
+import { gaEvent } from "./ga";
 
 import { getFavorites } from "./favorites";
 import { feedbackPref } from "./feedback";
@@ -60,6 +61,7 @@ async function post(sub: PushSubscription, spots: string[]): Promise<void> {
 
 /** Ask permission, subscribe, and register the device. */
 export async function enablePush(): Promise<PushState> {
+  gaEvent("push_optin_start");
   if (!pushSupported()) return "unsupported";
   const perm = await Notification.requestPermission();
   if (perm !== "granted") return perm === "denied" ? "denied" : "off";

@@ -1,6 +1,7 @@
 import type { VNode } from "preact";
 import { useCallback, useEffect, useMemo, useState } from "preact/hooks";
 import { fetchIndex, fetchSpot } from "../api";
+import { gaEvent } from "../ga";
 import {
   ChevronLeftIcon,
   InfoIcon,
@@ -368,6 +369,13 @@ export function SpotPage({ id }: { id: string }) {
         const future = d.days.filter((day) => day.date >= today);
         const data = future.length ? { ...d, days: future } : d;
         setData(data);
+        // The one event that answers "which spots do surfers in <country> open" -
+        // the region rides along so the report groups without a spot dictionary.
+        gaEvent("spot_view", {
+          spot_id: d.spot.id,
+          region: d.spot.region ?? "",
+          bucket: data.days[0]?.bucket ?? "",
+        });
         // keep the previously selected date if it exists in this spot's range,
         // otherwise fall back to today (a ?ev= story link overrides below)
         const idx = stickyDate ? data.days.findIndex((day) => day.date === stickyDate) : -1;

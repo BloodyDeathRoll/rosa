@@ -1,4 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
+import { gaSetPrefs } from "./ga";
 
 export interface Units {
   temp: "c" | "f";
@@ -23,6 +24,7 @@ export function getUnits(): Units {
 
 export function setUnits(units: Units): void {
   localStorage.setItem(KEY, JSON.stringify(units));
+  gaSetPrefs({ units: String(units) });
   dispatchEvent(new Event(EVENT));
 }
 

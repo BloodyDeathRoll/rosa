@@ -1,4 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
+import { gaEvent, gaSetPrefs } from "./ga";
 import { FAVORITES_EVENT, requestSignIn, signedIn } from "./session";
 
 /** Favorites need an account (since 2026-09-07): the server copy is the truth,
@@ -46,7 +47,10 @@ export function toggleFavorite(id: string): string[] {
     requestSignIn(id);
     return current;
   }
-  const next = current.includes(id) ? current.filter((x) => x !== id) : [...current, id];
+  const removing = current.includes(id);
+  const next = removing ? current.filter((x) => x !== id) : [...current, id];
+  gaEvent(removing ? "favorite_remove" : "favorite_add", { spot_id: id, count: next.length });
+  gaSetPrefs({ favorites: next.length });
   localStorage.setItem(KEY, JSON.stringify(next));
   localStorage.setItem(DIRTY_KEY, "1");
   // server copy + push alerts follow favorites; dynamic imports avoid load-time cycles
