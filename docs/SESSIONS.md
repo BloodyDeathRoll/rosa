@@ -497,3 +497,42 @@ http://127.0.0.1:5173/.
 - Verified headless at 1440, 1024 and 390 px in both themes (Today, Spot with and without
   cam, scrolled, Map, Charts, Spots, Profile, Search); the phone layout is pixel-unchanged.
   `tsc` clean. `docs/UI.md` has the Desktop paragraph.
+
+## SESSION 2026-09-09 - report nudge
+
+- New users were not learning that spots can be reported. Added a full-screen nudge
+  (`web/src/components/ReportNudge.tsx`, `web/src/nudge.ts`, `.nudge-*` in `styles.css`,
+  `XIcon`): "Know a spot better than we do? / Check your favorites. Wrong pin, wrong name,
+  missing break? Tap **Report an issue** on the spot. A person reads every one." X top
+  right, blue OK at the bottom, both close it and nothing else.
+- Schedule: first launch on the device and every sign-in, then once a week for 4 more
+  weeks (5 showings per run). State is `rosa.nudge.report` in localStorage
+  (`{started, shown, last}`); a sign-in restarts the run, a sign-in within 10 min of a
+  showing is treated as the same event so a first launch that goes straight into Google
+  does not show it twice. Storage blocked (private mode) degrades to once per load.
+- z 59, under the install sheet and sign-in screen (both 60/9998+), so a fresh install
+  answers those first. Opaque `--body-bg` - a translucent overlay lets the forecast bleed
+  through, same reason the report page is a page.
+- Second pass on the user's own mock (`Downloads/iPhone 17 - 1.png`, Figma `Rosa` node 1:21,
+  fetched with get_design_context): everything centred, 402px column, 40px padding, title 20px
+  bold, body 16px/1.6 with the breaks the mock has and "A person reads every one." as its own
+  paragraph, OK at radius 16 in the frame's Brand blue secondary - already `--accent`, same hex.
+  The X reuses the new `XIcon` at the mock's 24px.
+- The user then added a **Desktop** frame (node 1:42): above `DESK_MQ` the same block is a
+  582px modal card over the app - 80px padding, radius 16, 6%-black shadow, 60% `--body-bg`
+  scrim via `color-mix` so it dims in either theme. Dark gets a `--border` hairline the mock
+  has no need for (its shadow disappears on the dark ground) - the one deviation.
+- Verified headless (Chrome, live CDN data) at 390px dark/light and 1440px: due on a
+  fresh profile, not due 1 day after a showing, due again at 8 days, silent after 5
+  showings, X and OK both close, a sign-in event 10 s later does not re-show and an hour
+  later does. `tsc` clean.
+- Sign-in error messages: a review server on port 5199 said "Couldn't reach Google" when the
+  real fault was ours - `.env.development` points `VITE_USER_API` at a local Worker on 8787
+  that was not running, and `account.ts` threw that as kind `offline`, which `GoogleButton`
+  rendered as Google's failure. (5199 is also not in the OAuth client's `javascript_origins`;
+  only `localhost:5173` and `localhost` are, so review must run on 5173.) Split the kinds:
+  an unreachable user API is now `unreachable` ("Rosa couldn't be reached"), a device with no
+  connection is `offline` ("You're offline") including inside `loadGsi`, which used to call
+  that case `google` too, and only a real Google failure keeps the Google sentence.
+  Verified in the browser against the running app: offline device, aborted user-api route,
+  blocked GIS script and a 500 from the API each produce their own kind and sentence.

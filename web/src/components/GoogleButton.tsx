@@ -39,11 +39,17 @@ export function GoogleButton({
       if (e instanceof SignInCancelled) {
         // the surfer closed the popup - nothing to say
       } else {
+        // Three different failures, three different things to do about them:
+        // Google itself, this device's connection, and our own user API.
         const kind = (e as { kind?: string }).kind;
         const msg =
-          kind === "google" || kind === "offline"
+          kind === "google"
             ? "Couldn't reach Google - check your connection and try again."
-            : "Sign-in didn't complete - try again.";
+            : kind === "offline"
+              ? "You're offline - reconnect and try again."
+              : kind === "unreachable"
+                ? "Rosa couldn't be reached - try again in a moment."
+                : "Sign-in didn't complete - try again.";
         setFailure(msg);
         onDone?.(e instanceof Error ? e : new Error(msg));
       }

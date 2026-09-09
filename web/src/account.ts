@@ -20,7 +20,7 @@ export function accountSupported(): boolean {
 
 export class AccountError extends Error {
   constructor(
-    public kind: "offline" | "google" | "api" | "signed-out",
+    public kind: "offline" | "unreachable" | "google" | "api" | "signed-out",
     message: string,
   ) {
     super(message);
@@ -41,7 +41,11 @@ export function loadGsi(): Promise<GsiOauth2> {
       gsiLoad = null; // a later attempt (back online) starts fresh
       reject(new AccountError("google", why));
     };
-    if (!navigator.onLine) return fail("offline");
+    // this device has no connection at all - not something to blame Google for
+    if (!navigator.onLine) {
+      gsiLoad = null;
+      return reject(new AccountError("offline", "offline"));
+    }
     const s = document.createElement("script");
     s.src = GSI_SRC;
     s.async = true;
@@ -116,7 +120,9 @@ async function call<T>(path: string, init: RequestInit & { auth?: boolean } = {}
   try {
     res = await fetch(`${API}${path}`, { ...init, headers });
   } catch {
-    throw new AccountError("offline", "unreachable");
+    // the browser is online but OUR api did not answer - never Google's fault,
+    // and the message the user sees has to say so
+    throw new AccountError("unreachable", "user api unreachable");
   }
   if (res.status === 401 && init.auth !== false) {
     // The session died server-side (signed out elsewhere, account deleted).

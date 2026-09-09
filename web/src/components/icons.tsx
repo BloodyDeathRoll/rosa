@@ -213,3 +213,9 @@ export const CompassNorthIcon = ({ size = 17 }: IconProps) => (
     </text>
   </svg>
 );
+
+export const XIcon = ({ size = 20 }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
+    <path d="M18 6 6 18M6 6l12 12" />
+  </svg>
+);

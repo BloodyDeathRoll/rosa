@@ -3547,6 +3547,89 @@ a.rank-card:hover {
 }
 
 /* ==========================================================================
+   REPORT NUDGE
+   Full-screen "you can report a spot" note (schedule in nudge.ts). Opaque
+   like the report page, one step under the install sheet (60) and the
+   sign-in screen, so those are answered first on a fresh install.
+   ========================================================================== */
+
+.nudge-page {
+  position: fixed;
+  inset: 0;
+  z-index: 59;
+  background: var(--body-bg);
+  color: var(--foreground);
+  display: flex;
+  justify-content: center;
+  animation: installFade 0.25s ease;
+}
+/* the reading column: phone width on every screen, the ground fills the rest */
+.nudge-inner {
+  position: relative;
+  width: 100%;
+  max-width: 402px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: calc(40px + env(safe-area-inset-bottom));
+}
+.nudge-close {
+  position: absolute;
+  top: calc(20px + env(safe-area-inset-top));
+  right: 20px;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted-foreground);
+}
+.nudge-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px;
+  text-align: center;
+}
+.nudge-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: normal;
+}
+.nudge-lead {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+}
+/* the mock's blank line between the two body paragraphs */
+.nudge-lead + .nudge-lead {
+  margin-top: calc(-40px + 1.6em);
+}
+.nudge-lead b {
+  font-weight: 700;
+}
+.nudge-foot {
+  flex: none;
+  padding: 0 40px;
+}
+.nudge-ok {
+  width: 100%;
+  padding: 15px 24px;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 400;
+  background: var(--accent);
+  color: #fff;
+}
+@media (prefers-reduced-motion: reduce) {
+  .nudge-page {
+    animation: none;
+  }
+}
+
+/* ==========================================================================
    DESKTOP
    Wide screens (the DESK_MQ in desk.ts): the phone column becomes a full-width
    page under a top bar - brand, section links, search, account, and a ticker
@@ -4188,6 +4271,37 @@ a.rank-card:hover {
     grid-column: 2; /* the fixed hero is out of flow, so the body must be told */
     padding: 48px 56px 80px;
     max-width: 720px;
+  }
+
+  /* REPORT NUDGE: a modal card over the app (Figma `Rosa` node 1:42), not the
+     full-screen page the phone gets - the ground behind it is the forecast,
+     dimmed by a scrim in whichever theme is on. */
+  .nudge-page {
+    background: color-mix(in srgb, var(--body-bg) 60%, transparent);
+    align-items: center;
+  }
+  .nudge-inner {
+    max-width: 582px;
+    padding: 80px;
+    padding-bottom: 80px;
+    background: var(--body-bg);
+    border-radius: 16px;
+    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.06));
+  }
+  /* the mock's 6%-black shadow is invisible on the dark ground - a hairline
+     gives the card its edge back */
+  :root[data-theme="dark"] .nudge-inner {
+    border: 1px solid var(--border);
+  }
+  .nudge-close {
+    top: 20px;
+    right: 20px;
+  }
+  .nudge-body {
+    flex: none;
+  }
+  .nudge-foot {
+    padding: 13px 40px 0;
   }
 }
 
