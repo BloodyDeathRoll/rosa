@@ -299,6 +299,7 @@ def breaker_height_from_profile(
     wind_normal_ms: float = 0.0,
     friction_cb: float | None = None,
     friction_mode: str | None = None,
+    friction_kd_min: float | None = None,
 ) -> float:
     """Breaker height of the dominant WAVE FIELD (Stage 2B hybrid + the 2026-08-03 combine
     fix): real physics for the geometry (shoaling + refraction + depth-limited breaking over
@@ -358,6 +359,7 @@ def breaker_height_from_profile(
             # friction coefficient are coupled (CALIBRATION.md).
             **({} if friction_cb is None else {"friction_cb": friction_cb}),
             **({} if friction_mode is None else {"friction_mode": friction_mode}),
+            **({} if friction_kd_min is None else {"friction_kd_min": friction_kd_min}),
         )
         factor = (
             rideability(p) if rideability is not None else period_rideability(rideability_period(p))

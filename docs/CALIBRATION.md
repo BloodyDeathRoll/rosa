@@ -2721,3 +2721,47 @@ that cannot take the sea below the depth-limited height - fixes the 63 without t
 the shelf coasts where the current value is doing real work. That is the candidate to
 build and grade next, and unlike a re-scale it can be argued from physics rather than
 from a fleet median.
+
+### 2026-09-09, cont. - the bounded candidate, built and graded: `kdfloor` at kd 0.5
+
+Two bounded candidates, both graded on the shipping profiles, all 1408 spots, three seas:
+
+| candidate | frames | flat spots | median h | mean delta | p90 delta |
+|---|---|---|---|---|---|
+| **always** (shipping) | 1 | **63** | 1.31 m | - | - |
+| kdfloor 0.3 | 1 | 14 | 1.33 m | +0.05 m | 0.15 m |
+| **kdfloor 0.5** | 1 | **0** | 1.43 m | **+0.17 m** | 0.50 m |
+| kdfloor 0.8 | 1 | 0 | 1.60 m | +0.34 m | 0.91 m |
+| kdfloor 1.0 | 1 | 0 | 1.69 m | +0.41 m | 1.12 m |
+| bounded (depth-limit floor) | 1 | 0 | 1.88 m | +0.77 m | 2.00 m |
+| textbook cb (for comparison) | 1 | 1 | 1.78 m | +0.44 m | 1.04 m |
+
+`kdfloor` stops the friction term where its own derivation stops holding. JONSWAP's orbital
+velocity is LINEAR theory's `sigma/sinh(kd)`; linear theory is not valid in the surf zone,
+and below `kd` ~0.5 (depth under about L/12) the real orbital motion is shallow-water and
+bounded where `1/sinh(kd)` is not. Cutting it there is a statement about the model's domain,
+not a tuning - which is why it can be argued on its own terms and a rescale cannot.
+
+`bounded` - floor the height at the depth limit - also clears the defect but costs +0.77 m,
+worse than the textbook rescale it was meant to beat: the floor binds almost everywhere once
+a wave is near saturation, so it removes shelf friction wholesale. Rejected.
+
+### Why kdfloor 0.5 is the one
+
+**It leaves the calibration alone.** Israel - the region every constant in this pipeline was
+fitted on - moves **+0.04 m**. French Polynesia +0.00, Mauritius +0.01, Okinawa +0.03.
+**506 of 1408 spots do not move at all** (< 1 cm). The movement is confined to shallow-shelf
+coasts: WA Midwest +0.44, Perth +0.38, Brittany +0.30, Wales +0.30 - a quarter of what the
+textbook rescale does to the US East Coast (+1.10 m), and in the places where a 460 m cell
+genuinely puts the wave in water linear theory cannot describe.
+
+**And it fixes the defect completely** - 63 flat spots to 0. pen-hat 0.02 -> 1.70 m,
+new-brighton 0.01 -> 1.68, cap-skirring 0.09 -> 1.58, sarongs 0.02 -> 1.04.
+
+The frames do not discriminate here either (1 of 5 at every candidate above), so they are
+neither evidence for this nor against it - see the entry above for why they cannot be cited
+for the current value either.
+
+**Not applied.** `FRICTION_MODE` stays "always"; flipping it moves the published height at
+902 of 1408 spots and that is a product call, not a code one. Everything needed to make it
+is above: the defect, the mechanism, the candidates, the cost, and the regions that pay it.

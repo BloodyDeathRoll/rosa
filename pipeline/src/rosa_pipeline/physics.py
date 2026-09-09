@@ -358,7 +358,19 @@ H13_OVER_H110 = 0.79  # Rayleigh: significant height of the breakers vs their to
 #   "always" - the shipped behaviour, friction on every substep
 #   "stop"   - friction off once the sea has started breaking (qb > BREAKING_ONSET_QB)
 #   "taper"  - friction scaled by (1 - qb), so it fades as the sea saturates
-FRICTION_MODES = ("always", "stop", "taper")
+#   "bounded" - dissipation may SATURATE the sea, never annihilate it: within one substep
+#     the height cannot be driven below what the local depth can carry. A surf zone is fed
+#     continuously by the swell behind it, so a wave crossing a metre of water arrives as a
+#     metre-of-water wave; it does not arrive as nothing. This bounds the JONSWAP term where
+#     it diverges (orbital ~ 1/sinh(kd), squared) without rescaling it where it is doing
+#     real work over a wide shelf - see CALIBRATION.md 2026-09-09.
+#   "kdfloor" - friction only while kd >= FRICTION_KD_MIN. The JONSWAP orbital velocity is
+#     LINEAR theory's, sigma/sinh(kd), and linear theory is not valid in the surf zone: below
+#     about kd 0.5 (depth under ~ L/12) the real orbital motion is shallow-water and bounded
+#     where 1/sinh(kd) is not. Cutting the term where its own derivation stops holding bounds
+#     it without rescaling it over the shelf, where kd 1-3 and it is doing real work.
+FRICTION_MODES = ("always", "stop", "taper", "bounded", "kdfloor")
+FRICTION_KD_MIN = 0.5
 FRICTION_MODE = "always"
 BREAKING_ONSET_QB = 0.1  # the same threshold surf_in_profile already calls "this IS surf"
 _SUBSTEP_M = 25.0  # dissipation substep; segments between samples are km apart
@@ -497,6 +509,7 @@ def surf_height_over_profile(
     gamma: float = BREAK_GAMMA,
     friction_cb: float = BOTTOM_FRICTION_CB,
     friction_mode: str = FRICTION_MODE,
+    friction_kd_min: float = FRICTION_KD_MIN,
 ) -> float:
     """Significant surf height of a random sea over the measured profile.
 
@@ -565,7 +578,7 @@ def surf_height_over_profile(
             surf_in_profile = max(surf_in_profile, height)
             broken = True
         d_fric = 0.0
-        if kd[i] < 25.0:
+        if kd[i] < 25.0 and not (friction_mode == "kdfloor" and kd[i] < friction_kd_min):
             scale = 1.0
             if friction_mode == "stop":
                 scale = 0.0 if broken else 1.0
@@ -578,6 +591,14 @@ def surf_height_over_profile(
             # exp(-x/2) == sqrt(1-x) to first order, but stays positive when a
             # saturated substep dissipates more than the segment's flux carries
             atten *= math.exp(-0.5 * loss / flux)
+            if friction_mode == "bounded":
+                # The floor is the depth-limited height, or the height the wave already
+                # had if that is smaller - dissipation saturates a sea, it does not empty
+                # one. Expressed on `atten` because that is what the next substep reads;
+                # ks/kr at this substep convert the height floor into an attenuation floor.
+                shoaled = offshore_height_m * ks[i] * kr[i]
+                if shoaled > 0.0:
+                    atten = max(atten, min(height, hmax[i]) / shoaled)
     return max(
         surf_in_profile,
         H13_OVER_H110
