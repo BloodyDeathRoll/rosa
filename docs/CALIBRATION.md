@@ -2834,3 +2834,40 @@ copy of the pre-numpy march to prove the vectorised rewrite changed no arithmeti
 been taught the same domain limit, so the equivalence it asserts is still against the
 physics we actually run, at the same 1e-12 tolerance. The assertion was not weakened; the
 reference was brought up to date with the implementation it models.
+
+### 2026-09-09, cont. - seabed swap re-run under the shipped friction: passes on merit, blocked on two rays
+
+With `kdtaper` shipped, the coupling that blocked the swap is gone. Re-graded, both arms at
+the shipped friction:
+
+| arm | frames | flat spots | of the 10 watched reefs | median h | mean delta |
+|---|---|---|---|---|---|
+| committed (gebco2020 API) | 1 | 6 | 0 | 1.38 m | - |
+| **local (GEBCO 2024)** | **2** | 6 | 1 | 1.39 m | **+0.108 m** |
+
+Same flat count, same fleet movement, **one more graded frame**, and the watched reef spots
+go from 10 flat to 1. Same-input fleet A/B between the two cuts at the shipped friction:
+mean **-0.009 m** (groundswell) and +0.012 m (long swell) - the fleet does not move - with
+bucket changes down from 17.4%/14.3% before the friction fix to 9.7%/7.0% now.
+
+On top of the four geometry counters and the CMEMS SDB corroboration from this morning,
+that is a swap that has earned its place.
+
+**Applied, and reverted the same hour, on a test this repo already had.**
+`test_spots.test_committed_profiles_reach_open_water` - "a profile whose seaward end is dry
+land is pointing the wrong way" - fails for exactly two spots on the new grid:
+
+- **fort-point** (-5 m at 18 km). Its ray at 303 deg crosses the Marin headlands. It always
+  did: the API cut reads -46 / -121 / -71 m at 5 / 8 / 12 km. Only the 18 km end changed
+  sign (+6 m to -5 m), so the swap did not break this ray, it finished exposing it. The
+  nearest bearing whose whole ray is wet is **275 deg, 28 deg off today's normal**.
+- **lebih** (-18 m at 18 km). Swept every bearing at 5 deg: **no direction has a fully wet
+  18 km ray** - the spot is enclosed by Nusa Penida and the strait, which the local grid
+  resolves and the API smoothed away. The test's premise cannot be met here at 18 km on any
+  bearing.
+
+Both are coordinate questions, and CLAUDE.md ranks a human's eyes above a derived value for
+those, so neither was changed. **The swap is one decision away**: approve fort-point's
+normal (or confirm it should stay and the ray is simply blocked), and decide what a ray
+should do at a spot walled in by an island. Re-cutting is 3 seconds
+(`bathy --all --source local`), and every A/B in `tools/bathy-ab/` re-runs in minutes.
