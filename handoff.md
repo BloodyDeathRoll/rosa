@@ -1,93 +1,94 @@
-# Session Handoff - 2026-09-08 (late evening)
+# Session Handoff - 2026-09-09
 
 ## Goal
-Give the Rosa web app a real desktop layout in Surfline's site structure (top nav, search,
-account, favorites ticker, cards in a row, forecast beside conditions) in Rosa's own look,
-reviewed on localhost and then shipped.
+Tell new users that a spot page carries a **Report an issue** button: phrase the message,
+then build it as a scheduled full-screen popup, matching the user's own Figma frames.
 
 ## Current State
-DONE, committed as `5a6d2d1` on `main`, pushed, deployed to production (rosa.surf serves the
-new build; verified the live HTML references `splash_16-9.png`). Working tree clean.
+DONE, committed as `c441880` on `main`, pushed, deployed to production, verified live on
+rosa.surf (popup appears on a fresh visit: full-screen at 390px, 582px card at 1440px).
 
-- Above 900px (`web/src/desk.ts` DESK_MQ, mirrored by the DESKTOP block at the end of
-  `web/src/styles.css`) the app is a full-width page: sticky top bar
-  (`components/DesktopBar.tsx`: brand, Today/Spots/Map/Charts links, search field that
-  opens `#/search`, avatar into Profile) + favorites ticker (tier dot, name, today's range).
-  Pill nav hidden. Document scrolls at every width (phone frame is gone).
-- Today: cards in an auto-fill grid; coast chart shows every day across the row.
-- Spot: 34px title, days spread across the row, hourly table under the days on the LEFT
-  (`.spot-hours` wrapper), cam then rating card, tide, sun in a 420px RIGHT column. Pinned
-  header shrinks to 22px when scrolled.
-- Map: full width, card carousel in a band UNDER the map (not over it), focused card
-  outlined. Search overlays the map, field + results in the 760px column.
-- About pages: hero `position: fixed` on the viewport's left half flush with the edge,
-  body in grid column 2 on the right.
-- Spots / Profile / Search: 760px reading column; `AppHeader` has a `title` prop for the
-  desktop heading.
-- Phone layout verified pixel-unchanged at 390px. `tsc` clean, production build passes.
-- User signed in on localhost and reviewed every screen before saying "Awesome. Commit".
-
-Not verified: a 1024px window with the map band (only Today checked at 1024); the About
-hero on very short windows (fixed hero height is `100dvh - --desk-top`).
+- Copy shipped: "Know a spot better than we do? / Check your favorites. / Wrong pin, wrong
+  name, missing break? Tap **Report an issue** on the spot. / A person reads every one."
+- Schedule works: first launch on the device, every sign-in, then once a week for 4 more
+  weeks (5 showings per run). X and OK only close it.
+- Sign-in error messages were also split (see below) and verified in a real browser.
+- **Untested by a human:** nobody has actually completed a Google sign-in since the error
+  split; only the failure paths were exercised. Also nobody has read the popup on a real
+  phone - all checks were headless Chrome at 390px.
+- One pre-existing thing noticed, not investigated: rosa.surf rendered in LIGHT theme with
+  the browser set to dark. Local dev honoured dark correctly. Site default, not the popup.
 
 ## Active Files
-- `web/src/desk.ts` - NEW, the one breakpoint (`DESK_MQ`, `isDesk()`).
-- `web/src/components/DesktopBar.tsx` - NEW, top bar + favorites ticker.
-- `web/src/styles.css` - DESKTOP block rewritten (was the phone-in-a-frame); `.signin-screen`
-  16:9 splash media query.
-- `web/index.html` - 16:9 splash media query.
-- `web/public/splash_16-9.png` - user-supplied 2521x1418 PNG, 3.9 MB, used on wide
-  landscape screens.
-- `web/src/app.tsx` - renders DesktopBar, shared `active` tab computation.
-- `web/src/pages/SpotPage.tsx` - `.spot-hours` wrapper around day title + table.
-- `web/src/components/CoastChart.tsx` - `--days` on `.coast`; scrubber column width measured
-  from the DOM (`colW`) instead of the 56px constant.
-- `web/src/pages/MapPage.tsx` - `isDesk()` drops the sheet's bottom-strip exclusion;
-  `.sheet-title` (desktop only).
-- `web/src/components/parts.tsx` - `AppHeader` `title` prop; `SpotsPage.tsx` /
-  `SettingsPage.tsx` pass it.
-- `web/src/scroller.ts` - comment only (frame gone).
-- `docs/UI.md` (Desktop paragraph), `docs/SESSIONS.md` (session entry).
+- `web/src/nudge.ts` - NEW. The schedule only: `nudgeDue()`, `nudgeDueOnSignIn()`,
+  `markNudgeShown(reason)`. State is `rosa.nudge.report` in localStorage
+  (`{started, shown, last}`).
+- `web/src/components/ReportNudge.tsx` - NEW. The popup. Mounted in `app.tsx` above
+  `<InstallPrompt/>` and `<SignInScreen/>`.
+- `web/src/components/icons.tsx` - added `XIcon`.
+- `web/src/styles.css` - `.nudge-*` block (phone) + desktop rules at the END of the
+  `@media (min-width: 900px)` DESKTOP block.
+- `web/src/account.ts` - `AccountError` kind union gained `"unreachable"`; `loadGsi`'s
+  offline branch now throws `offline`, not `google`.
+- `web/src/components/GoogleButton.tsx` - one message per kind.
+- `docs/UI.md`, `docs/SESSIONS.md` - updated.
+- `web/public/splash_16-9.png` - the user replaced it before this session; committed along.
 
 ## Changes Made This Session
-1. Read Surfline screenshots + existing web code; replaced the desktop phone-frame block
-   with a full-width layout. Kept the warm-clay tokens; nothing changes what a screen says,
-   only where it sits.
-2. Review round 1 (user): map search results unreachable, spot columns wrong way round,
-   coast chart bars missing, 16:9 splash. Fixed: Search-page desktop rules had leaked into
-   the map overlay (scoped to `.page:not(.map-page)`); columns swapped to forecast-left;
-   `.chart-plot` width `calc(var(--col-w) * 0.84)` re-resolved the row-share `%` against
-   the column - now `84%` on desktop; splash wired.
-3. Review round 2: dates showed Aug 23 - the local `data/out` is a stale run and dev copies
-   it; dev server now runs with `VITE_DATA_BASE=https://rosa-data-opal.vercel.app`. Map
-   sidebar replaced by a carousel band under the map (user's call). About pages went
-   two-column (user's call, after a demo from another project), then fixed + flush-left.
-4. Sign-in on localhost failed twice for env reasons: Google's OAuth client allows
-   `localhost:5173` not `127.0.0.1`; `.env.development` points `VITE_USER_API` at a local
-   Worker (`localhost:8787`) that was not running. Dev run with the live Worker URL.
-5. Commit + push + `npm run deploy` (prebuilt, prod) on "Commit".
+1. Phrasing first. The user's draft was rewritten to name the real button
+   ("Report an issue") so people can find it, and to drop the exclamation marks and the
+   "make Rosa better for you" tagline. The user picked the shorter of two options.
+2. Built it as a page, not an overlay - same reason `ReportSheet` is a page: `--background`
+   is 11% white over a photo, so a translucent sheet lets the forecast bleed through.
+   `--body-bg` is the one opaque token.
+3. z-index 59, one under the install sheet (60) and sign-in screen (9998), so a fresh
+   install answers those first and finds this waiting.
+4. Schedule: a sign-in restarts the run; a sign-in within 10 min of a showing is treated as
+   the same event, so a first launch that goes straight into Google does not show it twice.
+   Storage blocked (private mode) degrades to once per page load.
+5. User asked for centred text and two line breaks; then handed over the Figma frames and
+   the layout was rebuilt from them (file `Rosa`, page `designs`): **mobile** node 1:21,
+   **desktop** node 1:42. Desktop = the same block as a 582px modal card over the app,
+   80px padding, radius 16, on a 60% `--body-bg` scrim (`color-mix`, so it dims in either
+   theme). The mock's 6%-black shadow is invisible on the dark ground, so dark gets a
+   `--border` hairline - the only deliberate deviation from the mock.
+6. The user hit "Couldn't reach Google" on a review server. Root cause was environment
+   (below), but it exposed two real mislabels, now fixed: an unreachable Rosa user API was
+   thrown as the `offline` kind, and a device with no connection was thrown as `google`
+   inside `loadGsi`. Each side now names itself:
+   google -> "Couldn't reach Google...", offline -> "You're offline...",
+   unreachable -> "Rosa couldn't be reached...", api -> "Sign-in didn't complete...".
 
 ## Failed Attempts
-- Spot page first cut put the cam on the LEFT above the table (cam pushed the forecast down
-  a screen). Rejected by the user; forecast must sit straight under the day selector.
-- Map first cut was a 380px sidebar list. Rejected; user wants full-width map with the
-  carousel below.
-- About hero as `position: sticky` inside a centred 1440px column left a gutter on the
-  left; fixed positioning flush with the viewport edge was required. Making the hero fixed
-  pulled it out of the grid flow and the body vanished under it until `.about-body` was
-  given `grid-column: 2` explicitly.
-- A blanket `.spot-back { display: none }` for the spot header also hid the map search's
-  close button; scoped to `.spot-top .spot-back`.
-- `pkill -f vite` killed the shell running it (the command line matched); restart with
-  `pgrep -fa vite | ... | xargs kill` instead.
+- **Review server on port 5199 broke sign-in twice over.** 5199 is NOT in the OAuth client's
+  `javascript_origins` (only `https://rosa.surf`, `www`, `rosa-rust`, `rosa-demo`,
+  `http://localhost:5173`, `http://localhost`), AND it inherited `.env.development`'s
+  `VITE_USER_API=http://localhost:8787`, a Worker that was not running. **Always review on
+  `localhost:5173` with `VITE_USER_API` set to the live Worker and `VITE_DATA_BASE` set to
+  the CDN** - the local `data/out` is a stale run and `npm run dev` copies it.
+- Playwright is NOT installed in `web/`; its browsers are not downloaded either. What works:
+  import from `/home/shahar/Projects/uptake/node_modules/playwright/index.mjs` and launch
+  with `executablePath: "/usr/bin/google-chrome"`.
+- First screenshots came out light in both themes: `colorScheme` alone does not drive the
+  app, it reads `localStorage["rosa.theme"]`. Set that in an init script.
+- A probe that called `startGoogleSignIn()` after the page had already warmed GIS hung
+  forever - the real popup opens and nothing resolves it. Stub
+  `window.google.accounts.oauth2.initCodeClient` to fire the callback instead, or block
+  `**accounts.google.com/**` from before `goto`.
+- Clicking `.google-btn` in a fresh context times out: the sign-in screen and the nudge
+  itself cover it. Dismiss `.signin-later` and `.nudge-ok` first.
+- `pkill -f "vite --port 5199"` returns exit 144 and kills the rest of the compound command
+  with it. Run it alone.
 
 ## Next Step
-1. Optional, flagged to the user, not asked for: `web/public/splash_16-9.png` is 3.9 MB
-   (phone splash.jpg is 160 KB). A JPG export would cut first paint on desktop.
-2. Consider making dev point at live data + the live user API by default
-   (`web/.env.development`: `VITE_DATA_BASE`, `VITE_USER_API`) - every review this
-   session needed both overrides. Ask before changing.
-3. Check the map band and About hero at 1024x700 and a short window; `isDesk()` and the
-   DESKTOP media query must stay in step if the breakpoint ever moves.
-4. Dev server for review: from `web/`,
-   `VITE_DATA_BASE=https://rosa-data-opal.vercel.app VITE_USER_API=https://rosa-user-api.einhanamer.workers.dev npm run dev -- --host localhost --port 5173`
+Nothing is pending. The work is shipped and verified.
+
+Follow-ups, in order of value:
+1. Look at the popup on a real phone (rosa.surf, fresh profile) - every check so far was
+   headless at 390px.
+2. Decide whether the copy should read "missing **a** break?" - the user's message quoted it
+   with the "a", the shipped copy has no "a". One word in
+   `web/src/components/ReportNudge.tsx`, and the same line in the Figma frames.
+3. Work out why rosa.surf renders light when the browser is set to dark. Start at
+   `web/src/theme.ts` (`initialTheme`) and the `rosa.theme` key; local dev was correct, so
+   suspect the stored value or the prefers-color-scheme fallback on a first visit.

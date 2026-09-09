@@ -536,3 +536,13 @@ http://127.0.0.1:5173/.
   that case `google` too, and only a real Google failure keeps the Google sentence.
   Verified in the browser against the running app: offline device, aborted user-api route,
   blocked GIS script and a 500 from the API each produce their own kind and sentence.
+- **Scroll lock leak (2026-09-09, same day).** With the nudge live, dismissing the sign-in
+  screen and then the nudge left `body.style.overflow: hidden` and the whole app
+  unscrollable, every page. Each overlay saved and restored `body.style.overflow` itself, so
+  the second one to open saved the first one's "hidden" and wrote it back on close - two
+  overlaps was all it took, and a signed-out first launch always has two. `lockScroll()` in
+  `web/src/scroller.ts` is now a counted lock: the first lock records the page's real value,
+  only the last release restores it, and a double-release is a no-op. `ReportNudge`,
+  `SignInScreen` and `ReportSheet` all use it. Verified in the browser: with both overlays
+  dismissed in either order the page scrolls again, on Today and on a spot page, and the
+  report sheet still frees the page on close.

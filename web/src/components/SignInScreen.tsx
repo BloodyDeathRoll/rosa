@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import { accountSupported } from "../account";
 import { toggleFavorite } from "../favorites";
+import { lockScroll } from "../scroller";
 import { ACCOUNT_EVENT, SIGNIN_REQUEST_EVENT, signedIn } from "../session";
 import { GoogleButton } from "./GoogleButton";
 import { mountParticles } from "./particles";
@@ -98,11 +99,7 @@ export function SignInScreen() {
 
   useEffect(() => {
     if (!open) return;
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = prev;
-    };
+    return lockScroll();
   }, [open]);
 
   if (!open) return null;

@@ -28,3 +28,28 @@ export function onScroll(fn: () => void): () => void {
     el?.removeEventListener("scroll", fn);
   };
 }
+
+/** Freeze the page behind a full-screen overlay; the returned function thaws it.
+ *
+ * Counted, because overlays overlap: the sign-in screen and the report nudge are
+ * both up on a signed-out first launch. Each saving and restoring
+ * `body.style.overflow` itself meant the second one to open saved the first
+ * one's "hidden" and wrote it back on close, leaving the whole app unscrollable
+ * (2026-09-09). Only the last lock released restores the page. */
+let locks = 0;
+let unlocked = "";
+
+export function lockScroll(): () => void {
+  if (locks === 0) {
+    unlocked = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+  }
+  locks += 1;
+  let released = false;
+  return () => {
+    if (released) return; // a double-release must not free someone else's lock
+    released = true;
+    locks -= 1;
+    if (locks === 0) document.body.style.overflow = unlocked;
+  };
+}

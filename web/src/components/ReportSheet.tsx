@@ -1,6 +1,7 @@
 import { useEffect, useState } from "preact/hooks";
 import { ChevronLeftIcon } from "./icons";
 import { mailtoFor, send, MESSAGE_MAX, type Outbound } from "../contact";
+import { lockScroll } from "../scroller";
 
 /** Per-spot "Report", a full screen of its own.
 
@@ -56,11 +57,10 @@ export function ReportSheet({
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
     addEventListener("keydown", onKey);
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    const unlock = lockScroll();
     return () => {
       removeEventListener("keydown", onKey);
-      document.body.style.overflow = prev;
+      unlock();
     };
   }, [onClose]);
 

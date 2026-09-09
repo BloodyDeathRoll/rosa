@@ -1,5 +1,6 @@
 import { useEffect, useState } from "preact/hooks";
 import { markNudgeShown, nudgeDue, nudgeDueOnSignIn } from "../nudge";
+import { lockScroll } from "../scroller";
 import { ACCOUNT_EVENT } from "../session";
 import { appReady } from "../splash";
 import { XIcon } from "./icons";
@@ -45,11 +46,7 @@ export function ReportNudge() {
 
   useEffect(() => {
     if (!open) return;
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = prev;
-    };
+    return lockScroll();
   }, [open]);
 
   if (!open) return null;
