@@ -2604,3 +2604,74 @@ to the physics, not a tuning, so it wants its own pre-registered question, both 
 
 Until then the seabed swap stays unapplied, and OPEN-ITEMS 17/23 stay open on this, not on
 bathymetry evidence.
+
+## 2026-09-09 - Bottom friction annihilates the wave at 63 spots, in production, today
+
+The pre-registered candidate from the entry above - stop friction once the sea starts
+breaking - **fails, and the reason is worse than the swap it was meant to unblock.**
+
+`friction_mode` ("always" / "stop" / "taper") was added to the march and graded on both
+bathymetry cuts. Every mode scores identically: 1 frame / 63 flat on the committed cut,
+2 frames / 65 flat on the local one. **"stop" never fires, because the sea never starts
+breaking.**
+
+### The trace
+
+uluwatu, local cut, 1.5 m / 12 s, printing the march substep by substep: the wave crosses
+the shelf intact (`atten` 1.000 to i=360), then from i=612 the depth falls under 3 m and
+`kd` under 0.8. JONSWAP's orbital velocity goes as `1/sinh(kd)`, and it is SQUARED in the
+dissipation, so at `kd` 0.17 the friction term is ~35x its deep-water value. `atten` runs
+0.70 -> 0.56 -> 0.09 in 24 substeps (600 m). By the substep where the depth could break it
+(`hmax` 0.73 m at 1 m of water) the height is already 0.27 m - **under the breaking limit**,
+so `qb` reads 0.0000, `surf_in_profile` records nothing, and the K&G close is fed the same
+annihilated offshore height. Both terms of the final `max` go to zero together. First
+substep with `qb > 0.1`: **none**.
+
+### It is not the reef spots, and it is not the new grid
+
+On the **committed** profiles - what rosa.surf is serving right now - **63 of 1408 spots**
+publish under 0.15 m for a 1.5 m / 12 s swell down their own window centre, and **all 63**
+come back to 1.0-1.8 m with friction switched off. Their shallowest ray sample is 3-6 m,
+not a reef flat: kings-beach, wildwood, pen-hat, new-brighton, tubes, cap-skirring,
+rockaway-beach, boca-barranca, cape-may-cove, el-jadida, half-moon-bay-westport, sarongs.
+
+Verified against the live CDN, 2026-09-09 payloads, next 72 h:
+
+| spot | published h_mid (max / median) | largest offshore partition |
+|---|---|---|
+| rockaway-beach | 0.10 m / **0.00 m** | 1.60 m |
+| boca-barranca | 0.10 m / **0.00 m** | 0.91 m |
+| cap-skirring | 0.10 m / **0.00 m** | 0.91 m |
+
+These spots read flat whatever the ocean does. That is a live defect, not a calibration
+preference, and it is independent of the bathymetry swap - it is in what ships.
+
+### The cause is the `g`, and the code already says so
+
+`BOTTOM_FRICTION_CB = 0.038` is applied over `g` where the JONSWAP energy form divides by
+`g^2`, making the effective coefficient ~0.37 m2s-3, ten times the textbook swell value.
+That was tuned by eye on 2026-09-07 at poleg - a 12 km shelf in 10-30 m of water, where
+`kd` stays above 1 and the error is a benign ~11%. Nothing in that frame exercised `kd`
+below 0.5, where the same coefficient diverges.
+
+Sweeping the coefficient on the committed profiles: at the textbook value (0.0038 in this
+code's units) the flat count goes **63 -> 1** and the frame score does not change (1 of 5
+either way). The cost is **+0.46 m across the fleet median** - which is the measure of how
+much work the 10x coefficient is quietly doing everywhere else.
+
+### The decision this needs
+
+Three options, none of them mine to take:
+1. **Fix the `g` and re-tune** what the 10x was compensating for, somewhere it belongs
+   (rideability, the K&G close, or spread). Correct, and it moves every published height.
+2. **Bound the friction term** so it cannot dissipate a wave below the depth-limited
+   height. Narrow, fixes the 63, leaves the tuned constant standing - but it is an
+   invention, and CLAUDE.md is explicit about inventing physics.
+3. **Leave it** and accept 63 spots reading flat forever.
+
+Option 3 is not defensible now that it is measured. Recommend 1, gated on the same-input
+fleet A/B and a frame re-grade, with option 2 as the stopgap if the fleet move is too big
+to take in one step.
+
+`friction_mode` stays in the march, defaulting to "always" - it changes nothing, and it is
+the hook the next candidate will be graded through.

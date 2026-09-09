@@ -348,6 +348,19 @@ BOTTOM_FRICTION_CB = 0.038  # applied over g, not g^2: effective Cb ~0.37 m^2 s^
 # eye, NOT SWAN's 0.038 - see the header note and CALIBRATION.md 2026-09-07
 BJ_GAMMA = 0.73  # Battjes-Janssen breaker parameter (their fitted value, SWAN default)
 H13_OVER_H110 = 0.79  # Rayleigh: significant height of the breakers vs their top tenth
+# Where bottom friction applies along the march. JONSWAP friction is a PROPAGATION term:
+# it is calibrated for swell travelling over a bottom, and inside the surf zone breaking
+# dissipation dominates it by orders of magnitude. Integrating it anyway across the
+# kilometre-scale shallow shelf a 460 m GEBCO cell smears in front of a reef destroys the
+# wave BEFORE it reaches a breaking substep, so `surf_in_profile` never records it and the
+# published height collapses to ~0 at Uluwatu, G-Land and 48 other spots (CALIBRATION.md
+# 2026-09-09). Candidates, graded before any default moves:
+#   "always" - the shipped behaviour, friction on every substep
+#   "stop"   - friction off once the sea has started breaking (qb > BREAKING_ONSET_QB)
+#   "taper"  - friction scaled by (1 - qb), so it fades as the sea saturates
+FRICTION_MODES = ("always", "stop", "taper")
+FRICTION_MODE = "always"
+BREAKING_ONSET_QB = 0.1  # the same threshold surf_in_profile already calls "this IS surf"
 _SUBSTEP_M = 25.0  # dissipation substep; segments between samples are km apart
 _RHO = 1025.0  # kg/m^3 seawater
 
@@ -483,6 +496,7 @@ def surf_height_over_profile(
     *,
     gamma: float = BREAK_GAMMA,
     friction_cb: float = BOTTOM_FRICTION_CB,
+    friction_mode: str = FRICTION_MODE,
 ) -> float:
     """Significant surf height of a random sea over the measured profile.
 
@@ -527,6 +541,7 @@ def surf_height_over_profile(
     grazing, ks, kr, cg, kd, orbital, hmax, dx = terms
     atten = 1.0  # cumulative dissipation factor on height (friction + breaking)
     surf_in_profile = 0.0
+    broken = False  # has the sea started breaking anywhere shoreward of here
     sqrt2 = math.sqrt(2.0)
     for i in range(len(dx)):
         if grazing[i]:
@@ -541,14 +556,23 @@ def surf_height_over_profile(
         # energy form is Cb / g^2 * (sigma/sinh kd)^2 * E; this line divides by g once, so
         # friction_cb is an EFFECTIVE coefficient ~g times the textbook Cb. Deliberate and
         # calibrated (CALIBRATION.md 2026-09-07) - changing it moves published heights.
-        d_fric = 0.0
-        if kd[i] < 25.0:
-            d_fric = friction_cb / GRAVITY * orbital[i] * orbital[i] * energy
-        # Battjes-Janssen breaking
+        # Battjes-Janssen breaking first: whether the sea is breaking here decides how
+        # much of the friction term applies (see FRICTION_MODES).
         qb = _breaking_fraction(hrms, hmax[i])
         d_break = 0.25 * qb * fm * _RHO * GRAVITY * hmax[i] * hmax[i]
-        if qb > 0.1:  # the sea is actively breaking here - this IS surf
+        breaking = qb > BREAKING_ONSET_QB
+        if breaking:  # the sea is actively breaking here - this IS surf
             surf_in_profile = max(surf_in_profile, height)
+            broken = True
+        d_fric = 0.0
+        if kd[i] < 25.0:
+            scale = 1.0
+            if friction_mode == "stop":
+                scale = 0.0 if broken else 1.0
+            elif friction_mode == "taper":
+                scale = max(0.0, 1.0 - qb)
+            if scale > 0.0:
+                d_fric = scale * friction_cb / GRAVITY * orbital[i] * orbital[i] * energy
         loss = (d_fric + d_break) * dx[i]
         if flux > 0.0 and loss > 0.0:
             # exp(-x/2) == sqrt(1-x) to first order, but stays positive when a

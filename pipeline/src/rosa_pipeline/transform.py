@@ -298,6 +298,7 @@ def breaker_height_from_profile(
     rideability: Callable[[SwellPartition], float] | None = None,
     wind_normal_ms: float = 0.0,
     friction_cb: float | None = None,
+    friction_mode: str | None = None,
 ) -> float:
     """Breaker height of the dominant WAVE FIELD (Stage 2B hybrid + the 2026-08-03 combine
     fix): real physics for the geometry (shoaling + refraction + depth-limited breaking over
@@ -356,6 +357,7 @@ def breaker_height_from_profile(
             # constant. The seabed swap of 2026-09-09 needs this - the grid and the
             # friction coefficient are coupled (CALIBRATION.md).
             **({} if friction_cb is None else {"friction_cb": friction_cb}),
+            **({} if friction_mode is None else {"friction_mode": friction_mode}),
         )
         factor = (
             rideability(p) if rideability is not None else period_rideability(rideability_period(p))
