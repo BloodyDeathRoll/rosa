@@ -2665,6 +2665,26 @@ a.rank-card:hover {
   transition: transform 0.2s;
 }
 
+/* Zoom +/- : wide screens only - a phone pinches, a desktop without a wheel
+   (trackpad-less, keyboard, touchscreen laptop) had no way to zoom at all. */
+.map-fab.zoom-in,
+.map-fab.zoom-out {
+  display: none;
+  right: 12px;
+}
+@media (min-width: 900px) {
+  .map-fab.zoom-in,
+  .map-fab.zoom-out {
+    display: inline-flex;
+  }
+  .map-fab.zoom-in {
+    top: 108px;
+  }
+  .map-fab.zoom-out {
+    top: 152px;
+  }
+}
+
 /* ==========================================================================
    CHARTS
    Charts tab: swell canvas and the instrument deck (layer menu, timeline, needle).
@@ -4113,6 +4133,11 @@ a.rank-card:hover {
   .map-page:has(.map-sheet) .map-screen {
     display: grid;
     grid-template-rows: minmax(0, 1fr) auto;
+    /* The column MUST be minmax(0, 1fr): an auto column sizes to max-content, so
+       the card track's full scroll width (dozens of cards, thousands of px) became
+       the column width and stretched the map canvas past its 4096 px limit - the
+       map then rendered off-screen and looked frozen when you zoomed out. */
+    grid-template-columns: minmax(0, 1fr);
   }
   .map-page:has(.map-sheet) .map-canvas {
     grid-row: 1;
@@ -4122,6 +4147,7 @@ a.rank-card:hover {
   .map-sheet {
     position: static;
     grid-row: 2;
+    min-width: 0;
     padding: 14px 0 22px;
     border-top: 1px solid var(--border);
     background: var(--body-bg);

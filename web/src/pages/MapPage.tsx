@@ -1,7 +1,15 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import { isDesk } from "../desk";
 import { fetchIndex } from "../api";
-import { CamIcon, ChevronLeftIcon, CompassNorthIcon, LocateIcon, SearchIcon} from "../components/icons";
+import {
+  CamIcon,
+  ChevronLeftIcon,
+  CompassNorthIcon,
+  LocateIcon,
+  MinusIcon,
+  PlusIcon,
+  SearchIcon,
+} from "../components/icons";
 import { SatMap } from "../components/MiniMap";
 import { Pill, SpotTitle } from "../components/parts";
 import { ratingVar } from "../conditions";
@@ -27,6 +35,14 @@ const ATTRIBUTION = "OpenFreeMap © OpenMapTiles Data from OpenStreetMap";
 
 // Overlapping pins within this many screen pixels collapse into one count bubble.
 const CLUSTER_PX = 46;
+
+// Zoomed out, that radius still leaves hundreds of bubbles and - because the
+// carousel lists every spot on screen - well over a thousand cards, which is
+// enough DOM to stall the browser and leave the map canvas unpainted. So the
+// radius widens until at most this many pins remain, and the carousel carries
+// one card per pin: a world view is a few dozen bubbles you tap to zoom into.
+const MAX_PINS = 80;
+const MAX_CLUSTER_PX = 420;
 
 // Cards this many either side of the focused card load satellite imagery.
 const IMG_WINDOW = 2;
@@ -149,7 +165,8 @@ export function MapPage({ theme }: { theme: Theme }) {
 
         // Attribution is required (OpenFreeMap/OMT/OSM). Bottom-left, riding just above the
         // sheet (--sheet-h), themed via CSS; collapsed to the (i) by default -
-        // it expands on tap, which satisfies the license terms. No zoom buttons.
+        // it expands on tap, which satisfies the license terms. Zoom is our own
+        // +/- fabs (wide screens), not maplibre's NavigationControl.
         m.addControl(
           new maplibregl.AttributionControl({ compact: true, customAttribution: ATTRIBUTION }),
           "bottom-left"
@@ -194,7 +211,6 @@ export function MapPage({ theme }: { theme: Theme }) {
           const H = canvas.clientHeight;
           const pad = 90;
 
-          type P = { id: string; e: IndexEntry; x: number; y: number };
           const pts: P[] = [];
           for (const [id, e] of spotsRef.current) {
             const p = m.project([e.lon, e.lat]);
@@ -202,58 +218,56 @@ export function MapPage({ theme }: { theme: Theme }) {
             pts.push({ id, e, x: p.x, y: p.y });
           }
 
-          const used = new Set<string>();
-          for (const p of pts) {
-            if (used.has(p.id)) continue;
-            used.add(p.id);
-            const members: P[] = [p];
-            for (const q of pts) {
-              if (used.has(q.id)) continue;
-              if (Math.hypot(p.x - q.x, p.y - q.y) < CLUSTER_PX) {
-                used.add(q.id);
-                members.push(q);
-              }
-            }
-            if (members.length === 1) {
+          // Group by screen distance, widening the radius until the pin count is
+          // sane. Grid buckets keep each pass linear, so the retries are cheap.
+          let px = CLUSTER_PX;
+          let groups = groupPoints(pts, px);
+          while (groups.length > MAX_PINS && px < MAX_CLUSTER_PX) {
+            px *= 1.6;
+            groups = groupPoints(pts, px);
+          }
+
+          for (const g of groups) {
+            if (g.members.length === 1) {
+              const p = g.rep;
               const el = makeDot(p.id, p.e);
               dotElsRef.current[p.id] = el;
               markersRef.current.push(
                 new maplibregl.Marker({ element: el }).setLngLat([p.e.lon, p.e.lat]).addTo(m)
               );
             } else {
-              const lon = members.reduce((s, x) => s + x.e.lon, 0) / members.length;
-              const lat = members.reduce((s, x) => s + x.e.lat, 0) / members.length;
-              const es = members.map((x) => x.e);
+              const es = g.members.map((x) => x.e);
               const el = makeCluster(es, () => fitToMembers(m, es));
               markersRef.current.push(
-                new maplibregl.Marker({ element: el }).setLngLat([lon, lat]).addTo(m)
+                new maplibregl.Marker({ element: el }).setLngLat([g.lon, g.lat]).addTo(m)
               );
             }
           }
 
-          // Carousel = spots actually visible on the map: on screen AND not hidden
-          // behind the bottom sheet (a dot under the cards isn't "showing"). Ordered
-          // S→N, so scrolling the cards to the right travels north up the coast the
-          // same way the map does. spotsRef stays N→S for everything else.
+          // Carousel = one card per pin on the map: singleton pins are themselves,
+          // a cluster bubble is represented by its best-rated member (tap the bubble
+          // to zoom in and get the rest). Only pins that are actually visible count -
+          // on screen AND not hidden behind the bottom sheet. Ordered S→N, so
+          // scrolling the cards to the right travels north up the coast the same way
+          // the map does. spotsRef stays N→S for everything else.
           // on a wide screen the cards sit in a band under the map, not over it
           const visH = isDesk() ? H : H - SHEET_H;
-          const onScreen = (e: IndexEntry) => {
-            const p = m.project([e.lon, e.lat]);
-            return p.x >= 0 && p.x <= W && p.y >= 0 && p.y <= visH;
-          };
-          const inView = spotsRef.current.filter(([, e]) => onScreen(e));
-          setVisible(inView.map(([id]) => id).reverse());
+          const inView = groups
+            .filter((g) => g.x >= 0 && g.x <= W && g.y >= 0 && g.y <= visH)
+            .map((g) => g.rep)
+            .sort((a, z) => a.e.lat - z.e.lat);
+          setVisible(inView.map((p) => p.id));
 
           // Keep the focus if still visible; else focus the spot nearest the
           // center of the *visible* strip (above the sheet).
           let f = focusRef.current;
-          if (!f || !inView.some(([id]) => id === f)) {
+          if (!f || !inView.some((p) => p.id === f)) {
             const c = m.unproject([W / 2, visH / 2]);
             f =
               inView
-                .map(([id, e]) => ({
-                  id,
-                  d: distanceKm({ lat: c.lat, lon: c.lng }, { lat: e.lat, lon: e.lon }),
+                .map((p) => ({
+                  id: p.id,
+                  d: distanceKm({ lat: c.lat, lon: c.lng }, { lat: p.e.lat, lon: p.e.lon }),
                 }))
                 .sort((a, z) => a.d - z.d)[0]?.id ?? null;
           }
@@ -442,6 +456,21 @@ export function MapPage({ theme }: { theme: Theme }) {
         >
           <CompassNorthIcon />
         </button>
+        {/* Wide screens only (CSS): zoom without a wheel or a pinch. */}
+        <button
+          class="map-fab zoom-in"
+          onClick={() => mapRef.current?.zoomIn()}
+          aria-label="Zoom in"
+        >
+          <PlusIcon />
+        </button>
+        <button
+          class="map-fab zoom-out"
+          onClick={() => mapRef.current?.zoomOut()}
+          aria-label="Zoom out"
+        >
+          <MinusIcon />
+        </button>
         <div class="map-sheet" ref={sheetRef}>
           <span class="sheet-grip" aria-hidden="true" />
           {/* wide screens only (CSS): the cards are a sidebar list there */}
@@ -500,6 +529,57 @@ export function MapPage({ theme }: { theme: Theme }) {
       </div>
     </main>
   );
+}
+
+type P = { id: string; e: IndexEntry; x: number; y: number };
+type Group = { rep: P; members: P[]; lon: number; lat: number; x: number; y: number };
+
+/** Collapse projected points that sit within `px` screen pixels of each other.
+    Points are bucketed into a grid of that same size so each point only tests its
+    3x3 neighbourhood - linear, which is what makes retrying at a wider radius
+    cheap enough to do on every move. The group's representative (the card the
+    carousel shows for it) is its best-rated member. */
+function groupPoints(pts: P[], px: number): Group[] {
+  const cells = new Map<string, P[]>();
+  const cell = (v: number) => Math.floor(v / px);
+  for (const p of pts) {
+    const k = `${cell(p.x)},${cell(p.y)}`;
+    const c = cells.get(k);
+    if (c) c.push(p);
+    else cells.set(k, [p]);
+  }
+
+  const used = new Set<string>();
+  const groups: Group[] = [];
+  for (const p of pts) {
+    if (used.has(p.id)) continue;
+    used.add(p.id);
+    const members: P[] = [p];
+    const cx = cell(p.x);
+    const cy = cell(p.y);
+    for (let dx = -1; dx <= 1; dx++) {
+      for (let dy = -1; dy <= 1; dy++) {
+        for (const q of cells.get(`${cx + dx},${cy + dy}`) ?? []) {
+          if (used.has(q.id)) continue;
+          if (Math.hypot(p.x - q.x, p.y - q.y) < px) {
+            used.add(q.id);
+            members.push(q);
+          }
+        }
+      }
+    }
+    const n = members.length;
+    const rep = members.reduce((best, q) => (q.e.rating > best.e.rating ? q : best), p);
+    groups.push({
+      rep,
+      members,
+      lon: members.reduce((s, q) => s + q.e.lon, 0) / n,
+      lat: members.reduce((s, q) => s + q.e.lat, 0) / n,
+      x: members.reduce((s, q) => s + q.x, 0) / n,
+      y: members.reduce((s, q) => s + q.y, 0) / n,
+    });
+  }
+  return groups;
 }
 
 /** Fit the map to a set of spots (used when a cluster bubble is tapped). */
