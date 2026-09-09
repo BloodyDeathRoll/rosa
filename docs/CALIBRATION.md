@@ -2871,3 +2871,46 @@ those, so neither was changed. **The swap is one decision away**: approve fort-p
 normal (or confirm it should stay and the ray is simply blocked), and decide what a ray
 should do at a spot walled in by an island. Re-cutting is 3 seconds
 (`bathy --all --source local`), and every A/B in `tools/bathy-ab/` re-runs in minutes.
+
+### 2026-09-09, cont. - the last five flat spots: not intertidal, no deep water within reach
+
+OPEN-ITEMS 26's remaining five were assumed to be a datum problem - GEBCO depths are chart
+datum, so a sandbar with water over it at high tide reads as dry land and
+`wet_samples_deep_to_shallow` drops it. Tested by admitting samples up to N metres above
+datum and letting `tide_shifted_samples` flood or dry each at the hour's tide
+(`tools/bathy-ab/intertidal_ab.py`):
+
+| band above datum | flat spots | mean delta | tide bigger/smaller/none |
+|---|---|---|---|
+| 0.0 m (today) | 5 | - | 1121 / 80 / 207 |
+| 0.5 m | 9 | -0.007 m | 1096 / 96 / 216 |
+| 1.0 m | 9 | -0.007 m | 1096 / 96 / 216 |
+| 2.0 m | 10 | -0.009 m | 1065 / 108 / 235 |
+| 3.0 m | 12 | -0.008 m | 1040 / 115 / 253 |
+
+**It makes things worse at every band** and the five do not move. The reason is a rule that
+already exists and is right: `tide_shifted_samples` TRUNCATES at the first sample that dries
+rather than deleting it, so admitting a bank that is dry at this hour's tide cuts the ray
+there and discards everything shoreward - shorter than dropping it. Candidate rejected, and
+the parameter taken back out rather than left as a dead knob.
+
+**The real cause is that the ray never reaches deep water.** Their committed profiles:
+
+| spot | deepest sample in 18 km | ray reaches 50 m at |
+|---|---|---|
+| pen-hat | 32 m | 36 km |
+| new-brighton | 17 m | **>120 km** |
+| lucky-bay | 31 m | 18 km |
+| cottesloe | 13 m | 76 km |
+| broughton-bay | **9 m** | 82 km |
+
+`RAY_DISTANCES_KM` stops at 18 km, so for these the march's deep-water reference `d_ref` is
+6-9 m. A 1.5 m swell handed to the march in 8 m of water is already near breaking, and then
+crosses 18 km of water under 10 m deep - which is the friction regime again, at spots where
+the shelf is genuinely that wide (Cottesloe behind Rottnest, Broughton Bay in Carmarthen
+Bay, New Brighton in Monterey Bay).
+
+So the candidate is a **ray that extends until it finds deep water** rather than stopping at
+a fixed 18 km - which is a change to how every profile is cut, not a per-spot fix, and wants
+its own pre-registered question and both A/Bs. Note it cannot be unbounded: new-brighton
+needs more than 120 km, and a 120 km ray is no longer a shore normal in any useful sense.
