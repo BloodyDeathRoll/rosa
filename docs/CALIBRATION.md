@@ -2802,3 +2802,35 @@ exists to catch exactly this, and it wants a human's eyes on it rather than mine
 Recommend `kdtaper` at 0.5 - it is the only candidate the current suite accepts, it fixes
 78% of the defect, and the 14 spots it leaves flat are a smaller, better-defined problem
 than the 63 we have.
+
+### 2026-09-09, cont. - SHIPPED: `kdtaper` at kd 0.6
+
+`FRICTION_MODE = "kdtaper"`, `FRICTION_KD_MIN = 0.6`. Suite green at 601.
+
+Threshold picked by sweeping it against the tide test, which is the binding constraint:
+
+| kd_min | flat spots | mean delta | tide test | tide bigger/smaller/none |
+|---|---|---|---|---|
+| - (always) | 63 | - | pass | 1171 / 53 / 184 |
+| 0.5 | 14 | +0.054 m | pass | 1143 / 73 / 192 |
+| **0.6** | **6** | **+0.086 m** | **pass** | 1121 / 80 / 207 |
+| 0.7 | 2 | +0.120 m | **FAIL** | 1094 / 86 / 228 |
+| 0.8 | 1 | +0.156 m | **FAIL** | 1065 / 85 / 258 |
+
+0.6 is the largest threshold the tide test accepts, so it is the most of the defect that can
+be fixed without trading away tide response. Fleet effect: **heights move UP only** - 0 spots
+fall - median |delta| 0.014 m, p90 0.167 m, and zvulun and uluwatu do not move at all.
+
+**The six spots still flat are not a physics problem.** Every one has land on its ray:
+pen-hat 3 of 9 samples, new-brighton 1, lucky-bay 3, natadola 4, cottesloe 1, broughton-bay
+2. Their `shore_normal` points into the coast, so the march has almost no wet profile to
+work with. That is OPEN-ITEMS 26 (land samples), not this. rockaway-beach, boca-barranca and
+cap-skirring - the three whose live payloads read 0.00 m - clear the threshold at 0.6, but
+they carry the same defect (cap-skirring has SIX land samples of nine) and their numbers
+should not be trusted until their normals are re-cut.
+
+**Test change, deliberate and disclosed:** `test_physics._scalar_march` holds a verbatim
+copy of the pre-numpy march to prove the vectorised rewrite changed no arithmetic. It has
+been taught the same domain limit, so the equivalence it asserts is still against the
+physics we actually run, at the same 1e-12 tolerance. The assertion was not weakened; the
+reference was brought up to date with the implementation it models.

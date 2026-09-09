@@ -5,6 +5,7 @@ import pytest
 
 from rosa_pipeline.physics import (
     BOTTOM_FRICTION_CB,
+    FRICTION_KD_MIN,
     GRAVITY,
     H13_OVER_H110,
     angular_frequency,
@@ -286,7 +287,9 @@ def test_wave_state_and_celerities_agree_exactly() -> None:
 # on all 623 committed profiles x 48 (H, T, angle) cases the worst difference was 2.4e-15.
 
 
-def _scalar_march(offshore_height_m, period_s, incidence_deg, samples, *, friction_cb):
+def _scalar_march(
+    offshore_height_m, period_s, incidence_deg, samples, *, friction_cb, friction_kd_min
+):
     from rosa_pipeline.physics import _RHO, _SUBSTEP_M, BJ_GAMMA, _breaking_fraction
 
     x_ref, d_ref = samples[0]
@@ -322,7 +325,15 @@ def _scalar_march(offshore_height_m, period_s, incidence_deg, samples, *, fricti
             d_fric = 0.0
             if kd < 25.0:
                 orbital = 2.0 * math.pi * fm / math.sinh(kd)
-                d_fric = friction_cb / GRAVITY * orbital * orbital * energy
+                # the shipped domain limit (FRICTION_MODE "kdtaper", 2026-09-09): JONSWAP's
+                # orbital velocity is linear theory's, and linear theory does not hold in
+                # the surf zone - below kd_min the term is faded out as (kd/kd_min)^2
+                # rather than left to diverge as 1/sinh(kd)^2
+                scale = 1.0
+                if kd < friction_kd_min:
+                    r = kd / friction_kd_min
+                    scale = r * r
+                d_fric = scale * friction_cb / GRAVITY * orbital * orbital * energy
             hmax = 0.88 / k * math.tanh(BJ_GAMMA * kd / 0.88)
             qb = _breaking_fraction(hrms, hmax)
             d_break = 0.25 * qb * fm * _RHO * GRAVITY * hmax * hmax
@@ -354,7 +365,9 @@ _MARCH_PROFILES = {
 )
 def test_vectorised_march_matches_the_scalar_one(name: str, h: float, t: float, a: float):
     samples = _MARCH_PROFILES[name]
-    ref = _scalar_march(h, t, a, samples, friction_cb=BOTTOM_FRICTION_CB)
+    ref = _scalar_march(
+        h, t, a, samples, friction_cb=BOTTOM_FRICTION_CB, friction_kd_min=FRICTION_KD_MIN
+    )
     got = surf_height_over_profile(h, t, a, samples)
     assert got == pytest.approx(ref, rel=1e-12, abs=1e-15)
 
@@ -373,5 +386,7 @@ def test_vectorised_march_matches_the_scalar_one_on_committed_profiles():
             pytest.skip(f"{sid} has no committed profile")
         samples = prof.wet_samples_deep_to_shallow()
         for h, t, a in ((1.0, 8.3, 25.0), (2.5, 14.0, 0.0)):
-            ref = _scalar_march(h, t, a, samples, friction_cb=BOTTOM_FRICTION_CB)
+            ref = _scalar_march(
+                h, t, a, samples, friction_cb=BOTTOM_FRICTION_CB, friction_kd_min=FRICTION_KD_MIN
+            )
             assert surf_height_over_profile(h, t, a, samples) == pytest.approx(ref, rel=1e-12)

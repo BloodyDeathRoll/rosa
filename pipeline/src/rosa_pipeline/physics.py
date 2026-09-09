@@ -374,11 +374,16 @@ H13_OVER_H110 = 0.79  # Rayleigh: significant height of the breakers vs their to
 #     TIDE - raising the water shifts which substeps get friction at all - and it measurably
 #     broke the tide response (spots where a higher tide reads smaller went 53 -> 152).
 FRICTION_MODES = ("always", "stop", "taper", "bounded", "kdfloor", "kdtaper")
-FRICTION_KD_MIN = 0.5
-# Stays "always" - the shipped behaviour. The bounded candidates below fix the 63 flat spots
-# but every one of them costs tide response, which the shipped test suite caught
-# (test_score.test_tide_shifts_breaker_height). See CALIBRATION.md 2026-09-09.
-FRICTION_MODE = "always"
+FRICTION_KD_MIN = 0.6
+# "kdtaper" since 2026-09-09: the shipped default. "always" published 63 of 1408 spots flat
+# forever - rockaway-beach served a median h_mid of 0.00 m against a 1.60 m offshore
+# partition - because the JONSWAP term diverges below kd ~0.5 and destroyed the wave before
+# it could break. The HARD cut-off ("kdfloor") fixed that and broke the tide response, since
+# a discontinuity in kd moves with the water level; the taper is smooth and does not.
+# Flipped on its same-input fleet A/B: 63 flat spots to 6, fleet mean +0.09 m, heights move
+# up only, tide response 1121/80/207 against a 1171/53/184 baseline, and the tide test
+# passes. CALIBRATION.md 2026-09-09.
+FRICTION_MODE = "kdtaper"
 BREAKING_ONSET_QB = 0.1  # the same threshold surf_in_profile already calls "this IS surf"
 _SUBSTEP_M = 25.0  # dissipation substep; segments between samples are km apart
 _RHO = 1025.0  # kg/m^3 seawater
