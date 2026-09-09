@@ -2547,3 +2547,60 @@ station, or at a month for the per-station diurnal term alone.
 Committed and inert: `--bias-profile` on the station pass, `station_bias_profile`,
 `fit_diurnal_correction`, `merge_bias_profiles` and `tools/wind-bias/`. Nothing in the
 published pipeline changed.
+
+## 2026-09-09 - Friction re-fit against the local grid: the coefficient is not the lever
+
+Follow-on to the entry above. The seabed swap is blocked because the local cut resolves
+reef flats that the eye-tuned friction annihilates; the obvious move was to re-fit
+`BOTTOM_FRICTION_CB` against the new profiles. It does not work, and the sweep says why.
+
+`breaker_height_from_profile` now takes a `friction_cb` sweep hook, same shape as the
+existing `rideability` one (None ships the constant). `tools/bathy-ab/friction_sweep.py`
+sweeps it over both cuts and scores each candidate on the five graded frames, the flat-spot
+count, ten named reef waves, and fleet movement against today's published baseline:
+
+| cb | arm | frames passed | flat spots | of the 10 watched | median h | vs today |
+|---|---|---|---|---|---|---|
+| 0.038 | committed | 1 | 63 | 0 | 1.31 m | - (shipping) |
+| **0.038** | **local** | **2** | 65 | **10** | 1.30 m | -0.027 m |
+| 0.019 | local | 1 | 20 | 6 | 1.55 m | +0.213 m |
+| 0.0095 | local | 1 | 4 | 1 | 1.70 m | +0.363 m |
+| 0.0038 | local | 1 | 1 | 1 | 1.79 m | +0.458 m |
+| 0.0019 | local | 1 | 0 | 0 | 1.81 m | +0.490 m |
+
+**The best frame fit in the whole sweep is the local grid at the SHIPPED coefficient** - two
+frames instead of one, and a fleet median that does not move (-0.027 m). Every reduction
+that clears the reef spots costs +0.21 to +0.49 m across all 1408 spots and gives a frame
+back. There is no value that buys the reefs without inflating the fleet by more than the
+error being fixed.
+
+### Why - measured, not reasoned
+
+All **50** spots the swap makes flat are recovered by switching friction off entirely;
+**0** are still flat (`1.5 m / 12 s` down each spot's own window centre). It is friction,
+not geometry - the profiles themselves are fine.
+
+Tracing uluwatu on the local cut: samples run 11 m at 2 km, then 1 m at 1 km and at 250 m.
+The march reaches the shallow leg carrying ~1.4 m (that is what no-friction returns), and
+1750 m of JONSWAP dissipation at 1-11 m depth takes it to 0.013 m. The wave is destroyed
+**before it ever breaks**: at 11 m a 1.4 m wave has `qb` ~ 0, so `surf_in_profile` - which
+records the largest height at any substep where `qb > 0.1` - never sees it, and the K&G
+close is fed the same friction-attenuated offshore height, so both terms of the `max` are
+near zero together.
+
+So the pathology is not the coefficient's magnitude but **where the friction is applied**:
+across a kilometre-scale shallow shelf that a 460 m GEBCO cell smears in front of a reef
+which in reality breaks a few hundred metres out. The same coefficient is right on the
+frames it was tuned on, and right for the fleet median, and wrong only on this geometry.
+
+### What to grade next - a structural change, not a knob
+
+The candidate is to stop or taper friction once the wave is depth-limited: past the point
+where breaking sets the height, JONSWAP friction is second order, and continuing to
+integrate it over a smeared reef flat is what drives the answer to zero. That is a change
+to the physics, not a tuning, so it wants its own pre-registered question, both A/Bs
+(frames + the 1408-spot same-input sweep) and its own CALIBRATION entry. **Do not lower
+`BOTTOM_FRICTION_CB` to buy the reefs** - the sweep above is the record of what that costs.
+
+Until then the seabed swap stays unapplied, and OPEN-ITEMS 17/23 stay open on this, not on
+bathymetry evidence.
