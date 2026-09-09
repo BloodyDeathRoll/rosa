@@ -355,10 +355,11 @@ function Privacy() {
         or anything else that identifies you, and Rosa runs no advertising.
       </p>
       <p>
-        The first time you open Rosa we ask whether you are happy with this. If you say no - or have
-        not answered yet - Google Analytics runs without cookies and without any identifier, so we
-        see a country and a screen and nothing that follows you between visits. Your answer is
-        remembered on this device; clearing your browser data asks again.
+        If you are in the EU, the EEA or the UK we ask first, and until you say yes Google
+        Analytics runs without cookies and without any identifier - we see a country and a screen,
+        and nothing that follows you between visits. Elsewhere it runs as part of the app. Either
+        way it never receives anything that identifies you, and if you decline, that answer is
+        remembered on this device and applies wherever you travel.
       </p>
       <h2>Third-party services</h2>
       <p>

@@ -2,12 +2,13 @@ import { useEffect, useState } from "preact/hooks";
 import { consentPending, writeConsent } from "../consent";
 import { gaDenyConsent, gaEnabled, gaGrantConsent } from "../ga";
 
-/** The analytics question, asked once per device.
+/** The analytics question, asked once per device and only where it is required.
 
-    Only ever rendered when GA is actually configured AND the question has never
-    been answered - with no `VITE_GA_ID` there is nothing to consent to, so asking
-    would be theatre. Declining is a real choice and not a dark pattern: both
-    buttons are the same size and either answer is remembered.
+    Rendered when GA is configured, the visitor is in the EEA/UK (by timezone - see
+    geoconsent.ts), and the question has never been answered. Everywhere else analytics
+    is simply part of the app and this never appears. Where it does appear, declining is
+    a real choice and not a dark pattern: both buttons are the same size and either
+    answer is remembered.
 
     Bottom of the screen, above the nav, in the same card language as the rest of
     the app. It does not block the forecast - the whole point of Rosa is a

@@ -7,11 +7,14 @@
     alongside it on purpose: it is cookieless, so it keeps counting the people who
     decline consent, which is the population GA4 is blindest to.
 
-    Consent Mode v2 with everything DENIED by default. Until someone accepts, gtag
-    sends cookieless pings - country, screen and events still arrive, no identifier
-    does - and on accept the storage grants are raised. That ordering is the whole
-    point of Consent Mode: the tag must be told the defaults BEFORE it loads, which
-    is why `bootConsent()` runs before the script tag is written.
+    Consent Mode v2. Ad storage is denied always and everywhere - Rosa runs none.
+    Analytics storage follows the law of the place: granted on load outside the EEA/UK,
+    where measurement is simply part of the app and no banner appears, and denied inside
+    it until the visitor says otherwise. Denied is not off - gtag sends cookieless pings,
+    so country, screen, events and user properties all still arrive; what is missing is
+    the identifier that links one visit to the next. That ordering is the whole point of
+    Consent Mode: the tag must be told the defaults BEFORE it loads, which is why
+    `bootConsent()` runs before the script tag is written.
 
     Not sent, ever: name, email, Google `sub`, or anything else that identifies a
     person. That is Google's own rule for GA4 properties, and breaking it gets the
