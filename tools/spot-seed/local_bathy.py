@@ -7,7 +7,9 @@ what lets the spot-seed pipeline scale worldwide.
 elevations(points) returns GEBCO elevation in metres (negative = underwater), the
 same convention as bathy_gate.gebco_elevations, so it's a drop-in swap.
 
-Requires netCDF4 + numpy (tools/spot-seed/.venv). Run seed.py under that venv to use it.
+Reads the grid with netCDF4 when it is installed (tools/spot-seed/.venv) and falls back to
+h5py, which is a pipeline dependency - so this also runs under
+`uv run --project pipeline python ...` with no extra install.
 """
 
 from __future__ import annotations
@@ -19,11 +21,21 @@ DEFAULT_GRID = Path(__file__).resolve().parents[2] / "data" / "bathy" / "GEBCO_2
 class LocalGebco:
     def __init__(self, path=DEFAULT_GRID):
         import numpy as np
-        from netCDF4 import Dataset
 
         self.np = np
-        self.ds = Dataset(str(path))
-        v = self.ds.variables
+        try:
+            from netCDF4 import Dataset
+
+            self.ds = Dataset(str(path))
+            v = self.ds.variables
+        except ImportError:
+            # NetCDF4 is HDF5, so h5py reads the same grid - and h5py is already a
+            # pipeline dependency where netCDF4 is not, so the tool runs under the
+            # pipeline venv too (`uv run --project pipeline python aim_normal.py ...`).
+            import h5py
+
+            self.ds = h5py.File(str(path), "r")
+            v = self.ds
         latn = "lat" if "lat" in v else "latitude"
         lonn = "lon" if "lon" in v else "longitude"
         self.lat = np.asarray(v[latn][:], dtype="float64")
