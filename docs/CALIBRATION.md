@@ -2765,3 +2765,40 @@ for the current value either.
 **Not applied.** `FRICTION_MODE` stays "always"; flipping it moves the published height at
 902 of 1408 spots and that is a product call, not a code one. Everything needed to make it
 is above: the defect, the mechanism, the candidates, the cost, and the regions that pay it.
+
+### 2026-09-09, cont. - the flip was tried and REVERTED: every bounded candidate costs tide
+
+`FRICTION_MODE` was set to "kdfloor" and the shipped suite failed it immediately, on the
+right test: `test_score.test_tide_shifts_breaker_height`. Under the hard cut-off a HIGHER
+tide produced a SMALLER breaker - 1.966 m at tide 0.0 against 1.912 m at +1.5 - which is
+backwards, and not a toy-profile artifact. Fleet-wide, 1.5 m / 12 s, tide -0.5 m vs +1.0 m:
+
+| mode | flat spots | mean delta | higher tide -> bigger / smaller / no change |
+|---|---|---|---|
+| **always** (shipping) | 63 | - | 1171 / 53 / 184 |
+| kdfloor 0.5 | **0** | +0.14 m | 934 / **152** / 322 |
+| kdtaper 0.5 | 14 | +0.05 m | 1143 / 73 / 192 |
+| kdtaper 0.8 | 1 | +0.16 m | 1065 / 85 / 258 |
+| kdtaper 1.2 | 0 | +0.29 m | 869 / 95 / 444 |
+
+**A hard cut-off is a discontinuity that moves with the tide** - raising the water changes
+which substeps get friction at all - so it nearly tripled the spots that read smaller on a
+higher tide and pushed 138 more into no response whatever. `kdtaper` (friction scaled by
+`(kd/kd_min)^2` below the threshold) removes the discontinuity and most of the damage.
+
+**Only `kdtaper` at 0.5 passes the tide test** (1.768 m -> 1.825 m across +1.5 m of tide);
+0.8 fails it (1.963 -> 1.910). So the choice is not free: 0.5 fixes **49 of the 63** flat
+spots and leaves tide almost untouched; 0.8 fixes 62 and measurably degrades it.
+
+Default reverted to "always", suite green at 601. Nothing published changed today.
+
+**What shipping any of these still needs**, beyond the tide trade-off decision:
+`test_physics.test_vectorised_march_matches_the_scalar_one` holds a VERBATIM copy of the
+pre-numpy scalar march to prove the vectorised rewrite changed no arithmetic. Any change to
+the march's physics makes the two disagree by construction, so that reference has to learn
+the same domain limit before a new mode can ship. That is a deliberate edit to a test that
+exists to catch exactly this, and it wants a human's eyes on it rather than mine.
+
+Recommend `kdtaper` at 0.5 - it is the only candidate the current suite accepts, it fixes
+78% of the defect, and the 14 spots it leaves flat are a smaller, better-defined problem
+than the 63 we have.

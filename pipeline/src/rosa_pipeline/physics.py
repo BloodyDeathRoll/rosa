@@ -369,8 +369,15 @@ H13_OVER_H110 = 0.79  # Rayleigh: significant height of the breakers vs their to
 #     about kd 0.5 (depth under ~ L/12) the real orbital motion is shallow-water and bounded
 #     where 1/sinh(kd) is not. Cutting the term where its own derivation stops holding bounds
 #     it without rescaling it over the shelf, where kd 1-3 and it is doing real work.
-FRICTION_MODES = ("always", "stop", "taper", "bounded", "kdfloor")
+#   "kdtaper" - the same domain limit as kdfloor, but SMOOTH: friction scaled by
+#     min(1, (kd/FRICTION_KD_MIN)^2). A hard cut-off is a discontinuity that MOVES WITH THE
+#     TIDE - raising the water shifts which substeps get friction at all - and it measurably
+#     broke the tide response (spots where a higher tide reads smaller went 53 -> 152).
+FRICTION_MODES = ("always", "stop", "taper", "bounded", "kdfloor", "kdtaper")
 FRICTION_KD_MIN = 0.5
+# Stays "always" - the shipped behaviour. The bounded candidates below fix the 63 flat spots
+# but every one of them costs tide response, which the shipped test suite caught
+# (test_score.test_tide_shifts_breaker_height). See CALIBRATION.md 2026-09-09.
 FRICTION_MODE = "always"
 BREAKING_ONSET_QB = 0.1  # the same threshold surf_in_profile already calls "this IS surf"
 _SUBSTEP_M = 25.0  # dissipation substep; segments between samples are km apart
@@ -580,7 +587,10 @@ def surf_height_over_profile(
         d_fric = 0.0
         if kd[i] < 25.0 and not (friction_mode == "kdfloor" and kd[i] < friction_kd_min):
             scale = 1.0
-            if friction_mode == "stop":
+            if friction_mode == "kdtaper" and kd[i] < friction_kd_min:
+                r = kd[i] / friction_kd_min
+                scale = r * r
+            elif friction_mode == "stop":
                 scale = 0.0 if broken else 1.0
             elif friction_mode == "taper":
                 scale = max(0.0, 1.0 - qb)
