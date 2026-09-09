@@ -546,3 +546,154 @@ http://127.0.0.1:5173/.
   `SignInScreen` and `ReportSheet` all use it. Verified in the browser: with both overlays
   dismissed in either order the page scrolls again, on Today and on a spot page, and the
   report sheet still frees the page on close.
+
+## SESSION 2026-09-09/10 (long) - desktop map, a live outage, the friction defect, GA4
+
+Nine commits. Two live incidents fixed, one physics defect found and shipped, one competitor
+review, and analytics from nothing to collecting.
+
+### The desktop map froze on zoom out (`ba51a13`)
+
+Two asks: +/- buttons for a desktop with no wheel, and "at a certain zoom the map doesn't
+load". The buttons were the easy half.
+
+The freeze was **not** the pin count. `.map-screen` is a grid whose column had no explicit
+track, so it sized to max-content - and the card carousel's scroll width IS content. At world
+zoom with 1408 spots the column reached **371,778 px**, the canvas clamped at its 4096 px
+limit and collapsed to a **7 px sliver**. `grid-template-columns: minmax(0, 1fr)` plus
+`min-width: 0` on the sheet. Measured on rosa.surf (broken) against local (fixed) in Chrome at
+390 / 900 / 1440@2x / 2560: canvas now always equals the viewport.
+
+Second, real, fix: the carousel listed every spot on screen - 601 cards at zoom 2, up to ~1300
+on a world view. It now carries one card per pin (the cluster's best-rated member), and the
+cluster radius widens if a view would exceed 80 pins.
+
+### Forecast data was 55 hours stale (`ee63704`)
+
+Found while checking something else: every payload on the CDN was stamped 2026-09-07T08:26Z.
+Every publish cycle since had died at `vercel deploy` with
+`Too many requests ... (more than 5000, code: "api-upload-free")`. The data deploy uploads one
+file per spot - ~1500 a cycle, ~6000 a day against the free tier's 5000/24 h - so it broke
+when the fleet grew past ~1250 spots. `--archive=tgz` ships one tarball instead, which is what
+Vercel's own error message points at. Hand-deployed the cycle that had already built its data;
+the watchdog HAD fired, to the admin push device.
+
+### Rosa vs Surfline (artifact, no code)
+
+Researched their public methodology and audited ours against the source. The headline: **we are
+better at the ocean, they are better at the beach.** They replaced the breaking step with a net
+trained on ~1M human surf calls ("we've really replaced just the last step of the physics") for
+~30% error reduction. CDIP measured GFS/WW3 forcing at -19.8% Hs bias across California and
+-25.6% in the SoCal Bight, going to +1.6% / -0.3% on ECMWF - and LOTUS is GFS-forced with no
+ECMWF anywhere, which is the case for our blend, reached independently.
+
+**The finding that matters for us:** the blend never reaches the transform. Only the TOTALS are
+blended; all four partitions are GFS-Wave alone, and partitions are what the physics eats. So
+the published height is GFS-only. CLAUDE.md's "blended 50/50" overstates what ships. And it
+cannot cheaply stop being that: ECMWF open data publishes no swell partitions at all, only
+totals plus six period-banded heights, so there is nothing to blend against.
+
+### Bathymetry: the grid question is closed (`42e6397`, `837a175`)
+
+`LocalGebcoSource` reads `GEBCO_2024.nc` through h5py - NetCDF4 is HDF5 and h5py is already a
+dependency, so no netCDF4 stack. `bathy --source local` cuts all 1408 profiles in **3.2 s**
+against the API sweep's 25 min (that was entirely OpenTopoData's rate limit). `run --bathy-dir`
+scores an arm without touching the committed set, and a profile's `source` now records its grid
+so the two can never mix silently.
+
+The local grid wins on four independent measures and reproduces OPEN-ITEMS 23's numbers exactly
+(pasta-point 280 -> 13 m). Re-graded after the friction fix below, it wins the frames 2-1 with
+the same flat count and a fleet mean of **-0.009 m**. It is still not applied: it fails
+`test_spots.test_committed_profiles_reach_open_water` at two spots - fort-point's ray crosses
+the Marin headlands (and always did), and lebih has **no** fully wet 18 km bearing at all,
+being walled in by Nusa Penida. Both are coordinate calls.
+
+### The friction defect - the real find of the session (`ae1f968`, `28fa9d5`, `cb78d79`, `6828e3e`)
+
+Chasing why the swap zeroed reef spots led somewhere worse. JONSWAP friction uses linear
+theory's orbital velocity, `sigma/sinh(kd)`, squared in the dissipation, so under a few metres
+of water it reaches ~35x its deep-water value. Tracing uluwatu substep by substep: the wave
+carries 1.4 m to the shallow leg and 1750 m of dissipation takes it to **0.013 m**. It is
+destroyed BEFORE it breaks, so `surf_in_profile` - which only records where `qb > 0.1` - never
+sees it, and the K&G close is fed the same annihilated height, so both terms of the final `max`
+go to zero together.
+
+**63 of 1408 spots were publishing flat, in production.** Verified on the live CDN:
+rockaway-beach served a median `h_mid` of **0.00 m** over 72 hours against a 1.60 m offshore
+partition; boca-barranca and cap-skirring the same. They read flat whatever the ocean did.
+
+Everything tried and rejected, in order: pooled coefficient re-fit (no value works - clearing
+the reefs costs +0.21 to +0.49 m fleet-wide and the eye frames do not discriminate, the same
+single frame passes from 1x to 9.8x); "stop friction at breaking" (never fires - the sea never
+starts breaking); a depth-limit height floor (+0.77 m, worse than a textbook rescale); a hard
+`kd` cut-off, **which the suite caught** - `test_tide_shifts_breaker_height` failed because a
+discontinuity in `kd` MOVES WITH THE TIDE, and fleet-wide the spots reading smaller on a higher
+tide went 53 -> 152.
+
+Shipped: **`kdtaper` at kd 0.6** - friction fades as `(kd/kd_min)^2` below the threshold rather
+than diverging. 0.6 is the largest threshold the tide test accepts. **63 flat spots -> 6**,
+fleet mean +0.086 m, heights move **UP only** (not one spot falls), Israel +0.04 m and zvulun
+and uluwatu unchanged. The six left all have land on their ray, and their real problem is that
+`RAY_DISTANCES_KM` stops at 18 km while they have no deep water inside it (deepest 9-32 m;
+new-brighton needs >120 km to reach 50 m). The "intertidal" hypothesis for them was tested and
+is dead - admitting samples above chart datum makes it worse, 5 flat -> 12, because
+`tide_shifted_samples` truncates at a drying sample rather than deleting it.
+
+One test edit, deliberate and disclosed: `test_physics._scalar_march` holds a verbatim copy of
+the pre-numpy march to prove the vectorised rewrite changed no arithmetic. It was taught the
+same domain limit, at the same 1e-12 tolerance - the reference brought up to date, the
+assertion untouched.
+
+### natadola was aimed at the land (`257ae39`)
+
+Its seaward normal was 332 (NNW) against a bay that opens WSW. ESRI imagery put the land NE,
+and `horizon` refused the stored value independently: *"shore normal 332 deg is blocked by land
+within 40 km - the spot's geometry is wrong, not its window"*. All three of its angles agreed
+with each other and all three were wrong together - a mis-seeded record, despite its
+sat-verified mark. `offshore_direction` 152 -> 70, window adopted from `horizon` on the
+corrected normal ([267, 37] -> [170, 290]), profile re-cut on the same API grid the fleet uses,
+EOT20 constants re-extracted because moving the normal moves the offshore point. It publishes
+1.38 m for a 1.5 m 12 s swell where it published 0.00.
+
+### Coastal wind: measured, and nothing ships (`8589234`)
+
+OPEN-ITEMS 25 steps 2 and 3 are done. 17,920 paired hours over 89 METAR stations. The bias is
+real and is a sea breeze - **+0.25 m/s overnight against -0.34 m/s mid-afternoon**, 0.63 m/s
+peak to peak, cancelling to a pooled -0.01 m/s. Held out (fitted on the earlier hours, scored
+on the later): pooled diurnal buys **0.5%** of MAE and is worthless; per-station constant buys
+**12%** by fitting each airfield's SITING - sign is a coin flip across the fleet, so shipping it
+carries an airport's shelter 5-20 km to the beach and REMOVES wind at 38 of 85 stations, the
+same direction as the complaint the item exists for. Blocker is back to step 1, the IMS token.
+
+### GA4 (`5a3519e`, `671a4db`, `3fd57c7`, `c86bf57`)
+
+Property 553528140, `G-NKQNM6YLQ1`, BigQuery linked daily, seven custom dimensions registered.
+Consent Mode v2, manual pageviews (gtag never sees a hash change), events at the places that
+carry intent, preferences as user properties. `tools/ga-report/` pulls the Data API with a
+self-signed service-account JWT - no SDK, `cryptography` is already present via pywebpush.
+
+**It collected nothing at first and the tests all passed.** gtag.js only processes `arguments`
+objects on the dataLayer queue - Google's snippet is `function gtag(){dataLayer.push(arguments)}`
+and that shape is load-bearing. A plain array is accepted by `push` and silently ignored: twelve
+queue entries, `window.gtag` never defined by the library, zero requests. Only a network-level
+check on the deployed site found it. Two more bugs surfaced once data flowed: `units` is an
+object, so `String()` wrote the literal `"[object Object]"` into GA for every user, and
+`anonymize_ip` is a Universal Analytics key that GA4 passes through as an event parameter on
+every hit.
+
+Then the product call: analytics is **mandatory outside the EEA/UK** and asked only inside it,
+the zone read from the device's own timezone (no request, works offline, nothing leaves the
+device). Unreadable or an unlisted `Europe/*` counts as inside. A stored "no" wins everywhere.
+Verified live across five timezones: Berlin and London get the banner and `gcs=G100`, Jerusalem,
+Los Angeles and Sydney get none and `gcs=G101` from the first hit.
+
+### Left open
+
+- **The seabed swap** needs two coordinate calls: fort-point's normal, and what a ray should do
+  at a spot walled in by an island (lebih).
+- **Six spots still flat**, all rays that never reach deep water - the candidate is a ray that
+  extends until it finds it, bounded, which changes how every profile is cut.
+- **The IMS token** is the only thing that can answer whether the beach is windier than the
+  model's coastal cell.
+- **The blend does not reach the transform.** Published heights are GFS-only and ECMWF has no
+  partitions to fix that with.
