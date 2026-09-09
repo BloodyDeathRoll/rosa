@@ -92,19 +92,26 @@ from .spots import load_spots
 from .stations import Station, load_stations
 from .transform import spread_exposure
 from .verify import (
+    BIAS_PROFILE_MAX_LEAD_H,
     ECMWF_VARIABLES,
     ENERGY_PERIOD_VARIABLES,
     GFSWAVE_VARIABLES,
     STATION_VARIABLES,
     VARIABLES,
+    _station_pairs,
     build_scorecard,
+    fit_diurnal_correction,
     join_wind,
     lead_time_scorecard,
+    merge_bias_profiles,
     parse_marine_waves,
+    render_bias_profile,
+    render_diurnal_fit,
     render_lead_scorecard,
     render_pooled_lead,
     render_scorecard,
     skill_payload,
+    station_bias_profile,
     wind_points,
     with_energy_period,
 )
@@ -292,6 +299,14 @@ def _build_parser() -> argparse.ArgumentParser:
         "(data/stations, METAR + IMS) by lead, plus a pooled fleet card. Needs --archive",
     )
     target.add_argument("--station", help="one station id (ICAO or IMS id); needs --archive")
+    verify.add_argument(
+        "--bias-profile",
+        action="store_true",
+        help="with --stations --archive: break the SAME pairs the lead card scores down "
+        "by solar hour and by observed wind sector instead of by lead. The pooled bias at "
+        "these stations is ~0, which a diurnal error would hide - this is the measurement "
+        "OPEN-ITEMS 25 step 3 asks for before any correction is chosen",
+    )
     verify.add_argument(
         "--wind-model",
         choices=sorted(STATION_WIND_MODELS),
@@ -1055,6 +1070,8 @@ def _cmd_verify_stations(args: argparse.Namespace) -> int:
     key_suffix = STATION_WIND_MODELS[wind_model]
     print(f"wind model: {wind_model} (archive key '<station>{key_suffix}')")
     cards: list[dict] = []
+    profiles: list[dict] = []
+    all_pairs: list = []
     scored = 0
     failures: list[tuple[str, Exception]] = []
     for st in targets:
@@ -1078,6 +1095,17 @@ def _cmd_verify_stations(args: argparse.Namespace) -> int:
             continue
         print(render_lead_scorecard(st, by_lead, kind="station"))
         cards.append(by_lead)
+        if getattr(args, "bias_profile", False):
+            profiles.append(station_bias_profile(rows, obs, lon=st.lon, tol_min=args.tol_min))
+            all_pairs.extend(
+                _station_pairs(
+                    rows,
+                    obs,
+                    lon=st.lon,
+                    tol_min=args.tol_min,
+                    max_lead_h=BIAS_PROFILE_MAX_LEAD_H,
+                )
+            )
         scored += 1
     if not args.station:
         print(
@@ -1086,6 +1114,17 @@ def _cmd_verify_stations(args: argparse.Namespace) -> int:
                 f"pooled coastal wind skill ({wind_model}) - {scored} of {len(targets)} station(s)",
             )
         )
+    if profiles:
+        print()
+        print(
+            render_bias_profile(
+                merge_bias_profiles(profiles),
+                f"pooled ({wind_model}, {len(profiles)} station(s))",
+            )
+        )
+        print()
+        table, stats = fit_diurnal_correction(sorted(all_pairs))
+        print(render_diurnal_fit(table, stats, f"pooled ({wind_model})"))
     if failures:
         kinds = ", ".join(sorted({type(e).__name__ for _, e in failures}))
         print(

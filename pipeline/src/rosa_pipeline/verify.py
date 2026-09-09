@@ -505,6 +505,260 @@ def _apd_footnote(*scorecards: dict[str, VarScore]) -> list[str]:
     ]
 
 
+SECTORS = ("N", "NE", "E", "SE", "S", "SW", "W", "NW")
+# The correction OPEN-ITEMS 25 asks for would be applied to the near-term forecast, so
+# the profile is measured there: a diurnal term fitted across every lead would be smeared
+# by the leads whose own error already dwarfs it.
+BIAS_PROFILE_MAX_LEAD_H = 24.0
+
+
+def _sector(deg: float) -> str:
+    return SECTORS[int((deg % 360.0 + 22.5) // 45.0) % 8]
+
+
+def station_bias_profile(
+    rows: list[dict],
+    obs: list[BuoyObs],
+    *,
+    lon: float,
+    tol_min: int = 30,
+    max_lead_h: float = BIAS_PROFILE_MAX_LEAD_H,
+) -> dict[str, dict[str, VarScore]]:
+    """Wind-speed bias broken out by solar hour and by observed wind sector.
+
+    The pooled lead card answers "is the model biased on average" and at these stations
+    the answer is no. That average can still hide a sea breeze: a model that under-calls
+    every afternoon and over-calls every night scores zero bias over the day. This groups
+    the SAME pairs the lead card scores - identical tolerance, identical nearest-obs
+    match, identical collapse of the several archived runs covering one valid hour - by
+    hour and by sector instead of by lead, so a structured error has somewhere to show.
+
+    Hour is SOLAR (lon/15 from UTC), not civil: a sea breeze tracks the sun, and civil
+    time would smear stations that share a timezone across a 30-degree span of longitude.
+    Sector is the OBSERVED direction, so a bias is attributed to the wind that actually
+    blew, not to the one the model guessed.
+    """
+    tol = timedelta(minutes=tol_min)
+    idx = {
+        o_attr: _obs_index([o for o in obs if getattr(o, o_attr) is not None])
+        for *_head, o_attr, _circ in STATION_VARIABLES
+    }
+    obs_times = [o.time for o in obs]
+    window = (min(obs_times) - tol, max(obs_times) + tol) if obs_times else None
+    offset = timedelta(hours=lon / 15.0)
+
+    # group -> variable -> valid hour -> the runs covering it (collapsed exactly as the
+    # lead card collapses them, so n counts compared hours and not archived runs)
+    grouped: dict[str, dict[str, dict[str, list[tuple[float, float]]]]] = {}
+    for row in rows:
+        valid = datetime.fromisoformat(row["valid"])
+        if window is None or not window[0] <= valid <= window[1]:
+            continue
+        lead_h = (valid - datetime.fromisoformat(row["run"])).total_seconds() / 3600.0
+        if not 0.0 <= lead_h < max_lead_h:
+            continue
+        for key, _label, _unit, _m_attr, o_attr, _circ in STATION_VARIABLES:
+            mv = row.get(key)
+            if mv is None:
+                continue
+            o = _nearest_obs(valid, idx[o_attr], tol)
+            if o is None:
+                continue
+            groups = [f"h{(valid + offset).hour:02d}"]
+            if o.wdir_deg is not None and getattr(o, "wspd_ms", None):
+                # a calm hour has no meaningful direction to attribute a bias to
+                groups.append(_sector(o.wdir_deg))
+            for g in groups:
+                bucket = grouped.setdefault(g, {k: {} for k, *_ in STATION_VARIABLES})
+                bucket[key].setdefault(row["valid"], []).append((mv, getattr(o, o_attr)))
+
+    return {
+        g: {
+            key: _score_var(
+                key,
+                lbl,
+                unit,
+                [_collapse_hour(hp, circ) for hp in grouped[g][key].values()],
+                circ,
+            )
+            for key, lbl, unit, _m, _o, circ in STATION_VARIABLES
+        }
+        for g in grouped
+    }
+
+
+def merge_bias_profiles(
+    profiles: list[dict[str, dict[str, VarScore]]],
+) -> dict[str, dict[str, VarScore]]:
+    """n-weighted pool of per-station profiles - the same weighting the fleet lead card uses."""
+    out: dict[str, dict[str, VarScore]] = {}
+    keys = [(k, lbl, unit, circ) for k, lbl, unit, _m, _o, circ in STATION_VARIABLES]
+    groups = sorted({g for p in profiles for g in p})
+    for g in groups:
+        out[g] = {}
+        for key, lbl, unit, _circ in keys:
+            cells = [p[g][key] for p in profiles if g in p and p[g][key].n]
+            n = sum(c.n for c in cells)
+            if not n:
+                out[g][key] = VarScore(key, lbl, unit, 0, 0.0, 0.0, 0.0, None)
+                continue
+            out[g][key] = VarScore(
+                key,
+                lbl,
+                unit,
+                n,
+                sum(c.bias * c.n for c in cells) / n,
+                sum(c.mae * c.n for c in cells) / n,
+                math.sqrt(sum(c.rmse**2 * c.n for c in cells) / n),
+                None,
+            )
+    return out
+
+
+def render_bias_profile(profile: dict[str, dict[str, VarScore]], title: str) -> str:
+    """Two tables - solar hour and observed sector - for the wind-speed bias only."""
+    lines = [f"{title} - wind-speed bias by solar hour and by sector (lead < 24 h)"]
+    hours = sorted(g for g in profile if g.startswith("h"))
+    sectors = [s for s in SECTORS if s in profile]
+    for label, groups in (("solar hour", hours), ("sector (observed)", sectors)):
+        if not groups:
+            continue
+        lines.append(f"  {label:18s} {'n':>7} {'bias':>10} {'mae':>10}")
+        for g in groups:
+            c = profile[g][ws_key()]
+            if not c.n:
+                continue
+            name = f"{g[1:]}:00" if g.startswith("h") else g
+            lines.append(f"  {name:18s} {c.n:7d} {c.bias:+9.2f}m/s {c.mae:9.2f}m/s")
+        cells = [profile[g][ws_key()] for g in groups if profile[g][ws_key()].n]
+        if cells:
+            lo = min(cells, key=lambda c: c.bias)
+            hi = max(cells, key=lambda c: c.bias)
+            lines.append(
+                f"  {'spread':18s} {'':7} {hi.bias - lo.bias:9.2f}m/s "
+                f"(most under-called to most over-called)"
+            )
+    return "\n".join(lines)
+
+
+def ws_key() -> str:
+    return STATION_VARIABLES[0][0]
+
+
+def _station_pairs(
+    rows: list[dict],
+    obs: list[BuoyObs],
+    *,
+    lon: float,
+    tol_min: int,
+    max_lead_h: float,
+) -> list[tuple[datetime, int, float, float]]:
+    """(valid, solar hour, model ws, observed ws) for every compared hour.
+
+    The pairing is the lead card's, unchanged - same tolerance, same nearest-obs match,
+    same collapse of the several archived runs covering one valid hour - so a correction
+    fitted here is fitted to the numbers the scorecard grades.
+    """
+    key = ws_key()
+    o_attr = STATION_VARIABLES[0][4]
+    tol = timedelta(minutes=tol_min)
+    idx = _obs_index([o for o in obs if getattr(o, o_attr) is not None])
+    obs_times = [o.time for o in obs]
+    if not obs_times:
+        return []
+    window = (min(obs_times) - tol, max(obs_times) + tol)
+    offset = timedelta(hours=lon / 15.0)
+    grouped: dict[str, list[tuple[float, float]]] = {}
+    for row in rows:
+        valid = datetime.fromisoformat(row["valid"])
+        if not window[0] <= valid <= window[1]:
+            continue
+        lead_h = (valid - datetime.fromisoformat(row["run"])).total_seconds() / 3600.0
+        if not 0.0 <= lead_h < max_lead_h:
+            continue
+        mv = row.get(key)
+        if mv is None:
+            continue
+        o = _nearest_obs(valid, idx, tol)
+        if o is not None:
+            grouped.setdefault(row["valid"], []).append((mv, getattr(o, o_attr)))
+    out = []
+    for valid_iso, hour_pairs in grouped.items():
+        m, o = _collapse_hour(hour_pairs, False)
+        valid = datetime.fromisoformat(valid_iso)
+        out.append((valid, (valid + offset).hour, m, o))
+    return sorted(out)
+
+
+# The fit needs enough hours behind each of the 24 slots to mean anything; below this the
+# slot keeps the pooled correction rather than a number drawn from a handful of hours.
+MIN_HOURS_PER_SLOT = 40
+
+
+def fit_diurnal_correction(
+    pairs: list[tuple[datetime, int, float, float]],
+    *,
+    train_frac: float = 0.67,
+) -> tuple[dict[int, float], dict[str, float]]:
+    """Fit a per-solar-hour wind-speed correction on the earlier hours, score it on the later.
+
+    Split is by TIME, not at random: a random split leaks, because the same weather system
+    sits in both halves and a correction fitted to it would score well on itself. The
+    earlier two thirds fit, the later third grades, and the numbers reported are the
+    held-out ones - the only ones that say whether this helps a forecast it has not seen.
+    """
+    if not pairs:
+        return {}, {}
+    cut = pairs[int(len(pairs) * train_frac)][0]
+    train = [p for p in pairs if p[0] < cut]
+    test = [p for p in pairs if p[0] >= cut]
+    if not train or not test:
+        return {}, {}
+
+    by_hour: dict[int, list[float]] = {}
+    for _valid, hour, m, o in train:
+        by_hour.setdefault(hour, []).append(m - o)
+    all_diffs = [d for ds in by_hour.values() for d in ds]
+    overall = sum(all_diffs) / len(all_diffs)
+    table = {
+        h: (sum(ds) / len(ds) if len(ds) >= MIN_HOURS_PER_SLOT else overall)
+        for h, ds in by_hour.items()
+    }
+
+    def score(apply: bool) -> tuple[float, float]:
+        diffs = [(m - table.get(hour, overall) if apply else m) - o for _v, hour, m, o in test]
+        n = len(diffs)
+        return sum(diffs) / n, sum(abs(d) for d in diffs) / n
+
+    bias_before, mae_before = score(False)
+    bias_after, mae_after = score(True)
+    return table, {
+        "n_train": float(len(train)),
+        "n_test": float(len(test)),
+        "bias_before": bias_before,
+        "bias_after": bias_after,
+        "mae_before": mae_before,
+        "mae_after": mae_after,
+    }
+
+
+def render_diurnal_fit(table: dict[int, float], stats: dict[str, float], title: str) -> str:
+    if not stats:
+        return f"{title}: not enough paired hours to fit"
+    d_mae = stats["mae_after"] - stats["mae_before"]
+    lines = [
+        f"{title} - diurnal wind correction, fitted on the earlier hours, scored on the later",
+        f"  train {int(stats['n_train'])} h   test {int(stats['n_test'])} h",
+        f"  bias  {stats['bias_before']:+.3f} -> {stats['bias_after']:+.3f} m/s",
+        f"  mae   {stats['mae_before']:.3f} -> {stats['mae_after']:.3f} m/s "
+        f"({d_mae:+.3f}, {100 * d_mae / stats['mae_before']:+.1f}%)",
+        "  correction subtracted from the model, by solar hour:",
+    ]
+    for h in sorted(table):
+        lines.append(f"    {h:02d}:00  {table[h]:+.2f} m/s")
+    return "\n".join(lines)
+
+
 def render_lead_scorecard(
     buoy: Buoy | Station, by_lead: dict[str, dict[str, VarScore]], *, kind: str = "buoy"
 ) -> str:

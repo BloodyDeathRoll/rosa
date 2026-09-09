@@ -2480,3 +2480,70 @@ isn't there.
 Tooling committed and inert: `LocalGebcoSource`, `bathy --source {opentopo,local} --grid`,
 `run --bathy-dir`, and the profile `source` string now records which grid a cut came from
 (`DepthProfile.grid_label`) so the two can never be mixed silently inside one fleet.
+
+## 2026-09-09 - Coastal wind: the bias is real, and none of the corrections is defensible
+
+OPEN-ITEMS 25 step 2 is done - the station archive has matured. 89 of 90 METAR stations,
+**17,920 paired hours at 0-1 d** (it was 649 on 2026-08-30). Step 3 asked which correction
+to fit from the measured bias. Answer: **none of them, on this data.**
+
+Harness extended rather than reimplemented (`verify --stations --archive --bias-profile`):
+`station_bias_profile` and `_station_pairs` reuse the lead card's exact pairing - same
+tolerance, same nearest-obs match, same collapse of the several archived runs covering one
+valid hour - and only regroup it. Hour is SOLAR (lon/15), not civil, so stations sharing a
+timezone across 30 degrees of longitude are not smeared.
+
+### The bias is real and it is a sea breeze
+
+Pooled wind-speed bias at 0-1 d is **-0.01 m/s** - no bias at all, at fleet level. Broken
+out by solar hour it is nothing of the kind:
+
+| solar hour | 00-04 | 06-07 | 12-14 | 15-17 | 21-23 |
+|---|---|---|---|---|---|
+| bias (model - obs) | **+0.23 to +0.29** | ~0.00 | -0.18 to -0.25 | **-0.28 to -0.34** | +0.14 to +0.25 |
+
+0.63 m/s peak to peak, crossing zero at dawn and dusk: the model runs hot overnight and
+light through the afternoon, which is the thermal sea breeze it cannot resolve. The pooled
+average is zero because the two halves of the day cancel.
+
+### Every candidate correction, fitted on the earlier hours and scored on the later
+
+Split by TIME, never at random - a random split leaks, because the same weather system sits
+in both halves. Train 12,030 h, test 5,913 h, 85 stations (`tools/wind-bias/fit_variants.py`):
+
+| candidate | held-out MAE | vs uncorrected |
+|---|---|---|
+| uncorrected | 1.306 m/s | - |
+| pooled diurnal (one 24-slot table) | 1.299 m/s | **-0.5%** |
+| per-station constant | 1.149 m/s | **-12.0%** |
+| per-station diurnal | 1.149 m/s | -12.0% |
+
+**The diurnal term does not pay.** 0.63 m/s of systematic error inside 1.31 m/s of scatter
+moves MAE by half a percent. It is a true signal and a worthless correction.
+
+**Per-station diurnal is not actually a third candidate at 11 days** - at ~11 samples per
+station-hour slot every slot falls back to the station constant (MIN_HOURS_PER_SLOT = 40),
+so it scores identically. Re-run it at a month before believing either number.
+
+### Why the 12% must not be shipped
+
+The per-station constant works because it fits each airfield's **siting**, not the model:
+median +/-0.05 m/s, p10 -0.96, p90 +0.87, mean magnitude 0.65 m/s, and the sign is a coin
+flip - 38 of 85 stations read hot, 47 read light. There is no fleet direction to it.
+
+Applying that to a spot means carrying an airfield's shelter 5-20 km to a beach. At the 38
+sheltered stations the correction **removes** wind from the published forecast - the same
+direction as the lightness this item exists to explain (Zvulun 2026-08-30: Rosa 19/15/4/9/13
+kph against Surfline 31/23/17/15/17). The best-scoring candidate would make the known
+complaint worse at nearly half the fleet, and nothing in this archive can tell us whether
+it would, because every station in it is the airport, not the beach.
+
+**So no correction ships, and the blocker moves back to step 1: `IMS_API_TOKEN`.** The
+question "is the beach windier than the model's coastal cell" cannot be answered by
+instruments sitting 5-20 km inland, however many hours of them accumulate. Do not re-run
+this analysis hoping for a different answer; run it again when there is a beach-level
+station, or at a month for the per-station diurnal term alone.
+
+Committed and inert: `--bias-profile` on the station pass, `station_bias_profile`,
+`fit_diurnal_correction`, `merge_bias_profiles` and `tools/wind-bias/`. Nothing in the
+published pipeline changed.
