@@ -32,9 +32,16 @@ declare global {
 
 export const gaEnabled = (): boolean => !!GA_ID;
 
+/** gtag.js only processes `arguments` objects on the queue - Google's own snippet is
+    `function gtag(){dataLayer.push(arguments)}` and the shape is load-bearing, not
+    stylistic. Pushing a plain array instead is accepted by `push` and then silently
+    ignored by the library: the queue fills, `window.gtag` never gets defined, and not one
+    collect request is made. Measured on the live site 2026-09-10 before this was fixed. */
 function gtag(...args: GtagArgs): void {
   if (!GA_ID) return;
-  (window.dataLayer ??= []).push(args);
+  void args;
+  // eslint-disable-next-line prefer-rest-params
+  (window.dataLayer ??= []).push(arguments);
 }
 
 /** Same collapse as the Vercel path: every spot is one row, so the report reads as
@@ -84,7 +91,10 @@ export function initGa(): void {
   // Manual pageviews for the same reason the Vercel path uses them: Rosa navigates
   // by assigning `location.hash`, which gtag's auto pageview never sees, so the only
   // view it would report is the cold start.
-  gtag("config", GA_ID, { send_page_view: false, anonymize_ip: true });
+  // No anonymize_ip: that is a Universal Analytics setting and GA4 ignores it as a
+  // config key, so gtag passed it straight through as an event parameter on every
+  // single hit. GA4 truncates IPs itself and offers no switch.
+  gtag("config", GA_ID, { send_page_view: false });
 
   const s = document.createElement("script");
   s.async = true;
@@ -118,6 +128,9 @@ export function gaEvent(name: string, params: Record<string, string | number | b
     preferences, never identity. GA4 caps a property at 24 characters of name and 36
     of value, so keep them short. */
 export interface GaPrefs {
+  /** "m/c", "ft/f" ... - `Units` is an object, and String()ing it wrote the literal
+      "[object Object]" into GA for every user until 2026-09-10. Format it at the call
+      site with `unitsTag()` so the property stays one short, groupable value. */
   units?: string;
   theme?: string;
   region?: string;
@@ -135,4 +148,9 @@ export function gaSetPrefs(prefs: GaPrefs): void {
     out[k] = String(v).slice(0, 36);
   }
   if (Object.keys(out).length) gtag("set", "user_properties", out);
+}
+
+/** The units pair as one short GA value: "m/c", "ft/f", "m/f", "ft/c". */
+export function unitsTag(u: { height: string; temp: string }): string {
+  return `${u.height}/${u.temp}`;
 }

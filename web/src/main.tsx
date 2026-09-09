@@ -1,7 +1,7 @@
 import { render } from "preact";
 import { syncFavorites } from "./account";
 import { initAnalytics } from "./analytics";
-import { initGa, gaSetPrefs } from "./ga";
+import { initGa, gaSetPrefs, unitsTag } from "./ga";
 import { App } from "./app";
 import { MovedScreen, onLegacyOrigin } from "./components/MovedScreen";
 import { getFavorites, setFavorites } from "./favorites";
@@ -39,7 +39,7 @@ initAnalytics();
 // initGa BEFORE gtag.js loads, which is the order Consent Mode requires.
 initGa();
 gaSetPrefs({
-  units: String(getUnits()),
+  units: unitsTag(getUnits()),
   theme: String(initialTheme()),
   signed_in: signedIn(),
   favorites: getFavorites().length,
