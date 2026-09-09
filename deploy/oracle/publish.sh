@@ -148,7 +148,12 @@ trap 'on_fail "${BASH_COMMAND} (line $LINENO)"' ERR
 JSON
 
   cd "$STAGE"
-  vercel deploy --prebuilt --prod --yes --token="$VERCEL_TOKEN"
+  # --archive=tgz uploads ONE tarball instead of one request per file. The fleet
+  # publishes ~1500 files a cycle (1408 spots + index + swellmap frames), and at
+  # 4 cycles a day that is ~6000 uploads against Vercel's free ceiling of 5000
+  # per 24 h - every cycle from 2026-09-07 16:33Z on died with
+  # "api-upload-free", leaving two-day-old forecasts on the CDN.
+  vercel deploy --prebuilt --prod --yes --archive=tgz --token="$VERCEL_TOKEN"
 
   # 4) swell-alert pushes (grouped: one swell = one notification). Only runs
   #    when the push secrets are present in ~/rosa/.env; never fails the cycle.
