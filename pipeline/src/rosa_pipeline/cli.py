@@ -223,6 +223,14 @@ def _build_parser() -> argparse.ArgumentParser:
         "fallback, which is the A/B's control arm",
     )
     run.add_argument(
+        "--bathy-dir",
+        type=Path,
+        default=BATHY_DIR,
+        help="per-spot depth profiles to score against (default the committed set). Point "
+        "it at a candidate cut to run the same-input A/B a bathymetry source swap needs - "
+        "CALIBRATION.md's tuning rule - without touching the committed profiles",
+    )
+    run.add_argument(
         "--quota-state",
         type=Path,
         default=None,
@@ -424,6 +432,22 @@ def _build_parser() -> argparse.ArgumentParser:
     bathy.add_argument(
         "--sleep", type=float, default=1.0, help="seconds between spots (OpenTopoData rate limit)"
     )
+    bathy.add_argument(
+        "--source",
+        choices=["opentopo", "local"],
+        default="opentopo",
+        help="which GEBCO grid to cut from. opentopo (default): gebco2020 through the "
+        "point API - what every committed profile was cut with. local: the GEBCO 2024 "
+        "grid on disk, offline and uncapped. The two disagree by >50 m nearshore on reef "
+        "and steep coasts and CMEMS SDB backs the local one (OPEN-ITEMS 17/23), so cut "
+        "the candidate to a SEPARATE --out and A/B it - never over the committed set",
+    )
+    bathy.add_argument(
+        "--grid",
+        type=Path,
+        default=None,
+        help="path to the local GEBCO grid (default data/bathy/GEBCO_2024.nc, gitignored)",
+    )
 
     sdb_p = sub.add_parser(
         "sdb",
@@ -595,6 +619,7 @@ def group_by_point(spots: list[Spot]) -> dict[tuple[float, float], list[Spot]]:
 
 def _cmd_run(args: argparse.Namespace) -> int:
     spots = load_spots(args.spots_dir)
+    bathy_dir = getattr(args, "bathy_dir", None) or BATHY_DIR
     if args.all:
         targets = list(spots.values())
     else:
@@ -784,7 +809,7 @@ def _cmd_run(args: argparse.Namespace) -> int:
             # strands every spot after it AND skips prune_index, which is exactly how removed
             # spots shipped as ghost cards from 2026-07-23 to 2026-08-02.
             try:
-                profile = load_profile(spot.id, BATHY_DIR)
+                profile = load_profile(spot.id, bathy_dir)
                 # ...and check the ray still belongs to this spot. DepthProfile.matches_spot
                 # exists for exactly this and nothing on the publish path asked it: a profile
                 # goes stale when the pin moves or `shore_normal` is re-cut without a new
@@ -2079,11 +2104,16 @@ def _cmd_bathy(args: argparse.Namespace) -> int:
             return 2
         targets = [target]
 
-    source: BathymetrySource = (
-        FixtureBathymetrySource.from_file(args.fixtures / "bathy_elevations.json")
-        if args.fixtures is not None
-        else OpenTopoDataSource(capture_dir=args.capture)
-    )
+    source: BathymetrySource
+    if args.fixtures is not None:
+        source = FixtureBathymetrySource.from_file(args.fixtures / "bathy_elevations.json")
+    elif args.source == "local":
+        from .bathymetry import LocalGebcoSource
+
+        source = LocalGebcoSource(args.grid)
+        args.sleep = 0.0  # a local grid has no rate limit to pace against
+    else:
+        source = OpenTopoDataSource(capture_dir=args.capture)
 
     args.out.mkdir(parents=True, exist_ok=True)
     written = 0

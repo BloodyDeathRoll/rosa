@@ -35,6 +35,15 @@ from .models import Spot
 
 EARTH_R_KM = 6371.0088
 OPENTOPODATA_URL = "https://api.opentopodata.org/v1/gebco2020"
+# The two grids of OPEN-ITEMS 17/23, named so a profile records which one it came from.
+GEBCO_API_LABEL = "gebco2020 via opentopodata"
+GEBCO_LOCAL_LABEL = "gebco2024 via local grid"
+# The local GEBCO 2024 grid (~7.5 GB, gitignored, downloaded once). NetCDF4 is HDF5, so
+# h5py - already a dependency for the CMEMS buoy files - reads it with no new stack.
+LOCAL_GRID_PATH = Path("data/bathy/GEBCO_2024.nc")
+# A ray spans ~18 km = ~40 cells; anything wider than this is a wrapped or scattered
+# request and is read point by point rather than as one enormous slice.
+_LOCAL_BBOX_MAX_CELLS = 400
 MAX_LOCATIONS_PER_REQ = 100
 _RETRY_AFTER_CAP_S = 300.0
 
@@ -79,6 +88,11 @@ class DepthProfile:
     # reader that cannot tell has no way to know why two spots shoal differently. Distances
     # of the patched ray points, in km; empty = a pure GEBCO cut.
     sdb_patched_km: tuple[float, ...] = ()
+    # Which GEBCO grid the samples were cut from. Two grids are in play and they
+    # disagree by >50 m nearshore on reef and steep coasts (OPEN-ITEMS 17/23), so a
+    # profile that cannot say which one it came from cannot be A/B'd against the other.
+    # Default is the historical cut, so every committed profile keeps its meaning.
+    grid_label: str = GEBCO_API_LABEL
 
     @property
     def nearshore_depth_m(self) -> float:
@@ -164,6 +178,7 @@ class DepthProfile:
             origin_lat=origin[0],
             origin_lon=origin[1],
             sdb_patched_km=tuple(d.get("sdb_patched_km") or ()),
+            grid_label=(d.get("source") or GEBCO_API_LABEL).split(" + ")[0],
         )
 
     def matches_spot(
@@ -195,7 +210,7 @@ class DepthProfile:
         def _round(x: float, digits: int) -> float | None:
             return round(x, digits) if math.isfinite(x) else None
 
-        source = "gebco2020 via opentopodata"
+        source = self.grid_label
         if self.sdb_patched_km:
             source += " + CMEMS coastal SDB (10.48670/mds-00364) nearshore"
         return {
@@ -256,6 +271,72 @@ class BathymetrySource(Protocol):
     def elevations(self, points: list[tuple[float, float]]) -> list[float | None]: ...
 
 
+class LocalGebcoSource:
+    """GEBCO 2024 straight off the local grid - offline, uncapped, and a different grid
+    from the API's ``gebco2020``.
+
+    The two disagree by more than 50 m at 33 of 69 measured nearshore points on reef
+    coasts (OPEN-ITEMS 23), where the API reads 84-280 m and this grid reads 1-36 m -
+    and CMEMS satellite-derived depth agrees with THIS one. That makes the swap the
+    cheapest available fix to the published height at every reef and steep coast, and
+    the reason this source exists is to run it as a same-input A/B, not to be switched
+    on quietly.
+
+    NetCDF4 is HDF5, so h5py reads it - no netCDF4/xarray stack, the same call already
+    made for the CMEMS buoy files. The file is ~7.5 GB and gitignored; a missing grid is
+    an error the caller must see, never a silent fall back to the API.
+    """
+
+    label = GEBCO_LOCAL_LABEL
+
+    def __init__(self, path: Path | None = None) -> None:
+        import h5py  # lazy: `bathy` is the only command that needs the grid
+
+        self.path = path or LOCAL_GRID_PATH
+        if not self.path.exists():
+            raise FileNotFoundError(
+                f"local GEBCO grid not found at {self.path} - download it once "
+                "(gitignored, ~7.5 GB) or use --source opentopo"
+            )
+        self._f = h5py.File(str(self.path), "r")
+        v = self._f
+        lat_name = "lat" if "lat" in v else "latitude"
+        lon_name = "lon" if "lon" in v else "longitude"
+        lat = v[lat_name]
+        lon = v[lon_name]
+        self._elev = v["elevation"]
+        self.lat0 = float(lat[0])
+        self.dlat = float(lat[1]) - float(lat[0])
+        self.lon0 = float(lon[0])
+        self.dlon = float(lon[1]) - float(lon[0])
+        self.nlat = int(lat.shape[0])
+        self.nlon = int(lon.shape[0])
+
+    def _index(self, lat: float, lon: float) -> tuple[int, int]:
+        i = round((lat - self.lat0) / self.dlat)
+        j = round((lon - self.lon0) / self.dlon)
+        # lon wraps, lat clamps - a ray crossing the antimeridian is normal, a ray
+        # walking off the pole is not
+        return max(0, min(self.nlat - 1, i)), j % self.nlon
+
+    def elevations(self, points: list[tuple[float, float]]) -> list[float | None]:
+        """Cell-centre elevation in metres, negative underwater - OpenTopoData's convention.
+
+        One bounding-box read when the points are close (a 18 km ray always is), so a
+        spot costs one HDF5 slice rather than nine point reads. Points that wrap the
+        antimeridian fall back to per-point reads instead of asking for a global slice.
+        """
+        if not points:
+            return []
+        idx = [self._index(lat, lon) for lat, lon in points]
+        i0, i1 = min(i for i, _ in idx), max(i for i, _ in idx)
+        j0, j1 = min(j for _, j in idx), max(j for _, j in idx)
+        if (i1 - i0) > _LOCAL_BBOX_MAX_CELLS or (j1 - j0) > _LOCAL_BBOX_MAX_CELLS:
+            return [float(self._elev[i, j]) for i, j in idx]
+        block = self._elev[i0 : i1 + 1, j0 : j1 + 1]
+        return [float(block[i - i0][j - j0]) for i, j in idx]
+
+
 class OpenTopoDataSource:
     """GEBCO 2020 via the OpenTopoData point API (<= 100 locations/request, ~1 req/s).
 
@@ -264,6 +345,7 @@ class OpenTopoDataSource:
     """
 
     dataset = "gebco2020"
+    label = GEBCO_API_LABEL
 
     def __init__(
         self,
@@ -382,4 +464,5 @@ def build_profile(source: BathymetrySource, spot: Spot) -> DepthProfile:
         samples=samples,
         origin_lat=spot.lat,
         origin_lon=spot.lon,
+        grid_label=getattr(source, "label", GEBCO_API_LABEL),
     )

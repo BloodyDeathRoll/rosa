@@ -2411,3 +2411,72 @@ change is an effective-Cb re-tune under pb_0049 (see 2026-09-07), not part of th
 Repo pin: `test_score.TestTideShiftedSamples` (unit rules + a 0.05 m sweep on a synthetic
 shelf, worst step < 0.2 m). 148 further spots still step 0.2-1.0 m across 5 cm of tide with
 the sample set UNCHANGED - the `qb > 0.1` gate vs the K&G close - recorded as OPEN-ITEMS 31.
+
+## 2026-09-09 - The two GEBCO grids, measured: the local one is right, and it is not safe to ship yet
+
+Ran the source swap OPEN-ITEMS 17/23 has been holding since 2026-08-15. `bathy --source local`
+(new; `bathymetry.LocalGebcoSource`, h5py straight onto `data/bathy/GEBCO_2024.nc`, no netCDF4
+stack) cut a candidate profile for all 1408 spots into a scratch dir in **3.2 s** - the 25 min
+an API sweep takes is entirely OpenTopoData's 1 req/s pacing. Nothing committed was touched;
+`run --bathy-dir` was added so an arm can be scored without disturbing the fleet.
+
+**The candidate reproduces item 23's spot measurements exactly** - pasta-point 280 m -> 13 m,
+sultans 255 -> 5, madihera 264 -> 1 at the 0.25 km ray point.
+
+### Four independent measures, all favouring the local grid
+
+| measure | committed (gebco2020 API) | candidate (GEBCO 2024 local) |
+|---|---|---|
+| profiles differing at all | - | 1408 / 1408 |
+| 0.25 km sample, median | 0.5 m | 2.0 m |
+| \|delta\| > 50 m / > 100 m | - | 76 / 36 spots |
+| land samples, fleet total | 1268 | **928** |
+| non-monotone samples | 833 | **765** |
+| deepest sample IS the reference | 1206 | **1229** |
+| spots with < 3 wet samples | 4 | **1** |
+| eye frames, shipping knob `peak^2.2` | 1 of 5 pass | **2 of 5** |
+| eye frames, least-bad max error | 0.17 m | **0.13 m** |
+
+Every geometry counter moves the right way, the shipped experiment harness prefers the
+candidate at **every one of the five frames** (hilton -0.18 -> -0.16, poleg -0.24 -> -0.23,
+beit-yanai-flat +0.08 -> pass), and CMEMS SDB already agreed with this grid and not the API
+(item 23). Eyeballing the raw rays settles it beyond the counters - `jelly-baby` reads
+`[-73, -65, -31, 92, 127, -44, -4, 344, 944]` on the API (73 m of hillside 250 m offshore,
+then water, then land again at 5 and 8 km) against `[1, 1, 1, 1, 1, 3, 37, 178, 490]` locally,
+which is simply what an atoll rim looks like.
+
+### Why it is NOT applied
+
+Same-input fleet A/B (`ab_height.py`: identical synthetic seas down each spot's own window
+centre through both cuts, so weather is held fixed by construction and all 1408 spots are
+covered rather than the handful a live capture reaches):
+
+| sea | median h_mid A -> B | mean delta | \|delta\| p90 | moved > 0.5 m | bucket changes |
+|---|---|---|---|---|---|
+| 1.0 m 8 s | 0.54 -> 0.53 m | -0.014 m | 0.256 m | 32 | 357 (25.4%) |
+| 1.5 m 12 s | 1.31 -> 1.30 m | -0.027 m | 0.640 m | 185 | 245 (17.4%) |
+| 2.5 m 16 s | 2.17 -> 2.17 m | -0.013 m | 0.971 m | 336 | 201 (14.3%) |
+
+The fleet median barely moves - but the tails are enormous and they land on named waves. At
+1.5 m / 12 s, **50 spots go flat (< 0.15 m) that were not, and 48 that were flat come back**.
+The newly-flat list includes **uluwatu 1.60 -> 0.01, g-land-speedies 1.67 -> 0.13, hikkaduwa
+1.40 -> 0.01, weligama-west 1.55 -> 0.01, koggala, kabalana, jelly-baby, villingili**. Publishing
+0.01 m at Uluwatu is a worse failure than the wrong 1.60 m it replaces.
+
+**The mechanism is not the grid - it is that the grid and the friction coefficient are coupled.**
+The local cut resolves reef flats the API never showed: 3-5 km of 1 m water in front of the
+break. `BOTTOM_FRICTION_CB = 0.038` applied over `g` is an *effective* Cb of ~0.37 m2s-3, ~10x
+SWAN's swell value, tuned by eye on 2026-09-07 **against profiles that contained no such flats**.
+Marched across 3 km of 1 m water that coefficient annihilates the wave. The old profiles never
+stressed it; the new ones do, at exactly the reef spots the swap was meant to fix.
+
+**So the swap is blocked on a friction re-fit, not on more bathymetry evidence.** The grid
+question is closed - the local grid is the better seabed on four independent measures. What is
+open is `BOTTOM_FRICTION_CB` (and possibly a cap on friction path length over a flat) re-graded
+against the new profiles. Do them together or neither: applying the grid alone publishes zeros
+at world-class waves, and re-fitting friction against the old rays fits it to a seabed that
+isn't there.
+
+Tooling committed and inert: `LocalGebcoSource`, `bathy --source {opentopo,local} --grid`,
+`run --bathy-dir`, and the profile `source` string now records which grid a cut came from
+(`DepthProfile.grid_label`) so the two can never be mixed silently inside one fleet.
