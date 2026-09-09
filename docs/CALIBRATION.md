@@ -2675,3 +2675,49 @@ to take in one step.
 
 `friction_mode` stays in the march, defaulting to "always" - it changes nothing, and it is
 the hook the next candidate will be graded through.
+
+### 2026-09-09, cont. - what the `g` fix costs, measured on the shipping profiles
+
+`tools/bathy-ab/friction_g_ab.py`, committed cut, three seas down each spot's own window
+centre, all 1408 spots:
+
+| cb | x textbook | frames passed | flat spots | median h | mean delta | p90 delta |
+|---|---|---|---|---|---|---|
+| 0.0380 | 9.8x | 1 | **63** | 1.31 m | - | - (shipping) |
+| 0.0247 | 6.4x | 1 | 30 | 1.49 m | +0.15 m | 0.35 m |
+| 0.0190 | 4.9x | 1 | 21 | 1.57 m | +0.22 m | 0.51 m |
+| 0.0114 | 2.9x | 1 | 7 | 1.67 m | +0.33 m | 0.77 m |
+| 0.0076 | 2.0x | 1 | 3 | 1.73 m | +0.39 m | 0.91 m |
+| 0.0039 | 1.0x | 1 | **1** | 1.78 m | +0.44 m | 1.04 m |
+
+**The frames do not discriminate at all** - the same single frame (beit-yanai-windswell)
+passes at every coefficient from 1x to 9.8x. Whatever defends the 10x, it is not the eye
+frames, and they cannot be cited for it again.
+
+The inflation is not fleet-wide, it is shelf-wide. At the textbook value, by region:
+
+| inflating most | | barely moving | |
+|---|---|---|---|
+| Florida Space Coast | +1.10 m | East Java | +0.20 m |
+| Outer Banks | +1.08 m | Hawaii | +0.14 m |
+| New Jersey | +1.08 m | Maldives | +0.13 m |
+| Long Island | +0.98 m | Mauritius | +0.09 m |
+| Rhode Island | +0.89 m | French Polynesia | +0.01 m |
+
+That is the signature of a bottom-friction term behaving exactly as it should: it only bites
+over a wide shallow shelf, and a steep coast never feels it. Which also says what the 10x
+has really been doing - **it is a US-East-Coast/Med shelf correction wearing a global
+constant's clothes**, fitted on Israel, and the 63 flat spots are the bill for applying it
+where `kd` falls below 0.5.
+
+So the choice is not "textbook or tuned". Neither end is right: 1x publishes a US East
+Coast a metre bigger than today with nothing to check it against, 9.8x publishes 63 spots
+flat forever. The middle (2-3x, 3-7 flat spots, +0.33-0.39 m) is not obviously better than
+either - it just splits the difference between two wrong things.
+
+**The term needs to saturate rather than be re-scaled.** A friction law that can drive a
+wave to zero in a metre of water is wrong at any coefficient; a bounded one - dissipation
+that cannot take the sea below the depth-limited height - fixes the 63 without touching
+the shelf coasts where the current value is doing real work. That is the candidate to
+build and grade next, and unlike a re-scale it can be argued from physics rather than
+from a fleet median.
