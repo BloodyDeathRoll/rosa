@@ -93,8 +93,10 @@ export async function send(o: Outbound): Promise<boolean> {
       body: JSON.stringify({
         _subject: o.kind === "report" ? `Rosa report: ${o.spot?.name ?? "spot"}` : "Rosa feedback",
         _captcha: "false",
-        // signed in: Reply in the mail client answers the surfer directly
-        ...(sender() ? { _replyto: sender()!.email, name: sender()!.name ?? "" } : {}),
+        // signed in: Reply in the mail client answers the surfer directly. The field
+        // MUST be named `email` - FormSubmit ignores `_replyto` on the ajax endpoint and
+        // leaves Reply-To pointing at itself (measured 2026-09-10).
+        ...(sender() ? { email: sender()!.email, name: sender()!.name ?? "" } : {}),
         message: text,
       }),
     });

@@ -79,7 +79,9 @@ async function mailViaFormSubmit(row) {
     body: JSON.stringify({
       _subject: row.kind === "report" ? `Rosa report: ${row.spot ?? "spot"}` : "Rosa feedback",
       _captcha: "false",
-      ...(row.email ? { _replyto: row.email, name: row.name ?? "" } : {}),
+      // `email`, not `_replyto`: FormSubmit ignores `_replyto` on the ajax endpoint and
+      // leaves Reply-To pointing at itself (measured 2026-09-10).
+      ...(row.email ? { email: row.email, name: row.name ?? "" } : {}),
       message: bodyText(row),
     }),
   });
