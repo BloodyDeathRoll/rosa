@@ -16,6 +16,7 @@ import { ratingVar } from "../conditions";
 import { splitName } from "../format";
 import { distanceKm, getPosition, refreshPosition, type LatLon } from "../geo";
 import { signalReady } from "../splash";
+import { getRecents } from "../recents";
 import { boundsCenter, findRegion } from "../regions";
 import { fmtRange, getUnits, useUnits } from "../units";
 import type { IndexEntry } from "../types";
@@ -132,14 +133,16 @@ export function MapPage({ theme }: { theme: Theme }) {
         const area = pendingArea ? findRegion(index.spots, pendingArea) : undefined;
         pendingArea = null;
 
-        // default focus: hand-off from a spot page > nearest to you > northernmost
+        // default focus: hand-off from a spot page > nearest to you > the last spot
+        // you opened > northernmost. Without a fix, northernmost alone opened the map
+        // in the UK for a surfer who had just been reading an Israeli spot.
         const nearest = gpos
           ? [...ordered].sort(
               ([, a], [, b]) =>
                 distanceKm(gpos, { lat: a.lat, lon: a.lon }) -
                 distanceKm(gpos, { lat: b.lat, lon: b.lon })
             )[0]?.[0]
-          : ordered[0]?.[0];
+          : (getRecents().find((id) => index.spots[id]) ?? ordered[0]?.[0]);
         const handoff = !!(pendingPin && index.spots[pendingPin]);
         const start = area ? null : handoff ? pendingPin : (nearest ?? null);
         pendingPin = null;
