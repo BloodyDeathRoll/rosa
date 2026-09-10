@@ -32,6 +32,14 @@ export const InfoIcon = ({ size = 13 }: IconProps) => (
   </svg>
 );
 
+/** Flag - the spot page's "Report an issue" button. */
+export const FlagIcon = ({ size = 16 }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
+    <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+    <path d="M4 22v-7" />
+  </svg>
+);
+
 export const MapIcon = ({ size = 18 }: IconProps) => (
   <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
     <path d="M9 3l6 3 6-3v15l-6 3-6-3-6 3V6l6-3z" />

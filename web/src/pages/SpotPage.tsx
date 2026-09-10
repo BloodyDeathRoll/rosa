@@ -4,6 +4,7 @@ import { fetchIndex, fetchSpot } from "../api";
 import { gaEvent } from "../ga";
 import {
   ChevronLeftIcon,
+  FlagIcon,
   InfoIcon,
   MapIcon,
   SearchIcon,
@@ -559,6 +560,7 @@ export function SpotPage({ id }: { id: string }) {
               onClick={() => setReporting(true)}
               aria-label={`Report an issue with ${data.spot.name}`}
             >
+              <FlagIcon />
               Report
             </button>
           </div>

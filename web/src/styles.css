@@ -1863,17 +1863,23 @@ a.rank-card:hover {
   gap: 3px;
   min-width: 0;
 }
-/* Quiet by design: reporting is a rare, deliberate act, not a call to action that
-   competes with the forecast. */
+/* Wears the selected day tile's fill and text, with the fair-rating blue of its dot
+   on the flag, so it reads as part of the date strip's language. */
 .report-cta {
   flex: none;
-  font-size: 12.7px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14.3px;
   font-weight: 600;
-  color: var(--muted-foreground);
-  border: 1px solid rgba(127, 127, 127, 0.35);
+  color: var(--primary-foreground);
+  background: var(--primary);
   border-radius: 999px;
-  padding: 5px 14px;
+  padding: 8px 18px;
   margin-top: 1px;
+}
+.report-cta svg {
+  color: var(--rating-fair);
 }
 .report-cta:active {
   opacity: 0.6;
