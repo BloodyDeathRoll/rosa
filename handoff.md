@@ -1,94 +1,125 @@
-# Session Handoff - 2026-09-09
+# Session Handoff — 2026-09-10
 
 ## Goal
-Tell new users that a spot page carries a **Report an issue** button: phrase the message,
-then build it as a scheduled full-screen popup, matching the user's own Figma frames.
+Fix two desktop-map complaints, then work the accuracy backlog (bathymetry source swap,
+coastal wind correction) — which uncovered a live production physics defect. Then stand up
+Google Analytics 4 end to end.
 
 ## Current State
-DONE, committed as `c441880` on `main`, pushed, deployed to production, verified live on
-rosa.surf (popup appears on a fresh visit: full-screen at 390px, 582px card at 1440px).
+Everything below is committed and pushed to `main`; `web` is deployed to rosa.surf and the
+pipeline change ships on the VM's next cron cycle. Suite green at 601.
 
-- Copy shipped: "Know a spot better than we do? / Check your favorites. / Wrong pin, wrong
-  name, missing break? Tap **Report an issue** on the spot. / A person reads every one."
-- Schedule works: first launch on the device, every sign-in, then once a week for 4 more
-  weeks (5 showings per run). X and OK only close it.
-- Sign-in error messages were also split (see below) and verified in a real browser.
-- **Untested by a human:** nobody has actually completed a Google sign-in since the error
-  split; only the failure paths were exercised. Also nobody has read the popup on a real
-  phone - all checks were headless Chrome at 390px.
-- One pre-existing thing noticed, not investigated: rosa.surf rendered in LIGHT theme with
-  the browser set to dark. Local dev honoured dark correctly. Site default, not the popup.
+**Working and verified live:**
+- Desktop map: `+`/`−` zoom fabs (wide screens only); the world-zoom freeze is fixed.
+- Forecast data is fresh again — the publish cycle had been dead for 55 h.
+- Friction domain limit `kdtaper` at kd 0.6 is SHIPPED: 63 spots that published flat now
+  read real surf. Heights moved **up only**; Israel +0.04 m; zvulun/uluwatu unchanged.
+- natadola re-aimed and re-cut; publishes 1.38 m for a 1.5 m 12 s swell (was 0.00).
+- GA4 collecting: property `553528140`, `G-NKQNM6YLQ1`, BigQuery daily link, 7 custom
+  dimensions. Verified in-browser: `page_view`, `spot_view`, user properties all landing.
+
+**Partial / not applied:**
+- **Bathymetry swap (local GEBCO 2024) is measured, wins on merit, NOT applied.** Blocked
+  on two coordinate calls (below), not on evidence.
+- **Five spots still publish flat** (verified 2026-09-10 at 1.5 m / 12 s down each spot's
+  own window centre): broughton-bay, cottesloe, lucky-bay, new-brighton, pen-hat. It was
+  six until natadola was re-aimed. Cause is known: their ray never reaches deep water.
+- **Coastal wind correction: nothing shipped.** Measured, and no candidate is defensible.
+- `tools/ga-report/report.py` runs and authenticates, but standard GA reports were still
+  empty at session end (GA4 lags hours). Not yet seen with real data.
+
+**Known-untrue in docs:** CLAUDE.md says waves are "blended 50/50". Only the TOTALS are
+blended. All four partitions are GFS-Wave alone and partitions are what the transform eats,
+so published heights are GFS-only. ECMWF open data has no swell partitions to fix this with.
 
 ## Active Files
-- `web/src/nudge.ts` - NEW. The schedule only: `nudgeDue()`, `nudgeDueOnSignIn()`,
-  `markNudgeShown(reason)`. State is `rosa.nudge.report` in localStorage
-  (`{started, shown, last}`).
-- `web/src/components/ReportNudge.tsx` - NEW. The popup. Mounted in `app.tsx` above
-  `<InstallPrompt/>` and `<SignInScreen/>`.
-- `web/src/components/icons.tsx` - added `XIcon`.
-- `web/src/styles.css` - `.nudge-*` block (phone) + desktop rules at the END of the
-  `@media (min-width: 900px)` DESKTOP block.
-- `web/src/account.ts` - `AccountError` kind union gained `"unreachable"`; `loadGsi`'s
-  offline branch now throws `offline`, not `google`.
-- `web/src/components/GoogleButton.tsx` - one message per kind.
-- `docs/UI.md`, `docs/SESSIONS.md` - updated.
-- `web/public/splash_16-9.png` - the user replaced it before this session; committed along.
+- `web/src/pages/MapPage.tsx` — zoom fabs; carousel now one card per pin; `groupPoints()`.
+- `web/src/styles.css` — `.map-screen` grid column fix; `.map-fab.zoom-*`; `.nudge-drop`;
+  `.consent-bar`.
+- `web/src/components/ReportNudge.tsx` — was a full-screen page, now a self-dismissing drop.
+- `web/src/ga.ts`, `consent.ts`, `geoconsent.ts`, `components/ConsentBar.tsx` — GA4 + consent.
+- `pipeline/src/rosa_pipeline/physics.py` — `FRICTION_MODE`/`FRICTION_KD_MIN`, the march.
+- `pipeline/src/rosa_pipeline/bathymetry.py` — `LocalGebcoSource`, `grid_label`.
+- `pipeline/src/rosa_pipeline/verify.py` — `station_bias_profile`, `fit_diurnal_correction`.
+- `pipeline/src/rosa_pipeline/cli.py` — `bathy --source/--grid`, `run --bathy-dir`,
+  `verify --stations --archive --bias-profile`.
+- `deploy/oracle/publish.sh:151` — `--archive=tgz`.
+- `tools/bathy-ab/`, `tools/wind-bias/`, `tools/ga-report/` — the A/B and reporting scripts.
+- `docs/CALIBRATION.md`, `docs/OPEN-ITEMS.md`, `docs/SESSIONS.md` — all updated.
 
 ## Changes Made This Session
-1. Phrasing first. The user's draft was rewritten to name the real button
-   ("Report an issue") so people can find it, and to drop the exclamation marks and the
-   "make Rosa better for you" tagline. The user picked the shorter of two options.
-2. Built it as a page, not an overlay - same reason `ReportSheet` is a page: `--background`
-   is 11% white over a photo, so a translucent sheet lets the forecast bleed through.
-   `--body-bg` is the one opaque token.
-3. z-index 59, one under the install sheet (60) and sign-in screen (9998), so a fresh
-   install answers those first and finds this waiting.
-4. Schedule: a sign-in restarts the run; a sign-in within 10 min of a showing is treated as
-   the same event, so a first launch that goes straight into Google does not show it twice.
-   Storage blocked (private mode) degrades to once per page load.
-5. User asked for centred text and two line breaks; then handed over the Figma frames and
-   the layout was rebuilt from them (file `Rosa`, page `designs`): **mobile** node 1:21,
-   **desktop** node 1:42. Desktop = the same block as a 582px modal card over the app,
-   80px padding, radius 16, on a 60% `--body-bg` scrim (`color-mix`, so it dims in either
-   theme). The mock's 6%-black shadow is invisible on the dark ground, so dark gets a
-   `--border` hairline - the only deliberate deviation from the mock.
-6. The user hit "Couldn't reach Google" on a review server. Root cause was environment
-   (below), but it exposed two real mislabels, now fixed: an unreachable Rosa user API was
-   thrown as the `offline` kind, and a device with no connection was thrown as `google`
-   inside `loadGsi`. Each side now names itself:
-   google -> "Couldn't reach Google...", offline -> "You're offline...",
-   unreachable -> "Rosa couldn't be reached...", api -> "Sign-in didn't complete...".
+1. **Map freeze (`ba51a13`).** `.map-screen` is a grid with no explicit column track, so it
+   sized to max-content — and the card track's scroll width IS content. At world zoom the
+   column hit 371,778 px and the canvas clamped to a 7 px sliver. Fixed with
+   `grid-template-columns: minmax(0,1fr)` + `min-width:0`. Also capped the carousel to one
+   card per pin (was 601–1300 cards).
+2. **Outage (`ee63704`).** Data deploy uploaded ~1500 files/cycle → ~6000/day against
+   Vercel's free 5000/24 h; broke when the fleet passed ~1250 spots. `--archive=tgz`.
+3. **Report nudge → drop (`46429f1`).** Full-screen modal replaced with a 9-second toast.
+4. **Bathymetry tooling + A/B (`42e6397`, `837a175`).** h5py reads GEBCO_2024.nc (NetCDF4 is
+   HDF5) so no new dependency; whole fleet cuts in 3.2 s.
+5. **Friction (`ae1f968` → `6828e3e`).** See Failed Attempts for the path. Shipped
+   `kdtaper` at kd 0.6, chosen as the largest threshold `test_tide_shifts_breaker_height`
+   accepts.
+6. **natadola (`257ae39`).** `horizon` independently refused the stored normal; ESRI imagery
+   confirmed. offshore_direction 152→70, window [267,37]→[170,290], profile + tide re-cut.
+7. **Wind (`8589234`).** Extended the harness rather than reimplementing; measured; shipped
+   nothing.
+8. **GA4 (`5a3519e`, `671a4db`, `3fd57c7`, `c86bf57`).** Consent Mode v2; mandatory outside
+   the EEA/UK, asked inside it, zone from device timezone.
 
 ## Failed Attempts
-- **Review server on port 5199 broke sign-in twice over.** 5199 is NOT in the OAuth client's
-  `javascript_origins` (only `https://rosa.surf`, `www`, `rosa-rust`, `rosa-demo`,
-  `http://localhost:5173`, `http://localhost`), AND it inherited `.env.development`'s
-  `VITE_USER_API=http://localhost:8787`, a Worker that was not running. **Always review on
-  `localhost:5173` with `VITE_USER_API` set to the live Worker and `VITE_DATA_BASE` set to
-  the CDN** - the local `data/out` is a stale run and `npm run dev` copies it.
-- Playwright is NOT installed in `web/`; its browsers are not downloaded either. What works:
-  import from `/home/shahar/Projects/uptake/node_modules/playwright/index.mjs` and launch
-  with `executablePath: "/usr/bin/google-chrome"`.
-- First screenshots came out light in both themes: `colorScheme` alone does not drive the
-  app, it reads `localStorage["rosa.theme"]`. Set that in an init script.
-- A probe that called `startGoogleSignIn()` after the page had already warmed GIS hung
-  forever - the real popup opens and nothing resolves it. Stub
-  `window.google.accounts.oauth2.initCodeClient` to fire the callback instead, or block
-  `**accounts.google.com/**` from before `goto`.
-- Clicking `.google-btn` in a fresh context times out: the sign-in screen and the nudge
-  itself cover it. Dismiss `.signin-later` and `.nudge-ok` first.
-- `pkill -f "vite --port 5199"` returns exit 144 and kills the rest of the compound command
-  with it. Run it alone.
+- **"Put ECMWF into the partitions."** Impossible as framed — ECMWF open data publishes no
+  swell partitions, only totals + six period-band heights. Do not re-propose without a
+  spectral-construction plan.
+- **Friction coefficient re-fit.** No value works: clearing the reef spots costs +0.21 to
+  +0.49 m fleet-wide. The eye frames do not discriminate at all — the same single frame
+  passes from 1× to 9.8×, so they cannot be cited for the current value either.
+- **"Stop friction once breaking starts."** Never fires; the wave is destroyed before it
+  ever breaks (traced substep by substep at uluwatu).
+- **Depth-limit height floor.** +0.77 m fleet mean — worse than a textbook rescale.
+- **Hard `kd` cut-off (`kdfloor`).** Caught by `test_tide_shifts_breaker_height`: a
+  discontinuity in `kd` MOVES WITH THE TIDE. Fleet-wide, spots reading smaller on a higher
+  tide went 53 → 152.
+- **"The last flat spots are intertidal."** Tested and dead — admitting samples above chart
+  datum makes it WORSE (5 flat → 12), because `tide_shifted_samples` truncates at a drying
+  sample rather than deleting it.
+- **Applying the bathymetry swap.** Reverted within the hour on
+  `test_spots.test_committed_profiles_reach_open_water`.
+- **`aim_normal`'s suggestions for the flat spots.** Unsafe — proposes flipping natadola
+  166° to another wrong bearing, and for broughton-bay picks a ray through 15 km of 1 m
+  estuary. Do not apply its output unattended.
+- **Pooled diurnal wind correction.** 0.5 % of MAE out of sample. Worthless.
+- **Per-station constant wind correction.** 12 % out of sample, but it fits each airfield's
+  SITING — sign is a coin flip (38 of 85 hot), so it would remove wind at nearly half the
+  fleet, the same direction as the complaint it exists to fix.
+- **GA4 sending nothing while all tests passed.** gtag.js only processes `arguments` objects
+  on the dataLayer queue; a plain array is accepted by `push` and silently ignored. Found
+  only by watching the network on the deployed site.
 
 ## Next Step
-Nothing is pending. The work is shipped and verified.
+**First:** confirm the friction fix reached production. The VM cron runs 02:20/08:20/14:20/
+20:20 UTC and `publish.sh` does `git pull` first, so the 2026-09-10 cycles carry it. Check a
+previously-flat spot on the CDN:
+```
+curl -s https://rosa-data-opal.vercel.app/data/spots/rockaway-beach.json \
+  | python3 -c "import json,sys; d=json.load(sys.stdin); print(d['generated_at'], max(h['h_mid'] for h in d['hours']))"
+```
+It published a median `h_mid` of 0.00 m before. If it is still 0.00 with a fresh
+`generated_at`, the deploy did not carry the change — check `deploy/oracle/publish.sh` ran a
+`git pull` that landed `6828e3e`.
 
-Follow-ups, in order of value:
-1. Look at the popup on a real phone (rosa.surf, fresh profile) - every check so far was
-   headless at 390px.
-2. Decide whether the copy should read "missing **a** break?" - the user's message quoted it
-   with the "a", the shipped copy has no "a". One word in
-   `web/src/components/ReportNudge.tsx`, and the same line in the Figma frames.
-3. Work out why rosa.surf renders light when the browser is set to dark. Start at
-   `web/src/theme.ts` (`initialTheme`) and the `rosa.theme` key; local dev was correct, so
-   suspect the stored value or the prefers-color-scheme fallback on a first visit.
+**Then, in order:**
+1. **Two coordinate calls unblock the bathymetry swap** (OPEN-ITEMS 17/23, CALIBRATION.md
+   2026-09-09). `fort-point`: ray at 303° crosses the Marin headlands; nearest fully-wet
+   bearing is 275°, 28° off. `lebih`: NO bearing at 5° resolution has a fully wet 18 km ray —
+   it is walled in by Nusa Penida. These need the user, not a derived value. Once decided:
+   `rosa-pipeline bathy --all --source local --out <dir>` (3 s) then the four scripts in
+   `tools/bathy-ab/`.
+2. **The five remaining flat spots** need a ray that extends until it finds deep water rather
+   than stopping at `RAY_DISTANCES_KM`'s 18 km. Cannot be unbounded: new-brighton needs
+   >120 km. Changes how every profile is cut — own pre-registered question, both A/Bs.
+3. **GA reports with real data:**
+   `GA_SA_KEY=~/.config/rosa/ga-sa.json uv run --project pipeline python tools/ga-report/report.py`
+4. **IMS token** (mail ims@ims.gov.il) — the only thing that can answer whether the beach is
+   windier than the model's coastal cell (OPEN-ITEMS 25).
