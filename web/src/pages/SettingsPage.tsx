@@ -4,7 +4,7 @@ import { GoogleButton } from "../components/GoogleButton";
 import { MoonIcon, SunIcon } from "../components/icons";
 import { AppHeader } from "../components/parts";
 import { feedbackPref, setFeedbackPref } from "../feedback";
-import { manualInstallOffer, runInstall, type InstallOffer } from "../install";
+import { manualInstallOffer, openInChrome, runInstall, type InstallOffer } from "../install";
 import { disablePush, enablePush, pushState, syncPushSpots, type PushState } from "../push";
 import { ACCOUNT_EVENT, profile, type Profile } from "../session";
 import { signalReady } from "../splash";
@@ -49,10 +49,19 @@ function InstallCard() {
           <button class="install-go settings-install" disabled={busy} onClick={() => void install()}>
             Install
           </button>
+        ) : offer === "chrome" ? (
+          <button class="install-go settings-install" onClick={openInChrome}>
+            Open in Chrome
+          </button>
         ) : null}
       </div>
       <p class="settings-note">
-        {offer === "ios" ? (
+        {offer === "chrome" ? (
+          <>
+            Google Play Protect blocks apps installed from Samsung Internet. Open Rosa in{" "}
+            <b>Chrome</b> and install it there.
+          </>
+        ) : offer === "ios" ? (
           <>
             Tap <b>Share</b> in Safari, then <b>Add to Home Screen</b>.
           </>

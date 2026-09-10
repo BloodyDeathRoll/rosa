@@ -15,10 +15,11 @@ interface BeforeInstallPromptEvent extends Event {
 
 type BipWindow = Window & { __ROSA_BIP?: BeforeInstallPromptEvent | null };
 
-/** "prompt" = Chromium will show the real dialog. The rest are browsers that can
+/** "prompt" = Chromium will show the real dialog. "chrome" = Samsung Internet, sent
+    to Chrome to install (see samsungAndroid). The rest are browsers that can
     install but expose no API for it, so all we can do is say where the control
     is. Browsers with no install path at all get nothing. */
-export type InstallOffer = "prompt" | "ios" | "firefox";
+export type InstallOffer = "prompt" | "chrome" | "ios" | "firefox";
 
 function deferred(): BeforeInstallPromptEvent | null {
   return (window as BipWindow).__ROSA_BIP ?? null;
@@ -52,11 +53,21 @@ function firefoxAndroid(): boolean {
   return /Firefox\//.test(ua) && /Android/.test(ua);
 }
 
+/** Samsung Internet fires beforeinstallprompt, but the app it installs is wrapped by
+    Samsung's own server with an old Android target, and Play Protect on Android 14+
+    blocks it as an unsafe app (SamsungInternet/support#123, open since 2026-04).
+    Chrome's wrapper is current, so these users install from Chrome instead. */
+function samsungAndroid(): boolean {
+  const ua = navigator.userAgent;
+  return /SamsungBrowser\//.test(ua) && /Android/.test(ua);
+}
+
 /** What (if anything) this browser can be told about installing, ignoring the
     once-per-open flag - for the Profile row, which the user went looking for
     rather than being interrupted by. */
 export function manualInstallOffer(): InstallOffer | null {
   if (installed()) return null;
+  if (samsungAndroid()) return "chrome";
   if (deferred()) return "prompt";
   if (iosSafari()) return "ios";
   return firefoxAndroid() ? "firefox" : null;
@@ -79,6 +90,19 @@ export function markInstallSeen(): void {
   } catch {
     // ignore - worst case the sheet reappears on the next reload
   }
+}
+
+/** Reopen Rosa in Chrome through an Android intent link, where the install is
+    clean. The hash route is dropped (the intent's own fragment is `#Intent;...`),
+    so Chrome opens on Home - which is where the install sheet lives anyway. No
+    Chrome on the phone: the fallback is Chrome's Play Store page. */
+export function openInChrome(): void {
+  const fallback = encodeURIComponent(
+    "https://play.google.com/store/apps/details?id=com.android.chrome",
+  );
+  location.href =
+    `intent://${location.host}${location.pathname}${location.search}` +
+    `#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=${fallback};end`;
 }
 
 /** Hand over to Chrome's own install dialog. Resolves once the user has answered

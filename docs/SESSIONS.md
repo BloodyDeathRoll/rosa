@@ -697,3 +697,38 @@ Los Angeles and Sydney get none and `gcs=G101` from the first hit.
   model's coastal cell.
 - **The blend does not reach the transform.** Published heights are GFS-only and ECMWF has no
   partitions to fix that with.
+
+## SESSION 2026-09-10 (afternoon) - three counters, the map in the UK, the Report button
+
+### Why Vercel, D1 and GA4 disagree (no code)
+
+They count different people. Vercel Web Analytics is cookieless and counts every visitor since
+2026-08-04 (19-57 a day that week). D1 counts only Google sign-ins, which exist since 2026-09-07
+and are needed only to save a favorite: 16 users, 1 with favorites. GA4 sent nothing until
+`3fd57c7` at 00:58 today, so it had under a day of data, and ad blockers and EEA/UK
+consent-denied pings keep it lower for good. Vercel > GA4 > D1 is the expected order.
+
+### The Map tab opened in the UK (`3feb20e`)
+
+A user in Israel, fresh off an Israeli spot, tapped Map and landed in the north of the UK. With no
+geolocation fix, `nearest` fell back to `ordered[0]`, the northernmost spot. The Israel fallback
+center in the same code was unreachable, because a start entry always exists. Default focus is
+now hand-off > nearest to GPS > the last spot you opened (`rosa.recents`) > northernmost.
+Type-checked and built; not tried in a browser.
+
+### The Report button (`e289d4b`)
+
+Iterated with the user on localhost: larger (14.3 px, 8/18 px padding), the selected day tile's
+`--primary` fill, white text, and a new `FlagIcon` in `--rating-fair`, the day dot's blue. It
+replaces the old quiet outline pill. Kept the pill shape. The local date strip started on the
+23rd only because `data/out` on the pc is from 2026-08-23; the CDN was current.
+
+## SESSION 2026-09-10 (evening) - Play Protect blocks the Samsung Internet install
+
+A user sent Google Play Protect's "Unsafe app blocked - built for an older version of Android"
+while installing Rosa from Samsung Internet. Not our manifest: Samsung's WebAPK minting server
+targets an old SDK and Android 14+ blocks every PWA it wraps (SamsungInternet/support#123, open
+since 2026-04; Progressier routes Samsung installs to Chrome since 2026-03-09). Chrome's install
+is clean. Samsung Internet on Android now gets an "Open in Chrome" install offer (sheet and
+Profile row) that reopens rosa.surf in Chrome through an `intent://` link. Type-checked and
+built; not tried on a Samsung phone.

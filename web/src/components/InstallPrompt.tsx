@@ -1,5 +1,11 @@
 import { useEffect, useState } from "preact/hooks";
-import { installOffer, markInstallSeen, runInstall, type InstallOffer } from "../install";
+import {
+  installOffer,
+  markInstallSeen,
+  openInChrome,
+  runInstall,
+  type InstallOffer,
+} from "../install";
 import { appReady } from "../splash";
 
 const AFTER_SPLASH_MS = 700; // the splash fades over 450ms - let it clear first
@@ -77,11 +83,31 @@ export function InstallPrompt() {
             Open Firefox's <b>menu</b>, then <b>Install</b> (older versions call it{" "}
             <b>Add to Home screen</b>).
           </p>
+        ) : offer === "chrome" ? (
+          <p>
+            Google Play Protect blocks apps installed from Samsung Internet. Open Rosa in{" "}
+            <b>Chrome</b> and install it there.
+          </p>
         ) : (
           <p>Opens full screen, starts faster, and keeps your last forecast readable offline.</p>
         )}
         <div class="install-actions">
-          {offer !== "prompt" ? (
+          {offer === "chrome" ? (
+            <>
+              <button class="install-later" onClick={dismiss}>
+                Not now
+              </button>
+              <button
+                class="install-go"
+                onClick={() => {
+                  dismiss();
+                  openInChrome();
+                }}
+              >
+                Open in Chrome
+              </button>
+            </>
+          ) : offer !== "prompt" ? (
             <button class="install-go" onClick={dismiss}>
               Got it
             </button>
