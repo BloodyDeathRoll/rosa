@@ -294,14 +294,51 @@ def load_state(path: Path) -> dict[str, str]:
         return {}
     try:
         raw = json.loads(path.read_text())
-        return raw.get("sent", {}) if isinstance(raw, dict) else {}
     except (json.JSONDecodeError, OSError):
         return {}
+    if not isinstance(raw, dict):
+        return {}
+    # the CONTAINER has to be a mapping, or every reader below (sent_for, mark_sent,
+    # save_state) works on a shape it cannot index. Values are checked at write time
+    # per-key instead of here, so one damaged stamp cannot condemn the rest.
+    sent = raw.get("sent", {})
+    return sent if isinstance(sent, dict) else {}
+
+
+def _readable(value: object) -> bool:
+    try:
+        datetime.fromisoformat(value)  # type: ignore[arg-type]
+    except (TypeError, ValueError):
+        return False
+    return True
+
+
+def _stamped_since(value: object, cutoff: datetime) -> bool:
+    """Is this stamp readable AND inside the TTL? An unreadable one is neither.
+
+    Values in this file are not validated on read - and must not be, because
+    dropping the whole map over one bad entry is the {} outcome the atomic write
+    below exists to avoid. So a damaged stamp is judged here, alone: it fails the
+    freshness test and is pruned like any expired key, while every readable key
+    (including the ones this cycle just stamped) survives."""
+    try:
+        return datetime.fromisoformat(value) >= cutoff  # type: ignore[arg-type]
+    except (TypeError, ValueError):
+        return False
 
 
 def save_state(path: Path, sent: dict[str, str], now: datetime) -> None:
     cutoff = now - timedelta(days=SENT_TTL_DAYS)
-    kept = {k: v for k, v in sent.items() if datetime.fromisoformat(v) >= cutoff}
+    kept = {k: v for k, v in sent.items() if _stamped_since(v, cutoff)}
+    # loud, not silent: a dropped key is a device that may be re-pushed once (the same
+    # contract records_from_rows and _iter_payloads keep for their own damaged rows)
+    dropped = len(sent) - len(kept)
+    unreadable = sum(1 for v in sent.values() if not _readable(v))
+    if unreadable:
+        print(
+            f"warn: {unreadable} unreadable stamp(s) in {path} dropped "
+            f"({dropped} key(s) pruned in total) - the rest of the sent-state is kept"
+        )
     path.parent.mkdir(parents=True, exist_ok=True)
     # tmp+replace (the skill.json idiom, cli._cmd_verify): load_state reads a torn
     # file as {} - the right call for crash-safety, but on THIS file {} means the

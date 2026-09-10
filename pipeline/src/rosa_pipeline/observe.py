@@ -61,8 +61,26 @@ class BuoyObs:
     gust_ms: float | None = None
 
 
-def _num(token: str) -> float | None:
-    return None if token == "MM" else float(token)
+def _num(token: str, damaged: list[str] | None = None) -> float | None:
+    """A whitespace-column value, or None if missing/unreadable.
+
+    "MM" is NDBC's documented missing marker. Anything else that will not parse is
+    treated as missing TOO, rather than raised: `parse_ndbc_txt` already skips a row
+    whose date is unreadable, and a value has no better claim to sink the file than a
+    date does. Unguarded, one stray token cost the caller every good row in a ~45-day
+    realtime2 file - and a buoy that stops contributing is a buoy the lead-time
+    scorecard, and so the published confidence ceiling, quietly stops measuring.
+    Matches `_csv_num` below, which has always read an unparseable value as missing."""
+    if token == "MM":
+        return None
+    try:
+        return float(token)
+    except ValueError:
+        # loud, not silent - the caller reports how many it dropped (records_from_rows
+        # and _iter_payloads keep the same contract for their own damaged rows)
+        if damaged is not None:
+            damaged.append(token)
+        return None
 
 
 def _csv_num(parts: list[str], i: int) -> float | None:
@@ -81,6 +99,7 @@ def parse_ndbc_txt(text: str, station: str) -> list[BuoyObs]:
     Rows with no wave height at all (WVHT missing) are still kept - the harness filters;
     a buoy that reports only met is simply unusable for wave scoring, not an error here."""
     obs: list[BuoyObs] = []
+    damaged: list[str] = []
     for line in text.splitlines():
         line = line.strip()
         if not line or line.startswith("#"):
@@ -97,14 +116,20 @@ def parse_ndbc_txt(text: str, station: str) -> list[BuoyObs]:
             BuoyObs(
                 station=station,
                 time=t,
-                hs_m=_num(f[8]),
-                dpd_s=_num(f[9]),
-                apd_s=_num(f[10]),
-                mwd_deg=_num(f[11]),
-                wtmp_c=_num(f[14]),
-                wdir_deg=_num(f[5]),
-                wspd_ms=_num(f[6]),
+                hs_m=_num(f[8], damaged),
+                dpd_s=_num(f[9], damaged),
+                apd_s=_num(f[10], damaged),
+                mwd_deg=_num(f[11], damaged),
+                wtmp_c=_num(f[14], damaged),
+                wdir_deg=_num(f[5], damaged),
+                wspd_ms=_num(f[6], damaged),
             )
+        )
+    if damaged:
+        shown = ", ".join(sorted(set(damaged))[:5])
+        print(
+            f"warn: {station}: {len(damaged)} unreadable value(s) read as missing ({shown}) "
+            f"- {len(obs)} row(s) kept"
         )
     obs.sort(key=lambda o: o.time)
     return obs

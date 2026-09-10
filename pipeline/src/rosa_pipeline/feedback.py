@@ -92,20 +92,65 @@ def records_from_rows(rows: list[dict]) -> list[FeedbackRecord]:
     return out
 
 
-def predicted_from_payload(payload: dict, at: datetime) -> dict:
+# The published `hours` table is TABLE_STEP_H-spaced (3 h), so the worst honest gap
+# between a graded moment and the row that forecast it is half a step. Anything past a
+# whole step means the payload has no forecast for that hour at all - it was never
+# published, or it has already rolled off the front of the table.
+PREDICTED_MATCH_TOL_H = 3.0
+
+
+def _gap_s(entry: object, at: datetime) -> float:
+    """Seconds between a payload hour entry and ``at``; inf when that cannot be decided."""
+    if not isinstance(entry, dict):
+        return float("inf")
+    try:
+        return abs((datetime.fromisoformat(entry["t"]) - at).total_seconds())
+    except (ValueError, KeyError, TypeError):
+        # TypeError also covers a naive/aware mismatch - unprovable is not "close enough"
+        return float("inf")
+
+
+def predicted_from_payload(
+    payload: dict, at: datetime, *, tol_h: float = PREDICTED_MATCH_TOL_H
+) -> dict:
     """Snapshot what Rosa showed for a spot at time ``at`` - the hour entry nearest ``at``,
-    falling back to ``current``. This is what the human's eyes are being compared against."""
+    falling back to ``current``. This is what the human's eyes are being compared against.
+
+    The match is BOUNDED (``tol_h``). The nearest published hour is not automatically the
+    hour that was graded: publish.build_payload emits from the spot's local today forward,
+    so a session graded even one morning late has no row behind it, and the old unbounded
+    nearest-search handed back a forecast up to 16 days away as though it were the one the
+    surfer was looking at. Those rows are not harmless - they carry into
+    ``summarize``'s bucket_bias / height_bias with full weight, which is what
+    docs/CALIBRATION.md tunes the rating from, and a single such row moves the bucket bias
+    by up to the width of the whole scale.
+
+    Beyond the tolerance the answer is an EMPTY dict, not a nearby guess: the same
+    "an absent key is honest, a fabricated one isn't" rule publish._spectral_entry keeps.
+    The row is still stored - a 👍👎 with no prediction behind it is a real observation -
+    it simply contributes nothing to a bias it cannot inform. Callers that want to refuse
+    the grading outright should test for the empty dict (cli._cmd_feedback).
+
+    The tolerance bounds the HOURS TABLE only. A payload carrying no ``hours`` at all
+    keeps the documented fall back to ``current``, unbounded - that shape has no table to
+    miss, and test_feedback.py::test_predicted_falls_back_to_current_when_no_hours pins
+    the behaviour. Where a table exists it is the authority for what was shown at a given
+    hour, and a miss against it means there is no forecast for that hour to report."""
     best: dict | None = None
     best_gap = float("inf")
-    for h in payload.get("hours", []):
-        try:
-            t = datetime.fromisoformat(h["t"])
-        except (ValueError, KeyError):
-            continue
-        gap = abs((t - at).total_seconds())
+    hours = payload.get("hours") or []
+    for h in hours:
+        gap = _gap_s(h, at)
         if gap < best_gap:
             best, best_gap = h, gap
-    src = best if best is not None else payload.get("current", {})
+    if not hours:
+        return _predicted_fields(payload.get("current", {}))
+    if best is None or best_gap > tol_h * 3600.0:
+        return {}
+    return _predicted_fields(best)
+
+
+def _predicted_fields(src: dict) -> dict:
     return {
         "rating": src.get("rating"),
         "bucket": src.get("bucket"),
