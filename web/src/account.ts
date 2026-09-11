@@ -20,7 +20,14 @@ export function accountSupported(): boolean {
 
 export class AccountError extends Error {
   constructor(
-    public kind: "offline" | "unreachable" | "google" | "api" | "signed-out",
+    public kind:
+      | "offline"
+      | "unreachable"
+      | "google"
+      | "blocked"
+      | "popup-blocked"
+      | "api"
+      | "signed-out",
     message: string,
   ) {
     super(message);
@@ -37,9 +44,13 @@ export function loadGsi(): Promise<GsiOauth2> {
   if (ready) return Promise.resolve(ready);
   if (gsiLoad) return gsiLoad;
   gsiLoad = new Promise<GsiOauth2>((resolve, reject) => {
+    // A script that errors or loads without the namespace, on a device that is
+    // online, is almost always a privacy / ad-blocking extension (Disconnect blocked
+    // accounts.google.com on 2026-09-11) - say that, not "check your connection".
+    // A timeout is Google being slow, which is the one case that message fits.
     const fail = (why: string) => {
       gsiLoad = null; // a later attempt (back online) starts fresh
-      reject(new AccountError("google", why));
+      reject(new AccountError(why === "timeout" ? "google" : "blocked", why));
     };
     // this device has no connection at all - not something to blame Google for
     if (!navigator.onLine) {
@@ -92,6 +103,7 @@ export async function startGoogleSignIn(): Promise<Profile> {
       },
       error_callback: (e) => {
         if (e.type === "popup_closed") reject(new SignInCancelled("closed"));
+        else if (e.type === "popup_failed_to_open") reject(new AccountError("popup-blocked", e.type));
         else reject(new AccountError("google", e.type));
       },
     });

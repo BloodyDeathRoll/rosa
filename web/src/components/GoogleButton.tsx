@@ -39,13 +39,17 @@ export function GoogleButton({
       if (e instanceof SignInCancelled) {
         // the surfer closed the popup - nothing to say
       } else {
-        // Three different failures, three different things to do about them:
-        // Google itself, this device's connection, and our own user API.
+        // Each failure names its own fix: a blocking extension, the browser's pop-up
+        // blocker, Google itself, this device's connection, and our own user API.
         const kind = (e as { kind?: string }).kind;
         const msg =
-          kind === "google"
-            ? "Couldn't reach Google - check your connection and try again."
-            : kind === "offline"
+          kind === "blocked"
+            ? "Google sign-in is blocked - a privacy or ad-blocking extension may be stopping it. Allow accounts.google.com on rosa.surf and try again."
+            : kind === "popup-blocked"
+              ? "Your browser blocked Google's sign-in window - allow pop-ups for rosa.surf and try again."
+              : kind === "google"
+                ? "Google didn't answer - try again in a moment."
+                : kind === "offline"
               ? "You're offline - reconnect and try again."
               : kind === "unreachable"
                 ? "Rosa couldn't be reached - try again in a moment."
