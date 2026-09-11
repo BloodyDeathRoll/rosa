@@ -66,7 +66,7 @@ export function setPendingArea(region: string): void {
   pendingArea = region;
 }
 
-/** maplibre-gl is ~70 KB gz - loaded only when the Map tab opens. */
+/** maplibre-gl is ~290 KB gz plus a ~150 KB gz worker - loaded only when the Map tab opens. */
 export function MapPage({ theme }: { theme: Theme }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
