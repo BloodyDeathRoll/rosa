@@ -34,12 +34,31 @@ function cors(req, res) {
 const pathOf = (endpoint) =>
   `push/subs/${createHash("sha256").update(endpoint).digest("hex")}.json`;
 
+// Only the browsers' own push services. The VM's sender POSTs a VAPID-signed
+// request to every stored endpoint, so "any https URL" made it a request
+// forger for whoever called this route - including toward the VCN-private
+// backup box and cloud metadata addresses (audit 2026-09-11). Mirrored in
+// rosa_pipeline.notify.is_push_endpoint.
+const PUSH_HOSTS = new Set(["fcm.googleapis.com", "updates.push.services.mozilla.com", "web.push.apple.com"]);
+const PUSH_HOST_SUFFIXES = [".notify.windows.com", ".push.apple.com"];
+export function isPushService(endpoint) {
+  let u;
+  try {
+    u = new URL(endpoint);
+  } catch {
+    return false;
+  }
+  if (u.protocol !== "https:" || u.username || u.password || u.port) return false;
+  const h = u.hostname.toLowerCase();
+  return PUSH_HOSTS.has(h) || PUSH_HOST_SUFFIXES.some((s) => h.endsWith(s));
+}
+
 export default async function handler(req, res) {
   cors(req, res);
   if (req.method === "OPTIONS") return res.status(204).end();
   const body = req.body ?? {};
   const endpoint = body.endpoint;
-  if (typeof endpoint !== "string" || !endpoint.startsWith("https://") || endpoint.length > 1024) {
+  if (typeof endpoint !== "string" || endpoint.length > 1024 || !isPushService(endpoint)) {
     return res.status(400).json({ error: "bad endpoint" });
   }
 
