@@ -22,6 +22,7 @@ import { fmtRange, getUnits, useUnits } from "../units";
 import type { IndexEntry } from "../types";
 import type { Theme } from "../theme";
 import type { Map as MLMap, Marker as MLMarker } from "maplibre-gl";
+import { loadMaplibre } from "../maplibre";
 
 type Entry = [string, IndexEntry];
 
@@ -120,8 +121,8 @@ export function MapPage({ theme }: { theme: Theme }) {
         setSpots(ordered);
         signalReady();
 
-        const [{ default: maplibregl }, gpos] = await Promise.all([
-          import("maplibre-gl"),
+        const [maplibregl, gpos] = await Promise.all([
+          loadMaplibre(),
           getPosition(),
         ]);
         await import("maplibre-gl/dist/maplibre-gl.css");
