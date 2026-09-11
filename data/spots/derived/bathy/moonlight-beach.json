@@ -1,15 +1,15 @@
 {
   "spot": "moonlight-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     33.0482,
     -117.2986
   ],
   "bearing_seaward_deg": 235.0,
-  "nearshore_depth_m": -5.0,
-  "offshore_depth_m": 695.0,
-  "mean_slope_m_per_km": 39.44,
-  "land_samples": 1,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 717.0,
+  "mean_slope_m_per_km": 39.66,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 33.04691,
       "lon": -117.3008,
-      "depth_m": -5.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 0.5,
       "lat": 33.04562,
       "lon": -117.30299,
-      "depth_m": 3.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 1.0,
       "lat": 33.04304,
       "lon": -117.30739,
-      "depth_m": 16.0
+      "depth_m": 28.0
     },
     {
       "dist_km": 2.0,
       "lat": 33.03788,
       "lon": -117.31618,
-      "depth_m": 38.0
+      "depth_m": 48.0
     },
     {
       "dist_km": 3.0,
       "lat": 33.03272,
       "lon": -117.32496,
-      "depth_m": 66.0
+      "depth_m": 72.0
     },
     {
       "dist_km": 5.0,
       "lat": 33.0224,
       "lon": -117.34253,
-      "depth_m": 231.0
+      "depth_m": 257.0
     },
     {
       "dist_km": 8.0,
       "lat": 33.00691,
       "lon": -117.36888,
-      "depth_m": 402.0
+      "depth_m": 411.0
     },
     {
       "dist_km": 12.0,
       "lat": 32.98626,
       "lon": -117.40399,
-      "depth_m": 586.0
+      "depth_m": 580.0
     },
     {
       "dist_km": 18.0,
       "lat": 32.95525,
       "lon": -117.45663,
-      "depth_m": 695.0
+      "depth_m": 717.0
     }
   ]
 }

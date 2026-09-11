@@ -1,36 +1,36 @@
 {
   "spot": "arrifana",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     37.2925,
     -8.8675
   ],
   "bearing_seaward_deg": 305.0,
-  "nearshore_depth_m": 9.0,
-  "offshore_depth_m": 169.0,
-  "mean_slope_m_per_km": 9.01,
-  "land_samples": 0,
+  "nearshore_depth_m": -26.0,
+  "offshore_depth_m": 171.0,
+  "mean_slope_m_per_km": 11.1,
+  "land_samples": 2,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 37.29379,
       "lon": -8.86982,
-      "depth_m": 9.0
+      "depth_m": -26.0
     },
     {
       "dist_km": 0.5,
       "lat": 37.29508,
       "lon": -8.87213,
-      "depth_m": 7.0
+      "depth_m": -5.0
     },
     {
       "dist_km": 1.0,
       "lat": 37.29766,
       "lon": -8.87676,
-      "depth_m": 12.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 2.0,
@@ -42,19 +42,19 @@
       "dist_km": 3.0,
       "lat": 37.30797,
       "lon": -8.89529,
-      "depth_m": 41.0
+      "depth_m": 38.0
     },
     {
       "dist_km": 5.0,
       "lat": 37.31828,
       "lon": -8.91382,
-      "depth_m": 57.0
+      "depth_m": 58.0
     },
     {
       "dist_km": 8.0,
       "lat": 37.33374,
       "lon": -8.94162,
-      "depth_m": 83.0
+      "depth_m": 87.0
     },
     {
       "dist_km": 12.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 37.38523,
       "lon": -9.03439,
-      "depth_m": 169.0
+      "depth_m": 171.0
     }
   ]
 }

@@ -1,72 +1,72 @@
 {
   "spot": "isla-uvita",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     9.9946,
     -83.0107
   ],
   "bearing_seaward_deg": 91.7,
-  "nearshore_depth_m": 23.0,
-  "offshore_depth_m": 564.0,
-  "mean_slope_m_per_km": 30.48,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 569.0,
+  "mean_slope_m_per_km": 32.0,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 2,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 9.99453,
       "lon": -83.00842,
-      "depth_m": 23.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": 9.99447,
       "lon": -83.00614,
-      "depth_m": 27.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 1.0,
       "lat": 9.99433,
       "lon": -83.00157,
-      "depth_m": 36.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 2.0,
       "lat": 9.99407,
       "lon": -82.99244,
-      "depth_m": 53.0
+      "depth_m": 43.0
     },
     {
       "dist_km": 3.0,
       "lat": 9.9938,
       "lon": -82.98332,
-      "depth_m": 65.0
+      "depth_m": 45.0
     },
     {
       "dist_km": 5.0,
       "lat": 9.99326,
       "lon": -82.96506,
-      "depth_m": 71.0
+      "depth_m": 42.0
     },
     {
       "dist_km": 8.0,
       "lat": 9.99246,
       "lon": -82.93768,
-      "depth_m": 63.0
+      "depth_m": 38.0
     },
     {
       "dist_km": 12.0,
       "lat": 9.99138,
       "lon": -82.90117,
-      "depth_m": 207.0
+      "depth_m": 101.0
     },
     {
       "dist_km": 18.0,
       "lat": 9.98976,
       "lon": -82.8464,
-      "depth_m": 564.0
+      "depth_m": 569.0
     }
   ]
 }

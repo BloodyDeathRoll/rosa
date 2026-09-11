@@ -1,36 +1,36 @@
 {
   "spot": "kontiki",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     32.3024,
     34.8438
   ],
   "bearing_seaward_deg": 283.0,
-  "nearshore_depth_m": -4.0,
-  "offshore_depth_m": 159.0,
-  "mean_slope_m_per_km": 9.18,
-  "land_samples": 1,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 165.0,
+  "mean_slope_m_per_km": 8.68,
+  "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 32.30291,
       "lon": 34.84121,
-      "depth_m": -4.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 0.5,
       "lat": 32.30341,
       "lon": 34.83862,
-      "depth_m": 13.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 1.0,
       "lat": 32.30442,
       "lon": 34.83343,
-      "depth_m": 14.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 2.0,
@@ -54,19 +54,19 @@
       "dist_km": 8.0,
       "lat": 32.31856,
       "lon": 34.76085,
-      "depth_m": 48.0
+      "depth_m": 49.0
     },
     {
       "dist_km": 12.0,
       "lat": 32.32662,
       "lon": 34.71936,
-      "depth_m": 74.0
+      "depth_m": 75.0
     },
     {
       "dist_km": 18.0,
       "lat": 32.33868,
       "lon": 34.65712,
-      "depth_m": 159.0
+      "depth_m": 165.0
     }
   ]
 }

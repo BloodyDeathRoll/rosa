@@ -1,14 +1,14 @@
 {
   "spot": "porthleven",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     50.0814,
     -5.3187
   ],
   "bearing_seaward_deg": 220.0,
-  "nearshore_depth_m": -2.0,
-  "offshore_depth_m": 61.0,
-  "mean_slope_m_per_km": 3.55,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 62.0,
+  "mean_slope_m_per_km": 4.06,
   "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,19 +18,19 @@
       "dist_km": 0.25,
       "lat": 50.07968,
       "lon": -5.32095,
-      "depth_m": -2.0
+      "depth_m": -10.0
     },
     {
       "dist_km": 0.5,
       "lat": 50.07796,
       "lon": -5.3232,
-      "depth_m": 7.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 1.0,
       "lat": 50.07451,
       "lon": -5.32771,
-      "depth_m": 15.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 2.0,
@@ -42,31 +42,31 @@
       "dist_km": 3.0,
       "lat": 50.06073,
       "lon": -5.34571,
-      "depth_m": 27.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 5.0,
       "lat": 50.04695,
       "lon": -5.36371,
-      "depth_m": 35.0
+      "depth_m": 34.0
     },
     {
       "dist_km": 8.0,
       "lat": 50.02626,
       "lon": -5.39068,
-      "depth_m": 41.0
+      "depth_m": 42.0
     },
     {
       "dist_km": 12.0,
       "lat": 49.99868,
       "lon": -5.42662,
-      "depth_m": 50.0
+      "depth_m": 52.0
     },
     {
       "dist_km": 18.0,
       "lat": 49.95728,
       "lon": -5.48043,
-      "depth_m": 61.0
+      "depth_m": 62.0
     }
   ]
 }

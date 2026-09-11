@@ -1,14 +1,14 @@
 {
   "spot": "costa-caparica",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     38.635,
     -9.2365
   ],
   "bearing_seaward_deg": 260.0,
-  "nearshore_depth_m": 8.0,
-  "offshore_depth_m": 97.0,
-  "mean_slope_m_per_km": 5.01,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 98.0,
+  "mean_slope_m_per_km": 5.24,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 2,
@@ -18,19 +18,19 @@
       "dist_km": 0.25,
       "lat": 38.63461,
       "lon": -9.23933,
-      "depth_m": 8.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 0.5,
       "lat": 38.63422,
       "lon": -9.24217,
-      "depth_m": 10.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 1.0,
       "lat": 38.63344,
       "lon": -9.24784,
-      "depth_m": 12.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 2.0,
@@ -42,7 +42,7 @@
       "dist_km": 3.0,
       "lat": 38.63031,
       "lon": -9.27051,
-      "depth_m": 12.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 5.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 38.61618,
       "lon": -9.37252,
-      "depth_m": 22.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 18.0,
       "lat": 38.60671,
       "lon": -9.4405,
-      "depth_m": 97.0
+      "depth_m": 98.0
     }
   ]
 }

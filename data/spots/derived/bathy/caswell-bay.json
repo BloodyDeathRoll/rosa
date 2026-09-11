@@ -1,14 +1,14 @@
 {
   "spot": "caswell-bay",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     51.5686,
     -4.0325
   ],
   "bearing_seaward_deg": 211.0,
-  "nearshore_depth_m": -10.0,
+  "nearshore_depth_m": -24.0,
   "offshore_depth_m": 36.0,
-  "mean_slope_m_per_km": 2.59,
+  "mean_slope_m_per_km": 3.38,
   "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 1,
@@ -18,31 +18,31 @@
       "dist_km": 0.25,
       "lat": 51.56667,
       "lon": -4.03436,
-      "depth_m": -10.0
+      "depth_m": -24.0
     },
     {
       "dist_km": 0.5,
       "lat": 51.56475,
       "lon": -4.03623,
-      "depth_m": 3.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 1.0,
       "lat": 51.56089,
       "lon": -4.03995,
-      "depth_m": 8.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 2.0,
       "lat": 51.55318,
       "lon": -4.0474,
-      "depth_m": 15.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 3.0,
       "lat": 51.54547,
       "lon": -4.05484,
-      "depth_m": 21.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 5.0,
@@ -60,7 +60,7 @@
       "dist_km": 12.0,
       "lat": 51.47606,
       "lon": -4.12174,
-      "depth_m": 30.0
+      "depth_m": 31.0
     },
     {
       "dist_km": 18.0,

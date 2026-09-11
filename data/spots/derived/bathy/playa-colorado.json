@@ -1,72 +1,72 @@
 {
   "spot": "playa-colorado",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     11.411,
     -86.061
   ],
   "bearing_seaward_deg": 235.0,
-  "nearshore_depth_m": 4.0,
-  "offshore_depth_m": 79.0,
-  "mean_slope_m_per_km": 4.23,
-  "land_samples": 0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 77.0,
+  "mean_slope_m_per_km": 4.73,
+  "land_samples": 2,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 11.40971,
       "lon": -86.06288,
-      "depth_m": 4.0
+      "depth_m": -7.0
     },
     {
       "dist_km": 0.5,
       "lat": 11.40842,
       "lon": -86.06476,
-      "depth_m": 12.0
+      "depth_m": -7.0
     },
     {
       "dist_km": 1.0,
       "lat": 11.40584,
       "lon": -86.06852,
-      "depth_m": 18.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 2.0,
       "lat": 11.40068,
       "lon": -86.07603,
-      "depth_m": 27.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 3.0,
       "lat": 11.39552,
       "lon": -86.08354,
-      "depth_m": 40.0
+      "depth_m": 39.0
     },
     {
       "dist_km": 5.0,
       "lat": 11.38521,
       "lon": -86.09857,
-      "depth_m": 58.0
+      "depth_m": 55.0
     },
     {
       "dist_km": 8.0,
       "lat": 11.36973,
       "lon": -86.12111,
-      "depth_m": 54.0
+      "depth_m": 55.0
     },
     {
       "dist_km": 12.0,
       "lat": 11.34909,
       "lon": -86.15116,
-      "depth_m": 68.0
+      "depth_m": 66.0
     },
     {
       "dist_km": 18.0,
       "lat": 11.31812,
       "lon": -86.19623,
-      "depth_m": 79.0
+      "depth_m": 77.0
     }
   ]
 }

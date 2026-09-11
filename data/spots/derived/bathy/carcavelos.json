@@ -1,36 +1,36 @@
 {
   "spot": "carcavelos",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     38.678,
     -9.336
   ],
   "bearing_seaward_deg": 190.0,
-  "nearshore_depth_m": 8.0,
-  "offshore_depth_m": 117.0,
-  "mean_slope_m_per_km": 6.14,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 114.0,
+  "mean_slope_m_per_km": 6.2,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 3,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 38.67579,
       "lon": -9.3365,
-      "depth_m": 8.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 0.5,
       "lat": 38.67357,
       "lon": -9.337,
-      "depth_m": 11.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 1.0,
       "lat": 38.66914,
       "lon": -9.338,
-      "depth_m": 10.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 2.0,
@@ -42,31 +42,31 @@
       "dist_km": 3.0,
       "lat": 38.65143,
       "lon": -9.342,
-      "depth_m": 21.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 5.0,
       "lat": 38.63372,
       "lon": -9.346,
-      "depth_m": 13.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 8.0,
       "lat": 38.60715,
       "lon": -9.35199,
-      "depth_m": 23.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 12.0,
       "lat": 38.57172,
       "lon": -9.35997,
-      "depth_m": 75.0
+      "depth_m": 67.0
     },
     {
       "dist_km": 18.0,
       "lat": 38.51858,
       "lon": -9.37193,
-      "depth_m": 117.0
+      "depth_m": 114.0
     }
   ]
 }

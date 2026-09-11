@@ -1,14 +1,14 @@
 {
   "spot": "playa-santa-clara",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     8.3754,
     -80.1035
   ],
   "bearing_seaward_deg": 148.0,
-  "nearshore_depth_m": -5.0,
-  "offshore_depth_m": 32.0,
-  "mean_slope_m_per_km": 2.08,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 28.0,
+  "mean_slope_m_per_km": 1.8,
   "land_samples": 2,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 8.37349,
       "lon": -80.1023,
-      "depth_m": -5.0
+      "depth_m": -4.0
     },
     {
       "dist_km": 0.5,
       "lat": 8.37159,
       "lon": -80.10109,
-      "depth_m": -0.0
+      "depth_m": -4.0
     },
     {
       "dist_km": 1.0,
       "lat": 8.36777,
       "lon": -80.09868,
-      "depth_m": 6.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 2.0,
       "lat": 8.36015,
       "lon": -80.09387,
-      "depth_m": 7.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 3.0,
       "lat": 8.35252,
       "lon": -80.08905,
-      "depth_m": 7.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 5.0,
       "lat": 8.33727,
       "lon": -80.07942,
-      "depth_m": 7.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 8.0,
       "lat": 8.31438,
       "lon": -80.06497,
-      "depth_m": 7.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 12.0,
       "lat": 8.28388,
       "lon": -80.04571,
-      "depth_m": 17.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 18.0,
       "lat": 8.23811,
       "lon": -80.01682,
-      "depth_m": 32.0
+      "depth_m": 28.0
     }
   ]
 }

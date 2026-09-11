@@ -1,15 +1,15 @@
 {
   "spot": "puaena-point",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     21.6,
     -158.1039
   ],
   "bearing_seaward_deg": 296.0,
-  "nearshore_depth_m": -6.0,
-  "offshore_depth_m": 550.0,
-  "mean_slope_m_per_km": 31.32,
-  "land_samples": 1,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 591.0,
+  "mean_slope_m_per_km": 33.01,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 21.60099,
       "lon": -158.10607,
-      "depth_m": -6.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 0.5,
       "lat": 21.60197,
       "lon": -158.10825,
-      "depth_m": 2.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 1.0,
       "lat": 21.60394,
       "lon": -158.11259,
-      "depth_m": 13.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 2.0,
       "lat": 21.60788,
       "lon": -158.12129,
-      "depth_m": 33.0
+      "depth_m": 37.0
     },
     {
       "dist_km": 3.0,
       "lat": 21.61183,
       "lon": -158.12998,
-      "depth_m": 53.0
+      "depth_m": 59.0
     },
     {
       "dist_km": 5.0,
       "lat": 21.61971,
       "lon": -158.14737,
-      "depth_m": 134.0
+      "depth_m": 120.0
     },
     {
       "dist_km": 8.0,
       "lat": 21.63152,
       "lon": -158.17346,
-      "depth_m": 291.0
+      "depth_m": 298.0
     },
     {
       "dist_km": 12.0,
       "lat": 21.64728,
       "lon": -158.20826,
-      "depth_m": 385.0
+      "depth_m": 391.0
     },
     {
       "dist_km": 18.0,
       "lat": 21.67089,
       "lon": -158.26046,
-      "depth_m": 550.0
+      "depth_m": 591.0
     }
   ]
 }

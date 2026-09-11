@@ -1,15 +1,15 @@
 {
   "spot": "topanga",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     34.0389,
     -118.5812
   ],
   "bearing_seaward_deg": 202.0,
-  "nearshore_depth_m": -8.0,
-  "offshore_depth_m": 334.0,
-  "mean_slope_m_per_km": 19.27,
-  "land_samples": 1,
+  "nearshore_depth_m": -21.0,
+  "offshore_depth_m": 385.0,
+  "mean_slope_m_per_km": 22.87,
+  "land_samples": 3,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 34.03682,
       "lon": -118.58222,
-      "depth_m": -8.0
+      "depth_m": -21.0
     },
     {
       "dist_km": 0.5,
       "lat": 34.03473,
       "lon": -118.58323,
-      "depth_m": 3.0
+      "depth_m": -21.0
     },
     {
       "dist_km": 1.0,
       "lat": 34.03056,
       "lon": -118.58527,
-      "depth_m": 12.0
+      "depth_m": -5.0
     },
     {
       "dist_km": 2.0,
       "lat": 34.02222,
       "lon": -118.58933,
-      "depth_m": 24.0
+      "depth_m": 23.0
     },
     {
       "dist_km": 3.0,
       "lat": 34.01388,
       "lon": -118.59339,
-      "depth_m": 32.0
+      "depth_m": 35.0
     },
     {
       "dist_km": 5.0,
       "lat": 33.99721,
       "lon": -118.60152,
-      "depth_m": 52.0
+      "depth_m": 51.0
     },
     {
       "dist_km": 8.0,
       "lat": 33.97219,
       "lon": -118.6137,
-      "depth_m": 153.0
+      "depth_m": 143.0
     },
     {
       "dist_km": 12.0,
       "lat": 33.93883,
       "lon": -118.62993,
-      "depth_m": 261.0
+      "depth_m": 253.0
     },
     {
       "dist_km": 18.0,
       "lat": 33.88879,
       "lon": -118.65425,
-      "depth_m": 334.0
+      "depth_m": 385.0
     }
   ]
 }

@@ -1,15 +1,15 @@
 {
   "spot": "turimetta-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -33.6991,
     151.3097
   ],
   "bearing_seaward_deg": 92.0,
-  "nearshore_depth_m": -16.0,
+  "nearshore_depth_m": -18.0,
   "offshore_depth_m": 121.0,
-  "mean_slope_m_per_km": 7.72,
-  "land_samples": 3,
+  "mean_slope_m_per_km": 7.83,
+  "land_samples": 2,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,37 +18,37 @@
       "dist_km": 0.25,
       "lat": -33.69918,
       "lon": 151.3124,
-      "depth_m": -16.0
+      "depth_m": -18.0
     },
     {
       "dist_km": 0.5,
       "lat": -33.69926,
       "lon": 151.3151,
-      "depth_m": -13.0
+      "depth_m": -16.0
     },
     {
       "dist_km": 1.0,
       "lat": -33.69941,
       "lon": 151.3205,
-      "depth_m": -0.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 2.0,
       "lat": -33.69973,
       "lon": 151.33131,
-      "depth_m": 7.0
+      "depth_m": 23.0
     },
     {
       "dist_km": 3.0,
       "lat": -33.70004,
       "lon": 151.34211,
-      "depth_m": 16.0
+      "depth_m": 42.0
     },
     {
       "dist_km": 5.0,
       "lat": -33.70066,
       "lon": 151.36372,
-      "depth_m": 32.0
+      "depth_m": 50.0
     },
     {
       "dist_km": 8.0,
@@ -60,7 +60,7 @@
       "dist_km": 12.0,
       "lat": -33.7028,
       "lon": 151.43934,
-      "depth_m": 92.0
+      "depth_m": 89.0
     },
     {
       "dist_km": 18.0,

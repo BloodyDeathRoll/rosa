@@ -732,3 +732,77 @@ since 2026-04; Progressier routes Samsung installs to Chrome since 2026-03-09). 
 is clean. Samsung Internet on Android now gets an "Open in Chrome" install offer (sheet and
 Profile row) that reopens rosa.surf in Chrome through an `intent://` link. Type-checked and
 built; not tried on a Samsung phone.
+
+## SESSION 2026-09-10 (night) - Spain and Cyprus seeded (214 spots, DB 1408 -> 1622)
+
+**Seven regions:** Galicia 55, Canary Islands 45, Cadiz 25, Asturias 24, Basque Country 24, Cyprus
+22, Cantabria 19. The ask was "Cyprus, Andorra and Spain": Andorra is landlocked, and the Spanish
+Mediterranean is barely surfed, so Spain means the north coast, Cadiz and the Canaries. Four new
+north-coast regions joined `biscay-celtic`, Cadiz joined `portugal`, and the Canaries and Cyprus got
+their own `canaries` and `cyprus` basins. The Canary extract lives at `africa/canary-islands`; the
+`europe/spain/canarias` path is the 9 KB HTML 404 the playbook warns about.
+
+I set up the boxes, anchors, basins and extracts, then ran the seven primary seeds in one loop. Seven
+parallel subagents ran the web flow, one per region: geocode, render every pin, judge, emit, bathy,
+tide and aim_normal. Every pin was read on a tile.
+
+**What went wrong and was caught:**
+- `ca_xref.py` snapped 35 pins onto a neighbouring "Playa de ..." beach, because `playa` and `de`
+  are not stopwords. Every one was caught on the render and reverted. The tool is not fixed yet.
+- The Basque fork kept the quotes around the Google key and ran without Google. It retried after
+  I checked the key, and added Orrua.
+- `render.py`'s fixed ports collided under parallel runs.
+- Two Galicia tide files went stale after a late re-aim, and I re-cut them.
+
+1622 spots, 1622 bathy profiles, 1622 tide files. 601 tests pass. `test_geo_seam`'s count assertion
+went 1408 -> 1622. Not committed.
+
+## SESSION 2026-09-11 - the two seeding-tool bugs fixed, Algeria seeded (20 spots, DB 1622 -> 1642)
+
+**Two tool fixes, both from the Spain pass.**
+- `ca_xref.py`'s STOP set now carries beach words and articles in every seeded language (playa,
+  praia, plage, de, la, el, al...). I replayed it on Cantabria's saved geocodes: the snaps fell from
+  22 to 17, and Valdearenas and Cuchia now snap to their own beaches. A beach that shares only the
+  query's town word can still match, so the render stays the judge.
+- `render.py` now takes free ports per run instead of the fixed 4180/9230. Two parallel renders
+  both finished.
+
+**Algeria:** one box over the whole coast, a new `algeria` basin, and the `africa/algeria` extract.
+The first download hung on its HEAD request and was restarted against the known Content-Length
+(299,847,203 bytes, matched). Zero OSM surf nodes, so all 20 spots came from the web flow; 6 names
+were dropped, and 4 normals re-aimed. The fixed `ca_xref.py` snapped 11 names, none wrong.
+`test_geo_seam` 1622 -> 1642.
+
+## SESSION 2026-09-11 (cont.) - Brazil seeded (305 spots, DB 1642 -> 1947)
+
+Before Brazil: Algeria's two spots near 0 deg longitude (`ain-el-turk`, `cap-ivi`) were added to
+`test_geo_seam`'s near-seam list with the user's approval. The OISST window wraps correctly for both.
+
+**Brazil, 11 states:** Sao Paulo 56, Rio de Janeiro 52, Santa Catarina 46, Bahia 33, Ceara 31,
+Espirito Santo 29, Rio Grande do Norte 18, Rio Grande do Sul 14, Parana 9, Pernambuco 9, Fernando de
+Noronha 8. The setup was three extracts (sizes checked against Content-Length), 11 boxes with explicit
+`region:` names, and the `brazil-south` and `brazil-northeast` basins. One background loop ran all 11
+coastline seeds, and nine subagents ran the web flow. A session usage limit stopped eight of them
+mid-run; they resumed with nothing lost.
+
+**Found along the way:**
+- **The API grid reads the north-east shelf as exactly 0.0 m.** I checked it myself: off Tourinhos,
+  gebco2020 reads 0.0 at 2-18 km where GEBCO 2024 reads 6-18 m. All profiles still end in water.
+  This adds weight to OPEN-ITEMS 17, which is gated on the user's call on fort-point / lebih.
+- **`ca_final.py` strips accented letters from slugs.** Each fork fixed its own ids. The tool is
+  not fixed.
+- **Ceara's fork restored Tremembe after my 0 m note**, although its tile showed no break. I had it
+  dropped again: the render rule stands on its own.
+- **Nominatim answered 429 for most of the run**, because ten processes shared it.
+
+1947 spots, 1947 bathy profiles, 1947 tide files. `test_geo_seam` 1642 -> 1947. Not committed.
+
+## SESSION 2026-09-11 (cont.) - three follow-ups: ca_final slug fix, the seabed swap, commit
+
+- **`ca_final.py`** now NFKD-folds a renamed spot's name before the slug regex, so "Capão da Canoa"
+  becomes `capao-da-canoa`, not `cap-o-da-canoa`. Checked on six Brazilian names.
+- **The seabed swap (OPEN-ITEMS 17) is applied.** The user approved it. Every committed profile is
+  now cut from the local GEBCO 2024 grid, and `--source local` is the default. `fort-point` was
+  re-aimed to 275 and `lebih` to 184, the two rays the 2026-09-09 entry was waiting on. All 1947
+  profiles re-cut and 601 tests pass. The height impact carries over from the 2026-09-09 A/B
+  (mean -0.009 m); the first VM cycle is the smoke check. See CALIBRATION.md 2026-09-11.

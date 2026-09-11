@@ -1,72 +1,72 @@
 {
   "spot": "punta-mango",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     13.1656,
     -88.1918
   ],
   "bearing_seaward_deg": 195.0,
-  "nearshore_depth_m": 159.0,
-  "offshore_depth_m": 30.0,
-  "mean_slope_m_per_km": -7.27,
-  "land_samples": 0,
+  "nearshore_depth_m": -24.0,
+  "offshore_depth_m": 32.0,
+  "mean_slope_m_per_km": 3.15,
+  "land_samples": 2,
   "missing_samples": 0,
-  "non_monotone_samples": 5,
+  "non_monotone_samples": 2,
   "deepest_is_reference": false,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 13.16343,
       "lon": -88.1924,
-      "depth_m": 159.0
+      "depth_m": -24.0
     },
     {
       "dist_km": 0.5,
       "lat": 13.16126,
       "lon": -88.193,
-      "depth_m": 205.0
+      "depth_m": -9.0
     },
     {
       "dist_km": 1.0,
       "lat": 13.15691,
       "lon": -88.19419,
-      "depth_m": 277.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 2.0,
       "lat": 13.14823,
       "lon": -88.19658,
-      "depth_m": 244.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 3.0,
       "lat": 13.13954,
       "lon": -88.19897,
-      "depth_m": 180.0
+      "depth_m": 32.0
     },
     {
       "dist_km": 5.0,
       "lat": 13.12217,
       "lon": -88.20375,
-      "depth_m": 125.0
+      "depth_m": 47.0
     },
     {
       "dist_km": 8.0,
       "lat": 13.09611,
       "lon": -88.21092,
-      "depth_m": 44.0
+      "depth_m": 33.0
     },
     {
       "dist_km": 12.0,
       "lat": 13.06136,
       "lon": -88.22047,
-      "depth_m": 16.0
+      "depth_m": 35.0
     },
     {
       "dist_km": 18.0,
       "lat": 13.00923,
       "lon": -88.2348,
-      "depth_m": 30.0
+      "depth_m": 32.0
     }
   ]
 }

@@ -1,14 +1,14 @@
 {
   "spot": "surfer-s-knoll",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     34.2401,
     -119.2669
   ],
   "bearing_seaward_deg": 259.0,
-  "nearshore_depth_m": -1.0,
+  "nearshore_depth_m": -3.0,
   "offshore_depth_m": 66.0,
-  "mean_slope_m_per_km": 3.77,
+  "mean_slope_m_per_km": 3.89,
   "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,13 +18,13 @@
       "dist_km": 0.25,
       "lat": 34.23967,
       "lon": -119.26957,
-      "depth_m": -1.0
+      "depth_m": -3.0
     },
     {
       "dist_km": 0.5,
       "lat": 34.23924,
       "lon": -119.27224,
-      "depth_m": 5.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 1.0,
@@ -36,13 +36,13 @@
       "dist_km": 2.0,
       "lat": 34.23667,
       "lon": -119.28826,
-      "depth_m": 11.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 3.0,
       "lat": 34.23495,
       "lon": -119.29893,
-      "depth_m": 13.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 5.0,
@@ -54,7 +54,7 @@
       "dist_km": 8.0,
       "lat": 34.22634,
       "lon": -119.35232,
-      "depth_m": 22.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 12.0,

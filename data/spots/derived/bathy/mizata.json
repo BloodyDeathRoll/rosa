@@ -1,15 +1,15 @@
 {
   "spot": "mizata",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     13.5104,
     -89.5965
   ],
   "bearing_seaward_deg": 182.0,
-  "nearshore_depth_m": -3.0,
+  "nearshore_depth_m": 2.0,
   "offshore_depth_m": 65.0,
-  "mean_slope_m_per_km": 3.83,
-  "land_samples": 1,
+  "mean_slope_m_per_km": 3.55,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,31 +18,31 @@
       "dist_km": 0.25,
       "lat": 13.50815,
       "lon": -89.59658,
-      "depth_m": -3.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 0.5,
       "lat": 13.50591,
       "lon": -89.59666,
-      "depth_m": 3.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 1.0,
       "lat": 13.50141,
       "lon": -89.59682,
-      "depth_m": 20.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 2.0,
       "lat": 13.49242,
       "lon": -89.59715,
-      "depth_m": 30.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 3.0,
       "lat": 13.48344,
       "lon": -89.59747,
-      "depth_m": 30.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 5.0,
@@ -54,7 +54,7 @@
       "dist_km": 8.0,
       "lat": 13.4385,
       "lon": -89.59908,
-      "depth_m": 40.0
+      "depth_m": 41.0
     },
     {
       "dist_km": 12.0,

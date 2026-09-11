@@ -1,14 +1,14 @@
 {
   "spot": "teahupoo",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -17.8667,
     -149.2537
   ],
   "bearing_seaward_deg": 204.0,
-  "nearshore_depth_m": 172.0,
-  "offshore_depth_m": 2245.0,
-  "mean_slope_m_per_km": 116.79,
+  "nearshore_depth_m": 271.0,
+  "offshore_depth_m": 2303.0,
+  "mean_slope_m_per_km": 114.48,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": -17.86875,
       "lon": -149.25466,
-      "depth_m": 172.0
+      "depth_m": 271.0
     },
     {
       "dist_km": 0.5,
       "lat": -17.87081,
       "lon": -149.25562,
-      "depth_m": 283.0
+      "depth_m": 271.0
     },
     {
       "dist_km": 1.0,
       "lat": -17.87492,
       "lon": -149.25754,
-      "depth_m": 487.0
+      "depth_m": 406.0
     },
     {
       "dist_km": 2.0,
       "lat": -17.88313,
       "lon": -149.26139,
-      "depth_m": 794.0
+      "depth_m": 705.0
     },
     {
       "dist_km": 3.0,
       "lat": -17.89135,
       "lon": -149.26523,
-      "depth_m": 1040.0
+      "depth_m": 990.0
     },
     {
       "dist_km": 5.0,
       "lat": -17.90778,
       "lon": -149.27292,
-      "depth_m": 1409.0
+      "depth_m": 1407.0
     },
     {
       "dist_km": 8.0,
       "lat": -17.93242,
       "lon": -149.28446,
-      "depth_m": 1844.0
+      "depth_m": 1826.0
     },
     {
       "dist_km": 12.0,
       "lat": -17.96528,
       "lon": -149.29984,
-      "depth_m": 2051.0
+      "depth_m": 2049.0
     },
     {
       "dist_km": 18.0,
       "lat": -18.01457,
       "lon": -149.32294,
-      "depth_m": 2245.0
+      "depth_m": 2303.0
     }
   ]
 }

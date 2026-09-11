@@ -1,15 +1,15 @@
 {
   "spot": "tynemouth-longsands",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     55.0271,
     -1.4261
   ],
   "bearing_seaward_deg": 63.0,
-  "nearshore_depth_m": 2.0,
+  "nearshore_depth_m": -3.0,
   "offshore_depth_m": 77.0,
-  "mean_slope_m_per_km": 4.23,
-  "land_samples": 0,
+  "mean_slope_m_per_km": 4.51,
+  "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,13 +18,13 @@
       "dist_km": 0.25,
       "lat": 55.02812,
       "lon": -1.4226,
-      "depth_m": 2.0
+      "depth_m": -3.0
     },
     {
       "dist_km": 0.5,
       "lat": 55.02914,
       "lon": -1.41911,
-      "depth_m": 4.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 1.0,
@@ -36,7 +36,7 @@
       "dist_km": 2.0,
       "lat": 55.03526,
       "lon": -1.39813,
-      "depth_m": 19.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 3.0,

@@ -1,14 +1,14 @@
 {
   "spot": "coopers-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     40.8619,
     -72.4039
   ],
   "bearing_seaward_deg": 157.0,
-  "nearshore_depth_m": 4.0,
+  "nearshore_depth_m": 7.0,
   "offshore_depth_m": 38.0,
-  "mean_slope_m_per_km": 1.92,
+  "mean_slope_m_per_km": 1.75,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,13 +18,13 @@
       "dist_km": 0.25,
       "lat": 40.85983,
       "lon": -72.40274,
-      "depth_m": 4.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 0.5,
       "lat": 40.85776,
       "lon": -72.40158,
-      "depth_m": 8.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 1.0,
@@ -36,7 +36,7 @@
       "dist_km": 2.0,
       "lat": 40.84534,
       "lon": -72.39461,
-      "depth_m": 14.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 3.0,
@@ -48,7 +48,7 @@
       "dist_km": 5.0,
       "lat": 40.82051,
       "lon": -72.38068,
-      "depth_m": 25.0
+      "depth_m": 24.0
     },
     {
       "dist_km": 8.0,
@@ -60,7 +60,7 @@
       "dist_km": 12.0,
       "lat": 40.76255,
       "lon": -72.34823,
-      "depth_m": 34.0
+      "depth_m": 35.0
     },
     {
       "dist_km": 18.0,

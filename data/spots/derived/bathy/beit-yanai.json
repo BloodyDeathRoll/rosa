@@ -1,42 +1,42 @@
 {
   "spot": "beit-yanai",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     32.3817,
     34.8612
   ],
   "bearing_seaward_deg": 282.0,
-  "nearshore_depth_m": 23.0,
-  "offshore_depth_m": 192.0,
-  "mean_slope_m_per_km": 9.52,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 195.0,
+  "mean_slope_m_per_km": 10.76,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 32.38217,
       "lon": 34.8586,
-      "depth_m": 23.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 0.5,
       "lat": 32.38263,
       "lon": 34.85599,
-      "depth_m": 26.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 1.0,
       "lat": 32.38357,
       "lon": 34.85078,
-      "depth_m": 24.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 2.0,
       "lat": 32.38544,
       "lon": 34.84037,
-      "depth_m": 26.0
+      "depth_m": 28.0
     },
     {
       "dist_km": 3.0,
@@ -54,19 +54,19 @@
       "dist_km": 8.0,
       "lat": 32.39663,
       "lon": 34.77785,
-      "depth_m": 51.0
+      "depth_m": 52.0
     },
     {
       "dist_km": 12.0,
       "lat": 32.40408,
       "lon": 34.73617,
-      "depth_m": 88.0
+      "depth_m": 89.0
     },
     {
       "dist_km": 18.0,
       "lat": 32.41522,
       "lon": 34.67363,
-      "depth_m": 192.0
+      "depth_m": 195.0
     }
   ]
 }

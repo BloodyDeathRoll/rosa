@@ -1,15 +1,15 @@
 {
   "spot": "asilomar",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     36.619,
     -121.9415
   ],
   "bearing_seaward_deg": 291.0,
   "nearshore_depth_m": -2.0,
-  "offshore_depth_m": 1442.0,
-  "mean_slope_m_per_km": 81.35,
-  "land_samples": 2,
+  "offshore_depth_m": 1387.0,
+  "mean_slope_m_per_km": 78.25,
+  "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 1,
   "deepest_is_reference": false,
@@ -24,49 +24,49 @@
       "dist_km": 0.5,
       "lat": 36.62061,
       "lon": -121.94673,
-      "depth_m": -2.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 1.0,
       "lat": 36.62222,
       "lon": -121.95196,
-      "depth_m": 13.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 2.0,
       "lat": 36.62544,
       "lon": -121.96242,
-      "depth_m": 39.0
+      "depth_m": 43.0
     },
     {
       "dist_km": 3.0,
       "lat": 36.62866,
       "lon": -121.97289,
-      "depth_m": 43.0
+      "depth_m": 51.0
     },
     {
       "dist_km": 5.0,
       "lat": 36.6351,
       "lon": -121.99381,
-      "depth_m": 103.0
+      "depth_m": 91.0
     },
     {
       "dist_km": 8.0,
       "lat": 36.64475,
       "lon": -122.02521,
-      "depth_m": 270.0
+      "depth_m": 294.0
     },
     {
       "dist_km": 12.0,
       "lat": 36.65761,
       "lon": -122.06709,
-      "depth_m": 1529.0
+      "depth_m": 1544.0
     },
     {
       "dist_km": 18.0,
       "lat": 36.67686,
       "lon": -122.12993,
-      "depth_m": 1442.0
+      "depth_m": 1387.0
     }
   ]
 }

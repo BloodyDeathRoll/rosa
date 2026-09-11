@@ -1,17 +1,17 @@
 {
   "spot": "troncones",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     17.7794,
     -101.7223
   ],
   "bearing_seaward_deg": 212.0,
   "nearshore_depth_m": -8.0,
-  "offshore_depth_m": 1092.0,
-  "mean_slope_m_per_km": 61.97,
-  "land_samples": 1,
+  "offshore_depth_m": 1052.0,
+  "mean_slope_m_per_km": 59.72,
+  "land_samples": 2,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
@@ -24,49 +24,49 @@
       "dist_km": 0.5,
       "lat": 17.77559,
       "lon": -101.7248,
-      "depth_m": 4.0
+      "depth_m": -8.0
     },
     {
       "dist_km": 1.0,
       "lat": 17.77177,
       "lon": -101.7273,
-      "depth_m": 21.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 2.0,
       "lat": 17.76415,
       "lon": -101.73231,
-      "depth_m": 17.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 3.0,
       "lat": 17.75652,
       "lon": -101.73731,
-      "depth_m": 17.0
+      "depth_m": 38.0
     },
     {
       "dist_km": 5.0,
       "lat": 17.74127,
       "lon": -101.74732,
-      "depth_m": 34.0
+      "depth_m": 83.0
     },
     {
       "dist_km": 8.0,
       "lat": 17.71838,
       "lon": -101.76232,
-      "depth_m": 217.0
+      "depth_m": 191.0
     },
     {
       "dist_km": 12.0,
       "lat": 17.68787,
       "lon": -101.78233,
-      "depth_m": 514.0
+      "depth_m": 498.0
     },
     {
       "dist_km": 18.0,
       "lat": 17.6421,
       "lon": -101.81232,
-      "depth_m": 1092.0
+      "depth_m": 1052.0
     }
   ]
 }

@@ -1,14 +1,14 @@
 {
   "spot": "nahariya",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     33.0108,
     35.0887
   ],
   "bearing_seaward_deg": 284.0,
   "nearshore_depth_m": 10.0,
-  "offshore_depth_m": 569.0,
-  "mean_slope_m_per_km": 31.49,
+  "offshore_depth_m": 544.0,
+  "mean_slope_m_per_km": 30.08,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -24,31 +24,31 @@
       "dist_km": 0.5,
       "lat": 33.01189,
       "lon": 35.0835,
-      "depth_m": 11.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 1.0,
       "lat": 33.01298,
       "lon": 35.07829,
-      "depth_m": 13.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 2.0,
       "lat": 33.01515,
       "lon": 35.06789,
-      "depth_m": 14.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 3.0,
       "lat": 33.01732,
       "lon": 35.05748,
-      "depth_m": 28.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 5.0,
       "lat": 33.02167,
       "lon": 35.03666,
-      "depth_m": 36.0
+      "depth_m": 38.0
     },
     {
       "dist_km": 8.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 33.04982,
       "lon": 34.90131,
-      "depth_m": 569.0
+      "depth_m": 544.0
     }
   ]
 }

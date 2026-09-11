@@ -1,15 +1,15 @@
 {
   "spot": "le-kerou",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     47.7682,
     -3.5636
   ],
   "bearing_seaward_deg": 196.0,
-  "nearshore_depth_m": -3.0,
+  "nearshore_depth_m": 3.0,
   "offshore_depth_m": 61.0,
-  "mean_slope_m_per_km": 3.61,
-  "land_samples": 1,
+  "mean_slope_m_per_km": 3.27,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,7 +18,7 @@
       "dist_km": 0.25,
       "lat": 47.76604,
       "lon": -3.56452,
-      "depth_m": -3.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 0.5,
@@ -30,13 +30,13 @@
       "dist_km": 1.0,
       "lat": 47.75956,
       "lon": -3.56729,
-      "depth_m": 9.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 2.0,
       "lat": 47.75091,
       "lon": -3.57097,
-      "depth_m": 20.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 3.0,
@@ -60,7 +60,7 @@
       "dist_km": 12.0,
       "lat": 47.66445,
       "lon": -3.60777,
-      "depth_m": 38.0
+      "depth_m": 39.0
     },
     {
       "dist_km": 18.0,

@@ -1,72 +1,72 @@
 {
   "spot": "san-agustinillo",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     15.6648,
     -96.5403
   ],
   "bearing_seaward_deg": 180.0,
-  "nearshore_depth_m": 280.0,
-  "offshore_depth_m": 2054.0,
-  "mean_slope_m_per_km": 99.94,
-  "land_samples": 0,
+  "nearshore_depth_m": -18.0,
+  "offshore_depth_m": 2018.0,
+  "mean_slope_m_per_km": 114.7,
+  "land_samples": 2,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 15.66255,
       "lon": -96.5403,
-      "depth_m": 280.0
+      "depth_m": -18.0
     },
     {
       "dist_km": 0.5,
       "lat": 15.6603,
       "lon": -96.5403,
-      "depth_m": 597.0
+      "depth_m": -36.0
     },
     {
       "dist_km": 1.0,
       "lat": 15.65581,
       "lon": -96.5403,
-      "depth_m": 765.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 2.0,
       "lat": 15.64681,
       "lon": -96.5403,
-      "depth_m": 382.0
+      "depth_m": 100.0
     },
     {
       "dist_km": 3.0,
       "lat": 15.63782,
       "lon": -96.5403,
-      "depth_m": 474.0
+      "depth_m": 203.0
     },
     {
       "dist_km": 5.0,
       "lat": 15.61983,
       "lon": -96.5403,
-      "depth_m": 544.0
+      "depth_m": 647.0
     },
     {
       "dist_km": 8.0,
       "lat": 15.59285,
       "lon": -96.5403,
-      "depth_m": 1357.0
+      "depth_m": 1427.0
     },
     {
       "dist_km": 12.0,
       "lat": 15.55688,
       "lon": -96.5403,
-      "depth_m": 1837.0
+      "depth_m": 1812.0
     },
     {
       "dist_km": 18.0,
       "lat": 15.50292,
       "lon": -96.5403,
-      "depth_m": 2054.0
+      "depth_m": 2018.0
     }
   ]
 }

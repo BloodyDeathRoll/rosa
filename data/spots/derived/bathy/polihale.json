@@ -1,15 +1,15 @@
 {
   "spot": "polihale",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     22.0795,
     -159.7648
   ],
   "bearing_seaward_deg": 310.0,
-  "nearshore_depth_m": -4.0,
-  "offshore_depth_m": 931.0,
-  "mean_slope_m_per_km": 52.68,
-  "land_samples": 1,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 1040.0,
+  "mean_slope_m_per_km": 58.2,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 22.08095,
       "lon": -159.76666,
-      "depth_m": -4.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 0.5,
       "lat": 22.08239,
       "lon": -159.76852,
-      "depth_m": 9.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 1.0,
       "lat": 22.08528,
       "lon": -159.77223,
-      "depth_m": 17.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 2.0,
       "lat": 22.09106,
       "lon": -159.77967,
-      "depth_m": 18.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 3.0,
       "lat": 22.09684,
       "lon": -159.78711,
-      "depth_m": 23.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 5.0,
       "lat": 22.1084,
       "lon": -159.80198,
-      "depth_m": 70.0
+      "depth_m": 74.0
     },
     {
       "dist_km": 8.0,
       "lat": 22.12573,
       "lon": -159.82429,
-      "depth_m": 363.0
+      "depth_m": 371.0
     },
     {
       "dist_km": 12.0,
       "lat": 22.14884,
       "lon": -159.85406,
-      "depth_m": 634.0
+      "depth_m": 630.0
     },
     {
       "dist_km": 18.0,
       "lat": 22.1835,
       "lon": -159.89872,
-      "depth_m": 931.0
+      "depth_m": 1040.0
     }
   ]
 }

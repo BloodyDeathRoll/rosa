@@ -1,72 +1,72 @@
 {
   "spot": "punta-rocas",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -12.3529,
     -76.8163
   ],
   "bearing_seaward_deg": 198.0,
-  "nearshore_depth_m": 33.0,
-  "offshore_depth_m": 111.0,
-  "mean_slope_m_per_km": 4.39,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 100.0,
+  "mean_slope_m_per_km": 5.58,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 2,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -12.35504,
       "lon": -76.81701,
-      "depth_m": 33.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": -12.35718,
       "lon": -76.81772,
-      "depth_m": 32.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 1.0,
       "lat": -12.36145,
       "lon": -76.81915,
-      "depth_m": 13.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 2.0,
       "lat": -12.37001,
       "lon": -76.82199,
-      "depth_m": 19.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 3.0,
       "lat": -12.37856,
       "lon": -76.82484,
-      "depth_m": 22.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 5.0,
       "lat": -12.39566,
       "lon": -76.83053,
-      "depth_m": 28.0
+      "depth_m": 50.0
     },
     {
       "dist_km": 8.0,
       "lat": -12.42132,
       "lon": -76.83907,
-      "depth_m": 56.0
+      "depth_m": 68.0
     },
     {
       "dist_km": 12.0,
       "lat": -12.45553,
       "lon": -76.85045,
-      "depth_m": 83.0
+      "depth_m": 87.0
     },
     {
       "dist_km": 18.0,
       "lat": -12.50685,
       "lon": -76.86754,
-      "depth_m": 111.0
+      "depth_m": 100.0
     }
   ]
 }

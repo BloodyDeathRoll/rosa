@@ -1,14 +1,14 @@
 {
   "spot": "bank-vaults",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -1.8443,
     99.2424
   ],
   "bearing_seaward_deg": 216.0,
-  "nearshore_depth_m": 13.0,
-  "offshore_depth_m": 785.0,
-  "mean_slope_m_per_km": 43.49,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 775.0,
+  "mean_slope_m_per_km": 43.44,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": -1.84612,
       "lon": 99.24108,
-      "depth_m": 13.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 0.5,
       "lat": -1.84794,
       "lon": 99.23976,
-      "depth_m": 23.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 1.0,
       "lat": -1.85158,
       "lon": 99.23711,
-      "depth_m": 26.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 2.0,
       "lat": -1.85885,
       "lon": 99.23182,
-      "depth_m": 29.0
+      "depth_m": 37.0
     },
     {
       "dist_km": 3.0,
       "lat": -1.86613,
       "lon": 99.22653,
-      "depth_m": 36.0
+      "depth_m": 51.0
     },
     {
       "dist_km": 5.0,
       "lat": -1.88068,
       "lon": 99.21596,
-      "depth_m": 90.0
+      "depth_m": 175.0
     },
     {
       "dist_km": 8.0,
       "lat": -1.9025,
       "lon": 99.20009,
-      "depth_m": 309.0
+      "depth_m": 391.0
     },
     {
       "dist_km": 12.0,
       "lat": -1.93161,
       "lon": 99.17893,
-      "depth_m": 560.0
+      "depth_m": 696.0
     },
     {
       "dist_km": 18.0,
       "lat": -1.97526,
       "lon": 99.14719,
-      "depth_m": 785.0
+      "depth_m": 775.0
     }
   ]
 }

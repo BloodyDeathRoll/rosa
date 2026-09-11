@@ -25,7 +25,7 @@ spots:
   # place nodes (tools/spot-seed/towns.py). North to south.
   - { id: medewi, name: "Medewi", town: "Medewi", lat: -8.4198, lon: 114.8052, offshore_direction: 40, swell_window: [155, 285], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
   - { id: balian, name: "Balian", town: "Balian", lat: -8.5027, lon: 114.9643, offshore_direction: 28, swell_window: [143, 273], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
-  - { id: lebih, name: "Lebih", town: "Gianyar", lat: -8.5808, lon: 115.3557, offshore_direction: 319, swell_window: [74, 204], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
+  - { id: lebih, name: "Lebih", town: "Gianyar", lat: -8.5808, lon: 115.3557, offshore_direction: 4, swell_window: [119, 249], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded); normal re-aimed 2026-09-11 to seaward 184, the open lane south through the Badung Strait - on the GEBCO 2024 grid every bearing east of it ends on Nusa Penida (OPEN-ITEMS 17)
   - { id: yeh-gangga, name: "Yeh Gangga", town: "Tabanan", lat: -8.5914, lon: 115.0690, offshore_direction: 51, swell_window: [166, 296], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
   - { id: keramas, name: "Keramas", town: "Keramas", lat: -8.5975, lon: 115.3393, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)
   - { id: seseh, name: "Seseh", town: "Seseh", lat: -8.6479, lon: 115.1158, offshore_direction: 26, swell_window: [141, 271], offshore_km: 5.0, <<: *bali }  # sat-verified 2026-09-02 (websearch-seeded)

@@ -1,14 +1,14 @@
 {
   "spot": "supertubes-za",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -34.0332,
     24.9352
   ],
   "bearing_seaward_deg": 115.0,
-  "nearshore_depth_m": 7.0,
-  "offshore_depth_m": 71.0,
-  "mean_slope_m_per_km": 3.61,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 68.0,
+  "mean_slope_m_per_km": 3.27,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,43 +18,43 @@
       "dist_km": 0.25,
       "lat": -34.03415,
       "lon": 24.93766,
-      "depth_m": 7.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 0.5,
       "lat": -34.0351,
       "lon": 24.94012,
-      "depth_m": 14.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 1.0,
       "lat": -34.037,
       "lon": 24.94504,
-      "depth_m": 19.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 2.0,
       "lat": -34.0408,
       "lon": 24.95487,
-      "depth_m": 24.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 3.0,
       "lat": -34.0446,
       "lon": 24.96471,
-      "depth_m": 26.0
+      "depth_m": 24.0
     },
     {
       "dist_km": 5.0,
       "lat": -34.05219,
       "lon": 24.98439,
-      "depth_m": 32.0
+      "depth_m": 31.0
     },
     {
       "dist_km": 8.0,
       "lat": -34.06358,
       "lon": 25.01391,
-      "depth_m": 37.0
+      "depth_m": 41.0
     },
     {
       "dist_km": 12.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": -34.10149,
       "lon": 25.11238,
-      "depth_m": 71.0
+      "depth_m": 68.0
     }
   ]
 }

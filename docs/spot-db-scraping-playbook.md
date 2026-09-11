@@ -202,9 +202,10 @@ Two rules learned the hard way on East Africa:
    the pin was on the sheltered north-facing bay beach, not the ocean side. Re-aiming would have
    produced a plausible profile for the wrong water. Render before you re-aim.
 
-`aim_normal.py` reads GEBCO_2024 from disk; `rosa-pipeline bathy` reads gebco2020 via
-OpenTopoData. They disagree by a cell at the shoreline, so **judge the fix on the committed
-profile, not on the sweep**.
+Since 2026-09-11 `aim_normal.py` and `rosa-pipeline bathy` both read GEBCO_2024 from disk (before
+that `bathy` read gebco2020 via OpenTopoData and the two disagreed by a cell at the shoreline).
+The sweep samples bearings and the profile samples the ray the physics marches, so still **judge
+the fix on the committed profile, not on the sweep**.
 
 ## 4. Chunked, long-running workflow
 - Do **one region (or one gap area) at a time**; the `work/<region>/` cache makes every stage
@@ -214,7 +215,95 @@ profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-09-04, DB = 1406 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-09-11, DB = 1947 spots, ALL sat-verified)
+
+**Brazil 0 -> 305 (2026-09-11): Sao Paulo 56, Rio de Janeiro 52, Santa Catarina 46, Bahia 33,
+Ceara 31, Espirito Santo 29, Rio Grande do Norte 18, Rio Grande do Sul 14, Parana 9, Pernambuco 9,
+Fernando de Noronha 8.** Eleven boxes on three extracts (`south-america/brazil/{sul,sudeste,
+nordeste}`), two basins (`brazil-south`, `brazil-northeast`), nine parallel subagents (RS+Parana and
+Pernambuco+Noronha paired). A session usage limit cut eight of them off mid-run; each resumed from its
+own transcript with no work lost. **Brazil is Google country with little OSM**: 9 Tier-A nodes across
+all eleven states, and Nominatim answered HTTP 429 for most of the run because ten processes shared
+it, so most names were Google + Photon and the tile decided.
+
+What was new:
+1. **`ca_final.py`'s slug drops accented letters** once a rename has run (`cap-o-da-canoa`, `imb`,
+   `boca-do-po-o`, `s-o-jos`): it strips non-ASCII before NFKD-folding. Every fork fixed ids in its own
+   `final.json`. Fixed the same day: the rename now NFKD-folds before the slug regex.
+2. **The pipeline's `gebco2020` API reads the north-east shelf as exactly 0.0 m** for kilometres (off
+   Tourinhos the local grid reads -6/-8/-12/-18 m at 2/8/12/18 km, the API 0.0 at all four). Profiles
+   still end in water, but their nearshore is the API's zeros. Don't re-aim or drop over a 0 m sample;
+   the only hard check is the deep end. Resolved the same day: the fleet now cuts from the
+   local GEBCO 2024 grid (OPEN-ITEMS 17 applied), and Tourinhos reads 10-13 m from 1 km out.
+3. **Generic Portuguese names repeat across states** (Prainha, Praia Grande, Praia Mole, Praia Brava,
+   Barrinha, Pontal, Havaizinho, Porto): suffix them by town or state BEFORE emitting when regions emit
+   in parallel, or the second emitter clashes.
+4. **Google gives the town centre 100-700 m back from the beach** almost everywhere (Ceara moved 25 of
+   31 pins); Espirito Santo's towns needed a z14 read to find the surf at all.
+5. **Guides list sheltered bay and channel beaches** (behind Ilhabela, inside Ubatuba / Santos / Todos
+   os Santos bays) and sub-peaks of one beach (Itaparica's Secret / Barra Sol) - judge exposure on the
+   tile, drop sub-peaks for the parent.
+6. **OSM place nodes are hamlets and condominiums**; most Brazilian towns are hand overrides to the
+   municipality (Sao Paulo 56 of 56).
+7. **OSM beach nodes are often polygon centroids offshore** (Lopes Mendes, Pero) - check the pin sits
+   on the waterline even when the snap is the right beach.
+8. waves.com.br's state/city pages list every named pico and were the best Brazilian name source.
+
+**Gap queue:** Alagoas, Sergipe and Paraiba; Santa Catarina's south (Morro dos Conventos, Balneario
+Rincao - west of the box); Itaparica's sub-peaks; Pipa's reef sections (Lajao, Sororoca); the Amazon
+coast is not surfed.
+
+**Algeria 0 -> 20 (2026-09-11)** - one box over the whole coast on `africa/algeria` and a new
+`algeria` basin. Zero OSM surf nodes (414 named beaches), so it was the web flow end to end:
+26 names -> 20 kept, 9 pins moved, 6 dropped, 4 normals re-aimed (Cap Ivi's coastline normal pointed
+into the dunes). **Google answers every Algerian name but gives the town centre** (Beni Saf, Dellys,
+Surcouf, Ain Benian); a plain `"plage <town>, <wilaya>"` requery on Nominatim or Photon found the
+beach. **English-language Algerian "surf" lists are SEO beach lists** - Tala Guilef is a ski
+station - so trust only names a surf-specific source repeats. First run of the fixed `ca_xref.py`:
+11 snaps, none on the wrong beach. Gap queue: Oran's west (Beni Saf, Madagh), Jijel's corniche
+beyond La Crique, Annaba and El Kala.
+
+**Spain and Cyprus 0 -> 214 (2026-09-10): Galicia 55, Canary Islands 45, Cadiz 25, Asturias 24,
+Basque Country 24, Cyprus 22, Cantabria 19.** Seven boxes, one per Geofabrik extract
+(`europe/spain/{pais-vasco,cantabria,asturias,galicia,andalucia}`, `africa/canary-islands` - NOT
+`europe/spain/canarias`, which is the 9 KB HTML 404 - and `europe/cyprus`). The four north-coast
+regions joined `biscay-celtic`, Cadiz joined `portugal`, and the Canaries and Cyprus got their own
+basins. Andorra has no coast; the Spanish Mediterranean is not seeded. Judging ran as seven parallel
+subagents, one per region.
+
+**The new failure mode is `ca_xref.py`'s OSM snap in Spanish.** Its STOP set lacks `playa`, `praia`,
+`de`, `da`, `do` and `del`, so "Playa de X" matches any OSM "Playa de Y" within 1.5 km and the pin
+jumps to the neighbouring beach: 8 of 25 in Cantabria, 9 of 35 in Galicia, 8 in the Canaries, 7 of
+27 in Cadiz, 3 of 20 in Asturias. Every one was caught on the render and reverted to the geocode.
+**Fixed the same night**: `STOP` now carries the beach words and articles of every seeded language.
+Replayed on Cantabria's saved geocodes, the snaps fell from 22 to 17, and Valdearenas and Cuchia now
+snap to their own beaches. One kind remains: the query name carries its town
+("Isla de Santa Marina Loredo"), so a beach named after the same town still matches. Keep reading
+each `osm:<name>` src against the web name. Google, by contrast, was right more often than the snap
+on every Spanish coast.
+
+Other notes:
+1. **OSM carried the breaks only in Galicia**: 20 Tier-A surf nodes in the Rias Baixas and Costa da
+   Morte, all 20 verified. Basque Country had 0 usable Tier-A but 60 named beaches, the best second
+   source there. Cyprus had none at all.
+2. **Shore normals failed on a third of the spots** (14 Basque, 17 Galicia, 13 Canaries, 9 Asturias,
+   6 Cantabria, 5 Cyprus): rias, cove mouths, points, and island shadow in the Canaries (El Muelle's
+   ray hit Lobos at 5 km, Caleta de Caballo's ended on Lanzarote). All re-aimed to the middle of the
+   open arc.
+3. **Cliff-walled coves keep land at 0.5-1 km on the API grid on every bearing** (Deba, Itzurun,
+   Cueva, Playa Espana, the Cadiz city shore, eight inner-ria Galicia beaches, Anaga and El Medano
+   out to 1-2 km). Every ray still reaches deep water, so they were kept; this is OPEN-ITEMS 17/23.
+4. **`render.py` used fixed ports (4180/9230)**, so parallel renders collided and `shoot.mjs` exited 13.
+   The forks called `render.render_tiles` on private ports. Fixed the same night: both ports now
+   default to a free one per run.
+5. **Galicia's OSM place nodes are parish hamlets**, so all 55 towns are hand overrides to the concello.
+6. A fork read `.env.local` with `cut -d= -f2-` and kept the quotes, got "API key not valid", and
+   geocoded Basque Country without Google. Strip the quotes.
+
+**Gap queue:** the Spanish Mediterranean (Barcelona, Valencia, Almeria - rarely surfed),
+Huelva, Cantabria's La Vaca / El Muro / Cuchia, Fuerteventura's Bubble / Rocky Point / Generosa /
+Lobos, Lanzarote's separate La Santa left and right, Tenerife's El Medio and Derecha del Cartel,
+Galicia's O Corvo, and Northern Cyprus beyond Akdeniz.
 
 **Indian Ocean 0 -> 28 (2026-09-04): Mozambique north extension +8 (-> 13 total), Madagascar 5,
 Mauritius 10** - all three zero-OSM regions, web-search only with 3 rounds of sat-tile verification
@@ -880,3 +969,7 @@ community-contribution layer, and it's where "all the spots" ultimately lives.
   recovered that way on the Jersey Shore and the Florida inlets).
 - `ca_queue.py`'s `"{name} surf break {area} {REGION}"` template returns nothing for US names →
   query plain `"<place>, <state>"` there.
+- `ca_xref.py` snapped "Playa de X" onto any OSM "Playa de Y" within 1.5 km, because `playa` / `de`
+  were not stopwords (2026-09-10: 35 wrong-beach snaps across Spain). Fixed; a beach that shares the
+  query's TOWN word can still match, so read every `osm:<name>` snap against the web name.
+- parallel `render.py` runs collided on fixed ports → fixed, each run now takes free ports.

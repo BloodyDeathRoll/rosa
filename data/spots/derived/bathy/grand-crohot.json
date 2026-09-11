@@ -1,48 +1,48 @@
 {
   "spot": "grand-crohot",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     44.7986,
     -1.2346
   ],
   "bearing_seaward_deg": 271.0,
-  "nearshore_depth_m": 5.0,
-  "offshore_depth_m": 45.0,
-  "mean_slope_m_per_km": 2.25,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 46.0,
+  "mean_slope_m_per_km": 2.37,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 44.79864,
       "lon": -1.23777,
-      "depth_m": 5.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 0.5,
       "lat": 44.79868,
       "lon": -1.24094,
-      "depth_m": 2.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 1.0,
       "lat": 44.79876,
       "lon": -1.24727,
-      "depth_m": 8.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 2.0,
       "lat": 44.79891,
       "lon": -1.25994,
-      "depth_m": 16.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 3.0,
       "lat": 44.79906,
       "lon": -1.27262,
-      "depth_m": 19.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 5.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 44.8012,
       "lon": -1.4627,
-      "depth_m": 45.0
+      "depth_m": 46.0
     }
   ]
 }

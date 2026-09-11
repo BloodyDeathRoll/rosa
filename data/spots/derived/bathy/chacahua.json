@@ -1,15 +1,15 @@
 {
   "spot": "chacahua",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     15.9707,
     -97.7274
   ],
   "bearing_seaward_deg": 191.0,
-  "nearshore_depth_m": -3.0,
-  "offshore_depth_m": 1823.0,
-  "mean_slope_m_per_km": 102.87,
-  "land_samples": 2,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 1884.0,
+  "mean_slope_m_per_km": 106.48,
+  "land_samples": 5,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 15.96849,
       "lon": -97.72785,
-      "depth_m": -3.0
+      "depth_m": -6.0
     },
     {
       "dist_km": 0.5,
       "lat": 15.96629,
       "lon": -97.72829,
-      "depth_m": 19.0
+      "depth_m": -12.0
     },
     {
       "dist_km": 1.0,
       "lat": 15.96187,
       "lon": -97.72918,
-      "depth_m": 43.0
+      "depth_m": -11.0
     },
     {
       "dist_km": 2.0,
       "lat": 15.95304,
       "lon": -97.73097,
-      "depth_m": 67.0
+      "depth_m": -9.0
     },
     {
       "dist_km": 3.0,
       "lat": 15.94422,
       "lon": -97.73275,
-      "depth_m": -9.0
+      "depth_m": -5.0
     },
     {
       "dist_km": 5.0,
       "lat": 15.92656,
       "lon": -97.73632,
-      "depth_m": 126.0
+      "depth_m": 82.0
     },
     {
       "dist_km": 8.0,
       "lat": 15.90008,
       "lon": -97.74167,
-      "depth_m": 401.0
+      "depth_m": 257.0
     },
     {
       "dist_km": 12.0,
       "lat": 15.86476,
       "lon": -97.74881,
-      "depth_m": 751.0
+      "depth_m": 743.0
     },
     {
       "dist_km": 18.0,
       "lat": 15.81179,
       "lon": -97.7595,
-      "depth_m": 1823.0
+      "depth_m": 1884.0
     }
   ]
 }

@@ -1,15 +1,15 @@
 {
   "spot": "shirahama-izu",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     34.6905,
     138.9735
   ],
   "bearing_seaward_deg": 115.0,
-  "nearshore_depth_m": -0.0,
-  "offshore_depth_m": 547.0,
-  "mean_slope_m_per_km": 30.82,
-  "land_samples": 1,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 551.0,
+  "mean_slope_m_per_km": 30.87,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 34.68955,
       "lon": 138.97598,
-      "depth_m": -0.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 0.5,
       "lat": 34.6886,
       "lon": 138.97846,
-      "depth_m": 2.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 1.0,
       "lat": 34.6867,
       "lon": 138.98341,
-      "depth_m": 13.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 2.0,
       "lat": 34.6829,
       "lon": 138.99332,
-      "depth_m": 37.0
+      "depth_m": 36.0
     },
     {
       "dist_km": 3.0,
       "lat": 34.67909,
       "lon": 139.00323,
-      "depth_m": 59.0
+      "depth_m": 56.0
     },
     {
       "dist_km": 5.0,
       "lat": 34.67149,
       "lon": 139.02305,
-      "depth_m": 130.0
+      "depth_m": 127.0
     },
     {
       "dist_km": 8.0,
       "lat": 34.66007,
       "lon": 139.05277,
-      "depth_m": 294.0
+      "depth_m": 305.0
     },
     {
       "dist_km": 12.0,
       "lat": 34.64483,
       "lon": 139.09239,
-      "depth_m": 440.0
+      "depth_m": 449.0
     },
     {
       "dist_km": 18.0,
       "lat": 34.62196,
       "lon": 139.15178,
-      "depth_m": 547.0
+      "depth_m": 551.0
     }
   ]
 }

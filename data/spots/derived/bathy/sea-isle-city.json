@@ -1,14 +1,14 @@
 {
   "spot": "sea-isle-city",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     39.1555,
     -74.6866
   ],
   "bearing_seaward_deg": 109.0,
-  "nearshore_depth_m": 3.0,
+  "nearshore_depth_m": 1.0,
   "offshore_depth_m": 19.0,
-  "mean_slope_m_per_km": 0.9,
+  "mean_slope_m_per_km": 1.01,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 1,
@@ -18,31 +18,31 @@
       "dist_km": 0.25,
       "lat": 39.15477,
       "lon": -74.68386,
-      "depth_m": 3.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": 39.15404,
       "lon": -74.68112,
-      "depth_m": 4.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 1.0,
       "lat": 39.15257,
       "lon": -74.67563,
-      "depth_m": 5.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 2.0,
       "lat": 39.14964,
       "lon": -74.66467,
-      "depth_m": 8.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 3.0,
       "lat": 39.14671,
       "lon": -74.65371,
-      "depth_m": 8.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 5.0,

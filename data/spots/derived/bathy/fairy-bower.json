@@ -1,72 +1,72 @@
 {
   "spot": "fairy-bower",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -33.7989,
     151.2965
   ],
   "bearing_seaward_deg": 32.0,
-  "nearshore_depth_m": -6.0,
-  "offshore_depth_m": 46.0,
-  "mean_slope_m_per_km": 2.93,
-  "land_samples": 1,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 54.0,
+  "mean_slope_m_per_km": 2.54,
+  "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 2,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -33.79699,
       "lon": 151.29793,
-      "depth_m": -6.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 0.5,
       "lat": -33.79509,
       "lon": 151.29937,
-      "depth_m": 9.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 1.0,
       "lat": -33.79127,
       "lon": 151.30223,
-      "depth_m": 7.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 2.0,
       "lat": -33.78365,
       "lon": 151.30797,
-      "depth_m": 2.0
+      "depth_m": 23.0
     },
     {
       "dist_km": 3.0,
       "lat": -33.77602,
       "lon": 151.3137,
-      "depth_m": 3.0
+      "depth_m": 32.0
     },
     {
       "dist_km": 5.0,
       "lat": -33.76076,
       "lon": 151.32516,
-      "depth_m": 8.0
+      "depth_m": 25.0
     },
     {
       "dist_km": 8.0,
       "lat": -33.73788,
       "lon": 151.34235,
-      "depth_m": 19.0
+      "depth_m": 34.0
     },
     {
       "dist_km": 12.0,
       "lat": -33.70736,
       "lon": 151.36525,
-      "depth_m": 35.0
+      "depth_m": 50.0
     },
     {
       "dist_km": 18.0,
       "lat": -33.66158,
       "lon": 151.39956,
-      "depth_m": 46.0
+      "depth_m": 54.0
     }
   ]
 }

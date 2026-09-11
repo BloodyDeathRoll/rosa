@@ -1,17 +1,17 @@
 {
   "spot": "moana",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -35.1986,
     138.4706
   ],
   "bearing_seaward_deg": 301.0,
   "nearshore_depth_m": 8.0,
-  "offshore_depth_m": 33.0,
-  "mean_slope_m_per_km": 1.41,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 1.52,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
@@ -24,49 +24,49 @@
       "dist_km": 0.5,
       "lat": -35.19628,
       "lon": 138.46588,
-      "depth_m": 9.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 1.0,
       "lat": -35.19397,
       "lon": 138.46117,
-      "depth_m": 12.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 2.0,
       "lat": -35.18933,
       "lon": 138.45174,
-      "depth_m": 17.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 3.0,
       "lat": -35.1847,
       "lon": 138.4423,
-      "depth_m": 20.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 5.0,
       "lat": -35.17543,
       "lon": 138.42345,
-      "depth_m": 22.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 8.0,
       "lat": -35.16152,
       "lon": 138.39517,
-      "depth_m": 26.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 12.0,
       "lat": -35.14297,
       "lon": 138.35748,
-      "depth_m": 30.0
+      "depth_m": 31.0
     },
     {
       "dist_km": 18.0,
       "lat": -35.11511,
       "lon": 138.30097,
-      "depth_m": 33.0
+      "depth_m": 35.0
     }
   ]
 }

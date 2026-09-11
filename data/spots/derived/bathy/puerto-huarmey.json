@@ -1,72 +1,72 @@
 {
   "spot": "puerto-huarmey",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -10.0182,
     -78.1938
   ],
   "bearing_seaward_deg": 242.0,
-  "nearshore_depth_m": 9.0,
-  "offshore_depth_m": 114.0,
-  "mean_slope_m_per_km": 5.92,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 119.0,
+  "mean_slope_m_per_km": 6.65,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -10.01926,
       "lon": -78.19582,
-      "depth_m": 9.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": -10.02031,
       "lon": -78.19783,
-      "depth_m": 23.0
+      "depth_m": 25.0
     },
     {
       "dist_km": 1.0,
       "lat": -10.02242,
       "lon": -78.20186,
-      "depth_m": 53.0
+      "depth_m": 34.0
     },
     {
       "dist_km": 2.0,
       "lat": -10.02664,
       "lon": -78.20993,
-      "depth_m": 62.0
+      "depth_m": 50.0
     },
     {
       "dist_km": 3.0,
       "lat": -10.03087,
       "lon": -78.21799,
-      "depth_m": 52.0
+      "depth_m": 63.0
     },
     {
       "dist_km": 5.0,
       "lat": -10.03931,
       "lon": -78.23412,
-      "depth_m": 71.0
+      "depth_m": 86.0
     },
     {
       "dist_km": 8.0,
       "lat": -10.05197,
       "lon": -78.25831,
-      "depth_m": 87.0
+      "depth_m": 93.0
     },
     {
       "dist_km": 12.0,
       "lat": -10.06885,
       "lon": -78.29058,
-      "depth_m": 106.0
+      "depth_m": 105.0
     },
     {
       "dist_km": 18.0,
       "lat": -10.09417,
       "lon": -78.33898,
-      "depth_m": 114.0
+      "depth_m": 119.0
     }
   ]
 }

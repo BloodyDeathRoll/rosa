@@ -1,13 +1,13 @@
 {
   "spot": "mavericks",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     37.4956,
     -122.4968
   ],
   "bearing_seaward_deg": 236.0,
-  "nearshore_depth_m": 3.0,
-  "offshore_depth_m": 77.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 82.0,
   "mean_slope_m_per_km": 4.17,
   "land_samples": 0,
   "missing_samples": 0,
@@ -18,37 +18,37 @@
       "dist_km": 0.25,
       "lat": 37.49434,
       "lon": -122.49915,
-      "depth_m": 3.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 0.5,
       "lat": 37.49309,
       "lon": -122.5015,
-      "depth_m": 13.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 1.0,
       "lat": 37.49057,
       "lon": -122.5062,
-      "depth_m": 24.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 2.0,
       "lat": 37.48554,
       "lon": -122.51559,
-      "depth_m": 29.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 3.0,
       "lat": 37.48051,
       "lon": -122.52499,
-      "depth_m": 34.0
+      "depth_m": 33.0
     },
     {
       "dist_km": 5.0,
       "lat": 37.47045,
       "lon": -122.54377,
-      "depth_m": 47.0
+      "depth_m": 44.0
     },
     {
       "dist_km": 8.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 37.40496,
       "lon": -122.66574,
-      "depth_m": 77.0
+      "depth_m": 82.0
     }
   ]
 }

@@ -1,72 +1,72 @@
 {
   "spot": "lucky-bay",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -33.9882,
     122.2316
   ],
   "bearing_seaward_deg": 198.0,
-  "nearshore_depth_m": -13.0,
-  "offshore_depth_m": 6.0,
-  "mean_slope_m_per_km": 1.07,
-  "land_samples": 3,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 54.0,
+  "mean_slope_m_per_km": 3.27,
+  "land_samples": 1,
   "missing_samples": 0,
-  "non_monotone_samples": 3,
-  "deepest_is_reference": false,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -33.99034,
       "lon": 122.23076,
-      "depth_m": -13.0
+      "depth_m": -4.0
     },
     {
       "dist_km": 0.5,
       "lat": -33.99248,
       "lon": 122.22992,
-      "depth_m": -11.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 1.0,
       "lat": -33.99675,
       "lon": 122.22825,
-      "depth_m": -6.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 2.0,
       "lat": -34.00531,
       "lon": 122.2249,
-      "depth_m": 2.0
+      "depth_m": 23.0
     },
     {
       "dist_km": 3.0,
       "lat": -34.01386,
       "lon": 122.22154,
-      "depth_m": 1.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 5.0,
       "lat": -34.03096,
       "lon": 122.21483,
-      "depth_m": 9.0
+      "depth_m": 40.0
     },
     {
       "dist_km": 8.0,
       "lat": -34.05662,
       "lon": 122.20476,
-      "depth_m": 31.0
+      "depth_m": 46.0
     },
     {
       "dist_km": 12.0,
       "lat": -34.09083,
       "lon": 122.19133,
-      "depth_m": 20.0
+      "depth_m": 49.0
     },
     {
       "dist_km": 18.0,
       "lat": -34.14214,
       "lon": 122.17116,
-      "depth_m": 6.0
+      "depth_m": 54.0
     }
   ]
 }

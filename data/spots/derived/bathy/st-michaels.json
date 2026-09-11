@@ -1,42 +1,42 @@
 {
   "spot": "st-michaels",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -30.8201,
     30.4067
   ],
   "bearing_seaward_deg": 115.0,
-  "nearshore_depth_m": 3.0,
-  "offshore_depth_m": 1259.0,
-  "mean_slope_m_per_km": 70.76,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 1458.0,
+  "mean_slope_m_per_km": 81.8,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 2,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -30.82105,
       "lon": 30.40907,
-      "depth_m": 3.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 0.5,
       "lat": -30.822,
       "lon": 30.41145,
-      "depth_m": 13.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 1.0,
       "lat": -30.8239,
       "lon": 30.41619,
-      "depth_m": 21.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 2.0,
       "lat": -30.8277,
       "lon": 30.42568,
-      "depth_m": 33.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 3.0,
@@ -48,25 +48,25 @@
       "dist_km": 5.0,
       "lat": -30.83909,
       "lon": 30.45416,
-      "depth_m": 33.0
+      "depth_m": 46.0
     },
     {
       "dist_km": 8.0,
       "lat": -30.85048,
       "lon": 30.48265,
-      "depth_m": 17.0
+      "depth_m": 47.0
     },
     {
       "dist_km": 12.0,
       "lat": -30.86566,
       "lon": 30.52065,
-      "depth_m": 271.0
+      "depth_m": 142.0
     },
     {
       "dist_km": 18.0,
       "lat": -30.8884,
       "lon": 30.57766,
-      "depth_m": 1259.0
+      "depth_m": 1458.0
     }
   ]
 }

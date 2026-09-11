@@ -1,14 +1,14 @@
 {
   "spot": "shichirigahama",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     35.3055,
     139.512
   ],
   "bearing_seaward_deg": 200.0,
-  "nearshore_depth_m": 6.0,
-  "offshore_depth_m": 1010.0,
-  "mean_slope_m_per_km": 56.56,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 1004.0,
+  "mean_slope_m_per_km": 56.34,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 35.30339,
       "lon": 139.51106,
-      "depth_m": 6.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 0.5,
       "lat": 35.30127,
       "lon": 139.51012,
-      "depth_m": 7.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 1.0,
       "lat": 35.29705,
       "lon": 139.50823,
-      "depth_m": 11.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 2.0,
       "lat": 35.2886,
       "lon": 139.50446,
-      "depth_m": 14.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 3.0,
       "lat": 35.28015,
       "lon": 139.5007,
-      "depth_m": 38.0
+      "depth_m": 34.0
     },
     {
       "dist_km": 5.0,
       "lat": 35.26324,
       "lon": 139.49316,
-      "depth_m": 72.0
+      "depth_m": 71.0
     },
     {
       "dist_km": 8.0,
       "lat": 35.23789,
       "lon": 139.48187,
-      "depth_m": 137.0
+      "depth_m": 115.0
     },
     {
       "dist_km": 12.0,
       "lat": 35.20408,
       "lon": 139.46683,
-      "depth_m": 662.0
+      "depth_m": 683.0
     },
     {
       "dist_km": 18.0,
       "lat": 35.15337,
       "lon": 139.44428,
-      "depth_m": 1010.0
+      "depth_m": 1004.0
     }
   ]
 }

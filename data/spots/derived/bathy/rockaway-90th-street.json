@@ -1,14 +1,14 @@
 {
   "spot": "rockaway-90th-street",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     40.5822,
     -73.8096
   ],
   "bearing_seaward_deg": 180.0,
-  "nearshore_depth_m": 5.0,
-  "offshore_depth_m": 32.0,
-  "mean_slope_m_per_km": 1.52,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 33.0,
+  "mean_slope_m_per_km": 1.75,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,7 +18,7 @@
       "dist_km": 0.25,
       "lat": 40.57995,
       "lon": -73.8096,
-      "depth_m": 5.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 0.5,
@@ -30,25 +30,25 @@
       "dist_km": 1.0,
       "lat": 40.57321,
       "lon": -73.8096,
-      "depth_m": 7.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 2.0,
       "lat": 40.56421,
       "lon": -73.8096,
-      "depth_m": 10.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 3.0,
       "lat": 40.55522,
       "lon": -73.8096,
-      "depth_m": 11.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 5.0,
       "lat": 40.53723,
       "lon": -73.8096,
-      "depth_m": 12.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 8.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 40.42032,
       "lon": -73.8096,
-      "depth_m": 32.0
+      "depth_m": 33.0
     }
   ]
 }

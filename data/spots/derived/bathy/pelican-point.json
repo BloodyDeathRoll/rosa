@@ -1,15 +1,15 @@
 {
   "spot": "pelican-point",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     33.5773,
     -117.8486
   ],
   "bearing_seaward_deg": 209.0,
-  "nearshore_depth_m": 5.0,
-  "offshore_depth_m": 588.0,
-  "mean_slope_m_per_km": 32.85,
-  "land_samples": 0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 583.0,
+  "mean_slope_m_per_km": 33.18,
+  "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 33.57533,
       "lon": -117.84991,
-      "depth_m": 5.0
+      "depth_m": -6.0
     },
     {
       "dist_km": 0.5,
       "lat": 33.57337,
       "lon": -117.85122,
-      "depth_m": 20.0
+      "depth_m": 58.0
     },
     {
       "dist_km": 1.0,
       "lat": 33.56943,
       "lon": -117.85383,
-      "depth_m": 47.0
+      "depth_m": 85.0
     },
     {
       "dist_km": 2.0,
       "lat": 33.56157,
       "lon": -117.85906,
-      "depth_m": 80.0
+      "depth_m": 109.0
     },
     {
       "dist_km": 3.0,
       "lat": 33.5537,
       "lon": -117.8643,
-      "depth_m": 217.0
+      "depth_m": 267.0
     },
     {
       "dist_km": 5.0,
       "lat": 33.53797,
       "lon": -117.87475,
-      "depth_m": 422.0
+      "depth_m": 419.0
     },
     {
       "dist_km": 8.0,
       "lat": 33.51437,
       "lon": -117.89044,
-      "depth_m": 493.0
+      "depth_m": 488.0
     },
     {
       "dist_km": 12.0,
       "lat": 33.4829,
       "lon": -117.91133,
-      "depth_m": 532.0
+      "depth_m": 538.0
     },
     {
       "dist_km": 18.0,
       "lat": 33.43568,
       "lon": -117.94264,
-      "depth_m": 588.0
+      "depth_m": 583.0
     }
   ]
 }

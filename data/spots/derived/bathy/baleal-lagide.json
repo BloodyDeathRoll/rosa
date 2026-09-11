@@ -1,14 +1,14 @@
 {
   "spot": "baleal-lagide",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     39.3775,
     -9.3418
   ],
   "bearing_seaward_deg": 320.0,
   "nearshore_depth_m": 11.0,
-  "offshore_depth_m": 658.0,
-  "mean_slope_m_per_km": 36.45,
+  "offshore_depth_m": 706.0,
+  "mean_slope_m_per_km": 39.15,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -24,31 +24,31 @@
       "dist_km": 0.5,
       "lat": 39.38094,
       "lon": -9.34554,
-      "depth_m": 15.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 1.0,
       "lat": 39.38439,
       "lon": -9.34928,
-      "depth_m": 20.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 2.0,
       "lat": 39.39128,
       "lon": -9.35676,
-      "depth_m": 29.0
+      "depth_m": 28.0
     },
     {
       "dist_km": 3.0,
       "lat": 39.39817,
       "lon": -9.36424,
-      "depth_m": 38.0
+      "depth_m": 40.0
     },
     {
       "dist_km": 5.0,
       "lat": 39.41194,
       "lon": -9.37921,
-      "depth_m": 51.0
+      "depth_m": 52.0
     },
     {
       "dist_km": 8.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 39.46014,
       "lon": -9.43165,
-      "depth_m": 104.0
+      "depth_m": 106.0
     },
     {
       "dist_km": 18.0,
       "lat": 39.50143,
       "lon": -9.47665,
-      "depth_m": 658.0
+      "depth_m": 706.0
     }
   ]
 }

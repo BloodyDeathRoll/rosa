@@ -1,14 +1,14 @@
 {
   "spot": "praia-grande",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     38.817,
     -9.479
   ],
   "bearing_seaward_deg": 275.0,
-  "nearshore_depth_m": 11.0,
-  "offshore_depth_m": 92.0,
-  "mean_slope_m_per_km": 4.56,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 95.0,
+  "mean_slope_m_per_km": 4.79,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 1,
@@ -18,13 +18,13 @@
       "dist_km": 0.25,
       "lat": 38.8172,
       "lon": -9.48187,
-      "depth_m": 11.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 0.5,
       "lat": 38.81739,
       "lon": -9.48475,
-      "depth_m": 16.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 1.0,
@@ -54,19 +54,19 @@
       "dist_km": 8.0,
       "lat": 38.82323,
       "lon": -9.571,
-      "depth_m": 90.0
+      "depth_m": 91.0
     },
     {
       "dist_km": 12.0,
       "lat": 38.82632,
       "lon": -9.617,
-      "depth_m": 103.0
+      "depth_m": 108.0
     },
     {
       "dist_km": 18.0,
       "lat": 38.83093,
       "lon": -9.68601,
-      "depth_m": 92.0
+      "depth_m": 95.0
     }
   ]
 }

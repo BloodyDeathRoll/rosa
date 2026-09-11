@@ -1,14 +1,14 @@
 {
   "spot": "sharpes-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -28.8339,
     153.6051
   ],
   "bearing_seaward_deg": 98.0,
-  "nearshore_depth_m": 3.0,
-  "offshore_depth_m": 88.0,
-  "mean_slope_m_per_km": 4.79,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 93.0,
+  "mean_slope_m_per_km": 5.18,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,19 +18,19 @@
       "dist_km": 0.25,
       "lat": -28.83421,
       "lon": 153.60764,
-      "depth_m": 3.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": -28.83453,
       "lon": 153.61018,
-      "depth_m": 4.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 1.0,
       "lat": -28.83515,
       "lon": 153.61527,
-      "depth_m": 10.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 2.0,
@@ -42,31 +42,31 @@
       "dist_km": 3.0,
       "lat": -28.83765,
       "lon": 153.6356,
-      "depth_m": 37.0
+      "depth_m": 38.0
     },
     {
       "dist_km": 5.0,
       "lat": -28.84015,
       "lon": 153.65593,
-      "depth_m": 56.0
+      "depth_m": 57.0
     },
     {
       "dist_km": 8.0,
       "lat": -28.84389,
       "lon": 153.68644,
-      "depth_m": 57.0
+      "depth_m": 60.0
     },
     {
       "dist_km": 12.0,
       "lat": -28.84886,
       "lon": 153.72711,
-      "depth_m": 73.0
+      "depth_m": 75.0
     },
     {
       "dist_km": 18.0,
       "lat": -28.85631,
       "lon": 153.78813,
-      "depth_m": 88.0
+      "depth_m": 93.0
     }
   ]
 }

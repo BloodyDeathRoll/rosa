@@ -1,66 +1,66 @@
 {
   "spot": "clifton-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -42.9891,
     147.534
   ],
   "bearing_seaward_deg": 155.0,
-  "nearshore_depth_m": -1.0,
+  "nearshore_depth_m": -8.0,
   "offshore_depth_m": 45.0,
-  "mean_slope_m_per_km": 2.59,
+  "mean_slope_m_per_km": 2.99,
   "land_samples": 1,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 2,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -42.99114,
       "lon": 147.5353,
-      "depth_m": -1.0
+      "depth_m": -8.0
     },
     {
       "dist_km": 0.5,
       "lat": -42.99318,
       "lon": 147.5366,
-      "depth_m": 10.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 1.0,
       "lat": -42.99725,
       "lon": 147.5392,
-      "depth_m": 15.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 2.0,
       "lat": -43.0054,
       "lon": 147.54439,
-      "depth_m": 23.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 3.0,
       "lat": -43.01355,
       "lon": 147.54959,
-      "depth_m": 24.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 5.0,
       "lat": -43.02985,
       "lon": 147.56,
-      "depth_m": 21.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 8.0,
       "lat": -43.0543,
       "lon": 147.57561,
-      "depth_m": 26.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 12.0,
       "lat": -43.08689,
       "lon": 147.59645,
-      "depth_m": 32.0
+      "depth_m": 25.0
     },
     {
       "dist_km": 18.0,

@@ -1,15 +1,15 @@
 {
   "spot": "twilight-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -33.8881,
     121.8352
   ],
   "bearing_seaward_deg": 169.0,
-  "nearshore_depth_m": 4.0,
-  "offshore_depth_m": 42.0,
-  "mean_slope_m_per_km": 2.14,
-  "land_samples": 0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 29.0,
+  "mean_slope_m_per_km": 1.63,
+  "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 1,
   "deepest_is_reference": false,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": -33.89031,
       "lon": 121.83572,
-      "depth_m": 4.0
+      "depth_m": -0.0
     },
     {
       "dist_km": 0.5,
       "lat": -33.89251,
       "lon": 121.83623,
-      "depth_m": 4.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 1.0,
       "lat": -33.89693,
       "lon": 121.83727,
-      "depth_m": 6.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 2.0,
       "lat": -33.90576,
       "lon": 121.83934,
-      "depth_m": 15.0
+      "depth_m": 31.0
     },
     {
       "dist_km": 3.0,
       "lat": -33.91458,
       "lon": 121.8414,
-      "depth_m": 25.0
+      "depth_m": 38.0
     },
     {
       "dist_km": 5.0,
       "lat": -33.93224,
       "lon": 121.84554,
-      "depth_m": 44.0
+      "depth_m": 46.0
     },
     {
       "dist_km": 8.0,
       "lat": -33.95872,
       "lon": 121.85175,
-      "depth_m": 56.0
+      "depth_m": 52.0
     },
     {
       "dist_km": 12.0,
       "lat": -33.99403,
       "lon": 121.86004,
-      "depth_m": 61.0
+      "depth_m": 60.0
     },
     {
       "dist_km": 18.0,
       "lat": -34.047,
       "lon": 121.87248,
-      "depth_m": 42.0
+      "depth_m": 29.0
     }
   ]
 }

@@ -1,13 +1,13 @@
 {
   "spot": "manzanita",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     45.72,
     -123.9435
   ],
   "bearing_seaward_deg": 259.0,
-  "nearshore_depth_m": 4.0,
-  "offshore_depth_m": 103.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 104.0,
   "mean_slope_m_per_km": 5.58,
   "land_samples": 0,
   "missing_samples": 0,
@@ -18,37 +18,37 @@
       "dist_km": 0.25,
       "lat": 45.71957,
       "lon": -123.94666,
-      "depth_m": 4.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 0.5,
       "lat": 45.71914,
       "lon": -123.94982,
-      "depth_m": 7.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 1.0,
       "lat": 45.71828,
       "lon": -123.95614,
-      "depth_m": 15.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 2.0,
       "lat": 45.71657,
       "lon": -123.96879,
-      "depth_m": 23.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 3.0,
       "lat": 45.71485,
       "lon": -123.98143,
-      "depth_m": 32.0
+      "depth_m": 35.0
     },
     {
       "dist_km": 5.0,
       "lat": 45.7114,
       "lon": -124.00671,
-      "depth_m": 47.0
+      "depth_m": 52.0
     },
     {
       "dist_km": 8.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 45.68889,
       "lon": -124.17098,
-      "depth_m": 103.0
+      "depth_m": 104.0
     }
   ]
 }

@@ -1,14 +1,14 @@
 {
   "spot": "restaurants-fj",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -17.8603,
     177.1951
   ],
   "bearing_seaward_deg": 203.0,
-  "nearshore_depth_m": 31.0,
-  "offshore_depth_m": 1569.0,
-  "mean_slope_m_per_km": 86.65,
+  "nearshore_depth_m": 48.0,
+  "offshore_depth_m": 1933.0,
+  "mean_slope_m_per_km": 106.2,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 2,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": -17.86237,
       "lon": 177.19418,
-      "depth_m": 31.0
+      "depth_m": 48.0
     },
     {
       "dist_km": 0.5,
       "lat": -17.86444,
       "lon": 177.19325,
-      "depth_m": 32.0
+      "depth_m": 47.0
     },
     {
       "dist_km": 1.0,
       "lat": -17.86858,
       "lon": 177.19141,
-      "depth_m": 36.0
+      "depth_m": 43.0
     },
     {
       "dist_km": 2.0,
       "lat": -17.87686,
       "lon": 177.18772,
-      "depth_m": 15.0
+      "depth_m": 72.0
     },
     {
       "dist_km": 3.0,
       "lat": -17.88513,
       "lon": 177.18402,
-      "depth_m": 13.0
+      "depth_m": 81.0
     },
     {
       "dist_km": 5.0,
       "lat": -17.90169,
       "lon": 177.17664,
-      "depth_m": 330.0
+      "depth_m": 493.0
     },
     {
       "dist_km": 8.0,
       "lat": -17.92652,
       "lon": 177.16555,
-      "depth_m": 947.0
+      "depth_m": 1106.0
     },
     {
       "dist_km": 12.0,
       "lat": -17.95963,
       "lon": 177.15077,
-      "depth_m": 1435.0
+      "depth_m": 1277.0
     },
     {
       "dist_km": 18.0,
       "lat": -18.0093,
       "lon": 177.12859,
-      "depth_m": 1569.0
+      "depth_m": 1933.0
     }
   ]
 }

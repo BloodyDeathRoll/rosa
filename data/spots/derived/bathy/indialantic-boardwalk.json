@@ -1,14 +1,14 @@
 {
   "spot": "indialantic-boardwalk",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     28.0918,
     -80.5643
   ],
   "bearing_seaward_deg": 72.0,
-  "nearshore_depth_m": 3.0,
+  "nearshore_depth_m": 6.0,
   "offshore_depth_m": 20.0,
-  "mean_slope_m_per_km": 0.96,
+  "mean_slope_m_per_km": 0.79,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,7 +18,7 @@
       "dist_km": 0.25,
       "lat": 28.09249,
       "lon": -80.56188,
-      "depth_m": 3.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 0.5,
@@ -42,25 +42,25 @@
       "dist_km": 3.0,
       "lat": 28.10013,
       "lon": -80.53521,
-      "depth_m": 17.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 5.0,
       "lat": 28.10569,
       "lon": -80.51582,
-      "depth_m": 19.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 8.0,
       "lat": 28.11401,
       "lon": -80.48672,
-      "depth_m": 20.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 12.0,
       "lat": 28.1251,
       "lon": -80.44792,
-      "depth_m": 20.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 18.0,

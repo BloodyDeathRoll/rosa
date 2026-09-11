@@ -1,66 +1,66 @@
 {
   "spot": "tijuana-sloughs",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     32.5574,
     -117.1315
   ],
   "bearing_seaward_deg": 243.0,
-  "nearshore_depth_m": 5.0,
+  "nearshore_depth_m": 10.0,
   "offshore_depth_m": 89.0,
-  "mean_slope_m_per_km": 4.73,
+  "mean_slope_m_per_km": 4.45,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 32.55638,
       "lon": -117.13388,
-      "depth_m": 5.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 0.5,
       "lat": 32.55536,
       "lon": -117.13625,
-      "depth_m": 7.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 1.0,
       "lat": 32.55332,
       "lon": -117.14101,
-      "depth_m": 12.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 2.0,
       "lat": 32.54923,
       "lon": -117.15051,
-      "depth_m": 17.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 3.0,
       "lat": 32.54515,
       "lon": -117.16002,
-      "depth_m": 20.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 5.0,
       "lat": 32.53698,
       "lon": -117.17902,
-      "depth_m": 31.0
+      "depth_m": 28.0
     },
     {
       "dist_km": 8.0,
       "lat": 32.52471,
       "lon": -117.20753,
-      "depth_m": 39.0
+      "depth_m": 38.0
     },
     {
       "dist_km": 12.0,
       "lat": 32.50835,
       "lon": -117.24552,
-      "depth_m": 53.0
+      "depth_m": 37.0
     },
     {
       "dist_km": 18.0,

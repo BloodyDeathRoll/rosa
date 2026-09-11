@@ -1,15 +1,15 @@
 {
   "spot": "balangan",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -8.7923,
     115.1233
   ],
   "bearing_seaward_deg": 316.0,
-  "nearshore_depth_m": 2.0,
-  "offshore_depth_m": 54.0,
-  "mean_slope_m_per_km": 2.93,
-  "land_samples": 0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 52.0,
+  "mean_slope_m_per_km": 3.38,
+  "land_samples": 2,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,19 +18,19 @@
       "dist_km": 0.25,
       "lat": -8.79068,
       "lon": 115.12172,
-      "depth_m": 2.0
+      "depth_m": -8.0
     },
     {
       "dist_km": 0.5,
       "lat": -8.78907,
       "lon": 115.12014,
-      "depth_m": 10.0
+      "depth_m": -1.0
     },
     {
       "dist_km": 1.0,
       "lat": -8.78583,
       "lon": 115.11698,
-      "depth_m": 14.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 2.0,
@@ -42,13 +42,13 @@
       "dist_km": 3.0,
       "lat": -8.77289,
       "lon": 115.10434,
-      "depth_m": 36.0
+      "depth_m": 33.0
     },
     {
       "dist_km": 5.0,
       "lat": -8.75995,
       "lon": 115.0917,
-      "depth_m": 40.0
+      "depth_m": 37.0
     },
     {
       "dist_km": 8.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": -8.67584,
       "lon": 115.00955,
-      "depth_m": 54.0
+      "depth_m": 52.0
     }
   ]
 }

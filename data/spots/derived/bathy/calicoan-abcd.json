@@ -1,30 +1,30 @@
 {
   "spot": "calicoan-abcd",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     10.979,
     125.778
   ],
   "bearing_seaward_deg": 130.0,
-  "nearshore_depth_m": 2.0,
-  "offshore_depth_m": 247.0,
-  "mean_slope_m_per_km": 13.8,
-  "land_samples": 1,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 259.0,
+  "mean_slope_m_per_km": 14.42,
+  "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 2,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 10.97755,
       "lon": 125.77975,
-      "depth_m": 2.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 0.5,
       "lat": 10.97611,
       "lon": 125.78151,
-      "depth_m": 2.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 1.0,
@@ -36,37 +36,37 @@
       "dist_km": 2.0,
       "lat": 10.96744,
       "lon": 125.79203,
-      "depth_m": 8.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 3.0,
       "lat": 10.96166,
       "lon": 125.79905,
-      "depth_m": 8.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 5.0,
       "lat": 10.95009,
       "lon": 125.81308,
-      "depth_m": 3.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 8.0,
       "lat": 10.93275,
       "lon": 125.83413,
-      "depth_m": -17.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 12.0,
       "lat": 10.90962,
       "lon": 125.86219,
-      "depth_m": 67.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 18.0,
       "lat": 10.87492,
       "lon": 125.90427,
-      "depth_m": 247.0
+      "depth_m": 259.0
     }
   ]
 }

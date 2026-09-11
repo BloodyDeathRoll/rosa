@@ -1,36 +1,36 @@
 {
   "spot": "point-judith",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     41.3607,
     -71.4804
   ],
   "bearing_seaward_deg": 168.0,
-  "nearshore_depth_m": 4.0,
-  "offshore_depth_m": 36.0,
-  "mean_slope_m_per_km": 1.8,
-  "land_samples": 0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 2.2,
+  "land_samples": 1,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
-  "deepest_is_reference": true,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 41.3585,
       "lon": -71.47978,
-      "depth_m": 4.0
+      "depth_m": -4.0
     },
     {
       "dist_km": 0.5,
       "lat": 41.3563,
       "lon": -71.47915,
-      "depth_m": 10.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 1.0,
       "lat": 41.3519,
       "lon": -71.47791,
-      "depth_m": 11.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 2.0,
@@ -48,25 +48,25 @@
       "dist_km": 5.0,
       "lat": 41.31672,
       "lon": -71.46795,
-      "depth_m": 16.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 8.0,
       "lat": 41.29032,
       "lon": -71.46049,
-      "depth_m": 22.0
+      "depth_m": 24.0
     },
     {
       "dist_km": 12.0,
       "lat": 41.25514,
       "lon": -71.45055,
-      "depth_m": 35.0
+      "depth_m": 39.0
     },
     {
       "dist_km": 18.0,
       "lat": 41.20235,
       "lon": -71.43567,
-      "depth_m": 36.0
+      "depth_m": 35.0
     }
   ]
 }

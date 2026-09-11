@@ -1,72 +1,72 @@
 {
   "spot": "san-marcelino",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     13.3512,
     -89.027
   ],
   "bearing_seaward_deg": 201.0,
-  "nearshore_depth_m": -1.0,
-  "offshore_depth_m": 42.0,
-  "mean_slope_m_per_km": 2.42,
-  "land_samples": 1,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 43.0,
+  "mean_slope_m_per_km": 2.54,
+  "land_samples": 2,
   "missing_samples": 0,
-  "non_monotone_samples": 2,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 13.3491,
       "lon": -89.02783,
-      "depth_m": -1.0
+      "depth_m": -2.0
     },
     {
       "dist_km": 0.5,
       "lat": 13.347,
       "lon": -89.02866,
-      "depth_m": 3.0
+      "depth_m": -2.0
     },
     {
       "dist_km": 1.0,
       "lat": 13.3428,
       "lon": -89.03031,
-      "depth_m": 7.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 2.0,
       "lat": 13.33441,
       "lon": -89.03362,
-      "depth_m": 12.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 3.0,
       "lat": 13.32601,
       "lon": -89.03694,
-      "depth_m": 22.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 5.0,
       "lat": 13.30922,
       "lon": -89.04356,
-      "depth_m": 40.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 8.0,
       "lat": 13.28403,
       "lon": -89.05349,
-      "depth_m": 35.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 12.0,
       "lat": 13.25045,
       "lon": -89.06673,
-      "depth_m": 19.0
+      "depth_m": 31.0
     },
     {
       "dist_km": 18.0,
       "lat": 13.20007,
       "lon": -89.08659,
-      "depth_m": 42.0
+      "depth_m": 43.0
     }
   ]
 }

@@ -1,14 +1,14 @@
 {
   "spot": "coxos",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     39.0104,
     -9.4248
   ],
   "bearing_seaward_deg": 300.0,
-  "nearshore_depth_m": 10.0,
+  "nearshore_depth_m": 7.0,
   "offshore_depth_m": 75.0,
-  "mean_slope_m_per_km": 3.66,
+  "mean_slope_m_per_km": 3.83,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,25 +18,25 @@
       "dist_km": 0.25,
       "lat": 39.01152,
       "lon": -9.42731,
-      "depth_m": 10.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 0.5,
       "lat": 39.01265,
       "lon": -9.42981,
-      "depth_m": 14.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 1.0,
       "lat": 39.0149,
       "lon": -9.43482,
-      "depth_m": 20.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 2.0,
       "lat": 39.01939,
       "lon": -9.44485,
-      "depth_m": 28.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 3.0,
@@ -54,13 +54,13 @@
       "dist_km": 8.0,
       "lat": 39.04635,
       "lon": -9.50503,
-      "depth_m": 43.0
+      "depth_m": 44.0
     },
     {
       "dist_km": 12.0,
       "lat": 39.0643,
       "lon": -9.54517,
-      "depth_m": 67.0
+      "depth_m": 68.0
     },
     {
       "dist_km": 18.0,

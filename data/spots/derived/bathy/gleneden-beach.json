@@ -1,13 +1,13 @@
 {
   "spot": "gleneden-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     44.8762,
     -124.041
   ],
   "bearing_seaward_deg": 283.0,
-  "nearshore_depth_m": 5.0,
-  "offshore_depth_m": 132.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 133.0,
   "mean_slope_m_per_km": 7.15,
   "land_samples": 0,
   "missing_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 44.87671,
       "lon": -124.04409,
-      "depth_m": 5.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 0.5,
       "lat": 44.87721,
       "lon": -124.04718,
-      "depth_m": 8.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 1.0,
       "lat": 44.87822,
       "lon": -124.05337,
-      "depth_m": 14.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 2.0,
       "lat": 44.88024,
       "lon": -124.06573,
-      "depth_m": 25.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 3.0,
       "lat": 44.88226,
       "lon": -124.0781,
-      "depth_m": 38.0
+      "depth_m": 39.0
     },
     {
       "dist_km": 5.0,
       "lat": 44.8863,
       "lon": -124.10284,
-      "depth_m": 52.0
+      "depth_m": 53.0
     },
     {
       "dist_km": 8.0,
       "lat": 44.89234,
       "lon": -124.13995,
-      "depth_m": 69.0
+      "depth_m": 71.0
     },
     {
       "dist_km": 12.0,
       "lat": 44.90038,
       "lon": -124.18945,
-      "depth_m": 102.0
+      "depth_m": 104.0
     },
     {
       "dist_km": 18.0,
       "lat": 44.9124,
       "lon": -124.26372,
-      "depth_m": 132.0
+      "depth_m": 133.0
     }
   ]
 }

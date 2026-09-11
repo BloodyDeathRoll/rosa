@@ -1,13 +1,13 @@
 {
   "spot": "marbella",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     10.0723,
     -85.7705
   ],
   "bearing_seaward_deg": 255.0,
-  "nearshore_depth_m": -14.0,
-  "offshore_depth_m": 691.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 701.0,
   "mean_slope_m_per_km": 39.72,
   "land_samples": 2,
   "missing_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 10.07172,
       "lon": -85.77271,
-      "depth_m": -14.0
+      "depth_m": -4.0
     },
     {
       "dist_km": 0.5,
       "lat": 10.07114,
       "lon": -85.77491,
-      "depth_m": -8.0
+      "depth_m": -4.0
     },
     {
       "dist_km": 1.0,
       "lat": 10.06997,
       "lon": -85.77932,
-      "depth_m": 3.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 2.0,
       "lat": 10.06764,
       "lon": -85.78815,
-      "depth_m": 25.0
+      "depth_m": 36.0
     },
     {
       "dist_km": 3.0,
       "lat": 10.06532,
       "lon": -85.79697,
-      "depth_m": 47.0
+      "depth_m": 57.0
     },
     {
       "dist_km": 5.0,
       "lat": 10.06066,
       "lon": -85.81461,
-      "depth_m": 65.0
+      "depth_m": 74.0
     },
     {
       "dist_km": 8.0,
       "lat": 10.05367,
       "lon": -85.84108,
-      "depth_m": 182.0
+      "depth_m": 176.0
     },
     {
       "dist_km": 12.0,
       "lat": 10.04435,
       "lon": -85.87636,
-      "depth_m": 394.0
+      "depth_m": 396.0
     },
     {
       "dist_km": 18.0,
       "lat": 10.03037,
       "lon": -85.92929,
-      "depth_m": 691.0
+      "depth_m": 701.0
     }
   ]
 }

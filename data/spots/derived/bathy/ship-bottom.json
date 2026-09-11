@@ -1,14 +1,14 @@
 {
   "spot": "ship-bottom",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     39.645,
     -74.1739
   ],
   "bearing_seaward_deg": 123.0,
-  "nearshore_depth_m": 5.0,
+  "nearshore_depth_m": 4.0,
   "offshore_depth_m": 22.0,
-  "mean_slope_m_per_km": 0.96,
+  "mean_slope_m_per_km": 1.01,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,25 +18,25 @@
       "dist_km": 0.25,
       "lat": 39.64378,
       "lon": -74.17145,
-      "depth_m": 5.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 0.5,
       "lat": 39.64255,
       "lon": -74.169,
-      "depth_m": 8.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 1.0,
       "lat": 39.6401,
       "lon": -74.16411,
-      "depth_m": 11.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 2.0,
       "lat": 39.6352,
       "lon": -74.15431,
-      "depth_m": 13.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 3.0,

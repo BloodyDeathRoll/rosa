@@ -1,15 +1,15 @@
 {
   "spot": "rocky-point",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     21.6715,
     -158.0455
   ],
   "bearing_seaward_deg": 307.0,
-  "nearshore_depth_m": -8.0,
-  "offshore_depth_m": 1717.0,
-  "mean_slope_m_per_km": 97.18,
-  "land_samples": 2,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 1753.0,
+  "mean_slope_m_per_km": 98.31,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 21.67285,
       "lon": -158.04743,
-      "depth_m": -8.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 0.5,
       "lat": 21.67421,
       "lon": -158.04936,
-      "depth_m": -1.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 1.0,
       "lat": 21.67691,
       "lon": -158.05323,
-      "depth_m": 17.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 2.0,
       "lat": 21.68232,
       "lon": -158.06096,
-      "depth_m": 34.0
+      "depth_m": 37.0
     },
     {
       "dist_km": 3.0,
       "lat": 21.68774,
       "lon": -158.06869,
-      "depth_m": 56.0
+      "depth_m": 74.0
     },
     {
       "dist_km": 5.0,
       "lat": 21.69856,
       "lon": -158.08415,
-      "depth_m": 114.0
+      "depth_m": 133.0
     },
     {
       "dist_km": 8.0,
       "lat": 21.71479,
       "lon": -158.10735,
-      "depth_m": 309.0
+      "depth_m": 316.0
     },
     {
       "dist_km": 12.0,
       "lat": 21.73642,
       "lon": -158.13828,
-      "depth_m": 464.0
+      "depth_m": 478.0
     },
     {
       "dist_km": 18.0,
       "lat": 21.76886,
       "lon": -158.18471,
-      "depth_m": 1717.0
+      "depth_m": 1753.0
     }
   ]
 }

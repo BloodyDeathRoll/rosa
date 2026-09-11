@@ -1,14 +1,14 @@
 {
   "spot": "tallow-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -28.6688,
     153.622
   ],
   "bearing_seaward_deg": 109.0,
-  "nearshore_depth_m": 3.0,
+  "nearshore_depth_m": 1.0,
   "offshore_depth_m": 89.0,
-  "mean_slope_m_per_km": 4.85,
+  "mean_slope_m_per_km": 4.96,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,7 +18,7 @@
       "dist_km": 0.25,
       "lat": -28.66953,
       "lon": 153.62442,
-      "depth_m": 3.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
@@ -30,37 +30,37 @@
       "dist_km": 1.0,
       "lat": -28.67173,
       "lon": 153.63169,
-      "depth_m": 14.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 2.0,
       "lat": -28.67465,
       "lon": 153.64138,
-      "depth_m": 21.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 3.0,
       "lat": -28.67758,
       "lon": 153.65108,
-      "depth_m": 26.0
+      "depth_m": 24.0
     },
     {
       "dist_km": 5.0,
       "lat": -28.68343,
       "lon": 153.67046,
-      "depth_m": 49.0
+      "depth_m": 47.0
     },
     {
       "dist_km": 8.0,
       "lat": -28.6922,
       "lon": 153.69955,
-      "depth_m": 60.0
+      "depth_m": 62.0
     },
     {
       "dist_km": 12.0,
       "lat": -28.70389,
       "lon": 153.73833,
-      "depth_m": 72.0
+      "depth_m": 73.0
     },
     {
       "dist_km": 18.0,

@@ -1,15 +1,15 @@
 {
   "spot": "gwithian",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     50.2295,
     -5.3918
   ],
   "bearing_seaward_deg": 290.0,
-  "nearshore_depth_m": -8.0,
+  "nearshore_depth_m": -7.0,
   "offshore_depth_m": 32.0,
-  "mean_slope_m_per_km": 2.25,
-  "land_samples": 2,
+  "mean_slope_m_per_km": 2.2,
+  "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,19 +18,19 @@
       "dist_km": 0.25,
       "lat": 50.23027,
       "lon": -5.3951,
-      "depth_m": -8.0
+      "depth_m": -7.0
     },
     {
       "dist_km": 0.5,
       "lat": 50.23104,
       "lon": -5.39841,
-      "depth_m": -7.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 1.0,
       "lat": 50.23258,
       "lon": -5.40501,
-      "depth_m": 10.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 2.0,
@@ -48,7 +48,7 @@
       "dist_km": 5.0,
       "lat": 50.24486,
       "lon": -5.45787,
-      "depth_m": 22.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 8.0,

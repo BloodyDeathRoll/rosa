@@ -1,15 +1,15 @@
 {
   "spot": "bat-galim",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     32.8347,
     34.9778
   ],
   "bearing_seaward_deg": 344.0,
-  "nearshore_depth_m": -0.0,
-  "offshore_depth_m": 126.0,
-  "mean_slope_m_per_km": 7.1,
-  "land_samples": 1,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 139.0,
+  "mean_slope_m_per_km": 7.49,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,13 +18,13 @@
       "dist_km": 0.25,
       "lat": 32.83686,
       "lon": 34.97706,
-      "depth_m": -0.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 0.5,
       "lat": 32.83902,
       "lon": 34.97632,
-      "depth_m": 7.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 1.0,
@@ -36,7 +36,7 @@
       "dist_km": 2.0,
       "lat": 32.85199,
       "lon": 34.9719,
-      "depth_m": 19.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 3.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 32.9903,
       "lon": 34.9246,
-      "depth_m": 126.0
+      "depth_m": 139.0
     }
   ]
 }

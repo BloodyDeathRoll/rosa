@@ -1,72 +1,72 @@
 {
   "spot": "montara",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     37.5504,
     -122.5141
   ],
   "bearing_seaward_deg": 278.0,
-  "nearshore_depth_m": -3.0,
-  "offshore_depth_m": 54.0,
-  "mean_slope_m_per_km": 3.21,
-  "land_samples": 1,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 51.0,
+  "mean_slope_m_per_km": 2.7,
+  "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 37.55071,
       "lon": -122.51691,
-      "depth_m": -3.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 0.5,
       "lat": 37.55103,
       "lon": -122.51972,
-      "depth_m": 8.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 1.0,
       "lat": 37.55165,
       "lon": -122.52533,
-      "depth_m": 23.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 2.0,
       "lat": 37.5529,
       "lon": -122.53657,
-      "depth_m": 27.0
+      "depth_m": 24.0
     },
     {
       "dist_km": 3.0,
       "lat": 37.55415,
       "lon": -122.5478,
-      "depth_m": 30.0
+      "depth_m": 31.0
     },
     {
       "dist_km": 5.0,
       "lat": 37.55664,
       "lon": -122.57027,
-      "depth_m": 37.0
+      "depth_m": 36.0
     },
     {
       "dist_km": 8.0,
       "lat": 37.56038,
       "lon": -122.60398,
-      "depth_m": 46.0
+      "depth_m": 44.0
     },
     {
       "dist_km": 12.0,
       "lat": 37.56534,
       "lon": -122.64892,
-      "depth_m": 51.0
+      "depth_m": 47.0
     },
     {
       "dist_km": 18.0,
       "lat": 37.57276,
       "lon": -122.71635,
-      "depth_m": 54.0
+      "depth_m": 51.0
     }
   ]
 }

@@ -1,14 +1,14 @@
 {
   "spot": "wellamadama",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     5.9358,
     80.5752
   ],
   "bearing_seaward_deg": 184.0,
-  "nearshore_depth_m": -6.0,
-  "offshore_depth_m": 2331.0,
-  "mean_slope_m_per_km": 131.66,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 2328.0,
+  "mean_slope_m_per_km": 131.83,
   "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 1,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 5.93356,
       "lon": 80.57504,
-      "depth_m": -6.0
+      "depth_m": -12.0
     },
     {
       "dist_km": 0.5,
       "lat": 5.93131,
       "lon": 80.57488,
-      "depth_m": 2.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 1.0,
       "lat": 5.92683,
       "lon": 80.57457,
-      "depth_m": 6.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 2.0,
       "lat": 5.91786,
       "lon": 80.57394,
-      "depth_m": 4.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 3.0,
       "lat": 5.90889,
       "lon": 80.57331,
-      "depth_m": 28.0
+      "depth_m": 50.0
     },
     {
       "dist_km": 5.0,
       "lat": 5.89094,
       "lon": 80.57205,
-      "depth_m": 183.0
+      "depth_m": 310.0
     },
     {
       "dist_km": 8.0,
       "lat": 5.86403,
       "lon": 80.57015,
-      "depth_m": 691.0
+      "depth_m": 877.0
     },
     {
       "dist_km": 12.0,
       "lat": 5.82814,
       "lon": 80.56763,
-      "depth_m": 1654.0
+      "depth_m": 1689.0
     },
     {
       "dist_km": 18.0,
       "lat": 5.77432,
       "lon": 80.56385,
-      "depth_m": 2331.0
+      "depth_m": 2328.0
     }
   ]
 }

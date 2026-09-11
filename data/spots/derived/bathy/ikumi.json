@@ -1,30 +1,30 @@
 {
   "spot": "ikumi",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     33.5403,
     134.2932
   ],
   "bearing_seaward_deg": 120.0,
-  "nearshore_depth_m": 8.0,
-  "offshore_depth_m": 340.0,
-  "mean_slope_m_per_km": 18.7,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 337.0,
+  "mean_slope_m_per_km": 18.93,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 33.53918,
       "lon": 134.29554,
-      "depth_m": 8.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": 33.53805,
       "lon": 134.29787,
-      "depth_m": 18.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 1.0,
@@ -36,37 +36,37 @@
       "dist_km": 2.0,
       "lat": 33.53131,
       "lon": 134.31189,
-      "depth_m": 32.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 3.0,
       "lat": 33.52681,
       "lon": 134.32123,
-      "depth_m": 68.0
+      "depth_m": 58.0
     },
     {
       "dist_km": 5.0,
       "lat": 33.51781,
       "lon": 134.33991,
-      "depth_m": 110.0
+      "depth_m": 103.0
     },
     {
       "dist_km": 8.0,
       "lat": 33.5043,
       "lon": 134.36792,
-      "depth_m": 131.0
+      "depth_m": 130.0
     },
     {
       "dist_km": 12.0,
       "lat": 33.48629,
       "lon": 134.40526,
-      "depth_m": 167.0
+      "depth_m": 161.0
     },
     {
       "dist_km": 18.0,
       "lat": 33.45925,
       "lon": 134.46124,
-      "depth_m": 340.0
+      "depth_m": 337.0
     }
   ]
 }

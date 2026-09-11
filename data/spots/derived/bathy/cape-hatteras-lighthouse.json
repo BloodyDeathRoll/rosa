@@ -1,54 +1,54 @@
 {
   "spot": "cape-hatteras-lighthouse",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     35.2539,
     -75.5197
   ],
   "bearing_seaward_deg": 122.0,
-  "nearshore_depth_m": 4.0,
-  "offshore_depth_m": 18.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 17.0,
   "mean_slope_m_per_km": 0.79,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 35.25271,
       "lon": -75.51737,
-      "depth_m": 4.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 0.5,
       "lat": 35.25152,
       "lon": -75.51503,
-      "depth_m": 5.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 1.0,
       "lat": 35.24913,
       "lon": -75.51036,
-      "depth_m": 7.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 2.0,
       "lat": 35.24437,
       "lon": -75.50102,
-      "depth_m": 10.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 3.0,
       "lat": 35.2396,
       "lon": -75.49169,
-      "depth_m": 12.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 5.0,
       "lat": 35.23006,
       "lon": -75.47302,
-      "depth_m": 14.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 8.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 35.19666,
       "lon": -75.4077,
-      "depth_m": 17.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 18.0,
       "lat": 35.168,
       "lon": -75.35177,
-      "depth_m": 18.0
+      "depth_m": 17.0
     }
   ]
 }

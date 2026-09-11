@@ -1,14 +1,14 @@
 {
   "spot": "perranuthnoe",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     50.112,
     -5.4426
   ],
   "bearing_seaward_deg": 136.0,
-  "nearshore_depth_m": -17.0,
-  "offshore_depth_m": 10.0,
-  "mean_slope_m_per_km": 1.52,
+  "nearshore_depth_m": -19.0,
+  "offshore_depth_m": 25.0,
+  "mean_slope_m_per_km": 2.48,
   "land_samples": 4,
   "missing_samples": 0,
   "non_monotone_samples": 1,
@@ -18,7 +18,7 @@
       "dist_km": 0.25,
       "lat": 50.11038,
       "lon": -5.44016,
-      "depth_m": -17.0
+      "depth_m": -19.0
     },
     {
       "dist_km": 0.5,
@@ -30,19 +30,19 @@
       "dist_km": 1.0,
       "lat": 50.10553,
       "lon": -5.43286,
-      "depth_m": -18.0
+      "depth_m": -24.0
     },
     {
       "dist_km": 2.0,
       "lat": 50.09906,
       "lon": -5.42312,
-      "depth_m": -21.0
+      "depth_m": -13.0
     },
     {
       "dist_km": 3.0,
       "lat": 50.09259,
       "lon": -5.41339,
-      "depth_m": 15.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 5.0,
@@ -54,7 +54,7 @@
       "dist_km": 8.0,
       "lat": 50.06022,
       "lon": -5.36475,
-      "depth_m": 25.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 12.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 49.99542,
       "lon": -5.26768,
-      "depth_m": 10.0
+      "depth_m": 25.0
     }
   ]
 }

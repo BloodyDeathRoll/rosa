@@ -1,14 +1,14 @@
 {
   "spot": "south-stradbroke",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -27.9314,
     153.43
   ],
   "bearing_seaward_deg": 75.0,
-  "nearshore_depth_m": 4.0,
+  "nearshore_depth_m": 3.0,
   "offshore_depth_m": 62.0,
-  "mean_slope_m_per_km": 3.27,
+  "mean_slope_m_per_km": 3.32,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,25 +18,25 @@
       "dist_km": 0.25,
       "lat": -27.93082,
       "lon": 153.43246,
-      "depth_m": 4.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 0.5,
       "lat": -27.93024,
       "lon": 153.43492,
-      "depth_m": 6.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 1.0,
       "lat": -27.92907,
       "lon": 153.43983,
-      "depth_m": 7.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 2.0,
       "lat": -27.92674,
       "lon": 153.44966,
-      "depth_m": 18.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 3.0,
@@ -54,13 +54,13 @@
       "dist_km": 8.0,
       "lat": -27.91276,
       "lon": 153.50864,
-      "depth_m": 44.0
+      "depth_m": 45.0
     },
     {
       "dist_km": 12.0,
       "lat": -27.90342,
       "lon": 153.54795,
-      "depth_m": 52.0
+      "depth_m": 53.0
     },
     {
       "dist_km": 18.0,

@@ -1,14 +1,14 @@
 {
   "spot": "ditch-plains",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     41.0384,
     -71.9173
   ],
   "bearing_seaward_deg": 175.0,
-  "nearshore_depth_m": 4.0,
+  "nearshore_depth_m": 3.0,
   "offshore_depth_m": 33.0,
-  "mean_slope_m_per_km": 1.63,
+  "mean_slope_m_per_km": 1.69,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,13 +18,13 @@
       "dist_km": 0.25,
       "lat": 41.03616,
       "lon": -71.91704,
-      "depth_m": 4.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 0.5,
       "lat": 41.03392,
       "lon": -71.91678,
-      "depth_m": 7.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 1.0,
@@ -36,13 +36,13 @@
       "dist_km": 2.0,
       "lat": 41.02048,
       "lon": -71.91522,
-      "depth_m": 14.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 3.0,
       "lat": 41.01152,
       "lon": -71.91418,
-      "depth_m": 16.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 5.0,
@@ -60,7 +60,7 @@
       "dist_km": 12.0,
       "lat": 40.93089,
       "lon": -71.90485,
-      "depth_m": 31.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 18.0,

@@ -1,14 +1,14 @@
 {
   "spot": "venice-pier",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     33.978,
     -118.4683
   ],
   "bearing_seaward_deg": 231.0,
-  "nearshore_depth_m": 6.0,
-  "offshore_depth_m": 112.0,
-  "mean_slope_m_per_km": 5.97,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 86.0,
+  "mean_slope_m_per_km": 4.73,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 1,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 33.97659,
       "lon": -118.47041,
-      "depth_m": 6.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 0.5,
       "lat": 33.97517,
       "lon": -118.47251,
-      "depth_m": 8.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 1.0,
       "lat": 33.97234,
       "lon": -118.47673,
-      "depth_m": 12.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 2.0,
       "lat": 33.96668,
       "lon": -118.48515,
-      "depth_m": 19.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 3.0,
       "lat": 33.96102,
       "lon": -118.49358,
-      "depth_m": 26.0
+      "depth_m": 28.0
     },
     {
       "dist_km": 5.0,
       "lat": 33.94969,
       "lon": -118.51043,
-      "depth_m": 43.0
+      "depth_m": 42.0
     },
     {
       "dist_km": 8.0,
       "lat": 33.9327,
       "lon": -118.53569,
-      "depth_m": 58.0
+      "depth_m": 60.0
     },
     {
       "dist_km": 12.0,
       "lat": 33.91004,
       "lon": -118.56936,
-      "depth_m": 143.0
+      "depth_m": 131.0
     },
     {
       "dist_km": 18.0,
       "lat": 33.87603,
       "lon": -118.61982,
-      "depth_m": 112.0
+      "depth_m": 86.0
     }
   ]
 }

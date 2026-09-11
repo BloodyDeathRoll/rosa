@@ -1,14 +1,14 @@
 {
   "spot": "monahan-s",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     41.4222,
     -71.4546
   ],
   "bearing_seaward_deg": 89.0,
-  "nearshore_depth_m": 10.0,
+  "nearshore_depth_m": 11.0,
   "offshore_depth_m": 21.0,
-  "mean_slope_m_per_km": 0.62,
+  "mean_slope_m_per_km": 0.56,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 2,
@@ -18,25 +18,25 @@
       "dist_km": 0.25,
       "lat": 41.42224,
       "lon": -71.4516,
-      "depth_m": 10.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 0.5,
       "lat": 41.42228,
       "lon": -71.4486,
-      "depth_m": 19.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 1.0,
       "lat": 41.42236,
       "lon": -71.44261,
-      "depth_m": 20.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 2.0,
       "lat": 41.42251,
       "lon": -71.43062,
-      "depth_m": 22.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 3.0,
@@ -48,13 +48,13 @@
       "dist_km": 5.0,
       "lat": 41.42297,
       "lon": -71.39464,
-      "depth_m": 27.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 8.0,
       "lat": 41.42342,
       "lon": -71.35867,
-      "depth_m": 23.0
+      "depth_m": 24.0
     },
     {
       "dist_km": 12.0,

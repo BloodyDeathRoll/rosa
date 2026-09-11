@@ -1,15 +1,15 @@
 {
   "spot": "baldwin-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     20.9132,
     -156.3975
   ],
   "bearing_seaward_deg": 344.0,
-  "nearshore_depth_m": -0.0,
-  "offshore_depth_m": 354.0,
-  "mean_slope_m_per_km": 19.94,
-  "land_samples": 1,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 357.0,
+  "mean_slope_m_per_km": 19.77,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 1,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 20.91536,
       "lon": -156.39816,
-      "depth_m": -0.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 0.5,
       "lat": 20.91752,
       "lon": -156.39883,
-      "depth_m": 15.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 1.0,
       "lat": 20.92184,
       "lon": -156.40015,
-      "depth_m": 11.0
+      "depth_m": 23.0
     },
     {
       "dist_km": 2.0,
       "lat": 20.93049,
       "lon": -156.40281,
-      "depth_m": 28.0
+      "depth_m": 45.0
     },
     {
       "dist_km": 3.0,
       "lat": 20.93913,
       "lon": -156.40546,
-      "depth_m": 46.0
+      "depth_m": 45.0
     },
     {
       "dist_km": 5.0,
       "lat": 20.95642,
       "lon": -156.41077,
-      "depth_m": 84.0
+      "depth_m": 95.0
     },
     {
       "dist_km": 8.0,
       "lat": 20.98236,
       "lon": -156.41874,
-      "depth_m": 119.0
+      "depth_m": 122.0
     },
     {
       "dist_km": 12.0,
       "lat": 21.01693,
       "lon": -156.42937,
-      "depth_m": 190.0
+      "depth_m": 219.0
     },
     {
       "dist_km": 18.0,
       "lat": 21.0688,
       "lon": -156.44532,
-      "depth_m": 354.0
+      "depth_m": 357.0
     }
   ]
 }

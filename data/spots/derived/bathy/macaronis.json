@@ -1,14 +1,14 @@
 {
   "spot": "macaronis",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -2.7763,
     99.9832
   ],
   "bearing_seaward_deg": 220.0,
-  "nearshore_depth_m": -7.0,
-  "offshore_depth_m": 886.0,
-  "mean_slope_m_per_km": 50.31,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 992.0,
+  "mean_slope_m_per_km": 56.34,
   "land_samples": 3,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,13 +18,13 @@
       "dist_km": 0.25,
       "lat": -2.77802,
       "lon": 99.98175,
-      "depth_m": -7.0
+      "depth_m": -8.0
     },
     {
       "dist_km": 0.5,
       "lat": -2.77974,
       "lon": 99.98031,
-      "depth_m": -8.0
+      "depth_m": -10.0
     },
     {
       "dist_km": 1.0,
@@ -36,37 +36,37 @@
       "dist_km": 2.0,
       "lat": -2.79008,
       "lon": 99.97162,
-      "depth_m": 14.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 3.0,
       "lat": -2.79697,
       "lon": 99.96584,
-      "depth_m": 21.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 5.0,
       "lat": -2.81075,
       "lon": 99.95426,
-      "depth_m": 50.0
+      "depth_m": 24.0
     },
     {
       "dist_km": 8.0,
       "lat": -2.83141,
       "lon": 99.9369,
-      "depth_m": 175.0
+      "depth_m": 178.0
     },
     {
       "dist_km": 12.0,
       "lat": -2.85897,
       "lon": 99.91374,
-      "depth_m": 424.0
+      "depth_m": 435.0
     },
     {
       "dist_km": 18.0,
       "lat": -2.9003,
       "lon": 99.87901,
-      "depth_m": 886.0
+      "depth_m": 992.0
     }
   ]
 }

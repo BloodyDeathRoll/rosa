@@ -1,14 +1,14 @@
 {
   "spot": "baia-azul",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -12.6215,
     13.2393
   ],
   "bearing_seaward_deg": 346.0,
-  "nearshore_depth_m": -10.0,
-  "offshore_depth_m": 797.0,
-  "mean_slope_m_per_km": 45.46,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 786.0,
+  "mean_slope_m_per_km": 44.73,
   "land_samples": 2,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": -12.61932,
       "lon": 13.23874,
-      "depth_m": -10.0
+      "depth_m": -8.0
     },
     {
       "dist_km": 0.5,
       "lat": -12.61714,
       "lon": 13.23819,
-      "depth_m": -7.0
+      "depth_m": -8.0
     },
     {
       "dist_km": 1.0,
       "lat": -12.61277,
       "lon": 13.23707,
-      "depth_m": 9.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 2.0,
       "lat": -12.60405,
       "lon": 13.23484,
-      "depth_m": 32.0
+      "depth_m": 35.0
     },
     {
       "dist_km": 3.0,
       "lat": -12.59532,
       "lon": 13.23261,
-      "depth_m": 41.0
+      "depth_m": 46.0
     },
     {
       "dist_km": 5.0,
       "lat": -12.57787,
       "lon": 13.22815,
-      "depth_m": 259.0
+      "depth_m": 286.0
     },
     {
       "dist_km": 8.0,
       "lat": -12.55169,
       "lon": 13.22147,
-      "depth_m": 457.0
+      "depth_m": 400.0
     },
     {
       "dist_km": 12.0,
       "lat": -12.51679,
       "lon": 13.21256,
-      "depth_m": 598.0
+      "depth_m": 597.0
     },
     {
       "dist_km": 18.0,
       "lat": -12.46443,
       "lon": 13.19919,
-      "depth_m": 797.0
+      "depth_m": 786.0
     }
   ]
 }

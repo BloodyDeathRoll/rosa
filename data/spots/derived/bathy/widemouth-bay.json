@@ -1,14 +1,14 @@
 {
   "spot": "widemouth-bay",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     50.7896,
     -4.5587
   ],
   "bearing_seaward_deg": 334.0,
-  "nearshore_depth_m": -4.0,
-  "offshore_depth_m": 34.0,
-  "mean_slope_m_per_km": 2.14,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 33.0,
+  "mean_slope_m_per_km": 2.37,
   "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,31 +18,31 @@
       "dist_km": 0.25,
       "lat": 50.79162,
       "lon": -4.56026,
-      "depth_m": -4.0
+      "depth_m": -9.0
     },
     {
       "dist_km": 0.5,
       "lat": 50.79364,
       "lon": -4.56182,
-      "depth_m": 6.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 1.0,
       "lat": 50.79768,
       "lon": -4.56494,
-      "depth_m": 8.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 2.0,
       "lat": 50.80577,
       "lon": -4.57118,
-      "depth_m": 10.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 3.0,
       "lat": 50.81385,
       "lon": -4.57742,
-      "depth_m": 16.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 5.0,
@@ -54,19 +54,19 @@
       "dist_km": 8.0,
       "lat": 50.85425,
       "lon": -4.60866,
-      "depth_m": 23.0
+      "depth_m": 24.0
     },
     {
       "dist_km": 12.0,
       "lat": 50.88657,
       "lon": -4.63369,
-      "depth_m": 30.0
+      "depth_m": 31.0
     },
     {
       "dist_km": 18.0,
       "lat": 50.93504,
       "lon": -4.6713,
-      "depth_m": 34.0
+      "depth_m": 33.0
     }
   ]
 }

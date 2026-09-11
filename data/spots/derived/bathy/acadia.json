@@ -1,54 +1,54 @@
 {
   "spot": "acadia",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     32.1663,
     34.7963
   ],
   "bearing_seaward_deg": 298.0,
-  "nearshore_depth_m": 186.0,
-  "offshore_depth_m": 153.0,
-  "mean_slope_m_per_km": -1.86,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 158.0,
+  "mean_slope_m_per_km": 8.17,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 2,
-  "deepest_is_reference": false,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 32.16736,
       "lon": 34.79395,
-      "depth_m": 186.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 0.5,
       "lat": 32.16841,
       "lon": 34.79161,
-      "depth_m": 119.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 1.0,
       "lat": 32.17052,
       "lon": 34.78692,
-      "depth_m": 15.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 2.0,
       "lat": 32.17474,
       "lon": 34.77754,
-      "depth_m": 26.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 3.0,
       "lat": 32.17896,
       "lon": 34.76816,
-      "depth_m": 33.0
+      "depth_m": 32.0
     },
     {
       "dist_km": 5.0,
       "lat": 32.1874,
       "lon": 34.74939,
-      "depth_m": 40.0
+      "depth_m": 41.0
     },
     {
       "dist_km": 8.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 32.24218,
       "lon": 34.62731,
-      "depth_m": 153.0
+      "depth_m": 158.0
     }
   ]
 }

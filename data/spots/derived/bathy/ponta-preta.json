@@ -1,14 +1,14 @@
 {
   "spot": "ponta-preta",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     16.6066,
     -22.9297
   ],
   "bearing_seaward_deg": 293.0,
-  "nearshore_depth_m": -0.0,
-  "offshore_depth_m": 1000.0,
-  "mean_slope_m_per_km": 56.34,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 1018.0,
+  "mean_slope_m_per_km": 57.52,
   "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 16.60748,
       "lon": -22.93186,
-      "depth_m": -0.0
+      "depth_m": -3.0
     },
     {
       "dist_km": 0.5,
       "lat": 16.60836,
       "lon": -22.93402,
-      "depth_m": 13.0
+      "depth_m": 252.0
     },
     {
       "dist_km": 1.0,
       "lat": 16.61011,
       "lon": -22.93834,
-      "depth_m": 20.0
+      "depth_m": 272.0
     },
     {
       "dist_km": 2.0,
       "lat": 16.61363,
       "lon": -22.94698,
-      "depth_m": 23.0
+      "depth_m": 275.0
     },
     {
       "dist_km": 3.0,
       "lat": 16.61714,
       "lon": -22.95562,
-      "depth_m": 27.0
+      "depth_m": 279.0
     },
     {
       "dist_km": 5.0,
       "lat": 16.62417,
       "lon": -22.9729,
-      "depth_m": 247.0
+      "depth_m": 436.0
     },
     {
       "dist_km": 8.0,
       "lat": 16.6347,
       "lon": -22.99882,
-      "depth_m": 377.0
+      "depth_m": 565.0
     },
     {
       "dist_km": 12.0,
       "lat": 16.64874,
       "lon": -23.03339,
-      "depth_m": 377.0
+      "depth_m": 721.0
     },
     {
       "dist_km": 18.0,
       "lat": 16.66979,
       "lon": -23.08525,
-      "depth_m": 1000.0
+      "depth_m": 1018.0
     }
   ]
 }

@@ -1,15 +1,15 @@
 {
   "spot": "cimaja",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -6.9608,
     106.4871
   ],
   "bearing_seaward_deg": 225.0,
-  "nearshore_depth_m": 6.0,
-  "offshore_depth_m": 591.0,
-  "mean_slope_m_per_km": 32.96,
-  "land_samples": 0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 702.0,
+  "mean_slope_m_per_km": 39.89,
+  "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": -6.96239,
       "lon": 106.4855,
-      "depth_m": 6.0
+      "depth_m": -6.0
     },
     {
       "dist_km": 0.5,
       "lat": -6.96398,
       "lon": 106.4839,
-      "depth_m": 18.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 1.0,
       "lat": -6.96716,
       "lon": 106.48069,
-      "depth_m": 42.0
+      "depth_m": 32.0
     },
     {
       "dist_km": 2.0,
       "lat": -6.97352,
       "lon": 106.47429,
-      "depth_m": 93.0
+      "depth_m": 53.0
     },
     {
       "dist_km": 3.0,
       "lat": -6.97988,
       "lon": 106.46788,
-      "depth_m": 149.0
+      "depth_m": 92.0
     },
     {
       "dist_km": 5.0,
       "lat": -6.99259,
       "lon": 106.45507,
-      "depth_m": 270.0
+      "depth_m": 163.0
     },
     {
       "dist_km": 8.0,
       "lat": -7.01167,
       "lon": 106.43584,
-      "depth_m": 427.0
+      "depth_m": 320.0
     },
     {
       "dist_km": 12.0,
       "lat": -7.0371,
       "lon": 106.41021,
-      "depth_m": 498.0
+      "depth_m": 531.0
     },
     {
       "dist_km": 18.0,
       "lat": -7.07525,
       "lon": 106.37176,
-      "depth_m": 591.0
+      "depth_m": 702.0
     }
   ]
 }

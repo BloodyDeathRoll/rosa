@@ -1,15 +1,15 @@
 {
   "spot": "gwenver",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     50.089,
     -5.6886
   ],
   "bearing_seaward_deg": 277.0,
-  "nearshore_depth_m": -8.0,
-  "offshore_depth_m": 67.0,
-  "mean_slope_m_per_km": 4.23,
-  "land_samples": 1,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 65.0,
+  "mean_slope_m_per_km": 3.44,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,37 +18,37 @@
       "dist_km": 0.25,
       "lat": 50.08927,
       "lon": -5.69208,
-      "depth_m": -8.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 0.5,
       "lat": 50.08955,
       "lon": -5.69556,
-      "depth_m": 9.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 1.0,
       "lat": 50.0901,
       "lon": -5.70251,
-      "depth_m": 18.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 2.0,
       "lat": 50.09119,
       "lon": -5.71643,
-      "depth_m": 35.0
+      "depth_m": 32.0
     },
     {
       "dist_km": 3.0,
       "lat": 50.09228,
       "lon": -5.73034,
-      "depth_m": 50.0
+      "depth_m": 51.0
     },
     {
       "dist_km": 5.0,
       "lat": 50.09446,
       "lon": -5.75817,
-      "depth_m": 55.0
+      "depth_m": 56.0
     },
     {
       "dist_km": 8.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 50.10203,
       "lon": -5.85559,
-      "depth_m": 63.0
+      "depth_m": 61.0
     },
     {
       "dist_km": 18.0,
       "lat": 50.10846,
       "lon": -5.93913,
-      "depth_m": 67.0
+      "depth_m": 65.0
     }
   ]
 }

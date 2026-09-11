@@ -1,14 +1,14 @@
 {
   "spot": "jalama",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     34.5108,
     -120.503
   ],
   "bearing_seaward_deg": 250.0,
-  "nearshore_depth_m": 7.0,
-  "offshore_depth_m": 312.0,
-  "mean_slope_m_per_km": 17.18,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 306.0,
+  "mean_slope_m_per_km": 16.56,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 34.51003,
       "lon": -120.50556,
-      "depth_m": 7.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 0.5,
       "lat": 34.50926,
       "lon": -120.50813,
-      "depth_m": 14.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 1.0,
       "lat": 34.50772,
       "lon": -120.51326,
-      "depth_m": 21.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 2.0,
       "lat": 34.50465,
       "lon": -120.52351,
-      "depth_m": 33.0
+      "depth_m": 37.0
     },
     {
       "dist_km": 3.0,
       "lat": 34.50157,
       "lon": -120.53376,
-      "depth_m": 44.0
+      "depth_m": 49.0
     },
     {
       "dist_km": 5.0,
       "lat": 34.49541,
       "lon": -120.55427,
-      "depth_m": 60.0
+      "depth_m": 64.0
     },
     {
       "dist_km": 8.0,
       "lat": 34.48617,
       "lon": -120.58502,
-      "depth_m": 74.0
+      "depth_m": 81.0
     },
     {
       "dist_km": 12.0,
       "lat": 34.47383,
       "lon": -120.62601,
-      "depth_m": 102.0
+      "depth_m": 105.0
     },
     {
       "dist_km": 18.0,
       "lat": 34.4553,
       "lon": -120.68748,
-      "depth_m": 312.0
+      "depth_m": 306.0
     }
   ]
 }

@@ -1,36 +1,36 @@
 {
   "spot": "porthmeor",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     50.2159,
     -5.4823
   ],
   "bearing_seaward_deg": 19.0,
-  "nearshore_depth_m": -0.0,
-  "offshore_depth_m": 43.0,
-  "mean_slope_m_per_km": 2.42,
-  "land_samples": 1,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 42.0,
+  "mean_slope_m_per_km": 2.99,
+  "land_samples": 2,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 2,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 50.21803,
       "lon": -5.48116,
-      "depth_m": -0.0
+      "depth_m": -11.0
     },
     {
       "dist_km": 0.5,
       "lat": 50.22015,
       "lon": -5.48001,
-      "depth_m": 10.0
+      "depth_m": -11.0
     },
     {
       "dist_km": 1.0,
       "lat": 50.2244,
       "lon": -5.47772,
-      "depth_m": 23.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 2.0,
@@ -42,31 +42,31 @@
       "dist_km": 3.0,
       "lat": 50.24141,
       "lon": -5.46857,
-      "depth_m": 21.0
+      "depth_m": 24.0
     },
     {
       "dist_km": 5.0,
       "lat": 50.25841,
       "lon": -5.4594,
-      "depth_m": 21.0
+      "depth_m": 23.0
     },
     {
       "dist_km": 8.0,
       "lat": 50.28392,
       "lon": -5.44564,
-      "depth_m": 25.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 12.0,
       "lat": 50.31793,
       "lon": -5.42728,
-      "depth_m": 33.0
+      "depth_m": 34.0
     },
     {
       "dist_km": 18.0,
       "lat": 50.36893,
       "lon": -5.39967,
-      "depth_m": 43.0
+      "depth_m": 42.0
     }
   ]
 }

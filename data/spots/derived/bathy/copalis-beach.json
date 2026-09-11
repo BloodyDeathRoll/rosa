@@ -1,24 +1,24 @@
 {
   "spot": "copalis-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     47.0864,
     -124.183
   ],
   "bearing_seaward_deg": 264.0,
-  "nearshore_depth_m": 3.0,
-  "offshore_depth_m": 50.0,
-  "mean_slope_m_per_km": 2.65,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 52.0,
+  "mean_slope_m_per_km": 2.87,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 47.08616,
       "lon": -124.18628,
-      "depth_m": 3.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
@@ -30,7 +30,7 @@
       "dist_km": 1.0,
       "lat": 47.08546,
       "lon": -124.19614,
-      "depth_m": 3.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 2.0,
@@ -42,7 +42,7 @@
       "dist_km": 3.0,
       "lat": 47.08357,
       "lon": -124.2224,
-      "depth_m": 10.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 5.0,
@@ -54,19 +54,19 @@
       "dist_km": 8.0,
       "lat": 47.07883,
       "lon": -124.28807,
-      "depth_m": 30.0
+      "depth_m": 35.0
     },
     {
       "dist_km": 12.0,
       "lat": 47.07501,
       "lon": -124.34059,
-      "depth_m": 37.0
+      "depth_m": 41.0
     },
     {
       "dist_km": 18.0,
       "lat": 47.06924,
       "lon": -124.41936,
-      "depth_m": 50.0
+      "depth_m": 52.0
     }
   ]
 }

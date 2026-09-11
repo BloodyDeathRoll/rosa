@@ -1,15 +1,15 @@
 {
   "spot": "bantham",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     50.2786,
     -3.8834
   ],
   "bearing_seaward_deg": 214.0,
-  "nearshore_depth_m": -5.0,
-  "offshore_depth_m": 59.0,
-  "mean_slope_m_per_km": 3.61,
-  "land_samples": 2,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 58.0,
+  "mean_slope_m_per_km": 3.21,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,37 +18,37 @@
       "dist_km": 0.25,
       "lat": 50.27674,
       "lon": -3.88537,
-      "depth_m": -5.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": 50.27487,
       "lon": -3.88733,
-      "depth_m": -0.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 1.0,
       "lat": 50.27114,
       "lon": -3.89127,
-      "depth_m": 8.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 2.0,
       "lat": 50.26369,
       "lon": -3.89913,
-      "depth_m": 19.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 3.0,
       "lat": 50.25623,
       "lon": -3.907,
-      "depth_m": 26.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 5.0,
       "lat": 50.24131,
       "lon": -3.92272,
-      "depth_m": 28.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 8.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 50.18909,
       "lon": -3.97765,
-      "depth_m": 52.0
+      "depth_m": 53.0
     },
     {
       "dist_km": 18.0,
       "lat": 50.14431,
       "lon": -4.02465,
-      "depth_m": 59.0
+      "depth_m": 58.0
     }
   ]
 }

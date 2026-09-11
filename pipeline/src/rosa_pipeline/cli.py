@@ -450,12 +450,12 @@ def _build_parser() -> argparse.ArgumentParser:
     bathy.add_argument(
         "--source",
         choices=["opentopo", "local"],
-        default="opentopo",
-        help="which GEBCO grid to cut from. opentopo (default): gebco2020 through the "
-        "point API - what every committed profile was cut with. local: the GEBCO 2024 "
-        "grid on disk, offline and uncapped. The two disagree by >50 m nearshore on reef "
-        "and steep coasts and CMEMS SDB backs the local one (OPEN-ITEMS 17/23), so cut "
-        "the candidate to a SEPARATE --out and A/B it - never over the committed set",
+        default="local",
+        help="which GEBCO grid to cut from. local (default since 2026-09-11): the GEBCO "
+        "2024 grid on disk, offline and uncapped - what every committed profile is cut "
+        "with. opentopo: gebco2020 through the point API, the pre-swap source, kept for "
+        "A/B only. It reads the NE Brazil shelf as 0 m for km and smooths reefs and "
+        "headlands away (OPEN-ITEMS 17/23); never mix it into the committed set",
     )
     bathy.add_argument(
         "--grid",

@@ -1,48 +1,48 @@
 {
   "spot": "pozo-de-lisas",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -17.6931,
     -71.3554
   ],
   "bearing_seaward_deg": 173.0,
-  "nearshore_depth_m": 6.0,
-  "offshore_depth_m": 533.0,
-  "mean_slope_m_per_km": 29.69,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 476.0,
+  "mean_slope_m_per_km": 26.37,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -17.69533,
       "lon": -71.35511,
-      "depth_m": 6.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 0.5,
       "lat": -17.69756,
       "lon": -71.35482,
-      "depth_m": 12.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 1.0,
       "lat": -17.70203,
       "lon": -71.35425,
-      "depth_m": 23.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 2.0,
       "lat": -17.71095,
       "lon": -71.3531,
-      "depth_m": 26.0
+      "depth_m": 31.0
     },
     {
       "dist_km": 3.0,
       "lat": -17.71988,
       "lon": -71.35195,
-      "depth_m": 35.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 5.0,
@@ -54,19 +54,19 @@
       "dist_km": 8.0,
       "lat": -17.76451,
       "lon": -71.34619,
-      "depth_m": 103.0
+      "depth_m": 101.0
     },
     {
       "dist_km": 12.0,
       "lat": -17.80021,
       "lon": -71.34159,
-      "depth_m": 124.0
+      "depth_m": 129.0
     },
     {
       "dist_km": 18.0,
       "lat": -17.85377,
       "lon": -71.33467,
-      "depth_m": 533.0
+      "depth_m": 476.0
     }
   ]
 }

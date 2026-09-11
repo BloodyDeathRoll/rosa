@@ -1,14 +1,14 @@
 {
   "spot": "punta-mancora",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -4.1075,
     -81.0614
   ],
   "bearing_seaward_deg": 318.0,
   "nearshore_depth_m": -5.0,
-  "offshore_depth_m": 379.0,
-  "mean_slope_m_per_km": 21.63,
+  "offshore_depth_m": 405.0,
+  "mean_slope_m_per_km": 23.1,
   "land_samples": 2,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -24,49 +24,49 @@
       "dist_km": 0.5,
       "lat": -4.10416,
       "lon": -81.06442,
-      "depth_m": -2.0
+      "depth_m": -0.0
     },
     {
       "dist_km": 1.0,
       "lat": -4.10082,
       "lon": -81.06743,
-      "depth_m": 12.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 2.0,
       "lat": -4.09413,
       "lon": -81.07347,
-      "depth_m": 34.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 3.0,
       "lat": -4.08745,
       "lon": -81.0795,
-      "depth_m": 47.0
+      "depth_m": 36.0
     },
     {
       "dist_km": 5.0,
       "lat": -4.07408,
       "lon": -81.09156,
-      "depth_m": 76.0
+      "depth_m": 65.0
     },
     {
       "dist_km": 8.0,
       "lat": -4.05403,
       "lon": -81.10966,
-      "depth_m": 105.0
+      "depth_m": 108.0
     },
     {
       "dist_km": 12.0,
       "lat": -4.0273,
       "lon": -81.13379,
-      "depth_m": 196.0
+      "depth_m": 200.0
     },
     {
       "dist_km": 18.0,
       "lat": -3.98719,
       "lon": -81.16998,
-      "depth_m": 379.0
+      "depth_m": 405.0
     }
   ]
 }

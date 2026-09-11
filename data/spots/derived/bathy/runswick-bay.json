@@ -1,13 +1,13 @@
 {
   "spot": "runswick-bay",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     54.5308,
     -0.7467
   ],
   "bearing_seaward_deg": 58.0,
-  "nearshore_depth_m": 2.0,
-  "offshore_depth_m": 52.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 51.0,
   "mean_slope_m_per_km": 2.82,
   "land_samples": 0,
   "missing_samples": 0,
@@ -18,13 +18,13 @@
       "dist_km": 0.25,
       "lat": 54.53199,
       "lon": -0.74341,
-      "depth_m": 2.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": 54.53318,
       "lon": -0.74013,
-      "depth_m": 5.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 1.0,
@@ -36,19 +36,19 @@
       "dist_km": 2.0,
       "lat": 54.54033,
       "lon": -0.72041,
-      "depth_m": 15.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 3.0,
       "lat": 54.54509,
       "lon": -0.70726,
-      "depth_m": 27.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 5.0,
       "lat": 54.55461,
       "lon": -0.68094,
-      "depth_m": 39.0
+      "depth_m": 40.0
     },
     {
       "dist_km": 8.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 54.58789,
       "lon": -0.58876,
-      "depth_m": 53.0
+      "depth_m": 52.0
     },
     {
       "dist_km": 18.0,
       "lat": 54.61635,
       "lon": -0.50962,
-      "depth_m": 52.0
+      "depth_m": 51.0
     }
   ]
 }

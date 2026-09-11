@@ -1,36 +1,36 @@
 {
   "spot": "wildwood",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     38.9814,
     -74.8076
   ],
   "bearing_seaward_deg": 138.0,
-  "nearshore_depth_m": 5.0,
-  "offshore_depth_m": 12.0,
-  "mean_slope_m_per_km": 0.39,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 14.0,
+  "mean_slope_m_per_km": 0.73,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 2,
-  "deepest_is_reference": false,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 38.97973,
       "lon": -74.80566,
-      "depth_m": 5.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": 38.97806,
       "lon": -74.80373,
-      "depth_m": 5.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 1.0,
       "lat": 38.97472,
       "lon": -74.79986,
-      "depth_m": 5.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 2.0,
@@ -48,7 +48,7 @@
       "dist_km": 5.0,
       "lat": 38.94798,
       "lon": -74.76891,
-      "depth_m": 11.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 8.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 38.86102,
       "lon": -74.66849,
-      "depth_m": 12.0
+      "depth_m": 14.0
     }
   ]
 }

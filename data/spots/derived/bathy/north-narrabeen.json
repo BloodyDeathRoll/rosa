@@ -1,72 +1,72 @@
 {
   "spot": "north-narrabeen",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -33.7058,
     151.305
   ],
   "bearing_seaward_deg": 115.0,
-  "nearshore_depth_m": -8.0,
-  "offshore_depth_m": 119.0,
-  "mean_slope_m_per_km": 7.15,
-  "land_samples": 2,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 120.0,
+  "mean_slope_m_per_km": 7.27,
+  "land_samples": 1,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -33.70675,
       "lon": 151.30745,
-      "depth_m": -8.0
+      "depth_m": -9.0
     },
     {
       "dist_km": 0.5,
       "lat": -33.7077,
       "lon": 151.3099,
-      "depth_m": -2.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 1.0,
       "lat": -33.7096,
       "lon": 151.3148,
-      "depth_m": 13.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 2.0,
       "lat": -33.7134,
       "lon": 151.3246,
-      "depth_m": 6.0
+      "depth_m": 24.0
     },
     {
       "dist_km": 3.0,
       "lat": -33.7172,
       "lon": 151.3344,
-      "depth_m": 14.0
+      "depth_m": 37.0
     },
     {
       "dist_km": 5.0,
       "lat": -33.72479,
       "lon": 151.354,
-      "depth_m": 29.0
+      "depth_m": 46.0
     },
     {
       "dist_km": 8.0,
       "lat": -33.73618,
       "lon": 151.38341,
-      "depth_m": 56.0
+      "depth_m": 60.0
     },
     {
       "dist_km": 12.0,
       "lat": -33.75135,
       "lon": 151.42263,
-      "depth_m": 96.0
+      "depth_m": 95.0
     },
     {
       "dist_km": 18.0,
       "lat": -33.77409,
       "lon": 151.4815,
-      "depth_m": 119.0
+      "depth_m": 120.0
     }
   ]
 }

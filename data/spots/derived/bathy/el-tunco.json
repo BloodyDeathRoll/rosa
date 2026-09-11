@@ -1,14 +1,14 @@
 {
   "spot": "el-tunco",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     13.492,
     -89.382
   ],
   "bearing_seaward_deg": 219.0,
-  "nearshore_depth_m": -6.0,
+  "nearshore_depth_m": -0.0,
   "offshore_depth_m": 54.0,
-  "mean_slope_m_per_km": 3.38,
+  "mean_slope_m_per_km": 3.04,
   "land_samples": 2,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,31 +18,31 @@
       "dist_km": 0.25,
       "lat": 13.49025,
       "lon": -89.38346,
-      "depth_m": -6.0
+      "depth_m": -0.0
     },
     {
       "dist_km": 0.5,
       "lat": 13.48851,
       "lon": -89.38491,
-      "depth_m": -1.0
+      "depth_m": -0.0
     },
     {
       "dist_km": 1.0,
       "lat": 13.48501,
       "lon": -89.38782,
-      "depth_m": 10.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 2.0,
       "lat": 13.47802,
       "lon": -89.39364,
-      "depth_m": 22.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 3.0,
       "lat": 13.47103,
       "lon": -89.39946,
-      "depth_m": 24.0
+      "depth_m": 23.0
     },
     {
       "dist_km": 5.0,
@@ -54,7 +54,7 @@
       "dist_km": 8.0,
       "lat": 13.43608,
       "lon": -89.42855,
-      "depth_m": 34.0
+      "depth_m": 33.0
     },
     {
       "dist_km": 12.0,

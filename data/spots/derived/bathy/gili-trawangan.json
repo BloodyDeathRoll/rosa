@@ -1,72 +1,72 @@
 {
   "spot": "gili-trawangan",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -8.3621,
     116.0394
   ],
   "bearing_seaward_deg": 244.0,
-  "nearshore_depth_m": 67.0,
-  "offshore_depth_m": 1121.0,
-  "mean_slope_m_per_km": 59.38,
+  "nearshore_depth_m": 257.0,
+  "offshore_depth_m": 1133.0,
+  "mean_slope_m_per_km": 49.35,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 3,
+  "non_monotone_samples": 1,
   "deepest_is_reference": false,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -8.36309,
       "lon": 116.03736,
-      "depth_m": 67.0
+      "depth_m": 257.0
     },
     {
       "dist_km": 0.5,
       "lat": -8.36407,
       "lon": 116.03532,
-      "depth_m": 109.0
+      "depth_m": 257.0
     },
     {
       "dist_km": 1.0,
       "lat": -8.36604,
       "lon": 116.03123,
-      "depth_m": 154.0
+      "depth_m": 276.0
     },
     {
       "dist_km": 2.0,
       "lat": -8.36998,
       "lon": 116.02306,
-      "depth_m": 170.0
+      "depth_m": 375.0
     },
     {
       "dist_km": 3.0,
       "lat": -8.37393,
       "lon": 116.01489,
-      "depth_m": 142.0
+      "depth_m": 506.0
     },
     {
       "dist_km": 5.0,
       "lat": -8.38181,
       "lon": 115.99855,
-      "depth_m": 33.0
+      "depth_m": 780.0
     },
     {
       "dist_km": 8.0,
       "lat": -8.39363,
       "lon": 115.97404,
-      "depth_m": 352.0
+      "depth_m": 1065.0
     },
     {
       "dist_km": 12.0,
       "lat": -8.4094,
       "lon": 115.94135,
-      "depth_m": 1132.0
+      "depth_m": 1172.0
     },
     {
       "dist_km": 18.0,
       "lat": -8.43304,
       "lon": 115.89232,
-      "depth_m": 1121.0
+      "depth_m": 1133.0
     }
   ]
 }

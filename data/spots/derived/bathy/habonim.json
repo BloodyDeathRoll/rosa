@@ -1,14 +1,14 @@
 {
   "spot": "habonim",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     32.6566,
     34.9262
   ],
   "bearing_seaward_deg": 276.0,
-  "nearshore_depth_m": 19.0,
-  "offshore_depth_m": 576.0,
-  "mean_slope_m_per_km": 31.38,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 578.0,
+  "mean_slope_m_per_km": 32.23,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,31 +18,31 @@
       "dist_km": 0.25,
       "lat": 32.65683,
       "lon": 34.92354,
-      "depth_m": 19.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 0.5,
       "lat": 32.65707,
       "lon": 34.92089,
-      "depth_m": 22.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 1.0,
       "lat": 32.65754,
       "lon": 34.91558,
-      "depth_m": 22.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 2.0,
       "lat": 32.65848,
       "lon": 34.90495,
-      "depth_m": 33.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 3.0,
       "lat": 32.65942,
       "lon": 34.89433,
-      "depth_m": 36.0
+      "depth_m": 38.0
     },
     {
       "dist_km": 5.0,
@@ -54,19 +54,19 @@
       "dist_km": 8.0,
       "lat": 32.66409,
       "lon": 34.84121,
-      "depth_m": 66.0
+      "depth_m": 68.0
     },
     {
       "dist_km": 12.0,
       "lat": 32.66782,
       "lon": 34.7987,
-      "depth_m": 324.0
+      "depth_m": 336.0
     },
     {
       "dist_km": 18.0,
       "lat": 32.67338,
       "lon": 34.73495,
-      "depth_m": 576.0
+      "depth_m": 578.0
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "spot": "bowls",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     26.3227,
     127.7455
@@ -24,43 +24,43 @@
       "dist_km": 0.5,
       "lat": 26.32052,
       "lon": 127.74111,
-      "depth_m": 11.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 1.0,
       "lat": 26.31834,
       "lon": 127.73672,
-      "depth_m": 15.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 2.0,
       "lat": 26.31398,
       "lon": 127.72795,
-      "depth_m": 26.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 3.0,
       "lat": 26.30962,
       "lon": 127.71918,
-      "depth_m": 31.0
+      "depth_m": 33.0
     },
     {
       "dist_km": 5.0,
       "lat": 26.30089,
       "lon": 127.70163,
-      "depth_m": 45.0
+      "depth_m": 50.0
     },
     {
       "dist_km": 8.0,
       "lat": 26.2878,
       "lon": 127.67532,
-      "depth_m": 50.0
+      "depth_m": 51.0
     },
     {
       "dist_km": 12.0,
       "lat": 26.27034,
       "lon": 127.64024,
-      "depth_m": 50.0
+      "depth_m": 52.0
     },
     {
       "dist_km": 18.0,

@@ -1,14 +1,14 @@
 {
   "spot": "espinho",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     41.008,
     -8.647
   ],
   "bearing_seaward_deg": 265.0,
-  "nearshore_depth_m": 6.0,
+  "nearshore_depth_m": 2.0,
   "offshore_depth_m": 49.0,
-  "mean_slope_m_per_km": 2.42,
+  "mean_slope_m_per_km": 2.65,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,7 +18,7 @@
       "dist_km": 0.25,
       "lat": 41.0078,
       "lon": -8.64997,
-      "depth_m": 6.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 0.5,
@@ -30,7 +30,7 @@
       "dist_km": 1.0,
       "lat": 41.00722,
       "lon": -8.65887,
-      "depth_m": 8.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 2.0,
@@ -42,13 +42,13 @@
       "dist_km": 3.0,
       "lat": 41.00564,
       "lon": -8.68262,
-      "depth_m": 12.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 5.0,
       "lat": 41.00407,
       "lon": -8.70636,
-      "depth_m": 19.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 8.0,

@@ -1,14 +1,14 @@
 {
   "spot": "punta-abreojos",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     26.7054,
     -113.5765
   ],
   "bearing_seaward_deg": 147.0,
-  "nearshore_depth_m": 16.0,
-  "offshore_depth_m": 53.0,
-  "mean_slope_m_per_km": 2.08,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 55.0,
+  "mean_slope_m_per_km": 2.87,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 26.70351,
       "lon": -113.57513,
-      "depth_m": 16.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 0.5,
       "lat": 26.70163,
       "lon": -113.57376,
-      "depth_m": 22.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 1.0,
       "lat": 26.69786,
       "lon": -113.57102,
-      "depth_m": 23.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 2.0,
       "lat": 26.69031,
       "lon": -113.56554,
-      "depth_m": 23.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 3.0,
       "lat": 26.68277,
       "lon": -113.56005,
-      "depth_m": 26.0
+      "depth_m": 25.0
     },
     {
       "dist_km": 5.0,
       "lat": 26.66769,
       "lon": -113.54909,
-      "depth_m": 34.0
+      "depth_m": 36.0
     },
     {
       "dist_km": 8.0,
       "lat": 26.64505,
       "lon": -113.53266,
-      "depth_m": 45.0
+      "depth_m": 46.0
     },
     {
       "dist_km": 12.0,
       "lat": 26.61488,
       "lon": -113.51076,
-      "depth_m": 48.0
+      "depth_m": 46.0
     },
     {
       "dist_km": 18.0,
       "lat": 26.5696,
       "lon": -113.47792,
-      "depth_m": 53.0
+      "depth_m": 55.0
     }
   ]
 }

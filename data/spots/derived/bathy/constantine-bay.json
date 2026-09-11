@@ -1,15 +1,15 @@
 {
   "spot": "constantine-bay",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     50.5336,
     -5.0241
   ],
   "bearing_seaward_deg": 263.0,
-  "nearshore_depth_m": -16.0,
+  "nearshore_depth_m": -17.0,
   "offshore_depth_m": 51.0,
-  "mean_slope_m_per_km": 3.77,
-  "land_samples": 2,
+  "mean_slope_m_per_km": 3.83,
+  "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,37 +18,37 @@
       "dist_km": 0.25,
       "lat": 50.53333,
       "lon": -5.02761,
-      "depth_m": -16.0
+      "depth_m": -17.0
     },
     {
       "dist_km": 0.5,
       "lat": 50.53305,
       "lon": -5.03112,
-      "depth_m": -4.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 1.0,
       "lat": 50.5325,
       "lon": -5.03814,
-      "depth_m": 10.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 2.0,
       "lat": 50.5314,
       "lon": -5.05218,
-      "depth_m": 18.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 3.0,
       "lat": 50.5303,
       "lon": -5.06623,
-      "depth_m": 24.0
+      "depth_m": 25.0
     },
     {
       "dist_km": 5.0,
       "lat": 50.5281,
       "lon": -5.09431,
-      "depth_m": 32.0
+      "depth_m": 33.0
     },
     {
       "dist_km": 8.0,

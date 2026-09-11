@@ -1,30 +1,30 @@
 {
   "spot": "duranbah",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -28.1669,
     153.5514
   ],
   "bearing_seaward_deg": 54.0,
-  "nearshore_depth_m": -6.0,
+  "nearshore_depth_m": -14.0,
   "offshore_depth_m": 75.0,
-  "mean_slope_m_per_km": 4.56,
+  "mean_slope_m_per_km": 5.01,
   "land_samples": 1,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -28.16558,
       "lon": 153.55346,
-      "depth_m": -6.0
+      "depth_m": -14.0
     },
     {
       "dist_km": 0.5,
       "lat": -28.16426,
       "lon": 153.55553,
-      "depth_m": 6.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 1.0,
@@ -36,31 +36,31 @@
       "dist_km": 2.0,
       "lat": -28.15633,
       "lon": 153.5679,
-      "depth_m": 30.0
+      "depth_m": 35.0
     },
     {
       "dist_km": 3.0,
       "lat": -28.15104,
       "lon": 153.57616,
-      "depth_m": 32.0
+      "depth_m": 40.0
     },
     {
       "dist_km": 5.0,
       "lat": -28.14046,
       "lon": 153.59265,
-      "depth_m": 31.0
+      "depth_m": 45.0
     },
     {
       "dist_km": 8.0,
       "lat": -28.1246,
       "lon": 153.6174,
-      "depth_m": 47.0
+      "depth_m": 51.0
     },
     {
       "dist_km": 12.0,
       "lat": -28.10343,
       "lon": 153.65038,
-      "depth_m": 61.0
+      "depth_m": 63.0
     },
     {
       "dist_km": 18.0,

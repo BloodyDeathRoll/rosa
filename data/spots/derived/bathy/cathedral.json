@@ -1,14 +1,14 @@
 {
   "spot": "cathedral",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     30.8444,
     -9.8224
   ],
   "bearing_seaward_deg": 235.0,
-  "nearshore_depth_m": -2.0,
+  "nearshore_depth_m": -11.0,
   "offshore_depth_m": 78.0,
-  "mean_slope_m_per_km": 4.51,
+  "mean_slope_m_per_km": 5.01,
   "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,37 +18,37 @@
       "dist_km": 0.25,
       "lat": 30.84311,
       "lon": -9.82455,
-      "depth_m": -2.0
+      "depth_m": -11.0
     },
     {
       "dist_km": 0.5,
       "lat": 30.84182,
       "lon": -9.82669,
-      "depth_m": 9.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 1.0,
       "lat": 30.83924,
       "lon": -9.83098,
-      "depth_m": 18.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 2.0,
       "lat": 30.83408,
       "lon": -9.83956,
-      "depth_m": 31.0
+      "depth_m": 39.0
     },
     {
       "dist_km": 3.0,
       "lat": 30.82892,
       "lon": -9.84814,
-      "depth_m": 37.0
+      "depth_m": 40.0
     },
     {
       "dist_km": 5.0,
       "lat": 30.8186,
       "lon": -9.86529,
-      "depth_m": 54.0
+      "depth_m": 55.0
     },
     {
       "dist_km": 8.0,
@@ -60,7 +60,7 @@
       "dist_km": 12.0,
       "lat": 30.78246,
       "lon": -9.9253,
-      "depth_m": 72.0
+      "depth_m": 71.0
     },
     {
       "dist_km": 18.0,

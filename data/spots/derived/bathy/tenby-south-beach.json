@@ -1,6 +1,6 @@
 {
   "spot": "tenby-south-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     51.6653,
     -4.7057
@@ -11,7 +11,7 @@
   "mean_slope_m_per_km": 1.46,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 2,
   "deepest_is_reference": false,
   "samples": [
     {
@@ -30,25 +30,25 @@
       "dist_km": 1.0,
       "lat": 51.65928,
       "lon": -4.69493,
-      "depth_m": 3.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 2.0,
       "lat": 51.65326,
       "lon": -4.68416,
-      "depth_m": 6.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 3.0,
       "lat": 51.64724,
       "lon": -4.67339,
-      "depth_m": 8.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 5.0,
       "lat": 51.6352,
       "lon": -4.65186,
-      "depth_m": 11.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 8.0,

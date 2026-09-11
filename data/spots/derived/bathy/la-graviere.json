@@ -1,30 +1,30 @@
 {
   "spot": "la-graviere",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     43.6739,
     -1.442
   ],
   "bearing_seaward_deg": 298.0,
-  "nearshore_depth_m": 2.0,
-  "offshore_depth_m": 94.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 95.0,
   "mean_slope_m_per_km": 5.18,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
-  "deepest_is_reference": false,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 43.67496,
       "lon": -1.44474,
-      "depth_m": 2.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 0.5,
       "lat": 43.67601,
       "lon": -1.44749,
-      "depth_m": 5.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 1.0,
@@ -36,25 +36,25 @@
       "dist_km": 2.0,
       "lat": 43.68234,
       "lon": -1.46396,
-      "depth_m": 20.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 3.0,
       "lat": 43.68656,
       "lon": -1.47494,
-      "depth_m": 28.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 5.0,
       "lat": 43.695,
       "lon": -1.49691,
-      "depth_m": 41.0
+      "depth_m": 43.0
     },
     {
       "dist_km": 8.0,
       "lat": 43.70764,
       "lon": -1.52988,
-      "depth_m": 58.0
+      "depth_m": 61.0
     },
     {
       "dist_km": 12.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 43.74973,
       "lon": -1.63986,
-      "depth_m": 94.0
+      "depth_m": 95.0
     }
   ]
 }

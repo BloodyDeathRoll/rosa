@@ -1,48 +1,48 @@
 {
   "spot": "michmoret",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     32.4081,
     34.862
   ],
   "bearing_seaward_deg": 287.0,
-  "nearshore_depth_m": 24.0,
-  "offshore_depth_m": 239.0,
-  "mean_slope_m_per_km": 12.11,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 251.0,
+  "mean_slope_m_per_km": 13.41,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 32.40876,
       "lon": 34.85945,
-      "depth_m": 24.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 0.5,
       "lat": 32.40941,
       "lon": 34.85691,
-      "depth_m": 23.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 1.0,
       "lat": 32.41073,
       "lon": 34.85181,
-      "depth_m": 23.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 2.0,
       "lat": 32.41336,
       "lon": 34.84163,
-      "depth_m": 32.0
+      "depth_m": 35.0
     },
     {
       "dist_km": 3.0,
       "lat": 32.41598,
       "lon": 34.83144,
-      "depth_m": 39.0
+      "depth_m": 40.0
     },
     {
       "dist_km": 5.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 32.43959,
       "lon": 34.73972,
-      "depth_m": 98.0
+      "depth_m": 99.0
     },
     {
       "dist_km": 18.0,
       "lat": 32.4553,
       "lon": 34.67854,
-      "depth_m": 239.0
+      "depth_m": 251.0
     }
   ]
 }

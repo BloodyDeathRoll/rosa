@@ -1,66 +1,66 @@
 {
   "spot": "porto-amboim",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -10.7246,
     13.7545
   ],
   "bearing_seaward_deg": 305.0,
-  "nearshore_depth_m": 31.0,
+  "nearshore_depth_m": 13.0,
   "offshore_depth_m": 44.0,
-  "mean_slope_m_per_km": 0.73,
+  "mean_slope_m_per_km": 1.75,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 2,
-  "deepest_is_reference": false,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -10.72331,
       "lon": 13.75263,
-      "depth_m": 31.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 0.5,
       "lat": -10.72202,
       "lon": 13.75075,
-      "depth_m": 49.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 1.0,
       "lat": -10.71944,
       "lon": 13.747,
-      "depth_m": 70.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 2.0,
       "lat": -10.71428,
       "lon": 13.7395,
-      "depth_m": 81.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 3.0,
       "lat": -10.70912,
       "lon": 13.73201,
-      "depth_m": 47.0
+      "depth_m": 31.0
     },
     {
       "dist_km": 5.0,
       "lat": -10.69881,
       "lon": 13.71701,
-      "depth_m": 25.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 8.0,
       "lat": -10.68333,
       "lon": 13.69453,
-      "depth_m": 32.0
+      "depth_m": 31.0
     },
     {
       "dist_km": 12.0,
       "lat": -10.66269,
       "lon": 13.66455,
-      "depth_m": 38.0
+      "depth_m": 39.0
     },
     {
       "dist_km": 18.0,

@@ -1,72 +1,72 @@
 {
   "spot": "okuragahama",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     32.4045,
     131.6455
   ],
   "bearing_seaward_deg": 110.0,
-  "nearshore_depth_m": -0.0,
-  "offshore_depth_m": 178.0,
-  "mean_slope_m_per_km": 10.03,
-  "land_samples": 1,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 176.0,
+  "mean_slope_m_per_km": 9.86,
+  "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 32.40373,
       "lon": 131.648,
-      "depth_m": -0.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": 32.40296,
       "lon": 131.6505,
-      "depth_m": 1.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 1.0,
       "lat": 32.40142,
       "lon": 131.65551,
-      "depth_m": 1.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 2.0,
       "lat": 32.39835,
       "lon": 131.66552,
-      "depth_m": 6.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 3.0,
       "lat": 32.39527,
       "lon": 131.67553,
-      "depth_m": 11.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 5.0,
       "lat": 32.38911,
       "lon": 131.69554,
-      "depth_m": 22.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 8.0,
       "lat": 32.37987,
       "lon": 131.72555,
-      "depth_m": 52.0
+      "depth_m": 50.0
     },
     {
       "dist_km": 12.0,
       "lat": 32.36753,
       "lon": 131.76556,
-      "depth_m": 102.0
+      "depth_m": 99.0
     },
     {
       "dist_km": 18.0,
       "lat": 32.34901,
       "lon": 131.82556,
-      "depth_m": 178.0
+      "depth_m": 176.0
     }
   ]
 }

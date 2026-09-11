@@ -1,72 +1,72 @@
 {
   "spot": "fort-point",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     37.8106,
     -122.4771
   ],
-  "bearing_seaward_deg": 303.0,
-  "nearshore_depth_m": 57.0,
-  "offshore_depth_m": 6.0,
-  "mean_slope_m_per_km": -2.87,
-  "land_samples": 3,
+  "bearing_seaward_deg": 275.0,
+  "nearshore_depth_m": 25.0,
+  "offshore_depth_m": 29.0,
+  "mean_slope_m_per_km": 0.23,
+  "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 3,
+  "non_monotone_samples": 4,
   "deepest_is_reference": false,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 37.81182,
-      "lon": -122.47949,
-      "depth_m": 57.0
+      "lat": 37.8108,
+      "lon": -122.47993,
+      "depth_m": 25.0
     },
     {
       "dist_km": 0.5,
-      "lat": 37.81305,
-      "lon": -122.48187,
-      "depth_m": 65.0
+      "lat": 37.81099,
+      "lon": -122.48277,
+      "depth_m": 25.0
     },
     {
       "dist_km": 1.0,
-      "lat": 37.8155,
-      "lon": -122.48665,
-      "depth_m": 89.0
+      "lat": 37.81138,
+      "lon": -122.48844,
+      "depth_m": 79.0
     },
     {
       "dist_km": 2.0,
-      "lat": 37.82039,
-      "lon": -122.4962,
-      "depth_m": 62.0
+      "lat": 37.81217,
+      "lon": -122.49978,
+      "depth_m": 74.0
     },
     {
       "dist_km": 3.0,
-      "lat": 37.82529,
-      "lon": -122.50575,
-      "depth_m": 45.0
+      "lat": 37.81295,
+      "lon": -122.51112,
+      "depth_m": 40.0
     },
     {
       "dist_km": 5.0,
-      "lat": 37.83508,
-      "lon": -122.52485,
-      "depth_m": -46.0
+      "lat": 37.81451,
+      "lon": -122.5338,
+      "depth_m": 16.0
     },
     {
       "dist_km": 8.0,
-      "lat": 37.84976,
-      "lon": -122.55351,
-      "depth_m": -121.0
+      "lat": 37.81684,
+      "lon": -122.56783,
+      "depth_m": 8.0
     },
     {
       "dist_km": 12.0,
-      "lat": 37.86932,
-      "lon": -122.59175,
-      "depth_m": -71.0
+      "lat": 37.81993,
+      "lon": -122.6132,
+      "depth_m": 16.0
     },
     {
       "dist_km": 18.0,
-      "lat": 37.89864,
-      "lon": -122.64915,
-      "depth_m": 6.0
+      "lat": 37.82453,
+      "lon": -122.68126,
+      "depth_m": 29.0
     }
   ]
 }

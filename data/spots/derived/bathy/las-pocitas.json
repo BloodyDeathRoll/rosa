@@ -1,72 +1,72 @@
 {
   "spot": "las-pocitas",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -4.1148,
     -81.0795
   ],
   "bearing_seaward_deg": 325.0,
-  "nearshore_depth_m": -11.0,
-  "offshore_depth_m": 387.0,
-  "mean_slope_m_per_km": 22.42,
-  "land_samples": 2,
+  "nearshore_depth_m": -15.0,
+  "offshore_depth_m": 403.0,
+  "mean_slope_m_per_km": 23.55,
+  "land_samples": 1,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -4.11296,
       "lon": -81.08079,
-      "depth_m": -11.0
+      "depth_m": -15.0
     },
     {
       "dist_km": 0.5,
       "lat": -4.11112,
       "lon": -81.08209,
-      "depth_m": -0.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 1.0,
       "lat": -4.10743,
       "lon": -81.08467,
-      "depth_m": 20.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 2.0,
       "lat": -4.10007,
       "lon": -81.08984,
-      "depth_m": 45.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 3.0,
       "lat": -4.0927,
       "lon": -81.09501,
-      "depth_m": 57.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 5.0,
       "lat": -4.07797,
       "lon": -81.10536,
-      "depth_m": 81.0
+      "depth_m": 82.0
     },
     {
       "dist_km": 8.0,
       "lat": -4.05586,
       "lon": -81.12087,
-      "depth_m": 118.0
+      "depth_m": 128.0
     },
     {
       "dist_km": 12.0,
       "lat": -4.0264,
       "lon": -81.14155,
-      "depth_m": 228.0
+      "depth_m": 202.0
     },
     {
       "dist_km": 18.0,
       "lat": -3.98219,
       "lon": -81.17257,
-      "depth_m": 387.0
+      "depth_m": 403.0
     }
   ]
 }

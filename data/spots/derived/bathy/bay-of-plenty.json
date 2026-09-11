@@ -1,17 +1,17 @@
 {
   "spot": "bay-of-plenty",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -29.8546,
     31.0418
   ],
   "bearing_seaward_deg": 72.0,
   "nearshore_depth_m": 8.0,
-  "offshore_depth_m": 87.0,
-  "mean_slope_m_per_km": 4.45,
+  "offshore_depth_m": 73.0,
+  "mean_slope_m_per_km": 3.66,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
@@ -24,25 +24,25 @@
       "dist_km": 0.5,
       "lat": -29.85321,
       "lon": 31.04673,
-      "depth_m": 8.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 1.0,
       "lat": -29.85182,
       "lon": 31.05166,
-      "depth_m": 13.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 2.0,
       "lat": -29.84904,
       "lon": 31.06152,
-      "depth_m": 15.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 3.0,
       "lat": -29.84626,
       "lon": 31.07138,
-      "depth_m": 20.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 5.0,
@@ -54,7 +54,7 @@
       "dist_km": 8.0,
       "lat": -29.83234,
       "lon": 31.12068,
-      "depth_m": 35.0
+      "depth_m": 37.0
     },
     {
       "dist_km": 12.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": -29.80446,
       "lon": 31.21922,
-      "depth_m": 87.0
+      "depth_m": 73.0
     }
   ]
 }

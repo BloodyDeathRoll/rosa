@@ -1,72 +1,72 @@
 {
   "spot": "hangover-bay",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -30.593,
     115.1039
   ],
   "bearing_seaward_deg": 226.0,
-  "nearshore_depth_m": -3.0,
-  "offshore_depth_m": 38.0,
-  "mean_slope_m_per_km": 2.31,
-  "land_samples": 3,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 39.0,
+  "mean_slope_m_per_km": 2.14,
+  "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
-  "deepest_is_reference": true,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -30.59456,
       "lon": 115.10202,
-      "depth_m": -3.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": -30.59612,
       "lon": 115.10014,
-      "depth_m": -3.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 1.0,
       "lat": -30.59925,
       "lon": 115.09638,
-      "depth_m": -1.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 2.0,
       "lat": -30.60549,
       "lon": 115.08887,
-      "depth_m": 3.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 3.0,
       "lat": -30.61174,
       "lon": 115.08135,
-      "depth_m": 7.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 5.0,
       "lat": -30.62423,
       "lon": 115.06631,
-      "depth_m": 17.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 8.0,
       "lat": -30.64296,
       "lon": 115.04375,
-      "depth_m": 30.0
+      "depth_m": 32.0
     },
     {
       "dist_km": 12.0,
       "lat": -30.66794,
       "lon": 115.01365,
-      "depth_m": 37.0
+      "depth_m": 41.0
     },
     {
       "dist_km": 18.0,
       "lat": -30.70538,
       "lon": 114.96847,
-      "depth_m": 38.0
+      "depth_m": 39.0
     }
   ]
 }

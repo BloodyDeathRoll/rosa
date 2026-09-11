@@ -1,14 +1,14 @@
 {
   "spot": "kiryat-yam",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     32.8495,
     35.0623
   ],
   "bearing_seaward_deg": 294.0,
   "nearshore_depth_m": 6.0,
-  "offshore_depth_m": 181.0,
-  "mean_slope_m_per_km": 9.86,
+  "offshore_depth_m": 191.0,
+  "mean_slope_m_per_km": 10.42,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -24,7 +24,7 @@
       "dist_km": 0.5,
       "lat": 32.85133,
       "lon": 35.05741,
-      "depth_m": 8.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 1.0,
@@ -36,19 +36,19 @@
       "dist_km": 2.0,
       "lat": 32.85681,
       "lon": 35.04274,
-      "depth_m": 15.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 3.0,
       "lat": 32.86047,
       "lon": 35.03296,
-      "depth_m": 18.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 5.0,
       "lat": 32.86778,
       "lon": 35.01339,
-      "depth_m": 25.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 8.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 32.89334,
       "lon": 34.94489,
-      "depth_m": 37.0
+      "depth_m": 38.0
     },
     {
       "dist_km": 18.0,
       "lat": 32.91522,
       "lon": 34.88614,
-      "depth_m": 181.0
+      "depth_m": 191.0
     }
   ]
 }

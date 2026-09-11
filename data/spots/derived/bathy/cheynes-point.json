@@ -1,15 +1,15 @@
 {
   "spot": "cheynes-point",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -34.8791,
     118.4081
   ],
   "bearing_seaward_deg": 90.0,
-  "nearshore_depth_m": -10.0,
+  "nearshore_depth_m": 13.0,
   "offshore_depth_m": 64.0,
-  "mean_slope_m_per_km": 4.17,
-  "land_samples": 3,
+  "mean_slope_m_per_km": 2.87,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,43 +18,43 @@
       "dist_km": 0.25,
       "lat": -34.8791,
       "lon": 118.41084,
-      "depth_m": -10.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 0.5,
       "lat": -34.8791,
       "lon": 118.41358,
-      "depth_m": -8.0
+      "depth_m": 24.0
     },
     {
       "dist_km": 1.0,
       "lat": -34.8791,
       "lon": 118.41906,
-      "depth_m": -3.0
+      "depth_m": 25.0
     },
     {
       "dist_km": 2.0,
       "lat": -34.8791,
       "lon": 118.43003,
-      "depth_m": 4.0
+      "depth_m": 33.0
     },
     {
       "dist_km": 3.0,
       "lat": -34.8791,
       "lon": 118.44099,
-      "depth_m": 8.0
+      "depth_m": 35.0
     },
     {
       "dist_km": 5.0,
       "lat": -34.87909,
       "lon": 118.46291,
-      "depth_m": 21.0
+      "depth_m": 42.0
     },
     {
       "dist_km": 8.0,
       "lat": -34.87907,
       "lon": 118.4958,
-      "depth_m": 45.0
+      "depth_m": 51.0
     },
     {
       "dist_km": 12.0,

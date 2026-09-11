@@ -1,14 +1,14 @@
 {
   "spot": "praa-sands",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     50.1021,
     -5.3883
   ],
   "bearing_seaward_deg": 201.0,
-  "nearshore_depth_m": -2.0,
+  "nearshore_depth_m": -10.0,
   "offshore_depth_m": 62.0,
-  "mean_slope_m_per_km": 3.61,
+  "mean_slope_m_per_km": 4.06,
   "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 1,
@@ -18,7 +18,7 @@
       "dist_km": 0.25,
       "lat": 50.1,
       "lon": -5.38956,
-      "depth_m": -2.0
+      "depth_m": -10.0
     },
     {
       "dist_km": 0.5,
@@ -30,7 +30,7 @@
       "dist_km": 1.0,
       "lat": 50.0937,
       "lon": -5.39332,
-      "depth_m": 14.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 2.0,
@@ -48,19 +48,19 @@
       "dist_km": 5.0,
       "lat": 50.06012,
       "lon": -5.4134,
-      "depth_m": 24.0
+      "depth_m": 23.0
     },
     {
       "dist_km": 8.0,
       "lat": 50.03493,
       "lon": -5.42844,
-      "depth_m": 36.0
+      "depth_m": 37.0
     },
     {
       "dist_km": 12.0,
       "lat": 50.00133,
       "lon": -5.44847,
-      "depth_m": 52.0
+      "depth_m": 54.0
     },
     {
       "dist_km": 18.0,

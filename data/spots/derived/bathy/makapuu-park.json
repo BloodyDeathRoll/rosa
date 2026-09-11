@@ -1,15 +1,15 @@
 {
   "spot": "makapuu-park",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     21.3118,
     -157.6601
   ],
   "bearing_seaward_deg": 59.0,
-  "nearshore_depth_m": -30.0,
-  "offshore_depth_m": 733.0,
-  "mean_slope_m_per_km": 42.99,
-  "land_samples": 2,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 738.0,
+  "mean_slope_m_per_km": 41.13,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 21.31296,
       "lon": -157.65803,
-      "depth_m": -30.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 0.5,
       "lat": 21.31412,
       "lon": -157.65596,
-      "depth_m": -4.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 1.0,
       "lat": 21.31643,
       "lon": -157.65183,
-      "depth_m": 18.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 2.0,
       "lat": 21.32106,
       "lon": -157.64355,
-      "depth_m": 43.0
+      "depth_m": 35.0
     },
     {
       "dist_km": 3.0,
       "lat": 21.32569,
       "lon": -157.63527,
-      "depth_m": 53.0
+      "depth_m": 58.0
     },
     {
       "dist_km": 5.0,
       "lat": 21.33495,
       "lon": -157.61872,
-      "depth_m": 132.0
+      "depth_m": 202.0
     },
     {
       "dist_km": 8.0,
       "lat": 21.34884,
       "lon": -157.59389,
-      "depth_m": 448.0
+      "depth_m": 417.0
     },
     {
       "dist_km": 12.0,
       "lat": 21.36735,
       "lon": -157.56077,
-      "depth_m": 587.0
+      "depth_m": 613.0
     },
     {
       "dist_km": 18.0,
       "lat": 21.39511,
       "lon": -157.51107,
-      "depth_m": 733.0
+      "depth_m": 738.0
     }
   ]
 }

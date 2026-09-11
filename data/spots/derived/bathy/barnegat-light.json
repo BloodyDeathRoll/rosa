@@ -1,6 +1,6 @@
 {
   "spot": "barnegat-light",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     39.7563,
     -74.0988
@@ -11,7 +11,7 @@
   "mean_slope_m_per_km": 1.18,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 2,
   "deepest_is_reference": true,
   "samples": [
     {
@@ -30,7 +30,7 @@
       "dist_km": 1.0,
       "lat": 39.74962,
       "lon": -74.09097,
-      "depth_m": 6.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 2.0,
@@ -42,7 +42,7 @@
       "dist_km": 3.0,
       "lat": 39.73625,
       "lon": -74.07532,
-      "depth_m": 11.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 5.0,

@@ -1,15 +1,15 @@
 {
   "spot": "cabrillo-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     33.709,
     -118.2832
   ],
   "bearing_seaward_deg": 190.0,
-  "nearshore_depth_m": 3.0,
-  "offshore_depth_m": 871.0,
-  "mean_slope_m_per_km": 48.9,
-  "land_samples": 0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 878.0,
+  "mean_slope_m_per_km": 49.46,
+  "land_samples": 2,
   "missing_samples": 0,
   "non_monotone_samples": 1,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 33.70679,
       "lon": -118.28367,
-      "depth_m": 3.0
+      "depth_m": -0.0
     },
     {
       "dist_km": 0.5,
       "lat": 33.70457,
       "lon": -118.28414,
-      "depth_m": 7.0
+      "depth_m": -0.0
     },
     {
       "dist_km": 1.0,
       "lat": 33.70014,
       "lon": -118.28508,
-      "depth_m": 18.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 2.0,
       "lat": 33.69129,
       "lon": -118.28695,
-      "depth_m": 28.0
+      "depth_m": 35.0
     },
     {
       "dist_km": 3.0,
       "lat": 33.68243,
       "lon": -118.28883,
-      "depth_m": 39.0
+      "depth_m": 45.0
     },
     {
       "dist_km": 5.0,
       "lat": 33.66472,
       "lon": -118.29258,
-      "depth_m": 57.0
+      "depth_m": 104.0
     },
     {
       "dist_km": 8.0,
       "lat": 33.63815,
       "lon": -118.29821,
-      "depth_m": 533.0
+      "depth_m": 565.0
     },
     {
       "dist_km": 12.0,
       "lat": 33.60272,
       "lon": -118.3057,
-      "depth_m": 435.0
+      "depth_m": 461.0
     },
     {
       "dist_km": 18.0,
       "lat": 33.54958,
       "lon": -118.31693,
-      "depth_m": 871.0
+      "depth_m": 878.0
     }
   ]
 }

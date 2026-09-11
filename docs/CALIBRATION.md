@@ -2914,3 +2914,36 @@ So the candidate is a **ray that extends until it finds deep water** rather than
 a fixed 18 km - which is a change to how every profile is cut, not a per-spot fix, and wants
 its own pre-registered question and both A/Bs. Note it cannot be unbounded: new-brighton
 needs more than 120 km, and a 120 km ray is no longer a shore normal in any useful sense.
+
+## 2026-09-11 - the seabed swap APPLIED: every profile cut from the local GEBCO 2024 grid
+
+The 2026-09-09 entry left the swap one decision away: the swap had passed on merit, and only
+two rays blocked it. Seeding north-east Brazil tipped it. There the `gebco2020` API reads the shelf
+as **exactly 0.0 m for kilometres**. Off Tourinhos (RN), at 2 / 5 / 8 / 12 / 18 km due north, the
+API gives 0.0 at every point while the local grid gives -6 / -6 / -8 / -12 / -18 m. The profiles
+still ended in water, but their nearshore was the API's zeros, not the seabed. The user approved
+the swap and the two coordinate calls.
+
+**The two rays:**
+- `fort-point`: seaward 303 -> 275, straight out the Golden Gate, which is the nearest fully wet
+  bearing the 2026-09-09 sweep found. The new profile has no land samples and is 29 m deep at
+  18 km.
+- `lebih`: seaward 139 -> 184, the only open lane south through the Badung Strait; every bearing
+  east of it ends on Nusa Penida. It reaches 171 m at 18 km, with one land sample at 0.25 km (the
+  shoreline cell).
+
+Both spots' swell windows and tide constants were re-derived.
+
+**Applied:** `bathy --all --source local` re-cut all 1947 profiles in about 3 s (the 1408 existing
+ones changed; the 539 seeded 2026-09-10/11 were already re-cut). `--source local` is now the
+CLI default, so a new spot can no longer be cut from the other grid by accident. 601 tests pass,
+including `test_committed_profiles_reach_open_water`. No other spot ends on land.
+
+**Height impact:** not re-measured today. The 2026-09-09 same-input fleet A/B between the two cuts,
+at the shipped friction, was mean -0.009 m (groundswell) and +0.012 m (long swell), with 9.7% / 7.0%
+of spot-hours changing bucket. The local cut won the frames 2-1, and the watched reef spots went
+from 10 flat to 1. The only difference from that A/B is the two re-aimed rays. The first VM cycle
+after the push is the smoke check (per the pipeline-change rule, verify from the CDN).
+
+`bathy_elevations.json` is an OpenTopoData capture for `bathy --fixtures` replay. It no longer
+matches the committed profiles, and nothing on the publish path reads it.

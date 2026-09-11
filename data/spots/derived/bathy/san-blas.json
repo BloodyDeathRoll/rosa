@@ -1,14 +1,14 @@
 {
   "spot": "san-blas",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     13.487,
     -89.3613
   ],
   "bearing_seaward_deg": 202.0,
-  "nearshore_depth_m": -4.0,
-  "offshore_depth_m": 54.0,
-  "mean_slope_m_per_km": 3.27,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 55.0,
+  "mean_slope_m_per_km": 3.66,
   "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,19 +18,19 @@
       "dist_km": 0.25,
       "lat": 13.48492,
       "lon": -89.36217,
-      "depth_m": -4.0
+      "depth_m": -10.0
     },
     {
       "dist_km": 0.5,
       "lat": 13.48283,
       "lon": -89.36303,
-      "depth_m": 5.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 1.0,
       "lat": 13.47866,
       "lon": -89.36476,
-      "depth_m": 14.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 2.0,
@@ -42,7 +42,7 @@
       "dist_km": 3.0,
       "lat": 13.46198,
       "lon": -89.37169,
-      "depth_m": 22.0
+      "depth_m": 23.0
     },
     {
       "dist_km": 5.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 13.38694,
       "lon": -89.40286,
-      "depth_m": 45.0
+      "depth_m": 46.0
     },
     {
       "dist_km": 18.0,
       "lat": 13.3369,
       "lon": -89.42362,
-      "depth_m": 54.0
+      "depth_m": 55.0
     }
   ]
 }

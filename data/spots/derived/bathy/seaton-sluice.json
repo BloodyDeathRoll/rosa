@@ -1,14 +1,14 @@
 {
   "spot": "seaton-sluice",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     55.088,
     -1.4788
   ],
   "bearing_seaward_deg": 59.0,
   "nearshore_depth_m": 2.0,
-  "offshore_depth_m": 66.0,
-  "mean_slope_m_per_km": 3.61,
+  "offshore_depth_m": 65.0,
+  "mean_slope_m_per_km": 3.55,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -24,7 +24,7 @@
       "dist_km": 0.5,
       "lat": 55.09032,
       "lon": -1.47206,
-      "depth_m": 5.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 1.0,
@@ -36,13 +36,13 @@
       "dist_km": 2.0,
       "lat": 55.09726,
       "lon": -1.45186,
-      "depth_m": 19.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 3.0,
       "lat": 55.10189,
       "lon": -1.43838,
-      "depth_m": 27.0
+      "depth_m": 24.0
     },
     {
       "dist_km": 5.0,
@@ -54,7 +54,7 @@
       "dist_km": 8.0,
       "lat": 55.12501,
       "lon": -1.37095,
-      "depth_m": 45.0
+      "depth_m": 44.0
     },
     {
       "dist_km": 12.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 55.17113,
       "lon": -1.23585,
-      "depth_m": 66.0
+      "depth_m": 65.0
     }
   ]
 }

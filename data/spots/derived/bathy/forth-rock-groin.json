@@ -1,13 +1,13 @@
 {
   "spot": "forth-rock-groin",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -32.5062,
     115.735
   ],
   "bearing_seaward_deg": 292.0,
-  "nearshore_depth_m": 3.0,
-  "offshore_depth_m": 27.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 31.0,
   "mean_slope_m_per_km": 1.35,
   "land_samples": 0,
   "missing_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": -32.50536,
       "lon": 115.73253,
-      "depth_m": 3.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 0.5,
       "lat": -32.50452,
       "lon": 115.73006,
-      "depth_m": 5.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 1.0,
       "lat": -32.50283,
       "lon": 115.72511,
-      "depth_m": 4.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 2.0,
       "lat": -32.49946,
       "lon": 115.71523,
-      "depth_m": 8.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 3.0,
       "lat": -32.49609,
       "lon": 115.70534,
-      "depth_m": 9.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 5.0,
       "lat": -32.48935,
       "lon": 115.68557,
-      "depth_m": 10.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 8.0,
       "lat": -32.47922,
       "lon": 115.65592,
-      "depth_m": 12.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 12.0,
       "lat": -32.46572,
       "lon": 115.6164,
-      "depth_m": 16.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 18.0,
       "lat": -32.44543,
       "lon": 115.55715,
-      "depth_m": 27.0
+      "depth_m": 31.0
     }
   ]
 }

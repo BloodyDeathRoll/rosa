@@ -1,6 +1,6 @@
 {
   "spot": "boulder-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -28.8191,
     153.6038
@@ -24,7 +24,7 @@
       "dist_km": 0.5,
       "lat": -28.8184,
       "lon": 153.60887,
-      "depth_m": 4.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 1.0,
@@ -36,7 +36,7 @@
       "dist_km": 2.0,
       "lat": -28.81628,
       "lon": 153.62408,
-      "depth_m": 25.0
+      "depth_m": 28.0
     },
     {
       "dist_km": 3.0,
@@ -48,19 +48,19 @@
       "dist_km": 5.0,
       "lat": -28.81206,
       "lon": 153.65449,
-      "depth_m": 53.0
+      "depth_m": 55.0
     },
     {
       "dist_km": 8.0,
       "lat": -28.80782,
       "lon": 153.6849,
-      "depth_m": 56.0
+      "depth_m": 58.0
     },
     {
       "dist_km": 12.0,
       "lat": -28.80216,
       "lon": 153.72544,
-      "depth_m": 65.0
+      "depth_m": 70.0
     },
     {
       "dist_km": 18.0,

@@ -1,14 +1,14 @@
 {
   "spot": "bat-yam",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     32.0195,
     34.7356
   ],
   "bearing_seaward_deg": 281.0,
-  "nearshore_depth_m": 7.0,
-  "offshore_depth_m": 263.0,
-  "mean_slope_m_per_km": 14.42,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 272.0,
+  "mean_slope_m_per_km": 14.7,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,25 +18,25 @@
       "dist_km": 0.25,
       "lat": 32.01993,
       "lon": 34.733,
-      "depth_m": 7.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 0.5,
       "lat": 32.02036,
       "lon": 34.73039,
-      "depth_m": 10.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 1.0,
       "lat": 32.02122,
       "lon": 34.72519,
-      "depth_m": 16.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 2.0,
       "lat": 32.02293,
       "lon": 34.71478,
-      "depth_m": 30.0
+      "depth_m": 31.0
     },
     {
       "dist_km": 3.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 32.04003,
       "lon": 34.61063,
-      "depth_m": 74.0
+      "depth_m": 75.0
     },
     {
       "dist_km": 18.0,
       "lat": 32.05025,
       "lon": 34.54812,
-      "depth_m": 263.0
+      "depth_m": 272.0
     }
   ]
 }

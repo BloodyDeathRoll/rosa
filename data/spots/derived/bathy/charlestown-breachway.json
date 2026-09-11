@@ -1,15 +1,15 @@
 {
   "spot": "charlestown-breachway",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     41.3567,
     -71.6376
   ],
   "bearing_seaward_deg": 180.0,
-  "nearshore_depth_m": 1.0,
-  "offshore_depth_m": 32.0,
-  "mean_slope_m_per_km": 1.75,
-  "land_samples": 0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 33.0,
+  "mean_slope_m_per_km": 2.08,
+  "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 1,
   "deepest_is_reference": false,
@@ -18,7 +18,7 @@
       "dist_km": 0.25,
       "lat": 41.35445,
       "lon": -71.6376,
-      "depth_m": 1.0
+      "depth_m": -4.0
     },
     {
       "dist_km": 0.5,
@@ -36,37 +36,37 @@
       "dist_km": 2.0,
       "lat": 41.33871,
       "lon": -71.6376,
-      "depth_m": 14.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 3.0,
       "lat": 41.32972,
       "lon": -71.6376,
-      "depth_m": 15.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 5.0,
       "lat": 41.31173,
       "lon": -71.6376,
-      "depth_m": 22.0
+      "depth_m": 23.0
     },
     {
       "dist_km": 8.0,
       "lat": 41.28475,
       "lon": -71.6376,
-      "depth_m": 36.0
+      "depth_m": 38.0
     },
     {
       "dist_km": 12.0,
       "lat": 41.24878,
       "lon": -71.6376,
-      "depth_m": 37.0
+      "depth_m": 39.0
     },
     {
       "dist_km": 18.0,
       "lat": 41.19482,
       "lon": -71.6376,
-      "depth_m": 32.0
+      "depth_m": 33.0
     }
   ]
 }

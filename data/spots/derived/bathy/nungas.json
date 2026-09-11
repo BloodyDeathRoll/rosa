@@ -1,15 +1,15 @@
 {
   "spot": "nungas",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -8.8132,
     118.3782
   ],
   "bearing_seaward_deg": 196.0,
   "nearshore_depth_m": -7.0,
-  "offshore_depth_m": 642.0,
-  "mean_slope_m_per_km": 36.56,
-  "land_samples": 5,
+  "offshore_depth_m": 813.0,
+  "mean_slope_m_per_km": 46.2,
+  "land_samples": 3,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -24,49 +24,49 @@
       "dist_km": 0.5,
       "lat": -8.81752,
       "lon": 118.37695,
-      "depth_m": -5.0
+      "depth_m": -6.0
     },
     {
       "dist_km": 1.0,
       "lat": -8.82184,
       "lon": 118.37569,
-      "depth_m": 4.0
+      "depth_m": -4.0
     },
     {
       "dist_km": 2.0,
       "lat": -8.83049,
       "lon": 118.37318,
-      "depth_m": -3.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 3.0,
       "lat": -8.83913,
       "lon": 118.37067,
-      "depth_m": -1.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 5.0,
       "lat": -8.85642,
       "lon": 118.36566,
-      "depth_m": -5.0
+      "depth_m": 32.0
     },
     {
       "dist_km": 8.0,
       "lat": -8.88236,
       "lon": 118.35813,
-      "depth_m": 17.0
+      "depth_m": 106.0
     },
     {
       "dist_km": 12.0,
       "lat": -8.91694,
       "lon": 118.34809,
-      "depth_m": 293.0
+      "depth_m": 444.0
     },
     {
       "dist_km": 18.0,
       "lat": -8.9688,
       "lon": 118.33303,
-      "depth_m": 642.0
+      "depth_m": 813.0
     }
   ]
 }

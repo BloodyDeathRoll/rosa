@@ -1,72 +1,72 @@
 {
   "spot": "turtles",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -7.3696,
     106.3963
   ],
   "bearing_seaward_deg": 275.0,
-  "nearshore_depth_m": 271.0,
-  "offshore_depth_m": 300.0,
-  "mean_slope_m_per_km": 1.63,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 358.0,
+  "mean_slope_m_per_km": 19.77,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 6,
+  "non_monotone_samples": 2,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -7.3694,
       "lon": 106.39404,
-      "depth_m": 271.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 0.5,
       "lat": -7.36921,
       "lon": 106.39178,
-      "depth_m": 286.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 1.0,
       "lat": -7.36882,
       "lon": 106.38727,
-      "depth_m": 269.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 2.0,
       "lat": -7.36803,
       "lon": 106.37823,
-      "depth_m": 223.0
+      "depth_m": 57.0
     },
     {
       "dist_km": 3.0,
       "lat": -7.36725,
       "lon": 106.3692,
-      "depth_m": 174.0
+      "depth_m": 87.0
     },
     {
       "dist_km": 5.0,
       "lat": -7.36568,
       "lon": 106.35113,
-      "depth_m": 98.0
+      "depth_m": 119.0
     },
     {
       "dist_km": 8.0,
       "lat": -7.36332,
       "lon": 106.32403,
-      "depth_m": 73.0
+      "depth_m": 118.0
     },
     {
       "dist_km": 12.0,
       "lat": -7.36018,
       "lon": 106.2879,
-      "depth_m": 71.0
+      "depth_m": 84.0
     },
     {
       "dist_km": 18.0,
       "lat": -7.35546,
       "lon": 106.2337,
-      "depth_m": 300.0
+      "depth_m": 358.0
     }
   ]
 }

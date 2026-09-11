@@ -1,14 +1,14 @@
 {
   "spot": "ballona-creek",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     33.9597,
     -118.4547
   ],
   "bearing_seaward_deg": 215.0,
-  "nearshore_depth_m": 4.0,
-  "offshore_depth_m": 227.0,
-  "mean_slope_m_per_km": 12.56,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 209.0,
+  "mean_slope_m_per_km": 11.15,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,31 +18,31 @@
       "dist_km": 0.25,
       "lat": 33.95786,
       "lon": -118.45625,
-      "depth_m": 4.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 0.5,
       "lat": 33.95602,
       "lon": -118.45781,
-      "depth_m": 7.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 1.0,
       "lat": 33.95233,
       "lon": -118.46092,
-      "depth_m": 12.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 2.0,
       "lat": 33.94497,
       "lon": -118.46714,
-      "depth_m": 20.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 3.0,
       "lat": 33.9376,
       "lon": -118.47335,
-      "depth_m": 26.0
+      "depth_m": 24.0
     },
     {
       "dist_km": 5.0,
@@ -54,19 +54,19 @@
       "dist_km": 8.0,
       "lat": 33.90076,
       "lon": -118.50442,
-      "depth_m": 56.0
+      "depth_m": 55.0
     },
     {
       "dist_km": 12.0,
       "lat": 33.87128,
       "lon": -118.52925,
-      "depth_m": 72.0
+      "depth_m": 71.0
     },
     {
       "dist_km": 18.0,
       "lat": 33.82705,
       "lon": -118.56647,
-      "depth_m": 227.0
+      "depth_m": 209.0
     }
   ]
 }

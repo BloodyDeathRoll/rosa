@@ -1,72 +1,72 @@
 {
   "spot": "graveyards",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -20.53,
     57.51
   ],
   "bearing_seaward_deg": 88.0,
-  "nearshore_depth_m": 143.0,
-  "offshore_depth_m": 1351.0,
-  "mean_slope_m_per_km": 68.06,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 1273.0,
+  "mean_slope_m_per_km": 71.66,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 2,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -20.52992,
       "lon": 57.5124,
-      "depth_m": 143.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": -20.52984,
       "lon": 57.5148,
-      "depth_m": 291.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 1.0,
       "lat": -20.52969,
       "lon": 57.5196,
-      "depth_m": 11.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 2.0,
       "lat": -20.52937,
       "lon": 57.52919,
-      "depth_m": 25.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 3.0,
       "lat": -20.52906,
       "lon": 57.53879,
-      "depth_m": 78.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 5.0,
       "lat": -20.52842,
       "lon": 57.55799,
-      "depth_m": 57.0
+      "depth_m": 79.0
     },
     {
       "dist_km": 8.0,
       "lat": -20.52747,
       "lon": 57.58678,
-      "depth_m": 303.0
+      "depth_m": 226.0
     },
     {
       "dist_km": 12.0,
       "lat": -20.5262,
       "lon": 57.62516,
-      "depth_m": 574.0
+      "depth_m": 697.0
     },
     {
       "dist_km": 18.0,
       "lat": -20.52427,
       "lon": 57.68274,
-      "depth_m": 1351.0
+      "depth_m": 1273.0
     }
   ]
 }

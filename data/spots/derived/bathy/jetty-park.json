@@ -1,48 +1,48 @@
 {
   "spot": "jetty-park",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     28.4076,
     -80.5891
   ],
   "bearing_seaward_deg": 113.0,
-  "nearshore_depth_m": -0.0,
+  "nearshore_depth_m": 12.0,
   "offshore_depth_m": 14.0,
-  "mean_slope_m_per_km": 0.79,
-  "land_samples": 1,
+  "mean_slope_m_per_km": 0.11,
+  "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 3,
   "deepest_is_reference": false,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 28.40672,
       "lon": -80.58675,
-      "depth_m": -0.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 0.5,
       "lat": 28.40584,
       "lon": -80.58439,
-      "depth_m": 4.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 1.0,
       "lat": 28.40409,
       "lon": -80.57969,
-      "depth_m": 7.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 2.0,
       "lat": 28.40057,
       "lon": -80.57028,
-      "depth_m": 9.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 3.0,
       "lat": 28.39706,
       "lon": -80.56087,
-      "depth_m": 10.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 5.0,
@@ -54,7 +54,7 @@
       "dist_km": 8.0,
       "lat": 28.37947,
       "lon": -80.51383,
-      "depth_m": 13.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 12.0,

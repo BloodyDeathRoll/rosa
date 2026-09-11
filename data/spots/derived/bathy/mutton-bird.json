@@ -1,72 +1,72 @@
 {
   "spot": "mutton-bird",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -35.048,
     117.6936
   ],
   "bearing_seaward_deg": 230.0,
-  "nearshore_depth_m": 1.0,
-  "offshore_depth_m": 55.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 57.0,
   "mean_slope_m_per_km": 3.04,
-  "land_samples": 2,
+  "land_samples": 1,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
-  "deepest_is_reference": true,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -35.04945,
       "lon": 117.6915,
-      "depth_m": 1.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 0.5,
       "lat": -35.05089,
       "lon": 117.68939,
-      "depth_m": 2.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 1.0,
       "lat": -35.05378,
       "lon": 117.68518,
-      "depth_m": 3.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 2.0,
       "lat": -35.05956,
       "lon": 117.67677,
-      "depth_m": 6.0
+      "depth_m": 23.0
     },
     {
       "dist_km": 3.0,
       "lat": -35.06534,
       "lon": 117.66835,
-      "depth_m": 5.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 5.0,
       "lat": -35.0769,
       "lon": 117.65151,
-      "depth_m": -4.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 8.0,
       "lat": -35.09423,
       "lon": 117.62624,
-      "depth_m": -147.0
+      "depth_m": -149.0
     },
     {
       "dist_km": 12.0,
       "lat": -35.11733,
       "lon": 117.59253,
-      "depth_m": 25.0
+      "depth_m": 60.0
     },
     {
       "dist_km": 18.0,
       "lat": -35.15196,
       "lon": 117.54194,
-      "depth_m": 55.0
+      "depth_m": 57.0
     }
   ]
 }

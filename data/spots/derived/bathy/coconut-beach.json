@@ -1,42 +1,42 @@
 {
   "spot": "coconut-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     6.8842,
     81.8431
   ],
   "bearing_seaward_deg": 90.0,
-  "nearshore_depth_m": -1.0,
-  "offshore_depth_m": 275.0,
-  "mean_slope_m_per_km": 15.55,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 1.0,
+  "mean_slope_m_per_km": 0.17,
   "land_samples": 1,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
-  "deepest_is_reference": true,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 6.8842,
       "lon": 81.84536,
-      "depth_m": -1.0
+      "depth_m": -2.0
     },
     {
       "dist_km": 0.5,
       "lat": 6.8842,
       "lon": 81.84763,
-      "depth_m": 4.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 1.0,
       "lat": 6.8842,
       "lon": 81.85216,
-      "depth_m": 8.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 2.0,
       "lat": 6.8842,
       "lon": 81.86122,
-      "depth_m": 12.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 3.0,
@@ -48,25 +48,25 @@
       "dist_km": 5.0,
       "lat": 6.8842,
       "lon": 81.88839,
-      "depth_m": 15.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 8.0,
       "lat": 6.88419,
       "lon": 81.91557,
-      "depth_m": 20.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 12.0,
       "lat": 6.88419,
       "lon": 81.9518,
-      "depth_m": 51.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 18.0,
       "lat": 6.88417,
       "lon": 82.00615,
-      "depth_m": 275.0
+      "depth_m": 1.0
     }
   ]
 }

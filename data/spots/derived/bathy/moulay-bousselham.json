@@ -1,14 +1,14 @@
 {
   "spot": "moulay-bousselham",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     34.8741,
     -6.3002
   ],
   "bearing_seaward_deg": 303.0,
-  "nearshore_depth_m": -5.0,
-  "offshore_depth_m": 128.0,
-  "mean_slope_m_per_km": 7.49,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 127.0,
+  "mean_slope_m_per_km": 7.66,
   "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,43 +18,43 @@
       "dist_km": 0.25,
       "lat": 34.87532,
       "lon": -6.3025,
-      "depth_m": -5.0
+      "depth_m": -9.0
     },
     {
       "dist_km": 0.5,
       "lat": 34.87655,
       "lon": -6.3048,
-      "depth_m": 1.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 1.0,
       "lat": 34.879,
       "lon": -6.30939,
-      "depth_m": 9.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 2.0,
       "lat": 34.88389,
       "lon": -6.31859,
-      "depth_m": 24.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 3.0,
       "lat": 34.88879,
       "lon": -6.32779,
-      "depth_m": 43.0
+      "depth_m": 38.0
     },
     {
       "dist_km": 5.0,
       "lat": 34.89858,
       "lon": -6.34618,
-      "depth_m": 75.0
+      "depth_m": 58.0
     },
     {
       "dist_km": 8.0,
       "lat": 34.91326,
       "lon": -6.37378,
-      "depth_m": 90.0
+      "depth_m": 81.0
     },
     {
       "dist_km": 12.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 34.96215,
       "lon": -6.46586,
-      "depth_m": 128.0
+      "depth_m": 127.0
     }
   ]
 }

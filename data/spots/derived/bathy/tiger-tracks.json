@@ -1,72 +1,72 @@
 {
   "spot": "tiger-tracks",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -8.707,
     114.3755
   ],
   "bearing_seaward_deg": 240.0,
-  "nearshore_depth_m": -9.0,
-  "offshore_depth_m": 159.0,
-  "mean_slope_m_per_km": 9.46,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 92.0,
+  "mean_slope_m_per_km": 5.46,
   "land_samples": 3,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -8.70812,
       "lon": 114.37353,
-      "depth_m": -9.0
+      "depth_m": -5.0
     },
     {
       "dist_km": 0.5,
       "lat": -8.70925,
       "lon": 114.37156,
-      "depth_m": -5.0
+      "depth_m": -7.0
     },
     {
       "dist_km": 1.0,
       "lat": -8.7115,
       "lon": 114.36762,
-      "depth_m": -1.0
+      "depth_m": -0.0
     },
     {
       "dist_km": 2.0,
       "lat": -8.71599,
       "lon": 114.35974,
-      "depth_m": 5.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 3.0,
       "lat": -8.72049,
       "lon": 114.35186,
-      "depth_m": 10.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 5.0,
       "lat": -8.72948,
       "lon": 114.3361,
-      "depth_m": 14.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 8.0,
       "lat": -8.74297,
       "lon": 114.31246,
-      "depth_m": 48.0
+      "depth_m": 35.0
     },
     {
       "dist_km": 12.0,
       "lat": -8.76095,
       "lon": 114.28094,
-      "depth_m": 76.0
+      "depth_m": 42.0
     },
     {
       "dist_km": 18.0,
       "lat": -8.78791,
       "lon": 114.23364,
-      "depth_m": 159.0
+      "depth_m": 92.0
     }
   ]
 }

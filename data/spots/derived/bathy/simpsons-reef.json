@@ -1,14 +1,14 @@
 {
   "spot": "simpsons-reef",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     43.3124,
     -124.396
   ],
   "bearing_seaward_deg": 273.0,
-  "nearshore_depth_m": -21.0,
-  "offshore_depth_m": 135.0,
-  "mean_slope_m_per_km": 8.79,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 139.0,
+  "mean_slope_m_per_km": 8.51,
   "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,19 +18,19 @@
       "dist_km": 0.25,
       "lat": 43.31252,
       "lon": -124.39909,
-      "depth_m": -21.0
+      "depth_m": -12.0
     },
     {
       "dist_km": 0.5,
       "lat": 43.31264,
       "lon": -124.40217,
-      "depth_m": 1.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 1.0,
       "lat": 43.31287,
       "lon": -124.40834,
-      "depth_m": 20.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 2.0,
@@ -48,7 +48,7 @@
       "dist_km": 5.0,
       "lat": 43.31474,
       "lon": -124.45772,
-      "depth_m": 62.0
+      "depth_m": 63.0
     },
     {
       "dist_km": 8.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 43.31795,
       "lon": -124.54413,
-      "depth_m": 101.0
+      "depth_m": 107.0
     },
     {
       "dist_km": 18.0,
       "lat": 43.32066,
       "lon": -124.6182,
-      "depth_m": 135.0
+      "depth_m": 139.0
     }
   ]
 }

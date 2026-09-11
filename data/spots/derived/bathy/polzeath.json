@@ -1,15 +1,15 @@
 {
   "spot": "polzeath",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     50.5754,
     -4.9165
   ],
   "bearing_seaward_deg": 2.0,
-  "nearshore_depth_m": -22.0,
+  "nearshore_depth_m": -26.0,
   "offshore_depth_m": 46.0,
-  "mean_slope_m_per_km": 3.83,
-  "land_samples": 3,
+  "mean_slope_m_per_km": 4.06,
+  "land_samples": 2,
   "missing_samples": 0,
   "non_monotone_samples": 1,
   "deepest_is_reference": false,
@@ -18,31 +18,31 @@
       "dist_km": 0.25,
       "lat": 50.57765,
       "lon": -4.91638,
-      "depth_m": -22.0
+      "depth_m": -26.0
     },
     {
       "dist_km": 0.5,
       "lat": 50.57989,
       "lon": -4.91625,
-      "depth_m": -28.0
+      "depth_m": -35.0
     },
     {
       "dist_km": 1.0,
       "lat": 50.58439,
       "lon": -4.91601,
-      "depth_m": -5.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 2.0,
       "lat": 50.59338,
       "lon": -4.91551,
-      "depth_m": 2.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 3.0,
       "lat": 50.60236,
       "lon": -4.91502,
-      "depth_m": 36.0
+      "depth_m": 37.0
     },
     {
       "dist_km": 5.0,
@@ -60,7 +60,7 @@
       "dist_km": 12.0,
       "lat": 50.68325,
       "lon": -4.91056,
-      "depth_m": 47.0
+      "depth_m": 48.0
     },
     {
       "dist_km": 18.0,

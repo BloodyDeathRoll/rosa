@@ -1,72 +1,72 @@
 {
   "spot": "barra-de-navidad",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     19.2056,
     -104.6845
   ],
   "bearing_seaward_deg": 248.0,
-  "nearshore_depth_m": -18.0,
-  "offshore_depth_m": 335.0,
-  "mean_slope_m_per_km": 19.89,
-  "land_samples": 3,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 344.0,
+  "mean_slope_m_per_km": 20.0,
+  "land_samples": 5,
   "missing_samples": 0,
-  "non_monotone_samples": 2,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 19.20476,
       "lon": -104.68671,
-      "depth_m": -18.0
+      "depth_m": -11.0
     },
     {
       "dist_km": 0.5,
       "lat": 19.20392,
       "lon": -104.68891,
-      "depth_m": -33.0
+      "depth_m": -39.0
     },
     {
       "dist_km": 1.0,
       "lat": 19.20223,
       "lon": -104.69333,
-      "depth_m": -21.0
+      "depth_m": -36.0
     },
     {
       "dist_km": 2.0,
       "lat": 19.19886,
       "lon": -104.70216,
-      "depth_m": 84.0
+      "depth_m": -21.0
     },
     {
       "dist_km": 3.0,
       "lat": 19.19549,
       "lon": -104.71099,
-      "depth_m": 140.0
+      "depth_m": -0.0
     },
     {
       "dist_km": 5.0,
       "lat": 19.18875,
       "lon": -104.72864,
-      "depth_m": 90.0
+      "depth_m": 28.0
     },
     {
       "dist_km": 8.0,
       "lat": 19.17864,
       "lon": -104.75513,
-      "depth_m": 33.0
+      "depth_m": 90.0
     },
     {
       "dist_km": 12.0,
       "lat": 19.16514,
       "lon": -104.79043,
-      "depth_m": 147.0
+      "depth_m": 157.0
     },
     {
       "dist_km": 18.0,
       "lat": 19.14489,
       "lon": -104.84338,
-      "depth_m": 335.0
+      "depth_m": 344.0
     }
   ]
 }

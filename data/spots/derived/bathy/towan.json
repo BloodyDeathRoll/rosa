@@ -1,15 +1,15 @@
 {
   "spot": "towan",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     50.4161,
     -5.0845
   ],
   "bearing_seaward_deg": 350.0,
-  "nearshore_depth_m": -0.0,
-  "offshore_depth_m": 47.0,
-  "mean_slope_m_per_km": 2.65,
-  "land_samples": 1,
+  "nearshore_depth_m": -15.0,
+  "offshore_depth_m": 49.0,
+  "mean_slope_m_per_km": 3.61,
+  "land_samples": 2,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 50.41831,
       "lon": -5.08511,
-      "depth_m": -0.0
+      "depth_m": -15.0
     },
     {
       "dist_km": 0.5,
       "lat": 50.42053,
       "lon": -5.08573,
-      "depth_m": 4.0
+      "depth_m": -15.0
     },
     {
       "dist_km": 1.0,
       "lat": 50.42496,
       "lon": -5.08695,
-      "depth_m": 9.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 2.0,
       "lat": 50.43381,
       "lon": -5.0894,
-      "depth_m": 17.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 3.0,
       "lat": 50.44267,
       "lon": -5.09186,
-      "depth_m": 24.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 5.0,
       "lat": 50.46038,
       "lon": -5.09677,
-      "depth_m": 26.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 8.0,
       "lat": 50.48695,
       "lon": -5.10414,
-      "depth_m": 33.0
+      "depth_m": 32.0
     },
     {
       "dist_km": 12.0,
       "lat": 50.52238,
       "lon": -5.11398,
-      "depth_m": 37.0
+      "depth_m": 38.0
     },
     {
       "dist_km": 18.0,
       "lat": 50.57551,
       "lon": -5.12876,
-      "depth_m": 47.0
+      "depth_m": 49.0
     }
   ]
 }

@@ -1,14 +1,14 @@
 {
   "spot": "achziv",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     33.0443,
     35.099
   ],
   "bearing_seaward_deg": 286.0,
-  "nearshore_depth_m": 10.0,
-  "offshore_depth_m": 861.0,
-  "mean_slope_m_per_km": 47.94,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 869.0,
+  "mean_slope_m_per_km": 48.28,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 2,
@@ -18,7 +18,7 @@
       "dist_km": 0.25,
       "lat": 33.04492,
       "lon": 35.09642,
-      "depth_m": 10.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 0.5,
@@ -36,37 +36,37 @@
       "dist_km": 2.0,
       "lat": 33.04926,
       "lon": 35.07837,
-      "depth_m": 29.0
+      "depth_m": 31.0
     },
     {
       "dist_km": 3.0,
       "lat": 33.05173,
       "lon": 35.06806,
-      "depth_m": 44.0
+      "depth_m": 45.0
     },
     {
       "dist_km": 5.0,
       "lat": 33.05668,
       "lon": 35.04743,
-      "depth_m": 66.0
+      "depth_m": 77.0
     },
     {
       "dist_km": 8.0,
       "lat": 33.0641,
       "lon": 35.01648,
-      "depth_m": 432.0
+      "depth_m": 467.0
     },
     {
       "dist_km": 12.0,
       "lat": 33.07399,
       "lon": 34.9752,
-      "depth_m": 303.0
+      "depth_m": 281.0
     },
     {
       "dist_km": 18.0,
       "lat": 33.08878,
       "lon": 34.91327,
-      "depth_m": 861.0
+      "depth_m": 869.0
     }
   ]
 }

@@ -1,14 +1,14 @@
 {
   "spot": "zavial",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     37.0457,
     -8.8715
   ],
   "bearing_seaward_deg": 185.0,
-  "nearshore_depth_m": 2.0,
-  "offshore_depth_m": 115.0,
-  "mean_slope_m_per_km": 6.37,
+  "nearshore_depth_m": 17.0,
+  "offshore_depth_m": 116.0,
+  "mean_slope_m_per_km": 5.58,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 1,
@@ -18,13 +18,13 @@
       "dist_km": 0.25,
       "lat": 37.04346,
       "lon": -8.87175,
-      "depth_m": 2.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 0.5,
       "lat": 37.04122,
       "lon": -8.87199,
-      "depth_m": 8.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 1.0,
@@ -36,37 +36,37 @@
       "dist_km": 2.0,
       "lat": 37.02778,
       "lon": -8.87346,
-      "depth_m": 21.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 3.0,
       "lat": 37.01882,
       "lon": -8.87445,
-      "depth_m": 41.0
+      "depth_m": 43.0
     },
     {
       "dist_km": 5.0,
       "lat": 37.0009,
       "lon": -8.87641,
-      "depth_m": 71.0
+      "depth_m": 68.0
     },
     {
       "dist_km": 8.0,
       "lat": 36.97403,
       "lon": -8.87935,
-      "depth_m": 102.0
+      "depth_m": 80.0
     },
     {
       "dist_km": 12.0,
       "lat": 36.93819,
       "lon": -8.88327,
-      "depth_m": 91.0
+      "depth_m": 101.0
     },
     {
       "dist_km": 18.0,
       "lat": 36.88444,
       "lon": -8.88914,
-      "depth_m": 115.0
+      "depth_m": 116.0
     }
   ]
 }

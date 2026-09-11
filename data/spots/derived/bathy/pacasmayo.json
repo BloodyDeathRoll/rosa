@@ -1,72 +1,72 @@
 {
   "spot": "pacasmayo",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -7.4137,
     -79.5888
   ],
   "bearing_seaward_deg": 303.0,
-  "nearshore_depth_m": 1.0,
-  "offshore_depth_m": 38.0,
-  "mean_slope_m_per_km": 2.08,
-  "land_samples": 0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 46.0,
+  "mean_slope_m_per_km": 2.59,
+  "land_samples": 1,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
-  "deepest_is_reference": false,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -7.41248,
       "lon": -79.5907,
-      "depth_m": 1.0
+      "depth_m": -0.0
     },
     {
       "dist_km": 0.5,
       "lat": -7.41125,
       "lon": -79.5926,
-      "depth_m": 3.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 1.0,
       "lat": -7.4088,
       "lon": -79.59641,
-      "depth_m": 6.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 2.0,
       "lat": -7.4039,
       "lon": -79.60401,
-      "depth_m": 11.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 3.0,
       "lat": -7.39901,
       "lon": -79.61162,
-      "depth_m": 13.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 5.0,
       "lat": -7.38921,
       "lon": -79.62683,
-      "depth_m": 15.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 8.0,
       "lat": -7.37451,
       "lon": -79.64964,
-      "depth_m": 29.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 12.0,
       "lat": -7.35491,
       "lon": -79.68006,
-      "depth_m": 51.0
+      "depth_m": 36.0
     },
     {
       "dist_km": 18.0,
       "lat": -7.32551,
       "lon": -79.72568,
-      "depth_m": 38.0
+      "depth_m": 46.0
     }
   ]
 }

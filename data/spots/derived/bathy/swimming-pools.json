@@ -1,72 +1,72 @@
 {
   "spot": "swimming-pools",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -17.8416,
     177.1823
   ],
   "bearing_seaward_deg": 344.0,
-  "nearshore_depth_m": -11.0,
-  "offshore_depth_m": 28.0,
-  "mean_slope_m_per_km": 2.2,
-  "land_samples": 7,
+  "nearshore_depth_m": 84.0,
+  "offshore_depth_m": 8.0,
+  "mean_slope_m_per_km": -4.28,
+  "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
-  "deepest_is_reference": true,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -17.83944,
       "lon": 177.18165,
-      "depth_m": -11.0
+      "depth_m": 84.0
     },
     {
       "dist_km": 0.5,
       "lat": -17.83728,
       "lon": 177.181,
-      "depth_m": -10.0
+      "depth_m": 92.0
     },
     {
       "dist_km": 1.0,
       "lat": -17.83296,
       "lon": 177.1797,
-      "depth_m": -7.0
+      "depth_m": 100.0
     },
     {
       "dist_km": 2.0,
       "lat": -17.82431,
       "lon": 177.17709,
-      "depth_m": -1.0
+      "depth_m": 121.0
     },
     {
       "dist_km": 3.0,
       "lat": -17.81567,
       "lon": 177.17449,
-      "depth_m": -0.0
+      "depth_m": 136.0
     },
     {
       "dist_km": 5.0,
       "lat": -17.79838,
       "lon": 177.16928,
-      "depth_m": 17.0
+      "depth_m": 140.0
     },
     {
       "dist_km": 8.0,
       "lat": -17.77244,
       "lon": 177.16148,
-      "depth_m": -30.0
+      "depth_m": 129.0
     },
     {
       "dist_km": 12.0,
       "lat": -17.73786,
       "lon": 177.15107,
-      "depth_m": -9.0
+      "depth_m": 84.0
     },
     {
       "dist_km": 18.0,
       "lat": -17.68599,
       "lon": 177.13547,
-      "depth_m": 28.0
+      "depth_m": 8.0
     }
   ]
 }

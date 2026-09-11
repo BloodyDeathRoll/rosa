@@ -1,14 +1,14 @@
 {
   "spot": "cape-solander",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -34.0171,
     151.2309
   ],
   "bearing_seaward_deg": 45.0,
-  "nearshore_depth_m": -7.0,
-  "offshore_depth_m": 82.0,
-  "mean_slope_m_per_km": 5.01,
+  "nearshore_depth_m": -24.0,
+  "offshore_depth_m": 83.0,
+  "mean_slope_m_per_km": 6.03,
   "land_samples": 2,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": -34.01551,
       "lon": 151.23282,
-      "depth_m": -7.0
+      "depth_m": -24.0
     },
     {
       "dist_km": 0.5,
       "lat": -34.01392,
       "lon": 151.23474,
-      "depth_m": 6.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 1.0,
       "lat": -34.01074,
       "lon": 151.23857,
-      "depth_m": 17.0
+      "depth_m": 25.0
     },
     {
       "dist_km": 2.0,
       "lat": -34.00438,
       "lon": 151.24624,
-      "depth_m": 17.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 3.0,
       "lat": -33.99802,
       "lon": 151.25391,
-      "depth_m": -7.0
+      "depth_m": -8.0
     },
     {
       "dist_km": 5.0,
       "lat": -33.9853,
       "lon": 151.26925,
-      "depth_m": 47.0
+      "depth_m": 41.0
     },
     {
       "dist_km": 8.0,
       "lat": -33.96621,
       "lon": 151.29224,
-      "depth_m": 54.0
+      "depth_m": 68.0
     },
     {
       "dist_km": 12.0,
       "lat": -33.94076,
       "lon": 151.32288,
-      "depth_m": 70.0
+      "depth_m": 72.0
     },
     {
       "dist_km": 18.0,
       "lat": -33.90256,
       "lon": 151.36881,
-      "depth_m": 82.0
+      "depth_m": 83.0
     }
   ]
 }

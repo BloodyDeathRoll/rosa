@@ -1,42 +1,42 @@
 {
   "spot": "north-kirra",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -28.1637,
     153.52
   ],
   "bearing_seaward_deg": 28.0,
-  "nearshore_depth_m": 3.0,
+  "nearshore_depth_m": 6.0,
   "offshore_depth_m": 54.0,
-  "mean_slope_m_per_km": 2.87,
+  "mean_slope_m_per_km": 2.7,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -28.16171,
       "lon": 153.5212,
-      "depth_m": 3.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 0.5,
       "lat": -28.15973,
       "lon": 153.52239,
-      "depth_m": 7.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 1.0,
       "lat": -28.15576,
       "lon": 153.52479,
-      "depth_m": 14.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 2.0,
       "lat": -28.14782,
       "lon": 153.52958,
-      "depth_m": 24.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 3.0,
@@ -48,7 +48,7 @@
       "dist_km": 5.0,
       "lat": -28.124,
       "lon": 153.54394,
-      "depth_m": 20.0
+      "depth_m": 40.0
     },
     {
       "dist_km": 8.0,
@@ -60,7 +60,7 @@
       "dist_km": 12.0,
       "lat": -28.0684,
       "lon": 153.57742,
-      "depth_m": 50.0
+      "depth_m": 48.0
     },
     {
       "dist_km": 18.0,

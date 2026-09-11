@@ -1,15 +1,15 @@
 {
   "spot": "holywell-bay",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     50.3919,
     -5.1473
   ],
   "bearing_seaward_deg": 295.0,
-  "nearshore_depth_m": -6.0,
+  "nearshore_depth_m": 7.0,
   "offshore_depth_m": 52.0,
-  "mean_slope_m_per_km": 3.27,
-  "land_samples": 1,
+  "mean_slope_m_per_km": 2.54,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,19 +18,19 @@
       "dist_km": 0.25,
       "lat": 50.39285,
       "lon": -5.1505,
-      "depth_m": -6.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 0.5,
       "lat": 50.3938,
       "lon": -5.15369,
-      "depth_m": 5.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 1.0,
       "lat": 50.3957,
       "lon": -5.16009,
-      "depth_m": 12.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 2.0,
@@ -42,7 +42,7 @@
       "dist_km": 3.0,
       "lat": 50.4033,
       "lon": -5.18566,
-      "depth_m": 30.0
+      "depth_m": 31.0
     },
     {
       "dist_km": 5.0,

@@ -1,15 +1,15 @@
 {
   "spot": "fort-bragg",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     39.4423,
     -123.8126
   ],
   "bearing_seaward_deg": 270.0,
-  "nearshore_depth_m": -7.0,
-  "offshore_depth_m": 527.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 526.0,
   "mean_slope_m_per_km": 30.08,
-  "land_samples": 2,
+  "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 39.4423,
       "lon": -123.81551,
-      "depth_m": -7.0
+      "depth_m": -8.0
     },
     {
       "dist_km": 0.5,
       "lat": 39.4423,
       "lon": -123.81842,
-      "depth_m": -1.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 1.0,
       "lat": 39.4423,
       "lon": -123.82425,
-      "depth_m": 24.0
+      "depth_m": 32.0
     },
     {
       "dist_km": 2.0,
       "lat": 39.4423,
       "lon": -123.83589,
-      "depth_m": 47.0
+      "depth_m": 61.0
     },
     {
       "dist_km": 3.0,
       "lat": 39.44229,
       "lon": -123.84754,
-      "depth_m": 71.0
+      "depth_m": 79.0
     },
     {
       "dist_km": 5.0,
       "lat": 39.44229,
       "lon": -123.87083,
-      "depth_m": 94.0
+      "depth_m": 98.0
     },
     {
       "dist_km": 8.0,
       "lat": 39.44226,
       "lon": -123.90576,
-      "depth_m": 113.0
+      "depth_m": 116.0
     },
     {
       "dist_km": 12.0,
       "lat": 39.44222,
       "lon": -123.95234,
-      "depth_m": 141.0
+      "depth_m": 144.0
     },
     {
       "dist_km": 18.0,
       "lat": 39.44211,
       "lon": -124.02221,
-      "depth_m": 527.0
+      "depth_m": 526.0
     }
   ]
 }

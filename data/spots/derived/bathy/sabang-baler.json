@@ -1,14 +1,14 @@
 {
   "spot": "sabang-baler",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     15.762,
     121.567
   ],
   "bearing_seaward_deg": 50.0,
-  "nearshore_depth_m": 2.0,
-  "offshore_depth_m": 104.0,
-  "mean_slope_m_per_km": 5.75,
+  "nearshore_depth_m": 16.0,
+  "offshore_depth_m": 112.0,
+  "mean_slope_m_per_km": 5.41,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 15.76345,
       "lon": 121.56879,
-      "depth_m": 2.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 0.5,
       "lat": 15.76489,
       "lon": 121.57058,
-      "depth_m": 8.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 1.0,
       "lat": 15.76778,
       "lon": 121.57416,
-      "depth_m": 10.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 2.0,
       "lat": 15.77356,
       "lon": 121.58132,
-      "depth_m": 17.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 3.0,
       "lat": 15.77934,
       "lon": 121.58848,
-      "depth_m": 26.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 5.0,
       "lat": 15.7909,
       "lon": 121.6028,
-      "depth_m": 41.0
+      "depth_m": 39.0
     },
     {
       "dist_km": 8.0,
       "lat": 15.80824,
       "lon": 121.62428,
-      "depth_m": 58.0
+      "depth_m": 55.0
     },
     {
       "dist_km": 12.0,
       "lat": 15.83135,
       "lon": 121.65293,
-      "depth_m": 82.0
+      "depth_m": 73.0
     },
     {
       "dist_km": 18.0,
       "lat": 15.86601,
       "lon": 121.69592,
-      "depth_m": 104.0
+      "depth_m": 112.0
     }
   ]
 }

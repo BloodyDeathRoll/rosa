@@ -1,15 +1,15 @@
 {
   "spot": "pistol-river",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     42.2745,
     -124.4095
   ],
   "bearing_seaward_deg": 290.0,
-  "nearshore_depth_m": 3.0,
-  "offshore_depth_m": 159.0,
-  "mean_slope_m_per_km": 8.79,
-  "land_samples": 0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 164.0,
+  "mean_slope_m_per_km": 9.46,
+  "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,7 +18,7 @@
       "dist_km": 0.25,
       "lat": 42.27527,
       "lon": -124.41236,
-      "depth_m": 3.0
+      "depth_m": -4.0
     },
     {
       "dist_km": 0.5,
@@ -30,7 +30,7 @@
       "dist_km": 1.0,
       "lat": 42.27758,
       "lon": -124.42092,
-      "depth_m": 13.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 2.0,
@@ -42,31 +42,31 @@
       "dist_km": 3.0,
       "lat": 42.28372,
       "lon": -124.44377,
-      "depth_m": 34.0
+      "depth_m": 36.0
     },
     {
       "dist_km": 5.0,
       "lat": 42.28987,
       "lon": -124.46662,
-      "depth_m": 67.0
+      "depth_m": 66.0
     },
     {
       "dist_km": 8.0,
       "lat": 42.29907,
       "lon": -124.5009,
-      "depth_m": 98.0
+      "depth_m": 100.0
     },
     {
       "dist_km": 12.0,
       "lat": 42.31133,
       "lon": -124.54663,
-      "depth_m": 123.0
+      "depth_m": 125.0
     },
     {
       "dist_km": 18.0,
       "lat": 42.32968,
       "lon": -124.61526,
-      "depth_m": 159.0
+      "depth_m": 164.0
     }
   ]
 }

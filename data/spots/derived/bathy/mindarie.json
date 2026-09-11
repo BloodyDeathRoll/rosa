@@ -1,48 +1,48 @@
 {
   "spot": "mindarie",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -31.6968,
     115.7032
   ],
   "bearing_seaward_deg": 221.0,
-  "nearshore_depth_m": -8.0,
-  "offshore_depth_m": 31.0,
-  "mean_slope_m_per_km": 2.2,
-  "land_samples": 2,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 1.86,
+  "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 2,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -31.6985,
       "lon": 115.70147,
-      "depth_m": -8.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 0.5,
       "lat": -31.70019,
       "lon": 115.69973,
-      "depth_m": -4.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 1.0,
       "lat": -31.70359,
       "lon": 115.69627,
-      "depth_m": 1.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 2.0,
       "lat": -31.71037,
       "lon": 115.68933,
-      "depth_m": 3.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 3.0,
       "lat": -31.71716,
       "lon": 115.68239,
-      "depth_m": 5.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 5.0,
@@ -54,19 +54,19 @@
       "dist_km": 8.0,
       "lat": -31.75109,
       "lon": 115.64769,
-      "depth_m": 17.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 12.0,
       "lat": -31.77822,
       "lon": 115.61991,
-      "depth_m": 26.0
+      "depth_m": 31.0
     },
     {
       "dist_km": 18.0,
       "lat": -31.81891,
       "lon": 115.57822,
-      "depth_m": 31.0
+      "depth_m": 35.0
     }
   ]
 }

@@ -1,72 +1,72 @@
 {
   "spot": "ansteys",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -29.9239,
     31.0215
   ],
   "bearing_seaward_deg": 126.0,
-  "nearshore_depth_m": 11.0,
-  "offshore_depth_m": 432.0,
-  "mean_slope_m_per_km": 23.72,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 422.0,
+  "mean_slope_m_per_km": 23.44,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -29.92522,
       "lon": 31.0236,
-      "depth_m": 11.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 0.5,
       "lat": -29.92654,
       "lon": 31.0257,
-      "depth_m": 17.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 1.0,
       "lat": -29.92919,
       "lon": 31.0299,
-      "depth_m": 25.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 2.0,
       "lat": -29.93447,
       "lon": 31.03829,
-      "depth_m": 33.0
+      "depth_m": 23.0
     },
     {
       "dist_km": 3.0,
       "lat": -29.93976,
       "lon": 31.04669,
-      "depth_m": 51.0
+      "depth_m": 64.0
     },
     {
       "dist_km": 5.0,
       "lat": -29.95032,
       "lon": 31.06349,
-      "depth_m": 74.0
+      "depth_m": 73.0
     },
     {
       "dist_km": 8.0,
       "lat": -29.96617,
       "lon": 31.08869,
-      "depth_m": 112.0
+      "depth_m": 113.0
     },
     {
       "dist_km": 12.0,
       "lat": -29.98729,
       "lon": 31.1223,
-      "depth_m": 328.0
+      "depth_m": 262.0
     },
     {
       "dist_km": 18.0,
       "lat": -30.01896,
       "lon": 31.17275,
-      "depth_m": 432.0
+      "depth_m": 422.0
     }
   ]
 }

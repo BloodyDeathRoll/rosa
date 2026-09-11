@@ -1,14 +1,14 @@
 {
   "spot": "frisco-pier",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     35.2233,
     -75.6424
   ],
   "bearing_seaward_deg": 163.0,
   "nearshore_depth_m": 3.0,
-  "offshore_depth_m": 33.0,
-  "mean_slope_m_per_km": 1.69,
+  "offshore_depth_m": 25.0,
+  "mean_slope_m_per_km": 1.24,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -24,49 +24,49 @@
       "dist_km": 0.5,
       "lat": 35.219,
       "lon": -75.64079,
-      "depth_m": 5.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 1.0,
       "lat": 35.2147,
       "lon": -75.63918,
-      "depth_m": 9.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 2.0,
       "lat": 35.2061,
       "lon": -75.63596,
-      "depth_m": 13.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 3.0,
       "lat": 35.1975,
       "lon": -75.63275,
-      "depth_m": 14.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 5.0,
       "lat": 35.1803,
       "lon": -75.62632,
-      "depth_m": 15.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 8.0,
       "lat": 35.1545,
       "lon": -75.61667,
-      "depth_m": 18.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 12.0,
       "lat": 35.12009,
       "lon": -75.60383,
-      "depth_m": 23.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 18.0,
       "lat": 35.06848,
       "lon": -75.58457,
-      "depth_m": 33.0
+      "depth_m": 25.0
     }
   ]
 }

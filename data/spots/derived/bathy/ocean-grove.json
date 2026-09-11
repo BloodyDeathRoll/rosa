@@ -1,15 +1,15 @@
 {
   "spot": "ocean-grove",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -38.2729,
     144.5151
   ],
   "bearing_seaward_deg": 161.0,
-  "nearshore_depth_m": -6.0,
-  "offshore_depth_m": 70.0,
-  "mean_slope_m_per_km": 4.28,
-  "land_samples": 2,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 71.0,
+  "mean_slope_m_per_km": 3.72,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,13 +18,13 @@
       "dist_km": 0.25,
       "lat": -38.27503,
       "lon": 144.51603,
-      "depth_m": -6.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 0.5,
       "lat": -38.27715,
       "lon": 144.51696,
-      "depth_m": -1.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 1.0,
@@ -48,25 +48,25 @@
       "dist_km": 5.0,
       "lat": -38.31541,
       "lon": 144.53376,
-      "depth_m": 33.0
+      "depth_m": 34.0
     },
     {
       "dist_km": 8.0,
       "lat": -38.34092,
       "lon": 144.54496,
-      "depth_m": 49.0
+      "depth_m": 53.0
     },
     {
       "dist_km": 12.0,
       "lat": -38.37493,
       "lon": 144.55992,
-      "depth_m": 67.0
+      "depth_m": 68.0
     },
     {
       "dist_km": 18.0,
       "lat": -38.42594,
       "lon": 144.58237,
-      "depth_m": 70.0
+      "depth_m": 71.0
     }
   ]
 }

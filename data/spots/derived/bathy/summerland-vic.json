@@ -1,15 +1,15 @@
 {
   "spot": "summerland-vic",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -38.5107,
     145.1576
   ],
   "bearing_seaward_deg": 190.0,
-  "nearshore_depth_m": -1.0,
-  "offshore_depth_m": 74.0,
-  "mean_slope_m_per_km": 4.23,
-  "land_samples": 1,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 77.0,
+  "mean_slope_m_per_km": 3.61,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,19 +18,19 @@
       "dist_km": 0.25,
       "lat": -38.51291,
       "lon": 145.1571,
-      "depth_m": -1.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 0.5,
       "lat": -38.51513,
       "lon": 145.1566,
-      "depth_m": 9.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 1.0,
       "lat": -38.51956,
       "lon": 145.1556,
-      "depth_m": 15.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 2.0,
@@ -48,25 +48,25 @@
       "dist_km": 5.0,
       "lat": -38.55498,
       "lon": 145.14762,
-      "depth_m": 48.0
+      "depth_m": 50.0
     },
     {
       "dist_km": 8.0,
       "lat": -38.58155,
       "lon": 145.14162,
-      "depth_m": 64.0
+      "depth_m": 67.0
     },
     {
       "dist_km": 12.0,
       "lat": -38.61698,
       "lon": 145.13362,
-      "depth_m": 70.0
+      "depth_m": 73.0
     },
     {
       "dist_km": 18.0,
       "lat": -38.67011,
       "lon": 145.1216,
-      "depth_m": 74.0
+      "depth_m": 77.0
     }
   ]
 }

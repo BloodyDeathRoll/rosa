@@ -1,14 +1,14 @@
 {
   "spot": "hikkaduwa-south",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     6.1288,
     80.1031
   ],
   "bearing_seaward_deg": 205.0,
-  "nearshore_depth_m": -9.0,
-  "offshore_depth_m": 74.0,
-  "mean_slope_m_per_km": 4.68,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 77.0,
+  "mean_slope_m_per_km": 4.9,
   "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 1,
@@ -18,7 +18,7 @@
       "dist_km": 0.25,
       "lat": 6.12676,
       "lon": 80.10214,
-      "depth_m": -9.0
+      "depth_m": -10.0
     },
     {
       "dist_km": 0.5,
@@ -30,43 +30,43 @@
       "dist_km": 1.0,
       "lat": 6.12065,
       "lon": 80.09928,
-      "depth_m": 12.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 2.0,
       "lat": 6.1125,
       "lon": 80.09546,
-      "depth_m": 30.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 3.0,
       "lat": 6.10435,
       "lon": 80.09163,
-      "depth_m": 51.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 5.0,
       "lat": 6.08805,
       "lon": 80.08399,
-      "depth_m": 30.0
+      "depth_m": 38.0
     },
     {
       "dist_km": 8.0,
       "lat": 6.06359,
       "lon": 80.07252,
-      "depth_m": 43.0
+      "depth_m": 69.0
     },
     {
       "dist_km": 12.0,
       "lat": 6.03099,
       "lon": 80.05724,
-      "depth_m": 67.0
+      "depth_m": 65.0
     },
     {
       "dist_km": 18.0,
       "lat": 5.98208,
       "lon": 80.03431,
-      "depth_m": 74.0
+      "depth_m": 77.0
     }
   ]
 }

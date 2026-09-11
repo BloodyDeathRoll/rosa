@@ -1,6 +1,6 @@
 {
   "spot": "tafedna",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     31.0961,
     -9.8224
@@ -9,7 +9,7 @@
   "nearshore_depth_m": -13.0,
   "offshore_depth_m": 76.0,
   "mean_slope_m_per_km": 5.01,
-  "land_samples": 2,
+  "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -24,43 +24,43 @@
       "dist_km": 0.5,
       "lat": 31.09281,
       "lon": -9.82598,
-      "depth_m": -2.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 1.0,
       "lat": 31.08952,
       "lon": -9.82956,
-      "depth_m": 11.0
+      "depth_m": 23.0
     },
     {
       "dist_km": 2.0,
       "lat": 31.08294,
       "lon": -9.83672,
-      "depth_m": 18.0
+      "depth_m": 24.0
     },
     {
       "dist_km": 3.0,
       "lat": 31.07637,
       "lon": -9.84388,
-      "depth_m": 25.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 5.0,
       "lat": 31.06321,
       "lon": -9.8582,
-      "depth_m": 42.0
+      "depth_m": 39.0
     },
     {
       "dist_km": 8.0,
       "lat": 31.04347,
       "lon": -9.87967,
-      "depth_m": 61.0
+      "depth_m": 60.0
     },
     {
       "dist_km": 12.0,
       "lat": 31.01714,
       "lon": -9.90828,
-      "depth_m": 61.0
+      "depth_m": 62.0
     },
     {
       "dist_km": 18.0,

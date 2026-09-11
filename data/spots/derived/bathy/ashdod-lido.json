@@ -1,14 +1,14 @@
 {
   "spot": "ashdod-lido",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     31.8081,
     34.6347
   ],
   "bearing_seaward_deg": 292.0,
-  "nearshore_depth_m": 8.0,
-  "offshore_depth_m": 107.0,
-  "mean_slope_m_per_km": 5.58,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 111.0,
+  "mean_slope_m_per_km": 5.69,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,31 +18,31 @@
       "dist_km": 0.25,
       "lat": 31.80894,
       "lon": 34.63225,
-      "depth_m": 8.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 0.5,
       "lat": 31.80978,
       "lon": 34.62979,
-      "depth_m": 12.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 1.0,
       "lat": 31.81147,
       "lon": 34.62489,
-      "depth_m": 16.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 2.0,
       "lat": 31.81484,
       "lon": 34.61507,
-      "depth_m": 23.0
+      "depth_m": 28.0
     },
     {
       "dist_km": 3.0,
       "lat": 31.8182,
       "lon": 34.60526,
-      "depth_m": 30.0
+      "depth_m": 31.0
     },
     {
       "dist_km": 5.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 31.84847,
       "lon": 34.51691,
-      "depth_m": 61.0
+      "depth_m": 60.0
     },
     {
       "dist_km": 18.0,
       "lat": 31.86862,
       "lon": 34.45797,
-      "depth_m": 107.0
+      "depth_m": 111.0
     }
   ]
 }

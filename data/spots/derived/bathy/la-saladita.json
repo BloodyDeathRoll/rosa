@@ -1,14 +1,14 @@
 {
   "spot": "la-saladita",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     17.8297,
     -101.7704
   ],
   "bearing_seaward_deg": 224.0,
-  "nearshore_depth_m": -6.0,
-  "offshore_depth_m": 1138.0,
-  "mean_slope_m_per_km": 64.45,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 1165.0,
+  "mean_slope_m_per_km": 65.92,
   "land_samples": 2,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,31 +18,31 @@
       "dist_km": 0.25,
       "lat": 17.82808,
       "lon": -101.77204,
-      "depth_m": -6.0
+      "depth_m": -5.0
     },
     {
       "dist_km": 0.5,
       "lat": 17.82647,
       "lon": -101.77368,
-      "depth_m": -7.0
+      "depth_m": -5.0
     },
     {
       "dist_km": 1.0,
       "lat": 17.82323,
       "lon": -101.77696,
-      "depth_m": 5.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 2.0,
       "lat": 17.81676,
       "lon": -101.78352,
-      "depth_m": 55.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 3.0,
       "lat": 17.81029,
       "lon": -101.79009,
-      "depth_m": 68.0
+      "depth_m": 41.0
     },
     {
       "dist_km": 5.0,
@@ -54,19 +54,19 @@
       "dist_km": 8.0,
       "lat": 17.77794,
       "lon": -101.82288,
-      "depth_m": 172.0
+      "depth_m": 120.0
     },
     {
       "dist_km": 12.0,
       "lat": 17.75205,
       "lon": -101.84911,
-      "depth_m": 249.0
+      "depth_m": 284.0
     },
     {
       "dist_km": 18.0,
       "lat": 17.71322,
       "lon": -101.88845,
-      "depth_m": 1138.0
+      "depth_m": 1165.0
     }
   ]
 }

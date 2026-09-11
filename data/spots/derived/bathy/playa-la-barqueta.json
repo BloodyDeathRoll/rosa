@@ -1,17 +1,17 @@
 {
   "spot": "playa-la-barqueta",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     8.2697,
     -82.4875
   ],
   "bearing_seaward_deg": 198.0,
   "nearshore_depth_m": 4.0,
-  "offshore_depth_m": 58.0,
-  "mean_slope_m_per_km": 3.04,
+  "offshore_depth_m": 60.0,
+  "mean_slope_m_per_km": 3.15,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
@@ -30,19 +30,19 @@
       "dist_km": 1.0,
       "lat": 8.26115,
       "lon": -82.49031,
-      "depth_m": 6.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 2.0,
       "lat": 8.25259,
       "lon": -82.49312,
-      "depth_m": 8.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 3.0,
       "lat": 8.24404,
       "lon": -82.49592,
-      "depth_m": 16.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 5.0,
@@ -54,7 +54,7 @@
       "dist_km": 8.0,
       "lat": 8.20128,
       "lon": -82.50996,
-      "depth_m": 29.0
+      "depth_m": 28.0
     },
     {
       "dist_km": 12.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 8.11574,
       "lon": -82.53803,
-      "depth_m": 58.0
+      "depth_m": 60.0
     }
   ]
 }

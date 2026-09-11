@@ -1,14 +1,14 @@
 {
   "spot": "suicide-cliffs",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     26.0778,
     127.6706
   ],
   "bearing_seaward_deg": 206.0,
-  "nearshore_depth_m": 29.0,
-  "offshore_depth_m": 804.0,
-  "mean_slope_m_per_km": 43.66,
+  "nearshore_depth_m": 14.0,
+  "offshore_depth_m": 808.0,
+  "mean_slope_m_per_km": 44.73,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 26.07578,
       "lon": 127.6695,
-      "depth_m": 29.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 0.5,
       "lat": 26.07376,
       "lon": 127.66841,
-      "depth_m": 39.0
+      "depth_m": 28.0
     },
     {
       "dist_km": 1.0,
       "lat": 26.06972,
       "lon": 127.66621,
-      "depth_m": 60.0
+      "depth_m": 55.0
     },
     {
       "dist_km": 2.0,
       "lat": 26.06163,
       "lon": 127.66182,
-      "depth_m": 79.0
+      "depth_m": 88.0
     },
     {
       "dist_km": 3.0,
       "lat": 26.05355,
       "lon": 127.65744,
-      "depth_m": 114.0
+      "depth_m": 106.0
     },
     {
       "dist_km": 5.0,
       "lat": 26.03738,
       "lon": 127.64866,
-      "depth_m": 218.0
+      "depth_m": 238.0
     },
     {
       "dist_km": 8.0,
       "lat": 26.01313,
       "lon": 127.63551,
-      "depth_m": 320.0
+      "depth_m": 314.0
     },
     {
       "dist_km": 12.0,
       "lat": 25.98079,
       "lon": 127.61797,
-      "depth_m": 480.0
+      "depth_m": 472.0
     },
     {
       "dist_km": 18.0,
       "lat": 25.93228,
       "lon": 127.59169,
-      "depth_m": 804.0
+      "depth_m": 808.0
     }
   ]
 }

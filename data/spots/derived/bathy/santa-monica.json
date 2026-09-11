@@ -1,14 +1,14 @@
 {
   "spot": "santa-monica",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     34.0123,
     -118.5025
   ],
   "bearing_seaward_deg": 230.0,
-  "nearshore_depth_m": 5.0,
-  "offshore_depth_m": 315.0,
-  "mean_slope_m_per_km": 17.46,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 346.0,
+  "mean_slope_m_per_km": 19.04,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,7 +18,7 @@
       "dist_km": 0.25,
       "lat": 34.01085,
       "lon": -118.50458,
-      "depth_m": 5.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 0.5,
@@ -36,37 +36,37 @@
       "dist_km": 2.0,
       "lat": 34.00074,
       "lon": -118.51912,
-      "depth_m": 16.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 3.0,
       "lat": 33.99496,
       "lon": -118.52743,
-      "depth_m": 25.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 5.0,
       "lat": 33.98339,
       "lon": -118.54404,
-      "depth_m": 44.0
+      "depth_m": 43.0
     },
     {
       "dist_km": 8.0,
       "lat": 33.96604,
       "lon": -118.56895,
-      "depth_m": 69.0
+      "depth_m": 77.0
     },
     {
       "dist_km": 12.0,
       "lat": 33.94289,
       "lon": -118.60215,
-      "depth_m": 203.0
+      "depth_m": 240.0
     },
     {
       "dist_km": 18.0,
       "lat": 33.90816,
       "lon": -118.65192,
-      "depth_m": 315.0
+      "depth_m": 346.0
     }
   ]
 }

@@ -1,15 +1,15 @@
 {
   "spot": "horrocks",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -28.3834,
     114.43
   ],
   "bearing_seaward_deg": 258.0,
-  "nearshore_depth_m": -0.0,
-  "offshore_depth_m": 37.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 38.0,
   "mean_slope_m_per_km": 2.08,
-  "land_samples": 1,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,13 +18,13 @@
       "dist_km": 0.25,
       "lat": -28.38387,
       "lon": 114.4275,
-      "depth_m": -0.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": -28.38433,
       "lon": 114.425,
-      "depth_m": 3.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 1.0,
@@ -36,37 +36,37 @@
       "dist_km": 2.0,
       "lat": -28.38714,
       "lon": 114.41,
-      "depth_m": 21.0
+      "depth_m": 23.0
     },
     {
       "dist_km": 3.0,
       "lat": -28.38901,
       "lon": 114.4,
-      "depth_m": 26.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 5.0,
       "lat": -28.39274,
       "lon": 114.38,
-      "depth_m": 26.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 8.0,
       "lat": -28.39833,
       "lon": 114.35,
-      "depth_m": 31.0
+      "depth_m": 32.0
     },
     {
       "dist_km": 12.0,
       "lat": -28.40578,
       "lon": 114.30999,
-      "depth_m": 34.0
+      "depth_m": 33.0
     },
     {
       "dist_km": 18.0,
       "lat": -28.41694,
       "lon": 114.24997,
-      "depth_m": 37.0
+      "depth_m": 38.0
     }
   ]
 }

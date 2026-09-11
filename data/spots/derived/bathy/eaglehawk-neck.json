@@ -1,66 +1,66 @@
 {
   "spot": "eaglehawk-neck",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -43.0197,
     147.9268
   ],
   "bearing_seaward_deg": 92.0,
-  "nearshore_depth_m": 12.0,
+  "nearshore_depth_m": 2.0,
   "offshore_depth_m": 103.0,
-  "mean_slope_m_per_km": 5.13,
+  "mean_slope_m_per_km": 5.69,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -43.01978,
       "lon": 147.92987,
-      "depth_m": 12.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 0.5,
       "lat": -43.01986,
       "lon": 147.93295,
-      "depth_m": 4.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 1.0,
       "lat": -43.02001,
       "lon": 147.93909,
-      "depth_m": 13.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 2.0,
       "lat": -43.02033,
       "lon": 147.95139,
-      "depth_m": 24.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 3.0,
       "lat": -43.02064,
       "lon": 147.96368,
-      "depth_m": 47.0
+      "depth_m": 44.0
     },
     {
       "dist_km": 5.0,
       "lat": -43.02125,
       "lon": 147.98827,
-      "depth_m": 71.0
+      "depth_m": 75.0
     },
     {
       "dist_km": 8.0,
       "lat": -43.02217,
       "lon": 148.02515,
-      "depth_m": 84.0
+      "depth_m": 83.0
     },
     {
       "dist_km": 12.0,
       "lat": -43.02337,
       "lon": 148.07433,
-      "depth_m": 94.0
+      "depth_m": 95.0
     },
     {
       "dist_km": 18.0,

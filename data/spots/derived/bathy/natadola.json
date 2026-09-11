@@ -1,72 +1,72 @@
 {
   "spot": "natadola",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -18.1039,
     177.3183
   ],
   "bearing_seaward_deg": 250.0,
-  "nearshore_depth_m": 2.0,
-  "offshore_depth_m": 2157.0,
-  "mean_slope_m_per_km": 121.41,
+  "nearshore_depth_m": 133.0,
+  "offshore_depth_m": 2163.0,
+  "mean_slope_m_per_km": 114.37,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -18.10467,
       "lon": 177.31608,
-      "depth_m": 2.0
+      "depth_m": 133.0
     },
     {
       "dist_km": 0.5,
       "lat": -18.10544,
       "lon": 177.31385,
-      "depth_m": 5.0
+      "depth_m": 133.0
     },
     {
       "dist_km": 1.0,
       "lat": -18.10698,
       "lon": 177.30941,
-      "depth_m": 12.0
+      "depth_m": 132.0
     },
     {
       "dist_km": 2.0,
       "lat": -18.11005,
       "lon": 177.30052,
-      "depth_m": 32.0
+      "depth_m": 142.0
     },
     {
       "dist_km": 3.0,
       "lat": -18.11313,
       "lon": 177.29163,
-      "depth_m": 43.0
+      "depth_m": 292.0
     },
     {
       "dist_km": 5.0,
       "lat": -18.11927,
       "lon": 177.27384,
-      "depth_m": 179.0
+      "depth_m": 718.0
     },
     {
       "dist_km": 8.0,
       "lat": -18.12849,
       "lon": 177.24716,
-      "depth_m": 1235.0
+      "depth_m": 1012.0
     },
     {
       "dist_km": 12.0,
       "lat": -18.14078,
       "lon": 177.21159,
-      "depth_m": 1857.0
+      "depth_m": 1880.0
     },
     {
       "dist_km": 18.0,
       "lat": -18.1592,
       "lon": 177.15821,
-      "depth_m": 2157.0
+      "depth_m": 2163.0
     }
   ]
 }

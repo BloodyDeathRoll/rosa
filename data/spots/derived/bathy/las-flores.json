@@ -1,72 +1,72 @@
 {
   "spot": "las-flores",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     13.1725,
     -88.1122
   ],
   "bearing_seaward_deg": 175.0,
-  "nearshore_depth_m": 24.0,
-  "offshore_depth_m": 40.0,
-  "mean_slope_m_per_km": 0.9,
-  "land_samples": 0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 38.0,
+  "mean_slope_m_per_km": 2.59,
+  "land_samples": 2,
   "missing_samples": 0,
-  "non_monotone_samples": 4,
+  "non_monotone_samples": 2,
   "deepest_is_reference": false,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 13.17026,
       "lon": -88.112,
-      "depth_m": 24.0
+      "depth_m": -8.0
     },
     {
       "dist_km": 0.5,
       "lat": 13.16802,
       "lon": -88.1118,
-      "depth_m": 58.0
+      "depth_m": -8.0
     },
     {
       "dist_km": 1.0,
       "lat": 13.16354,
       "lon": -88.1114,
-      "depth_m": 115.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 2.0,
       "lat": 13.15458,
       "lon": -88.11059,
-      "depth_m": 185.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 3.0,
       "lat": 13.14562,
       "lon": -88.10979,
-      "depth_m": 159.0
+      "depth_m": 28.0
     },
     {
       "dist_km": 5.0,
       "lat": 13.12771,
       "lon": -88.10818,
-      "depth_m": 111.0
+      "depth_m": 40.0
     },
     {
       "dist_km": 8.0,
       "lat": 13.10083,
       "lon": -88.10576,
-      "depth_m": 63.0
+      "depth_m": 39.0
     },
     {
       "dist_km": 12.0,
       "lat": 13.06499,
       "lon": -88.10254,
-      "depth_m": 3.0
+      "depth_m": 36.0
     },
     {
       "dist_km": 18.0,
       "lat": 13.01124,
       "lon": -88.09772,
-      "depth_m": 40.0
+      "depth_m": 38.0
     }
   ]
 }

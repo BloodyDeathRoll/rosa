@@ -1,6 +1,6 @@
 {
   "spot": "irabu",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     24.8091,
     125.1871
@@ -24,13 +24,13 @@
       "dist_km": 0.5,
       "lat": 24.80566,
       "lon": 125.18392,
-      "depth_m": 8.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 1.0,
       "lat": 24.80221,
       "lon": 125.18073,
-      "depth_m": 8.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 2.0,
@@ -48,13 +48,13 @@
       "dist_km": 5.0,
       "lat": 24.77465,
       "lon": 125.15527,
-      "depth_m": 43.0
+      "depth_m": 41.0
     },
     {
       "dist_km": 8.0,
       "lat": 24.75398,
       "lon": 125.13617,
-      "depth_m": 70.0
+      "depth_m": 72.0
     },
     {
       "dist_km": 12.0,

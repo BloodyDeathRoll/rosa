@@ -1,14 +1,14 @@
 {
   "spot": "praia-do-amado",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     37.166,
     -8.903
   ],
   "bearing_seaward_deg": 280.0,
-  "nearshore_depth_m": 3.0,
+  "nearshore_depth_m": 4.0,
   "offshore_depth_m": 140.0,
-  "mean_slope_m_per_km": 7.72,
+  "mean_slope_m_per_km": 7.66,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,49 +18,49 @@
       "dist_km": 0.25,
       "lat": 37.16639,
       "lon": -8.90578,
-      "depth_m": 3.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 0.5,
       "lat": 37.16678,
       "lon": -8.90856,
-      "depth_m": 9.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 1.0,
       "lat": 37.16756,
       "lon": -8.91411,
-      "depth_m": 18.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 2.0,
       "lat": 37.16912,
       "lon": -8.92523,
-      "depth_m": 28.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 3.0,
       "lat": 37.17068,
       "lon": -8.93634,
-      "depth_m": 40.0
+      "depth_m": 39.0
     },
     {
       "dist_km": 5.0,
       "lat": 37.1738,
       "lon": -8.95858,
-      "depth_m": 47.0
+      "depth_m": 46.0
     },
     {
       "dist_km": 8.0,
       "lat": 37.17846,
       "lon": -8.99193,
-      "depth_m": 52.0
+      "depth_m": 55.0
     },
     {
       "dist_km": 12.0,
       "lat": 37.18467,
       "lon": -9.0364,
-      "depth_m": 82.0
+      "depth_m": 85.0
     },
     {
       "dist_km": 18.0,

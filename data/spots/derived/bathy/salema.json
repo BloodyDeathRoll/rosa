@@ -1,30 +1,30 @@
 {
   "spot": "salema",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     37.0654,
     -8.8212
   ],
   "bearing_seaward_deg": 191.0,
-  "nearshore_depth_m": -8.0,
+  "nearshore_depth_m": -13.0,
   "offshore_depth_m": 117.0,
-  "mean_slope_m_per_km": 7.04,
+  "mean_slope_m_per_km": 7.32,
   "land_samples": 1,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 37.06319,
       "lon": -8.82174,
-      "depth_m": -8.0
+      "depth_m": -13.0
     },
     {
       "dist_km": 0.5,
       "lat": 37.06099,
       "lon": -8.82228,
-      "depth_m": 5.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 1.0,
@@ -36,31 +36,31 @@
       "dist_km": 2.0,
       "lat": 37.04774,
       "lon": -8.8255,
-      "depth_m": 28.0
+      "depth_m": 23.0
     },
     {
       "dist_km": 3.0,
       "lat": 37.03892,
       "lon": -8.82765,
-      "depth_m": 44.0
+      "depth_m": 43.0
     },
     {
       "dist_km": 5.0,
       "lat": 37.02126,
       "lon": -8.83195,
-      "depth_m": 92.0
+      "depth_m": 53.0
     },
     {
       "dist_km": 8.0,
       "lat": 36.99477,
       "lon": -8.83839,
-      "depth_m": 100.0
+      "depth_m": 72.0
     },
     {
       "dist_km": 12.0,
       "lat": 36.95946,
       "lon": -8.84697,
-      "depth_m": 87.0
+      "depth_m": 97.0
     },
     {
       "dist_km": 18.0,

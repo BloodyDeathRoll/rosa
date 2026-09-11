@@ -1,72 +1,72 @@
 {
   "spot": "huanchaco",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -8.0831,
     -79.123
   ],
   "bearing_seaward_deg": 284.0,
-  "nearshore_depth_m": -9.0,
-  "offshore_depth_m": 28.0,
-  "mean_slope_m_per_km": 2.08,
-  "land_samples": 3,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 2,
   "missing_samples": 0,
-  "non_monotone_samples": 2,
-  "deepest_is_reference": false,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -8.08256,
       "lon": -79.1252,
-      "depth_m": -9.0
+      "depth_m": -0.0
     },
     {
       "dist_km": 0.5,
       "lat": -8.08201,
       "lon": -79.12741,
-      "depth_m": -13.0
+      "depth_m": -0.0
     },
     {
       "dist_km": 1.0,
       "lat": -8.08092,
       "lon": -79.13181,
-      "depth_m": -2.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 2.0,
       "lat": -8.07875,
       "lon": -79.14063,
-      "depth_m": 8.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 3.0,
       "lat": -8.07657,
       "lon": -79.14944,
-      "depth_m": 11.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 5.0,
       "lat": -8.07222,
       "lon": -79.16707,
-      "depth_m": 26.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 8.0,
       "lat": -8.06569,
       "lon": -79.19351,
-      "depth_m": 51.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 12.0,
       "lat": -8.05698,
       "lon": -79.22876,
-      "depth_m": 42.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 18.0,
       "lat": -8.04391,
       "lon": -79.28163,
-      "depth_m": 28.0
+      "depth_m": 30.0
     }
   ]
 }

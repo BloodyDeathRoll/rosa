@@ -1,14 +1,14 @@
 {
   "spot": "sunset-beach-warrenton",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     46.0988,
     -123.9449
   ],
   "bearing_seaward_deg": 261.0,
-  "nearshore_depth_m": 1.0,
+  "nearshore_depth_m": 2.0,
   "offshore_depth_m": 82.0,
-  "mean_slope_m_per_km": 4.56,
+  "mean_slope_m_per_km": 4.51,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,13 +18,13 @@
       "dist_km": 0.25,
       "lat": 46.09845,
       "lon": -123.9481,
-      "depth_m": 1.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 0.5,
       "lat": 46.0981,
       "lon": -123.9513,
-      "depth_m": 4.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 1.0,
@@ -36,13 +36,13 @@
       "dist_km": 2.0,
       "lat": 46.09598,
       "lon": -123.97052,
-      "depth_m": 13.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 3.0,
       "lat": 46.09457,
       "lon": -123.98333,
-      "depth_m": 18.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 5.0,
@@ -54,13 +54,13 @@
       "dist_km": 8.0,
       "lat": 46.0875,
       "lon": -124.04736,
-      "depth_m": 37.0
+      "depth_m": 38.0
     },
     {
       "dist_km": 12.0,
       "lat": 46.08181,
       "lon": -124.09857,
-      "depth_m": 58.0
+      "depth_m": 59.0
     },
     {
       "dist_km": 18.0,

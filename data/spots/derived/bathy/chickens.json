@@ -1,14 +1,14 @@
 {
   "spot": "chickens",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     4.3736,
     73.6625
   ],
   "bearing_seaward_deg": 176.0,
-  "nearshore_depth_m": 84.0,
-  "offshore_depth_m": 2075.0,
-  "mean_slope_m_per_km": 112.17,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 2136.0,
+  "mean_slope_m_per_km": 120.06,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 1,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 4.37136,
       "lon": 73.66266,
-      "depth_m": 84.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 0.5,
       "lat": 4.36911,
       "lon": 73.66281,
-      "depth_m": 111.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 1.0,
       "lat": 4.36463,
       "lon": 73.66313,
-      "depth_m": 175.0
+      "depth_m": 51.0
     },
     {
       "dist_km": 2.0,
       "lat": 4.35566,
       "lon": 73.66376,
-      "depth_m": 438.0
+      "depth_m": 254.0
     },
     {
       "dist_km": 3.0,
       "lat": 4.34669,
       "lon": 73.66439,
-      "depth_m": 942.0
+      "depth_m": 684.0
     },
     {
       "dist_km": 5.0,
       "lat": 4.32874,
       "lon": 73.66565,
-      "depth_m": 1399.0
+      "depth_m": 1447.0
     },
     {
       "dist_km": 8.0,
       "lat": 4.30183,
       "lon": 73.66753,
-      "depth_m": 1209.0
+      "depth_m": 1303.0
     },
     {
       "dist_km": 12.0,
       "lat": 4.26594,
       "lon": 73.67005,
-      "depth_m": 1721.0
+      "depth_m": 2001.0
     },
     {
       "dist_km": 18.0,
       "lat": 4.21212,
       "lon": 73.67382,
-      "depth_m": 2075.0
+      "depth_m": 2136.0
     }
   ]
 }

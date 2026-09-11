@@ -1,14 +1,14 @@
 {
   "spot": "samoa",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     40.8063,
     -124.1992
   ],
   "bearing_seaward_deg": 294.0,
-  "nearshore_depth_m": -3.0,
-  "offshore_depth_m": 155.0,
-  "mean_slope_m_per_km": 8.9,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 158.0,
+  "mean_slope_m_per_km": 9.13,
   "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,31 +18,31 @@
       "dist_km": 0.25,
       "lat": 40.80721,
       "lon": -124.20191,
-      "depth_m": -3.0
+      "depth_m": -4.0
     },
     {
       "dist_km": 0.5,
       "lat": 40.80813,
       "lon": -124.20463,
-      "depth_m": 2.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 1.0,
       "lat": 40.80996,
       "lon": -124.21005,
-      "depth_m": 9.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 2.0,
       "lat": 40.81361,
       "lon": -124.22091,
-      "depth_m": 19.0
+      "depth_m": 24.0
     },
     {
       "dist_km": 3.0,
       "lat": 40.81727,
       "lon": -124.23177,
-      "depth_m": 28.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 5.0,
@@ -54,19 +54,19 @@
       "dist_km": 8.0,
       "lat": 40.83553,
       "lon": -124.28607,
-      "depth_m": 56.0
+      "depth_m": 57.0
     },
     {
       "dist_km": 12.0,
       "lat": 40.85012,
       "lon": -124.32954,
-      "depth_m": 76.0
+      "depth_m": 79.0
     },
     {
       "dist_km": 18.0,
       "lat": 40.87198,
       "lon": -124.39477,
-      "depth_m": 155.0
+      "depth_m": 158.0
     }
   ]
 }

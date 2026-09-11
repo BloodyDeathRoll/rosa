@@ -1,15 +1,15 @@
 {
   "spot": "duckpool",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     50.8753,
     -4.5587
   ],
   "bearing_seaward_deg": 290.0,
-  "nearshore_depth_m": -20.0,
-  "offshore_depth_m": 48.0,
-  "mean_slope_m_per_km": 3.83,
-  "land_samples": 2,
+  "nearshore_depth_m": -23.0,
+  "offshore_depth_m": 49.0,
+  "mean_slope_m_per_km": 4.06,
+  "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,19 +18,19 @@
       "dist_km": 0.25,
       "lat": 50.87607,
       "lon": -4.56205,
-      "depth_m": -20.0
+      "depth_m": -23.0
     },
     {
       "dist_km": 0.5,
       "lat": 50.87684,
       "lon": -4.5654,
-      "depth_m": -10.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 1.0,
       "lat": 50.87838,
       "lon": -4.57209,
-      "depth_m": 10.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 2.0,
@@ -48,7 +48,7 @@
       "dist_km": 5.0,
       "lat": 50.89066,
       "lon": -4.62568,
-      "depth_m": 28.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 8.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 50.93042,
       "lon": -4.80005,
-      "depth_m": 48.0
+      "depth_m": 49.0
     }
   ]
 }

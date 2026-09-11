@@ -1,42 +1,42 @@
 {
   "spot": "smiths-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -33.6588,
     115.0168
   ],
   "bearing_seaward_deg": 308.0,
-  "nearshore_depth_m": -2.0,
-  "offshore_depth_m": 43.0,
-  "mean_slope_m_per_km": 2.54,
-  "land_samples": 1,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 45.0,
+  "mean_slope_m_per_km": 2.48,
+  "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 2,
+  "non_monotone_samples": 3,
   "deepest_is_reference": false,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -33.65742,
       "lon": 115.01467,
-      "depth_m": -2.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": -33.65603,
       "lon": 115.01254,
-      "depth_m": 6.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 1.0,
       "lat": -33.65326,
       "lon": 115.00829,
-      "depth_m": 18.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 2.0,
       "lat": -33.64773,
       "lon": 114.99977,
-      "depth_m": 22.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 3.0,
@@ -54,19 +54,19 @@
       "dist_km": 8.0,
       "lat": -33.61449,
       "lon": 114.94872,
-      "depth_m": 47.0
+      "depth_m": 48.0
     },
     {
       "dist_km": 12.0,
       "lat": -33.59232,
       "lon": 114.91471,
-      "depth_m": 45.0
+      "depth_m": 46.0
     },
     {
       "dist_km": 18.0,
       "lat": -33.55904,
       "lon": 114.86372,
-      "depth_m": 43.0
+      "depth_m": 45.0
     }
   ]
 }

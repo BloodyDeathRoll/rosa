@@ -1,14 +1,14 @@
 {
   "spot": "little-waimea",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     32.7512,
     -117.2537
   ],
   "bearing_seaward_deg": 278.0,
-  "nearshore_depth_m": 2.0,
-  "offshore_depth_m": 548.0,
-  "mean_slope_m_per_km": 30.76,
+  "nearshore_depth_m": 16.0,
+  "offshore_depth_m": 551.0,
+  "mean_slope_m_per_km": 30.14,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 32.75151,
       "lon": -117.25635,
-      "depth_m": 2.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 0.5,
       "lat": 32.75183,
       "lon": -117.25899,
-      "depth_m": 4.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 1.0,
       "lat": 32.75245,
       "lon": -117.26429,
-      "depth_m": 10.0
+      "depth_m": 28.0
     },
     {
       "dist_km": 2.0,
       "lat": 32.7537,
       "lon": -117.27488,
-      "depth_m": 18.0
+      "depth_m": 35.0
     },
     {
       "dist_km": 3.0,
       "lat": 32.75495,
       "lon": -117.28547,
-      "depth_m": 35.0
+      "depth_m": 45.0
     },
     {
       "dist_km": 5.0,
       "lat": 32.75745,
       "lon": -117.30665,
-      "depth_m": 62.0
+      "depth_m": 63.0
     },
     {
       "dist_km": 8.0,
       "lat": 32.76118,
       "lon": -117.33842,
-      "depth_m": 79.0
+      "depth_m": 81.0
     },
     {
       "dist_km": 12.0,
       "lat": 32.76616,
       "lon": -117.38079,
-      "depth_m": 241.0
+      "depth_m": 157.0
     },
     {
       "dist_km": 18.0,
       "lat": 32.77358,
       "lon": -117.44435,
-      "depth_m": 548.0
+      "depth_m": 551.0
     }
   ]
 }

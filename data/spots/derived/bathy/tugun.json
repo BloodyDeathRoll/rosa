@@ -1,14 +1,14 @@
 {
   "spot": "tugun",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -28.1432,
     153.4969
   ],
   "bearing_seaward_deg": 58.0,
-  "nearshore_depth_m": 3.0,
+  "nearshore_depth_m": 1.0,
   "offshore_depth_m": 64.0,
-  "mean_slope_m_per_km": 3.44,
+  "mean_slope_m_per_km": 3.55,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 1,
@@ -18,37 +18,37 @@
       "dist_km": 0.25,
       "lat": -28.14201,
       "lon": 153.49906,
-      "depth_m": 3.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": -28.14082,
       "lon": 153.50122,
-      "depth_m": 6.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 1.0,
       "lat": -28.13843,
       "lon": 153.50555,
-      "depth_m": 15.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 2.0,
       "lat": -28.13367,
       "lon": 153.5142,
-      "depth_m": 25.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 3.0,
       "lat": -28.1289,
       "lon": 153.52284,
-      "depth_m": 31.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 5.0,
       "lat": -28.11936,
       "lon": 153.54014,
-      "depth_m": 19.0
+      "depth_m": 41.0
     },
     {
       "dist_km": 8.0,

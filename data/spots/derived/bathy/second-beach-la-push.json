@@ -1,15 +1,15 @@
 {
   "spot": "second-beach-la-push",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     47.8916,
     -124.6274
   ],
   "bearing_seaward_deg": 269.0,
-  "nearshore_depth_m": -18.0,
-  "offshore_depth_m": 79.0,
-  "mean_slope_m_per_km": 5.46,
-  "land_samples": 1,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 80.0,
+  "mean_slope_m_per_km": 4.23,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,37 +18,37 @@
       "dist_km": 0.25,
       "lat": 47.89156,
       "lon": -124.63075,
-      "depth_m": -18.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 0.5,
       "lat": 47.89152,
       "lon": -124.6341,
-      "depth_m": 1.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 1.0,
       "lat": 47.89144,
       "lon": -124.64081,
-      "depth_m": 14.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 2.0,
       "lat": 47.89128,
       "lon": -124.65422,
-      "depth_m": 19.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 3.0,
       "lat": 47.89112,
       "lon": -124.66763,
-      "depth_m": 25.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 5.0,
       "lat": 47.8908,
       "lon": -124.69445,
-      "depth_m": 30.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 8.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 47.8896,
       "lon": -124.78831,
-      "depth_m": 56.0
+      "depth_m": 57.0
     },
     {
       "dist_km": 18.0,
       "lat": 47.88852,
       "lon": -124.86876,
-      "depth_m": 79.0
+      "depth_m": 80.0
     }
   ]
 }

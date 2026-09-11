@@ -1,15 +1,15 @@
 {
   "spot": "sunshine-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -26.4156,
     153.1108
   ],
   "bearing_seaward_deg": 100.0,
-  "nearshore_depth_m": -5.0,
-  "offshore_depth_m": 56.0,
-  "mean_slope_m_per_km": 3.44,
-  "land_samples": 1,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 57.0,
+  "mean_slope_m_per_km": 3.04,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": -26.41599,
       "lon": 153.11327,
-      "depth_m": -5.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 0.5,
       "lat": -26.41638,
       "lon": 153.11574,
-      "depth_m": 4.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 1.0,
       "lat": -26.41716,
       "lon": 153.12069,
-      "depth_m": 13.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 2.0,
       "lat": -26.41872,
       "lon": 153.13058,
-      "depth_m": 26.0
+      "depth_m": 28.0
     },
     {
       "dist_km": 3.0,
       "lat": -26.42028,
       "lon": 153.14047,
-      "depth_m": 30.0
+      "depth_m": 31.0
     },
     {
       "dist_km": 5.0,
       "lat": -26.4234,
       "lon": 153.16025,
-      "depth_m": 35.0
+      "depth_m": 36.0
     },
     {
       "dist_km": 8.0,
       "lat": -26.42807,
       "lon": 153.18992,
-      "depth_m": 37.0
+      "depth_m": 38.0
     },
     {
       "dist_km": 12.0,
       "lat": -26.43429,
       "lon": 153.22949,
-      "depth_m": 47.0
+      "depth_m": 46.0
     },
     {
       "dist_km": 18.0,
       "lat": -26.4436,
       "lon": 153.28885,
-      "depth_m": 56.0
+      "depth_m": 57.0
     }
   ]
 }

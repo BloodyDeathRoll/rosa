@@ -1,14 +1,14 @@
 {
   "spot": "portsea",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -38.3347,
     144.7032
   ],
   "bearing_seaward_deg": 217.0,
-  "nearshore_depth_m": 4.0,
-  "offshore_depth_m": 72.0,
-  "mean_slope_m_per_km": 3.83,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 74.0,
+  "mean_slope_m_per_km": 4.06,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,19 +18,19 @@
       "dist_km": 0.25,
       "lat": -38.3365,
       "lon": 144.70147,
-      "depth_m": 4.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 0.5,
       "lat": -38.33829,
       "lon": 144.69975,
-      "depth_m": 8.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 1.0,
       "lat": -38.34188,
       "lon": 144.6963,
-      "depth_m": 17.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 2.0,
@@ -48,25 +48,25 @@
       "dist_km": 5.0,
       "lat": -38.37061,
       "lon": 144.66868,
-      "depth_m": 35.0
+      "depth_m": 37.0
     },
     {
       "dist_km": 8.0,
       "lat": -38.39215,
       "lon": 144.64796,
-      "depth_m": 64.0
+      "depth_m": 66.0
     },
     {
       "dist_km": 12.0,
       "lat": -38.42086,
       "lon": 144.6203,
-      "depth_m": 68.0
+      "depth_m": 70.0
     },
     {
       "dist_km": 18.0,
       "lat": -38.46392,
       "lon": 144.57878,
-      "depth_m": 72.0
+      "depth_m": 74.0
     }
   ]
 }

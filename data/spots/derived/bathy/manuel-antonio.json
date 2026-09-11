@@ -1,72 +1,72 @@
 {
   "spot": "manuel-antonio",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     9.3962,
     -84.1624
   ],
   "bearing_seaward_deg": 215.0,
-  "nearshore_depth_m": -8.0,
-  "offshore_depth_m": 135.0,
-  "mean_slope_m_per_km": 8.06,
-  "land_samples": 1,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 132.0,
+  "mean_slope_m_per_km": 7.55,
+  "land_samples": 2,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 9.39436,
       "lon": -84.16371,
-      "depth_m": -8.0
+      "depth_m": -2.0
     },
     {
       "dist_km": 0.5,
       "lat": 9.39252,
       "lon": -84.16501,
-      "depth_m": 4.0
+      "depth_m": -2.0
     },
     {
       "dist_km": 1.0,
       "lat": 9.38883,
       "lon": -84.16763,
-      "depth_m": 23.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 2.0,
       "lat": 9.38147,
       "lon": -84.17286,
-      "depth_m": 30.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 3.0,
       "lat": 9.3741,
       "lon": -84.17808,
-      "depth_m": 45.0
+      "depth_m": 34.0
     },
     {
       "dist_km": 5.0,
       "lat": 9.35937,
       "lon": -84.18854,
-      "depth_m": 57.0
+      "depth_m": 61.0
     },
     {
       "dist_km": 8.0,
       "lat": 9.33726,
       "lon": -84.20422,
-      "depth_m": 69.0
+      "depth_m": 71.0
     },
     {
       "dist_km": 12.0,
       "lat": 9.30779,
       "lon": -84.22513,
-      "depth_m": 103.0
+      "depth_m": 99.0
     },
     {
       "dist_km": 18.0,
       "lat": 9.26359,
       "lon": -84.25648,
-      "depth_m": 135.0
+      "depth_m": 132.0
     }
   ]
 }

@@ -1,72 +1,72 @@
 {
   "spot": "kealia",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     22.0993,
     -159.3046
   ],
   "bearing_seaward_deg": 70.0,
-  "nearshore_depth_m": 3.0,
-  "offshore_depth_m": 2766.0,
-  "mean_slope_m_per_km": 155.66,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 2779.0,
+  "mean_slope_m_per_km": 156.51,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 22.10007,
       "lon": -159.30232,
-      "depth_m": 3.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": 22.10084,
       "lon": -159.30004,
-      "depth_m": 5.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 1.0,
       "lat": 22.10238,
       "lon": -159.29548,
-      "depth_m": 3.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 2.0,
       "lat": 22.10545,
       "lon": -159.28636,
-      "depth_m": 31.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 3.0,
       "lat": 22.10853,
       "lon": -159.27724,
-      "depth_m": 115.0
+      "depth_m": 90.0
     },
     {
       "dist_km": 5.0,
       "lat": 22.11467,
       "lon": -159.25899,
-      "depth_m": 617.0
+      "depth_m": 551.0
     },
     {
       "dist_km": 8.0,
       "lat": 22.12389,
       "lon": -159.23162,
-      "depth_m": 1403.0
+      "depth_m": 1339.0
     },
     {
       "dist_km": 12.0,
       "lat": 22.13617,
       "lon": -159.19512,
-      "depth_m": 2309.0
+      "depth_m": 2328.0
     },
     {
       "dist_km": 18.0,
       "lat": 22.15458,
       "lon": -159.14036,
-      "depth_m": 2766.0
+      "depth_m": 2779.0
     }
   ]
 }

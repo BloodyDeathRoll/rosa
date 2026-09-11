@@ -1,14 +1,14 @@
 {
   "spot": "punta-roca",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     13.4808,
     -89.3269
   ],
   "bearing_seaward_deg": 196.0,
-  "nearshore_depth_m": 4.0,
-  "offshore_depth_m": 51.0,
-  "mean_slope_m_per_km": 2.65,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 52.0,
+  "mean_slope_m_per_km": 2.48,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,13 +18,13 @@
       "dist_km": 0.25,
       "lat": 13.47864,
       "lon": -89.32754,
-      "depth_m": 4.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 0.5,
       "lat": 13.47648,
       "lon": -89.32817,
-      "depth_m": 11.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 1.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 13.32519,
       "lon": -89.37275,
-      "depth_m": 51.0
+      "depth_m": 52.0
     }
   ]
 }

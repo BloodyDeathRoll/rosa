@@ -1,14 +1,14 @@
 {
   "spot": "fingal-head",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -28.1988,
     153.5696
   ],
   "bearing_seaward_deg": 103.0,
-  "nearshore_depth_m": 4.0,
-  "offshore_depth_m": 75.0,
-  "mean_slope_m_per_km": 4.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 78.0,
+  "mean_slope_m_per_km": 4.34,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 1,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": -28.19931,
       "lon": 153.57209,
-      "depth_m": 4.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": -28.19981,
       "lon": 153.57457,
-      "depth_m": 5.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 1.0,
       "lat": -28.20082,
       "lon": 153.57954,
-      "depth_m": 11.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 2.0,
       "lat": -28.20284,
       "lon": 153.58949,
-      "depth_m": 25.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 3.0,
       "lat": -28.20487,
       "lon": 153.59943,
-      "depth_m": 22.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 5.0,
       "lat": -28.20891,
       "lon": 153.61932,
-      "depth_m": 25.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 8.0,
       "lat": -28.21496,
       "lon": 153.64915,
-      "depth_m": 45.0
+      "depth_m": 43.0
     },
     {
       "dist_km": 12.0,
       "lat": -28.22302,
       "lon": 153.68894,
-      "depth_m": 61.0
+      "depth_m": 62.0
     },
     {
       "dist_km": 18.0,
       "lat": -28.2351,
       "lon": 153.74863,
-      "depth_m": 75.0
+      "depth_m": 78.0
     }
   ]
 }

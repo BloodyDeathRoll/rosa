@@ -1,14 +1,14 @@
 {
   "spot": "east-matunuck",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     41.3765,
     -71.5244
   ],
   "bearing_seaward_deg": 184.0,
-  "nearshore_depth_m": 2.0,
-  "offshore_depth_m": 24.0,
-  "mean_slope_m_per_km": 1.24,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 17.0,
+  "mean_slope_m_per_km": 0.68,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 1,
@@ -18,37 +18,37 @@
       "dist_km": 0.25,
       "lat": 41.37426,
       "lon": -71.52461,
-      "depth_m": 2.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 0.5,
       "lat": 41.37201,
       "lon": -71.52482,
-      "depth_m": 4.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 1.0,
       "lat": 41.36753,
       "lon": -71.52524,
-      "depth_m": 5.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 2.0,
       "lat": 41.35856,
       "lon": -71.52607,
-      "depth_m": 9.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 3.0,
       "lat": 41.34959,
       "lon": -71.52691,
-      "depth_m": 13.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 5.0,
       "lat": 41.33164,
       "lon": -71.52858,
-      "depth_m": 19.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 8.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 41.26884,
       "lon": -71.53442,
-      "depth_m": 44.0
+      "depth_m": 47.0
     },
     {
       "dist_km": 18.0,
       "lat": 41.21502,
       "lon": -71.53941,
-      "depth_m": 24.0
+      "depth_m": 17.0
     }
   ]
 }

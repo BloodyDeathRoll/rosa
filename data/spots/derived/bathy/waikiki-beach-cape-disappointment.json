@@ -1,48 +1,48 @@
 {
   "spot": "waikiki-beach-cape-disappointment",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     46.281,
     -124.059
   ],
   "bearing_seaward_deg": 200.0,
-  "nearshore_depth_m": -1.0,
-  "offshore_depth_m": 60.0,
-  "mean_slope_m_per_km": 3.44,
-  "land_samples": 1,
+  "nearshore_depth_m": 17.0,
+  "offshore_depth_m": 61.0,
+  "mean_slope_m_per_km": 2.48,
+  "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 2,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 46.27889,
       "lon": -124.06011,
-      "depth_m": -1.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 0.5,
       "lat": 46.27677,
       "lon": -124.06123,
-      "depth_m": 4.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 1.0,
       "lat": 46.27255,
       "lon": -124.06345,
-      "depth_m": 5.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 2.0,
       "lat": 46.2641,
       "lon": -124.0679,
-      "depth_m": 9.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 3.0,
       "lat": 46.25565,
       "lon": -124.07235,
-      "depth_m": 13.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 5.0,
@@ -54,19 +54,19 @@
       "dist_km": 8.0,
       "lat": 46.21339,
       "lon": -124.09456,
-      "depth_m": 14.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 12.0,
       "lat": 46.17958,
       "lon": -124.11231,
-      "depth_m": 31.0
+      "depth_m": 33.0
     },
     {
       "dist_km": 18.0,
       "lat": 46.12886,
       "lon": -124.13889,
-      "depth_m": 60.0
+      "depth_m": 61.0
     }
   ]
 }

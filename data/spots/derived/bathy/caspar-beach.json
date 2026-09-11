@@ -1,15 +1,15 @@
 {
   "spot": "caspar-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     39.3605,
     -123.8164
   ],
   "bearing_seaward_deg": 250.0,
-  "nearshore_depth_m": -20.0,
-  "offshore_depth_m": 464.0,
-  "mean_slope_m_per_km": 27.27,
-  "land_samples": 2,
+  "nearshore_depth_m": -19.0,
+  "offshore_depth_m": 485.0,
+  "mean_slope_m_per_km": 28.39,
+  "land_samples": 3,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 39.35973,
       "lon": -123.81913,
-      "depth_m": -20.0
+      "depth_m": -19.0
     },
     {
       "dist_km": 0.5,
       "lat": 39.35896,
       "lon": -123.82186,
-      "depth_m": -16.0
+      "depth_m": -13.0
     },
     {
       "dist_km": 1.0,
       "lat": 39.35742,
       "lon": -123.82733,
-      "depth_m": 6.0
+      "depth_m": -9.0
     },
     {
       "dist_km": 2.0,
       "lat": 39.35435,
       "lon": -123.83826,
-      "depth_m": 61.0
+      "depth_m": 69.0
     },
     {
       "dist_km": 3.0,
       "lat": 39.35127,
       "lon": -123.84919,
-      "depth_m": 82.0
+      "depth_m": 85.0
     },
     {
       "dist_km": 5.0,
       "lat": 39.34511,
       "lon": -123.87104,
-      "depth_m": 101.0
+      "depth_m": 98.0
     },
     {
       "dist_km": 8.0,
       "lat": 39.33586,
       "lon": -123.90381,
-      "depth_m": 127.0
+      "depth_m": 125.0
     },
     {
       "dist_km": 12.0,
       "lat": 39.32352,
       "lon": -123.94749,
-      "depth_m": 167.0
+      "depth_m": 171.0
     },
     {
       "dist_km": 18.0,
       "lat": 39.30497,
       "lon": -124.01299,
-      "depth_m": 464.0
+      "depth_m": 485.0
     }
   ]
 }

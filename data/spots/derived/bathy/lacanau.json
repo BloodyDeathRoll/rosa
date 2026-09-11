@@ -1,15 +1,15 @@
 {
   "spot": "lacanau",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     44.9936,
     -1.2031
   ],
   "bearing_seaward_deg": 269.0,
-  "nearshore_depth_m": -3.0,
+  "nearshore_depth_m": 5.0,
   "offshore_depth_m": 42.0,
-  "mean_slope_m_per_km": 2.54,
-  "land_samples": 1,
+  "mean_slope_m_per_km": 2.08,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,25 +18,25 @@
       "dist_km": 0.25,
       "lat": 44.99356,
       "lon": -1.20628,
-      "depth_m": -3.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 0.5,
       "lat": 44.99352,
       "lon": -1.20946,
-      "depth_m": 4.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 1.0,
       "lat": 44.99344,
       "lon": -1.21581,
-      "depth_m": 9.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 2.0,
       "lat": 44.99328,
       "lon": -1.22853,
-      "depth_m": 15.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 3.0,
@@ -48,19 +48,19 @@
       "dist_km": 5.0,
       "lat": 44.9928,
       "lon": -1.26667,
-      "depth_m": 24.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 8.0,
       "lat": 44.9923,
       "lon": -1.30482,
-      "depth_m": 26.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 12.0,
       "lat": 44.99161,
       "lon": -1.35567,
-      "depth_m": 32.0
+      "depth_m": 33.0
     },
     {
       "dist_km": 18.0,

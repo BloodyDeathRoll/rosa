@@ -1,14 +1,14 @@
 {
   "spot": "boca-del-rio",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -18.1588,
     -70.6818
   ],
   "bearing_seaward_deg": 214.0,
-  "nearshore_depth_m": -2.0,
-  "offshore_depth_m": 464.0,
-  "mean_slope_m_per_km": 26.25,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 433.0,
+  "mean_slope_m_per_km": 24.73,
   "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": -18.16066,
       "lon": -70.68312,
-      "depth_m": -2.0
+      "depth_m": -6.0
     },
     {
       "dist_km": 0.5,
       "lat": -18.16253,
       "lon": -70.68445,
-      "depth_m": 5.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 1.0,
       "lat": -18.16626,
       "lon": -70.68709,
-      "depth_m": 19.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 2.0,
       "lat": -18.17371,
       "lon": -70.69239,
-      "depth_m": 27.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 3.0,
       "lat": -18.18117,
       "lon": -70.69768,
-      "depth_m": 28.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 5.0,
       "lat": -18.19608,
       "lon": -70.70827,
-      "depth_m": 53.0
+      "depth_m": 66.0
     },
     {
       "dist_km": 8.0,
       "lat": -18.21844,
       "lon": -70.72415,
-      "depth_m": 103.0
+      "depth_m": 99.0
     },
     {
       "dist_km": 12.0,
       "lat": -18.24826,
       "lon": -70.74534,
-      "depth_m": 114.0
+      "depth_m": 119.0
     },
     {
       "dist_km": 18.0,
       "lat": -18.29298,
       "lon": -70.77714,
-      "depth_m": 464.0
+      "depth_m": 433.0
     }
   ]
 }

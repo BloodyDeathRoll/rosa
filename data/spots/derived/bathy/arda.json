@@ -1,14 +1,14 @@
 {
   "spot": "arda",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     41.7706,
     -8.8742
   ],
   "bearing_seaward_deg": 290.0,
-  "nearshore_depth_m": 3.0,
+  "nearshore_depth_m": 4.0,
   "offshore_depth_m": 111.0,
-  "mean_slope_m_per_km": 6.08,
+  "mean_slope_m_per_km": 6.03,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,13 +18,13 @@
       "dist_km": 0.25,
       "lat": 41.77137,
       "lon": -8.87703,
-      "depth_m": 3.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 0.5,
       "lat": 41.77214,
       "lon": -8.87987,
-      "depth_m": 9.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 1.0,
@@ -42,7 +42,7 @@
       "dist_km": 3.0,
       "lat": 41.77982,
       "lon": -8.9082,
-      "depth_m": 27.0
+      "depth_m": 28.0
     },
     {
       "dist_km": 5.0,
@@ -54,7 +54,7 @@
       "dist_km": 8.0,
       "lat": 41.79517,
       "lon": -8.96488,
-      "depth_m": 61.0
+      "depth_m": 59.0
     },
     {
       "dist_km": 12.0,

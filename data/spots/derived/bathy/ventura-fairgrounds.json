@@ -1,14 +1,14 @@
 {
   "spot": "ventura-fairgrounds",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     34.2745,
     -119.2983
   ],
   "bearing_seaward_deg": 172.0,
   "nearshore_depth_m": 3.0,
-  "offshore_depth_m": 26.0,
-  "mean_slope_m_per_km": 1.3,
+  "offshore_depth_m": 38.0,
+  "mean_slope_m_per_km": 1.97,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 2,
@@ -24,31 +24,31 @@
       "dist_km": 0.5,
       "lat": 34.27005,
       "lon": -119.29754,
-      "depth_m": 7.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 1.0,
       "lat": 34.26559,
       "lon": -119.29679,
-      "depth_m": 11.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 2.0,
       "lat": 34.25669,
       "lon": -119.29527,
-      "depth_m": 16.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 3.0,
       "lat": 34.24778,
       "lon": -119.29376,
-      "depth_m": 17.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 5.0,
       "lat": 34.22997,
       "lon": -119.29073,
-      "depth_m": 15.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 8.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 34.16763,
       "lon": -119.28015,
-      "depth_m": 14.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 18.0,
       "lat": 34.11419,
       "lon": -119.27109,
-      "depth_m": 26.0
+      "depth_m": 38.0
     }
   ]
 }

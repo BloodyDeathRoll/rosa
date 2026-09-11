@@ -1,14 +1,14 @@
 {
   "spot": "punta-amapala",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     13.1587,
     -87.8962
   ],
   "bearing_seaward_deg": 136.0,
-  "nearshore_depth_m": 4.0,
-  "offshore_depth_m": 39.0,
-  "mean_slope_m_per_km": 1.97,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 41.0,
+  "mean_slope_m_per_km": 2.03,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,13 +18,13 @@
       "dist_km": 0.25,
       "lat": 13.15708,
       "lon": -87.8946,
-      "depth_m": 4.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 0.5,
       "lat": 13.15547,
       "lon": -87.89299,
-      "depth_m": 6.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 1.0,
@@ -42,7 +42,7 @@
       "dist_km": 3.0,
       "lat": 13.13929,
       "lon": -87.87695,
-      "depth_m": 18.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 5.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 13.08106,
       "lon": -87.81924,
-      "depth_m": 25.0
+      "depth_m": 24.0
     },
     {
       "dist_km": 18.0,
       "lat": 13.04223,
       "lon": -87.78077,
-      "depth_m": 39.0
+      "depth_m": 41.0
     }
   ]
 }

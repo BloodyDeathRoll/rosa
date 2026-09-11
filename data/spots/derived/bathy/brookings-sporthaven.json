@@ -1,14 +1,14 @@
 {
   "spot": "brookings-sporthaven",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     42.0407,
     -124.2645
   ],
   "bearing_seaward_deg": 232.0,
-  "nearshore_depth_m": 4.0,
+  "nearshore_depth_m": 9.0,
   "offshore_depth_m": 82.0,
-  "mean_slope_m_per_km": 4.39,
+  "mean_slope_m_per_km": 4.11,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,37 +18,37 @@
       "dist_km": 0.25,
       "lat": 42.03932,
       "lon": -124.26689,
-      "depth_m": 4.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 0.5,
       "lat": 42.03793,
       "lon": -124.26927,
-      "depth_m": 6.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 1.0,
       "lat": 42.03516,
       "lon": -124.27404,
-      "depth_m": 12.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 2.0,
       "lat": 42.02962,
       "lon": -124.28358,
-      "depth_m": 23.0
+      "depth_m": 28.0
     },
     {
       "dist_km": 3.0,
       "lat": 42.02409,
       "lon": -124.29312,
-      "depth_m": 28.0
+      "depth_m": 31.0
     },
     {
       "dist_km": 5.0,
       "lat": 42.01301,
       "lon": -124.31219,
-      "depth_m": 30.0
+      "depth_m": 33.0
     },
     {
       "dist_km": 8.0,
@@ -60,7 +60,7 @@
       "dist_km": 12.0,
       "lat": 41.9742,
       "lon": -124.37889,
-      "depth_m": 66.0
+      "depth_m": 65.0
     },
     {
       "dist_km": 18.0,

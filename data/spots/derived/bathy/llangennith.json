@@ -1,48 +1,48 @@
 {
   "spot": "llangennith",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     51.5919,
     -4.2946
   ],
   "bearing_seaward_deg": 252.0,
-  "nearshore_depth_m": 13.0,
+  "nearshore_depth_m": 1.0,
   "offshore_depth_m": 27.0,
-  "mean_slope_m_per_km": 0.79,
+  "mean_slope_m_per_km": 1.46,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 51.59121,
       "lon": -4.29804,
-      "depth_m": 13.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": 51.59051,
       "lon": -4.30148,
-      "depth_m": 3.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 1.0,
       "lat": 51.58912,
       "lon": -4.30837,
-      "depth_m": 3.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 2.0,
       "lat": 51.58634,
       "lon": -4.32213,
-      "depth_m": 6.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 3.0,
       "lat": 51.58356,
       "lon": -4.33589,
-      "depth_m": 10.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 5.0,

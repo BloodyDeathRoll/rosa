@@ -1,42 +1,42 @@
 {
   "spot": "treyarnon",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     50.5269,
     -5.0246
   ],
   "bearing_seaward_deg": 242.0,
-  "nearshore_depth_m": -12.0,
+  "nearshore_depth_m": -9.0,
   "offshore_depth_m": 39.0,
-  "mean_slope_m_per_km": 2.87,
-  "land_samples": 2,
+  "mean_slope_m_per_km": 2.7,
+  "land_samples": 1,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
-  "deepest_is_reference": true,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 50.52584,
       "lon": -5.02772,
-      "depth_m": -12.0
+      "depth_m": -9.0
     },
     {
       "dist_km": 0.5,
       "lat": 50.52479,
       "lon": -5.03085,
-      "depth_m": -10.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 1.0,
       "lat": 50.52268,
       "lon": -5.03709,
-      "depth_m": 9.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 2.0,
       "lat": 50.51845,
       "lon": -5.04958,
-      "depth_m": 18.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 3.0,
@@ -48,7 +48,7 @@
       "dist_km": 5.0,
       "lat": 50.50577,
       "lon": -5.08703,
-      "depth_m": 28.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 8.0,
@@ -60,7 +60,7 @@
       "dist_km": 12.0,
       "lat": 50.47614,
       "lon": -5.17433,
-      "depth_m": 39.0
+      "depth_m": 40.0
     },
     {
       "dist_km": 18.0,

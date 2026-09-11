@@ -1,15 +1,15 @@
 {
   "spot": "hubbard-creek-port-orford",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     42.7357,
     -124.4769
   ],
   "bearing_seaward_deg": 212.0,
-  "nearshore_depth_m": -14.0,
+  "nearshore_depth_m": -25.0,
   "offshore_depth_m": 101.0,
-  "mean_slope_m_per_km": 6.48,
-  "land_samples": 2,
+  "mean_slope_m_per_km": 7.1,
+  "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,19 +18,19 @@
       "dist_km": 0.25,
       "lat": 42.73379,
       "lon": -124.47852,
-      "depth_m": -14.0
+      "depth_m": -25.0
     },
     {
       "dist_km": 0.5,
       "lat": 42.73189,
       "lon": -124.48014,
-      "depth_m": -4.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 1.0,
       "lat": 42.72807,
       "lon": -124.48339,
-      "depth_m": 10.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 2.0,
@@ -48,7 +48,7 @@
       "dist_km": 5.0,
       "lat": 42.69756,
       "lon": -124.50932,
-      "depth_m": 53.0
+      "depth_m": 54.0
     },
     {
       "dist_km": 8.0,
@@ -60,7 +60,7 @@
       "dist_km": 12.0,
       "lat": 42.64415,
       "lon": -124.55465,
-      "depth_m": 89.0
+      "depth_m": 90.0
     },
     {
       "dist_km": 18.0,

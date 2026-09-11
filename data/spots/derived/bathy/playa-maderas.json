@@ -1,24 +1,24 @@
 {
   "spot": "playa-maderas",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     11.3061,
     -85.9245
   ],
   "bearing_seaward_deg": 260.0,
-  "nearshore_depth_m": -17.0,
-  "offshore_depth_m": 70.0,
-  "mean_slope_m_per_km": 4.9,
-  "land_samples": 2,
+  "nearshore_depth_m": -20.0,
+  "offshore_depth_m": 87.0,
+  "mean_slope_m_per_km": 6.03,
+  "land_samples": 3,
   "missing_samples": 0,
-  "non_monotone_samples": 3,
-  "deepest_is_reference": false,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 11.30571,
       "lon": -85.92676,
-      "depth_m": -17.0
+      "depth_m": -20.0
     },
     {
       "dist_km": 0.5,
@@ -30,43 +30,43 @@
       "dist_km": 1.0,
       "lat": 11.30454,
       "lon": -85.93353,
-      "depth_m": 2.0
+      "depth_m": -17.0
     },
     {
       "dist_km": 2.0,
       "lat": 11.30298,
       "lon": -85.94256,
-      "depth_m": 52.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 3.0,
       "lat": 11.30141,
       "lon": -85.9516,
-      "depth_m": 51.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 5.0,
       "lat": 11.29829,
       "lon": -85.96966,
-      "depth_m": 93.0
+      "depth_m": 45.0
     },
     {
       "dist_km": 8.0,
       "lat": 11.2936,
       "lon": -85.99675,
-      "depth_m": 138.0
+      "depth_m": 60.0
     },
     {
       "dist_km": 12.0,
       "lat": 11.28734,
       "lon": -86.03288,
-      "depth_m": 136.0
+      "depth_m": 83.0
     },
     {
       "dist_km": 18.0,
       "lat": 11.27795,
       "lon": -86.08706,
-      "depth_m": 70.0
+      "depth_m": 87.0
     }
   ]
 }

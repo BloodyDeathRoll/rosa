@@ -1,14 +1,14 @@
 {
   "spot": "aoshima",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     31.80414,
     131.46928
   ],
   "bearing_seaward_deg": 90.0,
-  "nearshore_depth_m": -4.0,
+  "nearshore_depth_m": -9.0,
   "offshore_depth_m": 89.0,
-  "mean_slope_m_per_km": 5.24,
+  "mean_slope_m_per_km": 5.52,
   "land_samples": 2,
   "missing_samples": 0,
   "non_monotone_samples": 1,
@@ -18,25 +18,25 @@
       "dist_km": 0.25,
       "lat": 31.80414,
       "lon": 131.47193,
-      "depth_m": -4.0
+      "depth_m": -9.0
     },
     {
       "dist_km": 0.5,
       "lat": 31.80414,
       "lon": 131.47457,
-      "depth_m": -3.0
+      "depth_m": -9.0
     },
     {
       "dist_km": 1.0,
       "lat": 31.80414,
       "lon": 131.47986,
-      "depth_m": 3.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 2.0,
       "lat": 31.80414,
       "lon": 131.49044,
-      "depth_m": 9.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 3.0,
@@ -54,13 +54,13 @@
       "dist_km": 8.0,
       "lat": 31.80411,
       "lon": 131.55394,
-      "depth_m": 21.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 12.0,
       "lat": 31.80408,
       "lon": 131.59626,
-      "depth_m": 50.0
+      "depth_m": 51.0
     },
     {
       "dist_km": 18.0,

@@ -1,15 +1,15 @@
 {
   "spot": "hana-bay",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     20.7555,
     -155.9835
   ],
   "bearing_seaward_deg": 51.0,
-  "nearshore_depth_m": -30.0,
-  "offshore_depth_m": 1550.0,
-  "mean_slope_m_per_km": 89.01,
-  "land_samples": 2,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 1551.0,
+  "mean_slope_m_per_km": 86.99,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 20.75691,
       "lon": -155.98163,
-      "depth_m": -30.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 0.5,
       "lat": 20.75833,
       "lon": -155.97976,
-      "depth_m": -7.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 1.0,
       "lat": 20.76116,
       "lon": -155.97603,
-      "depth_m": 20.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 2.0,
       "lat": 20.76682,
       "lon": -155.96855,
-      "depth_m": 62.0
+      "depth_m": 70.0
     },
     {
       "dist_km": 3.0,
       "lat": 20.77248,
       "lon": -155.96108,
-      "depth_m": 179.0
+      "depth_m": 186.0
     },
     {
       "dist_km": 5.0,
       "lat": 20.78379,
       "lon": -155.94612,
-      "depth_m": 729.0
+      "depth_m": 751.0
     },
     {
       "dist_km": 8.0,
       "lat": 20.80077,
       "lon": -155.92369,
-      "depth_m": 1092.0
+      "depth_m": 1106.0
     },
     {
       "dist_km": 12.0,
       "lat": 20.82339,
       "lon": -155.89377,
-      "depth_m": 1347.0
+      "depth_m": 1345.0
     },
     {
       "dist_km": 18.0,
       "lat": 20.85732,
       "lon": -155.84888,
-      "depth_m": 1550.0
+      "depth_m": 1551.0
     }
   ]
 }

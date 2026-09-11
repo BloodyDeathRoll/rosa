@@ -1,72 +1,72 @@
 {
   "spot": "middleton-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -35.0152,
     117.9209
   ],
   "bearing_seaward_deg": 124.0,
-  "nearshore_depth_m": -1.0,
-  "offshore_depth_m": 64.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 69.0,
   "mean_slope_m_per_km": 3.66,
-  "land_samples": 1,
+  "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -35.01646,
       "lon": 117.92318,
-      "depth_m": -1.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 0.5,
       "lat": -35.01771,
       "lon": 117.92545,
-      "depth_m": 5.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 1.0,
       "lat": -35.02023,
       "lon": 117.93,
-      "depth_m": 2.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 2.0,
       "lat": -35.02526,
       "lon": 117.93911,
-      "depth_m": 2.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 3.0,
       "lat": -35.03028,
       "lon": 117.94822,
-      "depth_m": 5.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 5.0,
       "lat": -35.04034,
       "lon": 117.96643,
-      "depth_m": 9.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 8.0,
       "lat": -35.05541,
       "lon": 117.99376,
-      "depth_m": 17.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 12.0,
       "lat": -35.0755,
       "lon": 118.03022,
-      "depth_m": 42.0
+      "depth_m": 44.0
     },
     {
       "dist_km": 18.0,
       "lat": -35.10561,
       "lon": 118.08494,
-      "depth_m": 64.0
+      "depth_m": 69.0
     }
   ]
 }

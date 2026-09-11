@@ -1,30 +1,30 @@
 {
   "spot": "chigasaki",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     35.318,
     139.404
   ],
   "bearing_seaward_deg": 180.0,
-  "nearshore_depth_m": 4.0,
-  "offshore_depth_m": 525.0,
-  "mean_slope_m_per_km": 29.35,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 666.0,
+  "mean_slope_m_per_km": 37.13,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 2,
   "deepest_is_reference": false,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 35.31575,
       "lon": 139.404,
-      "depth_m": 4.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 0.5,
       "lat": 35.3135,
       "lon": 139.404,
-      "depth_m": 9.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 1.0,
@@ -36,37 +36,37 @@
       "dist_km": 2.0,
       "lat": 35.30001,
       "lon": 139.404,
-      "depth_m": 51.0
+      "depth_m": 23.0
     },
     {
       "dist_km": 3.0,
       "lat": 35.29102,
       "lon": 139.404,
-      "depth_m": 118.0
+      "depth_m": 136.0
     },
     {
       "dist_km": 5.0,
       "lat": 35.27303,
       "lon": 139.404,
-      "depth_m": 198.0
+      "depth_m": 196.0
     },
     {
       "dist_km": 8.0,
       "lat": 35.24605,
       "lon": 139.404,
-      "depth_m": 336.0
+      "depth_m": 180.0
     },
     {
       "dist_km": 12.0,
       "lat": 35.21008,
       "lon": 139.404,
-      "depth_m": 841.0
+      "depth_m": 864.0
     },
     {
       "dist_km": 18.0,
       "lat": 35.15612,
       "lon": 139.404,
-      "depth_m": 525.0
+      "depth_m": 666.0
     }
   ]
 }

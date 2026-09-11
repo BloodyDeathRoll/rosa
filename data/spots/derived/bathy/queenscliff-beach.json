@@ -1,72 +1,72 @@
 {
   "spot": "queenscliff-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -33.7881,
     151.2881
   ],
   "bearing_seaward_deg": 98.0,
-  "nearshore_depth_m": -28.0,
-  "offshore_depth_m": 123.0,
-  "mean_slope_m_per_km": 8.51,
-  "land_samples": 2,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 124.0,
+  "mean_slope_m_per_km": 7.55,
+  "land_samples": 1,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -33.78841,
       "lon": 151.29078,
-      "depth_m": -28.0
+      "depth_m": -10.0
     },
     {
       "dist_km": 0.5,
       "lat": -33.78873,
       "lon": 151.29346,
-      "depth_m": -67.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 1.0,
       "lat": -33.78935,
       "lon": 151.29882,
-      "depth_m": 7.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 2.0,
       "lat": -33.7906,
       "lon": 151.30953,
-      "depth_m": 2.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 3.0,
       "lat": -33.79185,
       "lon": 151.32025,
-      "depth_m": 10.0
+      "depth_m": 35.0
     },
     {
       "dist_km": 5.0,
       "lat": -33.79435,
       "lon": 151.34168,
-      "depth_m": 33.0
+      "depth_m": 47.0
     },
     {
       "dist_km": 8.0,
       "lat": -33.79808,
       "lon": 151.37383,
-      "depth_m": 62.0
+      "depth_m": 60.0
     },
     {
       "dist_km": 12.0,
       "lat": -33.80305,
       "lon": 151.41671,
-      "depth_m": 108.0
+      "depth_m": 109.0
     },
     {
       "dist_km": 18.0,
       "lat": -33.81048,
       "lon": 151.48103,
-      "depth_m": 123.0
+      "depth_m": 124.0
     }
   ]
 }

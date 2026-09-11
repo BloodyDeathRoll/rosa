@@ -1,15 +1,15 @@
 {
   "spot": "costa-del-sol",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     13.3297,
     -88.9762
   ],
   "bearing_seaward_deg": 203.0,
-  "nearshore_depth_m": -1.0,
-  "offshore_depth_m": 35.0,
-  "mean_slope_m_per_km": 2.03,
-  "land_samples": 1,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 43.0,
+  "mean_slope_m_per_km": 2.54,
+  "land_samples": 3,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 13.32763,
       "lon": -88.9771,
-      "depth_m": -1.0
+      "depth_m": -2.0
     },
     {
       "dist_km": 0.5,
       "lat": 13.32556,
       "lon": -88.97801,
-      "depth_m": 1.0
+      "depth_m": -2.0
     },
     {
       "dist_km": 1.0,
       "lat": 13.32142,
       "lon": -88.97981,
-      "depth_m": 3.0
+      "depth_m": -0.0
     },
     {
       "dist_km": 2.0,
       "lat": 13.31314,
       "lon": -88.98342,
-      "depth_m": 7.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 3.0,
       "lat": 13.30486,
       "lon": -88.98703,
-      "depth_m": 10.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 5.0,
       "lat": 13.28831,
       "lon": -88.99425,
-      "depth_m": 15.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 8.0,
       "lat": 13.26347,
       "lon": -89.00508,
-      "depth_m": 23.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 12.0,
       "lat": 13.23036,
       "lon": -89.01952,
-      "depth_m": 31.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 18.0,
       "lat": 13.18068,
       "lon": -89.04116,
-      "depth_m": 35.0
+      "depth_m": 43.0
     }
   ]
 }

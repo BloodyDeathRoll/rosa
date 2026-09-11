@@ -1,15 +1,15 @@
 {
   "spot": "velzyland",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     21.6846,
     -158.0313
   ],
   "bearing_seaward_deg": 283.0,
-  "nearshore_depth_m": -8.0,
-  "offshore_depth_m": 934.0,
-  "mean_slope_m_per_km": 53.07,
-  "land_samples": 2,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 1185.0,
+  "mean_slope_m_per_km": 66.31,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 21.68511,
       "lon": -158.03366,
-      "depth_m": -8.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 0.5,
       "lat": 21.68561,
       "lon": -158.03602,
-      "depth_m": -4.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 1.0,
       "lat": 21.68662,
       "lon": -158.04073,
-      "depth_m": 10.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 2.0,
       "lat": 21.68864,
       "lon": -158.05016,
-      "depth_m": 28.0
+      "depth_m": 35.0
     },
     {
       "dist_km": 3.0,
       "lat": 21.69067,
       "lon": -158.05959,
-      "depth_m": 42.0
+      "depth_m": 51.0
     },
     {
       "dist_km": 5.0,
       "lat": 21.69471,
       "lon": -158.07845,
-      "depth_m": 94.0
+      "depth_m": 97.0
     },
     {
       "dist_km": 8.0,
       "lat": 21.70077,
       "lon": -158.10675,
-      "depth_m": 262.0
+      "depth_m": 280.0
     },
     {
       "dist_km": 12.0,
       "lat": 21.70884,
       "lon": -158.14448,
-      "depth_m": 402.0
+      "depth_m": 416.0
     },
     {
       "dist_km": 18.0,
       "lat": 21.72093,
       "lon": -158.20108,
-      "depth_m": 934.0
+      "depth_m": 1185.0
     }
   ]
 }

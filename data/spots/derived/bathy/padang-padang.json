@@ -1,72 +1,72 @@
 {
   "spot": "padang-padang",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -8.8101,
     115.1
   ],
   "bearing_seaward_deg": 321.0,
-  "nearshore_depth_m": 9.0,
-  "offshore_depth_m": 57.0,
-  "mean_slope_m_per_km": 2.7,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 55.0,
+  "mean_slope_m_per_km": 2.82,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -8.80835,
       "lon": 115.09857,
-      "depth_m": 9.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 0.5,
       "lat": -8.80661,
       "lon": 115.09714,
-      "depth_m": 17.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 1.0,
       "lat": -8.80311,
       "lon": 115.09427,
-      "depth_m": 25.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 2.0,
       "lat": -8.79612,
       "lon": 115.08855,
-      "depth_m": 34.0
+      "depth_m": 25.0
     },
     {
       "dist_km": 3.0,
       "lat": -8.78913,
       "lon": 115.08282,
-      "depth_m": 41.0
+      "depth_m": 36.0
     },
     {
       "dist_km": 5.0,
       "lat": -8.77515,
       "lon": 115.07137,
-      "depth_m": 44.0
+      "depth_m": 40.0
     },
     {
       "dist_km": 8.0,
       "lat": -8.75418,
       "lon": 115.05419,
-      "depth_m": 55.0
+      "depth_m": 51.0
     },
     {
       "dist_km": 12.0,
       "lat": -8.72623,
       "lon": 115.03129,
-      "depth_m": 52.0
+      "depth_m": 53.0
     },
     {
       "dist_km": 18.0,
       "lat": -8.68428,
       "lon": 114.99695,
-      "depth_m": 57.0
+      "depth_m": 55.0
     }
   ]
 }

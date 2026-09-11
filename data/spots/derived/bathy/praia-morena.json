@@ -1,72 +1,72 @@
 {
   "spot": "praia-morena",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -12.5779,
     13.3954
   ],
   "bearing_seaward_deg": 309.0,
-  "nearshore_depth_m": 80.0,
-  "offshore_depth_m": 511.0,
-  "mean_slope_m_per_km": 24.28,
-  "land_samples": 0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 515.0,
+  "mean_slope_m_per_km": 29.13,
+  "land_samples": 2,
   "missing_samples": 0,
-  "non_monotone_samples": 3,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -12.57649,
       "lon": 13.39361,
-      "depth_m": 80.0
+      "depth_m": -2.0
     },
     {
       "dist_km": 0.5,
       "lat": -12.57507,
       "lon": 13.39182,
-      "depth_m": 83.0
+      "depth_m": -2.0
     },
     {
       "dist_km": 1.0,
       "lat": -12.57224,
       "lon": 13.38824,
-      "depth_m": 70.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 2.0,
       "lat": -12.56658,
       "lon": 13.38108,
-      "depth_m": 19.0
+      "depth_m": 24.0
     },
     {
       "dist_km": 3.0,
       "lat": -12.56092,
       "lon": 13.37392,
-      "depth_m": 7.0
+      "depth_m": 32.0
     },
     {
       "dist_km": 5.0,
       "lat": -12.5496,
       "lon": 13.3596,
-      "depth_m": 43.0
+      "depth_m": 45.0
     },
     {
       "dist_km": 8.0,
       "lat": -12.53262,
       "lon": 13.33812,
-      "depth_m": 57.0
+      "depth_m": 68.0
     },
     {
       "dist_km": 12.0,
       "lat": -12.50997,
       "lon": 13.30949,
-      "depth_m": 98.0
+      "depth_m": 97.0
     },
     {
       "dist_km": 18.0,
       "lat": -12.476,
       "lon": 13.26656,
-      "depth_m": 511.0
+      "depth_m": 515.0
     }
   ]
 }

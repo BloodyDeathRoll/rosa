@@ -1,14 +1,14 @@
 {
   "spot": "malabar-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -33.9642,
     151.2523
   ],
   "bearing_seaward_deg": 81.0,
-  "nearshore_depth_m": -19.0,
-  "offshore_depth_m": 133.0,
-  "mean_slope_m_per_km": 8.56,
+  "nearshore_depth_m": -18.0,
+  "offshore_depth_m": 128.0,
+  "mean_slope_m_per_km": 8.23,
   "land_samples": 3,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,43 +18,43 @@
       "dist_km": 0.25,
       "lat": -33.96385,
       "lon": 151.25498,
-      "depth_m": -19.0
+      "depth_m": -18.0
     },
     {
       "dist_km": 0.5,
       "lat": -33.9635,
       "lon": 151.25765,
-      "depth_m": -24.0
+      "depth_m": -18.0
     },
     {
       "dist_km": 1.0,
       "lat": -33.96279,
       "lon": 151.26301,
-      "depth_m": -30.0
+      "depth_m": -34.0
     },
     {
       "dist_km": 2.0,
       "lat": -33.96138,
       "lon": 151.27372,
-      "depth_m": 19.0
+      "depth_m": 34.0
     },
     {
       "dist_km": 3.0,
       "lat": -33.95998,
       "lon": 151.28443,
-      "depth_m": 42.0
+      "depth_m": 49.0
     },
     {
       "dist_km": 5.0,
       "lat": -33.95715,
       "lon": 151.30584,
-      "depth_m": 60.0
+      "depth_m": 74.0
     },
     {
       "dist_km": 8.0,
       "lat": -33.95292,
       "lon": 151.33797,
-      "depth_m": 85.0
+      "depth_m": 86.0
     },
     {
       "dist_km": 12.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": -33.93873,
       "lon": 151.44502,
-      "depth_m": 133.0
+      "depth_m": 128.0
     }
   ]
 }

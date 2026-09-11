@@ -1,72 +1,72 @@
 {
   "spot": "scottburgh",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -30.2805,
     30.7588
   ],
   "bearing_seaward_deg": 92.0,
-  "nearshore_depth_m": -10.0,
-  "offshore_depth_m": 304.0,
-  "mean_slope_m_per_km": 17.69,
+  "nearshore_depth_m": -16.0,
+  "offshore_depth_m": 314.0,
+  "mean_slope_m_per_km": 18.59,
   "land_samples": 1,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -30.28058,
       "lon": 30.7614,
-      "depth_m": -10.0
+      "depth_m": -16.0
     },
     {
       "dist_km": 0.5,
       "lat": -30.28066,
       "lon": 30.764,
-      "depth_m": 3.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 1.0,
       "lat": -30.28081,
       "lon": 30.76921,
-      "depth_m": 13.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 2.0,
       "lat": -30.28113,
       "lon": 30.77962,
-      "depth_m": 17.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 3.0,
       "lat": -30.28144,
       "lon": 30.79002,
-      "depth_m": 15.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 5.0,
       "lat": -30.28206,
       "lon": 30.81084,
-      "depth_m": 22.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 8.0,
       "lat": -30.28298,
       "lon": 30.84206,
-      "depth_m": 46.0
+      "depth_m": 48.0
     },
     {
       "dist_km": 12.0,
       "lat": -30.28421,
       "lon": 30.8837,
-      "depth_m": 86.0
+      "depth_m": 93.0
     },
     {
       "dist_km": 18.0,
       "lat": -30.28602,
       "lon": 30.94615,
-      "depth_m": 304.0
+      "depth_m": 314.0
     }
   ]
 }

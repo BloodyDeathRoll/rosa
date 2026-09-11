@@ -1,15 +1,15 @@
 {
   "spot": "batu-bolong",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -8.6595,
     115.1301
   ],
   "bearing_seaward_deg": 234.0,
-  "nearshore_depth_m": -0.0,
-  "offshore_depth_m": 72.0,
-  "mean_slope_m_per_km": 4.06,
-  "land_samples": 1,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 77.0,
+  "mean_slope_m_per_km": 4.68,
+  "land_samples": 3,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,37 +18,37 @@
       "dist_km": 0.25,
       "lat": -8.66082,
       "lon": 115.12826,
-      "depth_m": -0.0
+      "depth_m": -6.0
     },
     {
       "dist_km": 0.5,
       "lat": -8.66214,
       "lon": 115.12642,
-      "depth_m": 4.0
+      "depth_m": -6.0
     },
     {
       "dist_km": 1.0,
       "lat": -8.66479,
       "lon": 115.12274,
-      "depth_m": 9.0
+      "depth_m": -1.0
     },
     {
       "dist_km": 2.0,
       "lat": -8.67007,
       "lon": 115.11538,
-      "depth_m": 17.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 3.0,
       "lat": -8.67536,
       "lon": 115.10802,
-      "depth_m": 23.0
+      "depth_m": 24.0
     },
     {
       "dist_km": 5.0,
       "lat": -8.68593,
       "lon": 115.0933,
-      "depth_m": 33.0
+      "depth_m": 31.0
     },
     {
       "dist_km": 8.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": -8.72292,
       "lon": 115.04177,
-      "depth_m": 54.0
+      "depth_m": 52.0
     },
     {
       "dist_km": 18.0,
       "lat": -8.75463,
       "lon": 114.99759,
-      "depth_m": 72.0
+      "depth_m": 77.0
     }
   ]
 }

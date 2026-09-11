@@ -1,14 +1,14 @@
 {
   "spot": "el-porto",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     33.9018,
     -118.4223
   ],
   "bearing_seaward_deg": 250.0,
-  "nearshore_depth_m": 8.0,
-  "offshore_depth_m": 213.0,
-  "mean_slope_m_per_km": 11.55,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 194.0,
+  "mean_slope_m_per_km": 10.87,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 33.90103,
       "lon": -118.42485,
-      "depth_m": 8.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": 33.90026,
       "lon": -118.42739,
-      "depth_m": 13.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 1.0,
       "lat": 33.89872,
       "lon": -118.43248,
-      "depth_m": 14.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 2.0,
       "lat": 33.89565,
       "lon": -118.44266,
-      "depth_m": 18.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 3.0,
       "lat": 33.89257,
       "lon": -118.45284,
-      "depth_m": 29.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 5.0,
       "lat": 33.88641,
       "lon": -118.4732,
-      "depth_m": 52.0
+      "depth_m": 50.0
     },
     {
       "dist_km": 8.0,
       "lat": 33.87717,
       "lon": -118.50373,
-      "depth_m": 58.0
+      "depth_m": 56.0
     },
     {
       "dist_km": 12.0,
       "lat": 33.86483,
       "lon": -118.54443,
-      "depth_m": 75.0
+      "depth_m": 73.0
     },
     {
       "dist_km": 18.0,
       "lat": 33.8463,
       "lon": -118.60545,
-      "depth_m": 213.0
+      "depth_m": 194.0
     }
   ]
 }

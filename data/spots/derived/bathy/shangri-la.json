@@ -1,72 +1,72 @@
 {
   "spot": "shangri-la",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -0.6768,
     73.1984
   ],
   "bearing_seaward_deg": 82.0,
-  "nearshore_depth_m": 16.0,
-  "offshore_depth_m": 1662.0,
-  "mean_slope_m_per_km": 92.73,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 1727.0,
+  "mean_slope_m_per_km": 97.18,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 2,
   "deepest_is_reference": false,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -0.67649,
       "lon": 73.20063,
-      "depth_m": 16.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 0.5,
       "lat": -0.67617,
       "lon": 73.20285,
-      "depth_m": 34.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 1.0,
       "lat": -0.67555,
       "lon": 73.20731,
-      "depth_m": 69.0
+      "depth_m": 33.0
     },
     {
       "dist_km": 2.0,
       "lat": -0.6743,
       "lon": 73.21621,
-      "depth_m": 139.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 3.0,
       "lat": -0.67305,
       "lon": 73.22512,
-      "depth_m": 299.0
+      "depth_m": 620.0
     },
     {
       "dist_km": 5.0,
       "lat": -0.67054,
       "lon": 73.24293,
-      "depth_m": 1289.0
+      "depth_m": 1538.0
     },
     {
       "dist_km": 8.0,
       "lat": -0.66679,
       "lon": 73.26965,
-      "depth_m": 1329.0
+      "depth_m": 1902.0
     },
     {
       "dist_km": 12.0,
       "lat": -0.66178,
       "lon": 73.30528,
-      "depth_m": 1702.0
+      "depth_m": 1984.0
     },
     {
       "dist_km": 18.0,
       "lat": -0.65427,
       "lon": 73.35871,
-      "depth_m": 1662.0
+      "depth_m": 1727.0
     }
   ]
 }

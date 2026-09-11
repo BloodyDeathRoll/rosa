@@ -1,72 +1,72 @@
 {
   "spot": "legzira",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     29.4441,
     -10.1176
   ],
   "bearing_seaward_deg": 294.0,
-  "nearshore_depth_m": -4.0,
-  "offshore_depth_m": 58.0,
-  "mean_slope_m_per_km": 3.49,
+  "nearshore_depth_m": -21.0,
+  "offshore_depth_m": 57.0,
+  "mean_slope_m_per_km": 4.39,
   "land_samples": 1,
   "missing_samples": 0,
-  "non_monotone_samples": 2,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 29.44501,
       "lon": -10.11996,
-      "depth_m": -4.0
+      "depth_m": -21.0
     },
     {
       "dist_km": 0.5,
       "lat": 29.44593,
       "lon": -10.12232,
-      "depth_m": 18.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 1.0,
       "lat": 29.44776,
       "lon": -10.12703,
-      "depth_m": 39.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 2.0,
       "lat": 29.45141,
       "lon": -10.13647,
-      "depth_m": 34.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 3.0,
       "lat": 29.45507,
       "lon": -10.14591,
-      "depth_m": 26.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 5.0,
       "lat": 29.46238,
       "lon": -10.16478,
-      "depth_m": 40.0
+      "depth_m": 35.0
     },
     {
       "dist_km": 8.0,
       "lat": 29.47334,
       "lon": -10.1931,
-      "depth_m": 48.0
+      "depth_m": 40.0
     },
     {
       "dist_km": 12.0,
       "lat": 29.48795,
       "lon": -10.23086,
-      "depth_m": 49.0
+      "depth_m": 47.0
     },
     {
       "dist_km": 18.0,
       "lat": 29.50983,
       "lon": -10.28753,
-      "depth_m": 58.0
+      "depth_m": 57.0
     }
   ]
 }

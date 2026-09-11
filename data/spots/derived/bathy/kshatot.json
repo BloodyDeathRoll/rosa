@@ -1,14 +1,14 @@
 {
   "spot": "kshatot",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     32.18111,
     34.80228
   ],
   "bearing_seaward_deg": 287.0,
-  "nearshore_depth_m": 4.0,
-  "offshore_depth_m": 161.0,
-  "mean_slope_m_per_km": 8.85,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 162.0,
+  "mean_slope_m_per_km": 8.68,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,25 +18,25 @@
       "dist_km": 0.25,
       "lat": 32.18177,
       "lon": 34.79974,
-      "depth_m": 4.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 0.5,
       "lat": 32.18242,
       "lon": 34.7972,
-      "depth_m": 12.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 1.0,
       "lat": 32.18374,
       "lon": 34.79212,
-      "depth_m": 14.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 2.0,
       "lat": 32.18637,
       "lon": 34.78196,
-      "depth_m": 25.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 3.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 32.2126,
       "lon": 34.6803,
-      "depth_m": 70.0
+      "depth_m": 71.0
     },
     {
       "dist_km": 18.0,
       "lat": 32.22831,
       "lon": 34.61928,
-      "depth_m": 161.0
+      "depth_m": 162.0
     }
   ]
 }

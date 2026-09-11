@@ -1,18 +1,18 @@
 {
   "spot": "puerto-eten",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -6.9283,
     -79.8695
   ],
   "bearing_seaward_deg": 236.0,
   "nearshore_depth_m": 1.0,
-  "offshore_depth_m": 36.0,
-  "mean_slope_m_per_km": 1.97,
+  "offshore_depth_m": 43.0,
+  "mean_slope_m_per_km": 2.37,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
-  "deepest_is_reference": false,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
@@ -24,19 +24,19 @@
       "dist_km": 0.5,
       "lat": -6.93081,
       "lon": -79.87326,
-      "depth_m": 3.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 1.0,
       "lat": -6.93333,
       "lon": -79.87701,
-      "depth_m": 7.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 2.0,
       "lat": -6.93836,
       "lon": -79.88452,
-      "depth_m": 11.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 3.0,
@@ -54,19 +54,19 @@
       "dist_km": 8.0,
       "lat": -6.96853,
       "lon": -79.92959,
-      "depth_m": 27.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 12.0,
       "lat": -6.98864,
       "lon": -79.95964,
-      "depth_m": 37.0
+      "depth_m": 34.0
     },
     {
       "dist_km": 18.0,
       "lat": -7.0188,
       "lon": -80.00472,
-      "depth_m": 36.0
+      "depth_m": 43.0
     }
   ]
 }

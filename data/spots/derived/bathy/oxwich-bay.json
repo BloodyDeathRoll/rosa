@@ -1,54 +1,54 @@
 {
   "spot": "oxwich-bay",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     51.561,
     -4.1507
   ],
   "bearing_seaward_deg": 130.0,
-  "nearshore_depth_m": 3.0,
-  "offshore_depth_m": 28.0,
-  "mean_slope_m_per_km": 1.41,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 27.0,
+  "mean_slope_m_per_km": 1.46,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
-  "deepest_is_reference": true,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 51.55955,
       "lon": -4.14793,
-      "depth_m": 3.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": 51.55811,
       "lon": -4.14516,
-      "depth_m": 4.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 1.0,
       "lat": 51.55522,
       "lon": -4.13962,
-      "depth_m": 5.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 2.0,
       "lat": 51.54944,
       "lon": -4.12854,
-      "depth_m": 8.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 3.0,
       "lat": 51.54365,
       "lon": -4.11747,
-      "depth_m": 22.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 5.0,
       "lat": 51.53208,
       "lon": -4.09533,
-      "depth_m": 24.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 8.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 51.49156,
       "lon": -4.01792,
-      "depth_m": 28.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 18.0,
       "lat": 51.45678,
       "lon": -3.95169,
-      "depth_m": 28.0
+      "depth_m": 27.0
     }
   ]
 }

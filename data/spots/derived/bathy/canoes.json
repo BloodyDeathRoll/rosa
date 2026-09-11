@@ -1,14 +1,14 @@
 {
   "spot": "canoes",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     21.2746,
     -157.8335
   ],
   "bearing_seaward_deg": 201.0,
-  "nearshore_depth_m": 4.0,
-  "offshore_depth_m": 577.0,
-  "mean_slope_m_per_km": 32.28,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 592.0,
+  "mean_slope_m_per_km": 33.07,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 1,
@@ -18,31 +18,31 @@
       "dist_km": 0.25,
       "lat": 21.2725,
       "lon": -157.83436,
-      "depth_m": 4.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 0.5,
       "lat": 21.2704,
       "lon": -157.83523,
-      "depth_m": 6.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 1.0,
       "lat": 21.2662,
       "lon": -157.83696,
-      "depth_m": 17.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 2.0,
       "lat": 21.25781,
       "lon": -157.84042,
-      "depth_m": 93.0
+      "depth_m": 73.0
     },
     {
       "dist_km": 3.0,
       "lat": 21.24941,
       "lon": -157.84387,
-      "depth_m": 314.0
+      "depth_m": 340.0
     },
     {
       "dist_km": 5.0,
@@ -54,7 +54,7 @@
       "dist_km": 8.0,
       "lat": 21.20743,
       "lon": -157.86116,
-      "depth_m": 560.0
+      "depth_m": 559.0
     },
     {
       "dist_km": 12.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 21.12346,
       "lon": -157.89569,
-      "depth_m": 577.0
+      "depth_m": 592.0
     }
   ]
 }

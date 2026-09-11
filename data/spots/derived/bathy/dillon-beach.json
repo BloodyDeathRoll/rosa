@@ -1,72 +1,72 @@
 {
   "spot": "dillon-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     38.2501,
     -122.9672
   ],
   "bearing_seaward_deg": 266.0,
-  "nearshore_depth_m": -6.0,
-  "offshore_depth_m": 93.0,
-  "mean_slope_m_per_km": 5.58,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 91.0,
+  "mean_slope_m_per_km": 5.52,
   "land_samples": 1,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 38.24994,
       "lon": -122.97006,
-      "depth_m": -6.0
+      "depth_m": -7.0
     },
     {
       "dist_km": 0.5,
       "lat": 38.24979,
       "lon": -122.97291,
-      "depth_m": 5.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 1.0,
       "lat": 38.24947,
       "lon": -122.97862,
-      "depth_m": 7.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 2.0,
       "lat": 38.24884,
       "lon": -122.99005,
-      "depth_m": 17.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 3.0,
       "lat": 38.24821,
       "lon": -123.00147,
-      "depth_m": 15.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 5.0,
       "lat": 38.24695,
       "lon": -123.02432,
-      "depth_m": 40.0
+      "depth_m": 39.0
     },
     {
       "dist_km": 8.0,
       "lat": 38.24505,
       "lon": -123.05858,
-      "depth_m": 62.0
+      "depth_m": 68.0
     },
     {
       "dist_km": 12.0,
       "lat": 38.24249,
       "lon": -123.10427,
-      "depth_m": 80.0
+      "depth_m": 83.0
     },
     {
       "dist_km": 18.0,
       "lat": 38.23863,
       "lon": -123.1728,
-      "depth_m": 93.0
+      "depth_m": 91.0
     }
   ]
 }

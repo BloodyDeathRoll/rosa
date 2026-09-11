@@ -1,18 +1,18 @@
 {
   "spot": "lori-wilson-park",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     28.3371,
     -80.6044
   ],
   "bearing_seaward_deg": 93.0,
   "nearshore_depth_m": 5.0,
-  "offshore_depth_m": 15.0,
-  "mean_slope_m_per_km": 0.56,
+  "offshore_depth_m": 16.0,
+  "mean_slope_m_per_km": 0.62,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
-  "deepest_is_reference": false,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
@@ -24,7 +24,7 @@
       "dist_km": 0.5,
       "lat": 28.33686,
       "lon": -80.5993,
-      "depth_m": 7.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 1.0,
@@ -36,7 +36,7 @@
       "dist_km": 2.0,
       "lat": 28.33616,
       "lon": -80.58399,
-      "depth_m": 11.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 3.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 28.32851,
       "lon": -80.42075,
-      "depth_m": 15.0
+      "depth_m": 16.0
     }
   ]
 }

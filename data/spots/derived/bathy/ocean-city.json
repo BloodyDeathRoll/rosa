@@ -1,14 +1,14 @@
 {
   "spot": "ocean-city",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     39.2781,
     -74.5571
   ],
   "bearing_seaward_deg": 125.0,
-  "nearshore_depth_m": 4.0,
+  "nearshore_depth_m": 3.0,
   "offshore_depth_m": 17.0,
-  "mean_slope_m_per_km": 0.73,
+  "mean_slope_m_per_km": 0.79,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,7 +18,7 @@
       "dist_km": 0.25,
       "lat": 39.27681,
       "lon": -74.55472,
-      "depth_m": 4.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 0.5,
@@ -36,7 +36,7 @@
       "dist_km": 2.0,
       "lat": 39.26778,
       "lon": -74.53807,
-      "depth_m": 9.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 3.0,
@@ -60,7 +60,7 @@
       "dist_km": 12.0,
       "lat": 39.21614,
       "lon": -74.443,
-      "depth_m": 16.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 18.0,

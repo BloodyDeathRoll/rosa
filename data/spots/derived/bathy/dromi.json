@@ -1,14 +1,14 @@
 {
   "spot": "dromi",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     32.1578,
     34.7936
   ],
   "bearing_seaward_deg": 282.0,
-  "nearshore_depth_m": 5.0,
-  "offshore_depth_m": 159.0,
-  "mean_slope_m_per_km": 8.68,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 161.0,
+  "mean_slope_m_per_km": 8.62,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,19 +18,19 @@
       "dist_km": 0.25,
       "lat": 32.15827,
       "lon": 34.791,
-      "depth_m": 5.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 0.5,
       "lat": 32.15873,
       "lon": 34.7884,
-      "depth_m": 9.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 1.0,
       "lat": 32.15967,
       "lon": 34.78321,
-      "depth_m": 15.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 2.0,
@@ -42,7 +42,7 @@
       "dist_km": 3.0,
       "lat": 32.16341,
       "lon": 34.76243,
-      "depth_m": 33.0
+      "depth_m": 34.0
     },
     {
       "dist_km": 5.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 32.18018,
       "lon": 34.66888,
-      "depth_m": 68.0
+      "depth_m": 69.0
     },
     {
       "dist_km": 18.0,
       "lat": 32.19132,
       "lon": 34.6065,
-      "depth_m": 159.0
+      "depth_m": 161.0
     }
   ]
 }

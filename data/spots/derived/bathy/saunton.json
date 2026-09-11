@@ -1,30 +1,30 @@
 {
   "spot": "saunton",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     51.0915,
     -4.2251
   ],
   "bearing_seaward_deg": 269.0,
-  "nearshore_depth_m": 18.0,
-  "offshore_depth_m": 42.0,
-  "mean_slope_m_per_km": 1.35,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 43.0,
+  "mean_slope_m_per_km": 2.37,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 2,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 51.09146,
       "lon": -4.22868,
-      "depth_m": 18.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": 51.09142,
       "lon": -4.23226,
-      "depth_m": 12.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 1.0,
@@ -36,13 +36,13 @@
       "dist_km": 2.0,
       "lat": 51.09118,
       "lon": -4.25373,
-      "depth_m": 8.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 3.0,
       "lat": 51.09102,
       "lon": -4.26805,
-      "depth_m": 13.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 5.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 51.08839,
       "lon": -4.48278,
-      "depth_m": 42.0
+      "depth_m": 43.0
     }
   ]
 }

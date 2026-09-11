@@ -1,14 +1,14 @@
 {
   "spot": "launiupoko",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     20.8432,
     -156.6528
   ],
   "bearing_seaward_deg": 212.0,
-  "nearshore_depth_m": 5.0,
-  "offshore_depth_m": 248.0,
-  "mean_slope_m_per_km": 13.69,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 245.0,
+  "mean_slope_m_per_km": 13.75,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 20.84129,
       "lon": -156.65407,
-      "depth_m": 5.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": 20.83939,
       "lon": -156.65535,
-      "depth_m": 14.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 1.0,
       "lat": 20.83557,
       "lon": -156.6579,
-      "depth_m": 38.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 2.0,
       "lat": 20.82795,
       "lon": -156.663,
-      "depth_m": 48.0
+      "depth_m": 57.0
     },
     {
       "dist_km": 3.0,
       "lat": 20.82032,
       "lon": -156.6681,
-      "depth_m": 59.0
+      "depth_m": 61.0
     },
     {
       "dist_km": 5.0,
       "lat": 20.80506,
       "lon": -156.67829,
-      "depth_m": 72.0
+      "depth_m": 69.0
     },
     {
       "dist_km": 8.0,
       "lat": 20.78218,
       "lon": -156.69358,
-      "depth_m": 96.0
+      "depth_m": 93.0
     },
     {
       "dist_km": 12.0,
       "lat": 20.75167,
       "lon": -156.71396,
-      "depth_m": 165.0
+      "depth_m": 155.0
     },
     {
       "dist_km": 18.0,
       "lat": 20.7059,
       "lon": -156.74451,
-      "depth_m": 248.0
+      "depth_m": 245.0
     }
   ]
 }

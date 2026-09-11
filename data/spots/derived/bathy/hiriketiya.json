@@ -1,15 +1,15 @@
 {
   "spot": "hiriketiya",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     5.96125,
     80.70894
   ],
   "bearing_seaward_deg": 172.0,
   "nearshore_depth_m": -17.0,
-  "offshore_depth_m": 1793.0,
-  "mean_slope_m_per_km": 101.97,
-  "land_samples": 2,
+  "offshore_depth_m": 1731.0,
+  "mean_slope_m_per_km": 98.48,
+  "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 1,
   "deepest_is_reference": true,
@@ -24,49 +24,49 @@
       "dist_km": 0.5,
       "lat": 5.9568,
       "lon": 80.70957,
-      "depth_m": -14.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 1.0,
       "lat": 5.95234,
       "lon": 80.7102,
-      "depth_m": 10.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 2.0,
       "lat": 5.94344,
       "lon": 80.71146,
-      "depth_m": 24.0
+      "depth_m": 28.0
     },
     {
       "dist_km": 3.0,
       "lat": 5.93453,
       "lon": 80.71272,
-      "depth_m": 37.0
+      "depth_m": 39.0
     },
     {
       "dist_km": 5.0,
       "lat": 5.91672,
       "lon": 80.71523,
-      "depth_m": 63.0
+      "depth_m": 58.0
     },
     {
       "dist_km": 8.0,
       "lat": 5.89,
       "lon": 80.71901,
-      "depth_m": 54.0
+      "depth_m": 32.0
     },
     {
       "dist_km": 12.0,
       "lat": 5.85438,
       "lon": 80.72404,
-      "depth_m": 272.0
+      "depth_m": 257.0
     },
     {
       "dist_km": 18.0,
       "lat": 5.80095,
       "lon": 80.73158,
-      "depth_m": 1793.0
+      "depth_m": 1731.0
     }
   ]
 }

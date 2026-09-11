@@ -1,14 +1,14 @@
 {
   "spot": "panga-drops",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     11.4315,
     -86.077
   ],
   "bearing_seaward_deg": 240.0,
-  "nearshore_depth_m": -29.0,
-  "offshore_depth_m": 70.0,
-  "mean_slope_m_per_km": 5.58,
+  "nearshore_depth_m": -40.0,
+  "offshore_depth_m": 69.0,
+  "mean_slope_m_per_km": 6.14,
   "land_samples": 3,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,19 +18,19 @@
       "dist_km": 0.25,
       "lat": 11.43038,
       "lon": -86.07899,
-      "depth_m": -29.0
+      "depth_m": -40.0
     },
     {
       "dist_km": 0.5,
       "lat": 11.42925,
       "lon": -86.08097,
-      "depth_m": -20.0
+      "depth_m": -21.0
     },
     {
       "dist_km": 1.0,
       "lat": 11.427,
       "lon": -86.08495,
-      "depth_m": -5.0
+      "depth_m": -7.0
     },
     {
       "dist_km": 2.0,
@@ -42,19 +42,19 @@
       "dist_km": 3.0,
       "lat": 11.41801,
       "lon": -86.10084,
-      "depth_m": 40.0
+      "depth_m": 35.0
     },
     {
       "dist_km": 5.0,
       "lat": 11.40901,
       "lon": -86.11673,
-      "depth_m": 53.0
+      "depth_m": 52.0
     },
     {
       "dist_km": 8.0,
       "lat": 11.39552,
       "lon": -86.14056,
-      "depth_m": 53.0
+      "depth_m": 54.0
     },
     {
       "dist_km": 12.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 11.35053,
       "lon": -86.21999,
-      "depth_m": 70.0
+      "depth_m": 69.0
     }
   ]
 }

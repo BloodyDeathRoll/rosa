@@ -1,54 +1,54 @@
 {
   "spot": "manorbier",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     51.6427,
     -4.8054
   ],
   "bearing_seaward_deg": 180.0,
-  "nearshore_depth_m": -20.0,
+  "nearshore_depth_m": 4.0,
   "offshore_depth_m": 45.0,
-  "mean_slope_m_per_km": 3.66,
-  "land_samples": 2,
+  "mean_slope_m_per_km": 2.31,
+  "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 2,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 51.64045,
       "lon": -4.8054,
-      "depth_m": -20.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 0.5,
       "lat": 51.6382,
       "lon": -4.8054,
-      "depth_m": -11.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 1.0,
       "lat": 51.63371,
       "lon": -4.8054,
-      "depth_m": 8.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 2.0,
       "lat": 51.62471,
       "lon": -4.8054,
-      "depth_m": 19.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 3.0,
       "lat": 51.61572,
       "lon": -4.8054,
-      "depth_m": 20.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 5.0,
       "lat": 51.59773,
       "lon": -4.8054,
-      "depth_m": 24.0
+      "depth_m": 23.0
     },
     {
       "dist_km": 8.0,
@@ -60,7 +60,7 @@
       "dist_km": 12.0,
       "lat": 51.53478,
       "lon": -4.8054,
-      "depth_m": 36.0
+      "depth_m": 35.0
     },
     {
       "dist_km": 18.0,

@@ -1,15 +1,15 @@
 {
   "spot": "salsa-brava",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     9.6598,
     -82.7447
   ],
   "bearing_seaward_deg": 91.8,
-  "nearshore_depth_m": -0.0,
-  "offshore_depth_m": 346.0,
-  "mean_slope_m_per_km": 19.49,
-  "land_samples": 2,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 273.0,
+  "mean_slope_m_per_km": 15.21,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 2,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 9.65973,
       "lon": -82.74242,
-      "depth_m": -0.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 0.5,
       "lat": 9.65966,
       "lon": -82.74014,
-      "depth_m": -0.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 1.0,
       "lat": 9.65952,
       "lon": -82.73558,
-      "depth_m": 3.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 2.0,
       "lat": 9.65923,
       "lon": -82.72646,
-      "depth_m": 12.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 3.0,
       "lat": 9.65895,
       "lon": -82.71735,
-      "depth_m": 20.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 5.0,
       "lat": 9.65838,
       "lon": -82.69911,
-      "depth_m": 17.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 8.0,
       "lat": 9.65753,
       "lon": -82.67176,
-      "depth_m": 15.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 12.0,
       "lat": 9.65639,
       "lon": -82.63528,
-      "depth_m": 29.0
+      "depth_m": 40.0
     },
     {
       "dist_km": 18.0,
       "lat": 9.65468,
       "lon": -82.58058,
-      "depth_m": 346.0
+      "depth_m": 273.0
     }
   ]
 }

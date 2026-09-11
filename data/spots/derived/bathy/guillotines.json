@@ -1,14 +1,14 @@
 {
   "spot": "guillotines",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -33.7872,
     114.9972
   ],
   "bearing_seaward_deg": 279.0,
-  "nearshore_depth_m": 10.0,
+  "nearshore_depth_m": 2.0,
   "offshore_depth_m": 46.0,
-  "mean_slope_m_per_km": 2.03,
+  "mean_slope_m_per_km": 2.48,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 1,
@@ -18,37 +18,37 @@
       "dist_km": 0.25,
       "lat": -33.78685,
       "lon": 114.99453,
-      "depth_m": 10.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 0.5,
       "lat": -33.7865,
       "lon": 114.99186,
-      "depth_m": 18.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 1.0,
       "lat": -33.78579,
       "lon": 114.98651,
-      "depth_m": 24.0
+      "depth_m": 25.0
     },
     {
       "dist_km": 2.0,
       "lat": -33.78438,
       "lon": 114.97583,
-      "depth_m": 37.0
+      "depth_m": 36.0
     },
     {
       "dist_km": 3.0,
       "lat": -33.78298,
       "lon": 114.96514,
-      "depth_m": 41.0
+      "depth_m": 40.0
     },
     {
       "dist_km": 5.0,
       "lat": -33.78015,
       "lon": 114.94377,
-      "depth_m": 44.0
+      "depth_m": 43.0
     },
     {
       "dist_km": 8.0,
@@ -60,7 +60,7 @@
       "dist_km": 12.0,
       "lat": -33.77025,
       "lon": 114.86898,
-      "depth_m": 43.0
+      "depth_m": 45.0
     },
     {
       "dist_km": 18.0,

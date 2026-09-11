@@ -1,14 +1,14 @@
 {
   "spot": "summerland",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     34.4195,
     -119.5998
   ],
   "bearing_seaward_deg": 192.0,
-  "nearshore_depth_m": -3.0,
-  "offshore_depth_m": 124.0,
-  "mean_slope_m_per_km": 7.15,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 130.0,
+  "mean_slope_m_per_km": 7.89,
   "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 34.4173,
       "lon": -119.60037,
-      "depth_m": -3.0
+      "depth_m": -10.0
     },
     {
       "dist_km": 0.5,
       "lat": 34.4151,
       "lon": -119.60093,
-      "depth_m": 6.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 1.0,
       "lat": 34.4107,
       "lon": -119.60207,
-      "depth_m": 11.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 2.0,
       "lat": 34.40191,
       "lon": -119.60433,
-      "depth_m": 24.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 3.0,
       "lat": 34.39311,
       "lon": -119.6066,
-      "depth_m": 33.0
+      "depth_m": 34.0
     },
     {
       "dist_km": 5.0,
       "lat": 34.37552,
       "lon": -119.61113,
-      "depth_m": 42.0
+      "depth_m": 41.0
     },
     {
       "dist_km": 8.0,
       "lat": 34.34913,
       "lon": -119.61792,
-      "depth_m": 44.0
+      "depth_m": 45.0
     },
     {
       "dist_km": 12.0,
       "lat": 34.31394,
       "lon": -119.62697,
-      "depth_m": 76.0
+      "depth_m": 73.0
     },
     {
       "dist_km": 18.0,
       "lat": 34.26115,
       "lon": -119.64052,
-      "depth_m": 124.0
+      "depth_m": 130.0
     }
   ]
 }

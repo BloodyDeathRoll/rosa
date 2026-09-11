@@ -1,54 +1,54 @@
 {
   "spot": "oceanside-harbor",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     33.2058,
     -117.3985
   ],
   "bearing_seaward_deg": 240.0,
-  "nearshore_depth_m": 5.0,
-  "offshore_depth_m": 681.0,
-  "mean_slope_m_per_km": 38.08,
+  "nearshore_depth_m": 84.0,
+  "offshore_depth_m": 673.0,
+  "mean_slope_m_per_km": 33.18,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 4,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 33.20468,
       "lon": -117.40083,
-      "depth_m": 5.0
+      "depth_m": 84.0
     },
     {
       "dist_km": 0.5,
       "lat": 33.20355,
       "lon": -117.40315,
-      "depth_m": 8.0
+      "depth_m": 69.0
     },
     {
       "dist_km": 1.0,
       "lat": 33.2013,
       "lon": -117.40781,
-      "depth_m": 11.0
+      "depth_m": 66.0
     },
     {
       "dist_km": 2.0,
       "lat": 33.19681,
       "lon": -117.41711,
-      "depth_m": 15.0
+      "depth_m": 42.0
     },
     {
       "dist_km": 3.0,
       "lat": 33.19231,
       "lon": -117.42642,
-      "depth_m": 23.0
+      "depth_m": 33.0
     },
     {
       "dist_km": 5.0,
       "lat": 33.18331,
       "lon": -117.44503,
-      "depth_m": 64.0
+      "depth_m": 74.0
     },
     {
       "dist_km": 8.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 33.15179,
       "lon": -117.51013,
-      "depth_m": 487.0
+      "depth_m": 489.0
     },
     {
       "dist_km": 18.0,
       "lat": 33.12475,
       "lon": -117.56589,
-      "depth_m": 681.0
+      "depth_m": 673.0
     }
   ]
 }

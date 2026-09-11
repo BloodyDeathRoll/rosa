@@ -1,15 +1,15 @@
 {
   "spot": "kanaha",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     20.8995,
     -156.4431
   ],
   "bearing_seaward_deg": 338.0,
-  "nearshore_depth_m": -2.0,
-  "offshore_depth_m": 293.0,
-  "mean_slope_m_per_km": 16.62,
-  "land_samples": 3,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 296.0,
+  "mean_slope_m_per_km": 16.51,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,37 +18,37 @@
       "dist_km": 0.25,
       "lat": 20.90158,
       "lon": -156.444,
-      "depth_m": -2.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 0.5,
       "lat": 20.90367,
       "lon": -156.4449,
-      "depth_m": -22.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 1.0,
       "lat": 20.90784,
       "lon": -156.44671,
-      "depth_m": -5.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 2.0,
       "lat": 20.91618,
       "lon": -156.45031,
-      "depth_m": 23.0
+      "depth_m": 33.0
     },
     {
       "dist_km": 3.0,
       "lat": 20.92451,
       "lon": -156.45392,
-      "depth_m": 31.0
+      "depth_m": 36.0
     },
     {
       "dist_km": 5.0,
       "lat": 20.94119,
       "lon": -156.46114,
-      "depth_m": 42.0
+      "depth_m": 48.0
     },
     {
       "dist_km": 8.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 20.99955,
       "lon": -156.4864,
-      "depth_m": 134.0
+      "depth_m": 135.0
     },
     {
       "dist_km": 18.0,
       "lat": 21.04958,
       "lon": -156.50808,
-      "depth_m": 293.0
+      "depth_m": 296.0
     }
   ]
 }

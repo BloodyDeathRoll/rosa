@@ -1,14 +1,14 @@
 {
   "spot": "ethel-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -35.2699,
     136.8439
   ],
   "bearing_seaward_deg": 236.0,
-  "nearshore_depth_m": 17.0,
+  "nearshore_depth_m": 16.0,
   "offshore_depth_m": 67.0,
-  "mean_slope_m_per_km": 2.82,
+  "mean_slope_m_per_km": 2.87,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,49 +18,49 @@
       "dist_km": 0.25,
       "lat": -35.27116,
       "lon": 136.84162,
-      "depth_m": 17.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 0.5,
       "lat": -35.27241,
       "lon": 136.83933,
-      "depth_m": 19.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 1.0,
       "lat": -35.27493,
       "lon": 136.83477,
-      "depth_m": 22.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 2.0,
       "lat": -35.27996,
       "lon": 136.82563,
-      "depth_m": 26.0
+      "depth_m": 25.0
     },
     {
       "dist_km": 3.0,
       "lat": -35.28498,
       "lon": 136.8165,
-      "depth_m": 26.0
+      "depth_m": 25.0
     },
     {
       "dist_km": 5.0,
       "lat": -35.29504,
       "lon": 136.79823,
-      "depth_m": 29.0
+      "depth_m": 25.0
     },
     {
       "dist_km": 8.0,
       "lat": -35.31011,
       "lon": 136.77081,
-      "depth_m": 41.0
+      "depth_m": 38.0
     },
     {
       "dist_km": 12.0,
       "lat": -35.3302,
       "lon": 136.73423,
-      "depth_m": 56.0
+      "depth_m": 53.0
     },
     {
       "dist_km": 18.0,

@@ -1,54 +1,54 @@
 {
   "spot": "guilderton",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -31.3456,
     115.4924
   ],
   "bearing_seaward_deg": 230.0,
-  "nearshore_depth_m": -8.0,
-  "offshore_depth_m": 39.0,
-  "mean_slope_m_per_km": 2.65,
-  "land_samples": 2,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 38.0,
+  "mean_slope_m_per_km": 1.92,
+  "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -31.34705,
       "lon": 115.49038,
-      "depth_m": -8.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 0.5,
       "lat": -31.34849,
       "lon": 115.48837,
-      "depth_m": -1.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 1.0,
       "lat": -31.35138,
       "lon": 115.48433,
-      "depth_m": 1.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 2.0,
       "lat": -31.35716,
       "lon": 115.47626,
-      "depth_m": 3.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 3.0,
       "lat": -31.36294,
       "lon": 115.4682,
-      "depth_m": 6.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 5.0,
       "lat": -31.3745,
       "lon": 115.45205,
-      "depth_m": 9.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 8.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": -31.41493,
       "lon": 115.39553,
-      "depth_m": 34.0
+      "depth_m": 33.0
     },
     {
       "dist_km": 18.0,
       "lat": -31.44957,
       "lon": 115.34704,
-      "depth_m": 39.0
+      "depth_m": 38.0
     }
   ]
 }

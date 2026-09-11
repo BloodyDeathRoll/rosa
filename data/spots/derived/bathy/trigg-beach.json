@@ -1,72 +1,72 @@
 {
   "spot": "trigg-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -31.8786,
     115.7518
   ],
   "bearing_seaward_deg": 272.0,
-  "nearshore_depth_m": -3.0,
-  "offshore_depth_m": 31.0,
-  "mean_slope_m_per_km": 1.92,
-  "land_samples": 1,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 36.0,
+  "mean_slope_m_per_km": 1.41,
+  "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 2,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -31.87852,
       "lon": 115.74915,
-      "depth_m": -3.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 0.5,
       "lat": -31.87844,
       "lon": 115.74651,
-      "depth_m": 1.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 1.0,
       "lat": -31.87829,
       "lon": 115.74122,
-      "depth_m": 2.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 2.0,
       "lat": -31.87797,
       "lon": 115.73063,
-      "depth_m": 3.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 3.0,
       "lat": -31.87765,
       "lon": 115.72005,
-      "depth_m": 6.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 5.0,
       "lat": -31.87702,
       "lon": 115.69888,
-      "depth_m": 11.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 8.0,
       "lat": -31.87606,
       "lon": 115.66713,
-      "depth_m": 20.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 12.0,
       "lat": -31.87477,
       "lon": 115.6248,
-      "depth_m": 29.0
+      "depth_m": 33.0
     },
     {
       "dist_km": 18.0,
       "lat": -31.87281,
       "lon": 115.5613,
-      "depth_m": 31.0
+      "depth_m": 36.0
     }
   ]
 }

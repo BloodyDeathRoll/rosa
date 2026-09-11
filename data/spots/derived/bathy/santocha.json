@@ -1,36 +1,36 @@
 {
   "spot": "santocha",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     43.6458,
     -1.4457
   ],
   "bearing_seaward_deg": 289.0,
-  "nearshore_depth_m": -0.0,
-  "offshore_depth_m": 112.0,
-  "mean_slope_m_per_km": 6.31,
-  "land_samples": 1,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 114.0,
+  "mean_slope_m_per_km": 6.25,
+  "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 2,
   "deepest_is_reference": false,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 43.64653,
       "lon": -1.44864,
-      "depth_m": -0.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 0.5,
       "lat": 43.64726,
       "lon": -1.45158,
-      "depth_m": 3.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 1.0,
       "lat": 43.64873,
       "lon": -1.45745,
-      "depth_m": 10.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 2.0,
@@ -42,31 +42,31 @@
       "dist_km": 3.0,
       "lat": 43.65458,
       "lon": -1.48096,
-      "depth_m": 41.0
+      "depth_m": 158.0
     },
     {
       "dist_km": 5.0,
       "lat": 43.66042,
       "lon": -1.50447,
-      "depth_m": 136.0
+      "depth_m": 195.0
     },
     {
       "dist_km": 8.0,
       "lat": 43.66918,
       "lon": -1.53974,
-      "depth_m": 153.0
+      "depth_m": 152.0
     },
     {
       "dist_km": 12.0,
       "lat": 43.68085,
       "lon": -1.58679,
-      "depth_m": 254.0
+      "depth_m": 236.0
     },
     {
       "dist_km": 18.0,
       "lat": 43.69831,
       "lon": -1.6574,
-      "depth_m": 112.0
+      "depth_m": 114.0
     }
   ]
 }

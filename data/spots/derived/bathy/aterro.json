@@ -1,14 +1,14 @@
 {
   "spot": "aterro",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     41.2094,
     -8.716
   ],
   "bearing_seaward_deg": 284.0,
   "nearshore_depth_m": 5.0,
-  "offshore_depth_m": 65.0,
-  "mean_slope_m_per_km": 3.38,
+  "offshore_depth_m": 64.0,
+  "mean_slope_m_per_km": 3.32,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -24,13 +24,13 @@
       "dist_km": 0.5,
       "lat": 41.21049,
       "lon": -8.7218,
-      "depth_m": 10.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 1.0,
       "lat": 41.21158,
       "lon": -8.7276,
-      "depth_m": 15.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 2.0,
@@ -42,7 +42,7 @@
       "dist_km": 3.0,
       "lat": 41.21592,
       "lon": -8.7508,
-      "depth_m": 27.0
+      "depth_m": 28.0
     },
     {
       "dist_km": 5.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 41.23542,
       "lon": -8.85524,
-      "depth_m": 50.0
+      "depth_m": 49.0
     },
     {
       "dist_km": 18.0,
       "lat": 41.24837,
       "lon": -8.92491,
-      "depth_m": 65.0
+      "depth_m": 64.0
     }
   ]
 }

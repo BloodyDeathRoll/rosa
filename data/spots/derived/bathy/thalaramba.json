@@ -1,14 +1,14 @@
 {
   "spot": "thalaramba",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     5.9374,
     80.4749
   ],
   "bearing_seaward_deg": 181.0,
-  "nearshore_depth_m": -10.0,
-  "offshore_depth_m": 1901.0,
-  "mean_slope_m_per_km": 107.66,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 1828.0,
+  "mean_slope_m_per_km": 103.61,
   "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 1,
@@ -18,13 +18,13 @@
       "dist_km": 0.25,
       "lat": 5.93515,
       "lon": 80.47486,
-      "depth_m": -10.0
+      "depth_m": -11.0
     },
     {
       "dist_km": 0.5,
       "lat": 5.9329,
       "lon": 80.47482,
-      "depth_m": 2.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 1.0,
@@ -36,37 +36,37 @@
       "dist_km": 2.0,
       "lat": 5.91942,
       "lon": 80.47458,
-      "depth_m": 28.0
+      "depth_m": 24.0
     },
     {
       "dist_km": 3.0,
       "lat": 5.91042,
       "lon": 80.47443,
-      "depth_m": 40.0
+      "depth_m": 37.0
     },
     {
       "dist_km": 5.0,
       "lat": 5.89244,
       "lon": 80.47411,
-      "depth_m": 9.0
+      "depth_m": 32.0
     },
     {
       "dist_km": 8.0,
       "lat": 5.86547,
       "lon": 80.47364,
-      "depth_m": 46.0
+      "depth_m": 335.0
     },
     {
       "dist_km": 12.0,
       "lat": 5.8295,
       "lon": 80.47301,
-      "depth_m": 1265.0
+      "depth_m": 1224.0
     },
     {
       "dist_km": 18.0,
       "lat": 5.77555,
       "lon": 80.47206,
-      "depth_m": 1901.0
+      "depth_m": 1828.0
     }
   ]
 }

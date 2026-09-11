@@ -1,6 +1,6 @@
 {
   "spot": "los-cobanos",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     13.525,
     -89.8046
@@ -9,7 +9,7 @@
   "nearshore_depth_m": -0.0,
   "offshore_depth_m": 77.0,
   "mean_slope_m_per_km": 4.34,
-  "land_samples": 1,
+  "land_samples": 2,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -24,13 +24,13 @@
       "dist_km": 0.5,
       "lat": 13.52092,
       "lon": -89.80655,
-      "depth_m": 2.0
+      "depth_m": -0.0
     },
     {
       "dist_km": 1.0,
       "lat": 13.51685,
       "lon": -89.80851,
-      "depth_m": 4.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 2.0,
@@ -42,7 +42,7 @@
       "dist_km": 3.0,
       "lat": 13.50055,
       "lon": -89.81633,
-      "depth_m": 13.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 5.0,

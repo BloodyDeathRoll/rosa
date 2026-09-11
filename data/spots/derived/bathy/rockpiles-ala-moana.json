@@ -1,15 +1,15 @@
 {
   "spot": "rockpiles-ala-moana",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     21.2816,
     -157.8472
   ],
   "bearing_seaward_deg": 196.0,
-  "nearshore_depth_m": -27.0,
-  "offshore_depth_m": 578.0,
-  "mean_slope_m_per_km": 34.08,
-  "land_samples": 1,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 559.0,
+  "mean_slope_m_per_km": 31.27,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 1,
   "deepest_is_reference": true,
@@ -18,25 +18,25 @@
       "dist_km": 0.25,
       "lat": 21.27944,
       "lon": -157.84787,
-      "depth_m": -27.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 0.5,
       "lat": 21.27728,
       "lon": -157.84853,
-      "depth_m": 3.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 1.0,
       "lat": 21.27296,
       "lon": -157.84986,
-      "depth_m": 41.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 2.0,
       "lat": 21.26431,
       "lon": -157.85252,
-      "depth_m": 264.0
+      "depth_m": 139.0
     },
     {
       "dist_km": 3.0,
@@ -48,13 +48,13 @@
       "dist_km": 5.0,
       "lat": 21.23838,
       "lon": -157.8605,
-      "depth_m": 503.0
+      "depth_m": 491.0
     },
     {
       "dist_km": 8.0,
       "lat": 21.21244,
       "lon": -157.86847,
-      "depth_m": 553.0
+      "depth_m": 550.0
     },
     {
       "dist_km": 12.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 21.12599,
       "lon": -157.89503,
-      "depth_m": 578.0
+      "depth_m": 559.0
     }
   ]
 }

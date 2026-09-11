@@ -1,15 +1,15 @@
 {
   "spot": "hookipa",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     20.9342,
     -156.3569
   ],
   "bearing_seaward_deg": 329.0,
-  "nearshore_depth_m": -2.0,
-  "offshore_depth_m": 362.0,
-  "mean_slope_m_per_km": 20.51,
-  "land_samples": 1,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 365.0,
+  "mean_slope_m_per_km": 20.06,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,25 +18,25 @@
       "dist_km": 0.25,
       "lat": 20.93613,
       "lon": -156.35814,
-      "depth_m": -2.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 0.5,
       "lat": 20.93805,
       "lon": -156.35938,
-      "depth_m": 25.0
+      "depth_m": 37.0
     },
     {
       "dist_km": 1.0,
       "lat": 20.94191,
       "lon": -156.36186,
-      "depth_m": 36.0
+      "depth_m": 57.0
     },
     {
       "dist_km": 2.0,
       "lat": 20.94962,
       "lon": -156.36682,
-      "depth_m": 66.0
+      "depth_m": 80.0
     },
     {
       "dist_km": 3.0,
@@ -48,25 +48,25 @@
       "dist_km": 5.0,
       "lat": 20.97274,
       "lon": -156.3817,
-      "depth_m": 108.0
+      "depth_m": 111.0
     },
     {
       "dist_km": 8.0,
       "lat": 20.99586,
       "lon": -156.39659,
-      "depth_m": 140.0
+      "depth_m": 151.0
     },
     {
       "dist_km": 12.0,
       "lat": 21.02669,
       "lon": -156.41645,
-      "depth_m": 238.0
+      "depth_m": 248.0
     },
     {
       "dist_km": 18.0,
       "lat": 21.07293,
       "lon": -156.44625,
-      "depth_m": 362.0
+      "depth_m": 365.0
     }
   ]
 }

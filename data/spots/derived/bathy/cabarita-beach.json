@@ -1,24 +1,24 @@
 {
   "spot": "cabarita-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -28.3358,
     153.5755
   ],
   "bearing_seaward_deg": 97.0,
-  "nearshore_depth_m": 5.0,
+  "nearshore_depth_m": 1.0,
   "offshore_depth_m": 80.0,
-  "mean_slope_m_per_km": 4.23,
+  "mean_slope_m_per_km": 4.45,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -28.33607,
       "lon": 153.57804,
-      "depth_m": 5.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
@@ -30,37 +30,37 @@
       "dist_km": 1.0,
       "lat": -28.3369,
       "lon": 153.58564,
-      "depth_m": 15.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 2.0,
       "lat": -28.33799,
       "lon": 153.59578,
-      "depth_m": 24.0
+      "depth_m": 23.0
     },
     {
       "dist_km": 3.0,
       "lat": -28.33908,
       "lon": 153.60592,
-      "depth_m": 29.0
+      "depth_m": 31.0
     },
     {
       "dist_km": 5.0,
       "lat": -28.34127,
       "lon": 153.62621,
-      "depth_m": 37.0
+      "depth_m": 38.0
     },
     {
       "dist_km": 8.0,
       "lat": -28.34454,
       "lon": 153.65664,
-      "depth_m": 50.0
+      "depth_m": 52.0
     },
     {
       "dist_km": 12.0,
       "lat": -28.3489,
       "lon": 153.69721,
-      "depth_m": 57.0
+      "depth_m": 61.0
     },
     {
       "dist_km": 18.0,

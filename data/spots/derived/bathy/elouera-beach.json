@@ -1,15 +1,15 @@
 {
   "spot": "elouera-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -34.0467,
     151.1591
   ],
   "bearing_seaward_deg": 118.0,
-  "nearshore_depth_m": -10.0,
-  "offshore_depth_m": 139.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 138.0,
   "mean_slope_m_per_km": 8.39,
-  "land_samples": 2,
+  "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": -34.04776,
       "lon": 151.1615,
-      "depth_m": -10.0
+      "depth_m": -11.0
     },
     {
       "dist_km": 0.5,
       "lat": -34.04881,
       "lon": 151.16389,
-      "depth_m": -5.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 1.0,
       "lat": -34.05092,
       "lon": 151.16868,
-      "depth_m": 11.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 2.0,
       "lat": -34.05514,
       "lon": 151.17827,
-      "depth_m": 12.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 3.0,
       "lat": -34.05936,
       "lon": 151.18785,
-      "depth_m": 14.0
+      "depth_m": 23.0
     },
     {
       "dist_km": 5.0,
       "lat": -34.0678,
       "lon": 151.20703,
-      "depth_m": 41.0
+      "depth_m": 42.0
     },
     {
       "dist_km": 8.0,
       "lat": -34.08045,
       "lon": 151.2358,
-      "depth_m": 90.0
+      "depth_m": 94.0
     },
     {
       "dist_km": 12.0,
       "lat": -34.09731,
       "lon": 151.27417,
-      "depth_m": 128.0
+      "depth_m": 124.0
     },
     {
       "dist_km": 18.0,
       "lat": -34.12258,
       "lon": 151.33175,
-      "depth_m": 139.0
+      "depth_m": 138.0
     }
   ]
 }

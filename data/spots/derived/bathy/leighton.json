@@ -1,60 +1,60 @@
 {
   "spot": "leighton",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -32.0225,
     115.7505
   ],
   "bearing_seaward_deg": 300.0,
-  "nearshore_depth_m": -4.0,
+  "nearshore_depth_m": 8.0,
   "offshore_depth_m": 34.0,
-  "mean_slope_m_per_km": 2.14,
-  "land_samples": 2,
+  "mean_slope_m_per_km": 1.46,
+  "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 2,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -32.02138,
       "lon": 115.7482,
-      "depth_m": -4.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 0.5,
       "lat": -32.02025,
       "lon": 115.74591,
-      "depth_m": -1.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 1.0,
       "lat": -32.018,
       "lon": 115.74131,
-      "depth_m": 3.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 2.0,
       "lat": -32.01351,
       "lon": 115.73213,
-      "depth_m": 4.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 3.0,
       "lat": -32.00901,
       "lon": 115.72295,
-      "depth_m": 7.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 5.0,
       "lat": -32.00001,
       "lon": 115.70458,
-      "depth_m": 11.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 8.0,
       "lat": -31.98651,
       "lon": 115.67704,
-      "depth_m": 16.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 12.0,

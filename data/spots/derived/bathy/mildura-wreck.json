@@ -1,14 +1,14 @@
 {
   "spot": "mildura-wreck",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -21.7841,
     114.1676
   ],
   "bearing_seaward_deg": 30.0,
   "nearshore_depth_m": 2.0,
-  "offshore_depth_m": 41.0,
-  "mean_slope_m_per_km": 2.2,
+  "offshore_depth_m": 42.0,
+  "mean_slope_m_per_km": 2.25,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -24,49 +24,49 @@
       "dist_km": 0.5,
       "lat": -21.78021,
       "lon": 114.17002,
-      "depth_m": 4.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 1.0,
       "lat": -21.77631,
       "lon": 114.17244,
-      "depth_m": 8.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 2.0,
       "lat": -21.76852,
       "lon": 114.17728,
-      "depth_m": 10.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 3.0,
       "lat": -21.76073,
       "lon": 114.18212,
-      "depth_m": 15.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 5.0,
       "lat": -21.74516,
       "lon": 114.19181,
-      "depth_m": 21.0
+      "depth_m": 24.0
     },
     {
       "dist_km": 8.0,
       "lat": -21.72179,
       "lon": 114.20632,
-      "depth_m": 28.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 12.0,
       "lat": -21.69063,
       "lon": 114.22567,
-      "depth_m": 33.0
+      "depth_m": 32.0
     },
     {
       "dist_km": 18.0,
       "lat": -21.64389,
       "lon": 114.25468,
-      "depth_m": 41.0
+      "depth_m": 42.0
     }
   ]
 }

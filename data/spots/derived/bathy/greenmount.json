@@ -1,60 +1,60 @@
 {
   "spot": "greenmount",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -28.1656,
     153.5436
   ],
   "bearing_seaward_deg": 20.0,
-  "nearshore_depth_m": 2.0,
-  "offshore_depth_m": 54.0,
-  "mean_slope_m_per_km": 2.93,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 55.0,
+  "mean_slope_m_per_km": 3.04,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -28.16349,
       "lon": 153.54447,
-      "depth_m": 2.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": -28.16137,
       "lon": 153.54534,
-      "depth_m": 6.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 1.0,
       "lat": -28.15715,
       "lon": 153.54709,
-      "depth_m": 16.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 2.0,
       "lat": -28.1487,
       "lon": 153.55058,
-      "depth_m": 29.0
+      "depth_m": 32.0
     },
     {
       "dist_km": 3.0,
       "lat": -28.14025,
       "lon": 153.55406,
-      "depth_m": 20.0
+      "depth_m": 37.0
     },
     {
       "dist_km": 5.0,
       "lat": -28.12334,
       "lon": 153.56104,
-      "depth_m": 41.0
+      "depth_m": 45.0
     },
     {
       "dist_km": 8.0,
       "lat": -28.09799,
       "lon": 153.57149,
-      "depth_m": 49.0
+      "depth_m": 50.0
     },
     {
       "dist_km": 12.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": -28.01347,
       "lon": 153.60631,
-      "depth_m": 54.0
+      "depth_m": 55.0
     }
   ]
 }

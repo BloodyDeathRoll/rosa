@@ -1,72 +1,72 @@
 {
   "spot": "libanona",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -25.036,
     46.983
   ],
   "bearing_seaward_deg": 140.0,
-  "nearshore_depth_m": -2.0,
-  "offshore_depth_m": 73.0,
-  "mean_slope_m_per_km": 4.23,
-  "land_samples": 3,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 84.0,
+  "mean_slope_m_per_km": 4.39,
+  "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
-  "deepest_is_reference": false,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -25.03772,
       "lon": 46.9846,
-      "depth_m": -2.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 0.5,
       "lat": -25.03944,
       "lon": 46.98619,
-      "depth_m": -2.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 1.0,
       "lat": -25.04289,
       "lon": 46.98938,
-      "depth_m": -1.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 2.0,
       "lat": -25.04978,
       "lon": 46.99576,
-      "depth_m": 13.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 3.0,
       "lat": -25.05667,
       "lon": 47.00214,
-      "depth_m": 31.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 5.0,
       "lat": -25.07044,
       "lon": 47.01491,
-      "depth_m": 55.0
+      "depth_m": 54.0
     },
     {
       "dist_km": 8.0,
       "lat": -25.0911,
       "lon": 47.03406,
-      "depth_m": 71.0
+      "depth_m": 68.0
     },
     {
       "dist_km": 12.0,
       "lat": -25.11865,
       "lon": 47.05961,
-      "depth_m": 75.0
+      "depth_m": 74.0
     },
     {
       "dist_km": 18.0,
       "lat": -25.15996,
       "lon": 47.09796,
-      "depth_m": 73.0
+      "depth_m": 84.0
     }
   ]
 }

@@ -1,14 +1,14 @@
 {
   "spot": "flying-point",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     40.8855,
     -72.3382
   ],
   "bearing_seaward_deg": 153.0,
-  "nearshore_depth_m": 8.0,
+  "nearshore_depth_m": 3.0,
   "offshore_depth_m": 43.0,
-  "mean_slope_m_per_km": 1.97,
+  "mean_slope_m_per_km": 2.25,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,31 +18,31 @@
       "dist_km": 0.25,
       "lat": 40.8835,
       "lon": -72.33685,
-      "depth_m": 8.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 0.5,
       "lat": 40.88149,
       "lon": -72.3355,
-      "depth_m": 9.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 1.0,
       "lat": 40.87749,
       "lon": -72.3328,
-      "depth_m": 11.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 2.0,
       "lat": 40.86947,
       "lon": -72.3274,
-      "depth_m": 16.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 3.0,
       "lat": 40.86146,
       "lon": -72.322,
-      "depth_m": 20.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 5.0,

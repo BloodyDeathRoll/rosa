@@ -1,14 +1,14 @@
 {
   "spot": "ashkelon",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     31.6645,
     34.5441
   ],
   "bearing_seaward_deg": 303.0,
   "nearshore_depth_m": 9.0,
-  "offshore_depth_m": 103.0,
-  "mean_slope_m_per_km": 5.3,
+  "offshore_depth_m": 101.0,
+  "mean_slope_m_per_km": 5.18,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -24,13 +24,13 @@
       "dist_km": 0.5,
       "lat": 31.66695,
       "lon": 34.53967,
-      "depth_m": 10.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 1.0,
       "lat": 31.6694,
       "lon": 34.53524,
-      "depth_m": 15.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 2.0,
@@ -48,7 +48,7 @@
       "dist_km": 5.0,
       "lat": 31.68898,
       "lon": 34.49978,
-      "depth_m": 36.0
+      "depth_m": 35.0
     },
     {
       "dist_km": 8.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 31.72323,
       "lon": 34.43769,
-      "depth_m": 55.0
+      "depth_m": 54.0
     },
     {
       "dist_km": 18.0,
       "lat": 31.75257,
       "lon": 34.38444,
-      "depth_m": 103.0
+      "depth_m": 101.0
     }
   ]
 }

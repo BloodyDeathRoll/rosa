@@ -1,72 +1,72 @@
 {
   "spot": "sarapampa-asia",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -12.8313,
     -76.5402
   ],
   "bearing_seaward_deg": 214.0,
-  "nearshore_depth_m": -9.0,
-  "offshore_depth_m": 111.0,
-  "mean_slope_m_per_km": 6.76,
-  "land_samples": 1,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 110.0,
+  "mean_slope_m_per_km": 6.82,
+  "land_samples": 2,
   "missing_samples": 0,
-  "non_monotone_samples": 2,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -12.83316,
       "lon": -76.54149,
-      "depth_m": -9.0
+      "depth_m": -11.0
     },
     {
       "dist_km": 0.5,
       "lat": -12.83503,
       "lon": -76.54278,
-      "depth_m": 9.0
+      "depth_m": -3.0
     },
     {
       "dist_km": 1.0,
       "lat": -12.83876,
       "lon": -76.54536,
-      "depth_m": 51.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 2.0,
       "lat": -12.84621,
       "lon": -76.55052,
-      "depth_m": 84.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 3.0,
       "lat": -12.85367,
       "lon": -76.55567,
-      "depth_m": 34.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 5.0,
       "lat": -12.86858,
       "lon": -76.56599,
-      "depth_m": 18.0
+      "depth_m": 48.0
     },
     {
       "dist_km": 8.0,
       "lat": -12.89094,
       "lon": -76.58147,
-      "depth_m": 64.0
+      "depth_m": 63.0
     },
     {
       "dist_km": 12.0,
       "lat": -12.92076,
       "lon": -76.60211,
-      "depth_m": 97.0
+      "depth_m": 92.0
     },
     {
       "dist_km": 18.0,
       "lat": -12.96549,
       "lon": -76.63309,
-      "depth_m": 111.0
+      "depth_m": 110.0
     }
   ]
 }

@@ -1,66 +1,66 @@
 {
   "spot": "blossoms-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -34.4606,
     119.3656
   ],
   "bearing_seaward_deg": 248.0,
-  "nearshore_depth_m": -4.0,
+  "nearshore_depth_m": -8.0,
   "offshore_depth_m": 49.0,
-  "mean_slope_m_per_km": 2.99,
-  "land_samples": 2,
+  "mean_slope_m_per_km": 3.21,
+  "land_samples": 3,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 2,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -34.46144,
       "lon": 119.36307,
-      "depth_m": -4.0
+      "depth_m": -8.0
     },
     {
       "dist_km": 0.5,
       "lat": -34.46228,
       "lon": 119.36054,
-      "depth_m": 8.0
+      "depth_m": -3.0
     },
     {
       "dist_km": 1.0,
       "lat": -34.46397,
       "lon": 119.35549,
-      "depth_m": 11.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 2.0,
       "lat": -34.46734,
       "lon": 119.34537,
-      "depth_m": 14.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 3.0,
       "lat": -34.4707,
       "lon": 119.33526,
-      "depth_m": 32.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 5.0,
       "lat": -34.47743,
       "lon": 119.31502,
-      "depth_m": 39.0
+      "depth_m": 36.0
     },
     {
       "dist_km": 8.0,
       "lat": -34.48752,
       "lon": 119.28467,
-      "depth_m": 5.0
+      "depth_m": 25.0
     },
     {
       "dist_km": 12.0,
       "lat": -34.50097,
       "lon": 119.24418,
-      "depth_m": -161.0
+      "depth_m": -157.0
     },
     {
       "dist_km": 18.0,

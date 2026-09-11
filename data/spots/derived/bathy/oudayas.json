@@ -1,14 +1,14 @@
 {
   "spot": "oudayas",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     34.0322,
     -6.8435
   ],
   "bearing_seaward_deg": 290.0,
-  "nearshore_depth_m": -2.0,
-  "offshore_depth_m": 118.0,
-  "mean_slope_m_per_km": 6.76,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 121.0,
+  "mean_slope_m_per_km": 7.1,
   "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,13 +18,13 @@
       "dist_km": 0.25,
       "lat": 34.03297,
       "lon": -6.84605,
-      "depth_m": -2.0
+      "depth_m": -5.0
     },
     {
       "dist_km": 0.5,
       "lat": 34.03374,
       "lon": -6.8486,
-      "depth_m": 3.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 1.0,
@@ -36,37 +36,37 @@
       "dist_km": 2.0,
       "lat": 34.03835,
       "lon": -6.8639,
-      "depth_m": 24.0
+      "depth_m": 25.0
     },
     {
       "dist_km": 3.0,
       "lat": 34.04142,
       "lon": -6.8741,
-      "depth_m": 37.0
+      "depth_m": 32.0
     },
     {
       "dist_km": 5.0,
       "lat": 34.04757,
       "lon": -6.8945,
-      "depth_m": 69.0
+      "depth_m": 67.0
     },
     {
       "dist_km": 8.0,
       "lat": 34.05678,
       "lon": -6.9251,
-      "depth_m": 92.0
+      "depth_m": 91.0
     },
     {
       "dist_km": 12.0,
       "lat": 34.06905,
       "lon": -6.96592,
-      "depth_m": 106.0
+      "depth_m": 107.0
     },
     {
       "dist_km": 18.0,
       "lat": 34.08743,
       "lon": -7.02717,
-      "depth_m": 118.0
+      "depth_m": 121.0
     }
   ]
 }

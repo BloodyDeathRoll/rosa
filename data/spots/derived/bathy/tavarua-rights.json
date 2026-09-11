@@ -1,72 +1,72 @@
 {
   "spot": "tavarua-rights",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -17.8534,
     177.201
   ],
   "bearing_seaward_deg": 53.0,
-  "nearshore_depth_m": 14.0,
-  "offshore_depth_m": 14.0,
-  "mean_slope_m_per_km": 0.0,
+  "nearshore_depth_m": 54.0,
+  "offshore_depth_m": 24.0,
+  "mean_slope_m_per_km": -1.69,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 5,
+  "non_monotone_samples": 7,
   "deepest_is_reference": false,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -17.85205,
       "lon": 177.20289,
-      "depth_m": 14.0
+      "depth_m": 54.0
     },
     {
       "dist_km": 0.5,
       "lat": -17.85069,
       "lon": 177.20477,
-      "depth_m": 11.0
+      "depth_m": 56.0
     },
     {
       "dist_km": 1.0,
       "lat": -17.84799,
       "lon": 177.20855,
-      "depth_m": 8.0
+      "depth_m": 55.0
     },
     {
       "dist_km": 2.0,
       "lat": -17.84257,
       "lon": 177.21609,
-      "depth_m": 7.0
+      "depth_m": 51.0
     },
     {
       "dist_km": 3.0,
       "lat": -17.83716,
       "lon": 177.22363,
-      "depth_m": 10.0
+      "depth_m": 44.0
     },
     {
       "dist_km": 5.0,
       "lat": -17.82634,
       "lon": 177.23872,
-      "depth_m": 23.0
+      "depth_m": 32.0
     },
     {
       "dist_km": 8.0,
       "lat": -17.81009,
       "lon": 177.26135,
-      "depth_m": 20.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 12.0,
       "lat": -17.78843,
       "lon": 177.29151,
-      "depth_m": 26.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 18.0,
       "lat": -17.75593,
       "lon": 177.33675,
-      "depth_m": 14.0
+      "depth_m": 24.0
     }
   ]
 }

@@ -1,14 +1,14 @@
 {
   "spot": "chinamans",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -35.2341,
     136.8283
   ],
   "bearing_seaward_deg": 230.0,
-  "nearshore_depth_m": 2.0,
-  "offshore_depth_m": 70.0,
-  "mean_slope_m_per_km": 3.83,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 68.0,
+  "mean_slope_m_per_km": 3.77,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 1,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": -35.23555,
       "lon": 136.82619,
-      "depth_m": 2.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": -35.23699,
       "lon": 136.82408,
-      "depth_m": 11.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 1.0,
       "lat": -35.23988,
       "lon": 136.81987,
-      "depth_m": 21.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 2.0,
       "lat": -35.24566,
       "lon": 136.81143,
-      "depth_m": 24.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 3.0,
       "lat": -35.25144,
       "lon": 136.80299,
-      "depth_m": 22.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 5.0,
       "lat": -35.263,
       "lon": 136.78611,
-      "depth_m": 25.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 8.0,
       "lat": -35.28033,
       "lon": 136.76079,
-      "depth_m": 52.0
+      "depth_m": 47.0
     },
     {
       "dist_km": 12.0,
       "lat": -35.30343,
       "lon": 136.727,
-      "depth_m": 56.0
+      "depth_m": 54.0
     },
     {
       "dist_km": 18.0,
       "lat": -35.33806,
       "lon": 136.67629,
-      "depth_m": 70.0
+      "depth_m": 68.0
     }
   ]
 }

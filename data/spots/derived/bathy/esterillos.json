@@ -1,14 +1,14 @@
 {
   "spot": "esterillos",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     9.5211,
     -84.5175
   ],
   "bearing_seaward_deg": 230.0,
-  "nearshore_depth_m": -7.0,
+  "nearshore_depth_m": -3.0,
   "offshore_depth_m": 49.0,
-  "mean_slope_m_per_km": 3.15,
+  "mean_slope_m_per_km": 2.93,
   "land_samples": 2,
   "missing_samples": 0,
   "non_monotone_samples": 1,
@@ -18,49 +18,49 @@
       "dist_km": 0.25,
       "lat": 9.51965,
       "lon": -84.51925,
-      "depth_m": -7.0
+      "depth_m": -3.0
     },
     {
       "dist_km": 0.5,
       "lat": 9.51821,
       "lon": -84.52099,
-      "depth_m": -2.0
+      "depth_m": -3.0
     },
     {
       "dist_km": 1.0,
       "lat": 9.51532,
       "lon": -84.52449,
-      "depth_m": 2.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 2.0,
       "lat": 9.50954,
       "lon": -84.53147,
-      "depth_m": 7.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 3.0,
       "lat": 9.50376,
       "lon": -84.53846,
-      "depth_m": 13.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 5.0,
       "lat": 9.49219,
       "lon": -84.55242,
-      "depth_m": 21.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 8.0,
       "lat": 9.47485,
       "lon": -84.57338,
-      "depth_m": 23.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 12.0,
       "lat": 9.45172,
       "lon": -84.60131,
-      "depth_m": 56.0
+      "depth_m": 60.0
     },
     {
       "dist_km": 18.0,

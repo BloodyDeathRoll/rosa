@@ -1,14 +1,14 @@
 {
   "spot": "mermaid-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -28.0407,
     153.4388
   ],
   "bearing_seaward_deg": 80.0,
-  "nearshore_depth_m": 6.0,
+  "nearshore_depth_m": 9.0,
   "offshore_depth_m": 58.0,
-  "mean_slope_m_per_km": 2.93,
+  "mean_slope_m_per_km": 2.76,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 1,
@@ -18,49 +18,49 @@
       "dist_km": 0.25,
       "lat": -28.04031,
       "lon": 153.44131,
-      "depth_m": 6.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 0.5,
       "lat": -28.03992,
       "lon": 153.44382,
-      "depth_m": 7.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 1.0,
       "lat": -28.03914,
       "lon": 153.44883,
-      "depth_m": 13.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 2.0,
       "lat": -28.03758,
       "lon": 153.45887,
-      "depth_m": 25.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 3.0,
       "lat": -28.03601,
       "lon": 153.4689,
-      "depth_m": 18.0
+      "depth_m": 28.0
     },
     {
       "dist_km": 5.0,
       "lat": -28.03288,
       "lon": 153.48897,
-      "depth_m": 24.0
+      "depth_m": 35.0
     },
     {
       "dist_km": 8.0,
       "lat": -28.02818,
       "lon": 153.51907,
-      "depth_m": 31.0
+      "depth_m": 43.0
     },
     {
       "dist_km": 12.0,
       "lat": -28.02191,
       "lon": 153.55919,
-      "depth_m": 43.0
+      "depth_m": 45.0
     },
     {
       "dist_km": 18.0,

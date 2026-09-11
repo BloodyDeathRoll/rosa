@@ -1,15 +1,15 @@
 {
   "spot": "praia-grande-cv",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     16.7918,
     -24.9445
   ],
   "bearing_seaward_deg": 160.0,
-  "nearshore_depth_m": -10.0,
-  "offshore_depth_m": 2016.0,
-  "mean_slope_m_per_km": 114.14,
-  "land_samples": 2,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 2070.0,
+  "mean_slope_m_per_km": 116.79,
+  "land_samples": 3,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 16.78969,
       "lon": -24.9437,
-      "depth_m": -10.0
+      "depth_m": -3.0
     },
     {
       "dist_km": 0.5,
       "lat": 16.78757,
       "lon": -24.94289,
-      "depth_m": -5.0
+      "depth_m": -3.0
     },
     {
       "dist_km": 1.0,
       "lat": 16.78335,
       "lon": -24.94129,
-      "depth_m": 9.0
+      "depth_m": -4.0
     },
     {
       "dist_km": 2.0,
       "lat": 16.7749,
       "lon": -24.93807,
-      "depth_m": 47.0
+      "depth_m": 299.0
     },
     {
       "dist_km": 3.0,
       "lat": 16.76645,
       "lon": -24.93486,
-      "depth_m": 76.0
+      "depth_m": 415.0
     },
     {
       "dist_km": 5.0,
       "lat": 16.74955,
       "lon": -24.92844,
-      "depth_m": 242.0
+      "depth_m": 859.0
     },
     {
       "dist_km": 8.0,
       "lat": 16.72419,
       "lon": -24.91881,
-      "depth_m": 1194.0
+      "depth_m": 1255.0
     },
     {
       "dist_km": 12.0,
       "lat": 16.69039,
       "lon": -24.90597,
-      "depth_m": 1636.0
+      "depth_m": 1573.0
     },
     {
       "dist_km": 18.0,
       "lat": 16.63968,
       "lon": -24.88671,
-      "depth_m": 2016.0
+      "depth_m": 2070.0
     }
   ]
 }

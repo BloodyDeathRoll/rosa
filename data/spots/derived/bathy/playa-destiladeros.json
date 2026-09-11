@@ -1,48 +1,48 @@
 {
   "spot": "playa-destiladeros",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     7.4508,
     -80.0393
   ],
   "bearing_seaward_deg": 199.0,
-  "nearshore_depth_m": -15.0,
-  "offshore_depth_m": 414.0,
-  "mean_slope_m_per_km": 24.17,
-  "land_samples": 2,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 438.0,
+  "mean_slope_m_per_km": 25.07,
+  "land_samples": 3,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 7.44867,
       "lon": -80.04004,
-      "depth_m": -15.0
+      "depth_m": -7.0
     },
     {
       "dist_km": 0.5,
       "lat": 7.44655,
       "lon": -80.04078,
-      "depth_m": -10.0
+      "depth_m": -7.0
     },
     {
       "dist_km": 1.0,
       "lat": 7.4423,
       "lon": -80.04225,
-      "depth_m": 6.0
+      "depth_m": -0.0
     },
     {
       "dist_km": 2.0,
       "lat": 7.43379,
       "lon": -80.04521,
-      "depth_m": 18.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 3.0,
       "lat": 7.42529,
       "lon": -80.04816,
-      "depth_m": 17.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 5.0,
@@ -54,19 +54,19 @@
       "dist_km": 8.0,
       "lat": 7.38277,
       "lon": -80.06292,
-      "depth_m": 43.0
+      "depth_m": 39.0
     },
     {
       "dist_km": 12.0,
       "lat": 7.34876,
       "lon": -80.07473,
-      "depth_m": 52.0
+      "depth_m": 45.0
     },
     {
       "dist_km": 18.0,
       "lat": 7.29774,
       "lon": -80.09243,
-      "depth_m": 414.0
+      "depth_m": 438.0
     }
   ]
 }

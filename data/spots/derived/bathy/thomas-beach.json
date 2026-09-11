@@ -1,72 +1,72 @@
 {
   "spot": "thomas-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -8.8131,
     115.0966
   ],
   "bearing_seaward_deg": 324.0,
-  "nearshore_depth_m": 3.0,
-  "offshore_depth_m": 55.0,
-  "mean_slope_m_per_km": 2.93,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 54.0,
+  "mean_slope_m_per_km": 2.99,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -8.81128,
       "lon": 115.09526,
-      "depth_m": 3.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": -8.80946,
       "lon": 115.09393,
-      "depth_m": 14.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 1.0,
       "lat": -8.80582,
       "lon": 115.09125,
-      "depth_m": 24.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 2.0,
       "lat": -8.79855,
       "lon": 115.0859,
-      "depth_m": 34.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 3.0,
       "lat": -8.79127,
       "lon": 115.08055,
-      "depth_m": 42.0
+      "depth_m": 36.0
     },
     {
       "dist_km": 5.0,
       "lat": -8.77672,
       "lon": 115.06986,
-      "depth_m": 45.0
+      "depth_m": 41.0
     },
     {
       "dist_km": 8.0,
       "lat": -8.75489,
       "lon": 115.05381,
-      "depth_m": 55.0
+      "depth_m": 51.0
     },
     {
       "dist_km": 12.0,
       "lat": -8.72579,
       "lon": 115.03242,
-      "depth_m": 52.0
+      "depth_m": 53.0
     },
     {
       "dist_km": 18.0,
       "lat": -8.68213,
       "lon": 115.00035,
-      "depth_m": 55.0
+      "depth_m": 54.0
     }
   ]
 }

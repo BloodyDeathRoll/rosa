@@ -1,15 +1,15 @@
 {
   "spot": "the-point-jbay",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -34.0257,
     24.933
   ],
   "bearing_seaward_deg": 110.0,
-  "nearshore_depth_m": -3.0,
-  "offshore_depth_m": 66.0,
-  "mean_slope_m_per_km": 3.89,
-  "land_samples": 1,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 67.0,
+  "mean_slope_m_per_km": 3.44,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,37 +18,37 @@
       "dist_km": 0.25,
       "lat": -34.02647,
       "lon": 24.93555,
-      "depth_m": -3.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 0.5,
       "lat": -34.02724,
       "lon": 24.9381,
-      "depth_m": 6.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 1.0,
       "lat": -34.02878,
       "lon": 24.9432,
-      "depth_m": 19.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 2.0,
       "lat": -34.03185,
       "lon": 24.95339,
-      "depth_m": 22.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 3.0,
       "lat": -34.03492,
       "lon": 24.96359,
-      "depth_m": 23.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 5.0,
       "lat": -34.04107,
       "lon": 24.98399,
-      "depth_m": 27.0
+      "depth_m": 28.0
     },
     {
       "dist_km": 8.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": -34.06255,
       "lon": 25.05541,
-      "depth_m": 50.0
+      "depth_m": 52.0
     },
     {
       "dist_km": 18.0,
       "lat": -34.08093,
       "lon": 25.11666,
-      "depth_m": 66.0
+      "depth_m": 67.0
     }
   ]
 }

@@ -1,15 +1,15 @@
 {
   "spot": "biscarrosse",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     44.4442,
     -1.2577
   ],
   "bearing_seaward_deg": 274.0,
-  "nearshore_depth_m": -1.0,
-  "offshore_depth_m": 67.0,
-  "mean_slope_m_per_km": 3.83,
-  "land_samples": 1,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 68.0,
+  "mean_slope_m_per_km": 3.55,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,19 +18,19 @@
       "dist_km": 0.25,
       "lat": 44.44436,
       "lon": -1.26084,
-      "depth_m": -1.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 0.5,
       "lat": 44.44451,
       "lon": -1.26398,
-      "depth_m": 4.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 1.0,
       "lat": 44.44483,
       "lon": -1.27027,
-      "depth_m": 14.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 2.0,
@@ -48,13 +48,13 @@
       "dist_km": 5.0,
       "lat": 44.44732,
       "lon": -1.32053,
-      "depth_m": 29.0
+      "depth_m": 28.0
     },
     {
       "dist_km": 8.0,
       "lat": 44.44917,
       "lon": -1.35824,
-      "depth_m": 37.0
+      "depth_m": 36.0
     },
     {
       "dist_km": 12.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 44.45527,
       "lon": -1.48393,
-      "depth_m": 67.0
+      "depth_m": 68.0
     }
   ]
 }

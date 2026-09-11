@@ -1,24 +1,24 @@
 {
   "spot": "conspicuous-cliff",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -35.04,
     116.8428
   ],
   "bearing_seaward_deg": 227.0,
-  "nearshore_depth_m": -2.0,
-  "offshore_depth_m": 63.0,
-  "mean_slope_m_per_km": 3.66,
-  "land_samples": 1,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 65.0,
+  "mean_slope_m_per_km": 3.55,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 1,
-  "deepest_is_reference": false,
+  "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -35.04153,
       "lon": 116.84079,
-      "depth_m": -2.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 0.5,
@@ -30,43 +30,43 @@
       "dist_km": 1.0,
       "lat": -35.04613,
       "lon": 116.83477,
-      "depth_m": 7.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 2.0,
       "lat": -35.05227,
       "lon": 116.82673,
-      "depth_m": 29.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 3.0,
       "lat": -35.0584,
       "lon": 116.81869,
-      "depth_m": 38.0
+      "depth_m": 36.0
     },
     {
       "dist_km": 5.0,
       "lat": -35.07066,
       "lon": 116.80262,
-      "depth_m": 45.0
+      "depth_m": 43.0
     },
     {
       "dist_km": 8.0,
       "lat": -35.08905,
       "lon": 116.7785,
-      "depth_m": 55.0
+      "depth_m": 53.0
     },
     {
       "dist_km": 12.0,
       "lat": -35.11356,
       "lon": 116.74631,
-      "depth_m": 65.0
+      "depth_m": 61.0
     },
     {
       "dist_km": 18.0,
       "lat": -35.15031,
       "lon": 116.69801,
-      "depth_m": 63.0
+      "depth_m": 65.0
     }
   ]
 }

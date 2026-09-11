@@ -1,14 +1,14 @@
 {
   "spot": "nagata-inakahama",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     30.4104,
     130.4352
   ],
   "bearing_seaward_deg": 302.0,
-  "nearshore_depth_m": 7.0,
-  "offshore_depth_m": 513.0,
-  "mean_slope_m_per_km": 28.51,
+  "nearshore_depth_m": 18.0,
+  "offshore_depth_m": 515.0,
+  "mean_slope_m_per_km": 28.0,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 1,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 30.41159,
       "lon": 130.43299,
-      "depth_m": 7.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 0.5,
       "lat": 30.41278,
       "lon": 130.43078,
-      "depth_m": 18.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 1.0,
       "lat": 30.41517,
       "lon": 130.42636,
-      "depth_m": 28.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 2.0,
       "lat": 30.41993,
       "lon": 130.41751,
-      "depth_m": 65.0
+      "depth_m": 71.0
     },
     {
       "dist_km": 3.0,
       "lat": 30.42469,
       "lon": 130.40867,
-      "depth_m": 100.0
+      "depth_m": 106.0
     },
     {
       "dist_km": 5.0,
       "lat": 30.43422,
       "lon": 130.39097,
-      "depth_m": 258.0
+      "depth_m": 274.0
     },
     {
       "dist_km": 8.0,
       "lat": 30.44851,
       "lon": 130.36443,
-      "depth_m": 579.0
+      "depth_m": 573.0
     },
     {
       "dist_km": 12.0,
       "lat": 30.46755,
       "lon": 130.32902,
-      "depth_m": 607.0
+      "depth_m": 604.0
     },
     {
       "dist_km": 18.0,
       "lat": 30.49609,
       "lon": 130.27588,
-      "depth_m": 513.0
+      "depth_m": 515.0
     }
   ]
 }

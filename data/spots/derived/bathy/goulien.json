@@ -1,6 +1,6 @@
 {
   "spot": "goulien",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     48.2465,
     -4.5454
@@ -24,43 +24,43 @@
       "dist_km": 0.5,
       "lat": 48.24556,
       "lon": -4.552,
-      "depth_m": 1.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 1.0,
       "lat": 48.24463,
       "lon": -4.55861,
-      "depth_m": 4.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 2.0,
       "lat": 48.24276,
       "lon": -4.57182,
-      "depth_m": 8.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 3.0,
       "lat": 48.24088,
       "lon": -4.58502,
-      "depth_m": 14.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 5.0,
       "lat": 48.23713,
       "lon": -4.61144,
-      "depth_m": 25.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 8.0,
       "lat": 48.23149,
       "lon": -4.65105,
-      "depth_m": 28.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 12.0,
       "lat": 48.22395,
       "lon": -4.70385,
-      "depth_m": 34.0
+      "depth_m": 33.0
     },
     {
       "dist_km": 18.0,

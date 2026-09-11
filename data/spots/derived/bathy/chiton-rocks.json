@@ -1,15 +1,15 @@
 {
   "spot": "chiton-rocks",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -35.5386,
     138.6539
   ],
   "bearing_seaward_deg": 165.0,
-  "nearshore_depth_m": -1.0,
-  "offshore_depth_m": 46.0,
-  "mean_slope_m_per_km": 2.65,
-  "land_samples": 1,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 45.0,
+  "mean_slope_m_per_km": 2.31,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,37 +18,37 @@
       "dist_km": 0.25,
       "lat": -35.54077,
       "lon": 138.65462,
-      "depth_m": -1.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 0.5,
       "lat": -35.54294,
       "lon": 138.65533,
-      "depth_m": 2.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 1.0,
       "lat": -35.54729,
       "lon": 138.65676,
-      "depth_m": 6.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 2.0,
       "lat": -35.55597,
       "lon": 138.65962,
-      "depth_m": 14.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 3.0,
       "lat": -35.56466,
       "lon": 138.66248,
-      "depth_m": 18.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 5.0,
       "lat": -35.58203,
       "lon": 138.66821,
-      "depth_m": 24.0
+      "depth_m": 25.0
     },
     {
       "dist_km": 8.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": -35.69495,
       "lon": 138.70549,
-      "depth_m": 46.0
+      "depth_m": 45.0
     }
   ]
 }

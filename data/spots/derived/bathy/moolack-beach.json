@@ -1,15 +1,15 @@
 {
   "spot": "moolack-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     44.6994,
     -124.0634
   ],
   "bearing_seaward_deg": 287.0,
-  "nearshore_depth_m": -0.0,
-  "offshore_depth_m": 92.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 95.0,
   "mean_slope_m_per_km": 5.18,
-  "land_samples": 1,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,7 +18,7 @@
       "dist_km": 0.25,
       "lat": 44.70006,
       "lon": -124.06642,
-      "depth_m": -0.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 0.5,
@@ -30,25 +30,25 @@
       "dist_km": 1.0,
       "lat": 44.70203,
       "lon": -124.0755,
-      "depth_m": 6.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 2.0,
       "lat": 44.70466,
       "lon": -124.0876,
-      "depth_m": 14.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 3.0,
       "lat": 44.70728,
       "lon": -124.0997,
-      "depth_m": 26.0
+      "depth_m": 25.0
     },
     {
       "dist_km": 5.0,
       "lat": 44.71253,
       "lon": -124.12391,
-      "depth_m": 43.0
+      "depth_m": 44.0
     },
     {
       "dist_km": 8.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 44.74652,
       "lon": -124.28136,
-      "depth_m": 92.0
+      "depth_m": 95.0
     }
   ]
 }

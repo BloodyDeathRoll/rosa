@@ -1,15 +1,15 @@
 {
   "spot": "challaborough",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     50.2875,
     -3.8981
   ],
   "bearing_seaward_deg": 210.0,
-  "nearshore_depth_m": -13.0,
+  "nearshore_depth_m": -19.0,
   "offshore_depth_m": 59.0,
-  "mean_slope_m_per_km": 4.06,
-  "land_samples": 2,
+  "mean_slope_m_per_km": 4.39,
+  "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,31 +18,31 @@
       "dist_km": 0.25,
       "lat": 50.28555,
       "lon": -3.89986,
-      "depth_m": -13.0
+      "depth_m": -19.0
     },
     {
       "dist_km": 0.5,
       "lat": 50.28361,
       "lon": -3.90162,
-      "depth_m": -4.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 1.0,
       "lat": 50.27971,
       "lon": -3.90514,
-      "depth_m": 5.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 2.0,
       "lat": 50.27192,
       "lon": -3.91217,
-      "depth_m": 19.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 3.0,
       "lat": 50.26413,
       "lon": -3.9192,
-      "depth_m": 27.0
+      "depth_m": 28.0
     },
     {
       "dist_km": 5.0,
@@ -60,7 +60,7 @@
       "dist_km": 12.0,
       "lat": 50.19401,
       "lon": -3.98239,
-      "depth_m": 50.0
+      "depth_m": 51.0
     },
     {
       "dist_km": 18.0,

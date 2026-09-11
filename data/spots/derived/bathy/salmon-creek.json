@@ -1,14 +1,14 @@
 {
   "spot": "salmon-creek",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     38.3562,
     -123.0675
   ],
   "bearing_seaward_deg": 266.0,
-  "nearshore_depth_m": -4.0,
+  "nearshore_depth_m": -12.0,
   "offshore_depth_m": 106.0,
-  "mean_slope_m_per_km": 6.2,
+  "mean_slope_m_per_km": 6.65,
   "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,49 +18,49 @@
       "dist_km": 0.25,
       "lat": 38.35604,
       "lon": -123.07036,
-      "depth_m": -4.0
+      "depth_m": -12.0
     },
     {
       "dist_km": 0.5,
       "lat": 38.35589,
       "lon": -123.07322,
-      "depth_m": 7.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 1.0,
       "lat": 38.35557,
       "lon": -123.07894,
-      "depth_m": 17.0
+      "depth_m": 25.0
     },
     {
       "dist_km": 2.0,
       "lat": 38.35494,
       "lon": -123.09038,
-      "depth_m": 25.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 3.0,
       "lat": 38.35431,
       "lon": -123.10182,
-      "depth_m": 40.0
+      "depth_m": 42.0
     },
     {
       "dist_km": 5.0,
       "lat": 38.35305,
       "lon": -123.1247,
-      "depth_m": 62.0
+      "depth_m": 65.0
     },
     {
       "dist_km": 8.0,
       "lat": 38.35115,
       "lon": -123.15902,
-      "depth_m": 77.0
+      "depth_m": 78.0
     },
     {
       "dist_km": 12.0,
       "lat": 38.34859,
       "lon": -123.20477,
-      "depth_m": 88.0
+      "depth_m": 86.0
     },
     {
       "dist_km": 18.0,

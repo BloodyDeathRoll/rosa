@@ -1,14 +1,14 @@
 {
   "spot": "sumiyoshi",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     30.6703,
     130.9397
   ],
   "bearing_seaward_deg": 270.0,
-  "nearshore_depth_m": 13.0,
-  "offshore_depth_m": 165.0,
-  "mean_slope_m_per_km": 8.56,
+  "nearshore_depth_m": 21.0,
+  "offshore_depth_m": 166.0,
+  "mean_slope_m_per_km": 8.17,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 2,
@@ -18,13 +18,13 @@
       "dist_km": 0.25,
       "lat": 30.6703,
       "lon": 130.93709,
-      "depth_m": 13.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 0.5,
       "lat": 30.6703,
       "lon": 130.93447,
-      "depth_m": 19.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 1.0,
@@ -36,25 +36,25 @@
       "dist_km": 2.0,
       "lat": 30.6703,
       "lon": 130.91879,
-      "depth_m": 39.0
+      "depth_m": 40.0
     },
     {
       "dist_km": 3.0,
       "lat": 30.6703,
       "lon": 130.90833,
-      "depth_m": 45.0
+      "depth_m": 43.0
     },
     {
       "dist_km": 5.0,
       "lat": 30.67029,
       "lon": 130.88742,
-      "depth_m": 43.0
+      "depth_m": 41.0
     },
     {
       "dist_km": 8.0,
       "lat": 30.67027,
       "lon": 130.85605,
-      "depth_m": 41.0
+      "depth_m": 40.0
     },
     {
       "dist_km": 12.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 30.67016,
       "lon": 130.7515,
-      "depth_m": 165.0
+      "depth_m": 166.0
     }
   ]
 }

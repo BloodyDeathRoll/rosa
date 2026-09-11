@@ -1,72 +1,72 @@
 {
   "spot": "kandui-left",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -1.8999,
     99.2923
   ],
   "bearing_seaward_deg": 222.0,
-  "nearshore_depth_m": 30.0,
-  "offshore_depth_m": 926.0,
-  "mean_slope_m_per_km": 50.48,
+  "nearshore_depth_m": 42.0,
+  "offshore_depth_m": 927.0,
+  "mean_slope_m_per_km": 49.86,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 2,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -1.90157,
       "lon": 99.29079,
-      "depth_m": 30.0
+      "depth_m": 42.0
     },
     {
       "dist_km": 0.5,
       "lat": -1.90324,
       "lon": 99.28929,
-      "depth_m": 30.0
+      "depth_m": 42.0
     },
     {
       "dist_km": 1.0,
       "lat": -1.90658,
       "lon": 99.28628,
-      "depth_m": 12.0
+      "depth_m": 44.0
     },
     {
       "dist_km": 2.0,
       "lat": -1.91327,
       "lon": 99.28026,
-      "depth_m": 10.0
+      "depth_m": 46.0
     },
     {
       "dist_km": 3.0,
       "lat": -1.91995,
       "lon": 99.27424,
-      "depth_m": 13.0
+      "depth_m": 61.0
     },
     {
       "dist_km": 5.0,
       "lat": -1.93332,
       "lon": 99.26219,
-      "depth_m": 134.0
+      "depth_m": 181.0
     },
     {
       "dist_km": 8.0,
       "lat": -1.95337,
       "lon": 99.24413,
-      "depth_m": 505.0
+      "depth_m": 587.0
     },
     {
       "dist_km": 12.0,
       "lat": -1.9801,
       "lon": 99.22005,
-      "depth_m": 840.0
+      "depth_m": 844.0
     },
     {
       "dist_km": 18.0,
       "lat": -2.0202,
       "lon": 99.18392,
-      "depth_m": 926.0
+      "depth_m": 927.0
     }
   ]
 }

@@ -1,14 +1,14 @@
 {
   "spot": "dongwe",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -6.1849,
     39.5448
   ],
   "bearing_seaward_deg": 75.0,
-  "nearshore_depth_m": 9.0,
-  "offshore_depth_m": 1008.0,
-  "mean_slope_m_per_km": 56.28,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 1047.0,
+  "mean_slope_m_per_km": 58.82,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": -6.18432,
       "lon": 39.54698,
-      "depth_m": 9.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 0.5,
       "lat": -6.18374,
       "lon": 39.54917,
-      "depth_m": 19.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 1.0,
       "lat": -6.18257,
       "lon": 39.55354,
-      "depth_m": 34.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 2.0,
       "lat": -6.18024,
       "lon": 39.56228,
-      "depth_m": 47.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 3.0,
       "lat": -6.17792,
       "lon": 39.57101,
-      "depth_m": 82.0
+      "depth_m": 77.0
     },
     {
       "dist_km": 5.0,
       "lat": -6.17326,
       "lon": 39.58849,
-      "depth_m": 209.0
+      "depth_m": 206.0
     },
     {
       "dist_km": 8.0,
       "lat": -6.16627,
       "lon": 39.6147,
-      "depth_m": 436.0
+      "depth_m": 429.0
     },
     {
       "dist_km": 12.0,
       "lat": -6.15696,
       "lon": 39.64965,
-      "depth_m": 692.0
+      "depth_m": 724.0
     },
     {
       "dist_km": 18.0,
       "lat": -6.14298,
       "lon": 39.70206,
-      "depth_m": 1008.0
+      "depth_m": 1047.0
     }
   ]
 }

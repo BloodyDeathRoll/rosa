@@ -1,36 +1,36 @@
 {
   "spot": "las-tunas",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     13.1611,
     -87.9641
   ],
   "bearing_seaward_deg": 236.0,
-  "nearshore_depth_m": -7.0,
-  "offshore_depth_m": 6.0,
-  "mean_slope_m_per_km": 0.73,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 2.48,
   "land_samples": 2,
   "missing_samples": 0,
-  "non_monotone_samples": 2,
-  "deepest_is_reference": false,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 13.15984,
       "lon": -87.96601,
-      "depth_m": -7.0
+      "depth_m": -9.0
     },
     {
       "dist_km": 0.5,
       "lat": 13.15859,
       "lon": -87.96793,
-      "depth_m": -2.0
+      "depth_m": -9.0
     },
     {
       "dist_km": 1.0,
       "lat": 13.15607,
       "lon": -87.97176,
-      "depth_m": 10.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 2.0,
@@ -42,7 +42,7 @@
       "dist_km": 3.0,
       "lat": 13.14601,
       "lon": -87.98707,
-      "depth_m": 18.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 5.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 13.10074,
       "lon": -88.05596,
-      "depth_m": 18.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 18.0,
       "lat": 13.07054,
       "lon": -88.10187,
-      "depth_m": 6.0
+      "depth_m": 35.0
     }
   ]
 }

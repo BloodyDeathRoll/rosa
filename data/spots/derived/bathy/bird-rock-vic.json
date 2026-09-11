@@ -1,15 +1,15 @@
 {
   "spot": "bird-rock-vic",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -38.3492,
     144.3049
   ],
   "bearing_seaward_deg": 142.0,
-  "nearshore_depth_m": -8.0,
-  "offshore_depth_m": 73.0,
-  "mean_slope_m_per_km": 4.56,
-  "land_samples": 2,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 75.0,
+  "mean_slope_m_per_km": 3.83,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,43 +18,43 @@
       "dist_km": 0.25,
       "lat": -38.35097,
       "lon": 144.30667,
-      "depth_m": -8.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 0.5,
       "lat": -38.35274,
       "lon": 144.30843,
-      "depth_m": -3.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 1.0,
       "lat": -38.35629,
       "lon": 144.31196,
-      "depth_m": 13.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 2.0,
       "lat": -38.36337,
       "lon": 144.31902,
-      "depth_m": 24.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 3.0,
       "lat": -38.37046,
       "lon": 144.32609,
-      "depth_m": 27.0
+      "depth_m": 28.0
     },
     {
       "dist_km": 5.0,
       "lat": -38.38463,
       "lon": 144.34022,
-      "depth_m": 43.0
+      "depth_m": 45.0
     },
     {
       "dist_km": 8.0,
       "lat": -38.40588,
       "lon": 144.36142,
-      "depth_m": 64.0
+      "depth_m": 65.0
     },
     {
       "dist_km": 12.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": -38.47669,
       "lon": 144.4322,
-      "depth_m": 73.0
+      "depth_m": 75.0
     }
   ]
 }

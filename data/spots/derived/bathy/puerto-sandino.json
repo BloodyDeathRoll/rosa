@@ -1,36 +1,36 @@
 {
   "spot": "puerto-sandino",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     12.193,
     -86.774
   ],
   "bearing_seaward_deg": 220.0,
-  "nearshore_depth_m": 6.0,
-  "offshore_depth_m": 48.0,
-  "mean_slope_m_per_km": 2.37,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 49.0,
+  "mean_slope_m_per_km": 2.31,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 12.19128,
       "lon": -86.77548,
-      "depth_m": 6.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 0.5,
       "lat": 12.18956,
       "lon": -86.77696,
-      "depth_m": 5.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 1.0,
       "lat": 12.18611,
       "lon": -86.77991,
-      "depth_m": 8.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 2.0,
@@ -48,7 +48,7 @@
       "dist_km": 5.0,
       "lat": 12.15855,
       "lon": -86.80357,
-      "depth_m": 17.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 8.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 12.06897,
       "lon": -86.8804,
-      "depth_m": 48.0
+      "depth_m": 49.0
     }
   ]
 }

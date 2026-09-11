@@ -1,15 +1,15 @@
 {
   "spot": "kawana",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -26.7039,
     153.136
   ],
   "bearing_seaward_deg": 97.0,
-  "nearshore_depth_m": -1.0,
-  "offshore_depth_m": 47.0,
-  "mean_slope_m_per_km": 2.7,
-  "land_samples": 1,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 46.0,
+  "mean_slope_m_per_km": 2.48,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,19 +18,19 @@
       "dist_km": 0.25,
       "lat": -26.70417,
       "lon": 153.1385,
-      "depth_m": -1.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 0.5,
       "lat": -26.70445,
       "lon": 153.141,
-      "depth_m": 5.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 1.0,
       "lat": -26.705,
       "lon": 153.14599,
-      "depth_m": 16.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 2.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": -26.72351,
       "lon": 153.31589,
-      "depth_m": 47.0
+      "depth_m": 46.0
     }
   ]
 }

@@ -1,14 +1,14 @@
 {
   "spot": "puamana",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     20.8551,
     -156.6638
   ],
   "bearing_seaward_deg": 225.0,
-  "nearshore_depth_m": 4.0,
-  "offshore_depth_m": 136.0,
-  "mean_slope_m_per_km": 7.44,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 137.0,
+  "mean_slope_m_per_km": 7.15,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 1,
@@ -18,13 +18,13 @@
       "dist_km": 0.25,
       "lat": 20.85351,
       "lon": -156.6655,
-      "depth_m": 4.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 0.5,
       "lat": 20.85192,
       "lon": -156.6672,
-      "depth_m": 13.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 1.0,
@@ -42,31 +42,31 @@
       "dist_km": 3.0,
       "lat": 20.83602,
       "lon": -156.68421,
-      "depth_m": 57.0
+      "depth_m": 56.0
     },
     {
       "dist_km": 5.0,
       "lat": 20.8233,
       "lon": -156.69782,
-      "depth_m": 72.0
+      "depth_m": 73.0
     },
     {
       "dist_km": 8.0,
       "lat": 20.80422,
       "lon": -156.71822,
-      "depth_m": 105.0
+      "depth_m": 68.0
     },
     {
       "dist_km": 12.0,
       "lat": 20.77877,
       "lon": -156.74542,
-      "depth_m": 93.0
+      "depth_m": 82.0
     },
     {
       "dist_km": 18.0,
       "lat": 20.74059,
       "lon": -156.7862,
-      "depth_m": 136.0
+      "depth_m": 137.0
     }
   ]
 }

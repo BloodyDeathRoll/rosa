@@ -1,14 +1,14 @@
 {
   "spot": "leo-carrillo",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     34.0442,
     -118.9393
   ],
   "bearing_seaward_deg": 200.0,
-  "nearshore_depth_m": -5.0,
-  "offshore_depth_m": 869.0,
-  "mean_slope_m_per_km": 49.24,
+  "nearshore_depth_m": -15.0,
+  "offshore_depth_m": 867.0,
+  "mean_slope_m_per_km": 49.69,
   "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 34.04209,
       "lon": -118.94023,
-      "depth_m": -5.0
+      "depth_m": -15.0
     },
     {
       "dist_km": 0.5,
       "lat": 34.03997,
       "lon": -118.94116,
-      "depth_m": 7.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 1.0,
       "lat": 34.03575,
       "lon": -118.94301,
-      "depth_m": 23.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 2.0,
       "lat": 34.0273,
       "lon": -118.94672,
-      "depth_m": 60.0
+      "depth_m": 53.0
     },
     {
       "dist_km": 3.0,
       "lat": 34.01885,
       "lon": -118.95043,
-      "depth_m": 73.0
+      "depth_m": 69.0
     },
     {
       "dist_km": 5.0,
       "lat": 34.00194,
       "lon": -118.95785,
-      "depth_m": 150.0
+      "depth_m": 138.0
     },
     {
       "dist_km": 8.0,
       "lat": 33.97659,
       "lon": -118.96897,
-      "depth_m": 412.0
+      "depth_m": 369.0
     },
     {
       "dist_km": 12.0,
       "lat": 33.94278,
       "lon": -118.98379,
-      "depth_m": 863.0
+      "depth_m": 858.0
     },
     {
       "dist_km": 18.0,
       "lat": 33.89207,
       "lon": -119.006,
-      "depth_m": 869.0
+      "depth_m": 867.0
     }
   ]
 }

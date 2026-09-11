@@ -1,14 +1,14 @@
 {
   "spot": "nosara-guiones",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     9.9352,
     -85.6666
   ],
   "bearing_seaward_deg": 250.0,
-  "nearshore_depth_m": -8.0,
-  "offshore_depth_m": 520.0,
-  "mean_slope_m_per_km": 29.75,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 542.0,
+  "mean_slope_m_per_km": 31.04,
   "land_samples": 2,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 9.93443,
       "lon": -85.66874,
-      "depth_m": -8.0
+      "depth_m": -9.0
     },
     {
       "dist_km": 0.5,
       "lat": 9.93366,
       "lon": -85.67089,
-      "depth_m": -2.0
+      "depth_m": -7.0
     },
     {
       "dist_km": 1.0,
       "lat": 9.93212,
       "lon": -85.67518,
-      "depth_m": 9.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 2.0,
       "lat": 9.92905,
       "lon": -85.68376,
-      "depth_m": 18.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 3.0,
       "lat": 9.92597,
       "lon": -85.69234,
-      "depth_m": 22.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 5.0,
       "lat": 9.91982,
       "lon": -85.7095,
-      "depth_m": 44.0
+      "depth_m": 33.0
     },
     {
       "dist_km": 8.0,
       "lat": 9.91059,
       "lon": -85.73523,
-      "depth_m": 100.0
+      "depth_m": 93.0
     },
     {
       "dist_km": 12.0,
       "lat": 9.89827,
       "lon": -85.76954,
-      "depth_m": 159.0
+      "depth_m": 160.0
     },
     {
       "dist_km": 18.0,
       "lat": 9.8798,
       "lon": -85.82101,
-      "depth_m": 520.0
+      "depth_m": 542.0
     }
   ]
 }

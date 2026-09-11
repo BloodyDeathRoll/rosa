@@ -1,72 +1,72 @@
 {
   "spot": "karang-haji",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -6.9632,
     106.4976
   ],
   "bearing_seaward_deg": 210.0,
-  "nearshore_depth_m": -3.0,
-  "offshore_depth_m": 385.0,
-  "mean_slope_m_per_km": 21.86,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 456.0,
+  "mean_slope_m_per_km": 26.2,
   "land_samples": 1,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
-  "deepest_is_reference": false,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -6.96515,
       "lon": 106.49647,
-      "depth_m": -3.0
+      "depth_m": -9.0
     },
     {
       "dist_km": 0.5,
       "lat": -6.96709,
       "lon": 106.49533,
-      "depth_m": 18.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 1.0,
       "lat": -6.97099,
       "lon": 106.49307,
-      "depth_m": 55.0
+      "depth_m": 46.0
     },
     {
       "dist_km": 2.0,
       "lat": -6.97878,
       "lon": 106.48854,
-      "depth_m": 118.0
+      "depth_m": 67.0
     },
     {
       "dist_km": 3.0,
       "lat": -6.98656,
       "lon": 106.48401,
-      "depth_m": 187.0
+      "depth_m": 102.0
     },
     {
       "dist_km": 5.0,
       "lat": -7.00214,
       "lon": 106.47495,
-      "depth_m": 340.0
+      "depth_m": 171.0
     },
     {
       "dist_km": 8.0,
       "lat": -7.02551,
       "lon": 106.46136,
-      "depth_m": 549.0
+      "depth_m": 274.0
     },
     {
       "dist_km": 12.0,
       "lat": -7.05666,
       "lon": 106.44323,
-      "depth_m": 636.0
+      "depth_m": 396.0
     },
     {
       "dist_km": 18.0,
       "lat": -7.10338,
       "lon": 106.41604,
-      "depth_m": 385.0
+      "depth_m": 456.0
     }
   ]
 }

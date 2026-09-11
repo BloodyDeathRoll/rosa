@@ -1,72 +1,72 @@
 {
   "spot": "ninjas",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     4.3433,
     73.6134
   ],
   "bearing_seaward_deg": 117.0,
-  "nearshore_depth_m": 45.0,
-  "offshore_depth_m": 2276.0,
-  "mean_slope_m_per_km": 125.69,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 2333.0,
+  "mean_slope_m_per_km": 131.38,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 2,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 4.34228,
       "lon": 73.61541,
-      "depth_m": 45.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": 4.34126,
       "lon": 73.61742,
-      "depth_m": 79.0
+      "depth_m": 73.0
     },
     {
       "dist_km": 1.0,
       "lat": 4.33922,
       "lon": 73.62144,
-      "depth_m": 172.0
+      "depth_m": 90.0
     },
     {
       "dist_km": 2.0,
       "lat": 4.33513,
       "lon": 73.62947,
-      "depth_m": 384.0
+      "depth_m": 361.0
     },
     {
       "dist_km": 3.0,
       "lat": 4.33105,
       "lon": 73.63751,
-      "depth_m": 868.0
+      "depth_m": 1027.0
     },
     {
       "dist_km": 5.0,
       "lat": 4.32288,
       "lon": 73.65358,
-      "depth_m": 1475.0
+      "depth_m": 1428.0
     },
     {
       "dist_km": 8.0,
       "lat": 4.31063,
       "lon": 73.67769,
-      "depth_m": 1124.0
+      "depth_m": 1367.0
     },
     {
       "dist_km": 12.0,
       "lat": 4.2943,
       "lon": 73.70983,
-      "depth_m": 1632.0
+      "depth_m": 485.0
     },
     {
       "dist_km": 18.0,
       "lat": 4.2698,
       "lon": 73.75804,
-      "depth_m": 2276.0
+      "depth_m": 2333.0
     }
   ]
 }

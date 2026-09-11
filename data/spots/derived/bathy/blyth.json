@@ -1,48 +1,48 @@
 {
   "spot": "blyth",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     55.1125,
     -1.4966
   ],
   "bearing_seaward_deg": 99.0,
-  "nearshore_depth_m": 5.0,
-  "offshore_depth_m": 62.0,
-  "mean_slope_m_per_km": 3.21,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 60.0,
+  "mean_slope_m_per_km": 2.99,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 55.11215,
       "lon": -1.49272,
-      "depth_m": 5.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 0.5,
       "lat": 55.1118,
       "lon": -1.48884,
-      "depth_m": 5.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 1.0,
       "lat": 55.11109,
       "lon": -1.48107,
-      "depth_m": 8.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 2.0,
       "lat": 55.10968,
       "lon": -1.46554,
-      "depth_m": 13.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 3.0,
       "lat": 55.10827,
       "lon": -1.45002,
-      "depth_m": 19.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 5.0,
@@ -54,19 +54,19 @@
       "dist_km": 8.0,
       "lat": 55.10118,
       "lon": -1.3724,
-      "depth_m": 40.0
+      "depth_m": 39.0
     },
     {
       "dist_km": 12.0,
       "lat": 55.09548,
       "lon": -1.31032,
-      "depth_m": 49.0
+      "depth_m": 48.0
     },
     {
       "dist_km": 18.0,
       "lat": 55.08686,
       "lon": -1.21724,
-      "depth_m": 62.0
+      "depth_m": 60.0
     }
   ]
 }

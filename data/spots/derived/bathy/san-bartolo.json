@@ -1,72 +1,72 @@
 {
   "spot": "san-bartolo",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -12.3887,
     -76.782
   ],
   "bearing_seaward_deg": 248.0,
-  "nearshore_depth_m": 16.0,
-  "offshore_depth_m": 104.0,
-  "mean_slope_m_per_km": 4.96,
-  "land_samples": 1,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 105.0,
+  "mean_slope_m_per_km": 6.08,
+  "land_samples": 2,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -12.38954,
       "lon": -76.78413,
-      "depth_m": 16.0
+      "depth_m": -3.0
     },
     {
       "dist_km": 0.5,
       "lat": -12.39038,
       "lon": -76.78627,
-      "depth_m": 26.0
+      "depth_m": -3.0
     },
     {
       "dist_km": 1.0,
       "lat": -12.39207,
       "lon": -76.79054,
-      "depth_m": 32.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 2.0,
       "lat": -12.39544,
       "lon": -76.79907,
-      "depth_m": 9.0
+      "depth_m": 25.0
     },
     {
       "dist_km": 3.0,
       "lat": -12.39881,
       "lon": -76.80761,
-      "depth_m": -7.0
+      "depth_m": 32.0
     },
     {
       "dist_km": 5.0,
       "lat": -12.40554,
       "lon": -76.82469,
-      "depth_m": 41.0
+      "depth_m": 54.0
     },
     {
       "dist_km": 8.0,
       "lat": -12.41564,
       "lon": -76.8503,
-      "depth_m": 62.0
+      "depth_m": 64.0
     },
     {
       "dist_km": 12.0,
       "lat": -12.42911,
       "lon": -76.88446,
-      "depth_m": 90.0
+      "depth_m": 92.0
     },
     {
       "dist_km": 18.0,
       "lat": -12.4493,
       "lon": -76.9357,
-      "depth_m": 104.0
+      "depth_m": 105.0
     }
   ]
 }

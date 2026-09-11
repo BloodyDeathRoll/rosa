@@ -1,14 +1,14 @@
 {
   "spot": "pascuales",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     18.8618,
     -103.9678
   ],
   "bearing_seaward_deg": 221.0,
-  "nearshore_depth_m": -13.0,
-  "offshore_depth_m": 1026.0,
-  "mean_slope_m_per_km": 58.54,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 1020.0,
+  "mean_slope_m_per_km": 57.86,
   "land_samples": 3,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 18.8601,
       "lon": -103.96936,
-      "depth_m": -13.0
+      "depth_m": -7.0
     },
     {
       "dist_km": 0.5,
       "lat": 18.85841,
       "lon": -103.97092,
-      "depth_m": -11.0
+      "depth_m": -4.0
     },
     {
       "dist_km": 1.0,
       "lat": 18.85501,
       "lon": -103.97403,
-      "depth_m": -7.0
+      "depth_m": -3.0
     },
     {
       "dist_km": 2.0,
       "lat": 18.84823,
       "lon": -103.98027,
-      "depth_m": 12.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 3.0,
       "lat": 18.84144,
       "lon": -103.9865,
-      "depth_m": 47.0
+      "depth_m": 43.0
     },
     {
       "dist_km": 5.0,
       "lat": 18.82786,
       "lon": -103.99897,
-      "depth_m": 119.0
+      "depth_m": 95.0
     },
     {
       "dist_km": 8.0,
       "lat": 18.8075,
       "lon": -104.01766,
-      "depth_m": 205.0
+      "depth_m": 229.0
     },
     {
       "dist_km": 12.0,
       "lat": 18.78034,
       "lon": -104.04258,
-      "depth_m": 326.0
+      "depth_m": 367.0
     },
     {
       "dist_km": 18.0,
       "lat": 18.7396,
       "lon": -104.07995,
-      "depth_m": 1026.0
+      "depth_m": 1020.0
     }
   ]
 }

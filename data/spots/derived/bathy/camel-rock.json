@@ -1,15 +1,15 @@
 {
   "spot": "camel-rock",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     41.0351,
     -124.1195
   ],
   "bearing_seaward_deg": 208.0,
-  "nearshore_depth_m": -12.0,
-  "offshore_depth_m": 46.0,
-  "mean_slope_m_per_km": 3.27,
-  "land_samples": 2,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 48.0,
+  "mean_slope_m_per_km": 2.31,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,31 +18,31 @@
       "dist_km": 0.25,
       "lat": 41.03311,
       "lon": -124.1209,
-      "depth_m": -12.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 0.5,
       "lat": 41.03113,
       "lon": -124.1223,
-      "depth_m": -4.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 1.0,
       "lat": 41.02716,
       "lon": -124.1251,
-      "depth_m": 4.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 2.0,
       "lat": 41.01922,
       "lon": -124.13069,
-      "depth_m": 8.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 3.0,
       "lat": 41.01128,
       "lon": -124.13629,
-      "depth_m": 11.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 5.0,
@@ -54,19 +54,19 @@
       "dist_km": 8.0,
       "lat": 40.97157,
       "lon": -124.16423,
-      "depth_m": 21.0
+      "depth_m": 24.0
     },
     {
       "dist_km": 12.0,
       "lat": 40.93979,
       "lon": -124.18657,
-      "depth_m": 34.0
+      "depth_m": 35.0
     },
     {
       "dist_km": 18.0,
       "lat": 40.89213,
       "lon": -124.22003,
-      "depth_m": 46.0
+      "depth_m": 48.0
     }
   ]
 }

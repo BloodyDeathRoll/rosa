@@ -1,15 +1,15 @@
 {
   "spot": "moffat-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -26.7895,
     153.1443
   ],
   "bearing_seaward_deg": 25.0,
-  "nearshore_depth_m": -2.0,
+  "nearshore_depth_m": 1.0,
   "offshore_depth_m": 37.0,
-  "mean_slope_m_per_km": 2.2,
-  "land_samples": 1,
+  "mean_slope_m_per_km": 2.03,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,31 +18,31 @@
       "dist_km": 0.25,
       "lat": -26.78746,
       "lon": 153.14536,
-      "depth_m": -2.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": -26.78542,
       "lon": 153.14643,
-      "depth_m": 3.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 1.0,
       "lat": -26.78135,
       "lon": 153.14856,
-      "depth_m": 7.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 2.0,
       "lat": -26.7732,
       "lon": 153.15281,
-      "depth_m": 15.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 3.0,
       "lat": -26.76505,
       "lon": 153.15707,
-      "depth_m": 16.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 5.0,
@@ -54,13 +54,13 @@
       "dist_km": 8.0,
       "lat": -26.72429,
       "lon": 153.17834,
-      "depth_m": 22.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 12.0,
       "lat": -26.69168,
       "lon": 153.19535,
-      "depth_m": 25.0
+      "depth_m": 24.0
     },
     {
       "dist_km": 18.0,

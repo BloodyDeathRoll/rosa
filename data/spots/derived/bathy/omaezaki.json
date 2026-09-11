@@ -1,66 +1,66 @@
 {
   "spot": "omaezaki",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     34.596,
     138.22
   ],
   "bearing_seaward_deg": 180.0,
-  "nearshore_depth_m": 5.0,
+  "nearshore_depth_m": 1.0,
   "offshore_depth_m": 87.0,
-  "mean_slope_m_per_km": 4.62,
+  "mean_slope_m_per_km": 4.85,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
-  "deepest_is_reference": false,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 34.59375,
       "lon": 138.22,
-      "depth_m": 5.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": 34.5915,
       "lon": 138.22,
-      "depth_m": 5.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 1.0,
       "lat": 34.58701,
       "lon": 138.22,
-      "depth_m": 9.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 2.0,
       "lat": 34.57801,
       "lon": 138.22,
-      "depth_m": 23.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 3.0,
       "lat": 34.56902,
       "lon": 138.22,
-      "depth_m": 34.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 5.0,
       "lat": 34.55103,
       "lon": 138.22,
-      "depth_m": 42.0
+      "depth_m": 49.0
     },
     {
       "dist_km": 8.0,
       "lat": 34.52405,
       "lon": 138.22,
-      "depth_m": 64.0
+      "depth_m": 65.0
     },
     {
       "dist_km": 12.0,
       "lat": 34.48808,
       "lon": 138.22,
-      "depth_m": 90.0
+      "depth_m": 85.0
     },
     {
       "dist_km": 18.0,

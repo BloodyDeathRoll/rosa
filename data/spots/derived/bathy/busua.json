@@ -1,72 +1,72 @@
 {
   "spot": "busua",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     4.808,
     -1.934
   ],
   "bearing_seaward_deg": 156.0,
-  "nearshore_depth_m": 110.0,
-  "offshore_depth_m": 58.0,
-  "mean_slope_m_per_km": -2.93,
-  "land_samples": 0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 55.0,
+  "mean_slope_m_per_km": 3.49,
+  "land_samples": 3,
   "missing_samples": 0,
-  "non_monotone_samples": 4,
-  "deepest_is_reference": false,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 4.80595,
       "lon": -1.93308,
-      "depth_m": 110.0
+      "depth_m": -7.0
     },
     {
       "dist_km": 0.5,
       "lat": 4.80389,
       "lon": -1.93216,
-      "depth_m": 144.0
+      "depth_m": -3.0
     },
     {
       "dist_km": 1.0,
       "lat": 4.79978,
       "lon": -1.93033,
-      "depth_m": 205.0
+      "depth_m": -0.0
     },
     {
       "dist_km": 2.0,
       "lat": 4.79157,
       "lon": -1.92666,
-      "depth_m": 241.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 3.0,
       "lat": 4.78335,
       "lon": -1.92299,
-      "depth_m": 193.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 5.0,
       "lat": 4.76692,
       "lon": -1.91565,
-      "depth_m": 66.0
+      "depth_m": 28.0
     },
     {
       "dist_km": 8.0,
       "lat": 4.74227,
       "lon": -1.90464,
-      "depth_m": 31.0
+      "depth_m": 35.0
     },
     {
       "dist_km": 12.0,
       "lat": 4.70941,
       "lon": -1.88996,
-      "depth_m": 28.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 18.0,
       "lat": 4.66011,
       "lon": -1.86794,
-      "depth_m": 58.0
+      "depth_m": 55.0
     }
   ]
 }

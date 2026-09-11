@@ -1,14 +1,14 @@
 {
   "spot": "orofara",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -17.5078,
     -149.4618
   ],
   "bearing_seaward_deg": 2.0,
-  "nearshore_depth_m": -143.0,
-  "offshore_depth_m": 1794.0,
-  "mean_slope_m_per_km": 109.13,
+  "nearshore_depth_m": -111.0,
+  "offshore_depth_m": 1811.0,
+  "mean_slope_m_per_km": 108.28,
   "land_samples": 2,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": -17.50555,
       "lon": -149.46172,
-      "depth_m": -143.0
+      "depth_m": -111.0
     },
     {
       "dist_km": 0.5,
       "lat": -17.50331,
       "lon": -149.46164,
-      "depth_m": -71.0
+      "depth_m": -85.0
     },
     {
       "dist_km": 1.0,
       "lat": -17.49881,
       "lon": -149.46147,
-      "depth_m": 14.0
+      "depth_m": 24.0
     },
     {
       "dist_km": 2.0,
       "lat": -17.48982,
       "lon": -149.46114,
-      "depth_m": 47.0
+      "depth_m": 59.0
     },
     {
       "dist_km": 3.0,
       "lat": -17.48084,
       "lon": -149.46081,
-      "depth_m": 405.0
+      "depth_m": 402.0
     },
     {
       "dist_km": 5.0,
       "lat": -17.46286,
       "lon": -149.46015,
-      "depth_m": 476.0
+      "depth_m": 455.0
     },
     {
       "dist_km": 8.0,
       "lat": -17.4359,
       "lon": -149.45917,
-      "depth_m": 978.0
+      "depth_m": 1019.0
     },
     {
       "dist_km": 12.0,
       "lat": -17.39995,
       "lon": -149.45785,
-      "depth_m": 1490.0
+      "depth_m": 1537.0
     },
     {
       "dist_km": 18.0,
       "lat": -17.34602,
       "lon": -149.45588,
-      "depth_m": 1794.0
+      "depth_m": 1811.0
     }
   ]
 }

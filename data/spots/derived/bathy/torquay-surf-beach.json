@@ -1,15 +1,15 @@
 {
   "spot": "torquay-surf-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -38.3456,
     144.3186
   ],
   "bearing_seaward_deg": 169.0,
-  "nearshore_depth_m": -4.0,
-  "offshore_depth_m": 74.0,
-  "mean_slope_m_per_km": 4.39,
-  "land_samples": 1,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 76.0,
+  "mean_slope_m_per_km": 4.0,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,43 +18,43 @@
       "dist_km": 0.25,
       "lat": -38.34781,
       "lon": 144.31915,
-      "depth_m": -4.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 0.5,
       "lat": -38.35001,
       "lon": 144.31969,
-      "depth_m": 6.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 1.0,
       "lat": -38.35443,
       "lon": 144.32079,
-      "depth_m": 17.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 2.0,
       "lat": -38.36326,
       "lon": 144.32298,
-      "depth_m": 25.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 3.0,
       "lat": -38.37208,
       "lon": 144.32517,
-      "depth_m": 27.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 5.0,
       "lat": -38.38974,
       "lon": 144.32955,
-      "depth_m": 39.0
+      "depth_m": 44.0
     },
     {
       "dist_km": 8.0,
       "lat": -38.41622,
       "lon": 144.33612,
-      "depth_m": 64.0
+      "depth_m": 66.0
     },
     {
       "dist_km": 12.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": -38.5045,
       "lon": 144.35807,
-      "depth_m": 74.0
+      "depth_m": 76.0
     }
   ]
 }

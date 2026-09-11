@@ -1,6 +1,6 @@
 {
   "spot": "bagasbas",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     14.134,
     122.9855
@@ -11,7 +11,7 @@
   "mean_slope_m_per_km": 2.31,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 2,
   "deepest_is_reference": true,
   "samples": [
     {
@@ -24,31 +24,31 @@
       "dist_km": 0.5,
       "lat": 14.13789,
       "lon": 122.98782,
-      "depth_m": 3.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 1.0,
       "lat": 14.14179,
       "lon": 122.99014,
-      "depth_m": 4.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 2.0,
       "lat": 14.14958,
       "lon": 122.99477,
-      "depth_m": 6.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 3.0,
       "lat": 14.15736,
       "lon": 122.99941,
-      "depth_m": 15.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 5.0,
       "lat": 14.17294,
       "lon": 123.00869,
-      "depth_m": 28.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 8.0,

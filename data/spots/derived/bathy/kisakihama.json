@@ -1,42 +1,42 @@
 {
   "spot": "kisakihama",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     31.828,
     131.45306
   ],
   "bearing_seaward_deg": 100.0,
-  "nearshore_depth_m": 2.0,
-  "offshore_depth_m": 77.0,
-  "mean_slope_m_per_km": 4.23,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 75.0,
+  "mean_slope_m_per_km": 4.17,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 2,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 31.82761,
       "lon": 131.45567,
-      "depth_m": 2.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": 31.82722,
       "lon": 131.45827,
-      "depth_m": 5.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 1.0,
       "lat": 31.82644,
       "lon": 131.46348,
-      "depth_m": 8.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 2.0,
       "lat": 31.82487,
       "lon": 131.47391,
-      "depth_m": 14.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 3.0,
@@ -48,25 +48,25 @@
       "dist_km": 5.0,
       "lat": 31.82018,
       "lon": 131.50518,
-      "depth_m": 8.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 8.0,
       "lat": 31.81548,
       "lon": 131.53644,
-      "depth_m": 15.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 12.0,
       "lat": 31.8092,
       "lon": 131.57812,
-      "depth_m": 28.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 18.0,
       "lat": 31.79975,
       "lon": 131.64063,
-      "depth_m": 77.0
+      "depth_m": 75.0
     }
   ]
 }

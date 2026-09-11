@@ -1,66 +1,66 @@
 {
   "spot": "gnarabup",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -33.9833,
     114.9898
   ],
   "bearing_seaward_deg": 284.0,
-  "nearshore_depth_m": 2.0,
+  "nearshore_depth_m": -9.0,
   "offshore_depth_m": 50.0,
-  "mean_slope_m_per_km": 2.7,
-  "land_samples": 0,
+  "mean_slope_m_per_km": 3.32,
+  "land_samples": 2,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 2,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -33.98276,
       "lon": 114.98717,
-      "depth_m": 2.0
+      "depth_m": -9.0
     },
     {
       "dist_km": 0.5,
       "lat": -33.98221,
       "lon": 114.98454,
-      "depth_m": 10.0
+      "depth_m": -9.0
     },
     {
       "dist_km": 1.0,
       "lat": -33.98112,
       "lon": 114.97928,
-      "depth_m": 12.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 2.0,
       "lat": -33.97895,
       "lon": 114.96875,
-      "depth_m": 29.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 3.0,
       "lat": -33.97677,
       "lon": 114.95823,
-      "depth_m": 33.0
+      "depth_m": 37.0
     },
     {
       "dist_km": 5.0,
       "lat": -33.97241,
       "lon": 114.93719,
-      "depth_m": 44.0
+      "depth_m": 47.0
     },
     {
       "dist_km": 8.0,
       "lat": -33.96587,
       "lon": 114.90563,
-      "depth_m": 45.0
+      "depth_m": 46.0
     },
     {
       "dist_km": 12.0,
       "lat": -33.95713,
       "lon": 114.86356,
-      "depth_m": 41.0
+      "depth_m": 43.0
     },
     {
       "dist_km": 18.0,

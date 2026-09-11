@@ -1,15 +1,15 @@
 {
   "spot": "bondi-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -33.8913,
     151.2781
   ],
   "bearing_seaward_deg": 150.0,
-  "nearshore_depth_m": -13.0,
+  "nearshore_depth_m": 1.0,
   "offshore_depth_m": 136.0,
-  "mean_slope_m_per_km": 8.39,
-  "land_samples": 2,
+  "mean_slope_m_per_km": 7.61,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,37 +18,37 @@
       "dist_km": 0.25,
       "lat": -33.89325,
       "lon": 151.27945,
-      "depth_m": -13.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": -33.89519,
       "lon": 151.28081,
-      "depth_m": -10.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 1.0,
       "lat": -33.89909,
       "lon": 151.28352,
-      "depth_m": 11.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 2.0,
       "lat": -33.90688,
       "lon": 151.28894,
-      "depth_m": 31.0
+      "depth_m": 34.0
     },
     {
       "dist_km": 3.0,
       "lat": -33.91466,
       "lon": 151.29436,
-      "depth_m": 38.0
+      "depth_m": 46.0
     },
     {
       "dist_km": 5.0,
       "lat": -33.93024,
       "lon": 151.3052,
-      "depth_m": 50.0
+      "depth_m": 63.0
     },
     {
       "dist_km": 8.0,
@@ -60,7 +60,7 @@
       "dist_km": 12.0,
       "lat": -33.98474,
       "lon": 151.34317,
-      "depth_m": 93.0
+      "depth_m": 92.0
     },
     {
       "dist_km": 18.0,

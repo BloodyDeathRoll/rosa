@@ -1,15 +1,15 @@
 {
   "spot": "el-sunzal",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     13.4925,
     -89.3906
   ],
   "bearing_seaward_deg": 215.0,
-  "nearshore_depth_m": -2.0,
+  "nearshore_depth_m": 3.0,
   "offshore_depth_m": 54.0,
-  "mean_slope_m_per_km": 3.15,
-  "land_samples": 1,
+  "mean_slope_m_per_km": 2.87,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,19 +18,19 @@
       "dist_km": 0.25,
       "lat": 13.49066,
       "lon": -89.39193,
-      "depth_m": -2.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 0.5,
       "lat": 13.48882,
       "lon": -89.39325,
-      "depth_m": 5.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 1.0,
       "lat": 13.48513,
       "lon": -89.3959,
-      "depth_m": 14.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 2.0,
@@ -42,7 +42,7 @@
       "dist_km": 3.0,
       "lat": 13.4704,
       "lon": -89.40651,
-      "depth_m": 24.0
+      "depth_m": 23.0
     },
     {
       "dist_km": 5.0,
@@ -60,7 +60,7 @@
       "dist_km": 12.0,
       "lat": 13.40409,
       "lon": -89.45423,
-      "depth_m": 42.0
+      "depth_m": 43.0
     },
     {
       "dist_km": 18.0,

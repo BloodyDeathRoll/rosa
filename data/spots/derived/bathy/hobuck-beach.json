@@ -1,18 +1,18 @@
 {
   "spot": "hobuck-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     48.3387,
     -124.6666
   ],
   "bearing_seaward_deg": 220.0,
   "nearshore_depth_m": -1.0,
-  "offshore_depth_m": 36.0,
-  "mean_slope_m_per_km": 2.08,
+  "offshore_depth_m": 40.0,
+  "mean_slope_m_per_km": 2.31,
   "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 2,
-  "deepest_is_reference": true,
+  "deepest_is_reference": false,
   "samples": [
     {
       "dist_km": 0.25,
@@ -24,31 +24,31 @@
       "dist_km": 0.5,
       "lat": 48.33526,
       "lon": -124.67095,
-      "depth_m": 4.0
+      "depth_m": 41.0
     },
     {
       "dist_km": 1.0,
       "lat": 48.33181,
       "lon": -124.6753,
-      "depth_m": 12.0
+      "depth_m": 43.0
     },
     {
       "dist_km": 2.0,
       "lat": 48.32492,
       "lon": -124.68399,
-      "depth_m": 16.0
+      "depth_m": 48.0
     },
     {
       "dist_km": 3.0,
       "lat": 48.31803,
       "lon": -124.69268,
-      "depth_m": 15.0
+      "depth_m": 46.0
     },
     {
       "dist_km": 5.0,
       "lat": 48.30425,
       "lon": -124.71005,
-      "depth_m": 29.0
+      "depth_m": 49.0
     },
     {
       "dist_km": 8.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 48.25598,
       "lon": -124.77079,
-      "depth_m": 29.0
+      "depth_m": 32.0
     },
     {
       "dist_km": 18.0,
       "lat": 48.21459,
       "lon": -124.82276,
-      "depth_m": 36.0
+      "depth_m": 40.0
     }
   ]
 }

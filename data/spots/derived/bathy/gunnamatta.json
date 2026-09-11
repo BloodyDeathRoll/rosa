@@ -1,15 +1,15 @@
 {
   "spot": "gunnamatta",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -38.4604,
     144.8723
   ],
   "bearing_seaward_deg": 231.0,
-  "nearshore_depth_m": -0.0,
-  "offshore_depth_m": 76.0,
-  "mean_slope_m_per_km": 4.28,
-  "land_samples": 1,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 79.0,
+  "mean_slope_m_per_km": 4.23,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": -38.46181,
       "lon": 144.87007,
-      "depth_m": -0.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 0.5,
       "lat": -38.46323,
       "lon": 144.86784,
-      "depth_m": 9.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 1.0,
       "lat": -38.46606,
       "lon": 144.86337,
-      "depth_m": 18.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 2.0,
       "lat": -38.47172,
       "lon": 144.85445,
-      "depth_m": 27.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 3.0,
       "lat": -38.47738,
       "lon": 144.84552,
-      "depth_m": 33.0
+      "depth_m": 34.0
     },
     {
       "dist_km": 5.0,
       "lat": -38.48869,
       "lon": 144.82765,
-      "depth_m": 48.0
+      "depth_m": 49.0
     },
     {
       "dist_km": 8.0,
       "lat": -38.50566,
       "lon": 144.80085,
-      "depth_m": 69.0
+      "depth_m": 70.0
     },
     {
       "dist_km": 12.0,
       "lat": -38.52827,
       "lon": 144.76509,
-      "depth_m": 74.0
+      "depth_m": 76.0
     },
     {
       "dist_km": 18.0,
       "lat": -38.56216,
       "lon": 144.71141,
-      "depth_m": 76.0
+      "depth_m": 79.0
     }
   ]
 }

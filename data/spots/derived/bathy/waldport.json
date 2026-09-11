@@ -1,15 +1,15 @@
 {
   "spot": "waldport",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     44.4477,
     -124.0855
   ],
   "bearing_seaward_deg": 268.0,
-  "nearshore_depth_m": -1.0,
-  "offshore_depth_m": 68.0,
-  "mean_slope_m_per_km": 3.89,
-  "land_samples": 1,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 73.0,
+  "mean_slope_m_per_km": 4.0,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,25 +18,25 @@
       "dist_km": 0.25,
       "lat": 44.44762,
       "lon": -124.08865,
-      "depth_m": -1.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 0.5,
       "lat": 44.44754,
       "lon": -124.09179,
-      "depth_m": 3.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 1.0,
       "lat": 44.44739,
       "lon": -124.09809,
-      "depth_m": 7.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 2.0,
       "lat": 44.44707,
       "lon": -124.11068,
-      "depth_m": 22.0
+      "depth_m": 24.0
     },
     {
       "dist_km": 3.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 44.44383,
       "lon": -124.23657,
-      "depth_m": 62.0
+      "depth_m": 66.0
     },
     {
       "dist_km": 18.0,
       "lat": 44.44183,
       "lon": -124.31209,
-      "depth_m": 68.0
+      "depth_m": 73.0
     }
   ]
 }

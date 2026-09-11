@@ -1,14 +1,14 @@
 {
   "spot": "jack-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     33.5234,
     -7.8427
   ],
   "bearing_seaward_deg": 331.0,
-  "nearshore_depth_m": -7.0,
-  "offshore_depth_m": 89.0,
-  "mean_slope_m_per_km": 5.41,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 84.0,
+  "mean_slope_m_per_km": 4.96,
   "land_samples": 2,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,37 +18,37 @@
       "dist_km": 0.25,
       "lat": 33.52537,
       "lon": -7.84401,
-      "depth_m": -7.0
+      "depth_m": -4.0
     },
     {
       "dist_km": 0.5,
       "lat": 33.52733,
       "lon": -7.84532,
-      "depth_m": -2.0
+      "depth_m": -4.0
     },
     {
       "dist_km": 1.0,
       "lat": 33.53127,
       "lon": -7.84793,
-      "depth_m": 10.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 2.0,
       "lat": 33.53913,
       "lon": -7.85316,
-      "depth_m": 15.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 3.0,
       "lat": 33.547,
       "lon": -7.85839,
-      "depth_m": 20.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 5.0,
       "lat": 33.56273,
       "lon": -7.86886,
-      "depth_m": 31.0
+      "depth_m": 33.0
     },
     {
       "dist_km": 8.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 33.66495,
       "lon": -7.93699,
-      "depth_m": 89.0
+      "depth_m": 84.0
     }
   ]
 }

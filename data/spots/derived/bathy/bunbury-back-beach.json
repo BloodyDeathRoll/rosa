@@ -1,72 +1,72 @@
 {
   "spot": "bunbury-back-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -33.3271,
     115.6294
   ],
   "bearing_seaward_deg": 279.0,
-  "nearshore_depth_m": 8.0,
-  "offshore_depth_m": 28.0,
-  "mean_slope_m_per_km": 1.13,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 29.0,
+  "mean_slope_m_per_km": 1.01,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -33.32675,
       "lon": 115.62674,
-      "depth_m": 8.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 0.5,
       "lat": -33.3264,
       "lon": 115.62408,
-      "depth_m": 9.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 1.0,
       "lat": -33.32569,
       "lon": 115.61877,
-      "depth_m": 11.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 2.0,
       "lat": -33.32428,
       "lon": 115.60814,
-      "depth_m": 13.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 3.0,
       "lat": -33.32288,
       "lon": 115.59751,
-      "depth_m": 14.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 5.0,
       "lat": -33.32005,
       "lon": 115.57625,
-      "depth_m": 14.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 8.0,
       "lat": -33.31582,
       "lon": 115.54437,
-      "depth_m": 21.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 12.0,
       "lat": -33.31015,
       "lon": 115.50186,
-      "depth_m": 25.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 18.0,
       "lat": -33.30163,
       "lon": 115.4381,
-      "depth_m": 28.0
+      "depth_m": 29.0
     }
   ]
 }

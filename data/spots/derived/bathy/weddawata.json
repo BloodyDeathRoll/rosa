@@ -1,15 +1,15 @@
 {
   "spot": "weddawata",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     5.9399,
     80.565
   ],
   "bearing_seaward_deg": 165.0,
-  "nearshore_depth_m": -11.0,
-  "offshore_depth_m": 2085.0,
-  "mean_slope_m_per_km": 118.08,
-  "land_samples": 2,
+  "nearshore_depth_m": -19.0,
+  "offshore_depth_m": 2017.0,
+  "mean_slope_m_per_km": 114.7,
+  "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 1,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 5.93773,
       "lon": 80.56559,
-      "depth_m": -11.0
+      "depth_m": -19.0
     },
     {
       "dist_km": 0.5,
       "lat": 5.93556,
       "lon": 80.56617,
-      "depth_m": -3.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 1.0,
       "lat": 5.93121,
       "lon": 80.56734,
-      "depth_m": 9.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 2.0,
       "lat": 5.92253,
       "lon": 80.56968,
-      "depth_m": 5.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 3.0,
       "lat": 5.91384,
       "lon": 80.57202,
-      "depth_m": 8.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 5.0,
       "lat": 5.89647,
       "lon": 80.5767,
-      "depth_m": 113.0
+      "depth_m": 179.0
     },
     {
       "dist_km": 8.0,
       "lat": 5.87041,
       "lon": 80.58372,
-      "depth_m": 553.0
+      "depth_m": 727.0
     },
     {
       "dist_km": 12.0,
       "lat": 5.83566,
       "lon": 80.59308,
-      "depth_m": 1459.0
+      "depth_m": 1456.0
     },
     {
       "dist_km": 18.0,
       "lat": 5.78354,
       "lon": 80.60711,
-      "depth_m": 2085.0
+      "depth_m": 2017.0
     }
   ]
 }

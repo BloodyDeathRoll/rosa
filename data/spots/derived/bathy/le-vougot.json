@@ -1,15 +1,15 @@
 {
   "spot": "le-vougot",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     48.6298,
     -4.4595
   ],
   "bearing_seaward_deg": 301.0,
-  "nearshore_depth_m": -8.0,
-  "offshore_depth_m": 93.0,
-  "mean_slope_m_per_km": 5.69,
-  "land_samples": 2,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 92.0,
+  "mean_slope_m_per_km": 5.46,
+  "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,13 +18,13 @@
       "dist_km": 0.25,
       "lat": 48.63096,
       "lon": -4.46242,
-      "depth_m": -8.0
+      "depth_m": -5.0
     },
     {
       "dist_km": 0.5,
       "lat": 48.63212,
       "lon": -4.46533,
-      "depth_m": -5.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 1.0,
@@ -36,37 +36,37 @@
       "dist_km": 2.0,
       "lat": 48.63906,
       "lon": -4.48283,
-      "depth_m": 4.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 3.0,
       "lat": 48.64369,
       "lon": -4.4945,
-      "depth_m": 14.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 5.0,
       "lat": 48.65294,
       "lon": -4.51784,
-      "depth_m": 17.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 8.0,
       "lat": 48.66682,
       "lon": -4.55288,
-      "depth_m": 30.0
+      "depth_m": 50.0
     },
     {
       "dist_km": 12.0,
       "lat": 48.6853,
       "lon": -4.59962,
-      "depth_m": 77.0
+      "depth_m": 73.0
     },
     {
       "dist_km": 18.0,
       "lat": 48.71298,
       "lon": -4.66979,
-      "depth_m": 93.0
+      "depth_m": 92.0
     }
   ]
 }

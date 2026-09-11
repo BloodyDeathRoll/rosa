@@ -1,15 +1,15 @@
 {
   "spot": "shelter-cove",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     40.0355,
     -124.079
   ],
   "bearing_seaward_deg": 188.0,
-  "nearshore_depth_m": -18.0,
-  "offshore_depth_m": 143.0,
-  "mean_slope_m_per_km": 9.07,
-  "land_samples": 2,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 145.0,
+  "mean_slope_m_per_km": 7.66,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 40.03327,
       "lon": -124.07941,
-      "depth_m": -18.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 0.5,
       "lat": 40.03105,
       "lon": -124.07982,
-      "depth_m": -15.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 1.0,
       "lat": 40.02659,
       "lon": -124.08063,
-      "depth_m": 10.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 2.0,
       "lat": 40.01769,
       "lon": -124.08227,
-      "depth_m": 21.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 3.0,
       "lat": 40.00878,
       "lon": -124.0839,
-      "depth_m": 25.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 5.0,
       "lat": 39.99097,
       "lon": -124.08717,
-      "depth_m": 36.0
+      "depth_m": 39.0
     },
     {
       "dist_km": 8.0,
       "lat": 39.96425,
       "lon": -124.09206,
-      "depth_m": 55.0
+      "depth_m": 59.0
     },
     {
       "dist_km": 12.0,
       "lat": 39.92863,
       "lon": -124.09859,
-      "depth_m": 85.0
+      "depth_m": 89.0
     },
     {
       "dist_km": 18.0,
       "lat": 39.87519,
       "lon": -124.10836,
-      "depth_m": 143.0
+      "depth_m": 145.0
     }
   ]
 }

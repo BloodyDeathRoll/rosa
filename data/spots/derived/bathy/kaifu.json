@@ -1,14 +1,14 @@
 {
   "spot": "kaifu",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     33.578,
     134.353
   ],
   "bearing_seaward_deg": 135.0,
-  "nearshore_depth_m": 43.0,
-  "offshore_depth_m": 383.0,
-  "mean_slope_m_per_km": 19.15,
+  "nearshore_depth_m": 14.0,
+  "offshore_depth_m": 379.0,
+  "mean_slope_m_per_km": 20.56,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,19 +18,19 @@
       "dist_km": 0.25,
       "lat": 33.57641,
       "lon": 134.35491,
-      "depth_m": 43.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 0.5,
       "lat": 33.57482,
       "lon": 134.35682,
-      "depth_m": 50.0
+      "depth_m": 40.0
     },
     {
       "dist_km": 1.0,
       "lat": 33.57164,
       "lon": 134.36063,
-      "depth_m": 62.0
+      "depth_m": 50.0
     },
     {
       "dist_km": 2.0,
@@ -42,31 +42,31 @@
       "dist_km": 3.0,
       "lat": 33.55892,
       "lon": 134.37589,
-      "depth_m": 88.0
+      "depth_m": 87.0
     },
     {
       "dist_km": 5.0,
       "lat": 33.5462,
       "lon": 134.39115,
-      "depth_m": 112.0
+      "depth_m": 104.0
     },
     {
       "dist_km": 8.0,
       "lat": 33.52711,
       "lon": 134.41403,
-      "depth_m": 136.0
+      "depth_m": 133.0
     },
     {
       "dist_km": 12.0,
       "lat": 33.50166,
       "lon": 134.44451,
-      "depth_m": 191.0
+      "depth_m": 180.0
     },
     {
       "dist_km": 18.0,
       "lat": 33.46346,
       "lon": 134.49021,
-      "depth_m": 383.0
+      "depth_m": 379.0
     }
   ]
 }

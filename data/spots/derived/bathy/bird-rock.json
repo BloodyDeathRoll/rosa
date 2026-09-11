@@ -1,14 +1,14 @@
 {
   "spot": "bird-rock",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     32.8114,
     -117.27
   ],
   "bearing_seaward_deg": 254.0,
-  "nearshore_depth_m": -6.0,
-  "offshore_depth_m": 558.0,
-  "mean_slope_m_per_km": 31.77,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 623.0,
+  "mean_slope_m_per_km": 35.38,
   "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 32.81078,
       "lon": -117.27257,
-      "depth_m": -6.0
+      "depth_m": -5.0
     },
     {
       "dist_km": 0.5,
       "lat": 32.81016,
       "lon": -117.27514,
-      "depth_m": 2.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 1.0,
       "lat": 32.80892,
       "lon": -117.28029,
-      "depth_m": 12.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 2.0,
       "lat": 32.80644,
       "lon": -117.29057,
-      "depth_m": 18.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 3.0,
       "lat": 32.80396,
       "lon": -117.30085,
-      "depth_m": 33.0
+      "depth_m": 38.0
     },
     {
       "dist_km": 5.0,
       "lat": 32.799,
       "lon": -117.32142,
-      "depth_m": 60.0
+      "depth_m": 67.0
     },
     {
       "dist_km": 8.0,
       "lat": 32.79154,
       "lon": -117.35227,
-      "depth_m": 80.0
+      "depth_m": 82.0
     },
     {
       "dist_km": 12.0,
       "lat": 32.78159,
       "lon": -117.39339,
-      "depth_m": 353.0
+      "depth_m": 356.0
     },
     {
       "dist_km": 18.0,
       "lat": 32.76664,
       "lon": -117.45505,
-      "depth_m": 558.0
+      "depth_m": 623.0
     }
   ]
 }

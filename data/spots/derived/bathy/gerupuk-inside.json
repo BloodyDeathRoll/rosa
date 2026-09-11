@@ -1,15 +1,15 @@
 {
   "spot": "gerupuk-inside",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -8.9104,
     116.3472
   ],
   "bearing_seaward_deg": 150.0,
-  "nearshore_depth_m": 14.0,
-  "offshore_depth_m": 350.0,
-  "mean_slope_m_per_km": 18.93,
-  "land_samples": 2,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 362.0,
+  "mean_slope_m_per_km": 20.9,
+  "land_samples": 3,
   "missing_samples": 0,
   "non_monotone_samples": 2,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": -8.91235,
       "lon": 116.34834,
-      "depth_m": 14.0
+      "depth_m": -9.0
     },
     {
       "dist_km": 0.5,
       "lat": -8.91429,
       "lon": 116.34948,
-      "depth_m": -5.0
+      "depth_m": -22.0
     },
     {
       "dist_km": 1.0,
       "lat": -8.91819,
       "lon": 116.35175,
-      "depth_m": -15.0
+      "depth_m": -14.0
     },
     {
       "dist_km": 2.0,
       "lat": -8.92598,
       "lon": 116.3563,
-      "depth_m": 12.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 3.0,
       "lat": -8.93376,
       "lon": 116.36086,
-      "depth_m": 7.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 5.0,
       "lat": -8.94934,
       "lon": 116.36996,
-      "depth_m": 14.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 8.0,
       "lat": -8.9727,
       "lon": 116.38362,
-      "depth_m": 113.0
+      "depth_m": 100.0
     },
     {
       "dist_km": 12.0,
       "lat": -9.00386,
       "lon": 116.40183,
-      "depth_m": 195.0
+      "depth_m": 181.0
     },
     {
       "dist_km": 18.0,
       "lat": -9.05058,
       "lon": 116.42916,
-      "depth_m": 350.0
+      "depth_m": 362.0
     }
   ]
 }

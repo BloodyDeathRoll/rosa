@@ -1,72 +1,72 @@
 {
   "spot": "shark-s-cove",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     36.9611,
     -121.9631
   ],
   "bearing_seaward_deg": 140.0,
-  "nearshore_depth_m": 4.0,
-  "offshore_depth_m": 25.0,
-  "mean_slope_m_per_km": 1.18,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 37.0,
+  "mean_slope_m_per_km": 1.69,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
-  "deepest_is_reference": false,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 36.95938,
       "lon": -121.96129,
-      "depth_m": 4.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 0.5,
       "lat": 36.95766,
       "lon": -121.95948,
-      "depth_m": 9.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 1.0,
       "lat": 36.95421,
       "lon": -121.95587,
-      "depth_m": 14.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 2.0,
       "lat": 36.94732,
       "lon": -121.94863,
-      "depth_m": 17.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 3.0,
       "lat": 36.94043,
       "lon": -121.9414,
-      "depth_m": 20.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 5.0,
       "lat": 36.92665,
       "lon": -121.92694,
-      "depth_m": 22.0
+      "depth_m": 23.0
     },
     {
       "dist_km": 8.0,
       "lat": 36.90597,
       "lon": -121.90527,
-      "depth_m": 25.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 12.0,
       "lat": 36.8784,
       "lon": -121.87638,
-      "depth_m": 26.0
+      "depth_m": 28.0
     },
     {
       "dist_km": 18.0,
       "lat": 36.83702,
       "lon": -121.83309,
-      "depth_m": 25.0
+      "depth_m": 37.0
     }
   ]
 }

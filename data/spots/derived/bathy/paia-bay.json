@@ -1,72 +1,72 @@
 {
   "spot": "paia-bay",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     20.9158,
     -156.3847
   ],
   "bearing_seaward_deg": 325.0,
-  "nearshore_depth_m": -3.0,
-  "offshore_depth_m": 290.0,
-  "mean_slope_m_per_km": 16.51,
-  "land_samples": 1,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 298.0,
+  "mean_slope_m_per_km": 16.28,
+  "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 20.91764,
       "lon": -156.38608,
-      "depth_m": -3.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 0.5,
       "lat": 20.91948,
       "lon": -156.38746,
-      "depth_m": 1.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 1.0,
       "lat": 20.92317,
       "lon": -156.39022,
-      "depth_m": 3.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 2.0,
       "lat": 20.93053,
       "lon": -156.39575,
-      "depth_m": 23.0
+      "depth_m": 42.0
     },
     {
       "dist_km": 3.0,
       "lat": 20.9379,
       "lon": -156.40127,
-      "depth_m": 44.0
+      "depth_m": 49.0
     },
     {
       "dist_km": 5.0,
       "lat": 20.95263,
       "lon": -156.41232,
-      "depth_m": 74.0
+      "depth_m": 89.0
     },
     {
       "dist_km": 8.0,
       "lat": 20.97473,
       "lon": -156.42889,
-      "depth_m": 102.0
+      "depth_m": 103.0
     },
     {
       "dist_km": 12.0,
       "lat": 21.00419,
       "lon": -156.45101,
-      "depth_m": 159.0
+      "depth_m": 181.0
     },
     {
       "dist_km": 18.0,
       "lat": 21.04837,
       "lon": -156.48419,
-      "depth_m": 290.0
+      "depth_m": 298.0
     }
   ]
 }

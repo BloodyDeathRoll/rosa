@@ -1,15 +1,15 @@
 {
   "spot": "sawarna",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -6.9856,
     106.3071
   ],
   "bearing_seaward_deg": 231.0,
   "nearshore_depth_m": -2.0,
-  "offshore_depth_m": 1361.0,
-  "mean_slope_m_per_km": 76.79,
-  "land_samples": 1,
+  "offshore_depth_m": 1357.0,
+  "mean_slope_m_per_km": 76.56,
+  "land_samples": 3,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -24,49 +24,49 @@
       "dist_km": 0.5,
       "lat": -6.98843,
       "lon": 106.30358,
-      "depth_m": 1.0
+      "depth_m": -2.0
     },
     {
       "dist_km": 1.0,
       "lat": -6.99126,
       "lon": 106.30006,
-      "depth_m": 11.0
+      "depth_m": -2.0
     },
     {
       "dist_km": 2.0,
       "lat": -6.99692,
       "lon": 106.29302,
-      "depth_m": 25.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 3.0,
       "lat": -7.00258,
       "lon": 106.28598,
-      "depth_m": 41.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 5.0,
       "lat": -7.0139,
       "lon": 106.27189,
-      "depth_m": 105.0
+      "depth_m": 58.0
     },
     {
       "dist_km": 8.0,
       "lat": -7.03087,
       "lon": 106.25076,
-      "depth_m": 274.0
+      "depth_m": 189.0
     },
     {
       "dist_km": 12.0,
       "lat": -7.05351,
       "lon": 106.22259,
-      "depth_m": 653.0
+      "depth_m": 534.0
     },
     {
       "dist_km": 18.0,
       "lat": -7.08746,
       "lon": 106.18033,
-      "depth_m": 1361.0
+      "depth_m": 1357.0
     }
   ]
 }

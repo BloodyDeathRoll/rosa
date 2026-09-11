@@ -1,15 +1,15 @@
 {
   "spot": "smith-point",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     40.7316,
     -72.8595
   ],
   "bearing_seaward_deg": 158.0,
-  "nearshore_depth_m": 7.0,
+  "nearshore_depth_m": -1.0,
   "offshore_depth_m": 38.0,
-  "mean_slope_m_per_km": 1.75,
-  "land_samples": 0,
+  "mean_slope_m_per_km": 2.2,
+  "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,25 +18,25 @@
       "dist_km": 0.25,
       "lat": 40.72952,
       "lon": -72.85839,
-      "depth_m": 7.0
+      "depth_m": -1.0
     },
     {
       "dist_km": 0.5,
       "lat": 40.72743,
       "lon": -72.85728,
-      "depth_m": 10.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 1.0,
       "lat": 40.72326,
       "lon": -72.85505,
-      "depth_m": 12.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 2.0,
       "lat": 40.71492,
       "lon": -72.85061,
-      "depth_m": 18.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 3.0,

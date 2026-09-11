@@ -1,14 +1,14 @@
 {
   "spot": "kingscliff",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -28.2519,
     153.5745
   ],
   "bearing_seaward_deg": 55.0,
   "nearshore_depth_m": -0.0,
-  "offshore_depth_m": 76.0,
-  "mean_slope_m_per_km": 4.28,
+  "offshore_depth_m": 77.0,
+  "mean_slope_m_per_km": 4.34,
   "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -24,25 +24,25 @@
       "dist_km": 0.5,
       "lat": -28.24932,
       "lon": 153.57868,
-      "depth_m": 5.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 1.0,
       "lat": -28.24674,
       "lon": 153.58286,
-      "depth_m": 13.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 2.0,
       "lat": -28.24158,
       "lon": 153.59122,
-      "depth_m": 19.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 3.0,
       "lat": -28.23642,
       "lon": 153.59959,
-      "depth_m": 22.0
+      "depth_m": 25.0
     },
     {
       "dist_km": 5.0,
@@ -54,19 +54,19 @@
       "dist_km": 8.0,
       "lat": -28.21062,
       "lon": 153.64138,
-      "depth_m": 40.0
+      "depth_m": 35.0
     },
     {
       "dist_km": 12.0,
       "lat": -28.18996,
       "lon": 153.6748,
-      "depth_m": 60.0
+      "depth_m": 61.0
     },
     {
       "dist_km": 18.0,
       "lat": -28.15897,
       "lon": 153.7249,
-      "depth_m": 76.0
+      "depth_m": 77.0
     }
   ]
 }

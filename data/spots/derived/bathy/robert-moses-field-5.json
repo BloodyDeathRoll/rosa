@@ -1,60 +1,60 @@
 {
   "spot": "robert-moses-field-5",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     40.6251,
     -73.2328
   ],
   "bearing_seaward_deg": 167.0,
-  "nearshore_depth_m": 6.0,
-  "offshore_depth_m": 29.0,
-  "mean_slope_m_per_km": 1.3,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 1.46,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 40.62291,
       "lon": -73.23213,
-      "depth_m": 6.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 0.5,
       "lat": 40.62072,
       "lon": -73.23147,
-      "depth_m": 8.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 1.0,
       "lat": 40.61634,
       "lon": -73.23013,
-      "depth_m": 11.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 2.0,
       "lat": 40.60757,
       "lon": -73.22747,
-      "depth_m": 16.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 3.0,
       "lat": 40.59881,
       "lon": -73.22481,
-      "depth_m": 18.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 5.0,
       "lat": 40.58129,
       "lon": -73.21948,
-      "depth_m": 20.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 8.0,
       "lat": 40.555,
       "lon": -73.2115,
-      "depth_m": 21.0
+      "depth_m": 24.0
     },
     {
       "dist_km": 12.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 40.46736,
       "lon": -73.18494,
-      "depth_m": 29.0
+      "depth_m": 30.0
     }
   ]
 }

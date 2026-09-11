@@ -1,6 +1,6 @@
 {
   "spot": "the-box",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -33.9752,
     114.9846
@@ -24,13 +24,13 @@
       "dist_km": 0.5,
       "lat": -33.97559,
       "lon": 114.9792,
-      "depth_m": 8.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 1.0,
       "lat": -33.97598,
       "lon": 114.9738,
-      "depth_m": 19.0
+      "depth_m": 28.0
     },
     {
       "dist_km": 2.0,
@@ -42,25 +42,25 @@
       "dist_km": 3.0,
       "lat": -33.97755,
       "lon": 114.95219,
-      "depth_m": 38.0
+      "depth_m": 41.0
     },
     {
       "dist_km": 5.0,
       "lat": -33.97911,
       "lon": 114.93058,
-      "depth_m": 46.0
+      "depth_m": 48.0
     },
     {
       "dist_km": 8.0,
       "lat": -33.98144,
       "lon": 114.89817,
-      "depth_m": 44.0
+      "depth_m": 45.0
     },
     {
       "dist_km": 12.0,
       "lat": -33.98454,
       "lon": 114.85495,
-      "depth_m": 42.0
+      "depth_m": 43.0
     },
     {
       "dist_km": 18.0,

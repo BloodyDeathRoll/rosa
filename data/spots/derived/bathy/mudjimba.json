@@ -1,30 +1,30 @@
 {
   "spot": "mudjimba",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -26.6148,
     153.1008
   ],
   "bearing_seaward_deg": 74.0,
-  "nearshore_depth_m": 4.0,
+  "nearshore_depth_m": 1.0,
   "offshore_depth_m": 52.0,
-  "mean_slope_m_per_km": 2.7,
+  "mean_slope_m_per_km": 2.87,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -26.61418,
       "lon": 153.10322,
-      "depth_m": 4.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": -26.61356,
       "lon": 153.10563,
-      "depth_m": 3.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 1.0,
@@ -48,7 +48,7 @@
       "dist_km": 5.0,
       "lat": -26.6024,
       "lon": 153.14914,
-      "depth_m": 24.0
+      "depth_m": 25.0
     },
     {
       "dist_km": 8.0,

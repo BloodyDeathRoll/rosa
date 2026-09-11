@@ -1,15 +1,15 @@
 {
   "spot": "vichayito",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -4.0985,
     -81.0507
   ],
   "bearing_seaward_deg": 299.0,
-  "nearshore_depth_m": -5.0,
-  "offshore_depth_m": 469.0,
-  "mean_slope_m_per_km": 26.7,
-  "land_samples": 1,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 467.0,
+  "mean_slope_m_per_km": 26.87,
+  "land_samples": 2,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": -4.09741,
       "lon": -81.05267,
-      "depth_m": -5.0
+      "depth_m": -10.0
     },
     {
       "dist_km": 0.5,
       "lat": -4.09632,
       "lon": -81.05464,
-      "depth_m": 2.0
+      "depth_m": -4.0
     },
     {
       "dist_km": 1.0,
       "lat": -4.09414,
       "lon": -81.05859,
-      "depth_m": 13.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 2.0,
       "lat": -4.08978,
       "lon": -81.06647,
-      "depth_m": 28.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 3.0,
       "lat": -4.08542,
       "lon": -81.07436,
-      "depth_m": 44.0
+      "depth_m": 35.0
     },
     {
       "dist_km": 5.0,
       "lat": -4.0767,
       "lon": -81.09013,
-      "depth_m": 71.0
+      "depth_m": 55.0
     },
     {
       "dist_km": 8.0,
       "lat": -4.06362,
       "lon": -81.11378,
-      "depth_m": 98.0
+      "depth_m": 100.0
     },
     {
       "dist_km": 12.0,
       "lat": -4.04617,
       "lon": -81.14532,
-      "depth_m": 171.0
+      "depth_m": 200.0
     },
     {
       "dist_km": 18.0,
       "lat": -4.02001,
       "lon": -81.19263,
-      "depth_m": 469.0
+      "depth_m": 467.0
     }
   ]
 }

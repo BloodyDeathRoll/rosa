@@ -1,72 +1,72 @@
 {
   "spot": "caleta-de-campos",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     18.0711,
     -102.7582
   ],
   "bearing_seaward_deg": 251.0,
-  "nearshore_depth_m": -4.0,
-  "offshore_depth_m": 486.0,
-  "mean_slope_m_per_km": 27.61,
-  "land_samples": 1,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 504.0,
+  "mean_slope_m_per_km": 29.07,
+  "land_samples": 3,
   "missing_samples": 0,
-  "non_monotone_samples": 2,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 18.07037,
       "lon": -102.76044,
-      "depth_m": -4.0
+      "depth_m": -12.0
     },
     {
       "dist_km": 0.5,
       "lat": 18.06964,
       "lon": -102.76267,
-      "depth_m": 23.0
+      "depth_m": -9.0
     },
     {
       "dist_km": 1.0,
       "lat": 18.06817,
       "lon": -102.76714,
-      "depth_m": 87.0
+      "depth_m": -6.0
     },
     {
       "dist_km": 2.0,
       "lat": 18.06524,
       "lon": -102.77609,
-      "depth_m": 202.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 3.0,
       "lat": 18.06231,
       "lon": -102.78503,
-      "depth_m": 132.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 5.0,
       "lat": 18.05646,
       "lon": -102.80292,
-      "depth_m": 4.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 8.0,
       "lat": 18.04766,
       "lon": -102.82975,
-      "depth_m": 47.0
+      "depth_m": 45.0
     },
     {
       "dist_km": 12.0,
       "lat": 18.03594,
       "lon": -102.86551,
-      "depth_m": 116.0
+      "depth_m": 104.0
     },
     {
       "dist_km": 18.0,
       "lat": 18.01833,
       "lon": -102.91915,
-      "depth_m": 486.0
+      "depth_m": 504.0
     }
   ]
 }

@@ -1,14 +1,14 @@
 {
   "spot": "beerbarrel",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -41.2834,
     148.355
   ],
   "bearing_seaward_deg": 110.0,
-  "nearshore_depth_m": 6.0,
-  "offshore_depth_m": 113.0,
-  "mean_slope_m_per_km": 6.03,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 115.0,
+  "mean_slope_m_per_km": 6.25,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,31 +18,31 @@
       "dist_km": 0.25,
       "lat": -41.28417,
       "lon": 148.35781,
-      "depth_m": 6.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 0.5,
       "lat": -41.28494,
       "lon": 148.36062,
-      "depth_m": 12.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 1.0,
       "lat": -41.28648,
       "lon": 148.36625,
-      "depth_m": 19.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 2.0,
       "lat": -41.28955,
       "lon": 148.37749,
-      "depth_m": 54.0
+      "depth_m": 53.0
     },
     {
       "dist_km": 3.0,
       "lat": -41.29262,
       "lon": 148.38874,
-      "depth_m": 58.0
+      "depth_m": 61.0
     },
     {
       "dist_km": 5.0,
@@ -54,19 +54,19 @@
       "dist_km": 8.0,
       "lat": -41.30797,
       "lon": 148.445,
-      "depth_m": 103.0
+      "depth_m": 105.0
     },
     {
       "dist_km": 12.0,
       "lat": -41.32023,
       "lon": 148.49003,
-      "depth_m": 107.0
+      "depth_m": 109.0
     },
     {
       "dist_km": 18.0,
       "lat": -41.33859,
       "lon": 148.5576,
-      "depth_m": 113.0
+      "depth_m": 115.0
     }
   ]
 }

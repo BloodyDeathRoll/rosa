@@ -1,15 +1,15 @@
 {
   "spot": "kanehama",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     30.6631,
     131.0527
   ],
   "bearing_seaward_deg": 104.0,
-  "nearshore_depth_m": -2.0,
-  "offshore_depth_m": 111.0,
-  "mean_slope_m_per_km": 6.37,
-  "land_samples": 1,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 105.0,
+  "mean_slope_m_per_km": 6.31,
+  "land_samples": 2,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 30.66256,
       "lon": 131.05524,
-      "depth_m": -2.0
+      "depth_m": -7.0
     },
     {
       "dist_km": 0.5,
       "lat": 30.66201,
       "lon": 131.05777,
-      "depth_m": 10.0
+      "depth_m": -0.0
     },
     {
       "dist_km": 1.0,
       "lat": 30.66092,
       "lon": 131.06284,
-      "depth_m": 17.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 2.0,
       "lat": 30.65875,
       "lon": 131.07299,
-      "depth_m": 31.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 3.0,
       "lat": 30.65657,
       "lon": 131.08313,
-      "depth_m": 38.0
+      "depth_m": 35.0
     },
     {
       "dist_km": 5.0,
       "lat": 30.65221,
       "lon": 131.10342,
-      "depth_m": 57.0
+      "depth_m": 55.0
     },
     {
       "dist_km": 8.0,
       "lat": 30.64567,
       "lon": 131.13384,
-      "depth_m": 70.0
+      "depth_m": 69.0
     },
     {
       "dist_km": 12.0,
       "lat": 30.63694,
       "lon": 131.1744,
-      "depth_m": 75.0
+      "depth_m": 95.0
     },
     {
       "dist_km": 18.0,
       "lat": 30.62381,
       "lon": 131.23523,
-      "depth_m": 111.0
+      "depth_m": 105.0
     }
   ]
 }

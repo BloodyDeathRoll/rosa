@@ -1,14 +1,14 @@
 {
   "spot": "kings-rock",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     41.7262,
     -8.8712
   ],
   "bearing_seaward_deg": 218.0,
-  "nearshore_depth_m": 9.0,
-  "offshore_depth_m": 80.0,
-  "mean_slope_m_per_km": 4.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 81.0,
+  "mean_slope_m_per_km": 4.34,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,19 +18,19 @@
       "dist_km": 0.25,
       "lat": 41.72443,
       "lon": -8.87305,
-      "depth_m": 9.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 0.5,
       "lat": 41.72266,
       "lon": -8.87491,
-      "depth_m": 12.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 1.0,
       "lat": 41.71911,
       "lon": -8.87862,
-      "depth_m": 18.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 2.0,
@@ -42,31 +42,31 @@
       "dist_km": 3.0,
       "lat": 41.70494,
       "lon": -8.89345,
-      "depth_m": 28.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 5.0,
       "lat": 41.69076,
       "lon": -8.90827,
-      "depth_m": 38.0
+      "depth_m": 32.0
     },
     {
       "dist_km": 8.0,
       "lat": 41.66949,
       "lon": -8.9305,
-      "depth_m": 63.0
+      "depth_m": 62.0
     },
     {
       "dist_km": 12.0,
       "lat": 41.64112,
       "lon": -8.96011,
-      "depth_m": 68.0
+      "depth_m": 67.0
     },
     {
       "dist_km": 18.0,
       "lat": 41.59856,
       "lon": -9.00447,
-      "depth_m": 80.0
+      "depth_m": 81.0
     }
   ]
 }

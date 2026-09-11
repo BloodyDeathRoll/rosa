@@ -1,14 +1,14 @@
 {
   "spot": "taapuna",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -17.6032,
     -149.6224
   ],
   "bearing_seaward_deg": 261.0,
-  "nearshore_depth_m": 200.0,
-  "offshore_depth_m": 1239.0,
-  "mean_slope_m_per_km": 58.54,
+  "nearshore_depth_m": 117.0,
+  "offshore_depth_m": 1267.0,
+  "mean_slope_m_per_km": 64.79,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 1,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": -17.60355,
       "lon": -149.62473,
-      "depth_m": 200.0
+      "depth_m": 117.0
     },
     {
       "dist_km": 0.5,
       "lat": -17.6039,
       "lon": -149.62706,
-      "depth_m": 404.0
+      "depth_m": 447.0
     },
     {
       "dist_km": 1.0,
       "lat": -17.60461,
       "lon": -149.63172,
-      "depth_m": 684.0
+      "depth_m": 676.0
     },
     {
       "dist_km": 2.0,
       "lat": -17.60601,
       "lon": -149.64104,
-      "depth_m": 989.0
+      "depth_m": 1002.0
     },
     {
       "dist_km": 3.0,
       "lat": -17.60742,
       "lon": -149.65036,
-      "depth_m": 1231.0
+      "depth_m": 1242.0
     },
     {
       "dist_km": 5.0,
       "lat": -17.61023,
       "lon": -149.669,
-      "depth_m": 1616.0
+      "depth_m": 1529.0
     },
     {
       "dist_km": 8.0,
       "lat": -17.61444,
       "lon": -149.69696,
-      "depth_m": 2026.0
+      "depth_m": 2010.0
     },
     {
       "dist_km": 12.0,
       "lat": -17.62005,
       "lon": -149.73424,
-      "depth_m": 2140.0
+      "depth_m": 2149.0
     },
     {
       "dist_km": 18.0,
       "lat": -17.62845,
       "lon": -149.79016,
-      "depth_m": 1239.0
+      "depth_m": 1267.0
     }
   ]
 }

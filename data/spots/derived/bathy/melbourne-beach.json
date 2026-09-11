@@ -1,14 +1,14 @@
 {
   "spot": "melbourne-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     28.0683,
     -80.5538
   ],
   "bearing_seaward_deg": 69.0,
-  "nearshore_depth_m": 5.0,
-  "offshore_depth_m": 22.0,
-  "mean_slope_m_per_km": 0.96,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 0.62,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,13 +18,13 @@
       "dist_km": 0.25,
       "lat": 28.06911,
       "lon": -80.55142,
-      "depth_m": 5.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 0.5,
       "lat": 28.06991,
       "lon": -80.54904,
-      "depth_m": 8.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 1.0,
@@ -36,19 +36,19 @@
       "dist_km": 2.0,
       "lat": 28.07474,
       "lon": -80.53477,
-      "depth_m": 16.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 3.0,
       "lat": 28.07797,
       "lon": -80.52525,
-      "depth_m": 17.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 5.0,
       "lat": 28.08441,
       "lon": -80.50622,
-      "depth_m": 19.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 8.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 28.10693,
       "lon": -80.43958,
-      "depth_m": 21.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 18.0,
       "lat": 28.12621,
       "lon": -80.38244,
-      "depth_m": 22.0
+      "depth_m": 20.0
     }
   ]
 }

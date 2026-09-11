@@ -1,15 +1,15 @@
 {
   "spot": "thalia-street",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     33.5357,
     -117.7784
   ],
   "bearing_seaward_deg": 237.0,
-  "nearshore_depth_m": -11.0,
-  "offshore_depth_m": 558.0,
-  "mean_slope_m_per_km": 32.06,
-  "land_samples": 1,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 543.0,
+  "mean_slope_m_per_km": 29.86,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 1,
   "deepest_is_reference": false,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 33.53448,
       "lon": -117.78066,
-      "depth_m": -11.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 0.5,
       "lat": 33.53325,
       "lon": -117.78292,
-      "depth_m": 5.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 1.0,
       "lat": 33.5308,
       "lon": -117.78745,
-      "depth_m": 28.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 2.0,
       "lat": 33.5259,
       "lon": -117.7965,
-      "depth_m": 53.0
+      "depth_m": 65.0
     },
     {
       "dist_km": 3.0,
       "lat": 33.521,
       "lon": -117.80554,
-      "depth_m": 95.0
+      "depth_m": 124.0
     },
     {
       "dist_km": 5.0,
       "lat": 33.5112,
       "lon": -117.82363,
-      "depth_m": 485.0
+      "depth_m": 491.0
     },
     {
       "dist_km": 8.0,
       "lat": 33.49649,
       "lon": -117.85076,
-      "depth_m": 552.0
+      "depth_m": 543.0
     },
     {
       "dist_km": 12.0,
       "lat": 33.47688,
       "lon": -117.88691,
-      "depth_m": 574.0
+      "depth_m": 573.0
     },
     {
       "dist_km": 18.0,
       "lat": 33.44743,
       "lon": -117.94111,
-      "depth_m": 558.0
+      "depth_m": 543.0
     }
   ]
 }

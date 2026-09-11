@@ -1,72 +1,72 @@
 {
   "spot": "coronado",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     32.6755,
     -117.176
   ],
   "bearing_seaward_deg": 217.0,
-  "nearshore_depth_m": 4.0,
-  "offshore_depth_m": 93.0,
-  "mean_slope_m_per_km": 5.01,
+  "nearshore_depth_m": 20.0,
+  "offshore_depth_m": 94.0,
+  "mean_slope_m_per_km": 4.17,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 2,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 32.6737,
       "lon": -117.17761,
-      "depth_m": 4.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 0.5,
       "lat": 32.67191,
       "lon": -117.17921,
-      "depth_m": 9.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 1.0,
       "lat": 32.66832,
       "lon": -117.18243,
-      "depth_m": 11.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 2.0,
       "lat": 32.66113,
       "lon": -117.18886,
-      "depth_m": 12.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 3.0,
       "lat": 32.65395,
       "lon": -117.19528,
-      "depth_m": 14.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 5.0,
       "lat": 32.63958,
       "lon": -117.20814,
-      "depth_m": 15.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 8.0,
       "lat": 32.61803,
       "lon": -117.22741,
-      "depth_m": 31.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 12.0,
       "lat": 32.58929,
       "lon": -117.25308,
-      "depth_m": 51.0
+      "depth_m": 53.0
     },
     {
       "dist_km": 18.0,
       "lat": 32.54617,
       "lon": -117.29157,
-      "depth_m": 93.0
+      "depth_m": 94.0
     }
   ]
 }

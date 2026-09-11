@@ -1,72 +1,72 @@
 {
   "spot": "lavanono",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -25.428,
     44.937
   ],
   "bearing_seaward_deg": 290.0,
-  "nearshore_depth_m": 23.0,
-  "offshore_depth_m": 153.0,
-  "mean_slope_m_per_km": 7.32,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 85.0,
+  "mean_slope_m_per_km": 4.56,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 3,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -25.42723,
       "lon": 44.93466,
-      "depth_m": 23.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 0.5,
       "lat": -25.42646,
       "lon": 44.93232,
-      "depth_m": 36.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 1.0,
       "lat": -25.42492,
       "lon": 44.92764,
-      "depth_m": 56.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 2.0,
       "lat": -25.42185,
       "lon": 44.91829,
-      "depth_m": 53.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 3.0,
       "lat": -25.41877,
       "lon": 44.90893,
-      "depth_m": 36.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 5.0,
       "lat": -25.41261,
       "lon": 44.89022,
-      "depth_m": 15.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 8.0,
       "lat": -25.40337,
       "lon": 44.86216,
-      "depth_m": 39.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 12.0,
       "lat": -25.39105,
       "lon": 44.82475,
-      "depth_m": 127.0
+      "depth_m": 59.0
     },
     {
       "dist_km": 18.0,
       "lat": -25.37254,
       "lon": 44.76865,
-      "depth_m": 153.0
+      "depth_m": 85.0
     }
   ]
 }

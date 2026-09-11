@@ -1,14 +1,14 @@
 {
   "spot": "santa-catalina",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     7.6257,
     -81.2515
   ],
   "bearing_seaward_deg": 166.0,
-  "nearshore_depth_m": 4.0,
-  "offshore_depth_m": 49.0,
-  "mean_slope_m_per_km": 2.54,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 61.0,
+  "mean_slope_m_per_km": 2.99,
   "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,19 +18,19 @@
       "dist_km": 0.25,
       "lat": 7.62352,
       "lon": -81.25095,
-      "depth_m": 4.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 0.5,
       "lat": 7.62134,
       "lon": -81.2504,
-      "depth_m": 7.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 1.0,
       "lat": 7.61697,
       "lon": -81.2493,
-      "depth_m": 11.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 2.0,
@@ -48,25 +48,25 @@
       "dist_km": 5.0,
       "lat": 7.58207,
       "lon": -81.24053,
-      "depth_m": 19.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 8.0,
       "lat": 7.55589,
       "lon": -81.23394,
-      "depth_m": 22.0
+      "depth_m": 25.0
     },
     {
       "dist_km": 12.0,
       "lat": 7.52099,
       "lon": -81.22517,
-      "depth_m": -53.0
+      "depth_m": -19.0
     },
     {
       "dist_km": 18.0,
       "lat": 7.46863,
       "lon": -81.212,
-      "depth_m": 49.0
+      "depth_m": 61.0
     }
   ]
 }

@@ -1,14 +1,14 @@
 {
   "spot": "belongil-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -28.6298,
     153.5976
   ],
   "bearing_seaward_deg": 47.0,
-  "nearshore_depth_m": 7.0,
+  "nearshore_depth_m": 1.0,
   "offshore_depth_m": 70.0,
-  "mean_slope_m_per_km": 3.55,
+  "mean_slope_m_per_km": 3.89,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,49 +18,49 @@
       "dist_km": 0.25,
       "lat": -28.62827,
       "lon": 153.59947,
-      "depth_m": 7.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": -28.62673,
       "lon": 153.60135,
-      "depth_m": 11.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 1.0,
       "lat": -28.62367,
       "lon": 153.60509,
-      "depth_m": 14.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 2.0,
       "lat": -28.61753,
       "lon": 153.61259,
-      "depth_m": 15.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 3.0,
       "lat": -28.6114,
       "lon": 153.62008,
-      "depth_m": 19.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 5.0,
       "lat": -28.59913,
       "lon": 153.63506,
-      "depth_m": 33.0
+      "depth_m": 38.0
     },
     {
       "dist_km": 8.0,
       "lat": -28.58072,
       "lon": 153.65752,
-      "depth_m": 45.0
+      "depth_m": 48.0
     },
     {
       "dist_km": 12.0,
       "lat": -28.55617,
       "lon": 153.68746,
-      "depth_m": 53.0
+      "depth_m": 54.0
     },
     {
       "dist_km": 18.0,

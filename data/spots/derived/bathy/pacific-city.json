@@ -1,15 +1,15 @@
 {
   "spot": "pacific-city",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     45.2151,
     -123.9722
   ],
   "bearing_seaward_deg": 249.0,
-  "nearshore_depth_m": -6.0,
+  "nearshore_depth_m": -3.0,
   "offshore_depth_m": 130.0,
-  "mean_slope_m_per_km": 7.66,
-  "land_samples": 1,
+  "mean_slope_m_per_km": 7.49,
+  "land_samples": 2,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,49 +18,49 @@
       "dist_km": 0.25,
       "lat": 45.21429,
       "lon": -123.97518,
-      "depth_m": -6.0
+      "depth_m": -3.0
     },
     {
       "dist_km": 0.5,
       "lat": 45.21349,
       "lon": -123.97816,
-      "depth_m": 2.0
+      "depth_m": -3.0
     },
     {
       "dist_km": 1.0,
       "lat": 45.21188,
       "lon": -123.98412,
-      "depth_m": 14.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 2.0,
       "lat": 45.20865,
       "lon": -123.99603,
-      "depth_m": 25.0
+      "depth_m": 31.0
     },
     {
       "dist_km": 3.0,
       "lat": 45.20543,
       "lon": -124.00795,
-      "depth_m": 35.0
+      "depth_m": 38.0
     },
     {
       "dist_km": 5.0,
       "lat": 45.19897,
       "lon": -124.03178,
-      "depth_m": 46.0
+      "depth_m": 49.0
     },
     {
       "dist_km": 8.0,
       "lat": 45.18928,
       "lon": -124.0675,
-      "depth_m": 61.0
+      "depth_m": 63.0
     },
     {
       "dist_km": 12.0,
       "lat": 45.17634,
       "lon": -124.11512,
-      "depth_m": 88.0
+      "depth_m": 89.0
     },
     {
       "dist_km": 18.0,

@@ -1,42 +1,42 @@
 {
   "spot": "manhattan-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     33.8842,
     -118.4124
   ],
   "bearing_seaward_deg": 250.0,
-  "nearshore_depth_m": -3.0,
-  "offshore_depth_m": 342.0,
-  "mean_slope_m_per_km": 19.44,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 328.0,
+  "mean_slope_m_per_km": 19.15,
   "land_samples": 1,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 33.88343,
       "lon": -118.41494,
-      "depth_m": -3.0
+      "depth_m": -12.0
     },
     {
       "dist_km": 0.5,
       "lat": 33.88266,
       "lon": -118.41749,
-      "depth_m": 3.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 1.0,
       "lat": 33.88112,
       "lon": -118.42258,
-      "depth_m": 14.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 2.0,
       "lat": 33.87805,
       "lon": -118.43276,
-      "depth_m": 24.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 3.0,
@@ -48,25 +48,25 @@
       "dist_km": 5.0,
       "lat": 33.86881,
       "lon": -118.46329,
-      "depth_m": 62.0
+      "depth_m": 65.0
     },
     {
       "dist_km": 8.0,
       "lat": 33.85957,
       "lon": -118.49381,
-      "depth_m": 95.0
+      "depth_m": 82.0
     },
     {
       "dist_km": 12.0,
       "lat": 33.84723,
       "lon": -118.5345,
-      "depth_m": 88.0
+      "depth_m": 85.0
     },
     {
       "dist_km": 18.0,
       "lat": 33.8287,
       "lon": -118.59552,
-      "depth_m": 342.0
+      "depth_m": 328.0
     }
   ]
 }

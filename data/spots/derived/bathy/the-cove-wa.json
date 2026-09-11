@@ -1,15 +1,15 @@
 {
   "spot": "the-cove-wa",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -32.0025,
     115.7505
   ],
   "bearing_seaward_deg": 296.0,
-  "nearshore_depth_m": -0.0,
-  "offshore_depth_m": 32.0,
-  "mean_slope_m_per_km": 1.8,
-  "land_samples": 1,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 1.46,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": -32.00151,
       "lon": 115.74812,
-      "depth_m": -0.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 0.5,
       "lat": -32.00053,
       "lon": 115.74573,
-      "depth_m": 1.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 1.0,
       "lat": -31.99856,
       "lon": 115.74097,
-      "depth_m": 2.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 2.0,
       "lat": -31.99461,
       "lon": 115.73144,
-      "depth_m": 4.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 3.0,
       "lat": -31.99067,
       "lon": 115.72191,
-      "depth_m": 6.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 5.0,
       "lat": -31.98278,
       "lon": 115.70285,
-      "depth_m": 11.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 8.0,
       "lat": -31.97094,
       "lon": 115.67427,
-      "depth_m": 14.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 12.0,
       "lat": -31.95514,
       "lon": 115.63618,
-      "depth_m": 23.0
+      "depth_m": 24.0
     },
     {
       "dist_km": 18.0,
       "lat": -31.93142,
       "lon": 115.57906,
-      "depth_m": 32.0
+      "depth_m": 35.0
     }
   ]
 }

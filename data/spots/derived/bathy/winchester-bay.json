@@ -1,30 +1,30 @@
 {
   "spot": "winchester-bay",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     43.6609,
     -124.2105
   ],
   "bearing_seaward_deg": 277.0,
-  "nearshore_depth_m": 2.0,
-  "offshore_depth_m": 117.0,
-  "mean_slope_m_per_km": 6.48,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 122.0,
+  "mean_slope_m_per_km": 6.25,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 43.66117,
       "lon": -124.21358,
-      "depth_m": 2.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 0.5,
       "lat": 43.66145,
       "lon": -124.21667,
-      "depth_m": 7.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 1.0,
@@ -36,25 +36,25 @@
       "dist_km": 2.0,
       "lat": 43.66309,
       "lon": -124.23518,
-      "depth_m": 22.0
+      "depth_m": 25.0
     },
     {
       "dist_km": 3.0,
       "lat": 43.66418,
       "lon": -124.24752,
-      "depth_m": 44.0
+      "depth_m": 49.0
     },
     {
       "dist_km": 5.0,
       "lat": 43.66636,
       "lon": -124.2722,
-      "depth_m": 84.0
+      "depth_m": 86.0
     },
     {
       "dist_km": 8.0,
       "lat": 43.66963,
       "lon": -124.30922,
-      "depth_m": 98.0
+      "depth_m": 99.0
     },
     {
       "dist_km": 12.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 43.68041,
       "lon": -124.43267,
-      "depth_m": 117.0
+      "depth_m": 122.0
     }
   ]
 }

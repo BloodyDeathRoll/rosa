@@ -1,14 +1,14 @@
 {
   "spot": "first-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     41.4873,
     -71.2915
   ],
   "bearing_seaward_deg": 155.0,
-  "nearshore_depth_m": 4.0,
+  "nearshore_depth_m": 10.0,
   "offshore_depth_m": 32.0,
-  "mean_slope_m_per_km": 1.58,
+  "mean_slope_m_per_km": 1.24,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 1,
@@ -18,31 +18,31 @@
       "dist_km": 0.25,
       "lat": 41.48526,
       "lon": -71.29023,
-      "depth_m": 4.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 0.5,
       "lat": 41.48322,
       "lon": -71.28896,
-      "depth_m": 2.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 1.0,
       "lat": 41.47915,
       "lon": -71.28643,
-      "depth_m": 5.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 2.0,
       "lat": 41.471,
       "lon": -71.28136,
-      "depth_m": 12.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 3.0,
       "lat": 41.46285,
       "lon": -71.27628,
-      "depth_m": 19.0
+      "depth_m": 23.0
     },
     {
       "dist_km": 5.0,

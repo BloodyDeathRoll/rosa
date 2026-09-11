@@ -1,72 +1,72 @@
 {
   "spot": "kalihiwai",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     22.2225,
     -159.4337
   ],
   "bearing_seaward_deg": 70.0,
-  "nearshore_depth_m": -2.0,
-  "offshore_depth_m": 882.0,
-  "mean_slope_m_per_km": 49.8,
-  "land_samples": 4,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 855.0,
+  "mean_slope_m_per_km": 47.72,
+  "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 22.22327,
       "lon": -159.43142,
-      "depth_m": -2.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 0.5,
       "lat": 22.22404,
       "lon": -159.42914,
-      "depth_m": -6.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 1.0,
       "lat": 22.22558,
       "lon": -159.42457,
-      "depth_m": -3.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 2.0,
       "lat": 22.22865,
       "lon": -159.41544,
-      "depth_m": 12.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 3.0,
       "lat": 22.23173,
       "lon": -159.40631,
-      "depth_m": -11.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 5.0,
       "lat": 22.23787,
       "lon": -159.38805,
-      "depth_m": 42.0
+      "depth_m": 63.0
     },
     {
       "dist_km": 8.0,
       "lat": 22.24709,
       "lon": -159.36066,
-      "depth_m": 161.0
+      "depth_m": 267.0
     },
     {
       "dist_km": 12.0,
       "lat": 22.25937,
       "lon": -159.32412,
-      "depth_m": 536.0
+      "depth_m": 554.0
     },
     {
       "dist_km": 18.0,
       "lat": 22.27778,
       "lon": -159.26931,
-      "depth_m": 882.0
+      "depth_m": 855.0
     }
   ]
 }

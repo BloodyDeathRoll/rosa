@@ -1,72 +1,72 @@
 {
   "spot": "unakuruwa",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     6.0013,
     80.7651
   ],
   "bearing_seaward_deg": 185.0,
-  "nearshore_depth_m": -11.0,
-  "offshore_depth_m": 232.0,
-  "mean_slope_m_per_km": 13.69,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 494.0,
+  "mean_slope_m_per_km": 28.28,
   "land_samples": 2,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 5.99906,
       "lon": 80.7649,
-      "depth_m": -11.0
+      "depth_m": -8.0
     },
     {
       "dist_km": 0.5,
       "lat": 5.99682,
       "lon": 80.76471,
-      "depth_m": -3.0
+      "depth_m": -8.0
     },
     {
       "dist_km": 1.0,
       "lat": 5.99234,
       "lon": 80.76431,
-      "depth_m": 14.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 2.0,
       "lat": 5.98338,
       "lon": 80.76352,
-      "depth_m": 34.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 3.0,
       "lat": 5.97442,
       "lon": 80.76274,
-      "depth_m": 44.0
+      "depth_m": 28.0
     },
     {
       "dist_km": 5.0,
       "lat": 5.95651,
       "lon": 80.76116,
-      "depth_m": 46.0
+      "depth_m": 41.0
     },
     {
       "dist_km": 8.0,
       "lat": 5.92963,
       "lon": 80.7588,
-      "depth_m": 75.0
+      "depth_m": 57.0
     },
     {
       "dist_km": 12.0,
       "lat": 5.89379,
       "lon": 80.75564,
-      "depth_m": 64.0
+      "depth_m": 62.0
     },
     {
       "dist_km": 18.0,
       "lat": 5.84004,
       "lon": 80.75092,
-      "depth_m": 232.0
+      "depth_m": 494.0
     }
   ]
 }

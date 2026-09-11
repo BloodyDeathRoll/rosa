@@ -1,54 +1,54 @@
 {
   "spot": "avila-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     35.1786,
     -120.7338
   ],
   "bearing_seaward_deg": 192.0,
-  "nearshore_depth_m": 6.0,
-  "offshore_depth_m": 74.0,
-  "mean_slope_m_per_km": 3.83,
-  "land_samples": 0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 78.0,
+  "mean_slope_m_per_km": 4.62,
+  "land_samples": 1,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 35.1764,
       "lon": -120.73437,
-      "depth_m": 6.0
+      "depth_m": -4.0
     },
     {
       "dist_km": 0.5,
       "lat": 35.1742,
       "lon": -120.73494,
-      "depth_m": 14.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 1.0,
       "lat": 35.1698,
       "lon": -120.73609,
-      "depth_m": 30.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 2.0,
       "lat": 35.16101,
       "lon": -120.73837,
-      "depth_m": 14.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 3.0,
       "lat": 35.15221,
       "lon": -120.74066,
-      "depth_m": 16.0
+      "depth_m": 25.0
     },
     {
       "dist_km": 5.0,
       "lat": 35.13462,
       "lon": -120.74523,
-      "depth_m": 29.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 8.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 35.07304,
       "lon": -120.76122,
-      "depth_m": 58.0
+      "depth_m": 57.0
     },
     {
       "dist_km": 18.0,
       "lat": 35.02025,
       "lon": -120.7749,
-      "depth_m": 74.0
+      "depth_m": 78.0
     }
   ]
 }

@@ -1,14 +1,14 @@
 {
   "spot": "point-picquet",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -33.5656,
     115.0842
   ],
   "bearing_seaward_deg": 73.0,
-  "nearshore_depth_m": 8.0,
-  "offshore_depth_m": 28.0,
-  "mean_slope_m_per_km": 1.13,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 29.0,
+  "mean_slope_m_per_km": 1.07,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 1,
@@ -18,37 +18,37 @@
       "dist_km": 0.25,
       "lat": -33.56494,
       "lon": 115.08678,
-      "depth_m": 8.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 0.5,
       "lat": -33.56429,
       "lon": 115.08936,
-      "depth_m": 12.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 1.0,
       "lat": -33.56297,
       "lon": 115.09452,
-      "depth_m": 17.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 2.0,
       "lat": -33.56034,
       "lon": 115.10484,
-      "depth_m": 25.0
+      "depth_m": 28.0
     },
     {
       "dist_km": 3.0,
       "lat": -33.55771,
       "lon": 115.11516,
-      "depth_m": 26.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 5.0,
       "lat": -33.55244,
       "lon": 115.1358,
-      "depth_m": 28.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 8.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": -33.53399,
       "lon": 115.20801,
-      "depth_m": 29.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 18.0,
       "lat": -33.51813,
       "lon": 115.26988,
-      "depth_m": 28.0
+      "depth_m": 29.0
     }
   ]
 }

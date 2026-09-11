@@ -1,15 +1,15 @@
 {
   "spot": "kaisers",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     21.2773,
     -157.8403
   ],
   "bearing_seaward_deg": 234.0,
-  "nearshore_depth_m": -9.0,
-  "offshore_depth_m": 453.0,
-  "mean_slope_m_per_km": 26.03,
-  "land_samples": 1,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 456.0,
+  "mean_slope_m_per_km": 25.18,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 1,
   "deepest_is_reference": false,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 21.27598,
       "lon": -157.84225,
-      "depth_m": -9.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 0.5,
       "lat": 21.27466,
       "lon": -157.8442,
-      "depth_m": 6.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 1.0,
       "lat": 21.27201,
       "lon": -157.84811,
-      "depth_m": 44.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 2.0,
       "lat": 21.26673,
       "lon": -157.85591,
-      "depth_m": 236.0
+      "depth_m": 121.0
     },
     {
       "dist_km": 3.0,
       "lat": 21.26144,
       "lon": -157.86372,
-      "depth_m": 369.0
+      "depth_m": 373.0
     },
     {
       "dist_km": 5.0,
       "lat": 21.25087,
       "lon": -157.87933,
-      "depth_m": 466.0
+      "depth_m": 457.0
     },
     {
       "dist_km": 8.0,
       "lat": 21.235,
       "lon": -157.90275,
-      "depth_m": 502.0
+      "depth_m": 503.0
     },
     {
       "dist_km": 12.0,
       "lat": 21.21384,
       "lon": -157.93395,
-      "depth_m": 525.0
+      "depth_m": 510.0
     },
     {
       "dist_km": 18.0,
       "lat": 21.18209,
       "lon": -157.98075,
-      "depth_m": 453.0
+      "depth_m": 456.0
     }
   ]
 }

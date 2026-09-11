@@ -1,14 +1,14 @@
 {
   "spot": "fort-stevens",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     46.1784,
     -123.9811
   ],
   "bearing_seaward_deg": 247.0,
-  "nearshore_depth_m": 2.0,
-  "offshore_depth_m": 82.0,
-  "mean_slope_m_per_km": 4.51,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 85.0,
+  "mean_slope_m_per_km": 4.28,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,19 +18,19 @@
       "dist_km": 0.25,
       "lat": 46.17752,
       "lon": -123.98409,
-      "depth_m": 2.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 0.5,
       "lat": 46.17664,
       "lon": -123.98708,
-      "depth_m": 4.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 1.0,
       "lat": 46.17489,
       "lon": -123.99305,
-      "depth_m": 8.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 2.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 46.13614,
       "lon": -124.12446,
-      "depth_m": 52.0
+      "depth_m": 51.0
     },
     {
       "dist_km": 18.0,
       "lat": 46.11495,
       "lon": -124.19605,
-      "depth_m": 82.0
+      "depth_m": 85.0
     }
   ]
 }

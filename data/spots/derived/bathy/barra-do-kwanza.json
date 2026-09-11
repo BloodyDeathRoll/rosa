@@ -1,36 +1,36 @@
 {
   "spot": "barra-do-kwanza",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -9.343,
     13.1462
   ],
   "bearing_seaward_deg": 239.0,
-  "nearshore_depth_m": 4.0,
+  "nearshore_depth_m": -1.0,
   "offshore_depth_m": 40.0,
-  "mean_slope_m_per_km": 2.03,
-  "land_samples": 0,
+  "mean_slope_m_per_km": 2.31,
+  "land_samples": 2,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -9.34416,
       "lon": 13.14425,
-      "depth_m": 4.0
+      "depth_m": -1.0
     },
     {
       "dist_km": 0.5,
       "lat": -9.34532,
       "lon": 13.14229,
-      "depth_m": 5.0
+      "depth_m": -1.0
     },
     {
       "dist_km": 1.0,
       "lat": -9.34763,
       "lon": 13.13839,
-      "depth_m": 6.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 2.0,
@@ -42,25 +42,25 @@
       "dist_km": 3.0,
       "lat": -9.35689,
       "lon": 13.12276,
-      "depth_m": 12.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 5.0,
       "lat": -9.36616,
       "lon": 13.10714,
-      "depth_m": 24.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 8.0,
       "lat": -9.38005,
       "lon": 13.08369,
-      "depth_m": 15.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 12.0,
       "lat": -9.39857,
       "lon": 13.05244,
-      "depth_m": 23.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 18.0,

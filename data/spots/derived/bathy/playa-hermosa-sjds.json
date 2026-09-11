@@ -1,72 +1,72 @@
 {
   "spot": "playa-hermosa-sjds",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     11.2025,
     -85.836
   ],
   "bearing_seaward_deg": 230.0,
-  "nearshore_depth_m": -2.0,
-  "offshore_depth_m": 68.0,
-  "mean_slope_m_per_km": 3.94,
-  "land_samples": 1,
+  "nearshore_depth_m": -16.0,
+  "offshore_depth_m": 86.0,
+  "mean_slope_m_per_km": 5.75,
+  "land_samples": 3,
   "missing_samples": 0,
-  "non_monotone_samples": 3,
-  "deepest_is_reference": false,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 11.20105,
       "lon": -85.83776,
-      "depth_m": -2.0
+      "depth_m": -16.0
     },
     {
       "dist_km": 0.5,
       "lat": 11.19961,
       "lon": -85.83951,
-      "depth_m": 6.0
+      "depth_m": -11.0
     },
     {
       "dist_km": 1.0,
       "lat": 11.19672,
       "lon": -85.84302,
-      "depth_m": 25.0
+      "depth_m": -0.0
     },
     {
       "dist_km": 2.0,
       "lat": 11.19094,
       "lon": -85.85005,
-      "depth_m": 57.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 3.0,
       "lat": 11.18516,
       "lon": -85.85707,
-      "depth_m": 81.0
+      "depth_m": 32.0
     },
     {
       "dist_km": 5.0,
       "lat": 11.17359,
       "lon": -85.87111,
-      "depth_m": 74.0
+      "depth_m": 63.0
     },
     {
       "dist_km": 8.0,
       "lat": 11.15625,
       "lon": -85.89218,
-      "depth_m": 60.0
+      "depth_m": 66.0
     },
     {
       "dist_km": 12.0,
       "lat": 11.13312,
       "lon": -85.92026,
-      "depth_m": 81.0
+      "depth_m": 79.0
     },
     {
       "dist_km": 18.0,
       "lat": 11.09842,
       "lon": -85.96237,
-      "depth_m": 68.0
+      "depth_m": 86.0
     }
   ]
 }

@@ -1,72 +1,72 @@
 {
   "spot": "le-morne",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -20.44,
     57.315
   ],
   "bearing_seaward_deg": 0.0,
-  "nearshore_depth_m": -42.0,
-  "offshore_depth_m": 1327.0,
-  "mean_slope_m_per_km": 77.13,
-  "land_samples": 2,
+  "nearshore_depth_m": 177.0,
+  "offshore_depth_m": 1098.0,
+  "mean_slope_m_per_km": 51.89,
+  "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -20.43775,
       "lon": 57.315,
-      "depth_m": -42.0
+      "depth_m": 177.0
     },
     {
       "dist_km": 0.5,
       "lat": -20.4355,
       "lon": 57.315,
-      "depth_m": -26.0
+      "depth_m": 187.0
     },
     {
       "dist_km": 1.0,
       "lat": -20.43101,
       "lon": 57.315,
-      "depth_m": 5.0
+      "depth_m": 195.0
     },
     {
       "dist_km": 2.0,
       "lat": -20.42201,
       "lon": 57.315,
-      "depth_m": 24.0
+      "depth_m": 211.0
     },
     {
       "dist_km": 3.0,
       "lat": -20.41302,
       "lon": 57.315,
-      "depth_m": 21.0
+      "depth_m": 239.0
     },
     {
       "dist_km": 5.0,
       "lat": -20.39503,
       "lon": 57.315,
-      "depth_m": 31.0
+      "depth_m": 347.0
     },
     {
       "dist_km": 8.0,
       "lat": -20.36805,
       "lon": 57.315,
-      "depth_m": 506.0
+      "depth_m": 825.0
     },
     {
       "dist_km": 12.0,
       "lat": -20.33208,
       "lon": 57.315,
-      "depth_m": 1216.0
+      "depth_m": 1050.0
     },
     {
       "dist_km": 18.0,
       "lat": -20.27812,
       "lon": 57.315,
-      "depth_m": 1327.0
+      "depth_m": 1098.0
     }
   ]
 }

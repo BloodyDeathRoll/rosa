@@ -1,15 +1,15 @@
 {
   "spot": "chuns-reef",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     21.6231,
     -158.0808
   ],
   "bearing_seaward_deg": 345.0,
-  "nearshore_depth_m": -7.0,
-  "offshore_depth_m": 535.0,
-  "mean_slope_m_per_km": 30.54,
-  "land_samples": 2,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 568.0,
+  "mean_slope_m_per_km": 31.38,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,31 +18,31 @@
       "dist_km": 0.25,
       "lat": 21.62527,
       "lon": -158.08143,
-      "depth_m": -7.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 0.5,
       "lat": 21.62744,
       "lon": -158.08205,
-      "depth_m": -0.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 1.0,
       "lat": 21.63179,
       "lon": -158.0833,
-      "depth_m": 14.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 2.0,
       "lat": 21.64047,
       "lon": -158.08581,
-      "depth_m": 38.0
+      "depth_m": 41.0
     },
     {
       "dist_km": 3.0,
       "lat": 21.64916,
       "lon": -158.08831,
-      "depth_m": 54.0
+      "depth_m": 61.0
     },
     {
       "dist_km": 5.0,
@@ -54,19 +54,19 @@
       "dist_km": 8.0,
       "lat": 21.69259,
       "lon": -158.10084,
-      "depth_m": 197.0
+      "depth_m": 233.0
     },
     {
       "dist_km": 12.0,
       "lat": 21.72734,
       "lon": -158.11087,
-      "depth_m": 356.0
+      "depth_m": 364.0
     },
     {
       "dist_km": 18.0,
       "lat": 21.77946,
       "lon": -158.12592,
-      "depth_m": 535.0
+      "depth_m": 568.0
     }
   ]
 }

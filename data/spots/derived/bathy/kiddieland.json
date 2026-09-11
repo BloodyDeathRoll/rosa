@@ -1,72 +1,72 @@
 {
   "spot": "kiddieland",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -17.8611,
     177.2024
   ],
   "bearing_seaward_deg": 275.0,
-  "nearshore_depth_m": 17.0,
-  "offshore_depth_m": 1601.0,
-  "mean_slope_m_per_km": 89.24,
+  "nearshore_depth_m": 52.0,
+  "offshore_depth_m": 1510.0,
+  "mean_slope_m_per_km": 82.14,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 3,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -17.8609,
       "lon": 177.20005,
-      "depth_m": 17.0
+      "depth_m": 52.0
     },
     {
       "dist_km": 0.5,
       "lat": -17.86071,
       "lon": 177.19769,
-      "depth_m": 23.0
+      "depth_m": 51.0
     },
     {
       "dist_km": 1.0,
       "lat": -17.86032,
       "lon": 177.19299,
-      "depth_m": 38.0
+      "depth_m": 48.0
     },
     {
       "dist_km": 2.0,
       "lat": -17.85953,
       "lon": 177.18357,
-      "depth_m": 48.0
+      "depth_m": 37.0
     },
     {
       "dist_km": 3.0,
       "lat": -17.85875,
       "lon": 177.17416,
-      "depth_m": 128.0
+      "depth_m": 125.0
     },
     {
       "dist_km": 5.0,
       "lat": -17.85718,
       "lon": 177.15534,
-      "depth_m": 567.0
+      "depth_m": 521.0
     },
     {
       "dist_km": 8.0,
       "lat": -17.85482,
       "lon": 177.1271,
-      "depth_m": 1009.0
+      "depth_m": 1223.0
     },
     {
       "dist_km": 12.0,
       "lat": -17.85166,
       "lon": 177.08945,
-      "depth_m": 1264.0
+      "depth_m": 1279.0
     },
     {
       "dist_km": 18.0,
       "lat": -17.84692,
       "lon": 177.03299,
-      "depth_m": 1601.0
+      "depth_m": 1510.0
     }
   ]
 }

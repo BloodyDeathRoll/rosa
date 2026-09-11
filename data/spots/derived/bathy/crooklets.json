@@ -1,15 +1,15 @@
 {
   "spot": "crooklets",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     50.836,
     -4.5544
   ],
   "bearing_seaward_deg": 268.0,
-  "nearshore_depth_m": -8.0,
+  "nearshore_depth_m": 1.0,
   "offshore_depth_m": 47.0,
-  "mean_slope_m_per_km": 3.1,
-  "land_samples": 2,
+  "mean_slope_m_per_km": 2.59,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,19 +18,19 @@
       "dist_km": 0.25,
       "lat": 50.83592,
       "lon": -4.55796,
-      "depth_m": -8.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": 50.83584,
       "lon": -4.56152,
-      "depth_m": -5.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 1.0,
       "lat": 50.83569,
       "lon": -4.56863,
-      "depth_m": 9.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 2.0,
@@ -48,13 +48,13 @@
       "dist_km": 5.0,
       "lat": 50.83441,
       "lon": -4.62555,
-      "depth_m": 27.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 8.0,
       "lat": 50.83343,
       "lon": -4.66824,
-      "depth_m": 33.0
+      "depth_m": 32.0
     },
     {
       "dist_km": 12.0,

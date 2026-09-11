@@ -1,14 +1,14 @@
 {
   "spot": "stone-harbor",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     39.0501,
     -74.754
   ],
   "bearing_seaward_deg": 122.0,
-  "nearshore_depth_m": 5.0,
+  "nearshore_depth_m": 1.0,
   "offshore_depth_m": 14.0,
-  "mean_slope_m_per_km": 0.51,
+  "mean_slope_m_per_km": 0.73,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 2,
@@ -18,25 +18,25 @@
       "dist_km": 0.25,
       "lat": 39.04891,
       "lon": -74.75154,
-      "depth_m": 5.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": 39.04772,
       "lon": -74.74909,
-      "depth_m": 5.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 1.0,
       "lat": 39.04533,
       "lon": -74.74418,
-      "depth_m": 6.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 2.0,
       "lat": 39.04057,
       "lon": -74.73436,
-      "depth_m": 10.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 3.0,

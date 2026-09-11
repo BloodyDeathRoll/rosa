@@ -1,6 +1,6 @@
 {
   "spot": "main-beach-east-hampton",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     40.942,
     -72.1919
@@ -24,7 +24,7 @@
       "dist_km": 0.5,
       "lat": 40.93789,
       "lon": -72.18948,
-      "depth_m": 10.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 1.0,
@@ -42,13 +42,13 @@
       "dist_km": 3.0,
       "lat": 40.91735,
       "lon": -72.17738,
-      "depth_m": 18.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 5.0,
       "lat": 40.90092,
       "lon": -72.1677,
-      "depth_m": 24.0
+      "depth_m": 23.0
     },
     {
       "dist_km": 8.0,

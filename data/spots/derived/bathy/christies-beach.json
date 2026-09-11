@@ -1,14 +1,14 @@
 {
   "spot": "christies-beach",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -35.1353,
     138.4693
   ],
   "bearing_seaward_deg": 278.0,
-  "nearshore_depth_m": 5.0,
-  "offshore_depth_m": 32.0,
-  "mean_slope_m_per_km": 1.52,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 34.0,
+  "mean_slope_m_per_km": 1.8,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,19 +18,19 @@
       "dist_km": 0.25,
       "lat": -35.13499,
       "lon": 138.46658,
-      "depth_m": 5.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 0.5,
       "lat": -35.13467,
       "lon": 138.46386,
-      "depth_m": 7.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 1.0,
       "lat": -35.13405,
       "lon": 138.45841,
-      "depth_m": 12.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 2.0,
@@ -54,19 +54,19 @@
       "dist_km": 8.0,
       "lat": -35.12526,
       "lon": 138.38219,
-      "depth_m": 28.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 12.0,
       "lat": -35.12021,
       "lon": 138.33865,
-      "depth_m": 32.0
+      "depth_m": 34.0
     },
     {
       "dist_km": 18.0,
       "lat": -35.11261,
       "lon": 138.27334,
-      "depth_m": 32.0
+      "depth_m": 34.0
     }
   ]
 }

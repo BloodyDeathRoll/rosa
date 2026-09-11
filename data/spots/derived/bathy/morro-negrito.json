@@ -1,72 +1,72 @@
 {
   "spot": "morro-negrito",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     8.0452,
     -81.7124
   ],
   "bearing_seaward_deg": 280.0,
-  "nearshore_depth_m": -17.0,
-  "offshore_depth_m": 126.0,
-  "mean_slope_m_per_km": 8.06,
-  "land_samples": 2,
+  "nearshore_depth_m": -29.0,
+  "offshore_depth_m": 54.0,
+  "mean_slope_m_per_km": 4.68,
+  "land_samples": 3,
   "missing_samples": 0,
-  "non_monotone_samples": 3,
-  "deepest_is_reference": false,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 8.04559,
       "lon": -81.71464,
-      "depth_m": -17.0
+      "depth_m": -29.0
     },
     {
       "dist_km": 0.5,
       "lat": 8.04598,
       "lon": -81.71687,
-      "depth_m": -3.0
+      "depth_m": -6.0
     },
     {
       "dist_km": 1.0,
       "lat": 8.04676,
       "lon": -81.72134,
-      "depth_m": 13.0
+      "depth_m": -1.0
     },
     {
       "dist_km": 2.0,
       "lat": 8.04832,
       "lon": -81.73029,
-      "depth_m": 47.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 3.0,
       "lat": 8.04988,
       "lon": -81.73923,
-      "depth_m": 27.0
+      "depth_m": 24.0
     },
     {
       "dist_km": 5.0,
       "lat": 8.05301,
       "lon": -81.75712,
-      "depth_m": 173.0
+      "depth_m": 24.0
     },
     {
       "dist_km": 8.0,
       "lat": 8.05769,
       "lon": -81.78396,
-      "depth_m": 150.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 12.0,
       "lat": 8.06393,
       "lon": -81.81974,
-      "depth_m": 169.0
+      "depth_m": 46.0
     },
     {
       "dist_km": 18.0,
       "lat": 8.07328,
       "lon": -81.87341,
-      "depth_m": 126.0
+      "depth_m": 54.0
     }
   ]
 }

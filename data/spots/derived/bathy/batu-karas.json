@@ -1,42 +1,42 @@
 {
   "spot": "batu-karas",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -7.7497,
     108.5021
   ],
   "bearing_seaward_deg": 150.0,
-  "nearshore_depth_m": -8.0,
-  "offshore_depth_m": 82.0,
-  "mean_slope_m_per_km": 5.07,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 83.0,
+  "mean_slope_m_per_km": 5.18,
   "land_samples": 3,
   "missing_samples": 0,
   "non_monotone_samples": 1,
-  "deepest_is_reference": false,
+  "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -7.75165,
       "lon": 108.50323,
-      "depth_m": -8.0
+      "depth_m": -9.0
     },
     {
       "dist_km": 0.5,
       "lat": -7.75359,
       "lon": 108.50437,
-      "depth_m": -11.0
+      "depth_m": -2.0
     },
     {
       "dist_km": 1.0,
       "lat": -7.75749,
       "lon": 108.50664,
-      "depth_m": -5.0
+      "depth_m": -3.0
     },
     {
       "dist_km": 2.0,
       "lat": -7.76528,
       "lon": 108.51118,
-      "depth_m": 2.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 3.0,
@@ -48,25 +48,25 @@
       "dist_km": 5.0,
       "lat": -7.78864,
       "lon": 108.52479,
-      "depth_m": 66.0
+      "depth_m": 37.0
     },
     {
       "dist_km": 8.0,
       "lat": -7.81201,
       "lon": 108.53841,
-      "depth_m": 135.0
+      "depth_m": 59.0
     },
     {
       "dist_km": 12.0,
       "lat": -7.84316,
       "lon": 108.55657,
-      "depth_m": 141.0
+      "depth_m": 44.0
     },
     {
       "dist_km": 18.0,
       "lat": -7.88988,
       "lon": 108.58381,
-      "depth_m": 82.0
+      "depth_m": 83.0
     }
   ]
 }

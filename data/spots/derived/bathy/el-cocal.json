@@ -1,14 +1,14 @@
 {
   "spot": "el-cocal",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     13.4863,
     -89.3481
   ],
   "bearing_seaward_deg": 193.0,
-  "nearshore_depth_m": -4.0,
+  "nearshore_depth_m": -9.0,
   "offshore_depth_m": 52.0,
-  "mean_slope_m_per_km": 3.15,
+  "mean_slope_m_per_km": 3.44,
   "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,31 +18,31 @@
       "dist_km": 0.25,
       "lat": 13.48411,
       "lon": -89.34862,
-      "depth_m": -4.0
+      "depth_m": -9.0
     },
     {
       "dist_km": 0.5,
       "lat": 13.48192,
       "lon": -89.34914,
-      "depth_m": 5.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 1.0,
       "lat": 13.47754,
       "lon": -89.35018,
-      "depth_m": 13.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 2.0,
       "lat": 13.46877,
       "lon": -89.35226,
-      "depth_m": 18.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 3.0,
       "lat": 13.46001,
       "lon": -89.35434,
-      "depth_m": 21.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 5.0,

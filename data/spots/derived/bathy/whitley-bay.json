@@ -1,13 +1,13 @@
 {
   "spot": "whitley-bay",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     55.0521,
     -1.4471
   ],
   "bearing_seaward_deg": 65.0,
-  "nearshore_depth_m": 2.0,
-  "offshore_depth_m": 75.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 74.0,
   "mean_slope_m_per_km": 4.11,
   "land_samples": 0,
   "missing_samples": 0,
@@ -18,13 +18,13 @@
       "dist_km": 0.25,
       "lat": 55.05305,
       "lon": -1.44354,
-      "depth_m": 2.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": 55.054,
       "lon": -1.43999,
-      "depth_m": 4.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 1.0,
@@ -36,13 +36,13 @@
       "dist_km": 2.0,
       "lat": 55.0597,
       "lon": -1.41864,
-      "depth_m": 16.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 3.0,
       "lat": 55.06349,
       "lon": -1.4044,
-      "depth_m": 27.0
+      "depth_m": 25.0
     },
     {
       "dist_km": 5.0,
@@ -54,19 +54,19 @@
       "dist_km": 8.0,
       "lat": 55.08245,
       "lon": -1.33318,
-      "depth_m": 46.0
+      "depth_m": 45.0
     },
     {
       "dist_km": 12.0,
       "lat": 55.09759,
       "lon": -1.27616,
-      "depth_m": 53.0
+      "depth_m": 52.0
     },
     {
       "dist_km": 18.0,
       "lat": 55.12024,
       "lon": -1.19055,
-      "depth_m": 75.0
+      "depth_m": 74.0
     }
   ]
 }

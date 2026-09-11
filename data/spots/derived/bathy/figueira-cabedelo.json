@@ -1,15 +1,15 @@
 {
   "spot": "figueira-cabedelo",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     40.138,
     -8.864
   ],
   "bearing_seaward_deg": 300.0,
-  "nearshore_depth_m": 4.0,
+  "nearshore_depth_m": -3.0,
   "offshore_depth_m": 66.0,
-  "mean_slope_m_per_km": 3.49,
-  "land_samples": 0,
+  "mean_slope_m_per_km": 3.89,
+  "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,13 +18,13 @@
       "dist_km": 0.25,
       "lat": 40.13912,
       "lon": -8.86655,
-      "depth_m": 4.0
+      "depth_m": -3.0
     },
     {
       "dist_km": 0.5,
       "lat": 40.14025,
       "lon": -8.86909,
-      "depth_m": 5.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 1.0,
@@ -48,13 +48,13 @@
       "dist_km": 5.0,
       "lat": 40.16047,
       "lon": -8.91495,
-      "depth_m": 18.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 8.0,
       "lat": 40.17394,
       "lon": -8.94554,
-      "depth_m": 30.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 12.0,

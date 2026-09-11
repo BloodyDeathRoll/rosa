@@ -1,14 +1,14 @@
 {
   "spot": "tanegashima-lighthouse",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     30.4472,
     130.9721
   ],
   "bearing_seaward_deg": 290.0,
   "nearshore_depth_m": -10.0,
-  "offshore_depth_m": 74.0,
-  "mean_slope_m_per_km": 4.73,
+  "offshore_depth_m": 75.0,
+  "mean_slope_m_per_km": 4.79,
   "land_samples": 7,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -24,13 +24,13 @@
       "dist_km": 0.5,
       "lat": 30.44874,
       "lon": 130.9672,
-      "depth_m": -6.0
+      "depth_m": -10.0
     },
     {
       "dist_km": 1.0,
       "lat": 30.45028,
       "lon": 130.9623,
-      "depth_m": -8.0
+      "depth_m": -6.0
     },
     {
       "dist_km": 2.0,
@@ -42,13 +42,13 @@
       "dist_km": 3.0,
       "lat": 30.45642,
       "lon": 130.94269,
-      "depth_m": -30.0
+      "depth_m": -26.0
     },
     {
       "dist_km": 5.0,
       "lat": 30.46257,
       "lon": 130.92308,
-      "depth_m": -118.0
+      "depth_m": -108.0
     },
     {
       "dist_km": 8.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 30.48406,
       "lon": 130.85442,
-      "depth_m": 30.0
+      "depth_m": 29.0
     },
     {
       "dist_km": 18.0,
       "lat": 30.50245,
       "lon": 130.79555,
-      "depth_m": 74.0
+      "depth_m": 75.0
     }
   ]
 }

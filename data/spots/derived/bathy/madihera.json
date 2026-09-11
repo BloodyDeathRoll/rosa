@@ -1,72 +1,72 @@
 {
   "spot": "madihera",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -0.6241,
     73.2281
   ],
   "bearing_seaward_deg": 120.0,
-  "nearshore_depth_m": 264.0,
-  "offshore_depth_m": 2137.0,
-  "mean_slope_m_per_km": 105.52,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 2131.0,
+  "mean_slope_m_per_km": 120.0,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 1,
-  "deepest_is_reference": true,
+  "deepest_is_reference": false,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -0.62522,
       "lon": 73.23005,
-      "depth_m": 264.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": -0.62635,
       "lon": 73.23199,
-      "depth_m": 394.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 1.0,
       "lat": -0.6286,
       "lon": 73.23589,
-      "depth_m": 623.0
+      "depth_m": 179.0
     },
     {
       "dist_km": 2.0,
       "lat": -0.63309,
       "lon": 73.24368,
-      "depth_m": 1162.0
+      "depth_m": 758.0
     },
     {
       "dist_km": 3.0,
       "lat": -0.63759,
       "lon": 73.25147,
-      "depth_m": 1656.0
+      "depth_m": 1475.0
     },
     {
       "dist_km": 5.0,
       "lat": -0.64658,
       "lon": 73.26704,
-      "depth_m": 1722.0
+      "depth_m": 1886.0
     },
     {
       "dist_km": 8.0,
       "lat": -0.66007,
       "lon": 73.29041,
-      "depth_m": 1468.0
+      "depth_m": 1887.0
     },
     {
       "dist_km": 12.0,
       "lat": -0.67806,
       "lon": 73.32157,
-      "depth_m": 1987.0
+      "depth_m": 2200.0
     },
     {
       "dist_km": 18.0,
       "lat": -0.70504,
       "lon": 73.3683,
-      "depth_m": 2137.0
+      "depth_m": 2131.0
     }
   ]
 }

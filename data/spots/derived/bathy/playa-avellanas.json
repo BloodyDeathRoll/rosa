@@ -1,72 +1,72 @@
 {
   "spot": "playa-avellanas",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     10.2293,
     -85.8381
   ],
   "bearing_seaward_deg": 260.0,
-  "nearshore_depth_m": -0.0,
-  "offshore_depth_m": 230.0,
-  "mean_slope_m_per_km": 12.96,
-  "land_samples": 1,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 221.0,
+  "mean_slope_m_per_km": 12.9,
+  "land_samples": 2,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 10.22891,
       "lon": -85.84035,
-      "depth_m": -0.0
+      "depth_m": -8.0
     },
     {
       "dist_km": 0.5,
       "lat": 10.22852,
       "lon": -85.8426,
-      "depth_m": 6.0
+      "depth_m": -2.0
     },
     {
       "dist_km": 1.0,
       "lat": 10.22774,
       "lon": -85.8471,
-      "depth_m": 12.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 2.0,
       "lat": 10.22618,
       "lon": -85.8561,
-      "depth_m": 18.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 3.0,
       "lat": 10.22461,
       "lon": -85.8651,
-      "depth_m": 20.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 5.0,
       "lat": 10.22149,
       "lon": -85.8831,
-      "depth_m": 15.0
+      "depth_m": 40.0
     },
     {
       "dist_km": 8.0,
       "lat": 10.2168,
       "lon": -85.91009,
-      "depth_m": 55.0
+      "depth_m": 65.0
     },
     {
       "dist_km": 12.0,
       "lat": 10.21054,
       "lon": -85.94609,
-      "depth_m": 69.0
+      "depth_m": 102.0
     },
     {
       "dist_km": 18.0,
       "lat": 10.20115,
       "lon": -86.00008,
-      "depth_m": 230.0
+      "depth_m": 221.0
     }
   ]
 }

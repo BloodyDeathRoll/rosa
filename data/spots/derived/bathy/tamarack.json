@@ -1,15 +1,15 @@
 {
   "spot": "tamarack",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     33.1504,
     -117.3482
   ],
   "bearing_seaward_deg": 236.0,
-  "nearshore_depth_m": -3.0,
-  "offshore_depth_m": 619.0,
-  "mean_slope_m_per_km": 35.04,
-  "land_samples": 1,
+  "nearshore_depth_m": 22.0,
+  "offshore_depth_m": 620.0,
+  "mean_slope_m_per_km": 33.69,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 33.14914,
       "lon": -117.35043,
-      "depth_m": -3.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 0.5,
       "lat": 33.14789,
       "lon": -117.35265,
-      "depth_m": 5.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 1.0,
       "lat": 33.14537,
       "lon": -117.3571,
-      "depth_m": 14.0
+      "depth_m": 31.0
     },
     {
       "dist_km": 2.0,
       "lat": 33.14034,
       "lon": -117.36601,
-      "depth_m": 31.0
+      "depth_m": 37.0
     },
     {
       "dist_km": 3.0,
       "lat": 33.13531,
       "lon": -117.37491,
-      "depth_m": 78.0
+      "depth_m": 86.0
     },
     {
       "dist_km": 5.0,
       "lat": 33.12525,
       "lon": -117.39271,
-      "depth_m": 255.0
+      "depth_m": 261.0
     },
     {
       "dist_km": 8.0,
       "lat": 33.11015,
       "lon": -117.41941,
-      "depth_m": 382.0
+      "depth_m": 370.0
     },
     {
       "dist_km": 12.0,
       "lat": 33.09001,
       "lon": -117.45499,
-      "depth_m": 525.0
+      "depth_m": 521.0
     },
     {
       "dist_km": 18.0,
       "lat": 33.05978,
       "lon": -117.50833,
-      "depth_m": 619.0
+      "depth_m": 620.0
     }
   ]
 }

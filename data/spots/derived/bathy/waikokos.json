@@ -1,72 +1,72 @@
 {
   "spot": "waikokos",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     22.211,
     -159.5158
   ],
   "bearing_seaward_deg": 50.0,
-  "nearshore_depth_m": 6.0,
-  "offshore_depth_m": 2163.0,
-  "mean_slope_m_per_km": 121.52,
-  "land_samples": 2,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 2171.0,
+  "mean_slope_m_per_km": 122.2,
+  "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 2,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 22.21245,
       "lon": -159.51394,
-      "depth_m": 6.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 0.5,
       "lat": 22.21389,
       "lon": -159.51208,
-      "depth_m": 11.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 1.0,
       "lat": 22.21678,
       "lon": -159.50836,
-      "depth_m": 16.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 2.0,
       "lat": 22.22256,
       "lon": -159.50092,
-      "depth_m": -0.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 3.0,
       "lat": 22.22834,
       "lon": -159.49347,
-      "depth_m": -11.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 5.0,
       "lat": 22.2399,
       "lon": -159.47859,
-      "depth_m": 16.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 8.0,
       "lat": 22.25723,
       "lon": -159.45625,
-      "depth_m": 492.0
+      "depth_m": 514.0
     },
     {
       "dist_km": 12.0,
       "lat": 22.28034,
       "lon": -159.42646,
-      "depth_m": 1323.0
+      "depth_m": 1335.0
     },
     {
       "dist_km": 18.0,
       "lat": 22.315,
       "lon": -159.38176,
-      "depth_m": 2163.0
+      "depth_m": 2171.0
     }
   ]
 }

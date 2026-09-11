@@ -1,15 +1,15 @@
 {
   "spot": "vieux-boucau",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     43.7923,
     -1.4102
   ],
   "bearing_seaward_deg": 284.0,
-  "nearshore_depth_m": -4.0,
-  "offshore_depth_m": 88.0,
-  "mean_slope_m_per_km": 5.18,
-  "land_samples": 1,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 90.0,
+  "mean_slope_m_per_km": 4.9,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,43 +18,43 @@
       "dist_km": 0.25,
       "lat": 43.79284,
       "lon": -1.41322,
-      "depth_m": -4.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 0.5,
       "lat": 43.79339,
       "lon": -1.41624,
-      "depth_m": 1.0
+      "depth_m": 3.0
     },
     {
       "dist_km": 1.0,
       "lat": 43.79448,
       "lon": -1.42229,
-      "depth_m": 5.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 2.0,
       "lat": 43.79665,
       "lon": -1.43438,
-      "depth_m": 12.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 3.0,
       "lat": 43.79882,
       "lon": -1.44647,
-      "depth_m": 20.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 5.0,
       "lat": 43.80316,
       "lon": -1.47065,
-      "depth_m": 35.0
+      "depth_m": 37.0
     },
     {
       "dist_km": 8.0,
       "lat": 43.80966,
       "lon": -1.50694,
-      "depth_m": 47.0
+      "depth_m": 48.0
     },
     {
       "dist_km": 12.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 43.83126,
       "lon": -1.62793,
-      "depth_m": 88.0
+      "depth_m": 90.0
     }
   ]
 }

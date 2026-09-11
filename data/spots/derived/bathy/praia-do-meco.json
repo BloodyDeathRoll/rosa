@@ -1,14 +1,14 @@
 {
   "spot": "praia-do-meco",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     38.48911,
     -9.18464
   ],
   "bearing_seaward_deg": 265.0,
-  "nearshore_depth_m": 13.0,
-  "offshore_depth_m": 133.0,
-  "mean_slope_m_per_km": 6.76,
+  "nearshore_depth_m": 14.0,
+  "offshore_depth_m": 132.0,
+  "mean_slope_m_per_km": 6.65,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 2,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 38.48891,
       "lon": -9.1875,
-      "depth_m": 13.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 0.5,
       "lat": 38.48872,
       "lon": -9.19036,
-      "depth_m": 16.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 1.0,
       "lat": 38.48833,
       "lon": -9.19609,
-      "depth_m": 19.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 2.0,
       "lat": 38.48754,
       "lon": -9.20753,
-      "depth_m": 29.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 3.0,
       "lat": 38.48675,
       "lon": -9.21898,
-      "depth_m": 41.0
+      "depth_m": 40.0
     },
     {
       "dist_km": 5.0,
       "lat": 38.48518,
       "lon": -9.24187,
-      "depth_m": 97.0
+      "depth_m": 90.0
     },
     {
       "dist_km": 8.0,
       "lat": 38.4828,
       "lon": -9.2762,
-      "depth_m": 560.0
+      "depth_m": 557.0
     },
     {
       "dist_km": 12.0,
       "lat": 38.47962,
       "lon": -9.32197,
-      "depth_m": 220.0
+      "depth_m": 310.0
     },
     {
       "dist_km": 18.0,
       "lat": 38.47482,
       "lon": -9.39062,
-      "depth_m": 133.0
+      "depth_m": 132.0
     }
   ]
 }

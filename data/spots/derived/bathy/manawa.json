@@ -1,72 +1,72 @@
 {
   "spot": "manawa",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -20.482,
     57.313
   ],
   "bearing_seaward_deg": 0.0,
-  "nearshore_depth_m": 43.0,
-  "offshore_depth_m": 857.0,
-  "mean_slope_m_per_km": 45.86,
+  "nearshore_depth_m": 84.0,
+  "offshore_depth_m": 661.0,
+  "mean_slope_m_per_km": 32.51,
   "land_samples": 1,
   "missing_samples": 0,
-  "non_monotone_samples": 2,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -20.47975,
       "lon": 57.313,
-      "depth_m": 43.0
+      "depth_m": 84.0
     },
     {
       "dist_km": 0.5,
       "lat": -20.4775,
       "lon": 57.313,
-      "depth_m": 52.0
+      "depth_m": 92.0
     },
     {
       "dist_km": 1.0,
       "lat": -20.47301,
       "lon": 57.313,
-      "depth_m": 61.0
+      "depth_m": 100.0
     },
     {
       "dist_km": 2.0,
       "lat": -20.46401,
       "lon": 57.313,
-      "depth_m": 30.0
+      "depth_m": 120.0
     },
     {
       "dist_km": 3.0,
       "lat": -20.45502,
       "lon": 57.313,
-      "depth_m": -13.0
+      "depth_m": -12.0
     },
     {
       "dist_km": 5.0,
       "lat": -20.43703,
       "lon": 57.313,
-      "depth_m": 57.0
+      "depth_m": 187.0
     },
     {
       "dist_km": 8.0,
       "lat": -20.41005,
       "lon": 57.313,
-      "depth_m": 37.0
+      "depth_m": 247.0
     },
     {
       "dist_km": 12.0,
       "lat": -20.37408,
       "lon": 57.313,
-      "depth_m": 299.0
+      "depth_m": 597.0
     },
     {
       "dist_km": 18.0,
       "lat": -20.32012,
       "lon": 57.313,
-      "depth_m": 857.0
+      "depth_m": 661.0
     }
   ]
 }

@@ -1,15 +1,15 @@
 {
   "spot": "matapalo-osa",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     8.3785,
     -83.2882
   ],
   "bearing_seaward_deg": 210.0,
-  "nearshore_depth_m": -68.0,
-  "offshore_depth_m": 1945.0,
-  "mean_slope_m_per_km": 113.41,
-  "land_samples": 2,
+  "nearshore_depth_m": -82.0,
+  "offshore_depth_m": 1925.0,
+  "mean_slope_m_per_km": 113.07,
+  "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 8.37655,
       "lon": -83.28934,
-      "depth_m": -68.0
+      "depth_m": -82.0
     },
     {
       "dist_km": 0.5,
       "lat": 8.37461,
       "lon": -83.29047,
-      "depth_m": -38.0
+      "depth_m": 41.0
     },
     {
       "dist_km": 1.0,
       "lat": 8.37071,
       "lon": -83.29275,
-      "depth_m": 10.0
+      "depth_m": 131.0
     },
     {
       "dist_km": 2.0,
       "lat": 8.36292,
       "lon": -83.29729,
-      "depth_m": 107.0
+      "depth_m": 224.0
     },
     {
       "dist_km": 3.0,
       "lat": 8.35513,
       "lon": -83.30183,
-      "depth_m": 355.0
+      "depth_m": 391.0
     },
     {
       "dist_km": 5.0,
       "lat": 8.33956,
       "lon": -83.31092,
-      "depth_m": 562.0
+      "depth_m": 568.0
     },
     {
       "dist_km": 8.0,
       "lat": 8.31619,
       "lon": -83.32456,
-      "depth_m": 846.0
+      "depth_m": 875.0
     },
     {
       "dist_km": 12.0,
       "lat": 8.28504,
       "lon": -83.34273,
-      "depth_m": 1155.0
+      "depth_m": 1184.0
     },
     {
       "dist_km": 18.0,
       "lat": 8.2383,
       "lon": -83.36998,
-      "depth_m": 1945.0
+      "depth_m": 1925.0
     }
   ]
 }

@@ -1,14 +1,14 @@
 {
   "spot": "kailua",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     21.4142,
     -157.7428
   ],
   "bearing_seaward_deg": 84.0,
-  "nearshore_depth_m": 1.0,
-  "offshore_depth_m": 688.0,
-  "mean_slope_m_per_km": 38.7,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 690.0,
+  "mean_slope_m_per_km": 38.76,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 1,
@@ -18,13 +18,13 @@
       "dist_km": 0.25,
       "lat": 21.41443,
       "lon": -157.7404,
-      "depth_m": 1.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 0.5,
       "lat": 21.41467,
       "lon": -157.738,
-      "depth_m": 3.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 1.0,
@@ -36,37 +36,37 @@
       "dist_km": 2.0,
       "lat": 21.41608,
       "lon": -157.72359,
-      "depth_m": 7.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 3.0,
       "lat": 21.41702,
       "lon": -157.71398,
-      "depth_m": 16.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 5.0,
       "lat": 21.41889,
       "lon": -157.69476,
-      "depth_m": 55.0
+      "depth_m": 60.0
     },
     {
       "dist_km": 8.0,
       "lat": 21.4217,
       "lon": -157.66594,
-      "depth_m": 413.0
+      "depth_m": 396.0
     },
     {
       "dist_km": 12.0,
       "lat": 21.42544,
       "lon": -157.62751,
-      "depth_m": 701.0
+      "depth_m": 704.0
     },
     {
       "dist_km": 18.0,
       "lat": 21.43103,
       "lon": -157.56985,
-      "depth_m": 688.0
+      "depth_m": 690.0
     }
   ]
 }

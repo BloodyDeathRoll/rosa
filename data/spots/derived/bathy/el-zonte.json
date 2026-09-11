@@ -1,14 +1,14 @@
 {
   "spot": "el-zonte",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     13.4941,
     -89.4402
   ],
   "bearing_seaward_deg": 209.0,
-  "nearshore_depth_m": -2.0,
+  "nearshore_depth_m": -6.0,
   "offshore_depth_m": 59.0,
-  "mean_slope_m_per_km": 3.44,
+  "mean_slope_m_per_km": 3.66,
   "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,7 +18,7 @@
       "dist_km": 0.25,
       "lat": 13.49213,
       "lon": -89.44132,
-      "depth_m": -2.0
+      "depth_m": -6.0
     },
     {
       "dist_km": 0.5,
@@ -30,19 +30,19 @@
       "dist_km": 1.0,
       "lat": 13.48623,
       "lon": -89.44468,
-      "depth_m": 14.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 2.0,
       "lat": 13.47837,
       "lon": -89.44917,
-      "depth_m": 26.0
+      "depth_m": 25.0
     },
     {
       "dist_km": 3.0,
       "lat": 13.4705,
       "lon": -89.45365,
-      "depth_m": 28.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 5.0,

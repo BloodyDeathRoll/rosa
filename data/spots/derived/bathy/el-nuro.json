@@ -1,36 +1,36 @@
 {
   "spot": "el-nuro",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -4.2184,
     -81.1813
   ],
   "bearing_seaward_deg": 9.0,
-  "nearshore_depth_m": -22.0,
-  "offshore_depth_m": 153.0,
-  "mean_slope_m_per_km": 9.86,
-  "land_samples": 3,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 200.0,
+  "mean_slope_m_per_km": 10.99,
+  "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -4.21618,
       "lon": -81.18095,
-      "depth_m": -22.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 0.5,
       "lat": -4.21396,
       "lon": -81.18059,
-      "depth_m": -20.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 1.0,
       "lat": -4.20952,
       "lon": -81.17989,
-      "depth_m": -0.0
+      "depth_m": 14.0
     },
     {
       "dist_km": 2.0,
@@ -42,31 +42,31 @@
       "dist_km": 3.0,
       "lat": -4.19175,
       "lon": -81.17707,
-      "depth_m": 35.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 5.0,
       "lat": -4.17399,
       "lon": -81.17425,
-      "depth_m": 55.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 8.0,
       "lat": -4.14734,
       "lon": -81.17002,
-      "depth_m": 76.0
+      "depth_m": 63.0
     },
     {
       "dist_km": 12.0,
       "lat": -4.11181,
       "lon": -81.16437,
-      "depth_m": 97.0
+      "depth_m": 100.0
     },
     {
       "dist_km": 18.0,
       "lat": -4.05851,
       "lon": -81.15591,
-      "depth_m": 153.0
+      "depth_m": 200.0
     }
   ]
 }

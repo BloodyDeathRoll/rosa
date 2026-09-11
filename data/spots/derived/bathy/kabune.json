@@ -1,14 +1,14 @@
 {
   "spot": "kabune",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     35.2936,
     139.5537
   ],
   "bearing_seaward_deg": 190.0,
-  "nearshore_depth_m": 5.0,
-  "offshore_depth_m": 515.0,
-  "mean_slope_m_per_km": 28.73,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 583.0,
+  "mean_slope_m_per_km": 32.39,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,13 +18,13 @@
       "dist_km": 0.25,
       "lat": 35.29139,
       "lon": 139.55322,
-      "depth_m": 5.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 0.5,
       "lat": 35.28917,
       "lon": 139.55274,
-      "depth_m": 6.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 1.0,
@@ -36,37 +36,37 @@
       "dist_km": 2.0,
       "lat": 35.27589,
       "lon": 139.54987,
-      "depth_m": 49.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 3.0,
       "lat": 35.26703,
       "lon": 139.54796,
-      "depth_m": 62.0
+      "depth_m": 52.0
     },
     {
       "dist_km": 5.0,
       "lat": 35.24932,
       "lon": 139.54414,
-      "depth_m": 72.0
+      "depth_m": 71.0
     },
     {
       "dist_km": 8.0,
       "lat": 35.22275,
       "lon": 139.53841,
-      "depth_m": 110.0
+      "depth_m": 126.0
     },
     {
       "dist_km": 12.0,
       "lat": 35.18732,
       "lon": 139.53077,
-      "depth_m": 382.0
+      "depth_m": 422.0
     },
     {
       "dist_km": 18.0,
       "lat": 35.13418,
       "lon": 139.51933,
-      "depth_m": 515.0
+      "depth_m": 583.0
     }
   ]
 }

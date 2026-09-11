@@ -1,72 +1,72 @@
 {
   "spot": "carpinteria",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     34.3914,
     -119.5216
   ],
   "bearing_seaward_deg": 221.0,
-  "nearshore_depth_m": 2.0,
-  "offshore_depth_m": 135.0,
-  "mean_slope_m_per_km": 7.49,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 133.0,
+  "mean_slope_m_per_km": 7.15,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 34.3897,
       "lon": -119.52339,
-      "depth_m": 2.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 0.5,
       "lat": 34.38801,
       "lon": -119.52517,
-      "depth_m": 8.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 1.0,
       "lat": 34.38461,
       "lon": -119.52875,
-      "depth_m": 16.0
+      "depth_m": 4.0
     },
     {
       "dist_km": 2.0,
       "lat": 34.37782,
       "lon": -119.5359,
-      "depth_m": 25.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 3.0,
       "lat": 34.37104,
       "lon": -119.54304,
-      "depth_m": 32.0
+      "depth_m": 33.0
     },
     {
       "dist_km": 5.0,
       "lat": 34.35746,
       "lon": -119.55733,
-      "depth_m": 35.0
+      "depth_m": 36.0
     },
     {
       "dist_km": 8.0,
       "lat": 34.33709,
       "lon": -119.57876,
-      "depth_m": 52.0
+      "depth_m": 55.0
     },
     {
       "dist_km": 12.0,
       "lat": 34.30992,
       "lon": -119.60732,
-      "depth_m": 79.0
+      "depth_m": 75.0
     },
     {
       "dist_km": 18.0,
       "lat": 34.26916,
       "lon": -119.65011,
-      "depth_m": 135.0
+      "depth_m": 133.0
     }
   ]
 }

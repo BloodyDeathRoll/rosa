@@ -1,14 +1,14 @@
 {
   "spot": "revolcadero",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     16.7906,
     -99.8255
   ],
   "bearing_seaward_deg": 189.0,
-  "nearshore_depth_m": -26.0,
-  "offshore_depth_m": 518.0,
-  "mean_slope_m_per_km": 30.65,
+  "nearshore_depth_m": -33.0,
+  "offshore_depth_m": 567.0,
+  "mean_slope_m_per_km": 33.8,
   "land_samples": 2,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 16.78838,
       "lon": -99.82587,
-      "depth_m": -26.0
+      "depth_m": -33.0
     },
     {
       "dist_km": 0.5,
       "lat": 16.78616,
       "lon": -99.82623,
-      "depth_m": -25.0
+      "depth_m": -19.0
     },
     {
       "dist_km": 1.0,
       "lat": 16.78172,
       "lon": -99.82697,
-      "depth_m": 18.0
+      "depth_m": 25.0
     },
     {
       "dist_km": 2.0,
       "lat": 16.77284,
       "lon": -99.82844,
-      "depth_m": 26.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 3.0,
       "lat": 16.76395,
       "lon": -99.82991,
-      "depth_m": 27.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 5.0,
       "lat": 16.74619,
       "lon": -99.83285,
-      "depth_m": 36.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 8.0,
       "lat": 16.71954,
       "lon": -99.83725,
-      "depth_m": 74.0
+      "depth_m": 52.0
     },
     {
       "dist_km": 12.0,
       "lat": 16.68401,
       "lon": -99.84312,
-      "depth_m": 266.0
+      "depth_m": 130.0
     },
     {
       "dist_km": 18.0,
       "lat": 16.63071,
       "lon": -99.85193,
-      "depth_m": 518.0
+      "depth_m": 567.0
     }
   ]
 }

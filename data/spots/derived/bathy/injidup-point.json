@@ -1,13 +1,13 @@
 {
   "spot": "injidup-point",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -33.7013,
     114.9828
   ],
   "bearing_seaward_deg": 338.0,
-  "nearshore_depth_m": 12.0,
-  "offshore_depth_m": 43.0,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 44.0,
   "mean_slope_m_per_km": 1.75,
   "land_samples": 0,
   "missing_samples": 0,
@@ -18,37 +18,37 @@
       "dist_km": 0.25,
       "lat": -33.69922,
       "lon": 114.98179,
-      "depth_m": 12.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 0.5,
       "lat": -33.69713,
       "lon": 114.98078,
-      "depth_m": 29.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 1.0,
       "lat": -33.69296,
       "lon": 114.97875,
-      "depth_m": 4.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 2.0,
       "lat": -33.68462,
       "lon": 114.9747,
-      "depth_m": 25.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 3.0,
       "lat": -33.67628,
       "lon": 114.97066,
-      "depth_m": 37.0
+      "depth_m": 31.0
     },
     {
       "dist_km": 5.0,
       "lat": -33.65961,
       "lon": 114.96256,
-      "depth_m": 45.0
+      "depth_m": 41.0
     },
     {
       "dist_km": 8.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": -33.60123,
       "lon": 114.93426,
-      "depth_m": 46.0
+      "depth_m": 47.0
     },
     {
       "dist_km": 18.0,
       "lat": -33.55119,
       "lon": 114.91004,
-      "depth_m": 43.0
+      "depth_m": 44.0
     }
   ]
 }

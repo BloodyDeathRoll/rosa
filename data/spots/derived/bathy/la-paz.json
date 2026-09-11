@@ -1,14 +1,14 @@
 {
   "spot": "la-paz",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     13.4864,
     -89.3199
   ],
   "bearing_seaward_deg": 243.0,
   "nearshore_depth_m": -12.0,
-  "offshore_depth_m": 43.0,
-  "mean_slope_m_per_km": 3.1,
+  "offshore_depth_m": 42.0,
+  "mean_slope_m_per_km": 3.04,
   "land_samples": 3,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -24,19 +24,19 @@
       "dist_km": 0.5,
       "lat": 13.48436,
       "lon": -89.32402,
-      "depth_m": -9.0
+      "depth_m": -12.0
     },
     {
       "dist_km": 1.0,
       "lat": 13.48232,
       "lon": -89.32814,
-      "depth_m": -9.0
+      "depth_m": -7.0
     },
     {
       "dist_km": 2.0,
       "lat": 13.47823,
       "lon": -89.33638,
-      "depth_m": 4.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 3.0,
@@ -54,7 +54,7 @@
       "dist_km": 8.0,
       "lat": 13.45373,
       "lon": -89.38581,
-      "depth_m": 26.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 12.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 13.41287,
       "lon": -89.46818,
-      "depth_m": 43.0
+      "depth_m": 42.0
     }
   ]
 }

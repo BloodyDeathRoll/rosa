@@ -1,14 +1,14 @@
 {
   "spot": "rockaway-beach-or",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     45.6135,
     -123.9462
   ],
   "bearing_seaward_deg": 277.0,
   "nearshore_depth_m": -1.0,
-  "offshore_depth_m": 106.0,
-  "mean_slope_m_per_km": 6.03,
+  "offshore_depth_m": 115.0,
+  "mean_slope_m_per_km": 6.54,
   "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -24,37 +24,37 @@
       "dist_km": 0.5,
       "lat": 45.61405,
       "lon": -123.95258,
-      "depth_m": 3.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 1.0,
       "lat": 45.6146,
       "lon": -123.95896,
-      "depth_m": 11.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 2.0,
       "lat": 45.61569,
       "lon": -123.97172,
-      "depth_m": 24.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 3.0,
       "lat": 45.61678,
       "lon": -123.98448,
-      "depth_m": 32.0
+      "depth_m": 37.0
     },
     {
       "dist_km": 5.0,
       "lat": 45.61896,
       "lon": -124.01001,
-      "depth_m": 47.0
+      "depth_m": 52.0
     },
     {
       "dist_km": 8.0,
       "lat": 45.62222,
       "lon": -124.0483,
-      "depth_m": 63.0
+      "depth_m": 64.0
     },
     {
       "dist_km": 12.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": 45.633,
       "lon": -124.17598,
-      "depth_m": 106.0
+      "depth_m": 115.0
     }
   ]
 }

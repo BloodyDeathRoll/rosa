@@ -1,15 +1,15 @@
 {
   "spot": "dossen",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     48.6951,
     -4.0595
   ],
   "bearing_seaward_deg": 330.0,
-  "nearshore_depth_m": -1.0,
+  "nearshore_depth_m": 1.0,
   "offshore_depth_m": 85.0,
-  "mean_slope_m_per_km": 4.85,
-  "land_samples": 3,
+  "mean_slope_m_per_km": 4.73,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,37 +18,37 @@
       "dist_km": 0.25,
       "lat": 48.69705,
       "lon": -4.0612,
-      "depth_m": -1.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
       "lat": 48.69899,
       "lon": -4.06291,
-      "depth_m": -1.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 1.0,
       "lat": 48.70289,
       "lon": -4.06631,
-      "depth_m": -0.0
+      "depth_m": 1.0
     },
     {
       "dist_km": 2.0,
       "lat": 48.71068,
       "lon": -4.07313,
-      "depth_m": 13.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 3.0,
       "lat": 48.71846,
       "lon": -4.07995,
-      "depth_m": 29.0
+      "depth_m": 36.0
     },
     {
       "dist_km": 5.0,
       "lat": 48.73404,
       "lon": -4.09359,
-      "depth_m": 54.0
+      "depth_m": 58.0
     },
     {
       "dist_km": 8.0,

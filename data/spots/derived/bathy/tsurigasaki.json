@@ -1,14 +1,14 @@
 {
   "spot": "tsurigasaki",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     35.373,
     140.394
   ],
   "bearing_seaward_deg": 90.0,
-  "nearshore_depth_m": 5.0,
+  "nearshore_depth_m": 6.0,
   "offshore_depth_m": 36.0,
-  "mean_slope_m_per_km": 1.75,
+  "mean_slope_m_per_km": 1.69,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,7 +18,7 @@
       "dist_km": 0.25,
       "lat": 35.373,
       "lon": 140.39676,
-      "depth_m": 5.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 0.5,
@@ -36,7 +36,7 @@
       "dist_km": 2.0,
       "lat": 35.373,
       "lon": 140.41606,
-      "depth_m": 11.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 3.0,
@@ -48,7 +48,7 @@
       "dist_km": 5.0,
       "lat": 35.37299,
       "lon": 140.44915,
-      "depth_m": 15.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 8.0,

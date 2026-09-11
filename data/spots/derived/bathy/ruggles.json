@@ -1,14 +1,14 @@
 {
   "spot": "ruggles",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     41.4667,
     -71.298
   ],
   "bearing_seaward_deg": 165.0,
-  "nearshore_depth_m": 6.0,
+  "nearshore_depth_m": 17.0,
   "offshore_depth_m": 30.0,
-  "mean_slope_m_per_km": 1.35,
+  "mean_slope_m_per_km": 0.73,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,25 +18,25 @@
       "dist_km": 0.25,
       "lat": 41.46453,
       "lon": -71.29722,
-      "depth_m": 6.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 0.5,
       "lat": 41.46236,
       "lon": -71.29645,
-      "depth_m": 8.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 1.0,
       "lat": 41.45801,
       "lon": -71.29489,
-      "depth_m": 13.0
+      "depth_m": 20.0
     },
     {
       "dist_km": 2.0,
       "lat": 41.44933,
       "lon": -71.29179,
-      "depth_m": 21.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 3.0,

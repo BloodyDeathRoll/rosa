@@ -1,14 +1,14 @@
 {
   "spot": "punta-chivo",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     16.1078,
     -95.2785
   ],
   "bearing_seaward_deg": 127.0,
-  "nearshore_depth_m": -7.0,
+  "nearshore_depth_m": -10.0,
   "offshore_depth_m": 48.0,
-  "mean_slope_m_per_km": 3.1,
+  "mean_slope_m_per_km": 3.27,
   "land_samples": 1,
   "missing_samples": 0,
   "non_monotone_samples": 2,
@@ -18,49 +18,49 @@
       "dist_km": 0.25,
       "lat": 16.10645,
       "lon": -95.27663,
-      "depth_m": -7.0
+      "depth_m": -10.0
     },
     {
       "dist_km": 0.5,
       "lat": 16.10509,
       "lon": -95.27476,
-      "depth_m": 14.0
+      "depth_m": 21.0
     },
     {
       "dist_km": 1.0,
       "lat": 16.10239,
       "lon": -95.27102,
-      "depth_m": 30.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 2.0,
       "lat": 16.09697,
       "lon": -95.26355,
-      "depth_m": 39.0
+      "depth_m": 36.0
     },
     {
       "dist_km": 3.0,
       "lat": 16.09156,
       "lon": -95.25607,
-      "depth_m": 42.0
+      "depth_m": 40.0
     },
     {
       "dist_km": 5.0,
       "lat": 16.08074,
       "lon": -95.24113,
-      "depth_m": 38.0
+      "depth_m": 36.0
     },
     {
       "dist_km": 8.0,
       "lat": 16.06449,
       "lon": -95.21871,
-      "depth_m": 32.0
+      "depth_m": 34.0
     },
     {
       "dist_km": 12.0,
       "lat": 16.04283,
       "lon": -95.18882,
-      "depth_m": 33.0
+      "depth_m": 35.0
     },
     {
       "dist_km": 18.0,

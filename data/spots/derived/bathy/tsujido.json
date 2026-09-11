@@ -1,14 +1,14 @@
 {
   "spot": "tsujido",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     35.3167,
     139.46
   ],
   "bearing_seaward_deg": 189.0,
   "nearshore_depth_m": 7.0,
-  "offshore_depth_m": 804.0,
-  "mean_slope_m_per_km": 44.9,
+  "offshore_depth_m": 761.0,
+  "mean_slope_m_per_km": 42.48,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -24,49 +24,49 @@
       "dist_km": 0.5,
       "lat": 35.31226,
       "lon": 139.45914,
-      "depth_m": 9.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 1.0,
       "lat": 35.30782,
       "lon": 139.45828,
-      "depth_m": 13.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 2.0,
       "lat": 35.29893,
       "lon": 139.45655,
-      "depth_m": 25.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 3.0,
       "lat": 35.29005,
       "lon": 139.45483,
-      "depth_m": 38.0
+      "depth_m": 41.0
     },
     {
       "dist_km": 5.0,
       "lat": 35.27229,
       "lon": 139.45138,
-      "depth_m": 81.0
+      "depth_m": 73.0
     },
     {
       "dist_km": 8.0,
       "lat": 35.24564,
       "lon": 139.44622,
-      "depth_m": 268.0
+      "depth_m": 329.0
     },
     {
       "dist_km": 12.0,
       "lat": 35.21011,
       "lon": 139.43934,
-      "depth_m": 664.0
+      "depth_m": 671.0
     },
     {
       "dist_km": 18.0,
       "lat": 35.15681,
       "lon": 139.42903,
-      "depth_m": 804.0
+      "depth_m": 761.0
     }
   ]
 }

@@ -1,14 +1,14 @@
 {
   "spot": "kugenuma",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     35.3145,
     139.47
   ],
   "bearing_seaward_deg": 185.0,
-  "nearshore_depth_m": 3.0,
-  "offshore_depth_m": 1010.0,
-  "mean_slope_m_per_km": 56.73,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 1025.0,
+  "mean_slope_m_per_km": 57.41,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 35.31226,
       "lon": 139.46976,
-      "depth_m": 3.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 0.5,
       "lat": 35.31002,
       "lon": 139.46952,
-      "depth_m": 5.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 1.0,
       "lat": 35.30554,
       "lon": 139.46904,
-      "depth_m": 10.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 2.0,
       "lat": 35.29658,
       "lon": 139.46808,
-      "depth_m": 25.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 3.0,
       "lat": 35.28762,
       "lon": 139.46712,
-      "depth_m": 40.0
+      "depth_m": 37.0
     },
     {
       "dist_km": 5.0,
       "lat": 35.2697,
       "lon": 139.4652,
-      "depth_m": 82.0
+      "depth_m": 77.0
     },
     {
       "dist_km": 8.0,
       "lat": 35.24283,
       "lon": 139.46232,
-      "depth_m": 116.0
+      "depth_m": 126.0
     },
     {
       "dist_km": 12.0,
       "lat": 35.20699,
       "lon": 139.45849,
-      "depth_m": 801.0
+      "depth_m": 831.0
     },
     {
       "dist_km": 18.0,
       "lat": 35.15324,
       "lon": 139.45274,
-      "depth_m": 1010.0
+      "depth_m": 1025.0
     }
   ]
 }

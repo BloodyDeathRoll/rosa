@@ -1,14 +1,14 @@
 {
   "spot": "urquharts-bluff",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -38.4325,
     144.1484
   ],
   "bearing_seaward_deg": 167.0,
-  "nearshore_depth_m": 1.0,
-  "offshore_depth_m": 74.0,
-  "mean_slope_m_per_km": 4.11,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 76.0,
+  "mean_slope_m_per_km": 3.72,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,31 +18,31 @@
       "dist_km": 0.25,
       "lat": -38.43469,
       "lon": 144.14905,
-      "depth_m": 1.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 0.5,
       "lat": -38.43688,
       "lon": 144.14969,
-      "depth_m": 9.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 1.0,
       "lat": -38.44126,
       "lon": 144.15098,
-      "depth_m": 13.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 2.0,
       "lat": -38.45003,
       "lon": 144.15357,
-      "depth_m": 20.0
+      "depth_m": 23.0
     },
     {
       "dist_km": 3.0,
       "lat": -38.45879,
       "lon": 144.15615,
-      "depth_m": 25.0
+      "depth_m": 27.0
     },
     {
       "dist_km": 5.0,
@@ -54,7 +54,7 @@
       "dist_km": 8.0,
       "lat": -38.5026,
       "lon": 144.16908,
-      "depth_m": 58.0
+      "depth_m": 60.0
     },
     {
       "dist_km": 12.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": -38.59022,
       "lon": 144.19499,
-      "depth_m": 74.0
+      "depth_m": 76.0
     }
   ]
 }

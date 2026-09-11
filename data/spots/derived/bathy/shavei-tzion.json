@@ -1,17 +1,17 @@
 {
   "spot": "shavei-tzion",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     32.9826,
     35.0798
   ],
   "bearing_seaward_deg": 280.0,
   "nearshore_depth_m": 9.0,
-  "offshore_depth_m": 601.0,
-  "mean_slope_m_per_km": 33.35,
+  "offshore_depth_m": 623.0,
+  "mean_slope_m_per_km": 34.59,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
@@ -24,7 +24,7 @@
       "dist_km": 0.5,
       "lat": 32.98338,
       "lon": 35.07452,
-      "depth_m": 10.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 1.0,
@@ -36,13 +36,13 @@
       "dist_km": 2.0,
       "lat": 32.98572,
       "lon": 35.05868,
-      "depth_m": 13.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 3.0,
       "lat": 32.98728,
       "lon": 35.04812,
-      "depth_m": 21.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 5.0,
@@ -54,19 +54,19 @@
       "dist_km": 8.0,
       "lat": 32.99506,
       "lon": 34.99532,
-      "depth_m": 45.0
+      "depth_m": 46.0
     },
     {
       "dist_km": 12.0,
       "lat": 33.00128,
       "lon": 34.95308,
-      "depth_m": 65.0
+      "depth_m": 66.0
     },
     {
       "dist_km": 18.0,
       "lat": 33.01057,
       "lon": 34.88969,
-      "depth_m": 601.0
+      "depth_m": 623.0
     }
   ]
 }

@@ -1,14 +1,14 @@
 {
   "spot": "la-sud",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     43.664,
     -1.4425
   ],
   "bearing_seaward_deg": 275.0,
   "nearshore_depth_m": 2.0,
-  "offshore_depth_m": 125.0,
-  "mean_slope_m_per_km": 6.93,
+  "offshore_depth_m": 126.0,
+  "mean_slope_m_per_km": 6.99,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 2,
@@ -24,49 +24,49 @@
       "dist_km": 0.5,
       "lat": 43.66439,
       "lon": -1.44869,
-      "depth_m": 9.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 1.0,
       "lat": 43.66478,
       "lon": -1.45488,
-      "depth_m": 29.0
+      "depth_m": 25.0
     },
     {
       "dist_km": 2.0,
       "lat": 43.66556,
       "lon": -1.46727,
-      "depth_m": 75.0
+      "depth_m": 103.0
     },
     {
       "dist_km": 3.0,
       "lat": 43.66635,
       "lon": -1.47966,
-      "depth_m": 62.0
+      "depth_m": 42.0
     },
     {
       "dist_km": 5.0,
       "lat": 43.6679,
       "lon": -1.50443,
-      "depth_m": 77.0
+      "depth_m": 57.0
     },
     {
       "dist_km": 8.0,
       "lat": 43.67023,
       "lon": -1.54159,
-      "depth_m": 186.0
+      "depth_m": 152.0
     },
     {
       "dist_km": 12.0,
       "lat": 43.67331,
       "lon": -1.59114,
-      "depth_m": 357.0
+      "depth_m": 390.0
     },
     {
       "dist_km": 18.0,
       "lat": 43.67789,
       "lon": -1.66547,
-      "depth_m": 125.0
+      "depth_m": 126.0
     }
   ]
 }

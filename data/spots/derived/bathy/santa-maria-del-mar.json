@@ -1,66 +1,66 @@
 {
   "spot": "santa-maria-del-mar",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -12.3793,
     -76.7896
   ],
   "bearing_seaward_deg": 243.0,
-  "nearshore_depth_m": 88.0,
+  "nearshore_depth_m": -9.0,
   "offshore_depth_m": 106.0,
-  "mean_slope_m_per_km": 1.01,
-  "land_samples": 0,
+  "mean_slope_m_per_km": 6.48,
+  "land_samples": 1,
   "missing_samples": 0,
-  "non_monotone_samples": 3,
-  "deepest_is_reference": false,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -12.38032,
       "lon": -76.79165,
-      "depth_m": 88.0
+      "depth_m": -9.0
     },
     {
       "dist_km": 0.5,
       "lat": -12.38134,
       "lon": -76.7937,
-      "depth_m": 171.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 1.0,
       "lat": -12.38338,
       "lon": -76.7978,
-      "depth_m": 134.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 2.0,
       "lat": -12.38747,
       "lon": -76.80601,
-      "depth_m": 48.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 3.0,
       "lat": -12.39155,
       "lon": -76.81421,
-      "depth_m": 17.0
+      "depth_m": 38.0
     },
     {
       "dist_km": 5.0,
       "lat": -12.39971,
       "lon": -76.83062,
-      "depth_m": 34.0
+      "depth_m": 51.0
     },
     {
       "dist_km": 8.0,
       "lat": -12.41195,
       "lon": -76.85524,
-      "depth_m": 65.0
+      "depth_m": 62.0
     },
     {
       "dist_km": 12.0,
       "lat": -12.42828,
       "lon": -76.88806,
-      "depth_m": 94.0
+      "depth_m": 95.0
     },
     {
       "dist_km": 18.0,

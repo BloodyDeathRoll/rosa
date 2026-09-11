@@ -1,60 +1,60 @@
 {
   "spot": "salmon-holes",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -35.1021,
     117.9685
   ],
   "bearing_seaward_deg": 120.0,
-  "nearshore_depth_m": -39.0,
+  "nearshore_depth_m": -51.0,
   "offshore_depth_m": 71.0,
-  "mean_slope_m_per_km": 6.2,
-  "land_samples": 2,
+  "mean_slope_m_per_km": 6.87,
+  "land_samples": 1,
   "missing_samples": 0,
-  "non_monotone_samples": 1,
+  "non_monotone_samples": 3,
   "deepest_is_reference": false,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -35.10322,
       "lon": 117.97088,
-      "depth_m": -39.0
+      "depth_m": -51.0
     },
     {
       "dist_km": 0.5,
       "lat": -35.10435,
       "lon": 117.97326,
-      "depth_m": -12.0
+      "depth_m": 15.0
     },
     {
       "dist_km": 1.0,
       "lat": -35.1066,
       "lon": 117.97802,
-      "depth_m": 22.0
+      "depth_m": 5.0
     },
     {
       "dist_km": 2.0,
       "lat": -35.11109,
       "lon": 117.98754,
-      "depth_m": 33.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 3.0,
       "lat": -35.11559,
       "lon": 117.99706,
-      "depth_m": 46.0
+      "depth_m": 40.0
     },
     {
       "dist_km": 5.0,
       "lat": -35.12457,
       "lon": 118.01611,
-      "depth_m": 49.0
+      "depth_m": 50.0
     },
     {
       "dist_km": 8.0,
       "lat": -35.13805,
       "lon": 118.04469,
-      "depth_m": 74.0
+      "depth_m": 75.0
     },
     {
       "dist_km": 12.0,

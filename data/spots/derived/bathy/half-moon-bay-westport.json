@@ -1,36 +1,36 @@
 {
   "spot": "half-moon-bay-westport",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     46.9048,
     -124.1215
   ],
   "bearing_seaward_deg": 306.0,
-  "nearshore_depth_m": -1.0,
+  "nearshore_depth_m": -2.0,
   "offshore_depth_m": 35.0,
-  "mean_slope_m_per_km": 2.03,
-  "land_samples": 1,
+  "mean_slope_m_per_km": 2.08,
+  "land_samples": 2,
   "missing_samples": 0,
-  "non_monotone_samples": 2,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 46.90612,
       "lon": -124.12416,
-      "depth_m": -1.0
+      "depth_m": -2.0
     },
     {
       "dist_km": 0.5,
       "lat": 46.90744,
       "lon": -124.12682,
-      "depth_m": 1.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 1.0,
       "lat": 46.91009,
       "lon": -124.13215,
-      "depth_m": 5.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 2.0,
@@ -48,7 +48,7 @@
       "dist_km": 5.0,
       "lat": 46.93122,
       "lon": -124.17477,
-      "depth_m": 8.0
+      "depth_m": -5.0
     },
     {
       "dist_km": 8.0,

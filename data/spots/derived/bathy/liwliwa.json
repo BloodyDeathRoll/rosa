@@ -1,72 +1,72 @@
 {
   "spot": "liwliwa",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     15.0614,
     120.0606
   ],
   "bearing_seaward_deg": 265.0,
-  "nearshore_depth_m": -0.0,
-  "offshore_depth_m": 775.0,
-  "mean_slope_m_per_km": 43.66,
-  "land_samples": 1,
+  "nearshore_depth_m": 23.0,
+  "offshore_depth_m": 537.0,
+  "mean_slope_m_per_km": 28.96,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 1,
-  "deepest_is_reference": true,
+  "deepest_is_reference": false,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 15.0612,
       "lon": 120.05828,
-      "depth_m": -0.0
+      "depth_m": 23.0
     },
     {
       "dist_km": 0.5,
       "lat": 15.06101,
       "lon": 120.05596,
-      "depth_m": 11.0
+      "depth_m": 23.0
     },
     {
       "dist_km": 1.0,
       "lat": 15.06062,
       "lon": 120.05132,
-      "depth_m": 23.0
+      "depth_m": 31.0
     },
     {
       "dist_km": 2.0,
       "lat": 15.05983,
       "lon": 120.04204,
-      "depth_m": 37.0
+      "depth_m": 44.0
     },
     {
       "dist_km": 3.0,
       "lat": 15.05905,
       "lon": 120.03277,
-      "depth_m": 42.0
+      "depth_m": 57.0
     },
     {
       "dist_km": 5.0,
       "lat": 15.05748,
       "lon": 120.01421,
-      "depth_m": 35.0
+      "depth_m": 61.0
     },
     {
       "dist_km": 8.0,
       "lat": 15.05512,
       "lon": 119.98638,
-      "depth_m": 39.0
+      "depth_m": 72.0
     },
     {
       "dist_km": 12.0,
       "lat": 15.05197,
       "lon": 119.94927,
-      "depth_m": 143.0
+      "depth_m": 650.0
     },
     {
       "dist_km": 18.0,
       "lat": 15.04723,
       "lon": 119.89361,
-      "depth_m": 775.0
+      "depth_m": 537.0
     }
   ]
 }

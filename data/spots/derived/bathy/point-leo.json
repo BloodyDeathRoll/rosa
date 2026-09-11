@@ -1,15 +1,15 @@
 {
   "spot": "point-leo",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -38.4251,
     145.0761
   ],
   "bearing_seaward_deg": 180.0,
-  "nearshore_depth_m": -6.0,
-  "offshore_depth_m": 70.0,
-  "mean_slope_m_per_km": 4.28,
-  "land_samples": 2,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 71.0,
+  "mean_slope_m_per_km": 3.89,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
   "deepest_is_reference": true,
@@ -18,25 +18,25 @@
       "dist_km": 0.25,
       "lat": -38.42735,
       "lon": 145.0761,
-      "depth_m": -6.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 0.5,
       "lat": -38.4296,
       "lon": 145.0761,
-      "depth_m": -2.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 1.0,
       "lat": -38.43409,
       "lon": 145.0761,
-      "depth_m": 7.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 2.0,
       "lat": -38.44309,
       "lon": 145.0761,
-      "depth_m": 10.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 3.0,
@@ -66,7 +66,7 @@
       "dist_km": 18.0,
       "lat": -38.58698,
       "lon": 145.0761,
-      "depth_m": 70.0
+      "depth_m": 71.0
     }
   ]
 }

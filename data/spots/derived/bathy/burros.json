@@ -1,14 +1,14 @@
 {
   "spot": "burros",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     20.7494,
     -105.4462
   ],
   "bearing_seaward_deg": 200.0,
-  "nearshore_depth_m": -16.0,
-  "offshore_depth_m": 503.0,
-  "mean_slope_m_per_km": 29.24,
+  "nearshore_depth_m": -26.0,
+  "offshore_depth_m": 506.0,
+  "mean_slope_m_per_km": 29.97,
   "land_samples": 2,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": 20.74729,
       "lon": -105.44702,
-      "depth_m": -16.0
+      "depth_m": -26.0
     },
     {
       "dist_km": 0.5,
       "lat": 20.74517,
       "lon": -105.44784,
-      "depth_m": -6.0
+      "depth_m": -11.0
     },
     {
       "dist_km": 1.0,
       "lat": 20.74095,
       "lon": -105.44949,
-      "depth_m": 12.0
+      "depth_m": 2.0
     },
     {
       "dist_km": 2.0,
       "lat": 20.7325,
       "lon": -105.45278,
-      "depth_m": 28.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 3.0,
       "lat": 20.72405,
       "lon": -105.45607,
-      "depth_m": 32.0
+      "depth_m": 30.0
     },
     {
       "dist_km": 5.0,
       "lat": 20.70714,
       "lon": -105.46264,
-      "depth_m": 50.0
+      "depth_m": 43.0
     },
     {
       "dist_km": 8.0,
       "lat": 20.68179,
       "lon": -105.4725,
-      "depth_m": 91.0
+      "depth_m": 66.0
     },
     {
       "dist_km": 12.0,
       "lat": 20.64799,
       "lon": -105.48564,
-      "depth_m": 184.0
+      "depth_m": 167.0
     },
     {
       "dist_km": 18.0,
       "lat": 20.59727,
       "lon": -105.50535,
-      "depth_m": 503.0
+      "depth_m": 506.0
     }
   ]
 }

@@ -1,14 +1,14 @@
 {
   "spot": "mawgan-porth",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     50.4669,
     -5.0323
   ],
   "bearing_seaward_deg": 300.0,
-  "nearshore_depth_m": -27.0,
+  "nearshore_depth_m": -22.0,
   "offshore_depth_m": 50.0,
-  "mean_slope_m_per_km": 4.34,
+  "mean_slope_m_per_km": 4.06,
   "land_samples": 2,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,19 +18,19 @@
       "dist_km": 0.25,
       "lat": 50.46802,
       "lon": -5.03536,
-      "depth_m": -27.0
+      "depth_m": -22.0
     },
     {
       "dist_km": 0.5,
       "lat": 50.46915,
       "lon": -5.03842,
-      "depth_m": -25.0
+      "depth_m": -28.0
     },
     {
       "dist_km": 1.0,
       "lat": 50.4714,
       "lon": -5.04454,
-      "depth_m": 5.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 2.0,
@@ -42,25 +42,25 @@
       "dist_km": 3.0,
       "lat": 50.48038,
       "lon": -5.06902,
-      "depth_m": 25.0
+      "depth_m": 26.0
     },
     {
       "dist_km": 5.0,
       "lat": 50.48937,
       "lon": -5.09351,
-      "depth_m": 31.0
+      "depth_m": 32.0
     },
     {
       "dist_km": 8.0,
       "lat": 50.50283,
       "lon": -5.13026,
-      "depth_m": 36.0
+      "depth_m": 37.0
     },
     {
       "dist_km": 12.0,
       "lat": 50.52077,
       "lon": -5.1793,
-      "depth_m": 44.0
+      "depth_m": 45.0
     },
     {
       "dist_km": 18.0,

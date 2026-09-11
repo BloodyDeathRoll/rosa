@@ -1,14 +1,14 @@
 {
   "spot": "long-beach-ny",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     40.5816,
     -73.6658
   ],
   "bearing_seaward_deg": 181.0,
-  "nearshore_depth_m": 5.0,
-  "offshore_depth_m": 23.0,
-  "mean_slope_m_per_km": 1.01,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 25.0,
+  "mean_slope_m_per_km": 1.07,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,19 +18,19 @@
       "dist_km": 0.25,
       "lat": 40.57935,
       "lon": -73.66585,
-      "depth_m": 5.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 0.5,
       "lat": 40.5771,
       "lon": -73.6659,
-      "depth_m": 6.0
+      "depth_m": 7.0
     },
     {
       "dist_km": 1.0,
       "lat": 40.57261,
       "lon": -73.66601,
-      "depth_m": 7.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 2.0,
@@ -48,25 +48,25 @@
       "dist_km": 5.0,
       "lat": 40.53664,
       "lon": -73.66683,
-      "depth_m": 14.0
+      "depth_m": 16.0
     },
     {
       "dist_km": 8.0,
       "lat": 40.50967,
       "lon": -73.66745,
-      "depth_m": 17.0
+      "depth_m": 18.0
     },
     {
       "dist_km": 12.0,
       "lat": 40.4737,
       "lon": -73.66828,
-      "depth_m": 21.0
+      "depth_m": 23.0
     },
     {
       "dist_km": 18.0,
       "lat": 40.41975,
       "lon": -73.66951,
-      "depth_m": 23.0
+      "depth_m": 25.0
     }
   ]
 }

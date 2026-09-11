@@ -1,14 +1,14 @@
 {
   "spot": "paopao-pass",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -17.4764,
     -149.8238
   ],
   "bearing_seaward_deg": 352.0,
-  "nearshore_depth_m": 88.0,
-  "offshore_depth_m": 2663.0,
-  "mean_slope_m_per_km": 145.07,
+  "nearshore_depth_m": 114.0,
+  "offshore_depth_m": 2652.0,
+  "mean_slope_m_per_km": 142.99,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -18,55 +18,55 @@
       "dist_km": 0.25,
       "lat": -17.47417,
       "lon": -149.82413,
-      "depth_m": 88.0
+      "depth_m": 114.0
     },
     {
       "dist_km": 0.5,
       "lat": -17.47195,
       "lon": -149.82446,
-      "depth_m": 178.0
+      "depth_m": 114.0
     },
     {
       "dist_km": 1.0,
       "lat": -17.46749,
       "lon": -149.82511,
-      "depth_m": 431.0
+      "depth_m": 469.0
     },
     {
       "dist_km": 2.0,
       "lat": -17.45859,
       "lon": -149.82642,
-      "depth_m": 831.0
+      "depth_m": 731.0
     },
     {
       "dist_km": 3.0,
       "lat": -17.44968,
       "lon": -149.82774,
-      "depth_m": 1156.0
+      "depth_m": 1166.0
     },
     {
       "dist_km": 5.0,
       "lat": -17.43187,
       "lon": -149.83036,
-      "depth_m": 1682.0
+      "depth_m": 1724.0
     },
     {
       "dist_km": 8.0,
       "lat": -17.40515,
       "lon": -149.83429,
-      "depth_m": 2167.0
+      "depth_m": 2140.0
     },
     {
       "dist_km": 12.0,
       "lat": -17.36953,
       "lon": -149.83954,
-      "depth_m": 2586.0
+      "depth_m": 2600.0
     },
     {
       "dist_km": 18.0,
       "lat": -17.3161,
       "lon": -149.8474,
-      "depth_m": 2663.0
+      "depth_m": 2652.0
     }
   ]
 }

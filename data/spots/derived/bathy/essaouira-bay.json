@@ -1,54 +1,54 @@
 {
   "spot": "essaouira-bay",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     31.501,
     -9.7665
   ],
   "bearing_seaward_deg": 271.0,
-  "nearshore_depth_m": 1.0,
-  "offshore_depth_m": 72.0,
-  "mean_slope_m_per_km": 4.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 75.0,
+  "mean_slope_m_per_km": 3.66,
   "land_samples": 1,
   "missing_samples": 0,
-  "non_monotone_samples": 0,
+  "non_monotone_samples": 1,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": 31.50104,
       "lon": -9.76914,
-      "depth_m": 1.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 0.5,
       "lat": 31.50108,
       "lon": -9.77177,
-      "depth_m": 3.0
+      "depth_m": 12.0
     },
     {
       "dist_km": 1.0,
       "lat": 31.50116,
       "lon": -9.77705,
-      "depth_m": 5.0
+      "depth_m": 13.0
     },
     {
       "dist_km": 2.0,
       "lat": 31.50131,
       "lon": -9.78759,
-      "depth_m": -2.0
+      "depth_m": -1.0
     },
     {
       "dist_km": 3.0,
       "lat": 31.50147,
       "lon": -9.79814,
-      "depth_m": 11.0
+      "depth_m": 22.0
     },
     {
       "dist_km": 5.0,
       "lat": 31.50177,
       "lon": -9.81923,
-      "depth_m": 29.0
+      "depth_m": 36.0
     },
     {
       "dist_km": 8.0,
@@ -60,13 +60,13 @@
       "dist_km": 12.0,
       "lat": 31.50282,
       "lon": -9.89305,
-      "depth_m": 47.0
+      "depth_m": 51.0
     },
     {
       "dist_km": 18.0,
       "lat": 31.50369,
       "lon": -9.95633,
-      "depth_m": 72.0
+      "depth_m": 75.0
     }
   ]
 }

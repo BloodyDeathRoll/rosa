@@ -1,72 +1,72 @@
 {
   "spot": "cottesloe",
-  "source": "gebco2020 via opentopodata",
+  "source": "gebco2024 via local grid",
   "origin": [
     -31.9957,
     115.751
   ],
   "bearing_seaward_deg": 222.0,
-  "nearshore_depth_m": -4.0,
-  "offshore_depth_m": 8.0,
-  "mean_slope_m_per_km": 0.68,
-  "land_samples": 1,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 21.0,
+  "mean_slope_m_per_km": 0.73,
+  "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 1,
-  "deepest_is_reference": false,
+  "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
       "lat": -31.99737,
       "lon": 115.74923,
-      "depth_m": -4.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 0.5,
       "lat": -31.99904,
       "lon": 115.74745,
-      "depth_m": 1.0
+      "depth_m": 8.0
     },
     {
       "dist_km": 1.0,
       "lat": -32.00238,
       "lon": 115.7439,
-      "depth_m": 1.0
+      "depth_m": 9.0
     },
     {
       "dist_km": 2.0,
       "lat": -32.00907,
       "lon": 115.73681,
-      "depth_m": 3.0
+      "depth_m": 10.0
     },
     {
       "dist_km": 3.0,
       "lat": -32.01575,
       "lon": 115.72971,
-      "depth_m": 5.0
+      "depth_m": 11.0
     },
     {
       "dist_km": 5.0,
       "lat": -32.02911,
       "lon": 115.71551,
-      "depth_m": 13.0
+      "depth_m": 17.0
     },
     {
       "dist_km": 8.0,
       "lat": -32.04915,
       "lon": 115.6942,
-      "depth_m": 13.0
+      "depth_m": 19.0
     },
     {
       "dist_km": 12.0,
       "lat": -32.07587,
       "lon": 115.66578,
-      "depth_m": 5.0
+      "depth_m": 6.0
     },
     {
       "dist_km": 18.0,
       "lat": -32.11593,
       "lon": 115.62311,
-      "depth_m": 8.0
+      "depth_m": 21.0
     }
   ]
 }
