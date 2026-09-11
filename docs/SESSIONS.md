@@ -829,3 +829,16 @@ mid-run; they resumed with nothing lost.
   same day; HOLD only when it needs OM quota or buoy weeks. Six days of "wants an A/B" for a
   twenty-minute A/B is what this session was about.
 - 613 tests, ruff clean. Committed and pushed; the next VM cycle is the smoke check.
+
+## SESSION 2026-09-11 (cont.) - the 08:20Z cycle died on the marine-light leg; made it non-fatal
+
+- **What broke:** `run --all` raised out of `blend.fetch_aux_many` at 09:49Z with
+  `[Errno 101] Network is unreachable` after three attempts on the Open-Meteo MARINE host.
+  Measured from all three Oracle VMs: TCP connects to `marine-api.open-meteo.com`'s IPv4
+  (152.53.84.37, netcup) fail in 5 ms with `EHOSTUNREACH` on ~40 % of tries, from Jerusalem
+  only (works from the workstation); `api.open-meteo.com`, NOMADS, ECMWF, Vercel all fine. The
+  same error saved-by-retry on Sep 3 and Sep 9. Oracle-side path issue, OPEN-ITEMS 32.
+- **Fix:** the marine-light body only backs up EOT20 tide and OISST SST, and `compose_raw`
+  already reads a missing hour as None, so a batch that fails all three attempts now warns and
+  hands its points `{}` instead of killing the cycle. 1 test. Weather stays essential.
+- Pushed and `publish.sh` re-run by hand on the VM to replace the 02:26Z publish.

@@ -404,3 +404,38 @@ def test_parse_gfs_full_stamps_the_cycle_it_is_given(point):
     assert sea.run == CYCLE
     [sea] = parse_gfs_full(grib, [point], CYCLE)
     assert sea.run is None
+
+
+def test_marine_light_outage_costs_its_batch_the_fallback_not_the_cycle(monkeypatch, capsys):
+    """2026-09-11: marine-api's IPv4 was unreachable from Oracle Jerusalem on ~40 % of
+    connects; three in a row killed a cycle after the archive and every GRIB download.
+    The leg only backs up EOT20 tide and OISST SST, so it degrades to an empty body."""
+    import httpx
+
+    from rosa_pipeline import blend as blend_mod
+
+    coords = [(32.0, 34.7), (32.5, 34.8)]
+
+    class _Resp:
+        def __init__(self, body):
+            self._body = body
+
+        def raise_for_status(self):
+            return self
+
+        def json(self):
+            return self._body
+
+    def fake_get(client, url, params, *, retry_429=False):
+        if url == blend_mod.WEATHER_URL:
+            return _Resp([{"hourly": {"time": []}} for _ in coords])
+        raise httpx.ConnectError("[Errno 113] No route to host")
+
+    monkeypatch.setattr(blend_mod, "retrying_get", fake_get)
+    out = blend_mod.fetch_aux_many(coords)
+    assert [m for _, m in out] == [{}, {}]
+    assert all("hourly" in w for w, _ in out)
+    assert "marine-light batch 1 skipped" in capsys.readouterr().err
+    # and compose_raw reads the empty body as "no OM tide / SST this hour", not a crash
+    raw = compose_raw([], [], out[0][0], out[0][1], "2026-09-11T10:00:00+00:00")
+    assert raw.marine["hourly"]["time"] == []

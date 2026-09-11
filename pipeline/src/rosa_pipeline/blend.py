@@ -37,6 +37,7 @@ from __future__ import annotations
 
 import json
 import math
+import sys
 import tempfile
 from collections.abc import Mapping
 from concurrent.futures import ThreadPoolExecutor
@@ -387,19 +388,35 @@ def fetch_aux_many(
                 retry_429=True,
             )
             wresp_ok = wresp.raise_for_status().json()
-            mresp = retrying_get(
-                client,
-                MARINE_URL,
-                {
-                    "latitude": lat_s,
-                    "longitude": lon_s,
-                    "hourly": ",".join(MARINE_LIGHT_FIELDS),
-                    "forecast_days": FORECAST_DAYS,
-                    "past_days": PAST_DAYS,
-                },
-                retry_429=True,
-            )
-            mresp_ok = mresp.raise_for_status().json()
+            # The marine-light leg is NOT essential any more: EOT20 owns the tide column
+            # (default since 2026-08-15) and OISST the SST (plan C2); this body is the
+            # per-hour fallback for both, and compose_raw reads a missing hour as None.
+            # So a batch that still fails after retrying_get's three attempts costs its
+            # points the fallback, never the cycle. 2026-09-11: Oracle Jerusalem ->
+            # marine-api's 152.53.84.37 answered EHOSTUNREACH on ~40 % of connects for
+            # days; three in a row killed the 08:20Z cycle AFTER the archive and every
+            # GRIB download, while the weather host next to it answered fine.
+            try:
+                mresp = retrying_get(
+                    client,
+                    MARINE_URL,
+                    {
+                        "latitude": lat_s,
+                        "longitude": lon_s,
+                        "hourly": ",".join(MARINE_LIGHT_FIELDS),
+                        "forecast_days": FORECAST_DAYS,
+                        "past_days": PAST_DAYS,
+                    },
+                    retry_429=True,
+                )
+                mresp_ok: object = mresp.raise_for_status().json()
+            except (httpx.TransportError, httpx.HTTPStatusError) as e:
+                print(
+                    f"warn: open-meteo marine-light batch {i // AUX_BATCH_SIZE + 1} skipped "
+                    f"({e!r}) - EOT20 tide and OISST SST stand alone at {len(batch)} point(s)",
+                    file=sys.stderr,
+                )
+                mresp_ok = [{} for _ in batch]
             wb = [wresp_ok] if isinstance(wresp_ok, dict) else list(wresp_ok)
             mb = [mresp_ok] if isinstance(mresp_ok, dict) else list(mresp_ok)
             if len(wb) != len(batch) or len(mb) != len(batch):
