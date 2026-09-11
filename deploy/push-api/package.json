@@ -7,6 +7,6 @@
     "test": "node --test test/admin.test.mjs"
   },
   "dependencies": {
-    "@vercel/blob": "^2.6.1"
+    "@vercel/blob": "^2.8.0"
   }
 }
