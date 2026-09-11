@@ -38,6 +38,7 @@ from __future__ import annotations
 import json
 import math
 import tempfile
+from collections.abc import Mapping
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
@@ -59,7 +60,7 @@ from .fetch import (
     fixture_key,
     retrying_get,
 )
-from .geo import dlon180
+from .geo import Seaward, nearest_wet
 from .gfswave import NEAREST_MAX_DEG as GFS_NEAREST_MAX_DEG
 from .gfswave import (
     Box,
@@ -190,11 +191,13 @@ def parse_gfs_full(
     points: list[tuple[float, float]],
     valid: datetime,
     run: datetime | None = None,
+    aims: Mapping[tuple[float, float], Seaward] | None = None,
 ) -> list[GfsSea | None]:
-    """Sample the full wave schema at each point's nearest wet node (one step's bytes)."""
-    import numpy as np
+    """Sample the full wave schema at each point's nearest wet node (one step's bytes).
+    ``aims`` (point -> seaward azimuth) prefers the seaward node - ``geo.nearest_wet``."""
     import pygrib
 
+    aims = aims or {}
     fields: dict[str, tuple] = {}
     counts: dict[str, int] = {}
     with tempfile.NamedTemporaryFile(suffix=".grib2") as tf:
@@ -220,14 +223,13 @@ def parse_gfs_full(
 
     out: list[GfsSea | None] = []
     for lat, lon in points:
+        aim = aims.get((lat, lon))
         lon360 = lon % 360.0
         got: dict[str, float] = {}
         for key, (vals, glats, glons) in fields.items():
-            d2 = (glats - lat) ** 2 + dlon180(np.mod(glons, 360.0), lon360) ** 2
-            if hasattr(vals, "mask") and vals.mask is not np.ma.nomask:
-                d2 = np.where(vals.mask, np.inf, d2)
-            idx = np.unravel_index(np.argmin(d2), d2.shape)
-            if d2[idx] > GFS_NEAREST_MAX_DEG**2:  # the archive arm's reach, never a copy
+            # the archive arm's reach and metric, never a copy
+            idx = nearest_wet(vals, glats, glons, lat, lon360, GFS_NEAREST_MAX_DEG, aim)
+            if idx is None:
                 continue
             got[key] = round(float(vals[idx]), 3)
         out.append(GfsSea(time=valid, fields=got, run=run) if "swh" in got else None)
@@ -248,10 +250,12 @@ class GfsFullSource:
         capture_dir: Path | None = None,
         steps: tuple[int, ...] = BLEND_STEPS,
         timeout_s: float = 60.0,
+        aims: Mapping[tuple[float, float], Seaward] | None = None,
     ) -> None:
         self.capture_dir = capture_dir
         self.steps = steps
         self.timeout_s = timeout_s
+        self.aims = aims  # point -> seaward azimuth (Spot.shore_normal)
 
     def fetch_series(self, points: list[tuple[float, float]]) -> list[list[GfsSea]]:
         series: list[list[GfsSea]] = [[] for _ in points]
@@ -292,7 +296,9 @@ class GfsFullSource:
                         )
                     valid = run + timedelta(hours=step)
                     for i, sea in zip(
-                        members, parse_gfs_full(data, pts, valid, run=run), strict=True
+                        members,
+                        parse_gfs_full(data, pts, valid, run=run, aims=self.aims),
+                        strict=True,
                     ):
                         if sea is not None:
                             series[i].append(sea)
@@ -311,9 +317,15 @@ class GfsFullSource:
 class GfsFullFixtureSource:
     """Replay captured full-schema gribs; ``valid`` stamped from a fixed cycle."""
 
-    def __init__(self, fixtures_dir: Path, cycle: datetime | None = None) -> None:
+    def __init__(
+        self,
+        fixtures_dir: Path,
+        cycle: datetime | None = None,
+        aims: Mapping[tuple[float, float], Seaward] | None = None,
+    ) -> None:
         self.fixtures_dir = fixtures_dir
         self.cycle = cycle or datetime(2026, 8, 14, 0, tzinfo=UTC)
+        self.aims = aims
 
     def fetch_series(self, points: list[tuple[float, float]]) -> list[list[GfsSea]]:
         series: list[list[GfsSea]] = [[] for _ in points]
@@ -323,7 +335,9 @@ class GfsFullFixtureSource:
                 valid = self.cycle + timedelta(hours=step)
                 pts = [points[i] for i in members]
                 for i, sea in zip(
-                    members, parse_gfs_full(path.read_bytes(), pts, valid), strict=True
+                    members,
+                    parse_gfs_full(path.read_bytes(), pts, valid, aims=self.aims),
+                    strict=True,
                 ):
                     if sea is not None:
                         series[i].append(sea)

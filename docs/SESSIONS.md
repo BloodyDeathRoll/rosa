@@ -806,3 +806,26 @@ mid-run; they resumed with nothing lost.
   re-aimed to 275 and `lebih` to 184, the two rays the 2026-09-09 entry was waiting on. All 1947
   profiles re-cut and 601 tests pass. The height impact carries over from the 2026-09-09 A/B
   (mean -0.009 m); the first VM cycle is the smoke check. See CALIBRATION.md 2026-09-11.
+
+## SESSION 2026-09-11 (cont.) - Dream 09-05 sampler finding: fixed, once, with its A/B
+
+- **The held finding is closed (OPEN-ITEMS 27).** The three GRIB wave samplers now share
+  `geo.nearest_wet`: ground distance (lon scaled by cos lat, the reviewer's fix) plus the
+  spot's shoreline plane from `shore_normal` - a wet node more than 5.5 km behind the pin is
+  on the other side of land and loses to the nearest node that is not. `Seaward(pin, azimuth)`
+  is passed per point from `run`; the buoy archive passes none.
+- **The A/B was run here, on real fields, before deciding** (`tools/ab-nodes/`, new): one
+  global swh field per model, the shipped parsers under two `PYTHONPATH`s, all 1947 spots.
+  It showed the reviewer's own fix was not enough - nearest-by-distance put point-lonsdale and
+  ocean-grove inside Port Phillip Bay - and that the strict half-plane over-corrects (175 / 250
+  spots, mostly the coast cell traded for the next one out). Shipped: 73 / 79 spots move,
+  0 refusals either way. Numbers in `docs/CALIBRATION.md` 2026-09-11.
+- **Known limit, recorded not hidden:** a half-plane is not line-of-sight. `ocean-grove` still
+  reads the bay across the Heads (it is "in front" of a S-facing plane); the fix is its
+  `offshore_km`, owed as a spot-DB follow-up, with `anchor` (normal 160 beside devil-s-rock's
+  255) and `le-morne` (normal 0) as normals to re-check.
+- **Mode of operating, written down** (CALIBRATION method rules + memory + Dream playbook):
+  a pb_0049-gated finding whose inputs are reachable from the workstation gets its A/B the
+  same day; HOLD only when it needs OM quota or buoy weeks. Six days of "wants an A/B" for a
+  twenty-minute A/B is what this session was about.
+- 613 tests, ruff clean. Committed and pushed; the next VM cycle is the smoke check.

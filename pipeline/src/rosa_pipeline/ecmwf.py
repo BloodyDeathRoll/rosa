@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import json
 import tempfile
+from collections.abc import Mapping
 from concurrent.futures import ThreadPoolExecutor
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
@@ -27,7 +28,7 @@ from typing import Protocol
 
 import httpx
 
-from .geo import dlon180
+from .geo import Seaward, lon_scale, nearest_wet
 from .models import SpectralSea
 
 BASE_URL = "https://data.ecmwf.int/forecasts"
@@ -114,8 +115,11 @@ def coalesce(spans: list[tuple[int, int]], max_gap: int = RANGE_GAP_MAX) -> list
     return ranges
 
 
-def _nearest_wet(vals, lats, lons, lat: float, lon: float) -> float | None:
-    """Value at the nearest unmasked node within NEAREST_MAX_DEG, else None.
+def _nearest_wet(
+    vals, lats, lons, lat: float, lon: float, aim: float | None = None
+) -> float | None:
+    """Value at the nearest (seaward, if ``aim``) unmasked node within NEAREST_MAX_DEG,
+    else None. The metric itself is ``geo.nearest_wet``, shared with the GFS samplers.
 
     The grid is regular global 0.25 deg, so we search a small window around the direct
     index instead of scanning 1M nodes per (message, point) - this runs 41 steps x 11
@@ -125,21 +129,23 @@ def _nearest_wet(vals, lats, lons, lat: float, lon: float) -> float | None:
     lon = ((lon + 180.0) % 360.0) - 180.0  # grid longitudes run -180..179.75
     # the full-scan fallback below keeps the seam SAFE (nothing is clipped), but the
     # distance must still wrap or a cell one step across the date line measures ~360 deg
-    r = int(NEAREST_MAX_DEG / GRID_STEP_DEG) + 1
+    #
+    # NEAREST_MAX_DEG is a distance, so the lon window is widened by the same
+    # geo.lon_scale the metric applies: widening one without the other would leave the
+    # reach clipped at the old cos-free radius.
+    r_lat = int(NEAREST_MAX_DEG / GRID_STEP_DEG) + 1
+    r = int(NEAREST_MAX_DEG / (GRID_STEP_DEG * lon_scale(lat))) + 1
     i0 = int(np.argmin(np.abs(lats[:, 0] - lat)))
     j0 = int(np.argmin(np.abs(lons[0, :] - lon)))
     n_i, n_j = vals.shape
     if j0 - r < 0 or j0 + r + 1 > n_j:
         i_sl, j_sl = slice(0, n_i), slice(0, n_j)  # date-line seam - fall back to full scan
     else:
-        i_sl = slice(max(0, i0 - r), min(n_i, i0 + r + 1))
+        i_sl = slice(max(0, i0 - r_lat), min(n_i, i0 + r_lat + 1))
         j_sl = slice(j0 - r, j0 + r + 1)
     v = vals[i_sl, j_sl]
-    d2 = (lats[i_sl, j_sl] - lat) ** 2 + dlon180(lons[i_sl, j_sl], lon) ** 2
-    if hasattr(v, "mask") and v.mask is not np.ma.nomask:
-        d2 = np.where(v.mask, np.inf, d2)
-    idx = np.unravel_index(np.argmin(d2), d2.shape)
-    if d2[idx] > NEAREST_MAX_DEG**2:
+    idx = nearest_wet(v, lats[i_sl, j_sl], lons[i_sl, j_sl], lat, lon, NEAREST_MAX_DEG, aim)
+    if idx is None:
         return None
     return round(float(v[idx]), 3)  # strip float32 noise for JSON
 
@@ -150,14 +156,18 @@ def parse_grib_points(
     valid: datetime,
     params: tuple[str, ...] = DEFAULT_PARAMS,
     run: datetime | None = None,
+    aims: Mapping[tuple[float, float], Seaward] | None = None,
 ) -> list[SpectralSea | None]:
     """Sample every wanted message at each point's nearest wet node.
 
-    A param absent from the bytes (or with no wet node in reach) is simply None for that
-    point; a point with NO sampled params at all returns None. Messages are sampled one at
-    a time so the 1 GB VM never holds all 11 global fields at once."""
+    ``aims`` maps a point to its seaward azimuth (``Spot.shore_normal``); a point with one
+    prefers the nearest wet node on its seaward side (see ``geo.nearest_wet``). Buoys have
+    none. A param absent from the bytes (or with no wet node in reach) is simply None for
+    that point; a point with NO sampled params at all returns None. Messages are sampled
+    one at a time so the 1 GB VM never holds all 11 global fields at once."""
     import pygrib
 
+    aims = aims or {}
     vals_by_point: list[dict[str, float]] = [{} for _ in points]
     with tempfile.NamedTemporaryFile(suffix=".grib2") as tf:
         tf.write(grib_bytes)
@@ -172,7 +182,7 @@ def parse_grib_points(
             vals = m.values
             lats, lons = m.latlons()
             for pi, (lat, lon) in enumerate(points):
-                v = _nearest_wet(vals, lats, lons, lat, lon)
+                v = _nearest_wet(vals, lats, lons, lat, lon, aims.get((lat, lon)))
                 if v is not None:
                     vals_by_point[pi][name] = v
         grbs.close()
@@ -213,11 +223,13 @@ class EcmwfSource:
         params: tuple[str, ...] = DEFAULT_PARAMS,
         steps: tuple[int, ...] = DEFAULT_STEPS,
         timeout_s: float = 120.0,
+        aims: Mapping[tuple[float, float], Seaward] | None = None,
     ) -> None:
         self.capture_dir = capture_dir
         self.params = params
         self.steps = steps
         self.timeout_s = timeout_s
+        self.aims = aims  # point -> seaward azimuth; None on the buoy (archive) arm
 
     def fetch_series(self, points: list[tuple[float, float]]) -> list[list[SpectralSea]]:
         series: list[list[SpectralSea]] = [[] for _ in points]
@@ -264,7 +276,9 @@ class EcmwfSource:
             self.capture_dir.mkdir(parents=True, exist_ok=True)
             (self.capture_dir / f"ecmwf_f{step:03d}.grib2").write_bytes(data)
         valid = cycle + timedelta(hours=step)
-        for i, sp in enumerate(parse_grib_points(data, points, valid, self.params, run=cycle)):
+        for i, sp in enumerate(
+            parse_grib_points(data, points, valid, self.params, run=cycle, aims=self.aims)
+        ):
             if sp is not None:
                 series[i].append(sp)
 
@@ -296,10 +310,12 @@ class EcmwfFixtureSource:
         fixtures_dir: Path,
         cycle: datetime | None = None,
         params: tuple[str, ...] = DEFAULT_PARAMS,
+        aims: Mapping[tuple[float, float], Seaward] | None = None,
     ) -> None:
         self.fixtures_dir = fixtures_dir
         self.cycle = cycle or datetime(2026, 7, 22, 0, tzinfo=UTC)
         self.params = params
+        self.aims = aims
 
     def fetch_series(self, points: list[tuple[float, float]]) -> list[list[SpectralSea]]:
         series: list[list[SpectralSea]] = [[] for _ in points]
@@ -307,7 +323,9 @@ class EcmwfFixtureSource:
             step = int(path.name.split("_f")[1][:3])
             valid = self.cycle + timedelta(hours=step)
             data = path.read_bytes()
-            for i, sp in enumerate(parse_grib_points(data, points, valid, self.params)):
+            for i, sp in enumerate(
+                parse_grib_points(data, points, valid, self.params, aims=self.aims)
+            ):
                 if sp is not None:
                     series[i].append(sp)
         return series

@@ -56,6 +56,7 @@ from .fetch import (
     fetch_marine_waves_many,
     fetch_wind_many,
 )
+from .geo import Seaward
 from .gfswave import GFSWaveFixtureSource, GFSWaveSource
 from .models import Spot
 from .observe import (
@@ -657,6 +658,14 @@ def _cmd_run(args: argparse.Namespace) -> int:
     # full run fetches them all in a single batched request (fetch_many) - no throttling.
     groups = group_by_point(targets)
     points = list(groups)
+    # each point's shore: the GRIB samplers prefer the wet node on the spot's sea side
+    # over a nearer one behind a headland or inside a bay (geo.nearest_wet,
+    # CALIBRATION.md 2026-09-11). Spots sharing a point share the first one's shore, as
+    # they share its tide constants below.
+    aims = {
+        point: Seaward(group[0].lat, group[0].lon, group[0].shore_normal)
+        for point, group in groups.items()
+    }
 
     # Daily-quota guard (rosa_pipeline.quota), live path only - a fixture replay costs
     # nothing and has to stay runnable on a spent day. This sits ahead of EVERY fetch,
@@ -691,9 +700,9 @@ def _cmd_run(args: argparse.Namespace) -> int:
     spectral_series = [[] for _ in points]
     ecmwf_src: EcmwfWaves | None = None
     if args.ecmwf_fixtures is not None:
-        ecmwf_src = EcmwfFixtureSource(args.ecmwf_fixtures)
+        ecmwf_src = EcmwfFixtureSource(args.ecmwf_fixtures, aims=aims)
     elif args.fixtures is None:
-        ecmwf_src = EcmwfSource(capture_dir=args.capture)
+        ecmwf_src = EcmwfSource(capture_dir=args.capture, aims=aims)
     if ecmwf_src is not None:
         try:
             spectral_series = ecmwf_src.fetch_series(points)
@@ -714,14 +723,14 @@ def _cmd_run(args: argparse.Namespace) -> int:
 
         if args.fixtures is not None:
             blend_src = BlendedSource(
-                gfs=GfsFullFixtureSource(args.fixtures),
+                gfs=GfsFullFixtureSource(args.fixtures, aims=aims),
                 aux=lambda coords: fixture_aux_many(coords, args.fixtures),
                 sst=OisstFixtureSource(args.fixtures),
                 tp=GwamFixtureSource(args.fixtures),
             )
         else:
             blend_src = BlendedSource(
-                gfs=GfsFullSource(capture_dir=args.capture),
+                gfs=GfsFullSource(capture_dir=args.capture, aims=aims),
                 aux=lambda coords: fetch_aux_many(coords, capture_dir=args.capture),
                 sst=OisstSource(capture_dir=args.capture),
                 tp=GwamSource(capture_dir=args.capture),

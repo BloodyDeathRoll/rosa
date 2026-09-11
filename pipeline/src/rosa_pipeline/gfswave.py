@@ -21,6 +21,7 @@ per-point) and sequential.
 from __future__ import annotations
 
 import tempfile
+from collections.abc import Mapping
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
@@ -30,7 +31,7 @@ from urllib.parse import quote
 
 import httpx
 
-from .geo import dlon180, lon360
+from .geo import Seaward, dlon180, lon360, nearest_wet
 from .verify import WavePoint
 
 FILTER_URL = "https://nomads.ncep.noaa.gov/cgi-bin/filter_gfswave.pl"
@@ -155,14 +156,20 @@ def _is_grib(data: bytes) -> bool:
 
 
 def parse_grib_points(
-    grib_bytes: bytes, points: list[tuple[float, float]], valid: datetime
+    grib_bytes: bytes,
+    points: list[tuple[float, float]],
+    valid: datetime,
+    aims: Mapping[tuple[float, float], Seaward] | None = None,
 ) -> list[WavePoint | None]:
     """Extract (hs=swh, tp=perpw, dir=dirpw, ws, wdir) at the nearest wet grid node of each point.
 
     Returns one WavePoint (or None if no wet node within NEAREST_MAX_DEG) per input point.
-    pygrib wants a file path, so the bytes hit a temp file briefly."""
-    import numpy as np
+    ``aims`` (point -> seaward azimuth) prefers the seaward node, see ``geo.nearest_wet``;
+    the archive arm samples buoys and passes none. pygrib wants a file path, so the bytes
+    hit a temp file briefly."""
     import pygrib
+
+    aims = aims or {}
 
     with tempfile.NamedTemporaryFile(suffix=".grib2") as tf:
         tf.write(grib_bytes)
@@ -178,6 +185,7 @@ def parse_grib_points(
 
     out: list[WavePoint | None] = []
     for lat, lon in points:
+        aim = aims.get((lat, lon))
         lon = _lon360(lon)
         vals_by_name: dict[str, float | None] = {}
         ok = True
@@ -186,11 +194,8 @@ def parse_grib_points(
                 vals_by_name[name] = None
                 continue
             vals, glats, glons = fields[name]
-            d2 = (glats - lat) ** 2 + dlon180(np.mod(glons, 360.0), lon) ** 2
-            if hasattr(vals, "mask") and vals.mask is not np.ma.nomask:
-                d2 = np.where(vals.mask, np.inf, d2)
-            idx = np.unravel_index(np.argmin(d2), d2.shape)
-            if d2[idx] > NEAREST_MAX_DEG**2:
+            idx = nearest_wet(vals, glats, glons, lat, lon, NEAREST_MAX_DEG, aim)
+            if idx is None:
                 ok = False
                 break
             vals_by_name[name] = round(float(vals[idx]), 3)  # strip float32 noise for JSONL

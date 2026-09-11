@@ -14,6 +14,7 @@ accumulated evidence, never a single session.
 - **Hs bias tracks the instrument, not the basin** — discus buoys read the model hot, CDIP Waveriders cold; 51201 vs 51202/51205 are the same ocean with opposite signs. No global de-bias is defensible; keep station classes apart.
 - **Match on direction and period, never partition slot index** — partition order is not comparable across providers.
 - **Partition direction wander is CLOSED — do not build temporal smoothing.** The transform is order-independent. If ever revisited: partition *tracking* for display order only, never a filter on the directions the physics consumes.
+- **A pb_0049-gated finding whose inputs are reachable from the workstation gets its same-input A/B run the same day, not a HOLD** (2026-09-11). The GRIB path (one global field per model, `tools/ab-nodes/`), the committed depth profiles (`tools/bathy-ab/`) and the tide constants cost no Open-Meteo quota; the shipped samplers or physics run on both arms under two `PYTHONPATH`s and the numbers decide apply / reject, recorded here. HOLD is only for an A/B that needs the marine quota or weeks of buoy accrual. The 2026-09-05 sampler finding sat HELD for six days on an A/B that took twenty minutes.
 
 ## Scope & honesty (read first)
 **This calibration is Israel/Med-only, not global - do not claim otherwise.** The numeric
@@ -2947,3 +2948,74 @@ after the push is the smoke check (per the pipeline-change rule, verify from the
 
 `bathy_elevations.json` is an OpenTopoData capture for `bathy --fixtures` replay. It no longer
 matches the committed profiles, and nothing on the publish path reads it.
+
+## 2026-09-11 - Which grid node a spot reads: ground distance + the shoreline plane (Dream 09-05, the pb_0049 A/B)
+
+**What was found (Dream, 2026-09-05, HELD since 09-06 as OPEN-ITEMS 27).** `ecmwf._nearest_wet`,
+`gfswave.parse_grib_points` and `blend.parse_gfs_full` ranked candidate wet nodes in raw
+degrees, so a lon degree counted as a lat degree; `oisst`, `gwam` and `tide` already scaled it
+by cos(lat). Two claimed effects: the wrong node where the mask forces a lat-offset vs
+lon-offset choice, and a `NEAREST_MAX_DEG` reach cos(lat) too short east-west, refusing a node
+inside the documented radius (which on the blend arm drops the whole point). The reviewer could
+not measure either - no grids in its sandbox - and quoted exposure by cos(lat) instead: error
+>10% at 897 of 1406 spots.
+
+**The A/B, run here the same day (`tools/ab-nodes/`).** One global significant-height field
+per model (GFS-Wave 2026-09-11 00z, ECMWF 2026-09-10 12z, <1 MB each, no Open-Meteo quota),
+the SHIPPED parsers under two `PYTHONPATH`s (base `df1d72e` in a worktree vs the candidate),
+every one of the 1947 spots' offshore points. Node choice depends on the land mask and the
+metric, not the weather, so one step settles which spots move; the height delta is that
+step's.
+
+| variant vs base | GFS / blend | ECMWF | refused |
+|---|---|---|---|
+| cos(lat) metric only (the reviewer's diff) | 42 spots move, median |d| 0.15 m, 18 > 0.25 m | 34 move, 13 > 0.25 m | 0 -> 0 |
+| + strict shoreline half-plane at the pin | 199 move, median +0.13 m | 268 move, median +0.20 m | 0 -> 0 |
+| + half-plane with 5.5 km tolerance (**shipped**) | 73 move, median +0.13 m, 32 > 0.25 m | 79 move, median +0.17 m, 42 > 0.25 m | 0 -> 0 |
+
+**Nobody was ever refused.** 0 of 1947 points lack a wet node in reach before or after, so the
+finding's "whole point dropped" arm is theoretical for this fleet. The real effect is which
+node, at ~2% of spots.
+
+**Distance was the wrong primitive.** The cos-only fix is correct about distance and moved
+point-lonsdale and ocean-grove from Bass Strait (1.70 / 2.94 m, GFS / ECMWF) to their truly
+nearest node 12 km inside Port Phillip Bay (0.75 / 0.61 m), ilot-sancho from the south coast
+of Mauritius to the west, clallam-bay into the strait. At 0.25 deg a wrong-side-of-land node is
+a bigger error than a wrong-metric node. So the shared `geo.nearest_wet` also takes the spot's
+shore - the pin and `shore_normal`, which every spot already has - and a node more than
+`SEAWARD_TOL_DEG` = 0.05 deg (~5.5 km) behind the shoreline plane through the pin is on the
+other side of land: the nearest node that is not wins, and only when none is in reach does
+plain nearest stand in. The plane is drawn at the PIN, not at the offshore sample point, so a
+node between the two stays eligible. Buoys pass no shore.
+
+**Why the tolerance, measured.** With tolerance 0 the rule moved 175 / 250 further spots over
+the cos-only arm, and only 41 / 55 of those had their old node clearly behind the pin (> 5.5 km:
+Port Phillip -0.09 deg, Peconic Bay -0.07, the Bocas lagoon -0.06, Mussage -0.08). The other
+134 / 195 were the coast cell itself - its centre 1-3 km behind the pin's plane because the
+coast runs through it - traded for the next cell out, median +0.13 / +0.20 m: a fleet-wide
+tune toward open water, not the bay fix, and pb_0049 says that waits for evidence. The
+tolerance keeps the coast cell (coogee's -0.010, butlers-beach -0.023) and evicts the bay
+(portsea 0.75 -> 1.86 / 0.61 -> 3.02, georgica-beach 0.66 -> 1.83 ECMWF, black-rock-carenero
+0.36 -> 2.42 ECMWF, mussage 0.55 -> 1.68 ECMWF). The strict variant is one constant away and
+the tool re-runs it in minutes if buoys ever say the coast cell reads low.
+
+**What it does not fix, on purpose.** A half-plane is not line-of-sight. ocean-grove faces
+161 and its truly nearest node is due east, inside the bay across the Heads, so it still
+moves 1.70 -> 0.75 m; the remedy is that spot's `offshore_km` (push the sample point south
+of the Heads), not a grid rule - owed as a spot-DB follow-up. Two normals looked wrong in the
+movers' list and should be re-checked the same way: anchor (160, beside devil-s-rock's 255 at
+Taghazout) and le-morne (0). goats-beach's ECMWF pick is another 0.36 m bay cell east of it,
+admitted at +0.026 - the tolerance cuts both ways.
+
+**Direction of the shipped change.** Median +0.13 / +0.17 m over the moved spots, because
+a bay or lagoon node is replaced by open water; that is the intended direction - the physics
+already takes shelter from `swell_window` and the depth ray, so a sheltered model node
+double-counted it. Not scorable against truth today: 11 moved points sit 20-30 km from
+Leixoes and 46042, so the archive's next weeks can say whether the sign holds there.
+
+**Applied 2026-09-11.** `geo.lon_scale`, `geo.Seaward`, `geo.nearest_wet`; `run` passes a
+`Seaward` per point to `EcmwfSource`, `GfsFullSource` and their fixture twins; the archive
+arm is unchanged. 12 tests in `test_nearest_wet.py` (the reviewer's four cases through the
+real `ecmwf._nearest_wet`, the Port Phillip shape, the coast-cell tolerance, the pin-vs-sample
+plane, the buoy no-shore case). 613 passed, no existing test edited. The first VM cycle after
+the push is the smoke check.
