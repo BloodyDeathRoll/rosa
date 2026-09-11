@@ -397,11 +397,13 @@ def is_push_endpoint(endpoint: object) -> bool:
 
     if not isinstance(endpoint, str):
         return False
+    # .port is lazy and raises on a malformed port ("x:abc", "x:999999"): inside
+    # the try, so a bad pre-allowlist record is dropped, not a crashed send
     try:
         u = urlsplit(endpoint)
+        if u.scheme != "https" or u.username or u.password or u.port or not u.hostname:
+            return False
     except ValueError:
-        return False
-    if u.scheme != "https" or u.username or u.password or u.port or not u.hostname:
         return False
     host = u.hostname.lower()
     return host in PUSH_HOSTS or host.endswith(PUSH_HOST_SUFFIXES)
