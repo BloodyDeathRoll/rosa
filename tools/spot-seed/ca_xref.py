@@ -33,6 +33,15 @@ def norm(s):
 
 STOP = {"beach", "state", "park", "pier", "surf", "break", "the", "st", "street", "county",
         "california", "oregon", "washington", "wa", "reef", "point", "cove", "creek", "harbor", "jetty", "bay"}
+# "beach" and its articles in the languages the fleet seeds in. Without them "Playa de X"
+# matched every OSM "Playa de Y" within 1.5 km, and 35 Spanish pins jumped to the
+# neighbouring beach on 2026-09-10 (Valdearenas -> Canallave, Meron -> El Tostadero).
+STOP |= {
+    "playa", "playas", "praia", "praias", "plage", "plages", "spiaggia", "platja", "hondartza",
+    "paralia", "plaji", "cala", "calo", "de", "del", "da", "do", "dos", "das", "di", "du", "des",
+    "d", "la", "las", "los", "el", "le", "les", "l", "lo", "o", "os", "a", "as", "y", "e", "et",
+    "al",
+}
 
 
 def toks(s):

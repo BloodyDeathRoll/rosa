@@ -16,6 +16,7 @@ import argparse
 import json
 import os
 import shutil
+import socket
 import subprocess
 import sys
 import tempfile
@@ -56,8 +57,18 @@ def _wait_cdp(port, timeout=25):
     raise RuntimeError("Chrome CDP endpoint did not come up")
 
 
-def render_tiles(spots, out_dir, zoom=16, http_port=4180, cdp_port=9230):
-    """spots: list[{id,name,lat,lon}] -> writes <out_dir>/<id>.png per spot."""
+def _free_port():
+    with socket.socket() as s:
+        s.bind(("127.0.0.1", 0))
+        return s.getsockname()[1]
+
+
+def render_tiles(spots, out_dir, zoom=16, http_port=None, cdp_port=None):
+    """spots: list[{id,name,lat,lon}] -> writes <out_dir>/<id>.png per spot.
+    Ports default to free ones, so parallel runs never share a server or a Chrome (the
+    fixed 4180/9230 made seven forks' renders kill each other on 2026-09-10)."""
+    http_port = http_port or _free_port()
+    cdp_port = cdp_port or _free_port()
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
     sj = out_dir / "spots.json"

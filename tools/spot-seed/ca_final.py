@@ -70,7 +70,10 @@ for sid, v in j.items():
     if od is None:
         print(f"warn: {sid}: no coastline candidate within reach - skipped")
         continue
-    out_id = re.sub(r"[^a-z0-9]+", "-", title(name).lower()).strip("-") if v.get("rename") else sid
+    # fold accents BEFORE the slug regex, or every accented letter becomes a hyphen
+    # (2026-09-11: "Capao" shipped as cap-o-da-canoa, "Sao Jose" as s-o-jos across Brazil)
+    folded = unicodedata.normalize("NFKD", title(name)).encode("ascii", "ignore").decode()
+    out_id = re.sub(r"[^a-z0-9]+", "-", folded.lower()).strip("-") if v.get("rename") else sid
     final.append({"id": out_id, "name": title(name), "lat": round(lat, 4), "lon": round(lon, 4),
                   "offshore_direction": od[1], "coast_km": round(od[0], 2),
                   "src": "websearch-seeded", "conf": v.get("conf", 0.7)})
