@@ -14,7 +14,10 @@ const env = Object.fromEntries(
     .filter(Boolean)
     .map((m) => [m[1], m[2].trim()]),
 );
-const origin = (k) => new URL(env[k]).origin;
+const origin = (k) => {
+  if (!env[k]) throw new Error(`csp: ${k} is missing from .env.production`);
+  return new URL(env[k]).origin;
+};
 
 const html = readFileSync("dist/index.html", "utf8");
 const hashes = [...html.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g)].map(

@@ -19,6 +19,7 @@ async function rawBody(req) {
 
 export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).end();
+  if (Number(req.headers?.["content-length"] ?? 0) > MAX_BYTES) return res.status(413).end();
   // Vercel parses JSON bodies; application/csp-report arrives as a string or Buffer
   let body = req.body ?? (await rawBody(req));
   if (Buffer.isBuffer(body)) body = body.toString("utf8");
@@ -30,6 +31,8 @@ export default async function handler(req, res) {
       return res.status(400).end();
     }
   }
+  // a chunked request has no content-length, and Vercel may already have parsed it
+  if (JSON.stringify(body ?? null).length > MAX_BYTES) return res.status(413).end();
   const r = body?.["csp-report"];
   if (!r || typeof r !== "object") return res.status(400).end();
   console.log(
