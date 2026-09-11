@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "scripts": {
+    "test": "node --test test/admin.test.mjs"
+  },
   "dependencies": {
     "@vercel/blob": "^2.6.1"
   }
