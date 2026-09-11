@@ -161,7 +161,7 @@ want to run verification off-box:
 
 ```bash
 rsync -avz -e "ssh -i ~/.config/rosa/ssh-key-2026-07-23.key" \
-  ubuntu@82.70.218.149:~/rosa/data/verify/ data/verify/
+  ubuntu@82.70.253.255:~/rosa/data/verify/ data/verify/
 ```
 
 The pipeline `bathy` and `horizon` commands do **not** need the GEBCO download - they use the
@@ -171,7 +171,8 @@ OpenTopoData API.
 
 ## 6. What still only runs on the VM
 
-Cloning does not move the schedule. The Oracle VM `rosa-instance` (82.70.218.149) remains the only
+Cloning does not move the schedule. The Oracle VM `rosa-arm` (82.70.253.255, "the box" - see
+`deploy/oracle/README.md`; `rosa-instance` is the idle spare since 2026-08-30) is the only
 thing that publishes: cron 4x/day at 02:20/08:20/14:20/20:20 UTC runs
 `deploy/oracle/publish.sh` (git pull -> buoy archive -> `run --all` -> swellmap -> prebuilt Vercel
 deploy to `rosa-data` -> push notify).
@@ -181,7 +182,7 @@ the VM**. It pulls `main` at the start of each cycle, so pushing code is how cha
 
 ```bash
 # check the last cycles from anywhere with the ssh key
-ssh -i ~/.config/rosa/ssh-key-2026-07-23.key ubuntu@82.70.218.149 \
+ssh -i ~/.config/rosa/ssh-key-2026-07-23.key ubuntu@82.70.253.255 \
   'grep -nE "^=== |FAILED at:|warn:" ~/rosa/publish.log | tail -8'
 ```
 

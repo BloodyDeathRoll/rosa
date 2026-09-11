@@ -842,3 +842,31 @@ mid-run; they resumed with nothing lost.
   already reads a missing hour as None, so a batch that fails all three attempts now warns and
   hands its points `{}` instead of killing the cycle. 1 test. Weather stays essential.
 - Pushed and `publish.sh` re-run by hand on the VM to replace the 02:26Z publish.
+
+## SESSION 2026-09-11 (evening) - the 2026-09-11 security audit, applied
+
+- **Findings, merged and deployed:** ROSA-002 (#1) - `/api/sub` stored any `https://` URL and
+  the box POSTed a VAPID-signed request to each; both ends now take only the browsers' push
+  services. The review caught a real bug in the Python mirror (`SplitResult.port` raises on
+  `:abc` outside the `try`, so one bad stored record would have stopped every push); fixed
+  with regression tests. rosa-push redeployed; a live POST of a private-IP endpoint gets 400.
+  ROSA-001 (#2) - maplibre-gl 6.9.0 and cryptography 50.0.1. **MapLibre 6 broke the map
+  silently**: it is ESM-only and resolves its worker beside its own module at runtime, a file
+  Vite never copies, so the worker 404'd and the map drew nothing. `web/src/maplibre.ts`
+  hands it a Vite-bundled worker via `setWorkerUrl` (a ~147 KB gz lazy chunk). ROSA-003 (#3)
+  - nosniff / frame / referrer / permissions headers. Web deployed and checked live: Map and
+  Charts in both themes, headers on the page, `sw.js` and the worker, SW registers.
+- **Keys out of the repo (#4):** `web/.oracle/` -> `~/.config/rosa/` (0700). The local
+  agent's `ssh:*` / `scp:*` allow rules narrowed to that key and the box.
+- **Claude GitHub app (#5):** `@claude` comments and an automatic review on every PR.
+- **Proposals, open as PRs:** constant-time admin compare in push-api (#6); a Workers rate
+  limit on `POST /auth/google`, 10/min/IP (#7); a report-only CSP generated at
+  `prepare-output` with hashes from the built `index.html`, reports to push-api `/api/csp`
+  (#8 - 0 violations across five pages in headless Chrome, a control run with `img-src 'none'`
+  proved the check); PR checks for all four packages plus Dependabot with a 7-day cooldown
+  (#9 - green in a clean clone and on GitHub); `SECURITY.md` (#10). The proposed rename of
+  `web/.env.production` was not done - Vite loads it by that name and `csp.mjs` reads it; it
+  got a header comment instead. The push-api WAF rule is staged in log mode (OPEN-ITEMS 33).
+- **Working rule learned:** Claude Code's auto mode refuses `gh pr merge` and production
+  deploys even when asked; the maintainer merges and runs `npm run deploy` by hand.
+- The VM's first cycle with the sender fix and cryptography 50 is 20:20Z; its check is pending.
