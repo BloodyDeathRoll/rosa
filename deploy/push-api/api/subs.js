@@ -6,10 +6,10 @@
 
 import { del, get, list } from "@vercel/blob";
 import { createHash } from "node:crypto";
+import { adminOk } from "./_admin.js";
 
 export default async function handler(req, res) {
-  const secret = process.env.PUSH_ADMIN_SECRET;
-  if (!secret || req.headers["x-admin-secret"] !== secret) {
+  if (!adminOk(req)) {
     return res.status(401).json({ error: "auth" });
   }
 

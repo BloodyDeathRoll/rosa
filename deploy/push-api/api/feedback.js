@@ -8,6 +8,7 @@
 
 import { del, get, list, put } from "@vercel/blob";
 import { randomUUID } from "node:crypto";
+import { adminOk } from "./_admin.js";
 
 const ALLOWED_ORIGINS = new Set([
   "https://rosa.surf",
@@ -65,8 +66,7 @@ export default async function handler(req, res) {
   }
 
   // admin surface below - server-to-server only
-  const secret = process.env.PUSH_ADMIN_SECRET;
-  if (!secret || req.headers["x-admin-secret"] !== secret) {
+  if (!adminOk(req)) {
     return res.status(401).json({ error: "auth" });
   }
 
