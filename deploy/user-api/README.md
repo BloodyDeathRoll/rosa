@@ -123,10 +123,16 @@ dashboard (Storage & Databases > D1 > rosa-users) shows the row count as a cross
 
 `npm test` - `node --test`, no dependencies: the Google verifier (good token; expired,
 wrong audience, wrong issuer, unverified email, unknown kid, forged signature, tampered
-payload, `alg=none`) and the session HMAC (round-trip, expiry, tamper, wrong secret).
+payload, `alg=none`), the session HMAC (round-trip, expiry, tamper, wrong secret), and the
+sign-in rate limit against a fake binding (per-IP budget, missing IP header, no binding).
 
 ## Limits and the first ceiling
 
 Workers Free: 100k requests/day. D1 Free: 100k row writes/day, 5M reads/day, 5 GB.
 A toggle is one write; a launch is one read. The first thing to hit is writes at
 ~100k toggles/day; the fix is the Workers Paid plan ($5/mo), not a redesign.
+
+`POST /auth/google` is capped at 10 per minute per client IP (`SIGNIN_LIMIT`, Workers Rate
+Limiting, `wrangler.toml`); over it the Worker answers 429 `rate`. It is the one anonymous
+route that does real work - a Google token exchange and a D1 write. Counters are per
+Cloudflare location and eventually consistent, so it bounds abuse; it is not an exact quota.

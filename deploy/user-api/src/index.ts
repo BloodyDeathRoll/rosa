@@ -15,6 +15,7 @@
 // path - that stays static (CLAUDE.md principle 2).
 
 import { TokenError, verifyIdToken } from "./google.ts";
+import { signInAllowed } from "./ratelimit.ts";
 import { mint, secretsEqual, SESSION_TTL_MS, verify } from "./session.ts";
 
 export interface Env {
@@ -23,6 +24,7 @@ export interface Env {
   GOOGLE_CLIENT_SECRET: string; // secret: needed to exchange a code for an ID token
   SESSION_SECRET: string;
   ADMIN_SECRET: string;
+  SIGNIN_LIMIT?: RateLimit; // wrangler.toml [[ratelimits]]; absent in tests and bare `wrangler dev`
 }
 
 const GOOGLE_TOKEN_URL = "https://oauth2.googleapis.com/token";
@@ -231,7 +233,10 @@ async function route(req: Request, env: Env, ctx: ExecutionContext): Promise<Res
   const now = Date.now();
 
   if (path === "/") return json(200, { ok: true, service: "rosa-user-api" });
-  if (path === "/auth/google" && req.method === "POST") return signIn(req, env, now);
+  if (path === "/auth/google" && req.method === "POST") {
+    if (!(await signInAllowed(req, env))) throw new HttpError(429, "rate");
+    return signIn(req, env, now);
+  }
   if (path === "/admin/stats" && req.method === "GET") return stats(req, env, now);
 
   if (path === "/me" && req.method === "GET") {

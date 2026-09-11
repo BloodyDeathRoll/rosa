@@ -12,6 +12,13 @@ enabled = true
 GOOGLE_CLIENT_ID = "889597220636-g818ovtnfo4ecgf49ap34ih52dk4qrcv.apps.googleusercontent.com"
 # Secrets, NOT here: `npx wrangler secret put SESSION_SECRET` and `... ADMIN_SECRET`.
 
+# POST /auth/google per client IP (audit 2026-09-11) - the one anonymous route that does
+# real work (Google token exchange + a D1 write). Workers Rate Limiting: period is 10 or 60.
+[[ratelimits]]
+name = "SIGNIN_LIMIT"
+namespace_id = "1001"
+simple = { limit = 10, period = 60 }
+
 [[d1_databases]]
 binding = "DB"
 database_name = "rosa-users"
