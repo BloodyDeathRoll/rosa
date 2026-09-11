@@ -1,0 +1,72 @@
+{
+  "spot": "havaizinho",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -3.4114,
+    -39.0438
+  ],
+  "bearing_seaward_deg": 5.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 15.0,
+  "mean_slope_m_per_km": 0.85,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -3.40916,
+      "lon": -39.0436,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -3.40692,
+      "lon": -39.04341,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -3.40244,
+      "lon": -39.04301,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -3.39348,
+      "lon": -39.04223,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -3.38452,
+      "lon": -39.04144,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -3.36661,
+      "lon": -39.03987,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -3.33973,
+      "lon": -39.03752,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -3.30389,
+      "lon": -39.03438,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -3.25014,
+      "lon": -39.02967,
+      "depth_m": 15.0
+    }
+  ]
+}

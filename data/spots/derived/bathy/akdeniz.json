@@ -1,0 +1,72 @@
+{
+  "spot": "akdeniz",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.2818,
+    32.9387
+  ],
+  "bearing_seaward_deg": 275.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 666.0,
+  "mean_slope_m_per_km": 37.24,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.282,
+      "lon": 32.93596,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.28219,
+      "lon": 32.93321,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.28258,
+      "lon": 32.92773,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.28337,
+      "lon": 32.91675,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.28415,
+      "lon": 32.90577,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.28571,
+      "lon": 32.88382,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.28804,
+      "lon": 32.85089,
+      "depth_m": 143.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.29113,
+      "lon": 32.80699,
+      "depth_m": 215.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.29575,
+      "lon": 32.74112,
+      "depth_m": 666.0
+    }
+  ]
+}

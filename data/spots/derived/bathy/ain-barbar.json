@@ -1,0 +1,72 @@
+{
+  "spot": "ain-barbar",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.9921,
+    7.5586
+  ],
+  "bearing_seaward_deg": 60.0,
+  "nearshore_depth_m": 16.0,
+  "offshore_depth_m": 867.0,
+  "mean_slope_m_per_km": 47.94,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.99322,
+      "lon": 7.56104,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.99435,
+      "lon": 7.56348,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.9966,
+      "lon": 7.56835,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.00109,
+      "lon": 7.5781,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.00559,
+      "lon": 7.58786,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.01457,
+      "lon": 7.60737,
+      "depth_m": 102.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.02805,
+      "lon": 7.63665,
+      "depth_m": 273.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.046,
+      "lon": 7.6757,
+      "depth_m": 288.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.07291,
+      "lon": 7.73431,
+      "depth_m": 867.0
+    }
+  ]
+}

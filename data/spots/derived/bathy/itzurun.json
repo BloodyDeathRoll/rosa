@@ -1,0 +1,72 @@
+{
+  "spot": "itzurun",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.2999,
+    -2.2609
+  ],
+  "bearing_seaward_deg": 338.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 128.0,
+  "mean_slope_m_per_km": 6.76,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.30198,
+      "lon": -2.26206,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.30407,
+      "lon": -2.26321,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.30824,
+      "lon": -2.26553,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.31658,
+      "lon": -2.27016,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.32491,
+      "lon": -2.27479,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.34159,
+      "lon": -2.28406,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.3666,
+      "lon": -2.29797,
+      "depth_m": 83.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.39995,
+      "lon": -2.31654,
+      "depth_m": 101.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.44996,
+      "lon": -2.34443,
+      "depth_m": 128.0
+    }
+  ]
+}

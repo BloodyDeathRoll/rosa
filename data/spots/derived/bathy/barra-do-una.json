@@ -1,0 +1,72 @@
+{
+  "spot": "barra-do-una",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -23.7649,
+    -45.7616
+  ],
+  "bearing_seaward_deg": 198.0,
+  "nearshore_depth_m": -31.0,
+  "offshore_depth_m": 26.0,
+  "mean_slope_m_per_km": 3.21,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.76704,
+      "lon": -45.76236,
+      "depth_m": -31.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.76918,
+      "lon": -45.76312,
+      "depth_m": -17.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.77345,
+      "lon": -45.76464,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.78201,
+      "lon": -45.76767,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.79056,
+      "lon": -45.77071,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.80766,
+      "lon": -45.77679,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.83332,
+      "lon": -45.78591,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.86753,
+      "lon": -45.79807,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.91885,
+      "lon": -45.81632,
+      "depth_m": 26.0
+    }
+  ]
+}

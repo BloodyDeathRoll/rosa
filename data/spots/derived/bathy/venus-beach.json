@@ -1,0 +1,72 @@
+{
+  "spot": "venus-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.7795,
+    32.4029
+  ],
+  "bearing_seaward_deg": 280.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 1657.0,
+  "mean_slope_m_per_km": 93.24,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.77989,
+      "lon": 32.4002,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.78028,
+      "lon": 32.39751,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.78106,
+      "lon": 32.39212,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.78262,
+      "lon": 32.38133,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.78418,
+      "lon": 32.37055,
+      "depth_m": 153.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.7873,
+      "lon": 32.34898,
+      "depth_m": 365.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.79196,
+      "lon": 32.31662,
+      "depth_m": 716.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.79817,
+      "lon": 32.27348,
+      "depth_m": 1188.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.80746,
+      "lon": 32.20874,
+      "depth_m": 1657.0
+    }
+  ]
+}

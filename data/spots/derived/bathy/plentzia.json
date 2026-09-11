@@ -1,0 +1,72 @@
+{
+  "spot": "plentzia",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.4111,
+    -2.9463
+  ],
+  "bearing_seaward_deg": 316.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 106.0,
+  "mean_slope_m_per_km": 5.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.41272,
+      "lon": -2.94845,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.41433,
+      "lon": -2.9506,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.41757,
+      "lon": -2.9549,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.42404,
+      "lon": -2.9635,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.4305,
+      "lon": -2.97211,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.44344,
+      "lon": -2.98932,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.46283,
+      "lon": -3.01516,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.48868,
+      "lon": -3.04963,
+      "depth_m": 95.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.52744,
+      "lon": -3.10139,
+      "depth_m": 106.0
+    }
+  ]
+}

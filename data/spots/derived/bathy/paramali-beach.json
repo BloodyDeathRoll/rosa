@@ -1,0 +1,72 @@
+{
+  "spot": "paramali-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.662,
+    32.8033
+  ],
+  "bearing_seaward_deg": 203.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 723.0,
+  "mean_slope_m_per_km": 40.45,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.65993,
+      "lon": 32.80223,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.65786,
+      "lon": 32.80116,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.65372,
+      "lon": 32.79903,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.64544,
+      "lon": 32.79476,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.63716,
+      "lon": 32.79049,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.62061,
+      "lon": 32.78195,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.59577,
+      "lon": 32.76915,
+      "depth_m": 123.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.56265,
+      "lon": 32.7521,
+      "depth_m": 231.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.51297,
+      "lon": 32.72654,
+      "depth_m": 723.0
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+# Rosa spot database - Sao Paulo (seeded 2026-09-11). The south-facing coast from Guaruja to Ubatuba (Maresias, Itamambuca): S-SE groundswell, offshore on a N wind.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+region: Sao Paulo
+defaults: &sp
+  timezone: America/Sao_Paulo
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [90, 250]
+  ideal:
+    wind_dir: [315, 45]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-11 - sao-paulo, 56 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 56 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/sao-paulo/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: ubatumirim, name: "Ubatumirim", town: "Ubatuba", lat: -23.3367, lon: -44.8935, offshore_direction: 14, swell_window: [129, 259], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: puruba, name: "Puruba", town: "Ubatuba", lat: -23.3548, lon: -44.9369, offshore_direction: 338, swell_window: [93, 223], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: brava-da-almada, name: "Brava da Almada", town: "Ubatuba", lat: -23.3629, lon: -44.8799, offshore_direction: 4, swell_window: [119, 249], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 184 (GEBCO arc middle)
+  - { id: prumirim, name: "Prumirim", town: "Ubatuba", lat: -23.3795, lon: -44.9599, offshore_direction: 343, swell_window: [98, 228], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: felix, name: "Félix", town: "Ubatuba", lat: -23.3904, lon: -44.9726, offshore_direction: 313, swell_window: [68, 198], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: itamambuca, name: "Itamambuca", town: "Ubatuba", lat: -23.4046, lon: -45.0066, offshore_direction: 326, swell_window: [81, 211], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: vermelha-do-norte, name: "Vermelha do Norte", town: "Ubatuba", lat: -23.4164, lon: -45.0360, offshore_direction: 314, swell_window: [69, 199], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: pereque-acu, name: "Perequê-Açu", town: "Ubatuba", lat: -23.4232, lon: -45.0626, offshore_direction: 312, swell_window: [67, 197], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 132 (GEBCO reads the inner bay as land to 0.5 km on every bearing; 132 is wet from 1 km)
+  - { id: vermelha-do-centro, name: "Vermelha do Centro", town: "Ubatuba", lat: -23.4620, lon: -45.0473, offshore_direction: 316, swell_window: [71, 201], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: tenorio, name: "Tenório", town: "Ubatuba", lat: -23.4651, lon: -45.0564, offshore_direction: 304, swell_window: [59, 189], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 124 (GEBCO arc middle)
+  - { id: praia-grande-ubatuba, name: "Praia Grande", town: "Ubatuba", lat: -23.4733, lon: -45.0670, offshore_direction: 303, swell_window: [58, 188], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: toninhas, name: "Toninhas", town: "Ubatuba", lat: -23.4887, lon: -45.0734, offshore_direction: 255, swell_window: [10, 140], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: massaguacu, name: "Massaguaçu", town: "Caraguatatuba", lat: -23.5881, lon: -45.3320, offshore_direction: 312, swell_window: [67, 197], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: capricornio, name: "Capricórnio", town: "Caraguatatuba", lat: -23.6127, lon: -45.3514, offshore_direction: 297, swell_window: [52, 182], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: martim-de-sa, name: "Martim de Sá", town: "Caraguatatuba", lat: -23.6281, lon: -45.3820, offshore_direction: 307, swell_window: [62, 192], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: palmeiras-caraguatatuba, name: "Palmeiras", town: "Caraguatatuba", lat: -23.6713, lon: -45.4289, offshore_direction: 271, swell_window: [26, 156], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: boraceia, name: "Boracéia", town: "Bertioga", lat: -23.7569, lon: -45.8389, offshore_direction: 354, swell_window: [109, 239], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: engenho, name: "Engenho", town: "São Sebastião", lat: -23.7641, lon: -45.7807, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 180 (GEBCO arc middle)
+  - { id: barra-do-una, name: "Barra do Una", town: "São Sebastião", lat: -23.7649, lon: -45.7616, offshore_direction: 18, swell_window: [133, 263], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 198 (land to 0.5 km on every bearing; middle of the 150-246 arc wet from 1 km)
+  - { id: juquehy, name: "Juquehy", town: "São Sebastião", lat: -23.7679, lon: -45.7354, offshore_direction: 352, swell_window: [107, 237], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: guaratuba, name: "Guaratuba", town: "Bertioga", lat: -23.7684, lon: -45.9183, offshore_direction: 347, swell_window: [102, 232], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: baleia-sao-sebastiao, name: "Baleia", town: "São Sebastião", lat: -23.7737, lon: -45.6749, offshore_direction: 4, swell_window: [119, 249], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: barra-do-sahy-br, name: "Barra do Sahy", town: "São Sebastião", lat: -23.7740, lon: -45.6964, offshore_direction: 17, swell_window: [132, 262], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: camburizinho, name: "Camburizinho", town: "São Sebastião", lat: -23.7777, lon: -45.6457, offshore_direction: 35, swell_window: [150, 280], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 215 (GEBCO arc middle)
+  - { id: camburi-sao-sebastiao, name: "Camburi", town: "São Sebastião", lat: -23.7778, lon: -45.6502, offshore_direction: 12, swell_window: [127, 257], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 192 (GEBCO arc middle)
+  - { id: boicucanga, name: "Boiçucanga", town: "São Sebastião", lat: -23.7842, lon: -45.6301, offshore_direction: 13, swell_window: [128, 258], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: maresias, name: "Maresias", town: "São Sebastião", lat: -23.7920, lon: -45.5587, offshore_direction: 22, swell_window: [137, 267], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: pauba, name: "Paúba", town: "São Sebastião", lat: -23.8027, lon: -45.5524, offshore_direction: 49, swell_window: [164, 294], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: riviera-de-sao-lourenco, name: "Riviera de São Lourenço", town: "Bertioga", lat: -23.8058, lon: -46.0237, offshore_direction: 332, swell_window: [87, 217], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: santiago-sao-sebastiao, name: "Santiago", town: "São Sebastião", lat: -23.8109, lon: -45.5412, offshore_direction: 29, swell_window: [144, 274], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 209 (GEBCO arc middle)
+  - { id: guaeca, name: "Guaecá", town: "São Sebastião", lat: -23.8270, lon: -45.4485, offshore_direction: 44, swell_window: [159, 289], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 224 (GEBCO arc middle)
+  - { id: toque-toque-grande, name: "Toque-Toque Grande", town: "São Sebastião", lat: -23.8338, lon: -45.5110, offshore_direction: 44, swell_window: [159, 289], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: enseada-bertioga, name: "Enseada", town: "Bertioga", lat: -23.8469, lon: -46.1306, offshore_direction: 293, swell_window: [48, 178], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: castelhanos, name: "Castelhanos", town: "Ilhabela", lat: -23.8529, lon: -45.2879, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: taguaiba, name: "Taguaíba", town: "Guarujá", lat: -23.8960, lon: -46.1511, offshore_direction: 305, swell_window: [60, 190], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: bonete-ilhabela, name: "Bonete", town: "Ilhabela", lat: -23.9175, lon: -45.3455, offshore_direction: 351, swell_window: [106, 236], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 171 (GEBCO arc middle)
+  - { id: pernambuco-guaruja, name: "Praia de Pernambuco", town: "Guarujá", lat: -23.9662, lon: -46.1844, offshore_direction: 279, swell_window: [34, 164], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: jose-menino, name: "José Menino", town: "Santos", lat: -23.9696, lon: -46.3424, offshore_direction: 6, swell_window: [121, 251], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: itarare, name: "Itararé", town: "São Vicente", lat: -23.9703, lon: -46.3620, offshore_direction: 341, swell_window: [96, 226], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: enseada-guaruja, name: "Enseada", town: "Guarujá", lat: -23.9883, lon: -46.2247, offshore_direction: 349, swell_window: [104, 234], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: pitangueiras, name: "Pitangueiras", town: "Guarujá", lat: -23.9987, lon: -46.2584, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: asturias, name: "Astúrias", town: "Guarujá", lat: -24.0066, lon: -46.2672, offshore_direction: 321, swell_window: [76, 206], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: tombo, name: "Tombo", town: "Guarujá", lat: -24.0138, lon: -46.2723, offshore_direction: 331, swell_window: [86, 216], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: guilhermina, name: "Guilhermina", town: "Praia Grande", lat: -24.0150, lon: -46.4261, offshore_direction: 350, swell_window: [105, 235], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: canto-do-forte, name: "Canto do Forte", town: "Praia Grande", lat: -24.0156, lon: -46.4049, offshore_direction: 13, swell_window: [128, 258], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: guaiuba, name: "Guaiúba", town: "Guarujá", lat: -24.0183, lon: -46.2916, offshore_direction: 26, swell_window: [141, 271], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 206 (GEBCO arc middle; 246 ran down the coast to Praia Grande)
+  - { id: mongagua, name: "Mongaguá", town: "Mongaguá", lat: -24.0977, lon: -46.6204, offshore_direction: 332, swell_window: [87, 217], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: suarao, name: "Suarão", town: "Itanhaém", lat: -24.1667, lon: -46.7511, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: sonho, name: "Sonho", town: "Itanhaém", lat: -24.1942, lon: -46.7980, offshore_direction: 312, swell_window: [67, 197], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 132 (GEBCO arc middle)
+  - { id: cibratel, name: "Cibratel", town: "Itanhaém", lat: -24.2003, lon: -46.8117, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 180 (GEBCO arc middle)
+  - { id: peruibe, name: "Peruíbe", town: "Peruíbe", lat: -24.3223, lon: -46.9926, offshore_direction: 309, swell_window: [64, 194], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: guarau, name: "Guaraú", town: "Peruíbe", lat: -24.3686, lon: -47.0107, offshore_direction: 299, swell_window: [54, 184], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: arpoador-peruibe, name: "Arpoador", town: "Peruíbe", lat: -24.3939, lon: -47.0114, offshore_direction: 286, swell_window: [41, 171], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: jureia, name: "Juréia", town: "Iguape", lat: -24.6164, lon: -47.3201, offshore_direction: 326, swell_window: [81, 211], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: boqueirao-norte, name: "Boqueirão Norte", town: "Ilha Comprida", lat: -24.7513, lon: -47.5497, offshore_direction: 327, swell_window: [82, 212], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: boqueirao-sul, name: "Boqueirão Sul", town: "Ilha Comprida", lat: -25.0256, lon: -47.8811, offshore_direction: 292, swell_window: [47, 177], offshore_km: 5.0, <<: *sp }  # sat-verified 2026-09-11 (websearch-seeded)

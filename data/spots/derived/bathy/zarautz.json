@@ -1,0 +1,72 @@
+{
+  "spot": "zarautz",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.2876,
+    -2.1761
+  ],
+  "bearing_seaward_deg": 24.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 132.0,
+  "mean_slope_m_per_km": 7.04,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.28965,
+      "lon": -2.17484,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.29171,
+      "lon": -2.17359,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.29582,
+      "lon": -2.17107,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.30403,
+      "lon": -2.16605,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.31225,
+      "lon": -2.16102,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.32868,
+      "lon": -2.15096,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.35332,
+      "lon": -2.13586,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.38617,
+      "lon": -2.1157,
+      "depth_m": 113.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.43545,
+      "lon": -2.08543,
+      "depth_m": 132.0
+    }
+  ]
+}

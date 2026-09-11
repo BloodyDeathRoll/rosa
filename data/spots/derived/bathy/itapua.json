@@ -1,0 +1,72 @@
+{
+  "spot": "itapua",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -12.9505,
+    -38.3665
+  ],
+  "bearing_seaward_deg": 174.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 965.0,
+  "mean_slope_m_per_km": 54.82,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -12.95274,
+      "lon": -38.36626,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -12.95497,
+      "lon": -38.36602,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -12.95944,
+      "lon": -38.36554,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -12.96839,
+      "lon": -38.36457,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -12.97733,
+      "lon": -38.36361,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -12.99522,
+      "lon": -38.36168,
+      "depth_m": 296.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -13.02205,
+      "lon": -38.35878,
+      "depth_m": 232.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -13.05783,
+      "lon": -38.35492,
+      "depth_m": 327.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -13.11149,
+      "lon": -38.34913,
+      "depth_m": 965.0
+    }
+  ]
+}

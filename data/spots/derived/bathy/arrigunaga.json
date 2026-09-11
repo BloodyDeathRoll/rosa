@@ -1,0 +1,72 @@
+{
+  "spot": "arrigunaga",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.3547,
+    -3.0195
+  ],
+  "bearing_seaward_deg": 292.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 2.25,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.35554,
+      "lon": -3.02237,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.35638,
+      "lon": -3.02523,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.35807,
+      "lon": -3.03097,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.36144,
+      "lon": -3.04244,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.3648,
+      "lon": -3.05391,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.37153,
+      "lon": -3.07685,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.38161,
+      "lon": -3.11128,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.39504,
+      "lon": -3.1572,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.41515,
+      "lon": -3.22612,
+      "depth_m": 35.0
+    }
+  ]
+}

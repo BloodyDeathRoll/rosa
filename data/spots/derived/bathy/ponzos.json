@@ -1,0 +1,72 @@
+{
+  "spot": "ponzos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.5549,
+    -8.2732
+  ],
+  "bearing_seaward_deg": 355.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 153.0,
+  "mean_slope_m_per_km": 9.07,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.55714,
+      "lon": -8.27347,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.55938,
+      "lon": -8.27374,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.56386,
+      "lon": -8.27428,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.57282,
+      "lon": -8.27536,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.58178,
+      "lon": -8.27645,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.59969,
+      "lon": -8.27861,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.62657,
+      "lon": -8.28186,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.66241,
+      "lon": -8.2862,
+      "depth_m": 120.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.71616,
+      "lon": -8.29272,
+      "depth_m": 153.0
+    }
+  ]
+}

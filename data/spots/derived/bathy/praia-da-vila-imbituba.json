@@ -1,0 +1,72 @@
+{
+  "spot": "praia-da-vila-imbituba",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -28.2403,
+    -48.6559
+  ],
+  "bearing_seaward_deg": 166.0,
+  "nearshore_depth_m": 16.0,
+  "offshore_depth_m": 47.0,
+  "mean_slope_m_per_km": 1.75,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -28.24248,
+      "lon": -48.65528,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -28.24466,
+      "lon": -48.65467,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -28.24903,
+      "lon": -48.65343,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -28.25775,
+      "lon": -48.65096,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -28.26648,
+      "lon": -48.64849,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -28.28393,
+      "lon": -48.64355,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -28.31011,
+      "lon": -48.63613,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -28.34501,
+      "lon": -48.62624,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -28.39736,
+      "lon": -48.61138,
+      "depth_m": 47.0
+    }
+  ]
+}

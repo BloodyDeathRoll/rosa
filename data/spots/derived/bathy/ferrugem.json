@@ -1,0 +1,72 @@
+{
+  "spot": "ferrugem",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -28.0753,
+    -48.6259
+  ],
+  "bearing_seaward_deg": 134.0,
+  "nearshore_depth_m": 28.0,
+  "offshore_depth_m": 53.0,
+  "mean_slope_m_per_km": 1.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -28.07686,
+      "lon": -48.62407,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -28.07842,
+      "lon": -48.62223,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -28.08155,
+      "lon": -48.61857,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -28.08779,
+      "lon": -48.61123,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -28.09404,
+      "lon": -48.6039,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -28.10653,
+      "lon": -48.58923,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -28.12527,
+      "lon": -48.56722,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -28.15024,
+      "lon": -48.53786,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -28.18769,
+      "lon": -48.49379,
+      "depth_m": 53.0
+    }
+  ]
+}

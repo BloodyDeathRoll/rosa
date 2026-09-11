@@ -1,0 +1,72 @@
+{
+  "spot": "bunker-del-hurricane",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.0549,
+    -5.6567
+  ],
+  "bearing_seaward_deg": 204.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 276.0,
+  "mean_slope_m_per_km": 15.21,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.05285,
+      "lon": -5.65783,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.05079,
+      "lon": -5.65896,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.04668,
+      "lon": -5.66122,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.03847,
+      "lon": -5.66575,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.03025,
+      "lon": -5.67027,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.01382,
+      "lon": -5.67931,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.98917,
+      "lon": -5.69287,
+      "depth_m": 195.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.9563,
+      "lon": -5.71093,
+      "depth_m": 378.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.90699,
+      "lon": -5.73799,
+      "depth_m": 276.0
+    }
+  ]
+}

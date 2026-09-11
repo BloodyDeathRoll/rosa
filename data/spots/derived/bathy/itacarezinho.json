@@ -1,0 +1,72 @@
+{
+  "spot": "itacarezinho",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -14.3735,
+    -39.007
+  ],
+  "bearing_seaward_deg": 106.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 769.0,
+  "mean_slope_m_per_km": 43.77,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -14.37412,
+      "lon": -39.00477,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -14.37474,
+      "lon": -39.00254,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -14.37598,
+      "lon": -38.99808,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -14.37846,
+      "lon": -38.98915,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -14.38094,
+      "lon": -38.98023,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -14.38589,
+      "lon": -38.96238,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -14.39332,
+      "lon": -38.9356,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -14.40322,
+      "lon": -38.8999,
+      "depth_m": 296.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -14.41807,
+      "lon": -38.84633,
+      "depth_m": 769.0
+    }
+  ]
+}

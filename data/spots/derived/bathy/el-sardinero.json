@@ -1,0 +1,72 @@
+{
+  "spot": "el-sardinero",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.4729,
+    -3.7811
+  ],
+  "bearing_seaward_deg": 58.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 105.0,
+  "mean_slope_m_per_km": 5.75,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.47409,
+      "lon": -3.77847,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.47528,
+      "lon": -3.77585,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.47767,
+      "lon": -3.77059,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.48243,
+      "lon": -3.76008,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.48719,
+      "lon": -3.74956,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.49672,
+      "lon": -3.72853,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.51099,
+      "lon": -3.69697,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.53002,
+      "lon": -3.65487,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.55853,
+      "lon": -3.59166,
+      "depth_m": 105.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "ponta-do-madeiro",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -6.2148,
+    -35.0769
+  ],
+  "bearing_seaward_deg": 70.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 33.0,
+  "mean_slope_m_per_km": 1.3,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -6.21403,
+      "lon": -35.07477,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -6.21326,
+      "lon": -35.07265,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -6.21172,
+      "lon": -35.0684,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -6.20865,
+      "lon": -35.0599,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -6.20557,
+      "lon": -35.0514,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -6.19942,
+      "lon": -35.0344,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -6.19019,
+      "lon": -35.0089,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -6.17788,
+      "lon": -34.9749,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -6.15941,
+      "lon": -34.9239,
+      "depth_m": 33.0
+    }
+  ]
+}

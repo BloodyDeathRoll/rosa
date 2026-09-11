@@ -1,0 +1,72 @@
+{
+  "spot": "meloneras",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    27.7356,
+    -15.5957
+  ],
+  "bearing_seaward_deg": 150.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 2149.0,
+  "mean_slope_m_per_km": 121.35,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 27.73365,
+      "lon": -15.59443,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 27.73171,
+      "lon": -15.59316,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 27.72781,
+      "lon": -15.59062,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 27.72002,
+      "lon": -15.58554,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 27.71223,
+      "lon": -15.58046,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 27.69666,
+      "lon": -15.57031,
+      "depth_m": 407.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 27.67329,
+      "lon": -15.55508,
+      "depth_m": 1048.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 27.64213,
+      "lon": -15.53479,
+      "depth_m": 1738.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 27.59538,
+      "lon": -15.50437,
+      "depth_m": 2149.0
+    }
+  ]
+}

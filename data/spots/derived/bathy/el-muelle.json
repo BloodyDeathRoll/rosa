@@ -1,0 +1,72 @@
+{
+  "spot": "el-muelle",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    28.7455,
+    -13.865
+  ],
+  "bearing_seaward_deg": 344.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 979.0,
+  "mean_slope_m_per_km": 54.76,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.74766,
+      "lon": -13.86571,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.74982,
+      "lon": -13.86641,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.75414,
+      "lon": -13.86783,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.76279,
+      "lon": -13.87066,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.77143,
+      "lon": -13.87348,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.78872,
+      "lon": -13.87914,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.81466,
+      "lon": -13.88763,
+      "depth_m": 191.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.84923,
+      "lon": -13.89896,
+      "depth_m": 484.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.9011,
+      "lon": -13.91597,
+      "depth_m": 979.0
+    }
+  ]
+}

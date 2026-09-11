@@ -1,0 +1,72 @@
+{
+  "spot": "stella-maris",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -12.9363,
+    -38.3265
+  ],
+  "bearing_seaward_deg": 132.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 1401.0,
+  "mean_slope_m_per_km": 78.48,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -12.9378,
+      "lon": -38.32479,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -12.93931,
+      "lon": -38.32307,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -12.94232,
+      "lon": -38.31964,
+      "depth_m": 234.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -12.94833,
+      "lon": -38.31278,
+      "depth_m": 237.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -12.95435,
+      "lon": -38.30593,
+      "depth_m": 233.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -12.96639,
+      "lon": -38.29221,
+      "depth_m": 179.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -12.98444,
+      "lon": -38.27163,
+      "depth_m": 147.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -13.0085,
+      "lon": -38.24419,
+      "depth_m": 477.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -13.04459,
+      "lon": -38.20301,
+      "depth_m": 1401.0
+    }
+  ]
+}

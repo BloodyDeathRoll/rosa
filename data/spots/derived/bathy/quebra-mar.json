@@ -1,0 +1,72 @@
+{
+  "spot": "quebra-mar",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -3.4013,
+    -38.9902
+  ],
+  "bearing_seaward_deg": 19.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 25.0,
+  "mean_slope_m_per_km": 0.73,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -3.39917,
+      "lon": -38.98947,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -3.39705,
+      "lon": -38.98873,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -3.3928,
+      "lon": -38.98727,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -3.38429,
+      "lon": -38.98433,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -3.37579,
+      "lon": -38.9814,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -3.35878,
+      "lon": -38.97554,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -3.33327,
+      "lon": -38.96674,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -3.29926,
+      "lon": -38.95501,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -3.24824,
+      "lon": -38.93741,
+      "depth_m": 25.0
+    }
+  ]
+}

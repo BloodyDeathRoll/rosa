@@ -1,0 +1,72 @@
+{
+  "spot": "los-locos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.4384,
+    -4.05
+  ],
+  "bearing_seaward_deg": 314.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 176.0,
+  "mean_slope_m_per_km": 9.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.43996,
+      "lon": -4.05223,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.44152,
+      "lon": -4.05445,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.44465,
+      "lon": -4.05891,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.45089,
+      "lon": -4.06782,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.45714,
+      "lon": -4.07674,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.46963,
+      "lon": -4.09457,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.48836,
+      "lon": -4.12133,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.51332,
+      "lon": -4.15704,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.55074,
+      "lon": -4.21067,
+      "depth_m": 176.0
+    }
+  ]
+}

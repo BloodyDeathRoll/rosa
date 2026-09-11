@@ -1,0 +1,72 @@
+{
+  "spot": "sidi-fredj",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.7614,
+    2.8485
+  ],
+  "bearing_seaward_deg": 41.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 1704.0,
+  "mean_slope_m_per_km": 95.83,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.7631,
+      "lon": 2.85034,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.76479,
+      "lon": 2.85218,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.76819,
+      "lon": 2.85587,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.77497,
+      "lon": 2.86323,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.78176,
+      "lon": 2.8706,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.79533,
+      "lon": 2.88534,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.81568,
+      "lon": 2.90746,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.84281,
+      "lon": 2.93697,
+      "depth_m": 422.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.8835,
+      "lon": 2.98128,
+      "depth_m": 1704.0
+    }
+  ]
+}

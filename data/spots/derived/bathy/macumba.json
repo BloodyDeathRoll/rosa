@@ -1,0 +1,72 @@
+{
+  "spot": "macumba",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -23.0339,
+    -43.4874
+  ],
+  "bearing_seaward_deg": 163.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 57.0,
+  "mean_slope_m_per_km": 2.93,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.03605,
+      "lon": -43.48669,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.0382,
+      "lon": -43.48597,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.0425,
+      "lon": -43.48454,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.0511,
+      "lon": -43.48168,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.0597,
+      "lon": -43.47883,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.0769,
+      "lon": -43.47311,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.1027,
+      "lon": -43.46453,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.1371,
+      "lon": -43.45309,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.1887,
+      "lon": -43.43591,
+      "depth_m": 57.0
+    }
+  ]
+}

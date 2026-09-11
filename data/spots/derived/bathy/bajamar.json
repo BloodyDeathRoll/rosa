@@ -1,0 +1,72 @@
+{
+  "spot": "bajamar",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    28.5559,
+    -16.3453
+  ],
+  "bearing_seaward_deg": 307.0,
+  "nearshore_depth_m": 27.0,
+  "offshore_depth_m": 2437.0,
+  "mean_slope_m_per_km": 135.77,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.55725,
+      "lon": -16.34734,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.55861,
+      "lon": -16.34939,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.56131,
+      "lon": -16.35348,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.56672,
+      "lon": -16.36166,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.57213,
+      "lon": -16.36983,
+      "depth_m": 167.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.58296,
+      "lon": -16.3862,
+      "depth_m": 587.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.59918,
+      "lon": -16.41074,
+      "depth_m": 1349.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.62081,
+      "lon": -16.44348,
+      "depth_m": 2072.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.65324,
+      "lon": -16.49262,
+      "depth_m": 2437.0
+    }
+  ]
+}

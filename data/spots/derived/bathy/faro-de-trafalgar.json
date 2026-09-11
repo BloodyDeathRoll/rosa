@@ -1,0 +1,72 @@
+{
+  "spot": "faro-de-trafalgar",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.1815,
+    -6.0339
+  ],
+  "bearing_seaward_deg": 155.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 147.0,
+  "mean_slope_m_per_km": 8.39,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.17946,
+      "lon": -6.03272,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.17742,
+      "lon": -6.03155,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.17335,
+      "lon": -6.02919,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.1652,
+      "lon": -6.02448,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.15705,
+      "lon": -6.01978,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.14074,
+      "lon": -6.01037,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.11629,
+      "lon": -5.99626,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.08368,
+      "lon": -5.97747,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.03476,
+      "lon": -5.9493,
+      "depth_m": 147.0
+    }
+  ]
+}

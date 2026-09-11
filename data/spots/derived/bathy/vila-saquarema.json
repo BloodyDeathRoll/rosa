@@ -1,0 +1,72 @@
+{
+  "spot": "vila-saquarema",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -22.9344,
+    -42.4997
+  ],
+  "bearing_seaward_deg": 185.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 79.0,
+  "mean_slope_m_per_km": 4.73,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -22.93664,
+      "lon": -42.49991,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -22.93888,
+      "lon": -42.50013,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -22.94336,
+      "lon": -42.50055,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -22.95232,
+      "lon": -42.5014,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -22.96128,
+      "lon": -42.50225,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -22.97919,
+      "lon": -42.50396,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.00607,
+      "lon": -42.50651,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.04191,
+      "lon": -42.50992,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.09566,
+      "lon": -42.51504,
+      "depth_m": 79.0
+    }
+  ]
+}

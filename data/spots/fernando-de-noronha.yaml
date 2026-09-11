@@ -1,0 +1,30 @@
+# Rosa spot database - Fernando de Noronha (seeded 2026-09-11). The archipelago's north shore (Cacimba do Padre, Boldro) faces the North Atlantic NW-N groundswell of Dec-Mar; offshore on the SE trade.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+region: Fernando de Noronha
+defaults: &fn
+  timezone: America/Noronha
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [270, 60]
+  ideal:
+    wind_dir: [100, 200]
+    size_m: [1.0, 3.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-11 - fernando-de-noronha, 8 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 8 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/fernando-de-noronha/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: abracadabras, name: "Abracadabras", town: "Fernando de Noronha", lat: -3.8285, lon: -32.3995, offshore_direction: 239, swell_window: [354, 124], offshore_km: 5.0, break_type: reef, <<: *fn }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: biboca, name: "Biboca", town: "Fernando de Noronha", lat: -3.8379, lon: -32.4085, offshore_direction: 165, swell_window: [280, 50], offshore_km: 5.0, <<: *fn }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: cachorro, name: "Cachorro", town: "Fernando de Noronha", lat: -3.8395, lon: -32.4132, offshore_direction: 153, swell_window: [268, 38], offshore_km: 5.0, <<: *fn }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: meio, name: "Meio", town: "Fernando de Noronha", lat: -3.8402, lon: -32.4160, offshore_direction: 158, swell_window: [273, 43], offshore_km: 5.0, <<: *fn }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 338 (GEBCO arc middle)
+  - { id: conceicao, name: "Conceição", town: "Fernando de Noronha", lat: -3.8419, lon: -32.4180, offshore_direction: 161, swell_window: [276, 46], offshore_km: 5.0, <<: *fn }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: boldro, name: "Boldró", town: "Fernando de Noronha", lat: -3.8452, lon: -32.4283, offshore_direction: 156, swell_window: [271, 41], offshore_km: 5.0, break_type: reef, <<: *fn }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 336 (GEBCO arc middle)
+  - { id: laje-do-bode, name: "Laje do Bode", town: "Fernando de Noronha", lat: -3.8478, lon: -32.4346, offshore_direction: 148, swell_window: [263, 33], offshore_km: 5.0, <<: *fn }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: cacimba-do-padre, name: "Cacimba do Padre", town: "Fernando de Noronha", lat: -3.8499, lon: -32.4388, offshore_direction: 162, swell_window: [277, 47], offshore_km: 5.0, <<: *fn }  # sat-verified 2026-09-11 (websearch-seeded)

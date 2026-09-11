@@ -1,0 +1,72 @@
+{
+  "spot": "jacone",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -22.9334,
+    -42.5969
+  ],
+  "bearing_seaward_deg": 177.0,
+  "nearshore_depth_m": 19.0,
+  "offshore_depth_m": 72.0,
+  "mean_slope_m_per_km": 2.99,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -22.93565,
+      "lon": -42.59677,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -22.93789,
+      "lon": -42.59664,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -22.94238,
+      "lon": -42.59639,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -22.95136,
+      "lon": -42.59588,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -22.96034,
+      "lon": -42.59537,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -22.9783,
+      "lon": -42.59434,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.00525,
+      "lon": -42.59281,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.04117,
+      "lon": -42.59076,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.09506,
+      "lon": -42.58769,
+      "depth_m": 72.0
+    }
+  ]
+}

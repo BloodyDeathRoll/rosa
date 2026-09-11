@@ -1,0 +1,72 @@
+{
+  "spot": "pico-de-matinhos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -25.8182,
+    -48.5297
+  ],
+  "bearing_seaward_deg": 100.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 1.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -25.81859,
+      "lon": -48.52724,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -25.81898,
+      "lon": -48.52478,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -25.81976,
+      "lon": -48.51986,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -25.82132,
+      "lon": -48.51002,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -25.82288,
+      "lon": -48.50018,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -25.826,
+      "lon": -48.4805,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -25.83067,
+      "lon": -48.45098,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -25.83689,
+      "lon": -48.41162,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -25.8462,
+      "lon": -48.35256,
+      "depth_m": 20.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "loredo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.4644,
+    -3.7272
+  ],
+  "bearing_seaward_deg": 322.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 101.0,
+  "mean_slope_m_per_km": 5.63,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.46617,
+      "lon": -3.72911,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.46794,
+      "lon": -3.73101,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.47149,
+      "lon": -3.73483,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.47857,
+      "lon": -3.74246,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.48566,
+      "lon": -3.75009,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.49983,
+      "lon": -3.76536,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.52108,
+      "lon": -3.78829,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.5494,
+      "lon": -3.81887,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.59188,
+      "lon": -3.8648,
+      "depth_m": 101.0
+    }
+  ]
+}

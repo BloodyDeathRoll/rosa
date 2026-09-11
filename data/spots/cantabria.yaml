@@ -1,0 +1,41 @@
+# Rosa spot database - Cantabria (seeded 2026-09-10). North-facing Biscay beaches and reefs
+# (Somo, Liencres, Los Locos): NW groundswell, offshore on a S wind.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &can
+  timezone: Europe/Madrid
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [270, 30]
+  ideal:
+    wind_dir: [135, 225]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-10 - cantabria, 19 spots (primary coastline flow: 1 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 18 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/cantabria/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: cuberris, name: "Cuberris", town: "Ajo", lat: 43.4979, lon: -3.6134, offshore_direction: 166, swell_window: [281, 51], offshore_km: 5.0, <<: *can }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: ris, name: "Ris", town: "Noja", lat: 43.4932, lon: -3.5291, offshore_direction: 176, swell_window: [291, 61], offshore_km: 5.0, <<: *can }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: bocal, name: "El Bocal", town: "Santander", lat: 43.4871, lon: -3.8275, offshore_direction: 141, swell_window: [256, 26], offshore_km: 5.0, <<: *can }  # sat-verified 2026-09-10 (osm-seeded)
+  - { id: tregandin, name: "Tregandin", town: "Noja", lat: 43.4771, lon: -3.5111, offshore_direction: 220, swell_window: [335, 105], offshore_km: 5.0, <<: *can }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: langre, name: "Langre", town: "Langre", lat: 43.4768, lon: -3.6890, offshore_direction: 178, swell_window: [293, 63], offshore_km: 5.0, <<: *can }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: el-sardinero, name: "El Sardinero", town: "Santander", lat: 43.4729, lon: -3.7811, offshore_direction: 238, swell_window: [353, 123], offshore_km: 5.0, <<: *can }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: el-brusco, name: "El Brusco", town: "Noja", lat: 43.4671, lon: -3.4746, offshore_direction: 208, swell_window: [323, 93], offshore_km: 5.0, <<: *can }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: berria, name: "Berria", town: "Santoña", lat: 43.4656, lon: -3.4660, offshore_direction: 207, swell_window: [322, 92], offshore_km: 5.0, <<: *can }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: loredo, name: "Loredo", town: "Loredo", lat: 43.4644, lon: -3.7272, offshore_direction: 142, swell_window: [257, 27], offshore_km: 5.0, <<: *can }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: somo, name: "Somo", town: "Somo", lat: 43.4591, lon: -3.7331, offshore_direction: 135, swell_window: [250, 20], offshore_km: 5.0, <<: *can }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: canallave, name: "Canallave", town: "Liencres", lat: 43.4526, lon: -3.9618, offshore_direction: 149, swell_window: [264, 34], offshore_km: 5.0, <<: *can }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: valdearenas, name: "Valdearenas", town: "Liencres", lat: 43.4478, lon: -3.9722, offshore_direction: 158, swell_window: [273, 43], offshore_km: 5.0, <<: *can }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: los-locos, name: "Los Locos", town: "Suances", lat: 43.4384, lon: -4.0500, offshore_direction: 134, swell_window: [249, 19], offshore_km: 5.0, <<: *can }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: santa-justa, name: "Santa Justa", town: "Ubiarco", lat: 43.4247, lon: -4.0984, offshore_direction: 142, swell_window: [257, 27], offshore_km: 5.0, <<: *can }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: la-salve, name: "La Salve", town: "Laredo", lat: 43.4203, lon: -3.4371, offshore_direction: 232, swell_window: [347, 117], offshore_km: 5.0, <<: *can }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: san-julian, name: "San Julian", town: "Liendo", lat: 43.4127, lon: -3.3707, offshore_direction: 199, swell_window: [314, 84], offshore_km: 5.0, <<: *can }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: oyambre, name: "Oyambre", town: "San Vicente de la Barquera", lat: 43.3929, lon: -4.3315, offshore_direction: 213, swell_window: [328, 98], offshore_km: 5.0, <<: *can }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: meron, name: "Meron", town: "San Vicente de la Barquera", lat: 43.3914, lon: -4.3819, offshore_direction: 180, swell_window: [295, 65], offshore_km: 5.0, <<: *can }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: comillas, name: "Comillas", town: "Comillas", lat: 43.3901, lon: -4.2873, offshore_direction: 236, swell_window: [351, 121], offshore_km: 5.0, <<: *can }  # sat-verified 2026-09-10 (websearch-seeded)

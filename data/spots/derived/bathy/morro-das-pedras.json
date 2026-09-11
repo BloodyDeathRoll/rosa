@@ -1,0 +1,72 @@
+{
+  "spot": "morro-das-pedras",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -27.7137,
+    -48.5017
+  ],
+  "bearing_seaward_deg": 116.0,
+  "nearshore_depth_m": 16.0,
+  "offshore_depth_m": 58.0,
+  "mean_slope_m_per_km": 2.37,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -27.71469,
+      "lon": -48.49942,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -27.71567,
+      "lon": -48.49713,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -27.71764,
+      "lon": -48.49257,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -27.72158,
+      "lon": -48.48344,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -27.72552,
+      "lon": -48.47431,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -27.7334,
+      "lon": -48.45604,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -27.74522,
+      "lon": -48.42864,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -27.76097,
+      "lon": -48.39209,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -27.78457,
+      "lon": -48.33724,
+      "depth_m": 58.0
+    }
+  ]
+}

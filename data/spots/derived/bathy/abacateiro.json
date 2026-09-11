@@ -1,0 +1,72 @@
+{
+  "spot": "abacateiro",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -6.2257,
+    -35.0449
+  ],
+  "bearing_seaward_deg": 79.0,
+  "nearshore_depth_m": 16.0,
+  "offshore_depth_m": 98.0,
+  "mean_slope_m_per_km": 4.62,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -6.22527,
+      "lon": -35.04268,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -6.22484,
+      "lon": -35.04046,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -6.22398,
+      "lon": -35.03602,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -6.22227,
+      "lon": -35.02714,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -6.22055,
+      "lon": -35.01826,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -6.21712,
+      "lon": -35.0005,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -6.21197,
+      "lon": -34.97386,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -6.2051,
+      "lon": -34.93834,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -6.19479,
+      "lon": -34.88506,
+      "depth_m": 98.0
+    }
+  ]
+}

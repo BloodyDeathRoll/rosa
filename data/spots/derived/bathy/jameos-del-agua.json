@@ -1,0 +1,72 @@
+{
+  "spot": "jameos-del-agua",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    29.1579,
+    -13.4281
+  ],
+  "bearing_seaward_deg": 91.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 1306.0,
+  "mean_slope_m_per_km": 73.92,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 29.15786,
+      "lon": -13.42553,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 29.15782,
+      "lon": -13.42295,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 29.15774,
+      "lon": -13.4178,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 29.15758,
+      "lon": -13.40751,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 29.15743,
+      "lon": -13.39721,
+      "depth_m": 235.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 29.15711,
+      "lon": -13.37662,
+      "depth_m": 897.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 29.15662,
+      "lon": -13.34573,
+      "depth_m": 1162.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 29.15596,
+      "lon": -13.30454,
+      "depth_m": 1247.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 29.15495,
+      "lon": -13.24277,
+      "depth_m": 1306.0
+    }
+  ]
+}

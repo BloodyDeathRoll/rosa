@@ -1,0 +1,72 @@
+{
+  "spot": "tenorio",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -23.4651,
+    -45.0564
+  ],
+  "bearing_seaward_deg": 124.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 38.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.46636,
+      "lon": -45.05437,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.46761,
+      "lon": -45.05234,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.47013,
+      "lon": -45.04827,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.47516,
+      "lon": -45.04014,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.48018,
+      "lon": -45.03201,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.49024,
+      "lon": -45.01575,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.50532,
+      "lon": -44.99136,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.52542,
+      "lon": -44.95882,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.55555,
+      "lon": -44.91,
+      "depth_m": 38.0
+    }
+  ]
+}

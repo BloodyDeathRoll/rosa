@@ -1,0 +1,72 @@
+{
+  "spot": "boumerdes",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.7674,
+    3.4532
+  ],
+  "bearing_seaward_deg": 9.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 1446.0,
+  "mean_slope_m_per_km": 81.07,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.76962,
+      "lon": 3.45364,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.77184,
+      "lon": 3.45408,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.77628,
+      "lon": 3.45496,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.78516,
+      "lon": 3.45671,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.79405,
+      "lon": 3.45847,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.81181,
+      "lon": 3.46199,
+      "depth_m": 189.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.83846,
+      "lon": 3.46726,
+      "depth_m": 730.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.87399,
+      "lon": 3.4743,
+      "depth_m": 963.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.92728,
+      "lon": 3.48488,
+      "depth_m": 1446.0
+    }
+  ]
+}

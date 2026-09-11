@@ -1,0 +1,72 @@
+{
+  "spot": "pontal-rio",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -23.0316,
+    -43.4761
+  ],
+  "bearing_seaward_deg": 182.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 56.0,
+  "mean_slope_m_per_km": 2.7,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.03385,
+      "lon": -43.47619,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.03609,
+      "lon": -43.47627,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.04059,
+      "lon": -43.47644,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.04958,
+      "lon": -43.47678,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.05856,
+      "lon": -43.47712,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.07654,
+      "lon": -43.47781,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.1035,
+      "lon": -43.47883,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.13945,
+      "lon": -43.4802,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.19338,
+      "lon": -43.48225,
+      "depth_m": 56.0
+    }
+  ]
+}

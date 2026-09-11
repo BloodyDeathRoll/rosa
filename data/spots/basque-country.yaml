@@ -1,0 +1,46 @@
+# Rosa spot database - the Spanish Basque coast (seeded 2026-09-10). North-facing Biscay beaches
+# (Zarautz, Sopelana) and the Mundaka rivermouth left: NW groundswell, offshore on a S wind.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &eus
+  timezone: Europe/Madrid
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [270, 30]
+  ideal:
+    wind_dir: [135, 225]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-10 - basque-country, 24 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 24 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/basque-country/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: bakio, name: "Bakio", town: "Bakio", lat: 43.4305, lon: -2.8059, offshore_direction: 156, swell_window: [271, 41], offshore_km: 5.0, <<: *eus }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: gorliz, name: "Gorliz", town: "Gorliz", lat: 43.4148, lon: -2.9437, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, <<: *eus }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: plentzia, name: "Plentzia", town: "Plentzia", lat: 43.4111, lon: -2.9463, offshore_direction: 136, swell_window: [251, 21], offshore_km: 5.0, <<: *eus }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: laga, name: "Laga", town: "Ibarrangelu", lat: 43.4090, lon: -2.6568, offshore_direction: 182, swell_window: [297, 67], offshore_km: 5.0, <<: *eus }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: mundaka, name: "Mundaka", town: "Mundaka", lat: 43.4060, lon: -2.6950, offshore_direction: 204, swell_window: [319, 89], offshore_km: 5.0, <<: *eus }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: barrika, name: "Barrika", town: "Barrika", lat: 43.4038, lon: -2.9744, offshore_direction: 126, swell_window: [241, 11], offshore_km: 5.0, <<: *eus }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: laida, name: "Laida", town: "Ibarrangelu", lat: 43.3989, lon: -2.6862, offshore_direction: 158, swell_window: [273, 43], offshore_km: 5.0, <<: *eus }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: menakoz, name: "Meñakoz", town: "Barrika", lat: 43.3951, lon: -2.9861, offshore_direction: 125, swell_window: [240, 10], offshore_km: 5.0, <<: *eus }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: atxabiribil, name: "Atxabiribil", town: "Sopela", lat: 43.3909, lon: -2.9928, offshore_direction: 133, swell_window: [248, 18], offshore_km: 5.0, <<: *eus }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: arrietara, name: "Arrietara", town: "Sopela", lat: 43.3881, lon: -2.9965, offshore_direction: 144, swell_window: [259, 29], offshore_km: 5.0, <<: *eus }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: la-salvaje, name: "La Salvaje", town: "Sopela", lat: 43.3835, lon: -3.0057, offshore_direction: 142, swell_window: [257, 27], offshore_km: 5.0, <<: *eus }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: ogella, name: "Ogella", town: "Ea", lat: 43.3794, lon: -2.5538, offshore_direction: 244, swell_window: [359, 129], offshore_km: 5.0, <<: *eus }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: punta-galea, name: "Punta Galea", town: "Getxo", lat: 43.3742, lon: -3.0378, offshore_direction: 164, swell_window: [279, 49], offshore_km: 5.0, <<: *eus }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: karraspio, name: "Karraspio", town: "Lekeitio", lat: 43.3638, lon: -2.4924, offshore_direction: 172, swell_window: [287, 57], offshore_km: 5.0, <<: *eus }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: arrigunaga, name: "Arrigunaga", town: "Getxo", lat: 43.3547, lon: -3.0195, offshore_direction: 112, swell_window: [227, 357], offshore_km: 5.0, <<: *eus }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: la-arena, name: "La Arena", town: "Muskiz", lat: 43.3486, lon: -3.1162, offshore_direction: 156, swell_window: [271, 41], offshore_km: 5.0, <<: *eus }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: zurriola, name: "Zurriola", town: "San Sebastian", lat: 43.3263, lon: -1.9754, offshore_direction: 139, swell_window: [254, 24], offshore_km: 5.0, <<: *eus }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: orrua, name: "Orrua", town: "Zumaia", lat: 43.3047, lon: -2.2413, offshore_direction: 160, swell_window: [275, 45], offshore_km: 5.0, <<: *eus }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: gaztetape, name: "Gaztetape", town: "Getaria", lat: 43.3038, lon: -2.2061, offshore_direction: 230, swell_window: [345, 115], offshore_km: 5.0, <<: *eus }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: sorginetxe, name: "Sorginetxe", town: "Deba", lat: 43.3024, lon: -2.3445, offshore_direction: 228, swell_window: [343, 113], offshore_km: 5.0, <<: *eus }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: itzurun, name: "Itzurun", town: "Zumaia", lat: 43.2999, lon: -2.2609, offshore_direction: 158, swell_window: [273, 43], offshore_km: 5.0, <<: *eus }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: deba, name: "Deba", town: "Deba", lat: 43.2982, lon: -2.3519, offshore_direction: 193, swell_window: [308, 78], offshore_km: 5.0, <<: *eus }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: antilla, name: "Antilla", town: "Orio", lat: 43.2891, lon: -2.1282, offshore_direction: 172, swell_window: [287, 57], offshore_km: 5.0, <<: *eus }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: zarautz, name: "Zarautz", town: "Zarautz", lat: 43.2876, lon: -2.1761, offshore_direction: 204, swell_window: [319, 89], offshore_km: 5.0, <<: *eus }  # sat-verified 2026-09-10 (websearch-seeded)

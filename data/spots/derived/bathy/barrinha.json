@@ -1,0 +1,72 @@
+{
+  "spot": "barrinha",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -20.4144,
+    -40.3212
+  ],
+  "bearing_seaward_deg": 98.0,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 38.0,
+  "mean_slope_m_per_km": 1.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -20.41471,
+      "lon": -40.31882,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -20.41503,
+      "lon": -40.31645,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -20.41565,
+      "lon": -40.3117,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -20.4169,
+      "lon": -40.30219,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -20.41815,
+      "lon": -40.29269,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -20.42065,
+      "lon": -40.27369,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -20.4244,
+      "lon": -40.24518,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -20.42938,
+      "lon": -40.20716,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -20.43685,
+      "lon": -40.15013,
+      "depth_m": 38.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "capricornio",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -23.6127,
+    -45.3514
+  ],
+  "bearing_seaward_deg": 117.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 23.0,
+  "mean_slope_m_per_km": 0.96,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.61372,
+      "lon": -45.34921,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.61474,
+      "lon": -45.34703,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.61678,
+      "lon": -45.34265,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.62086,
+      "lon": -45.33391,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.62495,
+      "lon": -45.32516,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.63311,
+      "lon": -45.30767,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.64535,
+      "lon": -45.28142,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.66166,
+      "lon": -45.24642,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.68611,
+      "lon": -45.1939,
+      "depth_m": 23.0
+    }
+  ]
+}

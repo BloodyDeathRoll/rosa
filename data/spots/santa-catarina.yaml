@@ -1,0 +1,68 @@
+# Rosa spot database - Santa Catarina (seeded 2026-09-11). Florianopolis, Garopaba and Imbituba: beaches and points facing E-SE, lit by S-SE groundswell; offshore on a W-NW wind.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+region: Santa Catarina
+defaults: &sc
+  timezone: America/Sao_Paulo
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [60, 200]
+  ideal:
+    wind_dir: [225, 315]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-11 - santa-catarina, 46 spots (primary coastline flow: 1 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 45 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/santa-catarina/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: praia-do-ubatuba-sc, name: "Praia do Ubatuba", town: "São Francisco do Sul", lat: -26.2150, lon: -48.5226, offshore_direction: 245, swell_window: [0, 130], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: prainha-sc, name: "Prainha", town: "São Francisco do Sul", lat: -26.2310, lon: -48.4994, offshore_direction: 304, swell_window: [59, 189], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: praia-grande-sc, name: "Praia Grande", town: "São Francisco do Sul", lat: -26.2358, lon: -48.5031, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: barra-velha, name: "Barra Velha", town: "Barra Velha", lat: -26.6684, lon: -48.6872, offshore_direction: 281, swell_window: [36, 166], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: navegantes, name: "Navegantes", town: "Navegantes", lat: -26.8315, lon: -48.6264, offshore_direction: 328, swell_window: [83, 213], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 148 (GEBCO arc middle)
+  - { id: atalaia-itajai, name: "Atalaia", town: "Itajaí", lat: -26.9187, lon: -48.6416, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: canto-do-morcego, name: "Canto do Morcego", town: "Itajaí", lat: -26.9324, lon: -48.6264, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 80 (GEBCO arc middle)
+  - { id: praia-brava-itajai, name: "Praia Brava (Itajaí)", town: "Itajaí", lat: -26.9573, lon: -48.6285, offshore_direction: 256, swell_window: [11, 141], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: barra-norte, name: "Barra Norte", town: "Balneário Camboriú", lat: -26.9724, lon: -48.6325, offshore_direction: 278, swell_window: [33, 163], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: estaleiro, name: "Estaleiro", town: "Balneário Camboriú", lat: -27.0275, lon: -48.5811, offshore_direction: 292, swell_window: [47, 177], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: bombas, name: "Bombas", town: "Bombinhas", lat: -27.1439, lon: -48.5040, offshore_direction: 218, swell_window: [333, 103], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: quatro-ilhas, name: "Quatro Ilhas", town: "Bombinhas", lat: -27.1558, lon: -48.4845, offshore_direction: 285, swell_window: [40, 170], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: mariscal, name: "Mariscal", town: "Bombinhas", lat: -27.1699, lon: -48.4987, offshore_direction: 281, swell_window: [36, 166], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: praia-brava-florianopolis, name: "Praia Brava (Florianópolis)", town: "Florianópolis", lat: -27.3937, lon: -48.4144, offshore_direction: 271, swell_window: [26, 156], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: ingleses, name: "Ingleses", town: "Florianópolis", lat: -27.4281, lon: -48.3977, offshore_direction: 234, swell_window: [349, 119], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: santinho, name: "Santinho", town: "Florianópolis", lat: -27.4587, lon: -48.3754, offshore_direction: 283, swell_window: [38, 168], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: mocambique, name: "Moçambique", town: "Florianópolis", lat: -27.5222, lon: -48.4164, offshore_direction: 298, swell_window: [53, 183], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: barra-da-lagoa, name: "Barra da Lagoa", town: "Florianópolis", lat: -27.5735, lon: -48.4238, offshore_direction: 210, swell_window: [325, 95], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 30 (API-grid sweep: 40 read land to 0.5 km, 20 hit the island at 12 km; 30 is inside the local open arc and wet from 0.5 km)
+  - { id: galheta-florianopolis, name: "Galheta", town: "Florianópolis", lat: -27.5925, lon: -48.4252, offshore_direction: 348, swell_window: [103, 233], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 168 (GEBCO arc middle)
+  - { id: praia-mole-sc, name: "Praia Mole", town: "Florianópolis", lat: -27.6023, lon: -48.4325, offshore_direction: 305, swell_window: [60, 190], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: joaquina, name: "Joaquina", town: "Florianópolis", lat: -27.6304, lon: -48.4496, offshore_direction: 317, swell_window: [72, 202], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: campeche, name: "Campeche", town: "Florianópolis", lat: -27.6934, lon: -48.4826, offshore_direction: 327, swell_window: [82, 212], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: lomba-do-sabao, name: "Lomba do Sabão", town: "Florianópolis", lat: -27.6972, lon: -48.4889, offshore_direction: 318, swell_window: [73, 203], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (osm-seeded)
+  - { id: morro-das-pedras, name: "Morro das Pedras", town: "Florianópolis", lat: -27.7137, lon: -48.5017, offshore_direction: 296, swell_window: [51, 181], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: armacao-sc, name: "Armação", town: "Florianópolis", lat: -27.7484, lon: -48.5053, offshore_direction: 220, swell_window: [335, 105], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 40 (GEBCO arc middle)
+  - { id: matadeiro, name: "Matadeiro", town: "Florianópolis", lat: -27.7525, lon: -48.4998, offshore_direction: 282, swell_window: [37, 167], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: lagoinha-do-leste, name: "Lagoinha do Leste", town: "Florianópolis", lat: -27.7749, lon: -48.4867, offshore_direction: 297, swell_window: [52, 182], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: solidao, name: "Solidão", town: "Florianópolis", lat: -27.7927, lon: -48.5324, offshore_direction: 301, swell_window: [56, 186], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: naufragados, name: "Naufragados", town: "Florianópolis", lat: -27.8336, lon: -48.5641, offshore_direction: 354, swell_window: [109, 239], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: pinheira, name: "Pinheira", town: "Palhoça", lat: -27.8598, lon: -48.6007, offshore_direction: 289, swell_window: [44, 174], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: guarda-do-embau, name: "Guarda do Embaú", town: "Palhoça", lat: -27.9058, lon: -48.5876, offshore_direction: 315, swell_window: [70, 200], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: gamboa-sc, name: "Gamboa", town: "Garopaba", lat: -27.9574, lon: -48.6255, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 90 (GEBCO arc middle)
+  - { id: siriu, name: "Siriú", town: "Garopaba", lat: -27.9843, lon: -48.6296, offshore_direction: 282, swell_window: [37, 167], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: silveira, name: "Silveira", town: "Garopaba", lat: -28.0418, lon: -48.6098, offshore_direction: 288, swell_window: [43, 173], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: ferrugem, name: "Ferrugem", town: "Garopaba", lat: -28.0753, lon: -48.6259, offshore_direction: 314, swell_window: [69, 199], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: praia-do-rosa, name: "Praia do Rosa", town: "Imbituba", lat: -28.1294, lon: -48.6417, offshore_direction: 285, swell_window: [40, 170], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: praia-do-luz, name: "Praia do Luz", town: "Imbituba", lat: -28.1462, lon: -48.6466, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: ibiraquera, name: "Ibiraquera", town: "Imbituba", lat: -28.1555, lon: -48.6530, offshore_direction: 336, swell_window: [91, 221], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 156 (GEBCO arc middle)
+  - { id: ribanceira, name: "Ribanceira", town: "Imbituba", lat: -28.1859, lon: -48.6632, offshore_direction: 272, swell_window: [27, 157], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: praia-da-vila-imbituba, name: "Praia da Vila", town: "Imbituba", lat: -28.2403, lon: -48.6559, offshore_direction: 346, swell_window: [101, 231], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 166 (GEBCO arc middle)
+  - { id: itapiruba, name: "Itapirubá", town: "Imbituba", lat: -28.3357, lon: -48.7070, offshore_direction: 236, swell_window: [351, 121], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: mar-grosso, name: "Mar Grosso", town: "Laguna", lat: -28.4828, lon: -48.7656, offshore_direction: 261, swell_window: [16, 146], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: galheta-laguna, name: "Galheta (Laguna)", town: "Laguna", lat: -28.5666, lon: -48.7917, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 180 (GEBCO arc middle)
+  - { id: prainha-do-farol, name: "Prainha do Farol", town: "Farol de Santa Marta", lat: -28.6018, lon: -48.8169, offshore_direction: 236, swell_window: [351, 121], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 56 (GEBCO arc middle)
+  - { id: cardoso, name: "Cardoso", town: "Farol de Santa Marta", lat: -28.6085, lon: -48.8340, offshore_direction: 324, swell_window: [79, 209], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: praia-da-cigana, name: "Praia da Cigana", town: "Farol de Santa Marta", lat: -28.6126, lon: -48.8508, offshore_direction: 336, swell_window: [91, 221], offshore_km: 5.0, <<: *sc }  # sat-verified 2026-09-11 (websearch-seeded)

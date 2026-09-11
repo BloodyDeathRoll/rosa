@@ -1,0 +1,72 @@
+{
+  "spot": "biboca",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -3.8379,
+    -32.4085
+  ],
+  "bearing_seaward_deg": 345.0,
+  "nearshore_depth_m": 24.0,
+  "offshore_depth_m": 3337.0,
+  "mean_slope_m_per_km": 186.65,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -3.83573,
+      "lon": -32.40908,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -3.83356,
+      "lon": -32.40967,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -3.82921,
+      "lon": -32.41083,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -3.82053,
+      "lon": -32.41317,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -3.81184,
+      "lon": -32.4155,
+      "depth_m": 111.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -3.79447,
+      "lon": -32.42016,
+      "depth_m": 234.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -3.76841,
+      "lon": -32.42716,
+      "depth_m": 945.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -3.73366,
+      "lon": -32.43649,
+      "depth_m": 2040.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -3.68154,
+      "lon": -32.45048,
+      "depth_m": 3337.0
+    }
+  ]
+}

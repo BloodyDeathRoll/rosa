@@ -1,0 +1,72 @@
+{
+  "spot": "bolonia",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.0871,
+    -5.778
+  ],
+  "bearing_seaward_deg": 179.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 463.0,
+  "mean_slope_m_per_km": 25.97,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.08485,
+      "lon": -5.77795,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.0826,
+      "lon": -5.7779,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.07811,
+      "lon": -5.77781,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.06912,
+      "lon": -5.77761,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.06012,
+      "lon": -5.77742,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.04214,
+      "lon": -5.77703,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.01517,
+      "lon": -5.77645,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.9792,
+      "lon": -5.77567,
+      "depth_m": 158.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.92525,
+      "lon": -5.77451,
+      "depth_m": 463.0
+    }
+  ]
+}

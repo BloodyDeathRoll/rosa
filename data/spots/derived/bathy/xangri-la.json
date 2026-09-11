@@ -1,0 +1,72 @@
+{
+  "spot": "xangri-la",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -29.8062,
+    -50.0365
+  ],
+  "bearing_seaward_deg": 115.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 32.0,
+  "mean_slope_m_per_km": 1.8,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -29.80715,
+      "lon": -50.03415,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -29.8081,
+      "lon": -50.0318,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -29.81,
+      "lon": -50.02711,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -29.8138,
+      "lon": -50.01771,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -29.8176,
+      "lon": -50.00832,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -29.8252,
+      "lon": -49.98952,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -29.83658,
+      "lon": -49.96133,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -29.85176,
+      "lon": -49.92373,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -29.8745,
+      "lon": -49.86731,
+      "depth_m": 32.0
+    }
+  ]
+}

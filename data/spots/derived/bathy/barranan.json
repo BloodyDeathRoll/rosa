@@ -1,0 +1,72 @@
+{
+  "spot": "barranan",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.3116,
+    -8.5502
+  ],
+  "bearing_seaward_deg": 356.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 100.0,
+  "mean_slope_m_per_km": 5.13,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.31384,
+      "lon": -8.55042,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.31609,
+      "lon": -8.55063,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.32057,
+      "lon": -8.55106,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.32954,
+      "lon": -8.55192,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.33851,
+      "lon": -8.55279,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.35646,
+      "lon": -8.55451,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.38337,
+      "lon": -8.55711,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.41926,
+      "lon": -8.56056,
+      "depth_m": 99.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.47308,
+      "lon": -8.56576,
+      "depth_m": 100.0
+    }
+  ]
+}

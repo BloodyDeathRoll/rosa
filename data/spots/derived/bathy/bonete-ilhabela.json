@@ -1,0 +1,72 @@
+{
+  "spot": "bonete-ilhabela",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -23.9175,
+    -45.3455
+  ],
+  "bearing_seaward_deg": 171.0,
+  "nearshore_depth_m": 17.0,
+  "offshore_depth_m": 58.0,
+  "mean_slope_m_per_km": 2.31,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.91972,
+      "lon": -45.34512,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.92194,
+      "lon": -45.34473,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.92638,
+      "lon": -45.34396,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.93526,
+      "lon": -45.34242,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.94415,
+      "lon": -45.34088,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.96191,
+      "lon": -45.3378,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.98856,
+      "lon": -45.33318,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -24.02409,
+      "lon": -45.32702,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -24.07738,
+      "lon": -45.31776,
+      "depth_m": 58.0
+    }
+  ]
+}

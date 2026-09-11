@@ -1,0 +1,72 @@
+{
+  "spot": "playa-del-ingles",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    27.7524,
+    -15.5673
+  ],
+  "bearing_seaward_deg": 105.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 747.0,
+  "mean_slope_m_per_km": 41.75,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 27.75182,
+      "lon": -15.56485,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 27.75124,
+      "lon": -15.56239,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 27.75007,
+      "lon": -15.55748,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 27.74774,
+      "lon": -15.54767,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 27.74541,
+      "lon": -15.53785,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 27.74075,
+      "lon": -15.51823,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 27.73376,
+      "lon": -15.48879,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 27.72442,
+      "lon": -15.44954,
+      "depth_m": 222.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 27.71039,
+      "lon": -15.39068,
+      "depth_m": 747.0
+    }
+  ]
+}

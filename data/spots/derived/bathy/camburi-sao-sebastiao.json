@@ -1,0 +1,72 @@
+{
+  "spot": "camburi-sao-sebastiao",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -23.7778,
+    -45.6502
+  ],
+  "bearing_seaward_deg": 192.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 1.18,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.78,
+      "lon": -45.65071,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.7822,
+      "lon": -45.65122,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.7866,
+      "lon": -45.65224,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.79539,
+      "lon": -45.65429,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.80419,
+      "lon": -45.65633,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.82178,
+      "lon": -45.66042,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.84817,
+      "lon": -45.66655,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.88336,
+      "lon": -45.67474,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.93614,
+      "lon": -45.68702,
+      "depth_m": 30.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "praia-da-costa-br",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -14.2884,
+    -38.9848
+  ],
+  "bearing_seaward_deg": 44.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 146.0,
+  "mean_slope_m_per_km": 8.68,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -14.28678,
+      "lon": -38.98319,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -14.28517,
+      "lon": -38.98158,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -14.28193,
+      "lon": -38.97835,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -14.27546,
+      "lon": -38.97191,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -14.26899,
+      "lon": -38.96546,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -14.25605,
+      "lon": -38.95257,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -14.23664,
+      "lon": -38.93324,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -14.21076,
+      "lon": -38.90747,
+      "depth_m": 102.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -14.17193,
+      "lon": -38.86882,
+      "depth_m": 146.0
+    }
+  ]
+}

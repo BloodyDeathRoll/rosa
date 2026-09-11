@@ -1,0 +1,72 @@
+{
+  "spot": "jaguaribe",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -12.9606,
+    -38.3947
+  ],
+  "bearing_seaward_deg": 148.0,
+  "nearshore_depth_m": 24.0,
+  "offshore_depth_m": 1090.0,
+  "mean_slope_m_per_km": 60.06,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -12.96251,
+      "lon": -38.39348,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -12.96441,
+      "lon": -38.39225,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -12.96823,
+      "lon": -38.38981,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -12.97585,
+      "lon": -38.38492,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -12.98348,
+      "lon": -38.38003,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -12.99873,
+      "lon": -38.37024,
+      "depth_m": 257.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -13.02161,
+      "lon": -38.35557,
+      "depth_m": 249.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -13.05211,
+      "lon": -38.336,
+      "depth_m": 419.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -13.09787,
+      "lon": -38.30663,
+      "depth_m": 1090.0
+    }
+  ]
+}

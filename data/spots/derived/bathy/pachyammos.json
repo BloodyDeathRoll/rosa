@@ -1,0 +1,72 @@
+{
+  "spot": "pachyammos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.175,
+    32.5868
+  ],
+  "bearing_seaward_deg": 324.0,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 1029.0,
+  "mean_slope_m_per_km": 57.24,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.17682,
+      "lon": 32.58518,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.17864,
+      "lon": 32.58357,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.18228,
+      "lon": 32.58033,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.18955,
+      "lon": 32.57386,
+      "depth_m": 294.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.19683,
+      "lon": 32.56739,
+      "depth_m": 377.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.21137,
+      "lon": 32.55445,
+      "depth_m": 556.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.23319,
+      "lon": 32.53503,
+      "depth_m": 1005.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.26228,
+      "lon": 32.50911,
+      "depth_m": 1148.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.30591,
+      "lon": 32.47021,
+      "depth_m": 1029.0
+    }
+  ]
+}

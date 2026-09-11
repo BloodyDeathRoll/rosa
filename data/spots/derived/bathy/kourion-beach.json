@@ -1,0 +1,72 @@
+{
+  "spot": "kourion-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.657,
+    32.8877
+  ],
+  "bearing_seaward_deg": 225.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 354.0,
+  "mean_slope_m_per_km": 19.77,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.65541,
+      "lon": 32.88577,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.65382,
+      "lon": 32.88383,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.65064,
+      "lon": 32.87997,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.64428,
+      "lon": 32.87224,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.63792,
+      "lon": 32.86451,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.6252,
+      "lon": 32.84906,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.60611,
+      "lon": 32.82589,
+      "depth_m": 101.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.58066,
+      "lon": 32.79502,
+      "depth_m": 149.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.54246,
+      "lon": 32.74874,
+      "depth_m": 354.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "sao-conrado",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -22.9998,
+    -43.2642
+  ],
+  "bearing_seaward_deg": 172.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 60.0,
+  "mean_slope_m_per_km": 3.72,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.00203,
+      "lon": -43.26386,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.00425,
+      "lon": -43.26352,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.00871,
+      "lon": -43.26284,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.01761,
+      "lon": -43.26148,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.02652,
+      "lon": -43.26012,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.04433,
+      "lon": -43.2574,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.07105,
+      "lon": -43.25332,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.10667,
+      "lon": -43.24787,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.1601,
+      "lon": -43.2397,
+      "depth_m": 60.0
+    }
+  ]
+}

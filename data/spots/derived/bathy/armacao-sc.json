@@ -1,0 +1,72 @@
+{
+  "spot": "armacao-sc",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -27.7484,
+    -48.5053
+  ],
+  "bearing_seaward_deg": 40.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 39.0,
+  "mean_slope_m_per_km": 2.2,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -27.74668,
+      "lon": -48.50367,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -27.74496,
+      "lon": -48.50203,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -27.74151,
+      "lon": -48.49877,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -27.73462,
+      "lon": -48.49224,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -27.72773,
+      "lon": -48.48571,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -27.71395,
+      "lon": -48.47265,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -27.69328,
+      "lon": -48.45307,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -27.66571,
+      "lon": -48.42698,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -27.62434,
+      "lon": -48.38786,
+      "depth_m": 39.0
+    }
+  ]
+}

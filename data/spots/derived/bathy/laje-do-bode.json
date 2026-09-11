@@ -1,0 +1,72 @@
+{
+  "spot": "laje-do-bode",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -3.8478,
+    -32.4346
+  ],
+  "bearing_seaward_deg": 328.0,
+  "nearshore_depth_m": -20.0,
+  "offshore_depth_m": 3410.0,
+  "mean_slope_m_per_km": 193.24,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -3.84589,
+      "lon": -32.43579,
+      "depth_m": -20.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -3.84399,
+      "lon": -32.43699,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -3.84017,
+      "lon": -32.43938,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -3.83255,
+      "lon": -32.44415,
+      "depth_m": 76.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -3.82492,
+      "lon": -32.44893,
+      "depth_m": 225.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -3.80967,
+      "lon": -32.45848,
+      "depth_m": 743.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -3.78679,
+      "lon": -32.47281,
+      "depth_m": 1474.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -3.75628,
+      "lon": -32.49191,
+      "depth_m": 2359.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -3.71052,
+      "lon": -32.52056,
+      "depth_m": 3410.0
+    }
+  ]
+}

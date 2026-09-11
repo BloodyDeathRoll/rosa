@@ -1,0 +1,72 @@
+{
+  "spot": "pedra-de-xareu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -8.3036,
+    -34.9457
+  ],
+  "bearing_seaward_deg": 62.0,
+  "nearshore_depth_m": 17.0,
+  "offshore_depth_m": 29.0,
+  "mean_slope_m_per_km": 0.68,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -8.30254,
+      "lon": -34.94369,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -8.30149,
+      "lon": -34.94169,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -8.29938,
+      "lon": -34.93768,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -8.29516,
+      "lon": -34.92965,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -8.29093,
+      "lon": -34.92163,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -8.28249,
+      "lon": -34.90558,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -8.26982,
+      "lon": -34.88151,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -8.25292,
+      "lon": -34.84942,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -8.22758,
+      "lon": -34.80128,
+      "depth_m": 29.0
+    }
+  ]
+}

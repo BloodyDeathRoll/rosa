@@ -1,0 +1,72 @@
+{
+  "spot": "caranquexo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.1592,
+    -8.8201
+  ],
+  "bearing_seaward_deg": 282.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 120.0,
+  "mean_slope_m_per_km": 6.2,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.15967,
+      "lon": -8.82307,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.16013,
+      "lon": -8.82603,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.16107,
+      "lon": -8.83197,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.16294,
+      "lon": -8.84384,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.1648,
+      "lon": -8.8557,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.16853,
+      "lon": -8.87944,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.17412,
+      "lon": -8.91506,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.18155,
+      "lon": -8.96255,
+      "depth_m": 96.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.19266,
+      "lon": -9.03382,
+      "depth_m": 120.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "playa-del-hombre",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    27.9966,
+    -15.3748
+  ],
+  "bearing_seaward_deg": 74.0,
+  "nearshore_depth_m": -18.0,
+  "offshore_depth_m": 1519.0,
+  "mean_slope_m_per_km": 86.59,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 27.99722,
+      "lon": -15.37235,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 27.99784,
+      "lon": -15.3699,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 27.99908,
+      "lon": -15.36501,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.00156,
+      "lon": -15.35522,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.00403,
+      "lon": -15.34543,
+      "depth_m": 147.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.00899,
+      "lon": -15.32584,
+      "depth_m": 499.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.01641,
+      "lon": -15.29646,
+      "depth_m": 872.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.0263,
+      "lon": -15.25728,
+      "depth_m": 1128.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.04111,
+      "lon": -15.1985,
+      "depth_m": 1519.0
+    }
+  ]
+}

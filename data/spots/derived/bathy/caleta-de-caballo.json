@@ -1,0 +1,72 @@
+{
+  "spot": "caleta-de-caballo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    29.1181,
+    -13.6383
+  ],
+  "bearing_seaward_deg": 22.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 204.0,
+  "mean_slope_m_per_km": 11.1,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 29.12018,
+      "lon": -13.63734,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 29.12227,
+      "lon": -13.63637,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 29.12644,
+      "lon": -13.63444,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 29.13478,
+      "lon": -13.63059,
+      "depth_m": 112.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 29.14311,
+      "lon": -13.62673,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 29.15979,
+      "lon": -13.61901,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 29.1848,
+      "lon": -13.60743,
+      "depth_m": 98.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 29.21815,
+      "lon": -13.59198,
+      "depth_m": 374.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 29.26817,
+      "lon": -13.56879,
+      "depth_m": 204.0
+    }
+  ]
+}

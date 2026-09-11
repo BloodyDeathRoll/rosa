@@ -1,0 +1,72 @@
+{
+  "spot": "cherchell-tizirine",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.6109,
+    2.2041
+  ],
+  "bearing_seaward_deg": 7.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 1935.0,
+  "mean_slope_m_per_km": 108.68,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.61313,
+      "lon": 2.20444,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.61536,
+      "lon": 2.20478,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.61983,
+      "lon": 2.20547,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.62875,
+      "lon": 2.20683,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.63768,
+      "lon": 2.2082,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.65553,
+      "lon": 2.21093,
+      "depth_m": 266.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.68231,
+      "lon": 2.21503,
+      "depth_m": 840.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.71801,
+      "lon": 2.22051,
+      "depth_m": 1392.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.77157,
+      "lon": 2.22873,
+      "depth_m": 1935.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "arinaga",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    27.8555,
+    -15.3982
+  ],
+  "bearing_seaward_deg": 109.0,
+  "nearshore_depth_m": -13.0,
+  "offshore_depth_m": 1393.0,
+  "mean_slope_m_per_km": 79.21,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 27.85477,
+      "lon": -15.3958,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 27.85404,
+      "lon": -15.39339,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 27.85257,
+      "lon": -15.38858,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 27.84964,
+      "lon": -15.37897,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 27.84671,
+      "lon": -15.36935,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 27.84085,
+      "lon": -15.35012,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 27.83206,
+      "lon": -15.32128,
+      "depth_m": 121.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 27.82032,
+      "lon": -15.28283,
+      "depth_m": 493.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 27.80269,
+      "lon": -15.22517,
+      "depth_m": 1393.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "serra-grande",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -14.4791,
+    -39.0304
+  ],
+  "bearing_seaward_deg": 99.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 635.0,
+  "mean_slope_m_per_km": 36.17,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -14.47945,
+      "lon": -39.02811,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -14.4798,
+      "lon": -39.02581,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -14.48051,
+      "lon": -39.02123,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -14.48191,
+      "lon": -39.01205,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -14.48332,
+      "lon": -39.00288,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -14.48613,
+      "lon": -38.98453,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -14.49034,
+      "lon": -38.95701,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -14.49596,
+      "lon": -38.92031,
+      "depth_m": 114.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -14.50437,
+      "lon": -38.86525,
+      "depth_m": 635.0
+    }
+  ]
+}

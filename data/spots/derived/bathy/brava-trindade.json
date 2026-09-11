@@ -1,0 +1,72 @@
+{
+  "spot": "brava-trindade",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -23.3402,
+    -44.7028
+  ],
+  "bearing_seaward_deg": 178.0,
+  "nearshore_depth_m": -29.0,
+  "offshore_depth_m": 44.0,
+  "mean_slope_m_per_km": 4.11,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.34245,
+      "lon": -44.70271,
+      "depth_m": -29.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.34469,
+      "lon": -44.70263,
+      "depth_m": -29.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.34919,
+      "lon": -44.70246,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.35818,
+      "lon": -44.70212,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.36716,
+      "lon": -44.70177,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.38514,
+      "lon": -44.70109,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.4121,
+      "lon": -44.70006,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.44805,
+      "lon": -44.69869,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.50198,
+      "lon": -44.69664,
+      "depth_m": 44.0
+    }
+  ]
+}

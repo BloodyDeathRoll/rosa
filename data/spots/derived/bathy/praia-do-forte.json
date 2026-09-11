@@ -1,0 +1,72 @@
+{
+  "spot": "praia-do-forte",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -12.5699,
+    -37.9967
+  ],
+  "bearing_seaward_deg": 117.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 1416.0,
+  "mean_slope_m_per_km": 79.38,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -12.57092,
+      "lon": -37.99465,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -12.57194,
+      "lon": -37.9926,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -12.57398,
+      "lon": -37.98849,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -12.57807,
+      "lon": -37.98028,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -12.58215,
+      "lon": -37.97207,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -12.59031,
+      "lon": -37.95565,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -12.60255,
+      "lon": -37.93101,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -12.61888,
+      "lon": -37.89816,
+      "depth_m": 130.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -12.64335,
+      "lon": -37.84888,
+      "depth_m": 1416.0
+    }
+  ]
+}

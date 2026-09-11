@@ -1,0 +1,72 @@
+{
+  "spot": "galheta-florianopolis",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -27.5925,
+    -48.4252
+  ],
+  "bearing_seaward_deg": 168.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 45.0,
+  "mean_slope_m_per_km": 3.21,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -27.5947,
+      "lon": -48.42467,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -27.5969,
+      "lon": -48.42415,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -27.6013,
+      "lon": -48.42309,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -27.61009,
+      "lon": -48.42098,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -27.61889,
+      "lon": -48.41887,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -27.63648,
+      "lon": -48.41465,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -27.66287,
+      "lon": -48.40831,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -27.69806,
+      "lon": -48.39986,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -27.75084,
+      "lon": -48.38717,
+      "depth_m": 45.0
+    }
+  ]
+}

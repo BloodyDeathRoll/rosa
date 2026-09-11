@@ -1,0 +1,72 @@
+{
+  "spot": "orzan",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.3717,
+    -8.4051
+  ],
+  "bearing_seaward_deg": 312.0,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 100.0,
+  "mean_slope_m_per_km": 4.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.3732,
+      "lon": -8.4074,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.37471,
+      "lon": -8.4097,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.37772,
+      "lon": -8.41429,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.38373,
+      "lon": -8.42349,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.38975,
+      "lon": -8.43269,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.40178,
+      "lon": -8.45109,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.41982,
+      "lon": -8.47871,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.44386,
+      "lon": -8.51556,
+      "depth_m": 101.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.4799,
+      "lon": -8.57089,
+      "depth_m": 100.0
+    }
+  ]
+}

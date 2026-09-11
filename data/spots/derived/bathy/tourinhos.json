@@ -1,0 +1,72 @@
+{
+  "spot": "tourinhos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -5.1041,
+    -35.7
+  ],
+  "bearing_seaward_deg": 44.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 11.0,
+  "mean_slope_m_per_km": 0.68,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -5.10248,
+      "lon": -35.69843,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -5.10087,
+      "lon": -35.69686,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -5.09763,
+      "lon": -35.69373,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -5.09116,
+      "lon": -35.68746,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -5.08469,
+      "lon": -35.68118,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -5.07175,
+      "lon": -35.66864,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -5.05234,
+      "lon": -35.64983,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -5.02647,
+      "lon": -35.62474,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -4.98765,
+      "lon": -35.58712,
+      "depth_m": 11.0
+    }
+  ]
+}

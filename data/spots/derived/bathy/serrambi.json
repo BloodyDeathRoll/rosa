@@ -1,0 +1,72 @@
+{
+  "spot": "serrambi",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -8.5634,
+    -35.0054
+  ],
+  "bearing_seaward_deg": 110.0,
+  "nearshore_depth_m": 19.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 0.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -8.56417,
+      "lon": -35.00326,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -8.56494,
+      "lon": -35.00113,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -8.56648,
+      "lon": -34.99685,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -8.56955,
+      "lon": -34.98831,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -8.57263,
+      "lon": -34.97976,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -8.57878,
+      "lon": -34.96267,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -8.588,
+      "lon": -34.93703,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -8.6003,
+      "lon": -34.90284,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -8.61873,
+      "lon": -34.85155,
+      "depth_m": 35.0
+    }
+  ]
+}

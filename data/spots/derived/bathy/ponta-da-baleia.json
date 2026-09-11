@@ -1,0 +1,72 @@
+{
+  "spot": "ponta-da-baleia",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -20.1797,
+    -40.1891
+  ],
+  "bearing_seaward_deg": 120.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 38.0,
+  "mean_slope_m_per_km": 1.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -20.18082,
+      "lon": -40.18703,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -20.18195,
+      "lon": -40.18495,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -20.1842,
+      "lon": -40.1808,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -20.18869,
+      "lon": -40.1725,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -20.19319,
+      "lon": -40.1642,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -20.20218,
+      "lon": -40.14761,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -20.21566,
+      "lon": -40.1227,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -20.23363,
+      "lon": -40.08949,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -20.26058,
+      "lon": -40.03966,
+      "depth_m": 38.0
+    }
+  ]
+}

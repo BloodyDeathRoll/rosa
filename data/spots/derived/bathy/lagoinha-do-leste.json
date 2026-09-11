@@ -1,0 +1,72 @@
+{
+  "spot": "lagoinha-do-leste",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -27.7749,
+    -48.4867
+  ],
+  "bearing_seaward_deg": 117.0,
+  "nearshore_depth_m": 21.0,
+  "offshore_depth_m": 61.0,
+  "mean_slope_m_per_km": 2.25,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -27.77592,
+      "lon": -48.48444,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -27.77694,
+      "lon": -48.48217,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -27.77898,
+      "lon": -48.47764,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -27.78306,
+      "lon": -48.46859,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -27.78715,
+      "lon": -48.45953,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -27.79531,
+      "lon": -48.44141,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -27.80754,
+      "lon": -48.41423,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -27.82385,
+      "lon": -48.37797,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -27.8483,
+      "lon": -48.32357,
+      "depth_m": 61.0
+    }
+  ]
+}

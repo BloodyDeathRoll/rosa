@@ -1,0 +1,72 @@
+{
+  "spot": "shangri-la-br",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -25.6276,
+    -48.4177
+  ],
+  "bearing_seaward_deg": 126.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 17.0,
+  "mean_slope_m_per_km": 0.96,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -25.62892,
+      "lon": -48.41568,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -25.63024,
+      "lon": -48.41367,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -25.63289,
+      "lon": -48.40963,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -25.63817,
+      "lon": -48.40156,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -25.64346,
+      "lon": -48.39349,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -25.65402,
+      "lon": -48.37734,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -25.66987,
+      "lon": -48.35312,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -25.691,
+      "lon": -48.32081,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -25.72268,
+      "lon": -48.27233,
+      "depth_m": 17.0
+    }
+  ]
+}

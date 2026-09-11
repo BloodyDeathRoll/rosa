@@ -1,0 +1,72 @@
+{
+  "spot": "taganana",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    28.5705,
+    -16.2039
+  ],
+  "bearing_seaward_deg": 354.0,
+  "nearshore_depth_m": 26.0,
+  "offshore_depth_m": 2711.0,
+  "mean_slope_m_per_km": 151.27,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.57274,
+      "lon": -16.20417,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.57497,
+      "lon": -16.20444,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.57944,
+      "lon": -16.20497,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.58839,
+      "lon": -16.20604,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.59733,
+      "lon": -16.20711,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.61522,
+      "lon": -16.20925,
+      "depth_m": 302.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.64205,
+      "lon": -16.21247,
+      "depth_m": 1368.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.67783,
+      "lon": -16.21676,
+      "depth_m": 2122.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.73149,
+      "lon": -16.2232,
+      "depth_m": 2711.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "titanzinho",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -3.7079,
+    -38.4678
+  ],
+  "bearing_seaward_deg": 335.0,
+  "nearshore_depth_m": 21.0,
+  "offshore_depth_m": 23.0,
+  "mean_slope_m_per_km": 0.11,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -3.70586,
+      "lon": -38.46875,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -3.70382,
+      "lon": -38.4697,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -3.69975,
+      "lon": -38.47161,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -3.6916,
+      "lon": -38.47542,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -3.68345,
+      "lon": -38.47923,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -3.66715,
+      "lon": -38.48684,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -3.64269,
+      "lon": -38.49827,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -3.61009,
+      "lon": -38.5135,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -3.56119,
+      "lon": -38.53634,
+      "depth_m": 23.0
+    }
+  ]
+}

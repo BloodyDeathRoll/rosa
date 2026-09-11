@@ -1,0 +1,72 @@
+{
+  "spot": "berria",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.4656,
+    -3.466
+  ],
+  "bearing_seaward_deg": 27.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 801.0,
+  "mean_slope_m_per_km": 44.56,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.4676,
+      "lon": -3.46459,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.46961,
+      "lon": -3.46319,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.47361,
+      "lon": -3.46037,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.48163,
+      "lon": -3.45475,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.48964,
+      "lon": -3.44912,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.50566,
+      "lon": -3.43785,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.5297,
+      "lon": -3.42095,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.56174,
+      "lon": -3.39839,
+      "depth_m": 234.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.60979,
+      "lon": -3.3645,
+      "depth_m": 801.0
+    }
+  ]
+}

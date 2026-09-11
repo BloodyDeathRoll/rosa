@@ -1,0 +1,72 @@
+{
+  "spot": "camburizinho",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -23.7777,
+    -45.6457
+  ],
+  "bearing_seaward_deg": 215.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 27.0,
+  "mean_slope_m_per_km": 0.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.77954,
+      "lon": -45.64711,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.78138,
+      "lon": -45.64852,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.78507,
+      "lon": -45.65134,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.79243,
+      "lon": -45.65697,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.7998,
+      "lon": -45.66261,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.81453,
+      "lon": -45.67389,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.83663,
+      "lon": -45.69081,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.86609,
+      "lon": -45.71339,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.91027,
+      "lon": -45.74727,
+      "depth_m": 27.0
+    }
+  ]
+}

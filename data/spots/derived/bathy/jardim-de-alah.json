@@ -1,0 +1,72 @@
+{
+  "spot": "jardim-de-alah",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -12.9955,
+    -38.4408
+  ],
+  "bearing_seaward_deg": 129.0,
+  "nearshore_depth_m": 107.0,
+  "offshore_depth_m": 1065.0,
+  "mean_slope_m_per_km": 53.97,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -12.99691,
+      "lon": -38.43901,
+      "depth_m": 107.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -12.99833,
+      "lon": -38.43721,
+      "depth_m": 112.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -13.00116,
+      "lon": -38.43363,
+      "depth_m": 108.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -13.00682,
+      "lon": -38.42645,
+      "depth_m": 124.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -13.01248,
+      "lon": -38.41928,
+      "depth_m": 140.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -13.0238,
+      "lon": -38.40493,
+      "depth_m": 147.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -13.04077,
+      "lon": -38.38341,
+      "depth_m": 157.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -13.0634,
+      "lon": -38.3547,
+      "depth_m": 411.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -13.09734,
+      "lon": -38.31164,
+      "depth_m": 1065.0
+    }
+  ]
+}

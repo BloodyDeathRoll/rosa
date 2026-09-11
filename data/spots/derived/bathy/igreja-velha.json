@@ -1,0 +1,72 @@
+{
+  "spot": "igreja-velha",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -3.3994,
+    -39.0117
+  ],
+  "bearing_seaward_deg": 346.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 14.0,
+  "mean_slope_m_per_km": 0.85,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -3.39722,
+      "lon": -39.01224,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -3.39504,
+      "lon": -39.01279,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -3.39067,
+      "lon": -39.01388,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -3.38195,
+      "lon": -39.01606,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -3.37322,
+      "lon": -39.01824,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -3.35577,
+      "lon": -39.0226,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -3.32959,
+      "lon": -39.02913,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -3.29469,
+      "lon": -39.03785,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -3.24233,
+      "lon": -39.05092,
+      "depth_m": 14.0
+    }
+  ]
+}

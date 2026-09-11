@@ -1,0 +1,72 @@
+{
+  "spot": "vermelha-do-norte",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -23.4164,
+    -45.036
+  ],
+  "bearing_seaward_deg": 134.0,
+  "nearshore_depth_m": -69.0,
+  "offshore_depth_m": 36.0,
+  "mean_slope_m_per_km": 5.92,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.41796,
+      "lon": -45.03424,
+      "depth_m": -69.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.41952,
+      "lon": -45.03248,
+      "depth_m": -63.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.42265,
+      "lon": -45.02895,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.42889,
+      "lon": -45.0219,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.43514,
+      "lon": -45.01485,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.44763,
+      "lon": -45.00074,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.46637,
+      "lon": -44.97958,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.49134,
+      "lon": -44.95135,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.5288,
+      "lon": -44.909,
+      "depth_m": 36.0
+    }
+  ]
+}

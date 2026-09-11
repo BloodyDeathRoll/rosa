@@ -1,0 +1,72 @@
+{
+  "spot": "icarai",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -3.6727,
+    -38.6648
+  ],
+  "bearing_seaward_deg": 30.0,
+  "nearshore_depth_m": 18.0,
+  "offshore_depth_m": 23.0,
+  "mean_slope_m_per_km": 0.28,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 5,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -3.67075,
+      "lon": -38.66367,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -3.66881,
+      "lon": -38.66255,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -3.66491,
+      "lon": -38.66029,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -3.65712,
+      "lon": -38.65579,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -3.64933,
+      "lon": -38.65128,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -3.63376,
+      "lon": -38.64227,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -3.61039,
+      "lon": -38.62876,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -3.57924,
+      "lon": -38.61074,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -3.53251,
+      "lon": -38.58371,
+      "depth_m": 23.0
+    }
+  ]
+}

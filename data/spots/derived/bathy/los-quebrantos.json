@@ -1,0 +1,72 @@
+{
+  "spot": "los-quebrantos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.5647,
+    -6.0687
+  ],
+  "bearing_seaward_deg": 359.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 267.0,
+  "mean_slope_m_per_km": 14.65,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.56695,
+      "lon": -6.06875,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.5692,
+      "lon": -6.06881,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.57369,
+      "lon": -6.06892,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.58268,
+      "lon": -6.06913,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.59168,
+      "lon": -6.06935,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.60966,
+      "lon": -6.06978,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.63663,
+      "lon": -6.07043,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.6726,
+      "lon": -6.0713,
+      "depth_m": 95.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.72655,
+      "lon": -6.07261,
+      "depth_m": 267.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "santa-justa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.4247,
+    -4.0984
+  ],
+  "bearing_seaward_deg": 322.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 175.0,
+  "mean_slope_m_per_km": 9.3,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.42647,
+      "lon": -4.10031,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.42824,
+      "lon": -4.10221,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.43179,
+      "lon": -4.10602,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.43887,
+      "lon": -4.11365,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.44596,
+      "lon": -4.12128,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.46013,
+      "lon": -4.13654,
+      "depth_m": 83.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.48138,
+      "lon": -4.15945,
+      "depth_m": 116.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.5097,
+      "lon": -4.19001,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.55218,
+      "lon": -4.23591,
+      "depth_m": 175.0
+    }
+  ]
+}

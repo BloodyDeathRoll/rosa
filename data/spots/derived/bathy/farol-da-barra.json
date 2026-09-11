@@ -1,0 +1,72 @@
+{
+  "spot": "farol-da-barra",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -13.0102,
+    -38.5329
+  ],
+  "bearing_seaward_deg": 184.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 217.0,
+  "mean_slope_m_per_km": 12.79,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -13.01244,
+      "lon": -38.53306,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -13.01469,
+      "lon": -38.53322,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -13.01917,
+      "lon": -38.53354,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -13.02814,
+      "lon": -38.53419,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -13.03711,
+      "lon": -38.53483,
+      "depth_m": 110.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -13.05506,
+      "lon": -38.53612,
+      "depth_m": 254.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -13.08197,
+      "lon": -38.53805,
+      "depth_m": 375.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -13.11786,
+      "lon": -38.54063,
+      "depth_m": 198.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -13.17168,
+      "lon": -38.5445,
+      "depth_m": 217.0
+    }
+  ]
+}

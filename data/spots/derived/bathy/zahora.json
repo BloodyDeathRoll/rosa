@@ -1,0 +1,72 @@
+{
+  "spot": "zahora",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.1981,
+    -6.0457
+  ],
+  "bearing_seaward_deg": 237.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 27.0,
+  "mean_slope_m_per_km": 1.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.19688,
+      "lon": -6.04804,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.19565,
+      "lon": -6.05037,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.1932,
+      "lon": -6.05505,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.1883,
+      "lon": -6.06439,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.1834,
+      "lon": -6.07373,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.1736,
+      "lon": -6.09242,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.15889,
+      "lon": -6.12043,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.13927,
+      "lon": -6.15777,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.10982,
+      "lon": -6.21375,
+      "depth_m": 27.0
+    }
+  ]
+}

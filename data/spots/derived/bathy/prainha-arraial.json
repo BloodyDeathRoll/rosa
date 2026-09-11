@@ -1,0 +1,72 @@
+{
+  "spot": "prainha-arraial",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -22.9593,
+    -42.0243
+  ],
+  "bearing_seaward_deg": 45.0,
+  "nearshore_depth_m": 24.0,
+  "offshore_depth_m": 34.0,
+  "mean_slope_m_per_km": 0.56,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -22.95771,
+      "lon": -42.02257,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -22.95612,
+      "lon": -42.02085,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -22.95294,
+      "lon": -42.01739,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -22.94658,
+      "lon": -42.01049,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -22.94022,
+      "lon": -42.00358,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -22.9275,
+      "lon": -41.98978,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -22.90842,
+      "lon": -41.96907,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -22.88297,
+      "lon": -41.94147,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -22.84479,
+      "lon": -41.90009,
+      "depth_m": 34.0
+    }
+  ]
+}

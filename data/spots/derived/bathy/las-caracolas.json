@@ -1,0 +1,72 @@
+{
+  "spot": "las-caracolas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.4971,
+    -6.2735
+  ],
+  "bearing_seaward_deg": 243.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 56.0,
+  "mean_slope_m_per_km": 3.15,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.49608,
+      "lon": -6.27599,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.49506,
+      "lon": -6.27848,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.49302,
+      "lon": -6.28347,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.48893,
+      "lon": -6.29343,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.48485,
+      "lon": -6.3034,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.47668,
+      "lon": -6.32333,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.46441,
+      "lon": -6.35321,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.44805,
+      "lon": -6.39304,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.42347,
+      "lon": -6.45275,
+      "depth_m": 56.0
+    }
+  ]
+}

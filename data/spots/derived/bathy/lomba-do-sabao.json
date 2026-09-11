@@ -1,0 +1,72 @@
+{
+  "spot": "lomba-do-sabao",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -27.6972,
+    -48.4889
+  ],
+  "bearing_seaward_deg": 138.0,
+  "nearshore_depth_m": 20.0,
+  "offshore_depth_m": 57.0,
+  "mean_slope_m_per_km": 2.08,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -27.69887,
+      "lon": -48.4872,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -27.70054,
+      "lon": -48.4855,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -27.70388,
+      "lon": -48.4821,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -27.71057,
+      "lon": -48.47531,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -27.71725,
+      "lon": -48.46851,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -27.73061,
+      "lon": -48.45491,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -27.75066,
+      "lon": -48.4345,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -27.77738,
+      "lon": -48.40728,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -27.81744,
+      "lon": -48.36643,
+      "depth_m": 57.0
+    }
+  ]
+}

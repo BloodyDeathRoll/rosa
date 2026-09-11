@@ -1,0 +1,72 @@
+{
+  "spot": "pico-lodinho",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -19.9299,
+    -40.1164
+  ],
+  "bearing_seaward_deg": 119.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 41.0,
+  "mean_slope_m_per_km": 1.86,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -19.93099,
+      "lon": -40.11431,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -19.93208,
+      "lon": -40.11222,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -19.93426,
+      "lon": -40.10803,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -19.93862,
+      "lon": -40.09967,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -19.94298,
+      "lon": -40.0913,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -19.9517,
+      "lon": -40.07456,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -19.96477,
+      "lon": -40.04945,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -19.98219,
+      "lon": -40.01597,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -20.00832,
+      "lon": -39.96572,
+      "depth_m": 41.0
+    }
+  ]
+}

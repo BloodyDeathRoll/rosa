@@ -1,0 +1,72 @@
+{
+  "spot": "toninhas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -23.4887,
+    -45.0734
+  ],
+  "bearing_seaward_deg": 75.0,
+  "nearshore_depth_m": 14.0,
+  "offshore_depth_m": 28.0,
+  "mean_slope_m_per_km": 0.79,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.48812,
+      "lon": -45.07103,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.48754,
+      "lon": -45.06866,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.48637,
+      "lon": -45.06393,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.48404,
+      "lon": -45.05446,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.48171,
+      "lon": -45.04499,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.47705,
+      "lon": -45.02605,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.47006,
+      "lon": -44.99764,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.46073,
+      "lon": -44.95976,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.44671,
+      "lon": -44.90297,
+      "depth_m": 28.0
+    }
+  ]
+}

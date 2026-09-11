@@ -1,0 +1,72 @@
+{
+  "spot": "las-redes",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.5998,
+    -6.2767
+  ],
+  "bearing_seaward_deg": 243.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 43.0,
+  "mean_slope_m_per_km": 2.03,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.59878,
+      "lon": -6.2792,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.59776,
+      "lon": -6.28169,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.59572,
+      "lon": -6.28668,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.59163,
+      "lon": -6.29666,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.58755,
+      "lon": -6.30664,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.57938,
+      "lon": -6.32659,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.56711,
+      "lon": -6.35651,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.55075,
+      "lon": -6.3964,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.52617,
+      "lon": -6.45619,
+      "depth_m": 43.0
+    }
+  ]
+}

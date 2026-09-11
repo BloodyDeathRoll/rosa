@@ -1,0 +1,72 @@
+{
+  "spot": "boca-do-poco",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -3.4045,
+    -39.0259
+  ],
+  "bearing_seaward_deg": 307.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 7.0,
+  "mean_slope_m_per_km": 0.56,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -3.40315,
+      "lon": -39.0277,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -3.40179,
+      "lon": -39.0295,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -3.39909,
+      "lon": -39.03309,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -3.39368,
+      "lon": -39.04029,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -3.38826,
+      "lon": -39.04748,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -3.37744,
+      "lon": -39.06187,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -3.3612,
+      "lon": -39.08346,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -3.33955,
+      "lon": -39.11223,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -3.30707,
+      "lon": -39.1554,
+      "depth_m": 7.0
+    }
+  ]
+}

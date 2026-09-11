@@ -1,0 +1,72 @@
+{
+  "spot": "barra-do-sahy",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -19.8772,
+    -40.0837
+  ],
+  "bearing_seaward_deg": 139.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 41.0,
+  "mean_slope_m_per_km": 1.8,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -19.8789,
+      "lon": -40.08213,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -19.88059,
+      "lon": -40.08056,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -19.88399,
+      "lon": -40.07743,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -19.89077,
+      "lon": -40.07115,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -19.89756,
+      "lon": -40.06488,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -19.91113,
+      "lon": -40.05232,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -19.93149,
+      "lon": -40.03349,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -19.95863,
+      "lon": -40.00838,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -19.99933,
+      "lon": -39.97068,
+      "depth_m": 41.0
+    }
+  ]
+}

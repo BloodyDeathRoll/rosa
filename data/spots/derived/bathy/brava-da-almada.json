@@ -1,0 +1,72 @@
+{
+  "spot": "brava-da-almada",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -23.3629,
+    -44.8799
+  ],
+  "bearing_seaward_deg": 184.0,
+  "nearshore_depth_m": -25.0,
+  "offshore_depth_m": 36.0,
+  "mean_slope_m_per_km": 3.44,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.36514,
+      "lon": -44.88007,
+      "depth_m": -25.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.36739,
+      "lon": -44.88024,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.37187,
+      "lon": -44.88058,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.38084,
+      "lon": -44.88127,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.38981,
+      "lon": -44.88195,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.40776,
+      "lon": -44.88332,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.43467,
+      "lon": -44.88537,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.47056,
+      "lon": -44.88811,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.52438,
+      "lon": -44.89222,
+      "depth_m": 36.0
+    }
+  ]
+}

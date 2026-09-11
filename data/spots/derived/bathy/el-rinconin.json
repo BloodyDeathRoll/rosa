@@ -1,0 +1,72 @@
+{
+  "spot": "el-rinconin",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.5484,
+    -5.6388
+  ],
+  "bearing_seaward_deg": 340.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 118.0,
+  "mean_slope_m_per_km": 6.25,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.55051,
+      "lon": -5.63986,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.55263,
+      "lon": -5.64092,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.55685,
+      "lon": -5.64304,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.5653,
+      "lon": -5.64729,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.57375,
+      "lon": -5.65154,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.59065,
+      "lon": -5.66003,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.616,
+      "lon": -5.67279,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.6498,
+      "lon": -5.68981,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.70049,
+      "lon": -5.71538,
+      "depth_m": 118.0
+    }
+  ]
+}

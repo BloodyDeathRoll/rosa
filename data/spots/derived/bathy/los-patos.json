@@ -1,0 +1,72 @@
+{
+  "spot": "los-patos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    28.4207,
+    -16.51
+  ],
+  "bearing_seaward_deg": 334.0,
+  "nearshore_depth_m": 18.0,
+  "offshore_depth_m": 1887.0,
+  "mean_slope_m_per_km": 105.3,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.42272,
+      "lon": -16.51112,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.42474,
+      "lon": -16.51224,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.42878,
+      "lon": -16.51448,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.43687,
+      "lon": -16.51897,
+      "depth_m": 193.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.44495,
+      "lon": -16.52345,
+      "depth_m": 464.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.46111,
+      "lon": -16.53242,
+      "depth_m": 499.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.48536,
+      "lon": -16.54588,
+      "depth_m": 755.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.51769,
+      "lon": -16.56384,
+      "depth_m": 1145.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.56617,
+      "lon": -16.5908,
+      "depth_m": 1887.0
+    }
+  ]
+}

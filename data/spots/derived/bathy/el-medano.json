@@ -1,0 +1,72 @@
+{
+  "spot": "el-medano",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    28.0427,
+    -16.5407
+  ],
+  "bearing_seaward_deg": 114.0,
+  "nearshore_depth_m": -13.0,
+  "offshore_depth_m": 2343.0,
+  "mean_slope_m_per_km": 132.73,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.04179,
+      "lon": -16.53837,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.04087,
+      "lon": -16.53605,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.03904,
+      "lon": -16.53139,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.03538,
+      "lon": -16.52208,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.03172,
+      "lon": -16.51278,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.0244,
+      "lon": -16.49417,
+      "depth_m": 897.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.01342,
+      "lon": -16.46625,
+      "depth_m": 1607.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 27.99876,
+      "lon": -16.42904,
+      "depth_m": 1987.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 27.97676,
+      "lon": -16.37325,
+      "depth_m": 2343.0
+    }
+  ]
+}

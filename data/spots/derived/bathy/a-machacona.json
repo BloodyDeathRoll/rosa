@@ -1,0 +1,72 @@
+{
+  "spot": "a-machacona",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.6403,
+    -7.3438
+  ],
+  "bearing_seaward_deg": 48.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 131.0,
+  "mean_slope_m_per_km": 7.21,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.6418,
+      "lon": -7.34149,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.64331,
+      "lon": -7.33918,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.64632,
+      "lon": -7.33456,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.65233,
+      "lon": -7.32533,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.65835,
+      "lon": -7.31609,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.67038,
+      "lon": -7.2976,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.68842,
+      "lon": -7.26986,
+      "depth_m": 101.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.71246,
+      "lon": -7.23285,
+      "depth_m": 127.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.7485,
+      "lon": -7.17727,
+      "depth_m": 131.0
+    }
+  ]
+}

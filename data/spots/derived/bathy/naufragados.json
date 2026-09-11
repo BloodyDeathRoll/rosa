@@ -1,0 +1,72 @@
+{
+  "spot": "naufragados",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -27.8336,
+    -48.5641
+  ],
+  "bearing_seaward_deg": 174.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 33.0,
+  "mean_slope_m_per_km": 2.42,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -27.83584,
+      "lon": -48.56383,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -27.83807,
+      "lon": -48.56357,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -27.84254,
+      "lon": -48.56304,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -27.85149,
+      "lon": -48.56197,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -27.86043,
+      "lon": -48.56091,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -27.87832,
+      "lon": -48.55878,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -27.90515,
+      "lon": -48.55559,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -27.94093,
+      "lon": -48.55133,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -27.99459,
+      "lon": -48.54494,
+      "depth_m": 33.0
+    }
+  ]
+}

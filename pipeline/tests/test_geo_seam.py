@@ -137,7 +137,8 @@ def test_every_committed_spot_picks_the_same_oisst_cell_as_before():
     and the old clipped one select the same cells, so no published SST - and nothing
     downstream of it - moves. Spots inside that radius are the reason the wrap exists:
     since 2026-09-03 the Yorkshire coast (Saltburn to Cayton Bay, 0.97 W to 0.36 W) and
-    Ghana's Accra pair (Kokrobite and Labadi, 0.36 W to 0.14 W) sit inside it, and the old
+    Ghana's Accra pair (Kokrobite and Labadi, 0.36 W to 0.14 W) sit inside it, since
+    2026-09-11 Algeria's Oran pair (Ain El Turk 0.79 W, Cap Ivi 0.22 E) too, and the old
     code clipped those windows at column 0 and lost the cells across the seam. They are
     asserted separately: same centre cell, full-width window, and it must actually wrap.
     """
@@ -149,7 +150,7 @@ def test_every_committed_spot_picks_the_same_oisst_cell_as_before():
     lons = np.arange(0.125, 360.0, 0.25)
     reach = int(NEAREST_MAX_DEG / 0.25)
     spots = load_spots(Path(__file__).resolve().parents[2] / "data" / "spots")
-    assert len(spots) == 1408
+    assert len(spots) == 1947
 
     near_seam = []
     for s in spots.values():
@@ -171,6 +172,8 @@ def test_every_committed_spot_picks_the_same_oisst_cell_as_before():
     # the seam spots the wrap exists for: a full-width window that really wraps, and
     # every column within the search radius by the signed distance
     assert sorted(s.id for s, _ in near_seam) == [
+        "ain-el-turk",
+        "cap-ivi",
         "cayton-bay",
         "kokrobite",
         "labadi",

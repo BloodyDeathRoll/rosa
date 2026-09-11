@@ -1,0 +1,72 @@
+{
+  "spot": "cacimba-do-padre",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -3.8499,
+    -32.4388
+  ],
+  "bearing_seaward_deg": 342.0,
+  "nearshore_depth_m": 52.0,
+  "offshore_depth_m": 3380.0,
+  "mean_slope_m_per_km": 187.49,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -3.84776,
+      "lon": -32.4395,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -3.84562,
+      "lon": -32.44019,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -3.84135,
+      "lon": -32.44159,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -3.83279,
+      "lon": -32.44437,
+      "depth_m": 76.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -3.82424,
+      "lon": -32.44716,
+      "depth_m": 225.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -3.80713,
+      "lon": -32.45273,
+      "depth_m": 610.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -3.78148,
+      "lon": -32.46108,
+      "depth_m": 1270.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -3.74726,
+      "lon": -32.47222,
+      "depth_m": 2198.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -3.69594,
+      "lon": -32.48893,
+      "depth_m": 3380.0
+    }
+  ]
+}

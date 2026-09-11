@@ -1,0 +1,36 @@
+# Rosa spot database - Rio Grande do Sul (seeded 2026-09-11). A straight east-facing sand coast (Torres, Tramandai): S-SE groundswell and E wind swell, offshore on a W wind.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+region: Rio Grande do Sul
+defaults: &rs
+  timezone: America/Sao_Paulo
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [60, 200]
+  ideal:
+    wind_dir: [225, 315]
+    size_m: [0.8, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-11 - rio-grande-do-sul, 14 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 14 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/rio-grande-do-sul/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: molhes-torres, name: "Molhes (Torres)", town: "Torres", lat: -29.3268, lon: -49.7120, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, <<: *rs }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: praia-grande-torres, name: "Praia Grande (Torres)", town: "Torres", lat: -29.3377, lon: -49.7216, offshore_direction: 302, swell_window: [57, 187], offshore_km: 5.0, <<: *rs }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: prainha-torres, name: "Prainha (Torres)", town: "Torres", lat: -29.3435, lon: -49.7261, offshore_direction: 310, swell_window: [65, 195], offshore_km: 5.0, <<: *rs }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: praia-da-cal, name: "Praia da Cal", town: "Torres", lat: -29.3491, lon: -49.7306, offshore_direction: 304, swell_window: [59, 189], offshore_km: 5.0, <<: *rs }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: guarita, name: "Guarita", town: "Torres", lat: -29.3607, lon: -49.7351, offshore_direction: 312, swell_window: [67, 197], offshore_km: 5.0, <<: *rs }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: itapeva, name: "Itapeva", town: "Torres", lat: -29.3670, lon: -49.7431, offshore_direction: 306, swell_window: [61, 191], offshore_km: 5.0, <<: *rs }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: capao-da-canoa, name: "Capão da Canoa", town: "Capão da Canoa", lat: -29.7636, lon: -50.0138, offshore_direction: 295, swell_window: [50, 180], offshore_km: 5.0, <<: *rs }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: atlantida-pier, name: "Atlântida Pier", town: "Atlântida", lat: -29.7853, lon: -50.0239, offshore_direction: 296, swell_window: [51, 181], offshore_km: 5.0, <<: *rs }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: xangri-la, name: "Xangri-lá", town: "Xangri-lá", lat: -29.8062, lon: -50.0365, offshore_direction: 295, swell_window: [50, 180], offshore_km: 5.0, <<: *rs }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: imbe, name: "Imbé", town: "Imbé", lat: -29.9693, lon: -50.1160, offshore_direction: 293, swell_window: [48, 178], offshore_km: 5.0, <<: *rs }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: tramandai, name: "Tramandaí", town: "Tramandaí", lat: -29.9909, lon: -50.1258, offshore_direction: 292, swell_window: [47, 177], offshore_km: 5.0, <<: *rs }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: plataforma-de-tramandai, name: "Plataforma de Tramandaí", town: "Tramandaí", lat: -30.0054, lon: -50.1319, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, <<: *rs }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: plataforma-de-cidreira, name: "Plataforma de Cidreira", town: "Cidreira", lat: -30.1484, lon: -50.1906, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, <<: *rs }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: cidreira, name: "Cidreira", town: "Cidreira", lat: -30.1543, lon: -50.1940, offshore_direction: 291, swell_window: [46, 176], offshore_km: 5.0, <<: *rs }  # sat-verified 2026-09-11 (websearch-seeded)

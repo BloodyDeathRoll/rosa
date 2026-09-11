@@ -1,0 +1,72 @@
+{
+  "spot": "palmeiras-caraguatatuba",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -23.6713,
+    -45.4289
+  ],
+  "bearing_seaward_deg": 91.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 16.0,
+  "mean_slope_m_per_km": 0.73,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.67134,
+      "lon": -45.42645,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.67138,
+      "lon": -45.42399,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.67146,
+      "lon": -45.41908,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.67161,
+      "lon": -45.40926,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.67177,
+      "lon": -45.39945,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.67208,
+      "lon": -45.37981,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.67254,
+      "lon": -45.35036,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.67314,
+      "lon": -45.31108,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.67402,
+      "lon": -45.25217,
+      "depth_m": 16.0
+    }
+  ]
+}

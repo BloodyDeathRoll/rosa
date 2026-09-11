@@ -1,0 +1,72 @@
+{
+  "spot": "el-brusco",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.4671,
+    -3.4746
+  ],
+  "bearing_seaward_deg": 28.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 811.0,
+  "mean_slope_m_per_km": 45.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.46909,
+      "lon": -3.47315,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.47107,
+      "lon": -3.47169,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.47504,
+      "lon": -3.46878,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.48298,
+      "lon": -3.46296,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.49092,
+      "lon": -3.45714,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.5068,
+      "lon": -3.44549,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.53061,
+      "lon": -3.42801,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.56237,
+      "lon": -3.40468,
+      "depth_m": 229.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.60998,
+      "lon": -3.36964,
+      "depth_m": 811.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "itamambuca",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -23.4046,
+    -45.0066
+  ],
+  "bearing_seaward_deg": 146.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 37.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.40646,
+      "lon": -45.00523,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.40833,
+      "lon": -45.00386,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.41206,
+      "lon": -45.00112,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.41951,
+      "lon": -44.99564,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.42697,
+      "lon": -44.99016,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.44188,
+      "lon": -44.97919,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.46424,
+      "lon": -44.96274,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.49405,
+      "lon": -44.9408,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.53877,
+      "lon": -44.90786,
+      "depth_m": 37.0
+    }
+  ]
+}

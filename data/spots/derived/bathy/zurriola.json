@@ -1,0 +1,72 @@
+{
+  "spot": "zurriola",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.3263,
+    -1.9754
+  ],
+  "bearing_seaward_deg": 319.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 142.0,
+  "mean_slope_m_per_km": 7.72,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.328,
+      "lon": -1.97743,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.32969,
+      "lon": -1.97946,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.33309,
+      "lon": -1.98351,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.33987,
+      "lon": -1.99162,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.34666,
+      "lon": -1.99974,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.36023,
+      "lon": -2.01598,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.38058,
+      "lon": -2.04034,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.40771,
+      "lon": -2.07286,
+      "depth_m": 120.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.44838,
+      "lon": -2.12168,
+      "depth_m": 142.0
+    }
+  ]
+}

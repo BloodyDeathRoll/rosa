@@ -1,0 +1,72 @@
+{
+  "spot": "ponta-negra-marica",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -22.9572,
+    -42.6972
+  ],
+  "bearing_seaward_deg": 234.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 51.0,
+  "mean_slope_m_per_km": 3.21,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -22.95852,
+      "lon": -42.69918,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -22.95984,
+      "lon": -42.70115,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -22.96249,
+      "lon": -42.7051,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -22.96777,
+      "lon": -42.713,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -22.97306,
+      "lon": -42.72091,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -22.98363,
+      "lon": -42.73672,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -22.99948,
+      "lon": -42.76043,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.0206,
+      "lon": -42.79206,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.05229,
+      "lon": -42.83953,
+      "depth_m": 51.0
+    }
+  ]
+}

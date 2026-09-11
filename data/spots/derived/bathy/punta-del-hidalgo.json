@@ -1,0 +1,72 @@
+{
+  "spot": "punta-del-hidalgo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    28.569,
+    -16.3332
+  ],
+  "bearing_seaward_deg": 332.0,
+  "nearshore_depth_m": 26.0,
+  "offshore_depth_m": 2855.0,
+  "mean_slope_m_per_km": 159.38,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.57099,
+      "lon": -16.3344,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.57297,
+      "lon": -16.3356,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.57694,
+      "lon": -16.33801,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.58488,
+      "lon": -16.34282,
+      "depth_m": 198.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.59282,
+      "lon": -16.34763,
+      "depth_m": 414.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.6087,
+      "lon": -16.35725,
+      "depth_m": 986.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.63252,
+      "lon": -16.37168,
+      "depth_m": 1472.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.66427,
+      "lon": -16.39094,
+      "depth_m": 2265.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.7119,
+      "lon": -16.41985,
+      "depth_m": 2855.0
+    }
+  ]
+}

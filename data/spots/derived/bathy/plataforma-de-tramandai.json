@@ -1,0 +1,72 @@
+{
+  "spot": "plataforma-de-tramandai",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -30.0054,
+    -50.1319
+  ],
+  "bearing_seaward_deg": 110.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -30.00617,
+      "lon": -50.12946,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -30.00694,
+      "lon": -50.12702,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -30.00848,
+      "lon": -50.12214,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -30.01155,
+      "lon": -50.11238,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -30.01462,
+      "lon": -50.10262,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -30.02077,
+      "lon": -50.0831,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -30.02998,
+      "lon": -50.05381,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -30.04226,
+      "lon": -50.01475,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -30.06065,
+      "lon": -49.95614,
+      "depth_m": 30.0
+    }
+  ]
+}

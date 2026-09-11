@@ -1,0 +1,72 @@
+{
+  "spot": "playa-martianez",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    28.4182,
+    -16.5411
+  ],
+  "bearing_seaward_deg": 3.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 1943.0,
+  "mean_slope_m_per_km": 109.13,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.42045,
+      "lon": -16.54097,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.42269,
+      "lon": -16.54083,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.42718,
+      "lon": -16.54056,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.43616,
+      "lon": -16.54003,
+      "depth_m": 203.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.44514,
+      "lon": -16.53949,
+      "depth_m": 328.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.4631,
+      "lon": -16.53842,
+      "depth_m": 536.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.49005,
+      "lon": -16.53682,
+      "depth_m": 861.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.52597,
+      "lon": -16.53467,
+      "depth_m": 1359.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.57986,
+      "lon": -16.53145,
+      "depth_m": 1943.0
+    }
+  ]
+}

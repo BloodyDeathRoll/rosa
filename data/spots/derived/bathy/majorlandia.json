@@ -1,0 +1,72 @@
+{
+  "spot": "majorlandia",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -4.5507,
+    -37.6729
+  ],
+  "bearing_seaward_deg": 51.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 12.0,
+  "mean_slope_m_per_km": 1.13,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -4.54929,
+      "lon": -37.67115,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -4.54787,
+      "lon": -37.66939,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -4.54504,
+      "lon": -37.66589,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -4.53938,
+      "lon": -37.65888,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -4.53372,
+      "lon": -37.65187,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -4.5224,
+      "lon": -37.63785,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -4.50542,
+      "lon": -37.61681,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -4.48278,
+      "lon": -37.58877,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -4.44882,
+      "lon": -37.54672,
+      "depth_m": 12.0
+    }
+  ]
+}

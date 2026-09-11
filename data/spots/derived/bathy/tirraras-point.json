@@ -1,0 +1,72 @@
+{
+  "spot": "tirraras-point",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -14.7417,
+    -39.0631
+  ],
+  "bearing_seaward_deg": 83.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 261.0,
+  "mean_slope_m_per_km": 15.04,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -14.74143,
+      "lon": -39.06079,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -14.74115,
+      "lon": -39.05849,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -14.7406,
+      "lon": -39.05387,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -14.73951,
+      "lon": -39.04464,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -14.73841,
+      "lon": -39.03541,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -14.73622,
+      "lon": -39.01695,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -14.73292,
+      "lon": -38.98926,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -14.72852,
+      "lon": -38.95235,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -14.72191,
+      "lon": -38.89698,
+      "depth_m": 261.0
+    }
+  ]
+}

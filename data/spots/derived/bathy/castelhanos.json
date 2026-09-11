@@ -1,0 +1,72 @@
+{
+  "spot": "castelhanos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -23.8529,
+    -45.2879
+  ],
+  "bearing_seaward_deg": 100.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 36.0,
+  "mean_slope_m_per_km": 2.42,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.85329,
+      "lon": -45.28548,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.85368,
+      "lon": -45.28306,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.85446,
+      "lon": -45.27822,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.85602,
+      "lon": -45.26853,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.85758,
+      "lon": -45.25885,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.8607,
+      "lon": -45.23948,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.86537,
+      "lon": -45.21042,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.8716,
+      "lon": -45.17168,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.88091,
+      "lon": -45.11356,
+      "depth_m": 36.0
+    }
+  ]
+}

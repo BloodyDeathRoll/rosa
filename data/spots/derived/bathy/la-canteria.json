@@ -1,0 +1,72 @@
+{
+  "spot": "la-canteria",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    29.2248,
+    -13.4619
+  ],
+  "bearing_seaward_deg": 16.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 137.0,
+  "mean_slope_m_per_km": 7.44,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 29.22696,
+      "lon": -13.46119,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 29.22912,
+      "lon": -13.46048,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 29.23344,
+      "lon": -13.45906,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 29.24209,
+      "lon": -13.45622,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 29.25073,
+      "lon": -13.45338,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 29.26802,
+      "lon": -13.44769,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 29.29396,
+      "lon": -13.43916,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 29.32853,
+      "lon": -13.42778,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 29.3804,
+      "lon": -13.41069,
+      "depth_m": 137.0
+    }
+  ]
+}

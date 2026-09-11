@@ -1,0 +1,72 @@
+{
+  "spot": "guarau",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -24.3686,
+    -47.0107
+  ],
+  "bearing_seaward_deg": 119.0,
+  "nearshore_depth_m": -18.0,
+  "offshore_depth_m": 25.0,
+  "mean_slope_m_per_km": 2.42,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -24.36969,
+      "lon": -47.00854,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -24.37078,
+      "lon": -47.00638,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -24.37296,
+      "lon": -47.00206,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -24.37732,
+      "lon": -46.99343,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -24.38168,
+      "lon": -46.98479,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -24.39039,
+      "lon": -46.96752,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -24.40346,
+      "lon": -46.9416,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -24.42088,
+      "lon": -46.90704,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -24.447,
+      "lon": -46.85517,
+      "depth_m": 25.0
+    }
+  ]
+}

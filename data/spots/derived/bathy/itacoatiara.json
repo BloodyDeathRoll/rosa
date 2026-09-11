@@ -1,0 +1,72 @@
+{
+  "spot": "itacoatiara",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -22.9747,
+    -43.0358
+  ],
+  "bearing_seaward_deg": 185.0,
+  "nearshore_depth_m": 35.0,
+  "offshore_depth_m": 60.0,
+  "mean_slope_m_per_km": 1.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -22.97694,
+      "lon": -43.03601,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -22.97918,
+      "lon": -43.03623,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -22.98366,
+      "lon": -43.03665,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -22.99262,
+      "lon": -43.0375,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.00158,
+      "lon": -43.03835,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.01949,
+      "lon": -43.04006,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.04637,
+      "lon": -43.04261,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.08221,
+      "lon": -43.04602,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.13596,
+      "lon": -43.05114,
+      "depth_m": 60.0
+    }
+  ]
+}

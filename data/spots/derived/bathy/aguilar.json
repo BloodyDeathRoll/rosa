@@ -1,0 +1,72 @@
+{
+  "spot": "aguilar",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.556,
+    -6.1132
+  ],
+  "bearing_seaward_deg": 356.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 525.0,
+  "mean_slope_m_per_km": 29.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.55824,
+      "lon": -6.11342,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.56049,
+      "lon": -6.11363,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.56497,
+      "lon": -6.11407,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.57394,
+      "lon": -6.11493,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.58291,
+      "lon": -6.1158,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.60086,
+      "lon": -6.11753,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.62777,
+      "lon": -6.12013,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.66366,
+      "lon": -6.12361,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.71748,
+      "lon": -6.12882,
+      "depth_m": 525.0
+    }
+  ]
+}

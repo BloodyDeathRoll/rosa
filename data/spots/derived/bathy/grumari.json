@@ -1,0 +1,72 @@
+{
+  "spot": "grumari",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -23.0488,
+    -43.5253
+  ],
+  "bearing_seaward_deg": 172.0,
+  "nearshore_depth_m": -31.0,
+  "offshore_depth_m": 58.0,
+  "mean_slope_m_per_km": 5.01,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.05103,
+      "lon": -43.52496,
+      "depth_m": -31.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.05325,
+      "lon": -43.52462,
+      "depth_m": -31.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.05771,
+      "lon": -43.52394,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.06661,
+      "lon": -43.52258,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.07552,
+      "lon": -43.52122,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.09333,
+      "lon": -43.5185,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.12005,
+      "lon": -43.51441,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.15567,
+      "lon": -43.50896,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.2091,
+      "lon": -43.50079,
+      "depth_m": 58.0
+    }
+  ]
+}

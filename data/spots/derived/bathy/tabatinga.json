@@ -1,0 +1,72 @@
+{
+  "spot": "tabatinga",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -6.0474,
+    -35.1094
+  ],
+  "bearing_seaward_deg": 62.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 114.0,
+  "mean_slope_m_per_km": 6.31,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -6.04634,
+      "lon": -35.1074,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -6.04529,
+      "lon": -35.10541,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -6.04318,
+      "lon": -35.10142,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -6.03896,
+      "lon": -35.09343,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -6.03473,
+      "lon": -35.08545,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -6.02629,
+      "lon": -35.06948,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -6.01362,
+      "lon": -35.04552,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -5.99673,
+      "lon": -35.01359,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -5.97138,
+      "lon": -34.96569,
+      "depth_m": 114.0
+    }
+  ]
+}

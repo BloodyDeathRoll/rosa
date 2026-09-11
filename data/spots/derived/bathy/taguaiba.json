@@ -1,0 +1,72 @@
+{
+  "spot": "taguaiba",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -23.896,
+    -46.1511
+  ],
+  "bearing_seaward_deg": 125.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 23.0,
+  "mean_slope_m_per_km": 0.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.89729,
+      "lon": -46.14909,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.89858,
+      "lon": -46.14707,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.90116,
+      "lon": -46.14304,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.90632,
+      "lon": -46.13498,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.91147,
+      "lon": -46.12692,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.92179,
+      "lon": -46.1108,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.93725,
+      "lon": -46.08662,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.95787,
+      "lon": -46.05436,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.98878,
+      "lon": -46.00596,
+      "depth_m": 23.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "placaford",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -12.9512,
+    -38.371
+  ],
+  "bearing_seaward_deg": 174.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 871.0,
+  "mean_slope_m_per_km": 49.52,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -12.95344,
+      "lon": -38.37076,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -12.95567,
+      "lon": -38.37052,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -12.96014,
+      "lon": -38.37004,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -12.96909,
+      "lon": -38.36907,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -12.97803,
+      "lon": -38.36811,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -12.99592,
+      "lon": -38.36618,
+      "depth_m": 277.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -13.02275,
+      "lon": -38.36328,
+      "depth_m": 221.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -13.05853,
+      "lon": -38.35942,
+      "depth_m": 334.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -13.11219,
+      "lon": -38.35363,
+      "depth_m": 871.0
+    }
+  ]
+}

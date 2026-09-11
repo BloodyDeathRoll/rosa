@@ -1,0 +1,72 @@
+{
+  "spot": "itacimirim",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -12.6276,
+    -38.0455
+  ],
+  "bearing_seaward_deg": 110.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 965.0,
+  "mean_slope_m_per_km": 53.86,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -12.62837,
+      "lon": -38.04333,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -12.62914,
+      "lon": -38.04117,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -12.63068,
+      "lon": -38.03684,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -12.63375,
+      "lon": -38.02818,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -12.63683,
+      "lon": -38.01952,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -12.64298,
+      "lon": -38.0022,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -12.6522,
+      "lon": -37.97621,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -12.66449,
+      "lon": -37.94156,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -12.68292,
+      "lon": -37.88958,
+      "depth_m": 965.0
+    }
+  ]
+}

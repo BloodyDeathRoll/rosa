@@ -1,0 +1,72 @@
+{
+  "spot": "tres-piedras",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.7026,
+    -6.4292
+  ],
+  "bearing_seaward_deg": 234.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 52.0,
+  "mean_slope_m_per_km": 2.99,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.70128,
+      "lon": -6.43147,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.69996,
+      "lon": -6.43374,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.69731,
+      "lon": -6.43827,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.69203,
+      "lon": -6.44735,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.68674,
+      "lon": -6.45642,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.67616,
+      "lon": -6.47456,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.66029,
+      "lon": -6.50176,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.63912,
+      "lon": -6.53801,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.60734,
+      "lon": -6.59234,
+      "depth_m": 52.0
+    }
+  ]
+}

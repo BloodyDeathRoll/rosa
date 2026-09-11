@@ -1,0 +1,72 @@
+{
+  "spot": "punta-galea",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.3742,
+    -3.0378
+  ],
+  "bearing_seaward_deg": 344.0,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 111.0,
+  "mean_slope_m_per_km": 5.52,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.37636,
+      "lon": -3.03865,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.37852,
+      "lon": -3.03951,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.38284,
+      "lon": -3.04121,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.39149,
+      "lon": -3.04462,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.40013,
+      "lon": -3.04804,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.41742,
+      "lon": -3.05486,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.44336,
+      "lon": -3.06511,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.47793,
+      "lon": -3.07879,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.52979,
+      "lon": -3.09934,
+      "depth_m": 111.0
+    }
+  ]
+}

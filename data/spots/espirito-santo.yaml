@@ -1,0 +1,51 @@
+# Rosa spot database - Espirito Santo (seeded 2026-09-11). An east-facing coast (Guarapari, Regencia) on SE-E swell, offshore on a W wind.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+region: Espirito Santo
+defaults: &es
+  timezone: America/Sao_Paulo
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [30, 180]
+  ideal:
+    wind_dir: [225, 315]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-11 - espirito-santo, 29 spots (primary coastline flow: 2 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 27 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/espirito-santo/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: itaunas, name: "Itaúnas", town: "Conceição da Barra", lat: -18.4203, lon: -39.6997, offshore_direction: 288, swell_window: [43, 173], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: guriri, name: "Guriri", town: "São Mateus", lat: -18.7431, lon: -39.7470, offshore_direction: 273, swell_window: [28, 158], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: povoacao, name: "Povoação", town: "Linhares", lat: -19.5802, lon: -39.7814, offshore_direction: 294, swell_window: [49, 179], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: regencia, name: "Regência", town: "Linhares", lat: -19.6545, lon: -39.8170, offshore_direction: 15, swell_window: [130, 260], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: barra-do-riacho, name: "Barra do Riacho", town: "Aracruz", lat: -19.8272, lon: -40.0581, offshore_direction: 287, swell_window: [42, 172], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: barra-do-sahy, name: "Barra do Sahy", town: "Aracruz", lat: -19.8772, lon: -40.0837, offshore_direction: 319, swell_window: [74, 204], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: pico-lodinho, name: "Pico do Lodinho", town: "Aracruz", lat: -19.9299, lon: -40.1164, offshore_direction: 299, swell_window: [54, 184], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (osm-seeded)
+  - { id: pico-urubu, name: "Pico do Urubu", town: "Aracruz", lat: -19.9317, lon: -40.1212, offshore_direction: 335, swell_window: [90, 220], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (osm-seeded)
+  - { id: coral-do-cha, name: "Coral do Chá", town: "Jacaraípe", lat: -20.1196, lon: -40.1762, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: solemar, name: "Solemar", town: "Jacaraípe", lat: -20.1351, lon: -40.1820, offshore_direction: 288, swell_window: [43, 173], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: barrote, name: "Barrote", town: "Jacaraípe", lat: -20.1498, lon: -40.1845, offshore_direction: 269, swell_window: [24, 154], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: ponta-da-baleia, name: "Ponta da Baleia", town: "Jacaraípe", lat: -20.1797, lon: -40.1891, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: ponta-do-cacao, name: "Ponta do Cação", town: "Jacaraípe", lat: -20.1999, lon: -40.1928, offshore_direction: 334, swell_window: [89, 219], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: manguinhos, name: "Manguinhos", town: "Serra", lat: -20.2053, lon: -40.1964, offshore_direction: 304, swell_window: [59, 189], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: carapebus, name: "Carapebus", town: "Serra", lat: -20.2331, lon: -40.2152, offshore_direction: 315, swell_window: [70, 200], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: praia-mole, name: "Praia Mole", town: "Serra", lat: -20.2397, lon: -40.2135, offshore_direction: 315, swell_window: [70, 200], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 135 (GEBCO arc middle; the coastline normal sat at the arc's edge)
+  - { id: camburi, name: "Camburi", town: "Vitória", lat: -20.2801, lon: -40.2869, offshore_direction: 298, swell_window: [53, 183], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: praia-da-costa, name: "Praia da Costa", town: "Vila Velha", lat: -20.3328, lon: -40.2782, offshore_direction: 311, swell_window: [66, 196], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: itaparica, name: "Itaparica", town: "Vila Velha", lat: -20.3813, lon: -40.3077, offshore_direction: 305, swell_window: [60, 190], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: barrinha, name: "Barrinha", town: "Barra do Jucu", lat: -20.4144, lon: -40.3212, offshore_direction: 278, swell_window: [33, 163], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: barrao, name: "Barrão", town: "Barra do Jucu", lat: -20.4272, lon: -40.3222, offshore_direction: 297, swell_window: [52, 182], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: ponta-da-fruta, name: "Ponta da Fruta", town: "Vila Velha", lat: -20.5098, lon: -40.3597, offshore_direction: 281, swell_window: [36, 166], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: ponta-da-belina, name: "Ponta da Belina", town: "Vila Velha", lat: -20.5167, lon: -40.3600, offshore_direction: 261, swell_window: [16, 146], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: praia-do-sol, name: "Praia do Sol", town: "Guarapari", lat: -20.5291, lon: -40.3716, offshore_direction: 319, swell_window: [74, 204], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: praia-d-ule, name: "Praia d'Ulé", town: "Guarapari", lat: -20.5423, lon: -40.3813, offshore_direction: 302, swell_window: [57, 187], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: setibao, name: "Setibão", town: "Guarapari", lat: -20.6309, lon: -40.4258, offshore_direction: 306, swell_window: [61, 191], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 126 (GEBCO arc middle; the coastline normal sat at the arc's edge)
+  - { id: setiba-pina, name: "Setiba Pina", town: "Guarapari", lat: -20.6356, lon: -40.4291, offshore_direction: 306, swell_window: [61, 191], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 126 (GEBCO arc middle; the coastline normal sat at the arc's edge)
+  - { id: praia-do-morro, name: "Praia do Morro", town: "Guarapari", lat: -20.6527, lon: -40.4834, offshore_direction: 333, swell_window: [88, 218], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: ubu, name: "Ubu", town: "Anchieta", lat: -20.8022, lon: -40.5938, offshore_direction: 5, swell_window: [120, 250], offshore_km: 5.0, <<: *es }  # sat-verified 2026-09-11 (websearch-seeded)

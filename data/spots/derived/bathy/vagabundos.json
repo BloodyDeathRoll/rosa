@@ -1,0 +1,72 @@
+{
+  "spot": "vagabundos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    28.1446,
+    -15.5991
+  ],
+  "bearing_seaward_deg": 323.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 2410.0,
+  "mean_slope_m_per_km": 135.72,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.1464,
+      "lon": -15.60063,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.14819,
+      "lon": -15.60217,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.15178,
+      "lon": -15.60524,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.15896,
+      "lon": -15.61138,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.16615,
+      "lon": -15.61752,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.18051,
+      "lon": -15.6298,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.20205,
+      "lon": -15.64823,
+      "depth_m": 265.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.23077,
+      "lon": -15.67282,
+      "depth_m": 1248.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.27384,
+      "lon": -15.70972,
+      "depth_m": 2410.0
+    }
+  ]
+}

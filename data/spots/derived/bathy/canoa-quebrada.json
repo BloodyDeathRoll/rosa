@@ -1,0 +1,72 @@
+{
+  "spot": "canoa-quebrada",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -4.5193,
+    -37.7074
+  ],
+  "bearing_seaward_deg": 36.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 13.0,
+  "mean_slope_m_per_km": 0.34,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -4.51748,
+      "lon": -37.70607,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -4.51566,
+      "lon": -37.70475,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -4.51202,
+      "lon": -37.7021,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -4.50475,
+      "lon": -37.6968,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -4.49747,
+      "lon": -37.69149,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -4.48292,
+      "lon": -37.68089,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -4.46109,
+      "lon": -37.66498,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -4.43199,
+      "lon": -37.64378,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -4.38833,
+      "lon": -37.61197,
+      "depth_m": 13.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "suarao",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -24.1667,
+    -46.7511
+  ],
+  "bearing_seaward_deg": 150.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 24.0,
+  "mean_slope_m_per_km": 1.13,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -24.16865,
+      "lon": -46.74987,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -24.17059,
+      "lon": -46.74864,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -24.17449,
+      "lon": -46.74617,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -24.18228,
+      "lon": -46.74124,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -24.19006,
+      "lon": -46.73631,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -24.20564,
+      "lon": -46.72645,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -24.229,
+      "lon": -46.71165,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -24.26015,
+      "lon": -46.69191,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -24.30686,
+      "lon": -46.66229,
+      "depth_m": 24.0
+    }
+  ]
+}

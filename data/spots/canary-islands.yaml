@@ -1,0 +1,68 @@
+# Rosa spot database - the Canary Islands (seeded 2026-09-10). Volcanic reefs and points on
+# every island, most of them on the north shores facing the NW North Atlantic groundswell;
+# the south shores work on the rarer S swells. Offshore direction varies per coast.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &ic
+  timezone: Atlantic/Canary
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [270, 30]
+  ideal:
+    wind_dir: [90, 200]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-10 - canary-islands, 45 spots (primary coastline flow: 5 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 40 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/canary-islands/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: la-canteria, name: "La Canteria", town: "Orzola", lat: 29.2248, lon: -13.4619, offshore_direction: 196, swell_window: [311, 81], offshore_km: 5.0, break_type: beach, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: jameos-del-agua, name: "Jameos del Agua", town: "Haría", lat: 29.1579, lon: -13.4281, offshore_direction: 271, swell_window: [26, 156], offshore_km: 5.0, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: arrieta, name: "Arrieta", town: "Haría", lat: 29.1281, lon: -13.4644, offshore_direction: 289, swell_window: [44, 174], offshore_km: 5.0, break_type: beach, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: san-juan-ic, name: "San Juan", town: "Caleta de Famara", lat: 29.1262, lon: -13.5742, offshore_direction: 185, swell_window: [300, 70], offshore_km: 5.0, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: caleta-de-caballo, name: "Caleta de Caballo", town: "Caleta de Caballo", lat: 29.1181, lon: -13.6383, offshore_direction: 202, swell_window: [317, 87], offshore_km: 5.0, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: la-santa, name: "La Santa", town: "La Santa", lat: 29.1173, lon: -13.6621, offshore_direction: 113, swell_window: [228, 358], offshore_km: 5.0, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: famara, name: "Famara", town: "Caleta de Famara", lat: 29.1167, lon: -13.5545, offshore_direction: 161, swell_window: [276, 46], offshore_km: 5.0, break_type: beach, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: el-quemao, name: "El Quemao", town: "La Santa", lat: 29.1096, lon: -13.6664, offshore_direction: 83, swell_window: [198, 328], offshore_km: 5.0, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: mejillones, name: "Mejillones", town: "Corralejo", lat: 28.7564, lon: -13.8929, offshore_direction: 189, swell_window: [304, 74], offshore_km: 5.0, <<: *ic }  # sat-verified 2026-09-10 (osm-seeded)
+  - { id: el-muelle, name: "El Muelle", town: "Corralejo", lat: 28.7455, lon: -13.8650, offshore_direction: 164, swell_window: [279, 49], offshore_km: 5.0, <<: *ic }  # sat-verified 2026-09-10 (osm-seeded)
+  - { id: majanicho, name: "Majanicho", town: "Majanicho", lat: 28.7413, lon: -13.9379, offshore_direction: 128, swell_window: [243, 13], offshore_km: 5.0, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: el-hierro, name: "El Hierro", town: "Majanicho", lat: 28.7393, lon: -13.9528, offshore_direction: 138, swell_window: [253, 23], offshore_km: 5.0, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: punta-blanca, name: "Punta Blanca", town: "El Cotillo", lat: 28.7242, lon: -13.9878, offshore_direction: 116, swell_window: [231, 1], offshore_km: 5.0, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: playa-del-castillo, name: "Playa del Castillo", town: "El Cotillo", lat: 28.6766, lon: -14.0091, offshore_direction: 74, swell_window: [189, 319], offshore_km: 5.0, break_type: beach, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: esquinzo, name: "Esquinzo", town: "El Cotillo", lat: 28.6349, lon: -14.0267, offshore_direction: 104, swell_window: [219, 349], offshore_km: 5.0, break_type: beach, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: playa-de-la-mujer, name: "Playa de la Mujer", town: "Puertito de Los Molinos", lat: 28.5762, lon: -14.0455, offshore_direction: 112, swell_window: [227, 357], offshore_km: 5.0, break_type: beach, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: almaciga, name: "Almaciga", town: "Almáciga", lat: 28.5721, lon: -16.1925, offshore_direction: 162, swell_window: [277, 47], offshore_km: 5.0, break_type: beach, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: taganana, name: "Taganana", town: "Taganana", lat: 28.5705, lon: -16.2039, offshore_direction: 174, swell_window: [289, 59], offshore_km: 5.0, break_type: beach, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: punta-del-hidalgo, name: "Punta del Hidalgo", town: "Punta del Hidalgo", lat: 28.5690, lon: -16.3332, offshore_direction: 152, swell_window: [267, 37], offshore_km: 5.0, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: bajamar, name: "Bajamar", town: "Bajamar", lat: 28.5559, lon: -16.3453, offshore_direction: 127, swell_window: [242, 12], offshore_km: 5.0, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: los-patos, name: "Los Patos", town: "La Orotava", lat: 28.4207, lon: -16.5100, offshore_direction: 154, swell_window: [269, 39], offshore_km: 5.0, break_type: beach, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: playa-martianez, name: "Playa Martianez", town: "Puerto de la Cruz", lat: 28.4182, lon: -16.5411, offshore_direction: 183, swell_window: [298, 68], offshore_km: 5.0, break_type: beach, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: playa-del-socorro, name: "Playa del Socorro", town: "Los Realejos", lat: 28.3942, lon: -16.6029, offshore_direction: 144, swell_window: [259, 29], offshore_km: 5.0, break_type: beach, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: costa-calma, name: "Costa Calma", town: "Costa Calma", lat: 28.1650, lon: -14.2199, offshore_direction: 312, swell_window: [67, 197], offshore_km: 5.0, break_type: beach, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: el-fronton, name: "El Fronton", town: "Gáldar", lat: 28.1606, lon: -15.6617, offshore_direction: 140, swell_window: [255, 25], offshore_km: 5.0, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: el-confital, name: "El Confital", town: "Las Palmas", lat: 28.1594, lon: -15.4358, offshore_direction: 130, swell_window: [245, 15], offshore_km: 5.0, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: quintanilla, name: "Quintanilla", town: "Quintanilla", lat: 28.1465, lon: -15.5455, offshore_direction: 159, swell_window: [274, 44], offshore_km: 5.0, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: los-enanos, name: "Los Enanos", town: "El Peñón", lat: 28.1461, lon: -15.5518, offshore_direction: 187, swell_window: [302, 72], offshore_km: 5.0, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: el-roque, name: "El Roque", town: "El Altillo", lat: 28.1457, lon: -15.5671, offshore_direction: 174, swell_window: [289, 59], offshore_km: 5.0, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: vagabundos, name: "Vagabundos", town: "San Felipe", lat: 28.1446, lon: -15.5991, offshore_direction: 143, swell_window: [258, 28], offshore_km: 5.0, break_type: beach, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: la-barra, name: "La Barra", town: "Las Palmas", lat: 28.1365, lon: -15.4393, offshore_direction: 143, swell_window: [258, 28], offshore_km: 5.0, <<: *ic }  # sat-verified 2026-09-10 (osm-seeded)
+  - { id: la-cicer, name: "La Cicer", town: "Las Palmas", lat: 28.1307, lon: -15.4468, offshore_direction: 136, swell_window: [251, 21], offshore_km: 5.0, break_type: beach, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: el-lloret, name: "El Lloret", town: "Las Palmas", lat: 28.1283, lon: -15.4533, offshore_direction: 141, swell_window: [256, 26], offshore_km: 5.0, <<: *ic }  # sat-verified 2026-09-10 (osm-seeded)
+  - { id: cofete, name: "Cofete", town: "Cofete", lat: 28.1141, lon: -14.3799, offshore_direction: 157, swell_window: [272, 42], offshore_km: 5.0, break_type: beach, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: la-caleta, name: "La Caleta", town: "Adeje", lat: 28.0988, lon: -16.7565, offshore_direction: 56, swell_window: [171, 301], offshore_km: 5.0, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: la-izquierda, name: "La Izquierda", town: "Playa de las Américas", lat: 28.0603, lon: -16.7360, offshore_direction: 133, swell_window: [248, 18], offshore_km: 5.0, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: el-conquistador, name: "El Conquistador", town: "Playa de las Américas", lat: 28.0574, lon: -16.7366, offshore_direction: 94, swell_window: [209, 339], offshore_km: 5.0, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: fitenia, name: "La Fitenia", town: "Playa de las Américas", lat: 28.0519, lon: -16.7337, offshore_direction: 104, swell_window: [219, 349], offshore_km: 5.0, <<: *ic }  # sat-verified 2026-09-10 (osm-seeded)
+  - { id: el-medano, name: "El Medano", town: "El Médano", lat: 28.0427, lon: -16.5407, offshore_direction: 294, swell_window: [49, 179], offshore_km: 5.0, break_type: beach, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: la-tejita, name: "La Tejita", town: "El Médano", lat: 28.0314, lon: -16.5565, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, break_type: beach, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: playa-del-hombre, name: "Playa del Hombre", town: "Telde", lat: 27.9966, lon: -15.3748, offshore_direction: 254, swell_window: [9, 139], offshore_km: 5.0, break_type: beach, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: arinaga, name: "Arinaga", town: "Arinaga", lat: 27.8555, lon: -15.3982, offshore_direction: 289, swell_window: [44, 174], offshore_km: 5.0, break_type: beach, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: pozo-izquierdo, name: "Pozo Izquierdo", town: "Pozo Izquierdo", lat: 27.8232, lon: -15.4228, offshore_direction: 258, swell_window: [13, 143], offshore_km: 5.0, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: playa-del-ingles, name: "Playa del Ingles", town: "Maspalomas", lat: 27.7524, lon: -15.5673, offshore_direction: 285, swell_window: [40, 170], offshore_km: 5.0, break_type: beach, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: meloneras, name: "Meloneras", town: "Maspalomas", lat: 27.7356, lon: -15.5957, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, break_type: beach, <<: *ic }  # sat-verified 2026-09-10 (websearch-seeded)

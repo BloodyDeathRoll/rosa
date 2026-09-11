@@ -1,0 +1,72 @@
+{
+  "spot": "san-francisco",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.0232,
+    -8.8867
+  ],
+  "bearing_seaward_deg": 297.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 129.0,
+  "mean_slope_m_per_km": 6.87,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.02422,
+      "lon": -8.8894,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.02524,
+      "lon": -8.89209,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.02728,
+      "lon": -8.89749,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.03136,
+      "lon": -8.90828,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.03544,
+      "lon": -8.91907,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.0436,
+      "lon": -8.94065,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.05583,
+      "lon": -8.97304,
+      "depth_m": 99.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.07212,
+      "lon": -9.01624,
+      "depth_m": 110.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.09653,
+      "lon": -9.08108,
+      "depth_m": 129.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "bayas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.5713,
+    -6.0518
+  ],
+  "bearing_seaward_deg": 349.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 329.0,
+  "mean_slope_m_per_km": 18.25,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.57351,
+      "lon": -6.05239,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.57571,
+      "lon": -6.05298,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.58013,
+      "lon": -6.05417,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.58896,
+      "lon": -6.05654,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.59778,
+      "lon": -6.05891,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.61544,
+      "lon": -6.06365,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.64192,
+      "lon": -6.07077,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.67723,
+      "lon": -6.08027,
+      "depth_m": 99.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.7302,
+      "lon": -6.09455,
+      "depth_m": 329.0
+    }
+  ]
+}

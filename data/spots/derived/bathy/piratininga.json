@@ -1,0 +1,72 @@
+{
+  "spot": "piratininga",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -22.9545,
+    -43.0876
+  ],
+  "bearing_seaward_deg": 186.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 54.0,
+  "mean_slope_m_per_km": 2.54,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -22.95674,
+      "lon": -43.08786,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -22.95897,
+      "lon": -43.08811,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -22.96344,
+      "lon": -43.08862,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -22.97239,
+      "lon": -43.08964,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -22.98133,
+      "lon": -43.09066,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -22.99922,
+      "lon": -43.09271,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.02605,
+      "lon": -43.09577,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.06183,
+      "lon": -43.09986,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.11549,
+      "lon": -43.106,
+      "depth_m": 54.0
+    }
+  ]
+}

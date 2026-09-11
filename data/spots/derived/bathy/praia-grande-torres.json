@@ -1,0 +1,72 @@
+{
+  "spot": "praia-grande-torres",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -29.3377,
+    -49.7216
+  ],
+  "bearing_seaward_deg": 122.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 26.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -29.33889,
+      "lon": -49.71941,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -29.34008,
+      "lon": -49.71723,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -29.34247,
+      "lon": -49.71285,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -29.34723,
+      "lon": -49.7041,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -29.35199,
+      "lon": -49.69535,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -29.36152,
+      "lon": -49.67785,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -29.37581,
+      "lon": -49.65158,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -29.39485,
+      "lon": -49.61656,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -29.42339,
+      "lon": -49.56399,
+      "depth_m": 26.0
+    }
+  ]
+}

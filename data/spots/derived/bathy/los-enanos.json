@@ -1,0 +1,72 @@
+{
+  "spot": "los-enanos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    28.1461,
+    -15.5518
+  ],
+  "bearing_seaward_deg": 7.0,
+  "nearshore_depth_m": -69.0,
+  "offshore_depth_m": 2384.0,
+  "mean_slope_m_per_km": 138.2,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.14833,
+      "lon": -15.55149,
+      "depth_m": -69.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.15056,
+      "lon": -15.55118,
+      "depth_m": -31.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.15503,
+      "lon": -15.55056,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.16395,
+      "lon": -15.54931,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.17288,
+      "lon": -15.54807,
+      "depth_m": 166.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.19073,
+      "lon": -15.54558,
+      "depth_m": 1120.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.21751,
+      "lon": -15.54185,
+      "depth_m": 1625.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.25321,
+      "lon": -15.53687,
+      "depth_m": 2025.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.30677,
+      "lon": -15.52939,
+      "depth_m": 2384.0
+    }
+  ]
+}

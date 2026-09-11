@@ -1,0 +1,72 @@
+{
+  "spot": "zapalo-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.6699,
+    32.854
+  ],
+  "bearing_seaward_deg": 191.0,
+  "nearshore_depth_m": -16.0,
+  "offshore_depth_m": 361.0,
+  "mean_slope_m_per_km": 21.24,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.66769,
+      "lon": 32.85348,
+      "depth_m": -16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.66549,
+      "lon": 32.85296,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.66107,
+      "lon": 32.85191,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.65224,
+      "lon": 32.84983,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.64342,
+      "lon": 32.84774,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.62576,
+      "lon": 32.84357,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.59928,
+      "lon": 32.83732,
+      "depth_m": 108.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.56396,
+      "lon": 32.82899,
+      "depth_m": 173.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.51099,
+      "lon": 32.81652,
+      "depth_m": 361.0
+    }
+  ]
+}

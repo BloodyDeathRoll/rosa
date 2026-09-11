@@ -1,0 +1,72 @@
+{
+  "spot": "barra-da-lagoa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -27.5735,
+    -48.4238
+  ],
+  "bearing_seaward_deg": 30.0,
+  "nearshore_depth_m": 22.0,
+  "offshore_depth_m": 38.0,
+  "mean_slope_m_per_km": 0.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -27.57155,
+      "lon": -48.42253,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -27.56961,
+      "lon": -48.42126,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -27.56571,
+      "lon": -48.41873,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -27.55792,
+      "lon": -48.41366,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -27.55013,
+      "lon": -48.40858,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -27.53456,
+      "lon": -48.39845,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -27.51119,
+      "lon": -48.38324,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -27.48003,
+      "lon": -48.36298,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -27.43328,
+      "lon": -48.33261,
+      "depth_m": 38.0
+    }
+  ]
+}

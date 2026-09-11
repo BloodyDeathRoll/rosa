@@ -1,0 +1,72 @@
+{
+  "spot": "valcovo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.318,
+    -8.53
+  ],
+  "bearing_seaward_deg": 287.0,
+  "nearshore_depth_m": -23.0,
+  "offshore_depth_m": 75.0,
+  "mean_slope_m_per_km": 5.52,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.31866,
+      "lon": -8.53296,
+      "depth_m": -23.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.31931,
+      "lon": -8.53591,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.32063,
+      "lon": -8.54182,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.32326,
+      "lon": -8.55364,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.32588,
+      "lon": -8.56547,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.33113,
+      "lon": -8.58912,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.339,
+      "lon": -8.6246,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.34946,
+      "lon": -8.67192,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.36513,
+      "lon": -8.74294,
+      "depth_m": 75.0
+    }
+  ]
+}

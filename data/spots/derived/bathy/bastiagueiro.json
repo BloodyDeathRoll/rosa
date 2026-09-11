@@ -1,0 +1,72 @@
+{
+  "spot": "bastiagueiro",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.3412,
+    -8.3637
+  ],
+  "bearing_seaward_deg": 356.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 46.0,
+  "mean_slope_m_per_km": 2.14,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.34344,
+      "lon": -8.36392,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.34569,
+      "lon": -8.36413,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.35017,
+      "lon": -8.36456,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.35914,
+      "lon": -8.36543,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.36811,
+      "lon": -8.36629,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.38606,
+      "lon": -8.36802,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.41297,
+      "lon": -8.37061,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.44886,
+      "lon": -8.37407,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.50268,
+      "lon": -8.37927,
+      "depth_m": 46.0
+    }
+  ]
+}

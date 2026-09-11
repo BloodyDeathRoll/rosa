@@ -1,0 +1,72 @@
+{
+  "spot": "praia-do-morro",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -20.6527,
+    -40.4834
+  ],
+  "bearing_seaward_deg": 153.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 26.0,
+  "mean_slope_m_per_km": 0.79,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -20.6547,
+      "lon": -40.48231,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -20.65671,
+      "lon": -40.48122,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -20.66071,
+      "lon": -40.47904,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -20.66873,
+      "lon": -40.47467,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -20.67674,
+      "lon": -40.47031,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -20.69276,
+      "lon": -40.46158,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -20.7168,
+      "lon": -40.44848,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -20.74885,
+      "lon": -40.43101,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -20.79692,
+      "lon": -40.40479,
+      "depth_m": 26.0
+    }
+  ]
+}

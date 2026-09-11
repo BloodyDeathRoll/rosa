@@ -1,0 +1,72 @@
+{
+  "spot": "barra-do-ceara",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -3.6959,
+    -38.5784
+  ],
+  "bearing_seaward_deg": 10.0,
+  "nearshore_depth_m": 16.0,
+  "offshore_depth_m": 24.0,
+  "mean_slope_m_per_km": 0.45,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -3.69369,
+      "lon": -38.57801,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -3.69147,
+      "lon": -38.57762,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -3.68704,
+      "lon": -38.57684,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -3.67819,
+      "lon": -38.57527,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -3.66933,
+      "lon": -38.57371,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -3.65162,
+      "lon": -38.57058,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -3.62505,
+      "lon": -38.56588,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -3.58962,
+      "lon": -38.55962,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -3.53648,
+      "lon": -38.55024,
+      "depth_m": 24.0
+    }
+  ]
+}

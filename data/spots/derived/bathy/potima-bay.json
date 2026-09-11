@@ -1,0 +1,72 @@
+{
+  "spot": "potima-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.8345,
+    32.3909
+  ],
+  "bearing_seaward_deg": 252.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 2008.0,
+  "mean_slope_m_per_km": 112.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.83381,
+      "lon": 32.38829,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.83311,
+      "lon": 32.38569,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.83172,
+      "lon": 32.38048,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.82894,
+      "lon": 32.37006,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.82616,
+      "lon": 32.35964,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.82059,
+      "lon": 32.33881,
+      "depth_m": 326.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.81224,
+      "lon": 32.30756,
+      "depth_m": 708.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.80109,
+      "lon": 32.26591,
+      "depth_m": 1267.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.78433,
+      "lon": 32.20345,
+      "depth_m": 2008.0
+    }
+  ]
+}

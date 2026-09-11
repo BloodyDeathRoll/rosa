@@ -1,0 +1,72 @@
+{
+  "spot": "guarajuba",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -12.6569,
+    -38.0735
+  ],
+  "bearing_seaward_deg": 126.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 188.0,
+  "mean_slope_m_per_km": 10.93,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -12.65822,
+      "lon": -38.07164,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -12.65954,
+      "lon": -38.06977,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -12.66219,
+      "lon": -38.06604,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -12.66747,
+      "lon": -38.05859,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -12.67276,
+      "lon": -38.05113,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -12.68333,
+      "lon": -38.03621,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -12.69918,
+      "lon": -38.01384,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -12.72032,
+      "lon": -37.984,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -12.75202,
+      "lon": -37.93923,
+      "depth_m": 188.0
+    }
+  ]
+}

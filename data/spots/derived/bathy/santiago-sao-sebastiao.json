@@ -1,0 +1,72 @@
+{
+  "spot": "santiago-sao-sebastiao",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -23.8109,
+    -45.5412
+  ],
+  "bearing_seaward_deg": 209.0,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 33.0,
+  "mean_slope_m_per_km": 1.13,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.81287,
+      "lon": -45.54239,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.81483,
+      "lon": -45.54358,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.81877,
+      "lon": -45.54597,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.82663,
+      "lon": -45.55073,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.8345,
+      "lon": -45.5555,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.85023,
+      "lon": -45.56504,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.87382,
+      "lon": -45.57934,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.90528,
+      "lon": -45.59843,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.95246,
+      "lon": -45.62708,
+      "depth_m": 33.0
+    }
+  ]
+}

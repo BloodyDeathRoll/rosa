@@ -1,0 +1,72 @@
+{
+  "spot": "setibao",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -20.6309,
+    -40.4258
+  ],
+  "bearing_seaward_deg": 126.0,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 33.0,
+  "mean_slope_m_per_km": 1.13,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -20.63222,
+      "lon": -40.42386,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -20.63354,
+      "lon": -40.42191,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -20.63619,
+      "lon": -40.41803,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -20.64147,
+      "lon": -40.41025,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -20.64676,
+      "lon": -40.40247,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -20.65733,
+      "lon": -40.38692,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -20.67318,
+      "lon": -40.36359,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -20.69431,
+      "lon": -40.33247,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -20.72599,
+      "lon": -40.28578,
+      "depth_m": 33.0
+    }
+  ]
+}

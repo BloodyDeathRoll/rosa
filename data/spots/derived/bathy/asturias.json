@@ -1,0 +1,72 @@
+{
+  "spot": "asturias",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -24.0066,
+    -46.2672
+  ],
+  "bearing_seaward_deg": 141.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 31.0,
+  "mean_slope_m_per_km": 1.24,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -24.00835,
+      "lon": -46.26565,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -24.01009,
+      "lon": -46.2641,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -24.01359,
+      "lon": -46.261,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -24.02058,
+      "lon": -46.25481,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -24.02757,
+      "lon": -46.24861,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -24.04154,
+      "lon": -46.23621,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -24.0625,
+      "lon": -46.21761,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -24.09045,
+      "lon": -46.19281,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -24.13236,
+      "lon": -46.15557,
+      "depth_m": 31.0
+    }
+  ]
+}

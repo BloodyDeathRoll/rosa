@@ -1,0 +1,46 @@
+# Rosa spot database - Asturias (seeded 2026-09-10). North-facing Biscay beaches and the Rodiles
+# rivermouth: NW groundswell, offshore on a S wind.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &ast
+  timezone: Europe/Madrid
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [270, 30]
+  ideal:
+    wind_dir: [135, 225]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-10 - asturias, 24 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 24 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/asturias/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: verdicio, name: "Verdicio", town: "Gozón", lat: 43.6257, lon: -5.8769, offshore_direction: 146, swell_window: [261, 31], offshore_km: 5.0, <<: *ast }  # sat-verified 2026-09-10 (websearch-seeded) normal re-aimed to seaward 326 (GEBCO arc middle)
+  - { id: xago, name: "Xagó", town: "Gozón", lat: 43.6041, lon: -5.9196, offshore_direction: 141, swell_window: [256, 26], offshore_km: 5.0, <<: *ast }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: san-juan, name: "San Juan", town: "San Juan de Nieva", lat: 43.5870, lon: -5.9429, offshore_direction: 122, swell_window: [237, 7], offshore_km: 5.0, <<: *ast }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: salinas, name: "Salinas", town: "Salinas", lat: 43.5787, lon: -5.9565, offshore_direction: 151, swell_window: [266, 36], offshore_km: 5.0, <<: *ast }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: bayas, name: "Bayas", town: "Castrillón", lat: 43.5713, lon: -6.0518, offshore_direction: 169, swell_window: [284, 54], offshore_km: 5.0, <<: *ast }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: tapia, name: "Tapia", town: "Tapia de Casariego", lat: 43.5676, lon: -6.9499, offshore_direction: 151, swell_window: [266, 36], offshore_km: 5.0, <<: *ast }  # sat-verified 2026-09-10 (websearch-seeded) normal re-aimed to seaward 331 (GEBCO arc middle)
+  - { id: los-quebrantos, name: "Los Quebrantos", town: "San Juan de la Arena", lat: 43.5647, lon: -6.0687, offshore_direction: 179, swell_window: [294, 64], offshore_km: 5.0, <<: *ast }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: frexulfe, name: "Frexulfe", town: "Navia", lat: 43.5598, lon: -6.6758, offshore_direction: 165, swell_window: [280, 50], offshore_km: 5.0, <<: *ast }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: aguilar, name: "Aguilar", town: "Muros de Nalón", lat: 43.5560, lon: -6.1132, offshore_direction: 176, swell_window: [291, 61], offshore_km: 5.0, <<: *ast }  # sat-verified 2026-09-10 (websearch-seeded) normal re-aimed to seaward 356 (GEBCO arc middle)
+  - { id: navia, name: "Navia", town: "Navia", lat: 43.5555, lon: -6.7218, offshore_direction: 176, swell_window: [291, 61], offshore_km: 5.0, <<: *ast }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: penarronda, name: "Peñarronda", town: "Tapia de Casariego", lat: 43.5534, lon: -6.9971, offshore_direction: 168, swell_window: [283, 53], offshore_km: 5.0, <<: *ast }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: otur, name: "Otur", town: "Luarca", lat: 43.5533, lon: -6.5972, offshore_direction: 223, swell_window: [338, 108], offshore_km: 5.0, <<: *ast }  # sat-verified 2026-09-10 (websearch-seeded) normal re-aimed to seaward 43 (GEBCO arc middle)
+  - { id: penarrubia, name: "Peñarrubia", town: "Gijón", lat: 43.5519, lon: -5.6240, offshore_direction: 167, swell_window: [282, 52], offshore_km: 5.0, <<: *ast }  # sat-verified 2026-09-10 (websearch-seeded) normal re-aimed to seaward 347 (GEBCO arc middle)
+  - { id: cueva, name: "Cueva", town: "Luarca", lat: 43.5507, lon: -6.4732, offshore_direction: 158, swell_window: [273, 43], offshore_km: 5.0, <<: *ast }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: el-rinconin, name: "El Rinconín", town: "Gijón", lat: 43.5484, lon: -5.6388, offshore_direction: 160, swell_window: [275, 45], offshore_km: 5.0, <<: *ast }  # sat-verified 2026-09-10 (websearch-seeded) normal re-aimed to seaward 340 (GEBCO arc middle)
+  - { id: playa-espana, name: "Playa España", town: "Villaviciosa", lat: 43.5456, lon: -5.5286, offshore_direction: 176, swell_window: [291, 61], offshore_km: 5.0, <<: *ast }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: san-lorenzo, name: "San Lorenzo", town: "Gijón", lat: 43.5419, lon: -5.6536, offshore_direction: 171, swell_window: [286, 56], offshore_km: 5.0, <<: *ast }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: rodiles, name: "Rodiles", town: "Villaviciosa", lat: 43.5341, lon: -5.3844, offshore_direction: 218, swell_window: [333, 103], offshore_km: 5.0, <<: *ast }  # sat-verified 2026-09-10 (websearch-seeded) normal re-aimed to seaward 38 (GEBCO arc middle)
+  - { id: vega, name: "Vega", town: "Ribadesella", lat: 43.4795, lon: -5.1434, offshore_direction: 164, swell_window: [279, 49], offshore_km: 5.0, <<: *ast }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: santa-marina, name: "Santa Marina", town: "Ribadesella", lat: 43.4661, lon: -5.0740, offshore_direction: 222, swell_window: [337, 107], offshore_km: 5.0, <<: *ast }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: torimbia, name: "Torimbia", town: "Llanes", lat: 43.4428, lon: -4.8510, offshore_direction: 199, swell_window: [314, 84], offshore_km: 5.0, <<: *ast }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: san-antolin, name: "San Antolín", town: "Llanes", lat: 43.4422, lon: -4.8705, offshore_direction: 170, swell_window: [285, 55], offshore_km: 5.0, <<: *ast }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: andrin, name: "Andrín", town: "Llanes", lat: 43.4297, lon: -4.7847, offshore_direction: 185, swell_window: [300, 70], offshore_km: 5.0, <<: *ast }  # sat-verified 2026-09-10 (websearch-seeded) normal re-aimed to seaward 5 (GEBCO arc middle)
+  - { id: vidiago, name: "Vidiago", town: "Llanes", lat: 43.4007, lon: -4.6527, offshore_direction: 163, swell_window: [278, 48], offshore_km: 5.0, <<: *ast }  # sat-verified 2026-09-10 (websearch-seeded)

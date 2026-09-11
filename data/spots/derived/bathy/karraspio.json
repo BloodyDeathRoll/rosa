@@ -1,0 +1,72 @@
+{
+  "spot": "karraspio",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.3638,
+    -2.4924
+  ],
+  "bearing_seaward_deg": 352.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 185.0,
+  "mean_slope_m_per_km": 10.37,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.36603,
+      "lon": -2.49283,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.36825,
+      "lon": -2.49326,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.37271,
+      "lon": -2.49412,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.38161,
+      "lon": -2.49584,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.39052,
+      "lon": -2.49757,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.40833,
+      "lon": -2.50101,
+      "depth_m": 76.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.43504,
+      "lon": -2.50619,
+      "depth_m": 90.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.47067,
+      "lon": -2.5131,
+      "depth_m": 103.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.5241,
+      "lon": -2.52347,
+      "depth_m": 185.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "san-anton",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.722,
+    -7.8034
+  ],
+  "bearing_seaward_deg": 16.0,
+  "nearshore_depth_m": -21.0,
+  "offshore_depth_m": 141.0,
+  "mean_slope_m_per_km": 9.13,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.72416,
+      "lon": -7.80254,
+      "depth_m": -21.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.72632,
+      "lon": -7.80168,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.73064,
+      "lon": -7.79997,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.73929,
+      "lon": -7.79654,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.74793,
+      "lon": -7.79311,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.76522,
+      "lon": -7.78624,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.79116,
+      "lon": -7.77593,
+      "depth_m": 76.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.82573,
+      "lon": -7.76217,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.87759,
+      "lon": -7.7415,
+      "depth_m": 141.0
+    }
+  ]
+}

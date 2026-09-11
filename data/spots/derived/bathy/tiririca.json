@@ -1,0 +1,72 @@
+{
+  "spot": "tiririca",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -14.2867,
+    -38.9847
+  ],
+  "bearing_seaward_deg": 44.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 133.0,
+  "mean_slope_m_per_km": 7.94,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -14.28508,
+      "lon": -38.98309,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -14.28347,
+      "lon": -38.98148,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -14.28023,
+      "lon": -38.97825,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -14.27376,
+      "lon": -38.97181,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -14.26729,
+      "lon": -38.96536,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -14.25435,
+      "lon": -38.95247,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -14.23494,
+      "lon": -38.93314,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -14.20906,
+      "lon": -38.90737,
+      "depth_m": 102.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -14.17023,
+      "lon": -38.86872,
+      "depth_m": 133.0
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+# Rosa spot database - Pernambuco (seeded 2026-09-11). The east-facing reef-lined coast (Maracaipe, Porto de Galinhas): SE trade swell, offshore on a W wind.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+region: Pernambuco
+defaults: &pe
+  timezone: America/Recife
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [45, 180]
+  ideal:
+    wind_dir: [225, 315]
+    size_m: [0.6, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-09-11 - pernambuco, 9 spots (primary coastline flow: 2 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 7 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/pernambuco/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: pedra-de-xareu, name: "Pedra de Xaréu", town: "Cabo de Santo Agostinho", lat: -8.3036, lon: -34.9457, offshore_direction: 242, swell_window: [357, 127], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 62 (GEBCO arc middle)
+  - { id: enseada-dos-corais, name: "Enseada dos Corais", town: "Cabo de Santo Agostinho", lat: -8.3271, lon: -34.9506, offshore_direction: 271, swell_window: [26, 156], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: gaibu, name: "Gaibu", town: "Cabo de Santo Agostinho", lat: -8.3410, lon: -34.9497, offshore_direction: 231, swell_window: [346, 116], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: muro-alto, name: "Muro Alto", town: "Porto de Galinhas", lat: -8.4510, lon: -34.9843, offshore_direction: 279, swell_window: [34, 164], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: cupe, name: "Cupe", town: "Porto de Galinhas", lat: -8.4722, lon: -34.9935, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-09-11 (osm-seeded)
+  - { id: borete, name: "Borete", town: "Porto de Galinhas", lat: -8.4984, lon: -35.0026, offshore_direction: 284, swell_window: [39, 169], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 104 (GEBCO arc middle)
+  - { id: porto-de-galinhas, name: "Porto de Galinhas", town: "Porto de Galinhas", lat: -8.5033, lon: -34.9981, offshore_direction: 263, swell_window: [18, 148], offshore_km: 5.0, break_type: reef, <<: *pe }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: maracaipe, name: "Maracaípe", town: "Porto de Galinhas", lat: -8.5221, lon: -35.0066, offshore_direction: 278, swell_window: [33, 163], offshore_km: 5.0, <<: *pe }  # sat-verified 2026-09-11 (osm-seeded)
+  - { id: serrambi, name: "Serrambi", town: "Serrambi", lat: -8.5634, lon: -35.0054, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, break_type: reef, <<: *pe }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 110 (GEBCO arc middle)

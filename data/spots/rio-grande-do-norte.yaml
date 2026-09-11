@@ -1,0 +1,40 @@
+# Rosa spot database - Rio Grande do Norte (seeded 2026-09-11). Pipa and Natal face E-SE into the trade swell; the north coast faces N. Offshore varies per coast.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+region: Rio Grande do Norte
+defaults: &rn
+  timezone: America/Fortaleza
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [0, 160]
+  ideal:
+    wind_dir: [200, 290]
+    size_m: [0.6, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-09-11 - rio-grande-do-norte, 18 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 18 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/rio-grande-do-norte/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: tourinhos, name: "Tourinhos", town: "São Miguel do Gostoso", lat: -5.1041, lon: -35.7000, offshore_direction: 224, swell_window: [339, 109], offshore_km: 5.0, <<: *rn }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 44 (middle of the 20-70 deg arc where gebco2020 reaches water at 18 km; 290-10 read a flat 0 m shelf)
+  - { id: genipabu, name: "Genipabu", town: "Genipabu", lat: -5.6944, lon: -35.2040, offshore_direction: 222, swell_window: [337, 107], offshore_km: 5.0, <<: *rn }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: praia-dos-artistas, name: "Praia dos Artistas", town: "Natal", lat: -5.7760, lon: -35.1938, offshore_direction: 269, swell_window: [24, 154], offshore_km: 5.0, <<: *rn }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: areia-preta, name: "Areia Preta", town: "Natal", lat: -5.7895, lon: -35.1884, offshore_direction: 206, swell_window: [321, 91], offshore_km: 5.0, <<: *rn }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 26 (GEBCO arc middle; 63 crossed land)
+  - { id: miami, name: "Miami", town: "Natal", lat: -5.7928, lon: -35.1851, offshore_direction: 236, swell_window: [351, 121], offshore_km: 5.0, <<: *rn }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 56 (GEBCO arc middle; 44 crossed land)
+  - { id: ponta-negra, name: "Ponta Negra", town: "Natal", lat: -5.8828, lon: -35.1688, offshore_direction: 214, swell_window: [329, 99], offshore_km: 5.0, <<: *rn }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 34 (GEBCO arc middle; 26 crossed land)
+  - { id: praia-de-buzios, name: "Praia de Búzios", town: "Búzios", lat: -5.9997, lon: -35.1118, offshore_direction: 234, swell_window: [349, 119], offshore_km: 5.0, <<: *rn }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: tabatinga, name: "Tabatinga", town: "Tabatinga", lat: -6.0474, lon: -35.1094, offshore_direction: 242, swell_window: [357, 127], offshore_km: 5.0, <<: *rn }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: ponta-do-giz, name: "Ponta do Giz", town: "Tibau do Sul", lat: -6.1848, lon: -35.0884, offshore_direction: 228, swell_window: [343, 113], offshore_km: 5.0, <<: *rn }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: cacimbinhas, name: "Cacimbinhas", town: "Pipa", lat: -6.1979, lon: -35.0819, offshore_direction: 259, swell_window: [14, 144], offshore_km: 5.0, <<: *rn }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: ponta-do-madeiro, name: "Ponta do Madeiro", town: "Pipa", lat: -6.2148, lon: -35.0769, offshore_direction: 250, swell_window: [5, 135], offshore_km: 5.0, <<: *rn }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: curral, name: "Curral", town: "Pipa", lat: -6.2217, lon: -35.0677, offshore_direction: 234, swell_window: [349, 119], offshore_km: 5.0, <<: *rn }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: abacateiro, name: "Abacateiro", town: "Pipa", lat: -6.2257, lon: -35.0449, offshore_direction: 259, swell_window: [14, 144], offshore_km: 5.0, <<: *rn }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: praia-do-amor, name: "Praia do Amor", town: "Pipa", lat: -6.2327, lon: -35.0412, offshore_direction: 221, swell_window: [336, 106], offshore_km: 5.0, <<: *rn }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: coqueirinho, name: "Coqueirinho", town: "Pipa", lat: -6.2365, lon: -35.0368, offshore_direction: 268, swell_window: [23, 153], offshore_km: 5.0, <<: *rn }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: pontal, name: "Pontal", town: "Baía Formosa", lat: -6.3661, lon: -35.0042, offshore_direction: 232, swell_window: [347, 117], offshore_km: 5.0, <<: *rn }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: porto-br, name: "Porto", town: "Baía Formosa", lat: -6.3670, lon: -35.0087, offshore_direction: 214, swell_window: [329, 99], offshore_km: 5.0, <<: *rn }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 34 (GEBCO arc middle; 264 crossed land)
+  - { id: picao, name: "Picão", town: "Baía Formosa", lat: -6.3764, lon: -34.9913, offshore_direction: 253, swell_window: [8, 138], offshore_km: 5.0, <<: *rn }  # sat-verified 2026-09-11 (websearch-seeded)

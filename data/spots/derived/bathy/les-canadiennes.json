@@ -1,0 +1,72 @@
+{
+  "spot": "les-canadiennes",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.7858,
+    3.3274
+  ],
+  "bearing_seaward_deg": 4.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 2310.0,
+  "mean_slope_m_per_km": 130.08,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.78804,
+      "lon": 3.3276,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.79029,
+      "lon": 3.32779,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.79477,
+      "lon": 3.32818,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.80374,
+      "lon": 3.32897,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.81271,
+      "lon": 3.32975,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.83066,
+      "lon": 3.33132,
+      "depth_m": 301.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.85757,
+      "lon": 3.33367,
+      "depth_m": 872.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.89346,
+      "lon": 3.33681,
+      "depth_m": 1464.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.94728,
+      "lon": 3.34153,
+      "depth_m": 2310.0
+    }
+  ]
+}

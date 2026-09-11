@@ -1,0 +1,72 @@
+{
+  "spot": "milionarios",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -14.8649,
+    -39.0241
+  ],
+  "bearing_seaward_deg": 86.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 533.0,
+  "mean_slope_m_per_km": 30.08,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -14.86474,
+      "lon": -39.02178,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -14.86459,
+      "lon": -39.01946,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -14.86427,
+      "lon": -39.01482,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -14.86364,
+      "lon": -39.00554,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -14.86302,
+      "lon": -38.99625,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -14.86176,
+      "lon": -38.97769,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -14.85987,
+      "lon": -38.94985,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -14.85735,
+      "lon": -38.91272,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -14.85355,
+      "lon": -38.85703,
+      "depth_m": 533.0
+    }
+  ]
+}

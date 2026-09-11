@@ -1,0 +1,72 @@
+{
+  "spot": "imbassai",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -12.4945,
+    -37.9564
+  ],
+  "bearing_seaward_deg": 119.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 937.0,
+  "mean_slope_m_per_km": 53.07,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -12.49559,
+      "lon": -37.95439,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -12.49668,
+      "lon": -37.95237,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -12.49886,
+      "lon": -37.94834,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -12.50322,
+      "lon": -37.94029,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -12.50758,
+      "lon": -37.93223,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -12.5163,
+      "lon": -37.91611,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -12.52937,
+      "lon": -37.89194,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -12.5468,
+      "lon": -37.8597,
+      "depth_m": 108.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -12.57294,
+      "lon": -37.81134,
+      "depth_m": 937.0
+    }
+  ]
+}

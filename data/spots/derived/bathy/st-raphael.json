@@ -1,0 +1,72 @@
+{
+  "spot": "st-raphael",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.712,
+    33.1645
+  ],
+  "bearing_seaward_deg": 188.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 331.0,
+  "mean_slope_m_per_km": 18.37,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.70977,
+      "lon": 33.16412,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.70755,
+      "lon": 33.16374,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.70309,
+      "lon": 33.16298,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.69419,
+      "lon": 33.16146,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.68528,
+      "lon": 33.15993,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.66747,
+      "lon": 33.15689,
+      "depth_m": 112.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.64075,
+      "lon": 33.15233,
+      "depth_m": 231.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.60513,
+      "lon": 33.14625,
+      "depth_m": 453.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.55169,
+      "lon": 33.13715,
+      "depth_m": 331.0
+    }
+  ]
+}

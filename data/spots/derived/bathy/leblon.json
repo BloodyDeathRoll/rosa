@@ -1,0 +1,72 @@
+{
+  "spot": "leblon",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -22.9875,
+    -43.2217
+  ],
+  "bearing_seaward_deg": 165.0,
+  "nearshore_depth_m": 18.0,
+  "offshore_depth_m": 58.0,
+  "mean_slope_m_per_km": 2.25,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -22.98967,
+      "lon": -43.22107,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -22.99184,
+      "lon": -43.22044,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -22.99619,
+      "lon": -43.21917,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.00487,
+      "lon": -43.21664,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.01356,
+      "lon": -43.21411,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.03093,
+      "lon": -43.20905,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.05699,
+      "lon": -43.20146,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.09174,
+      "lon": -43.19134,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.14386,
+      "lon": -43.17614,
+      "depth_m": 58.0
+    }
+  ]
+}

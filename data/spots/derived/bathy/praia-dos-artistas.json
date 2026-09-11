@@ -1,0 +1,72 @@
+{
+  "spot": "praia-dos-artistas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -5.776,
+    -35.1938
+  ],
+  "bearing_seaward_deg": 89.0,
+  "nearshore_depth_m": 21.0,
+  "offshore_depth_m": 64.0,
+  "mean_slope_m_per_km": 2.42,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -5.77596,
+      "lon": -35.19154,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -5.77592,
+      "lon": -35.18928,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -5.77584,
+      "lon": -35.18476,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -5.77569,
+      "lon": -35.17572,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -5.77553,
+      "lon": -35.16669,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -5.77521,
+      "lon": -35.14861,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -5.77474,
+      "lon": -35.1215,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -5.77411,
+      "lon": -35.08535,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -5.77315,
+      "lon": -35.03112,
+      "depth_m": 64.0
+    }
+  ]
+}

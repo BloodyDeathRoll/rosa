@@ -1,0 +1,72 @@
+{
+  "spot": "cidreira",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -30.1543,
+    -50.194
+  ],
+  "bearing_seaward_deg": 111.0,
+  "nearshore_depth_m": 16.0,
+  "offshore_depth_m": 27.0,
+  "mean_slope_m_per_km": 0.62,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -30.15511,
+      "lon": -50.19157,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -30.15591,
+      "lon": -50.18914,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -30.15752,
+      "lon": -50.18429,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -30.16074,
+      "lon": -50.17458,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -30.16397,
+      "lon": -50.16487,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -30.17041,
+      "lon": -50.14544,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -30.18006,
+      "lon": -50.1163,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -30.19292,
+      "lon": -50.07744,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -30.2122,
+      "lon": -50.01912,
+      "depth_m": 27.0
+    }
+  ]
+}

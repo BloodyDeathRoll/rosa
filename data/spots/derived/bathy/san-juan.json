@@ -1,0 +1,72 @@
+{
+  "spot": "san-juan",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.587,
+    -5.9429
+  ],
+  "bearing_seaward_deg": 302.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 98.0,
+  "mean_slope_m_per_km": 4.96,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.58819,
+      "lon": -5.94553,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.58938,
+      "lon": -5.94816,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.59177,
+      "lon": -5.95343,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.59653,
+      "lon": -5.96396,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.60129,
+      "lon": -5.9745,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.61082,
+      "lon": -5.99557,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.62509,
+      "lon": -6.02719,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.64412,
+      "lon": -6.06937,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.67263,
+      "lon": -6.1327,
+      "depth_m": 98.0
+    }
+  ]
+}

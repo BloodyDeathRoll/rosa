@@ -1,0 +1,72 @@
+{
+  "spot": "pereque-acu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -23.4232,
+    -45.0626
+  ],
+  "bearing_seaward_deg": 132.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 2.48,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.4247,
+      "lon": -45.06078,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.42621,
+      "lon": -45.05896,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.42922,
+      "lon": -45.05532,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.43523,
+      "lon": -45.04803,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.44125,
+      "lon": -45.04075,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.45328,
+      "lon": -45.02617,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.47133,
+      "lon": -45.00431,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.49539,
+      "lon": -44.97515,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.53146,
+      "lon": -44.93139,
+      "depth_m": 35.0
+    }
+  ]
+}

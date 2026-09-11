@@ -1,0 +1,72 @@
+{
+  "spot": "praia-do-rosa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -28.1294,
+    -48.6417
+  ],
+  "bearing_seaward_deg": 105.0,
+  "nearshore_depth_m": -23.0,
+  "offshore_depth_m": 56.0,
+  "mean_slope_m_per_km": 4.45,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -28.12998,
+      "lon": -48.63924,
+      "depth_m": -23.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -28.13056,
+      "lon": -48.63677,
+      "depth_m": -16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -28.13173,
+      "lon": -48.63185,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -28.13405,
+      "lon": -48.622,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -28.13638,
+      "lon": -48.61215,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -28.14103,
+      "lon": -48.59244,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -28.148,
+      "lon": -48.56288,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -28.15728,
+      "lon": -48.52347,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -28.17118,
+      "lon": -48.46433,
+      "depth_m": 56.0
+    }
+  ]
+}

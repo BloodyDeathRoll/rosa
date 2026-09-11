@@ -1,0 +1,72 @@
+{
+  "spot": "santinho",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -27.4587,
+    -48.3754
+  ],
+  "bearing_seaward_deg": 103.0,
+  "nearshore_depth_m": 26.0,
+  "offshore_depth_m": 65.0,
+  "mean_slope_m_per_km": 2.2,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -27.45921,
+      "lon": -48.37293,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -27.45971,
+      "lon": -48.37046,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -27.46072,
+      "lon": -48.36552,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -27.46274,
+      "lon": -48.35565,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -27.46477,
+      "lon": -48.34577,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -27.46881,
+      "lon": -48.32602,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -27.47486,
+      "lon": -48.29639,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -27.48293,
+      "lon": -48.25687,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -27.495,
+      "lon": -48.19759,
+      "depth_m": 65.0
+    }
+  ]
+}

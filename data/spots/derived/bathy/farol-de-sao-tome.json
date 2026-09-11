@@ -1,0 +1,72 @@
+{
+  "spot": "farol-de-sao-tome",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -22.0444,
+    -41.0518
+  ],
+  "bearing_seaward_deg": 153.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 1.63,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -22.0464,
+      "lon": -41.0507,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -22.04841,
+      "lon": -41.0496,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -22.05241,
+      "lon": -41.04739,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -22.06043,
+      "lon": -41.04299,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -22.06844,
+      "lon": -41.03858,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -22.08446,
+      "lon": -41.02977,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -22.1085,
+      "lon": -41.01655,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -22.14055,
+      "lon": -40.99891,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -22.18861,
+      "lon": -40.97243,
+      "depth_m": 35.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "itauna",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -22.9358,
+    -42.4834
+  ],
+  "bearing_seaward_deg": 187.0,
+  "nearshore_depth_m": 23.0,
+  "offshore_depth_m": 82.0,
+  "mean_slope_m_per_km": 3.32,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -22.93803,
+      "lon": -42.4837,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -22.94026,
+      "lon": -42.484,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -22.94473,
+      "lon": -42.48459,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -22.95365,
+      "lon": -42.48578,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -22.96258,
+      "lon": -42.48697,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -22.98043,
+      "lon": -42.48935,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.00721,
+      "lon": -42.49293,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.04291,
+      "lon": -42.49769,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.09647,
+      "lon": -42.50485,
+      "depth_m": 82.0
+    }
+  ]
+}

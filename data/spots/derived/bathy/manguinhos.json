@@ -1,0 +1,72 @@
+{
+  "spot": "manguinhos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -20.2053,
+    -40.1964
+  ],
+  "bearing_seaward_deg": 124.0,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 1.24,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -20.20656,
+      "lon": -40.19441,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -20.20781,
+      "lon": -40.19243,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -20.21033,
+      "lon": -40.18846,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -20.21536,
+      "lon": -40.18051,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -20.22039,
+      "lon": -40.17256,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -20.23044,
+      "lon": -40.15667,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -20.24552,
+      "lon": -40.13283,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -20.26562,
+      "lon": -40.10103,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -20.29576,
+      "lon": -40.05331,
+      "depth_m": 35.0
+    }
+  ]
+}

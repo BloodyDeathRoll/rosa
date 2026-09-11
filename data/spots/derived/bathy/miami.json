@@ -1,0 +1,72 @@
+{
+  "spot": "miami",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -5.7928,
+    -35.1851
+  ],
+  "bearing_seaward_deg": 56.0,
+  "nearshore_depth_m": 17.0,
+  "offshore_depth_m": 27.0,
+  "mean_slope_m_per_km": 0.56,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 4,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -5.79154,
+      "lon": -35.18323,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -5.79029,
+      "lon": -35.18135,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -5.78777,
+      "lon": -35.17761,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -5.78274,
+      "lon": -35.17011,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -5.77771,
+      "lon": -35.16262,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -5.76765,
+      "lon": -35.14763,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -5.75257,
+      "lon": -35.12515,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -5.73245,
+      "lon": -35.09518,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -5.70226,
+      "lon": -35.05023,
+      "depth_m": 27.0
+    }
+  ]
+}

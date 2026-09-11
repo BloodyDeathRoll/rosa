@@ -1,0 +1,72 @@
+{
+  "spot": "la-cabanita",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.5062,
+    -6.2788
+  ],
+  "bearing_seaward_deg": 240.0,
+  "nearshore_depth_m": -16.0,
+  "offshore_depth_m": 55.0,
+  "mean_slope_m_per_km": 4.0,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.50508,
+      "lon": -6.28122,
+      "depth_m": -16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.50395,
+      "lon": -6.28364,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.5017,
+      "lon": -6.28849,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.49721,
+      "lon": -6.29818,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.49271,
+      "lon": -6.30786,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.48371,
+      "lon": -6.32723,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.4702,
+      "lon": -6.35628,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.45218,
+      "lon": -6.39499,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.42513,
+      "lon": -6.45303,
+      "depth_m": 55.0
+    }
+  ]
+}

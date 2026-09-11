@@ -1,0 +1,72 @@
+{
+  "spot": "la-santa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    29.1173,
+    -13.6621
+  ],
+  "bearing_seaward_deg": 293.0,
+  "nearshore_depth_m": 29.0,
+  "offshore_depth_m": 1172.0,
+  "mean_slope_m_per_km": 64.39,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 29.11818,
+      "lon": -13.66447,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 29.11906,
+      "lon": -13.66684,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 29.12081,
+      "lon": -13.67158,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 29.12433,
+      "lon": -13.68105,
+      "depth_m": 141.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 29.12784,
+      "lon": -13.69053,
+      "depth_m": 225.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 29.13486,
+      "lon": -13.70949,
+      "depth_m": 400.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 29.14539,
+      "lon": -13.73793,
+      "depth_m": 442.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 29.15942,
+      "lon": -13.77586,
+      "depth_m": 677.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 29.18044,
+      "lon": -13.83277,
+      "depth_m": 1172.0
+    }
+  ]
+}

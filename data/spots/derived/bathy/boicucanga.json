@@ -1,0 +1,72 @@
+{
+  "spot": "boicucanga",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -23.7842,
+    -45.6301
+  ],
+  "bearing_seaward_deg": 193.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 31.0,
+  "mean_slope_m_per_km": 2.14,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.78639,
+      "lon": -45.63065,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.78858,
+      "lon": -45.63121,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.79296,
+      "lon": -45.63231,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.80173,
+      "lon": -45.63452,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.81049,
+      "lon": -45.63673,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.82801,
+      "lon": -45.64116,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.8543,
+      "lon": -45.6478,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.88935,
+      "lon": -45.65665,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.94192,
+      "lon": -45.66994,
+      "depth_m": 31.0
+    }
+  ]
+}

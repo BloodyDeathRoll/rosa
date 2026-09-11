@@ -249,6 +249,56 @@ REGIONS = {
     # county beaches, and Newport's Atlantic side. Narragansett Bay is inside the
     # rectangle and carries no swell.
     "rhode-island": (41.13, -71.90, 41.55, -71.10),
+    # ---- Spain. One box per autonomous community, each on its own Geofabrik extract
+    # (europe/spain/<community>); the Mediterranean coast is barely surfed and is left out.
+    # The Basque coast from Hondarribia west past Zarautz, Mundaka and Sopelana to Muskiz.
+    # Its east edge overlaps the landes box by 0.07 deg at Hendaye - a hit there is France's.
+    "basque-country": (43.28, -3.20, 43.48, -1.78),
+    # Cantabria: Laredo and Berria, Somo, Santander, Liencres, Los Locos, San Vicente
+    "cantabria": (43.30, -4.55, 43.52, -3.15),
+    # Asturias: Llanes and Ribadesella west through Rodiles, Gijon, Salinas to Tapia
+    "asturias": (43.35, -7.10, 43.70, -4.50),
+    # Galicia: the north coast (Ferrol's Pantin and Doninos, Valdovino) and the west
+    # (Razo, the Costa da Morte, the Rias Baixas beaches down to A Guarda)
+    "galicia": (41.85, -9.35, 43.82, -7.00),
+    # Cadiz: the Atlantic side of Andalucia, Chipiona and El Palmar down to Los Canos and
+    # Tarifa. The andalucia extract also holds the Mediterranean coast, which is outside
+    # this box.
+    "cadiz": (35.95, -6.45, 36.85, -5.50),
+    # the Canary Islands, all seven (africa/canary-islands - NOT europe/spain/canarias,
+    # which 404s to a 9 KB HTML page)
+    "canary-islands": (27.60, -18.20, 29.45, -13.30),
+    # Cyprus, the whole island: Paphos and the west coast, Limassol, Larnaca and Ayia Napa
+    "cyprus": (34.55, 32.25, 35.72, 34.62),
+    # Algeria's whole Mediterranean coast, the Moroccan border to Tunisia: Oran and
+    # Mostaganem in the west, the Algiers / Tipaza beaches, Bejaia, Jijel, Skikda, Annaba
+    "algeria": (35.05, -2.25, 37.15, 8.65),
+    # ---- Brazil. One box per surfed state, on three Geofabrik extracts
+    # (south-america/brazil/{sul,sudeste,nordeste}). Alagoas, Sergipe, Paraiba, Piaui and
+    # the Amazon coast are not seeded.
+    # Rio Grande do Sul: the straight open beach from Torres south to Cidreira
+    "rio-grande-do-sul": (-30.40, -50.60, -29.20, -49.60),
+    # Santa Catarina: Laguna, Imbituba and Garopaba, Florianopolis, Balneario Camboriu,
+    # Sao Francisco do Sul
+    "santa-catarina": (-28.95, -49.10, -26.00, -48.30),
+    # Parana's short coast: Pontal do Parana, Matinhos, Ilha do Mel
+    "parana": (-25.95, -48.70, -25.25, -48.05),
+    # Sao Paulo: the south-facing coast from Guaruja through Maresias to Ubatuba
+    "sao-paulo": (-25.30, -48.10, -23.30, -44.70),
+    # Rio de Janeiro: Paraty and Rio city east through Saquarema, Arraial do Cabo, Buzios
+    "rio-de-janeiro": (-23.40, -44.75, -21.30, -40.95),
+    # Espirito Santo: Guarapari, Vila Velha, Vitoria, Regencia
+    "espirito-santo": (-21.35, -41.05, -18.30, -39.60),
+    # Bahia: Itacare and the cacao coast, Salvador, Praia do Forte north to Mangue Seco
+    "bahia": (-18.40, -40.00, -11.40, -37.30),
+    # Pernambuco's mainland: Recife and Porto de Galinhas / Maracaipe
+    "pernambuco": (-9.45, -35.30, -7.50, -34.75),
+    # Fernando de Noronha, 350 km offshore - its own box so Pernambuco's is not the ocean
+    "fernando-de-noronha": (-3.90, -32.50, -3.80, -32.35),
+    # Rio Grande do Norte: Pipa and Natal, then the north-facing coast west to Tibau
+    "rio-grande-do-norte": (-6.50, -38.00, -4.80, -34.95),
+    # Ceara: Fortaleza, Paracuru, Taiba and Jericoacoara on the north-facing trade coast
+    "ceara": (-4.90, -41.40, -2.70, -37.20),
 }
 
 

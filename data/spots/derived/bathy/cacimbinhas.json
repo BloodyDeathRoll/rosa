@@ -1,0 +1,72 @@
+{
+  "spot": "cacimbinhas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -6.1979,
+    -35.0819
+  ],
+  "bearing_seaward_deg": 79.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 34.0,
+  "mean_slope_m_per_km": 2.14,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -6.19747,
+      "lon": -35.07968,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -6.19704,
+      "lon": -35.07746,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -6.19618,
+      "lon": -35.07302,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -6.19447,
+      "lon": -35.06414,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -6.19275,
+      "lon": -35.05526,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -6.18932,
+      "lon": -35.0375,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -6.18417,
+      "lon": -35.01086,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -6.1773,
+      "lon": -34.97535,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -6.16699,
+      "lon": -34.92207,
+      "depth_m": 34.0
+    }
+  ]
+}

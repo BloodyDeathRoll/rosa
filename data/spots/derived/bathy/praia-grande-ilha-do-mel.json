@@ -1,0 +1,72 @@
+{
+  "spot": "praia-grande-ilha-do-mel",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -25.5515,
+    -48.2974
+  ],
+  "bearing_seaward_deg": 129.0,
+  "nearshore_depth_m": 14.0,
+  "offshore_depth_m": 21.0,
+  "mean_slope_m_per_km": 0.39,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -25.55291,
+      "lon": -48.29546,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -25.55433,
+      "lon": -48.29353,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -25.55716,
+      "lon": -48.28965,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -25.56282,
+      "lon": -48.28191,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -25.56848,
+      "lon": -48.27416,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -25.57979,
+      "lon": -48.25866,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -25.59676,
+      "lon": -48.2354,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -25.61939,
+      "lon": -48.20439,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -25.65331,
+      "lon": -48.15784,
+      "depth_m": 21.0
+    }
+  ]
+}

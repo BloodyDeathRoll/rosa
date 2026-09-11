@@ -1,0 +1,72 @@
+{
+  "spot": "cumbuco",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -3.6332,
+    -38.7116
+  ],
+  "bearing_seaward_deg": 22.0,
+  "nearshore_depth_m": 16.0,
+  "offshore_depth_m": 21.0,
+  "mean_slope_m_per_km": 0.28,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -3.63112,
+      "lon": -38.71076,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -3.62903,
+      "lon": -38.70991,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -3.62486,
+      "lon": -38.70822,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -3.61652,
+      "lon": -38.70485,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -3.60818,
+      "lon": -38.70147,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -3.59151,
+      "lon": -38.69472,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -3.56649,
+      "lon": -38.6846,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -3.53314,
+      "lon": -38.6711,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -3.48311,
+      "lon": -38.65085,
+      "depth_m": 21.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "barra-velha",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -26.6684,
+    -48.6872
+  ],
+  "bearing_seaward_deg": 101.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 26.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -26.66883,
+      "lon": -48.68473,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -26.66926,
+      "lon": -48.68226,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -26.67012,
+      "lon": -48.67732,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -26.67183,
+      "lon": -48.66744,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -26.67354,
+      "lon": -48.65756,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -26.67697,
+      "lon": -48.6378,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -26.68211,
+      "lon": -48.60816,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -26.68894,
+      "lon": -48.56863,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -26.69918,
+      "lon": -48.50933,
+      "depth_m": 26.0
+    }
+  ]
+}

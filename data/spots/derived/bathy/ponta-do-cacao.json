@@ -1,0 +1,72 @@
+{
+  "spot": "ponta-do-cacao",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -20.1999,
+    -40.1928
+  ],
+  "bearing_seaward_deg": 154.0,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 34.0,
+  "mean_slope_m_per_km": 1.18,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -20.20192,
+      "lon": -40.19175,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -20.20394,
+      "lon": -40.1907,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -20.20798,
+      "lon": -40.1886,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -20.21607,
+      "lon": -40.1844,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -20.22415,
+      "lon": -40.1802,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -20.24031,
+      "lon": -40.17179,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -20.26456,
+      "lon": -40.15918,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -20.29689,
+      "lon": -40.14236,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -20.34538,
+      "lon": -40.11712,
+      "depth_m": 34.0
+    }
+  ]
+}

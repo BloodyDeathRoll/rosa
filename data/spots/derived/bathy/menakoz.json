@@ -1,0 +1,72 @@
+{
+  "spot": "menakoz",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.3951,
+    -2.9861
+  ],
+  "bearing_seaward_deg": 305.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 95.0,
+  "mean_slope_m_per_km": 4.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.39639,
+      "lon": -2.98863,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.39768,
+      "lon": -2.99117,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.40026,
+      "lon": -2.99624,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.40541,
+      "lon": -3.00638,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.41057,
+      "lon": -3.01652,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.42088,
+      "lon": -3.03681,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.43634,
+      "lon": -3.06726,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.45693,
+      "lon": -3.10788,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.4878,
+      "lon": -3.16887,
+      "depth_m": 95.0
+    }
+  ]
+}

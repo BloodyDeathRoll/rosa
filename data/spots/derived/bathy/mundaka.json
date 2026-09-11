@@ -1,0 +1,72 @@
+{
+  "spot": "mundaka",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.406,
+    -2.695
+  ],
+  "bearing_seaward_deg": 24.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 281.0,
+  "mean_slope_m_per_km": 15.15,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.40805,
+      "lon": -2.69374,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.41011,
+      "lon": -2.69248,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.41422,
+      "lon": -2.68996,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.42243,
+      "lon": -2.68493,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.43065,
+      "lon": -2.67989,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.44708,
+      "lon": -2.66981,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.47172,
+      "lon": -2.65468,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.50457,
+      "lon": -2.63448,
+      "depth_m": 114.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.55385,
+      "lon": -2.60415,
+      "depth_m": 281.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "ibiraquera",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -28.1555,
+    -48.653
+  ],
+  "bearing_seaward_deg": 156.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 43.0,
+  "mean_slope_m_per_km": 2.59,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -28.15755,
+      "lon": -48.65196,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -28.15961,
+      "lon": -48.65093,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -28.16372,
+      "lon": -48.64885,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -28.17193,
+      "lon": -48.6447,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -28.18015,
+      "lon": -48.64055,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -28.19658,
+      "lon": -48.63225,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -28.22122,
+      "lon": -48.61979,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -28.25408,
+      "lon": -48.60317,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -28.30336,
+      "lon": -48.57822,
+      "depth_m": 43.0
+    }
+  ]
+}

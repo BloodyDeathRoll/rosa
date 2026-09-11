@@ -1,0 +1,72 @@
+{
+  "spot": "guarda-do-embau",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -27.9058,
+    -48.5876
+  ],
+  "bearing_seaward_deg": 135.0,
+  "nearshore_depth_m": 23.0,
+  "offshore_depth_m": 51.0,
+  "mean_slope_m_per_km": 1.58,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -27.90739,
+      "lon": -48.5858,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -27.90898,
+      "lon": -48.584,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -27.91216,
+      "lon": -48.5804,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -27.91852,
+      "lon": -48.57321,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -27.92488,
+      "lon": -48.56601,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -27.93759,
+      "lon": -48.55161,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -27.95666,
+      "lon": -48.53001,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -27.98208,
+      "lon": -48.50119,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -28.0202,
+      "lon": -48.45794,
+      "depth_m": 51.0
+    }
+  ]
+}

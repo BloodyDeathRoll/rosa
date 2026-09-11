@@ -1,0 +1,72 @@
+{
+  "spot": "toxeftra",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.9216,
+    32.3262
+  ],
+  "bearing_seaward_deg": 257.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 2075.0,
+  "mean_slope_m_per_km": 116.51,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.92109,
+      "lon": 32.32353,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.92059,
+      "lon": 32.32086,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.91958,
+      "lon": 32.31551,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.91755,
+      "lon": 32.30483,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.91553,
+      "lon": 32.29414,
+      "depth_m": 251.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.91147,
+      "lon": 32.27277,
+      "depth_m": 455.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.90539,
+      "lon": 32.24072,
+      "depth_m": 1033.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.89726,
+      "lon": 32.19799,
+      "depth_m": 1309.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.88503,
+      "lon": 32.13392,
+      "depth_m": 2075.0
+    }
+  ]
+}

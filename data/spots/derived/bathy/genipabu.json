@@ -1,0 +1,72 @@
+{
+  "spot": "genipabu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -5.6944,
+    -35.204
+  ],
+  "bearing_seaward_deg": 42.0,
+  "nearshore_depth_m": 15.0,
+  "offshore_depth_m": 21.0,
+  "mean_slope_m_per_km": 0.34,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 4,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -5.69273,
+      "lon": -35.20249,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -5.69106,
+      "lon": -35.20098,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -5.68772,
+      "lon": -35.19795,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -5.68103,
+      "lon": -35.19191,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -5.67435,
+      "lon": -35.18586,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -5.66098,
+      "lon": -35.17376,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -5.64093,
+      "lon": -35.15562,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -5.6142,
+      "lon": -35.13144,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -5.57409,
+      "lon": -35.09517,
+      "depth_m": 21.0
+    }
+  ]
+}

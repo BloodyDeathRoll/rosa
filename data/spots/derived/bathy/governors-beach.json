@@ -1,0 +1,72 @@
+{
+  "spot": "governors-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.7156,
+    33.2732
+  ],
+  "bearing_seaward_deg": 115.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 508.0,
+  "mean_slope_m_per_km": 28.34,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.71465,
+      "lon": 33.27568,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.7137,
+      "lon": 33.27816,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.7118,
+      "lon": 33.28312,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.708,
+      "lon": 33.29303,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.70419,
+      "lon": 33.30294,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.69659,
+      "lon": 33.32277,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.68517,
+      "lon": 33.3525,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.66993,
+      "lon": 33.39212,
+      "depth_m": 202.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.64706,
+      "lon": 33.45154,
+      "depth_m": 508.0
+    }
+  ]
+}

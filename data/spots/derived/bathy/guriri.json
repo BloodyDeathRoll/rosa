@@ -1,0 +1,72 @@
+{
+  "spot": "guriri",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -18.7431,
+    -39.747
+  ],
+  "bearing_seaward_deg": 93.0,
+  "nearshore_depth_m": 19.0,
+  "offshore_depth_m": 18.0,
+  "mean_slope_m_per_km": -0.06,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 4,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -18.74322,
+      "lon": -39.74463,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -18.74334,
+      "lon": -39.74226,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -18.74357,
+      "lon": -39.73752,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -18.74404,
+      "lon": -39.72803,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -18.74451,
+      "lon": -39.71855,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -18.74545,
+      "lon": -39.69958,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -18.74685,
+      "lon": -39.67113,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -18.74871,
+      "lon": -39.63319,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -18.75149,
+      "lon": -39.57628,
+      "depth_m": 18.0
+    }
+  ]
+}

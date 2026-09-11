@@ -36,9 +36,48 @@ from .spots import load_spots
 # One basin box can serve several spot regions (Costa Rica + Nicaragua share a coast).
 BASINS: dict[str, tuple[str, ...]] = {
     "israel": ("Israel",),
-    "portugal": ("Portugal",),
-    # Biscay and the Celtic Sea share one North Atlantic frame
-    "biscay-celtic": ("Landes", "Brittany", "Cornwall Devon", "Wales"),
+    # Cyprus sits in the same Levantine wind-swell sea as Israel but 300 km north-west;
+    # its own frame keeps Israel's box as it is
+    "cyprus": ("Cyprus",),
+    # Algeria's north-facing coast: Mistral and Gulf of Lion storms from the NW, a sea of
+    # its own between Spain and Sardinia
+    "algeria": ("Algeria",),
+    # Brazil in two frames: the south and south-east (Rio Grande do Sul to Espirito Santo)
+    # takes Southern Ocean groundswell from the S-SE; the north-east (Bahia to Ceara, plus
+    # Noronha) the SE trade swell and, in the north, North Atlantic groundswell
+    "brazil-south": (
+        "Rio Grande do Sul",
+        "Santa Catarina",
+        "Parana",
+        "Sao Paulo",
+        "Rio de Janeiro",
+        "Espirito Santo",
+    ),
+    "brazil-northeast": (
+        "Bahia",
+        "Pernambuco",
+        "Fernando de Noronha",
+        "Rio Grande do Norte",
+        "Ceara",
+    ),
+    # Cadiz joins Portugal: the Gulf of Cadiz is inside Portugal's padded frame already,
+    # and it takes the same W-SW Atlantic swell as the Algarve
+    "portugal": ("Portugal", "Cadiz"),
+    # Biscay and the Celtic Sea share one North Atlantic frame; northern Spain's
+    # north-facing coast (Basque Country to Galicia) is the bay's southern shore
+    "biscay-celtic": (
+        "Landes",
+        "Brittany",
+        "Cornwall Devon",
+        "Wales",
+        "Basque Country",
+        "Cantabria",
+        "Asturias",
+        "Galicia",
+    ),
+    # the Canaries: 100 km off Morocco, but its own frame - the north shores face the
+    # open North Atlantic and Morocco's box would have to stretch 700 km south-west
+    "canaries": ("Canary Islands",),
     # the North Sea / Pentland Firth coasts face the other way
     "north-sea": ("North East England", "North Scotland"),
     "central-america": ("Costa Rica", "Nicaragua", "El Salvador", "Panama"),

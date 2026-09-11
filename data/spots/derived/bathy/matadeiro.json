@@ -1,0 +1,72 @@
+{
+  "spot": "matadeiro",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -27.7525,
+    -48.4998
+  ],
+  "bearing_seaward_deg": 102.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 60.0,
+  "mean_slope_m_per_km": 3.66,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -27.75297,
+      "lon": -48.49731,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -27.75343,
+      "lon": -48.49483,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -27.75437,
+      "lon": -48.48986,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -27.75624,
+      "lon": -48.47992,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -27.75811,
+      "lon": -48.46998,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -27.76184,
+      "lon": -48.4501,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -27.76744,
+      "lon": -48.42027,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -27.77489,
+      "lon": -48.38049,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -27.78604,
+      "lon": -48.32082,
+      "depth_m": 60.0
+    }
+  ]
+}

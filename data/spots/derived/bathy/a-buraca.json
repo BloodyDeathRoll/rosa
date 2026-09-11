@@ -1,0 +1,72 @@
+{
+  "spot": "a-buraca",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.1894,
+    -8.8128
+  ],
+  "bearing_seaward_deg": 244.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 115.0,
+  "mean_slope_m_per_km": 6.25,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.18841,
+      "lon": -8.81553,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.18743,
+      "lon": -8.81825,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.18546,
+      "lon": -8.82371,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.18151,
+      "lon": -8.83462,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.17757,
+      "lon": -8.84552,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.16968,
+      "lon": -8.86733,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.15783,
+      "lon": -8.90003,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.14202,
+      "lon": -8.94361,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.11827,
+      "lon": -9.00895,
+      "depth_m": 115.0
+    }
+  ]
+}

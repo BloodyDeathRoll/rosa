@@ -1,0 +1,72 @@
+{
+  "spot": "el-hierro",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    28.7393,
+    -13.9528
+  ],
+  "bearing_seaward_deg": 318.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 1820.0,
+  "mean_slope_m_per_km": 102.2,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.74097,
+      "lon": -13.95452,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.74264,
+      "lon": -13.95623,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.74598,
+      "lon": -13.95966,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.75267,
+      "lon": -13.96653,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.75935,
+      "lon": -13.97339,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.77271,
+      "lon": -13.98713,
+      "depth_m": 248.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.79275,
+      "lon": -14.00773,
+      "depth_m": 1142.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.81947,
+      "lon": -14.03522,
+      "depth_m": 1141.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.85954,
+      "lon": -14.07648,
+      "depth_m": 1820.0
+    }
+  ]
+}

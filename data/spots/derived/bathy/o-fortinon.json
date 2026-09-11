@@ -1,0 +1,72 @@
+{
+  "spot": "o-fortinon",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.175,
+    -8.8141
+  ],
+  "bearing_seaward_deg": 260.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 120.0,
+  "mean_slope_m_per_km": 6.31,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.17461,
+      "lon": -8.81709,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.17422,
+      "lon": -8.82008,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.17344,
+      "lon": -8.82605,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.17187,
+      "lon": -8.838,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.17031,
+      "lon": -8.84995,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.16718,
+      "lon": -8.87385,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.16247,
+      "lon": -8.90969,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.15617,
+      "lon": -8.95746,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.14669,
+      "lon": -9.02912,
+      "depth_m": 120.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "la-salvaje",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.3835,
+    -3.0057
+  ],
+  "bearing_seaward_deg": 322.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 93.0,
+  "mean_slope_m_per_km": 5.24,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.38527,
+      "lon": -3.0076,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.38704,
+      "lon": -3.00951,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.39059,
+      "lon": -3.01332,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.39767,
+      "lon": -3.02094,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.40476,
+      "lon": -3.02856,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.41893,
+      "lon": -3.04381,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.44018,
+      "lon": -3.0667,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.4685,
+      "lon": -3.09725,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.51098,
+      "lon": -3.14312,
+      "depth_m": 93.0
+    }
+  ]
+}

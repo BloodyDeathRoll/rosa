@@ -1,0 +1,72 @@
+{
+  "spot": "barrao",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -20.4272,
+    -40.3222
+  ],
+  "bearing_seaward_deg": 117.0,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 32.0,
+  "mean_slope_m_per_km": 1.07,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -20.42822,
+      "lon": -40.32006,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -20.42924,
+      "lon": -40.31792,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -20.43128,
+      "lon": -40.31365,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -20.43536,
+      "lon": -40.3051,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -20.43945,
+      "lon": -40.29655,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -20.44761,
+      "lon": -40.27944,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -20.45985,
+      "lon": -40.25378,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -20.47616,
+      "lon": -40.21956,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -20.50062,
+      "lon": -40.16821,
+      "depth_m": 32.0
+    }
+  ]
+}

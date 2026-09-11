@@ -1,0 +1,48 @@
+# Rosa spot database - Cadiz (seeded 2026-09-10). Andalucia's Atlantic coast from Chipiona to
+# Tarifa: SW-facing beaches and reefs (El Palmar, Los Canos) on W-SW swell through the Gulf
+# of Cadiz, offshore on the E Levante wind.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &cad
+  timezone: Europe/Madrid
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [190, 290]
+  ideal:
+    wind_dir: [30, 120]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-10 - cadiz, 25 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 25 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/cadiz/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: tres-piedras, name: "Tres Piedras", town: "Chipiona", lat: 36.7026, lon: -6.4292, offshore_direction: 54, swell_window: [169, 299], offshore_km: 5.0, <<: *cad }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: la-ballena, name: "La Ballena", town: "Costa Ballena", lat: 36.6729, lon: -6.4107, offshore_direction: 59, swell_window: [174, 304], offshore_km: 5.0, <<: *cad }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: fuentebravia, name: "Fuentebravia", town: "El Puerto de Santa María", lat: 36.6100, lon: -6.2865, offshore_direction: 51, swell_window: [166, 296], offshore_km: 5.0, <<: *cad }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: las-redes, name: "Las Redes", town: "El Puerto de Santa María", lat: 36.5998, lon: -6.2767, offshore_direction: 63, swell_window: [178, 308], offshore_km: 5.0, <<: *cad }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: santa-maria-del-mar-es, name: "Santa Maria del Mar", town: "Cádiz", lat: 36.5200, lon: -6.2871, offshore_direction: 54, swell_window: [169, 299], offshore_km: 5.0, <<: *cad }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: la-cabanita, name: "La Cabanita", town: "Cádiz", lat: 36.5062, lon: -6.2788, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, <<: *cad }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: las-caracolas, name: "Las Caracolas", town: "Cádiz", lat: 36.4971, lon: -6.2735, offshore_direction: 63, swell_window: [178, 308], offshore_km: 5.0, <<: *cad }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: cortadura, name: "Cortadura", town: "Cádiz", lat: 36.4907, lon: -6.2690, offshore_direction: 58, swell_window: [173, 303], offshore_km: 5.0, <<: *cad }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: el-chato, name: "El Chato", town: "San Fernando", lat: 36.4768, lon: -6.2616, offshore_direction: 72, swell_window: [187, 317], offshore_km: 5.0, <<: *cad }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: camposoto, name: "Camposoto", town: "San Fernando", lat: 36.4275, lon: -6.2318, offshore_direction: 65, swell_window: [180, 310], offshore_km: 5.0, <<: *cad }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: la-barrosa, name: "La Barrosa", town: "Chiclana de la Frontera", lat: 36.3517, lon: -6.1712, offshore_direction: 66, swell_window: [181, 311], offshore_km: 5.0, <<: *cad }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: roche, name: "Roche", town: "Conil de la Frontera", lat: 36.3079, lon: -6.1513, offshore_direction: 2, swell_window: [117, 247], offshore_km: 5.0, <<: *cad }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: la-fontanilla, name: "La Fontanilla", town: "Conil de la Frontera", lat: 36.2818, lon: -6.1000, offshore_direction: 58, swell_window: [173, 303], offshore_km: 5.0, <<: *cad }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: rio-salado, name: "Rio Salado", town: "Conil de la Frontera", lat: 36.2681, lon: -6.0905, offshore_direction: 57, swell_window: [172, 302], offshore_km: 5.0, <<: *cad }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: el-palmar, name: "El Palmar", town: "El Palmar", lat: 36.2257, lon: -6.0671, offshore_direction: 61, swell_window: [176, 306], offshore_km: 5.0, <<: *cad }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: zahora, name: "Zahora", town: "Zahora", lat: 36.1981, lon: -6.0457, offshore_direction: 57, swell_window: [172, 302], offshore_km: 5.0, <<: *cad }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: marisucia, name: "Marisucia", town: "Los Canos de Meca", lat: 36.1854, lon: -6.0143, offshore_direction: 14, swell_window: [129, 259], offshore_km: 5.0, <<: *cad }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: yerbabuena, name: "Yerbabuena", town: "Barbate", lat: 36.1853, lon: -5.9412, offshore_direction: 13, swell_window: [128, 258], offshore_km: 5.0, <<: *cad }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: barbate, name: "Barbate", town: "Barbate", lat: 36.1844, lon: -5.9154, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, <<: *cad }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: faro-de-trafalgar, name: "Faro de Trafalgar", town: "Los Canos de Meca", lat: 36.1815, lon: -6.0339, offshore_direction: 335, swell_window: [90, 220], offshore_km: 5.0, <<: *cad }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: zahara-de-los-atunes, name: "Zahara de los Atunes", town: "Zahara de los Atunes", lat: 36.1309, lon: -5.8453, offshore_direction: 55, swell_window: [170, 300], offshore_km: 5.0, <<: *cad }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: bolonia, name: "Bolonia", town: "Bolonia", lat: 36.0871, lon: -5.7780, offshore_direction: 359, swell_window: [114, 244], offshore_km: 5.0, <<: *cad }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: valdevaqueros, name: "Valdevaqueros", town: "Tarifa", lat: 36.0680, lon: -5.6913, offshore_direction: 349, swell_window: [104, 234], offshore_km: 5.0, <<: *cad }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: bunker-del-hurricane, name: "Bunker del Hurricane", town: "Tarifa", lat: 36.0549, lon: -5.6567, offshore_direction: 24, swell_window: [139, 269], offshore_km: 5.0, <<: *cad }  # sat-verified 2026-09-10 (websearch-seeded)
+  - { id: balneario, name: "Balneario", town: "Tarifa", lat: 36.0103, lon: -5.6099, offshore_direction: 66, swell_window: [181, 311], offshore_km: 5.0, <<: *cad }  # sat-verified 2026-09-10 (websearch-seeded)

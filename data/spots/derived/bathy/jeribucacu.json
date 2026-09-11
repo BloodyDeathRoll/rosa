@@ -1,0 +1,72 @@
+{
+  "spot": "jeribucacu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -14.345,
+    -39.0023
+  ],
+  "bearing_seaward_deg": 96.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 915.0,
+  "mean_slope_m_per_km": 52.11,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -14.34524,
+      "lon": -38.99999,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -14.34547,
+      "lon": -38.99768,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -14.34594,
+      "lon": -38.99307,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -14.34688,
+      "lon": -38.98384,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -14.34782,
+      "lon": -38.9746,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -14.3497,
+      "lon": -38.95614,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -14.35251,
+      "lon": -38.92844,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -14.35625,
+      "lon": -38.89151,
+      "depth_m": 410.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -14.36186,
+      "lon": -38.83612,
+      "depth_m": 915.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "rio-salado",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.2681,
+    -6.0905
+  ],
+  "bearing_seaward_deg": 237.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 31.0,
+  "mean_slope_m_per_km": 1.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.26688,
+      "lon": -6.09284,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.26565,
+      "lon": -6.09518,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.2632,
+      "lon": -6.09985,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.2583,
+      "lon": -6.10921,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.2534,
+      "lon": -6.11856,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.2436,
+      "lon": -6.13726,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.22889,
+      "lon": -6.1653,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.20927,
+      "lon": -6.20267,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.17982,
+      "lon": -6.2587,
+      "depth_m": 31.0
+    }
+  ]
+}

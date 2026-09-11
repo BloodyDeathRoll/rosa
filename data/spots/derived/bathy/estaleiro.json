@@ -1,0 +1,72 @@
+{
+  "spot": "estaleiro",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -27.0275,
+    -48.5811
+  ],
+  "bearing_seaward_deg": 112.0,
+  "nearshore_depth_m": 21.0,
+  "offshore_depth_m": 34.0,
+  "mean_slope_m_per_km": 0.73,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -27.02834,
+      "lon": -48.57876,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -27.02918,
+      "lon": -48.57642,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -27.03087,
+      "lon": -48.57174,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -27.03424,
+      "lon": -48.56238,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -27.0376,
+      "lon": -48.55302,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -27.04434,
+      "lon": -48.53429,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -27.05443,
+      "lon": -48.5062,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -27.06788,
+      "lon": -48.46873,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -27.08804,
+      "lon": -48.41252,
+      "depth_m": 34.0
+    }
+  ]
+}

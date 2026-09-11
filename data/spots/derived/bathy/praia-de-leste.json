@@ -1,0 +1,72 @@
+{
+  "spot": "praia-de-leste",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -25.6986,
+    -48.4681
+  ],
+  "bearing_seaward_deg": 121.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 19.0,
+  "mean_slope_m_per_km": 0.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -25.69976,
+      "lon": -48.46596,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -25.70092,
+      "lon": -48.46382,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -25.70323,
+      "lon": -48.45954,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -25.70786,
+      "lon": -48.45099,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -25.71249,
+      "lon": -48.44243,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -25.72175,
+      "lon": -48.42532,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -25.73564,
+      "lon": -48.39964,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -25.75415,
+      "lon": -48.36539,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -25.78189,
+      "lon": -48.314,
+      "depth_m": 19.0
+    }
+  ]
+}

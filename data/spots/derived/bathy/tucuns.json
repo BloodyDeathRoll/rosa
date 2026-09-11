@@ -1,0 +1,72 @@
+{
+  "spot": "tucuns",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -22.7916,
+    -41.9255
+  ],
+  "bearing_seaward_deg": 121.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 56.0,
+  "mean_slope_m_per_km": 2.48,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -22.79276,
+      "lon": -41.92341,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -22.79392,
+      "lon": -41.92132,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -22.79623,
+      "lon": -41.91714,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -22.80086,
+      "lon": -41.90878,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -22.80549,
+      "lon": -41.90041,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -22.81475,
+      "lon": -41.88369,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -22.82864,
+      "lon": -41.85859,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -22.84715,
+      "lon": -41.82512,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -22.8749,
+      "lon": -41.7749,
+      "depth_m": 56.0
+    }
+  ]
+}

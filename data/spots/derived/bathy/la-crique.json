@@ -1,0 +1,72 @@
+{
+  "spot": "la-crique",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.8185,
+    5.7048
+  ],
+  "bearing_seaward_deg": 340.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 2161.0,
+  "mean_slope_m_per_km": 121.58,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.82061,
+      "lon": 5.70384,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.82273,
+      "lon": 5.70288,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.82695,
+      "lon": 5.70096,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.8354,
+      "lon": 5.69711,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.84385,
+      "lon": 5.69327,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.86075,
+      "lon": 5.68558,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.8861,
+      "lon": 5.67403,
+      "depth_m": 183.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.9199,
+      "lon": 5.65863,
+      "depth_m": 1105.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.9706,
+      "lon": 5.6355,
+      "depth_m": 2161.0
+    }
+  ]
+}

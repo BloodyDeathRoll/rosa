@@ -1,0 +1,72 @@
+{
+  "spot": "praia-do-surf",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -12.6404,
+    -38.0566
+  ],
+  "bearing_seaward_deg": 132.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 341.0,
+  "mean_slope_m_per_km": 18.87,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -12.6419,
+      "lon": -38.05489,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -12.64341,
+      "lon": -38.05318,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -12.64642,
+      "lon": -38.04975,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -12.65243,
+      "lon": -38.0429,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -12.65845,
+      "lon": -38.03605,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -12.67049,
+      "lon": -38.02235,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -12.68854,
+      "lon": -38.0018,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -12.7126,
+      "lon": -37.97439,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -12.74869,
+      "lon": -37.93326,
+      "depth_m": 341.0
+    }
+  ]
+}

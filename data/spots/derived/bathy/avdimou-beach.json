@@ -1,0 +1,72 @@
+{
+  "spot": "avdimou-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.6573,
+    32.7671
+  ],
+  "bearing_seaward_deg": 170.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 462.0,
+  "mean_slope_m_per_km": 25.86,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.65509,
+      "lon": 32.76757,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.65287,
+      "lon": 32.76805,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.64844,
+      "lon": 32.769,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.63959,
+      "lon": 32.7709,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.63073,
+      "lon": 32.77279,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.61302,
+      "lon": 32.77659,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.58645,
+      "lon": 32.78228,
+      "depth_m": 142.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.55102,
+      "lon": 32.78985,
+      "depth_m": 348.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.49788,
+      "lon": 32.80121,
+      "depth_m": 462.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "mundau",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -3.1797,
+    -39.3741
+  ],
+  "bearing_seaward_deg": 339.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 13.0,
+  "mean_slope_m_per_km": 0.17,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -3.1776,
+      "lon": -39.37491,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -3.1755,
+      "lon": -39.37571,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -3.1713,
+      "lon": -39.37733,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -3.16291,
+      "lon": -39.38056,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -3.15451,
+      "lon": -39.38378,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -3.13772,
+      "lon": -39.39024,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -3.11253,
+      "lon": -39.39992,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -3.07895,
+      "lon": -39.41283,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -3.02857,
+      "lon": -39.43219,
+      "depth_m": 13.0
+    }
+  ]
+}

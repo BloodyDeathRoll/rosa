@@ -1,0 +1,72 @@
+{
+  "spot": "santa-marina",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.4661,
+    -5.074
+  ],
+  "bearing_seaward_deg": 42.0,
+  "nearshore_depth_m": -17.0,
+  "offshore_depth_m": 145.0,
+  "mean_slope_m_per_km": 9.13,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.46777,
+      "lon": -5.07193,
+      "depth_m": -17.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.46944,
+      "lon": -5.06985,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.47278,
+      "lon": -5.06571,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.47947,
+      "lon": -5.05741,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.48615,
+      "lon": -5.04912,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.49951,
+      "lon": -5.03252,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.51955,
+      "lon": -5.00761,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.54626,
+      "lon": -4.97437,
+      "depth_m": 128.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.5863,
+      "lon": -4.92446,
+      "depth_m": 145.0
+    }
+  ]
+}

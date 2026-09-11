@@ -1,0 +1,72 @@
+{
+  "spot": "penarrubia",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.5519,
+    -5.624
+  ],
+  "bearing_seaward_deg": 347.0,
+  "nearshore_depth_m": -54.0,
+  "offshore_depth_m": 126.0,
+  "mean_slope_m_per_km": 10.14,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.55409,
+      "lon": -5.6247,
+      "depth_m": -54.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.55628,
+      "lon": -5.6254,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.56066,
+      "lon": -5.62679,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.56943,
+      "lon": -5.62958,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.57819,
+      "lon": -5.63238,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.59571,
+      "lon": -5.63797,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.622,
+      "lon": -5.64636,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.65705,
+      "lon": -5.65755,
+      "depth_m": 84.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.70962,
+      "lon": -5.67438,
+      "depth_m": 126.0
+    }
+  ]
+}

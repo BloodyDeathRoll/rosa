@@ -1,0 +1,72 @@
+{
+  "spot": "zahara-de-los-atunes",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.1309,
+    -5.8453
+  ],
+  "bearing_seaward_deg": 235.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 118.0,
+  "mean_slope_m_per_km": 6.31,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.12961,
+      "lon": -5.84758,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.12832,
+      "lon": -5.84986,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.12574,
+      "lon": -5.85442,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.12058,
+      "lon": -5.86354,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.11542,
+      "lon": -5.87266,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.1051,
+      "lon": -5.89089,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.08961,
+      "lon": -5.91823,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.06895,
+      "lon": -5.95467,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.03794,
+      "lon": -6.00928,
+      "depth_m": 118.0
+    }
+  ]
+}

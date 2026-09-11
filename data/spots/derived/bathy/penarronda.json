@@ -1,0 +1,72 @@
+{
+  "spot": "penarronda",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.5534,
+    -6.9971
+  ],
+  "bearing_seaward_deg": 348.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 134.0,
+  "mean_slope_m_per_km": 7.1,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.5556,
+      "lon": -6.99775,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.5578,
+      "lon": -6.99839,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.5622,
+      "lon": -6.99968,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.57099,
+      "lon": -7.00226,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.57979,
+      "lon": -7.00484,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.59738,
+      "lon": -7.01001,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.62377,
+      "lon": -7.01776,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.65896,
+      "lon": -7.02811,
+      "depth_m": 112.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.71173,
+      "lon": -7.04366,
+      "depth_m": 134.0
+    }
+  ]
+}

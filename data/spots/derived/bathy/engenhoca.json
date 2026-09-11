@@ -1,0 +1,72 @@
+{
+  "spot": "engenhoca",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -14.3526,
+    -39.0019
+  ],
+  "bearing_seaward_deg": 134.0,
+  "nearshore_depth_m": -33.0,
+  "offshore_depth_m": 498.0,
+  "mean_slope_m_per_km": 29.92,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -14.35416,
+      "lon": -39.00023,
+      "depth_m": -33.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -14.35572,
+      "lon": -38.99856,
+      "depth_m": -23.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -14.35885,
+      "lon": -38.99522,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -14.36509,
+      "lon": -38.98854,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -14.37134,
+      "lon": -38.98187,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -14.38383,
+      "lon": -38.96851,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -14.40257,
+      "lon": -38.94847,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -14.42755,
+      "lon": -38.92174,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -14.46502,
+      "lon": -38.88164,
+      "depth_m": 498.0
+    }
+  ]
+}

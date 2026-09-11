@@ -1,0 +1,72 @@
+{
+  "spot": "praia-do-forte-cabo-frio",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -22.8867,
+    -42.0177
+  ],
+  "bearing_seaward_deg": 134.0,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 58.0,
+  "mean_slope_m_per_km": 2.65,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -22.88826,
+      "lon": -42.01594,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -22.88982,
+      "lon": -42.01419,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -22.89295,
+      "lon": -42.01068,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -22.89919,
+      "lon": -42.00365,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -22.90544,
+      "lon": -41.99663,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -22.91793,
+      "lon": -41.98258,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -22.93667,
+      "lon": -41.9615,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -22.96164,
+      "lon": -41.93339,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -22.9991,
+      "lon": -41.8912,
+      "depth_m": 58.0
+    }
+  ]
+}

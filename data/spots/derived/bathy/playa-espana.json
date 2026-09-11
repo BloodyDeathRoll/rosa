@@ -1,0 +1,72 @@
+{
+  "spot": "playa-espana",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.5456,
+    -5.5286
+  ],
+  "bearing_seaward_deg": 356.0,
+  "nearshore_depth_m": -42.0,
+  "offshore_depth_m": 140.0,
+  "mean_slope_m_per_km": 10.25,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.54784,
+      "lon": -5.52882,
+      "depth_m": -42.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.55009,
+      "lon": -5.52903,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.55457,
+      "lon": -5.52947,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.56354,
+      "lon": -5.53033,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.57251,
+      "lon": -5.5312,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.59046,
+      "lon": -5.53293,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.61737,
+      "lon": -5.53553,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.65326,
+      "lon": -5.539,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.70708,
+      "lon": -5.54422,
+      "depth_m": 140.0
+    }
+  ]
+}

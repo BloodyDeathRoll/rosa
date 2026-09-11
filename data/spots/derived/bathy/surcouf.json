@@ -1,0 +1,72 @@
+{
+  "spot": "surcouf",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.7933,
+    3.3022
+  ],
+  "bearing_seaward_deg": 333.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 2348.0,
+  "mean_slope_m_per_km": 132.23,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.7953,
+      "lon": 3.30093,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.79731,
+      "lon": 3.29965,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.80131,
+      "lon": 3.2971,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.80933,
+      "lon": 3.292,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.81734,
+      "lon": 3.2869,
+      "depth_m": 157.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.83336,
+      "lon": 3.27669,
+      "depth_m": 408.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.8574,
+      "lon": 3.26138,
+      "depth_m": 622.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.88944,
+      "lon": 3.24094,
+      "depth_m": 1605.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.9375,
+      "lon": 3.21026,
+      "depth_m": 2348.0
+    }
+  ]
+}

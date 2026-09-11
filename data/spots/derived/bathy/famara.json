@@ -1,0 +1,72 @@
+{
+  "spot": "famara",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    29.1167,
+    -13.5545
+  ],
+  "bearing_seaward_deg": 341.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 543.0,
+  "mean_slope_m_per_km": 30.31,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 29.11883,
+      "lon": -13.55534,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 29.12095,
+      "lon": -13.55618,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 29.1252,
+      "lon": -13.55785,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 29.13371,
+      "lon": -13.5612,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 29.14221,
+      "lon": -13.56456,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 29.15922,
+      "lon": -13.57126,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 29.18472,
+      "lon": -13.58133,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 29.21873,
+      "lon": -13.59476,
+      "depth_m": 374.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 29.26974,
+      "lon": -13.61492,
+      "depth_m": 543.0
+    }
+  ]
+}

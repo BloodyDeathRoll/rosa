@@ -1,0 +1,72 @@
+{
+  "spot": "praia-da-cigana",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -28.6126,
+    -48.8508
+  ],
+  "bearing_seaward_deg": 156.0,
+  "nearshore_depth_m": 49.0,
+  "offshore_depth_m": 58.0,
+  "mean_slope_m_per_km": 0.51,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -28.61465,
+      "lon": -48.84976,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -28.61671,
+      "lon": -48.84872,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -28.62082,
+      "lon": -48.84663,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -28.62903,
+      "lon": -48.84247,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -28.63725,
+      "lon": -48.8383,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -28.65368,
+      "lon": -48.82996,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -28.67832,
+      "lon": -48.81745,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -28.71118,
+      "lon": -48.80075,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -28.76046,
+      "lon": -48.77569,
+      "depth_m": 58.0
+    }
+  ]
+}

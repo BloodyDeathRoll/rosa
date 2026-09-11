@@ -1,0 +1,42 @@
+# Rosa spot database - Algeria (seeded 2026-09-10). A north-facing Mediterranean coast: wind swell
+# from the NW-NE storms between Spain and Sardinia, short-period like Israel's, offshore on a S wind.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &dz
+  timezone: Africa/Algiers
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [270, 60]
+  ideal:
+    wind_dir: [135, 225]
+    size_m: [0.6, 1.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-11 - algeria, 20 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 20 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/algeria/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: ain-barbar, name: "Ain Barbar", town: "Ain Barbar", lat: 36.9921, lon: 7.5586, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, break_type: reef, <<: *dz }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: ain-achir, name: "Ain Achir", town: "Annaba", lat: 36.9571, lon: 7.7802, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, <<: *dz }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 90 (GEBCO arc middle)
+  - { id: dellys, name: "Dellys", town: "Dellys", lat: 36.8991, lon: 3.9443, offshore_direction: 192, swell_window: [307, 77], offshore_km: 5.0, <<: *dz }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: plage-mordjane, name: "Plage Mordjane", town: "El Kala", lat: 36.8959, lon: 8.4276, offshore_direction: 193, swell_window: [308, 78], offshore_km: 5.0, <<: *dz }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: cap-djinet, name: "Cap Djinet", town: "Djinet", lat: 36.8706, lon: 3.7189, offshore_direction: 110, swell_window: [225, 355], offshore_km: 5.0, <<: *dz }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 290 (GEBCO arc middle; 239 ended on the coast SW)
+  - { id: sidi-salem, name: "Sidi Salem", town: "Annaba", lat: 36.8557, lon: 7.7956, offshore_direction: 209, swell_window: [324, 94], offshore_km: 5.0, <<: *dz }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: saket, name: "Saket", town: "Saket", lat: 36.8287, lon: 4.9435, offshore_direction: 195, swell_window: [310, 80], offshore_km: 5.0, <<: *dz }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: la-crique, name: "La Crique", town: "Jijel", lat: 36.8185, lon: 5.7048, offshore_direction: 160, swell_window: [275, 45], offshore_km: 5.0, break_type: reef, <<: *dz }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 340 (GEBCO arc middle; 326 crossed a rock at 5 km on the API grid)
+  - { id: boulimat, name: "Boulimat", town: "Boulimat", lat: 36.8135, lon: 4.9820, offshore_direction: 179, swell_window: [294, 64], offshore_km: 5.0, <<: *dz }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: surcouf, name: "Surcouf", town: "Ain Taya", lat: 36.7933, lon: 3.3022, offshore_direction: 153, swell_window: [268, 38], offshore_km: 5.0, <<: *dz }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: deca-plage, name: "Deca Plage", town: "Ain Taya", lat: 36.7888, lon: 3.3141, offshore_direction: 199, swell_window: [314, 84], offshore_km: 5.0, <<: *dz }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: les-canadiennes, name: "Les Canadiennes", town: "Ain Taya", lat: 36.7858, lon: 3.3274, offshore_direction: 184, swell_window: [299, 69], offshore_km: 5.0, <<: *dz }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: ain-benian, name: "Ain Benian", town: "Ain Benian", lat: 36.7836, lon: 2.8940, offshore_direction: 116, swell_window: [231, 1], offshore_km: 5.0, <<: *dz }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: boumerdes, name: "Boumerdes", town: "Boumerdes", lat: 36.7674, lon: 3.4532, offshore_direction: 189, swell_window: [304, 74], offshore_km: 5.0, <<: *dz }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: sidi-fredj, name: "Sidi Fredj", town: "Staoueli", lat: 36.7614, lon: 2.8485, offshore_direction: 221, swell_window: [336, 106], offshore_km: 5.0, <<: *dz }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: tichy, name: "Tichy", town: "Tichy", lat: 36.6777, lon: 5.1391, offshore_direction: 202, swell_window: [317, 87], offshore_km: 5.0, <<: *dz }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: cherchell-tizirine, name: "Cherchell Tizirine", town: "Cherchell", lat: 36.6109, lon: 2.2041, offshore_direction: 187, swell_window: [302, 72], offshore_km: 5.0, <<: *dz }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: beni-haoua, name: "Beni Haoua", town: "Beni Haoua", lat: 36.5358, lon: 1.5695, offshore_direction: 195, swell_window: [310, 80], offshore_km: 5.0, <<: *dz }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: cap-ivi, name: "Cap Ivi", town: "Ben Abdelmalek Ramdane", lat: 36.1117, lon: 0.2156, offshore_direction: 170, swell_window: [285, 55], offshore_km: 5.0, <<: *dz }  # sat-verified 2026-09-11 (websearch-seeded) normal set by hand (coastline gave 347 = into the dunes), then to seaward 350 (GEBCO arc middle)
+  - { id: ain-el-turk, name: "Ain El Turk", town: "Ain El Turk", lat: 35.7626, lon: -0.7932, offshore_direction: 228, swell_window: [343, 113], offshore_km: 5.0, <<: *dz }  # sat-verified 2026-09-11 (websearch-seeded)

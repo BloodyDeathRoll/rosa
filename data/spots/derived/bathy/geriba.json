@@ -1,0 +1,72 @@
+{
+  "spot": "geriba",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -22.7786,
+    -41.9094
+  ],
+  "bearing_seaward_deg": 157.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 53.0,
+  "mean_slope_m_per_km": 2.82,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -22.78067,
+      "lon": -41.90845,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -22.78274,
+      "lon": -41.90749,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -22.78688,
+      "lon": -41.90559,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -22.79516,
+      "lon": -41.90178,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -22.80343,
+      "lon": -41.89796,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -22.81999,
+      "lon": -41.89034,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -22.84482,
+      "lon": -41.8789,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -22.87793,
+      "lon": -41.86363,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -22.92759,
+      "lon": -41.84072,
+      "depth_m": 53.0
+    }
+  ]
+}

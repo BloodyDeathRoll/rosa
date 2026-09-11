@@ -1,0 +1,72 @@
+{
+  "spot": "vilarrube",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.6419,
+    -8.0687
+  ],
+  "bearing_seaward_deg": 340.0,
+  "nearshore_depth_m": -26.0,
+  "offshore_depth_m": 140.0,
+  "mean_slope_m_per_km": 9.35,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.64401,
+      "lon": -8.06976,
+      "depth_m": -26.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.64613,
+      "lon": -8.07083,
+      "depth_m": -41.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.65035,
+      "lon": -8.07295,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.6588,
+      "lon": -8.0772,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.66725,
+      "lon": -8.08146,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.68415,
+      "lon": -8.08997,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.7095,
+      "lon": -8.10274,
+      "depth_m": 95.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.7433,
+      "lon": -8.11979,
+      "depth_m": 114.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.79399,
+      "lon": -8.1454,
+      "depth_m": 140.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "atlantida-pier",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -29.7853,
+    -50.0239
+  ],
+  "bearing_seaward_deg": 116.0,
+  "nearshore_depth_m": 18.0,
+  "offshore_depth_m": 32.0,
+  "mean_slope_m_per_km": 0.79,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -29.78629,
+      "lon": -50.02157,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -29.78727,
+      "lon": -50.01924,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -29.78924,
+      "lon": -50.01459,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -29.79318,
+      "lon": -50.00527,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -29.79712,
+      "lon": -49.99596,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -29.805,
+      "lon": -49.97732,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -29.81682,
+      "lon": -49.94937,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -29.83256,
+      "lon": -49.91209,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -29.85616,
+      "lon": -49.85614,
+      "depth_m": 32.0
+    }
+  ]
+}

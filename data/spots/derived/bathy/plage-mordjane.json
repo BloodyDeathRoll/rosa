@@ -1,0 +1,72 @@
+{
+  "spot": "plage-mordjane",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.8959,
+    8.4276
+  ],
+  "bearing_seaward_deg": 13.0,
+  "nearshore_depth_m": -22.0,
+  "offshore_depth_m": 173.0,
+  "mean_slope_m_per_km": 10.99,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.89809,
+      "lon": 8.42823,
+      "depth_m": -22.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.90028,
+      "lon": 8.42886,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.90466,
+      "lon": 8.43013,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.91343,
+      "lon": 8.43266,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.92219,
+      "lon": 8.43519,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.93971,
+      "lon": 8.44026,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.966,
+      "lon": 8.44786,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.00105,
+      "lon": 8.458,
+      "depth_m": 124.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.05362,
+      "lon": 8.47323,
+      "depth_m": 173.0
+    }
+  ]
+}

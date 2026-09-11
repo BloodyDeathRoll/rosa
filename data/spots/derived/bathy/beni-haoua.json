@@ -1,0 +1,72 @@
+{
+  "spot": "beni-haoua",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.5358,
+    1.5695
+  ],
+  "bearing_seaward_deg": 15.0,
+  "nearshore_depth_m": 71.0,
+  "offshore_depth_m": 2372.0,
+  "mean_slope_m_per_km": 129.63,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.53797,
+      "lon": 1.57022,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.54014,
+      "lon": 1.57095,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.54449,
+      "lon": 1.5724,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.55317,
+      "lon": 1.5753,
+      "depth_m": 127.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.56186,
+      "lon": 1.57819,
+      "depth_m": 200.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.57923,
+      "lon": 1.58399,
+      "depth_m": 600.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.60529,
+      "lon": 1.5927,
+      "depth_m": 1099.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.64004,
+      "lon": 1.60431,
+      "depth_m": 1666.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.69215,
+      "lon": 1.62175,
+      "depth_m": 2372.0
+    }
+  ]
+}

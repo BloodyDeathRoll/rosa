@@ -1,0 +1,72 @@
+{
+  "spot": "santa-comba",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.5562,
+    -8.2966
+  ],
+  "bearing_seaward_deg": 8.0,
+  "nearshore_depth_m": 15.0,
+  "offshore_depth_m": 149.0,
+  "mean_slope_m_per_km": 7.55,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.55843,
+      "lon": -8.29617,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.56065,
+      "lon": -8.29574,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.56511,
+      "lon": -8.29487,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.57401,
+      "lon": -8.29314,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.58292,
+      "lon": -8.29142,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.60073,
+      "lon": -8.28796,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.62744,
+      "lon": -8.28277,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.66307,
+      "lon": -8.27584,
+      "depth_m": 122.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.7165,
+      "lon": -8.26543,
+      "depth_m": 149.0
+    }
+  ]
+}

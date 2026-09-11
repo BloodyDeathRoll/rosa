@@ -1,0 +1,72 @@
+{
+  "spot": "valdevaqueros",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.068,
+    -5.6913
+  ],
+  "bearing_seaward_deg": 169.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 590.0,
+  "mean_slope_m_per_km": 32.79,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.06579,
+      "lon": -5.69077,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.06359,
+      "lon": -5.69024,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.05917,
+      "lon": -5.68918,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.05034,
+      "lon": -5.68706,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.04152,
+      "lon": -5.68493,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.02386,
+      "lon": -5.68069,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.99738,
+      "lon": -5.67433,
+      "depth_m": 137.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.96206,
+      "lon": -5.66586,
+      "depth_m": 519.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.90909,
+      "lon": -5.65316,
+      "depth_m": 590.0
+    }
+  ]
+}

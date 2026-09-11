@@ -1,0 +1,72 @@
+{
+  "spot": "prainha-do-farol",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -28.6018,
+    -48.8169
+  ],
+  "bearing_seaward_deg": 56.0,
+  "nearshore_depth_m": -18.0,
+  "offshore_depth_m": 48.0,
+  "mean_slope_m_per_km": 3.72,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 4,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -28.60054,
+      "lon": -48.81478,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -28.59929,
+      "lon": -48.81265,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -28.59677,
+      "lon": -48.80841,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -28.59174,
+      "lon": -48.79992,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -28.58671,
+      "lon": -48.79143,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -28.57665,
+      "lon": -48.77445,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -28.56155,
+      "lon": -48.74899,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -28.54141,
+      "lon": -48.71505,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -28.51119,
+      "lon": -48.66418,
+      "depth_m": 48.0
+    }
+  ]
+}

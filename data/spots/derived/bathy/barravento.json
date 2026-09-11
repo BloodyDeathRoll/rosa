@@ -1,0 +1,72 @@
+{
+  "spot": "barravento",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -13.0096,
+    -38.5254
+  ],
+  "bearing_seaward_deg": 160.0,
+  "nearshore_depth_m": -16.0,
+  "offshore_depth_m": 548.0,
+  "mean_slope_m_per_km": 31.77,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -13.01171,
+      "lon": -38.52461,
+      "depth_m": -16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -13.01383,
+      "lon": -38.52382,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -13.01805,
+      "lon": -38.52224,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -13.0265,
+      "lon": -38.51909,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -13.03495,
+      "lon": -38.51593,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -13.05185,
+      "lon": -38.50961,
+      "depth_m": 136.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -13.07721,
+      "lon": -38.50014,
+      "depth_m": 213.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -13.11101,
+      "lon": -38.4875,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -13.16171,
+      "lon": -38.46854,
+      "depth_m": 548.0
+    }
+  ]
+}

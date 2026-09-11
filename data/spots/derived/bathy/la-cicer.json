@@ -1,0 +1,72 @@
+{
+  "spot": "la-cicer",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    28.1307,
+    -15.4468
+  ],
+  "bearing_seaward_deg": 316.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 1625.0,
+  "mean_slope_m_per_km": 91.77,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.13232,
+      "lon": -15.44857,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.13393,
+      "lon": -15.45034,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.13717,
+      "lon": -15.45388,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.14364,
+      "lon": -15.46097,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.15011,
+      "lon": -15.46806,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.16304,
+      "lon": -15.48223,
+      "depth_m": 83.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.18244,
+      "lon": -15.5035,
+      "depth_m": 470.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.2083,
+      "lon": -15.53187,
+      "depth_m": 1567.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.24709,
+      "lon": -15.57445,
+      "depth_m": 1625.0
+    }
+  ]
+}

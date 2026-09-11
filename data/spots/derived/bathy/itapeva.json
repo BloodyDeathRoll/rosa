@@ -1,0 +1,72 @@
+{
+  "spot": "itapeva",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -29.367,
+    -49.7431
+  ],
+  "bearing_seaward_deg": 126.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 28.0,
+  "mean_slope_m_per_km": 1.63,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -29.36832,
+      "lon": -49.74101,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -29.36964,
+      "lon": -49.73893,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -29.37229,
+      "lon": -49.73475,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -29.37757,
+      "lon": -49.7264,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -29.38286,
+      "lon": -49.71805,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -29.39342,
+      "lon": -49.70135,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -29.40927,
+      "lon": -49.67628,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -29.4304,
+      "lon": -49.64286,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -29.46206,
+      "lon": -49.59269,
+      "depth_m": 28.0
+    }
+  ]
+}

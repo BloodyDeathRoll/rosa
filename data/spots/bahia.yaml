@@ -1,0 +1,55 @@
+# Rosa spot database - Bahia (seeded 2026-09-11). East-facing beaches and reefs (Itacare, Salvador, Praia do Forte): SE trade swell and S groundswell, offshore on a W wind.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+region: Bahia
+defaults: &ba
+  timezone: America/Bahia
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [45, 200]
+  ideal:
+    wind_dir: [225, 315]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-11 - bahia, 33 spots (primary coastline flow: 1 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 32 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/bahia/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: imbassai, name: "Imbassaí", town: "Imbassaí", lat: -12.4945, lon: -37.9564, offshore_direction: 299, swell_window: [54, 184], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: praia-do-forte, name: "Praia do Forte", town: "Praia do Forte", lat: -12.5699, lon: -37.9967, offshore_direction: 297, swell_window: [52, 182], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: itacimirim, name: "Itacimirim", town: "Itacimirim", lat: -12.6276, lon: -38.0455, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 110 (GEBCO arc middle)
+  - { id: praia-do-surf, name: "Praia do Surf", town: "Itacimirim", lat: -12.6404, lon: -38.0566, offshore_direction: 312, swell_window: [67, 197], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: guarajuba, name: "Guarajuba", town: "Guarajuba", lat: -12.6569, lon: -38.0735, offshore_direction: 306, swell_window: [61, 191], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: aleluia, name: "Aleluia", town: "Salvador", lat: -12.9245, lon: -38.3149, offshore_direction: 296, swell_window: [51, 181], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: flamengo, name: "Flamengo", town: "Salvador", lat: -12.9289, lon: -38.3179, offshore_direction: 324, swell_window: [79, 209], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: stella-maris, name: "Stella Maris", town: "Salvador", lat: -12.9363, lon: -38.3265, offshore_direction: 312, swell_window: [67, 197], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: itapua, name: "Itapuã", town: "Salvador", lat: -12.9505, lon: -38.3665, offshore_direction: 354, swell_window: [109, 239], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: placaford, name: "Placaford", town: "Salvador", lat: -12.9512, lon: -38.3710, offshore_direction: 354, swell_window: [109, 239], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: piata, name: "Piatã", town: "Salvador", lat: -12.9552, lon: -38.3839, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: jaguaribe, name: "Jaguaribe", town: "Salvador", lat: -12.9606, lon: -38.3947, offshore_direction: 328, swell_window: [83, 213], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: corsario, name: "Corsário", town: "Salvador", lat: -12.9681, lon: -38.4057, offshore_direction: 326, swell_window: [81, 211], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: jardim-de-alah, name: "Jardim de Alah", town: "Salvador", lat: -12.9955, lon: -38.4408, offshore_direction: 309, swell_window: [64, 194], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: barravento, name: "Barravento", town: "Salvador", lat: -13.0096, lon: -38.5254, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 160 (GEBCO arc middle)
+  - { id: farol-da-barra, name: "Farol da Barra", town: "Salvador", lat: -13.0102, lon: -38.5329, offshore_direction: 4, swell_window: [119, 249], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: amaralina, name: "Amaralina", town: "Salvador", lat: -13.0143, lon: -38.4768, offshore_direction: 350, swell_window: [105, 235], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: boipeba, name: "Boipeba", town: "Boipeba", lat: -13.5876, lon: -38.9149, offshore_direction: 264, swell_window: [19, 149], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: pontal-br, name: "Pontal", town: "Itacaré", lat: -14.2681, lon: -38.9940, offshore_direction: 251, swell_window: [6, 136], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: boca-da-barra, name: "Boca da Barra", town: "Itacaré", lat: -14.2721, lon: -38.9930, offshore_direction: 251, swell_window: [6, 136], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: resende, name: "Resende", town: "Itacaré", lat: -14.2839, lon: -38.9845, offshore_direction: 232, swell_window: [347, 117], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 52 (GEBCO arc middle)
+  - { id: tiririca, name: "Tiririca", town: "Itacaré", lat: -14.2867, lon: -38.9847, offshore_direction: 224, swell_window: [339, 109], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: praia-da-costa-br, name: "Praia da Costa", town: "Itacaré", lat: -14.2884, lon: -38.9848, offshore_direction: 224, swell_window: [339, 109], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: ribeira, name: "Ribeira", town: "Itacaré", lat: -14.2904, lon: -38.9842, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 90 (GEBCO arc middle)
+  - { id: prainha, name: "Prainha", town: "Itacaré", lat: -14.3078, lon: -38.9887, offshore_direction: 313, swell_window: [68, 198], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 133 (GEBCO arc middle)
+  - { id: sao-jose, name: "São José", town: "Itacaré", lat: -14.3142, lon: -38.9916, offshore_direction: 296, swell_window: [51, 181], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 116 (GEBCO arc middle)
+  - { id: jeribucacu, name: "Jeribucaçu", town: "Itacaré", lat: -14.3450, lon: -39.0023, offshore_direction: 276, swell_window: [31, 161], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 96 (GEBCO arc middle)
+  - { id: engenhoca, name: "Engenhoca", town: "Itacaré", lat: -14.3526, lon: -39.0019, offshore_direction: 314, swell_window: [69, 199], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 134 (GEBCO arc middle)
+  - { id: havaizinho-br, name: "Havaizinho", town: "Itacaré", lat: -14.3604, lon: -39.0032, offshore_direction: 282, swell_window: [37, 167], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 102 (GEBCO arc middle)
+  - { id: itacarezinho, name: "Itacarezinho", town: "Itacaré", lat: -14.3735, lon: -39.0070, offshore_direction: 286, swell_window: [41, 171], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: serra-grande, name: "Serra Grande", town: "Serra Grande", lat: -14.4791, lon: -39.0304, offshore_direction: 279, swell_window: [34, 164], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: tirraras-point, name: "Tirraras Point", town: "Ilhéus", lat: -14.7417, lon: -39.0631, offshore_direction: 263, swell_window: [18, 148], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (osm-seeded)
+  - { id: milionarios, name: "Milionários", town: "Ilhéus", lat: -14.8649, lon: -39.0241, offshore_direction: 266, swell_window: [21, 151], offshore_km: 5.0, <<: *ba }  # sat-verified 2026-09-11 (websearch-seeded)

@@ -1,0 +1,72 @@
+{
+  "spot": "amaralina",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -13.0143,
+    -38.4768
+  ],
+  "bearing_seaward_deg": 170.0,
+  "nearshore_depth_m": 34.0,
+  "offshore_depth_m": 739.0,
+  "mean_slope_m_per_km": 39.72,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -13.01651,
+      "lon": -38.4764,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -13.01873,
+      "lon": -38.476,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -13.02316,
+      "lon": -38.4752,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -13.03201,
+      "lon": -38.47359,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -13.04087,
+      "lon": -38.47199,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -13.05858,
+      "lon": -38.46878,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -13.08515,
+      "lon": -38.46397,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -13.12058,
+      "lon": -38.45756,
+      "depth_m": 232.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -13.17372,
+      "lon": -38.44793,
+      "depth_m": 739.0
+    }
+  ]
+}

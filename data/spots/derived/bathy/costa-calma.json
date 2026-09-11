@@ -1,0 +1,72 @@
+{
+  "spot": "costa-calma",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    28.165,
+    -14.2199
+  ],
+  "bearing_seaward_deg": 132.0,
+  "nearshore_depth_m": -14.0,
+  "offshore_depth_m": 1609.0,
+  "mean_slope_m_per_km": 91.44,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.1635,
+      "lon": -14.218,
+      "depth_m": -14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.16199,
+      "lon": -14.21611,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.15898,
+      "lon": -14.21232,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.15296,
+      "lon": -14.20474,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.14695,
+      "lon": -14.19716,
+      "depth_m": 154.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.13491,
+      "lon": -14.18201,
+      "depth_m": 699.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.11685,
+      "lon": -14.15928,
+      "depth_m": 1037.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.09276,
+      "lon": -14.12899,
+      "depth_m": 1389.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.05662,
+      "lon": -14.08358,
+      "depth_m": 1609.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "el-conquistador",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    28.0574,
+    -16.7366
+  ],
+  "bearing_seaward_deg": 274.0,
+  "nearshore_depth_m": 31.0,
+  "offshore_depth_m": 1726.0,
+  "mean_slope_m_per_km": 95.49,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.05756,
+      "lon": -16.73914,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.05771,
+      "lon": -16.74168,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.05803,
+      "lon": -16.74677,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.05865,
+      "lon": -16.75693,
+      "depth_m": 121.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.05928,
+      "lon": -16.7671,
+      "depth_m": 359.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.06053,
+      "lon": -16.78743,
+      "depth_m": 1145.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.06239,
+      "lon": -16.81793,
+      "depth_m": 1649.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.06487,
+      "lon": -16.8586,
+      "depth_m": 1815.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.06857,
+      "lon": -16.91961,
+      "depth_m": 1726.0
+    }
+  ]
+}

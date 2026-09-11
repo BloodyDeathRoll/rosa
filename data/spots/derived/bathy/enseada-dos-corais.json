@@ -1,0 +1,72 @@
+{
+  "spot": "enseada-dos-corais",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -8.3271,
+    -34.9506
+  ],
+  "bearing_seaward_deg": 91.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 33.0,
+  "mean_slope_m_per_km": 2.03,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -8.32714,
+      "lon": -34.94833,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -8.32718,
+      "lon": -34.94606,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -8.32726,
+      "lon": -34.94151,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -8.32741,
+      "lon": -34.93242,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -8.32757,
+      "lon": -34.92334,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -8.32788,
+      "lon": -34.90516,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -8.32835,
+      "lon": -34.8779,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -8.32897,
+      "lon": -34.84155,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -8.32989,
+      "lon": -34.78702,
+      "depth_m": 33.0
+    }
+  ]
+}

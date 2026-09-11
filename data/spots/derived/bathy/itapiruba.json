@@ -1,0 +1,72 @@
+{
+  "spot": "itapiruba",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -28.3357,
+    -48.707
+  ],
+  "bearing_seaward_deg": 56.0,
+  "nearshore_depth_m": 49.0,
+  "offshore_depth_m": 44.0,
+  "mean_slope_m_per_km": -0.28,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 6,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -28.33444,
+      "lon": -48.70488,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -28.33319,
+      "lon": -48.70276,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -28.33067,
+      "lon": -48.69853,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -28.32564,
+      "lon": -48.69006,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -28.32061,
+      "lon": -48.68159,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -28.31055,
+      "lon": -48.66466,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -28.29545,
+      "lon": -48.63926,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -28.27532,
+      "lon": -48.60541,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -28.24509,
+      "lon": -48.55466,
+      "depth_m": 44.0
+    }
+  ]
+}

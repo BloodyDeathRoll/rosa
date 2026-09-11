@@ -1,0 +1,72 @@
+{
+  "spot": "sorginetxe",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.3024,
+    -2.3445
+  ],
+  "bearing_seaward_deg": 48.0,
+  "nearshore_depth_m": -61.0,
+  "offshore_depth_m": 122.0,
+  "mean_slope_m_per_km": 10.31,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.3039,
+      "lon": -2.3422,
+      "depth_m": -61.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.30541,
+      "lon": -2.33991,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.30842,
+      "lon": -2.33532,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.31443,
+      "lon": -2.32613,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.32045,
+      "lon": -2.31694,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.33248,
+      "lon": -2.29856,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.35052,
+      "lon": -2.27097,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.37456,
+      "lon": -2.23417,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.4106,
+      "lon": -2.1789,
+      "depth_m": 122.0
+    }
+  ]
+}

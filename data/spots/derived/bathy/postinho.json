@@ -1,0 +1,72 @@
+{
+  "spot": "postinho",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -23.0156,
+    -43.3065
+  ],
+  "bearing_seaward_deg": 166.0,
+  "nearshore_depth_m": 16.0,
+  "offshore_depth_m": 60.0,
+  "mean_slope_m_per_km": 2.48,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.01778,
+      "lon": -43.30591,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.01996,
+      "lon": -43.30532,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.02433,
+      "lon": -43.30414,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.03305,
+      "lon": -43.30177,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.04178,
+      "lon": -43.29941,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.05923,
+      "lon": -43.29468,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.08541,
+      "lon": -43.28758,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.12031,
+      "lon": -43.27811,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.17266,
+      "lon": -43.2639,
+      "depth_m": 60.0
+    }
+  ]
+}

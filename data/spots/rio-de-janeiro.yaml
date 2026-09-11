@@ -1,0 +1,74 @@
+# Rosa spot database - Rio de Janeiro (seeded 2026-09-11). South-facing beaches and points from Paraty to Buzios (Prainha, Itauna, Arraial): S-SW groundswell, offshore on a N wind.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+region: Rio de Janeiro
+defaults: &rj
+  timezone: America/Sao_Paulo
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [90, 250]
+  ideal:
+    wind_dir: [315, 45]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-11 - rio-de-janeiro, 52 spots (primary coastline flow: 2 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 50 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/rio-de-janeiro/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: grussai, name: "Grussaí", town: "Grussaí", lat: -21.6948, lon: -41.0226, offshore_direction: 273, swell_window: [28, 158], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: farol-de-sao-tome, name: "Farol de São Tomé", town: "Campos dos Goytacazes", lat: -22.0444, lon: -41.0518, offshore_direction: 333, swell_window: [88, 218], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: barra-do-furado, name: "Barra do Furado", town: "Quissamã", lat: -22.0976, lon: -41.1345, offshore_direction: 321, swell_window: [76, 206], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: cavaleiros, name: "Cavaleiros", town: "Macaé", lat: -22.4049, lon: -41.7974, offshore_direction: 329, swell_window: [84, 214], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: pecado, name: "Pecado", town: "Macaé", lat: -22.4114, lon: -41.8084, offshore_direction: 327, swell_window: [82, 212], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: costa-azul, name: "Costa Azul", town: "Rio das Ostras", lat: -22.5167, lon: -41.9167, offshore_direction: 301, swell_window: [56, 186], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: brava-buzios, name: "Praia Brava (Búzios)", town: "Armação dos Búzios", lat: -22.7549, lon: -41.8718, offshore_direction: 220, swell_window: [335, 105], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 40 (seaward 40 per the tile (bay opens NE); the coastline normal 301 ended on land)
+  - { id: foca, name: "Foca", town: "Armação dos Búzios", lat: -22.7653, lon: -41.8782, offshore_direction: 329, swell_window: [84, 214], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: geriba, name: "Geribá", town: "Armação dos Búzios", lat: -22.7786, lon: -41.9094, offshore_direction: 337, swell_window: [92, 222], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (osm-seeded)
+  - { id: tucuns, name: "Tucuns", town: "Armação dos Búzios", lat: -22.7916, lon: -41.9255, offshore_direction: 301, swell_window: [56, 186], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (osm-seeded)
+  - { id: pero, name: "Peró", town: "Cabo Frio", lat: -22.8479, lon: -41.9840, offshore_direction: 283, swell_window: [38, 168], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: praia-do-forte-cabo-frio, name: "Praia do Forte", town: "Cabo Frio", lat: -22.8867, lon: -42.0177, offshore_direction: 314, swell_window: [69, 199], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: foguete, name: "Foguete", town: "Cabo Frio", lat: -22.9159, lon: -42.0354, offshore_direction: 281, swell_window: [36, 166], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: jacone, name: "Jaconé", town: "Saquarema", lat: -22.9334, lon: -42.5969, offshore_direction: 357, swell_window: [112, 242], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: vila-saquarema, name: "Praia da Vila", town: "Saquarema", lat: -22.9344, lon: -42.4997, offshore_direction: 5, swell_window: [120, 250], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: vilatur, name: "Vilatur", town: "Saquarema", lat: -22.9346, lon: -42.4107, offshore_direction: 2, swell_window: [117, 247], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: itauna, name: "Itaúna", town: "Saquarema", lat: -22.9358, lon: -42.4834, offshore_direction: 7, swell_window: [122, 252], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: barrinha-br, name: "Barrinha", town: "Saquarema", lat: -22.9367, lon: -42.4904, offshore_direction: 303, swell_window: [58, 188], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: piratininga, name: "Piratininga", town: "Niterói", lat: -22.9545, lon: -43.0876, offshore_direction: 6, swell_window: [121, 251], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: ponta-negra-marica, name: "Ponta Negra", town: "Maricá", lat: -22.9572, lon: -42.6972, offshore_direction: 54, swell_window: [169, 299], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 234 (GEBCO arc 216-252 middle; 192 had land to 0.5 km off the canal point)
+  - { id: cordoeira, name: "Cordoeira", town: "Maricá", lat: -22.9582, lon: -42.7560, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: prainha-arraial, name: "Prainha (Arraial do Cabo)", town: "Arraial do Cabo", lat: -22.9593, lon: -42.0243, offshore_direction: 225, swell_window: [340, 110], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: barra-de-marica, name: "Barra de Maricá", town: "Maricá", lat: -22.9614, lon: -42.8195, offshore_direction: 357, swell_window: [112, 242], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: camboinhas, name: "Camboinhas", town: "Niterói", lat: -22.9630, lon: -43.0550, offshore_direction: 14, swell_window: [129, 259], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: leme, name: "Leme", town: "Rio de Janeiro", lat: -22.9636, lon: -43.1680, offshore_direction: 331, swell_window: [86, 216], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: itaipuacu, name: "Itaipuaçu", town: "Maricá", lat: -22.9699, lon: -42.9622, offshore_direction: 4, swell_window: [119, 249], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: itaipu, name: "Itaipu", town: "Niterói", lat: -22.9702, lon: -43.0465, offshore_direction: 62, swell_window: [177, 307], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: praia-grande-arraial, name: "Praia Grande", town: "Arraial do Cabo", lat: -22.9713, lon: -42.0340, offshore_direction: 52, swell_window: [167, 297], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: copacabana, name: "Copacabana", town: "Rio de Janeiro", lat: -22.9739, lon: -43.1853, offshore_direction: 310, swell_window: [65, 195], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: itacoatiara, name: "Itacoatiara", town: "Niterói", lat: -22.9747, lon: -43.0358, offshore_direction: 5, swell_window: [120, 250], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: brava-arraial, name: "Praia Brava (Arraial do Cabo)", town: "Arraial do Cabo", lat: -22.9828, lon: -42.0217, offshore_direction: 14, swell_window: [129, 259], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: ipanema, name: "Ipanema", town: "Rio de Janeiro", lat: -22.9869, lon: -43.2045, offshore_direction: 5, swell_window: [120, 250], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: leblon, name: "Leblon", town: "Rio de Janeiro", lat: -22.9875, lon: -43.2217, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: praia-do-diabo, name: "Praia do Diabo", town: "Rio de Janeiro", lat: -22.9887, lon: -43.1889, offshore_direction: 8, swell_window: [123, 253], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: arpoador, name: "Arpoador", town: "Rio de Janeiro", lat: -22.9889, lon: -43.1924, offshore_direction: 13, swell_window: [128, 258], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: vidigal, name: "Vidigal", town: "Rio de Janeiro", lat: -22.9921, lon: -43.2321, offshore_direction: 348, swell_window: [103, 233], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 168 (GEBCO arc 150-186 middle; the coastline normal 64 crossed the Dois Irmaos headland)
+  - { id: sao-conrado, name: "São Conrado", town: "Rio de Janeiro", lat: -22.9998, lon: -43.2642, offshore_direction: 352, swell_window: [107, 237], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: joatinga, name: "Joatinga", town: "Rio de Janeiro", lat: -23.0146, lon: -43.2903, offshore_direction: 21, swell_window: [136, 266], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: pepe, name: "Pepê", town: "Rio de Janeiro", lat: -23.0152, lon: -43.3122, offshore_direction: 8, swell_window: [123, 253], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: postinho, name: "Postinho", town: "Rio de Janeiro", lat: -23.0156, lon: -43.3065, offshore_direction: 346, swell_window: [101, 231], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: reserva, name: "Reserva", town: "Rio de Janeiro", lat: -23.0160, lon: -43.4121, offshore_direction: 350, swell_window: [105, 235], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: recreio, name: "Recreio", town: "Rio de Janeiro", lat: -23.0278, lon: -43.4631, offshore_direction: 335, swell_window: [90, 220], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: pontal-rio, name: "Pontal", town: "Rio de Janeiro", lat: -23.0316, lon: -43.4761, offshore_direction: 2, swell_window: [117, 247], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: macumba, name: "Macumba", town: "Rio de Janeiro", lat: -23.0339, lon: -43.4874, offshore_direction: 343, swell_window: [98, 228], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: prainha-rio, name: "Prainha", town: "Rio de Janeiro", lat: -23.0412, lon: -43.5057, offshore_direction: 346, swell_window: [101, 231], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 166 (middle of the 130-196 arc that is wet from 2 km; the coastline normal 118 ran along the shore)
+  - { id: abrico, name: "Abricó", town: "Rio de Janeiro", lat: -23.0480, lon: -43.5127, offshore_direction: 348, swell_window: [103, 233], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: grumari, name: "Grumari", town: "Rio de Janeiro", lat: -23.0488, lon: -43.5253, offshore_direction: 352, swell_window: [107, 237], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: lopes-mendes, name: "Lopes Mendes", town: "Ilha Grande", lat: -23.1721, lon: -44.1262, offshore_direction: 37, swell_window: [152, 282], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: aventureiro, name: "Aventureiro", town: "Ilha Grande", lat: -23.1892, lon: -44.3181, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 160 (GEBCO arc 128-194 middle; the coastline normal 72 ended on land at 8 km)
+  - { id: praia-do-sono, name: "Praia do Sono", town: "Paraty", lat: -23.3370, lon: -44.6288, offshore_direction: 40, swell_window: [155, 285], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: brava-trindade, name: "Praia Brava (Trindade)", town: "Trindade", lat: -23.3402, lon: -44.7028, offshore_direction: 358, swell_window: [113, 243], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: cepilho, name: "Cepilho", town: "Trindade", lat: -23.3471, lon: -44.7196, offshore_direction: 297, swell_window: [52, 182], offshore_km: 5.0, <<: *rj }  # sat-verified 2026-09-11 (websearch-seeded)

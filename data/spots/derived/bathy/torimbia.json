@@ -1,0 +1,72 @@
+{
+  "spot": "torimbia",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.4428,
+    -4.851
+  ],
+  "bearing_seaward_deg": 19.0,
+  "nearshore_depth_m": -41.0,
+  "offshore_depth_m": 163.0,
+  "mean_slope_m_per_km": 11.49,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.44493,
+      "lon": -4.84999,
+      "depth_m": -41.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.44705,
+      "lon": -4.84898,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.4513,
+      "lon": -4.84697,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.45981,
+      "lon": -4.84293,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.46831,
+      "lon": -4.8389,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.48531,
+      "lon": -4.83082,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.51082,
+      "lon": -4.8187,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.54483,
+      "lon": -4.80253,
+      "depth_m": 146.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.59584,
+      "lon": -4.77823,
+      "depth_m": 163.0
+    }
+  ]
+}

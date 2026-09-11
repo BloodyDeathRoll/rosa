@@ -1,0 +1,72 @@
+{
+  "spot": "povoacao",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -19.5802,
+    -39.7814
+  ],
+  "bearing_seaward_deg": 114.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 37.0,
+  "mean_slope_m_per_km": 1.58,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -19.58111,
+      "lon": -39.77922,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -19.58203,
+      "lon": -39.77704,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -19.58386,
+      "lon": -39.77268,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -19.58751,
+      "lon": -39.76396,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -19.59117,
+      "lon": -39.75524,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -19.59848,
+      "lon": -39.7378,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -19.60945,
+      "lon": -39.71163,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -19.62406,
+      "lon": -39.67673,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -19.64597,
+      "lon": -39.62438,
+      "depth_m": 37.0
+    }
+  ]
+}

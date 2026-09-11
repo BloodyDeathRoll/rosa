@@ -1,0 +1,72 @@
+{
+  "spot": "ponta-da-fruta",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -20.5098,
+    -40.3597
+  ],
+  "bearing_seaward_deg": 101.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 33.0,
+  "mean_slope_m_per_km": 1.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -20.51023,
+      "lon": -40.35734,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -20.51066,
+      "lon": -40.35499,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -20.51152,
+      "lon": -40.35027,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -20.51323,
+      "lon": -40.34085,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -20.51495,
+      "lon": -40.33142,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -20.51837,
+      "lon": -40.31257,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -20.52351,
+      "lon": -40.28429,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -20.53036,
+      "lon": -40.24658,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -20.54061,
+      "lon": -40.19001,
+      "depth_m": 33.0
+    }
+  ]
+}

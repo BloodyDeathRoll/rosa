@@ -1,0 +1,72 @@
+{
+  "spot": "joaquina",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -27.6304,
+    -48.4496
+  ],
+  "bearing_seaward_deg": 137.0,
+  "nearshore_depth_m": 25.0,
+  "offshore_depth_m": 59.0,
+  "mean_slope_m_per_km": 1.92,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -27.63204,
+      "lon": -48.44787,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -27.63369,
+      "lon": -48.44614,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -27.63698,
+      "lon": -48.44268,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -27.64355,
+      "lon": -48.43575,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -27.65013,
+      "lon": -48.42883,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -27.66328,
+      "lon": -48.41498,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -27.68301,
+      "lon": -48.39419,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -27.7093,
+      "lon": -48.36647,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -27.74873,
+      "lon": -48.32485,
+      "depth_m": 59.0
+    }
+  ]
+}

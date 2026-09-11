@@ -1,0 +1,72 @@
+{
+  "spot": "lopes-mendes",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -23.1721,
+    -44.1262
+  ],
+  "bearing_seaward_deg": 217.0,
+  "nearshore_depth_m": 25.0,
+  "offshore_depth_m": 46.0,
+  "mean_slope_m_per_km": 1.18,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.1739,
+      "lon": -44.12767,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.17569,
+      "lon": -44.12914,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.17928,
+      "lon": -44.13209,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.18646,
+      "lon": -44.13798,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.19365,
+      "lon": -44.14386,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.20801,
+      "lon": -44.15564,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.22955,
+      "lon": -44.17332,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.25827,
+      "lon": -44.19689,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.30135,
+      "lon": -44.23227,
+      "depth_m": 46.0
+    }
+  ]
+}

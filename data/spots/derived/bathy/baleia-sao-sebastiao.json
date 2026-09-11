@@ -1,0 +1,72 @@
+{
+  "spot": "baleia-sao-sebastiao",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -23.7737,
+    -45.6749
+  ],
+  "bearing_seaward_deg": 184.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 1.3,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.77594,
+      "lon": -45.67507,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.77819,
+      "lon": -45.67524,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.78267,
+      "lon": -45.67559,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.79164,
+      "lon": -45.67627,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.80061,
+      "lon": -45.67696,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.81856,
+      "lon": -45.67833,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.84547,
+      "lon": -45.68039,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.88136,
+      "lon": -45.68313,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.93518,
+      "lon": -45.68725,
+      "depth_m": 30.0
+    }
+  ]
+}

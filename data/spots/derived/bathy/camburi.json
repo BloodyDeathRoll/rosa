@@ -1,0 +1,72 @@
+{
+  "spot": "camburi",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -20.2801,
+    -40.2869
+  ],
+  "bearing_seaward_deg": 118.0,
+  "nearshore_depth_m": 16.0,
+  "offshore_depth_m": 36.0,
+  "mean_slope_m_per_km": 1.13,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -20.28116,
+      "lon": -40.28478,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -20.28221,
+      "lon": -40.28267,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -20.28432,
+      "lon": -40.27843,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -20.28854,
+      "lon": -40.26997,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -20.29276,
+      "lon": -40.2615,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -20.30121,
+      "lon": -40.24457,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -20.31386,
+      "lon": -40.21916,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -20.33074,
+      "lon": -40.18528,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -20.35603,
+      "lon": -40.13445,
+      "depth_m": 36.0
+    }
+  ]
+}

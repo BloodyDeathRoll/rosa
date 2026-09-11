@@ -1,0 +1,72 @@
+{
+  "spot": "boca-da-barra",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -14.2721,
+    -38.993
+  ],
+  "bearing_seaward_deg": 71.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 680.0,
+  "mean_slope_m_per_km": 38.54,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -14.27137,
+      "lon": -38.99081,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -14.27064,
+      "lon": -38.98861,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -14.26917,
+      "lon": -38.98423,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -14.26624,
+      "lon": -38.97545,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -14.26331,
+      "lon": -38.96668,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -14.25746,
+      "lon": -38.94913,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -14.24867,
+      "lon": -38.92281,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -14.23694,
+      "lon": -38.88773,
+      "depth_m": 272.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -14.21935,
+      "lon": -38.8351,
+      "depth_m": 680.0
+    }
+  ]
+}

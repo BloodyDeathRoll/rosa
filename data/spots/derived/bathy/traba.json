@@ -1,0 +1,72 @@
+{
+  "spot": "traba",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.1913,
+    -9.0455
+  ],
+  "bearing_seaward_deg": 318.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 152.0,
+  "mean_slope_m_per_km": 8.11,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.19297,
+      "lon": -9.04756,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.19464,
+      "lon": -9.04963,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.19798,
+      "lon": -9.05375,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.20467,
+      "lon": -9.06201,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.21135,
+      "lon": -9.07027,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.22471,
+      "lon": -9.08679,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.24475,
+      "lon": -9.11159,
+      "depth_m": 95.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.27146,
+      "lon": -9.14468,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.3115,
+      "lon": -9.19436,
+      "depth_m": 152.0
+    }
+  ]
+}

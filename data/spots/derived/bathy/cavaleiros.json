@@ -1,0 +1,72 @@
+{
+  "spot": "cavaleiros",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -22.4049,
+    -41.7974
+  ],
+  "bearing_seaward_deg": 149.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 42.0,
+  "mean_slope_m_per_km": 1.8,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -22.40683,
+      "lon": -41.79615,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -22.40875,
+      "lon": -41.79489,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -22.41261,
+      "lon": -41.79239,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -22.42032,
+      "lon": -41.78738,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -22.42803,
+      "lon": -41.78237,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -22.44344,
+      "lon": -41.77234,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -22.46656,
+      "lon": -41.7573,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -22.49739,
+      "lon": -41.73724,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -22.54363,
+      "lon": -41.70713,
+      "depth_m": 42.0
+    }
+  ]
+}

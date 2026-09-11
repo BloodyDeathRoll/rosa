@@ -1,0 +1,72 @@
+{
+  "spot": "barra-do-riacho",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -19.8272,
+    -40.0581
+  ],
+  "bearing_seaward_deg": 107.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 34.0,
+  "mean_slope_m_per_km": 1.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -19.82786,
+      "lon": -40.05581,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -19.82851,
+      "lon": -40.05353,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -19.82983,
+      "lon": -40.04896,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -19.83246,
+      "lon": -40.03982,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -19.83509,
+      "lon": -40.03067,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -19.84034,
+      "lon": -40.01239,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -19.84822,
+      "lon": -39.98495,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -19.85872,
+      "lon": -39.94837,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -19.87445,
+      "lon": -39.89349,
+      "depth_m": 34.0
+    }
+  ]
+}

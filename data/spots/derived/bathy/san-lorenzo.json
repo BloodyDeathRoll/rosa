@@ -1,0 +1,72 @@
+{
+  "spot": "san-lorenzo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.5419,
+    -5.6536
+  ],
+  "bearing_seaward_deg": 351.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 120.0,
+  "mean_slope_m_per_km": 6.48,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.54412,
+      "lon": -5.65409,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.54634,
+      "lon": -5.65457,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.55078,
+      "lon": -5.65554,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.55966,
+      "lon": -5.65748,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.56855,
+      "lon": -5.65943,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.58631,
+      "lon": -5.66331,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.61296,
+      "lon": -5.66914,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.64849,
+      "lon": -5.67693,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.70178,
+      "lon": -5.68863,
+      "depth_m": 120.0
+    }
+  ]
+}

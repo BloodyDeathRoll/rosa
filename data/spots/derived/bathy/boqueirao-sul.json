@@ -1,0 +1,72 @@
+{
+  "spot": "boqueirao-sul",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -25.0256,
+    -47.8811
+  ],
+  "bearing_seaward_deg": 112.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 18.0,
+  "mean_slope_m_per_km": 0.68,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -25.02644,
+      "lon": -47.8788,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -25.02728,
+      "lon": -47.8765,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -25.02897,
+      "lon": -47.8719,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -25.03234,
+      "lon": -47.86269,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -25.0357,
+      "lon": -47.85349,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -25.04244,
+      "lon": -47.83508,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -25.05253,
+      "lon": -47.80747,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -25.06599,
+      "lon": -47.77064,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -25.08615,
+      "lon": -47.71538,
+      "depth_m": 18.0
+    }
+  ]
+}

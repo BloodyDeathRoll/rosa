@@ -1,0 +1,72 @@
+{
+  "spot": "mocambique",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -27.5222,
+    -48.4164
+  ],
+  "bearing_seaward_deg": 118.0,
+  "nearshore_depth_m": 25.0,
+  "offshore_depth_m": 61.0,
+  "mean_slope_m_per_km": 2.03,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -27.52326,
+      "lon": -48.41416,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -27.52431,
+      "lon": -48.41192,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -27.52642,
+      "lon": -48.40745,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -27.53064,
+      "lon": -48.39849,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -27.53486,
+      "lon": -48.38954,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -27.5433,
+      "lon": -48.37162,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -27.55596,
+      "lon": -48.34475,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -27.57282,
+      "lon": -48.3089,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -27.5981,
+      "lon": -48.25512,
+      "depth_m": 61.0
+    }
+  ]
+}

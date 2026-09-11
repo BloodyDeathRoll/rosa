@@ -1,0 +1,72 @@
+{
+  "spot": "san-antolin",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.4422,
+    -4.8705
+  ],
+  "bearing_seaward_deg": 350.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 150.0,
+  "mean_slope_m_per_km": 8.73,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.44441,
+      "lon": -4.87104,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.44663,
+      "lon": -4.87158,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.45106,
+      "lon": -4.87265,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.45991,
+      "lon": -4.8748,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.46877,
+      "lon": -4.87696,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.48648,
+      "lon": -4.88126,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.51305,
+      "lon": -4.88773,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.54848,
+      "lon": -4.89636,
+      "depth_m": 114.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.60161,
+      "lon": -4.90932,
+      "depth_m": 150.0
+    }
+  ]
+}

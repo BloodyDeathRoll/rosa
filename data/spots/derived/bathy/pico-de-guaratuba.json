@@ -1,0 +1,72 @@
+{
+  "spot": "pico-de-guaratuba",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -25.8913,
+    -48.5613
+  ],
+  "bearing_seaward_deg": 117.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 19.0,
+  "mean_slope_m_per_km": 1.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -25.89232,
+      "lon": -48.55907,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -25.89334,
+      "lon": -48.55685,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -25.89538,
+      "lon": -48.55239,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -25.89946,
+      "lon": -48.54348,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -25.90355,
+      "lon": -48.53458,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -25.91171,
+      "lon": -48.51676,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -25.92395,
+      "lon": -48.49002,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -25.94025,
+      "lon": -48.45437,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -25.9647,
+      "lon": -48.40087,
+      "depth_m": 19.0
+    }
+  ]
+}

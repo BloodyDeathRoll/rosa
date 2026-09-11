@@ -1,0 +1,72 @@
+{
+  "spot": "praia-central-guaratuba",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -25.8848,
+    -48.5683
+  ],
+  "bearing_seaward_deg": 84.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 17.0,
+  "mean_slope_m_per_km": 1.01,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -25.88456,
+      "lon": -48.56581,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -25.88433,
+      "lon": -48.56333,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -25.88386,
+      "lon": -48.55836,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -25.88292,
+      "lon": -48.54842,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -25.88198,
+      "lon": -48.53848,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -25.88009,
+      "lon": -48.5186,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -25.87726,
+      "lon": -48.48877,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -25.87347,
+      "lon": -48.44902,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -25.86777,
+      "lon": -48.38938,
+      "depth_m": 17.0
+    }
+  ]
+}

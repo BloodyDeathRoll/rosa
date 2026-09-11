@@ -1,0 +1,53 @@
+# Rosa spot database - Ceara (seeded 2026-09-11). A north-facing trade-wind coast (Fortaleza, Paracuru, Taiba, Jericoacoara): N-NE swell Dec-Apr, offshore on a S wind.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+region: Ceara
+defaults: &ce
+  timezone: America/Fortaleza
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [300, 90]
+  ideal:
+    wind_dir: [135, 225]
+    size_m: [0.6, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-09-11 - ceara, 31 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 31 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/ceara/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: malhada, name: "Malhada", town: "Jericoacoara", lat: -2.7906, lon: -40.5179, offshore_direction: 139, swell_window: [254, 24], offshore_km: 5.0, break_type: reef, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: jericoacoara, name: "Jericoacoara", town: "Jericoacoara", lat: -2.7987, lon: -40.5194, offshore_direction: 94, swell_window: [209, 339], offshore_km: 5.0, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: almofala, name: "Almofala", town: "Almofala", lat: -2.9318, lon: -39.8229, offshore_direction: 213, swell_window: [328, 98], offshore_km: 5.0, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: icarai-de-amontada, name: "Icaraí de Amontada", town: "Icaraí de Amontada", lat: -3.0224, lon: -39.6581, offshore_direction: 202, swell_window: [317, 87], offshore_km: 5.0, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: mundau, name: "Mundaú", town: "Mundaú", lat: -3.1797, lon: -39.3741, offshore_direction: 159, swell_window: [274, 44], offshore_km: 5.0, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: flecheiras, name: "Flecheiras", town: "Flecheiras", lat: -3.2192, lon: -39.2750, offshore_direction: 177, swell_window: [292, 62], offshore_km: 5.0, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: guajiru, name: "Guajiru", town: "Guajiru", lat: -3.2368, lon: -39.2357, offshore_direction: 243, swell_window: [358, 128], offshore_km: 5.0, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 63 (GEBCO arc middle)
+  - { id: igreja-velha, name: "Igreja Velha", town: "Paracuru", lat: -3.3994, lon: -39.0117, offshore_direction: 166, swell_window: [281, 51], offshore_km: 5.0, break_type: reef, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 346 (GEBCO arc middle)
+  - { id: quebra-mar, name: "Quebra Mar", town: "Paracuru", lat: -3.4013, lon: -38.9902, offshore_direction: 199, swell_window: [314, 84], offshore_km: 5.0, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: boca-do-poco, name: "Boca do Poço", town: "Paracuru", lat: -3.4045, lon: -39.0259, offshore_direction: 127, swell_window: [242, 12], offshore_km: 5.0, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 307 (GEBCO arc middle)
+  - { id: pedra-do-meio, name: "Pedra do Meio", town: "Paracuru", lat: -3.4109, lon: -39.0405, offshore_direction: 187, swell_window: [302, 72], offshore_km: 5.0, break_type: reef, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: havaizinho, name: "Havaizinho", town: "Paracuru", lat: -3.4114, lon: -39.0438, offshore_direction: 185, swell_window: [300, 70], offshore_km: 5.0, break_type: reef, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: taiba, name: "Taíba", town: "Taíba", lat: -3.5054, lon: -38.9058, offshore_direction: 195, swell_window: [310, 80], offshore_km: 5.0, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: pecem, name: "Pecém", town: "Pecém", lat: -3.5449, lon: -38.8363, offshore_direction: 183, swell_window: [298, 68], offshore_km: 5.0, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: cumbuco, name: "Cumbuco", town: "Cumbuco", lat: -3.6332, lon: -38.7116, offshore_direction: 202, swell_window: [317, 87], offshore_km: 5.0, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: icarai, name: "Icaraí", town: "Caucaia", lat: -3.6727, lon: -38.6648, offshore_direction: 210, swell_window: [325, 95], offshore_km: 5.0, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 30 (GEBCO arc middle)
+  - { id: pacheco, name: "Pacheco", town: "Caucaia", lat: -3.6864, lon: -38.6352, offshore_direction: 216, swell_window: [331, 101], offshore_km: 5.0, break_type: reef, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 36 (GEBCO arc middle)
+  - { id: barra-do-ceara, name: "Barra do Ceará", town: "Fortaleza", lat: -3.6959, lon: -38.5784, offshore_direction: 190, swell_window: [305, 75], offshore_km: 5.0, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: titanzinho, name: "Titanzinho", town: "Fortaleza", lat: -3.7079, lon: -38.4678, offshore_direction: 155, swell_window: [270, 40], offshore_km: 5.0, break_type: reef, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: leste-oeste, name: "Leste Oeste", town: "Fortaleza", lat: -3.7160, lon: -38.5393, offshore_direction: 187, swell_window: [302, 72], offshore_km: 5.0, break_type: reef, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: ponte-metalica, name: "Ponte Metálica", town: "Fortaleza", lat: -3.7185, lon: -38.5170, offshore_direction: 185, swell_window: [300, 70], offshore_km: 5.0, break_type: reef, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: praia-do-futuro, name: "Praia do Futuro", town: "Fortaleza", lat: -3.7311, lon: -38.4557, offshore_direction: 242, swell_window: [357, 127], offshore_km: 5.0, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: porto-das-dunas, name: "Porto das Dunas", town: "Porto das Dunas", lat: -3.8474, lon: -38.3864, offshore_direction: 236, swell_window: [351, 121], offshore_km: 5.0, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: prainha-br, name: "Prainha", town: "Aquiraz", lat: -3.8945, lon: -38.3515, offshore_direction: 228, swell_window: [343, 113], offshore_km: 5.0, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: iguape, name: "Iguape", town: "Iguape", lat: -3.9410, lon: -38.2850, offshore_direction: 222, swell_window: [337, 107], offshore_km: 5.0, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded) normal re-aimed to seaward 42 (GEBCO arc middle)
+  - { id: caponga, name: "Caponga", town: "Caponga", lat: -4.0384, lon: -38.1968, offshore_direction: 204, swell_window: [319, 89], offshore_km: 5.0, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: aguas-belas, name: "Águas Belas", town: "Águas Belas", lat: -4.0503, lon: -38.1836, offshore_direction: 241, swell_window: [356, 126], offshore_km: 5.0, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: morro-branco, name: "Morro Branco", town: "Morro Branco", lat: -4.1524, lon: -38.1116, offshore_direction: 221, swell_window: [336, 106], offshore_km: 5.0, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: praia-das-fontes, name: "Praia das Fontes", town: "Praia das Fontes", lat: -4.1773, lon: -38.0844, offshore_direction: 211, swell_window: [326, 96], offshore_km: 5.0, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: canoa-quebrada, name: "Canoa Quebrada", town: "Canoa Quebrada", lat: -4.5193, lon: -37.7074, offshore_direction: 216, swell_window: [331, 101], offshore_km: 5.0, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded)
+  - { id: majorlandia, name: "Majorlândia", town: "Majorlândia", lat: -4.5507, lon: -37.6729, offshore_direction: 231, swell_window: [346, 116], offshore_km: 5.0, <<: *ce }  # sat-verified 2026-09-11 (websearch-seeded)

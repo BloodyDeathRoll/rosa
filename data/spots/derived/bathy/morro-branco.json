@@ -1,0 +1,72 @@
+{
+  "spot": "morro-branco",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -4.1524,
+    -38.1116
+  ],
+  "bearing_seaward_deg": 41.0,
+  "nearshore_depth_m": -22.0,
+  "offshore_depth_m": 12.0,
+  "mean_slope_m_per_km": 1.92,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -4.1507,
+      "lon": -38.11012,
+      "depth_m": -22.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -4.14901,
+      "lon": -38.10864,
+      "depth_m": -14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -4.14561,
+      "lon": -38.10568,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -4.13883,
+      "lon": -38.09977,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -4.13204,
+      "lon": -38.09385,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -4.11846,
+      "lon": -38.08202,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -4.0981,
+      "lon": -38.06428,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -4.07095,
+      "lon": -38.04062,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -4.03022,
+      "lon": -38.00514,
+      "depth_m": 12.0
+    }
+  ]
+}

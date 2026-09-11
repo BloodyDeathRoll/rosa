@@ -1,0 +1,72 @@
+{
+  "spot": "quintanilla",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    28.1465,
+    -15.5455
+  ],
+  "bearing_seaward_deg": 339.0,
+  "nearshore_depth_m": -76.0,
+  "offshore_depth_m": 2226.0,
+  "mean_slope_m_per_km": 129.69,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.1486,
+      "lon": -15.54641,
+      "depth_m": -76.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.1507,
+      "lon": -15.54733,
+      "depth_m": -34.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.1549,
+      "lon": -15.54916,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.16329,
+      "lon": -15.55281,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.17169,
+      "lon": -15.55647,
+      "depth_m": 240.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.18848,
+      "lon": -15.56378,
+      "depth_m": 964.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.21366,
+      "lon": -15.57476,
+      "depth_m": 1235.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.24724,
+      "lon": -15.5894,
+      "depth_m": 1345.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.29761,
+      "lon": -15.61139,
+      "depth_m": 2226.0
+    }
+  ]
+}

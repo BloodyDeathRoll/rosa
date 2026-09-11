@@ -1,0 +1,72 @@
+{
+  "spot": "almaciga",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    28.5721,
+    -16.1925
+  ],
+  "bearing_seaward_deg": 342.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 2750.0,
+  "mean_slope_m_per_km": 154.25,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.57424,
+      "lon": -16.19329,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.57638,
+      "lon": -16.19408,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.58065,
+      "lon": -16.19566,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.58921,
+      "lon": -16.19883,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.59776,
+      "lon": -16.202,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.61486,
+      "lon": -16.20833,
+      "depth_m": 257.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.64052,
+      "lon": -16.21783,
+      "depth_m": 1425.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.67473,
+      "lon": -16.23051,
+      "depth_m": 2097.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.72604,
+      "lon": -16.24954,
+      "depth_m": 2750.0
+    }
+  ]
+}

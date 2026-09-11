@@ -1,0 +1,72 @@
+{
+  "spot": "landa-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.9872,
+    33.9592
+  ],
+  "bearing_seaward_deg": 166.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 1676.0,
+  "mean_slope_m_per_km": 94.14,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.98502,
+      "lon": 33.95986,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.98284,
+      "lon": 33.96053,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.97847,
+      "lon": 33.96186,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.96975,
+      "lon": 33.96451,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.96102,
+      "lon": 33.96716,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.94357,
+      "lon": 33.97247,
+      "depth_m": 114.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.91739,
+      "lon": 33.98043,
+      "depth_m": 344.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.88248,
+      "lon": 33.99103,
+      "depth_m": 1176.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.83012,
+      "lon": 34.00691,
+      "depth_m": 1676.0
+    }
+  ]
+}
