@@ -15,8 +15,8 @@ no GitHub Actions, no systemd timers, no request-time backend.
 | Key logs | `~/rosa/publish.log`, `~/rosa/cam-watch.log` | `~/rosa-watch/watch.log` | `~/rosa/publish.log` (history to 2026-08-30) |
 
 ```bash
-ssh -i web/.oracle/ssh-key-2026-07-23.key ubuntu@82.70.253.255          # the box
-ssh -i web/.oracle/ssh-key-2026-07-23.key ubuntu@82.70.253.255 \
+ssh -i ~/.config/rosa/ssh-key-2026-07-23.key ubuntu@82.70.253.255       # the box
+ssh -i ~/.config/rosa/ssh-key-2026-07-23.key ubuntu@82.70.253.255 \
   'ssh ubuntu@10.0.0.11 "tail -3 ~/rosa-watch/watch.log"'               # the backup, via the box
 ```
 
