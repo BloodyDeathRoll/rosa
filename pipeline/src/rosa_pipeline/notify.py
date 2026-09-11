@@ -382,13 +382,44 @@ def mark_sent(sent: dict[str, str], ehash: str, keys: tuple[str, ...], now: date
 # ----------------------------------------------------------------- transport
 
 
+# The browsers' own push services - the only hosts the sender will ever POST to.
+# The API (deploy/push-api/api/sub.js isPushService) refuses anything else at
+# subscribe time; this is the second lock, for records that predate it or a
+# store written some other way (audit 2026-09-11).
+PUSH_HOSTS = frozenset(
+    {"fcm.googleapis.com", "updates.push.services.mozilla.com", "web.push.apple.com"}
+)
+PUSH_HOST_SUFFIXES = (".notify.windows.com", ".push.apple.com")
+
+
+def is_push_endpoint(endpoint: object) -> bool:
+    from urllib.parse import urlsplit
+
+    if not isinstance(endpoint, str):
+        return False
+    # .port is lazy and raises on a malformed port ("x:abc", "x:999999"): inside
+    # the try, so a bad pre-allowlist record is dropped, not a crashed send
+    try:
+        u = urlsplit(endpoint)
+        if u.scheme != "https" or u.username or u.password or u.port or not u.hostname:
+            return False
+    except ValueError:
+        return False
+    host = u.hostname.lower()
+    return host in PUSH_HOSTS or host.endswith(PUSH_HOST_SUFFIXES)
+
+
 def fetch_subscriptions(subs_url: str, admin_secret: str) -> list[dict]:
     import httpx
 
     r = httpx.get(subs_url, headers={"x-admin-secret": admin_secret}, timeout=30)
     r.raise_for_status()
     subs = r.json()
-    return [s for s in subs if isinstance(s, dict) and "endpoint" in s and "keys" in s]
+    kept = [s for s in subs if isinstance(s, dict) and "endpoint" in s and "keys" in s]
+    dropped = [s for s in kept if not is_push_endpoint(s["endpoint"])]
+    for s in dropped:
+        print(f"notify: dropping non-push endpoint {endpoint_hash(str(s['endpoint']))}")
+    return [s for s in kept if is_push_endpoint(s["endpoint"])]
 
 
 def send_alert(

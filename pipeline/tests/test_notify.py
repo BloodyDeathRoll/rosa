@@ -531,3 +531,56 @@ def test_loaders_still_glob_when_no_payloads_are_passed(tmp_path):
     now = datetime(2026, 8, 23, 12, tzinfo=UTC)
     assert N.load_spot_events(tmp_path, now) == []
     assert N.load_feedback_candidates(tmp_path, now) == []
+
+
+# --- the sender only POSTs to browser push services (audit 2026-09-11) --------
+
+
+def test_is_push_endpoint_accepts_only_browser_push_services():
+    from rosa_pipeline.notify import is_push_endpoint
+
+    for ok in (
+        "https://fcm.googleapis.com/fcm/send/abc",
+        "https://updates.push.services.mozilla.com/wpush/v2/x",
+        "https://web.push.apple.com/QAbc",
+        "https://wns2-par02p.notify.windows.com/w/?token=x",
+    ):
+        assert is_push_endpoint(ok), ok
+    for bad in (
+        "https://10.0.0.11/hook",
+        "https://169.254.169.254/latest/",
+        "https://fcm.googleapis.com.attacker.example/x",
+        "http://fcm.googleapis.com/fcm/send/abc",
+        "https://user@fcm.googleapis.com/x",
+        "https://fcm.googleapis.com:8443/x",
+        "https://fcm.googleapis.com:abc/x",  # .port raises on these two -
+        "https://fcm.googleapis.com:999999/x",  # must drop, not crash
+        None,
+        42,
+    ):
+        assert not is_push_endpoint(bad), bad
+
+
+def test_fetch_subscriptions_drops_malformed_records_without_crashing(monkeypatch):
+    """One bad record stored before the allowlist must not stop every push."""
+    import httpx
+
+    from rosa_pipeline.notify import fetch_subscriptions
+
+    keys = {"p256dh": "p", "auth": "a"}
+    subs = [
+        {"endpoint": "https://fcm.googleapis.com/fcm/send/ok", "keys": keys},
+        {"endpoint": "https://fcm.googleapis.com:abc/x", "keys": keys},
+        {"endpoint": "https://10.0.0.11/hook", "keys": keys},
+    ]
+
+    class R:
+        def raise_for_status(self) -> None:
+            pass
+
+        def json(self) -> list[dict]:
+            return subs
+
+    monkeypatch.setattr(httpx, "get", lambda *a, **k: R())
+    got = [s["endpoint"] for s in fetch_subscriptions("https://x/subs", "s")]
+    assert got == ["https://fcm.googleapis.com/fcm/send/ok"]
