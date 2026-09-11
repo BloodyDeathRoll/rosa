@@ -61,26 +61,30 @@ Output lands in `data/out/` (gitignored - it is a build artifact).
 
 None of these are in git. Copy them from a working machine (or from the VM, where noted).
 
-### `web/.oracle/` - the important one
+### `~/.config/rosa/` - the important one
+
+Outside the repo on purpose (moved from `web/.oracle/` 2026-09-11, security audit): an agent
+working in the repo tree should not be holding the box's key.
 
 ```
-web/.oracle/ssh-key-2026-07-23.key      # Oracle VM access (chmod 600)
-web/.oracle/ssh-key-2026-07-23.key.pub
-web/.oracle/private_key.pem             # VAPID private key
-web/.oracle/public_key.pem
-web/.oracle/push-admin-secret.txt       # rosa-push admin surface
+~/.config/rosa/ssh-key-2026-07-23.key   # Oracle VM access (chmod 600)
+~/.config/rosa/ssh-key-2026-07-23.key.pub
+~/.config/rosa/private_key.pem          # VAPID private key
+~/.config/rosa/public_key.pem
+~/.config/rosa/push-admin-secret.txt    # rosa-push admin surface
 ```
 
 ⚠️ **The VAPID private key cannot be regenerated.** Replacing it invalidates every existing push
 subscription on every user's device. Back it up before you need it.
 
 ```bash
-scp -r web/.oracle/ user@newmachine:~/Projects/rosa/web/
-chmod 600 web/.oracle/ssh-key-2026-07-23.key web/.oracle/private_key.pem
+scp -r ~/.config/rosa/ user@newmachine:~/.config/
+chmod 700 ~/.config/rosa
+chmod 600 ~/.config/rosa/ssh-key-2026-07-23.key ~/.config/rosa/private_key.pem
 ```
 
 Note the live VAPID private key also lives VM-only at `~/rosa-push/vapid_private.pem`; the copy in
-`web/.oracle/` is the backup.
+`~/.config/rosa/` is the backup.
 
 ### `.env.local` (repo root)
 
@@ -156,7 +160,7 @@ Oracle VM at `~/rosa/data/verify/`, mirrored nightly to the `rosa-backup` box. P
 want to run verification off-box:
 
 ```bash
-rsync -avz -e "ssh -i web/.oracle/ssh-key-2026-07-23.key" \
+rsync -avz -e "ssh -i ~/.config/rosa/ssh-key-2026-07-23.key" \
   ubuntu@82.70.218.149:~/rosa/data/verify/ data/verify/
 ```
 
@@ -177,7 +181,7 @@ the VM**. It pulls `main` at the start of each cycle, so pushing code is how cha
 
 ```bash
 # check the last cycles from anywhere with the ssh key
-ssh -i web/.oracle/ssh-key-2026-07-23.key ubuntu@82.70.218.149 \
+ssh -i ~/.config/rosa/ssh-key-2026-07-23.key ubuntu@82.70.218.149 \
   'grep -nE "^=== |FAILED at:|warn:" ~/rosa/publish.log | tail -8'
 ```
 
@@ -187,7 +191,7 @@ ssh -i web/.oracle/ssh-key-2026-07-23.key ubuntu@82.70.218.149 \
 
 - [ ] `uv sync --project pipeline` and `npm install` both clean
 - [ ] `uv run --project pipeline pytest` all green
-- [ ] `web/.oracle/` copied, key files `chmod 600`
+- [ ] `~/.config/rosa/` copied, key files `chmod 600`
 - [ ] `.env.local` created (only if deploying or using the spot tools)
 - [ ] `vercel link` done in `web/`
 - [ ] `rosa-pipeline run --spot santa-teresa` writes `data/out/spots/santa-teresa.json`
