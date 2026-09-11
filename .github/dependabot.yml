@@ -1,0 +1,31 @@
+# Dependency updates (audit 2026-09-11, proposals item 4). The 7-day cooldown keeps a
+# freshly published (possibly compromised) release out until it has been public a week.
+# Security alerts are separate and are not delayed by it.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directories: ["/web", "/deploy/push-api", "/deploy/user-api"]
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7
+    groups:
+      minor-and-patch:
+        update-types: [minor, patch]
+
+  - package-ecosystem: uv
+    directory: /pipeline
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7
+    groups:
+      minor-and-patch:
+        update-types: [minor, patch]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 7
