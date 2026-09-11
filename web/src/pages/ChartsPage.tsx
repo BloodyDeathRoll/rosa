@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import type { Map as MLMap } from "maplibre-gl";
+import { loadMaplibre } from "../maplibre";
 import {
   fetchSwellBasin,
   fetchSwellIndex,
@@ -294,8 +295,8 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
     let disposed = false;
     (async () => {
       try {
-        const [{ default: maplibregl }, idxR, worldR, at] = await Promise.all([
-          import("maplibre-gl"),
+        const [maplibregl, idxR, worldR, at] = await Promise.all([
+          loadMaplibre(),
           fetchSwellIndex().then(
             (v) => ({ ok: true as const, v }),
             () => ({ ok: false as const, v: null }),
