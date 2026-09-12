@@ -390,11 +390,30 @@ def test_archive_station_arm_writes_wind_rows_and_never_raises(tmp_path, monkeyp
         return [_wind_body(["2026-08-09T00:00", "2026-08-09T01:00"], speed) for _ in coords]
 
     monkeypatch.setattr(cli, "fetch_wind_many", fake_wind)
+
+    class FakeGrib:  # the C3b member: one series per station coordinate, no OM units
+        def __init__(self, capture_dir=None):
+            pass
+
+        def fetch_series(self, coords):
+            from datetime import UTC, datetime
+
+            from rosa_pipeline.verify import WavePoint
+
+            t = datetime(2026, 8, 9, 0, tzinfo=UTC)
+            return [[WavePoint(t, None, None, None, ws=6.0, wdir=300.0)] for _ in coords]
+
+    monkeypatch.setattr(cli, "GfsAtmosSource", FakeGrib)
     argv = _archive_argv(tmp_path, buoys_dir)
     argv[argv.index("--stations-dir") + 1] = str(stations_dir)
     st_archive = tmp_path / "st-archive"
     rc = main([*argv, "--stations-archive-dir", str(st_archive)])
     assert rc == 0
+    grib = [
+        json.loads(line) for line in (st_archive / "LLBG.gfs_grib.jsonl").read_text().splitlines()
+    ]
+    assert len(grib) == 1 and grib[0]["ws"] == 6.0 and grib[0]["wdir"] == 300.0
+    assert grib[0]["hs"] is None
     # the buoy fleet path's own wind join calls fetch_wind_many too; the station batches
     # are the ones carrying the station's coordinate - one per model, published + A/B
     assert ([(32.011, 34.887)], "gfs_seamless") in calls
@@ -417,6 +436,23 @@ def test_archive_station_arm_writes_wind_rows_and_never_raises(tmp_path, monkeyp
     assert (st_archive_ab / "LLBG.jsonl").exists()
     assert not (st_archive_ab / "LLBG.icon.jsonl").exists()
     assert "A/B member skipped" in capsys.readouterr().err
+
+    class GribBoom:  # losing the C3b member keeps both OM members' rows
+        def __init__(self, capture_dir=None):
+            pass
+
+        def fetch_series(self, coords):
+            raise RuntimeError("nomads down")
+
+    monkeypatch.setattr(cli, "fetch_wind_many", fake_wind)
+    monkeypatch.setattr(cli, "GfsAtmosSource", GribBoom)
+    st_archive_g = tmp_path / "st-archive-grib"
+    rc = main([*argv, "--stations-archive-dir", str(st_archive_g)])
+    assert rc == 0
+    assert (st_archive_g / "LLBG.jsonl").exists() and (st_archive_g / "LLBG.icon.jsonl").exists()
+    assert not (st_archive_g / "LLBG.gfs_grib.jsonl").exists()
+    err = capsys.readouterr().err
+    assert "gfs_grib member failed" in err and "gfs_grib" in err
 
     def boom(coords, *, model=cli.WEATHER_MODEL):
         raise RuntimeError("weather host down")

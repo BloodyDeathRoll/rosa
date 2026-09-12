@@ -126,6 +126,8 @@ the same per-spot request family). Order: easiest first, each independently ship
   UGRD/VGRD/GUST 10 m + PRMSL + TMP 2 m, subregion), OM kept as `--weather-source om`.
   Rating-critical (wind gate) -> pb_0049: fleet A/B + CALIBRATION.md entry in the same
   change. After it, spot count costs zero Open-Meteo units anywhere on the publish path.
+  **Step 1 BUILT 2026-09-12** (`gfsatmos.py`, archive key `<station>.gfs_grib`,
+  `verify --stations --wind-model gfs_grib`); cards readable from ~2026-09-26.
 - **C4. Confidence ensemble.** Today: a 4-model OM ensemble request. Rebuild
   agreement + `dir_span` from members we already download (GFS-Wave, ECMWF, and the
   blend spread itself). The member set changes, so `dir_n` era-tagging applies AGAIN

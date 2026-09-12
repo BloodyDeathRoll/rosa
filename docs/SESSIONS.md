@@ -916,3 +916,25 @@ mid-run; they resumed with nothing lost.
   not a safety net - remove it, do not gate it).
 - Docs swept: `quota.py`, `blend.py`, `cli.py` help, OPEN-ITEMS 19/32/34, fetch-plane plan
   C3b + status, `deploy/oracle/README.md`, `publish.sh` step-2 comment.
+
+## SESSION 2026-09-12 (cont.) - plan C3b step 1: the GFS atmos GRIB wind member at the stations
+
+- **Built `gfsatmos.py`** - the raw GFS 0.25 atmos 10 m wind (UGRD/VGRD via NOMADS
+  `filter_gfs_0p25_1hr.pl`, subregion per box) sampled at every coastal wind station's
+  nearest grid node, 3-hourly to 384 h (the blend arm's `BLEND_STEPS`, so this is also the
+  prototype of the production `WeatherSource`). Wind from u/v: speed `hypot`, direction the
+  meteorological FROM bearing (pinned by test on the four cardinal cases). Cycle lag 5.5 h
+  with a one-cycle fallback, same shape as `gfswave`.
+- **Wired into the station archive** as the third member: `<station>.gfs_grib.jsonl` beside
+  `gfs_seamless` and `icon_seamless`, guarded (a NOMADS failure warns and keeps both OM
+  members' rows), `--capture` writes `gfsatmos_f*_<box>.grib2`, `--wind-fixtures` replays
+  them, `_warn_member_empty` covers it live. `verify --stations --archive --wind-model
+  gfs_grib` scores it - `STATION_WIND_MODELS` gained the key, nothing else on the verify side
+  changed.
+- **Verified live before shipping:** the filter serves f000-f384 (f123/f384 probed, 1.3 KB a
+  step for a 4x3 deg box; GUST is at `surface`, not 10 m - left out, the rows carry no gust);
+  a full-registry smoke sampled all 90 stations from 9 boxes at 0.44 s a request. Two real
+  captures (2026-09-12 00Z f000/f003, Israel box) are the fixtures. 623 tests, ruff clean.
+- **Not decided, by design:** nothing published moves. The C3b flip is step 2, read off
+  ~2 weeks of station cards (~2026-09-26) under pb_0049. OPEN-ITEMS 34 carries the status.
+

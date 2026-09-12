@@ -114,9 +114,12 @@ right: anyone holding it can suppress your outage alerts). Open-Meteo and NDBC a
 - **Coastal wind truth (2026-08-29):** step 1 also archives the model's 10 m wind at
   every station in `data/stations/` (90 METAR airfields within 25 km of a spot) to
   `data/verify/stations/<id>.jsonl` (the published model, GFS since 2026-08-30) and
-  `<id>.icon.jsonl` (ICON, the A/B member), and step 4c scores the published one by lead
-  with `verify --stations --archive` (one station: `verify --station LLBG --archive`;
-  the A/B member: `--wind-model icon`). Wind columns only, evidence only - the bias it
+  `<id>.icon.jsonl` (ICON, the A/B member) and, since 2026-09-12, `<id>.gfs_grib.jsonl`
+  (the raw GFS 0.25 atmos GRIB from NOMADS, plan C3b's candidate to replace the
+  Open-Meteo weather call - ~1,160 grib-filter requests a cycle, no Open-Meteo units),
+  and step 4c scores the published one by lead with `verify --stations --archive` (one
+  station: `verify --station LLBG --archive`; the other members: `--wind-model icon` /
+  `--wind-model gfs_grib`). Wind columns only, evidence only - the bias it
   measures is the coastal-cell damping OPEN-ITEMS 25 is about. IMS beach stations (`data/stations/ims.yaml`) need
   `IMS_API_TOKEN=...` in `~/rosa/.env` (free, by mail from ims@ims.gov.il); until the
   token exists the file is empty and the pass is METAR-only.
