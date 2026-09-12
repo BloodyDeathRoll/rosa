@@ -39,8 +39,8 @@ export function headFor(route: Route): void {
       });
       return;
     case "spot":
-      // the shell value; SpotPage sets the real one from the index / payload
-      setHead({ title: "Surf forecast | Rosa", path });
+      // SpotPage owns its head (from the index entry, then the payload); setting
+      // a placeholder here would blank the prerendered title on every cold load
       return;
     case "about":
       setHead({

@@ -20,8 +20,6 @@ import { TAB_ROUTES, type Tab } from "./tabs";
 import { currentPath, interceptLinks, onRouteChange, parseRoute, type Route } from "./router";
 import { headFor } from "./seo";
 
-export { parseRoute, type Route };
-
 const TABS: { tab: Tab; label: string; icon: typeof HomeIcon }[] = [
   { tab: "today", label: "Today", icon: HomeIcon },
   { tab: "spots", label: "Spots", icon: StarIcon },
