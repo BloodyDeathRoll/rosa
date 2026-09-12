@@ -287,7 +287,7 @@ export function CoastChart({
         <section key={group} class="coast-group">
           {sections.length > 1 && <h3 class="group-label">{group}</h3>}
           {rows.map((data) => (
-        <a key={data.spot.id} class="coast-row" href={`#/spot/${data.spot.id}`}>
+        <a key={data.spot.id} class="coast-row" href={`/spot/${data.spot.id}`}>
           <span class="coast-name">{splitName(data.spot.name).name}</span>
           <div class="coast-cells track" ref={register} onScroll={onScroll}>
             {dates.map((date) => {

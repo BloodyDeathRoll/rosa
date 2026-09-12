@@ -23,6 +23,7 @@ __pycache__/
 node_modules/
 web/dist/
 web/dev-dist/
+web/dist-ssr/
 web/public/data/
 web/public/olderIcons.zip
 

@@ -53,6 +53,10 @@ export default defineConfig({
         skipWaiting: true,
         clientsClaim: true,
         cleanupOutdatedCaches: true,
+        // path routes (/spot/x, /about/how) are served by the precached app shell
+        // when the worker owns the navigation (the default navigateFallback);
+        // crawler files and data are never answered with the shell
+        navigateFallbackDenylist: [/^\/data\//, /\.(xml|txt|json)$/],
         // app shell precached; the heavy maplibre chunk is fetched (and then cached)
         // only when the Map tab opens; forecast JSON served stale-while-revalidate so
         // the last forecast is readable offline and refreshes in the background

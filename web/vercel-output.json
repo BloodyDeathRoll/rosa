@@ -41,6 +41,33 @@
       "headers": {
         "Location": "https://rosa.surf/$1"
       }
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/spot/([\\w-]+)/?",
+      "dest": "/spot/$1.html",
+      "check": true
+    },
+    {
+      "src": "/about/(how|reading|terms|privacy|contact)/?",
+      "dest": "/about/$1.html",
+      "check": true
+    },
+    {
+      "src": "/(map|charts|spots|search|settings)/?",
+      "dest": "/$1.html",
+      "check": true
+    },
+    {
+      "src": "/(favorites|account|today)/?",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html",
+      "status": 404
     }
   ]
 }

@@ -39,7 +39,7 @@ function ResultRow({
   // matched a search for it - so it stands in as the subtitle when the name carries none.
   const sub = region ?? entry.town ?? null;
   return (
-    <a class="spot-row-card plain" href={`#/spot/${id}`}>
+    <a class="spot-row-card plain" href={`/spot/${id}`}>
       <TierDot bucket={entry.bucket} />
       <span class="mid">
         <SpotTitle name={name} region={sub} />
@@ -62,7 +62,7 @@ function ResultRow({
 /** A matched "map area" → frames the whole region on the Map tab. */
 function RegionRow({ region }: { region: RegionInfo }) {
   return (
-    <a class="spot-row-card plain area-row" href="#/map" onClick={() => setPendingArea(region.name)}>
+    <a class="spot-row-card plain area-row" href="/map" onClick={() => setPendingArea(region.name)}>
       <span class="area-pin">
         <MapPinIcon size={18} />
       </span>

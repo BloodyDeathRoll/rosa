@@ -10,16 +10,17 @@ import { getUnits } from "./units";
 import { initialTheme } from "./theme";
 import { mountParticles } from "./components/particles";
 import { appReady } from "./splash";
+import { adoptLegacyHash } from "./router";
 import "@fontsource-variable/inter";
 import "./styles.css";
 
-/** `#/spots?import=a,b,c` - favorites handed over from the old origin's app
+/** `/spots?import=a,b,c` - favorites handed over from the old origin's app
     (MovedScreen). Storage is per origin, so this is the only way they cross.
     Merged into this device's list before anything renders; the sign-in screen
     then asks for the account they get saved to (signInWithCode merges local
     into the account). The parameter is stripped so a reload does not re-import. */
-function importFromHash(): void {
-  const m = /[?&]import=([^&]+)/.exec(location.hash);
+function importFromQuery(): void {
+  const m = /[?&]import=([^&]+)/.exec(location.search);
   if (!m?.[1]) return;
   const ids = decodeURIComponent(m[1])
     .split(",")
@@ -27,12 +28,20 @@ function importFromHash(): void {
   const current = getFavorites();
   const merged = [...current, ...ids.filter((id) => !current.includes(id))];
   if (merged.length !== current.length) setFavorites(merged, { dirty: signedIn() });
-  history.replaceState(null, "", location.hash.replace(/[?&]import=[^&]+/, ""));
+  history.replaceState(null, "", location.pathname + location.search.replace(/[?&]import=[^&]+/, ""));
 }
-if (!onLegacyOrigin()) importFromHash();
+// old `#/...` links (push notifications, shares, the old origin's hand-over)
+// become their path form before the router reads them
+adoptLegacyHash();
+if (!onLegacyOrigin()) importFromQuery();
 
 const root = document.getElementById("app");
-if (root) render(onLegacyOrigin() ? <MovedScreen /> : <App />, root);
+if (root) {
+  // the prerendered shell carries crawler text inside #app (index.html and
+  // scripts/prerender.mjs); it is not hydrated, the app renders over a clean root
+  root.replaceChildren();
+  render(onLegacyOrigin() ? <MovedScreen /> : <App />, root);
+}
 
 initAnalytics();
 // GA4 alongside it, and inert without VITE_GA_ID. Consent defaults are pushed inside
@@ -65,7 +74,7 @@ function reloadOnUpdate(): void {
   navigator.serviceWorker.addEventListener("controllerchange", () => {
     if (reloading) return; // the event can fire more than once
     reloading = true;
-    location.reload(); // keeps the hash, so you land back on the same screen
+    location.reload(); // keeps the path, so you land back on the same screen
   });
 }
 reloadOnUpdate();

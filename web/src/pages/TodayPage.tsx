@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "preact/hooks";
+import { navigate } from "../router";
 import { fetchIndex, fetchSpot } from "../api";
 import { CoastChart, DayBars } from "../components/CoastChart";
 import {
@@ -156,7 +157,7 @@ function DetailCard({ data, date, maxH }: { data: SpotPayload; date: string; max
   const { name, region } = splitName(data.spot.name);
   const dv = dayView(data, date);
   const swell = dv.rep.swells.find((s) => s.in_window) ?? dv.rep.swells[0];
-  const open = () => (location.hash = `#/spot/${data.spot.id}`);
+  const open = () => (navigate(`/spot/${data.spot.id}`));
   return (
     <div class="detail-card">
       <button class="open" onClick={open}>
@@ -345,7 +346,7 @@ export function TodayPage() {
   }, [plan?.ids.join(",")]);
 
   const search = (
-    <a class="icon-btn" href="#/search" aria-label="Search spots">
+    <a class="icon-btn" href="/search" aria-label="Search spots">
       <SearchIcon />
     </a>
   );

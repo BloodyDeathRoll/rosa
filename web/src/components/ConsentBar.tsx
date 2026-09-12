@@ -36,7 +36,7 @@ export function ConsentBar() {
         <b id="consent-title">Help us make Rosa better?</b>
         <small>
           We count which spots and screens get used. No ads, nothing sold.{" "}
-          <a href="#/about/privacy">How we handle your data</a>
+          <a href="/about/privacy">How we handle your data</a>
         </small>
       </div>
       <div class="consent-actions">

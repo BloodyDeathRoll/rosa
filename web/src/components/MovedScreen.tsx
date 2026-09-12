@@ -17,13 +17,13 @@ export function onLegacyOrigin(): boolean {
     the surfer to rosa.surf to install afresh. Same look as the splash it lifts
     from. Nothing else in the app runs on the old origin. */
 /** The link to the new origin. Storage is per origin, so the favorites this
-    device kept under the old address ride along in the hash and main.tsx on
+    device kept under the old address ride along in the query and main.tsx on
     rosa.surf imports them on arrival (`?import=`), before the sign-in screen
     asks for the account they will then be saved to. */
 export function movedLink(): string {
   const favs = getFavorites();
   const q = favs.length ? `?import=${encodeURIComponent(favs.join(","))}` : "";
-  return `${APP_ORIGIN}/#/spots${q}`;
+  return `${APP_ORIGIN}/spots${q}`;
 }
 
 /** Where this platform hides "remove": there is no web API for uninstalling, the
