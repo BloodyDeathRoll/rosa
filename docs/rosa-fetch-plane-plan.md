@@ -114,6 +114,18 @@ the same per-spot request family). Order: easiest first, each independently ship
   - the 8.8-unit arithmetic above is the marine host only). Wind feeds the wind gate,
   so this migration gets its own buoy/station A/B before promotion; do not bundle it
   with the wave swap.
+- **C3b. Weather -> GFS 0.25 atmos GRIB, measured first (OPEN-ITEMS 34, opened
+  2026-09-12).** C3 kept OM weather on accuracy, but the comparison it rested on was
+  ICON-era OM vs the wave file's ocean-masked wind, and OM's weather model has been GFS
+  itself since 2026-08-30 - so the migration is now an interpolation question, not a
+  model question. And since the marine-light leg went (2026-09-12) the weather host is
+  the LAST per-spot OM call, at the 10,000/day line at 1947 spots. Steps: add a
+  `gfs_grib` member to the station wind archive and score it for ~2 weeks; if the
+  short-lead sign holds, a `WeatherSource` behind `BlendedSource.weather` on the same
+  26 boxes / 3-hourly steps as `GfsFullSource` (NOMADS `filter_gfs_0p25_1hr.pl`,
+  UGRD/VGRD/GUST 10 m + PRMSL + TMP 2 m, subregion), OM kept as `--weather-source om`.
+  Rating-critical (wind gate) -> pb_0049: fleet A/B + CALIBRATION.md entry in the same
+  change. After it, spot count costs zero Open-Meteo units anywhere on the publish path.
 - **C4. Confidence ensemble.** Today: a 4-model OM ensemble request. Rebuild
   agreement + `dir_span` from members we already download (GFS-Wave, ECMWF, and the
   blend spread itself). The member set changes, so `dir_n` era-tagging applies AGAIN
@@ -207,3 +219,13 @@ matures → D1 → B1-B4 → C2 → C3 → C4 → D2-D4 region by region.**
   per cycle; four cycles 8,152 against a 9,400 budget / 10,000 cap. **The current fetch
   plane tops out at ~305 spots - ~40 more than today.** Only the blend promotion
   (7.69 -> 1.21 units/pt, BUILT) lifts it, and it is gated on A4 (2026-09-17).
+- **2026-09-12: the marine host is OFF the publish path - the blend arm's last marine
+  request, the SST/tide fallback leg, is removed.** At 1947 spots (seeded 2026-09-11) it
+  cost 1.21 x 1947 = 2,355.9 units a cycle, 9,423.6 a day against the 9,400 budget, and
+  the 20:20Z cycle was refused on 2026-09-11 (Dream 2026-09-12 HIGH; VM ledger confirmed).
+  EOT20 constants are committed for all 1947 spots, OISST maps every spot, and the
+  fallback had fired 0 times in the whole publish.log, so it is deleted rather than
+  skipped-when-broke: `blend.fetch_weather_many` (weather host only), `compose_raw`
+  without a marine body, `cli` meters the om arm only. Nothing published moves. **The
+  ceiling is now the weather host** (1.21/pt, ~9,900-11,200 a day with the station
+  archive, against the same 10,000 cap) - plan C3b above / OPEN-ITEMS 34 is the exit.

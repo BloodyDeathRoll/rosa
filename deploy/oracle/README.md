@@ -48,15 +48,18 @@ the *published* data over HTTPS and never talks to the pipeline.
    thing that can't be back-filled.
 3. `rosa-pipeline run --all` - refresh all per-spot forecasts. Since 2026-08-26 this is the
    GFS-Wave+ECMWF blend arm by default (waves from global files downloaded once per cycle,
-   ~320 marine-host units a run; `--wave-source om` is the per-spot fallback at ~2,040).
-   **Exit 3 is the daily-quota
-   guard, not a failure**: `rosa_pipeline.quota` keeps a per-UTC-day ledger of Open-Meteo
-   marine-host units in `data/verify/quota.json` and refuses to fetch when the next fleet run
-   would cross the budget (default 9,400 units; `ROSA_OM_DAILY_BUDGET` moves it,
-   `--ignore-quota` overrides once). The cycle then alerts, pings the dead-man anyway, and
-   exits 0 with the previous payloads still serving. Four cycles at 265 spots cost ~8,150
-   units plus ~530 for the archive against a 10,000/day allowance (it was ~9,330 until three
-   unread marine variables came out on 2026-08-16), so a fifth fleet run of
+   tide from committed EOT20 constants, SST from OISST - ZERO marine-host units a run since
+   2026-09-12, when the SST/tide fallback request was removed; `--wave-source om` is the
+   per-spot fallback at 7.69 units/spot, i.e. one 1947-spot run a day fits the budget).
+   **Exit 3 is the daily-quota guard, not a failure, and only the om arm can raise it**:
+   `rosa_pipeline.quota` keeps a per-UTC-day ledger of Open-Meteo marine-host units in
+   `data/verify/quota.json` and refuses an om-arm fetch when the next fleet run would cross
+   the budget (default 9,400 units; `ROSA_OM_DAILY_BUDGET` moves it, `--ignore-quota`
+   overrides once). The cycle then alerts, pings the dead-man anyway, and exits 0 with the
+   previous payloads still serving. The blend arm's one per-spot Open-Meteo call is the
+   WEATHER host (1.21 units/spot, ~2,360 a run at 1947 spots, ~9,400 a day plus ~440 for the
+   station wind archive - at the vendor's 10,000/day line; OPEN-ITEMS 34 / plan C3b is the
+   exit), which the ledger does not meter. On the om arm a fifth fleet run of
    any kind - including an ad-hoc one from a laptop against the same IP - is what the guard
    exists to stop. It fired for real on 2026-08-15 before it existed (OPEN-ITEMS 19).
    **Exit 4 is a PARTIAL run, and it DEPLOYS**: a small share of the fleet failed and the

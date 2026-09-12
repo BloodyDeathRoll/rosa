@@ -15,13 +15,18 @@ scaled by 17/14 days -> 6.2, plus the ensemble's 1.5). At 265 spots that was ~2,
 a fleet run, four cron runs ~8,150 of a 10,000/day allowance - the fleet at the edge of
 the daily cap by itself, open item 14's ceiling. **Since 2026-08-26 the default arm is the
 blend** (docs/rosa-fetch-plane-plan.md D3): waves come from global GFS-Wave + ECMWF files
-downloaded once per cycle, and the only marine-host traffic left is the 2-variable
-SST/tide-fallback leg at ``MARINE_LIGHT_UNITS_PER_POINT`` - ~320 units a fleet run, ~1,280
-a day. Spot count no longer sets the ceiling. The guard stays for the ``--wave-source om``
-fallback arm and for the archive/verify steps that share the host: a fifth OM-arm fleet
-run of any kind will still be refused. Refused, not throttled: there is no useful way to
-wait out a daily quota inside a cycle, and a skipped refresh (the previous payloads keep
-serving, ~6 h old at worst) is a far better outcome than a failed cycle.
+downloaded once per cycle, tide from committed EOT20 constants, SST from OISST. **Since
+2026-09-12 the blend arm makes NO marine-host request at all** and is not metered here:
+its last one, a 2-variable SST/tide fallback leg at 1.21 units/point (the vendor floors a
+location at weight 1), never fired in the VM log yet at 1947 spots cost 2,356 units a run -
+four cycles 9,424 against this 9,400 budget, so the 20:20Z cycle was refused every day. The
+weather host is the blend arm's only per-spot Open-Meteo call; the caps are per host and
+this ledger has never metered it (see blend.AUX_BATCH_SIZE; plan C3b is the exit). The
+guard stays for the ``--wave-source om`` fallback arm and for the archive/verify steps that
+share the marine host: a fifth OM-arm fleet run of any kind will still be refused. Refused,
+not throttled: there is no useful way to wait out a daily quota inside a cycle, and a
+skipped refresh (the previous payloads keep serving, ~6 h old at worst) is a far better
+outcome than a failed cycle.
 
 The ledger is VM-local state under ``data/verify/`` (gitignored, like the archive and
 skill.json). A missing or corrupt file is treated as a fresh day: this guard must never be
@@ -57,11 +62,12 @@ MARINE_UNITS_PER_POINT = 7.69
 #
 # This guard never bought room for more spots; it only stopped one avoidable failure mode.
 # Under the OM arm four cycles plus the archive sat at ~87% of the vendor allowance at 265
-# spots (99% before the trim). Under the blend arm (the default since 2026-08-26) the same
-# four cycles are ~1,280 units, so the budget is no longer near the fleet: it is the ceiling
-# on OM-arm fallback runs and ad-hoc A/Bs. The number is left where it was on purpose - it
-# still fits exactly four OM-arm fleet runs, so a region-wide fallback to OM keeps working.
-# Override with ROSA_OM_DAILY_BUDGET when the fleet, the schedule or the allowance changes.
+# spots (99% before the trim). The blend arm (the default since 2026-08-26) books nothing
+# here since 2026-09-12, so the budget is the ceiling on OM-arm fallback runs and ad-hoc
+# A/Bs only. The number is left where it was on purpose - it still fits exactly four
+# OM-arm fleet runs at 265 spots (one at 1947: a region-wide fallback to OM is a one-cycle
+# affair now, not a schedule). Override with ROSA_OM_DAILY_BUDGET when the schedule or the
+# allowance changes.
 DEFAULT_DAILY_BUDGET = 9_400.0
 
 DEFAULT_STATE = Path("data/verify/quota.json")
@@ -88,20 +94,6 @@ def daily_budget() -> float:
 def marine_units(points: int) -> float:
     """Weighted units one fleet fetch of `points` deep-water points costs."""
     return round(points * MARINE_UNITS_PER_POINT, 1)
-
-
-# The blend arm's transitional marine-light leg (blend.MARINE_LIGHT_FIELDS: SST + tide)
-# bills the SAME marine host. Open-Meteo floors every location at weight 1
-# (max(1, vars/10) per fetch.py's derivation), so 2 vars is 1.0/point - not the ~0.2 a
-# bare vars/10 reads - scaled by 17/14 days -> 1.21. Small beside the om arm's 7.69,
-# but a live blend fleet run is an ad-hoc run on top of the cron's four, which is
-# exactly the 2026-08-15 scenario this ledger exists to refuse.
-MARINE_LIGHT_UNITS_PER_POINT = 1.21
-
-
-def marine_light_units(points: int) -> float:
-    """Weighted units one blend-arm fetch of `points` costs on the marine host."""
-    return round(points * MARINE_LIGHT_UNITS_PER_POINT, 1)
 
 
 @dataclass

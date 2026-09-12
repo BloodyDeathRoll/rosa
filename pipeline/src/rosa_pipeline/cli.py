@@ -276,9 +276,11 @@ def _build_parser() -> argparse.ArgumentParser:
         default="blend",
         help="blend (default since 2026-08-26): the GFS-Wave+ECMWF 50/50 blend "
         "(fetch-plane plan B), PROMOTED worldwide - waves come from global files "
-        "downloaded once per cycle, so spot count no longer costs marine quota; weather "
-        "+ SST/tide fallback still ride light OM requests. With --fixtures, expects "
-        "gfsfull_*.grib2 + weather_*/marine_light_*.json captures in the fixtures dir. "
+        "downloaded once per cycle, tide from EOT20 and SST from OISST, so spot count "
+        "costs NO marine quota (the SST/tide fallback request was dropped 2026-09-12); "
+        "only the weather leg is still a per-spot OM request, on the weather host. "
+        "With --fixtures, expects gfsfull_*.grib2 + weather_*.json captures in the "
+        "fixtures dir. "
         "om: the per-spot Open-Meteo path - the fallback arm and the A/B replay arm "
         "(the committed OM fixtures replay through it)",
     )
@@ -677,17 +679,27 @@ def _cmd_run(args: argparse.Namespace) -> int:
     # over-count (a refused-or-crashed run's partial spend is rounded up to a full one),
     # which errs toward refusing - the failure mode that costs a stale-but-serving payload
     # instead of a failed cycle.
-    # The blend arm is charged too: its marine-light aux leg (SST + tide) rides the same
-    # marine host at ~1.21 units/point (see quota.MARINE_LIGHT_UNITS_PER_POINT), and a
-    # live blend run is by definition an ad-hoc run on top of the cron's four - the
-    # scenario this guard exists for. Only the weights differ between the arms.
+    # OM arm only. The blend arm makes NO marine-host request since 2026-09-12: its
+    # SST/tide fallback leg (1.21 units/point, the whole of its marine spend) was
+    # dropped once 1947 spots x 4 cycles crossed the budget and refused the 20:20Z
+    # cycle daily - EOT20 and OISST are primary and the fallback never fired. Its one
+    # remaining per-spot call is the weather host, which this ledger never metered
+    # (fetch.py: the caps are per host). So a blend run books nothing and is never
+    # refused; the ledger keeps refusing a fifth om-arm fleet run, as designed.
     om_arm = getattr(args, "wave_source", "om") != "blend"
-    ledger: quota.Ledger | None = None
-    if args.fixtures is None:
-        ledger = quota.Ledger.load(args.quota_state)
-        planned = (
-            quota.marine_units(len(points)) if om_arm else quota.marine_light_units(len(points))
+    if not om_arm and getattr(args, "tide_source", "eot20") == "om":
+        # the blend arm has no OM tide column to fall back on - a silent no-op flag
+        # would publish a tide-less fleet; say so and stop before any fetch
+        print(
+            "run: --tide-source om is only available with --wave-source om - the blend arm "
+            "carries no Open-Meteo tide (EOT20 constants are its only tide source)",
+            file=sys.stderr,
         )
+        return 2
+    ledger: quota.Ledger | None = None
+    if args.fixtures is None and om_arm:
+        ledger = quota.Ledger.load(args.quota_state)
+        planned = quota.marine_units(len(points))
         if not ledger.affords(planned) and not args.ignore_quota:
             print(ledger.refusal(planned), file=sys.stderr)
             return quota.EXIT_QUOTA_EXHAUSTED
@@ -715,8 +727,8 @@ def _cmd_run(args: argparse.Namespace) -> int:
             BlendedSource,
             GfsFullFixtureSource,
             GfsFullSource,
-            fetch_aux_many,
-            fixture_aux_many,
+            fetch_weather_many,
+            fixture_weather_many,
         )
         from .gwam import GwamFixtureSource, GwamSource
         from .oisst import OisstFixtureSource, OisstSource
@@ -724,14 +736,14 @@ def _cmd_run(args: argparse.Namespace) -> int:
         if args.fixtures is not None:
             blend_src = BlendedSource(
                 gfs=GfsFullFixtureSource(args.fixtures, aims=aims),
-                aux=lambda coords: fixture_aux_many(coords, args.fixtures),
+                weather=lambda coords: fixture_weather_many(coords, args.fixtures),
                 sst=OisstFixtureSource(args.fixtures),
                 tp=GwamFixtureSource(args.fixtures),
             )
         else:
             blend_src = BlendedSource(
                 gfs=GfsFullSource(capture_dir=args.capture, aims=aims),
-                aux=lambda coords: fetch_aux_many(coords, capture_dir=args.capture),
+                weather=lambda coords: fetch_weather_many(coords, capture_dir=args.capture),
                 sst=OisstSource(capture_dir=args.capture),
                 tp=GwamSource(capture_dir=args.capture),
             )

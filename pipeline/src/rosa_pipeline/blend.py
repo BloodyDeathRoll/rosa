@@ -15,12 +15,14 @@ What each leg contributes, per hour:
   the spectral member): total swh/mwd/pp1d as the other member, mwp as the total mean
   period (GFS gridded publishes none). Stops at 240 h - past it the blend degrades to
   GFS-Wave alone, honestly (plan B3; the horizon ceiling already prices that tail low).
-* **Open-Meteo, retained**: the weather request (C3 DECIDED 2026-08-26 - OM wins wind
-  at every lead before day 4, so it stays) and a LIGHT marine request carrying only
-  the SST + tide fallbacks,
-  ~1.2 weight/point (Open-Meteo floors each location at weight 1 - see
-  quota.MARINE_LIGHT_UNITS_PER_POINT) vs ~7.7 for the full marine+ensemble pair;
-  charged against the same daily ledger as the om arm.
+* **Open-Meteo, retained**: the weather request ONLY (C3 DECIDED 2026-08-26 - OM wins
+  wind at every lead before day 4, so it stays; plan C3b measures the GFS atmos GRIB as
+  its replacement). No marine request: tide is EOT20 (plan C1) and SST is OISST (plan
+  C2). Until 2026-09-12 a 2-variable "marine-light" request carried per-hour fallbacks
+  for both; it never fired in the VM log, and at weight 1.21/point it was the whole
+  marine-host spend of the blend arm - 1947 spots x 4 cycles crossed the 9,400 daily
+  budget and the 20:20Z cycle was refused every day. Dropping it leaves this arm at
+  ZERO marine-host units, so spot count no longer touches rosa_pipeline.quota at all.
 
 The composed ``RawForecast.marine`` uses plain UNSUFFIXED keys, which
 ``extract._merge_models`` passes through untouched - extract/transform/score need no
@@ -37,7 +39,6 @@ from __future__ import annotations
 
 import json
 import math
-import sys
 import tempfile
 from collections.abc import Mapping
 from concurrent.futures import ThreadPoolExecutor
@@ -52,7 +53,6 @@ import httpx
 from .extract import SPECTRAL_JOIN_TOL_H, _nearest_spectral
 from .fetch import (
     FORECAST_DAYS,
-    MARINE_URL,
     PAST_DAYS,
     WEATHER_HOURLY,
     WEATHER_MODEL,
@@ -114,10 +114,12 @@ W_GFS = 0.5
 # a 3-hourly hour joins the nearest 6-hourly ECMWF step within this - extract's own
 # rule, imported rather than restated so the two arms can never drift apart
 JOIN_TOL_H = SPECTRAL_JOIN_TOL_H
-# the light OM legs batch like fetch_marine_waves_many; weight is tiny so one bucket is
-# plenty at any batch size we use
+# the OM weather leg batches like fetch_marine_waves_many. 100 points x 1.21 weight
+# (5 vars floor at 1, x 17/14 days) = 121 units a batch on the weather host's 600/min
+# bucket - the minutely 429 fetch._retry_wait_s waits out is the only cap this leg
+# meets (3-10 retries a day at 1947 spots, all recovered). The weather host is the
+# blend arm's last per-spot Open-Meteo call; plan C3b is its exit.
 AUX_BATCH_SIZE = 100
-MARINE_LIGHT_FIELDS = ["sea_surface_temperature", "sea_level_height_msl"]
 
 # the full GFS-Wave partition schema, mapped onto the OM key family extract expects.
 # Message order matters: shts/mpts/swdir each appear THREE times in a gridded file
@@ -346,18 +348,25 @@ class GfsFullFixtureSource:
 
 
 # ---------------------------------------------------------------------------
-# the transitional Open-Meteo legs (weather unchanged; marine cut to SST + tide)
+# the one Open-Meteo leg left on this arm: weather (plan C3 keeps it; C3b is its exit)
 # ---------------------------------------------------------------------------
 
 
-def fetch_aux_many(
+def fetch_weather_many(
     coords: list[tuple[float, float]],
     *,
     capture_dir: Path | None = None,
     timeout_s: float = 30.0,
-) -> list[tuple[dict, dict]]:
-    """(weather_body, marine_light_body) per point, batched comma-joined."""
-    out: list[tuple[dict, dict]] = []
+) -> list[dict]:
+    """One Open-Meteo weather body per point, batched comma-joined.
+
+    The weather host is the ONLY Open-Meteo call this arm makes per spot. Until
+    2026-09-12 a second, marine-host request rode beside it carrying per-hour SST and
+    tide fallbacks; EOT20 and OISST are primary and the fallback never fired in the VM
+    log, while its weight (1.21/point, the vendor floors a location at 1) was the entire
+    marine-host spend - at 1947 spots four cycles crossed the daily budget and the
+    20:20Z cycle was refused. It is gone; SST is ``sst_daily``, tide is the constants."""
+    out: list[dict] = []
     if not coords:
         return out
     with httpx.Client(timeout=timeout_s) as client:
@@ -366,14 +375,14 @@ def fetch_aux_many(
             lat_s = ",".join(f"{lat:g}" for lat, _ in batch)
             lon_s = ",".join(f"{lon:g}" for _, lon in batch)
             # retrying_get, same as the OM arm's batches: a lone 503 on a weather
-            # batch killed the 2026-08-16 08:20Z cycle, and these two legs run AFTER
-            # the GFS/ECMWF downloads - a transient here throws all of that away.
-            # retry_429=True since 2026-08-28: these legs are ESSENTIAL to the cycle
+            # batch killed the 2026-08-16 08:20Z cycle, and this leg runs AFTER the
+            # GFS/ECMWF downloads - a transient here throws all of that away.
+            # retry_429=True since 2026-08-28: this leg is ESSENTIAL to the cycle
             # (the whole run dies at raise_for_status below), and the DB growth to 624
             # spots pushed the burst past the MINUTELY cap - the 20:20Z and 02:20Z
-            # cycles both died on the same aux weather batch ~64 min in. Only the
+            # cycles both died on the same weather batch ~64 min in. Only the
             # minutely-cap 429 is retried (fetch._retry_wait_s); hourly/daily still
-            # fail fast, which is rosa_pipeline.quota's job.
+            # fail fast, which is rosa_pipeline.quota's job on the om arm.
             wresp = retrying_get(
                 client,
                 WEATHER_URL,
@@ -388,59 +397,24 @@ def fetch_aux_many(
                 retry_429=True,
             )
             wresp_ok = wresp.raise_for_status().json()
-            # The marine-light leg is NOT essential any more: EOT20 owns the tide column
-            # (default since 2026-08-15) and OISST the SST (plan C2); this body is the
-            # per-hour fallback for both, and compose_raw reads a missing hour as None.
-            # So a batch that still fails after retrying_get's three attempts costs its
-            # points the fallback, never the cycle. 2026-09-11: Oracle Jerusalem ->
-            # marine-api's 152.53.84.37 answered EHOSTUNREACH on ~40 % of connects for
-            # days; three in a row killed the 08:20Z cycle AFTER the archive and every
-            # GRIB download, while the weather host next to it answered fine.
-            try:
-                mresp = retrying_get(
-                    client,
-                    MARINE_URL,
-                    {
-                        "latitude": lat_s,
-                        "longitude": lon_s,
-                        "hourly": ",".join(MARINE_LIGHT_FIELDS),
-                        "forecast_days": FORECAST_DAYS,
-                        "past_days": PAST_DAYS,
-                    },
-                    retry_429=True,
-                )
-                mresp_ok: object = mresp.raise_for_status().json()
-            except (httpx.TransportError, httpx.HTTPStatusError) as e:
-                print(
-                    f"warn: open-meteo marine-light batch {i // AUX_BATCH_SIZE + 1} skipped "
-                    f"({e!r}) - EOT20 tide and OISST SST stand alone at {len(batch)} point(s)",
-                    file=sys.stderr,
-                )
-                mresp_ok = [{} for _ in batch]
             wb = [wresp_ok] if isinstance(wresp_ok, dict) else list(wresp_ok)
-            mb = [mresp_ok] if isinstance(mresp_ok, dict) else list(mresp_ok)
-            if len(wb) != len(batch) or len(mb) != len(batch):
+            if len(wb) != len(batch):
                 raise ValueError("open-meteo returned a different location count")
-            for (lat, lon), w, m in zip(batch, wb, mb, strict=True):
+            for (lat, lon), w in zip(batch, wb, strict=True):
                 if capture_dir is not None:
                     capture_dir.mkdir(parents=True, exist_ok=True)
-                    key = fixture_key(lat, lon)
-                    (capture_dir / f"weather_{key}.json").write_text(json.dumps(w))
-                    (capture_dir / f"marine_light_{key}.json").write_text(json.dumps(m))
-                out.append((w, m))
+                    (capture_dir / f"weather_{fixture_key(lat, lon)}.json").write_text(
+                        json.dumps(w)
+                    )
+                out.append(w)
     return out
 
 
-def fixture_aux_many(
-    coords: list[tuple[float, float]], fixtures_dir: Path
-) -> list[tuple[dict, dict]]:
-    out = []
-    for lat, lon in coords:
-        key = fixture_key(lat, lon)
-        w = json.loads((fixtures_dir / f"weather_{key}.json").read_text())
-        m = json.loads((fixtures_dir / f"marine_light_{key}.json").read_text())
-        out.append((w, m))
-    return out
+def fixture_weather_many(coords: list[tuple[float, float]], fixtures_dir: Path) -> list[dict]:
+    return [
+        json.loads((fixtures_dir / f"weather_{fixture_key(lat, lon)}.json").read_text())
+        for lat, lon in coords
+    ]
 
 
 # ---------------------------------------------------------------------------
@@ -580,7 +554,6 @@ def compose_raw(
     gfs: list[GfsSea],
     ecmwf: list[SpectralSea],
     weather: dict,
-    marine_light: dict,
     fetched_at: str,
     sst_daily: float | None = None,
     tp: list[GwamStep] | None = None,
@@ -588,10 +561,12 @@ def compose_raw(
     """One point's blended ``RawForecast``, in the unsuffixed shape extract passes through.
 
     Time base = the GFS steps interpolated to hourly (the only leg carrying partitions);
-    each hour blends in the nearest ECMWF step within JOIN_TOL_H. Tide is looked up from
-    the light OM marine body BY TIMESTAMP, so a missing hour is None, never misaligned.
-    SST: ``sst_daily`` (OISST, plan C2 - intra-day drift ~0.1 C, below model error) fills
-    every hour when present; the OM light value is the per-hour fallback.
+    each hour blends in the nearest ECMWF step within JOIN_TOL_H. The tide column is
+    None on every hour: this arm carries no Open-Meteo tide, extract synthesises tide_m
+    from the spot's EOT20 constants (the default since 2026-08-15; `--tide-source om` is
+    refused on this arm by cli). SST: ``sst_daily`` (OISST, plan C2 - intra-day drift
+    ~0.1 C, below model error) fills every hour when present, None otherwise - an NCEI
+    outage costs SST for the cycle, which the payload shows as blank, never a number.
     ``tp`` (DWD GWAM, docs/rosa-peak-period-plan.md): the primary swell's and the wind
     sea's PEAK period per hour, the two columns extract._partition reads a peak from -
     what the OM arm's gwam join supplied. None past 174 h and for secondaries, as there.
@@ -603,8 +578,6 @@ def compose_raw(
     tp_series = sorted(tp or [], key=lambda s: s.time)
     sp_series = sorted(ecmwf, key=lambda s: s.time)
     sp_times = [s.time for s in sp_series]
-    ml = marine_light.get("hourly", {})
-    ml_index = {t: i for i, t in enumerate(ml.get("time", []))}
 
     cols: dict[str, list] = {
         k: []
@@ -670,19 +643,10 @@ def compose_raw(
             cols[f"{prefix}_height"].append(f.get(f"swell{n}_h"))
             cols[f"{prefix}_direction"].append(f.get(f"swell{n}_d"))
             cols[f"{prefix}_period"].append(f.get(f"swell{n}_p"))
-        j = ml_index.get(t_iso)
-        om_sst = None
-        if (
-            (arr := ml.get("sea_surface_temperature")) is not None
-            and j is not None
-            and j < len(arr)
-        ):
-            om_sst = arr[j]
-        cols["sea_surface_temperature"].append(sst_daily if sst_daily is not None else om_sst)
-        arr = ml.get("sea_level_height_msl")
-        cols["sea_level_height_msl"].append(
-            arr[j] if arr is not None and j is not None and j < len(arr) else None
-        )
+        cols["sea_surface_temperature"].append(sst_daily)
+        # kept in the schema so extract's om-arm read (`marine.get(...)`) stays one code
+        # path; always None here - see the docstring
+        cols["sea_level_height_msl"].append(None)
 
     ensemble = {
         "hourly": {
@@ -724,12 +688,12 @@ class BlendedSource:
     def __init__(
         self,
         gfs: GfsFullWaves,
-        aux,  # callable(coords) -> list[(weather_body, marine_light_body)]
-        sst=None,  # oisst.SstSource | None (plan C2); OM light value is the fallback
+        weather,  # callable(coords) -> list[weather_body]
+        sst=None,  # oisst.SstSource | None (plan C2); None -> SST blank this cycle
         tp=None,  # gwam.GwamPeaks | None (peak-period plan A); None -> mean-period fallback
     ) -> None:
         self.gfs = gfs
-        self.aux = aux
+        self.weather = weather
         self.sst = sst
         self.tp = tp
 
@@ -744,10 +708,10 @@ class BlendedSource:
         fetched_at = datetime.now(UTC).isoformat(timespec="seconds")
         gfs_series = self.gfs.fetch_series(coords)
         sp_series = ecmwf_series if ecmwf_series is not None else [[] for _ in coords]
-        aux = self.aux(coords)
+        weather = self.weather(coords)
         sst_vals: list[float | None] = [None] * len(coords)
         if self.sst is not None:
-            try:  # guarded: an NCEI outage must never sink the run - OM value stands in
+            try:  # guarded: an NCEI outage must never sink the run - SST goes blank
                 sst_vals = self.sst.fetch(coords)
             except Exception as e:
                 import sys
@@ -762,9 +726,9 @@ class BlendedSource:
 
                 print(f"warn: gwam peak periods skipped: {e!r}", file=sys.stderr)
         raws = [
-            compose_raw(g, sp, w, m, fetched_at, sst_daily=sst_v, tp=tp_v)
-            for g, sp, (w, m), sst_v, tp_v in zip(
-                gfs_series, sp_series, aux, sst_vals, tp_series, strict=True
+            compose_raw(g, sp, w, fetched_at, sst_daily=sst_v, tp=tp_v)
+            for g, sp, w, sst_v, tp_v in zip(
+                gfs_series, sp_series, weather, sst_vals, tp_series, strict=True
             )
         ]
         # ...and say what this arm cannot measure. Once per run, not per point: the gap is a

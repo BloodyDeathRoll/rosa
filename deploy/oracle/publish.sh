@@ -95,9 +95,12 @@ trap 'on_fail "${BASH_COMMAND} (line $LINENO)"' ERR
 
   # 2) refresh the per-spot forecasts.
   #    Exit 3 is the daily-quota guard refusing to fetch (rosa_pipeline.quota), NOT a
-  #    failure: at 265 spots four cycles already spend ~9,300 of Open-Meteo's 10,000/day,
-  #    so a fifth fleet run of any kind - an ad-hoc one, or a cycle after someone else's -
-  #    would 429 mid-fleet and kill the cycle, which is what happened on 2026-08-15.
+  #    failure. Only the `--wave-source om` fallback arm can raise it since 2026-09-12:
+  #    the default blend arm makes no marine-host request (its SST/tide fallback leg,
+  #    1.21 units/spot, crossed the budget at 1947 spots and refused the 20:20Z cycle
+  #    daily - so it was removed, not gated). On the om arm one 1947-spot run is 14,972
+  #    units, so a second one the same day would 429 mid-fleet and kill the cycle, which
+  #    is what happened on 2026-08-15 at 265 spots.
   #    Refusing costs one stale refresh; the previous payloads keep serving and the
   #    freshness watchdog still covers real rot. Alert so it stays visible, then skip
   #    straight past the deploy - re-publishing an unchanged tree buys nothing.

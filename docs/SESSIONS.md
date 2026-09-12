@@ -870,3 +870,49 @@ mid-run; they resumed with nothing lost.
 - **Working rule learned:** Claude Code's auto mode refuses `gh pr merge` and production
   deploys even when asked; the maintainer merges and runs `npm run deploy` by hand.
 - The VM's first cycle with the sender fix and cryptography 50 is 20:20Z; its check is pending.
+
+## SESSION 2026-09-12 - Dream 09-12 HIGH: the 20:20Z cycle is refused daily at 1947 spots; the marine-light leg removed, plan C3b opened
+
+- **Dream review, 28 nights loaded (08-05 to 09-12).** One open HIGH (09-12): 1947 spots x
+  1.21 units for the blend arm's SST/tide fallback leg = 2,355.9 a cycle, 9,423.6 a day >
+  the 9,400 budget, so the fourth cron cycle exits 3 every day. Confirmed on the VM: the
+  2026-09-11 20:20Z cycle logged `refusing to fetch 2355.9 units - 8771.4 of 9400`, the
+  ledger read 4,711.8 after two cycles today. Two 09-11 LOW diffs (feedback-pull non-object
+  row, notify damaged stamp - both hand-edit triggers, scored 45/35) and six proposals
+  (09-10..09-12) are still open, undecided. Seven pre-08-23 diffs are in the code but were
+  never logged in the ledger; treated as done.
+- **Fix chosen over the Dream diff:** the diff kept the leg and skipped it when broke. The
+  operator asked for the proper fix. Research: the leg backs up EOT20 tide (1947/1947
+  constants committed) and OISST SST (every spot maps to a cell), and had fired 0 times in
+  the whole publish.log - so it is REMOVED. `blend.fetch_weather_many` replaces
+  `fetch_aux_many` (weather host only, one body per point), `compose_raw` takes no marine
+  body (OM tide column carried as None for the schema, SST = OISST or None), `cli` loads
+  the ledger on the om arm only and refuses `--wave-source blend --tide-source om` with
+  exit 2 (a silent no-op would publish a tide-less fleet), `quota.MARINE_LIGHT_*` gone.
+  Tests: the aux helpers return a weather body, the outage test for the removed leg and its
+  fixture are deleted, the OISST test now pins None (never an OM number) when OISST is
+  missing, the end-to-end replay feeds EOT20 constants and pins that nothing stands in
+  without them; two new quota tests (blend never metered or refused; the flag pair is
+  refused before any fetch). 617 passed, ruff clean. Nothing published moves; an NCEI
+  outage now blanks SST for a cycle instead of substituting OM's number.
+- **Quota picture after the change, measured, not assumed.** Marine host on the publish
+  path: 0. Weather host: 5 vars x 17 days = 1.21/pt = 2,356 a cycle, 9,424 a day, plus ~440
+  for the 180-station wind archive - on paper already past the 10,000/day line (the log
+  shows only minutely 429s there, 3-10 a day, all retried; no daily refusal yet - the daily
+  caps are evidently per host, since the two hosts together exceeded 17,000 on 09-11 without
+  one). So the next spot is the weather host's problem. Open-Meteo terms re-read
+  2026-09-12: 10,000/day, 5,000/h, 600/min, per IP, weight max(1, vars/10) x days/14; a paid
+  key lifts the daily cap but is a subscription.
+- **Plan C3b opened (OPEN-ITEMS 34, fetch-plane plan Phase C):** the 5 weather fields from
+  the GFS 0.25 atmos GRIB via NOMADS grib-filter on the blend arm's 26 boxes and 3-hourly
+  steps (verified the filter serves UGRD/VGRD/GUST/PRMSL/TMP at the needed levels with a
+  subregion). Same model OM serves since 2026-08-30 (`gfs_seamless`), so an interpolation
+  swap - but the C3 verdict compared ICON-era OM to the wave file's ocean-masked wind, so
+  it must be re-measured: `gfs_grib` member in the station archive for ~2 weeks, then a
+  `WeatherSource` with OM as the fallback arm, under pb_0049 (wind gate). Cost ~3,350
+  NOMADS requests a cycle (~40-70 min). After it, spot count costs zero Open-Meteo units.
+- **Dream ledger:** the 09-12 diff recorded as REJECTED (superseded by removal); one
+  playbook learning appended (a never-firing fallback that is billed per spot is a ceiling,
+  not a safety net - remove it, do not gate it).
+- Docs swept: `quota.py`, `blend.py`, `cli.py` help, OPEN-ITEMS 19/32/34, fetch-plane plan
+  C3b + status, `deploy/oracle/README.md`, `publish.sh` step-2 comment.

@@ -172,3 +172,74 @@ def test_fixture_replay_is_exempt(tmp_path, monkeypatch):
     )
     assert rc == 0
     assert (tmp_path / "out" / "spots" / "beit-yanai.json").exists()
+
+
+def test_blend_run_is_never_metered_or_refused(tmp_path, monkeypatch):
+    """2026-09-12: the blend arm makes no marine-host request, so a spent day must not
+    refuse it and the ledger must not even be read - 1947 spots x 4 cycles of the old
+    1.21/point fallback leg had crossed the budget and refused the 20:20Z cycle daily."""
+    from rosa_pipeline import cli
+
+    monkeypatch.setenv("ROSA_OM_DAILY_BUDGET", "0")
+
+    class Reached(Exception):
+        pass
+
+    def ledger_touched(*a, **k):
+        raise AssertionError("the ledger was read on the blend arm")
+
+    def reached(*a, **k):  # the first live source built after the guard
+        raise Reached
+
+    monkeypatch.setattr(quota.Ledger, "load", ledger_touched)
+    monkeypatch.setattr(cli, "EcmwfSource", reached)
+    with pytest.raises(Reached):
+        cli.main(
+            [
+                "run",
+                "--wave-source",
+                "blend",
+                "--spot",
+                "beit-yanai",
+                "--spots-dir",
+                str(SPOTS_DIR),
+                "--quota-state",
+                str(tmp_path / "quota.json"),
+                "--out",
+                str(tmp_path / "out"),
+                "--skill",
+                "/dev/null",
+            ]
+        )
+    assert not (tmp_path / "quota.json").exists()
+
+
+def test_blend_arm_refuses_om_tide_before_any_fetch(tmp_path, monkeypatch, capsys):
+    """The blend arm has no Open-Meteo tide column any more; a silent no-op flag would
+    publish a tide-less fleet, so the pair is refused with exit 2 ahead of every fetch."""
+    from rosa_pipeline import cli
+
+    def explode(*a, **k):
+        raise AssertionError("fetched despite a refused flag pair")
+
+    monkeypatch.setattr(cli, "EcmwfSource", explode)
+    rc = cli.main(
+        [
+            "run",
+            "--wave-source",
+            "blend",
+            "--tide-source",
+            "om",
+            "--spot",
+            "beit-yanai",
+            "--spots-dir",
+            str(SPOTS_DIR),
+            "--out",
+            str(tmp_path / "out"),
+            "--skill",
+            "/dev/null",
+        ]
+    )
+    assert rc == 2
+    assert "--tide-source om is only available with --wave-source om" in capsys.readouterr().err
+    assert not (tmp_path / "out").exists()

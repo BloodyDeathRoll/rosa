@@ -120,23 +120,14 @@ def _gfs(t: datetime, **fields) -> GfsSea:
 def _aux(times):
     iso = [t.strftime("%Y-%m-%dT%H:%M") for t in times]
     n = len(iso)
-    return (
-        {
-            "hourly": {
-                "time": iso,
-                "wind_speed_10m": [10.0] * n,
-                "wind_direction_10m": [90.0] * n,
-                "wind_gusts_10m": [12.0] * n,
-            }
-        },
-        {
-            "hourly": {
-                "time": iso,
-                "sea_surface_temperature": [28.0] * n,
-                "sea_level_height_msl": [0.1] * n,
-            }
-        },
-    )
+    return {
+        "hourly": {
+            "time": iso,
+            "wind_speed_10m": [10.0] * n,
+            "wind_direction_10m": [90.0] * n,
+            "wind_gusts_10m": [12.0] * n,
+        }
+    }
 
 
 def test_compose_puts_peaks_only_under_published_partitions():
@@ -146,7 +137,7 @@ def test_compose_puts_peaks_only_under_published_partitions():
     raw = compose_raw(
         [_gfs(t, swell1_h=0.8, swell1_p=9.0, swell1_d=290.0, windsea_h=0.3)],
         [],
-        *_aux([t]),
+        _aux([t]),
         "x",
         tp=tp,
     )
@@ -155,23 +146,23 @@ def test_compose_puts_peaks_only_under_published_partitions():
     assert h["wind_wave_peak_period"] == [4.5]
     assert "secondary_swell_wave_peak_period" not in h  # never had one on either arm
     # no wind sea published this hour -> its peak is dropped, not attached to nothing
-    raw = compose_raw([_gfs(t, swell1_h=0.8)], [], *_aux([t]), "x", tp=tp)
+    raw = compose_raw([_gfs(t, swell1_h=0.8)], [], _aux([t]), "x", tp=tp)
     h = raw.marine["hourly"]
     assert h["swell_wave_peak_period"] == [12.5]
     assert h["wind_wave_peak_period"] == [None]
     # no GWAM at all -> the pre-plan shape, both None
-    h = compose_raw([_gfs(t, swell1_h=0.8, windsea_h=0.3)], [], *_aux([t]), "x").marine["hourly"]
+    h = compose_raw([_gfs(t, swell1_h=0.8, windsea_h=0.3)], [], _aux([t]), "x").marine["hourly"]
     assert h["swell_wave_peak_period"] == [None] and h["wind_wave_peak_period"] == [None]
 
 
 def test_offline_end_to_end_primary_swell_carries_a_peak(monkeypatch):
     """The fixture replay reaches extract with a peak on the primary swell for the hours
     GWAM covers, and the partition keys on it (peak_period_s set, mean untouched)."""
-    from rosa_pipeline.blend import BlendedSource, GfsFullFixtureSource, fixture_aux_many
+    from rosa_pipeline.blend import BlendedSource, GfsFullFixtureSource, fixture_weather_many
 
     src = BlendedSource(
         gfs=GfsFullFixtureSource(FIX, cycle=CYCLE),
-        aux=lambda coords: fixture_aux_many(coords, FIX),
+        weather=lambda coords: fixture_weather_many(coords, FIX),
         tp=GwamFixtureSource(FIX, cycle=CYCLE),
     )
     [raw] = src.fetch_many([BEIT_YANAI])

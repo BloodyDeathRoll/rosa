@@ -1,7 +1,8 @@
 """Blended wave source (fetch-plane plan B): GRIB parse, blend math, offline end-to-end.
 
-Fixtures: real captured NOMADS grib-filter boxes + OM weather/marine-light bodies for
-Beit Yanai's offshore point (2026-08-14 00Z cycle, steps 0-48). Nothing touches the
+Fixtures: real captured NOMADS grib-filter boxes + an OM weather body for Beit Yanai's
+offshore point (2026-08-14 00Z cycle, steps 0-48; the marine-light body went with the
+leg on 2026-09-12 - tide is the spot's EOT20 constants). Nothing touches the
 network; ``now`` is frozen to the fixture cycle, the e2e-test pattern.
 """
 
@@ -17,7 +18,7 @@ from rosa_pipeline.blend import (
     GfsFullFixtureSource,
     GfsSea,
     compose_raw,
-    fixture_aux_many,
+    fixture_weather_many,
     parse_gfs_full,
 )
 from rosa_pipeline.extract import extract_hours
@@ -65,9 +66,9 @@ def _gfs(t: datetime, **fields) -> GfsSea:
     return GfsSea(time=t, fields=base)
 
 
-def _aux(times: list[datetime]) -> tuple[dict, dict]:
+def _aux(times: list[datetime]) -> dict:
     iso = [t.strftime("%Y-%m-%dT%H:%M") for t in times]
-    weather = {
+    return {
         "hourly": {
             "time": iso,
             "wind_speed_10m": [10.0] * len(iso),
@@ -75,27 +76,21 @@ def _aux(times: list[datetime]) -> tuple[dict, dict]:
             "wind_gusts_10m": [12.0] * len(iso),
         }
     }
-    marine = {
-        "hourly": {
-            "time": iso,
-            "sea_surface_temperature": [28.0] * len(iso),
-            "sea_level_height_msl": [0.1] * len(iso),
-        }
-    }
-    return weather, marine
 
 
 def test_compose_blends_totals_and_keeps_partitions_gfs_only():
     t = CYCLE
     sp = SpectralSea(time=t, swh=2.0, mwd=280.0, mwp=9.5, pp1d=12.0)
-    raw = compose_raw([_gfs(t, swell1_h=0.8, swell1_p=9.0, swell1_d=290.0)], [sp], *_aux([t]), "x")
+    raw = compose_raw([_gfs(t, swell1_h=0.8, swell1_p=9.0, swell1_d=290.0)], [sp], _aux([t]), "x")
     h = raw.marine["hourly"]
     assert h["wave_height"] == [1.5]  # 50/50 of 1.0 and 2.0
     assert h["wave_peak_period"] == [10.0]  # 50/50 of 8 and 12
     assert h["wave_period"] == [9.5]  # ECMWF mwp only - GFS gridded has no total mean
     assert h["swell_wave_height"] == [0.8]  # partitions are GFS's own, never blended
-    assert h["sea_surface_temperature"] == [28.0]
-    assert h["sea_level_height_msl"] == [0.1]
+    # no OM marine body on this arm (2026-09-12): SST is the OISST daily value or None,
+    # the OM tide column is schema-only and always None - EOT20 owns tide in extract
+    assert h["sea_surface_temperature"] == [None]
+    assert h["sea_level_height_msl"] == [None]
     # C4: the ensemble carries the RAW GFS member, never the blended total
     assert raw.ensemble["hourly"]["wave_height_ncep_gfswave016"] == [1.0]
 
@@ -103,14 +98,14 @@ def test_compose_blends_totals_and_keeps_partitions_gfs_only():
 def test_compose_direction_blend_is_circular():
     t = CYCLE
     sp = SpectralSea(time=t, swh=1.0, mwd=10.0)
-    raw = compose_raw([_gfs(t, dirpw=350.0)], [sp], *_aux([t]), "x")
+    raw = compose_raw([_gfs(t, dirpw=350.0)], [sp], _aux([t]), "x")
     assert raw.marine["hourly"]["wave_direction"] == [0.0]  # mean of 350 and 10 wraps
 
 
 def test_compose_past_ecmwf_horizon_is_gfs_alone():
     # B3: an hour with no ECMWF step within the join tolerance degrades honestly
     t = CYCLE + timedelta(hours=300)
-    raw = compose_raw([_gfs(t)], [SpectralSea(time=CYCLE, swh=2.0)], *_aux([t]), "x")
+    raw = compose_raw([_gfs(t)], [SpectralSea(time=CYCLE, swh=2.0)], _aux([t]), "x")
     h = raw.marine["hourly"]
     assert h["wave_height"] == [1.0]  # GFS untouched, not halved
     assert h["wave_period"] == [None]  # no fabricated total mean period
@@ -119,17 +114,25 @@ def test_compose_past_ecmwf_horizon_is_gfs_alone():
 def test_offline_end_to_end_publishes_a_rated_payload(spot, point):
     src = BlendedSource(
         gfs=GfsFullFixtureSource(FIX, cycle=CYCLE),
-        aux=lambda coords: fixture_aux_many(coords, FIX),
+        weather=lambda coords: fixture_weather_many(coords, FIX),
     )
     [raw] = src.fetch_many([point])
-    hours = extract_hours(raw)
+    # the blend arm's only tide is the spot's committed EOT20 constants (no OM marine
+    # body since 2026-09-12) - feed them exactly as cli's `run` does
+    from rosa_pipeline.tide import load_constants
+
+    tide_c = load_constants(SPOTS_DIR / "derived" / "tide", spot.id)
+    assert tide_c is not None
+    hours = extract_hours(raw, tide_constants=tide_c)
     # 5 captured steps (0,6,12,24,48): the two 6 h gaps interpolate to hourly, the
     # 12 h and 24 h gaps are past INTERP_MAX_GAP_H and stay unfilled
     assert len(hours) == 15
     # partitions can drop out between steps in a calm sea (a key missing at either
     # endpoint is never invented for filled hours) - most hours must carry some
     assert sum(1 for h in hours if h.partitions) >= len(hours) // 2
-    assert all(h.tide_m is not None for h in hours)  # marine-light joined by timestamp
+    assert all(h.tide_m is not None for h in hours)  # EOT20, synthesised per hour
+    # ...and without constants the arm has no tide at all - nothing stands in
+    assert all(h.tide_m is None for h in extract_hours(raw))
     scored = [score_hour(spot, h) for h in hours]
     payload = build_payload(spot, scored, fetched_at=raw.fetched_at, now=CYCLE)
     assert payload["spot"]["id"] == "beit-yanai"
@@ -143,7 +146,7 @@ def test_interpolation_serves_any_timezone_a_whole_local_day():
     # hourly, every timezone finds its 8 three-hourly local hours.
     t0 = CYCLE
     gfs = [_gfs(t0 + timedelta(hours=h)) for h in range(0, 49, 3)]
-    raw = compose_raw(gfs, [], *_aux([t0 + timedelta(hours=h) for h in range(49)]), "x")
+    raw = compose_raw(gfs, [], _aux([t0 + timedelta(hours=h) for h in range(49)]), "x")
     times = raw.marine["hourly"]["time"]
     assert len(times) == 49  # hourly, gap-free
     assert times[1] == (t0 + timedelta(hours=1)).strftime("%Y-%m-%dT%H:%M")
@@ -152,19 +155,23 @@ def test_interpolation_serves_any_timezone_a_whole_local_day():
 def test_interpolated_direction_wraps_between_steps():
     t0 = CYCLE
     gfs = [_gfs(t0, dirpw=350.0), _gfs(t0 + timedelta(hours=3), dirpw=10.0)]
-    raw = compose_raw(gfs, [], *_aux([t0, t0 + timedelta(hours=3)]), "x")
+    raw = compose_raw(gfs, [], _aux([t0, t0 + timedelta(hours=3)]), "x")
     dirs = raw.marine["hourly"]["wave_direction"]
     # the filled hours cross 0, never averaging to ~180
     assert all(d > 340 or d < 20 for d in dirs)
 
 
-def test_oisst_fills_sst_over_the_om_value(point):
-    # plan C2: the daily OISST value wins; the OM light value is only the fallback
+def test_sst_is_oisst_or_blank_never_an_om_number(point):
+    # plan C2: the daily OISST value fills every hour. Since 2026-09-12 there is no OM
+    # fallback (the marine-light leg is gone), so a missing OISST value is None - the
+    # payload shows blank, never a number from a source this arm no longer fetches
     t = CYCLE
-    raw = compose_raw([_gfs(t)], [], *_aux([t]), "x", sst_daily=29.15)
+    raw = compose_raw([_gfs(t)], [], _aux([t]), "x", sst_daily=29.15)
     assert raw.marine["hourly"]["sea_surface_temperature"] == [29.15]
-    raw = compose_raw([_gfs(t)], [], *_aux([t]), "x", sst_daily=None)
-    assert raw.marine["hourly"]["sea_surface_temperature"] == [28.0]  # OM fallback
+    raw = compose_raw([_gfs(t)], [], _aux([t]), "x", sst_daily=None)
+    assert raw.marine["hourly"]["sea_surface_temperature"] == [None]
+    # and the OM tide column is carried as None for the schema, never a value
+    assert raw.marine["hourly"]["sea_level_height_msl"] == [None]
 
 
 def test_oisst_fixture_parses_sane_values(point):
@@ -185,7 +192,7 @@ def test_own_member_ensemble_yields_agreement_and_dir_span(spot):
     # the blended total itself must NOT be a member (it is not independent)
     t = CYCLE
     sp = SpectralSea(time=t, swh=2.0, mwd=280.0)
-    raw = compose_raw([_gfs(t, swh=1.0, dirpw=270.0)], [sp], *_aux([t]), "x")
+    raw = compose_raw([_gfs(t, swh=1.0, dirpw=270.0)], [sp], _aux([t]), "x")
     ens = raw.ensemble["hourly"]
     assert ens["wave_height_ncep_gfswave016"] == [1.0]  # raw GFS, not the 1.5 blend
     hours = extract_hours(raw, spectral=[sp])
@@ -211,7 +218,7 @@ def test_blend_payload_credits_noaa_and_ecmwf(spot, point):
     spectral member was present, and keeps Open-Meteo for the weather it still serves."""
     src = BlendedSource(
         gfs=GfsFullFixtureSource(FIX, cycle=CYCLE),
-        aux=lambda coords: fixture_aux_many(coords, FIX),
+        weather=lambda coords: fixture_weather_many(coords, FIX),
     )
     [raw] = src.fetch_many([point])
     scored = [score_hour(spot, h) for h in extract_hours(raw)]
@@ -392,9 +399,9 @@ def test_model_run_is_the_newest_cycle_per_point_and_absent_on_fixtures():
     assert _model_run(gfs, []) == {"gfswave": "2026-08-14T00:00+00:00", "ecmwf": None}
     assert _model_run([_gfs(t)], sp) is None  # fixtures carry no cycle
 
-    raw = compose_raw([_gfs(t)], [], *_aux([t]), "x")
+    raw = compose_raw([_gfs(t)], [], _aux([t]), "x")
     assert raw.model_run is None
-    raw = compose_raw([GfsSea(time=t, fields=_gfs(t).fields, run=CYCLE)], [], *_aux([t]), "x")
+    raw = compose_raw([GfsSea(time=t, fields=_gfs(t).fields, run=CYCLE)], [], _aux([t]), "x")
     assert raw.model_run == {"gfswave": "2026-08-14T00:00+00:00", "ecmwf": None}
 
 
@@ -404,38 +411,3 @@ def test_parse_gfs_full_stamps_the_cycle_it_is_given(point):
     assert sea.run == CYCLE
     [sea] = parse_gfs_full(grib, [point], CYCLE)
     assert sea.run is None
-
-
-def test_marine_light_outage_costs_its_batch_the_fallback_not_the_cycle(monkeypatch, capsys):
-    """2026-09-11: marine-api's IPv4 was unreachable from Oracle Jerusalem on ~40 % of
-    connects; three in a row killed a cycle after the archive and every GRIB download.
-    The leg only backs up EOT20 tide and OISST SST, so it degrades to an empty body."""
-    import httpx
-
-    from rosa_pipeline import blend as blend_mod
-
-    coords = [(32.0, 34.7), (32.5, 34.8)]
-
-    class _Resp:
-        def __init__(self, body):
-            self._body = body
-
-        def raise_for_status(self):
-            return self
-
-        def json(self):
-            return self._body
-
-    def fake_get(client, url, params, *, retry_429=False):
-        if url == blend_mod.WEATHER_URL:
-            return _Resp([{"hourly": {"time": []}} for _ in coords])
-        raise httpx.ConnectError("[Errno 113] No route to host")
-
-    monkeypatch.setattr(blend_mod, "retrying_get", fake_get)
-    out = blend_mod.fetch_aux_many(coords)
-    assert [m for _, m in out] == [{}, {}]
-    assert all("hourly" in w for w, _ in out)
-    assert "marine-light batch 1 skipped" in capsys.readouterr().err
-    # and compose_raw reads the empty body as "no OM tide / SST this hour", not a crash
-    raw = compose_raw([], [], out[0][0], out[0][1], "2026-09-11T10:00:00+00:00")
-    assert raw.marine["hourly"]["time"] == []
