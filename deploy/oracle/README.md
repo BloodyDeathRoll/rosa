@@ -116,7 +116,8 @@ right: anyone holding it can suppress your outage alerts). Open-Meteo and NDBC a
   `data/verify/stations/<id>.jsonl` (the published model, GFS since 2026-08-30) and
   `<id>.icon.jsonl` (ICON, the A/B member) and, since 2026-09-12, `<id>.gfs_grib.jsonl`
   (the raw GFS 0.25 atmos GRIB from NOMADS, plan C3b's candidate to replace the
-  Open-Meteo weather call - ~1,160 grib-filter requests a cycle, no Open-Meteo units),
+  Open-Meteo weather call - ~1,160 grib-filter requests a cycle, paced to 40/min so
+  ~29 min, no Open-Meteo units; unpaced it tripped NOMADS and killed the 2026-09-12 14:20Z cycle),
   and step 4c scores the published one by lead with `verify --stations --archive` (one
   station: `verify --station LLBG --archive`; the other members: `--wind-model icon` /
   `--wind-model gfs_grib`). Wind columns only, evidence only - the bias it

@@ -23,14 +23,16 @@ honest GRIB read, and what a ``WeatherSource`` would do for a spot's offshore po
 
 Steps are 3-hourly to 384 h (``BLEND_STEPS``): the production shape, so this arm is also
 the prototype fetch. 9 boxes x 129 steps = 1,161 requests a cycle at the 90-station
-registry, ~24 min at NOMADS_WORKERS=4 on the VM's ~5 s per request; measured on the first
-live cycle, and 6-hourly is the fallback if that ever crowds the archive step.
+registry. Paced to ``MAX_REQUESTS_PER_MIN`` (~29 min a cycle); 6-hourly steps are the
+fallback if that ever crowds the archive step.
 """
 
 from __future__ import annotations
 
 import math
 import tempfile
+import threading
+import time
 from concurrent.futures import ThreadPoolExecutor
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
@@ -54,6 +56,37 @@ CYCLE_LAG_H = 5.5
 # 0.125, so this only ever refuses a station outside its own box - a bug, not weather)
 NEAREST_MAX_DEG = 0.3
 WORKERS = 4  # same courtesy budget as gfswave.WORKERS / blend.NOMADS_WORKERS
+# Hard request pace, on top of WORKERS. The wind subset is tiny and NOMADS answers it in
+# well under a second, so four unpaced workers ran all 1,161 requests in ~90 s on the first
+# live cycle (2026-09-12 14:20Z) - far past NOMADS' published 120/min courtesy limit - and
+# the blend fetch that runs right after the archive got no GRIB for any spot: 1947/1947
+# "no forecast", a dead cycle. 40/min is the third of the limit the other NOMADS sources
+# are sized to (blend.NOMADS_WORKERS, gfswave.WORKERS at their ~5 s per request).
+MAX_REQUESTS_PER_MIN = 40.0
+
+
+class Pacer:
+    """Spaces calls at least ``60 / per_min`` seconds apart, across threads."""
+
+    def __init__(
+        self,
+        per_min: float = MAX_REQUESTS_PER_MIN,
+        clock=time.monotonic,
+        sleep=time.sleep,
+    ) -> None:
+        self.interval_s = 60.0 / per_min
+        self._clock = clock
+        self._sleep = sleep
+        self._lock = threading.Lock()
+        self._next = float("-inf")
+
+    def wait(self) -> None:
+        with self._lock:
+            now = self._clock()
+            slot = max(now, self._next)
+            self._next = slot + self.interval_s
+        if slot > now:
+            self._sleep(slot - now)
 
 
 def pick_cycle(now: datetime) -> datetime:
@@ -139,10 +172,12 @@ class GfsAtmosSource:
         capture_dir: Path | None = None,
         steps: tuple[int, ...] = STEPS,
         timeout_s: float = 60.0,
+        pacer: Pacer | None = None,
     ) -> None:
         self.capture_dir = capture_dir
         self.steps = steps
         self.timeout_s = timeout_s
+        self.pacer = pacer or Pacer()
 
     def fetch_series(self, points: list[tuple[float, float]]) -> list[list[WavePoint]]:
         series: list[list[WavePoint]] = [[] for _ in points]
@@ -176,6 +211,7 @@ class GfsAtmosSource:
         return series
 
     def _get(self, client: httpx.Client, cycle: datetime, step: int, box: Box) -> bytes | None:
+        self.pacer.wait()  # every request, the cycle probes included
         try:
             resp = client.get(filter_url(cycle, step, box))
         except httpx.HTTPError:

@@ -74,3 +74,74 @@ def test_fixture_source_replays_by_box_key_and_stamps_valid_from_the_step():
     # a station with no captured box archives nothing, silently - the member is optional
     [none] = src.fetch_series([(38.7, -9.3)])
     assert none == []
+
+
+class _FakeTime:
+    def __init__(self) -> None:
+        self.now = 100.0
+        self.slept: list[float] = []
+
+    def clock(self) -> float:
+        return self.now
+
+    def sleep(self, s: float) -> None:
+        self.slept.append(s)
+        self.now += s
+
+
+def test_pacer_spaces_calls_to_the_per_minute_cap():
+    ft = _FakeTime()
+    pacer = gfsatmos.Pacer(per_min=40, clock=ft.clock, sleep=ft.sleep)
+    for _ in range(4):
+        pacer.wait()
+    # first call goes at once, every later one waits its 1.5 s slot
+    assert ft.slept == pytest.approx([1.5, 1.5, 1.5])
+    # time that already passed counts toward the next slot
+    ft.now += 10.0
+    pacer.wait()
+    assert ft.slept == pytest.approx([1.5, 1.5, 1.5])
+
+
+def test_pacer_holds_the_cap_across_threads():
+    import threading
+
+    lock = threading.Lock()
+    ft = _FakeTime()
+
+    def sleep(s: float) -> None:
+        with lock:
+            ft.slept.append(s)
+
+    pacer = gfsatmos.Pacer(per_min=60, clock=ft.clock, sleep=sleep)
+    threads = [threading.Thread(target=pacer.wait) for _ in range(8)]
+    for th in threads:
+        th.start()
+    for th in threads:
+        th.join()
+    # frozen clock: eight callers get eight distinct 1 s slots, never two at once
+    assert sorted(ft.slept) == pytest.approx([1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0])
+
+
+def test_the_live_source_paces_every_nomads_request():
+    import httpx
+
+    calls: list[str] = []
+
+    class Counting:
+        def __init__(self) -> None:
+            self.waits = 0
+
+        def wait(self) -> None:
+            self.waits += 1
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        calls.append(str(request.url))
+        return httpx.Response(404, content=b"<html>not present</html>")
+
+    pacer = Counting()
+    src = gfsatmos.GfsAtmosSource(steps=(0, 3, 6), pacer=pacer)  # type: ignore[arg-type]
+    box = Box(bottom=30, top=34, left=33, right=36)
+    with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+        for step in src.steps:
+            assert src._get(client, CYCLE, step, box) is None
+    assert pacer.waits == len(calls) == 3
