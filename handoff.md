@@ -1,117 +1,63 @@
-# Session Handoff — 2026-09-11 (afternoon)
+# Session Handoff — 2026-09-12 (afternoon, SEO)
 
 ## Goal
-Close the Dream 2026-09-05 sampler finding (OPEN-ITEMS 27) for good with a measured A/B and a
-written mode of operating, then recover the 08:20Z publish cycle that died on the Open-Meteo
-marine host.
+Make rosa.surf indexable now that it draws organic traffic: real paths instead of hash
+routes, per-page head, prerendered shells, sitemap. Plus two UI asks (hour labels full
+black; Best-session pill in the Epic dark green).
 
 ## Current State
-Both changes are committed and pushed to `main` (`6d12010`, `d995a85`). 614 pipeline tests
-pass, ruff clean. Only this `handoff.md` is uncommitted.
+All of it is merged to `main` (PR #20, merge `c252fd6`) and **deployed to production**
+2026-09-12 ~14:20 UTC. Verified live: `/sitemap.xml` 200 with 1,955 URLs, `/robots.txt`
+200, `/spot/pipeline` 200 with its own title, `/about/how` 200, `/spot/does-not-exist`
+404. Lighthouse 13.4.1 SEO 100 on `/`, a spot page and an About page (preview build).
+Headless Chrome check passed: path routes render, `/#/spot/x?ev=..` becomes
+`/spot/x?ev=..`, in-app links do not reload, back works, titles and JSON-LD follow the
+route, `/#/spots?import=a,b` imports favorites, one JSON-LD block per page after render.
 
-- **Sampler fix (`6d12010`) - live but NOT yet smoke-checked.** The three GRIB wave samplers
-  (`ecmwf`, `gfswave`, `blend`) share `geo.nearest_wet`: ground-distance metric (lon scaled by
-  cos lat) plus the spot's shoreline plane (`geo.Seaward` = pin + `shore_normal`; a wet node
-  more than `SEAWARD_TOL_DEG` = 0.05 deg / ~5.5 km behind the pin loses to the nearest node
-  that is not). `run` passes a `Seaward` per point; the buoy archive passes none.
-  - Measured on real fields, all 1947 spots (`tools/ab-nodes/`): 0 spots refused a node before
-    or after; 73 (GFS) / 79 (ECMWF) spots change node, median +0.13 / +0.17 m at those spots.
-    Full table in `docs/CALIBRATION.md` 2026-09-11 (second entry of that date).
-  - Known limits, recorded in OPEN-ITEMS 27: `ocean-grove` still reads Port Phillip Bay across
-    the Heads (half-plane is not line-of-sight; fix is its `offshore_km`). `anchor` (normal 160
-    beside devil-s-rock's 255) and `le-morne` (normal 0) look like wrong normals.
-- **Marine-light leg non-fatal (`d995a85`).** `blend.fetch_aux_many` warns and hands a batch
-  `{}` when the marine request fails all three attempts; the leg only backs up EOT20 tide and
-  OISST SST. Weather stays essential. The OM arm's `fetch_marine_waves_many` was NOT changed.
-- **Network fault, still present at 12:55 IDT (OPEN-ITEMS 32):** from all three Oracle VMs,
-  TCP connects to `marine-api.open-meteo.com`'s IPv4 152.53.84.37 fail in ~5 ms with
-  `EHOSTUNREACH` on ~40 % of tries. Works from the workstation. `api.open-meteo.com`, NOMADS,
-  ECMWF, Vercel are fine. Seen (and survived by retries) on Sep 3 and Sep 9 too.
-- **A manual publish cycle is RUNNING on rosa-arm**, started 12:57 IDT (09:57:49Z) on
-  `d995a85`, launched with `nohup setsid deploy/oracle/publish.sh`. At 1947 spots a cycle takes
-  ~2 h 15 m, so it should finish ~15:15 IDT. Its outcome was not known when this was written.
-  The CDN still serves the 05:26 IDT (02:26Z) publish. The rosa-backup freshness watchdog
-  (`~/rosa-watch/freshness-watch.py`, hourly at :17, last "ok" 12:17) pages once the publish
-  is > 8 h old, i.e. at 14:17 IDT unless the manual cycle beats it.
-- The crash alert push ("FAILED at: rosa-pipeline run --all", 12:49 IDT) is what the user saw
-  as "healthcheck is down". Not verified whether a Healthchecks.io ping is also wired.
-- Dream: `.state/rosa.applied` ledgered the 09-05 diff as applied by hand; an untagged learning
-  was added to Dream `playbook.md` above the Load-bearing subsection. The two 2026-09-11 LOW
-  findings (`notify.py` feedback-pull / damaged-stamp) and the 09-10 / 09-11 proposals are
-  still open, not applied - the user never picked them.
+Untested: an installed PWA on a real phone after this deploy (SW `navigateFallback`
+serves the shell for `/spot/x`; expected fine, not observed). Google Search Console has
+NOT been given the sitemap yet - the user has the domain verified and was handed the URL.
+
+Only `handoff.md` is uncommitted.
 
 ## Active Files
-- `pipeline/src/rosa_pipeline/geo.py`: `lon_scale`, `Seaward`, `nearest_wet`, `SEAWARD_TOL_DEG`.
-- `pipeline/src/rosa_pipeline/ecmwf.py`, `gfswave.py`, `blend.py`: samplers call
-  `geo.nearest_wet`; `aims` kwarg on the parse functions and on `EcmwfSource`,
-  `EcmwfFixtureSource`, `GfsFullSource`, `GfsFullFixtureSource`. `blend.fetch_aux_many`
-  degrades the marine-light batch.
-- `pipeline/src/rosa_pipeline/cli.py`: `_cmd_run` builds `aims = {point: Seaward(...)}` from
-  the first spot at each point and passes it to the four sources.
-- `pipeline/tests/test_nearest_wet.py` (new, 12 tests), `pipeline/tests/test_blend.py` (+1).
-- `tools/ab-nodes/ab_nodes.py` + `README.md` (new): `fetch | sample [--no-aim] | diff`.
-- `docs/CALIBRATION.md`: new method rule (run the A/B the same day) + the 2026-09-11 node entry.
-- `docs/OPEN-ITEMS.md`: 27 CLOSED (with follow-ups), 32 added. `docs/SESSIONS.md`: two
-  entries. `docs/SPOT-DB.md`: `shore_normal` now also draws the sampler's shoreline plane.
-- `.claude/settings.local.json`: `defaultMode` switched from `bypassPermissions` to `auto`
-  (user asked; applies from the next session).
-- Memory: `run-the-ab-same-day.md` + MEMORY.md line.
+- `web/src/router.ts` (new) - parseRoute/pathFor/navigate/onRouteChange/adoptLegacyHash/interceptLinks.
+- `web/src/head.ts` (new) - setHead (title, description, canonical, OG, robots, JSON-LD in `#ld-page`), spotHead.
+- `web/src/seo.ts` (new) - headFor(route); spot case is a no-op (SpotPage owns its head).
+- `web/src/app.tsx` - route from `currentPath()`, headFor on route change, interceptLinks.
+- `web/src/main.tsx` - adoptLegacyHash() before render; `?import=` read from the query; `#app` emptied before render (Preact 10 `render` does NOT remove pre-existing root children - verified).
+- `web/src/analytics.ts`, `ga.ts`, `contact.ts` - paths not hashes; pageviews on the router event.
+- `web/src/pages/SpotPage.tsx` - `?ev=` from `location.search`, reacts via onRouteChange; setHead from index entry then payload (full published name).
+- All pages/components with links: `href="#/x"` -> `href="/x"`, `location.hash =` -> `navigate()`.
+- `web/scripts/prerender.mjs` (new) - after `vite build`: 1947 `dist/spot/{id}.html` (index fetched from `VITE_DATA_BASE`, `public/data` fallback), `dist/about/*.html` via `preact-render-to-string` (contact excluded - its form reads the browser at render), one shell per other screen, `sitemap.xml`. Refuses to run if `dist/spot` exists or `dist/sw.js` is missing.
+- `web/src/prerender-entry.tsx` (new) - `vite build --ssr` entry exporting renderAbout.
+- `web/index.html` - new head (canonical, OG 1200x630, twitter large image, WebSite JSON-LD with `id="ld-page"`), static crawler block inside `#app`.
+- `web/public/robots.txt`, `web/public/og.jpg` (new).
+- `web/vercel-output.json` - `handle: filesystem` -> `/spot/x` to `/spot/x.html` (`check: true`) -> about/screens -> aliases -> `/index.html` with status 404.
+- `web/vite.config.ts` - `navigateFallbackDenylist` for `/data/` and `.xml|.txt|.json`.
+- `web/package.json` - `build` runs `prerender`; devDependency `preact-render-to-string@6.7.0`.
+- `web/src/styles.css` - `.hour-grid .t` black (`--foreground` dark); `.best-tag` background `--rating-firing`.
+- `docs/UI.md` (Routing and SEO paragraph), `docs/OPEN-ITEMS.md` 35, `docs/SESSIONS.md`, `.gitignore` (`web/dist-ssr/`).
 
 ## Changes Made This Session
-1. Project default permission mode set to `auto`.
-2. `/dream-review`: classified all 9 nights of rosa reports; only the two 09-11 LOW diffs and
-   the held 09-05 diff were open. The user asked what to do about 09-05 and, after a first
-   "want me to do it?" answer, demanded research and a mode of operating instead.
-3. Ran the pb_0049 A/B locally in ~20 min: one global swh field per model (<1 MB, no OM
-   quota), the shipped parsers under two `PYTHONPATH`s (base `df1d72e` in a worktree). The
-   reviewer's cos-only diff moved 42 / 34 spots and put point-lonsdale + ocean-grove INSIDE
-   Port Phillip Bay - distance was the wrong primitive. Recommended cos fix + seaward rule;
-   user said "do it".
-4. First seaward rule (strict half-plane at the sample point) moved 454 / 576 spots; drawing
-   the plane at the PIN cut it to 199 / 268; only 41 / 55 of those flips were clearly-behind
-   nodes (bays), the rest the ordinary coast cell traded for the next cell out (median +0.13 /
-   +0.20 m). Shipped the 5.5 km tolerance variant (73 / 79 spots) and recorded the strict
-   numbers so a future buoy-backed decision can flip one constant.
-5. Wrote the mode of operating in three places (CALIBRATION method rules, Dream playbook,
-   memory): a gated finding whose A/B is runnable from the workstation gets it the same day.
-6. Outage review on request: traced the 08:20Z failure to `EHOSTUNREACH` on the marine host
-   from Oracle; made the leg non-fatal; re-ran the cycle by hand.
+1. Hour column full black - user ask.
+2. SEO tool research (subagent, web): no official Anthropic/Google/Vercel SEO plugin. Meets the bar: Lighthouse CLI, chrome-devtools-mcp, Unlighthouse, vendor-hosted DataForSEO/Ahrefs/Semrush MCPs. Rejected solo-maintainer Search Console MCPs, archived Ahrefs local server. Memory `seo-tools-shortlist`.
+3. Hash -> path routing with legacy adoption (the one real SEO problem: one crawlable URL for 1,947 spots).
+4. Per-page head + prerendered shells + sitemap + robots + OG image; Vercel routes with real 404s.
+5. Best-session pill -> Epic green (`3e682dd`).
+6. Review round: GitHub mention review found the JSON-LD duplication (static block lacked `id="ld-page"`, setHead appended a second) - fixed `aa63380`. Also: SpotPage alone owns the spot head (`7926b97`), prerender ordering guard, stale comment.
+7. Merged with a merge commit (user: "review and merge"), then `npm run deploy` from `web/`.
 
 ## Failed Attempts
-- The Dream diff no longer applied (`blend.py` import hunk) - re-ported by hand.
-- `ssh rosa-arm` alias does not resolve; use `ssh -i ~/.config/rosa/ssh-key-2026-07-23.key
-  ubuntu@82.70.253.255`.
-- `pipeline/tests/` has no `__init__.py`: a relative import from `test_ecmwf` failed at
-  collection; the test defines its own fixture path instead.
-- The publish log is `~/rosa/publish.log` (not under `deploy/oracle/`). It is append-only;
-  bracket by dated `run start` / `done` lines.
-- Two seaward-rule variants were measured and rejected before the shipped one (see 4).
-- `ocistatus.oracle.com` did not resolve from the workstation; Oracle status unchecked.
+- **`/code-review 20 high` twice**: seven subagents each re-reading the 36-file diff; first run died on the session rate limit, I relaunched it, then killed it. Burned ~60% of the user's session budget for one finding the GitHub review also raised. User was angry. Memory `no-heavy-local-audits` written: never fan-out audits in-session, never relaunch after a quota kill; GitHub review + one hand read is the audit.
+- The `claude-code-review.yml` workflow (plugin `/code-review --comment`) passes with **no visible output** and 1-28 permission denials per run (only the inline-comment tool is allowed). It cannot be treated as evidence of a review. The `@claude review` mention (`claude.yml`) does post a real review - use that.
+- First `@claude review` mention died after 1 min on the same rate limit (shared OAuth token); re-mention after reset worked.
+- SSR of the Contact page: `contact.ts` reads `location` at render -> excluded from prerender.
+- `pkill -f "vite preview"` killed the calling shell too (exit 144) and silently skipped a python edit in the same command; the edit was redone later.
+- Playwright's bundled chromium was missing; used `executablePath: /usr/bin/google-chrome` with the `uptake` project's playwright module.
 
 ## Next Step
-1. **Check the manual cycle**: `grep -n "run start\|done ===\|FAILED\|marine-light batch"
-   ~/rosa/publish.log | tail` on rosa-arm. If it published, smoke-check from the CDN
-   (`curl -s https://rosa-data-opal.vercel.app/data/spots/portsea.json | head -c 600` should
-   show a fresh `fetched_at`; portsea / georgica-beach / black-rock-carenero are the biggest
-   movers, ocean-grove is the known regression). If it failed again, read the traceback first;
-   the 14:20Z cron will retry regardless.
-2. If the marine host is still ~40 % unreachable on 2026-09-12: Oracle ticket for
-   il-jerusalem-1 egress to 152.53.0.0/16, or enable IPv6 on the VCN (OPEN-ITEMS 32).
-3. Spot-DB follow-ups from OPEN-ITEMS 27: `ocean-grove` `offshore_km` (push the sample point
-   south of the Heads, then re-derive its tide constants), re-check `anchor` and `le-morne`
-   normals.
-4. Dream backlog still open: 09-11 LOW diffs `feedback-pull-survives-a-non-object-row` and
-   `notify-stamp-check-survives-a-damaged-stamp` (both `notify.py`, order irrelevant),
-   09-10 proposals (`feedback --at` out-of-range refusal, `member_directions_at` gating,
-   `events._elevated` deque), 09-11 proposals (peak-vs-mean direction note, NDBC `MWD`
-   definition check).
-
-**Carried from the 2026-09-11 morning handoff (unverified this session):**
-- Smoke-check the depth-grid swap (`dabaa6f`) and the 539 new spots from the CDN
-  (`pantin.json`, `fort-point`, `tourinhos`); measure the cycle duration at 1947 spots.
-- Test the Samsung "Open in Chrome" install flow on a real Samsung phone.
-- Gap queues in `docs/spot-db-scraping-playbook.md` §5 (Spain Med/Huelva, Brazil AL/SE/PB,
-  Fuerteventura, Oran west).
-- Figma workflow diagram not updated for the depth-grid swap.
-- Confirm `3feb20e` (map default focus) on a device with location denied.
-- The user was to add a Gmail filter `from: formsubmit.co` -> never spam.
+1. Submit `https://rosa.surf/sitemap.xml` in Google Search Console (domain already verified per the user) and request indexing of `/`, `/map`, `/about/how`, `/about/reading`.
+2. OPEN-ITEMS 35: `notify.py` still emits `/#/spot/{id}?ev=` (works via adoptLegacyHash; change with `test_notify.py`); per-spot OG card; drop the stale `web/public/data` copy from the build; **new spots need `cd web && npm run deploy`** before `/spot/{id}` returns 200 (or move the prerender into `publish.sh`).
+3. Reported, not changed: Lighthouse performance 75-88 - the 1 s splash and the autoplay cam give CLS 0.32 on spot pages; `public/splash_16-9.png` is 3.8 MB.
+4. Consider giving `claude-code-review.yml` a comment tool (or dropping it) since it posts nothing.
