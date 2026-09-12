@@ -1772,7 +1772,7 @@ a.rank-card:hover {
 /* Best-session rows - subtly tinted; the first row of a run carries a small
    "Best session" tag overlaid in its top-right corner, just below the divider. */
 .hour-grid.row.best {
-  background: color-mix(in srgb, var(--rating-good) 6%, transparent);
+  background: color-mix(in srgb, var(--rating-good) 15%, transparent);
   /* keep the row's normal top divider - don't blank it out */
 }
 .hour-grid.row.best-first {
