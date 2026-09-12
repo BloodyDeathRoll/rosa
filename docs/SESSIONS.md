@@ -953,3 +953,13 @@ mid-run; they resumed with nothing lost.
   opened. Pure function, no payload change. `tsc --noEmit` + `vite build` clean; no web test
   harness exists to pin it. UI.md updated.
 
+## SESSION 2026-09-12 (cont.) - Charts controls in a card above the nav
+
+- **Symptom (phone screenshot):** the Charts deck (layer tag, ramp, clock, play, ruler) lay
+  straight on the map under a gradient scrim and vanished against a dark Southern-Ocean frame.
+- **Fix:** the two rows are wrapped in `.deck-card` - same width, fill, border, radius and
+  shadow tokens as the nav pill (`--tabbar-*`), floating 12 px above it; `.charts-deck` keeps
+  `bottom: 0` so its measured height still drives `--sheet-h` for the info/attribution chips.
+  Desktop: the card widens to 1100 px. `tsc` + `vite build` clean. Prettier is NOT a project
+  tool - a stray `prettier --write` reflowed both files and was reverted before commit.
+

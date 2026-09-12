@@ -678,6 +678,7 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
 
         {(isWorld ? world !== null : basins.length > 0) && t && (
           <div class={`charts-deck${playing ? " playing" : ""}`} ref={deckRef}>
+            <div class="deck-card">
             <div class="deck-head">
               <button
                 class="deck-tag"
@@ -771,6 +772,7 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
                   }}
                 />
               </div>
+            </div>
             </div>
           </div>
         )}
