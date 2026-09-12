@@ -12,10 +12,10 @@ import { SatMap } from "../components/MiniMap";
 import { CamIcon, SearchIcon, ShirtIcon, ThermometerIcon, WavesIcon } from "../components/icons";
 import { AppHeader, Pill, SpotTitle } from "../components/parts";
 import { dayView } from "../components/SpotCard";
-import { getFavorites } from "../favorites";
+import { useFavorites } from "../favorites";
 import { pendingPrompt, resolvePrompt, type FbPrompt } from "../feedback";
 import { cardinal, splitName, todayIn, windLabel } from "../format";
-import { distanceKm, getPosition, setHome, type LatLon } from "../geo";
+import { distanceKm, getHome, getPosition, setHome, type LatLon } from "../geo";
 import { syncPushSpots } from "../push";
 import { getRecents } from "../recents";
 import { signalReady } from "../splash";
@@ -44,28 +44,52 @@ interface TodayPlan {
  * Within a region: your favorites there, and if that's under MIN_SPOTS, topped up
  * with the spots closest to the region's anchor. The anchor leads the list (it's
  * the card you land on): the last spot you viewed in that region, or - in the
- * region you're actually in - simply the closest spot to you. */
+ * region you're actually in - simply the closest spot to you.
+ *
+ * Where you are, without a GPS fix (a desktop, a denied prompt): the spot a real
+ * fix ranked nearest on an earlier launch (`homeSpot`), else the region holding
+ * most of your favorites, and only then the last spot you opened - a week of
+ * reading about Costa Rica from Tel Aviv must not make Costa Rica home
+ * (2026-09-12: it did, and Today filled with Ollie's Point's neighbours). */
 export function planToday({
   index,
   pos,
   favs,
   recents,
   group,
+  homeSpot = null,
 }: {
   index: Record<string, IndexEntry>;
   pos: LatLon | null;
   favs: string[];
   recents: string[];
   group: string;
+  homeSpot?: string | null;
 }): TodayPlan {
   const known = (id: string) => index[id] !== undefined;
   const at = (id: string) => ({ lat: index[id]!.lat, lon: index[id]!.lon });
   const myRecents = recents.filter(known);
   const myFavs = favs.filter(known);
 
-  // Somewhere to measure from: the fix, else the last spot you opened. With
-  // neither, no region is "yours" and nothing can be called nearest.
-  const from = pos ?? (myRecents[0] ? at(myRecents[0]) : null);
+  // Somewhere to measure from: the fix; else the spot an earlier fix put you at;
+  // else the north-most favorite in the region you favorite most; else the last
+  // spot you opened. With none, no region is "yours" and nothing is nearest.
+  const favRegionCount = new Map<string, number>();
+  for (const id of myFavs) {
+    const r = groupNameOf(index[id]!.region);
+    favRegionCount.set(r, (favRegionCount.get(r) ?? 0) + 1);
+  }
+  const favRegion = [...favRegionCount.entries()].sort((a, b) => b[1] - a[1])[0]?.[0];
+  const favHome = favRegion
+    ? [...myFavs]
+        .filter((id) => groupNameOf(index[id]!.region) === favRegion)
+        .sort((a, b) => index[b]!.lat - index[a]!.lat)[0]
+    : undefined;
+  const from =
+    pos ??
+    (homeSpot && known(homeSpot) ? at(homeSpot) : null) ??
+    (favHome ? at(favHome) : null) ??
+    (myRecents[0] ? at(myRecents[0]) : null);
   const byDistFrom = (o: { lat: number; lon: number }, ids: string[]) =>
     [...ids].sort((a, b) => distanceKm(o, at(a)) - distanceKm(o, at(b)));
   const allIds = Object.keys(index);
@@ -252,9 +276,14 @@ export function TodayPage() {
   const [group, setGroup] = useState<string>(savedGroup());
   const [prompt, setPrompt] = useState<FbPrompt | null>(pendingPrompt);
   const [error, setError] = useState<string | null>(null);
-  // read once: neither can change while this screen is open
-  const [favs] = useState(getFavorites);
+  // Favorites are page state, not a one-time read: the server sync (main.tsx,
+  // right after the app is ready) lands AFTER this screen mounts on a fresh
+  // browser, and a Today that read the empty cache once showed a signed-in user
+  // none of their spots while the bar above listed them (2026-09-12).
+  const [favs] = useFavorites();
+  // read once: it cannot change while this screen is open
   const [recents] = useState(getRecents);
+  const [homeSpot] = useState(() => getHome()?.spot ?? null);
 
   // Index + position first (both small); payloads follow per selected region.
   useEffect(() => {
@@ -279,8 +308,8 @@ export function TodayPage() {
   // each one shows. Pure index arithmetic - no payloads needed, so the chips
   // and the ordering are settled before a single forecast has downloaded.
   const plan = useMemo(
-    () => (index ? planToday({ index, pos, favs, recents, group }) : null),
-    [index, pos, favs, recents, group],
+    () => (index ? planToday({ index, pos, favs, recents, group, homeSpot }) : null),
+    [index, pos, favs, recents, group, homeSpot],
   );
 
   // Where the user actually is: remembered for the feedback loop (which asks

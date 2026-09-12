@@ -938,3 +938,18 @@ mid-run; they resumed with nothing lost.
 - **Not decided, by design:** nothing published moves. The C3b flip is step 2, read off
   ~2 weeks of station cards (~2026-09-26) under pb_0049. OPEN-ITEMS 34 carries the status.
 
+## SESSION 2026-09-12 (cont.) - desktop Today showed Costa Rica to a signed-in user in Israel
+
+- **Symptom (screenshot):** favorites ticker full of Israeli spots, Today cards all Guanacaste /
+  SJDS, no region chips. **Two causes in `TodayPage.tsx`:** (1) favorites were read ONCE at
+  mount (`useState(getFavorites)`), before `main.tsx`'s server sync filled the cache on a
+  fresh browser, so `planToday` saw none - the bar uses `useFavorites()` and re-reads on the
+  sync event; (2) with no GPS fix on the desktop, "where you are" fell to the last spot opened
+  (Ollie's Point), so home = costa-rica, chips collapsed to 2 (hidden) and the fill was its
+  neighbours.
+- **Fix:** Today uses `useFavorites()`; `planToday` takes `homeSpot` (the spot an earlier real
+  fix ranked nearest, `geo.getHome()`) and, without a fix, measures from it, else from the
+  north-most favorite in the region you favorite most, and only then from the last spot
+  opened. Pure function, no payload change. `tsc --noEmit` + `vite build` clean; no web test
+  harness exists to pin it. UI.md updated.
+
