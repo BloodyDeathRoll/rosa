@@ -6,7 +6,7 @@ import { InstallPrompt } from "./components/InstallPrompt";
 import { ConsentBar } from "./components/ConsentBar";
 import { ReportNudge } from "./components/ReportNudge";
 import { SignInScreen } from "./components/SignInScreen";
-import { AboutPage, type AboutDoc } from "./pages/AboutPage";
+import { AboutPage } from "./pages/AboutPage";
 import { ChartsPage } from "./pages/ChartsPage";
 import { MapPage } from "./pages/MapPage";
 import { SettingsPage } from "./pages/SettingsPage";
@@ -17,30 +17,10 @@ import { scrollToTop } from "./scroller";
 import { TodayPage } from "./pages/TodayPage";
 import { applyTheme, initialTheme, saveTheme, type Theme } from "./theme";
 import { TAB_ROUTES, type Tab } from "./tabs";
+import { currentPath, interceptLinks, onRouteChange, parseRoute, type Route } from "./router";
+import { headFor } from "./seo";
 
-export type Route =
-  | { page: "today" }
-  | { page: "spots" }
-  | { page: "search" }
-  | { page: "map" }
-  | { page: "charts" }
-  | { page: "settings" }
-  | { page: "about"; doc: AboutDoc }
-  | { page: "spot"; id: string };
-
-export function parseRoute(hash: string): Route {
-  const spot = /^#\/spot\/([\w-]+)/.exec(hash);
-  if (spot?.[1]) return { page: "spot", id: spot[1] };
-  if (hash.startsWith("#/map")) return { page: "map" };
-  if (hash.startsWith("#/charts")) return { page: "charts" };
-  if (hash.startsWith("#/search")) return { page: "search" };
-  // #/favorites is a pre-handoff route folded into Spots
-  if (hash.startsWith("#/spots") || hash.startsWith("#/favorites")) return { page: "spots" };
-  const about = /^#\/about\/(how|reading|terms|privacy|contact)/.exec(hash);
-  if (about?.[1]) return { page: "about", doc: about[1] as AboutDoc };
-  if (hash.startsWith("#/settings") || hash.startsWith("#/account")) return { page: "settings" };
-  return { page: "today" };
-}
+export { parseRoute, type Route };
 
 const TABS: { tab: Tab; label: string; icon: typeof HomeIcon }[] = [
   { tab: "today", label: "Today", icon: HomeIcon },
@@ -73,20 +53,22 @@ export function App() {
   // start could drop you straight onto the Map, which answers none of "should I
   // surf, when, where?" until you've panned it. A deep link still wins - only a
   // bare root resolves to Today.
-  const [route, setRoute] = useState<Route>(() => parseRoute(location.hash));
+  const [route, setRoute] = useState<Route>(() => parseRoute(currentPath()));
   const [theme, setTheme] = useState<Theme>(initialTheme);
 
   useEffect(() => applyTheme(theme), [theme]);
 
   useEffect(() => {
-    const onHash = () => {
-      const r = parseRoute(location.hash);
-      setRoute(r);
+    interceptLinks();
+    return onRouteChange(() => {
+      setRoute(parseRoute(currentPath()));
       scrollToTop();
-    };
-    addEventListener("hashchange", onHash);
-    return () => removeEventListener("hashchange", onHash);
+    });
   }, []);
+
+  // title, description, canonical, JSON-LD per screen (SpotPage refines its own
+  // once it knows the spot)
+  useEffect(() => headFor(route), [route]);
 
   const onSetTheme = (next: Theme) => {
     setTheme(next);

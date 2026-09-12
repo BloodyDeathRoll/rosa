@@ -1,4 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
+import { navigate } from "../router";
 import { ChevronLeftIcon } from "../components/icons";
 import { mailtoFor, send as sendOutbound, MESSAGE_MAX } from "../contact";
 import { signalReady } from "../splash";
@@ -476,7 +477,7 @@ export function AboutPage({ doc }: { doc: AboutDoc }) {
       <div class="about-hero" style={`background-image:url(${img})`}>
         <button
           class="about-back"
-          onClick={() => (location.hash = "#/settings")}
+          onClick={() => (navigate("/settings"))}
           aria-label="Back to profile"
         >
           <ChevronLeftIcon />

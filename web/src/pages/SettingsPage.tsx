@@ -1,4 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
+import { navigate } from "../router";
 import { accountSupported, deleteAccount, signOut } from "../account";
 import { GoogleButton } from "../components/GoogleButton";
 import { MoonIcon, SunIcon } from "../components/icons";
@@ -326,22 +327,22 @@ export function SettingsPage({
           <div class="card-title">
             <span class="eyebrow">About Rosa</span>
           </div>
-          <button class="settings-row tall about-link" onClick={() => (location.hash = "#/about/how")}>
+          <button class="settings-row tall about-link" onClick={() => (navigate("/about/how"))}>
             <span class="label">How it works</span>
           </button>
           <button
             class="settings-row tall about-link"
-            onClick={() => (location.hash = "#/about/reading")}
+            onClick={() => (navigate("/about/reading"))}
           >
             <span class="label">Reading the forecast</span>
           </button>
-          <button class="settings-row tall about-link" onClick={() => (location.hash = "#/about/terms")}>
+          <button class="settings-row tall about-link" onClick={() => (navigate("/about/terms"))}>
             <span class="label">Terms of Use</span>
           </button>
-          <button class="settings-row tall about-link" onClick={() => (location.hash = "#/about/privacy")}>
+          <button class="settings-row tall about-link" onClick={() => (navigate("/about/privacy"))}>
             <span class="label">Privacy Policy</span>
           </button>
-          <button class="settings-row tall about-link" onClick={() => (location.hash = "#/about/contact")}>
+          <button class="settings-row tall about-link" onClick={() => (navigate("/about/contact"))}>
             <span class="label">Contact us</span>
           </button>
         </section>

@@ -2,15 +2,14 @@
     Rosa had no way to answer "how many users do we have"; the push-subscription
     list only counts devices that opted into notifications.
 
-    Auto-track is off on purpose. The injected script hooks `history.pushState`,
-    and Rosa navigates by assigning `location.hash`, which it never sees - so the
-    only view it would ever report is the cold start. Every view is sent here
-    instead, which also rules out a double count on the back button. */
+    Auto-track is off on purpose: every view is sent here, on the router's own
+    event, so a pushState and the popstate that the back button fires can never
+    be counted twice. */
 import { inject, pageview } from "@vercel/analytics";
-import { parseRoute, type Route } from "./app";
+import { currentPath, onRouteChange, parseRoute, type Route } from "./router";
 
 /** Every spot page collapses to one row so the report reads as screens, not
-    as a spot leaderboard. `path` still carries the real hash for the few cases
+    as a spot leaderboard. `path` still carries the real path for the few cases
     where the individual spot matters. */
 function routeOf(route: Route): string {
   switch (route.page) {
@@ -28,8 +27,8 @@ function routeOf(route: Route): string {
 export function initAnalytics(): void {
   inject({ disableAutoTrack: true });
   const send = () => {
-    pageview({ route: routeOf(parseRoute(location.hash)), path: location.hash.slice(1) || "/" });
+    pageview({ route: routeOf(parseRoute(currentPath())), path: location.pathname });
   };
   send();
-  addEventListener("hashchange", send);
+  onRouteChange(send);
 }

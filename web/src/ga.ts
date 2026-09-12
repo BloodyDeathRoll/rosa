@@ -20,7 +20,7 @@
     person. That is Google's own rule for GA4 properties, and breaking it gets the
     property terminated - "which spots do surfers in Sri Lanka open" is a question
     about a cohort, and it is answerable without knowing who they are. */
-import { parseRoute, type Route } from "./app";
+import { currentPath, onRouteChange, parseRoute, type Route } from "./router";
 import { consentGranted } from "./consent";
 
 const GA_ID = import.meta.env.VITE_GA_ID as string | undefined;
@@ -92,8 +92,8 @@ export function initGa(): void {
   bootConsent();
   gtag("js", new Date());
   // Manual pageviews for the same reason the Vercel path uses them: Rosa navigates
-  // by assigning `location.hash`, which gtag's auto pageview never sees, so the only
-  // view it would report is the cold start.
+  // by pushState on its own router event, which gtag's auto pageview never sees, so
+  // the only view it would report is the cold start.
   // No anonymize_ip: that is a Universal Analytics setting and GA4 ignores it as a
   // config key, so gtag passed it straight through as an event parameter on every
   // single hit. GA4 truncates IPs itself and offers no switch.
@@ -106,16 +106,16 @@ export function initGa(): void {
 
   const send = () => gaPageview();
   send();
-  addEventListener("hashchange", send);
+  onRouteChange(send);
 }
 
 export function gaPageview(): void {
   if (!GA_ID) return;
-  const route = parseRoute(location.hash);
+  const route = parseRoute(currentPath());
   gtag("event", "page_view", {
     page_title: routeOf(route),
     page_location: location.href,
-    page_path: location.hash.slice(1) || "/",
+    page_path: location.pathname,
   });
 }
 

@@ -49,7 +49,7 @@ function body(o: Outbound): string {
   lines.push("---");
   const who = sender();
   if (who) lines.push(`from: ${who.name ? `${who.name} <${who.email}>` : who.email}`);
-  lines.push(`page: ${location.hash}`, `ua: ${navigator.userAgent}`);
+  lines.push(`page: ${location.pathname}`, `ua: ${navigator.userAgent}`);
   return lines.join("\n");
 }
 
@@ -80,7 +80,7 @@ export async function send(o: Outbound): Promise<boolean> {
       spot: o.spot?.id ?? null,
       email: sender()?.email ?? null,
       name: sender()?.name ?? null,
-      page: location.hash,
+      page: location.pathname,
       ua: navigator.userAgent,
     }),
   }).catch(() => null);

@@ -44,7 +44,7 @@ export function SpotCard({
   const units = useUnits();
   const { name, region } = splitName(data.spot.name);
   const dv = dayView(data, date);
-  const href = `#/spot/${data.spot.id}`;
+  const href = `/spot/${data.spot.id}`;
   return (
     <a class="rank-card" href={href}>
       <div class="mid">

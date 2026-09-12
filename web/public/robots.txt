@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /data/
+Disallow: /search
+Disallow: /settings
+Disallow: /spots
+
+Sitemap: https://rosa.surf/sitemap.xml

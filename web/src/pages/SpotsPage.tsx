@@ -46,7 +46,7 @@ function Row({
   const units = useUnits();
   const { name, region } = splitName(entry.name);
   return (
-    <a class="spot-row-card" href={`#/spot/${id}`}>
+    <a class="spot-row-card" href={`/spot/${id}`}>
       <TierDot bucket={entry.bucket} />
       <span class="mid">
         <SpotTitle name={name} region={region} />
@@ -113,7 +113,7 @@ export function SpotsPage() {
   }, [index, favs]);
 
   const search = (
-    <a class="icon-btn" href="#/search" aria-label="Search spots">
+    <a class="icon-btn" href="/search" aria-label="Search spots">
       <SearchIcon />
     </a>
   );

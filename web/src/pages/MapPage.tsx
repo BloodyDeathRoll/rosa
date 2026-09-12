@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "preact/hooks";
+import { navigate } from "../router";
 import { isDesk } from "../desk";
 import { fetchIndex } from "../api";
 import {
@@ -387,7 +388,7 @@ export function MapPage({ theme }: { theme: Theme }) {
 
   const goBack = () => {
     if (history.length > 1) history.back();
-    else location.hash = "#/today";
+    else navigate("/");
   };
 
   if (error) {
@@ -656,7 +657,7 @@ export function MapCard({
   const { name, region } = splitName(entry.name);
   const sub = dist !== null ? `${dist} km${region ? ` · ${region}` : ""}` : region || "";
   return (
-    <a class={`map-card${center ? " center" : ""}${img ? "" : " noimg"}`} data-id={id} href={`#/spot/${id}`}>
+    <a class={`map-card${center ? " center" : ""}${img ? "" : " noimg"}`} data-id={id} href={`/spot/${id}`}>
       {img && (
         <span class="map-card-bg">
           {entry.cam ? (

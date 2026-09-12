@@ -93,8 +93,8 @@ export function markInstallSeen(): void {
 }
 
 /** Reopen Rosa in Chrome through an Android intent link, where the install is
-    clean. The hash route is dropped (the intent's own fragment is `#Intent;...`),
-    so Chrome opens on Home - which is where the install sheet lives anyway. No
+    clean. The current path rides along; the intent's own fragment is
+    `#Intent;...`. No
     Chrome on the phone: the fallback is Chrome's Play Store page. */
 export function openInChrome(): void {
   const fallback = encodeURIComponent(

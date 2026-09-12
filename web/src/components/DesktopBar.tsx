@@ -58,7 +58,7 @@ export function DesktopBar({ active }: { active: Tab | null }) {
   return (
     <header class="desk-bar">
       <div class="desk-bar-row">
-        <a class="brand" href="#/" aria-label="Rosa home">
+        <a class="brand" href="/" aria-label="Rosa home">
           <span class="brand-mark" role="img" aria-label="Rosa" />
           <span class="brand-word">
             rosa<span class="brand-dot" aria-hidden="true" />
@@ -76,7 +76,7 @@ export function DesktopBar({ active }: { active: Tab | null }) {
             </a>
           ))}
         </nav>
-        <a class="desk-search" href="#/search">
+        <a class="desk-search" href="/search">
           <SearchIcon size={16} />
           <span>Search spots or regions</span>
         </a>
@@ -98,7 +98,7 @@ export function DesktopBar({ active }: { active: Tab | null }) {
           <div class="desk-ticker-row">
             <span class="desk-ticker-label">Your spots</span>
             {ticker.map(([id, e]) => (
-              <a key={id} class="desk-tick" href={`#/spot/${id}`}>
+              <a key={id} class="desk-tick" href={`/spot/${id}`}>
                 <i style={`background:${ratingVar(e.bucket)}`} aria-hidden="true" />
                 <span>{splitName(e.name).name}</span>
                 <b class="tabular">{fmtRange(e.h, units)}</b>

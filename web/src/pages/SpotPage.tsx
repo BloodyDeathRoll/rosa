@@ -1,4 +1,6 @@
 import type { VNode } from "preact";
+import { navigate, onRouteChange } from "../router";
+import { setHead, spotHead } from "../head";
 import { useCallback, useEffect, useMemo, useState } from "preact/hooks";
 import { fetchIndex, fetchSpot } from "../api";
 import { gaEvent } from "../ga";
@@ -252,7 +254,7 @@ function CamSection({ data, all }: { data: SpotPayload; all: [string, IndexEntry
                   <button
                     key={n.id}
                     class="cam-thumb"
-                    onClick={() => (location.hash = `#/spot/${n.id}`)}
+                    onClick={() => (navigate(`/spot/${n.id}`))}
                   >
                     <img src={thumb(n.yts[0]!)} alt="" loading="lazy" />
                     <span>
@@ -389,19 +391,18 @@ export function SpotPage({ id }: { id: string }) {
       .finally(signalReady);
   }, [id]);
 
-  // A push notification's link (#/spot/id?ev=YYYY-MM-DD) opens on the swell's
-  // peak day. Reacts to hashchange too: landing in an already-open app is a
-  // hash-only change - no reload, no remount - and must still jump the day.
+  // A push notification's link (/spot/id?ev=YYYY-MM-DD) opens on the swell's
+  // peak day. Reacts to route changes too: landing in an already-open app is a
+  // navigation without a remount and must still jump the day.
   useEffect(() => {
     const apply = () => {
-      const evDate = /[?&]ev=(\d{4}-\d{2}-\d{2})/.exec(location.hash)?.[1];
+      const evDate = /[?&]ev=(\d{4}-\d{2}-\d{2})/.exec(location.search)?.[1];
       if (!evDate || !data) return;
       const i = data.days.findIndex((day) => day.date === evDate);
       if (i >= 0) commitDay(i);
     };
     apply();
-    addEventListener("hashchange", apply);
-    return () => removeEventListener("hashchange", apply);
+    return onRouteChange(apply);
   }, [data, commitDay]);
 
   // remember the committed date so it carries to the next spot; forget it when
@@ -438,11 +439,20 @@ export function SpotPage({ id }: { id: string }) {
   }, []);
 
   const goBack = () => {
-    location.hash = "#/";
+    navigate("/");
   };
 
   // header falls back to the index entry's name while the payload loads
   const curEntry = spots.find(([sid]) => sid === id)?.[1];
+
+  // <head> for this spot: from the payload once it is here, from the index
+  // entry meanwhile (the prerendered shell already carries the same values)
+  useEffect(() => {
+    const sp = data?.spot ?? curEntry;
+    if (!sp) return;
+    // the full published name (an alias in brackets is what people search for)
+    setHead(spotHead({ id, name: sp.name, region: sp.region ?? undefined, town: sp.town ?? undefined, lat: sp.lat, lon: sp.lon }));
+  }, [data, curEntry, id]);
 
   // Other spots on this stretch of coast, closest first - the same cards the
   // Map tab uses, so a spot reads identically wherever you meet it.
@@ -517,7 +527,7 @@ export function SpotPage({ id }: { id: string }) {
                 class="accent-link"
                 onClick={() => {
                   setPendingPin(id);
-                  location.hash = "#/map";
+                  navigate("/map");
                 }}
               >
                 <MapIcon size={14} />
@@ -567,7 +577,7 @@ export function SpotPage({ id }: { id: string }) {
           <div class="hour-grid head">
             <span aria-hidden="true" />
             {/* Sits over the rating rail's 6px column; the icon overhangs it, centred. */}
-            <a class="grid-info" href="#/about/reading" aria-label="What these numbers mean">
+            <a class="grid-info" href="/about/reading" aria-label="What these numbers mean">
               <InfoIcon />
             </a>
             <span aria-hidden="true">surf {heightUnit(units)}</span>
@@ -632,7 +642,7 @@ export function SpotPage({ id }: { id: string }) {
           onToggle={() => toggleFav(id)}
         />
       )}
-      <a class="icon-btn spot-top-search" href="#/search" aria-label="Search spots">
+      <a class="icon-btn spot-top-search" href="/search" aria-label="Search spots">
         <SearchIcon />
       </a>
     </div>
