@@ -1,7 +1,7 @@
 import { render } from "preact";
 import { syncFavorites } from "./account";
 import { initAnalytics } from "./analytics";
-import { initGa, gaSetPrefs, unitsTag } from "./ga";
+import { initGa, gaEvent, gaSetPrefs, unitsTag } from "./ga";
 import { App } from "./app";
 import { MovedScreen, onLegacyOrigin } from "./components/MovedScreen";
 import { getFavorites, setFavorites } from "./favorites";
@@ -54,6 +54,10 @@ gaSetPrefs({
   favorites: getFavorites().length,
   installed: matchMedia("(display-mode: standalone)").matches,
 });
+// The install itself, counted once where it happens. `installed` above only sees a
+// launch of the installed app. Chromium (Android, desktop) fires this; iOS Add to Home
+// Screen fires nothing, so iPhone installs show only through `installed`.
+addEventListener("appinstalled", () => gaEvent("app_install"));
 
 /** Favorites live on the server since 2026-09-07: push a list the last session
     could not save, or pull what another device changed. Silent, after paint. */
