@@ -97,7 +97,7 @@ export function interceptLinks(): void {
     if (!a || a.target || a.hasAttribute("download")) return;
     const href = a.getAttribute("href");
     if (!href || !href.startsWith("/") || href.startsWith("//")) return;
-    if (href.startsWith("/data/") || href.startsWith("/about/") && /\.\w+$/.test(href)) return;
+    if (href.startsWith("/data/") || (href.startsWith("/about/") && /\.\w+$/.test(href))) return;
     e.preventDefault();
     if (href === currentPath()) return;
     navigate(href);

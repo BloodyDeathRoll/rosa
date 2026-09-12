@@ -12,7 +12,7 @@
 //
 // Keep the title/description wording in step with src/head.ts (spotHead) and
 // src/seo.ts - the app sets the same values when it navigates.
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 
 const SITE = "https://rosa.surf";
@@ -45,6 +45,12 @@ async function loadIndex() {
   return JSON.parse(readFileSync("public/data/index.json", "utf8")).spots;
 }
 
+// Must run AFTER `vite build`: the service worker's precache manifest is computed
+// from dist/ during that build, and these ~1,960 shells must never enter it.
+// A fresh build empties dist/, so shells already present mean the order is wrong.
+if (existsSync(join(DIST, "spot"))) throw new Error("prerender: dist/spot already exists - run after a fresh `vite build`, never before");
+if (!existsSync(join(DIST, "sw.js"))) throw new Error("prerender: dist/sw.js missing - run after `vite build`");
+
 const template = readFileSync(join(DIST, "index.html"), "utf8");
 if (!template.includes("<!-- prerender:app-static -->")) throw new Error("prerender: index.html lost its static block");
 
@@ -65,9 +71,11 @@ function shell({ title, description = DEFAULT_DESCRIPTION, path, noindex = false
   set(/<meta name="twitter:title" content="[^"]*" \/>/, `<meta name="twitter:title" content="${esc(title)}" />`);
   set(/<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/>/, `<meta name="twitter:description" content="${esc(description)}" />`);
   // the WebSite graph belongs to the root only; a screen brings its own or none
+  // id="ld-page" is what head.ts updates in place on hydration - without it the
+  // app would append a second block beside this one
   set(
-    /<script type="application\/ld\+json">[\s\S]*?<\/script>/,
-    jsonLd ? `<script type="application/ld+json">${JSON.stringify({ "@context": "https://schema.org", ...jsonLd })}</script>` : "",
+    /<script type="application\/ld\+json" id="ld-page">[\s\S]*?<\/script>/,
+    jsonLd ? `<script type="application/ld+json" id="ld-page">${JSON.stringify({ "@context": "https://schema.org", ...jsonLd })}</script>` : "",
   );
   if (noindex) html = html.replace("</title>", `</title>\n    <meta name="robots" content="noindex, follow" />`);
   set(/<!-- prerender:app-static -->[\s\S]*<!-- \/prerender:app-static -->/, body);

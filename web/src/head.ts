@@ -3,7 +3,6 @@
     static HTML for crawlers; this keeps them right as the app navigates. */
 
 export const SITE = "https://rosa.surf";
-export const SITE_NAME = "Rosa";
 export const DEFAULT_TITLE = "Rosa - free surf forecast, 1,900+ spots worldwide";
 export const DEFAULT_DESCRIPTION =
   "Free surf forecast for 1,900+ spots worldwide: wave height, swell, wind, tide and a 0-100 rating, 7 days out, updated four times a day. Should I surf, when, where?";
@@ -69,8 +68,8 @@ export function setHead(h: Head): void {
   }
 }
 
-/** Title + description of a spot page - shared with the prerender step (keep
-    `scripts/seo.mjs` in step when this changes). */
+/** Title + description of a spot page. `scripts/prerender.mjs` (`spotPage`)
+    writes the same wording into the static shells - keep them in step. */
 export function spotHead(spot: { id: string; name: string; region?: string; town?: string; lat: number; lon: number }): Head {
   const where = [spot.town, spot.region].filter((s): s is string => !!s && s !== spot.name).join(", ");
   return {
