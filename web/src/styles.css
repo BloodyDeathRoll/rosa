@@ -1772,7 +1772,7 @@ a.rank-card:hover {
 /* Best-session rows - subtly tinted; the first row of a run carries a small
    "Best session" tag overlaid in its top-right corner, just below the divider. */
 .hour-grid.row.best {
-  background: color-mix(in srgb, var(--rating-good) 15%, transparent);
+  background: color-mix(in srgb, var(--rating-good) 9%, transparent);
   /* keep the row's normal top divider - don't blank it out */
 }
 .hour-grid.row.best-first {
@@ -1783,16 +1783,23 @@ a.rank-card:hover {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+/* A small green pill straddling the top edge of the best-session block (the
+   -13px lifts it over the divider) - was green type on the row (2026-09-12). */
 .best-tag {
   position: absolute;
   top: 4px;
   right: 10px;
+  margin-top: -13px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: var(--rating-good);
+  color: #fff;
   font-size: 9.9px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--rating-good); /* type on the row, not on a pill - not the -fg */
   pointer-events: none;
+  z-index: 1;
 }
 
 .temps-row {
