@@ -6,8 +6,9 @@ the same download - O(1) in spot count, the fetch-plane property. Recent days pu
 final-then-preliminary, walking back up to MAX_LAG_DAYS.
 
 Consumed by the BLEND arm only: `blend.compose_raw` fills the payload's SST column with
-the daily value (SST varies ~0.1 C intra-day - far below the model's own error), keeping
-the light OM marine value as the fallback when the fetch fails. The OM arm is untouched.
+the daily value (SST varies ~0.1 C intra-day - far below the model's own error). When the
+fetch fails the column is blank for the cycle: since 2026-09-12 the blend arm makes no
+marine-host request, so there is no OM value to fall back on. The OM arm is untouched.
 SST is display + tail carry (extract's ``last_sst``), never rating physics, so this is
 not pb_0049-gated - the promotion A/B still reports it.
 """

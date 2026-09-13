@@ -345,3 +345,13 @@ def test_named_other_bucket_429_still_skips_the_ledger(monkeypatch):
     monkeypatch.setenv("ROSA_OM_DAILY_BUDGET", "9400")
     resp = httpx.Response(429, json={"error": True, "reason": "Hourly API request limit"})
     assert fetch._retry_wait_s(resp, 0) is None
+
+
+def test_unclassifiable_429_from_an_unmetered_host_ignores_the_marine_ledger(monkeypatch):
+    """The ledger meters the marine host only. A spent marine budget says nothing about the
+    weather host's daily bucket (never booked there), so an unclassifiable weather 429 still
+    gets its one minute wait - and a marine one is still refused."""
+    monkeypatch.setenv("ROSA_OM_DAILY_BUDGET", "0")
+    resp = httpx.Response(429, text="Too Many Requests")
+    assert fetch._retry_wait_s(resp, 0, fetch.WEATHER_URL) == fetch._MINUTE_RETRY_WAIT_S
+    assert fetch._retry_wait_s(resp, 0, fetch.MARINE_URL) is None

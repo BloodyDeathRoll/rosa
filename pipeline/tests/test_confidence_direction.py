@@ -57,3 +57,16 @@ def test_heights_only_callers_are_unchanged() -> None:
     a = agreement_from_heights([1.0, 2.0])
     assert a.dir_span_deg is None
     assert abs(a.score - (1 - (0.5 / 1.5) / 0.6)) < 1e-9
+
+
+def test_a_height_silent_member_adds_no_bearing() -> None:
+    """The fan spans the members the agreement counted (Dream 2026-09-10): a member with a
+    bearing but no usable height at that hour must not widen dir_span."""
+    hourly = {
+        "wave_height_a": [1.0, 1.0],
+        "wave_height_b": [None, -1.0],
+        "wave_direction_a": [100.0, 100.0],
+        "wave_direction_b": [220.0, 220.0],
+    }
+    assert member_directions_at(hourly, 0) == [100.0]
+    assert member_directions_at(hourly, 1) == [100.0]

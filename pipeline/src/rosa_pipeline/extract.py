@@ -206,11 +206,16 @@ def extract_hours(
         if sp is not None and sp.swh is not None:
             member_hs = [*member_hs, sp.swh]
         # the ECMWF member's own total-sea mean direction (SpectralSea.mwd, fetched
-        # since Stage 3b) joins the fan like-for-like with OM's wave_direction_<member>
-        # - same quantity, same convention (measured 2026-08-11 against the archived
-        # OM bearings at four buoys: mean offset -2.6 deg .. +5.1 deg, MAE 4-7 deg, so
-        # no flip). It carries the same bimodal-sea caveat pb_0048 flagged for all five.
-        if sp is not None and sp.mwd is not None:
+        # since Stage 3b) joins the fan. On the OM arm that is like-for-like with OM's
+        # wave_direction_<member> - all means, same convention (measured 2026-08-11
+        # against the archived OM bearings at four buoys: mean offset -2.6 deg .. +5.1
+        # deg, MAE 4-7 deg, so no flip). On the BLEND arm the other member is GFS's
+        # dirpw, a PEAK direction, so a blend-era span (dir_n = 2) is peak-vs-mean:
+        # never pool it with OM-era spans or fit a direction tolerance to it
+        # (CALIBRATION.md 2026-09-13). Both arms carry pb_0048's bimodal-sea caveat.
+        # Gated on swh like member_directions_at is on its heights: a member the
+        # agreement did not count adds no bearing (2026-09-13).
+        if sp is not None and sp.swh is not None and sp.mwd is not None:
             member_dirs = [*member_dirs, float(sp.mwd) % 360.0]
         agreement = agreement_from_members(member_hs, member_dirs)
         hours.append(

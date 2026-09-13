@@ -9,6 +9,8 @@ buoy can measure that gap; a station on the coast can. This registry is those st
 * ``metar`` - aviation METARs from NOAA's aviationweather.gov (public domain, no key):
   every reporting airfield within 25 km of a Rosa spot, ``data/stations/metar.yaml``.
   Regenerate with ``rosa-pipeline stations --discover metar`` after a spot-DB change.
+  Discovery sees only airfields reporting at that hour, so it keeps a registered station
+  missing from the snapshot while a spot is still in reach (since 2026-09-13).
 * ``ims`` - the Israel Meteorological Service's 10-minute stations (open data, free
   token by mail from ims@ims.gov.il, ``IMS_API_TOKEN`` in the VM's ``~/rosa/.env``).
   The coastal ones stand on the beach itself, which no airport does.

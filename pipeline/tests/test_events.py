@@ -118,3 +118,39 @@ def test_events_land_in_payload() -> None:
     assert event["rating"] == 55 and event["bucket"] == "GOOD"
     assert event["h_peak"] == 1.8 and event["dir"] == 290.0
     assert event["start"] < event["peak"] < event["end"]
+
+
+def test_kept_window_matches_the_rebuilt_one_on_an_irregular_series() -> None:
+    """The deque window (Dream 2026-09-10) must flag exactly the hours the old
+    rebuild-per-hour window did - a faster baseline that moved an event would move a push.
+    Hourly then 3-hourly (the horizon's real shape), with jagged energies."""
+    from statistics import median
+
+    from rosa_pipeline.events import (
+        ENERGY_FACTOR,
+        MEDIAN_FLOOR,
+        MIN_TRAILING_H,
+        TRAILING_H,
+        _elevated,
+    )
+
+    offsets = [*range(0, 120), *range(120, 390, 3)]
+    scored = [
+        _hour(h, energy=(h * 37 % 11) / 2 + 0.3 + (8.0 if 200 <= h < 230 else 0.0), rating=55)
+        for h in offsets
+    ]
+
+    def rebuilt(series: list[ScoredHour]) -> list[bool]:
+        out = []
+        for i, s in enumerate(series):
+            t0 = s.hour.time - timedelta(hours=TRAILING_H)
+            trailing = [p.energy for p in series[:i] if p.hour.time >= t0]
+            if len(trailing) < MIN_TRAILING_H:
+                out.append(False)
+                continue
+            out.append(s.energy >= ENERGY_FACTOR * max(median(trailing), MEDIAN_FLOOR))
+        return out
+
+    expected = rebuilt(scored)
+    assert any(expected) and not all(expected)  # the series exercises both answers
+    assert _elevated(scored) == expected

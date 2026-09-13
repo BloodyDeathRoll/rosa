@@ -152,3 +152,28 @@ def test_cli_rejects_an_unparseable_at(tmp_path, capsys) -> None:
     )
     assert rc == 2
     assert "not an ISO time" in capsys.readouterr().err
+
+
+def test_cli_refuses_an_at_outside_the_published_forecast(tmp_path, capsys) -> None:
+    """A session the payload never forecast is refused, not stored with an empty
+    `predicted` the surfer never learns about (Dream 2026-09-10); one inside is recorded."""
+    import json
+
+    from rosa_pipeline.cli import main
+
+    (tmp_path / "spots").mkdir()
+    hours = [
+        {"t": f"2026-09-10T{h:02d}:00+03:00", "rating": 40, "bucket": "FAIR"} for h in range(24)
+    ]
+    (tmp_path / "spots" / "x.json").write_text(json.dumps({"hours": hours}))
+    base = ["feedback", "--spot", "x", "--verdict", "up", "--out", str(tmp_path)]
+    fb = ["--feedback-dir", str(tmp_path / "fb")]
+
+    rc = main([*base, "--at", "2026-09-08T09:00+03:00", *fb])
+    assert rc == 2
+    err = capsys.readouterr().err
+    assert "outside the published forecast" in err and "2026-09-10T00:00+03:00" in err
+    assert not (tmp_path / "fb").exists()
+
+    assert main([*base, "--at", "2026-09-10T09:00+03:00", *fb]) == 0
+    assert (tmp_path / "fb").exists()

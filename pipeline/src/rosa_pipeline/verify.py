@@ -13,6 +13,11 @@ Two comparison notes baked in:
   (``ENERGY_PERIOD_VARIABLES``); the APD pairing survives only as a labelled fallback
   for stations that publish no spectra, and must never be calibrated against.
 - Direction is circular - errors wrap at ±180°, and scatter-index is undefined for it.
+- NDBC's MWD is the direction AT THE DOMINANT PERIOD (NDBC measurement descriptions,
+  checked 2026-09-13) - a PEAK direction despite its name. GFS-Wave's dirpw is a peak too,
+  so that row is like-for-like; Open-Meteo's wave_direction and ECMWF's mwd are MEANS, so
+  their direction rows carry a peak-vs-mean offset in bimodal seas and are not a
+  calibratable bias (CALIBRATION.md 2026-09-13).
 
 The nowcast path (compare today's forecast hours to the buoy's recent obs) needs no stored
 history and works immediately; the archive path (Stage 0 next increment) extends this to

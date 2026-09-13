@@ -41,7 +41,7 @@ from urllib.parse import quote
 
 import httpx
 
-from .geo import lon360
+from .geo import dlon180, lon360
 from .gfswave import Box, _is_grib, cluster_boxes
 from .verify import WavePoint
 
@@ -112,6 +112,22 @@ def wind_from_uv(u: float, v: float) -> tuple[float, float]:
     return speed, direction
 
 
+def nearest_node(glats, glons, lat: float, lon: float) -> tuple | None:
+    """Index of the grid node nearest (lat, lon) by ground distance, or None if it is more
+    than NEAREST_MAX_DEG out. Longitude gaps go through geo.dlon180, as in oisst and gwam:
+    a box across 0 deg stores 359.75 beside 0.0, and a station just east of Greenwich must
+    still see the nodes just west of it."""
+    import numpy as np
+
+    dlon = dlon180(glons, lon360(lon))
+    # ground-distance metric, the 2026-09-11 rule: a lon degree is cos(lat) of a lat one
+    d2 = (glats - lat) ** 2 + (dlon * math.cos(math.radians(lat))) ** 2
+    idx = np.unravel_index(int(np.argmin(d2)), d2.shape)
+    if abs(glats[idx] - lat) > NEAREST_MAX_DEG or abs(dlon[idx]) > NEAREST_MAX_DEG:
+        return None
+    return idx
+
+
 def parse_grib_points(
     grib_bytes: bytes, points: list[tuple[float, float]], valid: datetime
 ) -> list[WavePoint | None]:
@@ -134,14 +150,10 @@ def parse_grib_points(
         return [None] * len(points)
     u_vals, glats, glons = fields["10u"]
     v_vals = fields["10v"][0]
-    glons = np.where(glons < 0, glons + 360.0, glons)
     out: list[WavePoint | None] = []
     for lat, lon in points:
-        lon = lon360(lon)
-        # ground-distance metric, the 2026-09-11 rule: a lon degree is cos(lat) of a lat one
-        d2 = (glats - lat) ** 2 + ((glons - lon) * math.cos(math.radians(lat))) ** 2
-        idx = np.unravel_index(int(np.argmin(d2)), d2.shape)
-        if abs(glats[idx] - lat) > NEAREST_MAX_DEG or abs(glons[idx] - lon) > NEAREST_MAX_DEG:
+        idx = nearest_node(glats, glons, lat, lon)
+        if idx is None:
             out.append(None)
             continue
         speed, direction = wind_from_uv(float(u_vals[idx]), float(v_vals[idx]))

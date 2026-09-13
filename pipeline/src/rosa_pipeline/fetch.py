@@ -143,7 +143,8 @@ RETRY_STATUS = frozenset({500, 502, 503, 504})
 # `rosa_pipeline.quota` already handles. The classification no longer hangs on that one
 # vendor sentence alone (2026-08-31, Dream proposal): a Retry-After header is honored
 # first, and a 429 with NO readable reason is treated as the minutely cap when the local
-# quota ledger says today's budget still has room - if the daily bucket cannot be what
+# quota ledger says today's budget still has room (on the marine host, the only one it
+# meters - any other host gets the minute wait unasked) - if the daily bucket cannot be what
 # tripped, waiting 65 s once is cheap next to the alternative, which is the exact
 # 2026-08-28 failure mode (aux-leg 429 -> raise_for_status -> dead cycle) returning the
 # day Open-Meteo rewords its error body. A 429 whose reason reads as another bucket is
@@ -163,8 +164,10 @@ _MINUTE_RETRY_WAIT_S = 65.0
 _RETRY_AFTER_CAP_S = 300.0
 
 
-def _retry_wait_s(resp: httpx.Response, attempt: int) -> float | None:
-    """Seconds to wait before retrying this response, or None if it is not retryable."""
+def _retry_wait_s(resp: httpx.Response, attempt: int, url: str | None = None) -> float | None:
+    """Seconds to wait before retrying this response, or None if it is not retryable.
+    ``url`` is the request that got it; None (a caller that cannot say) keeps the ledger
+    arbitration below for every host."""
     if resp.status_code in RETRY_STATUS:
         return 10.0 * (attempt + 1)
     if resp.status_code != 429:
@@ -188,7 +191,12 @@ def _retry_wait_s(resp: httpx.Response, attempt: int) -> float | None:
         reason = ""  # a non-JSON 429 body is unclassifiable
     if reason:
         return _MINUTE_RETRY_WAIT_S if _MINUTE_LIMIT_MARKER in reason.lower() else None
-    # unclassifiable: let the ledger arbitrate (see the block comment above)
+    # unclassifiable: let the ledger arbitrate (see the block comment above) - but only for
+    # the marine host, the one it meters. The weather host was never booked there and the
+    # blend arm books nothing since 2026-09-12, so for any other host a spent (or unspent)
+    # ledger says nothing about its daily bucket: wait the minute once, as argued above.
+    if url is not None and not url.startswith(MARINE_URL):
+        return _MINUTE_RETRY_WAIT_S
     from . import quota
 
     return _MINUTE_RETRY_WAIT_S if quota.Ledger.load().remaining > 0.0 else None
@@ -233,7 +241,7 @@ def retrying_get(
             continue
         if resp.status_code == 429 and not retry_429:
             return resp
-        wait_s = _retry_wait_s(resp, attempt)
+        wait_s = _retry_wait_s(resp, attempt, url)
         if wait_s is None:
             return resp
         last_resp, last_exc = resp, None

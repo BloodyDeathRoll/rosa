@@ -13,7 +13,9 @@ Parses the NDBC ``realtime2/<id>.txt`` standard-meteorological file. Wave column
     DPD  = dominant (peak) period (s)    -> dpd_s
     APD  = average period (s), i.e. Tm02 -> apd_s   (NOT the model's mean period - see
                                            verify.py: Open-Meteo serves Tm-1,0)
-    MWD  = mean wave direction (deg, from)-> mwd_deg
+    MWD  = direction at the dominant      -> mwd_deg   (a PEAK direction despite the
+           period, DPD (deg, from)                     name - NDBC measurement
+                                                       descriptions; see verify.py)
     WTMP = water temperature (degC)      -> wtmp_c
 Missing values are the literal "MM". Rows are newest-first; we return oldest-first.
 
@@ -187,8 +189,12 @@ def parse_cmems_nc(data: bytes, station: str) -> list[BuoyObs]:
 
     DIRECTION IS A KNOWN MISMATCH, deliberately not hidden: these files carry VMDR (mean
     direction) only sometimes, and VPED (direction at the spectral PEAK) always. NDBC's MWD
-    is a mean. We prefer VMDR and fall back to VPED, which carries the same peak-vs-mean
-    offset already documented for ISRAMAR - a known bias, not an error. Never read a
+    is the direction at the dominant period - a PEAK direction (NDBC's measurement
+    descriptions, checked 2026-09-13; this said "a mean" until then). So VPED is the
+    like-for-like with NDBC and VMDR is not. We still prefer VMDR and fall back to VPED:
+    switching moves scorecards and is not done here (CALIBRATION.md 2026-09-13). The
+    peak-vs-mean offset is the one already documented for ISRAMAR - a known bias, not an
+    error. Never pool direction rows across NDBC and CMEMS stations. Never read a
     direction score across sources without checking which one this station supplied.
 
     No wind: these platforms publish waves only, so wdir_deg/wspd_ms stay None (unlike NDBC,

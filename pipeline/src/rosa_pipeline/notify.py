@@ -367,10 +367,16 @@ def swell_keys_stamped_today(sent: dict[str, str], ehash: str, now: datetime) ->
     honest approximation beats pretending to know it."""
     day = now.date().isoformat()
     prefix = f"{ehash}|"
+    # load_state keeps damaged stamps on purpose (save_state prunes them per key), so a
+    # value here can be null or a number: it is not "stamped today", and it must not
+    # raise - that would cost this device its whole cycle in the per-subscription guard
     return sum(
         1
         for k, v in sent.items()
-        if k.startswith(prefix) and not k.startswith(f"{prefix}fb:") and v.startswith(day)
+        if k.startswith(prefix)
+        and not k.startswith(f"{prefix}fb:")
+        and isinstance(v, str)
+        and v.startswith(day)
     )
 
 
@@ -768,7 +774,13 @@ def pull_feedback(feedback_url: str, admin_secret: str, feedback_dir: Path) -> i
     if not rows:
         return 0
     store = FileArchiveStore(feedback_dir)
-    seen_ids = {row.get("id") for row in store.read("feedback")}
+    # the store hands back ANY JSON value per line (feedback.FeedbackRecord.from_row), and
+    # a non-object line is never rewritten - raising here would fail this pull, and every
+    # later one, before the append and the server-side prune. It costs itself, loudly.
+    stored = store.read("feedback")
+    seen_ids = {row.get("id") for row in stored if isinstance(row, dict)}
+    if skipped := sum(1 for row in stored if not isinstance(row, dict)):
+        print(f"warn: {skipped} non-object row(s) in {feedback_dir}/feedback.jsonl ignored")
     fresh = [row for row in rows if row["id"] not in seen_ids]
     store.append("feedback", fresh)
     httpx.request(

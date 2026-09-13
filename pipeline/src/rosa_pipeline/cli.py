@@ -124,7 +124,15 @@ from .verify import (
 GFSWAVE_KEY_SUFFIX = ".gfswave"
 ECMWF_KEY_SUFFIX = ".ecmwf"
 SOURCE_KEY_SUFFIX = {"om": "", "gfswave": GFSWAVE_KEY_SUFFIX, "ecmwf": ECMWF_KEY_SUFFIX}
-SOURCE_VARIABLES = {"om": VARIABLES, "gfswave": GFSWAVE_VARIABLES, "ecmwf": ECMWF_VARIABLES}
+SOURCE_VARIABLES = {
+    "om": VARIABLES,
+    "gfswave": GFSWAVE_VARIABLES,
+    "ecmwf": ECMWF_VARIABLES,
+    # the blend rebuilt from both member archives (blend.blend_archive_rows): its tp is a
+    # mean of two PEAK periods (perpw, pp1d), so DPD like ECMWF's card, and no wind row -
+    # the published wind comes from the weather host, not these files
+    "blend": ECMWF_VARIABLES,
+}
 # coastal-station archive keys: the published wind model (fetch.WEATHER_MODEL, GFS since
 # 2026-08-30) lives at "<station>", the A/B member (fetch.WEATHER_AB_MODEL, ICON - the
 # best_match model it replaced) at "<station>.icon". Same observations score both.
@@ -366,10 +374,11 @@ def _build_parser() -> argparse.ArgumentParser:
     )
     verify.add_argument(
         "--source",
-        choices=["om", "gfswave", "ecmwf"],
+        choices=["om", "gfswave", "ecmwf", "blend"],
         default="om",
         help="with --archive: which archived source to score (Stage 3a/3b A/B). "
-        "gfswave/ecmwf pair their peak period with buoy DPD",
+        "gfswave/ecmwf pair their peak period with buoy DPD. blend rebuilds the "
+        "published 50/50 blend from both member archives (recording only)",
     )
     verify.add_argument("--fixtures", type=Path, default=None, help="replay marine json (offline)")
     verify.add_argument("--obs-fixtures", type=Path, default=None, help="replay NDBC txt (offline)")
@@ -425,6 +434,13 @@ def _build_parser() -> argparse.ArgumentParser:
     )
     stations.add_argument("--radius-km", type=float, default=25.0)
     stations.add_argument("--spots-dir", type=Path, default=Path("data/spots"))
+    stations.add_argument(
+        "--stations-dir",
+        type=Path,
+        default=STATIONS_DIR,
+        help="the registry metar discovery merges with: a registered station missing from "
+        "the current snapshot is kept while a spot is still in reach",
+    )
 
     fb = sub.add_parser("feedback", help="record/report surfer 👍👎 vs the published rating")
     fb.add_argument("--report", action="store_true", help="summarise instead of adding")
@@ -774,6 +790,17 @@ def _cmd_run(args: argparse.Namespace) -> int:
     no_profile = 0
     failures: list[tuple[str, Exception]] = []
     tide_by_point: dict = {}
+    # What replaces a point's missing EOT20 tide depends on the arm: the OM arm's marine
+    # body carries Open-Meteo's sea-level column, the blend arm's has none since
+    # 2026-09-12 (compose_raw writes None) - there the tide is blank and score_hour
+    # shifts the depth profile by 0, i.e. the breakers are scored at MSL.
+    no_tide_points = 0
+    no_tide_note = (
+        "OM tide stands in at this point"
+        if om_arm
+        else "NO tide at this point: the blend arm carries no OM tide, so its tide is blank "
+        "and its breakers are scored at MSL"
+    )
     if getattr(args, "tide_source", "om") == "eot20":
         from .tide import load_constants
 
@@ -784,21 +811,20 @@ def _cmd_run(args: argparse.Namespace) -> int:
                 c = load_constants(TIDE_DIR, group_spots[0].id)
             except Exception as e:
                 # A torn/hand-edited committed constants file must cost this point its
-                # EOT20 tide - the OM column stands in, exactly as when the file is
-                # missing - never the whole fleet run. This preload sat outside every
+                # EOT20 tide - exactly as when the file is missing (see no_tide_note) -
+                # never the whole fleet run. This preload sat outside every
                 # guard, so one unreadable JSON stranded all 199 spots before the first
                 # publish (the per-spot-guard rule, one loop further out).
                 c = None
                 print(
                     f"warn: EOT20 constants for {group_spots[0].id} are unreadable "
-                    f"({e!r}) - OM tide stands in at this point",
+                    f"({e!r}) - {no_tide_note}",
                     file=sys.stderr,
                 )
             else:
                 if c is None:
                     print(
-                        f"warn: no EOT20 constants for {group_spots[0].id} - "
-                        "OM tide stands in at this point",
+                        f"warn: no EOT20 constants for {group_spots[0].id} - {no_tide_note}",
                         file=sys.stderr,
                     )
                 # ...and check the constants still belong to this point. Exactly the
@@ -826,6 +852,8 @@ def _cmd_run(args: argparse.Namespace) -> int:
                         f"re-run `tide --spot {group_spots[0].id}`",
                         file=sys.stderr,
                     )
+            if c is None and not om_arm:
+                no_tide_points += 1
             tide_by_point[point] = c
     for point, raw, spectral in zip(points, raws, spectral_series, strict=True):
         try:
@@ -937,6 +965,15 @@ def _cmd_run(args: argparse.Namespace) -> int:
         print(
             f"warn: {stale_tides} offshore point(s) published off EOT20 constants sampled "
             "at superseded coordinates - re-cut them with `tide` (see warn lines above)",
+            file=sys.stderr,
+        )
+    if no_tide_points:
+        # ...and the points that had no constants at all. On the blend arm nothing stands
+        # in, so these published a blank tide with breakers scored at MSL.
+        print(
+            f"warn: {no_tide_points} offshore point(s) published with NO tide (breakers "
+            "scored at MSL) - their EOT20 constants are missing or unreadable; cut them "
+            "with `tide` (see warn lines above)",
             file=sys.stderr,
         )
     if no_profile:
@@ -1283,8 +1320,16 @@ def _cmd_verify(args: argparse.Namespace) -> int:
                 # like-for-like period: Open-Meteo serves Tm-1,0, the met file only APD (Tm02)
                 obs, variables = _with_measured_energy_period(buoy, obs, args, variables)
             if args.archive:
-                key = buoy.id + SOURCE_KEY_SUFFIX[args.source]
-                rows = FileArchiveStore(args.archive_dir).read(key)
+                store = FileArchiveStore(args.archive_dir)
+                if args.source == "blend":
+                    from .blend import blend_archive_rows
+
+                    rows = blend_archive_rows(
+                        store.read(buoy.id + GFSWAVE_KEY_SUFFIX),
+                        store.read(buoy.id + ECMWF_KEY_SUFFIX),
+                    )
+                else:
+                    rows = store.read(buoy.id + SOURCE_KEY_SUFFIX[args.source])
                 by_lead = lead_time_scorecard(
                     rows,
                     obs,
@@ -1335,11 +1380,14 @@ def _cmd_verify(args: argparse.Namespace) -> int:
         # --write-skill only ever collects the om source (the model run --all publishes);
         # a Stage-3a/3b A/B pass asks for it and would otherwise get scorecards, no
         # skill.json and not one word about why. Say what did not happen.
-        why = (
-            f"--source {args.source!r} is an A/B member, not the published model"
-            if args.archive and args.source != "om"
-            else "no archived om scorecards in this pass"
-        )
+        if args.archive and args.source == "blend":
+            # the shipped model, but recorded only: moving the published ceilings onto
+            # it moves confidence fleet-wide - a pb_0049 A/B + CALIBRATION.md entry first
+            why = "--source 'blend' is recorded only - switching skill.json to it needs the A/B"
+        elif args.archive and args.source != "om":
+            why = f"--source {args.source!r} is an A/B member, not the published model"
+        else:
+            why = "no archived om scorecards in this pass"
         print(f"skill: nothing to persist - {why}", file=sys.stderr)
     if getattr(args, "write_spread", False):
         # Opt-in and recording-only. The harness already builds these numbers every run
@@ -1778,6 +1826,26 @@ def _cmd_stations(args: argparse.Namespace) -> int:
                 la, lo = coords[k]
                 n, region = hits[k]
                 found.append((k, names.get(k, k), la, lo, "metar", n, region))
+            # The cache holds only airfields that reported in the last few hours, so a
+            # small field closed at that hour is simply absent - 12 of the 90 on
+            # 2026-09-13, Camp Pendleton and Cabo among them. A registered station is kept
+            # while a spot is still in reach: dropping it would end its archive for a
+            # quiet hour, not because anything moved. One no spot is near any more (the
+            # spot was deleted or moved) is still dropped.
+            from .stations import load_stations
+
+            kept = 0
+            for st in load_stations(args.stations_dir).values():
+                if st.source != "metar" or st.id in hits:
+                    continue
+                if n_r := near(st.lat, st.lon):
+                    found.append((st.id, st.name, st.lat, st.lon, "metar", n_r[0], n_r[1]))
+                    kept += 1
+            if kept:
+                print(
+                    f"# kept {kept} registered station(s) not reporting in this snapshot",
+                    file=sys.stderr,
+                )
         else:
             token = ims_token()
             if not token:
@@ -1856,6 +1924,24 @@ def _cmd_feedback(args: argparse.Namespace) -> int:
     payload = json.loads(payload_path.read_text(encoding="utf-8"))
 
     predicted = predicted_from_payload(payload, at)
+    hours = payload.get("hours") or []
+    if not predicted and hours:
+        # the bounded match found no published hour near `at`: that session was never
+        # forecast in this payload. Refuse, like the naive --at above, instead of storing
+        # a row with nothing behind it that the surfer believes graded something
+        # (Dream 2026-09-10).
+        from .feedback import _gap_s
+
+        gap_h = min(_gap_s(h, at) for h in hours) / 3600.0
+        ts = [h["t"] for h in hours if isinstance(h, dict) and "t" in h]
+        span = f" ({ts[0]} .. {ts[-1]})" if ts else ""
+        near = f"is {gap_h:.0f} h outside" if gap_h != float("inf") else "has no hour in"
+        print(
+            f"{at.isoformat()} {near} the published forecast{span} - that session was "
+            "never forecast in this payload; nothing recorded",
+            file=sys.stderr,
+        )
+        return 2
     observed: dict = {}
     if args.observed_bucket:
         observed["bucket"] = args.observed_bucket

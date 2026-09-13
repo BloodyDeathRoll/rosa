@@ -70,9 +70,16 @@ def member_heights_at(hourly: dict, i: int) -> list[float]:
 
 
 def member_directions_at(hourly: dict, i: int) -> list[float]:
-    heights_present = member_suffixes(hourly)
+    """Bearings of the members ``member_heights_at`` counts at hour ``i``: a member whose
+    height is missing or negative there adds no bearing either, so the recorded fan
+    (dir_span / dir_n) spans the same member set as the agreement score and
+    dir_n <= n_models by construction (Dream 2026-09-10). Spans recorded before 2026-09-13
+    could include a height-silent member - see CALIBRATION.md 2026-09-13."""
     dirs: list[float] = []
-    for suffix in heights_present:
+    for suffix in member_suffixes(hourly):
+        hs = hourly.get(f"wave_height_{suffix}")
+        if hs is None or i >= len(hs) or hs[i] is None or hs[i] < 0:
+            continue
         arr = hourly.get(f"wave_direction_{suffix}")
         if arr is not None and i < len(arr) and arr[i] is not None:
             dirs.append(float(arr[i]) % 360.0)

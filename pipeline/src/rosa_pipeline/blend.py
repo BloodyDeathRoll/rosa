@@ -438,6 +438,41 @@ def _circ(a: float | None, b: float | None, w: float = W_GFS) -> float | None:
     return round(math.degrees(math.atan2(y, x)), 1) % 360.0
 
 
+def blend_archive_rows(gfs_rows: list, ecmwf_rows: list) -> list[dict]:
+    """The published blend rebuilt offline from a buoy's two member archives, so
+    ``verify --archive --source blend`` can score the model run --all actually ships
+    (Dream 2026-09-12, step 1: RECORDING ONLY - skill.json still comes from om).
+
+    Joined on (run, valid): the archive stamps both members with one invocation time, so
+    a shared key is the same cycle's forecast for the same hour. Only hours BOTH members
+    carry are kept - compose_raw fills ECMWF's 3-6 h steps by interpolation, and scoring
+    interpolated hours would score the interpolation. hs/tp/dir combine exactly as
+    compose_raw does (hs <- swh, tp <- perpw|pp1d, dir <- dirpw|mwd), including its rule
+    that a value one member lacks is the other member's alone."""
+    ec = {
+        (r.get("run"), r.get("valid")): r
+        for r in ecmwf_rows
+        if isinstance(r, dict) and r.get("run") and r.get("valid")
+    }
+    out: list[dict] = []
+    for g in gfs_rows:
+        if not isinstance(g, dict):
+            continue
+        e = ec.get((g.get("run"), g.get("valid")))
+        if e is None:
+            continue
+        out.append(
+            {
+                "run": g["run"],
+                "valid": g["valid"],
+                "hs": _wavg(g.get("hs"), e.get("hs")),
+                "tp": _wavg(g.get("tp"), e.get("tp")),
+                "dir": _circ(g.get("dir"), e.get("dir")),
+            }
+        )
+    return out
+
+
 # fill hourly between consecutive samples this far apart or closer - covers the
 # native 3-hourly steps and the 6-hourly reduced sets fixtures use
 INTERP_MAX_GAP_H = 6.0

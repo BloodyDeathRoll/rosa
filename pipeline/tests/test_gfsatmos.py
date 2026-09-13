@@ -145,3 +145,20 @@ def test_the_live_source_paces_every_nomads_request():
         for step in src.steps:
             assert src._get(client, CYCLE, step, box) is None
     assert pacer.waits == len(calls) == 3
+
+
+def test_nearest_node_sees_across_greenwich():
+    import numpy as np
+
+    def grid(lons: list[float]):
+        return np.meshgrid(np.array([50.0, 50.25]), np.array(lons), indexing="ij")
+
+    # a box across 0 deg, in the 0-360 frame NOMADS returns: 359.5 .. 0.5
+    glats, glons = grid([359.5, 359.75, 0.0, 0.25, 0.5])
+    # 0.05 deg west of Greenwich: the 0.0 node, not 359.75 one 0.2 deg away
+    assert gfsatmos.nearest_node(glats, glons, 50.0, -0.05) == (0, 2)
+    # a box that starts AT Greenwich still serves a station just west of it
+    glats, glons = grid([0.0, 0.25, 0.5])
+    assert gfsatmos.nearest_node(glats, glons, 50.0, -0.1) == (0, 0)
+    # and a station well off the box is still refused
+    assert gfsatmos.nearest_node(glats, glons, 50.0, 1.5) is None

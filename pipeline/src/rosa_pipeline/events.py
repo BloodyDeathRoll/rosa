@@ -14,6 +14,7 @@ Implementation choices (documented, not in the spec):
 
 from __future__ import annotations
 
+from collections import deque
 from dataclasses import dataclass
 from datetime import datetime, timedelta
 from statistics import median
@@ -40,15 +41,23 @@ class SwellEvent:
 
 
 def _elevated(scored: list[ScoredHour]) -> list[bool]:
-    """Per hour: is in-window energy >= 2x the (floored) trailing 48 h median?"""
+    """Per hour: is in-window energy >= 2x the (floored) trailing 48 h median?
+
+    The trailing window is kept, not rebuilt: ``scored`` is time-ordered, so the earlier
+    hours inside [t - 48 h, t) are a suffix of the ones before ``t`` and only ever leave
+    from the front. Rebuilding it per hour was O(n^2) (Dream 2026-09-10: 2.9x at 408 h)."""
     out: list[bool] = []
+    window: deque[ScoredHour] = deque()
     for i, s in enumerate(scored):
+        if i:
+            window.append(scored[i - 1])
         t0 = s.hour.time - timedelta(hours=TRAILING_H)
-        trailing = [p.energy for p in scored[:i] if p.hour.time >= t0]
-        if len(trailing) < MIN_TRAILING_H:
+        while window and window[0].hour.time < t0:
+            window.popleft()
+        if len(window) < MIN_TRAILING_H:
             out.append(False)
             continue
-        baseline = max(median(trailing), MEDIAN_FLOOR)
+        baseline = max(median(p.energy for p in window), MEDIAN_FLOOR)
         out.append(s.energy >= ENERGY_FACTOR * baseline)
     return out
 

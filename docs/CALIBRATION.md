@@ -3019,3 +3019,39 @@ arm is unchanged. 12 tests in `test_nearest_wet.py` (the reviewer's four cases t
 real `ecmwf._nearest_wet`, the Port Phillip shape, the coast-cell tolerance, the pin-vs-sample
 plane, the buoy no-shore case). 613 passed, no existing test edited. The first VM cycle after
 the push is the smoke check.
+
+## 2026-09-13 - Direction pairings: NDBC's MWD is a PEAK direction; the blend fan is peak-vs-mean (Dream 09-10 / 09-11 / 09-12)
+
+Recording and labelling only. No published rating, confidence or event moves.
+
+**NDBC `MWD` is the direction at the dominant period.** NDBC's measurement descriptions
+(ndbc.noaa.gov/faq/measdes.shtml, read 2026-09-13): *"The direction from which the waves at
+the dominant period (DPD) are coming."* A peak direction despite the name; `observe.py`
+called it a mean until today. On every buoy card, GFS-Wave's `dirpw` (peak) vs MWD is
+like-for-like, while Open-Meteo's `wave_direction` and ECMWF's `mwd` (both means) vs MWD
+are not: they carry a peak-vs-mean offset in bimodal seas. So a direction bias on the om
+or ecmwf card is not a calibratable number until it is paired against a measured mean
+(NDBC `.swdir`, alpha1, where published). This may explain part of the +15.6 deg against
+buoy `mwd` read above as "largely a blending artifact" - unmeasured. The CMEMS adapter
+prefers VMDR (mean) over VPED (peak), so a CMEMS direction row pairs a mean where NDBC's
+pairs a peak: never pool direction rows across the two networks. The preference was not
+flipped (that moves scorecards).
+
+**The blend arm's member fan is peak vs mean.** Its two bearings are GFS `dirpw` (peak)
+and ECMWF `mwd` (mean). The 2026-08-11 like-for-like measurement holds only on the OM arm,
+where every member is a mean. A blend-era `dir_span` (`dir_n` = 2) partly measures the
+definition gap, not member disagreement: never pool it with OM-era spans, never fit a
+direction tolerance to it.
+
+**Boundary: the fan now counts only members whose height counted.** `member_directions_at`
+and extract's ECMWF append take a bearing only where that member also contributed a height
+at the same hour, so `dir_n <= n_models` by construction. Spans recorded before 2026-09-13
+could include a height-silent member (how often is unknown - it needs live ensemble
+responses). Group by date before pooling across this line.
+
+**Blend skill card, recording only.** `verify --archive --source blend` rebuilds the
+shipped blend from each buoy's `.gfswave` + `.ecmwf` archive rows, joined on (run, valid)
+and combined with compose_raw's `_wavg`/`_circ`, and prints its lead card (peak period vs
+DPD, no wind row). `--write-skill` still persists the om card only. Switching the published
+ceilings to the blend card moves confidence fleet-wide, so it needs the pb_0049 same-input
+A/B and an entry here first.

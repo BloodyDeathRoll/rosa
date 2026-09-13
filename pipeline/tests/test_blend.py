@@ -411,3 +411,24 @@ def test_parse_gfs_full_stamps_the_cycle_it_is_given(point):
     assert sea.run == CYCLE
     [sea] = parse_gfs_full(grib, [point], CYCLE)
     assert sea.run is None
+
+
+def test_blend_archive_rows_join_on_run_and_valid_and_combine_like_compose_raw() -> None:
+    """verify --source blend (Dream 2026-09-12, recording only): one row per (run, valid)
+    both member archives carry, combined with compose_raw's own _wavg/_circ."""
+    from rosa_pipeline.blend import blend_archive_rows
+
+    run = "2026-09-13T02:20:00+00:00"
+    v3, v4 = "2026-09-13T03:00:00+00:00", "2026-09-13T04:00:00+00:00"
+    gfs = [
+        {"run": run, "valid": v3, "hs": 1.0, "tp": 10.0, "dir": 350.0, "ws": 5.0},
+        {"run": run, "valid": v4, "hs": 1.2, "tp": 11.0, "dir": 0.0},  # no ECMWF step
+        None,  # a damaged archive line costs itself
+    ]
+    ecmwf = [
+        {"run": run, "valid": v3, "hs": 2.0, "tp": None, "dir": 10.0},
+        # same valid hour from an EARLIER cycle - a different forecast, never joined
+        {"run": "2026-09-12T20:20:00+00:00", "valid": v4, "hs": 9.0, "tp": 9.0, "dir": 90.0},
+    ]
+    (row,) = blend_archive_rows(gfs, ecmwf)
+    assert row == {"run": run, "valid": v3, "hs": 1.5, "tp": 10.0, "dir": 0.0}
