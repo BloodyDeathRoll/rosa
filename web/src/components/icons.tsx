@@ -76,12 +76,14 @@ export const SearchIcon = ({ size = 18 }: IconProps) => (
   </svg>
 );
 
-/** Share - the spot page's top-bar share button. */
+/** Share - the Android three-node glyph, for every header's share button. */
 export const ShareIcon = ({ size = 18 }: IconProps) => (
   <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
-    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
-    <path d="M16 6l-4-4-4 4" />
-    <path d="M12 2v13" />
+    <circle cx="18" cy="5" r="3" />
+    <circle cx="6" cy="12" r="3" />
+    <circle cx="18" cy="19" r="3" />
+    <path d="m8.59 13.51 6.83 3.98" />
+    <path d="m15.41 6.51-6.82 3.98" />
   </svg>
 );
 
