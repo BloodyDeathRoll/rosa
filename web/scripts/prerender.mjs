@@ -18,7 +18,7 @@ import { dirname, join } from "node:path";
 const SITE = "https://rosa.surf";
 const DIST = "dist";
 const DEFAULT_DESCRIPTION =
-  "Free surf forecast for 1,900+ spots worldwide: wave height, swell, wind, tide and a 0-100 rating, 7 days out, updated four times a day. Should I surf, when, where?";
+  "Free 15-day surf forecast, worldwide. Waves, wind and tide, updated four times a day.";
 
 const esc = (s) =>
   String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -99,7 +99,7 @@ const km = (a, b) => {
 function spotPage(id, sp, nearby) {
   const where = [sp.town, sp.region].filter((s) => s && s !== sp.name).join(", ");
   const title = `${sp.name} surf forecast${where ? ` - ${where}` : ""} | Rosa`;
-  const description = `Free 7-day surf forecast for ${sp.name}${where ? ` (${where})` : ""}: wave height, swell, wind, tide, water temperature and a 0-100 surf rating, updated four times a day.`;
+  const description = `Free 15-day surf forecast for ${sp.name}: waves, wind and tide, updated four times a day.`;
   const jsonLd = {
     "@type": "Place",
     name: sp.name,
@@ -112,7 +112,7 @@ function spotPage(id, sp, nearby) {
   const body = `<main class="page seo-static">
         <h1>${esc(sp.name)} surf forecast</h1>
         <p>${esc(where ? `${sp.name}, ${where}.` : `${sp.name}.`)} ${sp.lat.toFixed(4)}, ${sp.lon.toFixed(4)}.</p>
-        <p>Free 7-day surf forecast for ${esc(sp.name)}: wave height, swell size, period and direction, wind speed and direction, tide, water temperature and a 0-100 surf rating for every hour, updated four times a day from the NOAA GFS-Wave and ECMWF wave models. The rating formula is public - see <a href="/about/how">how it works</a> and <a href="/about/reading">reading the forecast</a>.</p>
+        <p>Free 15-day surf forecast for ${esc(sp.name)}: wave height, swell size, period and direction, wind speed and direction, tide and water temperature for every hour, updated four times a day from the NOAA GFS-Wave and ECMWF wave models. The rating formula is public - see <a href="/about/how">how it works</a> and <a href="/about/reading">reading the forecast</a>.</p>
         ${
           nearby.length
             ? `<h2>Other surf spots near ${esc(sp.name)}</h2>
@@ -135,8 +135,8 @@ const ABOUT = {
 };
 
 const SCREENS = {
-  map: ["Surf map - every spot, rated right now | Rosa", "A live map of 1,900+ surf spots worldwide, each coloured by today's surf rating. Tap a spot for its 7-day forecast.", false],
-  charts: ["Swell charts - animated wave height and period | Rosa", "Animated swell height, period and direction charts for every ocean, 7 days out, from the GFS-Wave and ECMWF models.", false],
+  map: ["Surf map - every spot, rated right now | Rosa", "Live surf map, worldwide. Tap a spot for its 15-day forecast.", false],
+  charts: ["Swell charts - animated wave height and period | Rosa", "Animated swell charts for every ocean, 15 days out.", false],
   spots: ["Your spots | Rosa", DEFAULT_DESCRIPTION, true],
   search: ["Search spots | Rosa", DEFAULT_DESCRIPTION, true],
   settings: ["Profile | Rosa", DEFAULT_DESCRIPTION, true],

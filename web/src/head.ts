@@ -3,9 +3,9 @@
     static HTML for crawlers; this keeps them right as the app navigates. */
 
 export const SITE = "https://rosa.surf";
-export const DEFAULT_TITLE = "Rosa - free surf forecast, 1,900+ spots worldwide";
+export const DEFAULT_TITLE = "Rosa - free surf forecast, worldwide";
 export const DEFAULT_DESCRIPTION =
-  "Free surf forecast for 1,900+ spots worldwide: wave height, swell, wind, tide and a 0-100 rating, 7 days out, updated four times a day. Should I surf, when, where?";
+  "Free 15-day surf forecast, worldwide. Waves, wind and tide, updated four times a day.";
 
 export interface Head {
   title: string;
@@ -74,7 +74,7 @@ export function spotHead(spot: { id: string; name: string; region?: string; town
   const where = [spot.town, spot.region].filter((s): s is string => !!s && s !== spot.name).join(", ");
   return {
     title: `${spot.name} surf forecast${where ? ` - ${where}` : ""} | Rosa`,
-    description: `Free 7-day surf forecast for ${spot.name}${where ? ` (${where})` : ""}: wave height, swell, wind, tide, water temperature and a 0-100 surf rating, updated four times a day.`,
+    description: `Free 15-day surf forecast for ${spot.name}: waves, wind and tide, updated four times a day.`,
     path: `/spot/${spot.id}`,
     jsonLd: {
       "@type": "Place",
