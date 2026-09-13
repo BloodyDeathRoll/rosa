@@ -1,40 +1,89 @@
 # METAR wind-station registry - coastal wind truth for the verification harness (2026-08-29).
 # NOAA aviationweather.gov, public domain, no key. Every airfield reporting a METAR within 25 km
-# of a Rosa spot on 2026-08-29 (90 stations; 280 of 624 spots have one). GENERATED - regenerate
+# of a Rosa spot. Regenerated 2026-09-13 at 1947 spots: 208 stations, 886 of 1947 spots have one
+# (was 90 / 280 of 624 on 2026-08-29). Discovery reads only airfields reporting AT THAT HOUR, and
+# since 2026-09-13 keeps a registered one missing from the snapshot while a spot is in reach (12
+# were missing that day) - dropping one would end its archive. GENERATED - regenerate
 # with `rosa-pipeline stations --discover metar` after the spot DB changes; hand edits are lost.
 # Wind is the ONLY variable read here (speed in kt on the wire, stored as m/s; direction FROM;
 # gust when reported). An airport is 5-20 km from the beach, so this measures the model's
 # coastal-cell bias, not the beach itself - see rosa_pipeline/stations.py.
 stations:
+  - { id: "DAAE", name: "Béjaïa Arpt, BE, DZ", lat: 36.712, lon: 5.07, source: metar }  # Algeria, 3 spot(s) within 25 km
+  - { id: "DAAG", name: "Algiers Intl, BM, DZ", lat: 36.691, lon: 3.215, source: metar }  # Algeria, 4 spot(s) within 25 km
+  - { id: "DAAV", name: "Jijel/Achouat Arpt, JI, DZ", lat: 36.795, lon: 5.877, source: metar }  # Algeria, 1 spot(s) within 25 km
+  - { id: "DABB", name: "Annaba/Bitat Arpt, ET, DZ", lat: 36.822, lon: 7.809, source: metar }  # Algeria, 2 spot(s) within 25 km
+  - { id: "DAOO", name: "Oran/Es-Sénia Arpt, OR, DZ", lat: 35.623, lon: -0.624, source: metar }  # Algeria, 1 spot(s) within 25 km
+  - { id: "DGAA", name: "Accra/Kotoka Intl, GA, GH", lat: 5.6, lon: -0.17, source: metar }  # Ghana, 2 spot(s) within 25 km
+  - { id: "DGTK", name: "Takoradi Arpt, , GH", lat: 4.896, lon: -1.775, source: metar }  # Ghana, 1 spot(s) within 25 km
+  - { id: "EGDR", name: "Culdrose ), EN, GB", lat: 50.084, lon: -5.257, source: metar }  # Cornwall Devon, 8 spot(s) within 25 km
+  - { id: "EGHQ", name: "Newquay/Cornwall Arpt, EN, GB", lat: 50.438, lon: -4.998, source: metar }  # Cornwall Devon, 14 spot(s) within 25 km
+  - { id: "EGNT", name: "Newcastle Intl, SC, GB", lat: 55.037, lon: -1.702, source: metar }  # North East England, 4 spot(s) within 25 km
+  - { id: "EGOP", name: "Pembry Sands, WL, GB", lat: 51.714, lon: -4.367, source: metar }  # Wales, 5 spot(s) within 25 km
+  - { id: "EGPC", name: "Wick Arpt, SC, GB", lat: 58.459, lon: -3.093, source: metar }  # North Scotland, 1 spot(s) within 25 km
+  - { id: "EGSY", name: "St Athan Arpt, WL, GB", lat: 51.406, lon: -3.434, source: metar }  # Wales, 1 spot(s) within 25 km
+  - { id: "FALE", name: "Durban/King Shaka Intl, NL, ZA", lat: -29.602, lon: 31.13, source: metar }  # South Africa East, 4 spot(s) within 25 km
+  - { id: "FIMP", name: "Mauritius Intl, GP, MU", lat: -20.434, lon: 57.684, source: metar }  # Mauritius, 3 spot(s) within 25 km
+  - { id: "FMSD", name: "Tôlanaro Arpt, U, MG", lat: -25.038, lon: 46.956, source: metar }  # Madagascar, 1 spot(s) within 25 km
   - { id: "FNCT", name: "Catumbela Arpt, BG, AO", lat: -12.479, lon: 13.487, source: metar }  # Angola, 1 spot(s) within 25 km
+  - { id: "GCFV", name: "Fuerteventura Arpt, CR, ES", lat: 28.445, lon: -13.863, source: metar }  # Canary Islands, 1 spot(s) within 25 km
+  - { id: "GCLP", name: "Grand Canaria Arpt, CR, ES", lat: 27.923, lon: -15.389, source: metar }  # Canary Islands, 6 spot(s) within 25 km
+  - { id: "GCRR", name: "Arrecife/Lanzarote Arpt, CR, ES", lat: 28.952, lon: -13.6, source: metar }  # Canary Islands, 6 spot(s) within 25 km
+  - { id: "GCTS", name: "Tenerife/South Arpt, CR, ES", lat: 28.047, lon: -16.561, source: metar }  # Canary Islands, 6 spot(s) within 25 km
+  - { id: "GCXO", name: "Tenerife/North Arpt, CR, ES", lat: 28.483, lon: -16.342, source: metar }  # Canary Islands, 6 spot(s) within 25 km
   - { id: "GMAD", name: "Agadir/Al Massira Arpt, SM, MA", lat: 30.325, lon: -9.413, source: metar }  # Morocco, 1 spot(s) within 25 km
   - { id: "GMMB", name: "Ben Slimane Arpt, SO, MA", lat: 33.655, lon: -7.221, source: metar }  # Morocco, 4 spot(s) within 25 km
   - { id: "GMMC", name: "Casablanca/Anfa Arpt, CB, MA", lat: 33.557, lon: -7.66, source: metar }  # Morocco, 3 spot(s) within 25 km
   - { id: "GMME", name: "Rabat-Salé Arpt, RS, MA", lat: 34.051, lon: -6.752, source: metar }  # Morocco, 4 spot(s) within 25 km
   - { id: "GMMI", name: "Essaouira/Mogador Arpt, MR, MA", lat: 31.406, lon: -9.687, source: metar }  # Morocco, 2 spot(s) within 25 km
+  - { id: "GOBD", name: "Dakar/Diagne Intl, TH, SN", lat: 14.671, lon: -17.067, source: metar }  # Senegal, 1 spot(s) within 25 km
+  - { id: "GOGS", name: "Cap Skirring Arpt, ZG, SN", lat: 12.389, lon: -16.742, source: metar }  # Senegal, 1 spot(s) within 25 km
+  - { id: "GOOY", name: "Dakar/Yoff-Senghor Intl, DK, SN", lat: 14.741, lon: -17.49, source: metar }  # Senegal, 6 spot(s) within 25 km
+  - { id: "GVAC", name: "Sal/Amílcar Cabral, B, CV", lat: 16.742, lon: -22.949, source: metar }  # Cape Verde, 4 spot(s) within 25 km
+  - { id: "GVSV", name: "São Pedro Arpt, B, CV", lat: 16.833, lon: -25.055, source: metar }  # Cape Verde, 2 spot(s) within 25 km
   - { id: "K4S1", name: "Gold Beach Muni, OR, US", lat: 42.4161, lon: -124.4258, source: metar }  # Oregon, 1 spot(s) within 25 km
   - { id: "K6S2", name: "Florence Muni, OR, US", lat: 43.9838, lon: -124.11, source: metar }  # Oregon, 2 spot(s) within 25 km
   - { id: "KACV", name: "Arcata Arpt, CA, US", lat: 40.9784, lon: -124.1048, source: metar }  # California, 4 spot(s) within 25 km
   - { id: "KAST", name: "Astoria Rgnl, OR, US", lat: 46.157, lon: -123.8833, source: metar }  # Oregon, 7 spot(s) within 25 km
+  - { id: "KBID", name: "Block Island Arpt, RI, US", lat: 41.1668, lon: -71.5757, source: metar }  # Rhode Island, 5 spot(s) within 25 km
   - { id: "KBOK", name: "Brookings/State Arpt, OR, US", lat: 42.0754, lon: -124.2902, source: metar }  # Oregon, 3 spot(s) within 25 km
   - { id: "KBUR", name: "Burbank/Bob Hope Arpt, CA, US", lat: 34.1996, lon: -118.3654, source: metar }  # California, 2 spot(s) within 25 km
   - { id: "KCEC", name: "Crescent City/McNama, CA, US", lat: 41.7836, lon: -124.238, source: metar }  # California, 1 spot(s) within 25 km
   - { id: "KCMA", name: "Camarillo Arpt, CA, US", lat: 34.2114, lon: -119.0876, source: metar }  # California, 9 spot(s) within 25 km
+  - { id: "KCOF", name: "Cocoa Beach/Patrick, FL, US", lat: 28.242, lon: -80.608, source: metar }  # Florida Space Coast, 7 spot(s) within 25 km
+  - { id: "KCOI", name: "Cocoa/Merritt Isl Arpt, FL, US", lat: 28.3422, lon: -80.684, source: metar }  # Florida Space Coast, 5 spot(s) within 25 km
   - { id: "KCRQ", name: "Carlsbad/Palomar Arpt, CA, US", lat: 33.1299, lon: -117.2765, source: metar }  # California, 10 spot(s) within 25 km
+  - { id: "KDAB", name: "Daytona Beach Intl, FL, US", lat: 29.1735, lon: -81.0719, source: metar }  # Florida Space Coast, 2 spot(s) within 25 km
+  - { id: "KFFA", name: "First Flight Airport, NC, US", lat: 36.0165, lon: -75.6739, source: metar }  # Outer Banks, 4 spot(s) within 25 km
   - { id: "KFHM", name: "Los Angeles Downtown, CA, US", lat: 34.0677, lon: -118.2417, source: metar }  # California, 4 spot(s) within 25 km
+  - { id: "KFOK", name: "Westhampton/Gabreski Arpt, NY, US", lat: 40.8505, lon: -72.6193, source: metar }  # Long Island, 5 spot(s) within 25 km
+  - { id: "KFRG", name: "Farmingdale/Republic Arpt, NY, US", lat: 40.7344, lon: -73.4164, source: metar }  # Long Island, 6 spot(s) within 25 km
   - { id: "KFUL", name: "Fullerton Muni, CA, US", lat: 33.8715, lon: -117.9856, source: metar }  # California, 4 spot(s) within 25 km
+  - { id: "KGON", name: "Groton-New London Arpt, CT, US", lat: 41.3279, lon: -72.0489, source: metar }  # Rhode Island, 1 spot(s) within 25 km
   - { id: "KHAF", name: "Half Moon Bay Arpt, CA, US", lat: 37.5136, lon: -122.4996, source: metar }  # California, 4 spot(s) within 25 km
   - { id: "KHHR", name: "Hawthorne Muni, CA, US", lat: 33.9235, lon: -118.3329, source: metar }  # California, 13 spot(s) within 25 km
   - { id: "KHQM", name: "Hoquiam/Bowerman Arpt, WA, US", lat: 46.9729, lon: -123.9308, source: metar }  # Washington, 4 spot(s) within 25 km
+  - { id: "KHSE", name: "Hatteras/Mitchell Fld, NC, US", lat: 35.2324, lon: -75.6223, source: metar }  # Outer Banks, 4 spot(s) within 25 km
+  - { id: "KHWV", name: "Brookhaven Arpt, NY, US", lat: 40.8212, lon: -72.8674, source: metar }  # Long Island, 1 spot(s) within 25 km
+  - { id: "KILM", name: "Wilmington Intl, NC, US", lat: 34.2668, lon: -77.8999, source: metar }  # Outer Banks, 2 spot(s) within 25 km
+  - { id: "KISP", name: "Islip/Macarthur Arpt, NY, US", lat: 40.7939, lon: -73.1018, source: metar }  # Long Island, 2 spot(s) within 25 km
   - { id: "KIZA", name: "Santa Ynez Arpt, CA, US", lat: 34.6059, lon: -120.0761, source: metar }  # California, 2 spot(s) within 25 km
+  - { id: "KJFK", name: "New York/JF Kennedy Intl, NY, US", lat: 40.6392, lon: -73.7639, source: metar }  # Long Island, 5 spot(s) within 25 km
+  - { id: "KJPX", name: "East Hampton Arpt, NY, US", lat: 40.9605, lon: -72.2511, source: metar }  # Long Island, 7 spot(s) within 25 km
   - { id: "KL18", name: "Fallbrook Arpk, CA, US", lat: 33.3551, lon: -117.249, source: metar }  # California, 3 spot(s) within 25 km
   - { id: "KLAX", name: "Los Angeles Intl, CA, US", lat: 33.9382, lon: -118.3866, source: metar }  # California, 13 spot(s) within 25 km
+  - { id: "KLGA", name: "New York/La Guardia Arpt, NY, US", lat: 40.7794, lon: -73.8803, source: metar }  # Long Island, 2 spot(s) within 25 km
   - { id: "KLGB", name: "Long Beach Arpt, CA, US", lat: 33.8118, lon: -118.1472, source: metar }  # California, 10 spot(s) within 25 km
   - { id: "KLLR", name: "Little River Arpt, CA, US", lat: 39.2621, lon: -123.7525, source: metar }  # California, 2 spot(s) within 25 km
   - { id: "KLPC", name: "Lompoc Arpt, CA, US", lat: 34.6647, lon: -120.4642, source: metar }  # California, 2 spot(s) within 25 km
+  - { id: "KMJX", name: "Toms River/Miller Arpt, NJ, US", lat: 39.9235, lon: -74.297, source: metar }  # New Jersey, 3 spot(s) within 25 km
+  - { id: "KMLB", name: "Melbourne Intl, FL, US", lat: 28.0997, lon: -80.6356, source: metar }  # Florida Space Coast, 4 spot(s) within 25 km
+  - { id: "KMQI", name: "Manteo/Dare Cnty, NC, US", lat: 35.9188, lon: -75.6989, source: metar }  # Outer Banks, 4 spot(s) within 25 km
   - { id: "KMRY", name: "Monterey Rgnl, CA, US", lat: 36.5904, lon: -121.8488, source: metar }  # California, 5 spot(s) within 25 km
+  - { id: "KMTP", name: "Montauk Arpt, NY, US", lat: 41.073, lon: -71.9235, source: metar }  # Long Island, 4 spot(s) within 25 km
   - { id: "KMYF", name: "San Diego/Montgomery Arpt, CA, US", lat: 32.8145, lon: -117.1375, source: metar }  # California, 15 spot(s) within 25 km
   - { id: "KNFG", name: "Camp Pendleton, CA, US", lat: 33.304, lon: -117.355, source: metar }  # California, 6 spot(s) within 25 km
+  - { id: "KNJM", name: "Swansboro/Bogue Fld, NC, US", lat: 34.694, lon: -77.029, source: metar }  # Outer Banks, 1 spot(s) within 25 km
   - { id: "KNKX", name: "Miramar , CA, US", lat: 32.865, lon: -117.137, source: metar }  # California, 18 spot(s) within 25 km
   - { id: "KNRS", name: "Imperial Beach, CA, US", lat: 32.563, lon: -117.1109, source: metar }  # California, 9 spot(s) within 25 km
   - { id: "KNTD", name: "Pt Mugu , CA, US", lat: 34.124, lon: -119.123, source: metar }  # California, 9 spot(s) within 25 km
@@ -43,6 +92,8 @@ stations:
   - { id: "KOAR", name: "Marina Muni, CA, US", lat: 36.6815, lon: -121.7574, source: metar }  # California, 7 spot(s) within 25 km
   - { id: "KOKB", name: "Oceanside Muni, CA, US", lat: 33.2195, lon: -117.3496, source: metar }  # California, 9 spot(s) within 25 km
   - { id: "KONP", name: "Newport Muni, OR, US", lat: 44.5825, lon: -124.0575, source: metar }  # Oregon, 8 spot(s) within 25 km
+  - { id: "KONX", name: "Currituck Cnty, NC, US", lat: 36.399, lon: -76.014, source: metar }  # Outer Banks, 1 spot(s) within 25 km
+  - { id: "KOQU", name: "N Kingston/Quonset Arpt, RI, US", lat: 41.5995, lon: -71.4111, source: metar }  # Rhode Island, 5 spot(s) within 25 km
   - { id: "KOTH", name: "North Bend/SW Oregon Rgnl, OR, US", lat: 43.4194, lon: -124.2438, source: metar }  # Oregon, 4 spot(s) within 25 km
   - { id: "KOXR", name: "Oxnard Arpt, CA, US", lat: 34.2001, lon: -119.2042, source: metar }  # California, 8 spot(s) within 25 km
   - { id: "KSAN", name: "San Diego Intl Arpt, CA, US", lat: 32.7364, lon: -117.1973, source: metar }  # California, 17 spot(s) within 25 km
@@ -55,14 +106,43 @@ stations:
   - { id: "KSNA", name: "Santa Ana/Wayne Arpt, CA, US", lat: 33.6798, lon: -117.8675, source: metar }  # California, 15 spot(s) within 25 km
   - { id: "KSNS", name: "Salinas Muni, CA, US", lat: 36.6635, lon: -121.6093, source: metar }  # California, 4 spot(s) within 25 km
   - { id: "KSQL", name: "San Carlos Arpt, CA, US", lat: 37.5119, lon: -122.2483, source: metar }  # California, 4 spot(s) within 25 km
+  - { id: "KSUT", name: "Southport/Cape Fear Rgnl, NC, US", lat: 33.9292, lon: -78.0722, source: metar }  # Outer Banks, 2 spot(s) within 25 km
   - { id: "KTMK", name: "Tillamook Arpt, OR, US", lat: 45.421, lon: -123.8144, source: metar }  # Oregon, 3 spot(s) within 25 km
   - { id: "KTOA", name: "Torrance Muni, CA, US", lat: 33.803, lon: -118.336, source: metar }  # California, 12 spot(s) within 25 km
   - { id: "KTQS", name: "Vandenberg SFB/South, CA, US", lat: 34.633, lon: -120.6175, source: metar }  # California, 2 spot(s) within 25 km
+  - { id: "KTTS", name: "NASA Shuttle Landing Arpt, FL, US", lat: 28.5987, lon: -80.6816, source: metar }  # Florida Space Coast, 2 spot(s) within 25 km
   - { id: "KUIL", name: "Quillayute State Arpt, WA, US", lat: 47.937, lon: -124.5576, source: metar }  # Washington, 3 spot(s) within 25 km
   - { id: "KVBG", name: "Vandenberg AFB, CA, US", lat: 34.733, lon: -120.583, source: metar }  # California, 1 spot(s) within 25 km
   - { id: "KVGN", name: "Vandenberg SFB/North, CA, US", lat: 34.8494, lon: -120.5996, source: metar }  # California, 1 spot(s) within 25 km
   - { id: "KVNY", name: "Van Nuys Arpt, CA, US", lat: 34.2121, lon: -118.4915, source: metar }  # California, 3 spot(s) within 25 km
+  - { id: "KVRB", name: "Vero Beach Muni, FL, US", lat: 27.6553, lon: -80.4142, source: metar }  # Florida Space Coast, 2 spot(s) within 25 km
+  - { id: "KWST", name: "Westerly State Arpt, RI, US", lat: 41.3509, lon: -71.8055, source: metar }  # Rhode Island, 5 spot(s) within 25 km
   - { id: "KWVI", name: "Watsonville Muni, CA, US", lat: 36.9394, lon: -121.79, source: metar }  # California, 17 spot(s) within 25 km
+  - { id: "KWWD", name: "Wildwood/Cape May Cnty, NJ, US", lat: 39.0108, lon: -74.9079, source: metar }  # New Jersey, 5 spot(s) within 25 km
+  - { id: "KX21", name: "Titusville/Dunn Air Park, FL, US", lat: 28.6195, lon: -80.835, source: metar }  # Florida Space Coast, 1 spot(s) within 25 km
+  - { id: "KX26", name: "Sabastian Arpt, FL, US", lat: 27.813, lon: -80.497, source: metar }  # Florida Space Coast, 2 spot(s) within 25 km
+  - { id: "KX59", name: "Valkaria Arpt, FL, US", lat: 27.9624, lon: -80.561, source: metar }  # Florida Space Coast, 4 spot(s) within 25 km
+  - { id: "KXMR", name: "Cape Kennedy AF Skid, FL, US", lat: 28.4674, lon: -80.5589, source: metar }  # Florida Space Coast, 5 spot(s) within 25 km
+  - { id: "LCPH", name: "Paphos Intl, PA, CY", lat: 34.715, lon: 32.479, source: metar }  # Cyprus, 4 spot(s) within 25 km
+  - { id: "LCRA", name: "Akrotiri Arpt, LE, CY", lat: 34.59, lon: 32.988, source: metar }  # Cyprus, 9 spot(s) within 25 km
+  - { id: "LEAG", name: "Algeciras, AN, ES", lat: 36.129, lon: -5.441, source: metar }  # Cadiz, 3 spot(s) within 25 km
+  - { id: "LEAS", name: "Aviles/Asturias Arpt, O, ES", lat: 43.567, lon: -6.044, source: metar }  # Asturias, 7 spot(s) within 25 km
+  - { id: "LEBB", name: "Bilbao Arpt, PV, ES", lat: 43.298, lon: -2.906, source: metar }  # Basque Country, 14 spot(s) within 25 km
+  - { id: "LECO", name: "A Coruña Arpt, GA, ES", lat: 43.307, lon: -8.372, source: metar }  # Galicia, 9 spot(s) within 25 km
+  - { id: "LERT", name: "Rota), AN, ES", lat: 36.645, lon: -6.349, source: metar }  # Cadiz, 9 spot(s) within 25 km
+  - { id: "LESO", name: "San Sebastian Arpt, PV, ES", lat: 43.361, lon: -1.787, source: metar }  # Landes, 9 spot(s) within 25 km
+  - { id: "LEVX", name: "Vigo/Peinador Arpt, GA, ES", lat: 42.239, lon: -8.624, source: metar }  # Galicia, 6 spot(s) within 25 km
+  - { id: "LEXJ", name: "Santander/Ballesteros Arpt, S, ES", lat: 43.429, lon: -3.831, source: metar }  # Cantabria, 10 spot(s) within 25 km
+  - { id: "LFBC", name: "Cazaux Pond, NA, FR", lat: 44.533, lon: -1.125, source: metar }  # Landes, 2 spot(s) within 25 km
+  - { id: "LFBS", name: "Biscarosse Arpt, NA, FR", lat: 44.368, lon: -1.132, source: metar }  # Landes, 3 spot(s) within 25 km
+  - { id: "LFBZ", name: "Biarritz/Parme Arpt, NA, FR", lat: 43.469, lon: -1.534, source: metar }  # Landes, 17 spot(s) within 25 km
+  - { id: "LFRB", name: "Brest/Guipavas Arpt, BR, FR", lat: 48.444, lon: -4.412, source: metar }  # Brittany, 4 spot(s) within 25 km
+  - { id: "LFRH", name: "Lorient/Bihoue Arpt, BR, FR", lat: 47.761, lon: -3.44, source: metar }  # Brittany, 2 spot(s) within 25 km
+  - { id: "LFRJ", name: "Landivisiau, BR, FR", lat: 48.527, lon: -4.138, source: metar }  # Brittany, 2 spot(s) within 25 km
+  - { id: "LFRL", name: "Lanveoc/Poulmic Arpt, BR, FR", lat: 48.279, lon: -4.439, source: metar }  # Brittany, 5 spot(s) within 25 km
+  - { id: "LFRO", name: "Lannion/Servel Arpt, BR, FR", lat: 48.755, lon: -3.469, source: metar }  # Brittany, 2 spot(s) within 25 km
+  - { id: "LFRQ", name: "Quimper/Pluguffan Arpt, BR, FR", lat: 47.975, lon: -4.168, source: metar }  # Brittany, 3 spot(s) within 25 km
+  - { id: "LFRU", name: "Morlaix/Ploujean Arpt, BR, FR", lat: 48.601, lon: -3.814, source: metar }  # Brittany, 4 spot(s) within 25 km
   - { id: "LLBG", name: "Tel Aviv/Ben Gurion Arpt, C, IL", lat: 32.011, lon: 34.887, source: metar }  # Israel, 15 spot(s) within 25 km
   - { id: "LLHA", name: "Haifa Intl, HA, IL", lat: 32.809, lon: 35.043, source: metar }  # Israel, 11 spot(s) within 25 km
   - { id: "LPCS", name: "Cascais Arpt, LI, PT", lat: 38.725, lon: -9.355, source: metar }  # Portugal, 5 spot(s) within 25 km
@@ -75,19 +155,47 @@ stations:
   - { id: "MMPS", name: "Puerto Escondido Arpt, OA, MX", lat: 15.876, lon: -97.093, source: metar }  # Mexico, 3 spot(s) within 25 km
   - { id: "MMSD", name: "San Jose Del Cabo Intl, BS, MX", lat: 23.157, lon: -109.72, source: metar }  # Mexico, 3 spot(s) within 25 km
   - { id: "MMSL", name: "Cabo San Lucas Intl, BS, MX", lat: 22.948, lon: -109.936, source: metar }  # Mexico, 1 spot(s) within 25 km
-  - { id: "MMTJ", name: "Tijuana Intl, BC, MX", lat: 32.544, lon: -116.982, source: metar }  # California, 6 spot(s) within 25 km
+  - { id: "MMTJ", name: "Tijuana Intl, BC, MX", lat: 32.544, lon: -116.982, source: metar }  # Mexico, 6 spot(s) within 25 km
   - { id: "MMZO", name: "Manzanillo/Oro Intl, CL, MX", lat: 19.147, lon: -104.565, source: metar }  # Mexico, 1 spot(s) within 25 km
   - { id: "MPBO", name: "Bocas Del Toro Arpt, BO, PA", lat: 9.341, lon: -82.245, source: metar }  # Panama, 5 spot(s) within 25 km
   - { id: "MPDA", name: "David/Malek Intl, CH, PA", lat: 8.391, lon: -82.434, source: metar }  # Panama, 1 spot(s) within 25 km
   - { id: "MPSM", name: "Scarlett Martinez Intl, CO, PA", lat: 8.386, lon: -80.131, source: metar }  # Panama, 4 spot(s) within 25 km
   - { id: "MRLM", name: "Limon Intl, L, CR", lat: 9.961, lon: -83.026, source: metar }  # Costa Rica, 2 spot(s) within 25 km
   - { id: "MSLP", name: "El Salvador Intl, PA, SV", lat: 13.438, lon: -89.056, source: metar }  # El Salvador, 5 spot(s) within 25 km
-  - { id: "PHHI", name: "Wheeler, HI, US", lat: 21.478, lon: -158.044, source: metar }  # Hawaii, 1 spot(s) within 25 km
+  - { id: "NTAA", name: "Tahiti Island/Faaa Intl, WI, PF", lat: -17.554, lon: -149.607, source: metar }  # French Polynesia, 9 spot(s) within 25 km
+  - { id: "PHBK", name: "Kekaha/Barking Sands Arpt, HI, US", lat: 22.034, lon: -159.783, source: metar }  # Hawaii, 2 spot(s) within 25 km
+  - { id: "PHHI", name: "Wheeler, HI, US", lat: 21.478, lon: -158.044, source: metar }  # Hawaii, 20 spot(s) within 25 km
+  - { id: "PHJR", name: "Kalaeloa Arpt, HI, US", lat: 21.312, lon: -158.07, source: metar }  # Hawaii, 10 spot(s) within 25 km
+  - { id: "PHLI", name: "Lihue Arpt, HI, US", lat: 21.9805, lon: -159.3386, source: metar }  # Hawaii, 8 spot(s) within 25 km
+  - { id: "PHNG", name: "Kaneohe Bay , HI, US", lat: 21.45, lon: -157.763, source: metar }  # Hawaii, 18 spot(s) within 25 km
+  - { id: "PHNL", name: "Honolulu Intl, HI, US", lat: 21.315, lon: -157.924, source: metar }  # Hawaii, 17 spot(s) within 25 km
+  - { id: "PHOG", name: "Kahului Arpt, HI, US", lat: 20.8887, lon: -156.4345, source: metar }  # Hawaii, 15 spot(s) within 25 km
   - { id: "RJBB", name: "Osaka/Kansai Intl, 28, JP", lat: 34.434, lon: 135.233, source: metar }  # Japan, 1 spot(s) within 25 km
+  - { id: "RJFG", name: "Tanegashima Arpt, 46, JP", lat: 30.605, lon: 130.992, source: metar }  # Tanegashima Amami, 8 spot(s) within 25 km
   - { id: "RJFM", name: "Miyazaki Arpt, 45, JP", lat: 31.877, lon: 131.449, source: metar }  # Japan, 4 spot(s) within 25 km
+  - { id: "RJKA", name: "Amami Arpt, 46, JP", lat: 28.431, lon: 129.713, source: metar }  # Tanegashima Amami, 4 spot(s) within 25 km
   - { id: "RJNS", name: "Shizouka Arpt, 22, JP", lat: 34.796, lon: 138.189, source: metar }  # Japan, 2 spot(s) within 25 km
   - { id: "RJSS", name: "Sendai Arpt, 4, JP", lat: 38.14, lon: 140.917, source: metar }  # Japan, 1 spot(s) within 25 km
   - { id: "RJTR", name: "Kastner/Zama Fld, 14, JP", lat: 35.514, lon: 139.395, source: metar }  # Japan, 4 spot(s) within 25 km
+  - { id: "ROAH", name: "Naha Arpt, 47, JP", lat: 26.196, lon: 127.646, source: metar }  # Okinawa, 5 spot(s) within 25 km
+  - { id: "RODN", name: "Kadena, 47, JP", lat: 26.356, lon: 127.768, source: metar }  # Okinawa, 7 spot(s) within 25 km
+  - { id: "ROMY", name: "Miyakojima/Miyako Arpt, 47, JP", lat: 24.782, lon: 125.295, source: metar }  # Okinawa, 1 spot(s) within 25 km
+  - { id: "RORS", name: "Shimojishima Arpt, 47, JP", lat: 24.827, lon: 125.145, source: metar }  # Okinawa, 1 spot(s) within 25 km
+  - { id: "RORY", name: "Yoron Island, 47, JP", lat: 27.044, lon: 128.4, source: metar }  # Okinawa, 1 spot(s) within 25 km
+  - { id: "ROTM", name: "Futenma, 47, JP", lat: 26.271, lon: 127.754, source: metar }  # Okinawa, 8 spot(s) within 25 km
+  - { id: "SBFL", name: "Florianopolis Intl, SC, BR", lat: -27.671, lon: -48.547, source: metar }  # Santa Catarina, 14 spot(s) within 25 km
+  - { id: "SBFN", name: "Fernando de Noronha Arpt, RN, BR", lat: -3.855, lon: -32.423, source: metar }  # Fernando de Noronha, 8 spot(s) within 25 km
+  - { id: "SBFZ", name: "Fortaleza/Martins Intl, GO, BR", lat: -3.776, lon: -38.533, source: metar }  # Ceara, 9 spot(s) within 25 km
+  - { id: "SBGL", name: "Rio de Janeiro/Galeão Intl, RJ, BR", lat: -22.815, lon: -43.261, source: metar }  # Rio de Janeiro, 12 spot(s) within 25 km
+  - { id: "SBME", name: "Macaé Arpt, RJ, BR", lat: -22.343, lon: -41.766, source: metar }  # Rio de Janeiro, 3 spot(s) within 25 km
+  - { id: "SBNF", name: "Navegantes Intl, SC, BR", lat: -26.88, lon: -48.651, source: metar }  # Santa Catarina, 7 spot(s) within 25 km
+  - { id: "SBNT", name: "Natal/Severo Arpt, RN, BR", lat: -5.911, lon: -35.248, source: metar }  # Rio Grande do Norte, 7 spot(s) within 25 km
+  - { id: "SBRF", name: "Recife Arpt, PE, BR", lat: -8.126, lon: -34.923, source: metar }  # Pernambuco, 3 spot(s) within 25 km
+  - { id: "SBRJ", name: "Rio de Janeiro/Dumont Arpt, RJ, BR", lat: -22.91, lon: -43.163, source: metar }  # Rio de Janeiro, 16 spot(s) within 25 km
+  - { id: "SBSC", name: "Santa Cruz/Gusmao Arpt, RJ, BR", lat: -22.932, lon: -43.719, source: metar }  # Rio de Janeiro, 3 spot(s) within 25 km
+  - { id: "SBSG", name: "Natal/Alves Intl, RN, BR", lat: -5.768, lon: -35.376, source: metar }  # Rio Grande do Norte, 4 spot(s) within 25 km
+  - { id: "SBSV", name: "Salvador/Magalhães Intl, BA, BR", lat: -12.911, lon: -38.331, source: metar }  # Bahia, 12 spot(s) within 25 km
+  - { id: "SBVT", name: "Vitória/Salles Arpt, ES, BR", lat: -20.258, lon: -40.286, source: metar }  # Espirito Santo, 13 spot(s) within 25 km
   - { id: "SCAR", name: "Arica/Chacalluta Arpt, TA, CL", lat: -18.351, lon: -70.336, source: metar }  # Peru, 1 spot(s) within 25 km
   - { id: "SPHI", name: "Chiclayo Arpt, LA, PE", lat: -6.787, lon: -79.828, source: metar }  # Peru, 2 spot(s) within 25 km
   - { id: "SPJC", name: "Lima/Chávez Intl, LI, PE", lat: -12.024, lon: -77.113, source: metar }  # Peru, 7 spot(s) within 25 km
@@ -96,3 +204,16 @@ stations:
   - { id: "SPYL", name: "Talara/Montes Arpt, AR, PE", lat: -4.577, lon: -81.254, source: metar }  # Peru, 3 spot(s) within 25 km
   - { id: "VRMG", name: "Gan Intl, , MV", lat: -0.693, lon: 73.156, source: metar }  # Maldives, 3 spot(s) within 25 km
   - { id: "VRMM", name: "Velana Intl, NC, MV", lat: 4.192, lon: 73.529, source: metar }  # Maldives, 9 spot(s) within 25 km
+  - { id: "WADD", name: "Bali/Rai Intl, BA, ID", lat: -8.748, lon: 115.167, source: metar }  # Bali, 30 spot(s) within 25 km
+  - { id: "WADL", name: "Lombok Intl, NB, ID", lat: -8.757, lon: 116.277, source: metar }  # Lombok, 12 spot(s) within 25 km
+  - { id: "YBCG", name: "Coolangatta/Gold Coast Arpt, QL, AU", lat: -28.168, lon: 153.505, source: metar }  # Gold Coast, 24 spot(s) within 25 km
+  - { id: "YBLN", name: "Busselton Rgnl, WA, AU", lat: -33.688, lon: 115.402, source: metar }  # Bunbury, 1 spot(s) within 25 km
+  - { id: "YBNA", name: "Ballina Byron Arpt, NS, AU", lat: -28.835, lon: 153.558, source: metar }  # Byron Bay, 16 spot(s) within 25 km
+  - { id: "YBSU", name: "Sunshine Coast Arpt, QL, AU", lat: -26.603, lon: 153.091, source: metar }  # Sunshine Coast, 21 spot(s) within 25 km
+  - { id: "YESP", name: "Esperance Arpt, WA, AU", lat: -33.682, lon: 121.828, source: metar }  # Esperance, 5 spot(s) within 25 km
+  - { id: "YGEL", name: "Geraldton Arpt, WA, AU", lat: -28.805, lon: 114.699, source: metar }  # WA North, 5 spot(s) within 25 km
+  - { id: "YMHB", name: "Hobart Intl, TA, AU", lat: -42.834, lon: 147.503, source: metar }  # Tasmania, 4 spot(s) within 25 km
+  - { id: "YPAD", name: "Adelaide Intl, SA, AU", lat: -34.952, lon: 138.52, source: metar }  # South Australia, 2 spot(s) within 25 km
+  - { id: "YPJT", name: "Perth/Jandakot Arpt, WA, AU", lat: -32.101, lon: 115.879, source: metar }  # Perth, 8 spot(s) within 25 km
+  - { id: "YPPH", name: "Perth Intl, WA, AU", lat: -31.927, lon: 115.976, source: metar }  # Perth, 14 spot(s) within 25 km
+  - { id: "YSSY", name: "Sydney Intl, NS, AU", lat: -33.946, lon: 151.173, source: metar }  # Sydney, 21 spot(s) within 25 km
