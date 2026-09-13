@@ -1,7 +1,61 @@
 import type { ComponentChildren } from "preact";
+import { useState } from "preact/hooks";
 import type { Bucket } from "../types";
 import { ratingVar, ratingWord } from "../conditions";
-import { StarIcon } from "./icons";
+import { gaEvent } from "../ga";
+import { DEFAULT_TITLE, SITE } from "../head";
+import { CheckIcon, ShareIcon, StarIcon } from "./icons";
+
+/** Share button, left of search in every header that has one (and beside the
+    account avatar on desktop). Shares `path` on the canonical site: the OS share
+    sheet where there is one, else it copies the link and flashes a check.
+    `title` defaults to the screen's own <title>. With no `path` it shares the
+    screen on show when clicked - its canonical URL, or the home page for the
+    noindex (personal) screens, whose link would only open the reader's own. */
+export function ShareButton({
+  path,
+  title,
+  class: cls = "icon-btn",
+}: {
+  path?: string;
+  title?: string;
+  class?: string;
+}) {
+  const [copied, setCopied] = useState(false);
+  const share = async () => {
+    let target = path;
+    let name = title;
+    if (target === undefined) {
+      const personal = document.head.querySelector('meta[name="robots"]') !== null;
+      const canon = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+      target = personal || !canon ? "/" : new URL(canon.href).pathname;
+      if (personal) name = DEFAULT_TITLE;
+    }
+    const url = SITE + target;
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: name ?? document.title, url });
+        gaEvent("share", { method: "native", item_id: target });
+      } catch {
+        // dismissed the sheet - nothing to do
+      }
+      return;
+    }
+    try {
+      await navigator.clipboard.writeText(url);
+      gaEvent("share", { method: "copy", item_id: target });
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch {
+      // clipboard blocked - nothing to do
+    }
+  };
+  return (
+    <button class={cls} onClick={() => void share()} aria-label={copied ? "Link copied" : "Share"}>
+      {copied ? <CheckIcon /> : <ShareIcon />}
+    </button>
+  );
+}
 
 /** Rating pill - bucket word on a translucent tint of the tier color. */
 export function Pill({ bucket }: { bucket: Bucket }) {

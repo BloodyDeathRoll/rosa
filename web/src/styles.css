@@ -406,6 +406,12 @@ button {
   color: var(--muted-foreground);
 }
 
+/* right side of the app header: share, then search */
+.head-actions {
+  display: inline-flex;
+  align-items: center;
+}
+
 .icon-btn {
   display: inline-flex;
   align-items: center;
@@ -1573,13 +1579,16 @@ a.rank-card:hover {
 }
 
 /* the star belongs to the name - it sits right beside it, however short the
-   name is; only the search icon is pinned to the far right */
+   name is; only share and search are pinned to the far right */
 .spot-top .star-btn {
   flex: none;
 }
-.spot-top .spot-top-search {
+.spot-top .spot-top-share {
   flex: none;
   margin-left: auto;
+}
+.spot-top .spot-top-search {
+  flex: none;
 }
 
 /* The open spot's name, left-aligned beside the chevron. */
@@ -2360,6 +2369,10 @@ a.rank-card:hover {
 }
 .map-fab.search {
   right: 12px;
+}
+/* left of search: search's right inset + its 40px + an 8px gap */
+.map-fab.share {
+  right: 60px;
 }
 .map-fab:active {
   background: var(--secondary);
@@ -3896,6 +3909,20 @@ a.rank-card:hover {
     object-fit: cover;
     display: block;
   }
+  /* share, beside the avatar: the desktop home of every screen's share button */
+  .desk-share {
+    flex: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: var(--muted-foreground);
+    transition: color 0.15s;
+  }
+  .desk-share:hover {
+    color: var(--foreground);
+  }
 
   /* Favorites ticker under the bar: tier dot, name, today's range. */
   .desk-ticker {
@@ -4075,8 +4102,10 @@ a.rank-card:hover {
     padding: 26px 0 10px;
     gap: 14px;
   }
+  /* search and share live in the desktop bar */
   .spot-top .spot-back,
-  .spot-top .spot-top-search {
+  .spot-top .spot-top-search,
+  .spot-top .spot-top-share {
     display: none;
   }
   .spot-top .spot-top-name {
@@ -4229,7 +4258,9 @@ a.rank-card:hover {
   .map-screen {
     height: 100%;
   }
-  .map-fab.back {
+  /* share lives in the desktop bar */
+  .map-fab.back,
+  .map-fab.share {
     display: none;
   }
 

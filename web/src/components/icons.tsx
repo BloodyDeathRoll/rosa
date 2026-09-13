@@ -76,7 +76,22 @@ export const SearchIcon = ({ size = 18 }: IconProps) => (
   </svg>
 );
 
-export const ChevronLeftIcon = ({ size = 18 }: IconProps) => (
+/** Share - the spot page's top-bar share button. */
+export const ShareIcon = ({ size = 18 }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
+    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+    <path d="M16 6l-4-4-4 4" />
+    <path d="M12 2v13" />
+  </svg>
+);
+
+export const CheckIcon = ({ size = 18 }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
+    <path d="M20 6 9 17l-5-5" />
+  </svg>
+);
+
+export const ChevronLeftIcon =({ size = 18 }: IconProps) => (
   <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
     <path d="m15 18-6-6 6-6" />
   </svg>

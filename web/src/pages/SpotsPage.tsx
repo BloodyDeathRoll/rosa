@@ -11,7 +11,8 @@ import {
   ALL_GROUP,
 } from "../components/GroupChips";
 import { SearchIcon } from "../components/icons";
-import { AppHeader, SpotTitle, StarButton, TierDot } from "../components/parts";
+import { AppHeader, ShareButton, SpotTitle, StarButton, TierDot } from "../components/parts";
+import { DEFAULT_TITLE } from "../head";
 import { SpotCard } from "../components/SpotCard";
 import { ratingWord } from "../conditions";
 import { GoogleButton } from "../components/GoogleButton";
@@ -112,10 +113,15 @@ export function SpotsPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [index, favs]);
 
+  // "Your spots" is personal - a shared link would open the reader's own list,
+  // so this one shares the app itself
   const search = (
-    <a class="icon-btn" href="/search" aria-label="Search spots">
-      <SearchIcon />
-    </a>
+    <span class="head-actions">
+      <ShareButton path="/" title={DEFAULT_TITLE} />
+      <a class="icon-btn" href="/search" aria-label="Search spots">
+        <SearchIcon />
+      </a>
+    </span>
   );
 
   const favRows = useMemo<Entry[]>(

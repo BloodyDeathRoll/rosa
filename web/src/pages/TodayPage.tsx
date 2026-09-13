@@ -11,7 +11,7 @@ import {
 } from "../components/GroupChips";
 import { SatMap } from "../components/MiniMap";
 import { CamIcon, SearchIcon, ShirtIcon, ThermometerIcon, WavesIcon } from "../components/icons";
-import { AppHeader, Pill, SpotTitle } from "../components/parts";
+import { AppHeader, Pill, ShareButton, SpotTitle } from "../components/parts";
 import { dayView } from "../components/SpotCard";
 import { useFavorites } from "../favorites";
 import { pendingPrompt, resolvePrompt, type FbPrompt } from "../feedback";
@@ -346,9 +346,12 @@ export function TodayPage() {
   }, [plan?.ids.join(",")]);
 
   const search = (
-    <a class="icon-btn" href="/search" aria-label="Search spots">
-      <SearchIcon />
-    </a>
+    <span class="head-actions">
+      <ShareButton path="/" />
+      <a class="icon-btn" href="/search" aria-label="Search spots">
+        <SearchIcon />
+      </a>
+    </span>
   );
 
   // Cards in the plan's order: the anchor leads, so the card you land on is the

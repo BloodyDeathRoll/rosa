@@ -18,7 +18,7 @@ import {
 } from "../components/icons";
 import { DayScrubber } from "../components/CoastChart";
 import { ReportSheet } from "../components/ReportSheet";
-import { Pill, StarButton } from "../components/parts";
+import { Pill, ShareButton, StarButton } from "../components/parts";
 import { ratingVar } from "../conditions";
 import { useFavorites } from "../favorites";
 import { stashView } from "../feedback";
@@ -626,9 +626,10 @@ export function SpotPage({ id }: { id: string }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, units, liveDay, id, spots]);
 
-  // Header, one row: back arrow, spot name with its star right beside it, and
-  // search pinned right - switching spots happens through search now.
   const spotName = splitName(data?.spot.name ?? curEntry?.name ?? "").name;
+
+  // Header, one row: back arrow, spot name with its star right beside it, and
+  // share and search pinned right - switching spots happens through search now.
   const topBar = (
     <div class="spot-top">
       <button class="spot-back" onClick={goBack} aria-label="Back">
@@ -642,6 +643,11 @@ export function SpotPage({ id }: { id: string }) {
           onToggle={() => toggleFav(id)}
         />
       )}
+      <ShareButton
+        class="icon-btn spot-top-share"
+        path={`/spot/${id}`}
+        title={`${spotName} surf forecast - Rosa`}
+      />
       <a class="icon-btn spot-top-search" href="/search" aria-label="Search spots">
         <SearchIcon />
       </a>

@@ -12,7 +12,7 @@ import {
   SearchIcon,
 } from "../components/icons";
 import { SatMap } from "../components/MiniMap";
-import { Pill, SpotTitle } from "../components/parts";
+import { Pill, ShareButton, SpotTitle } from "../components/parts";
 import { ratingVar } from "../conditions";
 import { splitName } from "../format";
 import { distanceKm, getPosition, refreshPosition, type LatLon } from "../geo";
@@ -442,6 +442,7 @@ export function MapPage({ theme }: { theme: Theme }) {
         <button class="map-fab back" onClick={goBack} aria-label="Back">
           <ChevronLeftIcon />
         </button>
+        <ShareButton class="map-fab share" path="/map" />
         <button class="map-fab search" onClick={() => setSearching(true)} aria-label="Search spots">
           <SearchIcon />
         </button>
