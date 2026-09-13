@@ -350,12 +350,12 @@ button {
   position: sticky;
   top: 0;
   z-index: 20;
-  /* No fill of its own: the greeting and the search glyph sit straight on the
-     page, and content passes under them. The blur is what keeps them readable
-     over whatever scrolls past - it tints nothing. */
-  background: transparent;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  /* Frosted: a translucent wash of the page colour plus a heavy blur. Blur
+     alone left the cards scrolling underneath legible straight through the
+     greeting (2026-09-13); the wash is what keeps the header text readable. */
+  background: color-mix(in srgb, var(--body-bg) 75%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 /* Brand lockup: icon mark · either the time-of-day greeting (Home) or the
@@ -971,11 +971,11 @@ button {
   top: 52px;
   z-index: 10;
   padding: 10px calc(var(--edge, 12px) + var(--coast-pad)) 16px;
-  /* Same treatment as the app header above it: no fill of its own, and the blur
-     is what keeps the dates readable over the cards passing underneath. */
-  background: transparent;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  /* Same frosted treatment as the app header above it, so the two read as one
+     band and the dates stay readable over the cards passing underneath. */
+  background: color-mix(in srgb, var(--body-bg) 75%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 .coast-day {
   flex: none;
@@ -3817,9 +3817,10 @@ a.rank-card:hover {
     position: sticky;
     top: 0;
     z-index: 30;
-    background: color-mix(in srgb, var(--body-bg) 82%, transparent);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    /* the same frost as the phone header and the day axis under it */
+    background: color-mix(in srgb, var(--body-bg) 75%, transparent);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
   }
   .desk-bar-row {
@@ -3988,6 +3989,7 @@ a.rank-card:hover {
     position: static;
     height: auto;
     padding: 34px 0 10px;
+    background: transparent;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
   }
