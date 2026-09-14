@@ -23,7 +23,7 @@ handoff_depth_m: 15
 outer:
   dataset: crm_socal_3as_vers2
   south: 32.0
-  north: 34.7
+  north: 34.75  # on the 0.25 deg GFS lattice - every open edge must be, for the boundary nodes
   west: -121.0
   east: -117.0
   res_deg: 0.01

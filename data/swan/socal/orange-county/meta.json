@@ -2,7 +2,7 @@
   "grid": "orange-county",
   "source": "NCEI CRM crm_socal_1as_vers2 via THREDDS NCSS (https://www.ngdc.noaa.gov/thredds/ncss/grid/crm)",
   "source_cut": "orange-county_crm_socal_1as_vers2_33.3_33.8_-118.2_-117.5.nc",
-  "built_at": "2026-09-14T07:32:52+00:00",
+  "built_at": "2026-09-14T08:03:02+00:00",
   "lon0": -118.2,
   "lat0": 33.3,
   "nx": 351,

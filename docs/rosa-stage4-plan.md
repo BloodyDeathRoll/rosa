@@ -67,13 +67,27 @@ NDBC discus classes apart when scoring.)
   lunada-bay 151 -> 220. The other 11 are land only at 0.5 km (a GEBCO cell straddling the
   waterline) - spot-DB watch items, not touched.
 
-### 4.2 - Boundary from our own feed *(3-4 days)*
-- Along the outer grid's west, north and south edges, take the GFS-Wave node values already
-  fetched by `gfswave.py` (3 swell partitions + windsea: Hs, Tp, dir per partition) and rebuild
-  a 2-D spectrum per node per step: JONSWAP in frequency x cos-power in direction per
-  partition, summed. Write SWAN `.sp2` boundary files per forecast step.
-- Wind: `INPGRID WIND` from the `gfsatmos.py` box fetch at the same steps.
-- No new data source and no new quota - both feeds are already in the cycle.
+### 4.2 - Boundary from our own feed *(3-4 days)* - ✅ BUILT 2026-09-14
+- `pipeline/src/rosa_pipeline/swan.py` + `rosa-pipeline swan --region socal --steps 0-24`:
+  one grib-filter request per step on the wave filter (box = outer grid + 0.5 deg) and one on
+  the atmos filter; the GFS-Wave nodes on the W/S/N edges (31 in the bight; the edges must sit
+  on the 0.25 lattice, so the outer north moved 34.7 -> 34.75) each get a 2-D spectrum:
+  JONSWAP per partition (wind sea + 3 swells) with the peak chosen so the shape's **mean**
+  period is the mean period GFS publishes (no Tp invented - `blend._PARTITION_TP_KEYS`), cos^m
+  spread from the payload's own spread classes (sigma^2 = 2/(m+1)), partitions added in
+  energy. Synthesized Hs vs the grib's total Hs at the nodes: 0.93-1.12, median 0.99.
+- Files per step: one "SWAN 1" `.sp2` per boundary node (SWAN 41.51 refuses a file name
+  used twice and a `[len]` without a name - measured on rosa-arm, so a multi-location file
+  cannot be addressed by seq), a `wind_fNNN.dat` (u block, v block, IDLA=3 on the GFS
+  nodes) and a stationary `INPUT_fNNN`. Stationary files carry no TIME block (fatal in
+  stationary mode). Run dirs are build artifacts (`data/swan/*/run/` gitignored).
+- **First real run, rosa-arm, f000 of the 2026-09-14 00Z cycle:** the outer 401x276 grid
+  converged in 9 iterations (99.0 % at the 98 % criterion), **65 s wall / 4m18 CPU on 4
+  threads**, 89 spots tabled. Two handoff points (refugio, el-capitan) are dry cells on the
+  1 km outer grid - they were picked on the 200 m nest, which is where they will be run.
+  At 65 s a step, days 0-7 alone (57 steps) is ~62 min before any nest: the 4.3 spike has
+  to find the time - non-stationary mode with hot restarts (one iteration per step instead
+  of nine) is the first candidate, a 2 km outer the second.
 
 ### 4.3 - Grid + runtime spike *(2-3 days, on rosa-arm)*
 - Outer ~1 km grid, Point Conception to Ensenada, seaward past San Nicolas Island; 100-200 m

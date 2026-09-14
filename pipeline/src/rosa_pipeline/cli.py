@@ -460,6 +460,26 @@ def _build_parser() -> argparse.ArgumentParser:
     fb.add_argument("--out", type=Path, default=Path("data/out"), help="published payload dir")
     fb.add_argument("--feedback-dir", type=Path, default=FEEDBACK_DIR)
 
+    swan_p = sub.add_parser(
+        "swan", help="write SWAN run inputs for a Stage-4 region (boundary spectra + wind + INPUT)"
+    )
+    swan_p.add_argument(
+        "--region", required=True, help="data/swan/<region> built by tools/swan-grid"
+    )
+    swan_p.add_argument("--steps", default="0-24", help="forecast hours, e.g. 0-168")
+    swan_p.add_argument("--every", type=int, default=3, help="step spacing in hours")
+    swan_p.add_argument(
+        "--out", type=Path, default=None, help="run dir (default data/swan/<region>/run)"
+    )
+    swan_p.add_argument(
+        "--cycle", type=_utc_datetime, default=None, help="force a GFS cycle, ISO UTC"
+    )
+    swan_p.add_argument("--no-wind", action="store_true", help="skip the atmos fetch")
+    swan_p.add_argument(
+        "--fixtures", type=Path, default=None, help="replay captured gribs (offline)"
+    )
+    swan_p.add_argument("--capture", type=Path, default=None, help="capture the gribs to this dir")
+
     bathy = sub.add_parser(
         "bathy", help="sample each spot's shore-normal seabed depth profile (Stage 2A)"
     )
@@ -2276,6 +2296,95 @@ def _tide_verify_suffix(spot_id: str, constants, out_dir: Path, tide_mod) -> str
     return f"  | vs OM: corr {corr_s} offset {mp - mo:+.2f} m demeaned-rmse {rmse:.3f} m{flag}"
 
 
+def _utc_datetime(text: str) -> datetime:
+    """argparse type: an ISO timestamp, naive taken as UTC."""
+    dt = datetime.fromisoformat(text)
+    return dt.replace(tzinfo=UTC) if dt.tzinfo is None else dt.astimezone(UTC)
+
+
+def _cmd_swan(args: argparse.Namespace) -> int:
+    """Write a SWAN run directory for a Stage-4 region: per step a boundary spectral file
+    rebuilt from GFS-Wave partitions, a GFS wind field and a stationary INPUT (swan.py).
+    Live: one grib-filter request per step on each of the wave and atmos filters. Fixtures:
+    ``swan_wave_f{step:03d}.grib2`` / ``swan_wind_f{step:03d}.grib2`` in --fixtures."""
+    from datetime import timedelta
+
+    from . import gfsatmos, gfswave, swan
+
+    region_dir = Path("data/swan") / args.region
+    meta_path = region_dir / "outer" / "meta.json"
+    if not meta_path.exists():
+        print(
+            f"no outer grid at {meta_path} - run tools/swan-grid/build_grid.py first",
+            file=sys.stderr,
+        )
+        return 2
+    outer_meta = json.loads(meta_path.read_text(encoding="utf-8"))
+    lo, _, hi = args.steps.partition("-")
+    steps = list(range(int(lo), int(hi or lo) + 1, args.every))
+    run_dir = args.out or (region_dir / "run")
+    box = swan.fetch_box(outer_meta)
+    cycle = args.cycle or gfswave.pick_cycle(datetime.now(UTC))
+    if args.fixtures is None:
+        print(
+            f"{args.region}: cycle {cycle:%Y-%m-%d %HZ}, box {box.key}, "
+            f"{len(steps)} steps -> {run_dir}"
+        )
+
+    def get(client: httpx.Client, url: str) -> bytes | None:
+        try:
+            resp = client.get(url)
+        except httpx.HTTPError:
+            return None
+        return resp.content if resp.status_code == 200 and resp.content[:4] == b"GRIB" else None
+
+    written = 0
+    with httpx.Client(timeout=60.0) as client:
+        for step in steps:
+            if args.fixtures is not None:
+                wave_path = args.fixtures / f"swan_wave_f{step:03d}.grib2"
+                wind_path = args.fixtures / f"swan_wind_f{step:03d}.grib2"
+                wave = wave_path.read_bytes() if wave_path.exists() else None
+                wind = wind_path.read_bytes() if wind_path.exists() else None
+            else:
+                wave = get(client, gfswave.filter_url(cycle, step, box))
+                if wave is None and step == steps[0]:
+                    cycle = cycle - timedelta(hours=6)  # not on NOMADS yet - previous cycle
+                    wave = get(client, gfswave.filter_url(cycle, step, box))
+                wind = None if args.no_wind else get(client, gfsatmos.filter_url(cycle, step, box))
+                if args.capture is not None and wave is not None:
+                    args.capture.mkdir(parents=True, exist_ok=True)
+                    (args.capture / f"swan_wave_f{step:03d}.grib2").write_bytes(wave)
+                    if wind is not None:
+                        (args.capture / f"swan_wind_f{step:03d}.grib2").write_bytes(wind)
+            if wave is None:
+                print(f"  f{step:03d}: no wave grib - skipped")
+                continue
+            if wind is None and not args.no_wind:
+                print(f"  f{step:03d}: no wind grib - running without wind")
+            files = swan.write_step(
+                run_dir,
+                step=step,
+                valid=swan.valid_time(cycle, step),
+                outer_meta=outer_meta,
+                wave_grib=wave,
+                wind_grib=wind,
+                bottom_rel="../outer/bot.grd",
+                points_rel="../points.loc",
+            )
+            written += 1
+            print(
+                f"  f{step:03d} {files.valid:%Y-%m-%d %H}Z: {files.nodes} boundary nodes, "
+                f"boundary Hs max {files.hs_boundary_max:.2f} m -> {files.input_path.name}"
+            )
+    (run_dir / "cycle.json").write_text(
+        json.dumps({"cycle": cycle.isoformat(), "steps": steps, "written": written}, indent=2)
+        + "\n",
+        encoding="utf-8",
+    )
+    return 0 if written else 1
+
+
 def _cmd_bathy(args: argparse.Namespace) -> int:
     import time
 
@@ -2498,6 +2607,8 @@ def main(argv: list[str] | None = None) -> int:
         return _cmd_tide(args)
     if args.command == "bathy":
         return _cmd_bathy(args)
+    if args.command == "swan":
+        return _cmd_swan(args)
     if args.command == "sdb":
         return _cmd_sdb(args)
     if args.command == "atl24":

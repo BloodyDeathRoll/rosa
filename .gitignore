@@ -37,6 +37,8 @@ data/bathy/
 # native-resolution CRM cuts the SWAN grid tool caches (tens of MB; the built grids
 # beside them ARE committed, like the bathy profiles)
 data/swan/*/src/
+# per-cycle SWAN run inputs/outputs (rosa-pipeline swan) - build artifacts
+data/swan/*/run/
 
 # local OSM extracts (downloaded once)
 data/osm/

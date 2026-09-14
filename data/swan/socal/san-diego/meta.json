@@ -2,7 +2,7 @@
   "grid": "san-diego",
   "source": "NCEI CRM crm_socal_1as_vers2 via THREDDS NCSS (https://www.ngdc.noaa.gov/thredds/ncss/grid/crm)",
   "source_cut": "san-diego_crm_socal_1as_vers2_32.45_33.25_-117.5_-117.05.nc",
-  "built_at": "2026-09-14T07:32:52+00:00",
+  "built_at": "2026-09-14T08:03:03+00:00",
   "lon0": -117.5,
   "lat0": 32.45,
   "nx": 226,
