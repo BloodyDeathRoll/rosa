@@ -13,7 +13,7 @@ accumulated evidence, never a single session.
 - **Pair periods like-for-like:** Open-Meteo serves the energy period Tm-1,0, NDBC's APD is Tm02, and Tm-1,0 > Tm02 always. Stations without spectra fall back loudly and are never calibrated against.
 - **Hs bias tracks the instrument, not the basin** — discus buoys read the model hot, CDIP Waveriders cold; 51201 vs 51202/51205 are the same ocean with opposite signs. No global de-bias is defensible; keep station classes apart.
 - **Match on direction and period, never partition slot index** — partition order is not comparable across providers.
-- **Partition direction wander is CLOSED — do not build temporal smoothing.** The transform is order-independent. If ever revisited: partition *tracking* for display order only, never a filter on the directions the physics consumes.
+- **Partition direction wander is CLOSED — do not build temporal smoothing.** The transform is order-independent. If ever revisited: partition *tracking* for display order only, never a filter on the directions the physics consumes. One exception, measured 2026-09-14: the blend arm's FILLED hours (between 3-hourly GFS steps) pair swell slots by system before interpolating, so the interpolation cannot invent a swell - native steps are never touched, so this is not smoothing.
 - **A pb_0049-gated finding whose inputs are reachable from the workstation gets its same-input A/B run the same day, not a HOLD** (2026-09-11). The GRIB path (one global field per model, `tools/ab-nodes/`), the committed depth profiles (`tools/bathy-ab/`) and the tide constants cost no Open-Meteo quota; the shipped samplers or physics run on both arms under two `PYTHONPATH`s and the numbers decide apply / reject, recorded here. HOLD is only for an A/B that needs the marine quota or weeks of buoy accrual. The 2026-09-05 sampler finding sat HELD for six days on an A/B that took twenty minutes.
 
 ## Scope & honesty (read first)
@@ -3055,3 +3055,82 @@ and combined with compose_raw's `_wavg`/`_circ`, and prints its lead card (peak 
 DPD, no wind row). `--write-skill` still persists the om card only. Switching the published
 ceilings to the blend card moves confidence fleet-wide, so it needs the pb_0049 same-input
 A/B and an entry here first.
+
+## 2026-09-14 - Filled hours blend swell SLOTS, not swells: the pb_0049 A/B of Dream 09-14's tracker (NOT applied)
+
+**What was found (Dream, 2026-09-14, MEDIUM, scored 60/100).** `blend._interp_hourly` fills the
+two hours between 3-hourly GFS-Wave steps slot by slot. GFS-Wave ranks its swell slots, it
+does not track them, so when systems trade places the filled hours carry a swell that exists
+at neither step - the slot-wise blending this file ruled wrong on 2026-07-29. The reviewer's
+`blend-interp-track-swells.diff` adds `_track_swells`: before interpolating, permute the next
+step's filled slots when a permutation is closer in BOTH total bearing and total relative
+period. Its red->green reproduces here on HEAD.
+
+**The A/B, run here the same day, no Open-Meteo quota.** One capture of the blend arm's free
+inputs for all 1947 points: GFS-Wave 2026-09-14 00z f000-f120 (24 boxes, 1176 files), ECMWF
+2026-09-13 12z f000-f126, GWAM 2026-09-14 00z f000-f120, OISST. Weather was synthetic and calm
+(0 wind), identical on both arms, so the delta is the wave change alone. The real `run --all`
+replayed the capture under two `PYTHONPATH`s (base `f45f1f2` vs base + diff), fixture cycles and
+the clock pinned to the capture's. A-vs-A control: 0 spots move.
+
+**Prevalence.** The tracker re-pairs 12,275 of 77,880 three-hour transitions (15.8%; 18.3% of
+the 67,080 with two or more swell slots) at 1821 of 1947 points - the 2026-07-29 figure (13%)
+holds on GFS-Wave. Worst: Pernambuco 34%, Fernando de Noronha 32%, El Salvador 30%, Tasmania
+29%. Israel does not change.
+
+**Published footprint (same input).** 1426 of 1947 spots move. 4,316 of 71,858 table rows
+(6.0%): rating changes on 3,943 (p05 -14, p95 +13, extremes -46 / +44, even up and down),
+bucket on 1,004; `h_mid` down on 1,441 and up on 722 (p05 -0.20 m, p95 +0.10 m, -1.4 to +0.7).
+Days: `rating_max` changes on 731 of 9,488 (388 up, 343 down), bucket on 122. `current` changes
+at 137 spots, events at 113.
+
+**Does it invent less?** Filled-hour swell partitions with no swell within 10 deg and 10% of
+period at either neighbouring native step (a strict test that also counts real drift - equal on
+both arms): **19.7% -> 15.6%** of 392,376 (>= 0.5 m: 17,351 -> 13,891). Over the 12,275
+re-paired transitions (made-up partitions >= 0.2 m): 5,427 better, 5,482 same, **1,366 worse**;
+25,923 -> 14,449 made-up partitions.
+
+**Why 1,366 get worse: births and deaths.** The diff permutes ALL filled slots, so when one
+system fades and another appears between steps it still pairs them, and the total-cost minimum
+can break a good pair to do it. jameos-del-agua 2026-09-18 06z->09z: 328 deg 11.1 s -> 331 deg
+10.7 s is the same swell, but the chosen permutation pairs it with a new 240 deg 12.5 s system
+and pairs a dying 37 deg 8.7 s swell with it instead. The filled hour gets two swells that exist
+at neither step, one of them (352 deg 10.0 s) matches the 2.08 m wind sea, and
+`drop_duplicate_windsea` deletes the wind sea: `h_mid` 1.0 -> 0.2 m, rating 72 -> 26, FIRING ->
+POOR, all from invented numbers. Base kept the wind sea.
+
+**Guarded variant, same capture, same day.** A re-pairing is taken only when EVERY pair it
+moves is one system at both steps, by the wind-sea dedupe's own "same system" test
+(`DEDUPE_DIR_DEG` 20 deg, `DEDUPE_PERIOD_FRAC` 15%) - no new constant. A swell born or dying
+between the steps is never paired with an unrelated one; those slots stay slot-wise, as today.
+Arms rebuilt on `f45f1f2` in their own worktrees (a base re-run matched the first base arm
+exactly: 0 rows moved).
+
+| vs base | unguarded (as filed) | **guarded** |
+|---|---|---|
+| transitions re-paired | 12,275 | 3,962 |
+| of those: better / same / worse | 5,427 / 5,482 / 1,366 | 2,267 / 1,695 / **0** |
+| made-up partitions (>= 0.2 m) in those transitions | 25,923 -> 14,449 | 8,121 -> 582 |
+| made-up filled-hour swells, fleet | 19.7% -> 15.6% | 19.7% -> 17.3% |
+| spots moved / table rows moved | 1426 / 6.0% | 791 / 1.8% |
+| row rating p05 / p95 (extremes) | -14 / +13 (-46 / +44) | -9 / +15 (-34 / +44) |
+| row bucket changes | 1,004 | 284 |
+| day `rating_max` / bucket changes (of 9,488) | 731 / 122 | 169 / 19 |
+| `current` / events changed at | 137 / 113 spots | 25 / 17 spots |
+
+Guarded `h_mid` over moved rows: 358 down, 230 up, p05 -0.20 m, p95 +0.10 m. jameos-del-agua
+keeps its wind sea (same as base). Its top mover, doran-beach 2026-09-16 06:00 PDT: base read
+8 FLAT between two 52 GOOD rows, from two swells that exist at neither step (14.7 s / 249 deg and
+13.6 s / 273 deg, the average of the real pair); guarded carries the real 16.0 s / 228 deg and
+12.3 s / 294 deg and reads 52 GOOD like its neighbours - the base arm's dip was the invention.
+The reviewer's proof passes on the guarded code; repo suite 635 passed, ruff clean.
+
+**Verdict: the guarded variant removes 93% of the made-up swells where it acts and breaks
+nothing measured; the diff as filed is rejected** (1,366 transitions broken). The 17.3% that
+remains is mostly births and deaths plus real drift the strict test counts; interpolating those
+honestly (fade one out, grow the other in) would change the slot count extract reads and is a
+separate design. **Applied 2026-09-14** on the operator's call: the guarded `blend._track_swells`, used by
+`_interp_hourly`; the method rule at the top carries the exception. Two tests in
+`test_blend.py`: a clean swap follows the swells, and the jameos-del-agua birth/death
+shape keeps its slots and its wind sea. The first VM cycle after the push is the smoke
+check. OPEN-ITEMS 38.

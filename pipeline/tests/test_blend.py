@@ -161,6 +161,55 @@ def test_interpolated_direction_wraps_between_steps():
     assert all(d > 340 or d < 20 for d in dirs)
 
 
+def _swells(t: datetime, *slots: tuple[float, float, float], **extra) -> GfsSea:
+    fields = {
+        f"swell{n}_{k}": v for n, s in enumerate(slots, 1) for k, v in zip("hpd", s, strict=True)
+    }
+    return _gfs(t, **fields, **extra)
+
+
+def test_filled_hours_follow_the_swell_not_the_slot():
+    # GFS-Wave ranks its slots: two systems crossing in size swap slots at t3. A filled
+    # hour must carry the two real systems, never a blend of both (Dream 09-14,
+    # CALIBRATION.md 2026-09-14)
+    t0 = CYCLE
+    gfs = [
+        _swells(t0, (1.2, 13.0, 200.0), (1.0, 8.0, 290.0)),
+        _swells(t0 + timedelta(hours=3), (1.3, 8.0, 290.0), (0.9, 13.0, 200.0)),
+    ]
+    h = compose_raw(gfs, [], _aux([t0]), "x").marine["hourly"]
+    assert h["swell_wave_period"][1] == pytest.approx(13.0)
+    assert h["swell_wave_direction"][1] == pytest.approx(200.0)
+    assert h["swell_wave_height"][1] == pytest.approx(1.1)
+    assert h["secondary_swell_wave_period"][1] == pytest.approx(8.0)
+    assert h["secondary_swell_wave_direction"][1] == pytest.approx(290.0)
+    assert h["secondary_swell_wave_height"][1] == pytest.approx(1.1)
+    # native steps are never touched
+    assert h["swell_wave_period"][3] == 8.0
+
+
+def test_a_swell_born_or_dying_is_never_paired_with_another():
+    # jameos-del-agua 2026-09-18 06z -> 09z (the A/B's regression): 328 -> 331 deg is one
+    # swell, but a 37 deg swell dies and a 240 deg one is born. An unguarded permutation
+    # paired them, invented a 352 deg 10 s swell and deleted the 2.08 m wind sea as its
+    # "duplicate". The guard re-pairs only same-system pairs, so here it keeps the slots.
+    t0 = CYCLE
+    wind = {"windsea_h": 2.11, "windsea_p": 9.82, "windsea_d": 8.04}
+    gfs = [
+        _swells(t0, (0.47, 11.06, 327.8), (0.08, 13.82, 211.26), (0.14, 8.69, 37.35), **wind),
+        _swells(
+            t0 + timedelta(hours=3),
+            (0.44, 10.67, 331.13),
+            (0.25, 12.52, 240.27),
+            (0.07, 13.6, 212.77),
+            **{**wind, "windsea_h": 2.07, "windsea_p": 10.01, "windsea_d": 7.17},
+        ),
+    ]
+    h = compose_raw(gfs, [], _aux([t0]), "x").marine["hourly"]
+    assert h["swell_wave_direction"][2] == pytest.approx(330.0, abs=0.1)
+    assert h["wind_wave_height"][2] == pytest.approx(2.083, abs=0.001)
+
+
 def test_sst_is_oisst_or_blank_never_an_om_number(point):
     # plan C2: the daily OISST value fills every hour. Since 2026-09-12 there is no OM
     # fallback (the marine-light leg is gone), so a missing OISST value is None - the

@@ -44,7 +44,7 @@ from collections.abc import Mapping
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
-from itertools import pairwise
+from itertools import pairwise, permutations
 from pathlib import Path
 from typing import Protocol
 
@@ -552,6 +552,60 @@ def drop_duplicate_windsea(fields: dict) -> dict:
     return fields
 
 
+def _track_swells(a: dict, b: dict) -> dict:
+    """``b``'s fields with its swell slots re-labelled to follow ``a``'s physical swells.
+
+    GFS-Wave ranks its three swell slots, it does not track them: when two systems cross in
+    size between steps they trade slots, and interpolating slot by slot then blends two
+    different swells into one that exists at neither step - the "slot-wise smoothing blends
+    different swells 13% of the time" that docs/CALIBRATION.md 2026-07-29 measured and ruled
+    out. So pair b's slots with a's first. A pairing replaces the identity only when it is
+    closer in BOTH total bearing and total relative period - no weighting between the two,
+    so no new knob - and only slots filled at both steps take part."""
+    keys = ("h", "p", "d")
+    slots = tuple(
+        n
+        for n in (1, 2, 3)
+        if all(a.get(f"swell{n}_{k}") is not None for k in keys)
+        and all(b.get(f"swell{n}_{k}") is not None for k in keys)
+    )
+    if len(slots) < 2:
+        return b
+
+    def cost(perm: tuple[int, ...]) -> tuple[float, float]:
+        d = p = 0.0
+        for i, j in zip(slots, perm, strict=True):
+            d += abs((a[f"swell{i}_d"] - b[f"swell{j}_d"] + 180.0) % 360.0 - 180.0)
+            pa, pb = a[f"swell{i}_p"], b[f"swell{j}_p"]
+            p += abs(pa - pb) / max(pa, pb) if max(pa, pb) > 0 else 0.0
+        return d, p
+
+    def same_system(i: int, j: int) -> bool:
+        d = abs((a[f"swell{i}_d"] - b[f"swell{j}_d"] + 180.0) % 360.0 - 180.0)
+        pa, pb = a[f"swell{i}_p"], b[f"swell{j}_p"]
+        return d <= DEDUPE_DIR_DEG and abs(pa - pb) / max(pa, pb) <= DEDUPE_PERIOD_FRAC
+
+    ident = cost(slots)
+    best: tuple[int, ...] = slots
+    best_cost: tuple[float, float] | None = None
+    for perm in permutations(slots):
+        # every pair the permutation MOVES must be one system at both steps (the wind-sea
+        # dedupe's own "same system" test) - a swell born or dying between the steps is
+        # never paired with an unrelated one; those slots stay slot-wise, as before
+        if not all(i == j or same_system(i, j) for i, j in zip(slots, perm, strict=True)):
+            continue
+        c = cost(perm)
+        if c[0] < ident[0] and c[1] < ident[1] and (best_cost is None or c < best_cost):
+            best, best_cost = perm, c
+    if best == slots:
+        return b
+    out = dict(b)
+    for i, j in zip(slots, best, strict=True):
+        for k in keys:
+            out[f"swell{i}_{k}"] = b[f"swell{j}_{k}"]
+    return out
+
+
 def _interp_hourly(gfs: list[GfsSea]) -> list[GfsSea]:
     """Expand a 3-hourly GFS series to hourly by linear (circular for bearings)
     interpolation between consecutive steps.
@@ -561,7 +615,9 @@ def _interp_hourly(gfs: list[GfsSea]) -> list[GfsSea]:
     is a multiple of 3 h - Hawaii (UTC-10) and Sri Lanka (UTC+5:30) published ZERO days
     from the raw steps (caught by the 2026-08-14 smoke). Open-Meteo interpolates its
     3-hourly models to hourly the same way; a key missing at either endpoint stays
-    missing in the filled hours rather than being invented."""
+    missing in the filled hours rather than being invented. Swell partitions are
+    interpolated per physical swell, not per slot (``_track_swells``); the native steps
+    are never touched."""
     if not gfs:
         return gfs
     out: list[GfsSea] = []
@@ -570,12 +626,13 @@ def _interp_hourly(gfs: list[GfsSea]) -> list[GfsSea]:
         gap_h = (b.time - a.time).total_seconds() / 3600.0
         if not 1.0 < gap_h <= INTERP_MAX_GAP_H:
             continue
-        shared = set(a.fields) & set(b.fields)
+        bf = _track_swells(a.fields, b.fields)
+        shared = set(a.fields) & set(bf)
         for k in range(1, round(gap_h)):
             frac = k / gap_h
             f: dict[str, float] = {}
             for key in shared:
-                va, vb = a.fields[key], b.fields[key]
+                va, vb = a.fields[key], bf[key]
                 if key.endswith("_d") or key == "dirpw":
                     f[key] = _circ(va, vb, w=1.0 - frac)
                 else:
