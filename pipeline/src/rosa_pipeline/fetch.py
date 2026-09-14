@@ -126,9 +126,10 @@ MARINE_WAVE_FIELDS = ["wave_height", "wave_period", "wave_direction"]
 # How far a returned location may sit from the one requested before the batch is refused
 # as mis-attributed (see _check_batch_order). Open-Meteo answers with the grid CELL
 # CENTRE: the coarsest wave grid behind these fields is 0.25 deg, whose worst-case centre
-# offset is half a cell = 0.125 deg per axis. 0.3 deg is that with headroom, and still
-# inside the 0.44 deg separating the two closest registered buoys (51201/51202), so a
-# swap between any registered pair is over the cap.
+# offset is half a cell = 0.125 deg per axis. 0.3 deg is that with headroom. Ordering is
+# no longer the cap's job: since 2026-09-14 bodies are put back in request order by their
+# ``location_id`` (_order_by_location_id) before this check, so the registry may hold
+# buoys closer together than the cap (the SoCal Bight CDIP net sits ~0.1 deg apart).
 MAX_GRID_SNAP_DEG = 0.3
 
 
@@ -311,6 +312,7 @@ def fetch_marine_waves_many(
     bodies = [data] if isinstance(data, dict) else list(data)
     if len(bodies) != len(coords):
         raise ValueError(f"open-meteo returned {len(bodies)} locations for {len(coords)} buoys")
+    bodies = _order_by_location_id(bodies)
     _check_batch_order(bodies, coords)
     return bodies
 
@@ -343,23 +345,47 @@ def fetch_wind_many(
     bodies = [data] if isinstance(data, dict) else list(data)
     if len(bodies) != len(coords):
         raise ValueError(f"open-meteo returned {len(bodies)} locations for {len(coords)} buoys")
+    bodies = _order_by_location_id(bodies)
     _check_batch_order(bodies, coords)
     return bodies
+
+
+def _order_by_location_id(bodies: list) -> list:
+    """Put a multi-location response back in request order by each body's ``location_id``.
+
+    Open-Meteo numbers the bodies of a comma-joined request 0..n-1 in request order and
+    carries the number as ``location_id`` (the first body omits it - live-verified
+    2026-09-14). Attributing by that id, not by list position, is what lets the buoy
+    registry hold stations closer together than ``MAX_GRID_SNAP_DEG`` can tell apart: a
+    swap between two nearshore Waveriders 0.1 deg apart is invisible to the coordinate
+    check but impossible here. A list with no ids at all (older captures replayed as
+    fixtures, single-point bodies) is returned as is; ids that are not exactly 0..n-1
+    are refused rather than guessed."""
+    if len(bodies) < 2 or not any(isinstance(b, dict) and "location_id" in b for b in bodies):
+        return bodies
+    ids = [int(b.get("location_id", 0)) if isinstance(b, dict) else -1 for b in bodies]
+    if sorted(ids) != list(range(len(bodies))):
+        raise ValueError(
+            f"open-meteo location_id set {ids} is not 0..{len(bodies) - 1} - "
+            "refusing to attribute the batch"
+        )
+    return [b for _, b in sorted(zip(ids, bodies, strict=True), key=lambda ib: ib[0])]
 
 
 def _check_batch_order(bodies: list[dict], coords: list[tuple[float, float]]) -> None:
     """Every body must be the location it was asked for, not just the right count.
 
-    The list is matched to ``coords`` BY POSITION and nothing else, and what it feeds is
-    the append-only lead-time archive: a mis-ordered response would file one buoy's model
-    series under another's id, permanently, in the store every accuracy claim is scored
-    from. Each body already carries the coordinate it answers for; only the count was read.
+    The list is matched to ``coords`` by position after ``_order_by_location_id`` has put
+    it in request order, and what it feeds is the append-only lead-time archive: a
+    mis-attributed response would file one buoy's model series under another's id,
+    permanently, in the store every accuracy claim is scored from. Each body already
+    carries the coordinate it answers for; this is the second, independent check.
 
     ``MAX_GRID_SNAP_DEG`` bounds each body's OWN offset from its request rather than asking
     "which request is this body nearest to" - that test fires falsely the moment two
     requested points share a grid cell, which spot samples ~0.05 deg apart routinely do.
-    So: a swap between two points further apart than the cap is caught; a swap between
-    two points closer than that is not, and no coordinate test could tell them apart."""
+    So: a body sitting further than the cap from its request is caught here; a swap between
+    two points closer than that is the ``location_id`` ordering's job."""
     for i, (body, (lat, lon)) in enumerate(zip(bodies, coords, strict=True)):
         blat, blon = body.get("latitude"), body.get("longitude")
         if blat is None or blon is None:
@@ -501,17 +527,18 @@ class OpenMeteoSource:
                 ensemble = None
         fetched_at = datetime.now(UTC).isoformat(timespec="seconds")
         mj, wj = marine.json(), weather.json()
-        marine_list = mj if isinstance(mj, list) else [mj]
-        weather_list = wj if isinstance(wj, list) else [wj]
+        marine_list = _order_by_location_id(mj if isinstance(mj, list) else [mj])
+        weather_list = _order_by_location_id(wj if isinstance(wj, list) else [wj])
         if ensemble is None:
             ensemble_list: list[dict | None] = [None] * len(coords)
         else:
             ej = ensemble.json()
-            ensemble_list = ej if isinstance(ej, list) else [ej]
-        # The same by-position attribution the archive's fetch_*_many guard: each body
-        # names the coordinate it answers for, and a mis-ordered trio would publish one
-        # spot's sea under another spot's id for a whole cycle. The strict zip below only
-        # checks the COUNT. Bodies without a coordinate (old captures) pass through.
+            ensemble_list = _order_by_location_id(ej if isinstance(ej, list) else [ej])
+        # The same attribution the archive's fetch_*_many use: bodies are put back in
+        # request order by their location_id, then each must name the coordinate it
+        # answers for - a mis-ordered trio would publish one spot's sea under another
+        # spot's id for a whole cycle. The strict zip below only checks the COUNT.
+        # Bodies without a coordinate (old captures) pass through.
         _check_batch_order(marine_list, coords)
         _check_batch_order(weather_list, coords)
         if ensemble is not None:

@@ -27,6 +27,39 @@ buoys:
     lat: 38.094
     lon: -129.951
     source: ndbc
+  # Stage-4 SoCal Bight pilot, added 2026-09-14 (docs/rosa-stage4-plan.md 4.0): the NDBC
+  # discus stations inside the bight - the second instrument class, scored apart from the
+  # CDIP Waveriders (data/buoys/cdip.yaml). All publishing waves on realtime2 that day.
+  - id: "46025"
+    name: "Santa Monica Basin - 33NM WSW of Santa Monica, CA"
+    lat: 33.765
+    lon: -119.077
+    source: ndbc
+  - id: "46047"
+    name: "Tanner Bank - 121NM West of San Diego, CA"
+    lat: 32.418
+    lon: -119.535
+    source: ndbc
+  - id: "46053"
+    name: "East Santa Barbara - 12NM SW of Santa Barbara, CA"
+    lat: 34.246
+    lon: -119.842
+    source: ndbc
+  - id: "46054"
+    name: "West Santa Barbara - 38NM West of Santa Barbara, CA"
+    lat: 34.274
+    lon: -120.468
+    source: ndbc
+  - id: "46069"
+    name: "South Santa Rosa - 14NM SW of Santa Rosa Island, CA"
+    lat: 33.657
+    lon: -120.227
+    source: ndbc
+  - id: "46086"
+    name: "San Clemente Basin - 27NM SE of San Clemente Island, CA"
+    lat: 32.504
+    lon: -118.029
+    source: ndbc
   - id: "41008"
     name: "Grays Reef - 40NM SE of Savannah, GA"
     lat: 31.400

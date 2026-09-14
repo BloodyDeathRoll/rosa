@@ -114,17 +114,47 @@ def test_batch_bodies_must_be_the_locations_they_were_asked_for():
             fetch.httpx.Client = orig  # type: ignore[attr-defined]
 
 
-def test_grid_snap_cap_is_inside_the_closest_registered_buoy_pair():
-    """The cap only catches a swap between points further apart than itself; the
-    registry's two closest buoys must therefore sit further apart than the cap."""
-    from itertools import combinations
-    from pathlib import Path
+def test_batch_bodies_are_attributed_by_location_id_not_position():
+    """The registry holds buoys closer together than MAX_GRID_SNAP_DEG can tell apart
+    (the SoCal Bight CDIP net, ~0.1 deg), so a swapped response between two of them
+    passes the coordinate check. Open-Meteo's ``location_id`` (first body omits it) is
+    the attribution: a swapped list is put back in request order, an id set that is not
+    0..n-1 is refused, and a list with no ids at all is left alone."""
+    coords = [(32.868, -117.267), (32.957, -117.279)]  # 46254 / 46266, 0.089 deg apart
 
-    from rosa_pipeline.buoys import load_buoys
+    def body(lat, lon, **extra):
+        return {"latitude": lat, "longitude": lon, "hourly": {"time": []}, **extra}
 
-    buoys = load_buoys(Path(__file__).resolve().parents[2] / "data" / "buoys").values()
-    gaps = [max(abs(a.lat - b.lat), abs(a.lon - b.lon)) for a, b in combinations(buoys, 2)]
-    assert min(gaps) > fetch.MAX_GRID_SNAP_DEG
+    def swapped(request):
+        return httpx.Response(
+            200,
+            json=[body(32.958, -117.292, location_id=1), body(32.875, -117.292)],
+        )
+
+    def bad_ids(request):
+        return httpx.Response(
+            200,
+            json=[body(32.875, -117.292, location_id=1), body(32.958, -117.292, location_id=1)],
+        )
+
+    client, orig = _many_with(swapped)
+    fetch.httpx.Client = client  # type: ignore[attr-defined]
+    try:
+        for got in (fetch.fetch_marine_waves_many(coords), fetch.fetch_wind_many(coords)):
+            assert [b["latitude"] for b in got] == [32.875, 32.958]
+    finally:
+        fetch.httpx.Client = orig  # type: ignore[attr-defined]
+
+    client, orig = _many_with(bad_ids)
+    fetch.httpx.Client = client  # type: ignore[attr-defined]
+    try:
+        with pytest.raises(ValueError, match="location_id set"):
+            fetch.fetch_marine_waves_many(coords)
+    finally:
+        fetch.httpx.Client = orig  # type: ignore[attr-defined]
+
+    no_ids = [body(1.0, 1.0), body(2.0, 2.0)]
+    assert fetch._order_by_location_id(no_ids) is no_ids
 
 
 def test_marine_429_still_raises(monkeypatch):

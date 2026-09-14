@@ -15,6 +15,86 @@ buoys:
     lat: 32.933
     lon: -117.391
     source: ndbc
+  # Stage-4 SoCal Bight pilot, added 2026-09-14 (docs/rosa-stage4-plan.md 4.0): every
+  # CDIP Waverider inside the bight that was publishing waves on NDBC realtime2 that day
+  # (ids/coordinates from activestations.xml, .txt/.spec/.swdir all 200, WVHT not MM).
+  # Skipped: 46235 Imperial Beach Nearshore and 46273 Torrey Pines Inner (404 - not on
+  # realtime2), 46232 Point Loma South (last wave row 2026-09-01 - add back when it returns).
+  - id: "46219"
+    name: "San Nicolas Island, CA (CDIP 067, Waverider)"
+    lat: 33.226
+    lon: -119.891
+    source: ndbc
+  - id: "46221"
+    name: "Santa Monica Bay, CA (CDIP 028, Waverider)"
+    lat: 33.860
+    lon: -118.641
+    source: ndbc
+  - id: "46222"
+    name: "San Pedro, CA (CDIP 092, Waverider)"
+    lat: 33.614
+    lon: -118.314
+    source: ndbc
+  - id: "46224"
+    name: "Oceanside Offshore, CA (CDIP 045, Waverider)"
+    lat: 33.178
+    lon: -117.472
+    source: ndbc
+  - id: "46251"
+    name: "Santa Cruz Basin, CA (CDIP 203, Waverider)"
+    lat: 33.769
+    lon: -119.565
+    source: ndbc
+  - id: "46253"
+    name: "San Pedro South, CA (CDIP 213, Waverider)"
+    lat: 33.576
+    lon: -118.182
+    source: ndbc
+  - id: "46254"
+    name: "Scripps Nearshore, CA (CDIP 201, Waverider)"
+    lat: 32.868
+    lon: -117.267
+    source: ndbc
+  - id: "46256"
+    name: "Long Beach Channel, CA (CDIP 215, Waverider)"
+    lat: 33.700
+    lon: -118.201
+    source: ndbc
+  - id: "46258"
+    name: "Mission Bay West, CA (CDIP 220, Waverider)"
+    lat: 32.749
+    lon: -117.502
+    source: ndbc
+  - id: "46266"
+    name: "Del Mar Nearshore, CA (CDIP 153, Waverider; NDBC lists the owner as USACE)"
+    lat: 32.957
+    lon: -117.279
+    source: ndbc
+  - id: "46268"
+    name: "Topanga Nearshore, CA (CDIP 103, Waverider)"
+    lat: 34.022
+    lon: -118.578
+    source: ndbc
+  - id: "46274"
+    name: "Leucadia Nearshore, CA (CDIP 262, Waverider)"
+    lat: 33.062
+    lon: -117.314
+    source: ndbc
+  - id: "46275"
+    name: "Red Beach Nearshore, CA (CDIP 264, Waverider)"
+    lat: 33.291
+    lon: -117.501
+    source: ndbc
+  - id: "46277"
+    name: "Green Beach Offshore, CA (CDIP 271, Waverider)"
+    lat: 33.336
+    lon: -117.659
+    source: ndbc
+  - id: "46285"
+    name: "Capistrano Beach Nearshore, CA (CDIP 284, Waverider)"
+    lat: 33.445
+    lon: -117.680
+    source: ndbc
   - id: "51202"
     name: "Mokapu Point, HI (CDIP 098, Waverider)"
     lat: 21.414
