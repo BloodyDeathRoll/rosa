@@ -300,10 +300,17 @@ def breaker_height_from_profile(
     friction_cb: float | None = None,
     friction_mode: str | None = None,
     friction_kd_min: float | None = None,
+    exposure: bool = True,
 ) -> float:
     """Breaker height of the dominant WAVE FIELD (Stage 2B hybrid + the 2026-08-03 combine
     fix): real physics for the geometry (shoaling + refraction + depth-limited breaking over
     the spot's bathymetry) times a period-power rideability factor for windswell quality.
+
+    ``exposure=False`` is the Stage-4 nearshore arm: the partition is SWAN's sea at the
+    handoff point, already shadowed and refracted by the regional model, so the soft
+    window is not applied again (that would shelter the spot twice) and the incidence is
+    the sea's own angle to the shore normal. Everything after that - the march inward, the
+    rideability factor, the field combine, the wind factor - is the shipping path.
 
     Incidence is the partition's approach angle relative to the spot's shore normal; the
     physics march zeroes anything arriving from behind it (>= 90 deg).
@@ -337,13 +344,17 @@ def breaker_height_from_profile(
 
     breakers: list[tuple[float, float, float]] = []  # (Hb, direction, spread)
     for p in partitions:
-        w = math.sqrt(spread_exposure(p, window))  # energy fraction -> amplitude
-        if w <= 0.0:
-            continue
-        # the energy that arrives comes from inside the arc, so the angle it
-        # arrives at is the arc's, not the fan's mean - a swell whose mean sits
-        # behind the headland still refracts in from the open side
-        incidence = angle_diff(arriving_direction(p.direction_deg, window), shore_normal)
+        if exposure:
+            w = math.sqrt(spread_exposure(p, window))  # energy fraction -> amplitude
+            if w <= 0.0:
+                continue
+            # the energy that arrives comes from inside the arc, so the angle it
+            # arrives at is the arc's, not the fan's mean - a swell whose mean sits
+            # behind the headland still refracts in from the open side
+            incidence = angle_diff(arriving_direction(p.direction_deg, window), shore_normal)
+        else:
+            w = 1.0
+            incidence = angle_diff(p.direction_deg, shore_normal)
         # A window reaching past the shore normal is the spot's own local knowledge
         # saying that arc does reach the break (wrapping points, bay mouths), so
         # honour it at grazing incidence rather than letting the derived normal

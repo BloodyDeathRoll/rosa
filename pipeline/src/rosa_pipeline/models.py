@@ -143,3 +143,8 @@ class ScoredHour:
     rating: int
     bucket: Bucket
     wetsuit: str | None
+    # Per-hour provenance of the breaker height's propagation link (CLAUDE.md principle 3:
+    # per-hour, never a constant label): None = the offshore point marched over the whole
+    # committed profile (the shipping path); "swan" = the Stage-4 regional model's sea at
+    # the spot's handoff point, marched over the inner profile only.
+    nearshore: str | None = None

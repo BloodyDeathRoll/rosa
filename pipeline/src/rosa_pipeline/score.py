@@ -27,6 +27,7 @@ quadratic q confirmed against ISRAMAR Hadera buoy + cam observation).
 from __future__ import annotations
 
 from .models import Bucket, HourForecast, ScoredHour, Spot
+from .nearshore import NearshoreSea, inner_samples
 from .physics import tide_shifted_samples
 from .transform import (
     angle_diff,
@@ -91,11 +92,20 @@ def bucket(rating: int) -> Bucket:
 
 
 def score_hour(
-    spot: Spot, hour: HourForecast, wet_samples: list[tuple[float, float]] | None = None
+    spot: Spot,
+    hour: HourForecast,
+    wet_samples: list[tuple[float, float]] | None = None,
+    nearshore: NearshoreSea | None = None,
 ) -> ScoredHour:
+    """``nearshore`` (Stage 4, docs/rosa-stage4-plan.md 4.4) is the regional SWAN model's sea
+    at the spot's handoff point for this hour. When given (and a profile exists) it replaces
+    the propagation link only: the breaker march starts from that point with that sea and
+    runs over the inner profile, with no second exposure window. Rating inputs other than
+    the height - period, wind, partitions, energy - are untouched. None = shipping path."""
     window = spot.swell_window
     dominant = dominant_partition(hour.partitions, window)
     energy = energy_in_window(hour.partitions, window)
+    provenance: str | None = None
     # Stage 2B: with the spot's bathymetry profile, breaker height comes from real physics
     # (shoaling + refraction + depth-limited breaking). Falls back to the q(T) transform
     # when no profile is available (retired fully in Stage 2E once physics is recalibrated).
@@ -104,18 +114,32 @@ def score_hour(
         # (Stage 2D). Micro-tidal Med barely moves; macro-tidal spots (Costa Rica) shift a lot.
         # A sample that dries at this tide becomes the shoreline (interpolated), never a
         # hole the march skips over - see physics.tide_shifted_samples.
-        samples = tide_shifted_samples(wet_samples, hour.tide_m or 0.0)
-        # open item 4 (product call 2026-08-03): a blown-out sea reads smaller, a groomed one
-        # bigger. Inert until WIND_BREAKER_COEFF is graded - see physics.wind_breaker_factor.
-        h_eff = breaker_height_from_profile(
-            hour.partitions,
-            window,
-            spot.shore_normal,
-            samples,
-            wind_normal_ms=shore_normal_wind_ms(
-                hour.wind_speed_kph, hour.wind_dir_deg, spot.offshore_direction
-            ),
+        wind_normal = shore_normal_wind_ms(
+            hour.wind_speed_kph, hour.wind_dir_deg, spot.offshore_direction
         )
+        if nearshore is not None:
+            inner = inner_samples(wet_samples, nearshore)
+            samples = tide_shifted_samples(inner, hour.tide_m or 0.0)
+            h_eff = breaker_height_from_profile(
+                (nearshore.partition(),),
+                window,
+                spot.shore_normal,
+                samples,
+                wind_normal_ms=wind_normal,
+                exposure=False,
+            )
+            provenance = nearshore.source
+        else:
+            samples = tide_shifted_samples(wet_samples, hour.tide_m or 0.0)
+            # open item 4 (product call 2026-08-03): a blown-out sea reads smaller, a groomed
+            # one bigger. Inert until WIND_BREAKER_COEFF is graded - physics.wind_breaker_factor.
+            h_eff = breaker_height_from_profile(
+                hour.partitions,
+                window,
+                spot.shore_normal,
+                samples,
+                wind_normal_ms=wind_normal,
+            )
     else:
         h_eff = effective_height_in_window(hour.partitions, window)
     h_lo, h_mid, h_hi = breaker_range(h_eff, spot.height_coeff)
@@ -143,4 +167,5 @@ def score_hour(
         rating=rating,
         bucket=bucket(rating),
         wetsuit=wetsuit(hour.sst_c) if hour.sst_c is not None else None,
+        nearshore=provenance,
     )

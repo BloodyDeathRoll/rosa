@@ -564,7 +564,7 @@ def input_text(
         "FRICTION JONSWAP",
         "NUM ACCUR 0.02 0.02 0.02 98. STAT 50",
         f"POINTS 'SPOTS' FILE '{points_path}'",
-        f"TABLE 'SPOTS' HEAD '{table_path}' XP YP DEP HSIGN TPS DIR DSPR",
+        f"TABLE 'SPOTS' HEAD '{table_path}' XP YP DEP HSIGN TPS DIR DSPR TM01",
     ]
     lines += list(nests)
     lines.append("COMPUTE")

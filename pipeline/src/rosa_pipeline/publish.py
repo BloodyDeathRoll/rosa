@@ -279,6 +279,11 @@ def _hour_entry(spot: Spot, s: ScoredHour, tz: ZoneInfo) -> dict:
     closure = partition_closure(s.hour.partitions, s.hour.total_hs_m)
     if closure is not None:
         entry["closure"] = _r(closure, 2)
+    # Stage-4 per-hour provenance: which model carried the wave to the handoff point.
+    # Omitted (not null) on the shipping path, so payloads outside a modelled region are
+    # byte-identical to before.
+    if s.nearshore is not None:
+        entry["nearshore"] = s.nearshore
     # member bearing fan, deg - diagnostic like closure: nothing scores on it
     # (2026-08-07 revert), but publishing it is what lets a calibration entry
     # derive a direction tolerance from real hours instead of a borrowed

@@ -107,16 +107,32 @@ NDBC discus classes apart when scoring.)
 - Still to do here: the failure mode - a step that does not converge or a missing grib
   must fall back to the march for that hour, never publish a blank (plan 4.4's reader).
 
-### 4.4 - Plumbing *(3-4 days)*
-- New `NearshoreSource` behind a per-region flag in the spot YAML / region config. SWAN
-  tables Hs / Tp / Dir / spread at each spot's **output point (~15 m depth on its own ray)**;
-  the breaker march then runs from that point inward instead of from the offshore point.
-  Region not modelled -> today's path, byte-identical.
-- `run --nearshore {march,swan}` and `verify --archive --nearshore {march,swan}` so both arms
-  archive side by side from the same inputs (the fleet A/B rule in CLAUDE.md).
-- `publish.sh`: SWAN runs after fetch and before the spot loop, inside the cycle lock.
-- Payload: no schema change. Per-hour provenance may name the nearshore arm later (principle
-  #3 allows per-hour provenance, never a constant model label).
+### 4.4 - Plumbing *(3-4 days)* - ✅ BUILT 2026-09-14 (publish.sh step and the buoy arm open)
+- `nearshore.py` reads a completed run (`cycle.json` + the per-step nest/outer TABLEs, rows
+  matched to `points.json` order, a nest row wins, dry cells skipped, a missing step is
+  simply absent) into one series per spot, and `nearshore_at` gives an hour its sea:
+  exact step, linear blend of the bracketing 3-h steps (direction circular), or the nearest
+  step up to 3 h away - else None. TABLEs now carry `TM01` beside `TPS`, so the march gets
+  a mean period (the shipping convention) and the display a peak.
+- `score_hour(..., nearshore=sea)`: the march starts at the handoff point (the profile cut
+  at `handoff_km`, the model's depth there prepended) with SWAN's total sea as ONE
+  partition, `breaker_height_from_profile(..., exposure=False)` - no second soft window,
+  the sea's own incidence to the shore normal. Everything else (displayed partitions,
+  period and wind terms, energy, rideability, wind factor) is untouched; with no sea the
+  call is bit-identical to before (tested).
+- Per-hour provenance: `ScoredHour.nearshore` -> payload hour `"nearshore": "swan"`,
+  omitted on the shipping path so payloads outside a modelled region do not change a byte.
+- `run --nearshore swan --swan-run data/swan/socal/run`: spots in the run's `points.json`
+  get the arm, hour by hour; the summary line counts SWAN hours vs fallback hours. First
+  live run (blacks-beach, 2026-09-14 09Z, a run holding only f000-f003): 10 hours from
+  SWAN, 398 fell back - the arm degrades exactly as designed when the run is short. With a
+  17-step f000-f048 run (687 s wall on rosa-arm for 102 SWAN runs, ~40 s a step all in):
+  55 hours from SWAN, 15 of the 120 payload hours; Blacks read 0.8-1.2 m on SWAN against
+  0.5-0.7 m on the march at the same hours (the 300 m nest sees the Scripps canyon
+  focusing the GEBCO ray cannot) - which is right is 4.5's question, not this step's.
+- Open here: the `publish.sh` step (fetch -> `swan` -> `run.sh` -> `run --nearshore swan`,
+  inside the cycle lock) and the buoy arm for 4.5 (SWAN tabled at the registered buoys
+  inside the grids and archived as a `swan` source beside gfswave/ecmwf/blend).
 
 ### 4.5 - A/B and gate *(2-3 weeks of archive)*
 - Same-input A/B at the bight buoys on the Stage-0 scorecard: bias, RMSE, scatter index,

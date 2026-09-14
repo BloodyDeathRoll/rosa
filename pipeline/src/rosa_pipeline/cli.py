@@ -288,6 +288,23 @@ def _build_parser() -> argparse.ArgumentParser:
         "kept as the fallback arm and for A/B replays",
     )
     run.add_argument(
+        "--nearshore",
+        choices=["march", "swan"],
+        default="march",
+        help="march (default): the offshore point marched over the whole committed profile. "
+        "swan: Stage-4 arm - for spots with a handoff point in --swan-run's region, the "
+        "breaker march starts from the regional SWAN model's sea at that point; every other "
+        "spot, and every hour the run has no sea for, stays on the march (per-hour "
+        "`nearshore` provenance in the payload). docs/rosa-stage4-plan.md 4.4",
+    )
+    run.add_argument(
+        "--swan-run",
+        type=Path,
+        default=None,
+        help="a completed SWAN run directory (rosa-pipeline swan + run.sh), whose parent "
+        "region dir holds points.json; required with --nearshore swan",
+    )
+    run.add_argument(
         "--wave-source",
         choices=["om", "blend"],
         default="blend",
@@ -815,6 +832,21 @@ def _cmd_run(args: argparse.Namespace) -> int:
     stale_tides = 0
     no_profile = 0
     failures: list[tuple[str, Exception]] = []
+    # Stage-4 nearshore arm (docs/rosa-stage4-plan.md 4.4): one SWAN series per spot with a
+    # handoff point in the run's region; hours the run has no sea for fall back per hour.
+    nearshore_series: dict = {}
+    swan_hours = 0
+    swan_fallback_hours = 0
+    if getattr(args, "nearshore", "march") == "swan":
+        from .nearshore import load_run as load_swan_run
+
+        if args.swan_run is None:
+            print("error: --nearshore swan needs --swan-run <run dir>", file=sys.stderr)
+            return 2
+        nearshore_series = load_swan_run(args.swan_run, args.swan_run.parent / "points.json")
+        print(
+            f"nearshore swan: {len(nearshore_series)} spot(s) with a SWAN series in {args.swan_run}"
+        )
     tide_by_point: dict = {}
     # What replaces a point's missing EOT20 tide depends on the arm: the OM arm's marine
     # body carries Open-Meteo's sea-level column, the blend arm's has none since
@@ -935,7 +967,20 @@ def _cmd_run(args: argparse.Namespace) -> int:
                 wet_samples = profile.wet_samples_deep_to_shallow() if profile else None
                 if profile is None:
                     no_profile += 1
-                scored = [score_hour(spot, h, wet_samples) for h in hours]
+                series = nearshore_series.get(spot.id)
+                if series is None:
+                    scored = [score_hour(spot, h, wet_samples) for h in hours]
+                else:
+                    from .nearshore import nearshore_at
+
+                    scored = []
+                    for h in hours:
+                        sea = nearshore_at(series, h.time)
+                        scored.append(score_hour(spot, h, wet_samples, nearshore=sea))
+                        if sea is not None:
+                            swan_hours += 1
+                        else:
+                            swan_fallback_hours += 1
                 payload = build_payload(
                     spot,
                     scored,
@@ -1007,6 +1052,14 @@ def _cmd_run(args: argparse.Namespace) -> int:
             f"warn: {no_profile} spot(s) published without a bathy profile (q(T) fallback) "
             "- cut them with `bathy --spot <id>`",
             file=sys.stderr,
+        )
+    if nearshore_series:
+        # the arm's own accounting: how much of the modelled region's forecast actually came
+        # from SWAN, and how much fell back hour by hour (the tail past the run's last step,
+        # a failed step, a dry cell) - read it before trusting an A/B on this cycle
+        print(
+            f"nearshore swan: {swan_hours} hour(s) from SWAN, "
+            f"{swan_fallback_hours} fell back to the march"
         )
     if implausible:
         # beside the failure summary, not inside it: a run that publishes an implausible
