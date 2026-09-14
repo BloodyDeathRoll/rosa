@@ -34,6 +34,9 @@ data/verify/
 
 # local bathymetry grids (large, downloaded once - never commit)
 data/bathy/
+# native-resolution CRM cuts the SWAN grid tool caches (tens of MB; the built grids
+# beside them ARE committed, like the bathy profiles)
+data/swan/*/src/
 
 # local OSM extracts (downloaded once)
 data/osm/

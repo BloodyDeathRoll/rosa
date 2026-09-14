@@ -1,0 +1,19 @@
+{
+  "grid": "ventura",
+  "source": "NCEI CRM crm_socal_1as_vers2 via THREDDS NCSS (https://www.ngdc.noaa.gov/thredds/ncss/grid/crm)",
+  "source_cut": "ventura_crm_socal_1as_vers2_34.05_34.45_-119.65_-119.15.nc",
+  "built_at": "2026-09-14T07:32:52+00:00",
+  "lon0": -119.65,
+  "lat0": 34.05,
+  "nx": 251,
+  "ny": 201,
+  "dlon": 0.002,
+  "dlat": 0.002,
+  "idla": 3,
+  "depth_convention": "metres positive-down; land negative; no data -999",
+  "aggregation": "block mean of source cell elevations inside each target cell",
+  "source_cells_per_target_median": 49.0,
+  "wet_cells": 32652,
+  "cells": 50451,
+  "empty_cells": 0
+}

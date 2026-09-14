@@ -1,0 +1,68 @@
+# Stage-4 pilot region: the Southern California Bight (docs/rosa-stage4-plan.md 4.1).
+#
+# Source: NCEI U.S. Coastal Relief Model, Southern California v2 (public domain), served
+# by NCEI's THREDDS NetCDF subset service. Two grids of the same model: 3 arc-second
+# (~90 m) for the outer grid, 1 arc-second (~30 m) for the nests. CUDEM 1/9 arc-second
+# tiles were checked on 2026-09-14 and cover California only from Monterey Bay north
+# (ncei19_n36x75 and up), so the CRM 1as is the finest public-domain seabed here.
+#
+# Every grid is a block AVERAGE of the source cells inside each target cell (never a
+# nearest-sample pick): a 1 km cell that is half cliff and half water averages dry.
+region: socal
+source:
+  kind: crm
+  ncss: https://www.ngdc.noaa.gov/thredds/ncss/grid/crm
+# Which spots get an output point: the California file south of Point Conception's lee.
+spots:
+  region: California
+  south: 32.0
+  north: 34.6
+# Where SWAN hands off to the breaker march: the first committed-profile sample at or
+# past this depth along the spot's own ray (docs/rosa-stage4-plan.md 4.4).
+handoff_depth_m: 15
+outer:
+  dataset: crm_socal_3as_vers2
+  south: 32.0
+  north: 34.7
+  west: -121.0
+  east: -117.0
+  res_deg: 0.01
+# Nests follow the spot clusters (tools/swan-grid: 11 clusters at 0.15 deg, merged by
+# coast). Each is padded ~0.05 deg alongshore and 0.1-0.2 deg seaward so its boundary
+# sits in open water of the outer grid.
+nests:
+  - name: santa-barbara
+    dataset: crm_socal_1as_vers2
+    south: 34.30
+    north: 34.60
+    west: -120.60
+    east: -119.55
+    res_deg: 0.002
+  - name: ventura
+    dataset: crm_socal_1as_vers2
+    south: 34.05
+    north: 34.45
+    west: -119.65
+    east: -119.15
+    res_deg: 0.002
+  - name: los-angeles
+    dataset: crm_socal_1as_vers2
+    south: 33.65
+    north: 34.10
+    west: -119.00
+    east: -118.20
+    res_deg: 0.002
+  - name: orange-county
+    dataset: crm_socal_1as_vers2
+    south: 33.30
+    north: 33.80
+    west: -118.20
+    east: -117.50
+    res_deg: 0.002
+  - name: san-diego
+    dataset: crm_socal_1as_vers2
+    south: 32.45
+    north: 33.25
+    west: -117.50
+    east: -117.05
+    res_deg: 0.002

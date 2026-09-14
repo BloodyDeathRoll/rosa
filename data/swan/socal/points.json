@@ -1,0 +1,892 @@
+[
+  {
+    "spot": "jalama",
+    "lat": 34.50834,
+    "lon": -120.5112,
+    "bearing_deg": 250.0,
+    "handoff_km": 0.8,
+    "grid": "santa-barbara",
+    "grid_depth_m": 16.6,
+    "profile_depth_m": 29.0
+  },
+  {
+    "spot": "refugio",
+    "lat": 34.45698,
+    "lon": -120.07129,
+    "bearing_deg": 189.0,
+    "handoff_km": 0.7,
+    "grid": "santa-barbara",
+    "grid_depth_m": 22.0,
+    "profile_depth_m": 38.0
+  },
+  {
+    "spot": "el-capitan",
+    "lat": 34.45495,
+    "lon": -120.02681,
+    "bearing_deg": 212.0,
+    "handoff_km": 0.4,
+    "grid": "santa-barbara",
+    "grid_depth_m": 19.8,
+    "profile_depth_m": 5.0
+  },
+  {
+    "spot": "summerland",
+    "lat": 34.40894,
+    "lon": -119.60252,
+    "bearing_deg": 192.0,
+    "handoff_km": 1.2,
+    "grid": "ventura",
+    "grid_depth_m": 17.6,
+    "profile_depth_m": 30.0
+  },
+  {
+    "spot": "hammonds",
+    "lat": 34.40855,
+    "lon": -119.63544,
+    "bearing_deg": 165.0,
+    "handoff_km": 0.8,
+    "grid": "ventura",
+    "grid_depth_m": 15.4,
+    "profile_depth_m": 19.0
+  },
+  {
+    "spot": "sands",
+    "lat": 34.40606,
+    "lon": -119.88578,
+    "bearing_deg": 237.0,
+    "handoff_km": 0.6,
+    "grid": "santa-barbara",
+    "grid_depth_m": 17.2,
+    "profile_depth_m": 33.0
+  },
+  {
+    "spot": "devereux",
+    "lat": 34.40252,
+    "lon": -119.87264,
+    "bearing_deg": 169.0,
+    "handoff_km": 0.7,
+    "grid": "santa-barbara",
+    "grid_depth_m": 18.8,
+    "profile_depth_m": 40.0
+  },
+  {
+    "spot": "campus-point",
+    "lat": 34.40099,
+    "lon": -119.84464,
+    "bearing_deg": 190.0,
+    "handoff_km": 0.6,
+    "grid": "santa-barbara",
+    "grid_depth_m": 20.8,
+    "profile_depth_m": 36.0
+  },
+  {
+    "spot": "leadbetter-point",
+    "lat": 34.39281,
+    "lon": -119.69797,
+    "bearing_deg": 151.0,
+    "handoff_km": 0.8,
+    "grid": "santa-barbara",
+    "grid_depth_m": 15.8,
+    "profile_depth_m": 35.0
+  },
+  {
+    "spot": "carpinteria",
+    "lat": 34.38597,
+    "lon": -119.52732,
+    "bearing_deg": 221.0,
+    "handoff_km": 0.8,
+    "grid": "ventura",
+    "grid_depth_m": 15.5,
+    "profile_depth_m": 4.0
+  },
+  {
+    "spot": "rincon",
+    "lat": 34.36618,
+    "lon": -119.47439,
+    "bearing_deg": 157.0,
+    "handoff_km": 0.8,
+    "grid": "ventura",
+    "grid_depth_m": 15.2,
+    "profile_depth_m": 22.0
+  },
+  {
+    "spot": "oil-piers",
+    "lat": 34.34494,
+    "lon": -119.44353,
+    "bearing_deg": 232.0,
+    "handoff_km": 1.6,
+    "grid": "ventura",
+    "grid_depth_m": 17.4,
+    "profile_depth_m": 18.0
+  },
+  {
+    "spot": "mondos",
+    "lat": 34.30246,
+    "lon": -119.37391,
+    "bearing_deg": 176.0,
+    "handoff_km": 2.1,
+    "grid": "ventura",
+    "grid_depth_m": 15.2,
+    "profile_depth_m": 25.0
+  },
+  {
+    "spot": "solimar",
+    "lat": 34.29628,
+    "lon": -119.36511,
+    "bearing_deg": 215.0,
+    "handoff_km": 1.7,
+    "grid": "ventura",
+    "grid_depth_m": 16.6,
+    "profile_depth_m": 24.0
+  },
+  {
+    "spot": "emma-wood",
+    "lat": 34.27458,
+    "lon": -119.32739,
+    "bearing_deg": 234.0,
+    "handoff_km": 1.1,
+    "grid": "ventura",
+    "grid_depth_m": 16.0,
+    "profile_depth_m": 26.0
+  },
+  {
+    "spot": "ventura-fairgrounds",
+    "lat": 34.26292,
+    "lon": -119.29633,
+    "bearing_deg": 172.0,
+    "handoff_km": 1.3,
+    "grid": "ventura",
+    "grid_depth_m": 16.0,
+    "profile_depth_m": 15.0
+  },
+  {
+    "spot": "c-street",
+    "lat": 34.26272,
+    "lon": -119.29723,
+    "bearing_deg": 172.0,
+    "handoff_km": 1.3,
+    "grid": "ventura",
+    "grid_depth_m": 16.2,
+    "profile_depth_m": 15.0
+  },
+  {
+    "spot": "surfer-s-knoll",
+    "lat": 34.23735,
+    "lon": -119.28399,
+    "bearing_deg": 259.0,
+    "handoff_km": 1.6,
+    "grid": "ventura",
+    "grid_depth_m": 15.9,
+    "profile_depth_m": 12.0
+  },
+  {
+    "spot": "hollywood-by-the-sea",
+    "lat": 34.16226,
+    "lon": -119.24127,
+    "bearing_deg": 244.0,
+    "handoff_km": 1.0,
+    "grid": "ventura",
+    "grid_depth_m": 15.1,
+    "profile_depth_m": 23.0
+  },
+  {
+    "spot": "silver-strand",
+    "lat": 34.14651,
+    "lon": -119.22909,
+    "bearing_deg": 234.0,
+    "handoff_km": 1.0,
+    "grid": "ventura",
+    "grid_depth_m": 16.1,
+    "profile_depth_m": 38.0
+  },
+  {
+    "spot": "county-line",
+    "lat": 34.04554,
+    "lon": -118.96718,
+    "bearing_deg": 212.0,
+    "handoff_km": 0.9,
+    "grid": "los-angeles",
+    "grid_depth_m": 15.2,
+    "profile_depth_m": 22.0
+  },
+  {
+    "spot": "leo-carrillo",
+    "lat": 34.03828,
+    "lon": -118.9419,
+    "bearing_deg": 200.0,
+    "handoff_km": 0.7,
+    "grid": "los-angeles",
+    "grid_depth_m": 21.0,
+    "profile_depth_m": 29.0
+  },
+  {
+    "spot": "zeros",
+    "lat": 34.03677,
+    "lon": -118.9258,
+    "bearing_deg": 236.0,
+    "handoff_km": 1.1,
+    "grid": "los-angeles",
+    "grid_depth_m": 19.1,
+    "profile_depth_m": 37.0
+  },
+  {
+    "spot": "topanga",
+    "lat": 34.02889,
+    "lon": -118.58608,
+    "bearing_deg": 202.0,
+    "handoff_km": 1.2,
+    "grid": "los-angeles",
+    "grid_depth_m": 16.0,
+    "profile_depth_m": 23.0
+  },
+  {
+    "spot": "sunset",
+    "lat": 34.01892,
+    "lon": -118.5542,
+    "bearing_deg": 186.0,
+    "handoff_km": 2.2,
+    "grid": "los-angeles",
+    "grid_depth_m": 16.5,
+    "profile_depth_m": 27.0
+  },
+  {
+    "spot": "malibu-point",
+    "lat": 34.02241,
+    "lon": -118.68501,
+    "bearing_deg": 195.0,
+    "handoff_km": 1.0,
+    "grid": "los-angeles",
+    "grid_depth_m": 19.2,
+    "profile_depth_m": 26.0
+  },
+  {
+    "spot": "zuma",
+    "lat": 34.01149,
+    "lon": -118.82535,
+    "bearing_deg": 221.0,
+    "handoff_km": 0.4,
+    "grid": "los-angeles",
+    "grid_depth_m": 15.6,
+    "profile_depth_m": 22.0
+  },
+  {
+    "spot": "santa-monica",
+    "lat": 34.00247,
+    "lon": -118.51663,
+    "bearing_deg": 230.0,
+    "handoff_km": 1.7,
+    "grid": "los-angeles",
+    "grid_depth_m": 15.9,
+    "profile_depth_m": 19.0
+  },
+  {
+    "spot": "little-dume",
+    "lat": 34.00833,
+    "lon": -118.78462,
+    "bearing_deg": 110.0,
+    "handoff_km": 0.9,
+    "grid": "los-angeles",
+    "grid_depth_m": 16.8,
+    "profile_depth_m": 14.0
+  },
+  {
+    "spot": "point-dume",
+    "lat": 33.99839,
+    "lon": -118.81121,
+    "bearing_deg": 204.0,
+    "handoff_km": 0.5,
+    "grid": "los-angeles",
+    "grid_depth_m": 64.7,
+    "profile_depth_m": 73.0
+  },
+  {
+    "spot": "venice-pier",
+    "lat": 33.96894,
+    "lon": -118.48178,
+    "bearing_deg": 231.0,
+    "handoff_km": 1.6,
+    "grid": "los-angeles",
+    "grid_depth_m": 16.5,
+    "profile_depth_m": 18.0
+  },
+  {
+    "spot": "ballona-creek",
+    "lat": 33.94865,
+    "lon": -118.46403,
+    "bearing_deg": 215.0,
+    "handoff_km": 1.5,
+    "grid": "los-angeles",
+    "grid_depth_m": 15.0,
+    "profile_depth_m": 19.0
+  },
+  {
+    "spot": "el-porto",
+    "lat": 33.89688,
+    "lon": -118.43859,
+    "bearing_deg": 250.0,
+    "handoff_km": 1.6,
+    "grid": "los-angeles",
+    "grid_depth_m": 15.8,
+    "profile_depth_m": 16.0
+  },
+  {
+    "spot": "manhattan-beach",
+    "lat": 33.88082,
+    "lon": -118.4236,
+    "bearing_deg": 250.0,
+    "handoff_km": 1.1,
+    "grid": "los-angeles",
+    "grid_depth_m": 15.2,
+    "profile_depth_m": 20.0
+  },
+  {
+    "spot": "hermosa-beach-pier",
+    "lat": 33.85914,
+    "lon": -118.41361,
+    "bearing_deg": 255.0,
+    "handoff_km": 1.1,
+    "grid": "los-angeles",
+    "grid_depth_m": 17.0,
+    "profile_depth_m": 27.0
+  },
+  {
+    "spot": "redondo-breakwater",
+    "lat": 33.84924,
+    "lon": -118.40946,
+    "bearing_deg": 260.0,
+    "handoff_km": 1.0,
+    "grid": "los-angeles",
+    "grid_depth_m": 16.8,
+    "profile_depth_m": 17.0
+  },
+  {
+    "spot": "torrance-beach",
+    "lat": 33.81451,
+    "lon": -118.40119,
+    "bearing_deg": 280.0,
+    "handoff_km": 0.9,
+    "grid": "los-angeles",
+    "grid_depth_m": 15.5,
+    "profile_depth_m": 13.0
+  },
+  {
+    "spot": "rat-beach",
+    "lat": 33.80806,
+    "lon": -118.40515,
+    "bearing_deg": 282.0,
+    "handoff_km": 1.1,
+    "grid": "los-angeles",
+    "grid_depth_m": 16.7,
+    "profile_depth_m": 29.0
+  },
+  {
+    "spot": "haggerty-s",
+    "lat": 33.81318,
+    "lon": -118.40287,
+    "bearing_deg": 325.0,
+    "handoff_km": 1.3,
+    "grid": "los-angeles",
+    "grid_depth_m": 15.5,
+    "profile_depth_m": 28.0
+  },
+  {
+    "spot": "lunada-bay",
+    "lat": 33.7663,
+    "lon": -118.42956,
+    "bearing_deg": 220.0,
+    "handoff_km": 0.9,
+    "grid": "los-angeles",
+    "grid_depth_m": 21.2,
+    "profile_depth_m": 112.0
+  },
+  {
+    "spot": "seal-beach",
+    "lat": 33.71055,
+    "lon": -118.12066,
+    "bearing_deg": 203.0,
+    "handoff_km": 3.4,
+    "grid": "orange-county",
+    "grid_depth_m": 15.1,
+    "profile_depth_m": 20.0
+  },
+  {
+    "spot": "cabrillo-beach",
+    "lat": 33.69837,
+    "lon": -118.28545,
+    "bearing_deg": 190.0,
+    "handoff_km": 1.2,
+    "grid": "los-angeles",
+    "grid_depth_m": 16.3,
+    "profile_depth_m": 35.0
+  },
+  {
+    "spot": "bolsa-chica-state-beach",
+    "lat": 33.67688,
+    "lon": -118.07475,
+    "bearing_deg": 232.0,
+    "handoff_km": 3.2,
+    "grid": "orange-county",
+    "grid_depth_m": 15.5,
+    "profile_depth_m": 21.0
+  },
+  {
+    "spot": "goldenwest",
+    "lat": 33.67293,
+    "lon": -118.0689,
+    "bearing_deg": 232.0,
+    "handoff_km": 3.1,
+    "grid": "orange-county",
+    "grid_depth_m": 15.5,
+    "profile_depth_m": 23.0
+  },
+  {
+    "spot": "huntington-beach-pier",
+    "lat": 33.63849,
+    "lon": -118.02429,
+    "bearing_deg": 225.0,
+    "handoff_km": 2.8,
+    "grid": "orange-county",
+    "grid_depth_m": 16.1,
+    "profile_depth_m": 20.0
+  },
+  {
+    "spot": "huntington-state-beach",
+    "lat": 33.62253,
+    "lon": -117.98661,
+    "bearing_deg": 215.0,
+    "handoff_km": 2.1,
+    "grid": "orange-county",
+    "grid_depth_m": 15.4,
+    "profile_depth_m": 26.0
+  },
+  {
+    "spot": "54th-street",
+    "lat": 33.60632,
+    "lon": -117.95615,
+    "bearing_deg": 208.0,
+    "handoff_km": 2.1,
+    "grid": "orange-county",
+    "grid_depth_m": 15.1,
+    "profile_depth_m": 26.0
+  },
+  {
+    "spot": "40th-st",
+    "lat": 33.60501,
+    "lon": -117.95541,
+    "bearing_deg": 229.0,
+    "handoff_km": 2.1,
+    "grid": "orange-county",
+    "grid_depth_m": 15.1,
+    "profile_depth_m": 27.0
+  },
+  {
+    "spot": "28th-st",
+    "lat": 33.60293,
+    "lon": -117.95322,
+    "bearing_deg": 242.0,
+    "handoff_km": 2.1,
+    "grid": "orange-county",
+    "grid_depth_m": 16.9,
+    "profile_depth_m": 26.0
+  },
+  {
+    "spot": "blackies",
+    "lat": 33.6032,
+    "lon": -117.95317,
+    "bearing_deg": 254.0,
+    "handoff_km": 2.3,
+    "grid": "orange-county",
+    "grid_depth_m": 15.4,
+    "profile_depth_m": 22.0
+  },
+  {
+    "spot": "balboa-pier",
+    "lat": 33.59458,
+    "lon": -117.90338,
+    "bearing_deg": 200.0,
+    "handoff_km": 0.7,
+    "grid": "orange-county",
+    "grid_depth_m": 20.7,
+    "profile_depth_m": 68.0
+  },
+  {
+    "spot": "the-wedge",
+    "lat": 33.58845,
+    "lon": -117.88476,
+    "bearing_deg": 199.0,
+    "handoff_km": 0.7,
+    "grid": "orange-county",
+    "grid_depth_m": 24.6,
+    "profile_depth_m": 46.0
+  },
+  {
+    "spot": "pelican-point",
+    "lat": 33.57494,
+    "lon": -117.85017,
+    "bearing_deg": 209.0,
+    "handoff_km": 0.3,
+    "grid": "orange-county",
+    "grid_depth_m": 15.4,
+    "profile_depth_m": 58.0
+  },
+  {
+    "spot": "scotchman-s-cove",
+    "lat": 33.56016,
+    "lon": -117.83452,
+    "bearing_deg": 201.0,
+    "handoff_km": 0.6,
+    "grid": "orange-county",
+    "grid_depth_m": 25.1,
+    "profile_depth_m": 77.0
+  },
+  {
+    "spot": "thalia-street",
+    "lat": 33.53276,
+    "lon": -117.78383,
+    "bearing_deg": 237.0,
+    "handoff_km": 0.6,
+    "grid": "orange-county",
+    "grid_depth_m": 18.6,
+    "profile_depth_m": 29.0
+  },
+  {
+    "spot": "brooks-street",
+    "lat": 33.52997,
+    "lon": -117.78169,
+    "bearing_deg": 231.0,
+    "handoff_km": 0.5,
+    "grid": "orange-county",
+    "grid_depth_m": 16.6,
+    "profile_depth_m": 20.0
+  },
+  {
+    "spot": "salt-creek",
+    "lat": 33.4738,
+    "lon": -117.73177,
+    "bearing_deg": 242.0,
+    "handoff_km": 0.9,
+    "grid": "orange-county",
+    "grid_depth_m": 17.8,
+    "profile_depth_m": 25.0
+  },
+  {
+    "spot": "doheny-state-beach",
+    "lat": 33.44097,
+    "lon": -117.6875,
+    "bearing_deg": 184.0,
+    "handoff_km": 2.4,
+    "grid": "orange-county",
+    "grid_depth_m": 17.1,
+    "profile_depth_m": 19.0
+  },
+  {
+    "spot": "san-clemente-pier",
+    "lat": 33.40928,
+    "lon": -117.63729,
+    "bearing_deg": 234.0,
+    "handoff_km": 1.8,
+    "grid": "orange-county",
+    "grid_depth_m": 15.9,
+    "profile_depth_m": 36.0
+  },
+  {
+    "spot": "t-street",
+    "lat": 33.40688,
+    "lon": -117.63344,
+    "bearing_deg": 229.0,
+    "handoff_km": 1.8,
+    "grid": "orange-county",
+    "grid_depth_m": 16.6,
+    "profile_depth_m": 39.0
+  },
+  {
+    "spot": "upper-trestles",
+    "lat": 33.3848,
+    "lon": -117.61527,
+    "bearing_deg": 256.0,
+    "handoff_km": 1.7,
+    "grid": "orange-county",
+    "grid_depth_m": 16.2,
+    "profile_depth_m": 60.0
+  },
+  {
+    "spot": "lowers",
+    "lat": 33.37533,
+    "lon": -117.60918,
+    "bearing_deg": 232.0,
+    "handoff_km": 1.8,
+    "grid": "orange-county",
+    "grid_depth_m": 15.9,
+    "profile_depth_m": 59.0
+  },
+  {
+    "spot": "san-onofre",
+    "lat": 33.35127,
+    "lon": -117.58101,
+    "bearing_deg": 206.0,
+    "handoff_km": 2.8,
+    "grid": "orange-county",
+    "grid_depth_m": 15.1,
+    "profile_depth_m": 61.0
+  },
+  {
+    "spot": "oceanside-harbor",
+    "lat": 33.19681,
+    "lon": -117.41711,
+    "bearing_deg": 240.0,
+    "handoff_km": 2.0,
+    "grid": "san-diego",
+    "grid_depth_m": 15.8,
+    "profile_depth_m": 42.0
+  },
+  {
+    "spot": "oceanside-pier",
+    "lat": 33.18511,
+    "lon": -117.40556,
+    "bearing_deg": 239.0,
+    "handoff_km": 2.2,
+    "grid": "san-diego",
+    "grid_depth_m": 15.0,
+    "profile_depth_m": 34.0
+  },
+  {
+    "spot": "tamarack",
+    "lat": 33.14537,
+    "lon": -117.3571,
+    "bearing_deg": 236.0,
+    "handoff_km": 1.0,
+    "grid": "san-diego",
+    "grid_depth_m": 15.9,
+    "profile_depth_m": 31.0
+  },
+  {
+    "spot": "grandview",
+    "lat": 33.07464,
+    "lon": -117.31967,
+    "bearing_deg": 256.0,
+    "handoff_km": 0.9,
+    "grid": "san-diego",
+    "grid_depth_m": 18.2,
+    "profile_depth_m": 18.0
+  },
+  {
+    "spot": "steps",
+    "lat": 33.05355,
+    "lon": -117.30925,
+    "bearing_deg": 260.0,
+    "handoff_km": 0.8,
+    "grid": "san-diego",
+    "grid_depth_m": 16.1,
+    "profile_depth_m": 29.0
+  },
+  {
+    "spot": "moonlight-beach",
+    "lat": 33.04304,
+    "lon": -117.30739,
+    "bearing_deg": 235.0,
+    "handoff_km": 1.0,
+    "grid": "san-diego",
+    "grid_depth_m": 17.2,
+    "profile_depth_m": 28.0
+  },
+  {
+    "spot": "swamis",
+    "lat": 33.02949,
+    "lon": -117.29908,
+    "bearing_deg": 227.0,
+    "handoff_km": 0.8,
+    "grid": "san-diego",
+    "grid_depth_m": 16.1,
+    "profile_depth_m": 35.0
+  },
+  {
+    "spot": "cardiff-reef",
+    "lat": 33.01197,
+    "lon": -117.29145,
+    "bearing_deg": 248.0,
+    "handoff_km": 0.9,
+    "grid": "san-diego",
+    "grid_depth_m": 16.7,
+    "profile_depth_m": 70.0
+  },
+  {
+    "spot": "seaside-reef",
+    "lat": 33.00732,
+    "lon": -117.28991,
+    "bearing_deg": 254.0,
+    "handoff_km": 1.0,
+    "grid": "san-diego",
+    "grid_depth_m": 15.2,
+    "profile_depth_m": 40.0
+  },
+  {
+    "spot": "del-mar",
+    "lat": 32.96011,
+    "lon": -117.27986,
+    "bearing_deg": 266.0,
+    "handoff_km": 1.1,
+    "grid": "san-diego",
+    "grid_depth_m": 15.8,
+    "profile_depth_m": 42.0
+  },
+  {
+    "spot": "blacks-beach",
+    "lat": 32.89336,
+    "lon": -117.26344,
+    "bearing_deg": 269.0,
+    "handoff_km": 0.9,
+    "grid": "san-diego",
+    "grid_depth_m": 16.6,
+    "profile_depth_m": 19.0
+  },
+  {
+    "spot": "scripps-pier",
+    "lat": 32.86866,
+    "lon": -117.26155,
+    "bearing_deg": 292.0,
+    "handoff_km": 0.7,
+    "grid": "san-diego",
+    "grid_depth_m": 21.2,
+    "profile_depth_m": 109.0
+  },
+  {
+    "spot": "la-jolla-shores",
+    "lat": 32.86265,
+    "lon": -117.26374,
+    "bearing_deg": 280.0,
+    "handoff_km": 0.8,
+    "grid": "san-diego",
+    "grid_depth_m": 15.5,
+    "profile_depth_m": 148.0
+  },
+  {
+    "spot": "windansea",
+    "lat": 32.83167,
+    "lon": -117.29179,
+    "bearing_deg": 273.0,
+    "handoff_km": 1.0,
+    "grid": "san-diego",
+    "grid_depth_m": 15.7,
+    "profile_depth_m": 32.0
+  },
+  {
+    "spot": "big-rock",
+    "lat": 32.8218,
+    "lon": -117.28994,
+    "bearing_deg": 266.0,
+    "handoff_km": 0.8,
+    "grid": "san-diego",
+    "grid_depth_m": 16.2,
+    "profile_depth_m": 32.0
+  },
+  {
+    "spot": "bird-rock",
+    "lat": 32.80768,
+    "lon": -117.28543,
+    "bearing_deg": 254.0,
+    "handoff_km": 1.5,
+    "grid": "san-diego",
+    "grid_depth_m": 15.7,
+    "profile_depth_m": 26.0
+  },
+  {
+    "spot": "pb-point",
+    "lat": 32.80088,
+    "lon": -117.27868,
+    "bearing_deg": 254.0,
+    "handoff_km": 1.7,
+    "grid": "san-diego",
+    "grid_depth_m": 15.3,
+    "profile_depth_m": 26.0
+  },
+  {
+    "spot": "tourmaline-surfing-park",
+    "lat": 32.80013,
+    "lon": -117.27796,
+    "bearing_deg": 254.0,
+    "handoff_km": 1.6,
+    "grid": "san-diego",
+    "grid_depth_m": 15.3,
+    "profile_depth_m": 27.0
+  },
+  {
+    "spot": "pacific-beach",
+    "lat": 32.78816,
+    "lon": -117.2719,
+    "bearing_deg": 260.0,
+    "handoff_km": 1.5,
+    "grid": "san-diego",
+    "grid_depth_m": 15.7,
+    "profile_depth_m": 25.0
+  },
+  {
+    "spot": "mission-beach",
+    "lat": 32.75794,
+    "lon": -117.26796,
+    "bearing_deg": 255.0,
+    "handoff_km": 1.4,
+    "grid": "san-diego",
+    "grid_depth_m": 15.2,
+    "profile_depth_m": 33.0
+  },
+  {
+    "spot": "little-waimea",
+    "lat": 32.75308,
+    "lon": -117.26958,
+    "bearing_deg": 278.0,
+    "handoff_km": 1.5,
+    "grid": "san-diego",
+    "grid_depth_m": 16.4,
+    "profile_depth_m": 35.0
+  },
+  {
+    "spot": "ocean-beach",
+    "lat": 32.77083,
+    "lon": -117.26736,
+    "bearing_deg": 332.0,
+    "handoff_km": 2.9,
+    "grid": "san-diego",
+    "grid_depth_m": 16.1,
+    "profile_depth_m": 21.0
+  },
+  {
+    "spot": "garbage-beach-sunset-cliffs",
+    "lat": 32.7208,
+    "lon": -117.27151,
+    "bearing_deg": 233.0,
+    "handoff_km": 1.7,
+    "grid": "san-diego",
+    "grid_depth_m": 17.0,
+    "profile_depth_m": 23.0
+  },
+  {
+    "spot": "coronado",
+    "lat": 32.6403,
+    "lon": -117.20749,
+    "bearing_deg": 217.0,
+    "handoff_km": 4.9,
+    "grid": "san-diego",
+    "grid_depth_m": 15.1,
+    "profile_depth_m": 18.0
+  },
+  {
+    "spot": "imperial-beach",
+    "lat": 32.57805,
+    "lon": -117.16199,
+    "bearing_deg": 258.0,
+    "handoff_km": 2.7,
+    "grid": "san-diego",
+    "grid_depth_m": 15.7,
+    "profile_depth_m": 20.0
+  },
+  {
+    "spot": "tijuana-sloughs",
+    "lat": 32.54964,
+    "lon": -117.14956,
+    "bearing_deg": 243.0,
+    "handoff_km": 1.9,
+    "grid": "san-diego",
+    "grid_depth_m": 15.4,
+    "profile_depth_m": 21.0
+  }
+]

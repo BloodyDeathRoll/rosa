@@ -1,0 +1,17 @@
+# The original Stage-4 scaffolding region (2026-07-26), kept so the synthetic proof run on
+# rosa-arm (~/swan/israel) stays reproducible. Local GEBCO 2024 (~450 m) is the only seabed
+# source here - no CRM outside the US; EMODnet is the Stage-4 answer for the Med (roadmap
+# §2) when Israel's turn comes.
+region: israel
+source:
+  kind: gebco-local
+spots:
+  region: Israel
+handoff_depth_m: 15
+outer:
+  south: 31.5
+  north: 33.2
+  west: 34.0
+  east: 35.2
+  res_deg: 0.01
+nests: []

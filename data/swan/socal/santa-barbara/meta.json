@@ -1,0 +1,19 @@
+{
+  "grid": "santa-barbara",
+  "source": "NCEI CRM crm_socal_1as_vers2 via THREDDS NCSS (https://www.ngdc.noaa.gov/thredds/ncss/grid/crm)",
+  "source_cut": "santa-barbara_crm_socal_1as_vers2_34.3_34.6_-120.6_-119.55.nc",
+  "built_at": "2026-09-14T07:32:51+00:00",
+  "lon0": -120.6,
+  "lat0": 34.3,
+  "nx": 526,
+  "ny": 151,
+  "dlon": 0.002,
+  "dlat": 0.002,
+  "idla": 3,
+  "depth_convention": "metres positive-down; land negative; no data -999",
+  "aggregation": "block mean of source cell elevations inside each target cell",
+  "source_cells_per_target_median": 49.0,
+  "wet_cells": 40033,
+  "cells": 79426,
+  "empty_cells": 0
+}

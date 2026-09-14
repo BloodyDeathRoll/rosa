@@ -1,0 +1,19 @@
+{
+  "grid": "los-angeles",
+  "source": "NCEI CRM crm_socal_1as_vers2 via THREDDS NCSS (https://www.ngdc.noaa.gov/thredds/ncss/grid/crm)",
+  "source_cut": "los-angeles_crm_socal_1as_vers2_33.65_34.1_-119_-118.2.nc",
+  "built_at": "2026-09-14T07:32:52+00:00",
+  "lon0": -119.0,
+  "lat0": 33.65,
+  "nx": 401,
+  "ny": 226,
+  "dlon": 0.002,
+  "dlat": 0.002,
+  "idla": 3,
+  "depth_convention": "metres positive-down; land negative; no data -999",
+  "aggregation": "block mean of source cell elevations inside each target cell",
+  "source_cells_per_target_median": 49.0,
+  "wet_cells": 59754,
+  "cells": 90626,
+  "empty_cells": 0
+}

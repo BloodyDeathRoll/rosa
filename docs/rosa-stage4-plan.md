@@ -45,14 +45,27 @@ NDBC discus classes apart when scoring.)
 - Let the archive run so `verify --archive` has a march scorecard at those stations before
   anything else moves. This is the number Stage 4 has to beat.
 
-### 4.1 - Bathymetry *(2-3 days)*
-- Generalise `build_grid.py`: region box, resolution and nests from a config file, not
-  constants; keep the IDLA=3 layout SWAN already reads.
-- Outer grid from **NOAA NCEI Coastal Relief Model** (public domain, ~90 m) instead of
-  GEBCO; nests around spot clusters from **CUDEM** tiles (~10 m). Both public domain, no
-  attribution constraint. GEBCO stays the fallback for any cell the finer grids do not cover.
-- Output: `data/swan/socal/` (outer + nests), `meta.json` naming every source and its cut date.
-  These are build inputs, committed like the bathy profiles are.
+### 4.1 - Bathymetry *(2-3 days)* - ✅ BUILT 2026-09-14
+- `tools/swan-grid/build_grid.py <region>` reads `tools/swan-grid/regions/<region>.yaml`
+  (source, outer grid, nests, spot selection, handoff depth) and writes
+  `data/swan/<region>/{outer,<nest>}/bot.grd` + `meta.json` (IDLA=3) and `points.loc` /
+  `points.json`. Sources: `crm` (NCEI THREDDS NetCDF subset service, netCDF-3 read by scipy)
+  and `gebco-local`. Every grid is a **block mean** of the source cells inside each target
+  cell, never a nearest pick. Native cuts cache under `data/swan/<region>/src/` (gitignored).
+- SoCal: outer 401x271 at 0.01 deg (32.0-34.7 N, 121-117 W) from **CRM SoCal v2 3 arc-second**;
+  five nests at 0.002 deg (~200 m) from **CRM SoCal v2 1 arc-second** (~30 m): santa-barbara,
+  ventura, los-angeles, orange-county, san-diego. 3.1 MB committed. **CUDEM is not available
+  here**: the 1/9 arc-second tiles cover California only from Monterey Bay north (checked
+  2026-09-14), so the CRM 1as is the finest public-domain seabed in the bight.
+- Handoff points: the first cell at or past 15 m **walking the spot's ray on the finest built
+  grid** (100 m steps), not the GEBCO profile - the profile put lunada-bay in 90 m at 0.25 km
+  where the 1as nest reads 5 m. All 89 bight spots land inside a nest, 0.3-4.9 km out,
+  median 1.1 km.
+- Side finding: 14 bight profiles crossed land past 0.25 km. Three were objective faults
+  and were re-aimed with `aim_normal` + re-cut (`bathy`, `tide`): mission-beach 353 -> 255
+  (the ray ran north over Mission Bay to La Jolla canyon), redondo-breakwater 190 -> 260,
+  lunada-bay 151 -> 220. The other 11 are land only at 0.5 km (a GEBCO cell straddling the
+  waterline) - spot-DB watch items, not touched.
 
 ### 4.2 - Boundary from our own feed *(3-4 days)*
 - Along the outer grid's west, north and south edges, take the GFS-Wave node values already
