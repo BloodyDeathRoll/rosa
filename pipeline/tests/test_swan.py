@@ -40,12 +40,12 @@ def test_spread_power_matches_the_payload_spread_classes():
 
 def test_synth_spectrum_adds_partitions_in_energy_and_points_where_they_came_from():
     freqs, dirs = swan.frequency_grid(), swan.direction_grid()
-    parts = [swan.Partition("wind", 1.0, 5.0, 300.0), swan.Partition("swell", 1.5, 14.0, 200.0)]
+    parts = [swan.Partition("wind", 1.0, 5.0, 300.0), swan.Partition("swell", 1.5, 14.0, 195.0)]
     e = swan.synth_spectrum(parts, freqs, dirs)
     assert swan.significant_height(e, freqs, dirs) == pytest.approx(math.hypot(1.0, 1.5), rel=0.01)
-    # the 14 s swell's energy sits in the low bins and around 200 deg
+    # the 14 s swell's energy sits in the low bins and on its 15 deg bin (195)
     low = e[freqs < 0.1].sum(axis=0)
-    assert dirs[int(np.argmax(low))] == 200.0
+    assert dirs[int(np.argmax(low))] == 195.0
     high = e[freqs > 0.15].sum(axis=0)
     assert dirs[int(np.argmax(high))] == 300.0
     # noise partitions and land nodes add nothing
@@ -162,7 +162,7 @@ def test_write_step_produces_a_complete_stationary_run(tmp_path):
     assert files.nodes == 15 and files.hs_boundary_max > 0
     text = files.input_path.read_text(encoding="utf-8")
     assert "MODE STATIONARY TWODIMENSIONAL" in text
-    assert "CGRID REGULAR 31 32 0. 1 1 100 100 CIRCLE 36 0.035 0.5 31" in text
+    assert "CGRID REGULAR 31 32 0. 1 1 100 100 CIRCLE 24 0.035 0.5 25" in text
     assert "READINP BOTTOM 1. '../outer/bot.grd' 3 0 FREE" in text
     assert "INPGRID WIND REGULAR 34 31.25 0. 8 10 0.25 0.25" in text
     assert "READINP WIND 1. 'wind_f000.dat' 3 0 FREE" in text

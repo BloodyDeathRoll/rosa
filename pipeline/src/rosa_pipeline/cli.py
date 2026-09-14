@@ -476,6 +476,12 @@ def _build_parser() -> argparse.ArgumentParser:
     )
     swan_p.add_argument("--no-wind", action="store_true", help="skip the atmos fetch")
     swan_p.add_argument(
+        "--nests", action="store_true", help="also write each nest's INPUT (NESTOUT from the outer)"
+    )
+    swan_p.add_argument(
+        "--chain", action="store_true", help="hot-start every step from the previous step's state"
+    )
+    swan_p.add_argument(
         "--fixtures", type=Path, default=None, help="replay captured gribs (offline)"
     )
     swan_p.add_argument("--capture", type=Path, default=None, help="capture the gribs to this dir")
@@ -2319,7 +2325,9 @@ def _cmd_swan(args: argparse.Namespace) -> int:
             file=sys.stderr,
         )
         return 2
-    outer_meta = json.loads(meta_path.read_text(encoding="utf-8"))
+    outer_meta, nests = swan.region_grids(region_dir)
+    if not args.nests:
+        nests = {}
     lo, _, hi = args.steps.partition("-")
     steps = list(range(int(lo), int(hi or lo) + 1, args.every))
     run_dir = args.out or (region_dir / "run")
@@ -2339,6 +2347,20 @@ def _cmd_swan(args: argparse.Namespace) -> int:
         return resp.content if resp.status_code == 200 and resp.content[:4] == b"GRIB" else None
 
     written = 0
+    previous_tag: str | None = None
+    done_steps: list[int] = []
+    run_dir.mkdir(parents=True, exist_ok=True)
+    # each nest tables only the spots whose handoff point it holds (points.json, tools/swan-grid)
+    nest_points: dict[str, str] = {}
+    if nests:
+        points = json.loads((region_dir / "points.json").read_text(encoding="utf-8"))
+        for name in nests:
+            mine = [p for p in points if p["grid"] == name]
+            rel = f"points_{name}.loc"
+            (run_dir / rel).write_text(
+                "".join(f"{p['lon']:.5f} {p['lat']:.5f}\n" for p in mine), encoding="utf-8"
+            )
+            nest_points[name] = rel
     with httpx.Client(timeout=60.0) as client:
         for step in steps:
             if args.fixtures is not None:
@@ -2371,12 +2393,18 @@ def _cmd_swan(args: argparse.Namespace) -> int:
                 wind_grib=wind,
                 bottom_rel="../outer/bot.grd",
                 points_rel="../points.loc",
+                nests=nests,
+                nest_points_rel=nest_points,
+                hotstart_tag=previous_tag if args.chain else None,
             )
+            previous_tag = f"f{step:03d}"
+            done_steps.append(step)
             written += 1
             print(
                 f"  f{step:03d} {files.valid:%Y-%m-%d %H}Z: {files.nodes} boundary nodes, "
                 f"boundary Hs max {files.hs_boundary_max:.2f} m -> {files.input_path.name}"
             )
+    (run_dir / "run.sh").write_text(swan.run_script(done_steps, list(nests)), encoding="utf-8")
     (run_dir / "cycle.json").write_text(
         json.dumps({"cycle": cycle.isoformat(), "steps": steps, "written": written}, indent=2)
         + "\n",

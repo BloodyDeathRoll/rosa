@@ -89,15 +89,23 @@ NDBC discus classes apart when scoring.)
   to find the time - non-stationary mode with hot restarts (one iteration per step instead
   of nine) is the first candidate, a 2 km outer the second.
 
-### 4.3 - Grid + runtime spike *(2-3 days, on rosa-arm)*
-- Outer ~1 km grid, Point Conception to Ensenada, seaward past San Nicolas Island; 100-200 m
-  nests at the spot clusters. Stationary run per 3 h step, days 0-7 (57 steps) first.
-- Measure wall time with 4 OpenMP threads. **Budget: under 60 min per cycle**, or it does not
-  fit. Fallbacks in order: 2 km outer + nests; days 0-5 only. Days 8-15 stay on the march
-  regardless.
-- Record convergence (the Israel scaffold needed 3 iterations at 98 %) and the failure mode
-  when a step does not converge - a missing step must fall back to the march, never publish
-  a blank.
+### 4.3 - Grid + runtime spike *(2-3 days, on rosa-arm)* - ✅ MEASURED 2026-09-14
+- `rosa-pipeline swan --nests --chain` writes, per step, the outer INPUT (with NGRID/NESTOUT
+  for every nest under `data/swan/<region>/`), one INPUT per nest (BOUNDNEST1 from the outer's
+  nest file, the nest's bottom, only the spots whose handoff point it holds), hot-start
+  chaining (`INITIAL HOTSTART` from the previous step, `HOTFILE` for the next, UNFORMATTED)
+  and `run.sh` (outer then nests, one process at a time, hot files two steps back deleted).
+- **Run 1 - 1 km outer, 200 m nests, 36 dir x 32 freq, ASCII hot files:** f000 79 s + nests
+  122 s; f003 chained 61 s (9 -> 4 iterations) + nests 168 s. ~230 s a step = 3.6 h a week.
+  The hot files were 1.8 GB a step (ASCII), written and re-read every run.
+- **Run 2 - 2.5 km outer (161x111), 300 m nests, 24 dir x 26 freq, binary hot files:** f000
+  7 s + nests 24 s; f003 5 s + nests 21 s. **~30 s a step: days 0-7 in ~27 min, all 15 days in
+  ~60 min.** Fits. Hot files 45-100 MB. Every run converged (2-11 iterations, no Errfile).
+- **Cost of the coarsening, to carry into 4.5:** at the first San Diego handoff point f003
+  read 1.32 m / 8.7 s in run 1 and 1.04 m / 8.1 s in run 2 - ~20 % apart. The A/B decides
+  whether the spare budget goes back into 36 directions (~1.5x) or a finer nest.
+- Still to do here: the failure mode - a step that does not converge or a missing grib
+  must fall back to the march for that hour, never publish a blank (plan 4.4's reader).
 
 ### 4.4 - Plumbing *(3-4 days)*
 - New `NearshoreSource` behind a per-region flag in the spot YAML / region config. SWAN

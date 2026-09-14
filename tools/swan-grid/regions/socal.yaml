@@ -26,7 +26,7 @@ outer:
   north: 34.75  # on the 0.25 deg GFS lattice - every open edge must be, for the boundary nodes
   west: -121.0
   east: -117.0
-  res_deg: 0.01
+  res_deg: 0.025  # 2.5 km (2.75 x 4 deg divide evenly, so the N edge stays on the GFS lattice): the 1 km outer cost 61-79 s a step on rosa-arm (plan 4.3 spike)
 # Nests follow the spot clusters (tools/swan-grid: 11 clusters at 0.15 deg, merged by
 # coast). Each is padded ~0.05 deg alongshore and 0.1-0.2 deg seaward so its boundary
 # sits in open water of the outer grid.
@@ -37,32 +37,32 @@ nests:
     north: 34.60
     west: -120.60
     east: -119.55
-    res_deg: 0.002
+    res_deg: 0.003
   - name: ventura
     dataset: crm_socal_1as_vers2
     south: 34.05
     north: 34.45
     west: -119.65
     east: -119.15
-    res_deg: 0.002
+    res_deg: 0.003
   - name: los-angeles
     dataset: crm_socal_1as_vers2
     south: 33.65
     north: 34.10
     west: -119.00
     east: -118.20
-    res_deg: 0.002
+    res_deg: 0.003
   - name: orange-county
     dataset: crm_socal_1as_vers2
     south: 33.30
     north: 33.80
     west: -118.20
     east: -117.50
-    res_deg: 0.002
+    res_deg: 0.003
   - name: san-diego
     dataset: crm_socal_1as_vers2
     south: 32.45
     north: 33.25
     west: -117.50
     east: -117.05
-    res_deg: 0.002
+    res_deg: 0.003
