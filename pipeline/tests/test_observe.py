@@ -201,3 +201,55 @@ def test_ims_source_refuses_without_a_token(monkeypatch) -> None:
     monkeypatch.delenv(IMS_TOKEN_ENV, raising=False)
     with pytest.raises(RuntimeError, match=IMS_TOKEN_ENV):
         IMSSource().fetch(Station("178", "Tel Aviv Coast", 32.06, 34.76, "ims"))
+
+
+def test_ims_source_asks_past_today_because_to_is_exclusive(monkeypatch) -> None:
+    """Measured live 2026-09-14: from=to=today is an empty 204 and to=tomorrow returns
+    today's rows, so the request must end the day AFTER today - on IMS's UTC+2 calendar,
+    which at 23:00Z is already the next UTC day."""
+    import httpx
+
+    from rosa_pipeline import observe
+    from rosa_pipeline.stations import Station
+
+    class Frozen(datetime):
+        @classmethod
+        def now(cls, tz=None):
+            return datetime(2026, 9, 14, 23, 0, tzinfo=UTC)
+
+    seen: list[httpx.Request] = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        seen.append(request)
+        return httpx.Response(200, json={"data": []})
+
+    real_client = httpx.Client
+    monkeypatch.setattr(observe, "datetime", Frozen)
+    monkeypatch.setattr(
+        observe.httpx,
+        "Client",
+        lambda **kw: real_client(transport=httpx.MockTransport(handler), **kw),
+    )
+    observe.IMSSource(token="t", days=8).fetch(Station("178", "TA", 32.06, 34.76, "ims"))
+    assert seen[0].url.params["from"] == "2026/09/07"
+    assert seen[0].url.params["to"] == "2026/09/16"
+    assert seen[0].headers["Authorization"] == "ApiToken t"
+
+
+def test_ims_source_reads_a_204_as_no_readings(monkeypatch) -> None:
+    """A station with nothing in the range answers 204 and an empty body (live,
+    2026-09-14) - that is zero readings, not a JSON error."""
+    import httpx
+
+    from rosa_pipeline import observe
+    from rosa_pipeline.stations import Station
+
+    real_client = httpx.Client
+    monkeypatch.setattr(
+        observe.httpx,
+        "Client",
+        lambda **kw: real_client(
+            transport=httpx.MockTransport(lambda r: httpx.Response(204)), **kw
+        ),
+    )
+    assert observe.IMSSource(token="t").fetch(Station("45", "Z", 32.57, 34.95, "ims")) == []

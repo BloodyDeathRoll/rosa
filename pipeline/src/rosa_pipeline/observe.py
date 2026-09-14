@@ -506,7 +506,7 @@ def ims_token() -> str | None:
 
 
 class IMSSource:
-    """IMS Envista 10-minute data, ``from``/``to`` date range (inclusive, calendar days)."""
+    """IMS Envista 10-minute data, ``from``/``to`` date range (calendar days, ``to`` exclusive)."""
 
     def __init__(
         self,
@@ -523,15 +523,23 @@ class IMSSource:
     def fetch(self, station: Station) -> list[BuoyObs]:
         if not self.token:
             raise RuntimeError(f"{IMS_TOKEN_ENV} not set - IMS stations need a token")
-        today = datetime.now(UTC).date()
+        # Both dates are IMS's own UTC+2 calendar, and ``to`` is EXCLUSIVE on the wire
+        # (measured 2026-09-14: from=to=today is an empty 204, to=tomorrow returns today's
+        # rows) - so ``to=today`` silently dropped the freshest day.
+        today = (datetime.now(UTC) + IMS_FIXED_OFFSET).date()
         start = today - timedelta(days=self.days)
+        end = today + timedelta(days=1)
         with httpx.Client(timeout=self.timeout_s) as client:
             resp = client.get(
                 f"{IMS_API}/stations/{station.id}/data",
-                params={"from": start.strftime("%Y/%m/%d"), "to": today.strftime("%Y/%m/%d")},
+                params={"from": start.strftime("%Y/%m/%d"), "to": end.strftime("%Y/%m/%d")},
                 headers={"Authorization": f"ApiToken {self.token}"},
             )
             resp.raise_for_status()
+        # A station with nothing in the range answers 204 with an empty body (ZIKHRON
+        # YAAQOV, 2026-09-14) - no readings, not a parse error.
+        if resp.status_code == 204:
+            return []
         if self.capture_dir is not None:
             self.capture_dir.mkdir(parents=True, exist_ok=True)
             (self.capture_dir / f"ims_{station.id}.json").write_text(resp.text, encoding="utf-8")

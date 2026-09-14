@@ -121,9 +121,10 @@ right: anyone holding it can suppress your outage alerts). Open-Meteo and NDBC a
   and step 4c scores the published one by lead with `verify --stations --archive` (one
   station: `verify --station LLBG --archive`; the other members: `--wind-model icon` /
   `--wind-model gfs_grib`). Wind columns only, evidence only - the bias it
-  measures is the coastal-cell damping OPEN-ITEMS 25 is about. IMS beach stations (`data/stations/ims.yaml`) need
-  `IMS_API_TOKEN=...` in `~/rosa/.env` (free, by mail from ims@ims.gov.il); until the
-  token exists the file is empty and the pass is METAR-only.
+  measures is the coastal-cell damping OPEN-ITEMS 25 is about. IMS stations (`data/stations/ims.yaml`, 21 within 25 km
+  of a spot, five of them on the beach) read `IMS_API_TOKEN` from `~/rosa/.env` (there
+  since 2026-09-14; free, by mail from ims@ims.gov.il). Without it those stations fail
+  per station and the pass is METAR-only.
 - **Measured confidence ceilings (2026-08-07):** every cycle ends with
   `verify --all-buoys --archive --write-skill`, which scores the whole fleet
   (ISRAMAR buoys skipped - legal red line) and writes `data/verify/skill.json`;
