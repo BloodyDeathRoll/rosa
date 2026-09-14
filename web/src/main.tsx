@@ -54,10 +54,25 @@ gaSetPrefs({
   favorites: getFavorites().length,
   installed: matchMedia("(display-mode: standalone)").matches,
 });
-// The install itself, counted once where it happens. `installed` above only sees a
-// launch of the installed app. Chromium (Android, desktop) fires this; iOS Add to Home
-// Screen fires nothing, so iPhone installs show only through `installed`.
-addEventListener("appinstalled", () => gaEvent("app_install"));
+// The install itself, counted on its FIRST LAUNCH as an installed app - not on Chrome's
+// `appinstalled`, which is what it was until 2026-09-14 and counted nothing: GA4 holds
+// every event for 5 s before it sends (measured on the live site, beacon transport
+// included), and on Android that event fires as the new app opens and the browser tab
+// is backgrounded, so the hit died unsent. iOS fires no event at all. A launch outlives
+// the batch window. Once per device: the installed app and the browser share the
+// origin's localStorage, so the key set here is seen by both.
+function countInstall(): void {
+  if (!matchMedia("(display-mode: standalone)").matches) return;
+  const KEY = "rosa.install.counted";
+  try {
+    if (localStorage.getItem(KEY)) return;
+    localStorage.setItem(KEY, new Date().toISOString());
+  } catch {
+    return; // no storage - better an uncounted install than one counted every launch
+  }
+  gaEvent("app_install");
+}
+countInstall();
 
 /** Favorites live on the server since 2026-09-07: push a list the last session
     could not save, or pull what another device changed. Silent, after paint. */
