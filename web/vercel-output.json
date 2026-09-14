@@ -2,13 +2,23 @@
   "version": 3,
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "^/(?!widget/)(.*)$",
       "continue": true,
       "headers": {
         "X-Content-Type-Options": "nosniff",
         "X-Frame-Options": "DENY",
         "Referrer-Policy": "strict-origin-when-cross-origin",
         "Permissions-Policy": "geolocation=(self), camera=(), microphone=(), payment=()"
+      }
+    },
+    {
+      "src": "^/widget/(.*)$",
+      "continue": true,
+      "headers": {
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Permissions-Policy": "geolocation=(), camera=(), microphone=(), payment=()",
+        "Content-Security-Policy": "frame-ancestors *"
       }
     },
     {

@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>Rosa surf widget</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  /* Rosa embed widget - one spot, one day at a time, three dayparts.
+     Tokens mirror web/src/styles.css; kept inline so the iframe is one request. */
+  :root {
+    --font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --accent: #11b7f2;
+    --rating-flat: #30384e3e;
+    --rating-poor: #92b9e893;
+    --rating-fair: #11b7f2;
+    --rating-good: #24b161;
+    --rating-firing: #0c6733;
+    --wind-good: #24b161;
+    --wind-cross: #e48022;
+    --wind-bad: #d0574a;
+
+    color-scheme: light;
+    --page: #f4f3f3;
+    --card: #ffffff;
+    --fg: #0d1225;
+    --muted: #17171c80;
+    --cell: #0a0b0f08;
+    --border: #3e3e4319;
+    --shadow: 0 2px 5px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+    --pill-flat-fg: var(--fg);
+    --pill-poor-fg: var(--fg);
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --page: #000000;
+    --card: #131419;
+    --fg: #f5f0e8;
+    --muted: #acb4d290;
+    --cell: #2a31492d;
+    --border: #ffffff12;
+    --shadow: 0 2px 5px rgba(0,0,0,.3), 0 1px 2px rgba(0,0,0,.2);
+    --rating-poor: #3c639293;
+    --rating-flat: #4a5470a0;
+    --pill-flat-fg: var(--fg);
+    --pill-poor-fg: var(--fg);
+  }
+
+  * { box-sizing: border-box; }
+  /* Everything sizes off the CARD's own width (container query), not the viewport:
+     16px type at 420px, down to 11px in a narrow column; the home-card layout under 340px */
+  .card { container-type: inline-size; }
+  .card > .in { font-size: clamp(11px, 3.8cqw, 16px); }
+  html, body { margin: 0; height: 100%; background: transparent; }
+  body { padding: 0; }
+  .card { max-width: 420px; margin: 0 auto; }
+  body {
+    font-family: var(--font);
+    font-feature-settings: "calt" 1, "liga" 1, "kern" 1, "cv01" 1, "cv02" 1, "cv03" 1, "cv04" 1;
+    color: var(--fg);
+    -webkit-font-smoothing: antialiased;
+  }
+  .tabular { font-variant-numeric: tabular-nums; }
+
+  .card {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: pan-y;
+    cursor: pointer;
+  }
+  .card:active { opacity: .96; }
+
+  /* Cover: Esri satellite mosaic, pin on the spot */
+  .cover {
+    position: relative;
+    display: block;
+    height: 120px;
+    overflow: hidden;
+    background: #0b1a22;
+  }
+  .cover img { position: absolute; display: block; max-width: none; width: 256px; height: 256px; }
+  .cover .pin {
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -100%);
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,.4));
+  }
+  .cover .attr {
+    position: absolute; right: 6px; bottom: 4px;
+    font-size: 0.55em; color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.7);
+  }
+  .cover .fade {
+    position: absolute; inset: auto 0 0 0; height: 40px;
+    background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--card) 70%, transparent));
+  }
+
+  .body { padding: 0.75em 1em 0.25em; }
+  .top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .title { display: flex; align-items: baseline; gap: 7px; min-width: 0; }
+  .title b { font-size: 1.094em; font-weight: 700; letter-spacing: -0.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .title span { font-size: 0.844em; color: var(--muted); white-space: nowrap; }
+
+  .pill {
+    flex: none; height: 1.5em; display: inline-flex; align-items: center;
+    padding: 0 0.7em; border-radius: 9999px; font-size: 0.812em; font-weight: 600; color: #fff;
+  }
+  .pill[data-b="FLAT"]   { background: var(--rating-flat);   color: var(--pill-flat-fg); }
+  .pill[data-b="POOR"]   { background: var(--rating-poor);   color: var(--pill-poor-fg); }
+  .pill[data-b="FAIR"]   { background: var(--rating-fair); }
+  .pill[data-b="GOOD"]   { background: var(--rating-good); }
+  .pill[data-b="FIRING"] { background: var(--rating-firing); }
+
+  .cover .sticker {
+    position: absolute; top: 12px; left: 12px; display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 10px; border-radius: 999px; background: #000; color: #fff;
+    font-size: 0.75em; font-weight: 600; letter-spacing: -0.01em;
+  }
+  .cover .sticker i {
+    display: block; height: 14px; aspect-ratio: 762.6 / 828.1; background: var(--accent);
+    -webkit-mask: url(/favicon.svg) center / contain no-repeat; mask: url(/favicon.svg) center / contain no-repeat;
+  }
+  .temps { display: flex; gap: 0.875em; font-size: 0.825em; margin-top: 8px; flex-wrap: wrap; }
+  .temps span { display: inline-flex; align-items: center; gap: 5px; }
+  .temps svg { color: var(--muted); }
+
+  /* Day strip */
+  .day { padding: 0.75em 1em 0.375em; border-top: 1px solid var(--border); margin-top: 10px; text-align: center; }
+  .day b { font-size: 0.906em; font-weight: 600; }
+  .dots { display: flex; justify-content: center; gap: 5px; padding: 6px 16px 14px; }
+  .dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); opacity: .35; }
+  .dots i.on { background: var(--accent); opacity: 1; }
+
+  /* Hour grid - the app's spot-page grid, three dayparts */
+  .hour-grid {
+    display: grid;
+    grid-template-columns: 1.6em 0.375em 1fr 0.9fr 1fr 0.7fr;
+    gap: 0.375em; align-items: center;
+    padding: 0.5em 1em 0.5em 0.75em;
+  }
+  .hour-grid.head { padding: 0.375em 1em 0.3em 0.75em; }
+  .hour-grid.head span {
+    font-size: 0.619em; font-weight: 600; letter-spacing: .05em; text-transform: uppercase;
+    color: var(--muted); text-align: center;
+  }
+  .hour-grid.head .pp-head { display: flex; flex-direction: column; align-items: center; line-height: 1.3; }
+  .hour-grid.row { position: relative; border-top: 1px solid var(--border); }
+  .hour-grid .t {
+    justify-self: center; writing-mode: vertical-rl; transform: rotate(180deg);
+    font-size: 0.688em; color: var(--fg);
+  }
+  .hour-grid .bar {
+    align-self: stretch; min-height: 2.75em; border-radius: 2px; background: var(--border);
+    display: flex; align-items: flex-end; overflow: hidden;
+  }
+  .hour-grid .bar > i { display: block; width: 100%; border-radius: 2px; }
+  .hour-grid .surf { display: flex; flex-direction: column; align-items: center; line-height: 1.25; }
+  .hour-grid .surf b { font-size: 1.125em; font-weight: 700; }
+  .hour-grid .surf small { font-size: 0.875em; font-weight: 700; color: var(--muted); }
+  .hour-grid .vec { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; line-height: 1.15; }
+  .hour-grid .vec .top { display: inline-flex; align-items: center; gap: 4px; }
+  .hour-grid .vec .top b { font-size: 1.125em; font-weight: 600; }
+  .hour-grid .vec small { font-size: 0.75em; color: var(--muted); }
+  .hour-grid .wind-cell {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 0.5em; line-height: 1.15; padding: 0.5em 0.4em; border-radius: 8px; background: var(--cell);
+  }
+  .hour-grid .wind-cell .top { display: inline-flex; align-items: center; gap: 4px; }
+  .hour-grid .wind-cell .top b { font-size: 0.875em; font-weight: 600; }
+  .hour-grid .wind-cell .cardinal { font-size: 0.656em; color: var(--muted); }
+  .hour-grid .wind-cell .wclass { font-size: 0.619em; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+  .hour-grid .wc-offshore .wclass,    .hour-grid .wc-offshore .top svg    { color: var(--wind-good); }
+  .hour-grid .wc-cross-shore .wclass, .hour-grid .wc-cross-shore .top svg { color: var(--wind-cross); }
+  .hour-grid .wc-onshore .wclass,     .hour-grid .wc-onshore .top svg     { color: var(--wind-bad); }
+  .hour-grid .pp { display: flex; flex-direction: column; align-items: center; line-height: 1.5; }
+  .hour-grid .pp .power { font-size: 0.875em; font-weight: 700; }
+  .hour-grid .pp .press { font-size: 0.688em; color: var(--muted); }
+  .hour-grid .dash { text-align: center; color: var(--muted); }
+
+  .track { position: relative; overflow: hidden; }
+  .slide { transition: transform .22s ease; will-change: transform; }
+  .slide.drag { transition: none; }
+  .rows { padding-bottom: 4px; }
+
+
+  .empty { padding: 40px 16px; text-align: center; color: var(--muted); font-size: 0.812em; }
+</style>
+</head>
+<body>
+<a id="card" class="card" target="_blank" rel="noopener" href="https://rosa.surf/"></a>
+<script>
+(() => {
+  const q = new URLSearchParams(location.search);
+  const spot = (q.get("spot") || "").trim();
+  const theme = q.get("theme") === "light" ? "light" : "dark";
+  // units=metric (m, °C, km/h) | imperial (ft, °F, mph); "ft" accepted as imperial
+  const imperial = ["imperial", "ft"].includes(q.get("units") || "");
+  const units = imperial ? "ft" : "m";
+  const windUnit = imperial ? "mph" : "km/h";
+  const fmtWind = (kph) => Math.round(imperial ? kph / 1.609344 : kph);
+  document.documentElement.dataset.theme = theme;
+  const DATA = "https://rosa-data-opal.vercel.app";
+  const SITE = "https://rosa.surf";
+  const card = document.getElementById("card");
+  card.href = `${SITE}/spot/${encodeURIComponent(spot)}`;
+
+  const CARD = ["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"];
+  const cardinal = (d) => CARD[Math.round((((d % 360) + 360) % 360) / 22.5) % 16];
+  const WORD = { FLAT: "Flat", POOR: "Poor", FAIR: "Fair", GOOD: "Good", FIRING: "Epic" };
+  const CLS = { offshore: "offshore", "cross-shore": "cross", onshore: "onshore" };
+  const fmtH = (m) => units === "ft" ? String(Math.max(1, Math.round(m * 3.28084))) : (Math.round(m * 10) / 10).toFixed(1);
+  const fmtRange = (h, unit = true) => {
+    if (h[1] === 0) return "flat";
+    const a = fmtH(h[0]), b = fmtH(h[1]);
+    return (a === b ? a : `${a}-${b}`) + (unit ? ` ${units}` : "");
+  };
+  const fmtTemp = (c) => units === "ft" ? `${Math.round(c * 1.8 + 32)}°F` : `${Math.round(c)}°C`;
+  const splitName = (full) => {
+    const m = /^(.*?)\s*\(([^)]+)\)\s*$/.exec(full);
+    if (m) return { name: m[1], region: m[2] };
+    const s = full.split(" / ");
+    if (s.length === 2) return { name: s[0], region: s[1] };
+    return { name: full, region: null };
+  };
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const rot = (from) => (from + 180) % 360;
+  const windArrow = (deg) => `<svg width="14" height="14" viewBox="0 0 24 24" style="transform:rotate(${rot(deg)}deg);display:block"><path d="M12 3 L20 20 L12 16 L4 20 Z" fill="currentColor"/></svg>`;
+  const swellArrow = (deg) => `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform:rotate(${rot(deg)}deg);display:block"><path d="M12 21V6"/><path d="m6 11 6-6 6 6"/><circle cx="12" cy="21" r="1" fill="currentColor" stroke="none"/></svg>`;
+  const ICON = (d) => `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
+  const THERMO = ICON('<path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/>');
+  const WAVES = ICON('<path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/>');
+  const SHIRT = ICON('<path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/>');
+
+  // --- satellite cover (ESRI World Imagery, z13, same as the app's featured card)
+  function cover(lat, lon, w, h) {
+    const Z = 13, T = 256, N = 2 ** Z;
+    const x = ((lon + 180) / 360) * T * N;
+    const s = Math.sin((lat * Math.PI) / 180);
+    const y = (0.5 - Math.log((1 + s) / (1 - s)) / (4 * Math.PI)) * T * N;
+    const left = x - w / 2, top = y - h / 2;
+    const wrap = (n) => ((n % N) + N) % N;
+    let out = "";
+    for (let tx = Math.floor(left / T); tx <= Math.floor((left + w) / T); tx++)
+      for (let ty = Math.floor(top / T); ty <= Math.floor((top + h) / T); ty++)
+        out += `<img alt="" loading="lazy" decoding="async" src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${Z}/${wrap(ty)}/${wrap(tx)}" style="left:${tx * T - left}px;top:${ty * T - top}px">`;
+    return out;
+  }
+
+  // --- one day = header readout (peak hour) + 06/12/18 rows
+  const dateOf = (iso) => iso.slice(0, 10);
+  const hourOf = (iso) => Number(iso.slice(11, 13));
+  function dayViews(data) {
+    return data.days.map((d, i) => {
+      const hrs = data.hours.filter((h) => dateOf(h.t) === d.date);
+      const rep = [...hrs].sort((a, b) => b.rating - a.rating || b.h_mid - a.h_mid)[0] ?? data.current;
+      const at = (hh) => hrs.find((h) => hourOf(h.t) === hh) ?? null;
+      const parts = [["06:00", at(6)], ["12:00", at(12)], ["18:00", at(18)]];
+      return { date: d.date, bucket: d.bucket, range: d.h_max, rep, parts, i };
+    }).filter((v) => v.parts.some(([, h]) => h));
+  }
+  const dayLabel = (date, i) => {
+    const [y, m, d] = date.split("-").map(Number);
+    const wd = new Date(Date.UTC(y, m - 1, d)).toLocaleDateString("en-US", { weekday: "long", timeZone: "UTC" });
+    return `${i === 0 ? "Today" : i === 1 ? "Tomorrow" : wd}, ${m}/${d}`;
+  };
+  const primary = (h) => h.swells.find((s) => s.in_window) ?? h.swells[0] ?? null;
+
+  const RAIL = { FLAT: 20, POOR: 40, FAIR: 60, GOOD: 80, FIRING: 100 };
+  function rowHtml(label, h) {
+    if (!h) return `<div class="hour-grid row"><span class="t">${label}</span><span class="bar"></span><span class="dash">-</span><span class="dash">-</span><span class="dash">-</span><span class="dash">-</span></div>`;
+    const sw = primary(h);
+    return `<div class="hour-grid row">
+      <span class="t tabular">${label}</span>
+      <span class="bar"><i style="height:${RAIL[h.bucket] ?? 20}%;background:var(--rating-${h.bucket.toLowerCase()})"></i></span>
+      <span class="surf"><b class="tabular">${esc(fmtH(h.h[0]))}-${esc(fmtH(h.h[1]))}</b><small class="tabular">${sw ? `${esc(fmtH(sw.h))} ${units}` : "-"}</small></span>
+      <span class="vec">${sw ? `<span class="top">${swellArrow(sw.dir)}<b class="tabular">${Math.round(sw.peak_period ?? sw.period)}s</b></span><small class="tabular">${cardinal(sw.dir)}</small>` : "<small>-</small>"}</span>
+      <span class="wind-cell wc-${esc(h.wind.class)}"><span class="top">${windArrow(h.wind.dir)}<b class="tabular">${fmtWind(h.wind.kph)}</b><small class="cardinal tabular">${cardinal(h.wind.dir)}</small></span><small class="wclass">${CLS[h.wind.class] ?? h.wind.class}</small></span>
+      <span class="pp"><b class="power tabular">${Math.round(h.energy_kj)}</b><small class="press tabular">${h.pressure ?? "-"}</small></span>
+    </div>`;
+  }
+
+  function render(data) {
+    const { name, region } = splitName(data.spot.name);
+    const views = dayViews(data);
+    const w = card.clientWidth || 360;
+    let idx = 0;
+
+    const head = () => {
+      const v = views[idx];
+      const wet = data.current.wetsuit;
+      return `<span class="top"><span class="title"><b>${esc(name)}</b>${region ? `<span>${esc(region)}</span>` : ""}</span><span class="pill" data-b="${v.bucket}">${WORD[v.bucket]}</span></span>
+        <div class="temps tabular">
+          <span>${THERMO}air ${v.rep.air != null ? fmtTemp(v.rep.air) : "-"}</span>
+          <span>${WAVES}water ${v.rep.sst != null ? fmtTemp(v.rep.sst) : "-"}</span>
+          ${wet ? `<span>${SHIRT}${esc(wet)}</span>` : ""}
+        </div>`;
+    };
+    const dayHtml = (v) => `<div class="slide-day">
+        <div class="day"><b>${dayLabel(v.date, v.i)}</b></div>
+        <div class="hour-grid head"><span></span><span></span><span>surf ${units}</span><span>swell</span><span>wind ${windUnit}</span><span class="pp-head">kJ<small>hPa</small></span></div>
+        <div class="rows">${v.parts.map(([l, h]) => rowHtml(l, h)).join("")}</div>
+      </div>`;
+
+    card.innerHTML = `<div class="in">
+      <span class="cover">${cover(data.spot.lat, data.spot.lon, w, 120)}
+        <svg class="pin" width="26" height="34" viewBox="0 0 26 34"><path d="M13 33c6-9 12-14.5 12-21A12 12 0 0 0 1 12c0 6.5 6 12 12 21Z" fill="#fff"/><circle cx="13" cy="12" r="6.5" fill="#11b7f2"/></svg>
+        <span class="fade"></span><span class="attr">Imagery © Esri</span><span class="sticker"><i></i>rosa.surf</span>
+      </span>
+      <div class="body" id="head"></div>
+      <div class="track"><div class="slide" id="slide" style="display:flex">${views.map((v) => `<div style="flex:0 0 100%;width:100%">${dayHtml(v)}</div>`).join("")}</div></div>
+      <div class="dots" id="dots">${views.map((_, k) => `<i class="${k === 0 ? "on" : ""}"></i>`).join("")}</div>
+    </div>`;
+
+    const headEl = document.getElementById("head");
+    const dotsEl = document.getElementById("dots");
+    const slide = document.getElementById("slide");
+    const go = (i) => {
+      idx = Math.max(0, Math.min(views.length - 1, i));
+      slide.style.transform = `translateX(${-idx * 100}%)`;
+      headEl.innerHTML = head();
+      [...dotsEl.children].forEach((d, k) => d.classList.toggle("on", k === idx));
+    };
+    go(0);
+
+    // swipe / drag: horizontal moves change the day, anything else is a tap
+    let x0 = null, y0 = null, dx = 0, moved = false;
+    card.addEventListener("pointerdown", (e) => { x0 = e.clientX; y0 = e.clientY; dx = 0; moved = false; });
+    card.addEventListener("pointermove", (e) => {
+      if (x0 === null) return;
+      dx = e.clientX - x0;
+      if (!moved && Math.abs(dx) > 8 && Math.abs(dx) > Math.abs(e.clientY - y0)) { moved = true; slide.classList.add("drag"); card.setPointerCapture(e.pointerId); }
+      if (moved) slide.style.transform = `translateX(calc(${-idx * 100}% + ${dx}px))`;
+    });
+    const end = () => {
+      if (x0 === null) return;
+      slide.classList.remove("drag");
+      if (moved) go(idx + (dx < -40 ? 1 : dx > 40 ? -1 : 0));
+      x0 = null;
+    };
+    card.addEventListener("pointerup", end);
+    card.addEventListener("pointercancel", end);
+    card.addEventListener("click", (e) => { if (moved) { e.preventDefault(); moved = false; } });
+    card.addEventListener("dragstart", (e) => e.preventDefault());
+  }
+
+  if (!spot) { card.innerHTML = `<div class="empty">No spot given</div>`; return; }
+  fetch(`${DATA}/data/spots/${encodeURIComponent(spot)}.json`)
+    .then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.json(); })
+    .then(render)
+    .catch(() => { card.innerHTML = `<div class="empty">Forecast unavailable</div>`; });
+})();
+</script>
+</body>
+</html>

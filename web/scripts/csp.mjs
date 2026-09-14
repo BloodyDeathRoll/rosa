@@ -63,7 +63,8 @@ const csp = Object.entries(policy)
   .join("; ");
 
 const cfg = JSON.parse(readFileSync("vercel-output.json", "utf8"));
-const site = cfg.routes.find((r) => r.src === "/(.*)" && r.continue && r.headers);
+// the site-wide headers route excludes /widget/ (the embeddable card carries its own)
+const site = cfg.routes.find((r) => r.src === "^/(?!widget/)(.*)$" && r.continue && r.headers);
 if (!site) throw new Error("vercel-output.json: no site-wide headers route to carry the CSP");
 site.headers["Content-Security-Policy-Report-Only"] = csp;
 writeFileSync(".vercel/output/config.json", JSON.stringify(cfg, null, 2) + "\n");

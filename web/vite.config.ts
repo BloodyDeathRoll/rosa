@@ -56,7 +56,9 @@ export default defineConfig({
         // path routes (/spot/x, /about/how) are served by the precached app shell
         // when the worker owns the navigation (the default navigateFallback);
         // crawler files and data are never answered with the shell
-        navigateFallbackDenylist: [/^\/data\//, /\.(xml|txt|json)$/],
+        // /widget/ is the embeddable card: a third-party page frames it, and the
+        // installed app's worker would otherwise answer that frame with the shell
+        navigateFallbackDenylist: [/^\/data\//, /^\/widget\//, /\.(xml|txt|json)$/],
         // app shell precached; the heavy maplibre chunk is fetched (and then cached)
         // only when the Map tab opens; forecast JSON served stale-while-revalidate so
         // the last forecast is readable offline and refreshes in the background
@@ -65,7 +67,7 @@ export default defineConfig({
         // bundle, so on an installed-PWA cold start it must come from the SW cache
         // or it never appears (about/*.jpg deliberately excluded - secondary pages)
         globPatterns: ["**/*.{js,css,html,svg}", "**/inter-latin-wght*.woff2", "splash.jpg"],
-        globIgnores: ["**/maplibre-gl-*"],
+        globIgnores: ["**/maplibre-gl-*", "widget/**"],
         runtimeCaching: [
           {
             urlPattern: ({ url }) => /\/assets\/maplibre-gl-/.test(url.pathname),
