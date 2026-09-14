@@ -130,9 +130,16 @@ NDBC discus classes apart when scoring.)
   55 hours from SWAN, 15 of the 120 payload hours; Blacks read 0.8-1.2 m on SWAN against
   0.5-0.7 m on the march at the same hours (the 300 m nest sees the Scripps canyon
   focusing the GEBCO ray cannot) - which is right is 4.5's question, not this step's.
-- Open here: the `publish.sh` step (fetch -> `swan` -> `run.sh` -> `run --nearshore swan`,
-  inside the cycle lock) and the buoy arm for 4.5 (SWAN tabled at the registered buoys
-  inside the grids and archived as a `swan` source beside gfswave/ecmwf/blend).
+- **Buoy arm (built 2026-09-14):** `rosa-pipeline swan` also tables SWAN at every registered
+  buoy inside the grids (`swan.assign_buoys`: finest grid holding it; `buoys.json` keeps the
+  order; 23 in the bight - 11 inside a nest, 12 on the outer). `swan-archive --run <dir>`
+  appends `<buoy>.swan` rows (`tp` = TPsmoo, a peak period, so `verify --archive --source
+  swan` pairs it with DPD like gfswave/ecmwf; `tm01`/`dspr` ride along). `run.sh` now logs
+  per run to `run.log`, prints one summary line and exits non-zero on any failed run.
+- **Cycle (publish.sh 1c, since 2026-09-14):** after the buoy archive and before `run --all`,
+  for each region with committed grids: `swan --steps 0-168 --nests --chain` -> `run.sh` ->
+  `swan-archive`. RECORDING ONLY - `run --all` publishes the march until the 4.5 A/B on
+  the `.swan` rows says otherwise. Non-fatal, no alert; ~40 min on top of the cycle.
 
 ### 4.5 - A/B and gate *(2-3 weeks of archive)*
 - Same-input A/B at the bight buoys on the Stage-0 scorecard: bias, RMSE, scatter index,

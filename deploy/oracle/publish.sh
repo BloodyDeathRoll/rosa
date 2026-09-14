@@ -93,6 +93,23 @@ trap 'on_fail "${BASH_COMMAND} (line $LINENO)"' ERR
   #    silent archive rot cannot creep in.
   uv run --project pipeline rosa-pipeline archive || on_fail "archive (non-fatal - cycle continues)"
 
+  # 1c) Stage-4 pilot (docs/rosa-stage4-plan.md): for every region with committed SWAN
+  #     grids, rebuild the boundary from this cycle's GFS-Wave partitions, run the SWAN
+  #     chain (outer + nests, ~40 s a step on this box, days 0-7 = ~38 min) and append
+  #     SWAN's sea at the registered buoys to the archive as the `swan` member. RECORDING
+  #     ONLY: `run --all` below still publishes the march. The 4.5 A/B on the .swan rows
+  #     is what earns `--nearshore swan` a place in that command. Non-fatal and silent
+  #     on failure (a pilot is never worth a forecast cycle); run.log in the run dir has
+  #     every SWAN run's timing.
+  for REGION in socal; do
+    if [ -f "data/swan/$REGION/outer/meta.json" ] && [ -x "$HOME/bin/swan-omp.exe" ]; then
+      ( uv run --project pipeline rosa-pipeline swan --region "$REGION" --steps 0-168 --nests --chain \
+          && bash "data/swan/$REGION/run/run.sh" \
+          && uv run --project pipeline rosa-pipeline swan-archive --run "data/swan/$REGION/run" ) \
+        || echo "warn: swan $REGION failed - cycle continues on the march"
+    fi
+  done
+
   # 2) refresh the per-spot forecasts.
   #    Exit 3 is the daily-quota guard refusing to fetch (rosa_pipeline.quota), NOT a
   #    failure. Only the `--wave-source om` fallback arm can raise it since 2026-09-12:

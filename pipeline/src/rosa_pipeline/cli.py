@@ -123,7 +123,14 @@ from .verify import (
 # ECMWF at "<buoy>.ecmwf"
 GFSWAVE_KEY_SUFFIX = ".gfswave"
 ECMWF_KEY_SUFFIX = ".ecmwf"
-SOURCE_KEY_SUFFIX = {"om": "", "gfswave": GFSWAVE_KEY_SUFFIX, "ecmwf": ECMWF_KEY_SUFFIX}
+# Stage-4 arm: SWAN's sea at the buoy, written by `swan-archive` from a completed run
+SWAN_KEY_SUFFIX = ".swan"
+SOURCE_KEY_SUFFIX = {
+    "om": "",
+    "gfswave": GFSWAVE_KEY_SUFFIX,
+    "ecmwf": ECMWF_KEY_SUFFIX,
+    "swan": SWAN_KEY_SUFFIX,
+}
 SOURCE_VARIABLES = {
     "om": VARIABLES,
     "gfswave": GFSWAVE_VARIABLES,
@@ -132,6 +139,9 @@ SOURCE_VARIABLES = {
     # mean of two PEAK periods (perpw, pp1d), so DPD like ECMWF's card, and no wind row -
     # the published wind comes from the weather host, not these files
     "blend": ECMWF_VARIABLES,
+    # SWAN tables TPsmoo, a peak period -> DPD, and no wind (the wind it ran under is the
+    # GFS field the stations card already scores)
+    "swan": ECMWF_VARIABLES,
 }
 # coastal-station archive keys: the published wind model (fetch.WEATHER_MODEL, GFS since
 # 2026-08-30) lives at "<station>", the A/B member (fetch.WEATHER_AB_MODEL, ICON - the
@@ -391,11 +401,12 @@ def _build_parser() -> argparse.ArgumentParser:
     )
     verify.add_argument(
         "--source",
-        choices=["om", "gfswave", "ecmwf", "blend"],
+        choices=["om", "gfswave", "ecmwf", "blend", "swan"],
         default="om",
         help="with --archive: which archived source to score (Stage 3a/3b A/B). "
         "gfswave/ecmwf pair their peak period with buoy DPD. blend rebuilds the "
-        "published 50/50 blend from both member archives (recording only)",
+        "published 50/50 blend from both member archives (recording only). swan: the "
+        "Stage-4 regional model's sea at the buoy (swan-archive), peak period vs DPD",
     )
     verify.add_argument("--fixtures", type=Path, default=None, help="replay marine json (offline)")
     verify.add_argument("--obs-fixtures", type=Path, default=None, help="replay NDBC txt (offline)")
@@ -502,6 +513,14 @@ def _build_parser() -> argparse.ArgumentParser:
         "--fixtures", type=Path, default=None, help="replay captured gribs (offline)"
     )
     swan_p.add_argument("--capture", type=Path, default=None, help="capture the gribs to this dir")
+    swan_p.add_argument("--buoys-dir", type=Path, default=Path("data/buoys"))
+
+    swan_a = sub.add_parser(
+        "swan-archive",
+        help="append SWAN's sea at the tabled buoys from a completed run to the archive (.swan)",
+    )
+    swan_a.add_argument("--run", type=Path, required=True, help="completed run dir (run.sh done)")
+    swan_a.add_argument("--archive-dir", type=Path, default=ARCHIVE_DIR)
 
     bathy = sub.add_parser(
         "bathy", help="sample each spot's shore-normal seabed depth profile (Stage 2A)"
@@ -2355,6 +2374,55 @@ def _tide_verify_suffix(spot_id: str, constants, out_dir: Path, tide_mod) -> str
     return f"  | vs OM: corr {corr_s} offset {mp - mo:+.2f} m demeaned-rmse {rmse:.3f} m{flag}"
 
 
+# everything `rosa-pipeline swan` and run.sh leave in a run dir (cycle.json is rewritten)
+_SWAN_RUN_FILES = (
+    "INPUT*",
+    "bnd_*.sp2",
+    "nest_*.sp2",
+    "wind_*.dat",
+    "spots_*.tab",
+    "buoys_*.tab",
+    "buoys_*.loc",
+    "points_*.loc",
+    "hot_*",
+    "PRINT*",
+    "Errfile",
+    "norm_end",
+    "run.sh",
+    "run.log",
+    "swaninit",
+)
+
+
+def _cmd_swan_archive(args: argparse.Namespace) -> int:
+    """Append SWAN's sea at every tabled buoy from a completed run to the lead-time archive
+    under ``<buoy>.swan`` - the Stage-4 member `verify --archive --source swan` scores
+    (docs/rosa-stage4-plan.md 4.5). Append-only like the other members; a run with no
+    buoy tables appends nothing and says so."""
+    from datetime import datetime as _dt
+
+    from .nearshore import archive_rows, load_buoys
+
+    series = load_buoys(args.run)
+    if not series:
+        print(f"swan-archive: no buoy tables in {args.run} - nothing appended")
+        return 0
+    cycle = _dt.fromisoformat(
+        json.loads((args.run / "cycle.json").read_text(encoding="utf-8"))["cycle"]
+    )
+    store = FileArchiveStore(args.archive_dir)
+    total = 0
+    for bid, s in sorted(series.items()):
+        rows = archive_rows(s, cycle)
+        store.append(bid + SWAN_KEY_SUFFIX, rows)
+        total += len(rows)
+    print(
+        f"swan-archive: {total} row(s) for {len(series)} buoy(s) from cycle "
+        f"{cycle:%Y-%m-%d %HZ} -> {args.archive_dir}/<buoy>{SWAN_KEY_SUFFIX}.jsonl"
+    )
+    return 0
+
+
 def _utc_datetime(text: str) -> datetime:
     """argparse type: an ISO timestamp, naive taken as UTC."""
     dt = datetime.fromisoformat(text)
@@ -2403,6 +2471,33 @@ def _cmd_swan(args: argparse.Namespace) -> int:
     previous_tag: str | None = None
     done_steps: list[int] = []
     run_dir.mkdir(parents=True, exist_ok=True)
+    # A run dir is one cycle's build artifact: a table left from an earlier cycle under
+    # the same fNNN tag would be read as this cycle's sea, so every generated file goes
+    # before the first new one is written.
+    for pattern in _SWAN_RUN_FILES:
+        for stale in run_dir.glob(pattern):
+            stale.unlink()
+    # the registered buoys inside the grids get their own output set per grid (buoys.json
+    # keeps the table order), for the 4.5 A/B - swan-archive reads them back
+    buoy_points: dict[str, str] = {}
+    registry = [(b.id, b.lat, b.lon) for b in load_all_buoys(args.buoys_dir).values()]
+    per_grid = swan.assign_buoys(registry, outer_meta, nests)
+    for grid_name, mine in per_grid.items():
+        rel = f"buoys_{grid_name}.loc"
+        (run_dir / rel).write_text(
+            "".join(f"{lon:.5f} {lat:.5f}\n" for _, lat, lon in mine), encoding="utf-8"
+        )
+        buoy_points[grid_name] = rel
+    (run_dir / "buoys.json").write_text(
+        json.dumps({g: [bid for bid, _, _ in mine] for g, mine in per_grid.items()}, indent=2)
+        + "\n",
+        encoding="utf-8",
+    )
+    if per_grid:
+        print(
+            "  buoys tabled: "
+            + ", ".join(f"{g} {len(mine)}" for g, mine in sorted(per_grid.items()))
+        )
     # each nest tables only the spots whose handoff point it holds (points.json, tools/swan-grid)
     nest_points: dict[str, str] = {}
     if nests:
@@ -2449,6 +2544,7 @@ def _cmd_swan(args: argparse.Namespace) -> int:
                 nests=nests,
                 nest_points_rel=nest_points,
                 hotstart_tag=previous_tag if args.chain else None,
+                buoy_points_rel=buoy_points,
             )
             previous_tag = f"f{step:03d}"
             done_steps.append(step)
@@ -2690,6 +2786,8 @@ def main(argv: list[str] | None = None) -> int:
         return _cmd_bathy(args)
     if args.command == "swan":
         return _cmd_swan(args)
+    if args.command == "swan-archive":
+        return _cmd_swan_archive(args)
     if args.command == "sdb":
         return _cmd_sdb(args)
     if args.command == "atl24":

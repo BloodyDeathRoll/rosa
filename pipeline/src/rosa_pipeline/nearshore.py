@@ -152,6 +152,52 @@ def _take(
         )
 
 
+def load_buoys(run_dir: Path) -> dict[str, list[NearshoreSea]]:
+    """SWAN's sea at the registered buoys, one series per buoy id, from a completed run:
+    ``buoys.json`` (grid -> buoy ids in table order, written by `rosa-pipeline swan`) and
+    the per-step ``buoys_fNNN[_<nest>].tab`` tables. Same rules as `load_run`: nest row
+    wins, exception values skipped, missing steps absent. ``handoff_m`` is 0 - a buoy is
+    its own point."""
+    buoys_json = run_dir / "buoys.json"
+    if not buoys_json.exists():
+        return {}
+    by_grid: dict[str, list[str]] = json.loads(buoys_json.read_text(encoding="utf-8"))
+    cycle_info = json.loads((run_dir / "cycle.json").read_text(encoding="utf-8"))
+    cycle = datetime.fromisoformat(cycle_info["cycle"])
+    series: dict[str, list[NearshoreSea]] = {}
+    for step in cycle_info["steps"]:
+        tag = f"f{step:03d}"
+        valid = cycle + timedelta(hours=step)
+        seen: set[str] = set()
+        for grid, ids in by_grid.items():
+            table = run_dir / (f"buoys_{tag}.tab" if grid == "outer" else f"buoys_{tag}_{grid}.tab")
+            if not table.exists():
+                continue
+            points = [{"spot": bid, "handoff_km": 0.0} for bid in ids]
+            _take(series, table, points, valid, seen)
+    for s in series.values():
+        s.sort(key=lambda n: n.time)
+    return series
+
+
+def archive_rows(series: list[NearshoreSea], cycle: datetime) -> list[dict]:
+    """Append-ready archive rows in the members' shape (archive.rows_from_model): tp is the
+    PEAK period, so the scorecard pairs it with the buoy's DPD like gfswave/ecmwf."""
+    run_iso = cycle.isoformat(timespec="seconds")
+    return [
+        {
+            "run": run_iso,
+            "valid": s.time.isoformat(timespec="seconds"),
+            "hs": round(s.hs, 3),
+            "tp": round(s.tps, 3),
+            "dir": round(s.direction, 1),
+            "tm01": round(s.tm01, 3),
+            "dspr": round(s.dspr, 1),
+        }
+        for s in series
+    ]
+
+
 # --- per-hour lookup ----------------------------------------------------------------------
 
 

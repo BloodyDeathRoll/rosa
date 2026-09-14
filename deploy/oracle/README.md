@@ -46,6 +46,14 @@ the *published* data over HTTPS and never talks to the pipeline.
 2. `rosa-pipeline archive` - append the model's forecast at every registered buoy to the VM's
    persistent disk (`data/verify/archive/`). This is the calibration lead-time clock - the one
    thing that can't be back-filled.
+2c. **Stage-4 pilot (since 2026-09-14, `docs/rosa-stage4-plan.md`)** - for each region with
+   committed SWAN grids (`data/swan/<region>/`, SoCal only today): `rosa-pipeline swan`
+   rebuilds the boundary from this cycle's GFS-Wave partitions, `run.sh` runs the SWAN
+   chain with `~/bin/swan-omp.exe` (outer + nests, days 0-7, ~40 min), `swan-archive`
+   appends SWAN's sea at the registered buoys as the `.swan` archive member. RECORDING
+   ONLY - the publish below stays on the march until the A/B on those rows says otherwise.
+   Non-fatal and silent: a failure prints one warn line and the cycle goes on. Per-run
+   timings: `data/swan/<region>/run/run.log` (gitignored, one cycle deep).
 3. `rosa-pipeline run --all` - refresh all per-spot forecasts. Since 2026-08-26 this is the
    GFS-Wave+ECMWF blend arm by default (waves from global files downloaded once per cycle,
    tide from committed EOT20 constants, SST from OISST - ZERO marine-host units a run since
