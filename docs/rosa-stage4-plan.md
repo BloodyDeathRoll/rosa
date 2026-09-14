@@ -64,8 +64,12 @@ NDBC discus classes apart when scoring.)
 - Side finding: 14 bight profiles crossed land past 0.25 km. Three were objective faults
   and were re-aimed with `aim_normal` + re-cut (`bathy`, `tide`): mission-beach 353 -> 255
   (the ray ran north over Mission Bay to La Jolla canyon), redondo-breakwater 190 -> 260,
-  lunada-bay 151 -> 220. The other 11 are land only at 0.5 km (a GEBCO cell straddling the
-  waterline) - spot-DB watch items, not touched.
+  lunada-bay 151 -> 220. The other 11 had land only at 0.5 km; `aim_normal` (2026-09-14,
+  later the same day) finds a land-free bearing for just three: devereux 169 -> 200
+  (adopted, re-cut), cabrillo-beach (190 was set by hand off the satellite tile - kept over
+  GEBCO's 162) and t-street (GEBCO's 260 would face a SW beach west - kept). The remaining
+  eight are a GEBCO cell straddling the waterline on every bearing; the march drops land
+  samples, so they stand. Closed.
 
 ### 4.2 - Boundary from our own feed *(3-4 days)* - ✅ BUILT 2026-09-14
 - `pipeline/src/rosa_pipeline/swan.py` + `rosa-pipeline swan --region socal --steps 0-24`:

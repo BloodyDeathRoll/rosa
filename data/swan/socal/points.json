@@ -61,13 +61,13 @@
   },
   {
     "spot": "devereux",
-    "lat": 34.4034,
-    "lon": -119.87285,
-    "bearing_deg": 169.0,
-    "handoff_km": 0.6,
+    "lat": 34.40278,
+    "lon": -119.87671,
+    "bearing_deg": 200.0,
+    "handoff_km": 0.7,
     "grid": "santa-barbara",
-    "grid_depth_m": 19.5,
-    "profile_depth_m": 40.0
+    "grid_depth_m": 19.2,
+    "profile_depth_m": 33.0
   },
   {
     "spot": "campus-point",

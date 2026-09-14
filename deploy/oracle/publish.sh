@@ -100,11 +100,13 @@ trap 'on_fail "${BASH_COMMAND} (line $LINENO)"' ERR
   #     ONLY: `run --all` below still publishes the march. The 4.5 A/B on the .swan rows
   #     is what earns `--nearshore swan` a place in that command. Non-fatal and silent
   #     on failure (a pilot is never worth a forecast cycle); run.log in the run dir has
-  #     every SWAN run's timing.
+  #     every SWAN run's timing. The 50 min `timeout` is the slot guard: a cycle already
+  #     takes ~4.3 h of its 6 h, and an overrun makes the lock skip the next cycle - a
+  #     pilot must never cost a public refresh.
   for REGION in socal; do
     if [ -f "data/swan/$REGION/outer/meta.json" ] && [ -x "$HOME/bin/swan-omp.exe" ]; then
       ( uv run --project pipeline rosa-pipeline swan --region "$REGION" --steps 0-168 --nests --chain \
-          && bash "data/swan/$REGION/run/run.sh" \
+          && timeout 3000 bash "data/swan/$REGION/run/run.sh" \
           && uv run --project pipeline rosa-pipeline swan-archive --run "data/swan/$REGION/run" ) \
         || echo "warn: swan $REGION failed - cycle continues on the march"
     fi

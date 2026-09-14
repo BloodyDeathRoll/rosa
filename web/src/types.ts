@@ -47,6 +47,10 @@ export interface HourEntry {
   tide: number | null; // total water level vs MSL, m (null beyond the ~day-9 SMOC horizon)
   swells: Swell[];
   spectral?: SpectralHour;
+  // Stage 4 per-hour provenance of the breaker height's propagation link: "swan" when the
+  // regional nearshore model carried the wave to the spot; absent on the shipping path
+  // (the offshore point marched over the whole profile). Never a constant model label.
+  nearshore?: "swan";
 }
 
 export interface CurrentEntry extends HourEntry {
