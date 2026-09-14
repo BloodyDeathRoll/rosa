@@ -1,7 +1,7 @@
 import { render } from "preact";
 import { syncFavorites } from "./account";
 import { initAnalytics } from "./analytics";
-import { initGa, gaEvent, gaSetPrefs, unitsTag } from "./ga";
+import { initGa, gaEvent, unitsTag } from "./ga";
 import { App } from "./app";
 import { MovedScreen, onLegacyOrigin } from "./components/MovedScreen";
 import { getFavorites, setFavorites } from "./favorites";
@@ -45,9 +45,9 @@ if (root) {
 
 initAnalytics();
 // GA4 alongside it, and inert without VITE_GA_ID. Consent defaults are pushed inside
-// initGa BEFORE gtag.js loads, which is the order Consent Mode requires.
-initGa();
-gaSetPrefs({
+// initGa BEFORE gtag.js loads, which is the order Consent Mode requires; the user
+// properties go in with it so the first page_view already carries them.
+initGa({
   units: unitsTag(getUnits()),
   theme: String(initialTheme()),
   signed_in: signedIn(),

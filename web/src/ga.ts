@@ -87,7 +87,10 @@ export function gaDenyConsent(): void {
   gtag("consent", "update", { analytics_storage: "denied" });
 }
 
-export function initGa(): void {
+/** `prefs` ride on the very first hit: `set` only applies to events pushed after it,
+    and until 2026-09-14 the cold-start page_view went out before `gaSetPrefs` ran, so
+    every one-hit visit reported its user properties as "(not set)". */
+export function initGa(prefs: GaPrefs = {}): void {
   if (!GA_ID) return;
   bootConsent();
   gtag("js", new Date());
@@ -98,6 +101,7 @@ export function initGa(): void {
   // config key, so gtag passed it straight through as an event parameter on every
   // single hit. GA4 truncates IPs itself and offers no switch.
   gtag("config", GA_ID, { send_page_view: false });
+  gaSetPrefs(prefs);
 
   const s = document.createElement("script");
   s.async = true;
