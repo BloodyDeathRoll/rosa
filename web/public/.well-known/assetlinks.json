@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "surf.rosa.app",
+      "sha256_cert_fingerprints": [
+        "9C:3A:5A:F9:17:49:7F:23:8F:0E:60:58:C0:87:27:D5:4F:72:86:36:5D:68:AF:E2:6C:F8:D4:2F:93:FB:9E:06"
+      ]
+    }
+  }
+]
