@@ -25,6 +25,7 @@ hand-author 40 orientations/sample points:
 from __future__ import annotations
 
 import math
+import re
 from pathlib import Path
 from typing import Any
 
@@ -121,15 +122,20 @@ def load_spots_file(path: Path) -> list[Spot]:
         raw_cams = raw.get("cams") or ([raw["cam"]] if raw.get("cam") else [])
         cams = []
         for raw_cam in raw_cams:
-            missing = {"yt", "by", "by_url"} - set(raw_cam)
+            missing = {"yt", "by", "by_url", "ch", "title"} - set(raw_cam)
             if missing:
-                # a cam without its credit is exactly what we are not allowed to ship
+                # a cam without its credit is exactly what we are not allowed to ship, and
+                # one without ch + title goes dark at its stream's next restart
                 raise ValueError(f"{raw['id']}: cam is missing {sorted(missing)}")
+            if not re.fullmatch(r"UC[\w-]{22}", str(raw_cam["ch"])):
+                raise ValueError(f"{raw['id']}: cam ch must be a UC... channel id")
             cams.append(
                 SpotCam(
                     youtube_id=raw_cam["yt"],
                     by=raw_cam["by"],
                     by_url=raw_cam["by_url"],
+                    channel_id=raw_cam["ch"],
+                    title=str(raw_cam["title"]),
                     note=raw_cam.get("note"),
                     label=raw_cam.get("label"),
                 )

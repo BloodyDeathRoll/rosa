@@ -77,9 +77,14 @@ export interface SwellEventEntry {
 }
 
 export interface CamEntry {
+  /** committed video id - the fallback; the player follows `ch` + `title` (cams.ts) */
   yt: string;
   by: string;
   by_url: string;
+  /** the stream's channel id (UC...); absent in payloads published before 2026-09-15 */
+  ch?: string;
+  /** the stream's exact title - same title in the channel's feed = same camera */
+  title?: string;
   note?: string;
   /** angle name when a spot has several cams ("Panorâmica 1") */
   label?: string;

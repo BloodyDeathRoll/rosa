@@ -39,6 +39,7 @@ import {
   windClassWord,
 } from "../format";
 import { distanceKm } from "../geo";
+import { currentIds } from "../cams";
 import { TideSection } from "../components/TideSection";
 import { MapCard, setPendingPin } from "./MapPage";
 import { fmtClock, sunTimes } from "../sun";
@@ -169,10 +170,22 @@ function CamSection({ data, all }: { data: SpotPayload; all: [string, IndexEntry
   const cams = spot.cams ?? (spot.cam ? [spot.cam] : []);
   const [tab, setTab] = useState<"angles" | "nearby">("angles");
   const [sel, setSel] = useState(0);
+  // what each angle plays now - the committed ids rot on every stream restart (cams.ts);
+  // null until the channel feeds answer, so a dead id never loads first
+  const [ids, setIds] = useState<string[] | null>(null);
 
   useEffect(() => {
     setTab("angles");
     setSel(0);
+  }, [spot.id]);
+
+  useEffect(() => {
+    let live = true;
+    setIds(null);
+    void currentIds(cams).then((v) => live && setIds(v));
+    return () => {
+      live = false;
+    };
   }, [spot.id]);
 
   if (!cams.length) return null;
@@ -183,28 +196,32 @@ function CamSection({ data, all }: { data: SpotPayload; all: [string, IndexEntry
     .filter((n) => n.km <= 50)
     .sort((a, b) => a.km - b.km);
 
-  const active = cams[Math.min(sel, cams.length - 1)]!;
+  const idx = Math.min(sel, cams.length - 1);
+  const active = cams[idx]!;
+  const playing = ids?.[idx];
   const thumb = (yt: string) => `https://i.ytimg.com/vi/${yt}/mqdefault.jpg`;
 
   return (
     <section class="cam">
       <div class="cam-frame">
-        <iframe
-          // autoplay muted is what strips the embed back to the play bar: the title
-          // bar, channel avatar, big play button and "Watch on YouTube" overlay all
-          // belong to the unstarted state and have no parameter to turn them off.
-          // Muted is also the only autoplay mobile browsers allow.
-          key={active.yt}
-          src={
-            `https://www.youtube-nocookie.com/embed/${active.yt}` +
-            `?rel=0&playsinline=1&autoplay=1&mute=1&modestbranding=1&iv_load_policy=3`
-          }
-          title="Live cam"
-          loading="lazy"
-          allow="autoplay; accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-          allowFullScreen
-          frameBorder="0"
-        />
+        {playing && (
+          <iframe
+            // autoplay muted is what strips the embed back to the play bar: the title
+            // bar, channel avatar, big play button and "Watch on YouTube" overlay all
+            // belong to the unstarted state and have no parameter to turn them off.
+            // Muted is also the only autoplay mobile browsers allow.
+            key={playing}
+            src={
+              `https://www.youtube-nocookie.com/embed/${playing}` +
+              `?rel=0&playsinline=1&autoplay=1&mute=1&modestbranding=1&iv_load_policy=3`
+            }
+            title="Live cam"
+            loading="lazy"
+            allow="autoplay; accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+            allowFullScreen
+            frameBorder="0"
+          />
+        )}
       </div>
       <p class="cam-credit">
         Live cam by{" "}
@@ -244,7 +261,7 @@ function CamSection({ data, all }: { data: SpotPayload; all: [string, IndexEntry
                     class={`cam-thumb${sel === i ? " on" : ""}`}
                     onClick={() => setSel(i)}
                   >
-                    <img src={thumb(c.yt)} alt="" loading="lazy" />
+                    <img src={thumb(ids?.[i] ?? c.yt)} alt="" loading="lazy" />
                     <span>{c.label ?? `Angle ${i + 1}`}</span>
                   </button>
                 ))

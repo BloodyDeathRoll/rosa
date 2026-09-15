@@ -26,9 +26,13 @@ class SwellPartition:
 class SpotCam:
     """A live cam we are permitted to embed, plus the credit that permission implies."""
 
-    youtube_id: str  # video id of the live stream
+    youtube_id: str  # video id of the live stream - a fallback, it rots on every restart
     by: str  # channel name, shown as the credit
     by_url: str  # channel URL, linked from the credit
+    # The stream's channel (UC...) and exact title: the app finds the camera's CURRENT
+    # broadcast as the newest same-title entry in the channel's feed (web/src/cams.ts).
+    channel_id: str
+    title: str
     note: str | None = None  # set when the camera is near the spot rather than on it
     label: str | None = None  # angle name when a spot has several cams ("Panorâmica 1")
 

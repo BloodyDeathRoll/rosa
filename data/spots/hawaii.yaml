@@ -17,7 +17,7 @@ defaults: &hi
     size_m: [1.5, 4.0]
 
 spots:
-  - { id: pipeline, name: "Banzai Pipeline (Oahu)", town: "Pupukea", lat: 21.6656, lon: -158.0539, offshore_direction: 150, offshore_bearing: 325.0, offshore_km: 6.0, cam: { yt: "Fp7l8XASb9Y", by: "Explore Big Surf, Beaches and Sunsets", by_url: "https://www.youtube.com/@ExploreBigSurfandBeaches", note: "explore.org North Shore stream" }, swell_window: [240, 25], <<: *hi }  # sat-verified 2026-08-15 (kept) 2026-07-27 (cam-scan discovery)
+  - { id: pipeline, name: "Banzai Pipeline (Oahu)", town: "Pupukea", lat: 21.6656, lon: -158.0539, offshore_direction: 150, offshore_bearing: 325.0, offshore_km: 6.0, cam: { yt: "Fp7l8XASb9Y", ch: "UCJRuk-FJ6dzX0MOpnd0UDCg", title: 'LIVE Banzai Pipeline Surf Cam: North Shore, Oahu - Hawaii | explore.org', by: "Explore Big Surf, Beaches and Sunsets", by_url: "https://www.youtube.com/@ExploreBigSurfandBeaches", note: "explore.org North Shore stream" }, swell_window: [240, 25], <<: *hi }  # sat-verified 2026-08-15 (kept) 2026-07-27 (cam-scan discovery)
 
   # ==== SEEDED 2026-09-02 - hawaii, 79 spots (primary coastline flow: 2 OSM surf beacons,
   # © OpenStreetMap contributors, ODbL; secondary web-search flow: 77 named breaks, multi-geocoded

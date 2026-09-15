@@ -349,6 +349,7 @@ def judge_candidates(
         spot, how = match_spot(sn["title"], spots, src.get("hint"))
         entry: dict = {
             "yt": vid,
+            "ch": sn["channelId"],
             "title": sn["title"],
             "by": sn["channelTitle"],
             "by_url": f"https://www.youtube.com/channel/{sn['channelId']}",
@@ -379,7 +380,9 @@ def write_candidates(new: list[dict]) -> None:
     unmatched = [c for c in merged if "spot" not in c]
     path.write_text(
         "# Live-cam candidates - review, then add accepted ones to the spot YAMLs as\n"
-        "# cam: { yt, by, by_url[, note] } and their channel to tools/cam-scan/channels.yaml.\n"
+        "# cam: { yt, ch, title, by, by_url[, note] } and their channel to\n"
+        "# tools/cam-scan/channels.yaml. ch + title are required: the player follows the\n"
+        "# newest same-title stream in the channel's feed (web/src/cams.ts).\n"
         "# Unmatched cams double as spot-discovery signals (docs/cam-scan-plan.md §3).\n"
         + yaml.safe_dump(
             {"candidates": matched + unmatched}, allow_unicode=True, sort_keys=False, width=100

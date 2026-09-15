@@ -160,6 +160,8 @@ def _cam_entry(cam: SpotCam) -> dict:
         "yt": cam.youtube_id,
         "by": cam.by,
         "by_url": cam.by_url,
+        "ch": cam.channel_id,
+        "title": cam.title,
         **({"note": cam.note} if cam.note else {}),
         **({"label": cam.label} if cam.label else {}),
     }

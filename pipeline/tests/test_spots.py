@@ -173,3 +173,18 @@ def test_every_spot_carries_a_town():
     spots = load_spots(SPOTS_DIR)
     missing = sorted(s.id for s in spots.values() if not (s.town or "").strip())
     assert missing == [], f"spots with no town: {missing[:10]}"
+
+
+def test_every_cam_can_follow_its_stream():
+    """A 24/7 stream gets a new video id on every restart, so the committed `yt` rots within
+    hours; the player finds the current one as the newest same-title broadcast in the
+    channel's feed (web/src/cams.ts). A cam without its channel id and title is back to
+    rotting - the loader refuses one, and this pins that every committed cam got through."""
+    spots = load_spots(SPOTS_DIR)
+    cams = [(s.id, c) for s in spots.values() for c in s.cams]
+    assert cams, "no cams loaded - the check below would pass vacuously"
+    bad = [
+        sid for sid, c in cams if not (c.channel_id.startswith("UC") and len(c.channel_id) == 24)
+    ]
+    assert bad == [], f"cams with no usable channel id: {bad}"
+    assert [sid for sid, c in cams if not c.title.strip()] == []

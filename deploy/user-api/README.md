@@ -24,6 +24,7 @@ talks only to the two calls below, so moving to any other host later is: export 
 | `POST /auth/logout` | Bearer | | `{ok}` - revokes every session of that user |
 | `DELETE /me` | Bearer | | `{ok}` - the row and everything in it |
 | `GET /admin/stats` | `x-admin-secret` | | user counts (below) |
+| `GET /yt-feed?ch=UC...` | none | | `{entries: [{id, title, published}]}` newest first - the channel's public YouTube feed, relayed with CORS and cached 5 min at the edge (`src/ytfeed.ts`). The cam player (`web/src/cams.ts`) plays the newest entry whose title matches the cam's, because a 24/7 stream gets a new video id on every restart. No API key, no quota. |
 
 The browser uses the GIS **code client** (`google.accounts.oauth2.initCodeClient`, popup,
 `select_account: true`) so a surfer with two Google accounts always gets the chooser; the

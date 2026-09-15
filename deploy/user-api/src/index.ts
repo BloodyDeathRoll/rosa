@@ -8,6 +8,8 @@
 //   POST   /auth/logout                  -> {ok}                          revokes EVERY session
 //   DELETE /me                           -> {ok}                          the account and its data
 //   GET    /admin/stats   x-admin-secret -> counts                        "how many users"
+//   GET    /yt-feed?ch=UC...             -> {entries}                     a channel's YouTube feed,
+//                         for the cam player: a 24/7 stream's id changes on every restart
 //
 // Authenticated routes take `Authorization: Bearer <session>` (see session.ts).
 // The user key is Google's `sub`, never anything of ours, so the rows move to any
@@ -17,6 +19,7 @@
 import { TokenError, verifyIdToken } from "./google.ts";
 import { signInAllowed } from "./ratelimit.ts";
 import { mint, secretsEqual, SESSION_TTL_MS, verify } from "./session.ts";
+import { CHANNEL_ID, FEED_TTL_S, FEED_URL, parseFeed } from "./ytfeed.ts";
 
 export interface Env {
   DB: D1Database;
@@ -227,6 +230,27 @@ async function stats(req: Request, env: Env, now: number): Promise<Response> {
   });
 }
 
+/** GET /yt-feed?ch=UC... - a channel's public feed as JSON, for the cam player
+    (src/ytfeed.ts). Cached at the edge per channel, so a busy cam costs YouTube one
+    fetch per colo per FEED_TTL_S, and nobody can make it fetch anything but a feed. */
+async function ytFeed(url: URL, ctx: ExecutionContext): Promise<Response> {
+  const ch = url.searchParams.get("ch") ?? "";
+  if (!CHANNEL_ID.test(ch)) throw new HttpError(400, "ch");
+  const key = new Request(`https://rosa-user-api.cache/yt-feed/${ch}`);
+  const hit = await caches.default.match(key);
+  if (hit) return new Response(hit.body, hit); // a copy - the CORS headers get set on it
+  let r: Response;
+  try {
+    r = await fetch(`${FEED_URL}${ch}`);
+  } catch {
+    throw new HttpError(503, "youtube");
+  }
+  if (!r.ok) throw new HttpError(r.status === 404 ? 404 : 503, "youtube");
+  const res = json(200, { entries: parseFeed(await r.text()) }, { "Cache-Control": `public, max-age=${FEED_TTL_S}` });
+  ctx.waitUntil(caches.default.put(key, res.clone()));
+  return res;
+}
+
 async function route(req: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
   const url = new URL(req.url);
   const path = url.pathname.replace(/\/+$/, "") || "/";
@@ -238,6 +262,7 @@ async function route(req: Request, env: Env, ctx: ExecutionContext): Promise<Res
     return signIn(req, env, now);
   }
   if (path === "/admin/stats" && req.method === "GET") return stats(req, env, now);
+  if (path === "/yt-feed" && req.method === "GET") return ytFeed(url, ctx);
 
   if (path === "/me" && req.method === "GET") {
     const row = await auth(req, env, ctx, now);
@@ -262,7 +287,7 @@ async function route(req: Request, env: Env, ctx: ExecutionContext): Promise<Res
     return json(200, { ok: true });
   }
 
-  const known = ["/auth/google", "/auth/logout", "/me", "/me/favorites", "/admin/stats"];
+  const known = ["/auth/google", "/auth/logout", "/me", "/me/favorites", "/admin/stats", "/yt-feed"];
   return json(known.includes(path) ? 405 : 404, { error: known.includes(path) ? "method" : "not found" });
 }
 
