@@ -3134,3 +3134,71 @@ separate design. **Applied 2026-09-14** on the operator's call: the guarded `ble
 `test_blend.py`: a clean swap follows the swells, and the jameos-del-agua birth/death
 shape keeps its slots and its wind sea. The first VM cycle after the push is the smoke
 check. OPEN-ITEMS 38.
+
+## 2026-09-16 - One grid node per point: blend partitions were borrowed from neighbours (Dream 09-16, the pb_0049 A/B)
+
+**What was found (Dream, 2026-09-16, HIGH, scored 80/100).** `blend.parse_gfs_full` ran
+`geo.nearest_wet` once PER FIELD. GFS-Wave masks each partition field where that partition is
+absent, not only over land, so a point whose own node had no wind sea / swell 2 / swell 3 took
+the nearest node that had one (up to `GFS_NEAREST_MAX_DEG`) and published it beside its own
+`swh`. Red->green reproduces on HEAD.
+
+**The A/B, same day, no Open-Meteo quota.** One capture: GFS-Wave 2026-09-16 06z (24 boxes,
+2943 of 3096 files, every box on 06z), ECMWF 00z, GWAM 00z, OISST; calm synthetic weather on
+every arm. Real `run --all` replayed under separate worktrees on base `26f6505`. A-vs-A
+control: 0 of 224,526 rows move. Pre-06z back-reach hours are not replayed (equal on all arms).
+
+**Prevalence on base.** 114,556 of 230,878 point-steps (49.6%) take at least one partition
+field from another node, at 1916 of 1947 points: wind sea 61,488, swell 3 46,457, swell 2
+30,881, swell 1 6,122. Reach p05 0.19 deg, median 0.31, p95 0.56, max 0.90. Worst regions:
+espirito-santo 88%, kenya 86%, zanzibar 85%, victoria 84%, cornwall-devon 81%.
+
+**The diff as filed is rejected.** One node per point, a masked field stays absent. Rows with
+no swell at all 5 -> 705 (363 spots), rows whose partitions explain under half the sea
+1,019 -> 2,354, rating -100 at 15 spots. Two causes: (a) GFS-Wave moves one sea between the
+wind-sea and swell slots from step to step (anglesea f000 "wind sea" 2.01 m 14.3 s 208 deg,
+f003 swell 1 1.94 m 14.3 s 208 deg) and `_interp_hourly` dropped any key missing at either
+step, so the filled hours had a total and no partition: anglesea 18:00 100 FIRING -> 0 FLAT;
+(b) 37 point-steps at 9 points have a sea and every partition masked at the own node.
+
+**Applied: variant V2 (one node + three rules, no new constant).**
+1. One node per point, picked on `swh`; every field read there.
+2. `_pair_flipped_slots`: a slot filled at one step only pairs with a different slot at the
+   other step when it is one system by `DEDUPE_DIR_DEG` / `DEDUPE_PERIOD_FRAC`. Swell label
+   wins over wind sea (the `drop_duplicate_windsea` call); between swell slots the earlier
+   step's slot is kept.
+3. A node with a sea and NO partition takes the whole partition set from the nearest node that
+   has one (same reach and aim; totals stay its own). No threshold: over the 1.9 M wet nodes of
+   the capture, partitions' RMS over swh is 0 (1,773 nodes) or >= 0.3, nothing between.
+4. A slot filled at one step only and not paired (born or dying) is held verbatim from the
+   nearer step in the filled hours (tie -> earlier), like the ECMWF nearest-step join.
+
+| vs base | filed | V (1-3) | **V2 (1-4)** |
+|---|---|---|---|
+| rows moved (spots) | 45.3% (1916) | 45.3% (1916) | 46.5% (1916) |
+| rating rows / p05 / p95 / extremes | 20,834 / -30 / +14 / -100, +75 | 20,572 / -17 / +14 / -100, +87 | 19,585 / -15 / +13 / -100, +87 |
+| row bucket changes | 5,668 | 5,152 | 4,577 |
+| h_mid rows / p05 / extremes | 13,395 / -0.5 / -3.5, +1.3 | 13,075 / -0.4 / -1.9, +1.3 | 12,304 / -0.3 / -1.6, +1.5 |
+| days rating_max down / up, bucket | 2851 / 1076, 974 | 2834 / 1089, 969 | 2906 / 978, 847 |
+| current / events changed at | 926 / 1008 | 925 / 1010 | 1068 / 1032 |
+| rows with no swells (base 5) | 705 | 24 | **0** |
+| rows under half closure (base 1,019) | 2,354 | 1,667 | 1,077 |
+| rows over 1.3 closure (base 8,846) | 2,578 | 2,641 | 3,095 |
+| GFS hours with no partition (base 22) | 3,004 | 106 | **0** |
+| GFS hours under half GFS closure (base 1,179) | 4,993 | 2,064 | **323** |
+
+**The +58 rows under half closure are node choice, not this change.** They sit at sheltered
+own nodes (porthleven 44, bagasbas 44, praa-sands 43, louro 29, perranuthnoe 29, clifton-beach,
+goats-beach, park-beach 12 each), where GFS's total is small and ECMWF's (which feeds the
+published closure) is large. Porthleven's node (50.00 N 5.25 W) is a 0.23 m 2.3 s wind sea with
+closure 1.0; the 1.67 m 10 s swell base published is at the open-Channel nodes 0.25 deg south.
+Base kept those rows above half only by borrowing. OPEN-ITEMS 39.
+
+Rows: anglesea 09-16 18:00 base 100 FIRING (2.32 m swell + a borrowed 1.55 m wind sea) ->
+filed 0 FLAT -> V2 100 FIRING (1.96 m 14.3 s 208 deg, closure 0.78). porthleven 09-16 09:00
+85 -> 1 -> 1 (own wind sea, node choice). porthleven 09-20 09:00 85 -> 0 no swells -> 85 (rule
+3). carlton-beach 09-26 21:00 5 (closure 6.63, borrowed 0.88 m wind sea) -> 5 (0.85) -> 6 (1.03).
+
+**Verdict: V2 applied 2026-09-16.** The reviewer's proof passes; 4 tests in `test_blend.py` (own
+node, whole-set fallback, slot flip, hold), red on `26f6505`; repo suite 670 passed, ruff clean.
+The first VM cycle after the push is the smoke check.

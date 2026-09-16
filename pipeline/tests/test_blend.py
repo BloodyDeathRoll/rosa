@@ -481,3 +481,123 @@ def test_blend_archive_rows_join_on_run_and_valid_and_combine_like_compose_raw()
     ]
     (row,) = blend_archive_rows(gfs, ecmwf)
     assert row == {"run": run, "valid": v3, "hs": 1.5, "tp": 10.0, "dir": 0.0}
+
+
+def test_a_sea_that_changes_slot_between_steps_stays_in_the_filled_hours():
+    # anglesea 2026-09-16 06z: one 14.3 s 208 deg sea is "wind sea" at f000 and swell 1 at
+    # f003. Filled hours interpolated only keys present at both steps, so it vanished and
+    # published FLAT between two FIRING steps (CALIBRATION.md 2026-09-16). One system by
+    # the dedupe test -> one partition, under the swell label.
+    t0 = CYCLE
+    gfs = [
+        _gfs(t0, windsea_h=2.01, windsea_p=14.3, windsea_d=208.0),
+        _swells(t0 + timedelta(hours=3), (1.94, 14.3, 208.0)),
+    ]
+    h = compose_raw(gfs, [], _aux([t0]), "x").marine["hourly"]
+    for i in (1, 2):
+        assert h["swell_wave_period"][i] == pytest.approx(14.3)
+        assert h["swell_wave_direction"][i] == pytest.approx(208.0)
+        assert not h["wind_wave_height"][i]
+    assert h["swell_wave_height"][1] == pytest.approx(1.987, abs=0.001)
+    assert h["wind_wave_height"][0] == 2.01  # native steps are never touched
+
+
+def test_a_partition_at_one_step_only_is_held_from_the_nearer_step():
+    # a swell present at t0 and gone at t3 (not the same system as anything at t3) is held
+    # verbatim in the hour nearer t0 and absent in the hour nearer t3 - never interpolated
+    # toward a value that does not exist, never dropped from both
+    t0 = CYCLE
+    gfs = [
+        _swells(t0, (1.0, 12.0, 270.0), (0.6, 7.0, 20.0)),
+        _swells(t0 + timedelta(hours=3), (1.1, 12.0, 270.0)),
+    ]
+    h = compose_raw(gfs, [], _aux([t0]), "x").marine["hourly"]
+    assert h["secondary_swell_wave_height"][1] == 0.6
+    assert h["secondary_swell_wave_period"][1] == 7.0
+    assert not h["secondary_swell_wave_height"][2]
+
+
+def _fake_pygrib(monkeypatch, fields: dict[str, list[float | None]]) -> None:
+    """A 1 x 3 row of 0.25 deg nodes at lat 0, lon 0/0.25/0.5; None = masked. Hands over
+    arrays only - the node choice under test is the real parse_gfs_full + nearest_wet."""
+    import sys
+    import types
+
+    import numpy as np
+
+    lats = np.zeros((1, 3))
+    lons = np.array([[0.0, 0.25, 0.5]])
+    names = {"swh": ("swh", 1), "windsea_h": ("shww", 1), "windsea_p": ("mpww", 1)}
+    names |= {"windsea_d": ("wvdir", 1)}
+    names |= {f"swell1_{k}": (s, 1) for k, s in zip("hpd", ("shts", "mpts", "swdir"), strict=True)}
+
+    class Msg:
+        def __init__(self, sn, vals):
+            self.shortName = sn
+            self.values = np.ma.masked_invalid(
+                np.array([[np.nan if v is None else v for v in vals]])
+            )
+
+        def latlons(self):
+            return lats, lons
+
+    msgs = [Msg(names[k][0], v) for k, v in fields.items()]
+
+    class Grbs:
+        def __iter__(self):
+            return iter(msgs)
+
+        def close(self):
+            pass
+
+    monkeypatch.setitem(sys.modules, "pygrib", types.SimpleNamespace(open=lambda _p: Grbs()))
+
+
+def test_parse_gfs_full_reads_every_field_at_the_points_own_node(monkeypatch):
+    # GFS-Wave masks a partition where that PARTITION is absent. The point's node has swh
+    # and a swell but no wind sea; the next node has a wind sea. It is not borrowed
+    # (Dream 2026-09-16: 49.6% of point-steps did, CALIBRATION.md 2026-09-16).
+    _fake_pygrib(
+        monkeypatch,
+        {
+            "swh": [1.2, 1.5, 1.6],
+            "swell1_h": [1.0, 1.0, 1.0],
+            "swell1_p": [8.5, 8.5, 8.5],
+            "swell1_d": [290.0, 290.0, 290.0],
+            "windsea_h": [None, 0.6, 0.6],
+            "windsea_p": [None, 4.5, 4.5],
+            "windsea_d": [None, 300.0, 300.0],
+        },
+    )
+    [sea] = parse_gfs_full(b"", [(0.0, 0.0)], CYCLE)
+    assert sea.fields == {
+        "swh": 1.2,
+        "swell1_h": 1.0,
+        "swell1_p": 8.5,
+        "swell1_d": 290.0,
+    }
+
+
+def test_a_node_with_a_sea_and_no_partition_takes_one_whole_set_from_the_nearest(monkeypatch):
+    # every partition masked at the own node: its total alone publishes FLAT. The WHOLE
+    # set comes from the nearest node that has one - never field by field - and the
+    # totals stay the own node's.
+    _fake_pygrib(
+        monkeypatch,
+        {
+            "swh": [1.2, 1.5, 1.6],
+            "swell1_h": [None, 1.1, 0.9],
+            "swell1_p": [None, 10.0, 9.0],
+            "swell1_d": [None, 250.0, 240.0],
+            "windsea_h": [None, None, 0.4],
+            "windsea_p": [None, None, 3.0],
+            "windsea_d": [None, None, 90.0],
+        },
+    )
+    [sea] = parse_gfs_full(b"", [(0.0, 0.0)], CYCLE)
+    assert sea.fields == {
+        "swh": 1.2,
+        "swell1_h": 1.1,
+        "swell1_p": 10.0,
+        "swell1_d": 250.0,
+    }

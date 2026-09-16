@@ -133,6 +133,7 @@ _GFS_SINGLE = {
     "wvdir": "windsea_d",
 }
 _GFS_TRIPLE = {"shts": "swell{}_h", "mpts": "swell{}_p", "swdir": "swell{}_d"}
+_PARTITION_H_KEYS = ("windsea_h", "swell1_h", "swell2_h", "swell3_h")
 
 # The four keys extract._partition reads a partition's PEAK period from. GFS-Wave gridded
 # publishes none of them - shts/mpts/swdir and shww/mpww/wvdir carry MEAN periods, and the
@@ -224,18 +225,64 @@ def parse_gfs_full(
             fields[key] = (m.values, *m.latlons())
         grbs.close()
 
+    import numpy as np
+
+    # Where a node carries ANY partition: GFS-Wave masks each partition field where that
+    # partition is absent, and a sea node with every partition masked (the "all-masked"
+    # shape) has nothing to publish but its total. A field missing from the file is
+    # masked everywhere.
+    has_parts: object = None
+    if "swh" in fields:
+        swh_vals = fields["swh"][0]
+        present = np.zeros(np.shape(swh_vals), dtype=bool)
+        for key in _PARTITION_H_KEYS:
+            if key in fields:
+                present |= ~np.ma.getmaskarray(fields[key][0])
+        has_parts = np.ma.masked_array(np.zeros(np.shape(swh_vals)), mask=~present)
+
     out: list[GfsSea | None] = []
     for lat, lon in points:
+        # ONE node per point, picked on the total sea (the land mask) with the archive
+        # arm's reach and metric, never a copy. Not one search per field: GFS-Wave masks
+        # each partition field where that PARTITION is absent, not only over land (the
+        # committed med capture: swh at 311 nodes, wind sea 208, swell 2 24), so a
+        # per-field search walked to the nearest node that had the partition - up to
+        # NEAREST_MAX_DEG away - and published a neighbour's swell as this point's
+        # (Dream 2026-09-16; same-input A/B CALIBRATION.md 2026-09-16: 49.6% of
+        # point-steps at 1916 of 1947 points). All fields share one grid (one grib-filter
+        # subset). Absent here stays absent.
+        if "swh" not in fields:
+            out.append(None)
+            continue
+        vals, glats, glons = fields["swh"]
         aim = aims.get((lat, lon))
-        lon360 = lon % 360.0
+        idx = nearest_wet(vals, glats, glons, lat, lon % 360.0, GFS_NEAREST_MAX_DEG, aim)
+        if idx is None:
+            out.append(None)
+            continue
         got: dict[str, float] = {}
-        for key, (vals, glats, glons) in fields.items():
-            # the archive arm's reach and metric, never a copy
-            idx = nearest_wet(vals, glats, glons, lat, lon360, GFS_NEAREST_MAX_DEG, aim)
-            if idx is None:
+        for key, (vals, _glats, _glons) in fields.items():
+            v = vals[idx]
+            if v is np.ma.masked:
                 continue
-            got[key] = round(float(vals[idx]), 3)
-        out.append(GfsSea(time=valid, fields=got, run=run) if "swh" in got else None)
+            got[key] = round(float(v), 3)
+        # ...except a node with a sea and NO partition at all: its partitions explain none
+        # of its sea, and a total alone publishes as flat. Then the WHOLE partition set -
+        # never field by field - comes from the nearest node that has one, same reach and
+        # aim; the totals stay this node's. No threshold: at every wet node of the
+        # 2026-09-16 06z global capture the partitions' RMS over swh is either 0 (every
+        # partition masked, 1,773 of 1.9 M) or >= 0.3 (8 nodes below 0.5, none in
+        # 0.01-0.3), so "none present" is the only gap the data has.
+        if got.get("swh", 0.0) > 0 and not any(k in got for k in _PARTITION_H_KEYS):
+            alt = nearest_wet(has_parts, glats, glons, lat, lon % 360.0, GFS_NEAREST_MAX_DEG, aim)
+            if alt is not None:
+                for key, (vals, _glats, _glons) in fields.items():
+                    if not key.startswith(("windsea_", "swell")):
+                        continue
+                    v = vals[alt]
+                    if v is not np.ma.masked:
+                        got[key] = round(float(v), 3)
+        out.append(GfsSea(time=valid, fields=got, run=run))
     return out
 
 
@@ -606,6 +653,63 @@ def _track_swells(a: dict, b: dict) -> dict:
     return out
 
 
+def _pair_flipped_slots(a: dict, b: dict) -> tuple[dict, dict]:
+    """``(a, b)`` with a partition that changed SLOT between the steps under one label.
+
+    GFS-Wave's slot for a system is not stable either: one sea is ``windsea`` at one step
+    and ``swell1`` at the next (anglesea, 2026-09-16 06z: a 2.01 m 14.3 s 208 deg "wind
+    sea" at f000 is a 1.94 m 14.3 s 208 deg swell at f003), or moves swell2 -> swell3 when
+    another slot empties. ``_interp_hourly`` interpolates only keys present at both steps,
+    so such a sea vanished from the filled hours and published them flat. Only slots filled
+    at ONE step take part (``_track_swells`` has already paired those filled at both), and
+    only when the two are one system by the wind-sea dedupe's own test (DEDUPE_DIR_DEG /
+    DEDUPE_PERIOD_FRAC) - a swell born or dying between the steps stays missing, as before.
+
+    Label: a swell slot wins over the wind-sea slot - a sea GFS calls swell at either end
+    is swell, the same call ``drop_duplicate_windsea`` makes; between two swell slots the
+    earlier step's slot is kept. Copies only; the native steps are never touched."""
+    keys = ("h", "p", "d")
+
+    def slot_keys(n: str) -> tuple[str, str, str]:
+        return tuple(f"{n}_{k}" for k in keys)  # type: ignore[return-value]
+
+    names = ("windsea", "swell1", "swell2", "swell3")
+
+    def filled(f: dict, n: str) -> bool:
+        return all(f.get(k) is not None for k in slot_keys(n))
+
+    only_a = [n for n in names if filled(a, n) and not filled(b, n)]
+    only_b = [n for n in names if filled(b, n) and not filled(a, n)]
+    if not only_a or not only_b:
+        return a, b
+
+    def gap(i: str, j: str) -> tuple[float, float]:
+        d = abs((a[f"{i}_d"] - b[f"{j}_d"] + 180.0) % 360.0 - 180.0)
+        pa, pb = a[f"{i}_p"], b[f"{j}_p"]
+        return d, (abs(pa - pb) / max(pa, pb) if max(pa, pb) > 0 else 0.0)
+
+    pairs = sorted(
+        (gap(i, j), i, j)
+        for i in only_a
+        for j in only_b
+        if gap(i, j)[0] <= DEDUPE_DIR_DEG and gap(i, j)[1] <= DEDUPE_PERIOD_FRAC
+    )
+    af, bf = dict(a), dict(b)
+    used_a: set[str] = set()
+    used_b: set[str] = set()
+    for _, i, j in pairs:
+        if i in used_a or j in used_b:
+            continue
+        used_a.add(i)
+        used_b.add(j)
+        label = j if i == "windsea" else i
+        for side, src in ((af, i), (bf, j)):
+            vals = [side.pop(k) for k in slot_keys(src)]
+            for k, v in zip(slot_keys(label), vals, strict=True):
+                side[k] = v
+    return af, bf
+
+
 def _interp_hourly(gfs: list[GfsSea]) -> list[GfsSea]:
     """Expand a 3-hourly GFS series to hourly by linear (circular for bearings)
     interpolation between consecutive steps.
@@ -614,9 +718,10 @@ def _interp_hourly(gfs: list[GfsSea]) -> list[GfsSea]:
     3-hourly UTC series contains a local-midnight hour only in timezones whose offset
     is a multiple of 3 h - Hawaii (UTC-10) and Sri Lanka (UTC+5:30) published ZERO days
     from the raw steps (caught by the 2026-08-14 smoke). Open-Meteo interpolates its
-    3-hourly models to hourly the same way; a key missing at either endpoint stays
-    missing in the filled hours rather than being invented. Swell partitions are
-    interpolated per physical swell, not per slot (``_track_swells``); the native steps
+    3-hourly models to hourly the same way; a partition slot filled at only one endpoint is
+    held from the nearer step, never interpolated toward a value that does not exist. Swell
+    partitions are interpolated per physical swell, not per slot (``_track_swells``,
+    ``_pair_flipped_slots``); the native steps
     are never touched."""
     if not gfs:
         return gfs
@@ -626,17 +731,27 @@ def _interp_hourly(gfs: list[GfsSea]) -> list[GfsSea]:
         gap_h = (b.time - a.time).total_seconds() / 3600.0
         if not 1.0 < gap_h <= INTERP_MAX_GAP_H:
             continue
-        bf = _track_swells(a.fields, b.fields)
-        shared = set(a.fields) & set(bf)
+        af, bf = _pair_flipped_slots(a.fields, _track_swells(a.fields, b.fields))
+        shared = set(af) & set(bf)
         for k in range(1, round(gap_h)):
             frac = k / gap_h
             f: dict[str, float] = {}
             for key in shared:
-                va, vb = a.fields[key], bf[key]
+                va, vb = af[key], bf[key]
                 if key.endswith("_d") or key == "dirpw":
                     f[key] = _circ(va, vb, w=1.0 - frac)
                 else:
                     f[key] = round(va + (vb - va) * frac, 3)
+            # A partition slot filled at ONE step only (born or dying between the steps,
+            # not paired above) is HELD from the nearer native step, verbatim - never
+            # interpolated toward a value that does not exist. Dropping it instead left
+            # a filled hour with a total and no partition at all, which publishes flat
+            # between two steps that both carry surf. Nearest-in-time, like the ECMWF
+            # join (_nearest_spectral); a tie (the middle hour of a 6 h gap) takes a.
+            near = af if frac <= 0.5 else bf
+            for key, v in near.items():
+                if key.startswith(("windsea_", "swell")) and key not in shared:
+                    f[key] = v
             out.append(GfsSea(time=a.time + timedelta(hours=k), fields=f))
     out.append(gfs[-1])
     return out
