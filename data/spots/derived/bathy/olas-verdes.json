@@ -1,0 +1,72 @@
+{
+  "spot": "olas-verdes",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -2.6449,
+    -80.4094
+  ],
+  "bearing_seaward_deg": 184.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 14.0,
+  "mean_slope_m_per_km": 0.73,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -2.64714,
+      "lon": -80.40956,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -2.64939,
+      "lon": -80.40971,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -2.65387,
+      "lon": -80.41003,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -2.66284,
+      "lon": -80.41066,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -2.67181,
+      "lon": -80.41128,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -2.68976,
+      "lon": -80.41254,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -2.71667,
+      "lon": -80.41442,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -2.75256,
+      "lon": -80.41694,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -2.80638,
+      "lon": -80.42071,
+      "depth_m": 14.0
+    }
+  ]
+}

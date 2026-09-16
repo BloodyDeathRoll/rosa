@@ -1,0 +1,72 @@
+{
+  "spot": "barra-de-valizas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.3366,
+    -53.7901
+  ],
+  "bearing_seaward_deg": 71.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 19.0,
+  "mean_slope_m_per_km": 1.18,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.33587,
+      "lon": -53.78753,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.33514,
+      "lon": -53.78495,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.33367,
+      "lon": -53.7798,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.33074,
+      "lon": -53.76951,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.32781,
+      "lon": -53.75921,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.32195,
+      "lon": -53.73862,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.31315,
+      "lon": -53.70774,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.3014,
+      "lon": -53.66658,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.28376,
+      "lon": -53.60486,
+      "depth_m": 19.0
+    }
+  ]
+}

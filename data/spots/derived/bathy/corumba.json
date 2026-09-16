@@ -1,0 +1,72 @@
+{
+  "spot": "corumba",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.6604,
+    -54.1885
+  ],
+  "bearing_seaward_deg": 179.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 37.0,
+  "mean_slope_m_per_km": 1.97,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.66265,
+      "lon": -54.18845,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.6649,
+      "lon": -54.1884,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.66939,
+      "lon": -54.18831,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.67838,
+      "lon": -54.18812,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.68738,
+      "lon": -54.18793,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.70536,
+      "lon": -54.18755,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.73233,
+      "lon": -54.18697,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.7683,
+      "lon": -54.18621,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.82225,
+      "lon": -54.18506,
+      "depth_m": 37.0
+    }
+  ]
+}

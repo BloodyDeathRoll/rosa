@@ -1,0 +1,72 @@
+{
+  "spot": "manglaralto",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -1.847,
+    -80.7478
+  ],
+  "bearing_seaward_deg": 254.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 54.0,
+  "mean_slope_m_per_km": 2.54,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -1.84762,
+      "lon": -80.74996,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -1.84824,
+      "lon": -80.75212,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -1.84948,
+      "lon": -80.75645,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -1.85196,
+      "lon": -80.7651,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -1.85444,
+      "lon": -80.77375,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -1.85939,
+      "lon": -80.79105,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -1.86683,
+      "lon": -80.817,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -1.87674,
+      "lon": -80.85159,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -1.89161,
+      "lon": -80.90349,
+      "depth_m": 54.0
+    }
+  ]
+}

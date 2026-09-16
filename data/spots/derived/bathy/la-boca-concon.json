@@ -1,0 +1,72 @@
+{
+  "spot": "la-boca-concon",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -32.9192,
+    -71.5121
+  ],
+  "bearing_seaward_deg": 309.0,
+  "nearshore_depth_m": -26.0,
+  "offshore_depth_m": 260.0,
+  "mean_slope_m_per_km": 16.11,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.91779,
+      "lon": -71.51418,
+      "depth_m": -26.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.91637,
+      "lon": -71.51626,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -32.91354,
+      "lon": -71.52043,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.90788,
+      "lon": -71.52875,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -32.90222,
+      "lon": -71.53707,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.8909,
+      "lon": -71.55372,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -32.87391,
+      "lon": -71.57867,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -32.85125,
+      "lon": -71.61193,
+      "depth_m": 96.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -32.81724,
+      "lon": -71.66179,
+      "depth_m": 260.0
+    }
+  ]
+}

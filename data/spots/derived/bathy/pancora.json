@@ -1,0 +1,72 @@
+{
+  "spot": "pancora",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.4321,
+    -72.0464
+  ],
+  "bearing_seaward_deg": 241.0,
+  "nearshore_depth_m": -21.0,
+  "offshore_depth_m": 608.0,
+  "mean_slope_m_per_km": 35.44,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.43319,
+      "lon": -72.04878,
+      "depth_m": -21.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.43428,
+      "lon": -72.05117,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.43646,
+      "lon": -72.05594,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.44082,
+      "lon": -72.06547,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.44518,
+      "lon": -72.07501,
+      "depth_m": 113.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.45389,
+      "lon": -72.09409,
+      "depth_m": 138.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.46696,
+      "lon": -72.12272,
+      "depth_m": 164.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.48437,
+      "lon": -72.16091,
+      "depth_m": 161.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.51046,
+      "lon": -72.21822,
+      "depth_m": 608.0
+    }
+  ]
+}

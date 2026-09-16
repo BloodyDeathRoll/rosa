@@ -1,0 +1,72 @@
+{
+  "spot": "mar-del-sur",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.3478,
+    -57.9875
+  ],
+  "bearing_seaward_deg": 151.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 50.0,
+  "mean_slope_m_per_km": 3.38,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.34977,
+      "lon": -57.98611,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.35173,
+      "lon": -57.98472,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.35567,
+      "lon": -57.98194,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.36353,
+      "lon": -57.97638,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.3714,
+      "lon": -57.97082,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.38712,
+      "lon": -57.95969,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.41072,
+      "lon": -57.94299,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.44217,
+      "lon": -57.9207,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.48934,
+      "lon": -57.88724,
+      "depth_m": 50.0
+    }
+  ]
+}

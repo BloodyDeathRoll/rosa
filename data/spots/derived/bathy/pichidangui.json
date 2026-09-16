@@ -1,0 +1,72 @@
+{
+  "spot": "pichidangui",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -32.1239,
+    -71.5142
+  ],
+  "bearing_seaward_deg": 277.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 549.0,
+  "mean_slope_m_per_km": 31.15,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.12363,
+      "lon": -71.51683,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.12335,
+      "lon": -71.51947,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -32.1228,
+      "lon": -71.52474,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.12171,
+      "lon": -71.53528,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -32.12061,
+      "lon": -71.54582,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.11841,
+      "lon": -71.5669,
+      "depth_m": 161.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -32.1151,
+      "lon": -71.59851,
+      "depth_m": 246.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -32.11069,
+      "lon": -71.64066,
+      "depth_m": 286.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -32.10403,
+      "lon": -71.70388,
+      "depth_m": 549.0
+    }
+  ]
+}

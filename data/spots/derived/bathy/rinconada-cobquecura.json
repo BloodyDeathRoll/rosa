@@ -1,0 +1,72 @@
+{
+  "spot": "rinconada-cobquecura",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.1802,
+    -72.8152
+  ],
+  "bearing_seaward_deg": 295.0,
+  "nearshore_depth_m": -21.0,
+  "offshore_depth_m": 248.0,
+  "mean_slope_m_per_km": 15.15,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.17925,
+      "lon": -72.81772,
+      "depth_m": -21.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.1783,
+      "lon": -72.82025,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.1764,
+      "lon": -72.8253,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.1726,
+      "lon": -72.83539,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.16879,
+      "lon": -72.84549,
+      "depth_m": 99.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.16119,
+      "lon": -72.86568,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.14977,
+      "lon": -72.89595,
+      "depth_m": 99.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.13453,
+      "lon": -72.9363,
+      "depth_m": 120.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.11165,
+      "lon": -72.9968,
+      "depth_m": 248.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "la-boca-matanzas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.9245,
+    -71.8495
+  ],
+  "bearing_seaward_deg": 268.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 136.0,
+  "mean_slope_m_per_km": 8.06,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.92458,
+      "lon": -71.85221,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.92466,
+      "lon": -71.85492,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.92481,
+      "lon": -71.86033,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.92513,
+      "lon": -71.87116,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.92544,
+      "lon": -71.88199,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.92606,
+      "lon": -71.90366,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.92698,
+      "lon": -71.93615,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.9282,
+      "lon": -71.97948,
+      "depth_m": 95.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.93,
+      "lon": -72.04448,
+      "depth_m": 136.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "cabo-branco",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -7.1297,
+    -34.8214
+  ],
+  "bearing_seaward_deg": 74.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 22.0,
+  "mean_slope_m_per_km": 1.41,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 4,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -7.12908,
+      "lon": -34.81922,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -7.12846,
+      "lon": -34.81704,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -7.12722,
+      "lon": -34.81269,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -7.12474,
+      "lon": -34.80398,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -7.12226,
+      "lon": -34.79526,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -7.1173,
+      "lon": -34.77784,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -7.10986,
+      "lon": -34.75171,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -7.09994,
+      "lon": -34.71686,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -7.08505,
+      "lon": -34.6646,
+      "depth_m": 22.0
+    }
+  ]
+}

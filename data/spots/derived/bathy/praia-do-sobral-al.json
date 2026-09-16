@@ -1,0 +1,72 @@
+{
+  "spot": "praia-do-sobral-al",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -9.6773,
+    -35.7545
+  ],
+  "bearing_seaward_deg": 152.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 33.0,
+  "mean_slope_m_per_km": 1.8,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -9.67929,
+      "lon": -35.75343,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -9.68127,
+      "lon": -35.75236,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -9.68524,
+      "lon": -35.75022,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -9.69318,
+      "lon": -35.74593,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -9.70112,
+      "lon": -35.74165,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -9.717,
+      "lon": -35.73308,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -9.74082,
+      "lon": -35.72023,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -9.77258,
+      "lon": -35.70309,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -9.82022,
+      "lon": -35.67737,
+      "depth_m": 33.0
+    }
+  ]
+}

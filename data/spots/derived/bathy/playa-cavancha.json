@@ -1,0 +1,72 @@
+{
+  "spot": "playa-cavancha",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -20.2296,
+    -70.1477
+  ],
+  "bearing_seaward_deg": 270.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 668.0,
+  "mean_slope_m_per_km": 36.96,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -20.2296,
+      "lon": -70.1501,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -20.2296,
+      "lon": -70.15249,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -20.2296,
+      "lon": -70.15728,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -20.2296,
+      "lon": -70.16687,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -20.2296,
+      "lon": -70.17645,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -20.22959,
+      "lon": -70.19562,
+      "depth_m": 90.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -20.22958,
+      "lon": -70.22438,
+      "depth_m": 131.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -20.22956,
+      "lon": -70.26271,
+      "depth_m": 310.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -20.22952,
+      "lon": -70.32022,
+      "depth_m": 668.0
+    }
+  ]
+}

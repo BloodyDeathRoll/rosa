@@ -1,0 +1,72 @@
+{
+  "spot": "infiernillo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.397,
+    -72.0261
+  ],
+  "bearing_seaward_deg": 274.0,
+  "nearshore_depth_m": -14.0,
+  "offshore_depth_m": 430.0,
+  "mean_slope_m_per_km": 25.01,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.39684,
+      "lon": -72.02882,
+      "depth_m": -14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.39669,
+      "lon": -72.03154,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.39637,
+      "lon": -72.03697,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.39574,
+      "lon": -72.04784,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.39511,
+      "lon": -72.05872,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.39385,
+      "lon": -72.08046,
+      "depth_m": 120.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.39195,
+      "lon": -72.11307,
+      "depth_m": 166.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.3894,
+      "lon": -72.15656,
+      "depth_m": 212.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.38555,
+      "lon": -72.22178,
+      "depth_m": 430.0
+    }
+  ]
+}

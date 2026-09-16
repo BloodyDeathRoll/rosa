@@ -55,7 +55,10 @@ BASINS: dict[str, tuple[str, ...]] = {
     ),
     "brazil-northeast": (
         "Bahia",
+        "Sergipe",
+        "Alagoas",
         "Pernambuco",
+        "Paraiba",
         "Fernando de Noronha",
         "Rio Grande do Norte",
         "Ceara",
@@ -119,6 +122,17 @@ BASINS: dict[str, tuple[str, ...]] = {
     ),
     "angola": ("Angola",),
     "peru": ("Peru",),
+    # Ecuador sits on the equator where the Humboldt coast turns east: its own frame
+    # rather than stretching Peru's box 1,500 km north
+    "ecuador": ("Ecuador",),
+    # Chile in two frames: the desert north (Arica to Antofagasta) takes the same S-SW
+    # Southern Ocean groundswell arriving from much further away than it does in the
+    # south, and one box over 24 deg of latitude would drown the detail in sea room
+    "chile-north": ("Chile North",),
+    "chile-central": ("Chile Central", "Chile South"),
+    # the south-west Atlantic: Southern Ocean swell wrapping up onto the Uruguayan and
+    # Argentine shelf, and the local S-SE wind swell that most of these beaches run on
+    "argentina-uruguay": ("Uruguay", "Mar del Plata", "Patagonia Argentina"),
     "maldives": ("Maldives",),
     # Sydney + Byron Bay share one east-Australian frame: same Tasman/Coral Sea swell
     "australia-east": ("Sydney", "Byron Bay", "Gold Coast", "Sunshine Coast"),

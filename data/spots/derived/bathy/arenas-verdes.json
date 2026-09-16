@@ -1,0 +1,72 @@
+{
+  "spot": "arenas-verdes",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.549,
+    -58.5542
+  ],
+  "bearing_seaward_deg": 165.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 50.0,
+  "mean_slope_m_per_km": 3.1,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.55117,
+      "lon": -58.55346,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.55334,
+      "lon": -58.55271,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.55769,
+      "lon": -58.55122,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.56637,
+      "lon": -58.54825,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.57506,
+      "lon": -58.54527,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.59243,
+      "lon": -58.53931,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.61849,
+      "lon": -58.53037,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.65324,
+      "lon": -58.51843,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.70535,
+      "lon": -58.50051,
+      "depth_m": 50.0
+    }
+  ]
+}

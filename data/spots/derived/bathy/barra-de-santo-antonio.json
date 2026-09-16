@@ -1,0 +1,72 @@
+{
+  "spot": "barra-de-santo-antonio",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -9.4286,
+    -35.5063
+  ],
+  "bearing_seaward_deg": 129.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 28.0,
+  "mean_slope_m_per_km": 1.97,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -9.43001,
+      "lon": -35.50453,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -9.43143,
+      "lon": -35.50276,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -9.43426,
+      "lon": -35.49922,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -9.43992,
+      "lon": -35.49213,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -9.44558,
+      "lon": -35.48504,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -9.4569,
+      "lon": -35.47087,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -9.47387,
+      "lon": -35.44961,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -9.49651,
+      "lon": -35.42127,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -9.53045,
+      "lon": -35.37874,
+      "depth_m": 28.0
+    }
+  ]
+}

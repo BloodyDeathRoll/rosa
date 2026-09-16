@@ -1,0 +1,72 @@
+{
+  "spot": "teatinos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -29.8231,
+    -71.3062
+  ],
+  "bearing_seaward_deg": 247.0,
+  "nearshore_depth_m": 19.0,
+  "offshore_depth_m": 416.0,
+  "mean_slope_m_per_km": 22.37,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -29.82398,
+      "lon": -71.30859,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -29.82486,
+      "lon": -71.31097,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -29.82661,
+      "lon": -71.31574,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -29.83013,
+      "lon": -71.32529,
+      "depth_m": 110.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -29.83364,
+      "lon": -71.33483,
+      "depth_m": 164.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -29.84066,
+      "lon": -71.35392,
+      "depth_m": 219.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -29.85119,
+      "lon": -71.38256,
+      "depth_m": 224.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -29.86522,
+      "lon": -71.42075,
+      "depth_m": 485.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -29.88624,
+      "lon": -71.47806,
+      "depth_m": 416.0
+    }
+  ]
+}

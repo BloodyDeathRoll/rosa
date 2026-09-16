@@ -1,0 +1,72 @@
+{
+  "spot": "hornitos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -22.9145,
+    -70.2894
+  ],
+  "bearing_seaward_deg": 279.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 304.0,
+  "mean_slope_m_per_km": 17.3,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -22.91415,
+      "lon": -70.29181,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -22.9138,
+      "lon": -70.29422,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -22.91309,
+      "lon": -70.29904,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -22.91169,
+      "lon": -70.30869,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -22.91028,
+      "lon": -70.31833,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -22.90746,
+      "lon": -70.33761,
+      "depth_m": 84.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -22.90323,
+      "lon": -70.36654,
+      "depth_m": 108.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -22.89758,
+      "lon": -70.40511,
+      "depth_m": 171.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -22.88908,
+      "lon": -70.46295,
+      "depth_m": 304.0
+    }
+  ]
+}

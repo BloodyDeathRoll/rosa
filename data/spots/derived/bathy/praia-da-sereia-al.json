@@ -1,0 +1,72 @@
+{
+  "spot": "praia-da-sereia-al",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -9.5638,
+    -35.6445
+  ],
+  "bearing_seaward_deg": 117.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 25.0,
+  "mean_slope_m_per_km": 1.97,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -9.56482,
+      "lon": -35.64247,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -9.56584,
+      "lon": -35.64044,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -9.56788,
+      "lon": -35.63637,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -9.57197,
+      "lon": -35.62825,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -9.57605,
+      "lon": -35.62012,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -9.58421,
+      "lon": -35.60387,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -9.59646,
+      "lon": -35.57949,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -9.61278,
+      "lon": -35.54697,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -9.63726,
+      "lon": -35.4982,
+      "depth_m": 25.0
+    }
+  ]
+}

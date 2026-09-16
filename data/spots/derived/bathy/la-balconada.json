@@ -1,0 +1,72 @@
+{
+  "spot": "la-balconada",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.6647,
+    -54.1653
+  ],
+  "bearing_seaward_deg": 179.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 39.0,
+  "mean_slope_m_per_km": 1.97,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.66695,
+      "lon": -54.16525,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.6692,
+      "lon": -54.1652,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.67369,
+      "lon": -54.16511,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.68268,
+      "lon": -54.16492,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.69168,
+      "lon": -54.16473,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.70966,
+      "lon": -54.16435,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.73663,
+      "lon": -54.16377,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.7726,
+      "lon": -54.16301,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.82655,
+      "lon": -54.16186,
+      "depth_m": 39.0
+    }
+  ]
+}

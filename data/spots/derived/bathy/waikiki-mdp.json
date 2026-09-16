@@ -1,0 +1,72 @@
+{
+  "spot": "waikiki-mdp",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.0808,
+    -57.5365
+  ],
+  "bearing_seaward_deg": 59.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 23.0,
+  "mean_slope_m_per_km": 1.24,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.07964,
+      "lon": -57.53405,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.07848,
+      "lon": -57.5316,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.07617,
+      "lon": -57.52671,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.07153,
+      "lon": -57.51692,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.0669,
+      "lon": -57.50713,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.05763,
+      "lon": -57.48755,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.04372,
+      "lon": -57.45819,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.02516,
+      "lon": -57.41907,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -37.9973,
+      "lon": -57.36042,
+      "depth_m": 23.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "las-cruces",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.5007,
+    -71.625
+  ],
+  "bearing_seaward_deg": 204.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 38.0,
+  "mean_slope_m_per_km": 2.82,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.50275,
+      "lon": -71.6261,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.50481,
+      "lon": -71.62719,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.50892,
+      "lon": -71.62939,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.51713,
+      "lon": -71.63377,
+      "depth_m": 107.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.52535,
+      "lon": -71.63816,
+      "depth_m": 149.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.54178,
+      "lon": -71.64694,
+      "depth_m": 202.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.56642,
+      "lon": -71.66012,
+      "depth_m": 195.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.59928,
+      "lon": -71.6777,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.64856,
+      "lon": -71.70409,
+      "depth_m": 38.0
+    }
+  ]
+}

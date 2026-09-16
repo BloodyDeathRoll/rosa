@@ -1,0 +1,72 @@
+{
+  "spot": "tambaba",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -7.3662,
+    -34.7973
+  ],
+  "bearing_seaward_deg": 113.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 25.0,
+  "mean_slope_m_per_km": 1.86,
+  "land_samples": 4,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -7.36708,
+      "lon": -34.79521,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -7.36796,
+      "lon": -34.79313,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -7.36971,
+      "lon": -34.78895,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -7.37323,
+      "lon": -34.78061,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -7.37674,
+      "lon": -34.77226,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -7.38377,
+      "lon": -34.75556,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -7.39431,
+      "lon": -34.73052,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -7.40836,
+      "lon": -34.69712,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -7.42943,
+      "lon": -34.64703,
+      "depth_m": 25.0
+    }
+  ]
+}

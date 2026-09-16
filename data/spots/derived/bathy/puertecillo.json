@@ -1,0 +1,72 @@
+{
+  "spot": "puertecillo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.0713,
+    -71.9445
+  ],
+  "bearing_seaward_deg": 286.0,
+  "nearshore_depth_m": -48.0,
+  "offshore_depth_m": 167.0,
+  "mean_slope_m_per_km": 12.11,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.07068,
+      "lon": -71.94711,
+      "depth_m": -48.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.07006,
+      "lon": -71.94972,
+      "depth_m": -48.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.06882,
+      "lon": -71.95494,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.06634,
+      "lon": -71.96537,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.06386,
+      "lon": -71.97581,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.05889,
+      "lon": -71.99667,
+      "depth_m": 90.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.05144,
+      "lon": -72.02797,
+      "depth_m": 111.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.04149,
+      "lon": -72.06969,
+      "depth_m": 129.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.02654,
+      "lon": -72.13225,
+      "depth_m": 167.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "mompiche",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    0.5083,
+    -80.0223
+  ],
+  "bearing_seaward_deg": 316.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 69.0,
+  "mean_slope_m_per_km": 4.06,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 0.50992,
+      "lon": -80.02386,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 0.51153,
+      "lon": -80.02542,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 0.51477,
+      "lon": -80.02855,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 0.52124,
+      "lon": -80.03479,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 0.52771,
+      "lon": -80.04104,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 0.54065,
+      "lon": -80.05354,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 0.56005,
+      "lon": -80.07228,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 0.58593,
+      "lon": -80.09727,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 0.62474,
+      "lon": -80.13476,
+      "depth_m": 69.0
+    }
+  ]
+}

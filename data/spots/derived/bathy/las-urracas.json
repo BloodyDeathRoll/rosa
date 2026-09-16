@@ -1,0 +1,72 @@
+{
+  "spot": "las-urracas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -20.2268,
+    -70.1505
+  ],
+  "bearing_seaward_deg": 258.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 611.0,
+  "mean_slope_m_per_km": 33.75,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -20.22727,
+      "lon": -70.15284,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -20.22773,
+      "lon": -70.15519,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -20.22867,
+      "lon": -70.15987,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -20.23054,
+      "lon": -70.16925,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -20.23241,
+      "lon": -70.17863,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -20.23614,
+      "lon": -70.19738,
+      "depth_m": 98.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -20.24174,
+      "lon": -70.22551,
+      "depth_m": 135.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -20.2492,
+      "lon": -70.26301,
+      "depth_m": 315.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -20.26038,
+      "lon": -70.31928,
+      "depth_m": 611.0
+    }
+  ]
+}

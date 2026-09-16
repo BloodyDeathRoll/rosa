@@ -1,0 +1,56 @@
+# Rosa spot database - Chile North (seeded 2026-09-16). The desert coast - Arica, Iquique and Antofagasta. Reef and point breaks on a west-facing shore that takes S-SW Southern Ocean groundswell all year and NW North-Pacific swell in the austral summer; offshore on an E wind off the Atacama.
+# Every spot carries offshore_km along its own seaward normal, so the deep-water sample follows
+# the pin. Defaults are TODO calibrate.
+
+region: Chile North
+defaults: &cln
+  timezone: America/Santiago
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [180, 310]
+  ideal:
+    wind_dir: [45, 135]
+    size_m: [0.8, 3.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-16 - chile-north, 30 spots. The primary coastline flow found 1442
+  # bathy-passed candidates and ZERO OSM surf beacons (74 named beaches only), so every spot
+  # here came from the secondary web-search flow (Spanish-language Chilean surf guides +
+  # surf-forecast / wannasurf break lists), multi-geocoded (Google + Nominatim + Photon) and
+  # cross-read against the OSM named-beach beacons. EVERY pin was rendered on ESRI imagery at
+  # z16 and judged before entering; unplaceable pins got a z14/z15 wide read and were moved or
+  # dropped (judge log in tools/spot-seed/work/chile-north/judge.json).
+  # offshore_direction is the nearest coastline candidate's shore normal, re-aimed where the
+  # GEBCO arc sweep showed the ray blocked; swell_window = seaward +/-65 deg, TODO calibrate.
+  # North to south.
+  - { id: playa-las-machas, name: "Las Machas", town: "Arica", lat: -18.4458, lon: -70.305, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: playa-chinchorro, name: "Chinchorro", town: "Arica", lat: -18.454, lon: -70.3041, offshore_direction: 102, swell_window: [217, 347], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: el-gringo, name: "El Gringo", town: "Arica", lat: -18.478, lon: -70.3332, offshore_direction: 131, swell_window: [246, 16], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: playa-corazones, name: "Playa Corazones", town: "Arica", lat: -18.5444, lon: -70.3327, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: caleta-vitor, name: "Caleta Vítor", town: "Caleta Vítor", lat: -18.7547, lon: -70.3378, offshore_direction: 110, swell_window: [225, 355], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded, normal re-aimed)
+  - { id: punta-dos, name: "Punta Dos", town: "Iquique", lat: -20.2164, lon: -70.1571, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded, normal re-aimed)
+  - { id: intendencia, name: "Intendencia", town: "Iquique", lat: -20.2181, lon: -70.1555, offshore_direction: 78, swell_window: [193, 323], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded, normal re-aimed)
+  - { id: las-urracas, name: "Las Urracas", town: "Iquique", lat: -20.2268, lon: -70.1505, offshore_direction: 78, swell_window: [193, 323], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded, normal re-aimed)
+  - { id: el-colegio, name: "El Colegio", town: "Iquique", lat: -20.2287, lon: -70.1504, offshore_direction: 84, swell_window: [199, 329], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded, normal re-aimed)
+  - { id: playa-cavancha, name: "Cavancha", town: "Iquique", lat: -20.2296, lon: -70.1477, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded, normal re-aimed)
+  - { id: playa-brava, name: "Playa Brava", town: "Iquique", lat: -20.248, lon: -70.1397, offshore_direction: 78, swell_window: [193, 323], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: huayquique, name: "Huayquique", town: "Iquique", lat: -20.2799, lon: -70.1305, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded, normal re-aimed)
+  - { id: bajo-molle, name: "Bajo Molle", town: "Iquique", lat: -20.295, lon: -70.1335, offshore_direction: 102, swell_window: [217, 347], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded, normal re-aimed)
+  - { id: playa-blanca-iquique, name: "Playa Blanca", town: "Iquique", lat: -20.3329, lon: -70.1477, offshore_direction: 96, swell_window: [211, 341], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded, normal re-aimed)
+  - { id: punta-gruesa, name: "Punta Gruesa", town: "Iquique", lat: -20.3629, lon: -70.1832, offshore_direction: 122, swell_window: [237, 7], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: los-verdes, name: "Los Verdes", town: "Iquique", lat: -20.4228, lon: -70.1649, offshore_direction: 63, swell_window: [178, 308], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: caramucho, name: "Caramucho", town: "Caramucho", lat: -20.6603, lon: -70.1847, offshore_direction: 96, swell_window: [211, 341], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded, normal re-aimed)
+  - { id: chanavayita, name: "Chanavayita", town: "Chanavayita", lat: -20.7054, lon: -70.1924, offshore_direction: 112, swell_window: [227, 357], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: caleta-san-marcos, name: "Caleta San Marcos", town: "Caleta San Marcos", lat: -21.1143, lon: -70.1239, offshore_direction: 95, swell_window: [210, 340], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded, normal re-aimed)
+  - { id: playa-el-loa, name: "Playa El Loa", town: "Tocopilla", lat: -21.4257, lon: -70.0609, offshore_direction: 59, swell_window: [174, 304], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: ramaditas, name: "Ramaditas", town: "Tocopilla", lat: -21.8472, lon: -70.1428, offshore_direction: 83, swell_window: [198, 328], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: hornitos, name: "Hornitos", town: "Hornitos", lat: -22.9145, lon: -70.2894, offshore_direction: 99, swell_window: [214, 344], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: la-rinconada-antofagasta, name: "La Rinconada", town: "Antofagasta", lat: -23.4649, lon: -70.5051, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: budeo, name: "Budeo", town: "Antofagasta", lat: -23.6172, lon: -70.3928, offshore_direction: 96, swell_window: [211, 341], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: la-cupula, name: "La Cúpula", town: "Antofagasta", lat: -23.7167, lon: -70.4355, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded, normal re-aimed)
+  - { id: el-huascar, name: "El Huáscar", town: "Antofagasta", lat: -23.733, lon: -70.4394, offshore_direction: 95, swell_window: [210, 340], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded, normal re-aimed)
+  - { id: playa-escondida-antofagasta, name: "Playa Escondida", town: "Antofagasta", lat: -23.8519, lon: -70.5067, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded, normal re-aimed)
+  - { id: playa-piqueros, name: "Playa Piqueros", town: "Chañaral", lat: -26.1475, lon: -70.669, offshore_direction: 92, swell_window: [207, 337], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: portofino, name: "Portofino", town: "Chañaral", lat: -26.5165, lon: -70.7049, offshore_direction: 58, swell_window: [173, 303], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: flamenco, name: "Flamenco", town: "Chañaral", lat: -26.5711, lon: -70.6839, offshore_direction: 128, swell_window: [243, 13], offshore_km: 5.0, <<: *cln }  # sat-verified 2026-09-16 (websearch-seeded, normal re-aimed)

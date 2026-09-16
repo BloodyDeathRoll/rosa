@@ -1,0 +1,72 @@
+{
+  "spot": "pirambu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -10.7343,
+    -36.8431
+  ],
+  "bearing_seaward_deg": 138.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 29.0,
+  "mean_slope_m_per_km": 1.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -10.73597,
+      "lon": -36.84157,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -10.73764,
+      "lon": -36.84004,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -10.74098,
+      "lon": -36.83698,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -10.74767,
+      "lon": -36.83085,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -10.75435,
+      "lon": -36.82472,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -10.76771,
+      "lon": -36.81247,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -10.78776,
+      "lon": -36.79409,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -10.81449,
+      "lon": -36.76958,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -10.85458,
+      "lon": -36.73281,
+      "depth_m": 29.0
+    }
+  ]
+}

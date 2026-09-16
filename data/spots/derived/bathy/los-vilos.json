@@ -1,0 +1,72 @@
+{
+  "spot": "los-vilos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -31.9012,
+    -71.4987
+  ],
+  "bearing_seaward_deg": 293.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 294.0,
+  "mean_slope_m_per_km": 16.17,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -31.90032,
+      "lon": -71.50114,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -31.89944,
+      "lon": -71.50358,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -31.89769,
+      "lon": -71.50845,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -31.89417,
+      "lon": -71.5182,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -31.89065,
+      "lon": -71.52795,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -31.88362,
+      "lon": -71.54745,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -31.87306,
+      "lon": -71.57668,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -31.85898,
+      "lon": -71.61566,
+      "depth_m": 140.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -31.83783,
+      "lon": -71.6741,
+      "depth_m": 294.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "la-loberia-rio-negro",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.1557,
+    -63.1253
+  ],
+  "bearing_seaward_deg": 183.0,
+  "nearshore_depth_m": -21.0,
+  "offshore_depth_m": 41.0,
+  "mean_slope_m_per_km": 3.49,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.15795,
+      "lon": -63.12546,
+      "depth_m": -21.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.16019,
+      "lon": -63.12561,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.16468,
+      "lon": -63.12593,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.17366,
+      "lon": -63.12655,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.18264,
+      "lon": -63.12718,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.2006,
+      "lon": -63.12843,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.22755,
+      "lon": -63.13031,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.26347,
+      "lon": -63.13281,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.31736,
+      "lon": -63.13658,
+      "depth_m": 41.0
+    }
+  ]
+}

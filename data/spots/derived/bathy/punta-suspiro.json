@@ -1,0 +1,72 @@
+{
+  "spot": "punta-suspiro",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    0.5083,
+    -80.0327
+  ],
+  "bearing_seaward_deg": 305.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 81.0,
+  "mean_slope_m_per_km": 4.11,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 0.50959,
+      "lon": -80.03454,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 0.51088,
+      "lon": -80.03638,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 0.51346,
+      "lon": -80.04007,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 0.51862,
+      "lon": -80.04743,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 0.52377,
+      "lon": -80.0548,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 0.53409,
+      "lon": -80.06954,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 0.54957,
+      "lon": -80.09164,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 0.5702,
+      "lon": -80.12111,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 0.60115,
+      "lon": -80.16531,
+      "depth_m": 81.0
+    }
+  ]
+}

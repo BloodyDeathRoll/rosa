@@ -1,0 +1,72 @@
+{
+  "spot": "la-chocolatera",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -2.1882,
+    -81.0101
+  ],
+  "bearing_seaward_deg": 275.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 745.0,
+  "mean_slope_m_per_km": 41.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -2.188,
+      "lon": -81.01234,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -2.18781,
+      "lon": -81.01458,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -2.18742,
+      "lon": -81.01907,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -2.18663,
+      "lon": -81.02803,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -2.18585,
+      "lon": -81.037,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -2.18428,
+      "lon": -81.05493,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -2.18193,
+      "lon": -81.08182,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -2.17879,
+      "lon": -81.11769,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -2.17408,
+      "lon": -81.17148,
+      "depth_m": 745.0
+    }
+  ]
+}

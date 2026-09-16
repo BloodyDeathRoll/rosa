@@ -1,0 +1,72 @@
+{
+  "spot": "puerto-saavedra",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.8137,
+    -73.4022
+  ],
+  "bearing_seaward_deg": 245.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 66.0,
+  "mean_slope_m_per_km": 3.72,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.81465,
+      "lon": -73.40482,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.8156,
+      "lon": -73.40743,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.8175,
+      "lon": -73.41266,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.8213,
+      "lon": -73.42312,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.8251,
+      "lon": -73.43359,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.83269,
+      "lon": -73.45452,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.84408,
+      "lon": -73.48592,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.85924,
+      "lon": -73.52781,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.88196,
+      "lon": -73.59067,
+      "depth_m": 66.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "refugio-se",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -11.0632,
+    -37.0992
+  ],
+  "bearing_seaward_deg": 128.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 1.52,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -11.06458,
+      "lon": -37.09739,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -11.06597,
+      "lon": -37.09559,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -11.06874,
+      "lon": -37.09198,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -11.07427,
+      "lon": -37.08476,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -11.07981,
+      "lon": -37.07754,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -11.09088,
+      "lon": -37.06309,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -11.10749,
+      "lon": -37.04142,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -11.12963,
+      "lon": -37.01253,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -11.16283,
+      "lon": -36.96918,
+      "depth_m": 30.0
+    }
+  ]
+}

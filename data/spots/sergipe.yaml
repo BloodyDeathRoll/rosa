@@ -1,0 +1,36 @@
+# Rosa spot database - Sergipe (seeded 2026-09-16). Aracaju's long east-facing beaches between Alagoas and Bahia. SE trade swell, offshore on a W wind.
+# Every spot carries offshore_km along its own seaward normal, so the deep-water sample follows
+# the pin. Defaults are TODO calibrate.
+
+region: Sergipe
+defaults: &se
+  timezone: America/Maceio
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [45, 180]
+  ideal:
+    wind_dir: [225, 315]
+    size_m: [0.6, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-09-16 - sergipe, 13 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 13 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/sergipe/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: ponta-dos-mangues, name: "Ponta dos Mangues", town: "Pacatuba", lat: -10.5654, lon: -36.5613, offshore_direction: 336, swell_window: [91, 221], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: praia-de-thermas, name: "Praia de Thermas", town: "Pacatuba", lat: -10.5832, lon: -36.5993, offshore_direction: 331, swell_window: [86, 216], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: pirambu, name: "Pirambu", town: "Pirambu", lat: -10.7343, lon: -36.8431, offshore_direction: 318, swell_window: [73, 203], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: praia-da-costa-se, name: "Praia da Costa", town: "Barra dos Coqueiros", lat: -10.9235, lon: -37.0103, offshore_direction: 302, swell_window: [57, 187], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: atalaia-nova, name: "Atalaia Nova", town: "Barra dos Coqueiros", lat: -10.9446, lon: -37.0239, offshore_direction: 301, swell_window: [56, 186], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: havaizinho-se, name: "Havaizinho", town: "Aracaju", lat: -10.9870, lon: -37.0420, offshore_direction: 311, swell_window: [66, 196], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: atalaia-se, name: "Atalaia", town: "Aracaju", lat: -10.9958, lon: -37.0501, offshore_direction: 314, swell_window: [69, 199], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: aruana, name: "Aruana", town: "Aracaju", lat: -11.0180, lon: -37.0678, offshore_direction: 305, swell_window: [60, 190], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: refugio-se, name: "Refúgio", town: "Aracaju", lat: -11.0632, lon: -37.0992, offshore_direction: 308, swell_window: [63, 193], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: mosqueiro, name: "Mosqueiro", town: "Aracaju", lat: -11.1134, lon: -37.1336, offshore_direction: 299, swell_window: [54, 184], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: caueira, name: "Caueira", town: "Itaporanga d'Ajuda", lat: -11.2164, lon: -37.2014, offshore_direction: 311, swell_window: [66, 196], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: abais, name: "Abaís", town: "Estância", lat: -11.3260, lon: -37.2822, offshore_direction: 299, swell_window: [54, 184], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: praia-do-saco, name: "Praia do Saco", town: "Estância", lat: -11.4238, lon: -37.3129, offshore_direction: 317, swell_window: [72, 202], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-16 (websearch-seeded)

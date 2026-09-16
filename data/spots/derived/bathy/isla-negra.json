@@ -1,0 +1,72 @@
+{
+  "spot": "isla-negra",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.4456,
+    -71.679
+  ],
+  "bearing_seaward_deg": 218.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 305.0,
+  "mean_slope_m_per_km": 17.63,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.44737,
+      "lon": -71.68066,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.44914,
+      "lon": -71.68232,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.45269,
+      "lon": -71.68564,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.45977,
+      "lon": -71.69227,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.46686,
+      "lon": -71.69891,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.48103,
+      "lon": -71.71219,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.50228,
+      "lon": -71.73212,
+      "depth_m": 120.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.53062,
+      "lon": -71.7587,
+      "depth_m": 384.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.5731,
+      "lon": -71.79862,
+      "depth_m": 305.0
+    }
+  ]
+}

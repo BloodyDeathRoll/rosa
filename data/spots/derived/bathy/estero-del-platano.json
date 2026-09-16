@@ -1,0 +1,72 @@
+{
+  "spot": "estero-del-platano",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    0.7764,
+    -80.0901
+  ],
+  "bearing_seaward_deg": 300.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 615.0,
+  "mean_slope_m_per_km": 34.54,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 0.77752,
+      "lon": -80.09205,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 0.77865,
+      "lon": -80.09399,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 0.7809,
+      "lon": -80.09789,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 0.78539,
+      "lon": -80.10568,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 0.78989,
+      "lon": -80.11347,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 0.79888,
+      "lon": -80.12905,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 0.81237,
+      "lon": -80.15241,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 0.83036,
+      "lon": -80.18357,
+      "depth_m": 200.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 0.85734,
+      "lon": -80.23031,
+      "depth_m": 615.0
+    }
+  ]
+}

@@ -65,7 +65,7 @@ the *published* data over HTTPS and never talks to the pipeline.
    the budget (default 9,400 units; `ROSA_OM_DAILY_BUDGET` moves it, `--ignore-quota`
    overrides once). The cycle then alerts, pings the dead-man anyway, and exits 0 with the
    previous payloads still serving. The blend arm's one per-spot Open-Meteo call is the
-   WEATHER host (1.21 units/spot, ~2,360 a run at 1947 spots, ~9,400 a day plus ~440 for the
+   WEATHER host (1.21 units/spot, ~2,730 a run at 2254 spots, ~10,900 a day plus ~916 for the
    station wind archive - at the vendor's 10,000/day line; OPEN-ITEMS 34 / plan C3b is the
    exit), which the ledger does not meter. On the om arm a fifth fleet run of
    any kind - including an ad-hoc one from a laptop against the same IP - is what the guard

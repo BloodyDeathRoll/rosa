@@ -1,0 +1,72 @@
+{
+  "spot": "caramucho",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -20.6603,
+    -70.1847
+  ],
+  "bearing_seaward_deg": 276.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 182.0,
+  "mean_slope_m_per_km": 10.54,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -20.66006,
+      "lon": -70.18709,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -20.65983,
+      "lon": -70.18948,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -20.65936,
+      "lon": -70.19426,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -20.65842,
+      "lon": -70.20382,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -20.65748,
+      "lon": -70.21338,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -20.65559,
+      "lon": -70.23249,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -20.65276,
+      "lon": -70.26117,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -20.64898,
+      "lon": -70.2994,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -20.64329,
+      "lon": -70.35674,
+      "depth_m": 182.0
+    }
+  ]
+}

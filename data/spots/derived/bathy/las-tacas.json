@@ -1,0 +1,72 @@
+{
+  "spot": "las-tacas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -30.084,
+    -71.3714
+  ],
+  "bearing_seaward_deg": 313.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 554.0,
+  "mean_slope_m_per_km": 31.61,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -30.08247,
+      "lon": -71.3733,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -30.08093,
+      "lon": -71.3752,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -30.07787,
+      "lon": -71.379,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -30.07173,
+      "lon": -71.3866,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -30.0656,
+      "lon": -71.3942,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -30.05333,
+      "lon": -71.40939,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -30.03492,
+      "lon": -71.43218,
+      "depth_m": 112.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -30.01037,
+      "lon": -71.46255,
+      "depth_m": 375.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -29.97353,
+      "lon": -71.50807,
+      "depth_m": 554.0
+    }
+  ]
+}

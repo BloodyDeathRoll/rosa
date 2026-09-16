@@ -1,0 +1,72 @@
+{
+  "spot": "playa-escondida-antofagasta",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -23.8519,
+    -70.5067
+  ],
+  "bearing_seaward_deg": 265.0,
+  "nearshore_depth_m": -24.0,
+  "offshore_depth_m": 1343.0,
+  "mean_slope_m_per_km": 77.01,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.8521,
+      "lon": -70.50915,
+      "depth_m": -24.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.85229,
+      "lon": -70.5116,
+      "depth_m": -24.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.85268,
+      "lon": -70.5165,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.85347,
+      "lon": -70.52629,
+      "depth_m": 183.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.85425,
+      "lon": -70.53609,
+      "depth_m": 307.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.85581,
+      "lon": -70.55568,
+      "depth_m": 470.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.85815,
+      "lon": -70.58507,
+      "depth_m": 575.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.86126,
+      "lon": -70.62426,
+      "depth_m": 1084.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.86591,
+      "lon": -70.68304,
+      "depth_m": 1343.0
+    }
+  ]
+}

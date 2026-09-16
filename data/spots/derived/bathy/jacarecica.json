@@ -1,0 +1,72 @@
+{
+  "spot": "jacarecica",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -9.6159,
+    -35.6888
+  ],
+  "bearing_seaward_deg": 120.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 27.0,
+  "mean_slope_m_per_km": 1.58,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -9.61702,
+      "lon": -35.68683,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -9.61815,
+      "lon": -35.68485,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -9.6204,
+      "lon": -35.6809,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -9.62489,
+      "lon": -35.673,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -9.62939,
+      "lon": -35.6651,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -9.63838,
+      "lon": -35.6493,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -9.65187,
+      "lon": -35.6256,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -9.66985,
+      "lon": -35.59399,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -9.69681,
+      "lon": -35.54658,
+      "depth_m": 27.0
+    }
+  ]
+}

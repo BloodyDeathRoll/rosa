@@ -1,0 +1,72 @@
+{
+  "spot": "praia-do-frances",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -9.7741,
+    -35.8432
+  ],
+  "bearing_seaward_deg": 129.0,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 31.0,
+  "mean_slope_m_per_km": 1.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -9.77551,
+      "lon": -35.84143,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -9.77693,
+      "lon": -35.83965,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -9.77976,
+      "lon": -35.83611,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -9.78542,
+      "lon": -35.82902,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -9.79108,
+      "lon": -35.82192,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -9.8024,
+      "lon": -35.80774,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -9.81937,
+      "lon": -35.78646,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -9.842,
+      "lon": -35.75808,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -9.87595,
+      "lon": -35.71551,
+      "depth_m": 31.0
+    }
+  ]
+}

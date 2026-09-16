@@ -1,0 +1,49 @@
+# Rosa spot database - Uruguay (seeded 2026-09-16). Montevideo east through Punta del Este, La Paloma and Punta del Diablo. A south-east-facing shelf coast: Southern Ocean groundswell wrapping in plus local S-SE wind swell, offshore on a N wind.
+# Every spot carries offshore_km along its own seaward normal, so the deep-water sample follows
+# the pin. Defaults are TODO calibrate.
+
+region: Uruguay
+defaults: &uy
+  timezone: America/Montevideo
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [100, 230]
+  ideal:
+    wind_dir: [315, 45]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-16 - uruguay, 26 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 26 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/uruguay/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: la-coronilla, name: "La Coronilla", town: "La Coronilla", lat: -33.8974, lon: -53.5088, offshore_direction: 285, swell_window: [40, 170], offshore_km: 5.0, <<: *uy }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: la-moza, name: "La Moza", town: "Punta del Diablo", lat: -33.9739, lon: -53.5313, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, <<: *uy }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: playa-grande-pdd, name: "Playa Grande (Punta del Diablo)", town: "Punta del Diablo", lat: -34.0167, lon: -53.5412, offshore_direction: 288, swell_window: [43, 173], offshore_km: 5.0, <<: *uy }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: el-rivero, name: "El Rivero", town: "Punta del Diablo", lat: -34.0394, lon: -53.5394, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, <<: *uy }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: la-viuda, name: "La Viuda", town: "Punta del Diablo", lat: -34.0554, lon: -53.5477, offshore_direction: 305, swell_window: [60, 190], offshore_km: 5.0, <<: *uy }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: aguas-dulces, name: "Aguas Dulces", town: "Aguas Dulces", lat: -34.2775, lon: -53.7778, offshore_direction: 293, swell_window: [48, 178], offshore_km: 5.0, <<: *uy }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: barra-de-valizas, name: "Barra de Valizas", town: "Barra de Valizas", lat: -34.3366, lon: -53.7901, offshore_direction: 251, swell_window: [6, 136], offshore_km: 5.0, <<: *uy }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: cabo-polonio, name: "Cabo Polonio", town: "Cabo Polonio", lat: -34.4042, lon: -53.7855, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, <<: *uy }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: santa-isabel, name: "Santa Isabel", town: "La Pedrera", lat: -34.5690, lon: -54.1032, offshore_direction: 318, swell_window: [73, 203], offshore_km: 5.0, <<: *uy }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: el-desplayado, name: "El Desplayado", town: "La Pedrera", lat: -34.5870, lon: -54.1209, offshore_direction: 296, swell_window: [51, 181], offshore_km: 5.0, <<: *uy }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: playa-del-barco, name: "Playa del Barco", town: "La Pedrera", lat: -34.5950, lon: -54.1240, offshore_direction: 319, swell_window: [74, 204], offshore_km: 5.0, <<: *uy }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: la-aguada, name: "La Aguada", town: "La Paloma", lat: -34.6404, lon: -54.1549, offshore_direction: 266, swell_window: [21, 151], offshore_km: 5.0, <<: *uy }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: corumba, name: "Corumbá", town: "La Paloma", lat: -34.6604, lon: -54.1885, offshore_direction: 359, swell_window: [114, 244], offshore_km: 5.0, <<: *uy }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: anaconda, name: "Anaconda", town: "La Paloma", lat: -34.6605, lon: -54.1856, offshore_direction: 9, swell_window: [124, 254], offshore_km: 5.0, <<: *uy }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: los-botes, name: "Los Botes", town: "La Paloma", lat: -34.6624, lon: -54.1760, offshore_direction: 360, swell_window: [115, 245], offshore_km: 5.0, <<: *uy }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: zanja-honda, name: "Zanja Honda", town: "La Paloma", lat: -34.6624, lon: -54.1840, offshore_direction: 9, swell_window: [124, 254], offshore_km: 5.0, <<: *uy }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: el-gavilan, name: "El Gavilán", town: "La Paloma", lat: -34.6641, lon: -54.1728, offshore_direction: 358, swell_window: [113, 243], offshore_km: 5.0, <<: *uy }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: la-balconada, name: "La Balconada", town: "La Paloma", lat: -34.6647, lon: -54.1653, offshore_direction: 359, swell_window: [114, 244], offshore_km: 5.0, <<: *uy }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: jose-ignacio, name: "José Ignacio", town: "José Ignacio", lat: -34.8336, lon: -54.6281, offshore_direction: 310, swell_window: [65, 195], offshore_km: 5.0, <<: *uy }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: punta-negra, name: "Punta Negra", town: "Punta Negra", lat: -34.8960, lon: -55.2220, offshore_direction: 334, swell_window: [89, 219], offshore_km: 5.0, <<: *uy }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: bikini, name: "Bikini", town: "Manantiales", lat: -34.9075, lon: -54.8289, offshore_direction: 348, swell_window: [103, 233], offshore_km: 5.0, <<: *uy }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: montoya, name: "Montoya", town: "La Barra", lat: -34.9154, lon: -54.8484, offshore_direction: 360, swell_window: [115, 245], offshore_km: 5.0, <<: *uy }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: posta-del-cangrejo, name: "Posta del Cangrejo", town: "La Barra", lat: -34.9165, lon: -54.8589, offshore_direction: 317, swell_window: [72, 202], offshore_km: 5.0, <<: *uy }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: boca-de-la-barra, name: "Boca de la Barra", town: "La Barra", lat: -34.9178, lon: -54.8664, offshore_direction: 332, swell_window: [87, 217], offshore_km: 5.0, <<: *uy }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: la-olla, name: "La Olla", town: "Punta del Este", lat: -34.9538, lon: -54.9301, offshore_direction: 341, swell_window: [96, 226], offshore_km: 5.0, <<: *uy }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: el-emir, name: "El Emir", town: "Punta del Este", lat: -34.9623, lon: -54.9397, offshore_direction: 295, swell_window: [50, 180], offshore_km: 5.0, <<: *uy }  # sat-verified 2026-09-16 (websearch-seeded)

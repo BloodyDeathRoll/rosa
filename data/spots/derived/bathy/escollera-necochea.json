@@ -1,0 +1,72 @@
+{
+  "spot": "escollera-necochea",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.5837,
+    -58.6994
+  ],
+  "bearing_seaward_deg": 170.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 48.0,
+  "mean_slope_m_per_km": 2.42,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.58591,
+      "lon": -58.6989,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.58813,
+      "lon": -58.6984,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.59256,
+      "lon": -58.6974,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.60141,
+      "lon": -58.6954,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.61027,
+      "lon": -58.6934,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.62798,
+      "lon": -58.6894,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.65455,
+      "lon": -58.6834,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.68998,
+      "lon": -58.67539,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.74311,
+      "lon": -58.66336,
+      "depth_m": 48.0
+    }
+  ]
+}

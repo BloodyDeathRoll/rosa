@@ -1,0 +1,72 @@
+{
+  "spot": "punta-blanca-ec",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -2.1553,
+    -80.7965
+  ],
+  "bearing_seaward_deg": 308.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -2.15392,
+      "lon": -80.79827,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -2.15253,
+      "lon": -80.80005,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -2.14976,
+      "lon": -80.80359,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -2.14423,
+      "lon": -80.81068,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -2.13869,
+      "lon": -80.81778,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -2.12762,
+      "lon": -80.83196,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -2.111,
+      "lon": -80.85323,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -2.08886,
+      "lon": -80.8816,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -2.05563,
+      "lon": -80.92414,
+      "depth_m": 30.0
+    }
+  ]
+}

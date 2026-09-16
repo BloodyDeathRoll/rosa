@@ -1,0 +1,75 @@
+# Rosa spot database - Chile Central (seeded 2026-09-16). Coquimbo and La Serena through Valparaiso and Pichilemu (Punta de Lobos) to Constitucion. Big S-SW groundswell, cold Humboldt water, offshore on an E wind.
+# Every spot carries offshore_km along its own seaward normal, so the deep-water sample follows
+# the pin. Defaults are TODO calibrate.
+
+region: Chile Central
+defaults: &clc
+  timezone: America/Santiago
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [180, 310]
+  ideal:
+    wind_dir: [45, 135]
+    size_m: [1.0, 3.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-16 - chile-central, 51 spots. Primary coastline flow: 1 OSM surf beacon
+  # (Caleta Los Piures, the Punta de Lobos point), © OpenStreetMap contributors, ODbL; secondary
+  # web-search flow: 50 named breaks from Chilean/Spanish surf guides, multi-geocoded (Google +
+  # Nominatim + Photon) then read against OSM named beaches. EVERY pin was rendered on ESRI
+  # imagery and judged before entering; moved pins were re-rendered until they sat on the break
+  # (judge log in tools/spot-seed/work/chile-central/judge.json). offshore_direction is the
+  # nearest coastline candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate;
+  # towns from OSM place nodes. North to south.
+  - { id: punta-de-choros, name: "Punta de Choros", town: "Punta de Choros", lat: -29.2431, lon: -71.4641, offshore_direction: 91, swell_window: [206, 336], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: teatinos, name: "Punta de Teatinos", town: "La Serena", lat: -29.8231, lon: -71.3062, offshore_direction: 67, swell_window: [182, 312], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (websearch-seeded)  # re-aimed to the middle of the open arc (aim_normal sweep)
+  - { id: el-faro-la-serena, name: "El Faro", town: "La Serena", lat: -29.9067, lon: -71.2747, offshore_direction: 97, swell_window: [212, 342], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: totoralillo-coquimbo, name: "Totoralillo", town: "Totoralillo", lat: -30.0722, lon: -71.3785, offshore_direction: 98, swell_window: [213, 343], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: las-tacas, name: "Las Tacas", town: "Las Tacas", lat: -30.0840, lon: -71.3714, offshore_direction: 133, swell_window: [248, 18], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: guanaqueros, name: "Guanaqueros", town: "Guanaqueros", lat: -30.1878, lon: -71.4030, offshore_direction: 146, swell_window: [261, 31], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: chigualoco, name: "Chigualoco", town: "Chigualoco", lat: -31.7581, lon: -71.5090, offshore_direction: 56, swell_window: [171, 301], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: los-vilos, name: "Los Vilos", town: "Los Vilos", lat: -31.9012, lon: -71.4987, offshore_direction: 113, swell_window: [228, 358], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: pichidangui, name: "Pichidangui", town: "Pichidangui", lat: -32.1239, lon: -71.5142, offshore_direction: 97, swell_window: [212, 342], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: los-molles, name: "Los Molles", town: "Los Molles", lat: -32.2378, lon: -71.5058, offshore_direction: 2, swell_window: [117, 247], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: pichicuy, name: "Pichicuy", town: "Pichicuy", lat: -32.3472, lon: -71.4490, offshore_direction: 43, swell_window: [158, 288], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: salinas-de-pullally, name: "Salinas de Pullally", town: "Papudo", lat: -32.4104, lon: -71.4128, offshore_direction: 133, swell_window: [248, 18], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: papudo, name: "Papudo", town: "Papudo", lat: -32.4947, lon: -71.4338, offshore_direction: 58, swell_window: [173, 303], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: cachagua, name: "Cachagua", town: "Cachagua", lat: -32.5915, lon: -71.4441, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: maitencillo, name: "Maitencillo", town: "Maitencillo", lat: -32.6597, lon: -71.4425, offshore_direction: 122, swell_window: [237, 7], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: cau-cau, name: "Cau Cau", town: "Quintero", lat: -32.7101, lon: -71.4959, offshore_direction: 148, swell_window: [263, 33], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: ventanas, name: "Ventanas", town: "Ventanas", lat: -32.7438, lon: -71.4875, offshore_direction: 50, swell_window: [165, 295], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: ritoque, name: "Ritoque", town: "Ritoque", lat: -32.8295, lon: -71.5268, offshore_direction: 33, swell_window: [148, 278], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: la-boca-concon, name: "La Boca", town: "Concón", lat: -32.9192, lon: -71.5121, offshore_direction: 129, swell_window: [244, 14], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: playa-amarilla, name: "Playa Amarilla", town: "Concón", lat: -32.9230, lon: -71.5247, offshore_direction: 97, swell_window: [212, 342], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: renaca, name: "Reñaca", town: "Viña del Mar", lat: -32.9679, lon: -71.5462, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: las-salinas-vina, name: "Las Salinas", town: "Viña del Mar", lat: -32.9930, lon: -71.5480, offshore_direction: 111, swell_window: [226, 356], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)  # re-aimed to the middle of the open arc (aim_normal sweep)
+  - { id: las-torpederas, name: "Las Torpederas", town: "Valparaíso", lat: -33.0200, lon: -71.6470, offshore_direction: 110, swell_window: [225, 355], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: caleta-portales, name: "Caleta Portales", town: "Valparaíso", lat: -33.0330, lon: -71.5945, offshore_direction: 142, swell_window: [257, 27], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: laguna-verde, name: "Laguna Verde", town: "Laguna Verde", lat: -33.1001, lon: -71.6694, offshore_direction: 131, swell_window: [246, 16], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: quintay, name: "Quintay", town: "Quintay", lat: -33.1794, lon: -71.6842, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: la-chilena, name: "La Chilena", town: "Algarrobo", lat: -33.3620, lon: -71.6670, offshore_direction: 138, swell_window: [253, 23], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (websearch-seeded)  # re-aimed to the middle of the open arc (aim_normal sweep)
+  - { id: el-canelillo, name: "El Canelillo", town: "Algarrobo", lat: -33.3672, lon: -71.6885, offshore_direction: 58, swell_window: [173, 303], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: el-quisco, name: "El Quisco Point", town: "El Quisco", lat: -33.3911, lon: -71.6937, offshore_direction: 129, swell_window: [244, 14], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (websearch-seeded)  # re-aimed to the middle of the open arc (aim_normal sweep)
+  - { id: los-ahogados, name: "Los Ahogados", town: "El Quisco", lat: -33.3985, lon: -71.7001, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: isla-negra, name: "Isla Negra", town: "El Tabo", lat: -33.4456, lon: -71.6790, offshore_direction: 38, swell_window: [153, 283], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (websearch-seeded)  # re-aimed to the middle of the open arc (aim_normal sweep)
+  - { id: la-castilla, name: "La Castilla", town: "El Tabo", lat: -33.4530, lon: -71.6770, offshore_direction: 49, swell_window: [164, 294], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)  # re-aimed to the middle of the open arc (aim_normal sweep)
+  - { id: las-cruces, name: "Las Cruces", town: "Las Cruces", lat: -33.5007, lon: -71.6250, offshore_direction: 24, swell_window: [139, 269], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)  # re-aimed to the middle of the open arc (aim_normal sweep)
+  - { id: cartagena, name: "Cartagena", town: "Cartagena", lat: -33.5491, lon: -71.6060, offshore_direction: 94, swell_window: [209, 339], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)  # re-aimed to the middle of the open arc (aim_normal sweep)
+  - { id: santo-domingo, name: "Santo Domingo", town: "Santo Domingo", lat: -33.6364, lon: -71.6351, offshore_direction: 88, swell_window: [203, 333], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: la-boca-matanzas, name: "La Boca", town: "La Boca", lat: -33.9245, lon: -71.8495, offshore_direction: 88, swell_window: [203, 333], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: matanzas, name: "Matanzas", town: "Matanzas", lat: -33.9623, lon: -71.8769, offshore_direction: 89, swell_window: [204, 334], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)  # re-aimed to the middle of the open arc (aim_normal sweep)
+  - { id: puertecillo, name: "Puertecillo", town: "Puertecillo", lat: -34.0713, lon: -71.9445, offshore_direction: 106, swell_window: [221, 351], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: topocalma, name: "Punta Topocalma", town: "Litueche", lat: -34.1343, lon: -72.0088, offshore_direction: 108, swell_window: [223, 353], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: la-puntilla-pichilemu, name: "La Puntilla", town: "Pichilemu", lat: -34.3813, lon: -72.0157, offshore_direction: 152, swell_window: [267, 37], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)  # re-aimed to the middle of the open arc (aim_normal sweep)
+  - { id: infiernillo, name: "Infiernillo", town: "Pichilemu", lat: -34.3970, lon: -72.0261, offshore_direction: 94, swell_window: [209, 339], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: punta-de-lobos, name: "Punta de Lobos", town: "Punta de Lobos", lat: -34.4244, lon: -72.0438, offshore_direction: 151, swell_window: [266, 36], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm tier-A)  # re-aimed to the middle of the open arc (aim_normal sweep)
+  - { id: pancora, name: "Pancora", town: "Punta de Lobos", lat: -34.4321, lon: -72.0464, offshore_direction: 61, swell_window: [176, 306], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: cahuil, name: "Cáhuil", town: "Cáhuil", lat: -34.4790, lon: -72.0290, offshore_direction: 76, swell_window: [191, 321], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: bucalemu, name: "Bucalemu", town: "Bucalemu", lat: -34.6352, lon: -72.0431, offshore_direction: 84, swell_window: [199, 329], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: boyeruca, name: "Boyeruca", town: "Boyeruca", lat: -34.6900, lon: -72.0608, offshore_direction: 105, swell_window: [220, 350], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: llico-maule, name: "Llico", town: "Llico", lat: -34.7539, lon: -72.0858, offshore_direction: 140, swell_window: [255, 25], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: lipimavida, name: "Lipimávida", town: "Lipimávida", lat: -34.8513, lon: -72.1460, offshore_direction: 95, swell_window: [210, 340], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: duao, name: "Duao", town: "Duao", lat: -34.8885, lon: -72.1720, offshore_direction: 131, swell_window: [246, 16], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (websearch-seeded)  # re-aimed to the middle of the open arc (aim_normal sweep)
+  - { id: iloca, name: "Iloca", town: "Iloca", lat: -34.9325, lon: -72.1835, offshore_direction: 92, swell_window: [207, 337], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: constitucion, name: "Constitución", town: "Constitución", lat: -35.3300, lon: -72.4350, offshore_direction: 88, swell_window: [203, 333], offshore_km: 5.0, <<: *clc }  # sat-verified 2026-09-16 (websearch-seeded)

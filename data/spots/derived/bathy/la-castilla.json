@@ -1,0 +1,72 @@
+{
+  "spot": "la-castilla",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.453,
+    -71.677
+  ],
+  "bearing_seaward_deg": 229.0,
+  "nearshore_depth_m": 37.0,
+  "offshore_depth_m": 374.0,
+  "mean_slope_m_per_km": 18.99,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.45448,
+      "lon": -71.67903,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.45595,
+      "lon": -71.68107,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.4589,
+      "lon": -71.68514,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.4648,
+      "lon": -71.69327,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.4707,
+      "lon": -71.70141,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.48249,
+      "lon": -71.71769,
+      "depth_m": 106.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.50018,
+      "lon": -71.74211,
+      "depth_m": 122.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.52376,
+      "lon": -71.7747,
+      "depth_m": 385.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.55912,
+      "lon": -71.82361,
+      "depth_m": 374.0
+    }
+  ]
+}

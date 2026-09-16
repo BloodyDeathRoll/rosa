@@ -1,0 +1,72 @@
+{
+  "spot": "el-muelle-miramar",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.2838,
+    -57.8346
+  ],
+  "bearing_seaward_deg": 118.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 48.0,
+  "mean_slope_m_per_km": 2.65,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.28486,
+      "lon": -57.83207,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.28591,
+      "lon": -57.82954,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.28802,
+      "lon": -57.82448,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.29224,
+      "lon": -57.81437,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.29646,
+      "lon": -57.80425,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.3049,
+      "lon": -57.78401,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.31755,
+      "lon": -57.75363,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.3344,
+      "lon": -57.71312,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.35966,
+      "lon": -57.65232,
+      "depth_m": 48.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "sonho-verde",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -9.451,
+    -35.5261
+  ],
+  "bearing_seaward_deg": 77.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 25.0,
+  "mean_slope_m_per_km": 0.96,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -9.45049,
+      "lon": -35.52388,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -9.44999,
+      "lon": -35.52166,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -9.44898,
+      "lon": -35.51722,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -9.44695,
+      "lon": -35.50833,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -9.44493,
+      "lon": -35.49945,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -9.44088,
+      "lon": -35.48168,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -9.43481,
+      "lon": -35.45504,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -9.42671,
+      "lon": -35.41951,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -9.41455,
+      "lon": -35.36622,
+      "depth_m": 25.0
+    }
+  ]
+}

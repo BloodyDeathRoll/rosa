@@ -1,0 +1,72 @@
+{
+  "spot": "faro-querandi",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -37.4685,
+    -57.1055
+  ],
+  "bearing_seaward_deg": 124.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 17.0,
+  "mean_slope_m_per_km": 0.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -37.46976,
+      "lon": -57.10315,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -37.47101,
+      "lon": -57.1008,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -37.47353,
+      "lon": -57.09611,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -37.47856,
+      "lon": -57.08671,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -37.48358,
+      "lon": -57.07731,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -37.49364,
+      "lon": -57.05852,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -37.50871,
+      "lon": -57.03031,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -37.52879,
+      "lon": -56.99268,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -37.5589,
+      "lon": -56.93621,
+      "depth_m": 17.0
+    }
+  ]
+}

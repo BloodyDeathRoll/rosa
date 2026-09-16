@@ -1,0 +1,72 @@
+{
+  "spot": "playa-ronca",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.395,
+    -73.2275
+  ],
+  "bearing_seaward_deg": 240.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 75.0,
+  "mean_slope_m_per_km": 4.56,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.39612,
+      "lon": -73.23002,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.39725,
+      "lon": -73.23254,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.3995,
+      "lon": -73.23758,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.40399,
+      "lon": -73.24766,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.40849,
+      "lon": -73.25774,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.41747,
+      "lon": -73.27791,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.43094,
+      "lon": -73.30817,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.4489,
+      "lon": -73.34853,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -39.4758,
+      "lon": -73.40912,
+      "depth_m": 75.0
+    }
+  ]
+}

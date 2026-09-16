@@ -1,0 +1,72 @@
+{
+  "spot": "millaneco",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -37.5765,
+    -73.6399
+  ],
+  "bearing_seaward_deg": 275.0,
+  "nearshore_depth_m": -22.0,
+  "offshore_depth_m": 365.0,
+  "mean_slope_m_per_km": 21.8,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -37.5763,
+      "lon": -73.64273,
+      "depth_m": -22.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -37.57611,
+      "lon": -73.64555,
+      "depth_m": -22.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -37.57572,
+      "lon": -73.6512,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -37.57493,
+      "lon": -73.66251,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -37.57414,
+      "lon": -73.67381,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -37.57257,
+      "lon": -73.69642,
+      "depth_m": 154.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -37.5702,
+      "lon": -73.73033,
+      "depth_m": 153.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -37.56702,
+      "lon": -73.77553,
+      "depth_m": 193.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -37.56222,
+      "lon": -73.84334,
+      "depth_m": 365.0
+    }
+  ]
+}

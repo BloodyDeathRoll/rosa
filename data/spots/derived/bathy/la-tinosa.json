@@ -1,0 +1,72 @@
+{
+  "spot": "la-tinosa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -0.9564,
+    -80.823
+  ],
+  "bearing_seaward_deg": 321.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 165.0,
+  "mean_slope_m_per_km": 9.18,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -0.95465,
+      "lon": -80.82442,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -0.95291,
+      "lon": -80.82583,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -0.94941,
+      "lon": -80.82866,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -0.94242,
+      "lon": -80.83432,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -0.93543,
+      "lon": -80.83998,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -0.92145,
+      "lon": -80.8513,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -0.90049,
+      "lon": -80.86828,
+      "depth_m": 113.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -0.87253,
+      "lon": -80.89092,
+      "depth_m": 139.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -0.8306,
+      "lon": -80.92488,
+      "depth_m": 165.0
+    }
+  ]
+}

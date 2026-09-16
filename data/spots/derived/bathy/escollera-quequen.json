@@ -1,0 +1,72 @@
+{
+  "spot": "escollera-quequen",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.5781,
+    -58.6944
+  ],
+  "bearing_seaward_deg": 125.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 47.0,
+  "mean_slope_m_per_km": 2.37,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.57939,
+      "lon": -58.69204,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.58068,
+      "lon": -58.68969,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.58326,
+      "lon": -58.68498,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.58842,
+      "lon": -58.67555,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.59357,
+      "lon": -58.66612,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.60388,
+      "lon": -58.64727,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.61934,
+      "lon": -58.61897,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.63995,
+      "lon": -58.58122,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.67083,
+      "lon": -58.52456,
+      "depth_m": 47.0
+    }
+  ]
+}

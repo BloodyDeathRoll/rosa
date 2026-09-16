@@ -1,0 +1,72 @@
+{
+  "spot": "laguna-verde",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.1001,
+    -71.6694
+  ],
+  "bearing_seaward_deg": 311.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 407.0,
+  "mean_slope_m_per_km": 23.49,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.09862,
+      "lon": -71.67143,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.09715,
+      "lon": -71.67345,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.0942,
+      "lon": -71.6775,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.0883,
+      "lon": -71.6856,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.0824,
+      "lon": -71.6937,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.07059,
+      "lon": -71.7099,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.05288,
+      "lon": -71.73418,
+      "depth_m": 134.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.02926,
+      "lon": -71.76655,
+      "depth_m": 155.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -32.99381,
+      "lon": -71.81506,
+      "depth_m": 407.0
+    }
+  ]
+}

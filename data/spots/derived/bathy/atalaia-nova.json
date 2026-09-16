@@ -1,0 +1,72 @@
+{
+  "spot": "atalaia-nova",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -10.9446,
+    -37.0239
+  ],
+  "bearing_seaward_deg": 121.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 43.0,
+  "mean_slope_m_per_km": 2.7,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -10.94576,
+      "lon": -37.02194,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -10.94692,
+      "lon": -37.01997,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -10.94923,
+      "lon": -37.01605,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -10.95386,
+      "lon": -37.0082,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -10.95849,
+      "lon": -37.00034,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -10.96776,
+      "lon": -36.98464,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -10.98165,
+      "lon": -36.96108,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -11.00017,
+      "lon": -36.92966,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -11.02794,
+      "lon": -36.88253,
+      "depth_m": 43.0
+    }
+  ]
+}

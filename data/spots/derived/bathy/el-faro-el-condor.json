@@ -1,0 +1,72 @@
+{
+  "spot": "el-faro-el-condor",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.0601,
+    -62.8401
+  ],
+  "bearing_seaward_deg": 150.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 28.0,
+  "mean_slope_m_per_km": 1.8,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.06205,
+      "lon": -62.83861,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.06399,
+      "lon": -62.83712,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.06789,
+      "lon": -62.83414,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.07568,
+      "lon": -62.82817,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.08346,
+      "lon": -62.8222,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.09904,
+      "lon": -62.81026,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.1224,
+      "lon": -62.79235,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.15354,
+      "lon": -62.76844,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.20024,
+      "lon": -62.73253,
+      "depth_m": 28.0
+    }
+  ]
+}

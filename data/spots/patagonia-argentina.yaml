@@ -1,0 +1,40 @@
+# Rosa spot database - Patagonia Argentina (seeded 2026-09-16). Rio Negro and Chubut - El Condor
+# and Las Grutas on the Rio Negro coast, Playa Union / Rawson and Rada Tilly further south. Cold, windy, east-facing; offshore on a W wind.
+# Every spot carries offshore_km along its own seaward normal, so the deep-water sample follows
+# the pin. Defaults are TODO calibrate.
+
+region: Patagonia Argentina
+defaults: &cbt
+  timezone: America/Argentina/Buenos_Aires
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [45, 200]
+  ideal:
+    wind_dir: [225, 315]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-16 - chubut, 16 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 16 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/chubut/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: las-grutas, name: "Las Grutas", town: "Las Grutas", lat: -40.8105, lon: -65.0847, offshore_direction: 329, swell_window: [84, 214], offshore_km: 5.0, <<: *cbt }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: la-boca-el-condor, name: "La Boca (El Cóndor)", town: "El Cóndor", lat: -41.0363, lon: -62.7983, offshore_direction: 324, swell_window: [79, 209], offshore_km: 5.0, <<: *cbt }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: picoto, name: "Picoto", town: "El Cóndor", lat: -41.0454, lon: -62.8145, offshore_direction: 321, swell_window: [76, 206], offshore_km: 5.0, <<: *cbt }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: el-faro-el-condor, name: "El Faro (El Cóndor)", town: "El Cóndor", lat: -41.0601, lon: -62.8401, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, <<: *cbt }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: bahia-creek, name: "Bahía Creek", town: "Bahía Creek", lat: -41.0860, lon: -63.9351, offshore_direction: 39, swell_window: [154, 284], offshore_km: 5.0, <<: *cbt }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: el-espigon, name: "El Espigón", town: "La Lobería", lat: -41.1203, lon: -63.0094, offshore_direction: 273, swell_window: [28, 158], offshore_km: 5.0, <<: *cbt }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: playa-bonita-la-loberia, name: "Playa Bonita (La Lobería)", town: "La Lobería", lat: -41.1258, lon: -63.0238, offshore_direction: 329, swell_window: [84, 214], offshore_km: 5.0, <<: *cbt }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: bahia-rosas, name: "Bahía Rosas", town: "La Lobería", lat: -41.1515, lon: -63.3344, offshore_direction: 357, swell_window: [112, 242], offshore_km: 5.0, <<: *cbt }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: la-loberia-rio-negro, name: "La Lobería (Río Negro)", town: "La Lobería", lat: -41.1557, lon: -63.1253, offshore_direction: 3, swell_window: [118, 248], offshore_km: 5.0, <<: *cbt }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: playa-union, name: "Playa Unión", town: "Rawson", lat: -43.3118, lon: -65.0387, offshore_direction: 307, swell_window: [62, 192], offshore_km: 5.0, <<: *cbt }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: puerto-rawson, name: "Puerto Rawson", town: "Rawson", lat: -43.3320, lon: -65.0518, offshore_direction: 285, swell_window: [40, 170], offshore_km: 5.0, <<: *cbt }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: cabo-raso, name: "Cabo Raso", town: "Cabo Raso", lat: -44.3324, lon: -65.2540, offshore_direction: 236, swell_window: [351, 121], offshore_km: 5.0, <<: *cbt }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: km-3-comodoro, name: "Km 3 (Comodoro)", town: "Comodoro Rivadavia", lat: -45.8404, lon: -67.4671, offshore_direction: 296, swell_window: [51, 181], offshore_km: 5.0, <<: *cbt }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: rada-tilly, name: "Rada Tilly", town: "Rada Tilly", lat: -45.9342, lon: -67.5558, offshore_direction: 285, swell_window: [40, 170], offshore_km: 5.0, <<: *cbt }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: bajada-de-los-palitos, name: "Bajada de los Palitos", town: "Rada Tilly", lat: -45.9637, lon: -67.5655, offshore_direction: 297, swell_window: [52, 182], offshore_km: 5.0, <<: *cbt }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: playa-bonita-rada-tilly, name: "Playa Bonita (Rada Tilly)", town: "Rada Tilly", lat: -45.9938, lon: -67.5918, offshore_direction: 268, swell_window: [23, 153], offshore_km: 5.0, <<: *cbt }  # sat-verified 2026-09-16 (websearch-seeded)

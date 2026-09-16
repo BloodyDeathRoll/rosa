@@ -1,0 +1,72 @@
+{
+  "spot": "playa-brava",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -20.248,
+    -70.1397
+  ],
+  "bearing_seaward_deg": 258.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 578.0,
+  "mean_slope_m_per_km": 32.11,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -20.24847,
+      "lon": -70.14204,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -20.24893,
+      "lon": -70.14439,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -20.24987,
+      "lon": -70.14908,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -20.25174,
+      "lon": -70.15845,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -20.25361,
+      "lon": -70.16783,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -20.25734,
+      "lon": -70.18658,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -20.26294,
+      "lon": -70.21472,
+      "depth_m": 131.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -20.2704,
+      "lon": -70.25223,
+      "depth_m": 233.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -20.28158,
+      "lon": -70.30851,
+      "depth_m": 578.0
+    }
+  ]
+}

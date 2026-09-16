@@ -1,0 +1,72 @@
+{
+  "spot": "praia-de-thermas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -10.5832,
+    -36.5993
+  ],
+  "bearing_seaward_deg": 151.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 23.0,
+  "mean_slope_m_per_km": 1.13,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -10.58517,
+      "lon": -36.59819,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -10.58713,
+      "lon": -36.59708,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -10.59107,
+      "lon": -36.59486,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -10.59893,
+      "lon": -36.59043,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -10.6068,
+      "lon": -36.58599,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -10.62253,
+      "lon": -36.57712,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -10.64612,
+      "lon": -36.56381,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -10.67758,
+      "lon": -36.54606,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -10.72477,
+      "lon": -36.51943,
+      "depth_m": 23.0
+    }
+  ]
+}

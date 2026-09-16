@@ -1,0 +1,72 @@
+{
+  "spot": "la-coronilla",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.8974,
+    -53.5088
+  ],
+  "bearing_seaward_deg": 105.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 18.0,
+  "mean_slope_m_per_km": 1.52,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.89798,
+      "lon": -53.50618,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.89856,
+      "lon": -53.50357,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.89973,
+      "lon": -53.49833,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.90205,
+      "lon": -53.48787,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.90438,
+      "lon": -53.4774,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.90903,
+      "lon": -53.45647,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.91599,
+      "lon": -53.42506,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.92527,
+      "lon": -53.38317,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.93915,
+      "lon": -53.32033,
+      "depth_m": 18.0
+    }
+  ]
+}

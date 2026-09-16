@@ -1,0 +1,72 @@
+{
+  "spot": "pucatrihue",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -40.5416,
+    -73.7168
+  ],
+  "bearing_seaward_deg": 296.0,
+  "nearshore_depth_m": -29.0,
+  "offshore_depth_m": 136.0,
+  "mean_slope_m_per_km": 9.3,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -40.54061,
+      "lon": -73.71946,
+      "depth_m": -29.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -40.53963,
+      "lon": -73.72212,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -40.53766,
+      "lon": -73.72744,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -40.53371,
+      "lon": -73.73807,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -40.52977,
+      "lon": -73.7487,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -40.52188,
+      "lon": -73.76997,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -40.51003,
+      "lon": -73.80185,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -40.49422,
+      "lon": -73.84435,
+      "depth_m": 118.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -40.47048,
+      "lon": -73.90805,
+      "depth_m": 136.0
+    }
+  ]
+}

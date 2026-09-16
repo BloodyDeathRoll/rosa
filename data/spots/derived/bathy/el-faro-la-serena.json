@@ -1,0 +1,72 @@
+{
+  "spot": "el-faro-la-serena",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -29.9067,
+    -71.2747
+  ],
+  "bearing_seaward_deg": 277.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 400.0,
+  "mean_slope_m_per_km": 22.82,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -29.90643,
+      "lon": -71.27727,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -29.90615,
+      "lon": -71.27985,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -29.9056,
+      "lon": -71.285,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -29.90451,
+      "lon": -71.29529,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -29.90341,
+      "lon": -71.30559,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -29.90121,
+      "lon": -71.32618,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -29.89791,
+      "lon": -71.35707,
+      "depth_m": 94.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -29.89349,
+      "lon": -71.39825,
+      "depth_m": 185.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -29.88684,
+      "lon": -71.46002,
+      "depth_m": 400.0
+    }
+  ]
+}

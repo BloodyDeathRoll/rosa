@@ -1,0 +1,72 @@
+{
+  "spot": "chabela",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -2.639,
+    -80.3999
+  ],
+  "bearing_seaward_deg": 190.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 14.0,
+  "mean_slope_m_per_km": 0.68,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -2.64121,
+      "lon": -80.40029,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -2.64343,
+      "lon": -80.40068,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -2.64786,
+      "lon": -80.40146,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -2.65671,
+      "lon": -80.40303,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -2.66557,
+      "lon": -80.40459,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -2.68328,
+      "lon": -80.40772,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -2.70985,
+      "lon": -80.41241,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -2.74528,
+      "lon": -80.41866,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -2.79842,
+      "lon": -80.42804,
+      "depth_m": 14.0
+    }
+  ]
+}

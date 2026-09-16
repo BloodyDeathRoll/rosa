@@ -1,0 +1,72 @@
+{
+  "spot": "jatiuca",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -9.6474,
+    -35.6993
+  ],
+  "bearing_seaward_deg": 114.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 2.37,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -9.64831,
+      "lon": -35.69722,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -9.64923,
+      "lon": -35.69513,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -9.65106,
+      "lon": -35.69097,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -9.65472,
+      "lon": -35.68263,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -9.65837,
+      "lon": -35.6743,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -9.66569,
+      "lon": -35.65763,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -9.67666,
+      "lon": -35.63263,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -9.69128,
+      "lon": -35.59928,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -9.71321,
+      "lon": -35.54927,
+      "depth_m": 30.0
+    }
+  ]
+}

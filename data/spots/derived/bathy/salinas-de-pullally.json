@@ -1,0 +1,72 @@
+{
+  "spot": "salinas-de-pullally",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -32.4104,
+    -71.4128
+  ],
+  "bearing_seaward_deg": 313.0,
+  "nearshore_depth_m": -16.0,
+  "offshore_depth_m": 296.0,
+  "mean_slope_m_per_km": 17.58,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.40887,
+      "lon": -71.41475,
+      "depth_m": -16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.40733,
+      "lon": -71.4167,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -32.40427,
+      "lon": -71.42059,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.39813,
+      "lon": -71.42838,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -32.392,
+      "lon": -71.43617,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.37973,
+      "lon": -71.45174,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -32.36132,
+      "lon": -71.47509,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -32.33677,
+      "lon": -71.50621,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -32.29992,
+      "lon": -71.55286,
+      "depth_m": 296.0
+    }
+  ]
+}

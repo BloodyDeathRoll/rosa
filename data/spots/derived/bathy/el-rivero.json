@@ -1,0 +1,72 @@
+{
+  "spot": "el-rivero",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.0394,
+    -53.5394
+  ],
+  "bearing_seaward_deg": 100.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 1.35,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.03979,
+      "lon": -53.53673,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.04018,
+      "lon": -53.53406,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.04096,
+      "lon": -53.52871,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.04252,
+      "lon": -53.51802,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.04408,
+      "lon": -53.50733,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.0472,
+      "lon": -53.48596,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.05186,
+      "lon": -53.45388,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.05807,
+      "lon": -53.41112,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.06736,
+      "lon": -53.34695,
+      "depth_m": 20.0
+    }
+  ]
+}

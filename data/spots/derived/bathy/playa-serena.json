@@ -1,0 +1,72 @@
+{
+  "spot": "playa-serena",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.1096,
+    -57.5763
+  ],
+  "bearing_seaward_deg": 158.0,
+  "nearshore_depth_m": -18.0,
+  "offshore_depth_m": 33.0,
+  "mean_slope_m_per_km": 2.87,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.11168,
+      "lon": -57.57523,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.11377,
+      "lon": -57.57416,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.11794,
+      "lon": -57.57202,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.12628,
+      "lon": -57.56773,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.13461,
+      "lon": -57.56345,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.15129,
+      "lon": -57.55488,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.1763,
+      "lon": -57.54202,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.20965,
+      "lon": -57.52485,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.25967,
+      "lon": -57.49907,
+      "depth_m": 33.0
+    }
+  ]
+}

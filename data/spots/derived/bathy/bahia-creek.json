@@ -1,0 +1,72 @@
+{
+  "spot": "bahia-creek",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.086,
+    -63.9351
+  ],
+  "bearing_seaward_deg": 219.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 88.0,
+  "mean_slope_m_per_km": 5.24,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.08775,
+      "lon": -63.93698,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.08949,
+      "lon": -63.93885,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.09299,
+      "lon": -63.94261,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.09998,
+      "lon": -63.95012,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.10696,
+      "lon": -63.95763,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.12094,
+      "lon": -63.97266,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.1419,
+      "lon": -63.99522,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.16983,
+      "lon": -64.02532,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.21172,
+      "lon": -64.07052,
+      "depth_m": 88.0
+    }
+  ]
+}

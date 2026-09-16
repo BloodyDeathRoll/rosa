@@ -1,0 +1,61 @@
+# Rosa spot database - Chile South (seeded 2026-09-16). Maule Sur (Chanco, Pelluhue, Curanipe), Cobquecura and
+# Buchupureo, the Concepcion beaches, Arauco and Lebu, Tirua, the Araucania coast, Valdivia's beaches and the
+# Osorno coast. The most exposed Chilean coast - relentless SW Southern Ocean swell, offshore on an E wind.
+# Every spot carries offshore_km along its own seaward normal, so the deep-water sample follows
+# the pin. Defaults are TODO calibrate.
+
+region: Chile South
+defaults: &cls
+  timezone: America/Santiago
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [180, 310]
+  ideal:
+    wind_dir: [45, 135]
+    size_m: [1.0, 4.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-16 - chile-south, 34 spots. The primary coastline flow found 0 OSM surf
+  # beacons on the whole coast (474 named beaches, © OpenStreetMap contributors, ODbL), so every
+  # spot here comes from the secondary web-search flow: Chilean/Spanish surf guides -> 48 names ->
+  # multi_geocode (Google + Nominatim + Photon) -> ca_xref against the OSM named beaches -> ESRI
+  # z16 render, judged one tile at a time, wide z13/z14 reads where the pin missed. 14 names were
+  # dropped (sheltered Concepcion-bay and Gulf-of-Arauco water, collapsed geocodes, inland pins);
+  # judge log in tools/spot-seed/work/chile-south/judge.json. offshore_direction is the nearest
+  # coastline candidate's shore normal, re-aimed where the ray was blocked; swell_window = seaward
+  # +/-65 deg, TODO calibrate. North to south.
+  - { id: loanco, name: "Loanco", town: "Chanco", lat: -35.5758, lon: -72.6228, offshore_direction: 87, swell_window: [202, 332], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: pelluhue, name: "Pelluhue", town: "Pelluhue", lat: -35.8099, lon: -72.5743, offshore_direction: 118, swell_window: [233, 3], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: tres-penas, name: "Tres Peñas", town: "Curanipe", lat: -35.8267, lon: -72.6132, offshore_direction: 129, swell_window: [244, 14], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: curanipe, name: "Curanipe", town: "Curanipe", lat: -35.8443, lon: -72.6416, offshore_direction: 128, swell_window: [243, 13], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: tregualemu, name: "Tregualemu", town: "Tregualemu", lat: -35.9533, lon: -72.7499, offshore_direction: 134, swell_window: [249, 19], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: pullay, name: "Pullay", town: "Cobquecura", lat: -36.0273, lon: -72.7783, offshore_direction: 84, swell_window: [199, 329], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: buchupureo, name: "Buchupureo", town: "Buchupureo", lat: -36.0651, lon: -72.7896, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: cobquecura, name: "Cobquecura", town: "Cobquecura", lat: -36.1191, lon: -72.8072, offshore_direction: 76, swell_window: [191, 321], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: monte-del-zorro, name: "Monte del Zorro", town: "Cobquecura", lat: -36.1314, lon: -72.8055, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: taucu, name: "Taucú", town: "Taucú", lat: -36.1697, lon: -72.8099, offshore_direction: 116, swell_window: [231, 1], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: rinconada-cobquecura, name: "Rinconada", town: "Cobquecura", lat: -36.1802, lon: -72.8152, offshore_direction: 115, swell_window: [230, 0], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: colmuyao, name: "Colmuyao", town: "Colmuyao", lat: -36.2765, lon: -72.81, offshore_direction: 155, swell_window: [270, 40], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: purema, name: "Purema", town: "Coelemu", lat: -36.4433, lon: -72.8833, offshore_direction: 92, swell_window: [207, 337], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: cocholgue, name: "Cocholgüe", town: "Cocholgüe", lat: -36.5971, lon: -72.977, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: ramuntcho, name: "Ramuntcho", town: "Hualpén", lat: -36.7521, lon: -73.1853, offshore_direction: 180, swell_window: [295, 65], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: desembocadura-biobio, name: "Desembocadura", town: "Hualpén", lat: -36.8085, lon: -73.1745, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: playa-blanca-lota, name: "Playa Blanca", town: "Lota", lat: -37.0613, lon: -73.1435, offshore_direction: 109, swell_window: [224, 354], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: laraquete, name: "Laraquete", town: "Laraquete", lat: -37.1686, lon: -73.1925, offshore_direction: 124, swell_window: [239, 9], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: millaneco, name: "Millaneco", town: "Lebu", lat: -37.5765, lon: -73.6399, offshore_direction: 95, swell_window: [210, 340], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: lebu, name: "Lebu", town: "Lebu", lat: -37.592, lon: -73.6696, offshore_direction: 171, swell_window: [286, 56], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: quidico, name: "Quidico", town: "Quidico", lat: -38.2411, lon: -73.4775, offshore_direction: 132, swell_window: [247, 17], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: tirua, name: "Tirúa", town: "Tirúa", lat: -38.3347, lon: -73.4982, offshore_direction: 122, swell_window: [237, 7], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: puerto-saavedra, name: "Puerto Saavedra", town: "Puerto Saavedra", lat: -38.8137, lon: -73.4022, offshore_direction: 65, swell_window: [180, 310], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: playa-ronca, name: "Playa Ronca", town: "Mehuín", lat: -39.395, lon: -73.2275, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: cheuque, name: "Cheuque", town: "Mehuín", lat: -39.4037, lon: -73.2217, offshore_direction: 88, swell_window: [203, 333], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: mehuin, name: "Mehuín", town: "Mehuín", lat: -39.431, lon: -73.2152, offshore_direction: 87, swell_window: [202, 332], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: chan-chan, name: "Chan Chan", town: "Mehuín", lat: -39.5348, lon: -73.2525, offshore_direction: 108, swell_window: [223, 353], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: pilolcura, name: "Pilolcura", town: "Pilolcura", lat: -39.669, lon: -73.3504, offshore_direction: 106, swell_window: [221, 351], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: curinanco, name: "Curiñanco", town: "Curiñanco", lat: -39.7411, lon: -73.3947, offshore_direction: 72, swell_window: [187, 317], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: calfuco, name: "Calfuco", town: "Calfuco", lat: -39.7886, lon: -73.3906, offshore_direction: 94, swell_window: [209, 339], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: chaihuin, name: "Chaihuín", town: "Chaihuín", lat: -39.9498, lon: -73.588, offshore_direction: 107, swell_window: [222, 352], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: pucatrihue, name: "Pucatrihue", town: "Pucatrihue", lat: -40.5416, lon: -73.7168, offshore_direction: 116, swell_window: [231, 1], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: maicolpue, name: "Maicolpué", town: "Maicolpué", lat: -40.5954, lon: -73.736, offshore_direction: 94, swell_window: [209, 339], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: tril-tril, name: "Tril Tril", town: "Maicolpué", lat: -40.6162, lon: -73.754, offshore_direction: 114, swell_window: [229, 359], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)

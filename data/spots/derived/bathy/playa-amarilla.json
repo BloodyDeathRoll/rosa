@@ -1,0 +1,72 @@
+{
+  "spot": "playa-amarilla",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -32.923,
+    -71.5247
+  ],
+  "bearing_seaward_deg": 277.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 162.0,
+  "mean_slope_m_per_km": 8.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.92273,
+      "lon": -71.52736,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.92245,
+      "lon": -71.53002,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -32.9219,
+      "lon": -71.53533,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.92081,
+      "lon": -71.54597,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -32.91971,
+      "lon": -71.5566,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.91751,
+      "lon": -71.57787,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -32.9142,
+      "lon": -71.60976,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -32.90978,
+      "lon": -71.65229,
+      "depth_m": 124.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -32.90313,
+      "lon": -71.71607,
+      "depth_m": 162.0
+    }
+  ]
+}

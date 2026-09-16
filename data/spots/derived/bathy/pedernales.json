@@ -1,0 +1,72 @@
+{
+  "spot": "pedernales",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    0.0695,
+    -80.059
+  ],
+  "bearing_seaward_deg": 293.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 24.0,
+  "mean_slope_m_per_km": 2.03,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 0.07038,
+      "lon": -80.06107,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 0.07126,
+      "lon": -80.06314,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 0.07301,
+      "lon": -80.06728,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 0.07653,
+      "lon": -80.07556,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 0.08004,
+      "lon": -80.08383,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 0.08707,
+      "lon": -80.10039,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 0.09761,
+      "lon": -80.12523,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 0.11167,
+      "lon": -80.15834,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 0.13275,
+      "lon": -80.20801,
+      "depth_m": 24.0
+    }
+  ]
+}

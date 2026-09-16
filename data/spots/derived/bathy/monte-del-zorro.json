@@ -1,0 +1,72 @@
+{
+  "spot": "monte-del-zorro",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.1314,
+    -72.8055
+  ],
+  "bearing_seaward_deg": 270.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 215.0,
+  "mean_slope_m_per_km": 12.62,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.1314,
+      "lon": -72.80828,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.1314,
+      "lon": -72.81107,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.1314,
+      "lon": -72.81663,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.1314,
+      "lon": -72.82777,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.1314,
+      "lon": -72.8389,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.13139,
+      "lon": -72.86117,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.13137,
+      "lon": -72.89458,
+      "depth_m": 112.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.13133,
+      "lon": -72.93912,
+      "depth_m": 137.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.13123,
+      "lon": -73.00593,
+      "depth_m": 215.0
+    }
+  ]
+}

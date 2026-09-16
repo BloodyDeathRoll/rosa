@@ -1,0 +1,72 @@
+{
+  "spot": "matanzas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.9623,
+    -71.8769
+  ],
+  "bearing_seaward_deg": 269.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 157.0,
+  "mean_slope_m_per_km": 9.41,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.96234,
+      "lon": -71.87961,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.96238,
+      "lon": -71.88232,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.96246,
+      "lon": -71.88774,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.96261,
+      "lon": -71.89858,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.96277,
+      "lon": -71.90942,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.96307,
+      "lon": -71.93111,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.96353,
+      "lon": -71.96363,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.96411,
+      "lon": -72.007,
+      "depth_m": 110.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.96497,
+      "lon": -72.07205,
+      "depth_m": 157.0
+    }
+  ]
+}

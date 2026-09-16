@@ -1,0 +1,72 @@
+{
+  "spot": "praia-do-gunga",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -9.8982,
+    -35.9345
+  ],
+  "bearing_seaward_deg": 130.0,
+  "nearshore_depth_m": -16.0,
+  "offshore_depth_m": 25.0,
+  "mean_slope_m_per_km": 2.31,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -9.89965,
+      "lon": -35.93275,
+      "depth_m": -16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -9.90109,
+      "lon": -35.931,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -9.90398,
+      "lon": -35.92751,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -9.90976,
+      "lon": -35.92051,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -9.91554,
+      "lon": -35.91352,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -9.9271,
+      "lon": -35.89953,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -9.94444,
+      "lon": -35.87855,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -9.96756,
+      "lon": -35.85056,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -10.00223,
+      "lon": -35.80858,
+      "depth_m": 25.0
+    }
+  ]
+}

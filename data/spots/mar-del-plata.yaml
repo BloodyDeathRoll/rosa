@@ -1,0 +1,71 @@
+# Rosa spot database - Mar del Plata (seeded 2026-09-16). Argentina's Buenos Aires coast - Mar del Plata's city beaches, Miramar, Necochea and Claromeco. E-SE facing beachbreak on a wide shallow shelf, offshore on a W wind.
+# Every spot carries offshore_km along its own seaward normal, so the deep-water sample follows
+# the pin. Defaults are TODO calibrate.
+
+region: Mar del Plata
+defaults: &mdp
+  timezone: America/Argentina/Buenos_Aires
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [45, 200]
+  ideal:
+    wind_dir: [225, 315]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-16 - mar-del-plata, 48 spots (primary coastline flow: 2 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 46 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/mar-del-plata/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: mar-de-ajo, name: "Mar de Ajó", town: "Mar de Ajó", lat: -36.7211, lon: -56.6727, offshore_direction: 269, swell_window: [24, 154], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: punta-medanos, name: "Punta Médanos", town: "Punta Médanos", lat: -36.8878, lon: -56.6689, offshore_direction: 299, swell_window: [54, 184], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: pinamar, name: "Pinamar", town: "Pinamar", lat: -37.1167, lon: -56.8537, offshore_direction: 294, swell_window: [49, 179], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: ostende, name: "Ostende", town: "Pinamar", lat: -37.1342, lon: -56.8678, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: carilo, name: "Cariló", town: "Cariló", lat: -37.1581, lon: -56.8845, offshore_direction: 308, swell_window: [63, 193], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: villa-gesell-muelle, name: "Muelle de Villa Gesell", town: "Villa Gesell", lat: -37.2803, lon: -56.9821, offshore_direction: 306, swell_window: [61, 191], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: mar-azul, name: "Mar Azul", town: "Mar Azul", lat: -37.3440, lon: -57.0269, offshore_direction: 295, swell_window: [50, 180], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: faro-querandi, name: "Faro Querandí", town: "Villa Gesell", lat: -37.4685, lon: -57.1055, offshore_direction: 304, swell_window: [59, 189], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: mar-chiquita-la-boca, name: "La Boca (Mar Chiquita)", town: "Mar Chiquita", lat: -37.7462, lon: -57.4178, offshore_direction: 334, swell_window: [89, 219], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: camet-norte, name: "Camet Norte", town: "Camet Norte", lat: -37.8264, lon: -57.4901, offshore_direction: 308, swell_window: [63, 193], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: santa-clara-del-mar, name: "Santa Clara del Mar", town: "Santa Clara del Mar", lat: -37.8426, lon: -57.5007, offshore_direction: 304, swell_window: [59, 189], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded, normal re-aimed to the middle of the open arc)
+  - { id: estrada, name: "Estrada", town: "Mar del Plata", lat: -37.9591, lon: -57.5384, offshore_direction: 282, swell_window: [37, 167], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: daprotis, name: "DaProtis", town: "Mar del Plata", lat: -37.9678, lon: -57.5405, offshore_direction: 284, swell_window: [39, 169], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: cardiel, name: "Cardiel", town: "Mar del Plata", lat: -37.9783, lon: -57.5416, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded, normal re-aimed to the middle of the open arc)
+  - { id: la-perla-mdp, name: "La Perla", town: "Mar del Plata", lat: -37.9858, lon: -57.5426, offshore_direction: 257, swell_window: [12, 142], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: la-pepita, name: "La Pepita", town: "Mar del Plata", lat: -38.0016, lon: -57.5401, offshore_direction: 268, swell_window: [23, 153], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: el-torreon, name: "Torreón del Monje", town: "Mar del Plata", lat: -38.0080, lon: -57.5334, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded, normal re-aimed to the middle of the open arc)
+  - { id: varese, name: "Varese", town: "Mar del Plata", lat: -38.0147, lon: -57.5298, offshore_direction: 230, swell_window: [345, 115], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: cabo-corrientes, name: "Cabo Corrientes", town: "Mar del Plata", lat: -38.0162, lon: -57.5258, offshore_direction: 239, swell_window: [354, 124], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: playa-chica-mdp, name: "Playa Chica", town: "Mar del Plata", lat: -38.0210, lon: -57.5268, offshore_direction: 274, swell_window: [29, 159], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: biologia, name: "Biología", town: "Mar del Plata", lat: -38.0268, lon: -57.5296, offshore_direction: 305, swell_window: [60, 190], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: el-yacht, name: "El Yacht (Playa Grande)", town: "Mar del Plata", lat: -38.0316, lon: -57.5314, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: punta-mogotes, name: "Punta Mogotes", town: "Mar del Plata", lat: -38.0697, lon: -57.5410, offshore_direction: 276, swell_window: [31, 161], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: waikiki-mdp, name: "Waikiki (Punta Cantera)", town: "Mar del Plata", lat: -38.0808, lon: -57.5365, offshore_direction: 239, swell_window: [354, 124], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: honu-beach, name: "Honu Beach", town: "Mar del Plata", lat: -38.0887, lon: -57.5412, offshore_direction: 288, swell_window: [43, 173], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: la-maquinita, name: "La Maquinita", town: "Mar del Plata", lat: -38.0917, lon: -57.5417, offshore_direction: 288, swell_window: [43, 173], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: alfar, name: "Alfar", town: "Mar del Plata", lat: -38.1024, lon: -57.5559, offshore_direction: 346, swell_window: [101, 231], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: playa-serena, name: "Playa Serena", town: "Mar del Plata", lat: -38.1096, lon: -57.5763, offshore_direction: 338, swell_window: [93, 223], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: acantilados, name: "Acantilados", town: "Mar del Plata", lat: -38.1191, lon: -57.5917, offshore_direction: 320, swell_window: [75, 205], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded, normal re-aimed to the middle of the open arc)
+  - { id: la-paloma-chapadmalal, name: "La Paloma", town: "Chapadmalal", lat: -38.1341, lon: -57.6062, offshore_direction: 258, swell_window: [13, 143], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: luna-roja, name: "Luna Roja", town: "Chapadmalal", lat: -38.1734, lon: -57.6398, offshore_direction: 327, swell_window: [82, 212], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: cruz-del-sur, name: "Cruz del Sur", town: "Chapadmalal", lat: -38.1840, lon: -57.6549, offshore_direction: 308, swell_window: [63, 193], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: chapadmalal, name: "Chapadmalal", town: "Chapadmalal", lat: -38.2111, lon: -57.6964, offshore_direction: 302, swell_window: [57, 187], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: palangana, name: "Palangana", town: "Chapadmalal", lat: -38.2143, lon: -57.7008, offshore_direction: 322, swell_window: [77, 207], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (osm-seeded)
+  - { id: las-brusquitas, name: "Las Brusquitas", town: "Miramar", lat: -38.2450, lon: -57.7783, offshore_direction: 324, swell_window: [79, 209], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: el-durazno, name: "El Durazno", town: "Miramar", lat: -38.2705, lon: -57.8253, offshore_direction: 321, swell_window: [76, 206], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: miramar-centro, name: "Miramar Centro", town: "Miramar", lat: -38.2754, lon: -57.8309, offshore_direction: 312, swell_window: [67, 197], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: el-muelle-miramar, name: "El Muelle (Miramar)", town: "Miramar", lat: -38.2838, lon: -57.8346, offshore_direction: 298, swell_window: [53, 183], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: mar-del-sur, name: "Mar del Sur", town: "Mar del Sur", lat: -38.3478, lon: -57.9875, offshore_direction: 331, swell_window: [86, 216], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: arenas-verdes, name: "Arenas Verdes", town: "Arenas Verdes", lat: -38.5490, lon: -58.5542, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: la-helice, name: "La Hélice", town: "Quequén", lat: -38.5744, lon: -58.6882, offshore_direction: 342, swell_window: [97, 227], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: escollera-quequen, name: "Escollera de Quequén", town: "Quequén", lat: -38.5781, lon: -58.6944, offshore_direction: 305, swell_window: [60, 190], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: escollera-necochea, name: "Escollera Sur (Necochea)", town: "Necochea", lat: -38.5837, lon: -58.6994, offshore_direction: 350, swell_window: [105, 235], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded, normal re-aimed to the middle of the open arc)
+  - { id: el-cano, name: "El Caño", town: "Necochea", lat: -38.5852, lon: -58.7250, offshore_direction: 344, swell_window: [99, 229], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: orense, name: "Orense", town: "Orense", lat: -38.8091, lon: -59.7339, offshore_direction: 336, swell_window: [91, 221], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: claromeco, name: "Claromecó", town: "Claromecó", lat: -38.8613, lon: -60.0743, offshore_direction: 346, swell_window: [101, 231], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: reta, name: "Reta", town: "Reta", lat: -38.9030, lon: -60.3382, offshore_direction: 349, swell_window: [104, 234], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: monte-hermoso, name: "Monte Hermoso", town: "Monte Hermoso", lat: -38.9903, lon: -61.2850, offshore_direction: 3, swell_window: [118, 248], offshore_km: 5.0, <<: *mdp }  # sat-verified 2026-09-16 (websearch-seeded)

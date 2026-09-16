@@ -299,6 +299,39 @@ REGIONS = {
     "rio-grande-do-norte": (-6.50, -38.00, -4.80, -34.95),
     # Ceara: Fortaleza, Paracuru, Taiba and Jericoacoara on the north-facing trade coast
     "ceara": (-4.90, -41.40, -2.70, -37.20),
+    # the Brazilian north-east gaps closed 2026-09-16, all three on the nordeste extract
+    # Paraiba: Joao Pessoa's city beaches (Cabo Branco, Bessa) and Tambaba south of it.
+    # The N edge is the Rio Guaju, the PB/RN border - at -6.00 the box overran into Rio
+    # Grande do Norte and re-offered Baia Formosa's already-seeded pontal as NEW (2026-09-16)
+    "paraiba": (-7.95, -35.15, -6.47, -34.60),
+    # Alagoas: Maceio, Praia do Frances and Barra de Sao Miguel
+    "alagoas": (-10.55, -36.40, -8.80, -35.10),
+    # Sergipe: Aracaju's beaches and the Atalaia / Mosqueiro coast
+    "sergipe": (-11.60, -37.60, -10.00, -36.35),
+    # ---- the Pacific coast of South America south of Peru. Chile is 4,000 km of one
+    # west-facing coastline, so it is three boxes on one `south-america/chile` extract;
+    # the Southern Ocean groundswell is the same everywhere, the wind and the shelf are not
+    # Chile north: Arica, Iquique and Antofagasta on the desert coast
+    "chile-north": (-27.00, -71.70, -18.30, -69.80),
+    # Chile central: Coquimbo and La Serena through Valparaiso / Ritoque and Pichilemu
+    # (Punta de Lobos) down to Constitucion
+    "chile-central": (-35.50, -72.60, -27.00, -70.30),
+    # Chile south: Cobquecura and Buchupureo, the Concepcion beaches, Arauco and Lebu
+    "chile-south": (-42.00, -75.00, -35.50, -72.20),
+    # Ecuador's mainland coast: Montanita and Ayampe in the south, Manta, Canoa and
+    # Mompiche north; the Galapagos are 900 km offshore and not seeded
+    "ecuador": (-3.50, -81.20, 1.60, -79.40),
+    # ---- the south-west Atlantic. Uruguay and Argentina face E-SE into the same swell
+    # Uruguay: Montevideo east through Punta del Este, La Paloma and Punta del Diablo
+    "uruguay": (-35.10, -56.60, -33.60, -53.10),
+    # Argentina's Buenos Aires coast: Mar del Plata, Miramar, Necochea and Claromeco.
+    # N edge moved -36.90 -> -36.60 on 2026-09-16: Mar de Ajo and Punta Medanos are
+    # surfed and sat just outside the first box
+    "mar-del-plata": (-39.10, -61.50, -36.60, -56.60),
+    # Argentine Patagonia: El Condor and Las Grutas on the Rio Negro coast, then Playa
+    # Union / Rawson and Rada Tilly in Chubut - the box spans both provinces, which is
+    # why the region is not called "chubut" (2026-09-16: 9 of its 16 spots are Rio Negro)
+    "patagonia-argentina": (-46.00, -68.00, -40.50, -62.00),
 }
 
 

@@ -1,0 +1,72 @@
+{
+  "spot": "tonchigue",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    0.8284,
+    -79.9491
+  ],
+  "bearing_seaward_deg": 325.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 67.0,
+  "mean_slope_m_per_km": 3.61,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 0.83024,
+      "lon": -79.95039,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 0.83208,
+      "lon": -79.95168,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 0.83577,
+      "lon": -79.95426,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 0.84313,
+      "lon": -79.95942,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 0.8505,
+      "lon": -79.96458,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 0.86523,
+      "lon": -79.97489,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 0.88733,
+      "lon": -79.99037,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 0.9168,
+      "lon": -80.01101,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 0.961,
+      "lon": -80.04196,
+      "depth_m": 67.0
+    }
+  ]
+}

@@ -119,7 +119,8 @@ the same per-spot request family). Order: easiest first, each independently ship
   ICON-era OM vs the wave file's ocean-masked wind, and OM's weather model has been GFS
   itself since 2026-08-30 - so the migration is now an interpolation question, not a
   model question. And since the marine-light leg went (2026-09-12) the weather host is
-  the LAST per-spot OM call, at the 10,000/day line at 1947 spots. Steps: add a
+  the LAST per-spot OM call, past the 10,000/day line since the 2254-spot South America pass
+  (2026-09-16). Steps: add a
   `gfs_grib` member to the station wind archive and score it for ~2 weeks; if the
   short-lead sign holds, a `WeatherSource` behind `BlendedSource.weather` on the same
   26 boxes / 3-hourly steps as `GfsFullSource` (NOMADS `filter_gfs_0p25_1hr.pl`,

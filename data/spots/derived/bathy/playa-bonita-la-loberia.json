@@ -1,0 +1,72 @@
+{
+  "spot": "playa-bonita-la-loberia",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.1258,
+    -63.0238
+  ],
+  "bearing_seaward_deg": 149.0,
+  "nearshore_depth_m": -19.0,
+  "offshore_depth_m": 28.0,
+  "mean_slope_m_per_km": 2.65,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.12773,
+      "lon": -63.02226,
+      "depth_m": -19.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.12965,
+      "lon": -63.02073,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.13351,
+      "lon": -63.01765,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.14122,
+      "lon": -63.0115,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.14892,
+      "lon": -63.00535,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.16434,
+      "lon": -62.99304,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.18746,
+      "lon": -62.97456,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.21828,
+      "lon": -62.94991,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.2645,
+      "lon": -62.91288,
+      "depth_m": 28.0
+    }
+  ]
+}

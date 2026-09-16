@@ -1,0 +1,72 @@
+{
+  "spot": "zanja-honda",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.6624,
+    -54.184
+  ],
+  "bearing_seaward_deg": 189.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 34.0,
+  "mean_slope_m_per_km": 1.8,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.66462,
+      "lon": -54.18443,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.66684,
+      "lon": -54.18486,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.67128,
+      "lon": -54.18571,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.68016,
+      "lon": -54.18742,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.68905,
+      "lon": -54.18913,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.70681,
+      "lon": -54.19256,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.73346,
+      "lon": -54.1977,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.76899,
+      "lon": -54.20455,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.82228,
+      "lon": -54.21485,
+      "depth_m": 34.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "puerto-rawson",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -43.332,
+    -65.0518
+  ],
+  "bearing_seaward_deg": 105.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 26.0,
+  "mean_slope_m_per_km": 1.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -43.33258,
+      "lon": -65.04881,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -43.33316,
+      "lon": -65.04583,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -43.33433,
+      "lon": -65.03986,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -43.33665,
+      "lon": -65.02791,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -43.33898,
+      "lon": -65.01597,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -43.34362,
+      "lon": -64.99208,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -43.35058,
+      "lon": -64.95623,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -43.35984,
+      "lon": -64.90843,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -43.3737,
+      "lon": -64.83669,
+      "depth_m": 26.0
+    }
+  ]
+}

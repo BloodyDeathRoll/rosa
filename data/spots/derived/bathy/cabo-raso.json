@@ -1,0 +1,72 @@
+{
+  "spot": "cabo-raso",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -44.3324,
+    -65.254
+  ],
+  "bearing_seaward_deg": 56.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 72.0,
+  "mean_slope_m_per_km": 4.17,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -44.33114,
+      "lon": -65.25139,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -44.32989,
+      "lon": -65.24879,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -44.32737,
+      "lon": -65.24358,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -44.32234,
+      "lon": -65.23316,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -44.31731,
+      "lon": -65.22274,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -44.30724,
+      "lon": -65.20191,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -44.29214,
+      "lon": -65.17067,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -44.27198,
+      "lon": -65.12905,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -44.24173,
+      "lon": -65.06667,
+      "depth_m": 72.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "tres-penas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.8267,
+    -72.6132
+  ],
+  "bearing_seaward_deg": 309.0,
+  "nearshore_depth_m": -28.0,
+  "offshore_depth_m": 86.0,
+  "mean_slope_m_per_km": 6.42,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.82529,
+      "lon": -72.61535,
+      "depth_m": -28.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.82387,
+      "lon": -72.61751,
+      "depth_m": -37.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.82104,
+      "lon": -72.62182,
+      "depth_m": -26.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.81538,
+      "lon": -72.63044,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.80972,
+      "lon": -72.63905,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.79839,
+      "lon": -72.65628,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.7814,
+      "lon": -72.68212,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.75874,
+      "lon": -72.71655,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.72473,
+      "lon": -72.76816,
+      "depth_m": 86.0
+    }
+  ]
+}

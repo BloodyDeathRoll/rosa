@@ -1,0 +1,72 @@
+{
+  "spot": "la-boca-el-condor",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.0363,
+    -62.7983
+  ],
+  "bearing_seaward_deg": 144.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 27.0,
+  "mean_slope_m_per_km": 1.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.03812,
+      "lon": -62.79655,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.03994,
+      "lon": -62.7948,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.04358,
+      "lon": -62.79129,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.05085,
+      "lon": -62.78428,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.05813,
+      "lon": -62.77727,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.07267,
+      "lon": -62.76324,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.09449,
+      "lon": -62.74219,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.12358,
+      "lon": -62.71409,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.16719,
+      "lon": -62.6719,
+      "depth_m": 27.0
+    }
+  ]
+}

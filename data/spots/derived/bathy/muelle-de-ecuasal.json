@@ -1,0 +1,72 @@
+{
+  "spot": "muelle-de-ecuasal",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -2.2309,
+    -80.965
+  ],
+  "bearing_seaward_deg": 226.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 84.0,
+  "mean_slope_m_per_km": 4.45,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -2.23246,
+      "lon": -80.96662,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -2.23402,
+      "lon": -80.96824,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -2.23715,
+      "lon": -80.97147,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -2.24339,
+      "lon": -80.97795,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -2.24964,
+      "lon": -80.98442,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -2.26214,
+      "lon": -80.99737,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -2.28088,
+      "lon": -81.01679,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -2.30586,
+      "lon": -81.04269,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -2.34334,
+      "lon": -81.08154,
+      "depth_m": 84.0
+    }
+  ]
+}

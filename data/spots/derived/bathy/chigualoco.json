@@ -1,0 +1,72 @@
+{
+  "spot": "chigualoco",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -31.7581,
+    -71.509
+  ],
+  "bearing_seaward_deg": 236.0,
+  "nearshore_depth_m": -18.0,
+  "offshore_depth_m": 260.0,
+  "mean_slope_m_per_km": 15.66,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -31.75936,
+      "lon": -71.51119,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -31.76061,
+      "lon": -71.51338,
+      "depth_m": -23.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -31.76313,
+      "lon": -71.51777,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -31.76816,
+      "lon": -71.52654,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -31.77318,
+      "lon": -71.53531,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -31.78324,
+      "lon": -71.55285,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -31.79831,
+      "lon": -71.57918,
+      "depth_m": 121.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -31.8184,
+      "lon": -71.61429,
+      "depth_m": 166.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -31.84852,
+      "lon": -71.66699,
+      "depth_m": 260.0
+    }
+  ]
+}

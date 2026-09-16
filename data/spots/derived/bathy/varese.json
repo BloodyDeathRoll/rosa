@@ -1,0 +1,72 @@
+{
+  "spot": "varese",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.0147,
+    -57.5298
+  ],
+  "bearing_seaward_deg": 50.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 0.96,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.01325,
+      "lon": -57.52761,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.01181,
+      "lon": -57.52543,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.00892,
+      "lon": -57.52106,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.00314,
+      "lon": -57.51231,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -37.99735,
+      "lon": -57.50357,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -37.98579,
+      "lon": -57.4861,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -37.96843,
+      "lon": -57.45989,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -37.94528,
+      "lon": -57.42497,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -37.91054,
+      "lon": -57.37263,
+      "depth_m": 20.0
+    }
+  ]
+}

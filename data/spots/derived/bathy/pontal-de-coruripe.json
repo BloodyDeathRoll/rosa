@@ -1,0 +1,72 @@
+{
+  "spot": "pontal-de-coruripe",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -10.1604,
+    -36.1348
+  ],
+  "bearing_seaward_deg": 131.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 17.0,
+  "mean_slope_m_per_km": 0.56,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 4,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -10.16188,
+      "lon": -36.13308,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -10.16335,
+      "lon": -36.13135,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -10.1663,
+      "lon": -36.1279,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -10.1722,
+      "lon": -36.12101,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -10.1781,
+      "lon": -36.11411,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -10.1899,
+      "lon": -36.10032,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -10.2076,
+      "lon": -36.07963,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -10.23119,
+      "lon": -36.05204,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -10.26658,
+      "lon": -36.01064,
+      "depth_m": 17.0
+    }
+  ]
+}

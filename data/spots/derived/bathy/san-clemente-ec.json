@@ -1,0 +1,72 @@
+{
+  "spot": "san-clemente-ec",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -0.7587,
+    -80.512
+  ],
+  "bearing_seaward_deg": 287.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 54.0,
+  "mean_slope_m_per_km": 3.44,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -0.75804,
+      "lon": -80.51415,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -0.75739,
+      "lon": -80.5163,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -0.75607,
+      "lon": -80.5206,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -0.75344,
+      "lon": -80.5292,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -0.75081,
+      "lon": -80.5378,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -0.74555,
+      "lon": -80.555,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -0.73766,
+      "lon": -80.58081,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -0.72715,
+      "lon": -80.61521,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -0.71137,
+      "lon": -80.66682,
+      "depth_m": 54.0
+    }
+  ]
+}

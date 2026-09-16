@@ -1,0 +1,72 @@
+{
+  "spot": "bocana-del-cojimies",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    0.3644,
+    -80.0406
+  ],
+  "bearing_seaward_deg": 305.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 86.0,
+  "mean_slope_m_per_km": 5.07,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 0.36569,
+      "lon": -80.04244,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 0.36698,
+      "lon": -80.04428,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 0.36956,
+      "lon": -80.04797,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 0.37472,
+      "lon": -80.05533,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 0.37987,
+      "lon": -80.0627,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 0.39019,
+      "lon": -80.07743,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 0.40567,
+      "lon": -80.09954,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 0.4263,
+      "lon": -80.129,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 0.45725,
+      "lon": -80.17321,
+      "depth_m": 86.0
+    }
+  ]
+}

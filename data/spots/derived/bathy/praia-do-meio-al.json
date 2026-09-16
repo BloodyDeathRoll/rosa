@@ -1,0 +1,72 @@
+{
+  "spot": "praia-do-meio-al",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -9.8049,
+    -35.8666
+  ],
+  "bearing_seaward_deg": 124.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 27.0,
+  "mean_slope_m_per_km": 1.86,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -9.80616,
+      "lon": -35.86471,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -9.80741,
+      "lon": -35.86282,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -9.80993,
+      "lon": -35.85903,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -9.81496,
+      "lon": -35.85147,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -9.81999,
+      "lon": -35.8439,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -9.83004,
+      "lon": -35.82877,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -9.84513,
+      "lon": -35.80606,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -9.86524,
+      "lon": -35.77579,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -9.89539,
+      "lon": -35.73037,
+      "depth_m": 27.0
+    }
+  ]
+}

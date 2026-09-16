@@ -1,0 +1,72 @@
+{
+  "spot": "campina",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -6.8123,
+    -34.9135
+  ],
+  "bearing_seaward_deg": 83.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 23.0,
+  "mean_slope_m_per_km": 1.07,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -6.81203,
+      "lon": -34.91125,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -6.81175,
+      "lon": -34.90901,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -6.8112,
+      "lon": -34.90451,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -6.81011,
+      "lon": -34.89552,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -6.80901,
+      "lon": -34.88653,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -6.80682,
+      "lon": -34.86855,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -6.80353,
+      "lon": -34.84158,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -6.79914,
+      "lon": -34.80563,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -6.79255,
+      "lon": -34.75169,
+      "depth_m": 23.0
+    }
+  ]
+}

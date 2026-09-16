@@ -1,0 +1,72 @@
+{
+  "spot": "la-moza",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.9739,
+    -53.5313
+  ],
+  "bearing_seaward_deg": 110.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 21.0,
+  "mean_slope_m_per_km": 1.35,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.97467,
+      "lon": -53.52875,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.97544,
+      "lon": -53.5262,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.97698,
+      "lon": -53.52111,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.98005,
+      "lon": -53.51092,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.98312,
+      "lon": -53.50073,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.98927,
+      "lon": -53.48034,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.99848,
+      "lon": -53.44975,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.01075,
+      "lon": -53.40896,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.02913,
+      "lon": -53.34775,
+      "depth_m": 21.0
+    }
+  ]
+}

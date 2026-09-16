@@ -1,0 +1,72 @@
+{
+  "spot": "mosqueiro",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -11.1134,
+    -37.1336
+  ],
+  "bearing_seaward_deg": 119.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 37.0,
+  "mean_slope_m_per_km": 2.14,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -11.11449,
+      "lon": -37.1316,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -11.11558,
+      "lon": -37.12959,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -11.11776,
+      "lon": -37.12558,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -11.12212,
+      "lon": -37.11757,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -11.12648,
+      "lon": -37.10955,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -11.1352,
+      "lon": -37.09352,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -11.14827,
+      "lon": -37.06946,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -11.1657,
+      "lon": -37.03739,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -11.19185,
+      "lon": -36.98927,
+      "depth_m": 37.0
+    }
+  ]
+}

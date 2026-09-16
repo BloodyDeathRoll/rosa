@@ -215,7 +215,55 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-09-11, DB = 1947 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-09-16, DB = 2254 spots, ALL sat-verified)
+
+**South America closed 1947 -> 2254 (2026-09-16): Chile Central 51, Mar del Plata 48, Ecuador 47,
+Chile South 34, Chile North 30, Uruguay 26, Alagoas 25, Paraiba 17, Patagonia Argentina 16,
+Sergipe 13.** Ten boxes, ten parallel subagents, four new basins (`chile-north`, `chile-central`,
+`ecuador`, `argentina-uruguay`) plus the three Brazilian states joining `brazil-northeast`.
+**Four Tier-A surf nodes in the entire continent** (Chile Central's Caleta Los Piures = Punta de
+Lobos, Ecuador's Las Tunas, Mar del Plata's chapadmalal and palangana): web flow end to end,
+Spanish-language sources only - wannasurf's regional indexes, lineup.surf, elsurfero, surfparaiso,
+waves.com.br. English "best surf in X" pages are SEO beach lists here.
+
+What this pass taught:
+1. **Exposure is the judgement, not the name.** Every region dropped names that are real beaches
+   and not surf: the Rio de la Plata estuary west of Punta del Este (10 dropped), the Patagonian
+   gulfs, the Gulf of Arauco, Alagoas' and Paraiba's inside-the-reef natural pools, Ecuador's
+   Salinas bay, Chile North's Antofagasta balnearios. **Moored boats just offshore is a reliable
+   no-surf tell** - if the tile shows an anchorage, it does not break.
+2. **Google returns the settlement, not the sand, on every Spanish-language coast**: 21 of 51
+   Chile Central, 22 of 26 Mar del Plata city, 15 of 17 Paraiba, 13 of 13 Sergipe, 21 of 47
+   Ecuador. The fix is a 60-200 m nudge onto the waterline, or better, snapping the pin to the
+   nearest bathy-passed coastline candidate - that put 12 of 13 Sergipe pins right first try.
+   Las Grutas came back as San Antonio Oeste town, 15 km away, on all three providers; only the
+   z14 wide read caught it.
+3. **`ca_xref.py`'s snap has two failure modes left**, both caught on the render: two named peaks
+   on ONE named beach (Mar del Plata's biologia / el-yacht / waikiki all snapped to "Playa
+   Grande"), and a neighbouring beach within 1.5 km whose name shares the query's TOWN word
+   (Penarol -> "Playa Antofagasta"). Keep the area out of the geocode NAME, and read every
+   `osm:<name>` against the web name.
+4. **GEBCO reads the first 0.25-1 km as land on EVERY bearing** across the Brazilian north-east,
+   Uruguayan, Patagonian, Ecuadorian and urban-Chilean shelves. When no arc is clean, the grid is
+   the problem, not the aim: judge `offshore_depth_m` only (OPEN-ITEMS 17/23). 49 normals were
+   re-aimed across the pass, every one to the middle of the open arc.
+5. **Tooling notes the forks hit:** `emit_spots.py` is the wrong tool for a 0-Tier-A region (it
+   reads only `result.json["new"]` and emits no `town`) - the working path is `ca_final.py` ->
+   `towns.json` -> `emit_region.py <region> <anchor>`; both it and `ca_final.py` still drop
+   accented letters from ids (`chaihu-n`, `maicolpu`) and strip Spanish articles (`el-faro` ->
+   `faro`), so check every emitted id; `ca_queue.py`, `bathy` and `tide` must run from the repo
+   root; the scratchpad is SHARED between parallel forks, so use per-region filenames.
+6. **A bbox that overruns a border re-offers an already-seeded spot as NEW** - paraiba's N edge
+   at -6.00 reached past the Rio Guaju into Rio Grande do Norte and surfaced Baia Formosa's
+   `pontal` again. Scope the box to the state, and check any "new" Tier-A against the whole DB.
+
+**Gap queue:** Colombia and Venezuela (not attempted); Chiloe and the Maullin coast; Tierra del
+Fuego (Rio Grande); the Galapagos; Buenos Aires' north (San Clemente to Nueva Atlantis) and
+Monte Hermoso's paradores; Bahia Blanca westward; Punta del Este's Mansa side and Montevideo;
+Peru-Chile's Arica reef names and the Antofagasta reefs (Andromeda, Nuluhaga, Pozo Verde...);
+Manta's and Mompiche's sub-peaks; the Alagoas north coast (Maragogi) if it is ever judged
+surfable; Baia da Traicao's reserve peaks; the Aracaju "Porto" pico.
+
 
 **Brazil 0 -> 305 (2026-09-11): Sao Paulo 56, Rio de Janeiro 52, Santa Catarina 46, Bahia 33,
 Ceara 31, Espirito Santo 29, Rio Grande do Norte 18, Rio Grande do Sul 14, Parana 9, Pernambuco 9,

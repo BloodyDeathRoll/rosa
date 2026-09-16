@@ -1,0 +1,72 @@
+{
+  "spot": "el-emir",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.9623,
+    -54.9397
+  ],
+  "bearing_seaward_deg": 115.0,
+  "nearshore_depth_m": 15.0,
+  "offshore_depth_m": 26.0,
+  "mean_slope_m_per_km": 0.62,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.96325,
+      "lon": -54.93721,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.9642,
+      "lon": -54.93473,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.9661,
+      "lon": -54.92975,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.9699,
+      "lon": -54.91981,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.9737,
+      "lon": -54.90986,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.98129,
+      "lon": -54.88996,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.99268,
+      "lon": -54.86011,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.00785,
+      "lon": -54.82029,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.03058,
+      "lon": -54.76053,
+      "depth_m": 26.0
+    }
+  ]
+}

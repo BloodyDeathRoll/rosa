@@ -1,0 +1,72 @@
+{
+  "spot": "maicolpue",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -40.5954,
+    -73.736
+  ],
+  "bearing_seaward_deg": 274.0,
+  "nearshore_depth_m": -13.0,
+  "offshore_depth_m": 141.0,
+  "mean_slope_m_per_km": 8.68,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -40.59524,
+      "lon": -73.73895,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -40.59509,
+      "lon": -73.74191,
+      "depth_m": -54.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -40.59477,
+      "lon": -73.74781,
+      "depth_m": -37.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -40.59414,
+      "lon": -73.75963,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -40.59351,
+      "lon": -73.77144,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -40.59225,
+      "lon": -73.79507,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -40.59034,
+      "lon": -73.83051,
+      "depth_m": 108.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -40.58779,
+      "lon": -73.87776,
+      "depth_m": 138.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -40.58391,
+      "lon": -73.94863,
+      "depth_m": 141.0
+    }
+  ]
+}

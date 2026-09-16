@@ -1,0 +1,72 @@
+{
+  "spot": "pontal-da-barra-al",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -9.6969,
+    -35.776
+  ],
+  "bearing_seaward_deg": 136.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 2.08,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -9.69852,
+      "lon": -35.77442,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -9.70013,
+      "lon": -35.77283,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -9.70337,
+      "lon": -35.76966,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -9.70984,
+      "lon": -35.76332,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -9.71631,
+      "lon": -35.75699,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -9.72924,
+      "lon": -35.74431,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -9.74865,
+      "lon": -35.72529,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -9.77452,
+      "lon": -35.69993,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -9.81333,
+      "lon": -35.66188,
+      "depth_m": 30.0
+    }
+  ]
+}

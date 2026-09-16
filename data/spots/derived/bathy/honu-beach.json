@@ -1,0 +1,72 @@
+{
+  "spot": "honu-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.0887,
+    -57.5412
+  ],
+  "bearing_seaward_deg": 108.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 23.0,
+  "mean_slope_m_per_km": 1.24,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.08939,
+      "lon": -57.53848,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.09009,
+      "lon": -57.53577,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.09148,
+      "lon": -57.53033,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.09426,
+      "lon": -57.51946,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.09703,
+      "lon": -57.50859,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.10258,
+      "lon": -57.48685,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.1109,
+      "lon": -57.45424,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.12198,
+      "lon": -57.41074,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.13856,
+      "lon": -57.34546,
+      "depth_m": 23.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "punta-de-choros",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -29.2431,
+    -71.4641
+  ],
+  "bearing_seaward_deg": 271.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 790.0,
+  "mean_slope_m_per_km": 44.79,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -29.24306,
+      "lon": -71.46668,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -29.24302,
+      "lon": -71.46925,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -29.24294,
+      "lon": -71.47441,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -29.24278,
+      "lon": -71.48471,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -29.24263,
+      "lon": -71.49502,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -29.24231,
+      "lon": -71.51563,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -29.24182,
+      "lon": -71.54654,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -29.24116,
+      "lon": -71.58776,
+      "depth_m": 343.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -29.24015,
+      "lon": -71.64959,
+      "depth_m": 790.0
+    }
+  ]
+}

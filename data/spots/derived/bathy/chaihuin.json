@@ -1,0 +1,72 @@
+{
+  "spot": "chaihuin",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.9498,
+    -73.588
+  ],
+  "bearing_seaward_deg": 287.0,
+  "nearshore_depth_m": -37.0,
+  "offshore_depth_m": 321.0,
+  "mean_slope_m_per_km": 20.17,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.94914,
+      "lon": -73.5908,
+      "depth_m": -37.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.94849,
+      "lon": -73.59361,
+      "depth_m": -25.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.94717,
+      "lon": -73.59922,
+      "depth_m": -20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.94454,
+      "lon": -73.61044,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.94191,
+      "lon": -73.62165,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.93664,
+      "lon": -73.64408,
+      "depth_m": 84.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.92873,
+      "lon": -73.67772,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.91817,
+      "lon": -73.72256,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -39.9023,
+      "lon": -73.78979,
+      "depth_m": 321.0
+    }
+  ]
+}

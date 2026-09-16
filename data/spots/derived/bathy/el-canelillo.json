@@ -1,0 +1,72 @@
+{
+  "spot": "el-canelillo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.3672,
+    -71.6885
+  ],
+  "bearing_seaward_deg": 238.0,
+  "nearshore_depth_m": -38.0,
+  "offshore_depth_m": 364.0,
+  "mean_slope_m_per_km": 22.65,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.36839,
+      "lon": -71.69078,
+      "depth_m": -38.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.36958,
+      "lon": -71.69307,
+      "depth_m": -17.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.37197,
+      "lon": -71.69763,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.37673,
+      "lon": -71.70677,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.38149,
+      "lon": -71.7159,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.39102,
+      "lon": -71.73417,
+      "depth_m": 110.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.4053,
+      "lon": -71.76159,
+      "depth_m": 123.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.42434,
+      "lon": -71.79816,
+      "depth_m": 137.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.45287,
+      "lon": -71.85304,
+      "depth_m": 364.0
+    }
+  ]
+}

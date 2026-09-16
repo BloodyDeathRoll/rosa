@@ -1,0 +1,72 @@
+{
+  "spot": "cachagua",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -32.5915,
+    -71.4441
+  ],
+  "bearing_seaward_deg": 240.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 146.0,
+  "mean_slope_m_per_km": 8.45,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.59262,
+      "lon": -71.44641,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.59375,
+      "lon": -71.44872,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -32.596,
+      "lon": -71.45334,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.60049,
+      "lon": -71.46259,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -32.60499,
+      "lon": -71.47184,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.61397,
+      "lon": -71.49033,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -32.62745,
+      "lon": -71.51808,
+      "depth_m": 119.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -32.64541,
+      "lon": -71.55509,
+      "depth_m": 126.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -32.67233,
+      "lon": -71.61064,
+      "depth_m": 146.0
+    }
+  ]
+}

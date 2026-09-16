@@ -1,0 +1,72 @@
+{
+  "spot": "la-pepita",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.0016,
+    -57.5401
+  ],
+  "bearing_seaward_deg": 88.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 23.0,
+  "mean_slope_m_per_km": 1.41,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.00152,
+      "lon": -57.53725,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.00144,
+      "lon": -57.5344,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.00129,
+      "lon": -57.52869,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.00097,
+      "lon": -57.51729,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.00065,
+      "lon": -57.50588,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.00002,
+      "lon": -57.48307,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -37.99905,
+      "lon": -57.44886,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -37.99775,
+      "lon": -57.40324,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -37.99577,
+      "lon": -57.33481,
+      "depth_m": 23.0
+    }
+  ]
+}

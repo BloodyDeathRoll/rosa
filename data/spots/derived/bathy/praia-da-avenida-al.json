@@ -1,0 +1,72 @@
+{
+  "spot": "praia-da-avenida-al",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -9.6707,
+    -35.7373
+  ],
+  "bearing_seaward_deg": 170.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 40.0,
+  "mean_slope_m_per_km": 2.59,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -9.67291,
+      "lon": -35.7369,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -9.67513,
+      "lon": -35.73651,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -9.67956,
+      "lon": -35.73572,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -9.68841,
+      "lon": -35.73413,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -9.69727,
+      "lon": -35.73255,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -9.71498,
+      "lon": -35.72938,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -9.74155,
+      "lon": -35.72462,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -9.77698,
+      "lon": -35.71828,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -9.83012,
+      "lon": -35.70877,
+      "depth_m": 40.0
+    }
+  ]
+}

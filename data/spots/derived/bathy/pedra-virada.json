@@ -1,0 +1,72 @@
+{
+  "spot": "pedra-virada",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -9.6722,
+    -35.6979
+  ],
+  "bearing_seaward_deg": 170.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 32.0,
+  "mean_slope_m_per_km": 1.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -9.67441,
+      "lon": -35.6975,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -9.67663,
+      "lon": -35.69711,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -9.68106,
+      "lon": -35.69632,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -9.68991,
+      "lon": -35.69473,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -9.69877,
+      "lon": -35.69315,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -9.71648,
+      "lon": -35.68998,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -9.74305,
+      "lon": -35.68522,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -9.77848,
+      "lon": -35.67888,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -9.83162,
+      "lon": -35.66937,
+      "depth_m": 32.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "tonsupa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    0.8876,
+    -79.8234
+  ],
+  "bearing_seaward_deg": 330.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 11.0,
+  "mean_slope_m_per_km": 0.39,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 0.88955,
+      "lon": -79.82452,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 0.89149,
+      "lon": -79.82565,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 0.89539,
+      "lon": -79.8279,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 0.90318,
+      "lon": -79.83239,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 0.91097,
+      "lon": -79.83689,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 0.92654,
+      "lon": -79.84589,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 0.94991,
+      "lon": -79.85938,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 0.98106,
+      "lon": -79.87737,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 1.02779,
+      "lon": -79.90435,
+      "depth_m": 11.0
+    }
+  ]
+}

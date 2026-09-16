@@ -1,0 +1,72 @@
+{
+  "spot": "villa-gesell-muelle",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -37.2803,
+    -56.9821
+  ],
+  "bearing_seaward_deg": 126.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 18.0,
+  "mean_slope_m_per_km": 1.3,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -37.28162,
+      "lon": -56.97981,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -37.28294,
+      "lon": -56.97753,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -37.28559,
+      "lon": -56.97296,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -37.29087,
+      "lon": -56.96381,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -37.29616,
+      "lon": -56.95466,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -37.30672,
+      "lon": -56.93636,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -37.32257,
+      "lon": -56.90891,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -37.34368,
+      "lon": -56.87228,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -37.37534,
+      "lon": -56.8173,
+      "depth_m": 18.0
+    }
+  ]
+}

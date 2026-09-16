@@ -1,0 +1,72 @@
+{
+  "spot": "baia-da-traicao",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -6.6986,
+    -34.9335
+  ],
+  "bearing_seaward_deg": 80.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 28.0,
+  "mean_slope_m_per_km": 1.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -6.69821,
+      "lon": -34.93127,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -6.69782,
+      "lon": -34.92904,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -6.69704,
+      "lon": -34.92458,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -6.69548,
+      "lon": -34.91567,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -6.69391,
+      "lon": -34.90675,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -6.69079,
+      "lon": -34.88891,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -6.6861,
+      "lon": -34.86216,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -6.67985,
+      "lon": -34.82649,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -6.67046,
+      "lon": -34.773,
+      "depth_m": 28.0
+    }
+  ]
+}

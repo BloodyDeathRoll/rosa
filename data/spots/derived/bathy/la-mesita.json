@@ -1,0 +1,72 @@
+{
+  "spot": "la-mesita",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -0.596,
+    -80.4247
+  ],
+  "bearing_seaward_deg": 302.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 28.0,
+  "mean_slope_m_per_km": 1.58,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -0.59481,
+      "lon": -80.42661,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -0.59362,
+      "lon": -80.42851,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -0.59123,
+      "lon": -80.43233,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -0.58647,
+      "lon": -80.43995,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -0.5817,
+      "lon": -80.44758,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -0.57217,
+      "lon": -80.46284,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -0.55787,
+      "lon": -80.48572,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -0.53881,
+      "lon": -80.51622,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -0.51022,
+      "lon": -80.56199,
+      "depth_m": 28.0
+    }
+  ]
+}

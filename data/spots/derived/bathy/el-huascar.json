@@ -1,0 +1,72 @@
+{
+  "spot": "el-huascar",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -23.733,
+    -70.4394
+  ],
+  "bearing_seaward_deg": 275.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 653.0,
+  "mean_slope_m_per_km": 37.3,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.7328,
+      "lon": -70.44185,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.73261,
+      "lon": -70.44429,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.73222,
+      "lon": -70.44919,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.73143,
+      "lon": -70.45897,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.73065,
+      "lon": -70.46876,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.72907,
+      "lon": -70.48833,
+      "depth_m": 117.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.72671,
+      "lon": -70.51769,
+      "depth_m": 178.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.72355,
+      "lon": -70.55683,
+      "depth_m": 232.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.71879,
+      "lon": -70.61554,
+      "depth_m": 653.0
+    }
+  ]
+}

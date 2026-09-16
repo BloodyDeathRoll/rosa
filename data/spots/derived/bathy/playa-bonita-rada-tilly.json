@@ -1,0 +1,72 @@
+{
+  "spot": "playa-bonita-rada-tilly",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -45.9938,
+    -67.5918
+  ],
+  "bearing_seaward_deg": 88.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 67.0,
+  "mean_slope_m_per_km": 4.23,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -45.99372,
+      "lon": -67.58857,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -45.99364,
+      "lon": -67.58533,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -45.99349,
+      "lon": -67.57886,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -45.99317,
+      "lon": -67.56593,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -45.99285,
+      "lon": -67.55299,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -45.99221,
+      "lon": -67.52712,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -45.99124,
+      "lon": -67.48831,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -45.98993,
+      "lon": -67.43657,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -45.98791,
+      "lon": -67.35896,
+      "depth_m": 67.0
+    }
+  ]
+}

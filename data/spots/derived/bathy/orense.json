@@ -1,0 +1,72 @@
+{
+  "spot": "orense",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.8091,
+    -59.7339
+  ],
+  "bearing_seaward_deg": 156.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 31.0,
+  "mean_slope_m_per_km": 1.97,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.81115,
+      "lon": -59.73273,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.81321,
+      "lon": -59.73155,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.81732,
+      "lon": -59.72921,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.82553,
+      "lon": -59.72451,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.83375,
+      "lon": -59.71981,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.85018,
+      "lon": -59.71042,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.87482,
+      "lon": -59.69631,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.90767,
+      "lon": -59.67749,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.95695,
+      "lon": -59.64923,
+      "depth_m": 31.0
+    }
+  ]
+}

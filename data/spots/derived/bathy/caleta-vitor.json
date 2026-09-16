@@ -1,0 +1,72 @@
+{
+  "spot": "caleta-vitor",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -18.7547,
+    -70.3378
+  ],
+  "bearing_seaward_deg": 290.0,
+  "nearshore_depth_m": -134.0,
+  "offshore_depth_m": 987.0,
+  "mean_slope_m_per_km": 63.15,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -18.75393,
+      "lon": -70.34003,
+      "depth_m": -134.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -18.75316,
+      "lon": -70.34226,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -18.75162,
+      "lon": -70.34672,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -18.74855,
+      "lon": -70.35565,
+      "depth_m": 76.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -18.74547,
+      "lon": -70.36457,
+      "depth_m": 98.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -18.73932,
+      "lon": -70.38242,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -18.73008,
+      "lon": -70.40919,
+      "depth_m": 144.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -18.71776,
+      "lon": -70.44487,
+      "depth_m": 270.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -18.69927,
+      "lon": -70.49839,
+      "depth_m": 987.0
+    }
+  ]
+}

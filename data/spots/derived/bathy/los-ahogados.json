@@ -1,0 +1,72 @@
+{
+  "spot": "los-ahogados",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.3985,
+    -71.7001
+  ],
+  "bearing_seaward_deg": 270.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 427.0,
+  "mean_slope_m_per_km": 24.62,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.3985,
+      "lon": -71.70279,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.3985,
+      "lon": -71.70549,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.3985,
+      "lon": -71.71087,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.3985,
+      "lon": -71.72164,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.3985,
+      "lon": -71.73242,
+      "depth_m": 94.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.39849,
+      "lon": -71.75396,
+      "depth_m": 116.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.39847,
+      "lon": -71.78628,
+      "depth_m": 138.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.39843,
+      "lon": -71.82936,
+      "depth_m": 153.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.39835,
+      "lon": -71.894,
+      "depth_m": 427.0
+    }
+  ]
+}

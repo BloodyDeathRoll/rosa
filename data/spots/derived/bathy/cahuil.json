@@ -1,0 +1,72 @@
+{
+  "spot": "cahuil",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.479,
+    -72.029
+  ],
+  "bearing_seaward_deg": 256.0,
+  "nearshore_depth_m": 28.0,
+  "offshore_depth_m": 656.0,
+  "mean_slope_m_per_km": 35.38,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.47954,
+      "lon": -72.03165,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.48009,
+      "lon": -72.03429,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.48118,
+      "lon": -72.03959,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.48335,
+      "lon": -72.05017,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.48552,
+      "lon": -72.06076,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.48987,
+      "lon": -72.08193,
+      "depth_m": 107.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.49638,
+      "lon": -72.1137,
+      "depth_m": 147.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.50504,
+      "lon": -72.15607,
+      "depth_m": 111.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.51801,
+      "lon": -72.21963,
+      "depth_m": 656.0
+    }
+  ]
+}

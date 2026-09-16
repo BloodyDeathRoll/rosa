@@ -1,0 +1,42 @@
+# Rosa spot database - Paraiba (seeded 2026-09-16). Brazil's easternmost coast - Joao Pessoa's city beaches and the reef-fringed south (Tambaba). SE trade swell, offshore on a W wind.
+# Every spot carries offshore_km along its own seaward normal, so the deep-water sample follows
+# the pin. Defaults are TODO calibrate.
+
+region: Paraiba
+defaults: &pb
+  timezone: America/Recife
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [45, 180]
+  ideal:
+    wind_dir: [225, 315]
+    size_m: [0.6, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-09-16 - paraiba, 17 spots, all from the secondary web-search flow
+  # (multi-geocoded, then read against OSM named beaches; © OpenStreetMap contributors, ODbL
+  # for the beach/coastline geometry). The primary coastline flow returned 372 bathy-passed
+  # candidates and exactly ONE Tier-A surf node - Pontal de Baía Formosa, which is in Rio
+  # Grande do Norte and already seeded there, because this box's N edge overruns the state
+  # border; it was skipped. EVERY pin was rendered on ESRI imagery (z15, then z17 for every
+  # move) and judged before entering (judge log in tools/spot-seed/work/paraiba/judge.json).
+  # offshore_direction is the nearest coastline candidate's shore normal; swell_window =
+  # seaward +/-65 deg, TODO calibrate; towns are the municipalities, set by hand. North to south.
+  - { id: camaratuba, name: "Camaratuba", town: "Mataraca", lat: -6.6035, lon: -34.9640, offshore_direction: 283, swell_window: [38, 168], offshore_km: 5.0, <<: *pb }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: tamba, name: "Tambá", town: "Baía da Traição", lat: -6.6547, lon: -34.9578, offshore_direction: 257, swell_window: [12, 142], offshore_km: 5.0, <<: *pb }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: forte, name: "Forte", town: "Baía da Traição", lat: -6.6721, lon: -34.9528, offshore_direction: 238, swell_window: [353, 123], offshore_km: 5.0, <<: *pb }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: baia-da-traicao, name: "Baía da Traição", town: "Baía da Traição", lat: -6.6986, lon: -34.9335, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, <<: *pb }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: campina, name: "Campina", town: "Rio Tinto", lat: -6.8123, lon: -34.9135, offshore_direction: 263, swell_window: [18, 148], offshore_km: 5.0, <<: *pb }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: intermares, name: "Intermares", town: "Cabedelo", lat: -7.0468, lon: -34.8409, offshore_direction: 285, swell_window: [40, 170], offshore_km: 5.0, <<: *pb }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: bessa, name: "Bessa", town: "João Pessoa", lat: -7.0636, lon: -34.8401, offshore_direction: 237, swell_window: [352, 122], offshore_km: 5.0, <<: *pb }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: cabo-branco, name: "Cabo Branco", town: "João Pessoa", lat: -7.1297, lon: -34.8214, offshore_direction: 254, swell_window: [9, 139], offshore_km: 5.0, <<: *pb }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: praia-do-sol-pb, name: "Praia do Sol", town: "João Pessoa", lat: -7.2158, lon: -34.8035, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, <<: *pb }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: barra-de-gramame, name: "Barra de Gramame", town: "João Pessoa", lat: -7.2359, lon: -34.8044, offshore_direction: 279, swell_window: [34, 164], offshore_km: 5.0, <<: *pb }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: jacuma, name: "Jacumã", town: "Conde", lat: -7.2858, lon: -34.8002, offshore_direction: 284, swell_window: [39, 169], offshore_km: 5.0, <<: *pb }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: carapibus, name: "Carapibus", town: "Conde", lat: -7.2991, lon: -34.7984, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, break_type: reef, <<: *pb }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: tabatinga-pb, name: "Tabatinga", town: "Conde", lat: -7.3068, lon: -34.8003, offshore_direction: 293, swell_window: [48, 178], offshore_km: 5.0, <<: *pb }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: coqueirinho-pb, name: "Coqueirinho", town: "Conde", lat: -7.3285, lon: -34.7951, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, break_type: reef, <<: *pb }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: arapuca, name: "Arapuca", town: "Conde", lat: -7.3570, lon: -34.7992, offshore_direction: 271, swell_window: [26, 156], offshore_km: 5.0, <<: *pb }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: tambaba, name: "Tambaba", town: "Conde", lat: -7.3662, lon: -34.7973, offshore_direction: 293, swell_window: [48, 178], offshore_km: 5.0, break_type: reef, <<: *pb }  # sat-verified 2026-09-16 (websearch-seeded)
+  - { id: praia-bela, name: "Praia Bela", town: "Pitimbu", lat: -7.3979, lon: -34.8039, offshore_direction: 274, swell_window: [29, 159], offshore_km: 5.0, <<: *pb }  # sat-verified 2026-09-16 (websearch-seeded)

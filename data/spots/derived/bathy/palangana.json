@@ -1,0 +1,72 @@
+{
+  "spot": "palangana",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.2143,
+    -57.7008
+  ],
+  "bearing_seaward_deg": 142.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 49.0,
+  "mean_slope_m_per_km": 2.76,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.21607,
+      "lon": -57.69904,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.21784,
+      "lon": -57.69728,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.22139,
+      "lon": -57.69375,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.22847,
+      "lon": -57.6867,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.23556,
+      "lon": -57.67965,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.24973,
+      "lon": -57.66555,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.27098,
+      "lon": -57.64438,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.29931,
+      "lon": -57.61614,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.34179,
+      "lon": -57.57373,
+      "depth_m": 49.0
+    }
+  ]
+}

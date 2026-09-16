@@ -1,0 +1,72 @@
+{
+  "spot": "la-perla-mdp",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -37.9858,
+    -57.5426
+  ],
+  "bearing_seaward_deg": 77.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 22.0,
+  "mean_slope_m_per_km": 1.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -37.98529,
+      "lon": -57.53982,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -37.98479,
+      "lon": -57.53704,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -37.98378,
+      "lon": -57.53148,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -37.98175,
+      "lon": -57.52037,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -37.97973,
+      "lon": -57.50925,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -37.97567,
+      "lon": -57.48702,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -37.96958,
+      "lon": -57.45368,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -37.96145,
+      "lon": -57.40923,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -37.94922,
+      "lon": -57.34258,
+      "depth_m": 22.0
+    }
+  ]
+}

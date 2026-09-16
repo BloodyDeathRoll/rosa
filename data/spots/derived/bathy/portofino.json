@@ -1,0 +1,72 @@
+{
+  "spot": "portofino",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -26.5165,
+    -70.7049
+  ],
+  "bearing_seaward_deg": 238.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 508.0,
+  "mean_slope_m_per_km": 28.56,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -26.51769,
+      "lon": -70.70703,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -26.51888,
+      "lon": -70.70916,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -26.52127,
+      "lon": -70.71342,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -26.52603,
+      "lon": -70.72195,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -26.53079,
+      "lon": -70.73047,
+      "depth_m": 136.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -26.54032,
+      "lon": -70.74753,
+      "depth_m": 228.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -26.55461,
+      "lon": -70.77311,
+      "depth_m": 323.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -26.57365,
+      "lon": -70.80723,
+      "depth_m": 379.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -26.6022,
+      "lon": -70.85843,
+      "depth_m": 508.0
+    }
+  ]
+}

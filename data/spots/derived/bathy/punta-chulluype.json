@@ -1,0 +1,72 @@
+{
+  "spot": "punta-chulluype",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -2.2082,
+    -80.8862
+  ],
+  "bearing_seaward_deg": 305.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 42.0,
+  "mean_slope_m_per_km": 2.03,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -2.20691,
+      "lon": -80.88804,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -2.20562,
+      "lon": -80.88989,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -2.20304,
+      "lon": -80.89357,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -2.19788,
+      "lon": -80.90094,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -2.19272,
+      "lon": -80.90832,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -2.18241,
+      "lon": -80.92306,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -2.16693,
+      "lon": -80.94518,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -2.1463,
+      "lon": -80.97466,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -2.11534,
+      "lon": -81.01889,
+      "depth_m": 42.0
+    }
+  ]
+}

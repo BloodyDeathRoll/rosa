@@ -1,0 +1,72 @@
+{
+  "spot": "la-maquinita",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.0917,
+    -57.5417
+  ],
+  "bearing_seaward_deg": 108.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 23.0,
+  "mean_slope_m_per_km": 1.24,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.09239,
+      "lon": -57.53898,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.09309,
+      "lon": -57.53627,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.09448,
+      "lon": -57.53083,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.09726,
+      "lon": -57.51996,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.10003,
+      "lon": -57.50909,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.10558,
+      "lon": -57.48735,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.1139,
+      "lon": -57.45473,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.12498,
+      "lon": -57.41123,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.14156,
+      "lon": -57.34595,
+      "depth_m": 23.0
+    }
+  ]
+}

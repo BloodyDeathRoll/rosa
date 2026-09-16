@@ -1,0 +1,72 @@
+{
+  "spot": "barra-de-sao-miguel",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -9.835,
+    -35.8839
+  ],
+  "bearing_seaward_deg": 125.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 1.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -9.83629,
+      "lon": -35.88203,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -9.83758,
+      "lon": -35.88016,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -9.84016,
+      "lon": -35.87642,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -9.84532,
+      "lon": -35.86895,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -9.85047,
+      "lon": -35.86147,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -9.86079,
+      "lon": -35.84651,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -9.87626,
+      "lon": -35.82408,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -9.89689,
+      "lon": -35.79416,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -9.92782,
+      "lon": -35.74928,
+      "depth_m": 30.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "garca-torta",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -9.5849,
+    -35.6612
+  ],
+  "bearing_seaward_deg": 127.0,
+  "nearshore_depth_m": -17.0,
+  "offshore_depth_m": 28.0,
+  "mean_slope_m_per_km": 2.54,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -9.58625,
+      "lon": -35.65938,
+      "depth_m": -17.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -9.58761,
+      "lon": -35.65756,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -9.59031,
+      "lon": -35.65392,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -9.59572,
+      "lon": -35.64663,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -9.60114,
+      "lon": -35.63935,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -9.61196,
+      "lon": -35.62478,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -9.62819,
+      "lon": -35.60292,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -9.64984,
+      "lon": -35.57378,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -9.6823,
+      "lon": -35.53005,
+      "depth_m": 28.0
+    }
+  ]
+}

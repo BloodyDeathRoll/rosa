@@ -1,0 +1,72 @@
+{
+  "spot": "pinamar",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -37.1167,
+    -56.8537
+  ],
+  "bearing_seaward_deg": 114.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 1.18,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -37.11761,
+      "lon": -56.85112,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -37.11853,
+      "lon": -56.84855,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -37.12036,
+      "lon": -56.8434,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -37.12401,
+      "lon": -56.83309,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -37.12767,
+      "lon": -56.82279,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -37.13498,
+      "lon": -56.80217,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -37.14593,
+      "lon": -56.77124,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -37.16053,
+      "lon": -56.72999,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -37.1824,
+      "lon": -56.66808,
+      "depth_m": 20.0
+    }
+  ]
+}

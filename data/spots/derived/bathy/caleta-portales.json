@@ -1,0 +1,72 @@
+{
+  "spot": "caleta-portales",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.033,
+    -71.5945
+  ],
+  "bearing_seaward_deg": 322.0,
+  "nearshore_depth_m": 24.0,
+  "offshore_depth_m": 165.0,
+  "mean_slope_m_per_km": 7.94,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.03123,
+      "lon": -71.59615,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.02946,
+      "lon": -71.5978,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.02591,
+      "lon": -71.6011,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.01883,
+      "lon": -71.60771,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.01174,
+      "lon": -71.61431,
+      "depth_m": 95.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.99756,
+      "lon": -71.62751,
+      "depth_m": 107.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -32.97629,
+      "lon": -71.6473,
+      "depth_m": 123.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -32.94793,
+      "lon": -71.67368,
+      "depth_m": 146.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -32.90538,
+      "lon": -71.71321,
+      "depth_m": 165.0
+    }
+  ]
+}

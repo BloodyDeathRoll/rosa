@@ -1,0 +1,72 @@
+{
+  "spot": "km-3-comodoro",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -45.8404,
+    -67.4671
+  ],
+  "bearing_seaward_deg": 116.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 77.0,
+  "mean_slope_m_per_km": 4.96,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -45.84139,
+      "lon": -67.4642,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -45.84237,
+      "lon": -67.4613,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -45.84434,
+      "lon": -67.4555,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -45.84828,
+      "lon": -67.44389,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -45.85222,
+      "lon": -67.43228,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -45.8601,
+      "lon": -67.40907,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -45.8719,
+      "lon": -67.37423,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -45.88762,
+      "lon": -67.32775,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -45.91117,
+      "lon": -67.25799,
+      "depth_m": 77.0
+    }
+  ]
+}

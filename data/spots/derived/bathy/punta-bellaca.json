@@ -1,0 +1,72 @@
+{
+  "spot": "punta-bellaca",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -0.6202,
+    -80.4548
+  ],
+  "bearing_seaward_deg": 288.0,
+  "nearshore_depth_m": -20.0,
+  "offshore_depth_m": 50.0,
+  "mean_slope_m_per_km": 3.94,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -0.61951,
+      "lon": -80.45694,
+      "depth_m": -20.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -0.61881,
+      "lon": -80.45908,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -0.61742,
+      "lon": -80.46335,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -0.61464,
+      "lon": -80.47191,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -0.61186,
+      "lon": -80.48046,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -0.6063,
+      "lon": -80.49757,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -0.59797,
+      "lon": -80.52323,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -0.58685,
+      "lon": -80.55744,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -0.57017,
+      "lon": -80.60876,
+      "depth_m": 50.0
+    }
+  ]
+}

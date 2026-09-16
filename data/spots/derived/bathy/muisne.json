@@ -1,0 +1,72 @@
+{
+  "spot": "muisne",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    0.6039,
+    -80.0274
+  ],
+  "bearing_seaward_deg": 238.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 78.0,
+  "mean_slope_m_per_km": 4.34,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 0.60271,
+      "lon": -80.02931,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 0.60152,
+      "lon": -80.03121,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 0.59913,
+      "lon": -80.03503,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 0.59437,
+      "lon": -80.04265,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 0.5896,
+      "lon": -80.05028,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 0.58007,
+      "lon": -80.06554,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 0.56577,
+      "lon": -80.08842,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 0.54671,
+      "lon": -80.11892,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 0.51812,
+      "lon": -80.16469,
+      "depth_m": 78.0
+    }
+  ]
+}

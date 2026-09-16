@@ -1,0 +1,72 @@
+{
+  "spot": "laraquete",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -37.1686,
+    -73.1925
+  ],
+  "bearing_seaward_deg": 304.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 46.0,
+  "mean_slope_m_per_km": 2.99,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -37.16734,
+      "lon": -73.19484,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -37.16609,
+      "lon": -73.19718,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -37.16357,
+      "lon": -73.20186,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -37.15854,
+      "lon": -73.21121,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -37.15351,
+      "lon": -73.22056,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -37.14345,
+      "lon": -73.23927,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -37.12834,
+      "lon": -73.26731,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -37.1082,
+      "lon": -73.30469,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -37.07796,
+      "lon": -73.36071,
+      "depth_m": 46.0
+    }
+  ]
+}

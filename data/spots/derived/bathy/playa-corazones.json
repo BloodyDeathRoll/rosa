@@ -1,0 +1,72 @@
+{
+  "spot": "playa-corazones",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -18.5444,
+    -70.3327
+  ],
+  "bearing_seaward_deg": 255.0,
+  "nearshore_depth_m": -72.0,
+  "offshore_depth_m": 609.0,
+  "mean_slope_m_per_km": 38.37,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -18.54498,
+      "lon": -70.33499,
+      "depth_m": -72.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -18.54556,
+      "lon": -70.33728,
+      "depth_m": -72.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -18.54673,
+      "lon": -70.34186,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -18.54905,
+      "lon": -70.35103,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -18.55138,
+      "lon": -70.36019,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -18.55603,
+      "lon": -70.37852,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -18.56301,
+      "lon": -70.40601,
+      "depth_m": 113.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -18.5723,
+      "lon": -70.44267,
+      "depth_m": 127.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -18.58623,
+      "lon": -70.49767,
+      "depth_m": 609.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "arapuca",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -7.357,
+    -34.7992
+  ],
+  "bearing_seaward_deg": 91.0,
+  "nearshore_depth_m": -24.0,
+  "offshore_depth_m": 23.0,
+  "mean_slope_m_per_km": 2.65,
+  "land_samples": 5,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -7.35704,
+      "lon": -34.79693,
+      "depth_m": -24.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -7.35708,
+      "lon": -34.79467,
+      "depth_m": -20.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -7.35716,
+      "lon": -34.79013,
+      "depth_m": -15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -7.35731,
+      "lon": -34.78107,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -7.35747,
+      "lon": -34.772,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -7.35778,
+      "lon": -34.75387,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -7.35825,
+      "lon": -34.72667,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -7.35887,
+      "lon": -34.6904,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -7.3598,
+      "lon": -34.636,
+      "depth_m": 23.0
+    }
+  ]
+}

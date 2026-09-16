@@ -1,0 +1,72 @@
+{
+  "spot": "coqueirinho-pb",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -7.3285,
+    -34.7951
+  ],
+  "bearing_seaward_deg": 100.0,
+  "nearshore_depth_m": -29.0,
+  "offshore_depth_m": 24.0,
+  "mean_slope_m_per_km": 2.99,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -7.32889,
+      "lon": -34.79287,
+      "depth_m": -29.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -7.32928,
+      "lon": -34.79064,
+      "depth_m": -23.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -7.33006,
+      "lon": -34.78617,
+      "depth_m": -14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -7.33162,
+      "lon": -34.77724,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -7.33318,
+      "lon": -34.76831,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -7.33631,
+      "lon": -34.75045,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -7.34099,
+      "lon": -34.72366,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -7.34723,
+      "lon": -34.68794,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -7.35658,
+      "lon": -34.63436,
+      "depth_m": 24.0
+    }
+  ]
+}

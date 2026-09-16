@@ -1,0 +1,72 @@
+{
+  "spot": "posta-del-cangrejo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.9165,
+    -54.8589
+  ],
+  "bearing_seaward_deg": 137.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 26.0,
+  "mean_slope_m_per_km": 1.8,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.91814,
+      "lon": -54.85703,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.91979,
+      "lon": -54.85516,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.92308,
+      "lon": -54.85142,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.92965,
+      "lon": -54.84394,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.93623,
+      "lon": -54.83646,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.94938,
+      "lon": -54.82149,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.9691,
+      "lon": -54.79902,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.99539,
+      "lon": -54.76906,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.03482,
+      "lon": -54.72407,
+      "depth_m": 26.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "feliz-deserto",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -10.2992,
+    -36.2905
+  ],
+  "bearing_seaward_deg": 125.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 24.0,
+  "mean_slope_m_per_km": 0.96,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -10.30049,
+      "lon": -36.28863,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -10.30178,
+      "lon": -36.28676,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -10.30436,
+      "lon": -36.28301,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -10.30952,
+      "lon": -36.27552,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -10.31467,
+      "lon": -36.26804,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -10.32499,
+      "lon": -36.25306,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -10.34046,
+      "lon": -36.23059,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -10.36109,
+      "lon": -36.20063,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -10.39202,
+      "lon": -36.15569,
+      "depth_m": 24.0
+    }
+  ]
+}

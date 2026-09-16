@@ -1,0 +1,72 @@
+{
+  "spot": "las-torpederas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.02,
+    -71.647
+  ],
+  "bearing_seaward_deg": 290.0,
+  "nearshore_depth_m": 18.0,
+  "offshore_depth_m": 597.0,
+  "mean_slope_m_per_km": 32.62,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.01923,
+      "lon": -71.64952,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.01846,
+      "lon": -71.65204,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.01692,
+      "lon": -71.65708,
+      "depth_m": 99.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.01385,
+      "lon": -71.66716,
+      "depth_m": 122.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.01077,
+      "lon": -71.67723,
+      "depth_m": 124.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.00461,
+      "lon": -71.69739,
+      "depth_m": 134.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -32.99537,
+      "lon": -71.72761,
+      "depth_m": 151.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -32.98303,
+      "lon": -71.76789,
+      "depth_m": 208.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -32.9645,
+      "lon": -71.8283,
+      "depth_m": 597.0
+    }
+  ]
+}

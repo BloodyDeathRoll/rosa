@@ -1,0 +1,72 @@
+{
+  "spot": "la-viuda",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.0554,
+    -53.5477
+  ],
+  "bearing_seaward_deg": 125.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 1.13,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.05669,
+      "lon": -53.54548,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.05798,
+      "lon": -53.54325,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.06056,
+      "lon": -53.53881,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.06572,
+      "lon": -53.52991,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.07087,
+      "lon": -53.52102,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.08118,
+      "lon": -53.50323,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.09665,
+      "lon": -53.47653,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.11725,
+      "lon": -53.44092,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.14815,
+      "lon": -53.38747,
+      "depth_m": 20.0
+    }
+  ]
+}

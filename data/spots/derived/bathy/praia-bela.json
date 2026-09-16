@@ -1,0 +1,72 @@
+{
+  "spot": "praia-bela",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -7.3979,
+    -34.8039
+  ],
+  "bearing_seaward_deg": 94.0,
+  "nearshore_depth_m": -13.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 1.86,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -7.39806,
+      "lon": -34.80164,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -7.39821,
+      "lon": -34.79938,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -7.39853,
+      "lon": -34.79485,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -7.39915,
+      "lon": -34.78581,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -7.39978,
+      "lon": -34.77676,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -7.40103,
+      "lon": -34.75867,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -7.40291,
+      "lon": -34.73153,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -7.40541,
+      "lon": -34.69534,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -7.40916,
+      "lon": -34.64106,
+      "depth_m": 20.0
+    }
+  ]
+}

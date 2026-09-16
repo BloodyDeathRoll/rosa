@@ -1,0 +1,72 @@
+{
+  "spot": "monte-hermoso",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.9903,
+    -61.285
+  ],
+  "bearing_seaward_deg": 183.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 9.0,
+  "mean_slope_m_per_km": 0.68,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.99255,
+      "lon": -61.28515,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.99479,
+      "lon": -61.2853,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.99928,
+      "lon": -61.28561,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.00826,
+      "lon": -61.28621,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.01724,
+      "lon": -61.28682,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.0352,
+      "lon": -61.28803,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.06215,
+      "lon": -61.28985,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.09807,
+      "lon": -61.29228,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -39.15196,
+      "lon": -61.29592,
+      "depth_m": 9.0
+    }
+  ]
+}

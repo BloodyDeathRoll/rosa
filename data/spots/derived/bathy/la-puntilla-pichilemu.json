@@ -1,0 +1,72 @@
+{
+  "spot": "la-puntilla-pichilemu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.3813,
+    -72.0157
+  ],
+  "bearing_seaward_deg": 332.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 144.0,
+  "mean_slope_m_per_km": 8.79,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.37931,
+      "lon": -72.01698,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.37733,
+      "lon": -72.01826,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.37336,
+      "lon": -72.02082,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.36542,
+      "lon": -72.02593,
+      "depth_m": 99.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.35748,
+      "lon": -72.03104,
+      "depth_m": 123.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.34159,
+      "lon": -72.04127,
+      "depth_m": 138.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.31777,
+      "lon": -72.0566,
+      "depth_m": 129.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.286,
+      "lon": -72.07702,
+      "depth_m": 145.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.23834,
+      "lon": -72.10763,
+      "depth_m": 144.0
+    }
+  ]
+}

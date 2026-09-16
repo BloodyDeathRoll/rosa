@@ -1,0 +1,72 @@
+{
+  "spot": "portete",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    0.4831,
+    -80.0485
+  ],
+  "bearing_seaward_deg": 293.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 88.0,
+  "mean_slope_m_per_km": 4.96,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 0.48398,
+      "lon": -80.05057,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 0.48486,
+      "lon": -80.05264,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 0.48661,
+      "lon": -80.05678,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 0.49013,
+      "lon": -80.06506,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 0.49364,
+      "lon": -80.07334,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 0.50067,
+      "lon": -80.08989,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 0.51121,
+      "lon": -80.11473,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 0.52527,
+      "lon": -80.14784,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 0.54635,
+      "lon": -80.19752,
+      "depth_m": 88.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "luna-roja",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.1734,
+    -57.6398
+  ],
+  "bearing_seaward_deg": 147.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 46.0,
+  "mean_slope_m_per_km": 2.65,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.17529,
+      "lon": -57.63824,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.17717,
+      "lon": -57.63668,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.18094,
+      "lon": -57.63357,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.18848,
+      "lon": -57.62734,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.19603,
+      "lon": -57.6211,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.21111,
+      "lon": -57.60863,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.23373,
+      "lon": -57.58991,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.26388,
+      "lon": -57.56494,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.30911,
+      "lon": -57.52744,
+      "depth_m": 46.0
+    }
+  ]
+}

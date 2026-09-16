@@ -1,0 +1,72 @@
+{
+  "spot": "los-verdes",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -20.4228,
+    -70.1649
+  ],
+  "bearing_seaward_deg": 243.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 256.0,
+  "mean_slope_m_per_km": 14.37,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -20.42382,
+      "lon": -70.16704,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -20.42484,
+      "lon": -70.16918,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -20.42688,
+      "lon": -70.17345,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -20.43096,
+      "lon": -70.182,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -20.43505,
+      "lon": -70.19055,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -20.44321,
+      "lon": -70.20766,
+      "depth_m": 84.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -20.45545,
+      "lon": -70.23332,
+      "depth_m": 96.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -20.47176,
+      "lon": -70.26754,
+      "depth_m": 117.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -20.49622,
+      "lon": -70.31888,
+      "depth_m": 256.0
+    }
+  ]
+}

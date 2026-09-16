@@ -1,0 +1,72 @@
+{
+  "spot": "las-salinas-vina",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -32.993,
+    -71.548
+  ],
+  "bearing_seaward_deg": 291.0,
+  "nearshore_depth_m": 17.0,
+  "offshore_depth_m": 166.0,
+  "mean_slope_m_per_km": 8.39,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.99219,
+      "lon": -71.5505,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.99139,
+      "lon": -71.553,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -32.98978,
+      "lon": -71.55801,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.98655,
+      "lon": -71.56802,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -32.98333,
+      "lon": -71.57803,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.97688,
+      "lon": -71.59804,
+      "depth_m": 96.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -32.96719,
+      "lon": -71.62806,
+      "depth_m": 118.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -32.95427,
+      "lon": -71.66807,
+      "depth_m": 134.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -32.93486,
+      "lon": -71.72806,
+      "depth_m": 166.0
+    }
+  ]
+}

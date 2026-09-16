@@ -1,0 +1,72 @@
+{
+  "spot": "ponta-dos-mangues",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -10.5654,
+    -36.5613
+  ],
+  "bearing_seaward_deg": 156.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 31.0,
+  "mean_slope_m_per_km": 1.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -10.56745,
+      "lon": -36.56037,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -10.56951,
+      "lon": -36.55944,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -10.57362,
+      "lon": -36.55758,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -10.58183,
+      "lon": -36.55386,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -10.59005,
+      "lon": -36.55014,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -10.60648,
+      "lon": -36.54269,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -10.63112,
+      "lon": -36.53153,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -10.66399,
+      "lon": -36.51663,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -10.71328,
+      "lon": -36.49429,
+      "depth_m": 31.0
+    }
+  ]
+}

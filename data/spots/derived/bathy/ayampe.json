@@ -1,0 +1,72 @@
+{
+  "spot": "ayampe",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -1.6786,
+    -80.8134
+  ],
+  "bearing_seaward_deg": 238.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 59.0,
+  "mean_slope_m_per_km": 3.83,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -1.67979,
+      "lon": -80.81531,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -1.68098,
+      "lon": -80.81721,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -1.68337,
+      "lon": -80.82103,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -1.68813,
+      "lon": -80.82866,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -1.6929,
+      "lon": -80.83629,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -1.70243,
+      "lon": -80.85155,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -1.71672,
+      "lon": -80.87444,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -1.73579,
+      "lon": -80.90496,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -1.76438,
+      "lon": -80.95075,
+      "depth_m": 59.0
+    }
+  ]
+}

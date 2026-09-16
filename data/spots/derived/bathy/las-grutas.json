@@ -1,0 +1,72 @@
+{
+  "spot": "las-grutas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -40.8105,
+    -65.0847
+  ],
+  "bearing_seaward_deg": 149.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 39.0,
+  "mean_slope_m_per_km": 2.48,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -40.81243,
+      "lon": -65.08317,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -40.81435,
+      "lon": -65.08164,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -40.81821,
+      "lon": -65.07858,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -40.82592,
+      "lon": -65.07246,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -40.83362,
+      "lon": -65.06633,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -40.84904,
+      "lon": -65.05408,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -40.87216,
+      "lon": -65.0357,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -40.90298,
+      "lon": -65.01116,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -40.9492,
+      "lon": -64.97431,
+      "depth_m": 39.0
+    }
+  ]
+}

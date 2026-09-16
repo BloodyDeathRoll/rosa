@@ -1,0 +1,72 @@
+{
+  "spot": "cruz-das-almas-al",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -9.632,
+    -35.6959
+  ],
+  "bearing_seaward_deg": 115.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 28.0,
+  "mean_slope_m_per_km": 2.2,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -9.63295,
+      "lon": -35.69383,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -9.6339,
+      "lon": -35.69177,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -9.6358,
+      "lon": -35.68763,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -9.6396,
+      "lon": -35.67937,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -9.6434,
+      "lon": -35.6711,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -9.651,
+      "lon": -35.65456,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -9.6624,
+      "lon": -35.62976,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -9.67759,
+      "lon": -35.59668,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -9.70038,
+      "lon": -35.54706,
+      "depth_m": 28.0
+    }
+  ]
+}

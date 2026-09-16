@@ -1,0 +1,72 @@
+{
+  "spot": "las-brusquitas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.245,
+    -57.7783
+  ],
+  "bearing_seaward_deg": 144.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 52.0,
+  "mean_slope_m_per_km": 3.38,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.24682,
+      "lon": -57.77662,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.24864,
+      "lon": -57.77493,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.25228,
+      "lon": -57.77157,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.25955,
+      "lon": -57.76484,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.26683,
+      "lon": -57.7581,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.28137,
+      "lon": -57.74463,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.30319,
+      "lon": -57.72441,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.33228,
+      "lon": -57.69743,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.3759,
+      "lon": -57.65693,
+      "depth_m": 52.0
+    }
+  ]
+}

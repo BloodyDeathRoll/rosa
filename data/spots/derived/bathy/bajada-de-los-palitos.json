@@ -1,0 +1,72 @@
+{
+  "spot": "bajada-de-los-palitos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -45.9637,
+    -67.5655
+  ],
+  "bearing_seaward_deg": 117.0,
+  "nearshore_depth_m": -17.0,
+  "offshore_depth_m": 71.0,
+  "mean_slope_m_per_km": 4.96,
+  "land_samples": 4,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -45.96472,
+      "lon": -67.56262,
+      "depth_m": -17.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -45.96574,
+      "lon": -67.55974,
+      "depth_m": -14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -45.96778,
+      "lon": -67.55397,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -45.97186,
+      "lon": -67.54244,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -45.97594,
+      "lon": -67.53091,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -45.9841,
+      "lon": -67.50784,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -45.99633,
+      "lon": -67.47322,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -46.01261,
+      "lon": -67.42705,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -46.037,
+      "lon": -67.35773,
+      "depth_m": 71.0
+    }
+  ]
+}

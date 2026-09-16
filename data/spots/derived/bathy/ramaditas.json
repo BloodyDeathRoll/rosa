@@ -1,0 +1,72 @@
+{
+  "spot": "ramaditas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -21.8472,
+    -70.1428
+  ],
+  "bearing_seaward_deg": 263.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 691.0,
+  "mean_slope_m_per_km": 39.61,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -21.84747,
+      "lon": -70.1452,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -21.84775,
+      "lon": -70.14761,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -21.8483,
+      "lon": -70.15242,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -21.84939,
+      "lon": -70.16203,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -21.85049,
+      "lon": -70.17165,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -21.85267,
+      "lon": -70.19089,
+      "depth_m": 107.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -21.85595,
+      "lon": -70.21974,
+      "depth_m": 123.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -21.86031,
+      "lon": -70.25821,
+      "depth_m": 302.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -21.86684,
+      "lon": -70.31593,
+      "depth_m": 691.0
+    }
+  ]
+}

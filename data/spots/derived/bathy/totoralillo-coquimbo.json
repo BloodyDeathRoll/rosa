@@ -1,0 +1,72 @@
+{
+  "spot": "totoralillo-coquimbo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -30.0722,
+    -71.3785
+  ],
+  "bearing_seaward_deg": 278.0,
+  "nearshore_depth_m": 16.0,
+  "offshore_depth_m": 604.0,
+  "mean_slope_m_per_km": 33.13,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -30.07189,
+      "lon": -71.38107,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -30.07157,
+      "lon": -71.38365,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -30.07095,
+      "lon": -71.38879,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -30.0697,
+      "lon": -71.39908,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -30.06844,
+      "lon": -71.40937,
+      "depth_m": 96.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -30.06593,
+      "lon": -71.42995,
+      "depth_m": 119.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -30.06216,
+      "lon": -71.46082,
+      "depth_m": 181.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -30.05712,
+      "lon": -71.50197,
+      "depth_m": 416.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -30.04954,
+      "lon": -71.56369,
+      "depth_m": 604.0
+    }
+  ]
+}

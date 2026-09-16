@@ -1,0 +1,72 @@
+{
+  "spot": "mar-chiquita-la-boca",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -37.7462,
+    -57.4178
+  ],
+  "bearing_seaward_deg": 154.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 21.0,
+  "mean_slope_m_per_km": 1.13,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -37.74822,
+      "lon": -57.41655,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -37.75024,
+      "lon": -57.41531,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -37.75428,
+      "lon": -57.41281,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -37.76237,
+      "lon": -57.40783,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -37.77045,
+      "lon": -57.40284,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -37.78661,
+      "lon": -57.39286,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -37.81086,
+      "lon": -57.37788,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -37.84318,
+      "lon": -57.35789,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -37.89166,
+      "lon": -57.32788,
+      "depth_m": 21.0
+    }
+  ]
+}

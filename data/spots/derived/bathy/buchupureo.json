@@ -1,0 +1,72 @@
+{
+  "spot": "buchupureo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.0651,
+    -72.7896
+  ],
+  "bearing_seaward_deg": 280.0,
+  "nearshore_depth_m": 24.0,
+  "offshore_depth_m": 308.0,
+  "mean_slope_m_per_km": 16.0,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.06471,
+      "lon": -72.79234,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.06432,
+      "lon": -72.79508,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.06354,
+      "lon": -72.80056,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.06197,
+      "lon": -72.81151,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.06041,
+      "lon": -72.82247,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.05728,
+      "lon": -72.84438,
+      "depth_m": 122.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.05257,
+      "lon": -72.87724,
+      "depth_m": 187.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.04629,
+      "lon": -72.92105,
+      "depth_m": 195.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.03683,
+      "lon": -72.98674,
+      "depth_m": 308.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "llico-maule",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.7539,
+    -72.0858
+  ],
+  "bearing_seaward_deg": 320.0,
+  "nearshore_depth_m": -22.0,
+  "offshore_depth_m": 277.0,
+  "mean_slope_m_per_km": 16.85,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.75218,
+      "lon": -72.08756,
+      "depth_m": -22.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.75046,
+      "lon": -72.08932,
+      "depth_m": -22.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.74701,
+      "lon": -72.09284,
+      "depth_m": -17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.74012,
+      "lon": -72.09987,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.73323,
+      "lon": -72.1069,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.71945,
+      "lon": -72.12096,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.69877,
+      "lon": -72.14205,
+      "depth_m": 121.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.6712,
+      "lon": -72.17015,
+      "depth_m": 147.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.62983,
+      "lon": -72.21226,
+      "depth_m": 277.0
+    }
+  ]
+}

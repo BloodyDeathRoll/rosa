@@ -1,0 +1,72 @@
+{
+  "spot": "la-paloma-chapadmalal",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.1341,
+    -57.6062
+  ],
+  "bearing_seaward_deg": 78.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 24.0,
+  "mean_slope_m_per_km": 1.35,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.13363,
+      "lon": -57.6034,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.13316,
+      "lon": -57.60061,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.13223,
+      "lon": -57.59502,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.13036,
+      "lon": -57.58383,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.12849,
+      "lon": -57.57265,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.12474,
+      "lon": -57.55029,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.11911,
+      "lon": -57.51675,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.11159,
+      "lon": -57.47204,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.10027,
+      "lon": -57.40499,
+      "depth_m": 24.0
+    }
+  ]
+}

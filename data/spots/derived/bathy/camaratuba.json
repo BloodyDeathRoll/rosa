@@ -1,0 +1,72 @@
+{
+  "spot": "camaratuba",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -6.6035,
+    -34.964
+  ],
+  "bearing_seaward_deg": 103.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 21.0,
+  "mean_slope_m_per_km": 1.18,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -6.60401,
+      "lon": -34.96179,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -6.60451,
+      "lon": -34.95959,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -6.60552,
+      "lon": -34.95518,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -6.60755,
+      "lon": -34.94636,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -6.60957,
+      "lon": -34.93754,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -6.61361,
+      "lon": -34.91989,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -6.61968,
+      "lon": -34.89343,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -6.62777,
+      "lon": -34.85814,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -6.63989,
+      "lon": -34.80521,
+      "depth_m": 21.0
+    }
+  ]
+}

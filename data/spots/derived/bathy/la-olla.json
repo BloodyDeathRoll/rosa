@@ -1,0 +1,72 @@
+{
+  "spot": "la-olla",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.9538,
+    -54.9301
+  ],
+  "bearing_seaward_deg": 161.0,
+  "nearshore_depth_m": -13.0,
+  "offshore_depth_m": 34.0,
+  "mean_slope_m_per_km": 2.65,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.95593,
+      "lon": -54.92921,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.95805,
+      "lon": -54.92831,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.9623,
+      "lon": -54.92653,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.97081,
+      "lon": -54.92295,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.97931,
+      "lon": -54.91938,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.99631,
+      "lon": -54.91223,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.02182,
+      "lon": -54.9015,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.05583,
+      "lon": -54.88718,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.10684,
+      "lon": -54.86568,
+      "depth_m": 34.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "santo-domingo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.6364,
+    -71.6351
+  ],
+  "bearing_seaward_deg": 268.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 109.0,
+  "mean_slope_m_per_km": 6.48,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.63648,
+      "lon": -71.6378,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.63656,
+      "lon": -71.6405,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.63671,
+      "lon": -71.6459,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.63703,
+      "lon": -71.65669,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.63734,
+      "lon": -71.66749,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.63796,
+      "lon": -71.68908,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.63888,
+      "lon": -71.72146,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.6401,
+      "lon": -71.76465,
+      "depth_m": 108.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.6419,
+      "lon": -71.82943,
+      "depth_m": 109.0
+    }
+  ]
+}

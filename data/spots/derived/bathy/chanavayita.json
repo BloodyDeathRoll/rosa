@@ -1,0 +1,72 @@
+{
+  "spot": "chanavayita",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -20.7054,
+    -70.1924
+  ],
+  "bearing_seaward_deg": 292.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 167.0,
+  "mean_slope_m_per_km": 9.69,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -20.70456,
+      "lon": -70.19463,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -20.70372,
+      "lon": -70.19686,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -20.70203,
+      "lon": -70.20131,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -20.69866,
+      "lon": -70.21023,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -20.69529,
+      "lon": -70.21914,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -20.68855,
+      "lon": -70.23697,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -20.67843,
+      "lon": -70.2637,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -20.66494,
+      "lon": -70.29934,
+      "depth_m": 96.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -20.64469,
+      "lon": -70.35279,
+      "depth_m": 167.0
+    }
+  ]
+}

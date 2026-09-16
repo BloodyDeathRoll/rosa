@@ -1,0 +1,72 @@
+{
+  "spot": "boyeruca",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.69,
+    -72.0608
+  ],
+  "bearing_seaward_deg": 285.0,
+  "nearshore_depth_m": -44.0,
+  "offshore_depth_m": 538.0,
+  "mean_slope_m_per_km": 32.79,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.68942,
+      "lon": -72.06344,
+      "depth_m": -44.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.68884,
+      "lon": -72.06608,
+      "depth_m": -44.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.68767,
+      "lon": -72.07136,
+      "depth_m": -27.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.68534,
+      "lon": -72.08193,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.68301,
+      "lon": -72.09249,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.67835,
+      "lon": -72.11362,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.67135,
+      "lon": -72.1453,
+      "depth_m": 125.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.662,
+      "lon": -72.18753,
+      "depth_m": 175.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.64796,
+      "lon": -72.25087,
+      "depth_m": 538.0
+    }
+  ]
+}

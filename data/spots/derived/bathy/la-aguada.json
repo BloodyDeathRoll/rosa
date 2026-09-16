@@ -1,0 +1,72 @@
+{
+  "spot": "la-aguada",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.6404,
+    -54.1549
+  ],
+  "bearing_seaward_deg": 86.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 1.58,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.64024,
+      "lon": -54.15217,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.64009,
+      "lon": -54.14945,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.63977,
+      "lon": -54.144,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.63914,
+      "lon": -54.13309,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.63851,
+      "lon": -54.12219,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.63725,
+      "lon": -54.10038,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.63535,
+      "lon": -54.06767,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.6328,
+      "lon": -54.02406,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.62895,
+      "lon": -53.95865,
+      "depth_m": 20.0
+    }
+  ]
+}

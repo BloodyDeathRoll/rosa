@@ -1,0 +1,72 @@
+{
+  "spot": "huayquique",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -20.2799,
+    -70.1305
+  ],
+  "bearing_seaward_deg": 270.0,
+  "nearshore_depth_m": -13.0,
+  "offshore_depth_m": 556.0,
+  "mean_slope_m_per_km": 32.06,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -20.2799,
+      "lon": -70.1329,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -20.2799,
+      "lon": -70.13529,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -20.2799,
+      "lon": -70.14009,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -20.2799,
+      "lon": -70.14968,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -20.2799,
+      "lon": -70.15926,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -20.27989,
+      "lon": -70.17844,
+      "depth_m": 98.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -20.27988,
+      "lon": -70.2072,
+      "depth_m": 109.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -20.27986,
+      "lon": -70.24555,
+      "depth_m": 206.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -20.27982,
+      "lon": -70.30308,
+      "depth_m": 556.0
+    }
+  ]
+}
