@@ -3202,3 +3202,26 @@ filed 0 FLAT -> V2 100 FIRING (1.96 m 14.3 s 208 deg, closure 0.78). porthleven 
 **Verdict: V2 applied 2026-09-16.** The reviewer's proof passes; 4 tests in `test_blend.py` (own
 node, whole-set fallback, slot flip, hold), red on `26f6505`; repo suite 670 passed, ruff clean.
 The first VM cycle after the push is the smoke check.
+
+## 2026-09-16 - Station wind A/B read: GFS confirmed, the ICON leg dropped (OPEN-ITEMS 25/34)
+
+The 2026-08-30 switch (ICON -> GFS) said the station A/B would confirm or revert it after ~2
+weeks. Read on the VM, `verify --stations --archive --wind-model {gfs,icon}`, same METAR/IMS
+observations, 207-208 of 229 stations, archive 2026-08-30 -> 2026-09-16:
+
+| lead | GFS speed bias / MAE (m/s) | ICON speed bias / MAE (m/s) | GFS dir MAE | ICON dir MAE |
+|---|---|---|---|---|
+| 0-1d | -0.04 / 1.31 | -0.80 / 1.40 | 41.5 | 41.5 |
+| 1-3d | -0.05 / 1.33 | -0.77 / 1.42 | 43.9 | 43.3 |
+| 3-4d | -0.09 / 1.41 | -0.80 / 1.45 | 50.3 | 48.4 |
+| 4-5d | -0.12 / 1.42 | -0.81 / 1.46 | 51.8 | 49.8 |
+| 5-7d | -0.09 / 1.42 | -0.85 / 1.50 | 53.1 | 51.6 |
+| 7-9d | +0.00 / 1.51 | -0.73 / 1.64 | 59.6 | 58.2 |
+| 9d+ | -0.16 / 1.42 | -0.28 / 1.58 | 59.4 | 63.3 |
+
+(ICON's 7-9d and 9d+ n are smaller - its horizon is shorter.) **GFS wins wind speed at every
+lead** - ICON is ~0.8 m/s light throughout, the same damping graded at Zvulun. ICON's direction is
+1-2 deg better from day 3 to day 9, which is inside the noise of a 40-60 deg MAE and does not
+move the wind gate. **Verdict: the switch stands.** The ICON station leg (~870 weather-host units
+a day) was removed the same day to make room on the weather host for new spots (OPEN-ITEMS 34);
+`<station>.icon.jsonl` stays on the VM and `--wind-model icon` still scores it.

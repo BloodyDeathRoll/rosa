@@ -47,7 +47,6 @@ from .feedback import (
     summarize,
 )
 from .fetch import (
-    WEATHER_AB_MODEL,
     WEATHER_MODEL,
     FixtureSource,
     ForecastSource,
@@ -144,8 +143,10 @@ SOURCE_VARIABLES = {
     "swan": ECMWF_VARIABLES,
 }
 # coastal-station archive keys: the published wind model (fetch.WEATHER_MODEL, GFS since
-# 2026-08-30) lives at "<station>", the A/B member (fetch.WEATHER_AB_MODEL, ICON - the
-# best_match model it replaced) at "<station>.icon". Same observations score both.
+# 2026-08-30) lives at "<station>"; "<station>.icon" holds the ICON A/B member archived
+# 2026-08-30 -> 2026-09-16. That A/B was read 2026-09-16 (GFS wind speed bias -0.04 vs
+# -0.80 m/s at 0-1 d, CALIBRATION.md) and ICON is no longer fetched; the key stays so
+# `--wind-model icon` still scores the archived rows.
 STATION_AB_KEY_SUFFIX = ".icon"
 # plan C3b (OPEN-ITEMS 34): the raw GFS 0.25 atmos GRIB wind at each station, the
 # candidate to replace the weather-host call; archived beside the two OM members
@@ -359,10 +360,10 @@ def _build_parser() -> argparse.ArgumentParser:
         choices=sorted(STATION_WIND_MODELS),
         default="gfs",
         help="with --stations/--station: which archived wind model to score - gfs (the "
-        "published model since 2026-08-30, via Open-Meteo), icon (the A/B member, "
-        "best_match's ICON before that) or gfs_grib (the raw GFS 0.25 atmos GRIB sampled "
-        "at the station, plan C3b - archived since 2026-09-12). Same METAR/IMS "
-        "observations either way",
+        "published model since 2026-08-30, via Open-Meteo), icon (the ICON A/B member, "
+        "archived 2026-08-30 to 2026-09-16, no longer fetched) or gfs_grib (the raw "
+        "GFS 0.25 atmos GRIB sampled at the station, plan C3b - archived since "
+        "2026-09-12). Same METAR/IMS observations either way",
     )
     verify.add_argument("--stations-dir", type=Path, default=STATIONS_DIR)
     verify.add_argument("--stations-archive-dir", type=Path, default=STATIONS_ARCHIVE_DIR)
@@ -1580,7 +1581,7 @@ def _warn_member_empty(member: str, rows: int, targets: list, noun: str = "buoy"
 
 def _archive_stations(args: argparse.Namespace, now: datetime) -> None:
     """The coastal-station arm: the model's 10 m wind at every registered station, one
-    weather-host request per OM member for the whole registry (2 vars, ~1 unit/point -
+    weather-host request for the whole registry (2 vars, ~1 unit/point -
     ~90 units a cycle at 90 stations, not charged to the marine ledger, same choice as
     the buoy archive), plus the raw GFS atmos GRIB member from NOMADS (plan C3b, per box
     and step - no Open-Meteo units at all). Guarded top to bottom: this is evidence, and
@@ -1602,7 +1603,6 @@ def _archive_stations(args: argparse.Namespace, now: datetime) -> None:
     targets = sorted(stations.values(), key=lambda s: s.id)
     store = FileArchiveStore(args.stations_archive_dir)
     coords = [(st.lat, st.lon) for st in targets]
-    ab_bodies: list[dict | None]
     try:
         if args.wind_fixtures is not None:
             bodies = [
@@ -1611,28 +1611,13 @@ def _archive_stations(args: argparse.Namespace, now: datetime) -> None:
                 )
                 for st in targets
             ]
-            ab_bodies = []
-            for st in targets:
-                f = args.wind_fixtures / f"weather_{st.id}{STATION_AB_KEY_SUFFIX}.json"
-                ab_bodies.append(json.loads(f.read_text(encoding="utf-8")) if f.exists() else None)
         else:
             bodies = fetch_wind_many(coords, model=WEATHER_MODEL)
-            # the A/B member is the more expendable of the two: lose it, keep the
-            # published model's rows
-            try:
-                ab_bodies = list(fetch_wind_many(coords, model=WEATHER_AB_MODEL))
-            except Exception as e:
-                print(
-                    f"warn: station {WEATHER_AB_MODEL} batch failed ({e!r}) - "
-                    "A/B member skipped this run",
-                    file=sys.stderr,
-                )
-                ab_bodies = [None] * len(targets)
     except Exception as e:
         print(f"warn: station wind batch failed ({e!r}) - station arm skipped", file=sys.stderr)
         return
     # plan C3b: the raw GFS atmos GRIB member, one NOMADS request per (box x step) for
-    # the whole registry, never per station. The most expendable leg of the three - it
+    # the whole registry, never per station. The more expendable leg of the two - it
     # is the candidate, not the published model - so it degrades to "no rows this cycle".
     # Offline (--wind-fixtures) it replays gfsatmos_f*_<box>.grib2 captures when present.
     grib_series: list[list[WavePoint]] = [[] for _ in targets]
@@ -1650,25 +1635,16 @@ def _archive_stations(args: argparse.Namespace, now: datetime) -> None:
         )
     total = 0
     total_grib = 0
-    for st, body, ab, grib in zip(targets, bodies, ab_bodies, grib_series, strict=True):
+    for st, body, grib in zip(targets, bodies, grib_series, strict=True):
         try:
             if args.capture is not None and args.wind_fixtures is None:
                 args.capture.mkdir(parents=True, exist_ok=True)
                 (args.capture / f"weather_{st.id}.json").write_text(
                     json.dumps(body), encoding="utf-8"
                 )
-                if ab is not None:
-                    (args.capture / f"weather_{st.id}{STATION_AB_KEY_SUFFIX}.json").write_text(
-                        json.dumps(ab), encoding="utf-8"
-                    )
             rows = rows_from_model(now, wind_points(body))
             store.append(st.id, rows)
             total += len(rows)
-            n_ab = 0
-            if ab is not None:
-                ab_rows = rows_from_model(now, wind_points(ab))
-                store.append(st.id + STATION_AB_KEY_SUFFIX, ab_rows)
-                n_ab = len(ab_rows)
             n_grib = 0
             if grib:
                 grib_rows = rows_from_model(now, grib)
@@ -1677,7 +1653,7 @@ def _archive_stations(args: argparse.Namespace, now: datetime) -> None:
                 total_grib += n_grib
             print(
                 f"{st.id}: archived {len(rows)} wind rows ({WEATHER_MODEL})"
-                f" + {n_ab} ({WEATHER_AB_MODEL}) + {n_grib} (gfs_grib)"
+                f" + {n_grib} (gfs_grib)"
                 f" → {args.stations_archive_dir / (st.id + '.jsonl')}"
             )
         except Exception as e:
@@ -1685,8 +1661,7 @@ def _archive_stations(args: argparse.Namespace, now: datetime) -> None:
     # Same silent shape as the wave members: the batch guard above catches a raise, but a
     # 200 that parses to no hours archives 0 rows at every station and returns cleanly -
     # 89 lines of "archived 0 wind rows" and no summary. The published model and the
-    # C3b candidate are totalled (a candidate that archives nothing decides nothing);
-    # the icon member has its own warn on the one path that can empty it.
+    # C3b candidate are totalled (a candidate that archives nothing decides nothing).
     _warn_member_empty(WEATHER_MODEL, total, targets, noun="station")
     if args.wind_fixtures is None:
         _warn_member_empty("gfs_grib", total_grib, targets, noun="station")

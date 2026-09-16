@@ -415,29 +415,15 @@ def test_archive_station_arm_writes_wind_rows_and_never_raises(tmp_path, monkeyp
     assert len(grib) == 1 and grib[0]["ws"] == 6.0 and grib[0]["wdir"] == 300.0
     assert grib[0]["hs"] is None
     # the buoy fleet path's own wind join calls fetch_wind_many too; the station batches
-    # are the ones carrying the station's coordinate - one per model, published + A/B
+    # are the ones carrying the station's coordinate - the published model only; the
+    # ICON A/B member was dropped 2026-09-16 and must not spend weather-host quota
     assert ([(32.011, 34.887)], "gfs_seamless") in calls
-    assert ([(32.011, 34.887)], "icon_seamless") in calls
+    assert all(model == cli.WEATHER_MODEL for _, model in calls)
     rows = [json.loads(line) for line in (st_archive / "LLBG.jsonl").read_text().splitlines()]
     assert len(rows) == 2 and rows[0]["ws"] == 4.0 and rows[0]["hs"] is None
-    ab = [json.loads(line) for line in (st_archive / "LLBG.icon.jsonl").read_text().splitlines()]
-    assert len(ab) == 2 and ab[0]["ws"] == 2.0
+    assert not (st_archive / "LLBG.icon.jsonl").exists()
 
-    def ab_boom(coords, *, model=cli.WEATHER_MODEL):
-        if model != cli.WEATHER_MODEL:
-            raise RuntimeError("icon leg down")
-        return [_wind_body(["2026-08-09T00:00"], 4.0) for _ in coords]
-
-    # losing the A/B member keeps the published model's rows
-    monkeypatch.setattr(cli, "fetch_wind_many", ab_boom)
-    st_archive_ab = tmp_path / "st-archive-ab"
-    rc = main([*argv, "--stations-archive-dir", str(st_archive_ab)])
-    assert rc == 0
-    assert (st_archive_ab / "LLBG.jsonl").exists()
-    assert not (st_archive_ab / "LLBG.icon.jsonl").exists()
-    assert "A/B member skipped" in capsys.readouterr().err
-
-    class GribBoom:  # losing the C3b member keeps both OM members' rows
+    class GribBoom:  # losing the C3b member keeps the OM member's rows
         def __init__(self, capture_dir=None):
             pass
 
@@ -449,7 +435,7 @@ def test_archive_station_arm_writes_wind_rows_and_never_raises(tmp_path, monkeyp
     st_archive_g = tmp_path / "st-archive-grib"
     rc = main([*argv, "--stations-archive-dir", str(st_archive_g)])
     assert rc == 0
-    assert (st_archive_g / "LLBG.jsonl").exists() and (st_archive_g / "LLBG.icon.jsonl").exists()
+    assert (st_archive_g / "LLBG.jsonl").exists()
     assert not (st_archive_g / "LLBG.gfs_grib.jsonl").exists()
     err = capsys.readouterr().err
     assert "gfs_grib member failed" in err and "gfs_grib" in err

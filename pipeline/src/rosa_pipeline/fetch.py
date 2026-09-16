@@ -113,10 +113,10 @@ WEATHER_HOURLY = [
 # ~13 km ICON coastal cell damps the beach wind - Zvulun 06:00 read 3.4 kn from ICON,
 # 8.3 kn from GFS, and the beach had ~9 kn (eyes). Surfline's wind is raw GFS. One
 # model name, so the hourly keys stay plain (a single model is served unsuffixed).
-# ICON is still fetched at the coastal stations as the A/B member (WEATHER_AB_MODEL,
-# archive key "<station>.icon"); nothing is decided from one morning.
+# ICON was archived at the coastal stations as the A/B member ("<station>.icon") until
+# 2026-09-16, when the station A/B confirmed GFS (wind speed bias -0.04 vs -0.80 m/s
+# at 0-1 d, CALIBRATION.md) and the ICON leg was dropped to free weather-host quota.
 WEATHER_MODEL = "gfs_seamless"
-WEATHER_AB_MODEL = "icon_seamless"
 
 
 # verification harness samples the total sea-state at a buoy - no models suffix, so the
@@ -323,8 +323,7 @@ def fetch_wind_many(
     """10 m wind at many points, one comma-joined WEATHER-host request, in m/s so the
     values pair with NDBC WSPD without conversion (fetch-plane plan C3 evidence).
     Tiny: 2 vars -> weight 1/point on a host the archive otherwise never touches.
-    ``model`` defaults to the published wind model; the station arm also asks for
-    WEATHER_AB_MODEL so the two can be scored against the same observations."""
+    ``model`` defaults to the published wind model."""
     if not coords:
         return []
     with httpx.Client(timeout=timeout_s) as client:

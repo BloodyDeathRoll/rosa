@@ -122,7 +122,8 @@ right: anyone holding it can suppress your outage alerts). Open-Meteo and NDBC a
 - **Coastal wind truth (2026-08-29):** step 1 also archives the model's 10 m wind at
   every station in `data/stations/` (90 METAR airfields within 25 km of a spot) to
   `data/verify/stations/<id>.jsonl` (the published model, GFS since 2026-08-30) and
-  `<id>.icon.jsonl` (ICON, the A/B member) and, since 2026-09-12, `<id>.gfs_grib.jsonl`
+  `<id>.icon.jsonl` (ICON, the A/B member - archived 2026-08-30 to 2026-09-16, dropped
+  when the A/B confirmed GFS) and, since 2026-09-12, `<id>.gfs_grib.jsonl`
   (the raw GFS 0.25 atmos GRIB from NOMADS, plan C3b's candidate to replace the
   Open-Meteo weather call - ~1,160 grib-filter requests a cycle, paced to 40/min so
   ~29 min, no Open-Meteo units; unpaced it tripped NOMADS and killed the 2026-09-12 14:20Z cycle),

@@ -5,8 +5,9 @@ Since 2026-09-12 the weather host is the blend arm's last per-spot Open-Meteo ca
 waves already made: one NOMADS grib-filter request per (box x step), never per spot. This
 module is the MEASUREMENT half of that plan - it archives the raw GFS 10 m wind at every
 registered wind station each cycle under the ``.gfs_grib`` key, beside Open-Meteo's
-``gfs_seamless`` (the published model) and ``icon_seamless``, so ``verify --stations
---wind-model gfs_grib`` scores all three against the same METAR/IMS readings.
+``gfs_seamless`` (the published model; ``icon_seamless`` was archived too until
+2026-09-16), so ``verify --stations --wind-model gfs_grib`` scores them against the same
+METAR/IMS readings.
 
 Why it must be measured and not assumed: Open-Meteo has served GFS (``gfs_seamless``)
 since 2026-08-30, so on paper this is the same model - but the C3 verdict (CALIBRATION.md

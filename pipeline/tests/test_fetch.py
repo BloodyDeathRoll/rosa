@@ -61,7 +61,7 @@ def test_weather_requests_name_the_published_wind_model():
     fetch.httpx.Client = _Client  # type: ignore[attr-defined]
     try:
         fetch.fetch_wind_many(COORDS)
-        fetch.fetch_wind_many(COORDS, model=fetch.WEATHER_AB_MODEL)
+        fetch.fetch_wind_many(COORDS, model="icon_seamless")
     finally:
         fetch.httpx.Client = orig  # type: ignore[attr-defined]
     assert seen == ["gfs_seamless", "icon_seamless"]
