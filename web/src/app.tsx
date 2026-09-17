@@ -2,6 +2,7 @@ import { useEffect, useState } from "preact/hooks";
 import { HomeIcon, MapIcon, StarIcon, UserIcon, WavesIcon } from "./components/icons";
 import { BottomGlow } from "./components/BottomGlow";
 import { DesktopBar } from "./components/DesktopBar";
+import { DuplicateNote } from "./components/DuplicateNote";
 import { InstallPrompt } from "./components/InstallPrompt";
 import { ConsentBar } from "./components/ConsentBar";
 import { ReportNudge } from "./components/ReportNudge";
@@ -109,6 +110,7 @@ export function App() {
       <ConsentBar />
       <ReportNudge />
       <InstallPrompt />
+      <DuplicateNote />
       <SignInScreen />
     </div>
   );

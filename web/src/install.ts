@@ -7,6 +7,73 @@
 
 const SEEN_KEY = "rosa.install.seen";
 
+/** The Google Play app (android/twa-manifest.json): a Trusted Web Activity, i.e.
+    this same site inside Chrome. It and a Chrome-installed PWA share one origin
+    (storage, sign-in, push), so having both is only two icons - but nothing on
+    the web can remove an icon, so the PWA stops being offered once the Play app
+    is there, and a PWA that finds it says once that it is the spare one. */
+const PLAY_APP_ID = "surf.rosa.app";
+const TWA_KEY = "rosa.twa";
+const DUPLICATE_SEEN_KEY = "rosa.duplicate.seen";
+
+interface RelatedApp {
+  platform: string;
+  id?: string;
+}
+type RelatedAppsNavigator = Navigator & {
+  getInstalledRelatedApps?: () => Promise<RelatedApp[]>;
+};
+
+let playAppInstalled = false;
+
+/** Ask Chrome whether the Play app is on this phone (it answers from the
+    manifest's `related_applications` + assetlinks.json; every other browser has
+    no such API and stays false). Called once at startup; re-broadcasts
+    `rosa:installable` so the Profile row re-reads its offer. */
+export async function detectPlayApp(): Promise<boolean> {
+  try {
+    const apps = (await (navigator as RelatedAppsNavigator).getInstalledRelatedApps?.()) ?? [];
+    playAppInstalled = apps.some((a) => a.platform === "play" && a.id === PLAY_APP_ID);
+  } catch {
+    playAppInstalled = false;
+  }
+  if (playAppInstalled) dispatchEvent(new Event("rosa:installable"));
+  return playAppInstalled;
+}
+
+/** Running INSIDE the Play app? A TWA's first document carries the package as its
+    referrer; the flag rides sessionStorage so a reload inside it still knows. */
+function inPlayApp(): boolean {
+  try {
+    if (document.referrer.startsWith(`android-app://${PLAY_APP_ID}`)) {
+      sessionStorage.setItem(TWA_KEY, "1");
+      return true;
+    }
+    return sessionStorage.getItem(TWA_KEY) === "1";
+  } catch {
+    return document.referrer.startsWith(`android-app://${PLAY_APP_ID}`);
+  }
+}
+
+/** This is the installed PWA and the Play app is on the phone too - so this icon
+    is the spare. Said once per device. */
+export function duplicateNoteDue(): boolean {
+  if (!playAppInstalled || !installed() || inPlayApp()) return false;
+  try {
+    return localStorage.getItem(DUPLICATE_SEEN_KEY) !== "1";
+  } catch {
+    return true; // storage blocked - once per page load is the best we can do
+  }
+}
+
+export function markDuplicateSeen(): void {
+  try {
+    localStorage.setItem(DUPLICATE_SEEN_KEY, "1");
+  } catch {
+    // ignore
+  }
+}
+
 /** Chrome's deferred install event - not in lib.dom, and only ever usable once. */
 interface BeforeInstallPromptEvent extends Event {
   prompt(): Promise<void>;
@@ -66,7 +133,7 @@ function samsungAndroid(): boolean {
     once-per-open flag - for the Profile row, which the user went looking for
     rather than being interrupted by. */
 export function manualInstallOffer(): InstallOffer | null {
-  if (installed()) return null;
+  if (installed() || playAppInstalled) return null;
   if (samsungAndroid()) return "chrome";
   if (deferred()) return "prompt";
   if (iosSafari()) return "ios";

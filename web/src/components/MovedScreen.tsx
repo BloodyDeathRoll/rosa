@@ -28,7 +28,7 @@ export function movedLink(): string {
 
 /** Where this platform hides "remove": there is no web API for uninstalling, the
     OS owns the home screen, so the screen has to say it. */
-function removeHint(): string {
+export function removeHint(): string {
   const ua = navigator.userAgent;
   if (/iPhone|iPad|iPod/.test(ua)) return "To remove this one: press and hold its icon, then Remove App.";
   if (/Android/.test(ua)) return "To remove this one: press and hold its icon, then Uninstall.";

@@ -19,6 +19,17 @@ export default defineConfig({
         theme_color: "#032afa",
         background_color: "#032afa",
         display: "standalone",
+        // The Play app (android/, a TWA on this origin). Declared so Chrome answers
+        // getInstalledRelatedApps() (install.ts). `prefer_related_applications`
+        // stays OFF until the Play listing is public: it silences Chrome's PWA
+        // install prompt in favour of a store page that today is a 404.
+        related_applications: [
+          {
+            platform: "play",
+            id: "surf.rosa.app",
+            url: "https://play.google.com/store/apps/details?id=surf.rosa.app"
+          }
+        ],
         icons: [
           // PNGs first and non-negotiable: Chrome on Android mints a WebAPK from
           // these, and an SVG-only icon set (which desktop Chrome accepts fine)
