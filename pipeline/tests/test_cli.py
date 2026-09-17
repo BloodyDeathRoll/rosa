@@ -117,6 +117,68 @@ def test_spot_and_all_are_mutually_exclusive():
         main(["run"])
 
 
+def test_run_all_is_byte_identical_whatever_the_worker_count(tmp_path, monkeypatch, capsys):
+    """`run --all` scores the fleet in forked workers since 2026-09-17 (it was 53 min on one
+    of the VM's four cores). The parent replays every point's events in point order and
+    does every write itself, so the payloads, index.json, stdout and stderr must not depend
+    on the worker count - including when a spot fails inside a worker (the per-spot guard
+    lives in the worker now, and its failure still has to reach the summary and exit code).
+    """
+    import rosa_pipeline.cli as cli_mod
+
+    spots_dir = tmp_path / "spots"
+    spots_dir.mkdir()
+    (spots_dir / "test.yaml").write_text(SPOTS_YAML, encoding="utf-8")
+
+    class Frozen(datetime):
+        @classmethod
+        def now(cls, tz=None):
+            return datetime(2026, 7, 22, 6, 0, tzinfo=tz)
+
+    monkeypatch.setattr(cli_mod, "datetime", Frozen)
+    monkeypatch.setattr(cli_mod, "SCORE_POOL_MIN_POINTS", 1)  # the fixture fleet is tiny
+    assert cli_mod._score_workers(2, 5) == 2 and cli_mod._score_workers(1, 5) == 1
+    real = cli_mod.load_profile
+
+    def run(workers: int, sabotage: bool) -> tuple[int, dict[str, bytes], str, str]:
+        def sabotaged(spot_id, bathy_dir):
+            if spot_id == "spot-b":
+                raise ValueError("boom")
+            return real(spot_id, bathy_dir)
+
+        monkeypatch.setattr(cli_mod, "load_profile", sabotaged if sabotage else real)
+        out = tmp_path / f"out-{workers}-{sabotage}"
+        rc = main(
+            [
+                "run",
+                "--wave-source",
+                "om",
+                "--all",
+                "--spots-dir",
+                str(spots_dir),
+                "--out",
+                str(out),
+                "--fixtures",
+                str(FIXTURES),
+                "--workers",
+                str(workers),
+            ]
+        )
+        files = {str(p.relative_to(out)): p.read_bytes() for p in sorted(out.rglob("*.json"))}
+        cap = capsys.readouterr()
+        return rc, files, cap.out.replace(str(out), "OUT"), cap.err
+
+    for sabotage in (False, True):
+        one = run(1, sabotage)
+        two = run(2, sabotage)
+        assert one == two
+        assert one[0] == (1 if sabotage else 0)
+        assert ("spots/spot-b.json" in one[1]) is (not sabotage)
+        if sabotage:
+            assert "error: spot-b: ValueError('boom')" in one[3]
+            assert "1 of 2 spot(s) failed (ValueError): spot-b" in one[3]
+
+
 def test_run_all_survives_one_failing_spot(tmp_path, monkeypatch, capsys):
     """Dream review 2026-08-05: this loop ran bare while every other step in _cmd_run was
     guarded, so one raising spot stranded every spot after it AND skipped prune_index -
@@ -447,6 +509,61 @@ def test_archive_station_arm_writes_wind_rows_and_never_raises(tmp_path, monkeyp
     rc = main([*argv, "--stations-archive-dir", str(tmp_path / "st-archive-2")])
     assert rc == 0
     assert "station arm skipped" in capsys.readouterr().err
+
+
+def test_archive_stations_switch_splits_the_buoy_and_station_arms(tmp_path, monkeypatch):
+    """`--stations skip` archives the buoys and never touches the station arm;
+    `--stations only` runs the station arm and never fetches a buoy. publish.sh relies on
+    the split to run the ~70 min station leg AFTER the public deploy."""
+    import rosa_pipeline.cli as cli
+
+    buoys_dir = tmp_path / "buoys"
+    buoys_dir.mkdir()
+    (buoys_dir / "test.yaml").write_text(BUOYS_YAML, encoding="utf-8")
+    stations_dir = tmp_path / "stations"
+    stations_dir.mkdir()
+    (stations_dir / "metar.yaml").write_text(STATIONS_YAML, encoding="utf-8")
+    marine_calls: list[int] = []
+
+    def fake_marine(coords):
+        marine_calls.append(len(coords))
+        return [_marine_body() for _ in coords]
+
+    wind_calls: list[list[tuple[float, float]]] = []
+
+    def fake_wind(coords, *, model=cli.WEATHER_MODEL):
+        wind_calls.append(coords)
+        return [_wind_body(["2026-08-09T00:00"], 4.0) for _ in coords]
+
+    class NoGrib:
+        def __init__(self, capture_dir=None):
+            pass
+
+        def fetch_series(self, coords):
+            return [[] for _ in coords]
+
+    monkeypatch.setattr(cli, "fetch_marine_waves_many", fake_marine)
+    monkeypatch.setattr(cli, "fetch_wind_many", fake_wind)
+    monkeypatch.setattr(cli, "GfsAtmosSource", NoGrib)
+    argv = _archive_argv(tmp_path, buoys_dir)
+    argv[argv.index("--stations-dir") + 1] = str(stations_dir)
+    st_archive = tmp_path / "st-archive"
+    argv = [*argv, "--stations-archive-dir", str(st_archive)]
+
+    assert main([*argv, "--stations", "skip"]) == 0
+    assert marine_calls and list((tmp_path / "archive").glob("*.jsonl"))
+    assert not st_archive.exists() or not list(st_archive.glob("*.jsonl"))
+    assert [(32.011, 34.887)] not in wind_calls  # the station batch never went out
+
+    marine_calls.clear()
+    n_buoy_files = len(list((tmp_path / "archive").glob("*.jsonl")))
+    buoy_bytes = sum(p.stat().st_size for p in (tmp_path / "archive").glob("*.jsonl"))
+    assert main([*argv, "--stations", "only"]) == 0
+    assert not marine_calls  # no buoy fetch
+    assert len(list((tmp_path / "archive").glob("*.jsonl"))) == n_buoy_files
+    assert sum(p.stat().st_size for p in (tmp_path / "archive").glob("*.jsonl")) == buoy_bytes
+    rows = [json.loads(line) for line in (st_archive / "LLBG.jsonl").read_text().splitlines()]
+    assert len(rows) == 1 and rows[0]["ws"] == 4.0
 
 
 def test_verify_stations_scores_wind_by_lead_from_the_real_metar_capture(tmp_path, capsys):

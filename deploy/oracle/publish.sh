@@ -43,6 +43,58 @@ on_fail() {
 }
 trap 'on_fail "${BASH_COMMAND} (line $LINENO)"' ERR
 
+# The evidence legs: the coastal-station wind archive + scorecard and the SWAN pilot.
+# They RECORD, they never publish - so since 2026-09-17 they run AFTER the public deploy
+# (together they held the forecast back ~2 h of a ~4.5 h cycle: ~70 min of paced NOMADS
+# wind requests and ~50 min of SWAN, measured 2026-09-16 20:20Z). Their archives cannot
+# be back-filled, so the EXIT trap below fires them on EVERY way out - a cycle that dies
+# at `run --all` or at the Vercel upload (2026-09-07: two days of "api-upload-free")
+# still records. Once per cycle; every command is non-fatal.
+EVIDENCE_DONE=0
+run_evidence() {
+  [ "$EVIDENCE_DONE" -eq 1 ] && return 0
+  EVIDENCE_DONE=1
+  cd "$HOME/rosa" || return 0
+  # 4c) the coastal-station wind archive (the published model's wind + the raw GFS atmos
+  #     GRIB candidate, plan C3b, at every station in data/stations). Split off step 1 on
+  #     2026-09-17 - see there. Evidence only and guarded inside the command; never fatal.
+  uv run --project pipeline rosa-pipeline archive --stations only \
+    || echo "warn: station wind archive failed"
+
+  # 4d) coastal wind truth: the model's 10 m wind (archived at every station in
+  #     data/stations by step 4c) vs the airports' METARs and IMS's beach stations, by
+  #     lead. Scores the published model (GFS since 2026-08-30); `--wind-model icon`
+  #     scores the archived A/B member. Evidence only - nothing reads it yet
+  #     (OPEN-ITEMS 25); ~90 small
+  #     aviationweather.gov requests, a few minutes, after the deploy and non-fatal
+  #     for the same reason as 4b. IMS stations need IMS_API_TOKEN in ~/rosa/.env.
+  uv run --project pipeline rosa-pipeline verify --stations --archive \
+    || echo "warn: station wind measurement failed"
+
+  # 4e) Stage-4 pilot (docs/rosa-stage4-plan.md): for every region with committed SWAN
+  #     grids, rebuild the boundary from this cycle's GFS-Wave partitions, run the SWAN
+  #     chain (outer + nests, ~40 s a step on this box, days 0-7 = ~38 min) and append
+  #     SWAN's sea at the registered buoys to the archive as the `swan` member. RECORDING
+  #     ONLY: `run --all` above still publishes the march. The 4.5 A/B on the .swan rows
+  #     is what earns `--nearshore swan` a place in that command. Non-fatal and silent
+  #     on failure (a pilot is never worth a forecast cycle); run.log in the run dir has
+  #     every SWAN run's timing. The 50 min `timeout` is the slot guard: a cycle already
+  #     takes ~4.3 h of its 6 h, and an overrun makes the lock skip the next cycle - a
+  #     pilot must never cost a public refresh. LAST since 2026-09-17 (it ran before
+  #     `run --all` until then and delayed the public forecast ~50 min a cycle); it
+  #     fetches its own GFS-Wave box, so nothing upstream depends on its position.
+  cd "$HOME/rosa"
+  for REGION in socal; do
+    if [ -f "data/swan/$REGION/outer/meta.json" ] && [ -x "$HOME/bin/swan-omp.exe" ]; then
+      ( uv run --project pipeline rosa-pipeline swan --region "$REGION" --steps 0-168 --nests --chain \
+          && timeout 3000 bash "data/swan/$REGION/run/run.sh" \
+          && uv run --project pipeline rosa-pipeline swan-archive --run "data/swan/$REGION/run" ) \
+        || echo "warn: swan $REGION failed - cycle continues on the march"
+    fi
+  done
+}
+trap 'trap - ERR; set +e; run_evidence >> "$LOG" 2>&1' EXIT
+
 {
   echo "=== $(date -u +%FT%TZ) run start ==="
   cd "$HOME/rosa"
@@ -91,26 +143,11 @@ trap 'on_fail "${BASH_COMMAND} (line $LINENO)"' ERR
   #    loss into two - a daily-quota 429 here once kept cam fixes undeployed and
   #    the public forecast stale for 12 h. The admin alert still fires so a
   #    silent archive rot cannot creep in.
-  uv run --project pipeline rosa-pipeline archive || on_fail "archive (non-fatal - cycle continues)"
-
-  # 1c) Stage-4 pilot (docs/rosa-stage4-plan.md): for every region with committed SWAN
-  #     grids, rebuild the boundary from this cycle's GFS-Wave partitions, run the SWAN
-  #     chain (outer + nests, ~40 s a step on this box, days 0-7 = ~38 min) and append
-  #     SWAN's sea at the registered buoys to the archive as the `swan` member. RECORDING
-  #     ONLY: `run --all` below still publishes the march. The 4.5 A/B on the .swan rows
-  #     is what earns `--nearshore swan` a place in that command. Non-fatal and silent
-  #     on failure (a pilot is never worth a forecast cycle); run.log in the run dir has
-  #     every SWAN run's timing. The 50 min `timeout` is the slot guard: a cycle already
-  #     takes ~4.3 h of its 6 h, and an overrun makes the lock skip the next cycle - a
-  #     pilot must never cost a public refresh.
-  for REGION in socal; do
-    if [ -f "data/swan/$REGION/outer/meta.json" ] && [ -x "$HOME/bin/swan-omp.exe" ]; then
-      ( uv run --project pipeline rosa-pipeline swan --region "$REGION" --steps 0-168 --nests --chain \
-          && timeout 3000 bash "data/swan/$REGION/run/run.sh" \
-          && uv run --project pipeline rosa-pipeline swan-archive --run "data/swan/$REGION/run" ) \
-        || echo "warn: swan $REGION failed - cycle continues on the march"
-    fi
-  done
+  #    `--stations skip` since 2026-09-17: the coastal-station wind arm (its paced NOMADS
+  #    leg is ~70 min) is evidence only and now runs as step 4c, AFTER the deploy - it
+  #    and the SWAN pilot used to hold the public forecast back ~2 h every cycle.
+  uv run --project pipeline rosa-pipeline archive --stations skip \
+    || on_fail "archive (non-fatal - cycle continues)"
 
   # 2) refresh the per-spot forecasts.
   #    Exit 3 is the daily-quota guard refusing to fetch (rosa_pipeline.quota), NOT a
@@ -123,10 +160,12 @@ trap 'on_fail "${BASH_COMMAND} (line $LINENO)"' ERR
   #    Refusing costs one stale refresh; the previous payloads keep serving and the
   #    freshness watchdog still covers real rot. Alert so it stays visible, then skip
   #    straight past the deploy - re-publishing an unchanged tree buys nothing.
-  set +e
-  uv run --project pipeline rosa-pipeline run --all
-  RUN_RC=$?
-  set -e
+  #    `|| RUN_RC=$?`, not `set +e` (2026-09-17): bash fires the ERR trap on a non-zero
+  #    command even with errexit off, so the old `set +e ... set -e` form pushed a false
+  #    "Cycle FAILED" alert beside the quota-skip (3) and partial-run (4) alerts. A
+  #    command on the left of `||` never fires the trap.
+  RUN_RC=0
+  uv run --project pipeline rosa-pipeline run --all || RUN_RC=$?
   if [ "$RUN_RC" -eq 3 ]; then
     uv run --project pipeline rosa-pipeline alert \
       --message "Cycle SKIPPED: Open-Meteo daily quota spent ($(date -u +%H:%MZ)). Existing forecasts keep serving; the quota resets 00:00Z." \
@@ -152,7 +191,7 @@ trap 'on_fail "${BASH_COMMAND} (line $LINENO)"' ERR
       --message "Cycle PARTIAL: some spots failed and kept their previous payload ($(date -u +%H:%MZ)). The rest published. See publish.log for the ids." \
       || echo "warn: partial-run alert push failed"
   elif [ "$RUN_RC" -ne 0 ]; then
-    # set +e disarmed the ERR trap for this command, so raise the alert by hand
+    # the `||` above keeps the ERR trap quiet for this command, so raise the alert by hand
     on_fail "rosa-pipeline run --all (exit $RUN_RC)"
     exit "$RUN_RC"
   fi
@@ -194,15 +233,10 @@ JSON
   uv run --project pipeline rosa-pipeline verify --all-buoys --archive --write-skill \
     || echo "warn: skill measurement failed - published ceilings stay as-is"
 
-  # 4c) coastal wind truth: the model's 10 m wind (archived at every station in
-  #     data/stations by step 1) vs the airports' METARs and IMS's beach stations, by
-  #     lead. Scores the published model (GFS since 2026-08-30); `--wind-model icon`
-  #     scores the archived A/B member. Evidence only - nothing reads it yet
-  #     (OPEN-ITEMS 25); ~90 small
-  #     aviationweather.gov requests, a few minutes, after the deploy and non-fatal
-  #     for the same reason as 4b. IMS stations need IMS_API_TOKEN in ~/rosa/.env.
-  uv run --project pipeline rosa-pipeline verify --stations --archive \
-    || echo "warn: station wind measurement failed"
+  # 4c-4e) the evidence legs (station wind archive + its scorecard, SWAN pilot) - see
+  #     run_evidence above. Also fired from the EXIT trap, so a cycle that dies at
+  #     `run --all` or the deploy still records them.
+  run_evidence
 
   # 5) dead-man ping: "a cycle completed" - its absence is the alarm
   if [ -n "${HEALTHCHECK_URL:-}" ]; then

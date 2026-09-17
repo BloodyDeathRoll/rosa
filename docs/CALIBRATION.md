@@ -3225,3 +3225,44 @@ lead** - ICON is ~0.8 m/s light throughout, the same damping graded at Zvulun. I
 move the wind gate. **Verdict: the switch stands.** The ICON station leg (~870 weather-host units
 a day) was removed the same day to make room on the weather host for new spots (OPEN-ITEMS 34);
 `<station>.icon.jsonl` stays on the VM and `--wind-model icon` still scores it.
+
+## 2026-09-17 - Cycle time: the evidence legs moved behind the deploy, the fleet scored on every core (same-input A/B)
+
+Not a tuning change - no published number moves, and this entry is the proof of that.
+
+**Measured, the 2026-09-16 20:20Z cycle at 2254 spots (4 h 32 min, from file mtimes on the VM):**
+
+| step | min |
+|---|---|
+| buoy archive (om + gfswave + ecmwf) | ~7 |
+| station wind archive (the C3b `gfs_grib` candidate, NOMADS paced at 40 req/min) | ~70 |
+| SWAN SoCal pilot (recording only) | ~51 |
+| `run --all`: fetch (NOMADS wave files, ECMWF, GWAM, weather) | ~74 |
+| `run --all`: extract -> score -> write, ONE process on a 4-core box | ~53 |
+| swellmap, deploy, notify, verify | ~15 |
+
+Two hours of every cycle were evidence legs running BEFORE the forecast, and the box idled at
+load 0.00 through the paced leg. The 307 South American spots added ~8 min.
+
+**Change 1 - order.** `archive --stations {with,skip,only}` splits the station arm off the buoy
+archive. `publish.sh` step 1 is `--stations skip`; the station archive, its scorecard and the SWAN
+pilot are `run_evidence`, called after the deploy AND from an EXIT trap, so a cycle that dies at
+`run --all` or the Vercel upload still records (the archives cannot be back-filled). Checked with a
+stubbed harness over four exits (clean, quota-skip 3, partial 4, fatal 1): evidence ran once in each,
+exit codes unchanged. Same pass: `RUN_RC=0; run --all || RUN_RC=$?` replaces `set +e ... set -e` -
+bash fires the ERR trap with errexit off, so exits 3 and 4 had been pushing a false "Cycle FAILED"
+alert beside their own.
+
+**Change 2 - cores.** `cli._score_point` is the old per-point loop body returning EVENTS; the parent
+replays them in point order and does every write, in forked workers when the run has >= 32 points
+(`--workers`, 0 = one per core capped at 8). **Same-input A/B:** a captured 135-spot run (Israel,
+Portugal, Chile Central; GFS-Wave 09-16 18z, ECMWF 12z, GWAM 12z, OISST, weather) replayed with a
+frozen clock - old code vs new `--workers 1` vs `--workers 4`: **136 of 136 output files
+byte-identical** (135 payloads + index.json) and stdout/stderr line-identical. Wall 134.9 s -> 83.7 s
+on the workstation; GRIB parsing is ~66 s of both, so the scoring step itself went ~69 s -> ~18 s
+(3.9x). Profile of the old loop: `score_hour` 121 of 192 s. Regression test:
+`test_run_all_is_byte_identical_whatever_the_worker_count` (includes a spot failing inside a worker).
+
+Expected on the VM: forecast live ~2 h 15 after cycle start instead of ~4 h 30; whole cycle under
+4 h. **Measure on the first cycle after the push.** Not touched: the 74 min fetch - NOMADS throttles
+unpaced pulls (OPEN-ITEMS 36).

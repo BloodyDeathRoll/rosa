@@ -119,7 +119,8 @@ right: anyone holding it can suppress your outage alerts). Open-Meteo and NDBC a
   all-rights-reserved and gitignored, it never travels via git.
 - **Skill checks (after a week of archive):**
   `uv run --project pipeline rosa-pipeline verify --buoy 46042 --archive`
-- **Coastal wind truth (2026-08-29):** step 1 also archives the model's 10 m wind at
+- **Coastal wind truth (2026-08-29):** step 4c (`archive --stations only`; it rode inside step 1
+  until 2026-09-17, where its paced NOMADS leg held the forecast back ~70 min) archives the model's 10 m wind at
   every station in `data/stations/` (90 METAR airfields within 25 km of a spot) to
   `data/verify/stations/<id>.jsonl` (the published model, GFS since 2026-08-30) and
   `<id>.icon.jsonl` (ICON, the A/B member - archived 2026-08-30 to 2026-09-16, dropped
@@ -127,7 +128,7 @@ right: anyone holding it can suppress your outage alerts). Open-Meteo and NDBC a
   (the raw GFS 0.25 atmos GRIB from NOMADS, plan C3b's candidate to replace the
   Open-Meteo weather call - ~1,160 grib-filter requests a cycle, paced to 40/min so
   ~29 min, no Open-Meteo units; unpaced it tripped NOMADS and killed the 2026-09-12 14:20Z cycle),
-  and step 4c scores the published one by lead with `verify --stations --archive` (one
+  and step 4d scores the published one by lead with `verify --stations --archive` (one
   station: `verify --station LLBG --archive`; the other members: `--wind-model icon` /
   `--wind-model gfs_grib`). Wind columns only, evidence only - the bias it
   measures is the coastal-cell damping OPEN-ITEMS 25 is about. IMS stations (`data/stations/ims.yaml`, 21 within 25 km

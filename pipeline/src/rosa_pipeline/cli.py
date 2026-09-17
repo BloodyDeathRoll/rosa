@@ -249,6 +249,14 @@ def _build_parser() -> argparse.ArgumentParser:
     )
     run.add_argument("--capture", type=Path, default=None, help="capture raw responses to this dir")
     run.add_argument(
+        "--workers",
+        type=int,
+        default=0,
+        help="processes that score the fleet (extract -> score -> payload per offshore "
+        "point): 0 = one per core, capped at 8; 1 = in-process. Runs under 32 points "
+        "always stay in-process. The output is byte-identical whatever the count",
+    )
+    run.add_argument(
         "--skill",
         type=Path,
         default=ARCHIVE_DIR.parent / "skill.json",
@@ -443,6 +451,15 @@ def _build_parser() -> argparse.ArgumentParser:
         "station (an empty or missing dir skips the arm)",
     )
     archive.add_argument("--stations-archive-dir", type=Path, default=STATIONS_ARCHIVE_DIR)
+    archive.add_argument(
+        "--stations",
+        choices=["with", "skip", "only"],
+        default="with",
+        help="the coastal-station wind arm: with = after the buoy members (default), skip = "
+        "buoys only, only = the station arm alone. publish.sh splits the two since "
+        "2026-09-17: the station arm's paced NOMADS leg took ~70 min of every cycle "
+        "BEFORE the forecast, and it is evidence only - it now runs after the deploy",
+    )
     archive.add_argument(
         "--wind-fixtures",
         type=Path,
@@ -725,6 +742,134 @@ def group_by_point(spots: list[Spot]) -> dict[tuple[float, float], list[Spot]]:
     return groups
 
 
+# ---- `run`'s per-point step, shaped so a fleet run can fan it out over processes ----
+# Set by _cmd_run before the pool forks; the workers read it copy-on-write.
+_POINT_CTX: dict | None = None
+# below this many offshore points the pool's fork + import cost beats the saving
+SCORE_POOL_MIN_POINTS = 32
+SCORE_POOL_MAX_WORKERS = 8
+
+
+def _score_workers(requested: int, n_points: int) -> int:
+    """How many processes score the fleet: `--workers N` wins, 0 = one per core (capped),
+    and a small run, or a platform without fork, stays in-process."""
+    import multiprocessing
+    import os
+
+    if n_points < SCORE_POOL_MIN_POINTS or "fork" not in multiprocessing.get_all_start_methods():
+        return 1
+    if requested > 0:
+        return requested
+    return max(1, min(os.cpu_count() or 1, SCORE_POOL_MAX_WORKERS))
+
+
+def _score_point(i: int) -> list[tuple]:
+    """Everything one offshore point's spots need short of the writes: extract the hours,
+    score each spot, build its payload. Returns EVENTS for the parent to replay in order -
+    ("err", text), ("fail", spot id, exception type), ("count", counter, n) and
+    ("spot", id, payload, implausible hours) - so the output does not depend on which
+    process ran it. Every guard the loop had is kept, at the same place."""
+    ctx = _POINT_CTX
+    assert ctx is not None
+    point = ctx["points"][i]
+    raw = ctx["raws"][i]
+    group = ctx["groups"][point]
+    events: list[tuple] = []
+    try:
+        hours = extract_hours(
+            raw, spectral=ctx["spectral"][i], tide_constants=ctx["tide_by_point"].get(point)
+        )
+    except Exception as e:
+        # Per-POINT guard, one loop outside the per-spot one: a body that parses as
+        # JSON but lacks the hourly schema (a capture torn mid-write, an old-schema
+        # fixture, a per-location error object in a batched response) raised here
+        # bare and stranded every LATER point's spots unpublished - the ghost-card
+        # failure mode again. Damage, not a dry cell: count the point's spots as
+        # failures so the cycle still exits 1 for publish.sh's trap.
+        for spot in group:
+            events.append(("fail", spot.id, type(e).__name__))
+        ids = ", ".join(s.id for s in group)
+        events.append(("err", f"error: point {point} ({ids}): {e!r} - skipped"))
+        return events
+    if not hours:
+        # a derived point that landed on a dry grid cell - skip its spots, keep going
+        ids = ", ".join(s.id for s in group)
+        events.append(("err", f"warning: no forecast at point {point} - skipping {ids}"))
+        return events
+    for spot in group:
+        # Per-spot failure must not sink the batch. Every other step in this command is
+        # already guarded this way (the ECMWF member above, the dry-cell skip above, the
+        # gfswave/ecmwf archive members below); this loop was the one that ran bare. The
+        # batch IS the product - there is no request-time backend - so a spot that never
+        # gets written silently serves its previous payload, and an unguarded raise here
+        # strands every spot after it AND skips prune_index, which is exactly how removed
+        # spots shipped as ghost cards from 2026-07-23 to 2026-08-02.
+        swan_h = swan_fb = 0
+        try:
+            profile = load_profile(spot.id, ctx["bathy_dir"])
+            # ...and check the ray still belongs to this spot. DepthProfile.matches_spot
+            # exists for exactly this and nothing on the publish path asked it: a profile
+            # goes stale when the pin moves or `shore_normal` is re-cut without a new
+            # `bathy` sweep, and the depths then describe a different piece of seabed -
+            # the Fishermen Bay failure (102 deg out, 69% of hours at 0.0-0.1 m). The
+            # committed suite catches it (test_spots.py), but there is no CI: the VM cron
+            # is `git pull` -> `run --all`, so a YAML edit pushed without a local pytest
+            # publishes 4x/day off the old ray with nothing said.
+            # WARNS, never substitutes: dropping or swapping the depths would move
+            # published heights fleet-wide, which is a pb_0049 tuning change. Fires on
+            # nothing in the DB as it stands (265/265 profiles match, 2026-08-16).
+            if profile is not None and not profile.matches_spot(spot):
+                events.append(("count", "stale_profiles", 1))
+                events.append(
+                    (
+                        "err",
+                        f"warn: {spot.id}: committed bathy profile no longer matches the "
+                        f"spot (cast from {profile.origin_lat}, {profile.origin_lon} aiming "
+                        f"{profile.bearing_seaward_deg:.1f} deg; spot is at {spot.lat}, "
+                        f"{spot.lon} aiming {spot.shore_normal:.1f} deg) - re-run "
+                        f"`bathy --spot {spot.id}`",
+                    )
+                )
+            wet_samples = profile.wet_samples_deep_to_shallow() if profile else None
+            if profile is None:
+                events.append(("count", "no_profile", 1))
+            series = ctx["nearshore_series"].get(spot.id)
+            if series is None:
+                scored = [score_hour(spot, h, wet_samples) for h in hours]
+            else:
+                from .nearshore import nearshore_at
+
+                scored = []
+                for h in hours:
+                    sea = nearshore_at(series, h.time)
+                    scored.append(score_hour(spot, h, wet_samples, nearshore=sea))
+                    if sea is not None:
+                        swan_h += 1
+                    else:
+                        swan_fb += 1
+            payload = build_payload(
+                spot,
+                scored,
+                fetched_at=raw.fetched_at,
+                now=ctx["now"],
+                skill=ctx["skill"],
+                wave_source=ctx["wave_source"],
+                model_run=raw.model_run,
+            )
+        except Exception as e:
+            # repr, not str: losing the exception type on a batch of 199 makes a systemic
+            # fault unreadable. The count and the first type are echoed in the summary.
+            events.append(("fail", spot.id, type(e).__name__))
+            events.append(("err", f"error: {spot.id}: {e!r}"))
+            continue
+        finally:
+            if swan_h or swan_fb:
+                events.append(("count", "swan_hours", swan_h))
+                events.append(("count", "swan_fallback_hours", swan_fb))
+        events.append(("spot", spot.id, payload, _implausible_break_hours(spot, scored)))
+    return events
+
+
 def _cmd_run(args: argparse.Namespace) -> int:
     spots = load_spots(args.spots_dir)
     bathy_dir = getattr(args, "bathy_dir", None) or BATHY_DIR
@@ -848,15 +993,11 @@ def _cmd_run(args: argparse.Namespace) -> int:
 
     published = 0
     implausible = 0
-    stale_profiles = 0
     stale_tides = 0
-    no_profile = 0
-    failures: list[tuple[str, Exception]] = []
+    failures: list[tuple[str, str]] = []  # (spot id, exception type name)
     # Stage-4 nearshore arm (docs/rosa-stage4-plan.md 4.4): one SWAN series per spot with a
     # handoff point in the run's region; hours the run has no sea for fall back per hour.
     nearshore_series: dict = {}
-    swan_hours = 0
-    swan_fallback_hours = 0
     if getattr(args, "nearshore", "march") == "swan":
         from .nearshore import load_run as load_swan_run
 
@@ -933,103 +1074,90 @@ def _cmd_run(args: argparse.Namespace) -> int:
             if c is None and not om_arm:
                 no_tide_points += 1
             tide_by_point[point] = c
-    for point, raw, spectral in zip(points, raws, spectral_series, strict=True):
-        try:
-            hours = extract_hours(raw, spectral=spectral, tide_constants=tide_by_point.get(point))
-        except Exception as e:
-            # Per-POINT guard, one loop outside the per-spot one: a body that parses as
-            # JSON but lacks the hourly schema (a capture torn mid-write, an old-schema
-            # fixture, a per-location error object in a batched response) raised here
-            # bare and stranded every LATER point's spots unpublished - the ghost-card
-            # failure mode again. Damage, not a dry cell: count the point's spots as
-            # failures so the cycle still exits 1 for publish.sh's trap.
-            for spot in groups[point]:
-                failures.append((spot.id, e))
-            ids = ", ".join(s.id for s in groups[point])
-            print(f"error: point {point} ({ids}): {e!r} - skipped", file=sys.stderr)
-            continue
-        if not hours:
-            # a derived point that landed on a dry grid cell - skip its spots, keep going
-            ids = ", ".join(s.id for s in groups[point])
-            print(f"warning: no forecast at point {point} - skipping {ids}", file=sys.stderr)
-            continue
-        for spot in groups[point]:
-            # Per-spot failure must not sink the batch. Every other step in this command is
-            # already guarded this way (the ECMWF member above, the dry-cell skip above, the
-            # gfswave/ecmwf archive members below); this loop was the one that ran bare. The
-            # batch IS the product - there is no request-time backend - so a spot that never
-            # gets written silently serves its previous payload, and an unguarded raise here
-            # strands every spot after it AND skips prune_index, which is exactly how removed
-            # spots shipped as ghost cards from 2026-07-23 to 2026-08-02.
-            try:
-                profile = load_profile(spot.id, bathy_dir)
-                # ...and check the ray still belongs to this spot. DepthProfile.matches_spot
-                # exists for exactly this and nothing on the publish path asked it: a profile
-                # goes stale when the pin moves or `shore_normal` is re-cut without a new
-                # `bathy` sweep, and the depths then describe a different piece of seabed -
-                # the Fishermen Bay failure (102 deg out, 69% of hours at 0.0-0.1 m). The
-                # committed suite catches it (test_spots.py), but there is no CI: the VM cron
-                # is `git pull` -> `run --all`, so a YAML edit pushed without a local pytest
-                # publishes 4x/day off the old ray with nothing said.
-                # WARNS, never substitutes: dropping or swapping the depths would move
-                # published heights fleet-wide, which is a pb_0049 tuning change. Fires on
-                # nothing in the DB as it stands (265/265 profiles match, 2026-08-16).
-                if profile is not None and not profile.matches_spot(spot):
-                    stale_profiles += 1
+    # The per-point work (extract -> score -> payload) is pure CPU and independent per
+    # point; it was 53 min of a 4.5 h cycle on ONE of the VM's four cores (2026-09-16
+    # 20:20Z, 2254 spots; score_hour is ~2/3 of an offline replay). `_score_point` does it,
+    # in forked workers when the fleet is big enough; this process replays each point's
+    # events IN POINT ORDER and does every write itself, so stdout, stderr, index.json and
+    # every payload are byte-identical whatever the worker count (the same-input A/B is in
+    # CALIBRATION.md 2026-09-17).
+    global _POINT_CTX
+    _POINT_CTX = {
+        "points": points,
+        "raws": raws,
+        "spectral": spectral_series,
+        "groups": groups,
+        "tide_by_point": tide_by_point,
+        "bathy_dir": bathy_dir,
+        "nearshore_series": nearshore_series,
+        "now": now,
+        "skill": skill,
+        "wave_source": getattr(args, "wave_source", "om"),
+    }
+    counts = {"stale_profiles": 0, "no_profile": 0, "swan_hours": 0, "swan_fallback_hours": 0}
+
+    def replay(events: list[tuple]) -> None:
+        nonlocal published, implausible
+        for ev in events:
+            if ev[0] == "err":
+                print(ev[1], file=sys.stderr)
+            elif ev[0] == "fail":
+                failures.append((ev[1], ev[2]))
+            elif ev[0] == "count":
+                counts[ev[1]] += ev[2]
+            else:
+                _, spot_id, payload, implausible_hours = ev
+                try:
+                    path = write_spot_json(payload, args.out)
+                    update_index(payload, args.out)
+                except Exception as e:
+                    # same per-spot guard the scoring has: a write that fails costs this
+                    # spot its refresh, never the spots after it
+                    failures.append((spot_id, type(e).__name__))
+                    print(f"error: {spot_id}: {e!r}", file=sys.stderr)
+                    continue
+                for iso, h_mid, sea in implausible_hours:
                     print(
-                        f"warn: {spot.id}: committed bathy profile no longer matches the "
-                        f"spot (cast from {profile.origin_lat}, {profile.origin_lon} aiming "
-                        f"{profile.bearing_seaward_deg:.1f} deg; spot is at {spot.lat}, "
-                        f"{spot.lon} aiming {spot.shore_normal:.1f} deg) - re-run "
-                        f"`bathy --spot {spot.id}`",
+                        f"warn: {spot_id} {iso}: h_break_mid {h_mid:.2f} m from a {sea:.2f} m sea",
                         file=sys.stderr,
                     )
-                wet_samples = profile.wet_samples_deep_to_shallow() if profile else None
-                if profile is None:
-                    no_profile += 1
-                series = nearshore_series.get(spot.id)
-                if series is None:
-                    scored = [score_hour(spot, h, wet_samples) for h in hours]
-                else:
-                    from .nearshore import nearshore_at
-
-                    scored = []
-                    for h in hours:
-                        sea = nearshore_at(series, h.time)
-                        scored.append(score_hour(spot, h, wet_samples, nearshore=sea))
-                        if sea is not None:
-                            swan_hours += 1
-                        else:
-                            swan_fallback_hours += 1
-                payload = build_payload(
-                    spot,
-                    scored,
-                    fetched_at=raw.fetched_at,
-                    now=now,
-                    skill=skill,
-                    wave_source=getattr(args, "wave_source", "om"),
-                    model_run=raw.model_run,
-                )
-                path = write_spot_json(payload, args.out)
-                update_index(payload, args.out)
-            except Exception as e:
-                # repr, not str: losing the exception type on a batch of 199 makes a systemic
-                # fault unreadable. The count and the first type are echoed in the summary.
-                failures.append((spot.id, e))
-                print(f"error: {spot.id}: {e!r}", file=sys.stderr)
-                continue
-            for iso, h_mid, sea in _implausible_break_hours(spot, scored):
+                    implausible += 1
+                current = payload["current"]
+                published += 1
                 print(
-                    f"warn: {spot.id} {iso}: h_break_mid {h_mid:.2f} m from a {sea:.2f} m sea",
+                    f"{spot_id}: {current['bucket']} {current['rating']}/100 · "
+                    f"{current['phrase']} · wind {current['wind']['class']} "
+                    f"{current['wind']['kph']} kph → {path}"
+                )
+
+    try:
+        n_done = 0
+        workers = _score_workers(getattr(args, "workers", 0), len(points))
+        if workers > 1:
+            import multiprocessing
+
+            try:
+                # fork, not spawn: the workers read this process's fetched series through
+                # _POINT_CTX copy-on-write - nothing is pickled in, only events come back
+                with multiprocessing.get_context("fork").Pool(workers) as pool:
+                    for events in pool.imap(_score_point, range(len(points)), chunksize=4):
+                        replay(events)
+                        n_done += 1
+            except Exception as e:
+                # a dead worker (OOM, a signal) must not cost the cycle: finish in-process
+                print(
+                    f"warn: scoring pool failed after {n_done} of {len(points)} point(s) "
+                    f"({e!r}) - finishing on one core",
                     file=sys.stderr,
                 )
-                implausible += 1
-            current = payload["current"]
-            published += 1
-            print(
-                f"{spot.id}: {current['bucket']} {current['rating']}/100 · {current['phrase']} "
-                f"· wind {current['wind']['class']} {current['wind']['kph']} kph → {path}"
-            )
+        for i in range(n_done, len(points)):
+            replay(_score_point(i))
+    finally:
+        _POINT_CTX = None
+    stale_profiles = counts["stale_profiles"]
+    no_profile = counts["no_profile"]
+    swan_hours = counts["swan_hours"]
+    swan_fallback_hours = counts["swan_fallback_hours"]
     if published == 0:
         print("no spots published", file=sys.stderr)
         return 1
@@ -1120,7 +1248,7 @@ def _cmd_run(args: argparse.Namespace) -> int:
         # output, so a failed spot is never pruned for having failed). A schema break that
         # hits all 199 spots reads as 199 lines plus this summary, not one traceback.
         attempted = published + len(failures)
-        kinds = ", ".join(sorted({type(e).__name__ for _, e in failures}))
+        kinds = ", ".join(sorted({kind for _, kind in failures}))
         print(
             f"error: {len(failures)} of {attempted} spot(s) failed ({kinds}): "
             f"{', '.join(sid for sid, _ in failures)}",
@@ -1668,6 +1796,14 @@ def _archive_stations(args: argparse.Namespace, now: datetime) -> None:
 
 
 def _cmd_archive(args: argparse.Namespace) -> int:
+    if args.stations == "only":
+        # the station arm alone (publish.sh runs it after the deploy). Same guard and
+        # same exit contract as below: evidence, never able to fail the cycle.
+        try:
+            _archive_stations(args, datetime.now(UTC))
+        except Exception as e:
+            print(f"warn: station arm skipped: {e!r}", file=sys.stderr)
+        return 0
     buoys = load_all_buoys(args.buoys_dir, args.isramar_dir)
     if args.buoy:
         buoy = buoys.get(str(args.buoy))
@@ -1832,10 +1968,11 @@ def _cmd_archive(args: argparse.Namespace) -> int:
     # the exit contract below (0 clean / 1 some buoy failed) and reported an already-
     # complete essential archive as a crashed cycle. Same shape as the gfswave/ecmwf
     # members' guards: warn, and let the archive keep its own answer.
-    try:
-        _archive_stations(args, now)
-    except Exception as e:
-        print(f"warn: station arm skipped: {e!r}", file=sys.stderr)
+    if args.stations != "skip":
+        try:
+            _archive_stations(args, now)
+        except Exception as e:
+            print(f"warn: station arm skipped: {e!r}", file=sys.stderr)
     if failures:
         # still a failed cycle for the cron trap - but only after archiving every
         # buoy and member that could be archived (mirrors _cmd_run's summary)

@@ -140,8 +140,9 @@ NDBC discus classes apart when scoring.)
   appends `<buoy>.swan` rows (`tp` = TPsmoo, a peak period, so `verify --archive --source
   swan` pairs it with DPD like gfswave/ecmwf; `tm01`/`dspr` ride along). `run.sh` now logs
   per run to `run.log`, prints one summary line and exits non-zero on any failed run.
-- **Cycle (publish.sh 1c, since 2026-09-14):** after the buoy archive and before `run --all`,
-  for each region with committed grids: `swan --steps 0-168 --nests --chain` -> `run.sh` ->
+- **Cycle (publish.sh 4e; it was 1c, before `run --all`, until 2026-09-17):** LAST in the cycle,
+  after the deploy (it held the public forecast back ~50 min and nothing reads it), and fired
+  from the EXIT trap so a failed cycle still records. For each region with committed grids: `swan --steps 0-168 --nests --chain` -> `run.sh` ->
   `swan-archive`. RECORDING ONLY - `run --all` publishes the march until the 4.5 A/B on
   the `.swan` rows says otherwise. Non-fatal, no alert; ~40 min on top of the cycle.
 
