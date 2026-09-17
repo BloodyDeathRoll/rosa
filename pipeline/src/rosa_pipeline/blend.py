@@ -108,8 +108,8 @@ def back_reach_plan(cycle: datetime) -> list[tuple[datetime, int]]:
     return plan
 
 
-# equal weights, deliberately: tuning bought <=0.005 m out-of-sample on a 5-week archive
-# (CALIBRATION.md 2026-08-14 A2). Re-fit when the archive clears A4's >=8 weeks.
+# equal weights, deliberately: re-fit on the 8-week archive (CALIBRATION.md 2026-09-17,
+# the A4 gate), tuning buys <=0.009 m of Hs at 0-1d and costs 0.4-0.8 deg of direction.
 W_GFS = 0.5
 # a 3-hourly hour joins the nearest 6-hourly ECMWF step within this - extract's own
 # rule, imported rather than restated so the two arms can never drift apart

@@ -232,3 +232,10 @@ matures → D1 → B1-B4 → C2 → C3 → C4 → D2-D4 region by region.**
   without a marine body, `cli` meters the om arm only. Nothing published moves. **The
   ceiling is now the weather host** (1.21/pt, ~9,900-11,200 a day with the station
   archive, against the same 10,000 cap) - plan C3b above / OPEN-ITEMS 34 is the exit.
+- **2026-09-17: A4 CLEARED - the gate ran on 8 weeks of equal-span archive** (CALIBRATION.md
+  2026-09-17). Blend vs OM, 15 buoys: Hs within 0.007 m at every lead and ahead past day 5,
+  direction ahead by 3.0-4.6 deg everywhere, hawaii now parity - the 08-26 promotion stands. A2
+  re-fit: tuned weights hold out-of-sample this time (w ~0.25-0.3 near, 0.5 far) but buy
+  <= 0.009 m and cost 0.4-0.8 deg of direction - **`W_GFS` stays 0.5, A2 closed**. C3 re-run: OM
+  wind still ahead at 0-1d (+0.064 m/s), so weather stays on OM until C3b reads (2026-09-26).
+  **Remaining: back-reach; D4 footer sweep; C3b.**

@@ -3266,3 +3266,93 @@ on the workstation; GRIB parsing is ~66 s of both, so the scoring step itself we
 Expected on the VM: forecast live ~2 h 15 after cycle start instead of ~4 h 30; whole cycle under
 4 h. **Measure on the first cycle after the push.** Not touched: the 74 min fetch - NOMADS throttles
 unpaced pulls (OPEN-ITEMS 36).
+
+## 2026-09-17 - The A4 gate (8 weeks of dual-source archive): blend holds parity, 50/50 stays, the wind call stands, the d_ref fix is NOT a small fix
+
+Plan A4 (`docs/rosa-fetch-plane-plan.md`) parked four reads on the day the raw arms reached 8 weeks.
+All four ran today on the VM archive (runs 2026-07-23 -> 2026-09-17 on all three arms: 246 om,
+238 gfswave, 237 ecmwf), shipped harness throughout, nothing written (`--write-skill` NOT passed).
+Scripts: `tools/a4-gate/`. **No published number moves from this entry.**
+
+**Fleet.** The 15 buoys that carry the full 8 weeks (us-west 46042 46026 46022 46059 46218 46225,
+us-east 41008 41013 44013, hawaii 51201 51202 51205, portugal Faro/Leixoes/Sines). The 21 Bight buoys
+registered 2026-09-14 are 3 days old and are left out. "Equal samples" means the same run span, not
+the same n: OM archives hourly rows and the raw arms 6-hourly, so om n=13,144 and each raw arm
+n=2,200 per lead over the same obs window (NDBC realtime2 ~45 days).
+
+**1. Blend vs OM - parity on height, a clear win on direction.** Hs MAE (m), n-weighted:
+
+| lead | OM | GFS-Wave | ECMWF | blend | blend-OM |
+|---|---|---|---|---|---|
+| 0-1d | **0.164** | 0.219 | 0.171 | 0.171 | +0.007 |
+| 1-3d | **0.178** | 0.226 | 0.188 | 0.184 | +0.006 |
+| 3-4d | **0.202** | 0.244 | 0.218 | 0.206 | +0.004 |
+| 4-5d | **0.221** | 0.263 | 0.233 | 0.225 | +0.004 |
+| 5-7d | 0.260 | 0.286 | 0.273 | **0.257** | -0.003 |
+| 7-9d | 0.300 | 0.326 | 0.314 | **0.292** | -0.008 |
+
+Wave direction MAE (deg): blend ahead at EVERY lead - 27.1 vs 30.9 at 0-1d, 26.8 vs 31.4 at 1-3d,
+32.1 vs 35.1 at 7-9d (3.0-4.6 deg). Per region, blend-OM on Hs across the six leads: us-west
++0.012 +0.002 +0.005 +0.001 -0.010 -0.010; us-east 0.000 +0.004 +0.004 +0.010 +0.007 -0.003;
+**hawaii 0.000 +0.010 0.000 +0.006 +0.003 -0.010** - the region that read "OM clearly ahead at
+every lead" (0.006-0.054 m) on 2026-08-14 is now parity; direction there is blend 23-25 deg vs OM
+33-34. Portugal scored n=35 per lead (CMEMS serves a few days of obs) and swings +0.07 / -0.03 m:
+too thin to read either way, and it does NOT reproduce 08-14's blend-ahead-everywhere. Same verdict
+as 08-14 and 08-26, now on equal spans: GFS-Wave alone still fails at every lead, the blend is
+within 0.007 m of OM everywhere and ahead past day 5. **The 2026-08-26 promotion stands.** Pooled
+figures come from the printed 2-decimal per-buoy cards, so they carry ~0.003 m of rounding.
+
+**2. Tuned blend weights (A2 re-fit) - real this time, and still not worth a knob.** `W_GFS` grid
+0.00-1.00 by 0.05 per lead, fit on even run-days and scored on odd, then the reverse:
+
+| lead | w* (even fit / odd fit) | holdout gain vs 0.5 (m) |
+|---|---|---|
+| 0-1d | 0.25 / 0.25 | +0.0089 / +0.0081 |
+| 1-3d | 0.30 / 0.30 | +0.0058 / +0.0054 |
+| 3-4d | 0.35 / 0.35 | +0.0030 / +0.0022 |
+| 4-5d | 0.40 / 0.30 | +0.0033 / +0.0008 |
+| 5-7d | 0.45 / 0.40 | +0.0008 / -0.0002 |
+| 7-9d | 0.50 / 0.45 | 0.0000 / -0.0006 |
+
+Unlike the 5-week fit, the sign and the weight agree across both halves: ECMWF-heavy near
+(w ~0.25-0.3), 50/50 far - the 08-14 hint confirmed. But the whole prize is <= 0.009 m of Hs at
+0-1d, and it is paid for in direction: on the full archive w=0.3 vs 0.5 reads Hs 0.166 vs 0.174,
+Tp 1.32 vs 1.38 s, **direction 27.6 vs 27.2 deg** at 0-1d (0.4-0.8 deg worse at every lead). Under
+a centimetre is below what the payload resolves and the plan's rule was written for a tuned weight
+that WINS, not one that trades. **Verdict: keep `W_GFS = 0.5`.** A per-lead weight is a mechanism
+(the constant is one number today) and a fleet A/B for a gain nobody can see. Re-open only if a
+region with spots in it gets buoys and says otherwise.
+
+**3. Wind (the C3 re-run promised on 2026-08-26) - the short-lead sign did not flip.** 7 NDBC
+anemometer buoys, om n~5,600 / gfswave n~930 per lead, wind speed MAE (m/s): 0-1d OM **1.194** vs
+GFS-Wave 1.258 (+0.064, was +0.131); GFS-Wave ahead from 1-3d on (-0.029 -0.046 -0.048 -0.063
+-0.011 -0.036) - the crossover moved from day 4 to day 1. Direction: OM ahead by 0.6-1.5 deg through
+7-9d. The rule was "it flips only if the short-lead sign flips"; it did not. Note the om arm is no
+longer the wind of 08-26: since 2026-08-30 `fetch_wind_many` asks Open-Meteo for `gfs_seamless`, so
+most of this window is GFS-via-OM against GFS-Wave's forcing wind - which is why the gap halved.
+**Weather stays on Open-Meteo.** The exit from the OM weather host is still C3b (raw GFS atmos
+GRIB at the stations, read due 2026-09-26), not this comparison.
+
+**4. OPEN-ITEMS 15, the held-back `d_ref` fix - the same-input A/B says do NOT ship it.** The item
+was parked on 2026-08-15 as one line moving 13/199 spots by <= 0.014 m. At 2254 spots, three
+synthetic seas down each spot's window centre (`tools/bathy-ab/ab_height.py`'s method, no fetch):
+829 rays are non-monotone and **262 have a deepest wet sample that is not the 18 km reference**.
+
+| sea | spots changed | > 10 cm | max |
+|---|---|---|---|
+| 1.0 m 8 s | 230 | 25 | 0.71 m |
+| 1.5 m 12 s | 247 | 61 | 1.82 m |
+| 2.5 m 16 s | 254 | 78 | 2.77 m |
+
+(the literal `d_ref = max(depths)` at both reference sites; the other reading - start the march AT
+the deepest sample - moves 53 / 131 / 152 spots > 10 cm, max 2.84 m, 51 / 40 / 18 bucket moves.)
+It moves in BOTH directions: vodi 0.08 -> 1.90 m, coconut-beach 1.50 -> 2.67, dourveil 2.01 -> 4.36,
+but boca-do-poco 1.66 -> 0.18 and westhaven-state-park 1.57 -> 0.26. The rays explain it: vodi's is
+`18 km: 12 m, 12 km: 450 m ... 1 km: 27 m` - the far end sits on ANOTHER reef, so today the 1 m 8 s
+sea publishes 0.00 m there; boca-do-poco's is 7 m at 18 km and 9-10 m all the way in; coconut-beach's
+is 1 m deep at both 18 and 12 km. These are not shoaling references in either variant - they are
+rays whose seaward end is a different feature (a neighbouring reef, a bank, a lagoon floor), and
+which sample to de-shoal from is a per-ray geometry question, not a one-liner. **Verdict: item 15's
+fix is withdrawn as specified.** What it uncovered is bigger and is the item now: ~260 spots whose
+published height hangs on a far-end sample that is not open water. No buoy can grade this (the
+harness scores the offshore sea, not the breaker), so the next step is geometry, not a sweep.
