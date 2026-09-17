@@ -5,68 +5,68 @@
     26.3306,
     127.7421
   ],
-  "bearing_seaward_deg": 246.0,
+  "bearing_seaward_deg": 290.0,
   "nearshore_depth_m": 17.0,
-  "offshore_depth_m": 23.0,
-  "mean_slope_m_per_km": 0.34,
+  "offshore_depth_m": 657.0,
+  "mean_slope_m_per_km": 36.06,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 2,
-  "deepest_is_reference": false,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 26.32969,
-      "lon": 127.73981,
+      "lat": 26.33137,
+      "lon": 127.73974,
       "depth_m": 17.0
     },
     {
       "dist_km": 0.5,
-      "lat": 26.32877,
-      "lon": 127.73752,
-      "depth_m": 17.0
+      "lat": 26.33214,
+      "lon": 127.73739,
+      "depth_m": 22.0
     },
     {
       "dist_km": 1.0,
-      "lat": 26.32694,
-      "lon": 127.73293,
-      "depth_m": 28.0
+      "lat": 26.33368,
+      "lon": 127.73267,
+      "depth_m": 31.0
     },
     {
       "dist_km": 2.0,
-      "lat": 26.32328,
-      "lon": 127.72377,
-      "depth_m": 35.0
+      "lat": 26.33675,
+      "lon": 127.72324,
+      "depth_m": 40.0
     },
     {
       "dist_km": 3.0,
-      "lat": 26.31962,
-      "lon": 127.7146,
-      "depth_m": 45.0
+      "lat": 26.33982,
+      "lon": 127.71381,
+      "depth_m": 64.0
     },
     {
       "dist_km": 5.0,
-      "lat": 26.3123,
-      "lon": 127.69627,
-      "depth_m": 56.0
+      "lat": 26.34597,
+      "lon": 127.69495,
+      "depth_m": 101.0
     },
     {
       "dist_km": 8.0,
-      "lat": 26.30132,
-      "lon": 127.66878,
-      "depth_m": 74.0
+      "lat": 26.35519,
+      "lon": 127.66665,
+      "depth_m": 203.0
     },
     {
       "dist_km": 12.0,
-      "lat": 26.28666,
-      "lon": 127.63214,
-      "depth_m": 61.0
+      "lat": 26.36747,
+      "lon": 127.62891,
+      "depth_m": 437.0
     },
     {
       "dist_km": 18.0,
-      "lat": 26.26466,
-      "lon": 127.57719,
-      "depth_m": 23.0
+      "lat": 26.38587,
+      "lon": 127.57229,
+      "depth_m": 657.0
     }
   ]
 }

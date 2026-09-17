@@ -5,68 +5,68 @@
     12.3822,
     -16.7445
   ],
-  "bearing_seaward_deg": 155.0,
-  "nearshore_depth_m": -9.0,
-  "offshore_depth_m": 5.0,
-  "mean_slope_m_per_km": 0.79,
-  "land_samples": 5,
+  "bearing_seaward_deg": 235.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 14.0,
+  "mean_slope_m_per_km": 1.13,
+  "land_samples": 2,
   "missing_samples": 0,
   "non_monotone_samples": 1,
-  "deepest_is_reference": false,
+  "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 12.38016,
-      "lon": -16.74353,
-      "depth_m": -9.0
+      "lat": 12.38091,
+      "lon": -16.74639,
+      "depth_m": -6.0
     },
     {
       "dist_km": 0.5,
-      "lat": 12.37812,
-      "lon": -16.74255,
-      "depth_m": -3.0
+      "lat": 12.37962,
+      "lon": -16.74827,
+      "depth_m": -6.0
     },
     {
       "dist_km": 1.0,
-      "lat": 12.37405,
-      "lon": -16.74061,
-      "depth_m": -4.0
+      "lat": 12.37704,
+      "lon": -16.75204,
+      "depth_m": 1.0
     },
     {
       "dist_km": 2.0,
-      "lat": 12.3659,
-      "lon": -16.73672,
-      "depth_m": -4.0
-    },
-    {
-      "dist_km": 3.0,
-      "lat": 12.35775,
-      "lon": -16.73283,
-      "depth_m": -11.0
-    },
-    {
-      "dist_km": 5.0,
-      "lat": 12.34145,
-      "lon": -16.72505,
-      "depth_m": 5.0
-    },
-    {
-      "dist_km": 8.0,
-      "lat": 12.31699,
-      "lon": -16.71338,
-      "depth_m": 5.0
-    },
-    {
-      "dist_km": 12.0,
-      "lat": 12.28439,
-      "lon": -16.69782,
+      "lat": 12.37188,
+      "lon": -16.75958,
       "depth_m": 6.0
     },
     {
+      "dist_km": 3.0,
+      "lat": 12.36672,
+      "lon": -16.76713,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 12.35641,
+      "lon": -16.78221,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 12.34093,
+      "lon": -16.80483,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 12.32029,
+      "lon": -16.83499,
+      "depth_m": 12.0
+    },
+    {
       "dist_km": 18.0,
-      "lat": 12.23548,
-      "lon": -16.6745,
-      "depth_m": 5.0
+      "lat": 12.28932,
+      "lon": -16.88021,
+      "depth_m": 14.0
     }
   ]
 }

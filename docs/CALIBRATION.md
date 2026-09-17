@@ -3356,3 +3356,41 @@ which sample to de-shoal from is a per-ray geometry question, not a one-liner. *
 fix is withdrawn as specified.** What it uncovered is bigger and is the item now: ~260 spots whose
 published height hangs on a far-end sample that is not open water. No buoy can grade this (the
 harness scores the offshore sea, not the breaker), so the next step is geometry, not a sweep.
+
+## 2026-09-17 - Ten shore normals re-aimed off the far-end-ray list (same-input heights before/after)
+
+Follow-up to the A4 entry above, part 4. Of the 19 rays whose far end sits on a reef, a bank or another
+coast (`tools/a4-gate/far-end-rays.md`), each pin was rendered on satellite (z13) and its full GEBCO 2024
+bearing table read. **Ten were a wrong normal and are re-aimed**; the pin was right in every case. Rule
+used: the middle of the open-water arc, pulled toward the coast's visible facing when the two differ by
+more than ~25 deg, never closer than 10 deg to the arc's edge. `offshore_direction` = seaward + 180,
+`swell_window` = seaward +-65, bathy and tide re-cut (the offshore point moved with the normal).
+
+Same-input h_mid (m) for a 1.0 m 8 s / 1.5 m 12 s / 2.5 m 16 s sea down the window centre:
+
+| spot | seaward | before | after |
+|---|---|---|---|
+| vodi (Maldives) | 135 -> 125 | 0.00 / 0.08 / 0.39 | 0.52 / 1.60 / 2.83 |
+| raalhugandu (Maldives) | 166 -> 140 | 0.06 / 0.42 / 0.81 | 0.67 / 1.78 / 3.01 |
+| pen-hat (Brittany) | 300 -> 245 | 0.00 / 0.07 / 0.25 | 0.56 / 1.32 / 2.19 |
+| sunabe-seawall (Okinawa) | 246 -> 290 | 0.39 / 0.81 / 1.30 | 0.67 / 1.72 / 2.86 |
+| haggerty-s (California) | 325 -> 280 | 0.36 / 0.99 / 1.85 | 0.68 / 1.78 / 2.98 |
+| mejillones (Canaries) | 9 -> 340 | 0.55 / 1.42 / 2.28 | 0.65 / 1.70 / 2.87 |
+| swimming-pools (Fiji) | 344 -> 240 | 0.71 / 1.70 / 2.61 | 0.68 / 1.82 / 3.06 |
+| dourveil (Brittany) | 241 -> 193 | 0.58 / 1.33 / 2.01 | 0.36 / 1.06 / 1.70 |
+| westhaven-state-park (Washington) | 185 -> 250 | 0.67 / 1.57 / 2.40 | 0.42 / 1.02 / 1.96 |
+| cap-skirring (Senegal) | 155 -> 235 | 0.00 / 0.17 / 0.59 | 0.06 / 0.23 / 0.57 |
+
+Four spots were publishing a flat sea from a real swell (vodi, raalhugandu, pen-hat, cap-skirring).
+swimming-pools' old window [279, 49] faced the lagoon and shut out the SW swell the break runs on -
+the height barely moves but the window now opens to it. cap-skirring's ray ran over land for 3 km; it
+still reads small because the Casamance shelf is 7-15 m deep for 18 km (shelf class, not aim).
+dourveil and westhaven go DOWN: the old rays skipped most of their samples (deeper than a shallow far
+end), so they marched almost no friction. 2244 other spots byte-unchanged; 672 tests pass.
+
+**Not re-aimed, on purpose:** coconut-beach and pottuvil-point (aim is right, hand-set; GEBCO 2024 has a
+1 m patch 12-18 km due east in open ocean - a grid artifact, so the fix is the data, not the normal),
+fort-point (the shallow stretch is the real San Francisco bar), twilight-beach and el-espino (within
+6 deg of the open arc; a real bank offshore), tavarua-rights, playgrounds, data-de-posorja,
+pontal-do-peba (no open arc exists - reef-pass / gulf / shelf geometry). These nine stay on the list.
+

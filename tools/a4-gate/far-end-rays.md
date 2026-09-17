@@ -327,3 +327,7 @@ land - a shore-normal problem, not a physics one. Re-aim only after the pin chec
 | data-de-posorja | Ecuador | 184 | none | genuinely shallow gulf |
 | pontal-do-peba | Alagoas | 66 | none | - |
 | cap-skirring | Senegal | 155 | none | ray runs over land for 3 km |
+
+**2026-09-17: 10 of these re-aimed** (vodi 125, raalhugandu 140, pen-hat 245, sunabe-seawall 290, haggerty-s 280,
+mejillones 340, swimming-pools 240, dourveil 193, westhaven-state-park 250, cap-skirring 235) - CALIBRATION.md
+2026-09-17, second entry. The tables above are the state BEFORE that pass.

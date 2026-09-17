@@ -5,68 +5,68 @@
     48.2734,
     -4.6161
   ],
-  "bearing_seaward_deg": 300.0,
+  "bearing_seaward_deg": 245.0,
   "nearshore_depth_m": -18.0,
-  "offshore_depth_m": 8.0,
-  "mean_slope_m_per_km": 1.46,
+  "offshore_depth_m": 50.0,
+  "mean_slope_m_per_km": 3.83,
   "land_samples": 1,
   "missing_samples": 0,
-  "non_monotone_samples": 2,
-  "deepest_is_reference": false,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 48.27452,
-      "lon": -4.61903,
+      "lat": 48.27245,
+      "lon": -4.61916,
       "depth_m": -18.0
     },
     {
       "dist_km": 0.5,
-      "lat": 48.27565,
-      "lon": -4.62195,
-      "depth_m": 2.0
+      "lat": 48.2715,
+      "lon": -4.62222,
+      "depth_m": 9.0
     },
     {
       "dist_km": 1.0,
-      "lat": 48.2779,
-      "lon": -4.6278,
-      "depth_m": 7.0
+      "lat": 48.2696,
+      "lon": -4.62835,
+      "depth_m": 16.0
     },
     {
       "dist_km": 2.0,
-      "lat": 48.28239,
-      "lon": -4.63951,
-      "depth_m": 20.0
+      "lat": 48.2658,
+      "lon": -4.64059,
+      "depth_m": 19.0
     },
     {
       "dist_km": 3.0,
-      "lat": 48.28688,
-      "lon": -4.65121,
-      "depth_m": 25.0
+      "lat": 48.26199,
+      "lon": -4.65283,
+      "depth_m": 22.0
     },
     {
       "dist_km": 5.0,
-      "lat": 48.29587,
-      "lon": -4.67463,
-      "depth_m": 28.0
+      "lat": 48.25438,
+      "lon": -4.67731,
+      "depth_m": 30.0
     },
     {
       "dist_km": 8.0,
-      "lat": 48.30933,
-      "lon": -4.70978,
-      "depth_m": 21.0
+      "lat": 48.24295,
+      "lon": -4.71401,
+      "depth_m": 35.0
     },
     {
       "dist_km": 12.0,
-      "lat": 48.32727,
-      "lon": -4.75667,
-      "depth_m": 2.0
+      "lat": 48.2277,
+      "lon": -4.76292,
+      "depth_m": 46.0
     },
     {
       "dist_km": 18.0,
-      "lat": 48.35415,
-      "lon": -4.82706,
-      "depth_m": 8.0
+      "lat": 48.20478,
+      "lon": -4.83623,
+      "depth_m": 50.0
     }
   ]
 }

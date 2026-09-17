@@ -26,7 +26,7 @@ spots:
   # place nodes (tools/spot-seed/towns.py). North to south.
   - { id: desperations, name: "Desperations", town: "Namotu", lat: -17.8350, lon: 177.1630, offshore_direction: 50, swell_window: [165, 295], offshore_km: 5.0, <<: *fj }  # sat-verified 2026-08-31 (websearch-seeded)
   - { id: wilkes, name: "Wilkes", town: "Namotu", lat: -17.8374, lon: 177.1740, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, <<: *fj }  # shore-normal re-aimed by GEBCO arc sweep; sat-verified 2026-08-31 (websearch-seeded)
-  - { id: swimming-pools, name: "Swimming Pools", town: "Namotu", lat: -17.8416, lon: 177.1823, offshore_direction: 164, swell_window: [279, 49], offshore_km: 5.0, <<: *fj }  # sat-verified 2026-08-31 (websearch-seeded)
+  - { id: swimming-pools, name: "Swimming Pools", town: "Namotu", lat: -17.8416, lon: 177.1823, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, <<: *fj }  # sat-verified 2026-08-31 (websearch-seeded) normal re-aimed 2026-09-17 to seaward 240 (far end of the old ray sat on a reef/another coast - OPEN-ITEMS 15)
   - { id: namotu-left, name: "Namotu Left", town: "Namotu", lat: -17.8460, lon: 177.1790, offshore_direction: 71, swell_window: [186, 316], offshore_km: 5.0, <<: *fj }  # sat-verified 2026-08-31 (websearch-seeded)
   - { id: tavarua-rights, name: "Tavarua Rights", town: "Tavarua", lat: -17.8534, lon: 177.2010, offshore_direction: 233, swell_window: [348, 118], offshore_km: 5.0, <<: *fj }  # sat-verified 2026-08-31 (websearch-seeded)
   - { id: restaurants-fj, name: "Restaurants", town: "Tavarua", lat: -17.8603, lon: 177.1951, offshore_direction: 23, swell_window: [138, 268], offshore_km: 5.0, <<: *fj }  # sat-verified 2026-08-31 (websearch-seeded)
