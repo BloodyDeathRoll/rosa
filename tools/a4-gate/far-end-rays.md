@@ -303,7 +303,7 @@ run 18 km -> 0.2 km, `L` = land.
 ## Aim check on the two worst classes (local GEBCO 2024 sweep, `aim_check.py`, report only)
 
 "Open arc" = contiguous seaward bearings whose ray has no land past 0.25 km, ends in >= 30 m and
-never shoals by more than 40% going out. 12 of the 19 are aimed 27-60 deg off the nearest open arc, or over
+never shoals by more than 40% going out. 13 of the 19 are aimed 27-60 deg off the nearest open arc, or over
 land - a shore-normal problem, not a physics one. Re-aim only after the pin check (SPOT-DB.md).
 
 | spot | region | seaward now | nearest open arc | off by |
