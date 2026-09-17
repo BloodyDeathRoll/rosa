@@ -593,16 +593,27 @@ export function SpotPage({ id }: { id: string }) {
           </div>
           <div class="hour-grid head">
             <span aria-hidden="true" />
-            {/* Sits over the rating rail's 6px column; the icon overhangs it, centred. */}
-            <a class="grid-info" href="/about/reading" aria-label="What these numbers mean">
-              <InfoIcon />
+            <span aria-hidden="true" />
+            {/* Each column's way out to its own section of the glossary
+                (AboutPage scrolls to the #id). Icon sized as the top bar's share. */}
+            <a class="head-info" href="/about/reading#surf" aria-label="What the surf numbers mean">
+              <span aria-hidden="true">surf {heightUnit(units)}</span>
+              <InfoIcon size={18} />
             </a>
-            <span aria-hidden="true">surf {heightUnit(units)}</span>
-            <span aria-hidden="true">swell</span>
-            <span aria-hidden="true">wind kt</span>
-            <span class="pp-head" aria-hidden="true">
-              kJ<small>hPa</small>
-            </span>
+            <a class="head-info" href="/about/reading#swell" aria-label="What the swell numbers mean">
+              <span aria-hidden="true">swell</span>
+              <InfoIcon size={18} />
+            </a>
+            <a class="head-info" href="/about/reading#wind" aria-label="What the wind numbers mean">
+              <span aria-hidden="true">wind kt</span>
+              <InfoIcon size={18} />
+            </a>
+            <a class="head-info" href="/about/reading#kj" aria-label="What kJ and hPa mean">
+              <span class="pp-head" aria-hidden="true">
+                kJ<small>hPa</small>
+              </span>
+              <InfoIcon size={18} />
+            </a>
           </div>
           {hourRows}
           {dayHours.length === 0 && (

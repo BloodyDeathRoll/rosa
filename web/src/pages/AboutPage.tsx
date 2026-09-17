@@ -90,7 +90,7 @@ function ReadingTheForecast() {
         swell stays Poor - it cannot be talked up into Good by the wind alone.
       </p>
 
-      <h2>Surf - the range, and the number under it</h2>
+      <h2 id="surf">Surf - the range, and the number under it</h2>
       <p>
         This is the height of the <b>breaking wave at the spot</b>, not the wave height out at sea.
         Rosa takes the open-ocean swell and walks it into the beach over the real shape of the
@@ -126,7 +126,7 @@ function ReadingTheForecast() {
         the angle it meets the coast at decide which happens.
       </p>
 
-      <h2>Swell - where the energy is coming from</h2>
+      <h2 id="swell">Swell - where the energy is coming from</h2>
       <p>
         A swell is one train of waves travelling from one storm. There are usually several at once,
         so Rosa lists them separately rather than mashing them into one figure.
@@ -161,7 +161,7 @@ function ReadingTheForecast() {
         surfers use and say this plainly than quietly show the lower one.
       </p>
 
-      <h2>Wind</h2>
+      <h2 id="wind">Wind</h2>
       <p>
         Shown in knots, with the direction it is blowing <b>from</b>, and a word for what that means
         at this particular spot:
@@ -184,7 +184,7 @@ function ReadingTheForecast() {
         worked out per spot, not per region.
       </p>
 
-      <h2>kJ - how much punch the swell carries</h2>
+      <h2 id="kj">kJ - how much punch the swell carries</h2>
       <p>
         Wave energy, in kilojoules per metre of wave crest. Height alone does not tell you whether a
         swell is serious: energy grows with the <i>square</i> of the height and the{" "}
@@ -471,6 +471,12 @@ function ContactUs() {
 export function AboutPage({ doc }: { doc: AboutDoc }) {
   // static content, ready as soon as it mounts (lets the splash lift promptly)
   useEffect(signalReady, []);
+  // `/about/reading#wind` (the spot table's column icons) lands on that section.
+  // The app scrolls every new route to the top first; this runs after it.
+  useEffect(() => {
+    const id = location.hash.slice(1);
+    if (id) document.getElementById(id)?.scrollIntoView();
+  }, [doc]);
   const { title, img } = DOCS[doc];
   return (
     <main class="page about-page">

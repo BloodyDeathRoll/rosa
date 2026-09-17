@@ -2013,21 +2013,20 @@ a.rank-card:hover {
   font-weight: 600;
 }
 
-/* Glossary link over the rating rail's column. Quiet by default - it is a way out
-   for someone who is stuck, not a thing to notice every time you read the table. */
-.hour-grid.head .grid-info {
+/* Each head cell is a link to its section of the glossary: label, then the info
+   icon at the top bar's share size. */
+.hour-grid.head .head-info {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* The rail column is only 6px, so the icon overhangs it evenly; the negative
-     margin/padding pair buys a real tap target without shifting the header row. */
-  margin: -8px -7px;
-  padding: 8px 7px;
+  gap: 4px;
   color: var(--muted-foreground);
-  opacity: 0.65;
 }
-.hour-grid.head .grid-info:active {
-  opacity: 1;
+.hour-grid.head .head-info svg {
+  flex: none;
+}
+.hour-grid.head .head-info:active {
+  color: var(--foreground);
 }
 .hour-grid.row {
   position: relative;
@@ -3193,6 +3192,7 @@ a.rank-card:hover {
   color: var(--foreground);
 }
 .about-body h2 {
+  scroll-margin-top: 16px;
   font-size: 15.5px;
   font-weight: 700;
   margin: 22px 0 6px;
