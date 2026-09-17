@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "preact/hooks";
 import { navigate } from "../router";
+import { ACCOUNT_EVENT, profile, type Profile } from "../session";
 import { fetchIndex, fetchSpot } from "../api";
 import { CoastChart, DayBars } from "../components/CoastChart";
 import {
@@ -143,13 +144,31 @@ export function planToday({
   return { regions: ordered, ids, homeRegion, nearestId };
 }
 
-function greeting(): string {
+/** "Good morning", plus the signed-in surfer's first name ("Good morning Ein"). */
+function greeting(firstName: string | null): string {
   const h = new Date().getHours();
-  if (h < 5) return "Good night";
-  if (h < 12) return "Good morning";
-  if (h < 17) return "Good afternoon";
-  if (h < 21) return "Good evening";
-  return "Good night";
+  const words =
+    h < 5
+      ? "Good night"
+      : h < 12
+        ? "Good morning"
+        : h < 17
+          ? "Good afternoon"
+          : h < 21
+            ? "Good evening"
+            : "Good night";
+  return firstName ? `${words} ${firstName}` : words;
+}
+
+/** First word of the Google display name, live across sign-in and sign-out. */
+function useFirstName(): string | null {
+  const [who, setWho] = useState<Profile | null>(profile);
+  useEffect(() => {
+    const onAccount = (e: Event) => setWho((e as CustomEvent<Profile | null>).detail);
+    addEventListener(ACCOUNT_EVENT, onAccount);
+    return () => removeEventListener(ACCOUNT_EVENT, onAccount);
+  }, []);
+  return who?.name?.trim().split(/\s+/)[0] || null;
 }
 
 function DetailCard({ data, date, maxH }: { data: SpotPayload; date: string; maxH: number }) {
@@ -271,6 +290,7 @@ function FeedbackRow({ p, onDone }: { p: FbPrompt; onDone: () => void }) {
 }
 
 export function TodayPage() {
+  const hello = greeting(useFirstName());
   const [index, setIndex] = useState<Record<string, IndexEntry> | null>(null);
   const [pos, setPos] = useState<LatLon | null>(null);
   const [payloads, setPayloads] = useState<Record<string, SpotPayload>>({});
@@ -382,7 +402,7 @@ export function TodayPage() {
   if (error) {
     return (
       <main class="page">
-        <AppHeader lead={greeting()} right={search} />
+        <AppHeader lead={hello} right={search} />
         <p class="state">{error}</p>
       </main>
     );
@@ -390,7 +410,7 @@ export function TodayPage() {
   if (!plan || carousel.length === 0) {
     return (
       <main class="page">
-        <AppHeader lead={greeting()} right={search} />
+        <AppHeader lead={hello} right={search} />
         <p class="state">Loading…</p>
       </main>
     );
@@ -398,7 +418,7 @@ export function TodayPage() {
 
   return (
     <main class="page">
-      <AppHeader lead={greeting()} right={search} />
+      <AppHeader lead={hello} right={search} />
       <div class="home">
         {prompt && <FeedbackRow p={prompt} onDone={() => setPrompt(null)} />}
         {plan.regions.length > 2 && (
