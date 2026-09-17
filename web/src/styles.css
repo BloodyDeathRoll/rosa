@@ -2014,7 +2014,7 @@ a.rank-card:hover {
 }
 
 /* Each head cell is a link to its section of the glossary: label, then the info
-   icon at the top bar's share size. */
+   icon (12px). */
 .hour-grid.head .head-info {
   display: flex;
   align-items: center;

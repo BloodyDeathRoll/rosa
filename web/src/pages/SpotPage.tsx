@@ -595,24 +595,24 @@ export function SpotPage({ id }: { id: string }) {
             <span aria-hidden="true" />
             <span aria-hidden="true" />
             {/* Each column's way out to its own section of the glossary
-                (AboutPage scrolls to the #id). Icon sized as the top bar's share. */}
+                (AboutPage scrolls to the #id). 12px: 18 (the share's) read too large. */}
             <a class="head-info" href="/about/reading#surf" aria-label="What the surf numbers mean">
               <span aria-hidden="true">surf {heightUnit(units)}</span>
-              <InfoIcon size={18} />
+              <InfoIcon size={12} />
             </a>
             <a class="head-info" href="/about/reading#swell" aria-label="What the swell numbers mean">
               <span aria-hidden="true">swell</span>
-              <InfoIcon size={18} />
+              <InfoIcon size={12} />
             </a>
             <a class="head-info" href="/about/reading#wind" aria-label="What the wind numbers mean">
               <span aria-hidden="true">wind kt</span>
-              <InfoIcon size={18} />
+              <InfoIcon size={12} />
             </a>
             <a class="head-info" href="/about/reading#kj" aria-label="What kJ and hPa mean">
               <span class="pp-head" aria-hidden="true">
                 kJ<small>hPa</small>
               </span>
-              <InfoIcon size={18} />
+              <InfoIcon size={12} />
             </a>
           </div>
           {hourRows}
