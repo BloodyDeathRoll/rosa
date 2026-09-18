@@ -10,6 +10,7 @@ from pathlib import Path
 
 from rosa_pipeline.blend import GfsSea, _tp_at, compose_raw
 from rosa_pipeline.extract import extract_hours
+from rosa_pipeline.geo import Seaward
 from rosa_pipeline.gwam import (
     PARAMS,
     GwamFixtureSource,
@@ -57,6 +58,18 @@ def test_parse_points_reads_bz2_global_field_at_nearest_wet_cell():
     assert med is not None and 2 < med < 12  # Med summer swell
     assert sl is not None and 10 < sl < 22  # Indian Ocean groundswell peak
     assert land is None  # nothing wet within NEAREST_MAX_DEG of Bavaria
+
+
+def test_parse_points_prefers_the_cell_on_the_spots_sea_side():
+    # georgica-beach (Long Island's south shore, facing 150 deg): the plain nearest wet cell
+    # is 41.00 N, behind the South Fork; with the spot's aim the sampler takes the Atlantic
+    # cell at 40.75 N - the rule the three wave samplers share (geo.nearest_wet)
+    data = (FIX / "gwam_ppts_f000.grib2.bz2").read_bytes()
+    point = (40.8959, -72.1826)
+    behind, atlantic = parse_points(data, [(41.0, -72.25), (40.75, -72.25)])
+    assert behind != atlantic
+    assert parse_points(data, [point]) == [behind]
+    assert parse_points(data, [point], {point: Seaward(40.9348, -72.2123, 150.0)}) == [atlantic]
 
 
 def test_fixture_source_assembles_steps_per_point():

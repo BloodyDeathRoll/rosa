@@ -973,14 +973,14 @@ def _cmd_run(args: argparse.Namespace) -> int:
                 gfs=GfsFullFixtureSource(args.fixtures, aims=aims),
                 weather=lambda coords: fixture_weather_many(coords, args.fixtures),
                 sst=OisstFixtureSource(args.fixtures),
-                tp=GwamFixtureSource(args.fixtures),
+                tp=GwamFixtureSource(args.fixtures, aims=aims),
             )
         else:
             blend_src = BlendedSource(
                 gfs=GfsFullSource(capture_dir=args.capture, aims=aims),
                 weather=lambda coords: fetch_weather_many(coords, capture_dir=args.capture),
                 sst=OisstSource(capture_dir=args.capture),
-                tp=GwamSource(capture_dir=args.capture),
+                tp=GwamSource(capture_dir=args.capture, aims=aims),
             )
         raws = blend_src.fetch_many(points, ecmwf_series=spectral_series)
     else:

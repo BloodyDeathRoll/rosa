@@ -30,6 +30,7 @@ from __future__ import annotations
 import bz2
 import sys
 import tempfile
+from collections.abc import Mapping
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
@@ -38,7 +39,7 @@ from typing import Protocol
 
 import httpx
 
-from .geo import dlon180
+from .geo import Seaward, dlon180, nearest_wet
 
 BASE_URL = "https://opendata.dwd.de/weather/maritime/wave_models/gwam/grib"
 # file-name stem -> the OM-shaped column extract._partition reads the peak from
@@ -79,10 +80,18 @@ def _grib_bytes(data: bytes) -> bytes:
     return bz2.decompress(data) if data[:3] == b"BZh" else data
 
 
-def parse_points(data: bytes, points: list[tuple[float, float]]) -> list[float | None]:
+def parse_points(
+    data: bytes,
+    points: list[tuple[float, float]],
+    aims: Mapping[tuple[float, float], Seaward] | None = None,
+) -> list[float | None]:
     """The field's value at each point's nearest wet cell within NEAREST_MAX_DEG, else None.
 
-    ``data`` may be the bz2 file as served or the bare GRIB. One message per file."""
+    The cell is picked by ``geo.nearest_wet`` - the rule the three wave samplers share: with
+    the point's ``aims`` entry a cell behind the spot's shoreline plane loses to the nearest
+    one that is not (a bay-side Tp is another water body's), and only when none is in reach
+    does the plain nearest stand in. ``data`` may be the bz2 file as served or the bare GRIB.
+    One message per file."""
     import numpy as np
     import pygrib
 
@@ -111,17 +120,21 @@ def parse_points(data: bytes, points: list[tuple[float, float]]) -> list[float |
         cols = np.mod(np.arange(j - reach, j + reach + 1), len(lons))
         rows = slice(max(0, i - reach), i + reach + 1)  # lat is NOT periodic
         win = field[rows, :][:, cols]
-        wet = np.argwhere(np.isfinite(win) & (win > 0))
-        if len(wet) == 0:
+        wet = np.isfinite(win) & (win > 0)
+        if not wet.any():
             out.append(None)
             continue
-        wlat = lats[rows]
-        wlon = lons[cols]
-        d2 = (wlat[wet[:, 0]] - lat) ** 2 + (
-            np.cos(np.radians(lat)) * dlon180(wlon[wet[:, 1]], lon360)
-        ) ** 2
-        k = int(np.argmin(d2))
-        out.append(round(float(win[wet[k, 0], wet[k, 1]]), 2))
+        wlat, wlon = np.meshgrid(lats[rows], lons[cols], indexing="ij")
+        idx = nearest_wet(
+            np.ma.array(win, mask=~wet),
+            wlat,
+            wlon,
+            lat,
+            lon360,
+            NEAREST_MAX_DEG,
+            aims.get((lat, lon)) if aims else None,
+        )
+        out.append(None if idx is None else round(float(win[idx]), 2))
     return out
 
 
@@ -162,7 +175,9 @@ class GwamSource:
         capture_dir: Path | None = None,
         steps: tuple[int, ...] = STEPS,
         timeout_s: float = 60.0,
+        aims: Mapping[tuple[float, float], Seaward] | None = None,
     ) -> None:
+        self.aims = aims
         self.capture_dir = capture_dir
         self.steps = steps
         self.timeout_s = timeout_s
@@ -199,7 +214,7 @@ class GwamSource:
                     self.capture_dir.mkdir(parents=True, exist_ok=True)
                     (self.capture_dir / f"gwam_{param}_f{step:03d}.grib2.bz2").write_bytes(data)
                 try:
-                    sampled[(param, step)] = parse_points(data, points)
+                    sampled[(param, step)] = parse_points(data, points, self.aims)
                 except Exception as e:  # one bad file costs its step, never the run
                     print(f"warn: gwam {param} f{step:03d} unreadable: {e!r}", file=sys.stderr)
         return _assemble(points, sampled, cycle)
@@ -218,7 +233,13 @@ class GwamFixtureSource:
     """Replay captured ``gwam_{param}_fSSS.grib2.bz2`` files; ``valid`` stamped from a
     fixed cycle like GfsFullFixtureSource, so the fixture's real date does not matter."""
 
-    def __init__(self, fixtures_dir: Path, cycle: datetime | None = None) -> None:
+    def __init__(
+        self,
+        fixtures_dir: Path,
+        cycle: datetime | None = None,
+        aims: Mapping[tuple[float, float], Seaward] | None = None,
+    ) -> None:
+        self.aims = aims
         self.fixtures_dir = fixtures_dir
         self.cycle = cycle or datetime(2026, 8, 14, 0, tzinfo=UTC)
 
@@ -228,5 +249,5 @@ class GwamFixtureSource:
             param = path.name.split("_")[1]
             step = int(path.name.split("_f")[1][:3])
             if param in PARAMS:
-                sampled[(param, step)] = parse_points(path.read_bytes(), points)
+                sampled[(param, step)] = parse_points(path.read_bytes(), points, self.aims)
         return _assemble(points, sampled, self.cycle)
