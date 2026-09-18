@@ -239,6 +239,24 @@ def test_lead_scorecard_distinguishes_hot_from_cold() -> None:
     assert "-0.30m" in card(0.7)
 
 
+def test_lead_scorecard_scores_each_run_not_the_mean_of_the_runs() -> None:
+    """Dream review 2026-09-18: several archived runs cover one valid hour in a bucket, and
+    the card graded their MEAN - two runs 1 m low and 1 m high scored as a perfect forecast,
+    and that scatter index prices the published confidence ceiling. n still counts the hour
+    once (the 2026-08-07 rule); the hour's error is the mean of its runs' errors."""
+    valid = datetime(2026, 9, 18, 12, 0, tzinfo=UTC)
+    rows = [
+        {"run": (valid - timedelta(hours=30)).isoformat(), "valid": valid.isoformat(), "hs": 1.0},
+        {"run": (valid - timedelta(hours=36)).isoformat(), "valid": valid.isoformat(), "hs": 3.0},
+    ]
+    hs = lead_time_scorecard(rows, [_obs(valid, hs_m=2.0)])["1-3d"]["hs"]
+    assert hs.n == 1
+    assert hs.bias == 0.0
+    assert hs.mae == 1.0
+    assert hs.rmse == 1.0
+    assert hs.scatter_index == 0.5
+
+
 def test_renderers_show_every_variable_handed_in() -> None:
     """Dream review 2026-08-05: both renderers iterated the module-level VARIABLES tuple,
     which worked only because all four *_VARIABLES tuples happen to share the same three

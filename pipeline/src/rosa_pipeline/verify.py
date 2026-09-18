@@ -197,7 +197,11 @@ def _collapse_hour(hour_pairs: list[tuple[float, float]], circular: bool) -> tup
 
     The obs side is the same observation repeated (identical valid -> identical
     nearest match), so its mean is a no-op kept for symmetry; the model side is a
-    true mean across runs. Direction averages as a vector, not arithmetically."""
+    true mean across runs. Direction averages as a vector, not arithmetically.
+
+    Only for callers that need a (model, obs) PAIR per hour and read it linearly - the
+    diurnal bias fit (``_station_pairs``). A scorecard must not grade this mean: see
+    ``_score_hours``."""
     if len(hour_pairs) == 1:
         return hour_pairs[0]
     ms = [m for m, _ in hour_pairs]
@@ -316,6 +320,42 @@ def _score_var(
         mean_obs = sum(o for _, o in pairs) / n
         si = rmse / mean_obs if mean_obs else None
     return VarScore(key, label, unit, n, bias, mae, rmse, si)
+
+
+def _score_hours(
+    key: str,
+    label: str,
+    unit: str,
+    hours: list[list[tuple[float, float]]],
+    circular: bool,
+) -> VarScore:
+    """Score one comparison per distinct valid hour, from the archived runs covering it.
+
+    n counts HOURS (the 2026-08-07 rule), but each hour's terms are the mean of its runs'
+    ERRORS, never the error of its runs' mean. Averaging the forecasts first scored a
+    lagged-ensemble mean nobody published: |mean(d)| <= mean(|d|) and mean(d)^2 <= mean(d^2),
+    so mae/rmse/scatter-index could only read too small, and by more the wider the bucket
+    (4 runs in "0-1d", 24 in "9d+") - two runs 1 m low and 1 m high scored as a perfect
+    forecast. bias is linear, so it is the same number either way. An hour covered by one
+    run is bit-identical to ``_score_var``."""
+    hours = [hp for hp in hours if hp]
+    n = len(hours)
+    if n == 0:
+        return VarScore(key, label, unit, 0, 0.0, 0.0, 0.0, None)
+    bias = mae = sq = obs_sum = 0.0
+    for hp in hours:
+        diffs = [ang_diff(m, o) if circular else (m - o) for m, o in hp]
+        k = len(diffs)
+        bias += sum(diffs) / k
+        mae += sum(abs(d) for d in diffs) / k
+        sq += sum(d * d for d in diffs) / k
+        obs_sum += sum(o for _, o in hp) / k
+    rmse = math.sqrt(sq / n)
+    si: float | None = None
+    if not circular:
+        mean_obs = obs_sum / n
+        si = rmse / mean_obs if mean_obs else None
+    return VarScore(key, label, unit, n, bias / n, mae / n, rmse, si)
 
 
 def build_scorecard(
@@ -453,9 +493,11 @@ def lead_time_scorecard(
     # Pairing each row independently counted the same (hour, observation)
     # comparison once per archived run - n was inflated 3.7-27.8x and the standard
     # error the headline accuracy claim rests on was overstated by ~sqrt(that)
-    # (2026-08-07 Dream review). Collapse to one averaged comparison per distinct
-    # valid hour per bucket: every run still contributes signal, but n counts
-    # what a reader assumes it counts - independent compared hours.
+    # (2026-08-07 Dream review). Collapse to one comparison per distinct valid
+    # hour per bucket: every run still contributes signal, but n counts what a
+    # reader assumes it counts - independent compared hours. The collapse averages
+    # the runs' ERRORS, not their forecasts (_score_hours): the mean of several
+    # runs is a forecast nobody published, and it always scores better than they did.
     grouped: dict[str, dict[str, dict[str, list[tuple[float, float]]]]] = {
         label: {key: {} for key, *_ in variables} for label, _lo, _hi in buckets
     }
@@ -483,16 +525,9 @@ def lead_time_scorecard(
             o = _nearest_obs(valid, valid_obs[o_attr], tol)
             if o is not None:
                 grouped[label][key].setdefault(row["valid"], []).append((mv, getattr(o, o_attr)))
-    pairs: dict[str, dict[str, list[tuple[float, float]]]] = {
-        label: {
-            key: [_collapse_hour(hour_pairs, circ) for hour_pairs in grouped[label][key].values()]
-            for key, _lbl, _unit, _m, _o, circ in variables
-        }
-        for label, _lo, _hi in buckets
-    }
     return {
         label: {
-            key: _score_var(key, lbl, unit, pairs[label][key], circ)
+            key: _score_hours(key, lbl, unit, list(grouped[label][key].values()), circ)
             for key, lbl, unit, _m, _o, circ in variables
         }
         for label, _lo, _hi in buckets
@@ -579,13 +614,7 @@ def station_bias_profile(
 
     return {
         g: {
-            key: _score_var(
-                key,
-                lbl,
-                unit,
-                [_collapse_hour(hp, circ) for hp in grouped[g][key].values()],
-                circ,
-            )
+            key: _score_hours(key, lbl, unit, list(grouped[g][key].values()), circ)
             for key, lbl, unit, _m, _o, circ in STATION_VARIABLES
         }
         for g in grouped
