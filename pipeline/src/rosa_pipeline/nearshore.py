@@ -180,10 +180,20 @@ def load_buoys(run_dir: Path) -> dict[str, list[NearshoreSea]]:
     return series
 
 
-def archive_rows(series: list[NearshoreSea], cycle: datetime) -> list[dict]:
+def archive_rows(
+    series: list[NearshoreSea], cycle: datetime, run_time: datetime | None = None
+) -> list[dict]:
     """Append-ready archive rows in the members' shape (archive.rows_from_model): tp is the
-    PEAK period, so the scorecard pairs it with the buoy's DPD like gfswave/ecmwf."""
-    run_iso = cycle.isoformat(timespec="seconds")
+    PEAK period, so the scorecard pairs it with the buoy's DPD like gfswave/ecmwf.
+
+    ``run_time`` is the archive's invocation time, the stamp every other member carries
+    (cli ``now``): lead = valid - run, and the 4.5 A/B reads this member against
+    gfswave/blend PER LEAD BUCKET, so a row stamped with the GFS model cycle (4-10 h
+    older) scored the analysis hours the other cards drop and sat one bucket late at
+    every edge. The cycle still rides along as ``cycle`` - an extra key the scorecard
+    ignores. None keeps the cycle as the stamp, for a caller with no invocation time."""
+    run_iso = (run_time or cycle).isoformat(timespec="seconds")
+    extra = {"cycle": cycle.isoformat(timespec="seconds")} if run_time is not None else {}
     return [
         {
             "run": run_iso,
@@ -193,6 +203,7 @@ def archive_rows(series: list[NearshoreSea], cycle: datetime) -> list[dict]:
             "dir": round(s.direction, 1),
             "tm01": round(s.tm01, 3),
             "dspr": round(s.dspr, 1),
+            **extra,
         }
         for s in series
     ]

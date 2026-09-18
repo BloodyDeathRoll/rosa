@@ -2523,9 +2523,12 @@ def _cmd_swan_archive(args: argparse.Namespace) -> int:
         json.loads((args.run / "cycle.json").read_text(encoding="utf-8"))["cycle"]
     )
     store = FileArchiveStore(args.archive_dir)
+    # stamped like every other member (rows_from_model(now, ...)): lead = valid - run, and
+    # `verify --archive --source swan` is read against gfswave/blend per lead bucket
+    now = datetime.now(UTC)
     total = 0
     for bid, s in sorted(series.items()):
-        rows = archive_rows(s, cycle)
+        rows = archive_rows(s, cycle, run_time=now)
         store.append(bid + SWAN_KEY_SUFFIX, rows)
         total += len(rows)
     print(

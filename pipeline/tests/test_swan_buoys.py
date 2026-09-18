@@ -104,6 +104,13 @@ def test_load_buoys_and_archive_rows(tmp_path):
         "tm01": 9.0,
         "dspr": 24.0,
     }
+    # the archive command stamps its invocation time, like every member the swan card is
+    # read against per lead bucket; the model cycle rides along (Dream 2026-09-18)
+    now = T0 + timedelta(hours=5)
+    stamped = nearshore.archive_rows(series["46225"], T0, run_time=now)
+    assert stamped[1]["run"] == now.isoformat(timespec="seconds")
+    assert stamped[1]["cycle"] == T0.isoformat(timespec="seconds")
+    assert stamped[1]["valid"] == rows[1]["valid"]
     assert nearshore.load_buoys(tmp_path) == {}  # no buoys.json -> nothing, not an error
 
 
