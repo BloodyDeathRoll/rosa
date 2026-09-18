@@ -733,6 +733,19 @@ def _interp_hourly(gfs: list[GfsSea]) -> list[GfsSea]:
             continue
         af, bf = _pair_flipped_slots(a.fields, _track_swells(a.fields, b.fields))
         shared = set(af) & set(bf)
+        # A swell slot filled at both steps by two DIFFERENT systems (slot 1 dies and slot
+        # 2 moves up; neither pairing above sees it) is not interpolated either - blending
+        # them invents a swell at neither step. Held from the nearer step, as below.
+        for n in (1, 2, 3):
+            d_a, d_b = af.get(f"swell{n}_d"), bf.get(f"swell{n}_d")
+            p_a, p_b = af.get(f"swell{n}_p"), bf.get(f"swell{n}_p")
+            if None in (d_a, d_b, p_a, p_b):
+                continue
+            if (
+                abs((d_a - d_b + 180.0) % 360.0 - 180.0) > DEDUPE_DIR_DEG
+                or abs(p_a - p_b) / max(p_a, p_b, 1e-9) > DEDUPE_PERIOD_FRAC
+            ):
+                shared -= {f"swell{n}_h", f"swell{n}_p", f"swell{n}_d"}
         for k in range(1, round(gap_h)):
             frac = k / gap_h
             f: dict[str, float] = {}

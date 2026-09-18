@@ -517,6 +517,22 @@ def test_a_partition_at_one_step_only_is_held_from_the_nearer_step():
     assert not h["secondary_swell_wave_height"][2]
 
 
+def test_a_slot_holding_two_different_swells_is_held_not_blended():
+    # slot 1's swell dies between the steps and slot 2's moves up (Dream 2026-09-17): slot 1
+    # is filled at both steps by two different systems. Blending them publishes a 13 s / 268
+    # deg swell that exists at neither step - each filled hour holds the nearer step's instead
+    t0 = CYCLE
+    gfs = [
+        _swells(t0, (1.6, 16.0, 250.0), (0.8, 8.0, 310.0)),
+        _swells(t0 + timedelta(hours=3), (0.85, 8.1, 308.0)),
+    ]
+    h = compose_raw(gfs, [], _aux([t0]), "x").marine["hourly"]
+    assert (h["swell_wave_height"][1], h["swell_wave_period"][1]) == (1.6, 16.0)
+    assert (h["swell_wave_height"][2], h["swell_wave_period"][2]) == (0.85, 8.1)
+    assert h["swell_wave_direction"][1] == 250.0
+    assert h["swell_wave_direction"][2] == 308.0
+
+
 def _fake_pygrib(monkeypatch, fields: dict[str, list[float | None]]) -> None:
     """A 1 x 3 row of 0.25 deg nodes at lat 0, lon 0/0.25/0.5; None = masked. Hands over
     arrays only - the node choice under test is the real parse_gfs_full + nearest_wet."""
