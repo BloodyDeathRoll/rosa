@@ -3394,3 +3394,147 @@ fort-point (the shallow stretch is the real San Francisco bar), twilight-beach a
 6 deg of the open arc; a real bank offshore), tavarua-rights, playgrounds, data-de-posorja,
 pontal-do-peba (no open arc exists - reef-pass / gulf / shelf geometry). These nine stay on the list.
 
+
+## 2026-09-18 - The lead scorecard graded the mean of several runs, not the forecasts (Dream 09-18, same-input A/B)
+
+**What was found (Dream, 2026-09-18, HIGH, scored 68/100).** The archive stores the whole horizon
+four times a day, so one valid hour has several rows in a lead bucket (4 in `0-1d`, 8 in `1-3d`,
+up to 24 in `9d+`). Since 2026-08-07 they collapse to one comparison per hour - right for `n` -
+but by averaging the FORECASTS first (`verify._collapse_hour`) and scoring that mean. The mean of
+eight lagged runs is a forecast nobody published, and `|mean(d)| <= mean(|d|)`, so MAE / RMSE /
+scatter index could only read too good. SI prices the published confidence ceiling (`1 - SI`).
+
+**The A/B, same day, same input.** The VM's archive (134 files, 215 MB, copied read-only) and ONE
+`verify --all-buoys --archive` pass per source: every `(rows, obs)` pair scored by the shipped
+`lead_time_scorecard` and by the candidate's in the same call, so both arms see the same
+observations. 36 buoys. The base arm reproduces the live `skill.json` (SI 0.159 / 0.1755 / ... /
+0.3156; ceilings 0.821 / 0.737 / 0.684). `n` and bias are identical on both arms in every bucket.
+
+Hs RMSE (m), run-mean -> per-run:
+
+| lead | om (feeds skill.json) | blend | gfswave | ecmwf |
+|---|---|---|---|---|
+| 0-1d | 0.215 -> 0.218 | 0.222 -> 0.224 | 0.285 -> 0.288 | 0.236 -> 0.238 |
+| 1-3d | 0.231 -> 0.238 | 0.232 -> 0.236 | 0.287 -> 0.295 | 0.252 -> 0.259 |
+| 3-4d | 0.270 -> 0.280 | 0.266 -> 0.272 | 0.308 -> 0.319 | 0.295 -> 0.304 |
+| 4-5d | 0.297 -> 0.311 | 0.302 -> 0.311 | 0.343 -> 0.360 | 0.328 -> 0.343 |
+| 5-7d | 0.350 -> 0.389 | 0.342 -> 0.376 | 0.373 -> 0.428 | 0.369 -> 0.417 |
+| 7-9d | 0.399 -> 0.445 | 0.384 -> 0.425 | 0.425 -> 0.516 | 0.405 -> 0.465 |
+| 9d+ | 0.371 -> 0.404 | - | 0.462 -> 0.590 | - |
+
+The understatement was 1% at day 1 and 10-13% past day 5 (28% on gfswave `9d+`), growing with
+bucket width as the inequality says. It also rewarded the member whose runs disagree most
+(gfswave gains the most from the averaging). **The member ranking does not flip**: on the three
+same-window members, blend < ecmwf < gfswave in every bucket on both arms, so the 2026-09-17 A4
+call (blend holds parity, 50/50 stays) is not touched. om and blend trade places by 0.002 m in
+`1-3d` and tie in `4-5d`, but om's card covers a longer window (n 15,107 vs 2,537) and was never
+a same-window comparison.
+
+**Published footprint.** om SI 0.159 / 0.175 / 0.206 / 0.222 / 0.264 / 0.302 / 0.316 ->
+0.161 / 0.183 / 0.214 / 0.235 / 0.298 / 0.342 / 0.346. Ceilings: days 0-3 **0.821 -> 0.815**, days
+4-9 **0.737 -> 0.709**, day 10+ **0.684 -> 0.654**. No tier crosses a label edge (0.70 / 0.45), so
+no confidence LABEL changes; a published confidence score capped by its ceiling drops by at most
+0.03. Days 4-9 now sit 0.009 above the `high` edge.
+
+**Applied 2026-09-18** (`verify._score_hours`: per hour, the mean of its runs' errors; `n` still
+counts hours; a single-run hour is bit-identical). `lead_time_scorecard` and
+`station_bias_profile` use it; `_collapse_hour` stays for `_station_pairs` only (the diurnal fit
+reads the pair linearly). One test in `test_verify.py`, red without the fix. **Cards printed before
+today (2026-09-16 station wind, 2026-09-17 A4 and `W_GFS` refit) are run-mean cards - never put one
+beside a post-fix card; re-score both arms with one harness.** `skill.json` moves on the first VM
+cycle after the push.
+
+## 2026-09-18 - The `.swan` archive member is stamped with its invocation time (Dream 09-18)
+
+`swan-archive` stamped `run` with the GFS model cycle, 4-10 h older than the invocation time every
+other member carries (`rows_from_model(now, ...)`). Lead = valid - run, so identical forecasts sat
+in different lead buckets on the swan card: the reviewer's proof puts 7 of 33 hours in another
+bucket and reads `0-1d` MAE 0.105 vs 0.165 for the same numbers - SWAN's card scored analysis
+hours the others drop. Fixed: `nearshore.archive_rows(..., run_time=now)`; the cycle rides along as
+an extra `cycle` key. Recording only - nothing published moves, so no A/B. **For the 4.5 read
+(due 2026-10-05): rows recorded 2026-09-14 -> the first cycle after this push carry the cycle
+stamp (they have no `cycle` key) - drop them, never pool them with later rows.**
+
+## 2026-09-18 - A slot filled by two different swells is held, not blended (Dream 09-17, the pb_0049 A/B)
+
+**What was found (Dream, 2026-09-17, MEDIUM, scored 65/100).** GFS-Wave ranks its swell slots.
+When slot 1's swell dies between two steps and slot 2's moves up, slot 1 is filled at both steps by
+two DIFFERENT systems. `_track_swells` (09-14) only re-pairs when every moved pair is one system,
+`_pair_flipped_slots` (09-16) only looks at slots filled at one step, so `_interp_hourly` blended
+the two: a filled hour published a swell that exists at neither step. The reviewer could not
+measure how often. The diff: a slot filled at both steps that fails blend's own same-system test
+(`DEDUPE_DIR_DEG` / `DEDUPE_PERIOD_FRAC`, no new constant) is held from the nearer step, the 09-16
+rule for a slot filled at one step.
+
+**The A/B, run here, no Open-Meteo quota.** The 2026-09-16 capture again (GFS-Wave 06z, ECMWF
+00z, GWAM 00z, OISST, calm synthetic weather, 1947 points). Real `run --all` under two worktrees
+on `3a98707` (V2, the capture's spot DB). Control: the new base arm against 09-16's V2 arm, 0 of
+224,526 rows move.
+
+**Prevalence on base - it is common, not a corner.** 107,665 of 493,790 both-filled slot pairs
+(21.8%) hold two different systems after both pairing steps, in 70,353 of 228,931 transitions at
+1945 of 1947 points. 66,697 (62%) are a real system that changed slot (the reviewer's shape, either
+direction, wind-sea slot included); 26,586 (25%) are unrelated - a death and a birth in one slot;
+14,382 (13%) look like ONE system evolving past the test (same bearing, period 15-30% apart, or
+same period, bearing 20-40 deg apart) - those now step at the middle hour instead of ramping, the
+only cost found. Worst: Pernambuco 67% of transitions, Hawaii 58%, Senegal 58%.
+
+**Does it invent less?** Filled-hour swell slots that are no native system (any slot, wind sea
+included, at either bracketing step): **68,024 of 1,039,084 (6.5%) -> 0** (>= 0.5 m: 18,035 -> 0),
+by construction. One system filling two slots of a filled hour: 53,207 -> 44,935. Filled hours
+with no swell: 15,155 on both arms.
+
+**Published footprint (same input).** 1833 of 1947 spots; 50,561 of 224,526 rows (22.5%). Rating
+changes on 22,325 rows (p05 -13, p95 +11, extremes -56 / +65; 10,047 up, 12,278 down), bucket on
+4,907; `h_mid` on 11,439 (p05 -0.2, p95 +0.2, -1.5 to +0.9 m). Days: `rating_max` down 2,765, up
+935, bucket 864 of 28,664. `current` changes at 611 spots, events at 667. Rows with no swells 0
+-> 0; rows under half closure 1,077 -> 1,044; over 1.3 closure 3,095 -> 3,020 (pb_0332: nothing
+got worse).
+
+**The top movers are base's inventions.** carcavelos 09-19 08Z: GFS has 1.36 m 14.2 s from 323
+deg in slot 2 at 06Z, promoted to slot 1 at 09Z beside a 0.07 m 211 deg trace. Base published a
+0.50 m 14 s swell from **241 deg** (the blend of 323 and 211) - the one bearing in the hour inside
+Carcavelos' window - and read 63 GOOD; held, the hour carries the real 1.98 m from 326 deg and
+reads 7 FLAT like the native hours around it. pors-carn / dourveil / penhors 09-18 22Z: base
+blended a 13.4 s and a 5.0 s trace into a 10.6 s swell at 244 deg, which matched the 9.7 s wind sea
+and made `drop_duplicate_windsea` delete it (16 POOR); held, the 0.81 m sea survives (81). The
+days that lose `rating_max` lose hours like carcavelos'.
+
+**Verdict: applied 2026-09-18 as filed.** The reviewer's proof passes; one test in
+`test_blend.py` (the reviewer's death-and-promotion shape, red without the fix); 674 passed, ruff
+clean. Not built: pairing the promoted slot so it ramps instead of stepping (needs collision
+handling for the renamed slot) - the 13% evolving-system class would ramp again with it. The first
+VM cycle after the push is the smoke check.
+
+## 2026-09-18 - The GWAM peak-period cell is picked by the shared seaward rule (Dream 09-18 proposal, same-input A/B)
+
+**Proposed (Dream, 2026-09-18, outcome, node count MEASURED / effect REASONED).** `gwam.parse_points`
+took the plain nearest wet cell; since 2026-09-11 the three wave samplers refuse a node behind the
+spot's shoreline plane (`geo.nearest_wet`). GWAM's Tp is not display-only - it keys
+`period_rideability` and `energy_period` for the primary swell and the wind sea.
+
+**Measured here on decoded values** (the reviewer had bitmaps only). At HEAD's 2254 spots the pick
+changes at **99** (confirmed). Swell Tp at those 99, three steps of the 09-16 GWAM run: median
+delta 0.0 s; |delta| >= 1 s at 10-14 spots a step, >= 2 s at 6-11. Wind-sea Tp moves more (>= 1 s
+at 37). Cells checked by hand are the right water: two-mile-hollow 41.00 N 72.25 W (Gardiners Bay
+side) -> 72.00 W; georgica-beach 41.00 N -> 40.75 N (Atlantic); portsea / point-lonsdale 38.25 S
+(Port Phillip Bay) -> 38.50 S (Bass Strait); pernambuco-guaruja 46.25 W -> 46.00 W.
+
+**Published footprint** (09-16 capture, 1947 points, base `3a98707`, the base arm of the entry
+above): 88 spots, 1,060 of 224,526 rows (0.47%); rating on 178 rows (p05 -12, p95 +9, extremes
+-33 / +14; 73 up, 105 down), bucket on 39; `h_mid` on 84 (+-0.4 m); days `rating_max` 15 up / 19
+down, bucket 6; `current` at 23 spots, events 0. Rows with no swells 0 -> 0, closure counts
+unchanged (pb_0332). A swell row's Tp goes None on 162 rows and appears on 282: `nearest_wet`
+treats `NEAREST_MAX_DEG` as a radius, the old window was a square, and the seaward cell is masked
+at other steps than the bay cell.
+
+**What this A/B cannot say: that the ratings are better.** There is no Tp truth at these spots.
+The biggest movers go DOWN because the sea-side cell's swell peak is shorter there
+(pernambuco-guaruja 09-18 09:00: Tp 11.2 -> 6.6 s on a 5.7 s-mean primary, 73 -> 40;
+narragansett 12.3 -> 6.9 s, 37 -> 19). The case for it is the 2026-09-11 one - a spot's numbers
+come from the water it faces, by one rule for every gridded wave source - not a measured gain.
+
+**Applied 2026-09-18**: `parse_points(data, points, aims)` through `geo.nearest_wet`; both GWAM
+sources take the `aims` map `run` already builds. One test in `test_gwam.py` on the committed
+global field (georgica-beach: 41.00 N without the aim, 40.75 N with it). OISST stays plain nearest
+(display and tail carry only). 675 passed, ruff clean.
