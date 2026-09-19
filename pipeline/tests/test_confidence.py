@@ -85,3 +85,20 @@ def test_end_to_end_confidence_in_payload() -> None:
     conf = payload["current"]["confidence"]
     assert conf["models"] == 3 and conf["score"] == 1.0 and conf["label"] == "high"
     assert all("confidence" in d and "confidence_score" in d for d in payload["days"])
+
+
+def test_day_confidence_is_read_off_the_daylight_hours_the_headline_uses() -> None:
+    from datetime import UTC, datetime
+
+    spot = load_spots(ROOT / "data" / "spots")["beit-yanai"]
+    raw = _raw_with_ensemble({"ncep_gfswave016": 1.0, "ewam": 1.0, "gwam": 1.0})
+    # the members go missing in the dead of night (22-01 UTC = 01-04 in Israel)
+    for key, col in raw.ensemble["hourly"].items():
+        if key != "time":
+            for i, t in enumerate(raw.ensemble["hourly"]["time"]):
+                if int(t[11:13]) in (22, 23, 0, 1):
+                    col[i] = None
+    scored = [score_hour(spot, h) for h in extract_hours(raw)]
+    assert any(s.hour.n_models == 0 for s in scored)
+    payload = build_payload(spot, scored, fetched_at=raw.fetched_at, now=datetime.now(UTC))
+    assert payload["days"] and all(d["models"] == 3 for d in payload["days"])

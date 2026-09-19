@@ -200,7 +200,9 @@ def _day_agreement(day_hours: list[ScoredHour]) -> float | None:
 
 
 def _day_models(day_hours: list[ScoredHour]) -> int:
-    """Fewest ensemble members backing any hour of this day - 0 = at least one hour had none.
+    """Fewest ensemble members backing any hour handed in - 0 = at least one hour had none.
+    The ``days`` loop hands in the daylight hours, the window the headline is read off
+    (2026-09-19): one 3 am hour without members no longer zeroes a fully backed day.
 
     Published so a reader can tell an ensemble-backed confidence from a horizon-proxy one.
     They are not the same claim and the label does not distinguish them: with no ensemble
@@ -411,8 +413,10 @@ def build_payload(
 
     days = []
     for date_str, day_hours in sorted_dates[:OUTLOOK_DAYS]:
-        best = max(_daylight(spot, day_hours, date_str, tz), key=lambda s: s.rating)
-        label, score = _confidence(lead_days(date_str), _day_agreement(day_hours), ceilings)
+        # one window for the headline AND the confidence beside it (CALIBRATION.md 2026-09-19)
+        lit = _daylight(spot, day_hours, date_str, tz)
+        best = max(lit, key=lambda s: s.rating)
+        label, score = _confidence(lead_days(date_str), _day_agreement(lit), ceilings)
         days.append(
             {
                 "date": date_str,
@@ -423,7 +427,7 @@ def build_payload(
                 "confidence_score": score,
                 # how many ensemble members stood behind that label (see _day_models);
                 # 0 means the horizon proxy alone, which the label cannot say by itself
-                "models": _day_models(day_hours),
+                "models": _day_models(lit),
             }
         )
 
