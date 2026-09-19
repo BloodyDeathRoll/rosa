@@ -166,6 +166,22 @@ def test_ecmwf_swh_joins_agreement_pool() -> None:
     assert disagree.agreement_score < with_member.agreement_score
 
 
+def test_ecmwf_member_is_compared_at_the_hour_not_the_nearest_step() -> None:
+    # every model forecasts the SAME arrival, 1.0 -> 2.5 m over 6 h; ECMWF on its native
+    # 6-hourly steps. A time offset is not model disagreement (CALIBRATION.md 2026-09-19).
+    raw = _raw(7)
+    ramp = [1.0 + 0.25 * i for i in range(7)]
+    raw.ensemble["hourly"]["wave_height_ewam"] = list(ramp)
+    raw.ensemble["hourly"]["wave_height_gwam"] = list(ramp)
+    steps = [
+        SpectralSea(time=T0, swh=1.0, mwd=270.0),
+        SpectralSea(time=T0 + timedelta(hours=6), swh=2.5, mwd=270.0),
+    ]
+    hours = extract_hours(raw, spectral=steps)
+    assert [h.agreement_score for h in hours] == [1.0] * 7
+    assert hours[2].spectral is steps[0]  # the shape join is still the nearest step
+
+
 # --- publish rendering ---
 
 SPOT = Spot(

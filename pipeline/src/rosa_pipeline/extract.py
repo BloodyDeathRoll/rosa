@@ -126,6 +126,36 @@ def _nearest_spectral(
     return best
 
 
+def _member_at(
+    t: datetime, sp: SpectralSea | None, spectral: list[SpectralSea], times: list[datetime]
+) -> tuple[float | None, float | None]:
+    """The ECMWF member's (swh, mwd) AT hour ``t``, for the agreement pool only.
+
+    ``sp`` is the nearest-step join, right for what it was written for - spectral SHAPE,
+    which varies over hours. Hs while a swell arrives does not: every other member in the
+    pool is already at the hour (OM serves hourly, the blend arm's GFS total is
+    ``_interp_hourly``'s), so pairing them with a step up to 3 h away scored a time offset
+    as model disagreement - two identical forecasts ramping 0.25 m/h read 0.67 "medium".
+    Linear between the two steps that bracket ``t`` (bearing circular) when both carry a
+    height and sit within twice the join tolerance - the same fill the other members get;
+    anywhere else (series edge, a purged step) the nearest step stands in, as before.
+    ``sp`` None = no member at this hour, unchanged."""
+    if sp is None or sp.swh is None or sp.time == t:
+        return (sp.swh, sp.mwd) if sp is not None else (None, None)
+    i = bisect_left(times, t)
+    if not 0 < i < len(spectral):
+        return sp.swh, sp.mwd
+    a, b = spectral[i - 1], spectral[i]
+    span_h = (b.time - a.time).total_seconds() / 3600.0
+    if a.swh is None or b.swh is None or not 0.0 < span_h <= 2 * SPECTRAL_JOIN_TOL_H:
+        return sp.swh, sp.mwd
+    w = (t - a.time).total_seconds() / 3600.0 / span_h
+    mwd = sp.mwd
+    if a.mwd is not None and b.mwd is not None:
+        mwd = (a.mwd + (((b.mwd - a.mwd + 180.0) % 360.0) - 180.0) * w) % 360.0
+    return round(a.swh + (b.swh - a.swh) * w, 3), mwd
+
+
 def extract_hours(
     raw: RawForecast,
     spectral: list[SpectralSea] | None = None,
@@ -203,8 +233,10 @@ def extract_hours(
         member_dirs = (
             member_directions_at(ens, ens_index[t]) if ens is not None and t in ens_index else []
         )
-        if sp is not None and sp.swh is not None:
-            member_hs = [*member_hs, sp.swh]
+        # ...compared AT this hour, not at the nearest 6-hourly step (see _member_at)
+        sp_hs, sp_dir = _member_at(time, sp, sp_series, sp_times)
+        if sp_hs is not None:
+            member_hs = [*member_hs, sp_hs]
         # the ECMWF member's own total-sea mean direction (SpectralSea.mwd, fetched
         # since Stage 3b) joins the fan. On the OM arm that is like-for-like with OM's
         # wave_direction_<member> - all means, same convention (measured 2026-08-11
@@ -215,8 +247,8 @@ def extract_hours(
         # (CALIBRATION.md 2026-09-13). Both arms carry pb_0048's bimodal-sea caveat.
         # Gated on swh like member_directions_at is on its heights: a member the
         # agreement did not count adds no bearing (2026-09-13).
-        if sp is not None and sp.swh is not None and sp.mwd is not None:
-            member_dirs = [*member_dirs, float(sp.mwd) % 360.0]
+        if sp_hs is not None and sp_dir is not None:
+            member_dirs = [*member_dirs, float(sp_dir) % 360.0]
         agreement = agreement_from_members(member_hs, member_dirs)
         hours.append(
             HourForecast(

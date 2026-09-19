@@ -492,8 +492,8 @@ def blend_archive_rows(gfs_rows: list, ecmwf_rows: list) -> list[dict]:
 
     Joined on (run, valid): the archive stamps both members with one invocation time, so
     a shared key is the same cycle's forecast for the same hour. Only hours BOTH members
-    carry are kept - compose_raw fills ECMWF's 3-6 h steps by interpolation, and scoring
-    interpolated hours would score the interpolation. hs/tp/dir combine exactly as
+    carry are kept - compose_raw holds ECMWF's nearest 6-hourly step between steps, and
+    scoring those hours would score the hold. hs/tp/dir combine exactly as
     compose_raw does (hs <- swh, tp <- perpw|pp1d, dir <- dirpw|mwd), including its rule
     that a value one member lacks is the other member's alone."""
     ec = {
