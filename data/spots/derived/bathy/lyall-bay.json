@@ -1,0 +1,72 @@
+{
+  "spot": "lyall-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.3289,
+    174.8038
+  ],
+  "bearing_seaward_deg": 178.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 212.0,
+  "mean_slope_m_per_km": 11.89,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.33115,
+      "lon": 174.8039,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.33339,
+      "lon": 174.80401,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.33789,
+      "lon": 174.80422,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.34688,
+      "lon": 174.80464,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.35586,
+      "lon": 174.80505,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.37384,
+      "lon": 174.80589,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.4008,
+      "lon": 174.80715,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.43675,
+      "lon": 174.80882,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.49068,
+      "lon": 174.81134,
+      "depth_m": 212.0
+    }
+  ]
+}

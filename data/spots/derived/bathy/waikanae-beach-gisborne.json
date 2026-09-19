@@ -1,0 +1,72 @@
+{
+  "spot": "waikanae-beach-gisborne",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.671,
+    178.0153
+  ],
+  "bearing_seaward_deg": 195.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 38.0,
+  "mean_slope_m_per_km": 2.08,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.67317,
+      "lon": 178.01455,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.67534,
+      "lon": 178.01381,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.67969,
+      "lon": 178.01232,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.68837,
+      "lon": 178.00934,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.69706,
+      "lon": 178.00635,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.71443,
+      "lon": 178.00038,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.74049,
+      "lon": 177.99143,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.77524,
+      "lon": 177.97947,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.82735,
+      "lon": 177.96152,
+      "depth_m": 38.0
+    }
+  ]
+}

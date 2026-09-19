@@ -22,3 +22,28 @@ spots:
   - { id: spot, name: "Surf beach", town: "Onemana", lat: -37.1501, lon: 175.8793, offshore_direction: 268, swell_window: [23, 153], offshore_km: 5.0, <<: *nz }  # osm-seeded 2026-09-19 - TODO verify
   - { id: graveyard, name: "Graveyard Surf", town: "Kaikōura", lat: -42.3135, lon: 173.7524, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, <<: *nz }  # osm-seeded 2026-09-19 - TODO verify
   - { id: colac, name: "Colac Bay", town: "Colac Bay / Ōraka", lat: -46.3588, lon: 167.9014, offshore_direction: 336, swell_window: [91, 221], offshore_km: 5.0, <<: *nz }  # osm-seeded 2026-09-19 - TODO verify
+
+  # ==== SEEDED 2026-09-19 - new-zealand, secondary web-search pass, 14 spots
+  # (named breaks from surf guides, multi-geocoded google/nominatim/photon then
+  # cross-checked - all agreement spread < 4 km). EVERY pin rendered on ESRI imagery
+  # at z16 and judged before entering; one candidate (Whakatane Heads) dropped - the
+  # geocoder landed on the town CBD/river mouth, not the break. offshore_direction is
+  # the nearest primary-flow coastline candidate's shore normal (all < 0.4 km away);
+  # swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM place nodes, 4
+  # hand overrides in town_overrides.json (Raglan x2, Sumner x2 - the nearest OSM
+  # place node was an obscure hamlet, not the town surfers actually search). North to
+  # south.
+  - { id: piha-beach, name: "Piha Beach", town: "Piha", lat: -36.9573, lon: 174.4687, offshore_direction: 86, swell_window: [201, 331], offshore_km: 5.0, <<: *nz }  # sat-verified 2026-09-19 (websearch-seeded)
+  - { id: mount-maunganui-main, name: "Mount Maunganui Main Beach", town: "Mount Maunganui", lat: -37.6312, lon: 176.1790, offshore_direction: 203, swell_window: [318, 88], offshore_km: 5.0, <<: *nz }  # sat-verified 2026-09-19 (websearch-seeded)
+  - { id: arataki-beach, name: "Arataki Beach", town: "Bayfair", lat: -37.6726, lon: 176.2372, offshore_direction: 223, swell_window: [338, 108], offshore_km: 5.0, <<: *nz }  # sat-verified 2026-09-19 (websearch-seeded)
+  - { id: newdicks-beach, name: "Newdicks Beach", town: "Maketu", lat: -37.7453, lon: 176.4707, offshore_direction: 182, swell_window: [297, 67], offshore_km: 5.0, <<: *nz }  # sat-verified 2026-09-19 (websearch-seeded)
+  - { id: ngarunui-beach, name: "Ngarunui Beach", town: "Raglan", lat: -37.8185, lon: 174.8283, offshore_direction: 146, swell_window: [261, 31], offshore_km: 5.0, <<: *nz }  # sat-verified 2026-09-19 (websearch-seeded)
+  - { id: manu-bay, name: "Manu Bay", town: "Raglan", lat: -37.8216, lon: 174.8127, offshore_direction: 110, swell_window: [225, 355], offshore_km: 5.0, <<: *nz }  # sat-verified 2026-09-19 (websearch-seeded)
+  - { id: waikanae-beach-gisborne, name: "Waikanae Beach", town: "Gisborne", lat: -38.6710, lon: 178.0153, offshore_direction: 15, swell_window: [130, 260], offshore_km: 5.0, <<: *nz }  # sat-verified 2026-09-19 (websearch-seeded)
+  - { id: fitzroy-beach, name: "Fitzroy Beach", town: "New Plymouth", lat: -39.0426, lon: 174.0998, offshore_direction: 124, swell_window: [239, 9], offshore_km: 5.0, <<: *nz }  # sat-verified 2026-09-19 (websearch-seeded)
+  - { id: stent-road, name: "Stent Road", town: "Puniho", lat: -39.2197, lon: 173.7790, offshore_direction: 129, swell_window: [244, 14], offshore_km: 5.0, <<: *nz }  # sat-verified 2026-09-19 (websearch-seeded)
+  - { id: castlepoint, name: "Castlepoint", town: "Castlepoint", lat: -40.8976, lon: 176.2205, offshore_direction: 218, swell_window: [333, 103], offshore_km: 5.0, <<: *nz }  # sat-verified 2026-09-19 (websearch-seeded)
+  - { id: lyall-bay, name: "Lyall Bay", town: "Wellington", lat: -41.3289, lon: 174.8038, offshore_direction: 358, swell_window: [113, 243], offshore_km: 5.0, <<: *nz }  # sat-verified 2026-09-19 (websearch-seeded)
+  - { id: sumner-beach, name: "Sumner Beach", town: "Sumner", lat: -43.5693, lon: 172.7619, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, <<: *nz }  # sat-verified 2026-09-19 (websearch-seeded)
+  - { id: taylors-mistake, name: "Taylor's Mistake", town: "Sumner", lat: -43.5833, lon: 172.7762, offshore_direction: 225, swell_window: [340, 110], offshore_km: 5.0, <<: *nz }  # sat-verified 2026-09-19 (websearch-seeded)
+  - { id: st-clair-beach, name: "St Clair Beach", town: "Dunedin", lat: -45.9097, lon: 170.5009, offshore_direction: 349, swell_window: [104, 234], offshore_km: 5.0, <<: *nz }  # sat-verified 2026-09-19 (websearch-seeded)

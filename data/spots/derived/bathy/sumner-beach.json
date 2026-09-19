@@ -1,0 +1,72 @@
+{
+  "spot": "sumner-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -43.5693,
+    172.7619
+  ],
+  "bearing_seaward_deg": 60.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 24.0,
+  "mean_slope_m_per_km": 1.24,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -43.56818,
+      "lon": 172.76459,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -43.56705,
+      "lon": 172.76727,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -43.5648,
+      "lon": 172.77265,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -43.5603,
+      "lon": 172.7834,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -43.55581,
+      "lon": 172.79414,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -43.5468,
+      "lon": 172.81563,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -43.53329,
+      "lon": 172.84784,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -43.51527,
+      "lon": 172.89078,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -43.4882,
+      "lon": 172.95513,
+      "depth_m": 24.0
+    }
+  ]
+}

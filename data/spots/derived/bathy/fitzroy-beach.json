@@ -1,0 +1,72 @@
+{
+  "spot": "fitzroy-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.0426,
+    174.0998
+  ],
+  "bearing_seaward_deg": 304.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 100.0,
+  "mean_slope_m_per_km": 5.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.04134,
+      "lon": 174.0974,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.04009,
+      "lon": 174.095,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.03757,
+      "lon": 174.0902,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.03254,
+      "lon": 174.0806,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.02751,
+      "lon": 174.07101,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.01745,
+      "lon": 174.05182,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.00234,
+      "lon": 174.02305,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.9822,
+      "lon": 173.9847,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.95195,
+      "lon": 173.92723,
+      "depth_m": 100.0
+    }
+  ]
+}
