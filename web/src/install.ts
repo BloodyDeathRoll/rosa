@@ -43,7 +43,7 @@ export async function detectPlayApp(): Promise<boolean> {
 
 /** Running INSIDE the Play app? A TWA's first document carries the package as its
     referrer; the flag rides sessionStorage so a reload inside it still knows. */
-function inPlayApp(): boolean {
+export function inPlayApp(): boolean {
   try {
     if (document.referrer.startsWith(`android-app://${PLAY_APP_ID}`)) {
       sessionStorage.setItem(TWA_KEY, "1");

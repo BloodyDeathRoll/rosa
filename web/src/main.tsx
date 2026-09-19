@@ -2,6 +2,7 @@ import { render } from "preact";
 import { syncFavorites } from "./account";
 import { initAnalytics } from "./analytics";
 import { initGa, gaEvent, unitsTag } from "./ga";
+import { inPlayApp } from "./install";
 import { App } from "./app";
 import { MovedScreen, onLegacyOrigin } from "./components/MovedScreen";
 import { getFavorites, setFavorites } from "./favorites";
@@ -59,18 +60,22 @@ initGa({
 // every event for 5 s before it sends (measured on the live site, beacon transport
 // included), and on Android that event fires as the new app opens and the browser tab
 // is backgrounded, so the hit died unsent. iOS fires no event at all. A launch outlives
-// the batch window. Once per device: the installed app and the browser share the
-// origin's localStorage, so the key set here is seen by both.
+// the batch window. Once per device AND per kind: the Play app (a TWA) is this same
+// origin inside Chrome, so it shares localStorage with the browser and the installed
+// PWA - on one key, a phone that already had the PWA never counted its Play install
+// (every early tester, until 2026-09-19). `via` tells the two apart in GA; the Play
+// app counts on its referrer alone, whatever display mode Chrome gives it.
 function countInstall(): void {
-  if (!matchMedia("(display-mode: standalone)").matches) return;
-  const KEY = "rosa.install.counted";
+  const play = inPlayApp();
+  if (!play && !matchMedia("(display-mode: standalone)").matches) return;
+  const KEY = play ? "rosa.install.counted.play" : "rosa.install.counted";
   try {
     if (localStorage.getItem(KEY)) return;
     localStorage.setItem(KEY, new Date().toISOString());
   } catch {
     return; // no storage - better an uncounted install than one counted every launch
   }
-  gaEvent("app_install");
+  gaEvent("app_install", { via: play ? "play" : "pwa" });
 }
 countInstall();
 
