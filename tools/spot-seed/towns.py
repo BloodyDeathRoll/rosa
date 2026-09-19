@@ -73,6 +73,7 @@ REGION_PBF = {
     "South Africa East": "south-africa-east",
     "Mozambique": "mozambique",
     "Kenya": "kenya",
+    "New Zealand": "new-zealand",
     "Zanzibar": "zanzibar",
     "Madagascar": "madagascar",
     "Mauritius": "mauritius",

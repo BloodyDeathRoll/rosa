@@ -1,0 +1,24 @@
+# Rosa spot database - New Zealand (region scaffolded 2026-09-19). Both islands, both
+# coasts: west (Tasman Sea) gets SW-W groundswell and prevailing westerlies; east (South
+# Pacific) gets NE-SE swell and is offshore in the west/sou'west. Every spot carries its
+# own offshore_direction (from coastline geometry) and offshore_km along that normal, so
+# no single default push applies fleet-wide.
+
+defaults: &nz
+  timezone: Pacific/Auckland
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [180, 300]
+  ideal:
+    wind_dir: [45, 135]
+    size_m: [0.6, 2.5]
+
+spots:
+
+  # ==== OSM-SEEDED (2026-09-19, © OpenStreetMap contributors, ODbL) ====
+  # coastline-generated → bathy-pruned → OSM-name confirmed; offshore_direction from
+  # coastline geometry; sample point pushed seaward via offshore_km. SOURCE = osm-seeded (below
+  # sat/user-verified). sat-verify coords + break_type + swell_window before trusting.
+  - { id: spot, name: "Surf beach", town: "Onemana", lat: -37.1501, lon: 175.8793, offshore_direction: 268, swell_window: [23, 153], offshore_km: 5.0, <<: *nz }  # osm-seeded 2026-09-19 - TODO verify
+  - { id: graveyard, name: "Graveyard Surf", town: "Kaikōura", lat: -42.3135, lon: 173.7524, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, <<: *nz }  # osm-seeded 2026-09-19 - TODO verify
+  - { id: colac, name: "Colac Bay", town: "Colac Bay / Ōraka", lat: -46.3588, lon: 167.9014, offshore_direction: 336, swell_window: [91, 221], offshore_km: 5.0, <<: *nz }  # osm-seeded 2026-09-19 - TODO verify

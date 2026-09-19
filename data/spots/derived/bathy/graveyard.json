@@ -1,0 +1,72 @@
+{
+  "spot": "graveyard",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -42.3135,
+    173.7524
+  ],
+  "bearing_seaward_deg": 100.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 611.0,
+  "mean_slope_m_per_km": 34.14,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -42.31389,
+      "lon": 173.75539,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -42.31428,
+      "lon": 173.75839,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -42.31506,
+      "lon": 173.76438,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -42.31662,
+      "lon": 173.77635,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -42.31818,
+      "lon": 173.78833,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -42.32129,
+      "lon": 173.81229,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -42.32595,
+      "lon": 173.84823,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -42.33215,
+      "lon": 173.89617,
+      "depth_m": 84.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -42.34141,
+      "lon": 173.96808,
+      "depth_m": 611.0
+    }
+  ]
+}

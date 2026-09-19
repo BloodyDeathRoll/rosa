@@ -67,6 +67,7 @@ OVERPASS = [
 # surf-coast bbox per region (S, W, N, E). Sri Lanka = SW+S+E surf coast (skips the
 # non-surf northern lagoons); others cover the mapped coast.
 REGIONS = {
+    "new-zealand": (-47.30, 166.35, -34.40, 178.60),
     "sri-lanka": (5.85, 79.60, 7.05, 81.95),
     "israel": (31.40, 34.20, 33.25, 35.20),
     "japan": (30.0, 129.0, 41.6, 142.2),

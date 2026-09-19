@@ -150,7 +150,7 @@ def test_every_committed_spot_picks_the_same_oisst_cell_as_before():
     lons = np.arange(0.125, 360.0, 0.25)
     reach = int(NEAREST_MAX_DEG / 0.25)
     spots = load_spots(Path(__file__).resolve().parents[2] / "data" / "spots")
-    assert len(spots) == 2254
+    assert len(spots) == 2257
 
     near_seam = []
     for s in spots.values():

@@ -19,6 +19,7 @@ STAMP = _dt.date.today().isoformat()
 
 # region -> (anchor, needs_swell_window, break_default, push_km)
 CFG = {
+    "new-zealand": ("nz", True, None, 5.0),
     "portugal": ("pt", False, None, 5.0),
     "japan": ("jp", True, None, 5.0),
     "philippines": ("phe", True, None, 5.0),

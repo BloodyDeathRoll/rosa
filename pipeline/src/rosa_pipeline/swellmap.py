@@ -35,6 +35,7 @@ from .spots import load_spots
 
 # One basin box can serve several spot regions (Costa Rica + Nicaragua share a coast).
 BASINS: dict[str, tuple[str, ...]] = {
+    "new-zealand": ("New Zealand",),
     "israel": ("Israel",),
     # Cyprus sits in the same Levantine wind-swell sea as Israel but 300 km north-west;
     # its own frame keeps Israel's box as it is
