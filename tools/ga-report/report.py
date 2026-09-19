@@ -149,6 +149,16 @@ def main() -> int:
         event_filter("favorite_add"),
     )
     out["events"] = query(token, ["eventName"], ["eventCount"], d, 20, "eventCount")
+    # installs by kind: `via` is play | pwa since 2026-09-19; blank = sent before that, or
+    # today's rows GA has not finished processing
+    out["installs"] = query(
+        token, ["customEvent:via"], ["eventCount"], d, 10, "eventCount",
+        event_filter("app_install"),
+    )
+    out["installs_daily"] = query(
+        token, ["date", "customEvent:via"], ["eventCount"], d, 100, None,
+        event_filter("app_install"),
+    )
     for prop in ("units", "theme", "signed_in", "installed"):
         out[f"pref_{prop}"] = query(token, [f"customUser:{prop}"], ["activeUsers"], d, 10, "activeUsers")
 
@@ -169,6 +179,12 @@ def main() -> int:
           [(r[0][0], r[1][0], r[1][1]) for r in out["regions"]], (26, 8, 8))
     table("EVENTS", ("event", "count"),
           [(r[0][0], r[1][0]) for r in out["events"]], (26, 10))
+    via = lambda v: v if v and v != "(not set)" else "(no via)"
+    table("INSTALLS", ("via", "count"),
+          [(via(r[0][0]), r[1][0]) for r in out["installs"]], (26, 10))
+    table("INSTALLS BY DAY", ("date", "via", "count"),
+          [(r[0][0], via(r[0][1]), r[1][0]) for r in sorted(out["installs_daily"], reverse=True)],
+          (10, 16, 8))
 
     # opened often, favourited rarely - the closest thing Rosa has to a disappointment signal
     favs = {r[0][0]: int(r[1][0]) for r in out["favorites"]}
