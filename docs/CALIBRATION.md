@@ -3538,3 +3538,56 @@ come from the water it faces, by one rule for every gridded wave source - not a 
 sources take the `aims` map `run` already builds. One test in `test_gwam.py` on the committed
 global field (georgica-beach: 41.00 N without the aim, 40.75 N with it). OISST stays plain nearest
 (display and tail carry only). 675 passed, ruff clean.
+
+## 2026-09-19 - The ECMWF member joins the agreement pool at the hour, not at its nearest step (Dream 09-19, same-input A/B)
+
+**Filed (Dream, 2026-09-19, MEDIUM, scored 55/100 - size not measured).** `extract_hours` put
+`sp.swh` from the nearest 6-hourly ECMWF step (up to 3 h away) into the agreement pool beside
+members that are already at the hour. That tolerance was written for spectral SHAPE; Hs while a
+swell arrives is not shape. On the blend arm the pool is two members, so a time offset was half
+the score: two identical forecasts ramping 0.25 m/h read 0.67 "medium". The diff: linear between
+the two bracketing steps (bearing circular) for the agreement pool only; the `spectral` join
+(consistency, bands, `missed`) is untouched, as are `n_models` and `dir_n`.
+
+**The A/B, run here, no Open-Meteo quota.** The 2026-09-16 capture (1947 points), real `run
+--all` under two worktrees: `a08bd74` code on the capture's spot DB (`3a98707`), base vs the diff.
+Nothing moves but confidence and `dir_span` (0 spots otherwise - no rating, height or event).
+
+**Footprint.** `confidence_score` moves on 5,027 of 28,664 days (17.5%) at 1715 spots: p05 -0.01,
+median +0.01, p95 +0.02, extremes -0.03 / +0.08; 2,625 up, 2,402 down. **The reviewer expected
+every move upward or zero - not so**: where the two models really differ in timing, the nearest
+step was sometimes closer to GFS by luck. Labels under the live ceilings (0.816 / 0.711, days
+0-9): 82 of 19,470 days cross, 41 up and 41 down. `dir_span` moves on 78,408 of 224,526 hour rows
+(p05 -5, p95 +4 deg). Biggest gains are arrival days (tifnit 0.87 -> 0.95, the Byron coast 0.91 ->
+0.98 on 09-16).
+
+**Verdict: applied 2026-09-19 as filed, on principle - the A/B shows a wash on labels, not a
+gain.** Members are compared at the same hour; the down moves are disagreement the offset used to
+hide. The reviewer's proof passes; one test in `test_spectral.py` (red without the fix); 676
+passed, ruff clean. Not changed: compose_raw's blended `wave_height` still mixes GFS at the hour
+with ECMWF's nearest step - it feeds the `closure` diagnostic only. `blend_archive_rows`'
+docstring said that step was interpolated; corrected to "held".
+
+## 2026-09-19 - A day's confidence is read off the daylight hours its headline uses (Dream 09-03 proposal, same-input A/B)
+
+**Proposed (Dream, 2026-09-03, outcome, REASONED; deferred 2026-09-04 for this A/B).** A day's
+`rating_max`, `bucket` and `h_max` come from `_daylight(...)`, but the `confidence`,
+`confidence_score` and `models` published beside them were taken over all 24 h. One 3 am hour
+without members read `models: 0` for a fully backed day.
+
+**The A/B, run here, no Open-Meteo quota.** The 2026-09-16 capture (1947 points), real `run
+--all` with the live `skill.json` (ceilings 0.816 / 0.711 / 0.654) under two worktrees: `a08bd74`
++ the same-hour fix above, on the capture's spot DB (`3a98707`); candidate hands `_day_agreement`
+and `_day_models` the `_daylight` list. Only those three day fields move (0 spots otherwise).
+
+**Footprint.** `confidence_score` moves on 5,038 of 28,664 days (17.6%) at 1352 spots: p05 -0.08,
+median -0.01, p95 +0.07; 1,922 up, 3,116 down. Labels, days 0-9: 630 of 19,470 cross (242 up,
+388 down). `models` 0 -> 2 on 393 day-9 rows - ECMWF's horizon ends in that day's night and its
+daylight is fully backed, the reviewer's case. **Edge found:** on ECMWF's last day (index 10)
+base scored the whole day off its two night hours of agreement (whitesands 0.00 "low",
+`models: 0`); the daylight has no members, so the day now falls to the horizon proxy (0.65) like
+every later day - 97 low -> medium.
+
+**Verdict: applied 2026-09-19.** The confidence describes the hours the rating does. `_daylight`
+already falls back to all hours where the sun never rises. One test in `test_confidence.py` (red
+without the change); 677 passed, ruff clean.

@@ -1,86 +1,105 @@
-# Session Handoff - 2026-09-17
+# Session Handoff - 2026-09-18 (morning, Dream review session)
 
 ## Goal
-Finish seeding South America (Chile, Ecuador, Uruguay, Argentina, the Brazil gaps) without
-breaking the Open-Meteo weather quota, then shorten the publish cycle. Two older tracks are
-carried from the previous handoff, NOT re-verified here: the Dream 09-16 blend fix smoke, and the
-Google Play closed test.
+Work the Dream overnight reviewer's open backlog for rosa (`/dream-review`): three findings and
+one proposal from the 2026-09-17 and 2026-09-18 reports, each with a same-input A/B where it
+moves a published number. Then a side question: is anything in use on the Frankfurt Oracle account.
 
 ## Current State
-- **Spot DB: 2254 spots** (was 1947), pushed as `2586700`. The 20:20Z cycle on 16 Sep published
-  all 2254 (verified on the CDN and in `publish.log`): 3 minutely 429s, retried; no daily refusal.
-  Punta de Lobos carries swells and scores up to 92.
-- **Weather quota estimate is OVER the nominal line**: ~11,800 units/day vs 10,000 (arithmetic,
-  the weather host is not metered by `quota.py`; the cap has never been enforced). OPEN-ITEMS 34.
-- **ICON station leg dropped** (`8975c44`): the station A/B confirmed GFS. `<station>.icon.jsonl`
-  stays on the VM; `--wind-model icon` still scores it.
-- **Cycle speed-up pushed as `1967545`, NOT yet measured on the VM.** The 08:20Z cycle on 17 Sep
-  pulls the new pipeline code (forked scoring) but still runs the OLD `publish.sh` order, because
-  bash keeps executing the script it started with; the new order first applies at 14:20Z.
-  Locally: 672 tests pass, ruff clean, same-input A/B byte-identical.
-- The 02:20Z cycle on 17 Sep was still running at 07:15 local (started on time). Not checked after.
-- A one-time cloud routine `trig_01HwESHBzh1UG6bDQug4sPYc` was set for 03:30Z 17 Sep (CDN-only
-  check of the 2254 spots). Its result was not read in this session.
-- Uncommitted: `docs/SESSIONS.md` (this session's entry + two other sessions' entries),
-  `handoff.md`, `progress.md` (untracked).
-- Carried, unverified: blend fix `3a98707` smoke from the CDN was never formally done (this session
-  only saw non-empty `swells` on ~90 sampled spots). Play closed test `1 (1)` was in review on
-  16 Sep; `assetlinks.json` untested on a device.
+- **All four items are applied, committed and pushed to main** (`1ba9c7c`, `a256474`, `7ae1d62`,
+  `fa9e359`, docs `a08bd74`). Repo suite 675 passed, ruff clean. Each fix has one new repo test
+  that is red without it.
+- **NOT yet live / NOT smoke-checked.** The VM pulls on its next cycle (17:20 local / 14:20Z,
+  2026-09-18). Nothing was verified from the CDN after the push.
+- Dream ledger (`~/Projects/Dream/.../reports/.state/rosa.applied`) closed at "0 open through
+  2026-09-18"; one untagged learning appended to Dream `playbook.md`. Dream was not committed
+  (rule: never commit Dream from a project session).
+- Frankfurt Oracle tenancy ("shibumi", `~/.oci/config` `[DEFAULT]`): checked read-only - no
+  instances, no boot/block volumes, no public IPs; VCNs `rosa-vcn` (2026-07-22, the ARM hunt,
+  empty) and `oneshot-cms-vcn` (2026-09-18, not Rosa's). No grabber running locally or on
+  `rosa-arm`. `rosa-backup` and the old micro refused my SSH key, so not checked there. **I offered
+  to delete `rosa-vcn`; the operator did not answer - nothing was deleted.**
+- Working tree: `handoff.md` and `progress.md` modified, uncommitted (`progress.md` was modified
+  by an earlier session, not this one).
+- A/B scratch is in this session's scratchpad (disposable). The 2026-09-16 capture + replay rig
+  it reused is at `/tmp/claude-1000/-home-shahar-Projects-rosa/61b9a090-.../scratchpad/ab/`
+  (`cap/`, `replay.py`, `diff.py`) - in `/tmp`, so it dies on reboot.
 
 ## Active Files
-- `data/spots/{chile-north,chile-central,chile-south,ecuador,uruguay,mar-del-plata,patagonia-argentina,paraiba,alagoas,sergipe}.yaml` - the 10 new regions; 307 bathy + 307 tide files under `data/spots/derived/`.
-- `tools/spot-seed/seed.py` (10 REGIONS boxes), `tools/spot-seed/emit_spots.py` (CFG), `pipeline/src/rosa_pipeline/swellmap.py` (4 new basins + 3 states into `brazil-northeast`).
-- `tools/spot-seed/work/<region>/judge.json` - per-region judge logs (gitignored work dirs).
-- `pipeline/src/rosa_pipeline/cli.py` - ICON leg removed; `archive --stations {with,skip,only}`; `_score_point`, `_score_workers`, `run --workers`.
-- `pipeline/src/rosa_pipeline/fetch.py`, `gfsatmos.py` - `WEATHER_AB_MODEL` removed, comments.
-- `deploy/oracle/publish.sh` - `run_evidence()` + EXIT trap; step 1 is `archive --stations skip`; `RUN_RC=0; ... || RUN_RC=$?`.
-- `pipeline/tests/test_cli.py` (2 new tests, station test rewritten), `test_fetch.py`, `test_geo_seam.py` (count 2254).
-- Docs: `CLAUDE.md` (counts, ICON line), `docs/SPOT-DB.md`, `docs/spot-db-scraping-playbook.md` section 5, `docs/CALIBRATION.md` (2026-09-16 station A/B, 2026-09-17 cycle time), `docs/OPEN-ITEMS.md` 25/34, `docs/rosa-stage4-plan.md`, `docs/rosa-fetch-plane-plan.md`, `deploy/oracle/README.md`.
+- `pipeline/src/rosa_pipeline/nearshore.py` - `archive_rows(series, cycle, run_time=None)`; with
+  `run_time` the row's `run` is the invocation time and the model cycle rides as `cycle`.
+- `pipeline/src/rosa_pipeline/cli.py` - `_cmd_swan_archive` passes `run_time=now`; `_cmd_run`
+  passes `aims=aims` to both GWAM sources.
+- `pipeline/src/rosa_pipeline/verify.py` - new `_score_hours` (per hour: mean of its runs'
+  ERRORS); `lead_time_scorecard` and `station_bias_profile` use it; `_collapse_hour` kept for
+  `_station_pairs` only.
+- `pipeline/src/rosa_pipeline/blend.py` - `_interp_hourly`: a swell slot filled at both steps
+  that fails the DEDUPE same-system test leaves `shared`, so it is held from the nearer step.
+- `pipeline/src/rosa_pipeline/gwam.py` - `parse_points(data, points, aims=None)` picks via
+  `geo.nearest_wet`; `GwamSource` / `GwamFixtureSource` take `aims`.
+- Tests: `test_swan_buoys.py`, `test_verify.py`, `test_blend.py`, `test_gwam.py` (one each).
+- `docs/CALIBRATION.md` - four 2026-09-18 entries. `docs/OPEN-ITEMS.md` 11 - pre-fix `.swan`
+  rows warning. `docs/SESSIONS.md` - one entry.
+- Memory `stage4-swan-ab-due-2026-10-05.md` - same warning appended.
 
 ## Changes Made This Session
-1. Read the station wind A/B on the VM (`verify --stations --archive --wind-model {gfs,icon}`,
-   207 stations): GFS speed bias -0.04 m/s vs ICON -0.80 at 0-1 d, GFS better MAE at every lead.
-   Dropped the ICON fetch (~916 units/day at 229 stations). Operator asked for this step.
-2. Measured a weather-request sharing idea on 233 spots (~230 OM units): 161 distinct series
-   (~31%); operator then accepted the recommendation to skip building it (C3b read is 26 Sep).
-   Design + numbers are in OPEN-ITEMS 34.
-3. Seeded 10 regions with 10 parallel subagents per the playbook. Renamed `chubut` ->
-   `patagonia-argentina` (9 of 16 spots are Rio Negro). Tightened paraiba's N edge to -6.47
-   (it re-offered RN's `pontal`), widened mar-del-plata's to -36.60. Re-cut 15 Chile North tide
-   files that predated their re-aim. Committed + pushed (Rosa commits straight to main).
-4. Measured the cycle from VM file mtimes (4 h 32): station GRIB leg ~70 min, SWAN ~51, fetch
-   ~74, scoring ~53 on one of 4 cores. Operator approved fixes 1 and 2 (17 Sep), then the alert fix.
-5. `publish.sh`: evidence legs after the deploy and from an EXIT trap (archives cannot be
-   back-filled); verified with a stub harness over exits 0/3/4/1. False "Cycle FAILED" on exits
-   3 and 4 fixed (bash ERR trap fires even under `set +e`).
-6. `run --all`: forked workers return events, the parent replays in point order and does all
-   writes. A/B on a captured 135-spot run with a frozen clock: 136/136 files byte-identical, logs
-   line-identical, wall 134.9 s -> 83.7 s (scoring ~69 -> ~18 s).
+1. **Backlog read.** 34 report nights; everything through 09-16 closed in the ledger and
+   cross-checked diff by diff (`git apply --check` / `-R`). Open: 09-17 MEDIUM, 09-18 HIGH +
+   MEDIUM, 09-18 proposal. All three findings were scored under 80 by the reviewer's second
+   pass, each time because real-data size was unmeasured - the A/Bs below measured it.
+2. **SWAN stamp** (applied via `review-apply.sh`). Recording-only arm, no A/B. `.swan` rows
+   recorded 2026-09-14 until the VM pulls this fix carry the GFS cycle as `run` (4-10 h early, no
+   `cycle` key) - drop them from the 5 Oct read.
+3. **Scorecard run-mean** (A/B, then applied). VM archive copied read-only (215 MB, then
+   deleted); ONE `verify --all-buoys --archive` pass per source with `cli.lead_time_scorecard`
+   wrapped so base and candidate score the same `(rows, obs)`. Base reproduced the live
+   `skill.json`. om RMSE +1% at 0-1d, +10-13% past day 5; ceilings 0.821/0.737/0.684 ->
+   0.815/0.709/0.654; no label edge (0.70/0.45) crossed; blend < ecmwf < gfswave in every bucket
+   on both arms. Cards printed before 2026-09-18 are run-mean cards - never compare across.
+4. **Promoted swell** (A/B, then applied as filed). Two worktrees on `3a98707` (V2 commit, 1947
+   spots = the capture's DB), replayed the 09-16 capture; control vs 09-16's V2 arm = 0 rows.
+   Shape is 21.8% of both-filled slot pairs (62% slot moves, 25% death+birth, 13% one evolving
+   system that now steps instead of ramps). Made-up filled-hour swells 6.5% -> 0 (by
+   construction). 22.5% of rows move at 1833 spots; no-swell rows 0 -> 0, closure<0.5 1077 -> 1044.
+   Traced top movers (carcavelos, pors-carn, eaglehawk-neck) at blend level: base's inventions.
+5. **GWAM seaward cell** (A/B, then applied by hand). 99 of 2254 spots confirmed on decoded
+   values; swell Tp moves >= 1 s at only 10-14 of them per step. Replay: 88 spots, 0.47% of rows,
+   39 bucket rows; Tp becomes None on 162 rows, appears on 282 (`nearest_wet` radius vs the old
+   square window). **The A/B shows footprint, not a gain - no Tp truth exists.** Applied on the
+   2026-09-11 one-rule argument; flagged to the operator as the one fix that could be dropped.
+6. Operator said "Go" (apply all four, A/B first) and later "Commit" on 2026-09-18 - history
+   only; commit on Rosa means commit + push to main.
 
 ## Failed Attempts
-- **Bucketing spots by a 0.25 deg (or 0.1 deg) cell to share weather requests**: changes the
-  published wind (134 of 233 rows at 0.25). Open-Meteo's `gfs_seamless` grid is ~11 km, 3 km in the
-  US. Even spots with the same RETURNED lat/lon differed (17 pairs gusts/pressure, 2 pairs wind).
-- My first quota claim ("ICON saves 870", "sharing saves 60%") was wrong until measured: 916 and ~31%.
-- `run --fixtures` replay of a fresh capture publishes nothing: the fixture sources stamp a fixed
-  2026-08-14 / 2026-07-22 cycle, so wave hours never overlap the weather hours. Use a harness that
-  passes `cycle=` and freezes `datetime.now` (scratchpad `par/replay.py`, deleted with the session).
-- Subagent briefs said `cd pipeline && uv run rosa-pipeline bathy`: that resolves `data/spots`
-  against the wrong cwd. Run from the repo root with `uv run --project pipeline`.
-- `emit_spots.py` is the wrong emitter for a 0-Tier-A region (no `town`, reads only
-  `result.json["new"]`); forks used `ca_final.py` -> `towns.json` -> `emit_region.py`.
-- A local CDN watcher (`watch_cycle.sh`, background) was killed overnight; nothing lost.
+- The Dream applier's own test runner fails every shipped proof with `ModuleNotFoundError:
+  rosa_pipeline`. Run proofs as `PYTHONPATH=pipeline/src pipeline/.venv/bin/python <test> $PWD`.
+- My first "made-up swell" counter used `wind_wave_*` keys; `GfsSea.fields` uses `windsea_h/p/d`.
+- The "made-up -> 0" number for the blend fix is tautological (held values are native by
+  construction); the honest evidence is the prevalence split, the pb_0332 counters and the
+  traced movers. Do not quote the 0 as proof on its own.
+- A published-JSON native-vs-filled test does not work: table rows are 3-hourly LOCAL, so in many
+  time zones every published row is a filled hour. Measure at `blend._interp_hourly` level.
+- `replay.py` sets `GwamFixtureSource.__init__.__defaults__ = (gwam_cycle,)`; after the GWAM
+  change the tuple must be `(gwam_cycle, None)` or the replay breaks.
+- HEAD (2254 spots) cannot replay the 09-16 capture (1947 points); arms must be built on
+  `3a98707` or a new capture taken.
 
 ## Next Step
-1. After the 14:20Z cycle on 17 Sep (17:20 local): `ssh ubuntu@82.70.253.255` and read
-   `~/rosa/publish.log` - confirm the order (archive --stations skip -> run --all -> deploy ->
-   station archive -> SWAN), that no "scoring pool failed" warn appears, and time run-start ->
-   index.json mtime (target ~2 h 15; was ~4 h 16). Record the measured numbers in
-   `docs/CALIBRATION.md` 2026-09-17. Watch the 6 h slot: evidence legs now END the cycle, an
-   overrun makes the lock skip the next one.
-2. Read the cloud check: `RemoteTrigger list_runs` on `trig_01HwESHBzh1UG6bDQug4sPYc`.
-3. Review the 49 re-aimed shore normals from the seeding (start with `punta-de-lobos`:
-   `offshore_direction: 151`, window [266, 36] on a west-facing point); `aim_normal.py` reports only.
-4. Commit or leave `docs/SESSIONS.md`, `handoff.md`, `progress.md` - ask the operator.
-5. Dated: 8-week checkpoint was due 17 Sep (progress.md); C3b wind A/B 26 Sep; IMS beach wind
-   28 Sep; SWAN A/B 5 Oct. Play: tester link, device install, delete-account URL (old handoff).
+1. **Smoke check after the 17:20 local (14:20Z) cycle, from the CDN, never a local `run --all`:**
+   `ssh ubuntu@82.70.253.255 'cd ~/rosa && git log --oneline -1 && cat data/verify/skill.json'`
+   - expect HEAD `a08bd74` or later and `1-3d` scatter_index ~0.183 (was 0.1755); then
+   `curl -s https://rosa-data-opal.vercel.app/data/spots/carcavelos.json` - fresh `fetched_at`,
+   payload sane; check a `.swan.jsonl` tail on the VM has a `cycle` key.
+2. Ask the operator again whether to delete the empty Frankfurt `rosa-vcn` (and whether
+   `deploy/oracle/grab-arm-frankfurt.sh` should go). Not approved yet.
+3. Not built, noted in CALIBRATION.md: pair a promoted slot in `_pair_flipped_slots` so it ramps
+   instead of stepping (needs collision handling); would un-step the 13% evolving-system class.
+4. Inherited from 2026-09-17 sessions, **not re-verified here** (check before acting): tester
+   sign-in "Rosa couldn't be reached" cause unknown (`cd deploy/user-api && npx wrangler tail`);
+   PWA + Play duplicate sheet never tested on a real phone; About back button goes to Profile
+   (ask first); the 10 re-aims live on the CDN?; cycle-time read from `~/rosa/publish.log` for
+   the CALIBRATION.md 2026-09-17 entry; stale "13 of the 19" in `tools/a4-gate/far-end-rays.md`
+   and OPEN-ITEMS 15; `bessa` publishes 72 hours vs 104; 9 remaining bad rays + 128 shelf rays
+   (OPEN-ITEMS 23; do not re-propose `d_ref = max(depths)`); review the 49 South America normals.
+5. Commit `handoff.md` + `progress.md` (ask the operator).
+6. Dated: C3b wind A/B 26 Sep; IMS beach wind 28 Sep; SWAN A/B 5 Oct (drop pre-fix `.swan` rows).
