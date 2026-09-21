@@ -1,0 +1,72 @@
+{
+  "spot": "erakor-point",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -17.784,
+    168.3134
+  ],
+  "bearing_seaward_deg": 138.0,
+  "nearshore_depth_m": -18.0,
+  "offshore_depth_m": 411.0,
+  "mean_slope_m_per_km": 24.17,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -17.78567,
+      "lon": 168.31498,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -17.78734,
+      "lon": 168.31656,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -17.79068,
+      "lon": 168.31972,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -17.79737,
+      "lon": 168.32604,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -17.80405,
+      "lon": 168.33236,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -17.81741,
+      "lon": 168.345,
+      "depth_m": 117.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -17.83746,
+      "lon": 168.36397,
+      "depth_m": 172.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -17.86418,
+      "lon": 168.38927,
+      "depth_m": 212.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -17.90427,
+      "lon": 168.42723,
+      "depth_m": 411.0
+    }
+  ]
+}

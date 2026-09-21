@@ -1,0 +1,72 @@
+{
+  "spot": "faat-faar",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -17.7773,
+    168.2908
+  ],
+  "bearing_seaward_deg": 148.0,
+  "nearshore_depth_m": 44.0,
+  "offshore_depth_m": 542.0,
+  "mean_slope_m_per_km": 28.06,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -17.77921,
+      "lon": 168.29205,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -17.78111,
+      "lon": 168.2933,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -17.78493,
+      "lon": 168.2958,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -17.79255,
+      "lon": 168.30081,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -17.80018,
+      "lon": 168.30582,
+      "depth_m": 108.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -17.81543,
+      "lon": 168.31583,
+      "depth_m": 145.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -17.83831,
+      "lon": 168.33085,
+      "depth_m": 201.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -17.86881,
+      "lon": 168.35089,
+      "depth_m": 261.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -17.91456,
+      "lon": 168.38095,
+      "depth_m": 542.0
+    }
+  ]
+}

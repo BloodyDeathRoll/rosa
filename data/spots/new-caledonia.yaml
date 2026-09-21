@@ -1,0 +1,21 @@
+# Rosa spot database - New Caledonia (region seeded 2026-09-21). Web-search flow only
+# so far - the Noumea lagoon and Isle of Pines were researched; most candidates
+# (Dumbea Pass, Les Ronfleurs, Kuto Bay) geocoded onto an inland mangrove, a resort
+# building, or a flat enclosed lagoon respectively and were dropped rather than
+# guessed. Only one spot confirmed this pass; the 23 OSM Tier A- (named-beach)
+# candidates the coastline pipeline found are not yet individually sat-verified -
+# see docs/OPEN-ITEMS.md.
+
+defaults: &nc
+  timezone: Pacific/Noumea
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [200, 330]
+  ideal:
+    wind_dir: [30, 120]
+    size_m: [0.6, 2.5]
+
+spots:
+
+  # ==== WEB-SEARCH SEEDED (2026-09-21, google-geocoded, sat-verified) ====
+  - { id: ouano-beach, name: "Ouano Beach", town: "Bourail", lat: -21.8468, lon: 165.8101, offshore_direction: 48, swell_window: [133, 323], offshore_km: 5.0, <<: *nc }  # sat-verified 2026-09-21 (websearch-seeded); reef whitewater visible offshore, pin sits on the lagoon side of the spit; normal re-aimed by GEBCO arc sweep (by-eye 180 crossed land x7 straight across the spit, 48 clears cleanly)

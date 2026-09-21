@@ -333,6 +333,22 @@ REGIONS = {
     # Union / Rawson and Rada Tilly in Chubut - the box spans both provinces, which is
     # why the region is not called "chubut" (2026-09-16: 9 of its 16 spots are Rio Negro)
     "patagonia-argentina": (-46.00, -68.00, -40.50, -62.00),
+    # ---- Melanesia, seeded 2026-09-21. PNG's surf zone is two clusters ~1,300 km apart
+    # on the same north coast (permit-limited Kavieng/New Ireland, and Vanimo/West Sepik
+    # near the Indonesian border) - too far apart for one box without swallowing most of
+    # the Bismarck Sea, so each gets its own region key; both emit into papua-new-guinea.yaml
+    "papua-new-guinea-kavieng": (-3.20, 150.60, -2.30, 151.00),
+    "papua-new-guinea-vanimo": (-3.20, 141.00, -2.40, 142.00),
+    # Vanuatu: Efate (Port Vila - Pango Point, Breakas, Erakor, Eratap) and Tanna
+    # (Lenakel, Port Resolution); Santo, Malekula and the Banks/Torres group are not surfed
+    "vanuatu": (-19.70, 168.20, -17.50, 169.00),
+    # Solomon Islands' Western Province only: Gizo/Ghizo (Titiana, Naru, Paelonge) to
+    # Munda/New Georgia (Skull Island, VonaVona Lagoon); Guadalcanal/Honiara and the
+    # eastern provinces are not a known surf zone
+    "solomon-islands": (-8.60, 156.80, -7.80, 158.00),
+    # New Caledonia: the Noumea lagoon (Dumbea Pass, Ouano, Gouaro) plus the Isle of Pines;
+    # the long northern two-thirds of Grande Terre is left out
+    "new-caledonia": (-22.80, 166.20, -21.90, 167.60),
 }
 
 

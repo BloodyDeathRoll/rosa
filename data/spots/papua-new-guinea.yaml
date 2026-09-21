@@ -1,0 +1,26 @@
+# Rosa spot database - Papua New Guinea (region seeded 2026-09-21). Two disjoint
+# surf clusters ~1,300 km apart on the same north coast: Kavieng/New Ireland
+# (permit-limited under the Kavieng Area Surf Management Plan) and Vanimo/West Sepik
+# near the Indonesian border. Web-search flow only - OSM carries almost no named surf
+# features here; every pin is Google-geocoded then sat-verified on ESRI imagery.
+# Google collapsed several named Vanimo breaks (Waromo, Yako, Log Point) onto Lido
+# Point's coordinate and Kavieng's own query landed on the airport, not the coast -
+# all dropped rather than guessed. offshore_direction re-aimed 2026-09-21 by
+# aim_normal.py's GEBCO arc sweep (the by-eye initial guess crossed land on nusa-island
+# and rubio-plantation - both re-aimed to the sweep's best bearing).
+
+defaults: &png
+  timezone: Pacific/Port_Moresby
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [30, 160]
+  ideal:
+    wind_dir: [200, 290]
+    size_m: [0.6, 2.5]
+
+spots:
+
+  # ==== WEB-SEARCH SEEDED (2026-09-21, google-geocoded, sat-verified) ====
+  - { id: nusa-island, name: "Nusa Island", town: "Kavieng", lat: -2.5825, lon: 150.7810, offshore_direction: 212, swell_window: [297, 127], offshore_km: 5.0, <<: *png }  # sat-verified 2026-09-21 (websearch-seeded); reef pass at channel mouth; normal re-aimed by GEBCO arc sweep (290 crossed land x3, 212 clears)
+  - { id: rubio-plantation, name: "Rubio Plantation", town: "New Ireland", lat: -3.4491, lon: 152.1985, offshore_direction: 200, swell_window: [285, 115], offshore_km: 5.0, <<: *png }  # sat-verified 2026-09-21 (websearch-seeded); visible break lines off a forest-edge beach; normal re-aimed by GEBCO arc sweep (270 crossed land x2, 200 clears to 1 near-shore cell - steep slope, non-disqualifying per the NZ precedent)
+  - { id: lido-point, name: "Lido Point", town: "Vanimo", lat: -2.6645, lon: 141.2708, offshore_direction: 180, swell_window: [265, 95], offshore_km: 5.0, <<: *png }  # sat-verified 2026-09-21 (websearch-seeded); clear point wrapping visible swell lines; by-eye guess (190) already clean, sweep refined to 180

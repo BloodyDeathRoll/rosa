@@ -145,6 +145,12 @@ BASINS: dict[str, tuple[str, ...]] = {
     "indonesia": ("Bali", "Lombok", "Sumbawa", "East Java", "West Java", "Mentawai"),
     "french-polynesia": ("French Polynesia",),
     "fiji": ("Fiji",),
+    # Melanesia, seeded 2026-09-21: PNG's two clusters sit ~1,300 km apart on the same
+    # north coast and ~2,000 km from Vanuatu/New Caledonia - each gets its own frame
+    # rather than one box that would swallow most of the Coral Sea
+    "papua-new-guinea": ("Papua New Guinea",),
+    "vanuatu": ("Vanuatu",),
+    "new-caledonia": ("New Caledonia",),
 }
 BOX_PAD_DEG = 3.0  # sea-room around the spot extent so swell context is visible
 STEP_H = 3

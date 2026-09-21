@@ -1,0 +1,72 @@
+{
+  "spot": "ouano-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -21.8468,
+    165.8101
+  ],
+  "bearing_seaward_deg": 228.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 1778.0,
+  "mean_slope_m_per_km": 100.11,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -21.8483,
+      "lon": 165.8083,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -21.84981,
+      "lon": 165.8065,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -21.85282,
+      "lon": 165.8029,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -21.85883,
+      "lon": 165.7957,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -21.86485,
+      "lon": 165.7885,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -21.87688,
+      "lon": 165.77409,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -21.89493,
+      "lon": 165.75248,
+      "depth_m": 264.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -21.91899,
+      "lon": 165.72365,
+      "depth_m": 587.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -21.95507,
+      "lon": 165.68039,
+      "depth_m": 1778.0
+    }
+  ]
+}

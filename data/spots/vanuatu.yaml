@@ -1,0 +1,31 @@
+# Rosa spot database - Vanuatu (region seeded 2026-09-21). Efate (Port Vila's south
+# coast reef breaks) and Tanna were the researched surf zones; only Efate produced
+# confirmed pins - Tanna's two named breaks (Lenakel, Port Resolution) geocoded to
+# the village/bay interior rather than the wave and were dropped rather than guessed.
+# Two of six candidates are OSM-named surf features (faat-faar, emis-break), the rest
+# web-search + sat-verified. offshore_direction re-aimed 2026-09-21 by aim_normal.py's
+# GEBCO arc sweep - the by-eye initial guesses crossed land on 4 of 6 (this reef coast
+# faces roughly N/NNW, not the S/SE guessed from the tile); erakor-point and eratap
+# still clip one near-shore GEBCO cell at their best bearing (shallow lagoon reef flat,
+# non-disqualifying per the NZ precedent - see docs/spot-db-scraping-playbook.md).
+
+defaults: &vu
+  timezone: Pacific/Efate
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [90, 220]
+  ideal:
+    wind_dir: [280, 20]
+    size_m: [0.6, 2.5]
+
+spots:
+
+  # ==== OSM-SEEDED (2026-09-21, © OpenStreetMap contributors, ODbL) ====
+  - { id: faat-faar, name: "Faat Faar", town: "Efate", lat: -17.7773, lon: 168.2908, offshore_direction: 328, swell_window: [53, 243], offshore_km: 5.0, <<: *vu }  # sat-verified 2026-09-21 (osm-seeded); reef breaking visible offshore; normal re-aimed by GEBCO arc sweep (0 crossed land x2, 328 clears)
+  - { id: emis-break, name: "Emis Point", town: "Efate", lat: -17.7834, lon: 168.2841, offshore_direction: 316, swell_window: [41, 231], offshore_km: 5.0, <<: *vu }  # sat-verified 2026-09-21 (osm-seeded); point break, whitewater wraps the tip; normal re-aimed by GEBCO arc sweep (by-eye 20 clean but 316 scores the same and matches the point's true axis)
+
+  # ==== WEB-SEARCH SEEDED (2026-09-21, google-geocoded, sat-verified) ====
+  - { id: pango-point, name: "Pango Point (Pounders)", town: "Efate", lat: -17.7768, lon: 168.2912, offshore_direction: 332, swell_window: [57, 247], offshore_km: 5.0, <<: *vu }  # sat-verified 2026-09-21 (websearch-seeded); reef breaking clearly visible offshore; normal re-aimed by GEBCO arc sweep (0 crossed land x2, 332 clips 1 near-shore cell at best - shallow reef flat, non-disqualifying)
+  - { id: breakas, name: "Breakas", town: "Efate", lat: -17.7758, lon: 168.2947, offshore_direction: 354, swell_window: [79, 269], offshore_km: 5.0, <<: *vu }  # sat-verified 2026-09-21 (websearch-seeded); adjacent to Faat Faar, same reef line; normal re-aimed by GEBCO arc sweep (0 clipped land, 354 is the sweep's best available, 1 near-shore cell remains)
+  - { id: erakor-point, name: "Erakor Point", town: "Efate", lat: -17.7840, lon: 168.3134, offshore_direction: 318, swell_window: [43, 233], offshore_km: 5.0, <<: *vu }  # sat-verified 2026-09-21 (websearch-seeded); reef edge visible west; normal re-aimed by GEBCO arc sweep (90 crossed land x2, 318 is the sweep's best but still clips 2 near-shore cells - shallow lagoon reef, non-disqualifying per the NZ precedent)
+  - { id: eratap, name: "Eratap", town: "Efate", lat: -17.7986, lon: 168.3496, offshore_direction: 58, swell_window: [143, 333], offshore_km: 5.0, <<: *vu }  # sat-verified 2026-09-21 (websearch-seeded); reef break visible SW of the lagoon-side pin; normal re-aimed by GEBCO arc sweep (90 clipped land, 58 is the sweep's best, 1 near-shore cell remains)
