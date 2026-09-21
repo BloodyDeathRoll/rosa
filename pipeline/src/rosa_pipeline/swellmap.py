@@ -154,6 +154,7 @@ BASINS: dict[str, tuple[str, ...]] = {
     "solomon-islands": ("Solomon Islands",),
     # Rarotonga only, ~4,000 km east of Fiji - its own frame
     "cook-islands": ("Cook Islands",),
+    "samoa": ("Samoa",),
 }
 BOX_PAD_DEG = 3.0  # sea-room around the spot extent so swell context is visible
 STEP_H = 3

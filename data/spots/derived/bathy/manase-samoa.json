@@ -1,0 +1,72 @@
+{
+  "spot": "manase-samoa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -13.4467,
+    -172.379
+  ],
+  "bearing_seaward_deg": 0.0,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 1825.0,
+  "mean_slope_m_per_km": 102.2,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -13.44445,
+      "lon": -172.379,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -13.4422,
+      "lon": -172.379,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -13.43771,
+      "lon": -172.379,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -13.42871,
+      "lon": -172.379,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -13.41972,
+      "lon": -172.379,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -13.40173,
+      "lon": -172.379,
+      "depth_m": 441.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -13.37475,
+      "lon": -172.379,
+      "depth_m": 820.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -13.33878,
+      "lon": -172.379,
+      "depth_m": 850.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -13.28482,
+      "lon": -172.379,
+      "depth_m": 1825.0
+    }
+  ]
+}

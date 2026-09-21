@@ -1,0 +1,28 @@
+# Rosa spot database - Samoa (region seeded 2026-09-21, retried same day with tighter
+# disambiguating geocode queries). Upolu and Savai'i. OSM carries zero named surf
+# features; web-search + Google geocode + sat-verify. Boulders, Dragons Breath, Salani
+# Right and Pudding Rock all washed out again (two collapsed onto the same duplicate
+# coordinate, one landed in a river mouth, one landed deep inland in forest) - dropped
+# rather than guessed. Satuiatua Beach stayed fully cloud-obscured on the sat tile both
+# passes, dropped. Aganoa Beach's pin looked coastal but aim_normal.py's GEBCO sweep
+# found no seaward bearing that clears land at any of the 180 steps swept - a notch
+# GEBCO cannot resolve through - so it was dropped too rather than committing a ray
+# that starts on land. offshore_direction re-aimed by aim_normal.py's GEBCO arc sweep
+# for the rest.
+
+defaults: &ws
+  timezone: Pacific/Apia
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [150, 280]
+  ideal:
+    wind_dir: [20, 110]
+    size_m: [0.6, 2.5]
+
+spots:
+
+  # ==== WEB-SEARCH SEEDED (2026-09-21, google-geocoded, sat-verified) ====
+  - { id: tiavea-bay, name: "Tiavea Bay", town: "Tiavea", lat: -13.9780, lon: -171.4615, offshore_direction: 180, swell_window: [85, 275], offshore_km: 5.0, <<: *ws }  # sat-verified 2026-09-21 (websearch-seeded); clear breaking waves both sides of the bay; normal re-aimed by GEBCO arc sweep (210 crossed land x2, 180 clears)
+  - { id: manase-samoa, name: "Manase", town: "Manase", lat: -13.4467, lon: -172.3790, offshore_direction: 180, swell_window: [85, 275], offshore_km: 5.0, <<: *ws }  # sat-verified 2026-09-21 (websearch-seeded); reef whitewater visible offshore; by-eye guess (180) already clean, sweep confirmed it
+  - { id: lano-samoa, name: "Lano", town: "Lano", lat: -13.6131, lon: -172.1992, offshore_direction: 292, swell_window: [17, 207], offshore_km: 5.0, <<: *ws }  # sat-verified 2026-09-21 (websearch-seeded); wide lagoon, reef break visible at the outer edge; normal re-aimed by GEBCO arc sweep (270 crossed land x2, 292 is the sweep's best, 1 near-shore cell remains - non-disqualifying)
+  - { id: nuusafee-island, name: "Nu'usafe'e Island (Devil's Island)", town: "Upolu", lat: -14.0469, lon: -171.6904, offshore_direction: 278, swell_window: [3, 193], offshore_km: 5.0, <<: *ws }  # sat-verified 2026-09-21 (websearch-seeded); reef break wraps the whole island, clearly visible; normal re-aimed by GEBCO arc sweep

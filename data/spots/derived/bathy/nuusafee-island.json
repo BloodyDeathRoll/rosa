@@ -1,0 +1,72 @@
+{
+  "spot": "nuusafee-island",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -14.0469,
+    -171.6904
+  ],
+  "bearing_seaward_deg": 98.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 681.0,
+  "mean_slope_m_per_km": 38.31,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -14.04721,
+      "lon": -171.6881,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -14.04753,
+      "lon": -171.68581,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -14.04815,
+      "lon": -171.68122,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -14.0494,
+      "lon": -171.67204,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -14.05065,
+      "lon": -171.66286,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -14.05315,
+      "lon": -171.6445,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -14.0569,
+      "lon": -171.61696,
+      "depth_m": 107.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -14.06189,
+      "lon": -171.58023,
+      "depth_m": 265.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -14.06937,
+      "lon": -171.52514,
+      "depth_m": 681.0
+    }
+  ]
+}
