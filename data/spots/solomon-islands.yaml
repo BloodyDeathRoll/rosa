@@ -1,0 +1,23 @@
+# Rosa spot database - Solomon Islands (region seeded 2026-09-21). Western Province
+# only (Gizo/Ghizo and Munda/New Georgia) - the known surf zone. OSM carries zero named
+# surf features here; web-search flow only, and the keep rate was low - Skull Island,
+# Lola Island/VonaVona Lagoon, Naru, Boulders-style bay geocodes, and a Skull Island
+# geocode that returned nothing were all dropped (wrong location, no visible break, or
+# duplicate coordinates from Google collapsing distinct names onto one pin). Only 2 of
+# 5 researched names confirmed. offshore_direction re-aimed by aim_normal.py's GEBCO
+# arc sweep.
+
+defaults: &si
+  timezone: Pacific/Guadalcanal
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [180, 300]
+  ideal:
+    wind_dir: [45, 135]
+    size_m: [0.6, 2.5]
+
+spots:
+
+  # ==== WEB-SEARCH SEEDED (2026-09-21, google-geocoded, sat-verified) ====
+  - { id: titiana-si, name: "Titiana", town: "Gizo", lat: -8.1092, lon: 156.8176, offshore_direction: 324, swell_window: [49, 239], offshore_km: 5.0, <<: *si }  # sat-verified 2026-09-21 (websearch-seeded); reef whitewater visible offshore; normal re-aimed by GEBCO arc sweep
+  - { id: paellonge-si, name: "Paellonge", town: "Gizo", lat: -8.0947, lon: 156.7862, offshore_direction: 302, swell_window: [27, 217], offshore_km: 5.0, <<: *si }  # sat-verified 2026-09-21 (websearch-seeded); reef whitewater visible SW; normal re-aimed by GEBCO arc sweep

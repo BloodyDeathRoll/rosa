@@ -1,0 +1,72 @@
+{
+  "spot": "paellonge-si",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -8.0947,
+    156.7862
+  ],
+  "bearing_seaward_deg": 122.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 463.0,
+  "mean_slope_m_per_km": 26.03,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -8.09589,
+      "lon": 156.78813,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -8.09708,
+      "lon": 156.79005,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -8.09947,
+      "lon": 156.7939,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -8.10423,
+      "lon": 156.80161,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -8.109,
+      "lon": 156.80931,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -8.11853,
+      "lon": 156.82472,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -8.13282,
+      "lon": 156.84783,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -8.15188,
+      "lon": 156.87865,
+      "depth_m": 130.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -8.18046,
+      "lon": 156.92489,
+      "depth_m": 463.0
+    }
+  ]
+}

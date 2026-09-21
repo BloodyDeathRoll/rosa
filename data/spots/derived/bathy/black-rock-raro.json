@@ -1,0 +1,72 @@
+{
+  "spot": "black-rock-raro",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -21.2078,
+    -159.8236
+  ],
+  "bearing_seaward_deg": 324.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 3746.0,
+  "mean_slope_m_per_km": 211.49,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -21.20598,
+      "lon": -159.82502,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -21.20416,
+      "lon": -159.82643,
+      "depth_m": 347.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -21.20052,
+      "lon": -159.82927,
+      "depth_m": 483.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -21.19325,
+      "lon": -159.83494,
+      "depth_m": 1078.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -21.18597,
+      "lon": -159.84061,
+      "depth_m": 1456.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -21.17142,
+      "lon": -159.85194,
+      "depth_m": 1625.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -21.14959,
+      "lon": -159.86894,
+      "depth_m": 2352.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -21.12048,
+      "lon": -159.8916,
+      "depth_m": 3137.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -21.07681,
+      "lon": -159.92557,
+      "depth_m": 3746.0
+    }
+  ]
+}

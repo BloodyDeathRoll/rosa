@@ -1,0 +1,72 @@
+{
+  "spot": "titiana-si",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -8.1092,
+    156.8176
+  ],
+  "bearing_seaward_deg": 144.0,
+  "nearshore_depth_m": 25.0,
+  "offshore_depth_m": 901.0,
+  "mean_slope_m_per_km": 49.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -8.11102,
+      "lon": 156.81893,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -8.11284,
+      "lon": 156.82027,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -8.11648,
+      "lon": 156.82294,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -8.12375,
+      "lon": 156.82828,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -8.13103,
+      "lon": 156.83362,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -8.14558,
+      "lon": 156.8443,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -8.1674,
+      "lon": 156.86032,
+      "depth_m": 208.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -8.1965,
+      "lon": 156.88169,
+      "depth_m": 900.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -8.24015,
+      "lon": 156.91374,
+      "depth_m": 901.0
+    }
+  ]
+}

@@ -349,6 +349,12 @@ REGIONS = {
     # New Caledonia: the Noumea lagoon (Dumbea Pass, Ouano, Gouaro) plus the Isle of Pines;
     # the long northern two-thirds of Grande Terre is left out
     "new-caledonia": (-22.80, 166.20, -21.90, 167.60),
+    # Samoa: Upolu (Apia, Boulders, Salani, Tiavea) and Savai'i (Aganoa, Manase, Lano,
+    # Fagamalo, Satuiatua) - both islands, Apia to Salelologa
+    "samoa": (-14.10, -172.85, -13.40, -171.35),
+    # Cook Islands: Rarotonga only - Aitutaki's reef is a closeout/kitesurf destination,
+    # no named surf break in any guide, so it is not scoped
+    "cook-islands": (-21.30, -159.85, -21.15, -159.70),
 }
 
 

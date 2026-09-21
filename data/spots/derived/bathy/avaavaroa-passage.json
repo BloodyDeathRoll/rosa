@@ -1,0 +1,72 @@
+{
+  "spot": "avaavaroa-passage",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -21.2657,
+    -159.7809
+  ],
+  "bearing_seaward_deg": 236.0,
+  "nearshore_depth_m": 140.0,
+  "offshore_depth_m": 3422.0,
+  "mean_slope_m_per_km": 184.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -21.26696,
+      "lon": -159.7829,
+      "depth_m": 140.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -21.26821,
+      "lon": -159.7849,
+      "depth_m": 140.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -21.27073,
+      "lon": -159.7889,
+      "depth_m": 141.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -21.27576,
+      "lon": -159.7969,
+      "depth_m": 192.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -21.28079,
+      "lon": -159.8049,
+      "depth_m": 308.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -21.29084,
+      "lon": -159.82091,
+      "depth_m": 670.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -21.30592,
+      "lon": -159.84492,
+      "depth_m": 1585.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -21.32602,
+      "lon": -159.87695,
+      "depth_m": 2697.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -21.35616,
+      "lon": -159.925,
+      "depth_m": 3422.0
+    }
+  ]
+}

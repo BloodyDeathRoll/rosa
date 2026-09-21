@@ -1,0 +1,72 @@
+{
+  "spot": "avana-passage",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -21.2444,
+    -159.7247
+  ],
+  "bearing_seaward_deg": 18.0,
+  "nearshore_depth_m": 63.0,
+  "offshore_depth_m": 3274.0,
+  "mean_slope_m_per_km": 180.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -21.24226,
+      "lon": -159.72395,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -21.24012,
+      "lon": -159.72321,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -21.23585,
+      "lon": -159.72172,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -21.22729,
+      "lon": -159.71874,
+      "depth_m": 134.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -21.21874,
+      "lon": -159.71576,
+      "depth_m": 190.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -21.20163,
+      "lon": -159.7098,
+      "depth_m": 467.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -21.17597,
+      "lon": -159.70086,
+      "depth_m": 1116.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -21.14176,
+      "lon": -159.68894,
+      "depth_m": 2199.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -21.09044,
+      "lon": -159.67109,
+      "depth_m": 3274.0
+    }
+  ]
+}

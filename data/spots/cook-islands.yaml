@@ -1,0 +1,21 @@
+# Rosa spot database - Cook Islands (region seeded 2026-09-21). Rarotonga only -
+# Aitutaki's reef is a closeout/kitesurf destination with no named surf break in any
+# guide, so it was left unscoped. OSM carries zero named surf features; web-search
+# flow only. Rutaki Passage's geocode landed inland (village, not the reef channel)
+# and was dropped. offshore_direction re-aimed by aim_normal.py's GEBCO arc sweep.
+
+defaults: &ck
+  timezone: Pacific/Rarotonga
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [150, 280]
+  ideal:
+    wind_dir: [20, 110]
+    size_m: [0.6, 2.5]
+
+spots:
+
+  # ==== WEB-SEARCH SEEDED (2026-09-21, google-geocoded, sat-verified) ====
+  - { id: avana-passage, name: "Avana Passage", town: "Rarotonga", lat: -21.2444, lon: -159.7247, offshore_direction: 198, swell_window: [283, 113], offshore_km: 5.0, <<: *ck }  # sat-verified 2026-09-21 (websearch-seeded); clean reef pass, whitewater both sides; normal re-aimed by GEBCO arc sweep
+  - { id: avaavaroa-passage, name: "Avaavaroa Passage", town: "Rarotonga", lat: -21.2657, lon: -159.7809, offshore_direction: 56, swell_window: [141, 331], offshore_km: 5.0, <<: *ck }  # sat-verified 2026-09-21 (websearch-seeded); clean reef pass, whitewater both sides; normal re-aimed by GEBCO arc sweep
+  - { id: black-rock-raro, name: "Black Rock", town: "Rarotonga", lat: -21.2078, lon: -159.8236, offshore_direction: 144, swell_window: [229, 59], offshore_km: 5.0, <<: *ck }  # sat-verified 2026-09-21 (websearch-seeded); reef edge break clearly visible; normal re-aimed by GEBCO arc sweep (90 clipped land x2, 144 is the sweep's best, 1 near-shore cell remains - non-disqualifying)

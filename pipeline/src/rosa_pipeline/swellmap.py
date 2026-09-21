@@ -151,6 +151,9 @@ BASINS: dict[str, tuple[str, ...]] = {
     "papua-new-guinea": ("Papua New Guinea",),
     "vanuatu": ("Vanuatu",),
     "new-caledonia": ("New Caledonia",),
+    "solomon-islands": ("Solomon Islands",),
+    # Rarotonga only, ~4,000 km east of Fiji - its own frame
+    "cook-islands": ("Cook Islands",),
 }
 BOX_PAD_DEG = 3.0  # sea-room around the spot extent so swell context is visible
 STEP_H = 3
