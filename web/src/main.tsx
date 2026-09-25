@@ -19,17 +19,24 @@ import "./styles.css";
     (MovedScreen). Storage is per origin, so this is the only way they cross.
     Merged into this device's list before anything renders; the sign-in screen
     then asks for the account they get saved to (signInWithCode merges local
-    into the account). The parameter is stripped so a reload does not re-import. */
+    into the account). The parameter is stripped so a reload does not re-import.
+    Any site can link here, so a malformed escape is dropped (this runs before
+    render - a throw is a blank app) and the list stops at the APIs' 200-spot cap
+    (a longer one is refused by PUT /me/favorites and POST /api/sub, and stays dirty). */
 function importFromQuery(): void {
   const m = /[?&]import=([^&]+)/.exec(location.search);
   if (!m?.[1]) return;
-  const ids = decodeURIComponent(m[1])
-    .split(",")
-    .filter((id) => /^[\w-]{1,64}$/.test(id));
-  const current = getFavorites();
-  const merged = [...current, ...ids.filter((id) => !current.includes(id))];
-  if (merged.length !== current.length) setFavorites(merged, { dirty: signedIn() });
   history.replaceState(null, "", location.pathname + location.search.replace(/[?&]import=[^&]+/, ""));
+  let raw = "";
+  try {
+    raw = decodeURIComponent(m[1]);
+  } catch {
+    return;
+  }
+  const ids = raw.split(",").filter((id) => /^[\w-]{1,64}$/.test(id));
+  const current = getFavorites();
+  const merged = [...current, ...ids.filter((id) => !current.includes(id))].slice(0, Math.max(200, current.length));
+  if (merged.length !== current.length) setFavorites(merged, { dirty: signedIn() });
 }
 // old `#/...` links (push notifications, shares, the old origin's hand-over)
 // become their path form before the router reads them
