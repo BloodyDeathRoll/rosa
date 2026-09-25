@@ -58,3 +58,6 @@ __pycache__/
 # local working notes
 cameras.md
 coordinates.md
+
+# Superset per-workspace state
+.superset/config.local.json
