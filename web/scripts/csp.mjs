@@ -1,9 +1,10 @@
-// Writes .vercel/output/config.json from vercel-output.json plus a
-// Content-Security-Policy-Report-Only header (audit 2026-09-11, proposals item 3).
-// Report-only: nothing is blocked; violations POST to push-api /api/csp and land in
-// its function logs. The inline <script>s in index.html are allowed by hash, taken
-// from the built dist/index.html here, so editing one can never leave a stale hash.
-// Enforce (drop "-Report-Only") after a clean week of reports.
+// Writes .vercel/output/config.json from vercel-output.json plus the
+// Content-Security-Policy headers (audit 2026-09-11, proposals item 3). ENFORCED since
+// 2026-09-25 (Dream review): two weeks report-only, then a headless crawl of the live
+// site (map, spot + cam player, charts, search, settings, account, widget) logged zero
+// violations; push-api keeps no logs to read. Violations still POST to push-api
+// /api/csp. Inline <script>s are allowed by hash, taken from the built dist/ HTML here,
+// so editing one can never leave a stale hash.
 import { createHash } from "node:crypto";
 import { readFileSync, writeFileSync } from "node:fs";
 
@@ -19,10 +20,11 @@ const origin = (k) => {
   return new URL(env[k]).origin;
 };
 
-const html = readFileSync("dist/index.html", "utf8");
-const hashes = [...html.matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g)].map(
-  (m) => `'sha256-${createHash("sha256").update(m[1]).digest("base64")}'`,
-);
+const inlineHashes = (file) =>
+  [...readFileSync(file, "utf8").matchAll(/<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/g)].map(
+    (m) => `'sha256-${createHash("sha256").update(m[1]).digest("base64")}'`,
+  );
+const hashes = inlineHashes("dist/index.html");
 
 const GA = ["https://www.googletagmanager.com", "https://*.google-analytics.com", "https://*.analytics.google.com"];
 const policy = {
@@ -58,14 +60,37 @@ const policy = {
   "frame-ancestors": ["'none'"],
   "report-uri": [`${origin("VITE_PUSH_API")}/api/csp`],
 };
-const csp = Object.entries(policy)
-  .map(([k, v]) => `${k} ${v.join(" ")}`)
-  .join("; ");
+const serialize = (p) =>
+  Object.entries(p)
+    .map(([k, v]) => `${k} ${v.join(" ")}`)
+    .join("; ");
+const csp = serialize(policy);
+
+// The embeddable card (public/widget/): framed by anyone, so frame-ancestors stays *.
+// It builds its DOM with innerHTML from the data CDN's JSON; this makes a slip in an
+// escape non-executable - its own inline script, that CDN, the Esri tiles, Inter.
+const widgetHashes = inlineHashes("dist/widget/index.html");
+const widget = serialize({
+  "default-src": ["'none'"],
+  "script-src": widgetHashes,
+  "style-src": ["'unsafe-inline'", "https://fonts.googleapis.com"],
+  "font-src": ["https://fonts.gstatic.com"],
+  "img-src": ["'self'", "https://server.arcgisonline.com"],
+  "connect-src": [origin("VITE_DATA_BASE")],
+  "base-uri": ["'none'"],
+  "form-action": ["'none'"],
+  "frame-ancestors": ["*"],
+  "report-uri": [`${origin("VITE_PUSH_API")}/api/csp`],
+});
 
 const cfg = JSON.parse(readFileSync("vercel-output.json", "utf8"));
 // the site-wide headers route excludes /widget/ (the embeddable card carries its own)
 const site = cfg.routes.find((r) => r.src === "^/(?!widget/)(.*)$" && r.continue && r.headers);
 if (!site) throw new Error("vercel-output.json: no site-wide headers route to carry the CSP");
-site.headers["Content-Security-Policy-Report-Only"] = csp;
+site.headers["Content-Security-Policy"] = csp;
+const embed = cfg.routes.find((r) => r.src === "^/widget/(.*)$" && r.continue && r.headers);
+if (!embed) throw new Error("vercel-output.json: no /widget/ headers route to carry its CSP");
+if (widgetHashes.length !== 1) throw new Error(`csp: expected 1 inline script in the widget, found ${widgetHashes.length}`);
+embed.headers["Content-Security-Policy"] = widget;
 writeFileSync(".vercel/output/config.json", JSON.stringify(cfg, null, 2) + "\n");
-console.log(`csp: report-only, ${hashes.length} inline script hash(es)`);
+console.log(`csp: enforced, ${hashes.length} inline script hash(es) + widget`);

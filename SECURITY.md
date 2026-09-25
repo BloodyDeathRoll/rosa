@@ -38,7 +38,8 @@ session working in the repo does not hold the box's key (audit 2026-09-11).
 ## Controls in place
 
 - **Static site headers** (`web/vercel-output.json`): `nosniff`, `X-Frame-Options: DENY`,
-  `Referrer-Policy`, `Permissions-Policy`.
+  `Referrer-Policy`, `Permissions-Policy`; an enforced `Content-Security-Policy` for the app
+  and a separate one for `/widget/` (both built by `web/scripts/csp.mjs`, since 2026-09-25).
 - **Push endpoints**: `deploy/push-api/api/sub.js` accepts only the browsers' push services,
   and the box's sender (`notify.is_push_endpoint`) re-checks every stored endpoint before it
   POSTs.
