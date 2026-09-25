@@ -187,10 +187,12 @@ async function signIn(req: Request, env: Env, now: number): Promise<Response> {
     throw new HttpError(503, "google"); // JWKS unreachable - try again, do not sign a stranger in
   }
   // Profile refresh on every sign-in, favorites untouched (the client merges its
-  // pre-account list with a PUT right after).
+  // pre-account list with a PUT right after). A NEW row starts its session epoch at
+  // `now`, not the schema default: after DELETE /me the same `sub` signs up again,
+  // and every unexpired token minted under the old row's epoch must stay dead.
   await env.DB.prepare(
-    `INSERT INTO users (sub, email, name, picture, created_at, last_seen_at)
-     VALUES (?1, ?2, ?3, ?4, ?5, ?5)
+    `INSERT INTO users (sub, email, name, picture, created_at, last_seen_at, session_epoch)
+     VALUES (?1, ?2, ?3, ?4, ?5, ?5, ?5)
      ON CONFLICT(sub) DO UPDATE SET email = excluded.email, name = excluded.name,
        picture = excluded.picture, last_seen_at = excluded.last_seen_at`,
   )
