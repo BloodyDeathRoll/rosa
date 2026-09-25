@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Dev server on a free port per workspace (from 5173 up), pid recorded for teardown.
+# Dev server on a free port per workspace (from 5173 up); teardown.sh stops it.
 set -euo pipefail
 cd "${SUPERSET_WORKSPACE_PATH:-$PWD}"
 port=5173
