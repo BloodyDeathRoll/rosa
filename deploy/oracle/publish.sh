@@ -214,7 +214,9 @@ JSON
   # 4 cycles a day that is ~6000 uploads against Vercel's free ceiling of 5000
   # per 24 h - every cycle from 2026-09-07 16:33Z on died with
   # "api-upload-free", leaving two-day-old forecasts on the CDN.
-  vercel deploy --prebuilt --prod --yes --archive=tgz --token="$VERCEL_TOKEN"
+  # No --token: the CLI reads VERCEL_TOKEN (exported by the .env load above) itself,
+  # and an argv token shows in `ps` for the whole deploy (Dream review 2026-09-25).
+  vercel deploy --prebuilt --prod --yes --archive=tgz
 
   # 4) swell-alert pushes (grouped: one swell = one notification). Only runs
   #    when the push secrets are present in ~/rosa/.env; never fails the cycle.
