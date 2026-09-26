@@ -1,0 +1,2142 @@
+a-buraca:
+  km: 0.32
+  name: PLAYA A SOBREIRA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES114M057423
+  src: eea
+a-fragata:
+  km: 0.1
+  name: PLAYA A FRAGATA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M03681
+  src: eea
+a-lanzada:
+  km: 0.58
+  name: PLAYA A LANZADA-O GROVE PM4
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES114M0222194
+  src: eea
+a-machacona:
+  km: 0.04
+  name: PLAYA AREOURA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES112M019246
+  src: eea
+agu-adoura:
+  km: 0.33
+  name: PAIMÓ
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCD8J
+  src: eea
+aguilar:
+  km: 0.35
+  name: PLAYA AGUILAR PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES120M039518
+  src: eea
+andrin:
+  km: 0.25
+  name: PLAYA POO PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES120M036514
+  src: eea
+antilla:
+  km: 0.11
+  name: PLAYA DE ANTILLA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES212M061579
+  src: eea
+arda:
+  km: 0.04
+  name: ARDA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCU7E
+  src: eea
+area-de-covas:
+  km: 0.26
+  name: PLAYA COVAS PM2
+  quality: 2 - Good
+  season: 2025
+  site_id: ES112M066273
+  src: eea
+area-grande:
+  km: 0.01
+  name: PLAYA AREA GRANDE - GUARDA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES114M023345
+  src: eea
+area-maior:
+  km: 0.09
+  name: PLAYA PRAIA MAIOR PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M04399
+  src: eea
+arealonga:
+  km: 0.2
+  name: PLAYA AREALONGA - BARREIROS PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES112M005237
+  src: eea
+areas:
+  km: 0.16
+  name: PLAYA AREAS PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES114M051386
+  src: eea
+arinaga:
+  km: 0.08
+  name: PLAYA ARINAGA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES705M0021688
+  src: eea
+arou:
+  km: 0.13
+  name: PLAYA AROU PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M01634
+  src: eea
+arrieta:
+  km: 0.13
+  name: PLAYA GARITA (LA) (ARRIETA) PM4
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES708M0102096
+  src: eea
+arrietara:
+  km: 0.07
+  name: PLAYA DE ARRIATERA-ATXABIRIBIL PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES213M085622
+  src: eea
+arrifana:
+  km: 0.25
+  name: ARRIFANA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCX3C
+  src: eea
+arrigunaga:
+  km: 0.17
+  name: PLAYA DE ARRIGUNAGA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES213M044605
+  src: eea
+aterro:
+  km: 0.18
+  name: AZUL-CONCHINHA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCV7F
+  src: eea
+atxabiribil:
+  km: 0.18
+  name: PLAYA DE ARRIATERA-ATXABIRIBIL PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES213M085621
+  src: eea
+avalon:
+  km: 0.1
+  name: Avalon Beach
+  site_id: a34d2224-4c5f-4299-be46-b73558bcea39
+  src: nsw
+avdimou-beach:
+  km: 0.88
+  name: AVDIMOU
+  quality: 1 - Excellent
+  season: 2025
+  site_id: CY0005222000000113
+  src: eea
+aver-o-mar:
+  km: 0.05
+  name: LAGOA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCW3Q
+  src: eea
+azurara:
+  km: 0.76
+  name: ÁRVORE
+  quality: 2 - Good
+  season: 2025
+  site_id: PTCW8X
+  src: eea
+ba-a:
+  km: 0.32
+  name: COVA DA ALFARROBA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCE2C
+  src: eea
+baie-des-trepasses:
+  km: 0.05
+  name: BAIE DES TREPASSES
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRH0229168M029720
+  src: eea
+bajamar:
+  km: 0.06
+  name: PLAYA CASTILLO-BAJAMAR (SAN JUAN) PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES709M0231865
+  src: eea
+bakio:
+  km: 0.2
+  name: PLAYA DE BAKIO PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES213M012597
+  src: eea
+baldaio:
+  km: 0.7
+  name: PLAYA RIA DE BALDAIO PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M01939
+  src: eea
+baleal-lagide:
+  km: 0.57
+  name: BALEAL NORTE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCW2T
+  src: eea
+balneario:
+  km: 0.29
+  name: PLAYA LOS LANCES PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES612M0351414
+  src: eea
+barbate:
+  km: 0.49
+  name: PLAYA EL CARMEN PM1
+  quality: 3 - Sufficient
+  season: 2025
+  site_id: ES612M0071357
+  src: eea
+barona:
+  km: 0.17
+  name: PLAYA AREA LONGA - P. DO SON PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M071187
+  src: eea
+barranan:
+  km: 0.18
+  name: PLAYA BARRA??N PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M0052141
+  src: eea
+barrika:
+  km: 1.58
+  name: PLAYA MURIOLA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES213M0142484
+  src: eea
+bastiagueiro:
+  km: 0.07
+  name: PLAYA BASTIAGUEIRO PM3
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M0582138
+  src: eea
+bayas:
+  km: 1.08
+  name: PLAYA DEL SABL?N DE BAYAS PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES120M016470
+  src: eea
+berria:
+  km: 0.02
+  name: PLAYA DE BERRIA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES130M079564
+  src: eea
+bilgola-beach:
+  km: 0.04
+  name: Bilgola Beach
+  site_id: 2d4c2558-f2de-43e4-8590-8682bc5aaf52
+  src: nsw
+biscarrosse:
+  km: 0.14
+  name: PLAGE CENTRE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRI1340046M040010
+  src: eea
+bolonia:
+  km: 0.41
+  name: PLAYA BOLONIA PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES612M0351418
+  src: eea
+bondi-beach:
+  km: 0.02
+  name: Bondi Beach
+  site_id: 405ce99c-7a0b-43f7-8d28-2ee0b65eebb5
+  src: nsw
+bordeira:
+  km: 0.52
+  name: BORDEIRA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCL2H
+  src: eea
+bronte-beach:
+  km: 0.03
+  name: Bronte Beach
+  site_id: e34aa8b8-142f-438d-ab18-bedce361e324
+  src: nsw
+bungan-beach:
+  km: 0.2
+  name: Bungan Beach
+  site_id: 9cf6ec2d-8574-4814-b7db-64ca4075be20
+  src: nsw
+bunker-del-hurricane:
+  km: 0.87
+  name: PLAYA LOS LANCES PM3
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES612M0351416
+  src: eea
+cabestan:
+  km: 0.25
+  name: ANSE DU CABESTAN
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRH0229003M029725
+  src: eea
+caion:
+  km: 0.14
+  name: PLAYA CAI?N PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M04198
+  src: eea
+caleta-de-caballo:
+  km: 1.35
+  name: PLAYA RIA DE LA SANTA (LA) (SANTA SPORT) PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES708M0291807
+  src: eea
+campelo:
+  km: 0.16
+  name: PLAYA CAMPELO - VALDOVI?O PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M087225
+  src: eea
+camposoto:
+  km: 0.34
+  name: PLAYA CAMPOSOTO PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES612M0311402
+  src: eea
+canallave:
+  km: 0.68
+  name: PLAYA DE LIENCRES PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES130M052552
+  src: eea
+cantinho-bah-a:
+  km: 0.06
+  name: BALEAL-CAMPISMO
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCD7K
+  src: eea
+caranquexo:
+  km: 0.18
+  name: PLAYA AS CANAS PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES114M035366
+  src: eea
+carcavelos:
+  km: 0.24
+  name: CARCAVELOS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCQ8X
+  src: eea
+carnota:
+  km: 1.21
+  name: PLAYA SAN MAMEDE (BOCA DO RIO) - CARNOTA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M02041
+  src: eea
+collaroy-beach:
+  km: 0.39
+  name: Collaroy Beach
+  site_id: 9aac94a6-0188-44c5-92ab-60068862371d
+  src: nsw
+comillas:
+  km: 0.05
+  name: PLAYA DE COMILLAS PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES130M024545
+  src: eea
+consola-o:
+  km: 0.83
+  name: MEDÃO-SUPERTUBOS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCF2K
+  src: eea
+coogee-beach:
+  km: 0.03
+  name: Coogee Beach
+  site_id: ca53919d-8e26-40b0-b8cc-edf80ec303d9
+  src: nsw
+cortadura:
+  km: 0.15
+  name: PLAYA CORTADURA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES612M0121363
+  src: eea
+costa-calma:
+  km: 1.35
+  name: PLAYA COSTA CALMA PM3
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES704M0152550
+  src: eea
+costa-caparica:
+  km: 0.26
+  name: PRAIA NOVA/NOVA PRAIA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCX3N
+  src: eea
+cote-des-basques:
+  km: 0.16
+  name: COTE DES BASQUES
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRI1564122M064055
+  src: eea
+covas:
+  km: 0.45
+  name: PLAYA PONZOS PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M03685
+  src: eea
+coxos:
+  km: 0.3
+  name: S. LOURENÇO
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCP7C
+  src: eea
+crazy:
+  km: 0.88
+  name: COXOS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCL8W
+  src: eea
+cripplers:
+  km: 0.09
+  name: KOTSIAS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: CY0006020000000136
+  src: eea
+cronulla-point:
+  km: 0.23
+  name: South Cronulla Beach
+  site_id: b0513e57-bc00-46c6-b560-20d9a2207c35
+  src: nsw
+cuberris:
+  km: 0.09
+  name: PLAYA DE AJO PM1
+  quality: 2 - Good
+  season: 2025
+  site_id: ES130M011539
+  src: eea
+cueva:
+  km: 0.23
+  name: PLAYA CUEVA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES120M034505
+  src: eea
+deba:
+  km: 0.26
+  name: PLAYA DE DEBA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES212M029571
+  src: eea
+dee-why-beach:
+  km: 0.35
+  name: Dee Why Beach
+  site_id: 98261de4-b6b8-4555-ac3c-f86c4bd8f413
+  src: nsw
+dee-why-point:
+  km: 0.42
+  name: Dee Why Beach
+  site_id: 98261de4-b6b8-4555-ac3c-f86c4bd8f413
+  src: nsw
+doninos:
+  km: 0.11
+  name: PLAYA DONI?OS PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M03675
+  src: eea
+dossen:
+  km: 0.22
+  name: DOSSEN
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRH0229273M029165
+  src: eea
+dourveil:
+  km: 0.1
+  name: DOURVEIL
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRH0229153M029914
+  src: eea
+el-brusco:
+  km: 0.7
+  name: PLAYA DE BERRIA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES130M079564
+  src: eea
+el-chato:
+  km: 0.39
+  name: PLAYA CORTADURA PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES612M0121364
+  src: eea
+el-confital:
+  km: 1.34
+  name: PLAYA CANTERAS (LAS) PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES705M0161750
+  src: eea
+el-conquistador:
+  km: 0.73
+  name: PLAYA CAMIS?N (EL) PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES709M0061843
+  src: eea
+el-fronton:
+  km: 0.15
+  name: PLAYA AGUJERO (EL) PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES705M0091706
+  src: eea
+el-lloret:
+  km: 1.07
+  name: PLAYA CANTERAS (LAS) PM6
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES705M0161755
+  src: eea
+el-medano:
+  km: 0.25
+  name: PLAYA MEDANO (EL) PM3
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES709M0172086
+  src: eea
+el-muelle:
+  km: 0.78
+  name: PLAYA MUELLE VIEJO (M.CHICO O CORRALEJO) PM1
+  quality: 2 - Good
+  season: 2025
+  site_id: ES704M0141737
+  src: eea
+el-palmar:
+  km: 0.23
+  name: PLAYA EL PALMAR PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES612M0391419
+  src: eea
+el-quemao:
+  km: 1.34
+  name: PLAYA RIA DE LA SANTA (LA) (SANTA SPORT) PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES708M0291806
+  src: eea
+el-rinconin:
+  km: 0.05
+  name: PLAYA SAN LORENZO PM5
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES120M024488
+  src: eea
+el-roque:
+  km: 0.17
+  name: PLAYA ALTILLO (EL) PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES705M0131729
+  src: eea
+el-sardinero:
+  km: 0.05
+  name: PLAYA 1? SARDINERO PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES130M075561
+  src: eea
+elouera-beach:
+  km: 0.05
+  name: Elouera Beach
+  site_id: 961b6133-9036-4e26-a575-955ab9d56373
+  src: nsw
+erretegia:
+  km: 0.1
+  name: ERRETEGIA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRI1564125M064080
+  src: eea
+esmelle:
+  km: 0.4
+  name: PLAYA ESMELLE PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M0362793
+  src: eea
+espineirido:
+  km: 0.1
+  name: PLAYA ESPI?EIRIDO - P.DO SON PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M071183
+  src: eea
+espinho:
+  km: 0.1
+  name: ESPINHO-BAÍA
+  quality: 2 - Good
+  season: 2025
+  site_id: PTCL9W
+  src: eea
+esteiro:
+  km: 0.07
+  name: PLAYA ESTEIRO - XOVE PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES112M025254
+  src: eea
+fairy-bower:
+  km: 0.21
+  name: Shelly Beach (Manly)
+  site_id: 995753ed-db2a-4cb8-9349-922cf3312766
+  src: nsw
+famara:
+  km: 0.85
+  name: PLAYA FAMARA PM4
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES708M0241786
+  src: eea
+faro-de-trafalgar:
+  km: 2.0
+  name: PLAYA ZAHORA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES612M0071359
+  src: eea
+fig-tree-bay:
+  km: 0.05
+  name: PROTARAS BAY
+  quality: 1 - Excellent
+  season: 2025
+  site_id: CY0003101000000008
+  src: eea
+figueira-cabedelo:
+  km: 0.11
+  name: CABEDELO SUL
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCN7L
+  src: eea
+fitenia:
+  km: 0.24
+  name: PLAYA CAMIS?N (EL) PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES709M0061843
+  src: eea
+foxos:
+  km: 0.38
+  name: PLAYA FOXOS PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES114M051399
+  src: eea
+foz-do-lizandro:
+  km: 0.17
+  name: FOZ DO LIZANDRO-MAR
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCF7H
+  src: eea
+freshwater-beach:
+  km: 0.01
+  name: Freshwater Beach
+  site_id: 77556fe0-20d1-4028-9bad-d61b3e046b4c
+  src: nsw
+frexulfe:
+  km: 0.13
+  name: PLAYA FREJULFE PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES120M041521
+  src: eea
+frouxeira:
+  km: 0.67
+  name: PLAYA FROUXEIRA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M087224
+  src: eea
+fuentebravia:
+  km: 0.12
+  name: PLAYA DE FUENTEBRAVIA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES612M0272215
+  src: eea
+gaztetape:
+  km: 0.06
+  name: PLAYA DE GAZTETAPE PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES212M039575
+  src: eea
+gorliz:
+  km: 0.02
+  name: PLAYA DE GORLIZ PM3
+  quality: 2 - Good
+  season: 2025
+  site_id: ES213M043601
+  src: eea
+goulien:
+  km: 0.3
+  name: KERSIGUENOU
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRH0229042M029615
+  src: eea
+governors-beach:
+  km: 0.05
+  name: KALYMNOS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: CY0005126000000063
+  src: eea
+grand-crohot:
+  km: 0.15
+  name: LE GRAND CROHOT
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRI1233236M033060
+  src: eea
+grande-plage:
+  km: 0.18
+  name: COTE DES BASQUES
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRI1564122M064055
+  src: eea
+grande-plage-quiberon:
+  km: 1.07
+  name: MENTOR
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRH0456168M056157
+  src: eea
+guidel:
+  km: 0.19
+  name: LA FALAISE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRH0456078M056010
+  src: eea
+guincho:
+  km: 0.27
+  name: GUINCHO
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCV7Q
+  src: eea
+hendaye:
+  km: 0.58
+  name: LES DEUX JUMEAUX
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRI1564260M064145
+  src: eea
+ingrina:
+  km: 0.05
+  name: INGRINA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCK8L
+  src: eea
+itzurun:
+  km: 0.29
+  name: PLAYA DE ITZURUN PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES212M081593
+  src: eea
+karraspio:
+  km: 0.14
+  name: PLAYA DE KARRASPIO PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES213M063613
+  src: eea
+kersidan:
+  km: 0.12
+  name: KERSIDAN
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRH0229293M029910
+  src: eea
+kings-rock:
+  km: 1.76
+  name: CARREÇO
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCD8U
+  src: eea
+konnos-bay:
+  km: 0.05
+  name: KONNOS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: CY0003100000000010
+  src: eea
+kourion-beach:
+  km: 0.78
+  name: AGIOS ERMOGENIS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: CY0005212000000111
+  src: eea
+la-arena:
+  km: 0.34
+  name: PLAYA LA ARENA - MUSKIZ PM1
+  quality: 2 - Good
+  season: 2025
+  site_id: ES213M0712310
+  src: eea
+la-ballena:
+  km: 1.9
+  name: PLAYA LA BALLENA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES612M0301400
+  src: eea
+la-barra:
+  km: 0.18
+  name: PLAYA CANTERAS (LAS) PM5
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES705M0161754
+  src: eea
+la-barre:
+  km: 0.16
+  name: LA BARRE
+  quality: 2 - Good
+  season: 2025
+  site_id: FRI1564024M064005
+  src: eea
+la-cabanita:
+  km: 0.21
+  name: PLAYA LA VICTORIA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES612M0121366
+  src: eea
+la-caleta:
+  km: 0.5
+  name: PLAYA ENRAMADA (LA) PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES709M0012508
+  src: eea
+la-cicer:
+  km: 0.4
+  name: PLAYA CANTERAS (LAS) PM6
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES705M0161755
+  src: eea
+la-fontanilla:
+  km: 0.11
+  name: PLAYA LA FONTANILLA PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES612M0141371
+  src: eea
+la-graviere:
+  km: 0.38
+  name: LA GRAVIERE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRI1340304M040117
+  src: eea
+la-izquierda:
+  km: 0.8
+  name: PLAYA TROYA I (AM?RICAS I) PM3
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES709M0012080
+  src: eea
+la-nord-biscarrosse:
+  km: 0.17
+  name: PLAGE NORD
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRI1340046M040012
+  src: eea
+la-piste:
+  km: 0.04
+  name: LA PISTE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRI1340065M040124
+  src: eea
+la-salvaje:
+  km: 0.33
+  name: PLAYA DE BARINATXE PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES213M085620
+  src: eea
+la-salve:
+  km: 0.8
+  name: PLAYA SALVE PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES130M035546
+  src: eea
+la-santa:
+  km: 0.76
+  name: PLAYA RIA DE LA SANTA (LA) (SANTA SPORT) PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES708M0291806
+  src: eea
+la-sud:
+  km: 0.03
+  name: PLAGE CENTRALE/SUD
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRI1340304M040115
+  src: eea
+la-tejita:
+  km: 0.44
+  name: PLAYA TEJITA (LA) PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES709M0171853
+  src: eea
+la-torche:
+  km: 0.37
+  name: TORCHE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRH0229171M029765
+  src: eea
+labenne-ocean:
+  km: 0.1
+  name: NOTRE DAME
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRI1340065M040120
+  src: eea
+lacanau:
+  km: 0.11
+  name: PLAGE SUD
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRI1233214M033052
+  src: eea
+ladys-mile:
+  km: 0.18
+  name: LADY'S MILE B
+  quality: 1 - Excellent
+  season: 2025
+  site_id: CY0005000000000108
+  src: eea
+lafitenia:
+  km: 0.25
+  name: LAFITENIA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRI1564483M064115
+  src: eea
+laga:
+  km: 0.18
+  name: PLAYA DE LAGA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES213M048609
+  src: eea
+laida:
+  km: 0.08
+  name: PLAYA DE LAIDA PM2
+  quality: 2 - Good
+  season: 2025
+  site_id: ES213M048608
+  src: eea
+landa-beach:
+  km: 0.03
+  name: LANDA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: CY0003100000000017
+  src: eea
+langre:
+  km: 0.14
+  name: PLAYA DE LANGRE PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES130M061556
+  src: eea
+lara-bay:
+  km: 1.56
+  name: KAPHIZIS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: CY0006133000000142
+  src: eea
+larino:
+  km: 0.58
+  name: PLAYA LARI?O - MUROS PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M053138
+  src: eea
+las-caracolas:
+  km: 0.22
+  name: PLAYA LA VICTORIA PM3
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES612M0121368
+  src: eea
+las-redes:
+  km: 0.27
+  name: PLAYA DE SANTA CATALINA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES612M0272214
+  src: eea
+le-a:
+  km: 0.53
+  name: LEÇA DA PALMEIRA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCK3P
+  src: eea
+le-kerou:
+  km: 0.06
+  name: KERROU
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRH0229031M029936
+  src: eea
+le-penon:
+  km: 0.14
+  name: PENON
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRI1340296M040101
+  src: eea
+le-petit-minou:
+  km: 0.07
+  name: PORSMILIN
+  quality: 2 - Good
+  season: 2025
+  site_id: FRH0229130M029494
+  src: eea
+le-porge:
+  km: 0.16
+  name: LE GRESSIER
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRI1233333M033055
+  src: eea
+le-prevent:
+  km: 0.16
+  name: PLAGE CENTRALE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRI1340065M040121
+  src: eea
+le-vougot:
+  km: 0.12
+  name: LA SECHERIE (VOUGOT)
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRH0229077M029275
+  src: eea
+les-blancs-sablons:
+  km: 0.43
+  name: BLANCS SABLONS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRH0229040M029471
+  src: eea
+les-bourdaines:
+  km: 0.13
+  name: BOURDAINES
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRI1340296M040104
+  src: eea
+les-cavaliers:
+  km: 0.14
+  name: LES CAVALIERS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRI1564024M064010
+  src: eea
+les-culs-nus:
+  km: 0.16
+  name: NATURISTES
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRI1340304M040116
+  src: eea
+les-estagnots:
+  km: 0.29
+  name: ESTAGNOTS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRI1340296M040105
+  src: eea
+long-reef:
+  km: 0.34
+  name: Long Reef Beach
+  site_id: 93ec689a-b568-4cef-8c51-1eaafbbb51a5
+  src: nsw
+loredo:
+  km: 0.33
+  name: PLAYA LOREDO PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES130M061555
+  src: eea
+los-enanos:
+  km: 0.4
+  name: PLAYA SAN ANDR?S PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES705M0061704
+  src: eea
+los-locos:
+  km: 0.21
+  name: PLAYA DE LOS LOCOS PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES130M085569
+  src: eea
+los-patos:
+  km: 1.04
+  name: PLAYA BOLLULLO (EL) PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES709M0262594
+  src: eea
+los-quebrantos:
+  km: 0.11
+  name: PLAYA LOS QUEBRANTOS PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES120M069527
+  src: eea
+louro:
+  km: 0.41
+  name: PLAYA A AREA MAIOR PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M053130
+  src: eea
+malabar-beach:
+  km: 0.02
+  name: Malabar Beach
+  site_id: 94c5d756-1093-48db-8dbc-70fbb523b16a
+  src: nsw
+manly-beach:
+  km: 0.11
+  name: South Steyne Beach
+  site_id: 224fc6a1-f98a-4a10-9603-91dacf9e54b8
+  src: nsw
+marbella-fr:
+  km: 0.11
+  name: MARBELLA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRI1564122M064060
+  src: eea
+marisucia:
+  km: 0.43
+  name: PLAYA CA?OS DE MECA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES612M0071358
+  src: eea
+maroubra-beach:
+  km: 0.18
+  name: Maroubra Beach
+  site_id: c2461939-5613-4c11-8ae0-7331133baf88
+  src: nsw
+matosinhos:
+  km: 0.36
+  name: CASTELO DO QUEIJO
+  quality: 3 - Sufficient
+  season: 2025
+  site_id: PTCD2N
+  src: eea
+melanda:
+  km: 0.09
+  name: AVDIMOU
+  quality: 1 - Excellent
+  season: 2025
+  site_id: CY0005222000000113
+  src: eea
+meloneras:
+  km: 0.4
+  name: PLAYA MASPALOMAS PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES705M0191771
+  src: eea
+menakoz:
+  km: 0.88
+  name: PLAYA DE ARRIATERA-ATXABIRIBIL PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES213M085621
+  src: eea
+meron:
+  km: 0.69
+  name: PLAYA TOSTADERO PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES130M080566
+  src: eea
+milady:
+  km: 0.06
+  name: ILBARRITZ
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRI1564125M064070
+  src: eea
+mimizan:
+  km: 0.22
+  name: PLAGE SUD
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRI1340184M040021
+  src: eea
+mindelo:
+  km: 0.25
+  name: MINDELO
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCV2N
+  src: eea
+mogueric:
+  km: 0.78
+  name: PORT MOGUERIEC
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRH0229276M029179
+  src: eea
+moledo:
+  km: 0.21
+  name: MOLEDO
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCF2N
+  src: eea
+molhe-leste:
+  km: 0.08
+  name: MOLHE LESTE
+  quality: 2 - Good
+  season: 2025
+  site_id: PTCX8H
+  src: eea
+moliets:
+  km: 0.37
+  name: PLAGE PRINCIPALE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRI1340187M040060
+  src: eea
+mona-vale-beach:
+  km: 0.29
+  name: Mona Vale Beach
+  site_id: dcaa6d83-f59f-463f-aae5-c687f4b0b5fb
+  src: nsw
+montalvo:
+  km: 0.13
+  name: PLAYA MONTALVO PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES114M051392
+  src: eea
+moulin-de-la-rive:
+  km: 1.3
+  name: SABLES BLANCS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRH0229133M029015
+  src: eea
+mundaka:
+  km: 0.11
+  name: PLAYA DE LAIDATXU PM1
+  quality: 2 - Good
+  season: 2025
+  site_id: ES213M068614
+  src: eea
+navia:
+  km: 0.09
+  name: PLAYA NAVIA PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES120M041520
+  src: eea
+nazare-norte:
+  km: 0.72
+  name: NORTE (NAZARE)
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCV2L
+  src: eea
+nemina:
+  km: 0.22
+  name: PLAYA NEMI?A PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M052112
+  src: eea
+newport-beach:
+  km: 0.11
+  name: Newport Beach
+  site_id: f81d4377-2a8e-4f39-9988-f94d9c95d9be
+  src: nsw
+north-cronulla:
+  km: 0.04
+  name: North Cronulla Beach
+  site_id: f40362ee-ce75-4473-a7e5-cb8d062611fc
+  src: nsw
+north-curl-curl:
+  km: 0.27
+  name: North Curl Curl Beach
+  site_id: 7f188718-1e97-404e-81cf-1bd72927015d
+  src: nsw
+north-narrabeen:
+  km: 0.13
+  name: North Narrabeen Beach
+  site_id: 79eb1688-05c6-491a-9eaa-cbe3811a7f3d
+  src: nsw
+north-wall:
+  km: 0.47
+  name: Shaws Bay East Arm
+  site_id: affb6525-87ba-4165-b06b-f511cfe31af2
+  src: nsw
+o-fortinon:
+  km: 0.05
+  name: PLAYA FORTI??N PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES114M057403
+  src: eea
+odeceixe:
+  km: 0.19
+  name: ODECEIXE-MAR
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCU9K
+  src: eea
+ofir:
+  km: 0.86
+  name: FÃO-OFIR
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCL2X
+  src: eea
+ogella:
+  km: 0.96
+  name: PLAYA DE OGELLA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES213M049611
+  src: eea
+olinas:
+  km: 0.03
+  name: PLAYA AS PASADAS PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES112M005238
+  src: eea
+orrua:
+  km: 0.44
+  name: PLAYA DE SANTIAGO PM1
+  quality: 2 - Good
+  season: 2025
+  site_id: ES212M081592
+  src: eea
+orzan:
+  km: 0.16
+  name: PLAYA ORZ?N PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M03063
+  src: eea
+os-castros:
+  km: 0.25
+  name: PLAYA OS CASTROS - ILLAS PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES112M051259
+  src: eea
+otur:
+  km: 0.16
+  name: PLAYA OTUR PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES120M034502
+  src: eea
+oyambre:
+  km: 0.31
+  name: PLAYA DE OYAMBRE PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES130M091570
+  src: eea
+palm-beach:
+  km: 0.12
+  name: Palm Beach
+  site_id: 8e9bf4a5-bb77-4a97-b01f-72823135fc0b
+  src: nsw
+pantin:
+  km: 0.37
+  name: PLAYA PANT?IN PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M087226
+  src: eea
+parlementia:
+  km: 0.23
+  name: PARLEMENTIA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRI1564125M064096
+  src: eea
+patos:
+  km: 0.42
+  name: PLAYA PATOS PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES114M035364
+  src: eea
+peizas:
+  km: 0.09
+  name: PLAYA PEIZ?S PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES112M019248
+  src: eea
+pen-hat:
+  km: 1.34
+  name: VERIAC'H
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRH0229022M029644
+  src: eea
+penarronda:
+  km: 0.17
+  name: PLAYA PE?ARRONDA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES120M017471
+  src: eea
+penarrubia:
+  km: 0.05
+  name: PLAYA PE?ARRUBIA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES120M024495
+  src: eea
+penhors:
+  km: 0.39
+  name: PENHORS (POSTE DE SECOURS)
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRH0229225M029751
+  src: eea
+pissouri-bay:
+  km: 0.33
+  name: PISSOURI BAY
+  quality: 1 - Excellent
+  season: 2025
+  site_id: CY0005227000000116
+  src: eea
+playa-del-castillo:
+  km: 0.06
+  name: PLAYA CASTILLO (EL) PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES704M0141735
+  src: eea
+playa-del-hombre:
+  km: 0.07
+  name: PLAYA HOMBRE (EL) PM3
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES705M0261790
+  src: eea
+playa-del-ingles:
+  km: 0.45
+  name: PLAYA INGL?S (EL) PM3
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES705M0191768
+  src: eea
+playa-del-socorro:
+  km: 0.05
+  name: PLAYA SOCORRO (EL) PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES709M0311876
+  src: eea
+playa-espana:
+  km: 0.13
+  name: PLAYA ESPA?A PM1
+  quality: 2 - Good
+  season: 2025
+  site_id: ES120M076535
+  src: eea
+playa-martianez:
+  km: 0.09
+  name: PLAYA MARTI?NEZ PM3
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES709M0282089
+  src: eea
+plentzia:
+  km: 0.28
+  name: PLAYA DE PLENTZIA PM1
+  quality: 2 - Good
+  season: 2025
+  site_id: ES213M077618
+  src: eea
+po-sport:
+  km: 0.79
+  name: COVA DA ALFARROBA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCE2C
+  src: eea
+po-spot:
+  km: 0.15
+  name: VALE DE JANELAS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCX9Q
+  src: eea
+polis:
+  km: 0.26
+  name: POLIS CHRYSOCHOU MUNICIPAL BEACH
+  quality: 1 - Excellent
+  season: 2025
+  site_id: CY0006343000000148
+  src: eea
+ponzos:
+  km: 0.43
+  name: PLAYA PONZOS PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M03685
+  src: eea
+pors-carn:
+  km: 0.37
+  name: PORS CARN
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRH0229158M029767
+  src: eea
+port-bara:
+  km: 1.57
+  name: LE FOZO
+  quality: 2 - Good
+  season: 2025
+  site_id: FRH0456234M056178
+  src: eea
+port-blanc:
+  km: 0.81
+  name: LE FOZO
+  quality: 2 - Good
+  season: 2025
+  site_id: FRH0456234M056178
+  src: eea
+porz-ar-villiec:
+  km: 0.09
+  name: PORS AR VILLEC
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRH0229133M029012
+  src: eea
+potima-bay:
+  km: 0.78
+  name: PENTE LITHARKA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: CY0006027000000138
+  src: eea
+pozo-izquierdo:
+  km: 0.13
+  name: PLAYA POZO IZQUIERDO PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES705M0221779
+  src: eea
+praia-america:
+  km: 0.16
+  name: PLAYA AM?RICA PM1
+  quality: 3 - Sufficient
+  season: 2025
+  site_id: ES114M035361
+  src: eea
+praia-do-amado:
+  km: 0.12
+  name: AMADO
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCL3P
+  src: eea
+praia-do-meco:
+  km: 0.06
+  name: MOINHO DE BAIXO-MECO
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCN7E
+  src: eea
+praia-grande:
+  km: 0.41
+  name: GRANDE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCX2W
+  src: eea
+punta-del-hidalgo:
+  km: 0.31
+  name: PLAYA ARENISCO (EL) - PISCINA NATURAL PUNTA HIDALGO PM3
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES709M0232432
+  src: eea
+punta-galea:
+  km: 1.92
+  name: PLAYA DE AZKORRI PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES213M044604
+  src: eea
+queenscliff-beach:
+  km: 0.15
+  name: Queenscliff Beach
+  site_id: 95c134b2-a834-4651-865c-03f6c9f4a54e
+  src: nsw
+quintanilla:
+  km: 0.87
+  name: PLAYA CHARCONES (LOS) (BA?ADEROS) PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES705M0062429
+  src: eea
+razo:
+  km: 0.18
+  name: PLAYA ARNADOS PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M0192487
+  src: eea
+riazor:
+  km: 0.06
+  name: PLAYA RIAZOR PM3
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M0302137
+  src: eea
+ribeira-dilhas:
+  km: 0.27
+  name: RIBEIRA DE ILHAS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCT3D
+  src: eea
+rio-salado:
+  km: 0.49
+  name: PLAYA LOS BATELES PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES612M0141373
+  src: eea
+rio-sieira:
+  km: 0.16
+  name: PLAYA R?O SIEIRA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M071185
+  src: eea
+ris:
+  km: 0.17
+  name: PLAYA DEL RIS PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES130M047549
+  src: eea
+roche:
+  km: 0.45
+  name: PLAYA ROCHE PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES612M0141372
+  src: eea
+rodiles:
+  km: 0.44
+  name: PLAYA RODILES PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES120M076533
+  src: eea
+sabon:
+  km: 0.31
+  name: PLAYA ALBA-SAB?N PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M0052122
+  src: eea
+sainte-barbe:
+  km: 1.92
+  name: KERHILIO
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRH0456054M056155
+  src: eea
+salema:
+  km: 0.33
+  name: SALEMA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCQ3J
+  src: eea
+salinas:
+  km: 0.19
+  name: PLAYA DE SALINAS PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES120M016468
+  src: eea
+san-antolin:
+  km: 0.34
+  name: PLAYA SAN ANTOL?N PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES120M036508
+  src: eea
+san-anton:
+  km: 0.07
+  name: PLAYA SAN ANTONIO PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M061154
+  src: eea
+san-cosme:
+  km: 0.09
+  name: PLAYA ALTAR PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES112M005234
+  src: eea
+san-juan:
+  km: 0.26
+  name: PLAYA SAN JUAN DE NIEVA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES120M016469
+  src: eea
+san-juan-ic:
+  km: 1.12
+  name: PLAYA CALETA (LA) (CALETA DE FAMARA) PM1
+  quality: 2 - Good
+  season: 2025
+  site_id: ES708M0241789
+  src: eea
+san-lorenzo:
+  km: 0.03
+  name: PLAYA SAN LORENZO PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES120M024485
+  src: eea
+san-xurxo:
+  km: 0.35
+  name: PLAYA SAN XURXO PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M03676
+  src: eea
+sandshoes-reef:
+  km: 0.16
+  name: Shelly Beach (Sutherland)
+  site_id: d9267cc6-7983-47ce-a7ba-a9a1dd932ebb
+  src: nsw
+santa-comba:
+  km: 0.67
+  name: PLAYA SANTA COMBA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M03684
+  src: eea
+santa-justa:
+  km: 0.43
+  name: PLAYA EL SABLE DE TAGLE PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES130M0852450
+  src: eea
+santa-maria-del-mar-es:
+  km: 0.13
+  name: PLAYA STA MARIA DEL MAR PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES612M0121369
+  src: eea
+santa-marina:
+  km: 0.21
+  name: PLAYA SANTA MARINA PM1
+  quality: 4 - Poor
+  season: 2025
+  site_id: ES120M056525
+  src: eea
+santocha:
+  km: 0.19
+  name: SANTOCHA ET PREVENTORIUM
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRI1340065M040122
+  src: eea
+sao-torpes:
+  km: 0.21
+  name: SÃO TORPES
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCX3M
+  src: eea
+sarridal:
+  km: 1.51
+  name: PLAYA BIMBIEIRO PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M061155
+  src: eea
+shark-island:
+  km: 0.63
+  name: Shelly Beach (Sutherland)
+  site_id: d9267cc6-7983-47ce-a7ba-a9a1dd932ebb
+  src: nsw
+shelly-beach:
+  km: 0.42
+  name: Shelly Beach (Ballina)
+  site_id: 3edce205-4954-4df5-b0f8-a7b56a826677
+  src: nsw
+soesto:
+  km: 0.12
+  name: PLAYA SOESTO PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M04096
+  src: eea
+somo:
+  km: 0.43
+  name: PLAYA LOREDO PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES130M061555
+  src: eea
+sorginetxe:
+  km: 0.61
+  name: PLAYA DE DEBA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES212M029571
+  src: eea
+south-wall:
+  km: 0.81
+  name: Shaws Bay East Arm
+  site_id: affb6525-87ba-4165-b06b-f511cfe31af2
+  src: nsw
+st-raphael:
+  km: 0.05
+  name: PAREKKLISIA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: CY000512500000069A
+  src: eea
+supertubos:
+  km: 0.33
+  name: MEDÃO-SUPERTUBOS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCF2K
+  src: eea
+tamarama-beach:
+  km: 0.05
+  name: Tamarama Beach
+  site_id: d8174dde-e864-4a58-b997-e140bea7c5d6
+  src: nsw
+tapia:
+  km: 0.13
+  name: PLAYA ANGUILEIRO PM3
+  quality: 2 - Good
+  season: 2025
+  site_id: ES120M0702496
+  src: eea
+tonel:
+  km: 0.15
+  name: TONEL
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCH8M
+  src: eea
+torimbia:
+  km: 0.14
+  name: PLAYA TORIMBIA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES120M0362656
+  src: eea
+traba:
+  km: 0.59
+  name: PLAYA TRABA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M04094
+  src: eea
+tregandin:
+  km: 0.47
+  name: PLAYA DE TREGANDIN PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES130M047551
+  src: eea
+tres-piedras:
+  km: 0.23
+  name: PLAYA TRES PIEDRAS- LA BALLENA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES612M0161381
+  src: eea
+turimetta-beach:
+  km: 0.16
+  name: Turimetta Beach
+  site_id: 811e1dd7-4a4b-4146-a1c6-c05c67a24d03
+  src: nsw
+vagabundos:
+  km: 0.02
+  name: PLAYA SAN FELIPE PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES705M0231780
+  src: eea
+valcovo:
+  km: 0.13
+  name: PLAYA A HUCHA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M0058
+  src: eea
+valdearenas:
+  km: 0.31
+  name: PLAYA DE LIENCRES PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES130M052552
+  src: eea
+valdevaqueros:
+  km: 0.86
+  name: PLAYA VALDEVAQUEROS PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES612M0351417
+  src: eea
+vega:
+  km: 0.26
+  name: PLAYA VEGA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES120M056524
+  src: eea
+venus-beach:
+  km: 0.03
+  name: PALAIOKASTRA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: CY0006000000000135A
+  src: eea
+verdicio:
+  km: 0.12
+  name: PLAYA VERDICIO PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES120M025498
+  src: eea
+viana-castelo:
+  km: 1.94
+  name: CABEDELO
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCQ7C
+  src: eea
+vidiago:
+  km: 0.19
+  name: PLAYA VIDIAGO (BRETONES) PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES120M0362657
+  src: eea
+vieux-boucau:
+  km: 0.2
+  name: PLAGE DES SABLERES
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRI1340328M040084
+  src: eea
+vila-ancora:
+  km: 0.08
+  name: VILA PRAIA DE ÂNCORA
+  quality: 3 - Sufficient
+  season: 2025
+  site_id: PTCQ8J
+  src: eea
+vilarrube:
+  km: 0.6
+  name: PLAYA VILLARRUBE PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES111M087228
+  src: eea
+voodoo:
+  km: 1.05
+  name: Boat Harbour
+  site_id: 8990825d-b48c-443f-9047-862a0b986621
+  src: nsw
+wanda-beach:
+  km: 0.15
+  name: Wanda Beach
+  site_id: 961a22b7-38a3-424e-a7fb-8ecbda7148b1
+  src: nsw
+warriewood-beach:
+  km: 0.06
+  name: Warriewood Beach
+  site_id: 767e63ca-9d8c-4ef8-bc6a-928ac8f1cd62
+  src: nsw
+whale-beach:
+  km: 0.07
+  name: Whale Beach
+  site_id: 0f982c83-1c9d-4f01-a4af-cf97ba9ead28
+  src: nsw
+xago:
+  km: 0.46
+  name: PLAYA DE XAG? PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES120M025497
+  src: eea
+yerbabuena:
+  km: 0.25
+  name: PLAYA HIERBABUENA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES612M0072206
+  src: eea
+zahara-de-los-atunes:
+  km: 0.55
+  name: PLAYA ZAHARA DE LOS ATUNES PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES612M0071355
+  src: eea
+zahora:
+  km: 0.13
+  name: PLAYA ZAHORA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES612M0071359
+  src: eea
+zarautz:
+  km: 0.69
+  name: PLAYA DE ZARAUTZ PM3
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES212M079591
+  src: eea
+zavial:
+  km: 0.05
+  name: ZAVIAL
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTCN2M
+  src: eea
+zurriola:
+  km: 0.27
+  name: PLAYA DE GROS/LA ZURRIOLA PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES212M069582
+  src: eea

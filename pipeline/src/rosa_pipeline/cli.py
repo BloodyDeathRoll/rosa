@@ -247,6 +247,14 @@ def _build_parser() -> argparse.ArgumentParser:
     )
     run.add_argument("--capture", type=Path, default=None, help="capture raw responses to this dir")
     run.add_argument(
+        "--clarity-cache",
+        type=Path,
+        default=Path("data/cache/clarity"),
+        help="per-day clarity cache (VM-local, gitignored); the first cycle of a UTC day "
+        "samples the satellite store, the others read it",
+    )
+    run.add_argument("--bathing-sites", type=Path, default=Path("data/water/bathing.yaml"))
+    run.add_argument(
         "--workers",
         type=int,
         default=0,
@@ -572,6 +580,19 @@ def _build_parser() -> argparse.ArgumentParser:
         help="path to the local GEBCO grid (default data/bathy/GEBCO_2024.nc, gitignored)",
     )
 
+    bathing_p = sub.add_parser(
+        "bathing",
+        help="match every spot to its nearest official bathing-water site (docs/"
+        "WATER-SOURCES.md) and write data/water/bathing.yaml for review + commit",
+    )
+    bathing_p.add_argument("--match", choices=["eea", "nsw"], required=True)
+    bathing_p.add_argument(
+        "--xlsx", type=Path, help="--match eea: the EEA 'Status of bathing water' workbook"
+    )
+    bathing_p.add_argument("--radius-km", type=float, default=2.0)
+    bathing_p.add_argument("--spots-dir", type=Path, default=Path("data/spots"))
+    bathing_p.add_argument("--sites-file", type=Path, default=Path("data/water/bathing.yaml"))
+
     sdb_p = sub.add_parser(
         "sdb",
         help="sample CMEMS coastal SDB along each spot's ray and report where it disagrees "
@@ -868,6 +889,47 @@ def _score_point(i: int) -> list[tuple]:
     return events
 
 
+def _water_for(targets: list, args: argparse.Namespace) -> dict[str, dict]:
+    """spot id -> {"clarity", "pollution"} (docs/WATER-SOURCES.md). Display only, per
+    spot, not per hour; guarded top to bottom - a water outage publishes "no data",
+    never a failed cycle."""
+    from . import bathing
+    from .clarity import ClarityFixtureSource, CmemsClaritySource
+
+    ids = [s.id for s in targets]
+    clarity: list = [None] * len(targets)
+    try:
+        src = (
+            ClarityFixtureSource(args.fixtures)
+            if args.fixtures is not None
+            else CmemsClaritySource(args.clarity_cache)
+        )
+        clarity = src.fetch([(s.lat, s.lon) for s in targets])
+    except Exception as e:
+        print(f"warn: clarity skipped ({e!r})", file=sys.stderr)
+    pollution: dict = {}
+    try:
+        sites = bathing.load_sites(args.bathing_sites)
+        if args.fixtures is not None:
+            nsw_path = args.fixtures / "nsw_beachwatch.json"
+
+            def nsw_fetch() -> dict:
+                return json.loads(nsw_path.read_text(encoding="utf-8"))
+
+            pollution = bathing.pollution_for(ids, sites, nsw_fetch)
+        else:
+            pollution = bathing.pollution_for(ids, sites)
+    except Exception as e:
+        print(f"warn: pollution skipped ({e!r})", file=sys.stderr)
+    return {
+        sid: {
+            "clarity": {**c, "cadence": "daily"} if c else None,
+            "pollution": pollution.get(sid),
+        }
+        for sid, c in zip(ids, clarity, strict=True)
+    }
+
+
 def _cmd_run(args: argparse.Namespace) -> int:
     spots = load_spots(args.spots_dir)
     bathy_dir = getattr(args, "bathy_dir", None) or BATHY_DIR
@@ -989,6 +1051,8 @@ def _cmd_run(args: argparse.Namespace) -> int:
         )
         raws = source.fetch_many(points)
 
+    water = _water_for(targets, args)
+
     published = 0
     implausible = 0
     stale_tides = 0
@@ -1105,6 +1169,7 @@ def _cmd_run(args: argparse.Namespace) -> int:
                 counts[ev[1]] += ev[2]
             else:
                 _, spot_id, payload, implausible_hours = ev
+                payload["water"] = water.get(spot_id, {"clarity": None, "pollution": None})
                 try:
                     path = write_spot_json(payload, args.out)
                     update_index(payload, args.out)
@@ -2167,6 +2232,39 @@ def _sdb_source(args: argparse.Namespace):
     )
 
 
+def _cmd_bathing(args: argparse.Namespace) -> int:
+    """Hand-run: (re)match one source and rewrite the committed sites file. Reports every
+    match so the operator reviews the diff before committing - it never runs in a cycle."""
+    import yaml
+
+    from . import bathing
+
+    spots = load_spots(args.spots_dir)
+    if args.match == "eea":
+        if args.xlsx is None:
+            print("error: --match eea needs --xlsx", file=sys.stderr)
+            return 2
+        candidates = bathing.eea_sites_from_xlsx(args.xlsx)
+    else:
+        candidates = [
+            {"site_id": k, "name": v.get("siteName", ""), "lat": v["lat"], "lon": v["lon"]}
+            for k, v in bathing.nsw_by_id(bathing.fetch_nsw()).items()
+        ]
+    found = bathing.match(spots, candidates, args.match, args.radius_km)
+    for sid, e in sorted(found.items()):
+        print(f"{sid}: {e['name']} ({e['km']} km)")
+    merged = bathing.merge_sites(bathing.load_sites(args.sites_file), found, args.match)
+    args.sites_file.parent.mkdir(parents=True, exist_ok=True)
+    args.sites_file.write_text(
+        yaml.safe_dump(merged, sort_keys=True, allow_unicode=True), encoding="utf-8"
+    )
+    print(
+        f"{len(found)} of {len(spots)} spots matched to a {args.match} site within "
+        f"{args.radius_km} km; {len(merged)} spots in {args.sites_file}"
+    )
+    return 0
+
+
 def _cmd_sdb(args: argparse.Namespace) -> int:
     """Sample CMEMS coastal SDB along each committed ray and report the disagreement.
 
@@ -2880,6 +2978,8 @@ def main(argv: list[str] | None = None) -> int:
         return _cmd_swan_archive(args)
     if args.command == "sdb":
         return _cmd_sdb(args)
+    if args.command == "bathing":
+        return _cmd_bathing(args)
     if args.command == "atl24":
         return _cmd_atl24(args)
     if args.command == "horizon":

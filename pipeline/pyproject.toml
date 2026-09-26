@@ -30,6 +30,9 @@ dev = [
     # module is a hand-run validation harness, never the forecast path, so pyarrow stays out
     # of the runtime deps the VM installs - and out of the 400 MB `sliderule` client too.
     "pyarrow>=17.0",
+    # the EEA bathing-water workbook is .xlsx; only the hand-run `bathing --match eea`
+    # reads it, so openpyxl stays out of the runtime deps like pyarrow
+    "openpyxl>=3.1",
 ]
 
 [build-system]

@@ -61,3 +61,6 @@ coordinates.md
 
 # Superset per-workspace state
 .superset/config.local.json
+
+# per-day water-clarity cache (clarity.py): VM-local, rebuilt from the satellite store
+data/cache/

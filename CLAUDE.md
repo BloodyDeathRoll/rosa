@@ -10,6 +10,7 @@ Rosa is a **worldwide, mobile-first PWA surf forecast app**: free, lean, fast, s
 | `data/spots/`, `tools/spot-verify/`, `bathy` / `horizon` commands | `docs/SPOT-DB.md` |
 | `data/stations/`, `stations.py`, `verify --stations --wind-model` (coastal wind truth, GFS vs the gfs_grib candidate) | `docs/CALIBRATION.md` 2026-08-29 + 2026-08-30 + 2026-09-16, `docs/OPEN-ITEMS.md` 25 |
 | `web/` | `docs/UI.md` |
+| Water clarity / pollution (`clarity.py`, `bathing.py`, `data/water/`) | `docs/WATER-SOURCES.md` |
 | Tuning a constant, running a sweep, grading a frame | `docs/CALIBRATION.md` (method rules at top) |
 | "What's still open?" | `docs/OPEN-ITEMS.md` |
 | "Why is it like this?" | `docs/SESSIONS.md` (session log) |
@@ -30,7 +31,7 @@ Rosa is a **worldwide, mobile-first PWA surf forecast app**: free, lean, fast, s
 - NEVER fetch, proxy, or reproduce Surfline API output, spot guide text, cams, or their spot database. The teardown is for structural understanding only.
 - NEVER scrape third-party camera streams (any provider). Cams enter Rosa only as officially embeddable/permitted public streams (per-spot `cam_url`) or via partnerships.
 - ISRAMAR (isramar.ocean.org.il) is all-rights-reserved: manual validation during calibration only; partnership before any integration.
-- Open-Meteo: free tier non-commercial, attribution required (in footer); re-verify before public launch. CMEMS/Copernicus: free with registration, attribution required. **CMEMS coastal SDB** (`sdb.py`, DOI 10.48670/mds-00364): royalty-free, commercial use permitted, attribution required, free of charge only **to 2028-06-30 - re-verify before then**. **ICESat-2 ATL24** (`atl24.py`): NASA CC0, citation requested.
+- Open-Meteo: free tier non-commercial, attribution required (in footer); re-verify before public launch. CMEMS/Copernicus: free with registration, attribution required. **CMEMS coastal SDB** (`sdb.py`, DOI 10.48670/mds-00364): royalty-free, commercial use permitted, attribution required, free of charge only **to 2028-06-30 - re-verify before then**. **ICESat-2 ATL24** (`atl24.py`): NASA CC0, citation requested. **Water clarity** (`clarity.py`, CMEMS GlobColour, DOI 10.48670/moi-00278): same CMEMS terms as SDB, attribution in the footer. **Bathing water** (`bathing.py`): EEA CC-BY 4.0, NSW Beachwatch CC BY - both credited in the footer. NEVER use Surfers Against Sewage data (personal use only); sources and licences: `docs/WATER-SOURCES.md`.
 - Free to build on: NOAA (WW3/GFS/OISST/NDBC/CO-OPS), ECMWF open data, EOT20 tides (CC-BY), GEBCO, OSM.
 
 ## Standing prohibitions

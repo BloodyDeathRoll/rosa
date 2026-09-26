@@ -90,6 +90,26 @@ export interface CamEntry {
   label?: string;
 }
 
+/** Water clarity: satellite Secchi depth (how far down you can see), nearest clear 4 km
+    pixel off the beach; `date` is the satellite day, up to a week old under cloud. */
+export interface WaterClarity {
+  zsd_m: number;
+  date: string;
+  cadence: "daily";
+}
+
+/** Official bathing-water quality at the nearest registered site (docs/WATER-SOURCES.md).
+    `grade` 1-4, 4 best; `label` is the source's own word; `alert` = the agency forecasts
+    pollution today. "sample" = the latest lab sample when no daily forecast runs. */
+export interface WaterPollution {
+  grade: number;
+  label: string;
+  alert: boolean;
+  cadence: "daily" | "sample" | "yearly";
+  date: string;
+  src: "eea" | "nsw";
+}
+
 export interface SpotPayload {
   spot: {
     id: string;
@@ -120,6 +140,8 @@ export interface SpotPayload {
       only when Rosa asked, and Rosa may have dropped back one cycle (6-12 h) for this
       spot's box. Absent on the OM arm and on fixtures. Provenance, never an input. */
   model_run?: { gfswave: string; ecmwf: string | null };
+  /** Absent in payloads published before 2026-09-26; null member = "no data". */
+  water?: { clarity: WaterClarity | null; pollution: WaterPollution | null };
   spectral_meta?: { member: string | null; spread: string };
   current: CurrentEntry;
   hours: HourEntry[];

@@ -6,6 +6,13 @@ Read this before touching `data/spots/`, `tools/spot-verify/`, or the `bathy` / 
 
 **Spot ids are global across regions** - `rockaway-beach` (Pacifica) forced Oregon's to `rockaway-beach-or`; `load_spots` raises on a clash.
 
+### Water sources are re-matched after every seed (2026-09-26)
+
+A new spot gets its pollution source by re-running both matches and committing `data/water/bathing.yaml`:
+`rosa-pipeline bathing --match nsw` (live GeoJSON), plus `bathing --match eea --xlsx <workbook>` for an EU
+region (steps in `docs/WATER-SOURCES.md`). A spot with no official site within 2 km reads "no data".
+Clarity needs nothing: it samples every spot automatically.
+
 ### Shore normals are checked after every seed (2026-09-03)
 
 `offshore_direction` comes from the nearest OSM coastline segment, and at a headland, a bay mouth

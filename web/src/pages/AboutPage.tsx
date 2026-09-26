@@ -42,6 +42,11 @@ function HowItWorks() {
               <b>GEBCO</b> for the shape of the seabed near each spot.
             </li>
             <li>
+              <b>Copernicus Marine</b> satellite ocean colour for water clarity, and official
+              bathing-water results (the <b>EU</b>'s yearly grades, <b>NSW Beachwatch</b> daily)
+              for pollution.
+            </li>
+            <li>
               Public surf buoys (<b>NDBC</b> and <b>ISRAMAR</b>) to check our forecasts against what
               the ocean actually did.
             </li>
@@ -207,6 +212,25 @@ function ReadingTheForecast() {
       <p>
         The wetsuit suggestion comes from the water temperature alone, using the industry-standard
         bands. It is a starting point - if you run cold, or the wind is up, go thicker.
+      </p>
+
+      <h2>Clarity</h2>
+      <p>
+        How far down you can see, from satellite: the Secchi depth, the depth at which a white disk
+        disappears from view. The bar is full at 15 m (clear ocean); a river plume or a stirred-up
+        sandy beach reads 2-3 m. It is measured, not forecast - one reading for the spot, the
+        latest cloud-free day (usually two days ago, up to a week under cloud), taken from the
+        nearest clear 4 km pixel off the beach. The same on every day you scroll to.
+      </p>
+
+      <h2>Pollution</h2>
+      <p>
+        Official bathing-water results for the nearest registered beach within 2 km. Marked{" "}
+        <b>daily</b> where an agency publishes a daily pollution forecast (NSW, Australia) - the
+        bar turns red when it says pollution is likely today. Marked <b>yearly</b> where only the
+        season's grade exists (EU beaches: excellent, good, sufficient or poor). Most of the world
+        has no open source yet, so most spots read <b>no data</b>. It says nothing about the water
+        after heavy rain, which is when pollution peaks - stay out for a day or two after a storm.
       </p>
 
       <h2>Tide</h2>

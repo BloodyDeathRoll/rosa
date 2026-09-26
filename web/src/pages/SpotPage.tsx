@@ -71,8 +71,23 @@ const pmOf = (hours: HourEntry[]) =>
     return H >= 12 && H <= 18;
   });
 
-/** Size / Period / Wind quality bars for the selected day (mock's bars3). */
-function DayBars({ day, hours }: { day: DayEntry; hours: HourEntry[] }) {
+// Clarity bar scale: Secchi depth at which the track is full. A display scale, not a
+// tuning knob (docs/UI.md): 15 m is gin-clear ocean water, ~3 m is an estuary plume.
+const CLARITY_FULL_M = 15;
+
+type BarRow = { l: string; q: number | null; tag?: string; alert?: boolean };
+
+/** Size / Period / Wind for the selected day, then Clarity / Pollution for the spot
+    (measured, not forecast - same on every day, like air/water). null q = "no data". */
+function DayBars({
+  day,
+  hours,
+  water,
+}: {
+  day: DayEntry;
+  hours: HourEntry[];
+  water: SpotPayload["water"];
+}) {
   // PEAK period, matching every other swell readout (see CLAUDE.md §UI "display != scoring").
   const per = Math.max(
     0,
@@ -94,14 +109,39 @@ function DayBars({ day, hours }: { day: DayEntry; hours: HourEntry[] }) {
     { l: "Period", q: Math.max(0, Math.min(1, (per - 5) / 10)) },
     { l: "Wind", q: hours.length > 0 ? Math.max(0.12, 1 - pmKts / 22) : 0 },
   ];
+  const clarity = water?.clarity ?? null;
+  const pollution = water?.pollution ?? null;
+  const rows: BarRow[] = [
+    ...bars,
+    clarity
+      ? { l: "Clarity", q: Math.min(1, clarity.zsd_m / CLARITY_FULL_M), tag: "daily" }
+      : { l: "Clarity", q: null },
+    pollution
+      ? {
+          l: "Pollution",
+          q: pollution.grade / 4,
+          tag: pollution.cadence === "yearly" ? "yearly" : "daily",
+          alert: pollution.alert,
+        }
+      : { l: "Pollution", q: null },
+  ];
   return (
     <div class="why-bars">
-      {bars.map((b) => (
+      {rows.map((b) => (
         <div class="bar" key={b.l}>
           <span>{b.l}</span>
-          <span class="track">
-            <i class={qClass(b.q)} style={`width:${Math.round(b.q * 100)}%`} />
-          </span>
+          {b.q === null ? (
+            <span class="bar-nodata">no data</span>
+          ) : (
+            <span class="track">
+              <i
+                class={b.alert ? "q-poor" : qClass(b.q)}
+                style={`width:${Math.round(b.q * 100)}%`}
+              />
+            </span>
+          )}
+          {/* every row reserves the tag column so all five tracks end at one line */}
+          <span class="bar-tag">{b.tag ?? ""}</span>
         </div>
       ))}
     </div>
@@ -537,9 +577,6 @@ export function SpotPage({ id }: { id: string }) {
           <section class="spot-card">
             <div class="rc-left">
               <Pill bucket={day.bucket} />
-              <DayBars day={day} hours={dayHours} />
-            </div>
-            <div class="rc-right">
               <button
                 class="accent-link"
                 onClick={() => {
@@ -568,6 +605,9 @@ export function SpotPage({ id }: { id: string }) {
                   </span>
                 )}
               </div>
+            </div>
+            <div class="rc-right">
+              <DayBars day={day} hours={dayHours} water={data.water} />
             </div>
           </section>
 

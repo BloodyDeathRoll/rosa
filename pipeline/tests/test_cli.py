@@ -717,3 +717,47 @@ class TestImplausibleBreakGuard:
     def test_no_in_window_sea_has_nothing_to_compare_against(self):
         parts = (SwellPartition(height_m=2.0, period_s=10.0, direction_deg=90.0),)
         assert _implausible_break_hours(self.SPOT, [self._scored(5.0, parts)]) == []
+
+
+def test_run_attaches_water_per_spot_and_no_data_elsewhere(tmp_path, monkeypatch):
+    """Clarity + pollution ride every payload as a top-level `water` key: a matched spot
+    carries its source's reading, an unmatched one publishes None ("no data")."""
+    import rosa_pipeline.clarity as clarity
+
+    spots_dir = tmp_path / "spots"
+    spots_dir.mkdir()
+    (spots_dir / "test.yaml").write_text(SPOTS_YAML, encoding="utf-8")
+    sites = tmp_path / "bathing.yaml"
+    sites.write_text(
+        "spot-a: {src: eea, site_id: X1, name: A, km: 0.1, season: 2025, quality: '2 - Good'}\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(
+        clarity.ClarityFixtureSource,
+        "fetch",
+        lambda self, pts: [{"zsd_m": 6.5, "date": "2026-09-24"}] + [None] * (len(pts) - 1),
+    )
+    out = tmp_path / "out"
+    rc = main(
+        [
+            "run",
+            "--wave-source",
+            "om",
+            "--all",
+            "--spots-dir",
+            str(spots_dir),
+            "--out",
+            str(out),
+            "--fixtures",
+            str(FIXTURES),
+            "--bathing-sites",
+            str(sites),
+        ]
+    )
+    assert rc == 0
+    a = json.loads((out / "spots" / "spot-a.json").read_text())
+    b = json.loads((out / "spots" / "spot-b.json").read_text())
+    assert a["water"]["clarity"] == {"zsd_m": 6.5, "date": "2026-09-24", "cadence": "daily"}
+    assert a["water"]["pollution"]["grade"] == 3
+    assert a["water"]["pollution"]["cadence"] == "yearly"
+    assert b["water"] == {"clarity": None, "pollution": None}
