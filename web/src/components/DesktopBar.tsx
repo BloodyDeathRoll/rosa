@@ -78,7 +78,7 @@ export function DesktopBar({ active }: { active: Tab | null }) {
           ))}
         </nav>
         <a class="desk-search" href="/search">
-          <SearchIcon size={16} />
+          <SearchIcon size={16} stroke={1.5} />
           <span>Search spots or regions</span>
         </a>
         <ShareButton class="desk-share" />

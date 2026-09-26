@@ -52,7 +52,7 @@ export function ShareButton({
   };
   return (
     <button class={cls} onClick={() => void share()} aria-label={copied ? "Link copied" : "Share"}>
-      {copied ? <CheckIcon /> : <ShareIcon />}
+      {copied ? <CheckIcon size={20} stroke={2} /> : <ShareIcon />}
     </button>
   );
 }

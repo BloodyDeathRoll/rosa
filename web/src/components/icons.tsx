@@ -2,6 +2,8 @@
 
 interface IconProps {
   size?: number;
+  /** stroke width override; the set's default is 1.5 */
+  stroke?: number;
 }
 
 const base = {
@@ -69,16 +71,18 @@ export const UserIcon = ({ size = 18 }: IconProps) => (
   </svg>
 );
 
-export const SearchIcon = ({ size = 18 }: IconProps) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
+// Search and share default a size up and a stroke heavier than the set (2026-09-26): they
+// are the header's two action buttons and read too faint at 18/1.5.
+export const SearchIcon = ({ size = 20, stroke = 2 }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...base} stroke-width={stroke}>
     <circle cx="11" cy="11" r="8" />
     <path d="m21 21-4.3-4.3" />
   </svg>
 );
 
 /** Share - the Android three-node glyph, for every header's share button. */
-export const ShareIcon = ({ size = 18 }: IconProps) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
+export const ShareIcon = ({ size = 20, stroke = 2 }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...base} stroke-width={stroke}>
     <circle cx="18" cy="5" r="3" />
     <circle cx="6" cy="12" r="3" />
     <circle cx="18" cy="19" r="3" />
@@ -87,8 +91,8 @@ export const ShareIcon = ({ size = 18 }: IconProps) => (
   </svg>
 );
 
-export const CheckIcon = ({ size = 18 }: IconProps) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
+export const CheckIcon = ({ size = 18, stroke = 1.5 }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...base} stroke-width={stroke}>
     <path d="M20 6 9 17l-5-5" />
   </svg>
 );

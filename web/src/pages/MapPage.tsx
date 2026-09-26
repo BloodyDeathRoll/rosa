@@ -507,7 +507,7 @@ export function MapPage({ theme }: { theme: Theme }) {
                 <ChevronLeftIcon />
               </button>
               <div class="search-box grow">
-                <SearchIcon size={16} />
+                <SearchIcon size={16} stroke={1.5} />
                 <input
                   ref={searchRef}
                   placeholder="Search spots"

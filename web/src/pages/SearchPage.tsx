@@ -138,7 +138,7 @@ export function SearchPage() {
           <ChevronLeftIcon />
         </button>
         <div class="search-box grow">
-          <SearchIcon size={16} />
+          <SearchIcon size={16} stroke={1.5} />
           <input
             ref={inputRef}
             placeholder="Search spots or regions"
