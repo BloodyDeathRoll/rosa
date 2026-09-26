@@ -253,3 +253,54 @@ def test_ims_source_reads_a_204_as_no_readings(monkeypatch) -> None:
         ),
     )
     assert observe.IMSSource(token="t").fetch(Station("45", "Z", 32.57, 34.95, "ims")) == []
+
+
+def _ims_with(monkeypatch, responses: list):
+    import httpx
+
+    from rosa_pipeline import observe
+
+    calls: list[int] = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        calls.append(1)
+        return responses[min(len(calls), len(responses)) - 1]
+
+    real_client = httpx.Client
+    monkeypatch.setattr(
+        observe.httpx,
+        "Client",
+        lambda **kw: real_client(transport=httpx.MockTransport(handler), **kw),
+    )
+    return calls
+
+
+def test_ims_source_retries_the_html_error_page(monkeypatch) -> None:
+    """IMS intermittently answers 200 with an HTML error page (live, 2026-09-26: 10 of 21
+    IMS stations lost in one verify pass); the same station answers JSON seconds later."""
+    import httpx
+
+    from rosa_pipeline import observe
+    from rosa_pipeline.stations import Station
+
+    html = httpx.Response(
+        200, text="<!DOCTYPE html><html></html>", headers={"content-type": "text/html"}
+    )
+    calls = _ims_with(monkeypatch, [html, httpx.Response(200, json={"data": []})])
+    src = observe.IMSSource(token="t", retry_wait_s=0.0)
+    assert src.fetch(Station("79", "X", 32.0, 34.8, "ims")) == []
+    assert len(calls) == 2
+
+
+def test_ims_source_gives_up_with_a_clear_error_after_the_last_html_page(monkeypatch) -> None:
+    import httpx
+    import pytest
+
+    from rosa_pipeline import observe
+    from rosa_pipeline.stations import Station
+
+    html = httpx.Response(200, text="<html></html>", headers={"content-type": "text/html"})
+    calls = _ims_with(monkeypatch, [html])
+    with pytest.raises(RuntimeError, match="non-JSON"):
+        observe.IMSSource(token="t", retry_wait_s=0.0).fetch(Station("79", "X", 32.0, 34.8, "ims"))
+    assert len(calls) == observe.IMS_ATTEMPTS

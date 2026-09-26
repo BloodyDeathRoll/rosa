@@ -30,6 +30,7 @@ from __future__ import annotations
 
 import json
 import os
+import time
 from dataclasses import dataclass
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
@@ -452,6 +453,7 @@ class MetarFixtureSource:
 
 
 IMS_API = "https://api.ims.gov.il/v1/envista"
+IMS_ATTEMPTS = 5
 IMS_TOKEN_ENV = "IMS_API_TOKEN"
 # The API doc (ims.gov.il, API_Explanation_en.pdf): "The observation date is always in
 # Israel winter time (UTC + 2), and not as mentioned in the output datetime +03:00". So the
@@ -514,8 +516,10 @@ class IMSSource:
         capture_dir: Path | None = None,
         timeout_s: float = 30.0,
         days: int = 8,
+        retry_wait_s: float = 10.0,
     ) -> None:
         self.token = token if token is not None else ims_token()
+        self.retry_wait_s = retry_wait_s
         self.capture_dir = capture_dir
         self.timeout_s = timeout_s
         self.days = days
@@ -530,12 +534,31 @@ class IMSSource:
         start = today - timedelta(days=self.days)
         end = today + timedelta(days=1)
         with httpx.Client(timeout=self.timeout_s) as client:
-            resp = client.get(
-                f"{IMS_API}/stations/{station.id}/data",
-                params={"from": start.strftime("%Y/%m/%d"), "to": end.strftime("%Y/%m/%d")},
-                headers={"Authorization": f"ApiToken {self.token}"},
-            )
+            # IMS intermittently answers 200 with a Hebrew HTML error page instead of
+            # JSON - a different station each pass, the same station fine seconds later
+            # (measured 2026-09-26: 10 of 21 IMS stations lost in one verify pass; 3 tries
+            # 5 + 10 s apart still lost 2 - the outage outlasts seconds). Retry that and
+            # 5xx/429 with a widening wait before the station drops out of the pass.
+            for attempt in range(IMS_ATTEMPTS):
+                resp = client.get(
+                    f"{IMS_API}/stations/{station.id}/data",
+                    params={"from": start.strftime("%Y/%m/%d"), "to": end.strftime("%Y/%m/%d")},
+                    headers={"Authorization": f"ApiToken {self.token}"},
+                )
+                transient = (
+                    resp.status_code == 429
+                    or resp.status_code >= 500
+                    or (
+                        resp.status_code == 200
+                        and "json" not in resp.headers.get("content-type", "")
+                    )
+                )
+                if not transient or attempt == IMS_ATTEMPTS - 1:
+                    break
+                time.sleep(self.retry_wait_s * (attempt + 1))
             resp.raise_for_status()
+            if resp.status_code == 200 and "json" not in resp.headers.get("content-type", ""):
+                raise RuntimeError(f"IMS answered a non-JSON page {IMS_ATTEMPTS} times")
         # A station with nothing in the range answers 204 with an empty body (ZIKHRON
         # YAAQOV, 2026-09-14) - no readings, not a parse error.
         if resp.status_code == 204:

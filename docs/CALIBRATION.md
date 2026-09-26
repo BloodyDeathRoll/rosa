@@ -3591,3 +3591,34 @@ every later day - 97 low -> medium.
 **Verdict: applied 2026-09-19.** The confidence describes the hours the rating does. `_daylight`
 already falls back to all hours where the sun never rises. One test in `test_confidence.py` (red
 without the change); 677 passed, ruff clean.
+
+## 2026-09-26 - Station wind A/B read (plan C3b): the raw GFS atmos GRIB loses to Open-Meteo, no switch (OPEN-ITEMS 34)
+
+Step (1) of OPEN-ITEMS 34 archived the raw GFS 0.25 deg atmos GRIB wind (`gfs_grib`, nearest
+node) beside the published Open-Meteo GFS wind at every station since 2026-09-12. Read on the VM,
+`verify --stations --archive --wind-model {gfs,gfs_grib}`, on the SAME pairs: the OM archive was
+filtered to the exact (run, valid) hours the GRIB archive holds (GRIB is 3-hourly, OM hourly, OM's
+archive starts 2026-08-30), so both columns score identical observations. 208 METAR stations (the
+first pass ran without the IMS token, so the 21 IMS stations are not in it), 2026-09-12 -> 09-26:
+
+| lead | n | OM gfs speed bias / MAE (m/s) | GRIB speed bias / MAE (m/s) | OM dir MAE | GRIB dir MAE |
+|---|---|---|---|---|---|
+| 0-1d | 14293 | -0.12 / 1.40 | +0.24 / 1.60 | 37.4 | 40.0 |
+| 1-3d | 14293 | -0.11 / 1.46 | +0.20 / 1.64 | 41.3 | 42.6 |
+| 3-4d | 14173 | -0.16 / 1.54 | +0.15 / 1.70 | 44.3 | 45.0 |
+| 4-5d | 13579 | -0.16 / 1.61 | +0.15 / 1.77 | 46.9 | 47.5 |
+| 5-7d | 12407 | -0.16 / 1.71 | +0.14 / 1.85 | 51.3 | 52.0 |
+| 7-9d | 9625 | -0.19 / 1.87 | +0.10 / 1.99 | 60.0 | 60.7 |
+| 9d+ | 5007 | -0.33 / 1.99 | -0.03 / 2.05 | 64.2 | 64.8 |
+
+**Open-Meteo wins at every lead, speed and direction** - 14% lower speed MAE at 0-1 d, 2.6 deg
+better direction. The GRIB reads ~0.2 m/s hot where OM reads ~0.1 m/s light. Same model, so the
+gap is interpolation: OM serves GFS on its own finer grid, the GRIB arm takes one 0.25 deg node.
+**Verdict: no switch.** Step (2) of plan C3b (GRIB as the default weather source) is not built;
+the published wind stays on Open-Meteo. The weather-host quota problem OPEN-ITEMS 34 exists for is
+therefore still open. Not tried and the obvious next measurement if C3b is revisited: bilinear
+interpolation of the GRIB instead of nearest node.
+
+Also found in this read: the IMS API intermittently answers 200 with an HTML error page, which
+dropped 10 of 21 IMS stations from one pass (2 per cycle in publish.log). `IMSSource` now retries
+it (5 tries, 10/20/30/40 s apart; 3 tries at 5/10 s still lost 2 of 21).
