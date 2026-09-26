@@ -453,29 +453,18 @@ def test_archive_station_arm_writes_wind_rows_and_never_raises(tmp_path, monkeyp
 
     monkeypatch.setattr(cli, "fetch_wind_many", fake_wind)
 
-    class FakeGrib:  # the C3b member: one series per station coordinate, no OM units
-        def __init__(self, capture_dir=None):
-            pass
+    import rosa_pipeline.gfsatmos as gfsatmos
 
-        def fetch_series(self, coords):
-            from datetime import UTC, datetime
+    def no_grib(self, coords):  # the C3b member was dropped 2026-09-26 (its A/B lost)
+        raise AssertionError("the station arm must not fetch the gfs_grib member")
 
-            from rosa_pipeline.verify import WavePoint
-
-            t = datetime(2026, 8, 9, 0, tzinfo=UTC)
-            return [[WavePoint(t, None, None, None, ws=6.0, wdir=300.0)] for _ in coords]
-
-    monkeypatch.setattr(cli, "GfsAtmosSource", FakeGrib)
+    monkeypatch.setattr(gfsatmos.GfsAtmosSource, "fetch_series", no_grib)
     argv = _archive_argv(tmp_path, buoys_dir)
     argv[argv.index("--stations-dir") + 1] = str(stations_dir)
     st_archive = tmp_path / "st-archive"
     rc = main([*argv, "--stations-archive-dir", str(st_archive)])
     assert rc == 0
-    grib = [
-        json.loads(line) for line in (st_archive / "LLBG.gfs_grib.jsonl").read_text().splitlines()
-    ]
-    assert len(grib) == 1 and grib[0]["ws"] == 6.0 and grib[0]["wdir"] == 300.0
-    assert grib[0]["hs"] is None
+    assert not (st_archive / "LLBG.gfs_grib.jsonl").exists()
     # the buoy fleet path's own wind join calls fetch_wind_many too; the station batches
     # are the ones carrying the station's coordinate - the published model only; the
     # ICON A/B member was dropped 2026-09-16 and must not spend weather-host quota
@@ -484,23 +473,6 @@ def test_archive_station_arm_writes_wind_rows_and_never_raises(tmp_path, monkeyp
     rows = [json.loads(line) for line in (st_archive / "LLBG.jsonl").read_text().splitlines()]
     assert len(rows) == 2 and rows[0]["ws"] == 4.0 and rows[0]["hs"] is None
     assert not (st_archive / "LLBG.icon.jsonl").exists()
-
-    class GribBoom:  # losing the C3b member keeps the OM member's rows
-        def __init__(self, capture_dir=None):
-            pass
-
-        def fetch_series(self, coords):
-            raise RuntimeError("nomads down")
-
-    monkeypatch.setattr(cli, "fetch_wind_many", fake_wind)
-    monkeypatch.setattr(cli, "GfsAtmosSource", GribBoom)
-    st_archive_g = tmp_path / "st-archive-grib"
-    rc = main([*argv, "--stations-archive-dir", str(st_archive_g)])
-    assert rc == 0
-    assert (st_archive_g / "LLBG.jsonl").exists()
-    assert not (st_archive_g / "LLBG.gfs_grib.jsonl").exists()
-    err = capsys.readouterr().err
-    assert "gfs_grib member failed" in err and "gfs_grib" in err
 
     def boom(coords, *, model=cli.WEATHER_MODEL):
         raise RuntimeError("weather host down")
@@ -514,7 +486,7 @@ def test_archive_station_arm_writes_wind_rows_and_never_raises(tmp_path, monkeyp
 def test_archive_stations_switch_splits_the_buoy_and_station_arms(tmp_path, monkeypatch):
     """`--stations skip` archives the buoys and never touches the station arm;
     `--stations only` runs the station arm and never fetches a buoy. publish.sh relies on
-    the split to run the ~70 min station leg AFTER the public deploy."""
+    the split to run the station leg AFTER the public deploy."""
     import rosa_pipeline.cli as cli
 
     buoys_dir = tmp_path / "buoys"
@@ -535,16 +507,8 @@ def test_archive_stations_switch_splits_the_buoy_and_station_arms(tmp_path, monk
         wind_calls.append(coords)
         return [_wind_body(["2026-08-09T00:00"], 4.0) for _ in coords]
 
-    class NoGrib:
-        def __init__(self, capture_dir=None):
-            pass
-
-        def fetch_series(self, coords):
-            return [[] for _ in coords]
-
     monkeypatch.setattr(cli, "fetch_marine_waves_many", fake_marine)
     monkeypatch.setattr(cli, "fetch_wind_many", fake_wind)
-    monkeypatch.setattr(cli, "GfsAtmosSource", NoGrib)
     argv = _archive_argv(tmp_path, buoys_dir)
     argv[argv.index("--stations-dir") + 1] = str(stations_dir)
     st_archive = tmp_path / "st-archive"

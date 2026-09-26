@@ -55,9 +55,10 @@ run_evidence() {
   [ "$EVIDENCE_DONE" -eq 1 ] && return 0
   EVIDENCE_DONE=1
   cd "$HOME/rosa" || return 0
-  # 4c) the coastal-station wind archive (the published model's wind + the raw GFS atmos
-  #     GRIB candidate, plan C3b, at every station in data/stations). Split off step 1 on
-  #     2026-09-17 - see there. Evidence only and guarded inside the command; never fatal.
+  # 4c) the coastal-station wind archive (the published model's wind at every station in
+  #     data/stations; the raw GFS atmos GRIB candidate, plan C3b, rode here 2026-09-12 to
+  #     2026-09-26 and was dropped when its A/B lost). Split off step 1 on 2026-09-17 - see
+  #     there. Evidence only and guarded inside the command; never fatal.
   uv run --project pipeline rosa-pipeline archive --stations only \
     || echo "warn: station wind archive failed"
 
@@ -144,7 +145,7 @@ trap 'trap - ERR; set +e; run_evidence >> "$LOG" 2>&1' EXIT
   #    the public forecast stale for 12 h. The admin alert still fires so a
   #    silent archive rot cannot creep in.
   #    `--stations skip` since 2026-09-17: the coastal-station wind arm (its paced NOMADS
-  #    leg is ~70 min) is evidence only and now runs as step 4c, AFTER the deploy - it
+  #    leg was ~70 min until it was dropped 2026-09-26) is evidence only and now runs as step 4c, AFTER the deploy - it
   #    and the SWAN pilot used to hold the public forecast back ~2 h every cycle.
   uv run --project pipeline rosa-pipeline archive --stations skip \
     || on_fail "archive (non-fatal - cycle continues)"

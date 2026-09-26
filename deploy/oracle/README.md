@@ -66,8 +66,8 @@ the *published* data over HTTPS and never talks to the pipeline.
    overrides once). The cycle then alerts, pings the dead-man anyway, and exits 0 with the
    previous payloads still serving. The blend arm's one per-spot Open-Meteo call is the
    WEATHER host (1.21 units/spot, ~2,730 a run at 2254 spots, ~10,900 a day plus ~916 for the
-   station wind archive - at the vendor's 10,000/day line; OPEN-ITEMS 34 / plan C3b is the
-   exit), which the ledger does not meter. On the om arm a fifth fleet run of
+   station wind archive - at the vendor's 10,000/day line; OPEN-ITEMS 34 tracks the exit,
+   plan C3b lost its A/B 2026-09-26), which the ledger does not meter. On the om arm a fifth fleet run of
    any kind - including an ad-hoc one from a laptop against the same IP - is what the guard
    exists to stop. It fired for real on 2026-08-15 before it existed (OPEN-ITEMS 19).
    **Exit 4 is a PARTIAL run, and it DEPLOYS**: a small share of the fleet failed and the
@@ -124,10 +124,11 @@ right: anyone holding it can suppress your outage alerts). Open-Meteo and NDBC a
   every station in `data/stations/` (90 METAR airfields within 25 km of a spot) to
   `data/verify/stations/<id>.jsonl` (the published model, GFS since 2026-08-30) and
   `<id>.icon.jsonl` (ICON, the A/B member - archived 2026-08-30 to 2026-09-16, dropped
-  when the A/B confirmed GFS) and, since 2026-09-12, `<id>.gfs_grib.jsonl`
+  when the A/B confirmed GFS) and `<id>.gfs_grib.jsonl`
   (the raw GFS 0.25 atmos GRIB from NOMADS, plan C3b's candidate to replace the
-  Open-Meteo weather call - ~1,160 grib-filter requests a cycle, paced to 40/min so
-  ~29 min, no Open-Meteo units; unpaced it tripped NOMADS and killed the 2026-09-12 14:20Z cycle),
+  Open-Meteo weather call - archived 2026-09-12 to 2026-09-26, dropped when its A/B lost
+  to Open-Meteo, docs/CALIBRATION.md 2026-09-26; unpaced it tripped NOMADS and killed the
+  2026-09-12 14:20Z cycle),
   and step 4d scores the published one by lead with `verify --stations --archive` (one
   station: `verify --station LLBG --archive`; the other members: `--wind-model icon` /
   `--wind-model gfs_grib`). Wind columns only, evidence only - the bias it

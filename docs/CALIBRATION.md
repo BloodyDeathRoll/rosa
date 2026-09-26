@@ -3617,7 +3617,9 @@ gap is interpolation: OM serves GFS on its own finer grid, the GRIB arm takes on
 **Verdict: no switch.** Step (2) of plan C3b (GRIB as the default weather source) is not built;
 the published wind stays on Open-Meteo. The weather-host quota problem OPEN-ITEMS 34 exists for is
 therefore still open. Not tried and the obvious next measurement if C3b is revisited: bilinear
-interpolation of the GRIB instead of nearest node.
+interpolation of the GRIB instead of nearest node. The station arm's `gfs_grib` leg (~70 min of
+paced NOMADS a cycle, measured 2026-09-16) was removed the same day; `<station>.gfs_grib.jsonl`
+stays on the VM and `--wind-model gfs_grib` still scores it.
 
 Also found in this read: the IMS API intermittently answers 200 with an HTML error page, which
 dropped 10 of 21 IMS stations from one pass (2 per cycle in publish.log). `IMSSource` now retries

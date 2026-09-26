@@ -56,7 +56,6 @@ from .fetch import (
     fetch_wind_many,
 )
 from .geo import Seaward
-from .gfsatmos import GfsAtmosFixtureSource, GfsAtmosSource
 from .gfswave import GFSWaveFixtureSource, GFSWaveSource
 from .models import Spot
 from .observe import (
@@ -99,7 +98,6 @@ from .verify import (
     GFSWAVE_VARIABLES,
     STATION_VARIABLES,
     VARIABLES,
-    WavePoint,
     _station_pairs,
     build_scorecard,
     fit_diurnal_correction,
@@ -370,8 +368,8 @@ def _build_parser() -> argparse.ArgumentParser:
         help="with --stations/--station: which archived wind model to score - gfs (the "
         "published model since 2026-08-30, via Open-Meteo), icon (the ICON A/B member, "
         "archived 2026-08-30 to 2026-09-16, no longer fetched) or gfs_grib (the raw "
-        "GFS 0.25 atmos GRIB sampled at the station, plan C3b - archived since "
-        "2026-09-12). Same METAR/IMS observations either way",
+        "GFS 0.25 atmos GRIB sampled at the station, plan C3b - archived 2026-09-12 "
+        "to 2026-09-26, no longer fetched). Same METAR/IMS observations either way",
     )
     verify.add_argument("--stations-dir", type=Path, default=STATIONS_DIR)
     verify.add_argument("--stations-archive-dir", type=Path, default=STATIONS_ARCHIVE_DIR)
@@ -1711,9 +1709,11 @@ def _archive_stations(args: argparse.Namespace, now: datetime) -> None:
     """The coastal-station arm: the model's 10 m wind at every registered station, one
     weather-host request for the whole registry (2 vars, ~1 unit/point -
     ~90 units a cycle at 90 stations, not charged to the marine ledger, same choice as
-    the buoy archive), plus the raw GFS atmos GRIB member from NOMADS (plan C3b, per box
-    and step - no Open-Meteo units at all). Guarded top to bottom: this is evidence, and
-    it must never sink the essential buoy archive or fail the cycle."""
+    the buoy archive). The raw GFS atmos GRIB member (plan C3b, NOMADS) was archived
+    beside it 2026-09-12 -> 2026-09-26 and dropped when its A/B lost to Open-Meteo
+    (docs/CALIBRATION.md 2026-09-26); `<station>.gfs_grib.jsonl` stays scoreable via
+    `verify --wind-model gfs_grib`. Guarded top to bottom: this is evidence, and it must
+    never sink the essential buoy archive or fail the cycle."""
     stations = load_stations(args.stations_dir)
     if not stations:
         return
@@ -1744,26 +1744,8 @@ def _archive_stations(args: argparse.Namespace, now: datetime) -> None:
     except Exception as e:
         print(f"warn: station wind batch failed ({e!r}) - station arm skipped", file=sys.stderr)
         return
-    # plan C3b: the raw GFS atmos GRIB member, one NOMADS request per (box x step) for
-    # the whole registry, never per station. The more expendable leg of the two - it
-    # is the candidate, not the published model - so it degrades to "no rows this cycle".
-    # Offline (--wind-fixtures) it replays gfsatmos_f*_<box>.grib2 captures when present.
-    grib_series: list[list[WavePoint]] = [[] for _ in targets]
-    try:
-        grib_src: GfsAtmosSource | GfsAtmosFixtureSource = (
-            GfsAtmosFixtureSource(args.wind_fixtures)
-            if args.wind_fixtures is not None
-            else GfsAtmosSource(capture_dir=args.capture)
-        )
-        grib_series = grib_src.fetch_series(coords)
-    except Exception as e:
-        print(
-            f"warn: station gfs_grib member failed ({e!r}) - skipped this run",
-            file=sys.stderr,
-        )
     total = 0
-    total_grib = 0
-    for st, body, grib in zip(targets, bodies, grib_series, strict=True):
+    for st, body in zip(targets, bodies, strict=True):
         try:
             if args.capture is not None and args.wind_fixtures is None:
                 args.capture.mkdir(parents=True, exist_ok=True)
@@ -1773,26 +1755,16 @@ def _archive_stations(args: argparse.Namespace, now: datetime) -> None:
             rows = rows_from_model(now, wind_points(body))
             store.append(st.id, rows)
             total += len(rows)
-            n_grib = 0
-            if grib:
-                grib_rows = rows_from_model(now, grib)
-                store.append(st.id + STATION_GRIB_KEY_SUFFIX, grib_rows)
-                n_grib = len(grib_rows)
-                total_grib += n_grib
             print(
                 f"{st.id}: archived {len(rows)} wind rows ({WEATHER_MODEL})"
-                f" + {n_grib} (gfs_grib)"
                 f" → {args.stations_archive_dir / (st.id + '.jsonl')}"
             )
         except Exception as e:
             print(f"warn: {st.id}: {e!r} - station left out of this run", file=sys.stderr)
     # Same silent shape as the wave members: the batch guard above catches a raise, but a
     # 200 that parses to no hours archives 0 rows at every station and returns cleanly -
-    # 89 lines of "archived 0 wind rows" and no summary. The published model and the
-    # C3b candidate are totalled (a candidate that archives nothing decides nothing).
+    # 89 lines of "archived 0 wind rows" and no summary.
     _warn_member_empty(WEATHER_MODEL, total, targets, noun="station")
-    if args.wind_fixtures is None:
-        _warn_member_empty("gfs_grib", total_grib, targets, noun="station")
 
 
 def _cmd_archive(args: argparse.Namespace) -> int:
