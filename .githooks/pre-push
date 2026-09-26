@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Rosa commits straight to main, so the CI "checks" workflow only reports AFTER a bad
+# commit is already on main (2026-09-26: an unformatted sdb.py kept every check red for
+# five commits). This runs the same lint gates BEFORE the push leaves the machine.
+# Enabled once per clone with: git config core.hooksPath .githooks
+# Bypass in an emergency with: git push --no-verify
+set -euo pipefail
+root=$(git rev-parse --show-toplevel)
+cd "$root/pipeline"
+if ! uv run --locked ruff format --check >/dev/null || ! uv run --locked ruff check -q; then
+  echo "pre-push: pipeline lint failed - run 'uv run ruff format' in pipeline/ and commit" >&2
+  exit 1
+fi
