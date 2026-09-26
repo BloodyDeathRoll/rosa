@@ -392,7 +392,8 @@ def parse_metar_json(data: list[dict], station: str) -> list[BuoyObs]:
 
     ``wspd``/``wgst`` are knots; ``wdir`` is degrees FROM, or the literal "VRB" when the
     wind is light and variable - kept as a speed with no direction (the harness pairs
-    speed and direction separately, so a directionless row still scores speed). Reports
+    speed and direction separately, so a directionless row still scores speed). Calm
+    (wdir 0, wspd 0) is the same: a speed of 0 and no direction. Reports
     with no wind group at all are dropped - a station that publishes none is not truth."""
     obs: list[BuoyObs] = []
     for r in data:
@@ -405,6 +406,10 @@ def parse_metar_json(data: list[dict], station: str) -> list[BuoyObs]:
         except ValueError:
             continue
         wd = r.get("wdir")
+        if ws == 0.0:
+            # calm (00000KT, wdir 0): METAR writes north as 360, so 0 is "no direction",
+            # not north - keep the speed, drop the direction (as for VRB)
+            wd = None
         obs.append(
             BuoyObs(
                 station=station,

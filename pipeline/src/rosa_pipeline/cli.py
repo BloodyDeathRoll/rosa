@@ -2630,7 +2630,10 @@ def _cmd_swan(args: argparse.Namespace) -> int:
                 points_rel="../points.loc",
                 nests=nests,
                 nest_points_rel=nest_points,
-                hotstart_tag=previous_tag if args.chain else None,
+                # "" = first step of a chain: no hotstart, but write the hot file the
+                # next step reads (write_step tells "" from None; with no --nests nothing
+                # else asks for the outer's hot file)
+                hotstart_tag=(previous_tag or "") if args.chain else None,
                 buoy_points_rel=buoy_points,
             )
             previous_tag = f"f{step:03d}"

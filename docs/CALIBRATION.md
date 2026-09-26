@@ -3624,3 +3624,7 @@ stays on the VM and `--wind-model gfs_grib` still scores it.
 Also found in this read: the IMS API intermittently answers 200 with an HTML error page, which
 dropped 10 of 21 IMS stations from one pass (2 per cycle in publish.log). `IMSSource` now retries
 it (5 tries, 10/20/30/40 s apart; 3 tries at 5/10 s still lost 2 of 21).
+
+## 2026-09-26 - A calm METAR hour has no wind direction (Dream 09-26)
+
+`observe.parse_metar_json` kept `wdir_deg=0` on a calm report (`00000KT`; METAR writes north as 360), so every calm hour entered the station wind-direction card as a "from north" truth. Calm now parses to `wdir_deg=None`, like `VRB` already did; the speed pair still scores. Station `wdir` MAE/bias at METAR stations moves on cards built after this date; how many hours are calm was not measured. Harness-only, nothing published moves. The wider proposal (drop calm from `wdir` for every wind source in `verify.pair_series`) is held until a before/after `verify --stations --archive` rerun on the VM.

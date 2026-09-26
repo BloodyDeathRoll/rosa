@@ -327,7 +327,11 @@ def merge_profile(
         samples=tuple(samples),
         origin_lat=profile.origin_lat,
         origin_lon=profile.origin_lon,
-        # provenance travels with the profile: to_dict names both grids in `source`
-        sdb_patched_km=tuple(p.dist_km for p in patched),
+        # provenance travels with the profile: to_dict names both grids in `source`. A point
+        # an earlier --apply patched is still SDB when this run leaves it alone.
+        sdb_patched_km=tuple(
+            sorted(set(profile.sdb_patched_km) | {p.dist_km for p in patched})
+        ),
+        grid_label=profile.grid_label,
     )
     return merged, patched
