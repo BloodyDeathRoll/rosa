@@ -576,17 +576,19 @@ export function SpotPage({ id }: { id: string }) {
           <CamSection data={data} all={spots} />
           <section class="spot-card">
             <div class="rc-left">
-              <Pill bucket={day.bucket} />
-              <button
-                class="accent-link"
-                onClick={() => {
-                  setPendingPin(id);
-                  navigate("/map");
-                }}
-              >
-                <MapIcon size={14} />
-                Map
-              </button>
+              <div class="rc-head">
+                <Pill bucket={day.bucket} />
+                <button
+                  class="accent-link"
+                  onClick={() => {
+                    setPendingPin(id);
+                    navigate("/map");
+                  }}
+                >
+                  <MapIcon size={14} />
+                  Map
+                </button>
+              </div>
               <div class="rc-temps">
                 <span>
                   <ThermometerIcon />
