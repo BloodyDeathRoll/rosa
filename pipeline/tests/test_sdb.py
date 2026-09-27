@@ -133,3 +133,49 @@ def test_patching_changes_the_shoaling_reference():
     assert profile.nearshore_depth_m == 280.0
     assert merged.nearshore_depth_m == 5.2
     assert math.isfinite(merged.mean_slope_m_per_km)
+
+
+def test_sdb_all_sweep_survives_one_failed_read(tmp_path, monkeypatch, capsys):
+    """One CMEMS blip must not end an `sdb --all` sweep: the failed spot is named, the
+    rest are read, and the exit code says something failed (Dream 2026-09-27)."""
+    from pathlib import Path
+
+    import rosa_pipeline.cli as cli
+
+    repo = Path(__file__).resolve().parents[2]
+    spots = tmp_path / "spots"
+    spots.mkdir()
+    (spots / "t.yaml").write_text(
+        (repo / "data/spots/portugal.yaml").read_text(encoding="utf-8"), encoding="utf-8"
+    )
+    calls = []
+
+    class Flaky:
+        def readings(self, points):
+            calls.append(1)
+            if len(calls) == 2:
+                raise RuntimeError("503")
+            return [None] * len(points)
+
+    monkeypatch.setattr(cli, "_sdb_source", lambda args: Flaky())
+    rc = cli.main(
+        [
+            "sdb",
+            "--all",
+            "--spots-dir",
+            str(spots),
+            "--bathy-dir",
+            str(repo / "data/spots/derived/bathy"),
+        ]
+    )
+    assert rc == 1
+    assert len(calls) > 2
+    assert "SDB read failed" in capsys.readouterr().err
+
+
+def test_atl24_label_names_the_graded_grid():
+    from rosa_pipeline.cli import profile_source_label
+
+    assert profile_source_label({"gebco2024 via local grid"}) == (
+        "committed profile (gebco2024 via local grid)"
+    )

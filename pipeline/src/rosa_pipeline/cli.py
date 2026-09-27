@@ -18,6 +18,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import sys
 from datetime import UTC, datetime
 from pathlib import Path
@@ -2289,6 +2290,7 @@ def _cmd_sdb(args: argparse.Namespace) -> int:
     source = _sdb_source(args)
     captured: list[tuple[float, float]] = []
     n_profiles = n_patched = n_points = 0
+    failed: list[str] = []
     deltas: list[float] = []
     for spot in targets:
         profile = load_profile(spot.id, args.bathy_dir)
@@ -2296,8 +2298,17 @@ def _cmd_sdb(args: argparse.Namespace) -> int:
             print(f"warn: {spot.id}: no committed profile - run `bathy` first", file=sys.stderr)
             continue
         points = [(s.lat, s.lon) for s in profile.samples]
+        try:
+            readings = source.readings(points)
+        except Exception as e:
+            # one CMEMS blip must not end a fleet sweep (the verify --all-buoys rule, as in
+            # `horizon`); a single-spot run still raises - there the failure is the answer
+            if not args.all:
+                raise
+            print(f"warn: {spot.id}: SDB read failed - {e!r}", file=sys.stderr)
+            failed.append(spot.id)
+            continue
         captured.extend(points)
-        readings = source.readings(points)
         merged, patched = merge_profile(profile, readings, min_delta_m=args.min_delta)
         n_profiles += 1
         n_points += sum(1 for r in readings if r is not None)
@@ -2331,6 +2342,9 @@ def _cmd_sdb(args: argparse.Namespace) -> int:
     print(ATTRIBUTION)
     if not args.apply and n_patched:
         print("nothing written - re-run with --apply once the A/B says the swap is right")
+    if failed:
+        print(f"{len(failed)} spot(s) not read: {', '.join(failed)}", file=sys.stderr)
+        return 1
     return 0
 
 
@@ -2379,12 +2393,23 @@ def _cmd_atl24(args: argparse.Namespace) -> int:
         _sdb_source(argparse.Namespace(fixtures=None, cache=args.sdb_cache)) if args.sdb else None
     )
     reached = 0
+    grids: set[str] = set()
+    n_sdb_skipped = 0
     for spot in targets:
         profile = load_profile(spot.id, args.bathy_dir)
         if profile is None:
             continue
         points = atl24.profile_points(profile)
-        pairs = atl24.pair(points, index, radius_m=args.radius_m)
+        # the grid row grades the grid: a point `sdb --apply` patched is SDB, not GEBCO
+        sdb_km = set(profile.sdb_patched_km)
+        grid_points = [
+            (s.lat, s.lon, s.depth_m)
+            for s in profile.samples
+            if math.isfinite(s.depth_m) and s.dist_km not in sdb_km
+        ]
+        n_sdb_skipped += len(points) - len(grid_points)
+        grids.add(profile.grid_label)
+        pairs = atl24.pair(grid_points, index, radius_m=args.radius_m)
         if pairs:
             reached += 1
         gebco_pairs.extend(pairs)
@@ -2401,16 +2426,18 @@ def _cmd_atl24(args: argparse.Namespace) -> int:
         f"{reached} of {len(targets)} spot(s) had a ray point within "
         f"{args.radius_m:.0f} m of a photon\n"
     )
-    print(atl24.score(profile_source_label(args), gebco_pairs).as_row())
+    print(atl24.score(profile_source_label(grids), gebco_pairs).as_row())
+    if n_sdb_skipped:
+        print(f"  ({n_sdb_skipped} SDB-patched ray point(s) left out of the grid row)")
     if source is not None:
         print(atl24.score("CMEMS coastal SDB 100 m", sdb_pairs).as_row())
     print(f"\n{atl24.CITATION}")
     return 0
 
 
-def profile_source_label(args: argparse.Namespace) -> str:
-    """The committed profiles are GEBCO unless `sdb --apply` has patched them."""
-    return "committed profile (gebco2020)"
+def profile_source_label(grids: set[str]) -> str:
+    """The grid(s) the graded profiles were actually cut from (DepthProfile.grid_label)."""
+    return f"committed profile ({' + '.join(sorted(grids)) or 'none'})"
 
 
 def _cmd_horizon(args: argparse.Namespace) -> int:
