@@ -44,6 +44,11 @@ export const CLARITY_MAX = 20;
     CLARITY_HAZY_M, murky below. */
 export const BREAK_SMALL_M = 0.6;
 export const CLARITY_HAZY_M = 2.5;
+/** Chop words from the hour's chop penalty (0..CHOP_MAX): flat below CHOP_LIGHT, light
+    below CHOP_CHOPPY, choppy below CHOP_ROUGH, rough above. */
+export const CHOP_LIGHT = 5;
+export const CHOP_CHOPPY = 15;
+export const CHOP_ROUGH = 25;
 
 /** Score → word. Inverted from surf: Calm is the top. Below OUT_MIN is "Stay out";
     a pollution alert caps the score at OUT_CAP whatever the sea is doing. */
@@ -509,5 +514,12 @@ export function clarityWord(zsd: number): FactorWord {
   if (zsd >= CLARITY_CLEAR_M) return { word: "clear", bucket: "CALM" };
   if (zsd >= CLARITY_HAZY_M) return { word: "hazy", bucket: "CHOPPY" };
   return { word: "murky", bucket: "ROUGH" };
+}
+
+export function chopWord(penalty: number): FactorWord {
+  if (penalty < CHOP_LIGHT) return { word: "flat", bucket: "CALM" };
+  if (penalty < CHOP_CHOPPY) return { word: "light", bucket: "EASY" };
+  if (penalty < CHOP_ROUGH) return { word: "choppy", bucket: "CHOPPY" };
+  return { word: "rough", bucket: "ROUGH" };
 }
 

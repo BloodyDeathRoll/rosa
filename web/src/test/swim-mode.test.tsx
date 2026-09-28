@@ -58,12 +58,11 @@ describe("swim mode (toggle on)", () => {
     expect(html).toContain('aria-expanded="false"');
   });
 
-  it("card: word + Map left, best hour + rip right, one line per factor, no chop, gear", () => {
+  it("card: word + Map left, best hour + rip right, one line per factor, gear", () => {
     expect(html).toContain("swim-words");
     expect(html).toMatch(/class="sw-left">.*data-swim=.*Map<\/button><\/span>/s);
     expect(html).toMatch(/best \d\d:\d\d · rip risk (low|med|high)/);
-    for (const l of ["Shore break", "Surge", "Wind", "Clarity"]) expect(html).toContain(`class="sw-l">${l}<`);
-    expect(html).not.toContain('class="sw-l">Chop<');
+    for (const l of ["Shore break", "Chop", "Surge", "Wind", "Clarity"]) expect(html).toContain(`class="sw-l">${l}<`);
     expect(html).toMatch(/class="sw-w" style="color:var\(--swim-(calm|easy|choppy|rough|out)\)"/);
     expect(html).not.toMatch(/\bq-(good|fair|warn|poor)\b/);
     expect(html).toMatch(/class="suit">(skins|wetsuit|wetsuit \+ cap \+ gloves|cold-water caution)</);

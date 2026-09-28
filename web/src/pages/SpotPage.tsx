@@ -23,6 +23,8 @@ import { ratingVar } from "../conditions";
 import {
   bestSwim,
   breakWord,
+  CHOP_PERIOD_CLEAN_S,
+  chopWord,
   clarityWord,
   pushWord,
   surgeWord,
@@ -44,6 +46,7 @@ import {
   swimScore,
   swimVar,
   toKnots,
+  windSeaPeriod,
   type Mode,
 } from "../lib/swim";
 import { useMode } from "../mode";
@@ -680,7 +683,7 @@ export function SpotPanel({
 /** Swim mode's card (option D, with the operator's notes): the word and Map on the
     left, the best daylight hour and its rip risk on the right, then one line per
     factor - value and a word on the swim colours - and air / water / gear centred at
-    the bottom. No chop row; no pollution row where there is no source. */
+    the bottom. No pollution row where there is no source. */
 function SwimWordsCard({
   data,
   date,
@@ -699,10 +702,17 @@ function SwimWordsCard({
   const feet = units.height === "ft";
   const brk = shoreBreak(sv.brkM, feet);
   const tp = peakPeriod(rep);
+  const wsp = windSeaPeriod(rep);
   const clarity = data.water?.clarity ?? null;
   const pollution = data.water?.pollution ?? null;
   const rows: { l: string; v: string; w: FactorWord | null }[] = [
     { l: "Shore break", v: `${brk.n} ${brk.unit}`, w: breakWord(sv.brkM) },
+    {
+      l: "Chop",
+      // the wind sea doing it, when there is one short enough to count
+      v: wsp !== null && wsp < CHOP_PERIOD_CLEAN_S ? `${Math.round(wsp)} s wind sea` : "",
+      w: chopWord(swimScore(rep, data.water).pen.chop),
+    },
     { l: "Surge", v: tp !== null ? `sets ${Math.round(tp)} s` : "", w: surgeWord(surgeLevel(rep)) },
     {
       l: "Wind",
