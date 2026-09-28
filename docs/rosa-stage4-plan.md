@@ -29,8 +29,9 @@ NDBC discus classes apart when scoring.)
 - **Boundary reality (Stage 3 plan §2):** no free 2-D spectra exist for download - NOAA
   `spec_tar` is dead, ECMWF open data has none. GFS-Wave 0.25 gives 3 swell partitions +
   windsea at every grid node (`gfswave.py`); that is the boundary source.
-- **Wind over the grid:** `gfsatmos.py` already fetches GFS 0.25 10 m wind by box and step
-  (plan C3b) - the same shape SWAN needs for `INPGRID WIND`.
+- **Wind over the grid:** `gfsatmos.filter_url` builds the GFS 0.25 10 m wind request by box
+  and step (the plan C3b shape) and `run swan` fetches it - the same shape SWAN needs for
+  `INPGRID WIND`. The C3b station fetcher itself was deleted 2026-09-28 (its A/B lost).
 - **Box budget:** the publish cycle takes 3.5-4.3 h of each 6 h slot (publish.log,
   2026-09-13/14), so about 2 h is free. SWAN must fit inside that or the cycle overlaps.
 - **Buoys registered in the bight:** only 46218 Harvest and 46225 Torrey Pines

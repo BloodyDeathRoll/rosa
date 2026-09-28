@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import json
 import math
+import sys
 from bisect import bisect_left
 from dataclasses import dataclass
 from datetime import datetime, timedelta
@@ -115,13 +116,33 @@ def load_run(run_dir: Path, points_json: Path) -> dict[str, list[NearshoreSea]]:
             table = run_dir / f"spots_{tag}_{grid}.tab"
             if grid == "outer" or not table.exists():
                 continue
-            _take(series, table, mine, valid, seen)
+            _take_guarded(series, table, mine, valid, seen)
         outer = run_dir / f"spots_{tag}.tab"
         if outer.exists():
-            _take(series, outer, points, valid, seen)
+            _take_guarded(series, outer, points, valid, seen)
     for s in series.values():
         s.sort(key=lambda n: n.time)
     return series
+
+
+def _take_guarded(
+    series: dict[str, list[NearshoreSea]],
+    table: Path,
+    points: list[dict],
+    valid: datetime,
+    seen: set[str],
+) -> None:
+    """One table's failure costs that step, never the run - the module's own contract.
+
+    `_take` raises on a table with the wrong row count (the shape `timeout` leaves when it
+    kills SWAN mid-write, publish.sh 4e) or an unparseable row; unguarded, that raise
+    escaped the per-step loop and every step of the run was lost with it - and through
+    `swan-archive`, the whole cycle's rows of an append-only member. A torn step is
+    reported and left absent, exactly like a step with no table."""
+    try:
+        _take(series, table, points, valid, seen)
+    except (ValueError, OSError) as exc:
+        print(f"warn: nearshore: {table.name} unreadable ({exc}) - step skipped", file=sys.stderr)
 
 
 def _take(
@@ -174,7 +195,7 @@ def load_buoys(run_dir: Path) -> dict[str, list[NearshoreSea]]:
             if not table.exists():
                 continue
             points = [{"spot": bid, "handoff_km": 0.0} for bid in ids]
-            _take(series, table, points, valid, seen)
+            _take_guarded(series, table, points, valid, seen)
     for s in series.values():
         s.sort(key=lambda n: n.time)
     return series

@@ -453,12 +453,8 @@ def test_archive_station_arm_writes_wind_rows_and_never_raises(tmp_path, monkeyp
 
     monkeypatch.setattr(cli, "fetch_wind_many", fake_wind)
 
-    import rosa_pipeline.gfsatmos as gfsatmos
-
-    def no_grib(self, coords):  # the C3b member was dropped 2026-09-26 (its A/B lost)
-        raise AssertionError("the station arm must not fetch the gfs_grib member")
-
-    monkeypatch.setattr(gfsatmos.GfsAtmosSource, "fetch_series", no_grib)
+    # the C3b gfs_grib member was dropped 2026-09-26 (its A/B lost) and its fetcher
+    # deleted 2026-09-28; the arm must write no row under that key
     argv = _archive_argv(tmp_path, buoys_dir)
     argv[argv.index("--stations-dir") + 1] = str(stations_dir)
     st_archive = tmp_path / "st-archive"

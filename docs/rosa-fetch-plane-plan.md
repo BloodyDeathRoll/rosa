@@ -128,7 +128,9 @@ the same per-spot request family). Order: easiest first, each independently ship
   Rating-critical (wind gate) -> pb_0049: fleet A/B + CALIBRATION.md entry in the same
   change. After it, spot count costs zero Open-Meteo units anywhere on the publish path.
   **Step 1 BUILT 2026-09-12** (`gfsatmos.py`, archive key `<station>.gfs_grib`,
-  `verify --stations --wind-model gfs_grib`); cards readable from ~2026-09-26.
+  `verify --stations --wind-model gfs_grib`); cards readable from ~2026-09-26. **Lost its
+  station A/B 2026-09-26** (CALIBRATION.md) and the fetcher was deleted 2026-09-28 -
+  `gfsatmos.py` keeps only `filter_url`, which `run swan` uses for the SWAN wind field.
 - **C4. Confidence ensemble.** Today: a 4-model OM ensemble request. Rebuild
   agreement + `dir_span` from members we already download (GFS-Wave, ECMWF, and the
   blend spread itself). The member set changes, so `dir_n` era-tagging applies AGAIN

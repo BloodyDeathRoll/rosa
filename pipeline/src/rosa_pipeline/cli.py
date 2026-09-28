@@ -1067,7 +1067,21 @@ def _cmd_run(args: argparse.Namespace) -> int:
         if args.swan_run is None:
             print("error: --nearshore swan needs --swan-run <run dir>", file=sys.stderr)
             return 2
-        nearshore_series = load_swan_run(args.swan_run, args.swan_run.parent / "points.json")
+        try:
+            nearshore_series = load_swan_run(args.swan_run, args.swan_run.parent / "points.json")
+        except Exception as e:
+            # The arm's own contract (nearshore.py): a run that never happened falls back
+            # to the march. This load sat outside every guard, so a run dir with no
+            # cycle.json (the pilot did not run, or `timeout` killed it - publish.sh 4e),
+            # a torn points.json or an unreadable table raised here and stranded every
+            # spot unpublished - the fleet-loop gap pattern, one loop further out.
+            # Loud, not silent: the summary below still says how many hours came from SWAN.
+            print(
+                f"warn: nearshore swan: run dir {args.swan_run} unreadable ({e!r}) - every "
+                "spot stays on the march this cycle",
+                file=sys.stderr,
+            )
+            nearshore_series = {}
         print(
             f"nearshore swan: {len(nearshore_series)} spot(s) with a SWAN series in {args.swan_run}"
         )

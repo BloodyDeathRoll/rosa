@@ -97,6 +97,24 @@ def test_load_run_leaves_a_missing_step_absent(tmp_path):
     assert [s.time for s in series["oceanside-harbor"]] == [T0, T0 + timedelta(hours=6)]
 
 
+def test_load_run_and_load_buoys_skip_a_torn_table_and_keep_the_other_steps(tmp_path, capsys):
+    # a table with the wrong row count is what `timeout` leaves when it kills SWAN
+    # mid-write (publish.sh 4e); it must cost its step, not the run (Dream 2026-09-28)
+    run, points = _run_dir(tmp_path, steps=(0, 3, 6))
+    head = "\n".join(TABLE.splitlines()[:7]) + "\n"
+    (run / "spots_f003.tab").write_text(head + " -117.418 33.1964 20.0 6.0 9.0 270.0 30.0 7.0\n")
+    series = nearshore.load_run(run, points)
+    assert [s.time for s in series["refugio"]] == [T0, T0 + timedelta(hours=6)]
+    assert "spots_f003.tab unreadable" in capsys.readouterr().err
+    (run / "buoys_f000.tab").write_text(head + " -117.5 33.0 30.0 1.0 9.0 270.0 30.0 7.0\n")
+    (run / "buoys_f003.tab").write_text(head)
+    (run / "buoys_f006.tab").write_text(head + " -117.5 33.0 30.0 1.5 9.0 270.0 30.0 7.0\n")
+    (run / "buoys.json").write_text(json.dumps({"outer": ["46086"]}))
+    buoys = nearshore.load_buoys(run)
+    assert [s.hs for s in buoys["46086"]] == pytest.approx([1.0, 1.5])
+    assert "buoys_f003.tab unreadable" in capsys.readouterr().err
+
+
 def test_nearshore_at_interpolates_between_steps_and_gives_up_past_the_gap():
     a = nearshore.NearshoreSea(T0, 1.0, 6.0, 8.0, 350.0, 25.0, 15.0, 1000.0)
     b = nearshore.NearshoreSea(T0 + timedelta(hours=3), 2.0, 7.0, 9.0, 10.0, 27.0, 15.0, 1000.0)
