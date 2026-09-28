@@ -58,19 +58,25 @@ describe("swim mode (toggle on)", () => {
     expect(html).toContain('aria-expanded="false"');
   });
 
-  it("card: gear line and the swim bar order", () => {
-    const order = ["Clarity", "Pollution", "Chop", "Surge", "Push"].map((l) => html.indexOf(`<span>${l}</span>`));
-    expect(order.every((i) => i >= 0)).toBe(true);
-    expect([...order].sort((a, b) => a - b)).toEqual(order);
-    expect(html).not.toContain("<span>Size</span>");
+  it("card: the best hour, its score, the points each factor took, and gear", () => {
+    expect(html).toContain("swim-why");
+    expect(html).toMatch(/best hour \d\d:\d\d · \d+\/100/);
+    expect(html).toMatch(/Points lost at the best hour|Nothing took a point at the best hour/);
+    expect(html).toMatch(/No penalty: /);
+    // the old five-bar card and its surf-scale colours are gone
+    for (const l of ["Clarity", "Chop", "Surge", "Push"]) expect(html).not.toContain(`<span>${l}</span>`);
+    expect(html).not.toMatch(/\bq-(good|fair|warn|poor)\b/);
     expect(html).toMatch(/class="suit">(skins|wetsuit|wetsuit \+ cap \+ gloves|cold-water caution)</);
   });
 
-  it("no pollution source is said out loud", () => {
+  it("no pollution or clarity source is said out loud, once", () => {
     const noWater = { ...data, water: { clarity: null, pollution: null } };
     const h = panel(noWater);
-    expect(h).not.toContain("no pollution data"); // the Pollution bar's "no data" says it once
-    expect(h).toContain("<span>Pollution</span><span class=\"bar-nodata\">no data</span>");
+    expect(h).toContain("pollution: no data");
+    expect(h).toContain("clarity: no data");
+    expect(h.match(/pollution: no data/g)!.length).toBe(1);
+    const alert = { ...data, water: { ...data.water!, pollution: { ...data.water!.pollution!, alert: true } } };
+    expect(panel(alert)).toContain("Pollution likely today - capped at Stay out");
   });
 
   it("a rock or reef shore shows the banner instead of a rating", () => {
@@ -81,14 +87,18 @@ describe("swim mode (toggle on)", () => {
     expect(panel(data)).not.toContain("Rocky entry");
   });
 
-  it("day strip: three bars, the shore break figure and the push-out arrow", () => {
+  it("day strip: one bar a day in the swim colour, the shore break figure, a legend", () => {
     const strip = render(
       <DayScrubber data={data} days={data.days} selected={0} today={TODAY} onSelect={() => undefined} mode="swim" />
     );
     expect(strip).toContain("swim-col");
-    expect(strip).toContain("--swim-temp");
-    expect(strip).toContain("--swim-clarity");
+    const cols = strip.split('class="day-col').slice(1);
+    for (const c of cols.filter((c) => c.includes("swim-bar")))
+      expect(c.match(/class="chart-bar swim-bar/g)!.length).toBe(1);
+    expect(strip).toMatch(/background:var\(--swim-(calm|easy|choppy|rough|out)\)/);
     expect(strip).toMatch(/chart-val tabular">\d+cm</);
+    expect(strip).toContain("swim-legend");
+    expect(strip).not.toContain("day-dot");
     expect(strip).not.toContain("--rating-");
   });
 

@@ -5,14 +5,12 @@ import { SwellDirIcon } from "./icons";
 import { arrowRotation, dateOf, dayLabel, dayNum, splitName } from "../format";
 import { fmtRange, heightUnit, useUnits } from "../units";
 import {
-  CLARITY_BAR_FULL_M,
   daySwim,
   daylightOf,
   pushOf,
   rockyEntry,
   shoreBreak,
-  SST_BAR_MAX_C,
-  SST_BAR_MIN_C,
+  SWIM_WORD,
   swimVar,
   type Mode,
 } from "../lib/swim";
@@ -73,21 +71,17 @@ function dayColumn(data: SpotPayload, date: string) {
   return { bars, hasAny: hrs.length > 0, wind: noon?.wind.dir ?? null, day };
 }
 
-/** Swim mode's column: three bars - Calm (the day's best daylight swim score, in the
-    swim colour), Water temp and Clarity (one value each, the same all day) - the
-    wind arrow tinted when it pushes out, and the shore break as one figure. */
+/** Swim mode's column: ONE bar - the day's swim rating (height = the best daylight
+    hour's score, colour = its word; neutral on a rock / reef shore) - the wind arrow
+    tinted when it pushes out, and the shore break as one figure. Every swim strip and
+    chart row draws this same bar, so no two screens disagree. */
 function swimColumn(data: SpotPayload, date: string) {
   const hrs = data.hours.filter((h) => dateOf(h.t) === date);
   const day = data.days.find((d) => d.date === date);
   const sw = daySwim(hrs, data.water, daylightOf(data.spot, date));
-  const clarity = data.water?.clarity?.zsd_m ?? null;
-  const frac = (x: number) => Math.max(0, Math.min(1, x));
+  const rocky = rockyEntry(data.spot.shore);
   const bars: ({ f: number; color: string } | null)[] = [
-    hrs.length ? { f: sw.score / 100, color: swimVar(sw.bucket) } : null,
-    sw.sst !== null
-      ? { f: frac((sw.sst - SST_BAR_MIN_C) / (SST_BAR_MAX_C - SST_BAR_MIN_C)), color: "var(--swim-temp)" }
-      : null,
-    clarity !== null ? { f: frac(clarity / CLARITY_BAR_FULL_M), color: "var(--swim-clarity)" } : null,
+    hrs.length ? { f: sw.score / 100, color: rocky ? "var(--swim-none)" : swimVar(sw.bucket) } : null,
   ];
   const noon = hrs.reduce<(typeof hrs)[number] | null>((best, h) => {
     const hour = Number(h.t.slice(11, 13));
@@ -100,12 +94,11 @@ function swimColumn(data: SpotPayload, date: string) {
     wind: noon?.wind.dir ?? null,
     push: noon ? pushOf(noon) : null,
     day,
-    dot: rockyEntry(data.spot.shore) ? "var(--border)" : swimVar(sw.bucket),
   };
 }
 
-/** Swim mode's three bars alone - Calm / Water temp / Clarity, the same bars the spot
-    page's day strip draws - for the Today card beside its shore-break figure. */
+/** Swim mode's day bar alone - the same bar the spot page's day strip draws - for the
+    Today card beside its shore-break figure. */
 export function SwimMiniBars({ data, date }: { data: SpotPayload; date: string }) {
   const c = swimColumn(data, date);
   if (!c.hasAny) return null;
@@ -114,7 +107,7 @@ export function SwimMiniBars({ data, date }: { data: SpotPayload; date: string }
       {c.bars.map((b, i) => (
         <span
           key={i}
-          class={`chart-bar${b === null ? " stub" : ""}`}
+          class={`chart-bar swim-bar${b === null ? " stub" : ""}`}
           style={
             b !== null
               ? `height:${Math.max(BAR_MIN, Math.round(b.f * CHART_H))}px;background:${b.color}`
@@ -267,7 +260,6 @@ export function DayScrubber({
                 <span class="dcol-head">
                   <span class="dow">{dayLabel(day.date, today)}</span>
                   <span class="dnum tabular">{dayNum(day.date)}</span>
-                  <span class="day-dot" style={`background:${c.dot}`} aria-hidden="true" />
                 </span>
                 <span class="dcol-bars">
                   <span
@@ -281,7 +273,7 @@ export function DayScrubber({
                       c.bars.map((b, j) => (
                         <span
                           key={j}
-                          class={`chart-bar${b === null ? " stub" : ""}`}
+                          class={`chart-bar swim-bar${b === null ? " stub" : ""}`}
                           style={
                             b !== null
                               ? `height:${Math.max(BAR_MIN, Math.round(b.f * CHART_H))}px;background:${b.color}`
@@ -344,6 +336,16 @@ export function DayScrubber({
           );
         })}
       </div>
+      {mode === "swim" && (
+        <div class="swim-legend" aria-label="Swim rating colours">
+          {(["CALM", "EASY", "CHOPPY", "ROUGH", "OUT"] as const).map((b) => (
+            <span key={b}>
+              <i style={`background:${swimVar(b)}`} aria-hidden="true" />
+              {SWIM_WORD[b]}
+            </span>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -426,7 +428,7 @@ export function CoastChart({
                         c.bars.map((b, i) => (
                           <span
                             key={i}
-                            class={`chart-bar${b === null ? " stub" : ""}`}
+                            class={`chart-bar swim-bar${b === null ? " stub" : ""}`}
                             style={
                               b !== null
                                 ? `height:${Math.max(BAR_MIN, Math.round(b.f * ROW_CHART_H))}px;background:${b.color}`

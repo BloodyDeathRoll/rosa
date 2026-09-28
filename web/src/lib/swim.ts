@@ -66,11 +66,6 @@ export const BEST_SWIM_MIN = EASY_MIN;
 /** Tide flow: hours at or above this share of the day's fastest |dh/dt| are shaded. */
 export const FLOW_FAST_FRAC = 0.75;
 
-/** Day-strip bar scales (display, not tuning): the water-temp bar runs
-    SST_BAR_MIN_C..SST_BAR_MAX_C, the clarity bar fills at CLARITY_BAR_FULL_M. */
-export const SST_BAR_MIN_C = 10;
-export const SST_BAR_MAX_C = 30;
-export const CLARITY_BAR_FULL_M = 15;
 
 // ---------------------------------------------------------------------------------
 // Types

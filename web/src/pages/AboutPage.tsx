@@ -313,10 +313,13 @@ function ReadingTheForecast() {
       </p>
       <p>
         The tide card marks each turn of the tide as <b>slack</b> and shades the hours the water
-        moves fastest; slack is the easier swim. The day strip's three bars become Calm, water
-        temperature and clarity, with the shore break underneath, and the best swim of the day is
-        the highest-scoring daylight hour, a slacker tide breaking ties. A spot the database marks
-        as rock or reef says so instead of rating the water: it is not a swimming beach.
+        moves fastest; slack is the easier swim. The day strip shows one bar a day: its height is
+        the day's swim score and its colour the word, with the shore break underneath. The card
+        under it names the best hour of the day and its score out of a hundred, and shows where
+        the missing points went - so much to the shore break, so much to chop - so the rating
+        explains itself. When two hours tie, the one nearer a slack tide wins. A spot the
+        database marks as rock or reef says so instead of rating the water: it is not a swimming
+        beach.
       </p>
 
       <h2>Units</h2>

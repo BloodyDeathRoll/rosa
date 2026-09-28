@@ -83,9 +83,12 @@
   --swim-choppy-fg: #ffffff;
   --swim-rough-fg: #ffffff;
   --swim-out-fg: #ffffff;
-  --swim-temp: #b98a3c;
-  --swim-clarity: #3f8fa8;
   --swim-flow: color-mix(in srgb, var(--wind-cross) 16%, transparent);
+  /* the swim card's "points lost" breakdown, one colour per factor */
+  --swim-pen-brk: #8a5cf6;
+  --swim-pen-chop: #e48022;
+  --swim-pen-push: #d0574a;
+  --swim-pen-clarity: #3f8fa8;
   /* a swim reading still loading, or a rock / reef shore */
   --swim-none: color-mix(in srgb, var(--muted-foreground) 45%, transparent);
 
@@ -1691,6 +1694,9 @@ a.rank-card:hover {
     animation: none;
   }
 }
+.spot-sticky.condensed .swim-legend {
+  display: none;
+}
 .spot-sticky.condensed .dcol-bars {
   max-height: 0;
   opacity: 0;
@@ -2311,6 +2317,112 @@ a.rank-card:hover {
 .pill[data-swim="NONE"] {
   background: var(--swim-none);
   color: var(--foreground);
+}
+
+/* One bar per day in every swim strip (option A, 2026-09-28): wider than the
+   surf mode's three daypart bars, rounded like a pill */
+.chart-bar.swim-bar {
+  flex: none;
+  width: 22px;
+  border-radius: 5px;
+}
+.coast-row .chart-bar.swim-bar {
+  width: 18px;
+}
+
+/* the swim scale's key, under the swim day strip */
+.swim-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  padding: 0 16px 8px;
+  font-size: 11px;
+  color: var(--muted-foreground);
+}
+.swim-legend i {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+  margin-right: 4px;
+  vertical-align: -1px;
+}
+
+/* Swim card (option B): rating, best hour, and the points each factor took */
+.spot-card.swim-why {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+.swim-why .sw-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.swim-why .sw-sub {
+  font-size: 13px;
+  color: var(--muted-foreground);
+}
+.swim-why .sw-bar {
+  display: flex;
+  height: 10px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--emphasis-bg);
+  margin: 4px 0 2px;
+}
+.swim-why .sw-bar i {
+  display: block;
+  height: 100%;
+}
+.swim-why .sw-cap {
+  font-size: 12px;
+  color: var(--muted-foreground);
+}
+.swim-why .sw-alert {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--swim-rough);
+}
+.swim-why .sw-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+}
+.swim-why .sw-row i {
+  width: 9px;
+  height: 9px;
+  border-radius: 3px;
+  flex: none;
+}
+.swim-why .sw-row span {
+  color: var(--muted-foreground);
+}
+.swim-why .sw-row b {
+  margin-left: auto;
+  font-weight: 700;
+}
+.swim-why .sw-temps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 4px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-size: 13.2px;
+}
+.swim-why .sw-temps > span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.swim-why .sw-temps svg {
+  color: var(--muted-foreground);
+}
+.swim-why .sw-temps .suit {
+  font-weight: 500;
 }
 
 /* rock / reef shore: the banner stands where the rating would */

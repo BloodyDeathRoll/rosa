@@ -22,27 +22,23 @@ import { Pill, ShareButton, StarButton, SwimPill } from "../components/parts";
 import { ratingVar } from "../conditions";
 import {
   bestSwim,
-  CHOP_MAX,
   daySwim,
   daylightOf,
   GEAR_WORD,
-  gearFor,
   peakPeriod,
-  PUSH_OUT_MAX,
   PUSH_OUT_RED_KT,
   PUSH_WORD,
   pushOf,
   ripLevel,
   rockyEntry,
   shoreBreak,
-  SURGE_HIGH,
   surgeLevel,
   SWIM_RAIL_FILL,
+  swimDayView,
   swimNote,
   swimScore,
   swimVar,
   toKnots,
-  type DaySwim,
   type Mode,
 } from "../lib/swim";
 import { useMode } from "../mode";
@@ -511,44 +507,16 @@ export function SpotPanel({
             </p>
           )}
           {dsw ? (
-            <section class="spot-card swim-card">
-              <div class="rc-left">
-                <div class="rc-head">
-                  {!rocky && <SwimPill bucket={dsw.bucket} />}
-                  <button
-                    class="accent-link"
-                    onClick={() => {
-                      setPendingPin(id);
-                      navigate("/map");
-                    }}
-                  >
-                    <MapIcon size={14} />
-                    Map
-                  </button>
-                </div>
-                <div class="rc-temps">
-                  <span>
-                    <ThermometerIcon />
-                    <span class="tabular">air {cur.air !== null ? fmtTemp(cur.air, units) : "-"}</span>
-                  </span>
-                  <span>
-                    <WavesIcon />
-                    <span class="tabular">
-                      water {cur.sst !== null ? fmtTemp(cur.sst, units) : "-"}
-                    </span>
-                  </span>
-                  {gearFor(cur.sst) && (
-                    <span>
-                      <ShirtIcon />
-                      <span class="suit">{GEAR_WORD[gearFor(cur.sst)!]}</span>
-                    </span>
-                  )}
-                </div>
-              </div>
-              <div class="rc-right">
-                <SwimDayBars day={dsw} water={data.water} />
-              </div>
-            </section>
+            <SwimWhyCard
+              data={data}
+              date={day.date}
+              units={units}
+              rocky={rocky}
+              onMap={() => {
+                setPendingPin(id);
+                navigate("/map");
+              }}
+            />
           ) : (
           <section class="spot-card">
             <div class="rc-left">
@@ -704,47 +672,106 @@ export function SpotPanel({
       );
 }
 
-/** Swim mode's five bars: Clarity / Pollution for the spot (measured), then the
-    selected day's worst Chop / Surge / Push. Same markup as DayBars, so the two
-    modes' cards sit identically. */
-function SwimDayBars({ day, water }: { day: DaySwim; water: SpotPayload["water"] }) {
-  const clarity = water?.clarity ?? null;
-  const pollution = water?.pollution ?? null;
-  const rows: BarRow[] = [
-    clarity
-      ? { l: "Clarity", q: Math.min(1, clarity.zsd_m / CLARITY_FULL_M), tag: "daily" }
-      : { l: "Clarity", q: null },
-    pollution
-      ? {
-          l: "Pollution",
-          q: pollution.grade / 4,
-          tag: pollution.cadence === "yearly" ? "yearly" : "daily",
-          alert: pollution.alert,
-        }
-      : { l: "Pollution", q: null },
-    { l: "Chop", q: Math.max(0.12, 1 - day.worst.chop / CHOP_MAX) },
-    { l: "Surge", q: Math.max(0.12, 1 - Math.min(1, day.worst.surge / SURGE_HIGH)) },
-    { l: "Push", q: Math.max(0.12, 1 - day.worst.push / PUSH_OUT_MAX) },
+/** Swim mode's card: the rating word, the best daylight hour and its score, then WHY -
+    one bar split into the points kept and the points each factor took at that hour,
+    listed underneath. The rating explains itself; nothing here is on a second scale. */
+function SwimWhyCard({
+  data,
+  date,
+  units,
+  rocky,
+  onMap,
+}: {
+  data: SpotPayload;
+  date: string;
+  units: Units;
+  rocky: boolean;
+  onMap: () => void;
+}) {
+  const sv = swimDayView(data, date);
+  const rep = sv.rep ?? data.current;
+  const s = swimScore(rep, data.water);
+  const factors = [
+    { l: "Shore break", p: s.pen.brk, c: "var(--swim-pen-brk)" },
+    { l: "Chop", p: s.pen.chop, c: "var(--swim-pen-chop)" },
+    { l: "Wind push", p: s.pen.push, c: "var(--swim-pen-push)" },
+    { l: "Murky water", p: s.pen.clarity, c: "var(--swim-pen-clarity)" },
   ];
+  const lost = factors.filter((f) => Math.round(f.p) >= 1);
+  const clean = factors.filter((f) => Math.round(f.p) < 1).map((f) => f.l);
+  const pollution = data.water?.pollution ?? null;
+  const unknowns = [
+    ...(s.clarityUnknown ? ["clarity: no data"] : []),
+    ...(pollution === null
+      ? ["pollution: no data"]
+      : s.polluted
+        ? []
+        : [`pollution: ${pollution.label.toLowerCase()}`]),
+  ];
+  const gear = sv.gear;
   return (
-    <div class="why-bars">
-      {rows.map((b) => (
-        <div class="bar" key={b.l}>
-          <span>{b.l}</span>
-          {b.q === null ? (
-            <span class="bar-nodata">no data</span>
+    <section class="spot-card swim-why">
+      <div class="sw-head">
+        {!rocky && <SwimPill bucket={sv.bucket} />}
+        <button class="accent-link" onClick={onMap}>
+          <MapIcon size={14} />
+          Map
+        </button>
+        {!rocky && sv.rep && (
+          <span class="sw-sub tabular">
+            best hour {hourOf(rep.t)} · {s.score}/100
+          </span>
+        )}
+      </div>
+      {!rocky && (
+        <>
+          <div class="sw-bar" aria-hidden="true">
+            <i style={`width:${s.score}%;background:${swimVar(s.bucket)}`} />
+            {!s.polluted &&
+              lost.map((f) => <i key={f.l} style={`width:${f.p}%;background:${f.c}`} />)}
+          </div>
+          {s.polluted ? (
+            <p class="sw-alert">Pollution likely today - capped at Stay out</p>
+          ) : lost.length > 0 ? (
+            <>
+              <p class="sw-cap">Points lost at the best hour</p>
+              {lost.map((f) => (
+                <div class="sw-row" key={f.l}>
+                  <i style={`background:${f.c}`} aria-hidden="true" />
+                  <span>{f.l}</span>
+                  <b class="tabular">−{Math.round(f.p)}</b>
+                </div>
+              ))}
+            </>
           ) : (
-            <span class="track">
-              <i
-                class={b.alert ? "q-poor" : qClass(b.q)}
-                style={`width:${Math.round(b.q * 100)}%`}
-              />
-            </span>
+            <p class="sw-cap">Nothing took a point at the best hour</p>
           )}
-          <span class="bar-tag">{b.tag ?? ""}</span>
-        </div>
-      ))}
-    </div>
+          {(clean.length > 0 || unknowns.length > 0) && (
+            <p class="sw-cap">
+              {[clean.length ? `No penalty: ${clean.join(" · ")}` : "", ...unknowns]
+                .filter(Boolean)
+                .join(" · ")}
+            </p>
+          )}
+        </>
+      )}
+      <div class="sw-temps">
+        <span>
+          <ThermometerIcon />
+          <span class="tabular">air {rep.air !== null ? fmtTemp(rep.air, units) : "-"}</span>
+        </span>
+        <span>
+          <WavesIcon />
+          <span class="tabular">water {rep.sst !== null ? fmtTemp(rep.sst, units) : "-"}</span>
+        </span>
+        {gear && (
+          <span>
+            <ShirtIcon />
+            <span class="suit">{GEAR_WORD[gear]}</span>
+          </span>
+        )}
+      </div>
+    </section>
   );
 }
 
