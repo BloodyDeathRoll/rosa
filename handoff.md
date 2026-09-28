@@ -1,81 +1,89 @@
-# Session Handoff - 2026-09-25
+# Session Handoff — 2026-09-28
 
 ## Goal
-Security pass on rosa: run `/security-audit`, have Dream's codebase-reviewer run a security
-review with proper tests, apply what holds up, deploy.
+Swim mode for Rosa: a per-device Profile toggle (Surf / Swim) that re-reads the same
+published forecast for sea swimmers on every screen, with surf mode unchanged. Later in
+the session: calibrate swim chop from the operator in the water at Hilton, show wind in
+km/h for metric users, +10% type app-wide, and track the mode in GA.
 
 ## Current State
-- **Committed, pushed to main, deployed** (cf295ae..f9fc42f):
-  - user-api: a re-created account starts a fresh `session_epoch` (`wrangler deploy` done,
-    version 22b5f71b; live `/` 200, bogus bearer 401).
-  - web: `?import=` hardening; CSP ENFORCED for the app + a new `/widget/` CSP (live headers
-    confirmed on rosa.surf and /widget/).
-  - `.github/workflows/claude*.yml`: actions pinned by SHA + `persist-credentials: false`.
-  - `deploy/oracle/publish.sh`: `vercel deploy` without `--token` (box CLI 59.10.0 reads
-    `VERCEL_TOKEN` from env, checked in its dist). **Not yet run on the box** - first cycle
-    that pulls it is 11:20 local (08:20Z) 2026-09-25.
-- **Not tested:** the Google sign-in popup under the enforced CSP (GSI script + button load
-  cleanly; the popup/code exchange was never clicked through).
-- **Blocked:** push-api per-IP rate limits (Dream finding 4, LOW). Vercel Hobby refuses
-  rate-limit rules ("Rate limiting is not available for this plan (401)"); nothing staged.
-- **Uncommitted:** `docs/SESSIONS.md` (this session's entry) and this `handoff.md`, in the
-  worktree `~/.superset/worktrees/rosa/clumsy-rule` (branch `session-on`). `~/Projects/rosa`
-  also has an uncommitted `handoff.md` from an older session.
-- Dream ledger (`~/Projects/Dream/assignments/codebase-reviewer/reports/.state/rosa.applied`)
-  closed through 2026-09-25: everything applied except the blocked rate-limit item. Dream
-  itself not committed (never from a project session).
+- All shipped: `origin/main` = 015b5e7, web deployed to rosa.surf after cdf0a92 (last
+  web change). 38 web tests pass (`cd web && npm test`), `tsc --noEmit` clean.
+- Work was done on the Superset worktree branch `add-swim-mode`
+  (`~/.superset/worktrees/rosa/denim-polyanthus`) and pushed with
+  `git push origin add-swim-mode:main` (fast-forward; no PR, no remote branch).
+- Swim mode covers: spot page (hour-ribbon strip, words card, swim hourly table, tide
+  slack/flow), Today cards + coast rows, Spots, search, desktop ticker, map pins/clusters/
+  cards, nearby cards, report tags, About page section.
+- GA: app sends user property `mode` at boot and on switch; the operator registered the
+  user-scoped custom dimension `mode` on 2026-09-28 ~evening. `tools/ga-report` accepts it
+  (all rows "(not set)" so far - data needs 24-48 h).
+- NOT done: **no GitHub agent review has run on any of today's commits** - the Claude
+  GitHub App is not installed on BloodyDeathRoll/rosa (every `claude-review` run since
+  2026-09-13 fails "401 ... install the Claude Code GitHub App at
+  https://github.com/apps/claude"). Operator step, not done.
+- Two open Dependabot PRs (#25 ruff lock, #26 npm bumps) unreviewed for the same reason.
+  #25's `pipeline` check fails only because its base predates 3028cb5 (sdb.py format).
+- Known mismatch, reported, NOT fixed: the spot page day note (`swimNote`) uses all hours
+  incl. night while the pill uses daylight - e.g. Santa Teresa "Choppy" pill vs "Easy going".
 
 ## Active Files
-- `deploy/user-api/src/index.ts` - sign-in INSERT seeds `session_epoch` with `now`.
-- `web/src/main.tsx` - `importFromQuery`: strip first, try/catch decode, cap 200.
-- `web/scripts/csp.mjs` - emits enforced `Content-Security-Policy` for site + widget (widget
-  inline-script hash; throws if the widget has != 1 inline script).
-- `.github/workflows/claude.yml`, `claude-code-review.yml` - SHA pins, no persisted creds.
-- `deploy/oracle/publish.sh:217` - no `--token`.
-- `SECURITY.md`, `docs/OPEN-ITEMS.md` 33 (corrected: no rule was ever staged), `docs/SESSIONS.md`.
-- Outside the repo: `~/Projects/swarm/audits/rosa/2026-09-25/` (audit report, tests),
-  `~/Projects/swarm/audits/rosa/ledger.jsonl` (ROSA-004 appended as `open` - now fixed and
-  deployed, status line not updated).
+- `web/src/lib/swim.ts` - every swim derivation + named constants (chop calibrated today).
+- `web/src/swimData.ts` - on-demand payload fetch for index-only screens (6 in flight, IO).
+- `web/src/mode.ts` - mode store (localStorage `rosa.mode` + event), copy of units.ts.
+- `web/src/units.ts` - `fmtWind` / `windUnit`: km/h with metres, kt with feet.
+- `web/src/pages/SpotPage.tsx` - `SpotPanel` (pure), `SwimHourRow`, `SwimWordsCard`.
+- `web/src/components/CoastChart.tsx` - `swimColumn`, `SwimRibbon`, `SwimMiniBars`, legend.
+- `web/src/pages/{TodayPage,SpotsPage,SearchPage,MapPage,SettingsPage,AboutPage}.tsx`,
+  `components/{SpotCard,DesktopBar,ReportSheet,TideSection,parts,icons}.tsx` - swim branches.
+- `web/src/styles.css` - swim rules (classes surf never emits), every font-size x1.1.
+- `web/src/test/` - surf snapshots (`__snapshots__/`), swim render tests, bondi fixture.
+- `pipeline/src/rosa_pipeline/{models,spots,publish}.py` - optional `shore` field (unset).
+- `tools/ga-report/report.py` - reports `mode`; survives it being unregistered.
+- `docs/mockups/swim-layout/option-{a,b,c,d}.png` - the four layouts shown to the operator.
+- Docs: `docs/UI.md`, `docs/CALIBRATION.md` (2026-09-28 entry), `docs/OPEN-ITEMS.md` 40,
+  `docs/SPOT-DB.md` (`shore`), `docs/SESSIONS.md`.
 
-## Changes Made This Session
-1. `/security-audit` (delta since 2026-09-11): one proven finding, ROSA-004 MEDIUM (tag-pinned
-   actions holding the Claude OAuth token). Dropped leads: undici 6.27.0 (unreachable),
-   dev-only npm advisories, `/yt-feed`, widget innerHTML. Missing scan tools: semgrep,
-   pip-audit, checkov, zizmor.
-2. Wrote the operator a prompt for a Dream session to run codebase-reviewer security-focused on
-   rosa; Dream ran it (report 2026-09-25) and found the token-revival bug the audit missed.
-3. `/dream-review`: applied the token fix + `?import=` diffs with `git apply` in the worktree
-   (review-apply.sh targets `~/Projects/rosa`), used the audit's full SHA pin instead of
-   Dream's partial one. Then all 3 proposals by hand.
-4. CSP: push-api has no runtime logs (Vercel MCP returned nothing, any window), so evidence =
-   headless Chrome (system `/usr/bin/google-chrome` + playwright in scratchpad) crawling live
-   pages with the built enforced headers injected via `route.fulfill`: 0 violations; an
-   injected inline script was blocked on both site and widget.
-5. Superset "no Run button": `~/Projects/rosa` was 2 commits behind (no `.superset/`); pulled.
-6. Operator said "apply all" and later "commit, push and deploy" on 2026-09-25 - history
-   only, not standing approval.
+## Changes Made This Session (in order)
+1. Extracted `SpotPanel`, added vitest, froze surf snapshots from pre-swim code (5cd59b1).
+2. Swim mode on the spot page (b631cc4); card said "no pollution data" twice -> fixed.
+3. Operator: "card says Poor, inside says Calm" -> froze surf render of all other cards
+   (0daec38), then swim branches everywhere (9a4340c). Index `h` is the CURRENT hour, so
+   swim screens show the DAY figure from `swimDayView`, "…" until loaded.
+4. Operator called the layout unclear -> 4 mockups from live Hilton numbers; picked A strip
+   + B card (ea8dc7a), then D strip (hour ribbon) + D's words card with notes (8120df3,
+   2b421ea), chop line removed then restored (97bfa71). Operator-approved on 2026-09-28.
+5. Hilton "forecast way off": Surfline's 20/23 are km/h = Rosa's GFS knots; IMS Tel Aviv
+   Coast read 11-13 kt g16 = Rosa 10-12 kt. Real miss: swim chop scored 12 kt onshore over
+   a 4 s sea Calm 81. `CHOP_PER_KT` 1.6->3.5, `CHOP_MAX` 35->70 -> Choppy 58 (a36491d).
+   Wind now km/h for metric users (deliberate surf change; snapshots re-baselined, only
+   wind numbers/unit changed).
+6. Selector icons (aa4f2d7); note under selector removed + every font +10% (aaf33cf);
+   home-card air/water/suit forced to one line: "air"/"water" words dropped for icons,
+   long suit labels step to 11.4/10.8 px (cdf0a92).
+7. IMS read (OPEN-ITEMS 25) for station 178 only: bias ~0, MAE 0.7 m/s, fitted diurnal
+   correction +3.1% worse -> no correction.
 
 ## Failed Attempts
-- Vercel firewall via MCP (`update_firewall_config` schema rejects, `put_firewall_config` 404)
-  and CLI (`vercel firewall rules add` -> plan 401). Rate limiting needs Pro or another path.
-- `wrangler deploy` failed "Authentication error [10000]" while logged into the
-  shaharnaor@outlook.com Cloudflare account; the Worker is in einhanamer@gmail.com's account
-  (c283cc56...). `wrangler login` via `!` timed out at 120 s - run it in a real terminal.
-- Playwright's bundled browser is not installed; use `executablePath: "/usr/bin/google-chrome"`.
-- The live site shows a "Continue with Google / Not now" sheet that blocks the page in headless
-  runs - click "Not now" before probing.
-- Dream reviewer's jail has no network, so it cannot resolve action SHAs.
+- `pkill -f <pattern>` from the Bash tool kills its own shell (exit 144) every time; use
+  `kill $(pgrep -f "patter[n]")` (bracket trick) and check ports with `ss -ltnp`.
+- Workspace browser pane lost WebGL (map "couldn't load" in BOTH modes); use headless
+  Chrome: `google-chrome --headless=new --remote-debugging-port=9333 --use-angle=swiftshader --enable-unsafe-swiftshader`.
+- VM verify: from `~/rosa/pipeline` the station registry is empty; run from `~/rosa` with
+  `set -a; . ./.env; set +a; ~/.local/bin/uv run --project pipeline rosa-pipeline verify --station <id> --archive --bias-profile`.
+- GA Admin API from the service account: 403 "Admin API not enabled in project
+  889597220636"; account is `rosa-ga-reader` (read-only); no gcloud installed. GA UI needs
+  the operator's sign-in.
+- `superset browser` Superset pane and first vitest config: a `/** ... **/*.test ... */`
+  comment closes itself - avoid `*/` inside JSDoc.
+- Map carousel landed on the wrong card in swim mode when readings arrived mid centring
+  scroll -> fixed by not re-setting an unchanged card list on data-only redraws.
 
 ## Next Step
-1. After the 11:20 local cycle, check the box's deploy still works without `--token`:
-   `ssh -i ~/.config/rosa/ssh-key-2026-07-23.key ubuntu@82.70.253.255 'cd ~/rosa && git log --oneline -1 && tail -30 publish.log'`
-   - expect HEAD f9fc42f or later and a "Production ... Aliased" deploy line; then check
-   `curl -s https://rosa-data-opal.vercel.app/data/spots/carcavelos.json` has a fresh `fetched_at`.
-2. Test Google sign-in on rosa.surf under the enforced CSP (real browser, click through).
-3. Ask the operator: commit `docs/SESSIONS.md` + `handoff.md`; update ROSA-004 to fixed in
-   `~/Projects/swarm/audits/rosa/ledger.jsonl`.
-4. push-api rate limits (OPEN-ITEMS 33a): options are Vercel Pro, a KV counter, or moving
-   contact/feedback/sub into the user-api Worker (Workers Rate Limiting is free) - ask first.
-5. Carried from 2026-09-18 handoff, not re-verified: smoke check of the 09-18 fixes, Frankfurt
-   `rosa-vcn` delete question, dated reads (C3b wind A/B 26 Sep, IMS beach wind 28 Sep, SWAN
-   A/B 5 Oct - drop pre-fix `.swan` rows).
+1. Ask the operator to install the Claude GitHub App on the repo
+   (https://github.com/apps/claude), then post "@claude review" on #25, #26 and trigger a
+   review of today's commits on main; audit the answers (global rule 6).
+2. After 24-48 h: `GA_SA_KEY=~/.config/rosa/ga-sa.json uv run --project pipeline python tools/ga-report/report.py` - read PREFERENCE: mode.
+3. Read the other four IMS beach stations (46, 124, 208, 106) with the VM command above.
+4. Offer: make `swimNote` (SpotPage day note) use daylight hours like the pill.
+5. Stage 4 SWAN A/B read due 2026-10-05 (memory note).
