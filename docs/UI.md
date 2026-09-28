@@ -2,7 +2,7 @@
 
 Read this before touching `web/`.
 
-**Design system: "warm clay"** — warm cream/clay tokens, Inter (@fontsource-variable), light + dark themes (dark default), FIRING displays as **"Epic"**. All hexes confined to the two theme blocks in `styles.css`; tier colors only in the condition layer. Roomy and cozy, generous spacing, no decorative borders on cards. (`docs/rosa-conditions-color-system.md` is the older zine system — HISTORICAL, do not implement from it.)
+**Type scale (2026-09-28): every font size is 110% of what it was (body 17.6px) - scale new sizes from that, not from the old set.** **Design system: "warm clay"** — warm cream/clay tokens, Inter (@fontsource-variable), light + dark themes (dark default), FIRING displays as **"Epic"**. All hexes confined to the two theme blocks in `styles.css`; tier colors only in the condition layer. Roomy and cozy, generous spacing, no decorative borders on cards. (`docs/rosa-conditions-color-system.md` is the older zine system — HISTORICAL, do not implement from it.)
 
 Shell: **Today | Spots | Map | Profile**.
 - **Today** — region chips + `planToday()` (chips from where you are + favorites + the ONE last-viewed spot; ≥5 spots per region; anchor leads; payloads load per region). Favorites are live page state (`useFavorites`), never a one-time read - the server sync lands after mount. Without a GPS fix, "where you are" is the spot an earlier fix ranked nearest (`rosa.home`), else the region you favorite most, and only then the last spot opened (2026-09-12).

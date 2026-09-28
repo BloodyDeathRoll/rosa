@@ -199,6 +199,8 @@ html {
 }
 
 body {
+  /* 110% of the browser's 16px default (2026-09-28: every font size +10%) */
+  font-size: 17.6px;
   margin: 0;
   background: var(--body-bg);
   color: var(--foreground);
@@ -231,7 +233,7 @@ button {
 }
 
 .eyebrow {
-  font-size: 13.2px;
+  font-size: 14.5px;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -246,7 +248,7 @@ button {
   align-items: center;
   justify-content: center;
   margin: 0;
-  font-size: 14.3px;
+  font-size: 15.7px;
   color: var(--muted-foreground);
   text-align: center;
 }
@@ -256,7 +258,7 @@ button {
   align-items: center;
   gap: 6px;
   white-space: nowrap;
-  font-size: 13.2px;
+  font-size: 14.5px;
   font-weight: 600;
   color: var(--accent);
 }
@@ -354,7 +356,7 @@ button {
 
 .state {
   padding: 24px 16px;
-  font-size: 14.3px;
+  font-size: 15.7px;
   color: var(--muted-foreground);
 }
 
@@ -398,14 +400,14 @@ button {
 .brand-lead {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 18.7px;
+  font-size: 20.6px;
   letter-spacing: -0.01em;
   line-height: 1;
 }
 .brand-word {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 18.7px;
+  font-size: 20.6px;
   line-height: 1;
 }
 .brand-dot {
@@ -419,7 +421,7 @@ button {
 }
 
 .head-note {
-  font-size: 13.2px;
+  font-size: 14.5px;
   color: var(--muted-foreground);
 }
 
@@ -515,7 +517,7 @@ button {
   align-items: center;
   padding: 0 10px;
   border-radius: 9999px;
-  font-size: 12.7px;
+  font-size: 14px;
   font-weight: 600;
 }
 .pill[data-bucket="FLAT"] {
@@ -563,7 +565,7 @@ button {
   position: absolute;
   right: 6px;
   bottom: 4px;
-  font-size: 8.8px;
+  font-size: 9.7px;
   color: #fff;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
 }
@@ -596,12 +598,12 @@ button {
   gap: 6px;
 }
 .spot-title b {
-  font-size: 16px;
+  font-size: 17.6px;
   font-weight: 600;
   color: var(--foreground);
 }
 .spot-title small {
-  font-size: 12.1px;
+  font-size: 13.3px;
   font-weight: 400;
   color: var(--muted-foreground);
 }
@@ -623,7 +625,7 @@ button {
   padding: 8px 16px;
   border-radius: 999px;
   border: 1px solid var(--border);
-  font-size: 13.5px;
+  font-size: 14.9px;
   font-weight: 600;
   color: var(--muted-foreground);
   white-space: nowrap;
@@ -650,7 +652,7 @@ button {
   border: 1px solid var(--input-border);
   background: var(--input-bg);
   color: var(--foreground);
-  font-size: 14.9px;
+  font-size: 16.4px;
   font-family: inherit;
   box-shadow: var(--input-shadow);
   width: 100%;
@@ -722,7 +724,7 @@ button {
   gap: 5px;
   padding: 5px 14px;
   border-radius: 6px;
-  font-size: 13.8px;
+  font-size: 15.2px;
   font-weight: 500;
   color: var(--muted-foreground);
 }
@@ -758,11 +760,11 @@ button {
   line-height: 1.1;
 }
 .rank-card .surf-range {
-  font-size: 20.9px;
+  font-size: 23px;
   margin-top: 4px;
 }
 .detail-card .surf-range {
-  font-size: 26.4px;
+  font-size: 29px;
   margin-top: 8px;
 }
 
@@ -804,11 +806,11 @@ button {
     transform 0.18s ease;
 }
 .date-chip .dow {
-  font-size: 11.6px;
+  font-size: 12.8px;
   font-weight: 600;
 }
 .date-chip .dnum {
-  font-size: 16.5px;
+  font-size: 18.2px;
   font-weight: 700;
   color: var(--foreground);
 }
@@ -904,11 +906,11 @@ button {
   justify-content: space-between;
 }
 .detail-card .top .spot-title b {
-  font-size: 16.5px;
+  font-size: 18.2px;
 }
 .detail-card .line {
   display: block;
-  font-size: 13.2px;
+  font-size: 14.5px;
   color: var(--muted-foreground);
   margin-top: 5px;
 }
@@ -932,7 +934,7 @@ button {
   padding-top: 10px;
 }
 .detail-card .window {
-  font-size: 12.7px;
+  font-size: 14px;
   color: var(--muted-foreground);
 }
 .detail-card .window b {
@@ -953,7 +955,7 @@ button {
 .detail-card .pill {
   height: 26px;
   padding: 0 13px;
-  font-size: 15px;
+  font-size: 16.5px;
   font-weight: 700;
 }
 
@@ -1004,11 +1006,11 @@ button {
   color: var(--muted-foreground);
 }
 .coast-day .dow {
-  font-size: 13px;
+  font-size: 14.3px;
   font-weight: 600;
 }
 .coast-day .dnum {
-  font-size: 18px;
+  font-size: 19.8px;
   font-weight: 700;
   color: var(--foreground);
 }
@@ -1033,7 +1035,7 @@ button {
 .coast-name {
   display: block;
   padding: 0 var(--coast-pad) 10px;
-  font-size: 16px;
+  font-size: 17.6px;
   font-weight: 700;
 }
 .coast-cells {
@@ -1048,7 +1050,7 @@ button {
   gap: 8px;
 }
 .coast-h {
-  font-size: 11.5px;
+  font-size: 12.7px;
   font-weight: 700;
 }
 .coast-bars {
@@ -1104,11 +1106,11 @@ button {
   background: var(--primary);
 }
 .dcol-head .dow {
-  font-size: 11px;
+  font-size: 12.1px;
   font-weight: 600;
 }
 .dcol-head .dnum {
-  font-size: 15.5px;
+  font-size: 17.1px;
   font-weight: 700;
   color: var(--foreground);
 }
@@ -1175,7 +1177,7 @@ button {
 .coast .chart-val {
   /* sized off the column, not the screen, so it can't overflow the narrower
      columns of a 360px phone ("0.2-0.3m" measures 4.42em in Inter) */
-  font-size: calc(var(--col-w) * 0.16);
+  font-size: calc(var(--col-w) * 0.176);
   letter-spacing: -0.01em;
 }
 
@@ -1202,7 +1204,7 @@ button {
 .chart-val {
   width: var(--col-w, 50px);
   text-align: center;
-  font-size: 11px;
+  font-size: 12.1px;
   font-weight: 700;
   color: var(--foreground);
   white-space: nowrap;
@@ -1295,7 +1297,7 @@ a.rank-card:hover {
 
 .rank-card .line {
   display: block;
-  font-size: 13.2px;
+  font-size: 14.5px;
   color: var(--muted-foreground);
   margin-top: 3px;
 }
@@ -1311,7 +1313,7 @@ a.rank-card:hover {
   gap: 6px;
 }
 .rank-card .rank-n {
-  font-size: 11.6px;
+  font-size: 12.8px;
   color: var(--muted-foreground);
 }
 
@@ -1331,7 +1333,7 @@ a.rank-card:hover {
   margin-top: 0;
 }
 .rank-card .wind-stat {
-  font-size: 14.5px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--muted-foreground);
 }
@@ -1359,10 +1361,10 @@ a.rank-card:hover {
   min-width: 0;
 }
 .fb-row b {
-  font-size: 14px;
+  font-size: 15.4px;
 }
 .fb-row small {
-  font-size: 12.7px;
+  font-size: 14px;
   color: var(--muted-foreground);
 }
 .fb-row .fb-actions {
@@ -1371,7 +1373,7 @@ a.rank-card:hover {
   gap: 2px;
 }
 .fb-row .fb-actions button {
-  font-size: 17px;
+  font-size: 18.7px;
   padding: 8px 9px;
   border-radius: 10px;
 }
@@ -1380,7 +1382,7 @@ a.rank-card:hover {
 }
 .fb-row .fb-x {
   color: var(--muted-foreground);
-  font-size: 13px;
+  font-size: 14.3px;
 }
 
 /* step 1 (surfed it?) answers as a plain green tick / red cross - the only
@@ -1388,7 +1390,7 @@ a.rank-card:hover {
    two answers must be told apart at a glance, half-awake */
 .fb-row .fb-yes,
 .fb-row .fb-no {
-  font-size: 19px;
+  font-size: 20.9px;
   font-weight: 700;
   line-height: 1;
 }
@@ -1411,7 +1413,7 @@ a.rank-card:hover {
 }
 .group-label {
   margin: 18px var(--edge, 16px) 6px;
-  font-size: 12.4px;
+  font-size: 13.6px;
   font-weight: 700;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -1502,7 +1504,7 @@ a.rank-card:hover {
 .fav-region-head {
   display: block;
   margin-top: 12px;
-  font-size: 12.5px;
+  font-size: 13.8px;
   font-weight: 600;
   color: var(--muted-foreground);
 }
@@ -1529,11 +1531,11 @@ a.rank-card:hover {
   min-width: 0;
 }
 .spot-row-card .mid .spot-title b {
-  font-size: 15.4px;
+  font-size: 16.9px;
 }
 .spot-row-card .line {
   display: block;
-  font-size: 12.7px;
+  font-size: 14px;
   color: var(--muted-foreground);
   margin-top: 2px;
 }
@@ -1560,7 +1562,7 @@ a.rank-card:hover {
 }
 
 .search-empty {
-  font-size: 13.2px;
+  font-size: 14.5px;
   color: var(--muted-foreground);
   padding: 4px 2px;
 }
@@ -1612,7 +1614,7 @@ a.rank-card:hover {
 .spot-top .spot-top-name {
   flex: 0 1 auto;
   min-width: 0;
-  font-size: 17px;
+  font-size: 18.7px;
   font-weight: 700;
   white-space: nowrap;
   overflow: hidden;
@@ -1757,7 +1759,7 @@ a.rank-card:hover {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 13.2px;
+  font-size: 14.5px;
   color: var(--foreground);
 }
 .spot-card .rc-temps svg {
@@ -1783,7 +1785,7 @@ a.rank-card:hover {
 .why-bars .bar > span:first-child {
   width: 58px;
   flex: none;
-  font-size: 12.1px;
+  font-size: 13.3px;
   font-weight: 500;
   color: var(--muted-foreground);
 }
@@ -1801,14 +1803,14 @@ a.rank-card:hover {
 /* "no data" stands in for the track where a spot has no clarity/pollution source */
 .why-bars .bar-nodata {
   flex: 1;
-  font-size: 11px;
+  font-size: 12.1px;
   color: var(--muted-foreground);
 }
 /* how fresh the measured rows are: "daily" or "yearly" */
 .why-bars .bar-tag {
   flex: none;
   width: 32px;
-  font-size: 10px;
+  font-size: 11px;
   color: var(--muted-foreground);
 }
 .q-good {
@@ -1850,7 +1852,7 @@ a.rank-card:hover {
   border-radius: 4px;
   background: var(--rating-firing);
   color: #fff;
-  font-size: 9.9px;
+  font-size: 10.9px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1862,6 +1864,10 @@ a.rank-card:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* a floor between the three readouts: at +10% type (2026-09-28) space-between alone
+     let "24°C" run into the next icon on a phone-width card */
+  gap: 4px 12px;
+  flex-wrap: wrap;
   margin-top: 12px;
   padding: 12px 0;
   border-top: 1px solid var(--border);
@@ -1870,7 +1876,7 @@ a.rank-card:hover {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 13.2px;
+  font-size: 14.5px;
   color: var(--foreground);
 }
 .temps-row svg {
@@ -1901,7 +1907,7 @@ a.rank-card:hover {
   color: var(--primary-foreground);
 }
 .day-pills .l {
-  font-size: 11.6px;
+  font-size: 12.8px;
   font-weight: 600;
 }
 .day-pills .dot {
@@ -1933,7 +1939,7 @@ a.rank-card:hover {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 14.3px;
+  font-size: 15.7px;
   font-weight: 600;
   color: var(--primary-foreground);
   background: var(--primary);
@@ -1948,12 +1954,12 @@ a.rank-card:hover {
   opacity: 0.6;
 }
 .day-title b {
-  font-size: 14.3px;
+  font-size: 15.7px;
   font-weight: 600;
   color: var(--foreground);
 }
 .day-title span {
-  font-size: 12.7px;
+  font-size: 14px;
   color: var(--muted-foreground);
 }
 
@@ -1969,7 +1975,7 @@ a.rank-card:hover {
   padding: 6px 10px 5px 6px;
 }
 .hour-grid.head span {
-  font-size: 9.9px;
+  font-size: 10.9px;
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -1998,7 +2004,7 @@ a.rank-card:hover {
 .cam-credit {
   /* 16px gutter lines the credit up with the rating card below it */
   margin: 6px 16px 0;
-  font-size: 11.5px;
+  font-size: 12.7px;
   color: var(--muted-foreground);
 }
 .cam-credit a {
@@ -2048,7 +2054,7 @@ a.rank-card:hover {
 .cam-thumb span {
   display: block;
   margin-top: 4px;
-  font-size: 11px;
+  font-size: 12.1px;
   color: var(--muted-foreground);
   white-space: nowrap;
   overflow: hidden;
@@ -2082,7 +2088,7 @@ a.rank-card:hover {
   justify-self: center;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  font-size: 11px;
+  font-size: 12.1px;
   /* full black, never muted: the hour is what you scan for first */
   color: #000;
 }
@@ -2110,12 +2116,12 @@ a.rank-card:hover {
   line-height: 1.25;
 }
 .hour-grid .surf b {
-  font-size: 18px;
+  font-size: 19.8px;
   font-weight: 700;
   color: var(--foreground);
 }
 .hour-grid .surf small {
-  font-size: 14px;
+  font-size: 15.4px;
   font-weight: 700;
   color: var(--muted-foreground);
 }
@@ -2124,7 +2130,7 @@ a.rank-card:hover {
   align-items: center;
   justify-content: center;
   gap: 4px;
-  font-size: 14.3px;
+  font-size: 15.7px;
   color: var(--foreground);
 }
 .hour-grid .vec svg {
@@ -2132,7 +2138,7 @@ a.rank-card:hover {
   flex: none;
 }
 .hour-grid .vec small {
-  font-size: 10.5px;
+  font-size: 11.6px;
   color: var(--muted-foreground);
 }
 
@@ -2148,7 +2154,7 @@ a.rank-card:hover {
   gap: 4px;
 }
 .hour-grid .swell-cell .top b {
-  font-size: 18px;
+  font-size: 19.8px;
   font-weight: 600;
   color: var(--foreground);
 }
@@ -2156,7 +2162,7 @@ a.rank-card:hover {
   color: var(--foreground);
 }
 .hour-grid .swell-cell small {
-  font-size: 12px;
+  font-size: 13.2px;
   color: var(--muted-foreground);
 }
 
@@ -2179,17 +2185,17 @@ a.rank-card:hover {
   gap: 4px;
 }
 .hour-grid .wind-cell .top b {
-  font-size: 14px;
+  font-size: 15.4px;
   font-weight: 600;
   color: var(--foreground);
   font-variant-numeric: tabular-nums;
 }
 .hour-grid .wind-cell .cardinal {
-  font-size: 10.5px;
+  font-size: 11.6px;
   color: var(--muted-foreground);
 }
 .hour-grid .wind-cell .wclass {
-  font-size: 9.9px;
+  font-size: 10.9px;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -2218,12 +2224,12 @@ a.rank-card:hover {
   line-height: 1.5;
 }
 .hour-grid .pp .power {
-  font-size: 14px;
+  font-size: 15.4px;
   font-weight: 700;
   color: var(--foreground);
 }
 .hour-grid .pp .press {
-  font-size: 11px;
+  font-size: 12.1px;
   color: var(--muted-foreground);
 }
 
@@ -2249,10 +2255,10 @@ a.rank-card:hover {
   align-items: baseline;
 }
 .tide-sec .head .eyebrow {
-  font-size: 11px;
+  font-size: 12.1px;
 }
 .tide-sec .note {
-  font-size: 11px;
+  font-size: 12.1px;
   color: var(--muted-foreground);
 }
 .tide-chart {
@@ -2278,10 +2284,10 @@ a.rank-card:hover {
   white-space: nowrap;
 }
 .tide-ext b {
-  font-size: 11.6px;
+  font-size: 12.8px;
 }
 .tide-ext small {
-  font-size: 10.6px;
+  font-size: 11.7px;
   color: var(--muted-foreground);
 }
 
@@ -2338,7 +2344,7 @@ a.rank-card:hover {
   display: block;
 }
 .swim-best {
-  font-size: 11px;
+  font-size: 12.1px;
   color: var(--muted-foreground);
   min-height: 14px;
 }
@@ -2355,7 +2361,7 @@ a.rank-card:hover {
   flex-wrap: wrap;
   gap: 4px 12px;
   padding: 0 16px 8px;
-  font-size: 11px;
+  font-size: 12.1px;
   color: var(--muted-foreground);
 }
 .swim-legend i {
@@ -2388,7 +2394,7 @@ a.rank-card:hover {
   gap: 12px;
 }
 .swim-words .sw-sub {
-  font-size: 13px;
+  font-size: 14.3px;
   color: var(--muted-foreground);
 }
 .swim-words .sw-line {
@@ -2396,7 +2402,7 @@ a.rank-card:hover {
   align-items: baseline;
   gap: 10px;
   padding: 4px 0;
-  font-size: 14px;
+  font-size: 15.4px;
 }
 .swim-words .sw-l {
   width: 96px;
@@ -2408,7 +2414,7 @@ a.rank-card:hover {
 }
 .swim-words .sw-w {
   margin-left: auto;
-  font-size: 11.5px;
+  font-size: 12.7px;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -2422,7 +2428,7 @@ a.rank-card:hover {
   margin-top: 6px;
   padding-top: 10px;
   border-top: 1px solid var(--border);
-  font-size: 13.2px;
+  font-size: 14.5px;
 }
 .swim-words .sw-temps > span {
   display: flex;
@@ -2444,7 +2450,7 @@ a.rank-card:hover {
   background: color-mix(in srgb, var(--swim-rough) 14%, transparent);
   border: 1px solid color-mix(in srgb, var(--swim-rough) 40%, transparent);
   color: var(--foreground);
-  font-size: 13.2px;
+  font-size: 14.5px;
   font-weight: 600;
 }
 
@@ -2459,7 +2465,7 @@ a.rank-card:hover {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  font-size: 9.9px;
+  font-size: 10.9px;
 }
 .swim-row .lvl-med {
   color: var(--swim-choppy);
@@ -2504,7 +2510,7 @@ a.rank-card:hover {
 .rip-chip {
   padding: 2px 7px;
   border-radius: 4px;
-  font-size: 9.9px;
+  font-size: 10.9px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -2520,7 +2526,7 @@ a.rank-card:hover {
   color: var(--swim-rough);
 }
 .swim-rip > small {
-  font-size: 11px;
+  font-size: 12.1px;
   color: var(--muted-foreground);
 }
 .hour-grid.head button.head-info {
@@ -2545,7 +2551,7 @@ a.rank-card:hover {
 }
 .tide-legend {
   margin: 4px 0 6px;
-  font-size: 11px;
+  font-size: 12.1px;
   color: var(--muted-foreground);
 }
 
@@ -2567,7 +2573,7 @@ a.rank-card:hover {
 .nearby-sec .eyebrow {
   display: block;
   padding: 0 16px 10px;
-  font-size: 11px;
+  font-size: 12.1px;
 }
 
 /* .map-cards is defined further down, so these need the extra class to win:
@@ -2595,17 +2601,17 @@ a.rank-card:hover {
   align-items: center;
 }
 .sun-row .eyebrow {
-  font-size: 9.9px;
+  font-size: 10.9px;
 }
 .sun-row b {
-  font-size: 12.7px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--foreground);
 }
 
 .tide-sec .tide-best {
   margin: 6px 0 0;
-  font-size: 12px;
+  font-size: 13.2px;
   color: var(--muted-foreground);
 }
 
@@ -2622,7 +2628,7 @@ a.rank-card:hover {
   align-items: center;
   justify-content: center;
   margin: 0;
-  font-size: 14.3px;
+  font-size: 15.7px;
   color: var(--muted-foreground);
   text-align: center;
 }
@@ -2747,7 +2753,7 @@ a.rank-card:hover {
   width: 100%;
 }
 .map-card-bg .sm-attr {
-  font-size: 8px;
+  font-size: 8.8px;
   opacity: 0.7;
 }
 
@@ -2800,7 +2806,7 @@ a.rank-card:hover {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  font-size: 9px;
+  font-size: 9.9px;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -2816,17 +2822,17 @@ a.rank-card:hover {
   margin-top: auto;
 }
 .map-card-name .spot-title b {
-  font-size: 15px;
+  font-size: 16.5px;
   color: #f5f0e8;
 }
 .map-card-h {
-  font-size: 26px;
+  font-size: 28.6px;
   font-weight: 700;
   letter-spacing: -0.01em;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 .map-card-sub {
-  font-size: 12px;
+  font-size: 13.2px;
   /* was the mid grey #a8a29e, which is the one tone that disappears against
      both ends of the imagery; keep it quieter than the name via alpha, not by
      going grey. */
@@ -2890,7 +2896,7 @@ a.rank-card:hover {
 }
 .spot-dot.focus .dot-label {
   display: block;
-  font-size: 12.5px;
+  font-size: 13.8px;
   font-weight: 700;
   line-height: 1;
   color: #14110f;
@@ -2916,7 +2922,7 @@ a.rank-card:hover {
   border-radius: 9999px;
   background: var(--card);
   color: var(--foreground);
-  font-size: 13.5px;
+  font-size: 14.9px;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   display: grid;
@@ -2967,11 +2973,11 @@ a.rank-card:hover {
   min-width: 0;
 }
 .map-loc .mid .spot-title b {
-  font-size: 15px;
+  font-size: 16.5px;
 }
 .map-loc .line {
   display: block;
-  font-size: 12.5px;
+  font-size: 13.8px;
   color: var(--muted-foreground);
   margin-top: 2px;
 }
@@ -2981,7 +2987,7 @@ a.rank-card:hover {
 
 /* maplibre chrome, kept subtle */
 .maplibregl-ctrl-attrib {
-  font-size: 9.9px;
+  font-size: 10.9px;
 }
 
 /* Map fabs: north under the search glass; locate bottom-right, its center
@@ -3082,7 +3088,7 @@ a.rank-card:hover {
   border-radius: 9999px;
   border: 1px solid color-mix(in srgb, var(--foreground) 16%, transparent);
   background: color-mix(in srgb, var(--secondary) 55%, transparent);
-  font-size: 11px;
+  font-size: 12.1px;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -3128,7 +3134,7 @@ a.rank-card:hover {
   padding: 9px 11px;
   border-radius: 9px;
   background: none;
-  font-size: 13.5px;
+  font-size: 14.9px;
   font-weight: 500;
   text-align: left;
   color: var(--foreground);
@@ -3150,7 +3156,7 @@ a.rank-card:hover {
   margin-top: 3px;
   padding: 7px 11px 5px;
   border-top: 1px solid color-mix(in srgb, var(--border) 60%, transparent);
-  font-size: 9.5px;
+  font-size: 10.5px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   white-space: nowrap;
@@ -3205,7 +3211,7 @@ a.rank-card:hover {
   top: calc(100% + 2px);
   left: 50%;
   transform: translateX(-50%);
-  font-size: 9px;
+  font-size: 9.9px;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -3272,13 +3278,13 @@ a.rank-card:hover {
   flex: none;
   margin-left: auto;
   white-space: nowrap;
-  font-size: 15px;
+  font-size: 16.5px;
   font-weight: 700;
   color: var(--foreground);
 }
 .deck-clock small {
   margin-right: 6px;
-  font-size: 9.5px;
+  font-size: 10.5px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -3293,7 +3299,7 @@ a.rank-card:hover {
   padding: 8px 12px;
   border-radius: 12px;
   background: color-mix(in srgb, var(--card) 88%, transparent);
-  font-size: 12.5px;
+  font-size: 13.8px;
   color: var(--muted-foreground);
 }
 
@@ -3371,7 +3377,7 @@ a.rank-card:hover {
   padding-bottom: 16px
 }
 .settings-row .label {
-  font-size: 14.9px;
+  font-size: 16.4px;
   font-weight: 500;
   color: var(--foreground);
 }
@@ -3379,13 +3385,13 @@ a.rank-card:hover {
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 13.8px;
+  font-size: 15.2px;
   color: var(--muted-foreground);
 }
 
 .settings-foot {
   text-align: center;
-  font-size: 12.1px;
+  font-size: 13.3px;
   color: var(--muted-foreground);
   padding: 4px 0;
 }
@@ -3397,7 +3403,7 @@ a.rank-card:hover {
 .settings-note {
   margin: 0;
   padding: 12px 16px 12px;
-  font-size: 14px;
+  font-size: 15.4px;
   line-height: 1.45;
   color: var(--muted-foreground);
 }
@@ -3471,7 +3477,7 @@ a.rank-card:hover {
 .about-hero-word {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 22px;
+  font-size: 24.2px;
   line-height: 1;
   color: #fff;
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
@@ -3491,19 +3497,19 @@ a.rank-card:hover {
   text-transform: uppercase;
   letter-spacing: -0.005em;
   line-height: 42px;
-  font-size: clamp(34px, 11vw, 52px);
+  font-size: clamp(37.4px, 12.1vw, 57.2px);
   padding: 0;
   margin: 0;
 }
 .about-body {
   padding: 18px 20px 30px;
-  font-size: 15px;
+  font-size: 16.5px;
   line-height: 1.6;
   color: var(--foreground);
 }
 .about-body h2 {
   scroll-margin-top: 16px;
-  font-size: 15.5px;
+  font-size: 17.1px;
   font-weight: 700;
   margin: 22px 0 6px;
   color: var(--foreground);
@@ -3513,13 +3519,13 @@ a.rank-card:hover {
   color: var(--muted-foreground);
 }
 .about-body .about-lead {
-  font-size: 17px;
+  font-size: 18.7px;
   font-weight: 600;
   color: var(--foreground);
   margin-top: 2px;
 }
 .about-body .about-muted {
-  font-size: 12.5px;
+  font-size: 13.8px;
 }
 .about-steps {
   margin: 12px 0;
@@ -3555,7 +3561,7 @@ a.rank-card:hover {
   padding: 12px 14px;
   background: var(--secondary);
   border-radius: 12px;
-  font-size: 13.8px;
+  font-size: 15.2px;
 }
 .about-links {
   margin: 10px 0;
@@ -3641,7 +3647,7 @@ a.rank-card:hover {
   color: #1f1f1f;
   border: 1px solid #747775;
   font-family: "Roboto", "Inter Variable", system-ui, -apple-system, sans-serif;
-  font-size: 15px;
+  font-size: 16.5px;
   font-weight: 500;
   letter-spacing: 0.01em;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
@@ -3649,7 +3655,7 @@ a.rank-card:hover {
 .google-btn-medium {
   min-height: 38px;
   border-radius: 19px;
-  font-size: 14px;
+  font-size: 15.4px;
 }
 .google-btn:disabled {
   opacity: 0.7;
@@ -3660,7 +3666,7 @@ a.rank-card:hover {
   flex: none;
 }
 .google-btn-status {
-  font-size: 13px;
+  font-size: 14.3px;
   letter-spacing: 0.04em;
   color: var(--muted-foreground);
   text-align: center;
@@ -3739,7 +3745,7 @@ a.rank-card:hover {
 .signin-word {
   font-family: "Inter Variable", system-ui, -apple-system, sans-serif;
   font-weight: 700;
-  font-size: 58px;
+  font-size: 63.8px;
   letter-spacing: -0.02em;
   line-height: 1;
 }
@@ -3762,14 +3768,14 @@ a.rank-card:hover {
 }
 .signin-inner h2 {
   margin: 22px 0 0;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
   letter-spacing: -0.01em;
 }
 .signin-inner p {
   margin: 0;
   max-width: 30ch;
-  font-size: 14.5px;
+  font-size: 16px;
   line-height: 1.45;
   color: rgba(255, 255, 255, 0.78);
 }
@@ -3786,7 +3792,7 @@ a.rank-card:hover {
 .signin-later {
   background: none;
   color: #fff;
-  font-size: 15px;
+  font-size: 16.5px;
   font-weight: 600;
   padding: 12px 18px;
   border-radius: 13px;
@@ -3800,7 +3806,7 @@ a.rank-card:hover {
   color: #1f1f1f;
 }
 .moved-remove {
-  font-size: 13.5px;
+  font-size: 14.9px;
   color: rgba(255, 255, 255, 0.62);
 }
 .signin-later {
@@ -3848,14 +3854,14 @@ a.rank-card:hover {
 }
 .install-sheet h2 {
   margin: 0;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 700;
   letter-spacing: -0.01em;
 }
 .install-sheet p {
   margin: 0;
   max-width: 30ch;
-  font-size: 14px;
+  font-size: 15.4px;
   line-height: 1.45;
   color: var(--muted-foreground);
 }
@@ -3874,7 +3880,7 @@ a.rank-card:hover {
   flex: 1;
   padding: 13px 16px;
   border-radius: 13px;
-  font-size: 15px;
+  font-size: 16.5px;
   font-weight: 600;
 }
 .install-go {
@@ -3890,7 +3896,7 @@ a.rank-card:hover {
 .settings-install {
   padding: 9px 20px;
   border-radius: 11px;
-  font-size: 14px;
+  font-size: 15.4px;
   font-weight: 600;
 }
 .install-later {
@@ -3950,11 +3956,11 @@ a.rank-card:hover {
   min-width: 0;
 }
 .consent-text b {
-  font-size: 14px;
+  font-size: 15.4px;
   font-weight: 700;
 }
 .consent-text small {
-  font-size: 12.4px;
+  font-size: 13.6px;
   line-height: 1.35;
   color: var(--muted-foreground);
 }
@@ -3972,7 +3978,7 @@ a.rank-card:hover {
 .consent-actions button {
   padding: 8px 12px;
   border-radius: 10px;
-  font-size: 13px;
+  font-size: 14.3px;
   font-weight: 600;
   white-space: nowrap;
 }
@@ -4034,11 +4040,11 @@ a.rank-card:hover {
   min-width: 0;
 }
 .nudge-drop-text b {
-  font-size: 14px;
+  font-size: 15.4px;
   font-weight: 700;
 }
 .nudge-drop-text small {
-  font-size: 12.7px;
+  font-size: 14px;
   line-height: 1.35;
   color: var(--muted-foreground);
 }
@@ -4152,7 +4158,7 @@ a.rank-card:hover {
     height: 21px;
   }
   .desk-bar .brand-word {
-    font-size: 22px;
+    font-size: 24.2px;
   }
   .desk-nav {
     display: flex;
@@ -4161,7 +4167,7 @@ a.rank-card:hover {
   .desk-nav a {
     padding: 8px 13px;
     border-radius: 9999px;
-    font-size: 15px;
+    font-size: 16.5px;
     font-weight: 600;
     color: var(--muted-foreground);
     transition: color 0.15s, background 0.15s;
@@ -4187,7 +4193,7 @@ a.rank-card:hover {
     background: var(--input-bg);
     box-shadow: var(--input-shadow);
     color: var(--muted-foreground);
-    font-size: 14.5px;
+    font-size: 16px;
     transition: border-color 0.15s;
   }
   .desk-search:hover {
@@ -4256,7 +4262,7 @@ a.rank-card:hover {
   }
   .desk-ticker-label {
     flex: none;
-    font-size: 12.5px;
+    font-size: 13.8px;
     font-weight: 600;
     color: var(--muted-foreground);
   }
@@ -4265,7 +4271,7 @@ a.rank-card:hover {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 13.5px;
+    font-size: 14.9px;
     color: var(--foreground);
   }
   .desk-tick:hover {
@@ -4311,7 +4317,7 @@ a.rank-card:hover {
   }
   .brand-lead,
   .brand-title {
-    font-size: 34px;
+    font-size: 37.4px;
     font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1.1;
@@ -4379,10 +4385,10 @@ a.rank-card:hover {
     padding: 12px calc(var(--edge) + var(--coast-pad)) 14px;
   }
   .coast-day .dow {
-    font-size: 13.5px;
+    font-size: 14.9px;
   }
   .coast-day .dnum {
-    font-size: 20px;
+    font-size: 22px;
   }
   .coast-row {
     margin: 0 0 12px;
@@ -4394,10 +4400,10 @@ a.rank-card:hover {
     box-shadow: var(--sheet-shadow);
   }
   .coast-name {
-    font-size: 17px;
+    font-size: 18.7px;
   }
   .coast .chart-val {
-    font-size: 13px;
+    font-size: 14.3px;
   }
   .group-label {
     margin-left: 0;
@@ -4421,7 +4427,7 @@ a.rank-card:hover {
     display: none;
   }
   .spot-top .spot-top-name {
-    font-size: 34px;
+    font-size: 37.4px;
     letter-spacing: -0.02em;
     transition: font-size 0.2s ease;
   }
@@ -4430,7 +4436,7 @@ a.rank-card:hover {
     padding: 12px 0 4px;
   }
   .spot-sticky.condensed .spot-top-name {
-    font-size: 22px;
+    font-size: 24.2px;
   }
   .spot-top .star-btn svg {
     width: 24px;
@@ -4447,10 +4453,10 @@ a.rank-card:hover {
     min-width: 64px;
   }
   .dcol-head .dow {
-    font-size: 12px;
+    font-size: 13.2px;
   }
   .dcol-head .dnum {
-    font-size: 17px;
+    font-size: 18.7px;
   }
 
   /* Two columns: cam and the hourly table on the left, the rating card, tide
@@ -4532,7 +4538,7 @@ a.rank-card:hover {
     writing-mode: horizontal-tb;
     transform: none;
     justify-self: start;
-    font-size: 13px;
+    font-size: 14.3px;
   }
   .hour-grid.row:hover {
     background: var(--emphasis-bg);
@@ -4545,7 +4551,7 @@ a.rank-card:hover {
   }
   .nearby-sec .eyebrow {
     padding: 0 0 14px;
-    font-size: 13px;
+    font-size: 14.3px;
     letter-spacing: 0;
     text-transform: none;
     font-weight: 700;
@@ -4605,7 +4611,7 @@ a.rank-card:hover {
     max-width: var(--desk-max);
     margin: 0 auto;
     padding: 0 var(--desk-pad) 10px;
-    font-size: 15px;
+    font-size: 16.5px;
     font-weight: 700;
   }
   .map-sheet .map-cards {
@@ -4686,7 +4692,7 @@ a.rank-card:hover {
   }
   .page:not(.map-page) .search-head .search-box input {
     height: 48px;
-    font-size: 16px;
+    font-size: 17.6px;
     border-radius: 9999px;
     padding-left: 42px;
   }
@@ -4731,7 +4737,7 @@ a.rank-card:hover {
     padding: 0 56px;
   }
   .about-hero-title {
-    font-size: clamp(40px, 4.2vw, 64px);
+    font-size: clamp(44px, 4.62vw, 70.4px);
     line-height: 1.02;
   }
   .about-back {
@@ -4769,7 +4775,7 @@ a.rank-card:hover {
   width: 100%;
   box-sizing: border-box;
   font: inherit;
-  font-size: 16px; /* keeps iOS from zooming the field */
+  font-size: 17.6px; /* keeps iOS from zooming the field */
   line-height: 1.45;
   color: inherit;
   background: var(--card, rgba(127, 127, 127, 0.12));
@@ -4791,7 +4797,7 @@ a.rank-card:hover {
   background: var(--primary);
   color: var(--primary-foreground);
   font-weight: 600;
-  font-size: 15px;
+  font-size: 16.5px;
   padding: 12px 28px;
   border-radius: 999px;
 }
@@ -4842,7 +4848,7 @@ a.rank-card:hover {
   border-bottom: 1px solid var(--border);
 }
 .report-head b {
-  font-size: 15px;
+  font-size: 16.5px;
   font-weight: 600;
 }
 .report-back {
@@ -4857,17 +4863,17 @@ a.rank-card:hover {
   padding: 20px 20px calc(28px + env(safe-area-inset-bottom));
 }
 .report-title {
-  font-size: 21px;
+  font-size: 23.1px;
   font-weight: 600;
   margin: 0 0 2px;
 }
 .report-lead {
-  font-size: 12.7px;
+  font-size: 14px;
   color: var(--muted-foreground);
   margin: 0 0 22px;
 }
 .report-q {
-  font-size: 13px;
+  font-size: 14.3px;
   font-weight: 600;
   margin: 0 0 10px;
 }
@@ -4882,7 +4888,7 @@ a.rank-card:hover {
   gap: 12px;
   width: 100%;
   text-align: left;
-  font-size: 15px;
+  font-size: 16.5px;
   padding: 13px 14px;
   border-radius: 12px;
   border: 1px solid var(--border);
@@ -4912,7 +4918,7 @@ a.rank-card:hover {
 }
 .report-note-label {
   display: block;
-  font-size: 13px;
+  font-size: 14.3px;
   font-weight: 600;
   margin: 22px 0 8px;
 }
@@ -4924,7 +4930,7 @@ a.rank-card:hover {
 }
 .report-send {
   width: 100%;
-  font-size: 15px;
+  font-size: 16.5px;
   font-weight: 600;
   padding: 15px 24px;
   border-radius: 999px;
@@ -4935,7 +4941,7 @@ a.rank-card:hover {
   opacity: 0.4;
 }
 .report-fine {
-  font-size: 11.5px;
+  font-size: 12.7px;
   color: var(--muted-foreground);
   text-align: center;
   margin: 12px 0 0;
@@ -4951,7 +4957,7 @@ a.rank-card:hover {
   line-height: 1.5;
 }
 .seo-static h1 {
-  font-size: 22px;
+  font-size: 24.2px;
   margin: 0 0 12px;
 }
 .seo-static ul {

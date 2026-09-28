@@ -319,11 +319,6 @@ export function SettingsPage({
               </button>
             </div>
           </div>
-          <p class="settings-note">
-            {mode === "swim"
-              ? "Every screen reads the same forecast for a sea swimmer: Calm to Stay out, shore break, rip risk. Surf mode is one tap away."
-              : "Swim mode re-reads every spot for a sea swimmer - calm water first, waves last."}
-          </p>
           <div class="settings-row">
             <span class="label">Theme</span>
             <div class="segmented" role="radiogroup" aria-label="Theme">
