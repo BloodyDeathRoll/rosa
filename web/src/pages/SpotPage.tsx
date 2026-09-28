@@ -396,6 +396,185 @@ function HourRow({
   );
 }
 
+/** The forecast for one day of one spot: cam, rating card, hourly table, tide, sun.
+    Pure - everything it shows comes in through props, so the surf-mode output can be
+    rendered to a string and compared byte for byte (src/test). */
+export function SpotPanel({
+  data,
+  dayIndex,
+  today,
+  units,
+  spots,
+  id,
+  onReport,
+}: {
+  data: SpotPayload;
+  dayIndex: number;
+  /** the spot's current date (YYYY-MM-DD, spot-local) */
+  today: string;
+  units: Units;
+  spots: [string, IndexEntry][];
+  id: string;
+  onReport: () => void;
+}) {
+    const days = data.days;
+    const cur = data.current;
+    const i = Math.min(Math.max(dayIndex, 0), days.length - 1);
+    const day = days[i];
+    if (!day) return null;
+    const dayHours = data.hours.filter((h) => dateOf(h.t) === day.date);
+      const sun = sunTimes(new Date(`${day.date}T12:00:00Z`), data.spot.lat, data.spot.lon);
+      // daylight bounds in spot-local minutes so pre-dawn/post-dusk slots are excluded
+      const toMin = (d: Date) => {
+        const [hh, mm] = fmtClock(d, data.spot.timezone).split(":");
+        return Number(hh) * 60 + Number(mm);
+      };
+      const chips = sessionChips(dayHours, toMin(sun.firstLight), toMin(sun.lastLight));
+      // best-session slots → tinted rows, with a "Best session" tag overlaid on the
+      // first row of each contiguous run (top-right, just under the row's top border)
+      const bestSet = new Set(chips.map((c) => c.t));
+      const hourRows: VNode[] = [];
+      for (let i = 0; i < dayHours.length; i++) {
+        const h = dayHours[i]!;
+        const isBest = bestSet.has(h.t);
+        const prevBest = i > 0 && bestSet.has(dayHours[i - 1]!.t);
+        const nextBest = i + 1 < dayHours.length && bestSet.has(dayHours[i + 1]!.t);
+        hourRows.push(
+          <HourRow
+            key={h.t}
+            h={h}
+            units={units}
+            best={isBest}
+            first={isBest && !prevBest}
+            last={isBest && !nextBest}
+            label={isBest && !prevBest ? "Best session" : undefined}
+          />
+        );
+      }
+      return (
+        <div class="spot-main">
+          <CamSection data={data} all={spots} />
+          <section class="spot-card">
+            <div class="rc-left">
+              <div class="rc-head">
+                <Pill bucket={day.bucket} />
+                <button
+                  class="accent-link"
+                  onClick={() => {
+                    setPendingPin(id);
+                    navigate("/map");
+                  }}
+                >
+                  <MapIcon size={14} />
+                  Map
+                </button>
+              </div>
+              <div class="rc-temps">
+                <span>
+                  <ThermometerIcon />
+                  <span class="tabular">air {cur.air !== null ? fmtTemp(cur.air, units) : "-"}</span>
+                </span>
+                <span>
+                  <WavesIcon />
+                  <span class="tabular">
+                    water {cur.sst !== null ? fmtTemp(cur.sst, units) : "-"}
+                  </span>
+                </span>
+                {cur.wetsuit && (
+                  <span>
+                    <ShirtIcon />
+                    <span class="suit">{cur.wetsuit}</span>
+                  </span>
+                )}
+              </div>
+            </div>
+            <div class="rc-right">
+              <DayBars day={day} hours={dayHours} water={data.water} />
+            </div>
+          </section>
+
+          {/* one box around the day's table, so the wide layout can seat it
+              beside the rating/tide column (styles.css DESKTOP) */}
+          <div class="spot-hours">
+          <div class="day-title">
+            <div class="day-title-text">
+              <b>
+                {dayLabel(day.date, today)} · {dayDate(day.date)}
+              </b>
+              <span>{dayNote(days, i, dayHours)}</span>
+            </div>
+            {/* Reports are read by a human before anything changes - see ReportSheet. */}
+            <button
+              class="report-cta"
+              onClick={onReport}
+              aria-label={`Report an issue with ${data.spot.name}`}
+            >
+              <FlagIcon />
+              Report
+            </button>
+          </div>
+          <div class="hour-grid head">
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+            {/* Each column's way out to its own section of the glossary
+                (AboutPage scrolls to the #id). 12px: 18 (the share's) read too large. */}
+            <a class="head-info" href="/about/reading#surf" aria-label="What the surf numbers mean">
+              <span aria-hidden="true">surf {heightUnit(units)}</span>
+              <InfoIcon size={12} />
+            </a>
+            <a class="head-info" href="/about/reading#swell" aria-label="What the swell numbers mean">
+              <span aria-hidden="true">swell</span>
+              <InfoIcon size={12} />
+            </a>
+            <a class="head-info" href="/about/reading#wind" aria-label="What the wind numbers mean">
+              <span aria-hidden="true">wind kt</span>
+              <InfoIcon size={12} />
+            </a>
+            <a class="head-info" href="/about/reading#kj" aria-label="What kJ and hPa mean">
+              <span class="pp-head" aria-hidden="true">
+                kJ<small>hPa</small>
+              </span>
+              <InfoIcon size={12} />
+            </a>
+          </div>
+          {hourRows}
+          {dayHours.length === 0 && (
+            <p class="state">Beyond the model horizon - no hourly detail yet.</p>
+          )}
+          </div>
+
+          <TideSection
+            hours={data.hours}
+            date={day.date}
+            // live wall clock in the spot's tz - NOT cur.t, which is the hour the
+            // pipeline considered current at generation time (hours stale between runs)
+            nowT={day.date === today ? nowIn(data.spot.timezone) : null}
+            metric={units.height === "m"}
+            tideBest={data.spot.tide_best}
+          />
+
+          <div class="sun-row">
+            <span>
+              <span class="eyebrow">First light</span>
+              <b class="tabular">{fmtClock(sun.firstLight, data.spot.timezone)}</b>
+            </span>
+            <span>
+              <span class="eyebrow">Sunrise</span>
+              <b class="tabular">{fmtClock(sun.sunrise, data.spot.timezone)}</b>
+            </span>
+            <span>
+              <span class="eyebrow">Sunset</span>
+              <b class="tabular">{fmtClock(sun.sunset, data.spot.timezone)}</b>
+            </span>
+            <span>
+              <span class="eyebrow">Last light</span>
+              <b class="tabular">{fmtClock(sun.lastLight, data.spot.timezone)}</b>
+            </span>
+          </div>
+        </div>
+      );
+}
+
 // Selected date carried across spot→spot navigation (the switcher chips keep
 // SpotPage mounted, so this survives the id change). Cleared on unmount, so
 // arriving fresh from Home/Map/Favorites still opens on today.
@@ -536,163 +715,17 @@ export function SpotPage({ id }: { id: string }) {
   // animation, so the data can't lag behind the date/bars or desync from them.
   const panel = useMemo(() => {
     if (!data) return null;
-    const days = data.days;
-    const cur = data.current;
-    const today = todayIn(data.spot.timezone);
-    const i = Math.min(Math.max(liveDay, 0), days.length - 1);
-    const day = days[i];
-    if (!day) return null;
-    const dayHours = data.hours.filter((h) => dateOf(h.t) === day.date);
-      const sun = sunTimes(new Date(`${day.date}T12:00:00Z`), data.spot.lat, data.spot.lon);
-      // daylight bounds in spot-local minutes so pre-dawn/post-dusk slots are excluded
-      const toMin = (d: Date) => {
-        const [hh, mm] = fmtClock(d, data.spot.timezone).split(":");
-        return Number(hh) * 60 + Number(mm);
-      };
-      const chips = sessionChips(dayHours, toMin(sun.firstLight), toMin(sun.lastLight));
-      // best-session slots → tinted rows, with a "Best session" tag overlaid on the
-      // first row of each contiguous run (top-right, just under the row's top border)
-      const bestSet = new Set(chips.map((c) => c.t));
-      const hourRows: VNode[] = [];
-      for (let i = 0; i < dayHours.length; i++) {
-        const h = dayHours[i]!;
-        const isBest = bestSet.has(h.t);
-        const prevBest = i > 0 && bestSet.has(dayHours[i - 1]!.t);
-        const nextBest = i + 1 < dayHours.length && bestSet.has(dayHours[i + 1]!.t);
-        hourRows.push(
-          <HourRow
-            key={h.t}
-            h={h}
-            units={units}
-            best={isBest}
-            first={isBest && !prevBest}
-            last={isBest && !nextBest}
-            label={isBest && !prevBest ? "Best session" : undefined}
-          />
-        );
-      }
-      return (
-        <div class="spot-main">
-          <CamSection data={data} all={spots} />
-          <section class="spot-card">
-            <div class="rc-left">
-              <div class="rc-head">
-                <Pill bucket={day.bucket} />
-                <button
-                  class="accent-link"
-                  onClick={() => {
-                    setPendingPin(id);
-                    navigate("/map");
-                  }}
-                >
-                  <MapIcon size={14} />
-                  Map
-                </button>
-              </div>
-              <div class="rc-temps">
-                <span>
-                  <ThermometerIcon />
-                  <span class="tabular">air {cur.air !== null ? fmtTemp(cur.air, units) : "-"}</span>
-                </span>
-                <span>
-                  <WavesIcon />
-                  <span class="tabular">
-                    water {cur.sst !== null ? fmtTemp(cur.sst, units) : "-"}
-                  </span>
-                </span>
-                {cur.wetsuit && (
-                  <span>
-                    <ShirtIcon />
-                    <span class="suit">{cur.wetsuit}</span>
-                  </span>
-                )}
-              </div>
-            </div>
-            <div class="rc-right">
-              <DayBars day={day} hours={dayHours} water={data.water} />
-            </div>
-          </section>
-
-          {/* one box around the day's table, so the wide layout can seat it
-              beside the rating/tide column (styles.css DESKTOP) */}
-          <div class="spot-hours">
-          <div class="day-title">
-            <div class="day-title-text">
-              <b>
-                {dayLabel(day.date, today)} · {dayDate(day.date)}
-              </b>
-              <span>{dayNote(days, i, dayHours)}</span>
-            </div>
-            {/* Reports are read by a human before anything changes - see ReportSheet. */}
-            <button
-              class="report-cta"
-              onClick={() => setReporting(true)}
-              aria-label={`Report an issue with ${data.spot.name}`}
-            >
-              <FlagIcon />
-              Report
-            </button>
-          </div>
-          <div class="hour-grid head">
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
-            {/* Each column's way out to its own section of the glossary
-                (AboutPage scrolls to the #id). 12px: 18 (the share's) read too large. */}
-            <a class="head-info" href="/about/reading#surf" aria-label="What the surf numbers mean">
-              <span aria-hidden="true">surf {heightUnit(units)}</span>
-              <InfoIcon size={12} />
-            </a>
-            <a class="head-info" href="/about/reading#swell" aria-label="What the swell numbers mean">
-              <span aria-hidden="true">swell</span>
-              <InfoIcon size={12} />
-            </a>
-            <a class="head-info" href="/about/reading#wind" aria-label="What the wind numbers mean">
-              <span aria-hidden="true">wind kt</span>
-              <InfoIcon size={12} />
-            </a>
-            <a class="head-info" href="/about/reading#kj" aria-label="What kJ and hPa mean">
-              <span class="pp-head" aria-hidden="true">
-                kJ<small>hPa</small>
-              </span>
-              <InfoIcon size={12} />
-            </a>
-          </div>
-          {hourRows}
-          {dayHours.length === 0 && (
-            <p class="state">Beyond the model horizon - no hourly detail yet.</p>
-          )}
-          </div>
-
-          <TideSection
-            hours={data.hours}
-            date={day.date}
-            // live wall clock in the spot's tz - NOT cur.t, which is the hour the
-            // pipeline considered current at generation time (hours stale between runs)
-            nowT={day.date === today ? nowIn(data.spot.timezone) : null}
-            metric={units.height === "m"}
-            tideBest={data.spot.tide_best}
-          />
-
-          <div class="sun-row">
-            <span>
-              <span class="eyebrow">First light</span>
-              <b class="tabular">{fmtClock(sun.firstLight, data.spot.timezone)}</b>
-            </span>
-            <span>
-              <span class="eyebrow">Sunrise</span>
-              <b class="tabular">{fmtClock(sun.sunrise, data.spot.timezone)}</b>
-            </span>
-            <span>
-              <span class="eyebrow">Sunset</span>
-              <b class="tabular">{fmtClock(sun.sunset, data.spot.timezone)}</b>
-            </span>
-            <span>
-              <span class="eyebrow">Last light</span>
-              <b class="tabular">{fmtClock(sun.lastLight, data.spot.timezone)}</b>
-            </span>
-          </div>
-        </div>
-      );
+    return (
+      <SpotPanel
+        data={data}
+        dayIndex={liveDay}
+        today={todayIn(data.spot.timezone)}
+        units={units}
+        spots={spots}
+        id={id}
+        onReport={() => setReporting(true)}
+      />
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, units, liveDay, id, spots]);
 

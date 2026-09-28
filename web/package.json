@@ -8,6 +8,7 @@
     "dev": "npm run sync-data && vite",
     "build": "npm run sync-data && tsc --noEmit && vite build && npm run prerender",
     "preview": "vite preview",
+    "test": "vitest run",
     "prepare-output": "rm -rf .vercel/output && mkdir -p .vercel/output/static && node scripts/csp.mjs && cp -r dist/. .vercel/output/static/",
     "deploy": "npm run build && npm run prepare-output && vercel deploy --prebuilt --prod --archive=tgz",
     "prerender": "vite build --ssr src/prerender-entry.tsx --outDir dist-ssr && node scripts/prerender.mjs"
@@ -23,6 +24,7 @@
     "preact-render-to-string": "^6.7.0",
     "typescript": "^7.0.2",
     "vite": "^8.2.2",
-    "vite-plugin-pwa": "^1.3.0"
+    "vite-plugin-pwa": "^1.3.0",
+    "vitest": "^5.0.2"
   }
 }
