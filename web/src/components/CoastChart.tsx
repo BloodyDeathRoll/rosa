@@ -4,6 +4,18 @@ import { sectionsOf } from "./GroupChips";
 import { SwellDirIcon } from "./icons";
 import { arrowRotation, dateOf, dayLabel, dayNum, splitName } from "../format";
 import { fmtRange, heightUnit, useUnits } from "../units";
+import {
+  CLARITY_BAR_FULL_M,
+  daySwim,
+  daylightOf,
+  pushOf,
+  rockyEntry,
+  shoreBreak,
+  SST_BAR_MAX_C,
+  SST_BAR_MIN_C,
+  swimVar,
+  type Mode,
+} from "../lib/swim";
 import type { DayEntry, SpotPayload } from "../types";
 
 /** MSW-style multi-day forecast: same spots as the coast grid, drawn as a bar
@@ -61,6 +73,37 @@ function dayColumn(data: SpotPayload, date: string) {
   return { bars, hasAny: hrs.length > 0, wind: noon?.wind.dir ?? null, day };
 }
 
+/** Swim mode's column: three bars - Calm (the day's best daylight swim score, in the
+    swim colour), Water temp and Clarity (one value each, the same all day) - the
+    wind arrow tinted when it pushes out, and the shore break as one figure. */
+function swimColumn(data: SpotPayload, date: string) {
+  const hrs = data.hours.filter((h) => dateOf(h.t) === date);
+  const day = data.days.find((d) => d.date === date);
+  const sw = daySwim(hrs, data.water, daylightOf(data.spot, date));
+  const clarity = data.water?.clarity?.zsd_m ?? null;
+  const frac = (x: number) => Math.max(0, Math.min(1, x));
+  const bars: ({ f: number; color: string } | null)[] = [
+    hrs.length ? { f: sw.score / 100, color: swimVar(sw.bucket) } : null,
+    sw.sst !== null
+      ? { f: frac((sw.sst - SST_BAR_MIN_C) / (SST_BAR_MAX_C - SST_BAR_MIN_C)), color: "var(--swim-temp)" }
+      : null,
+    clarity !== null ? { f: frac(clarity / CLARITY_BAR_FULL_M), color: "var(--swim-clarity)" } : null,
+  ];
+  const noon = hrs.reduce<(typeof hrs)[number] | null>((best, h) => {
+    const hour = Number(h.t.slice(11, 13));
+    const d = Math.abs(hour - 12);
+    return !best || d < Math.abs(Number(best.t.slice(11, 13)) - 12) ? h : best;
+  }, null);
+  return {
+    bars,
+    hasAny: hrs.length > 0,
+    wind: noon?.wind.dir ?? null,
+    push: noon ? pushOf(noon) : null,
+    day,
+    dot: rockyEntry(data.spot.shore) ? "var(--border)" : swimVar(sw.bucket),
+  };
+}
+
 /** One day's three daypart bars alone (no wind arrow, no range label) - the
     extended Today card drops this next to its surf range so the card carries the
     same at-a-glance shape as the chart rows. `maxH` is the caller's shared scale
@@ -104,6 +147,7 @@ export function DayScrubber({
   today,
   onSelect,
   onScrub,
+  mode = "surf",
 }: {
   data: SpotPayload;
   days: DayEntry[];
@@ -112,6 +156,8 @@ export function DayScrubber({
   today: string;
   onSelect: (i: number) => void;
   onScrub?: (i: number) => void;
+  /** swim: Calm / Water temp / Clarity bars and the shore break; surf: unchanged */
+  mode?: Mode;
 }) {
   const units = useUnits();
   const trackRef = useRef<HTMLDivElement>(null);
@@ -185,8 +231,54 @@ export function DayScrubber({
     <div class="day-scrub">
       <div class="track" ref={trackRef}>
         {days.map((day, i) => {
-          const { bars, hasAny, wind } = dayColumn(data, day.date);
           const on = i === hi;
+          if (mode === "swim") {
+            const c = swimColumn(data, day.date);
+            const brk = shoreBreak((day.h_max[0] + day.h_max[1]) / 2, units.height === "ft");
+            return (
+              <button
+                key={day.date}
+                class={`day-col swim-col${on ? " on" : ""}`}
+                aria-current={on ? "date" : undefined}
+                onClick={() => onSelect(i)}
+              >
+                <span class="dcol-head">
+                  <span class="dow">{dayLabel(day.date, today)}</span>
+                  <span class="dnum tabular">{dayNum(day.date)}</span>
+                  <span class="day-dot" style={`background:${c.dot}`} aria-hidden="true" />
+                </span>
+                <span class="dcol-bars">
+                  <span
+                    class={`chart-wind${c.push === "out" ? " push-out" : ""}`}
+                    aria-hidden="true"
+                  >
+                    {c.wind !== null ? <SwellDirIcon size={13} rotate={arrowRotation(c.wind)} /> : null}
+                  </span>
+                  <span class="chart-plot" style={`height:${CHART_H}px`}>
+                    {c.hasAny ? (
+                      c.bars.map((b, j) => (
+                        <span
+                          key={j}
+                          class={`chart-bar${b === null ? " stub" : ""}`}
+                          style={
+                            b !== null
+                              ? `height:${Math.max(BAR_MIN, Math.round(b.f * CHART_H))}px;background:${b.color}`
+                              : `height:${BAR_MIN}px`
+                          }
+                        />
+                      ))
+                    ) : (
+                      <span class="chart-empty" />
+                    )}
+                  </span>
+                  <span class="chart-val tabular">
+                    {c.hasAny ? `${brk.n}${brk.unit}` : "-"}
+                  </span>
+                </span>
+              </button>
+            );
+          }
+          const { bars, hasAny, wind } = dayColumn(data, day.date);
           return (
             <button
               key={day.date}

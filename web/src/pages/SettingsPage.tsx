@@ -10,6 +10,7 @@ import { disablePush, enablePush, pushState, syncPushSpots, type PushState } fro
 import { ACCOUNT_EVENT, profile, type Profile } from "../session";
 import { signalReady } from "../splash";
 import { setUnits, useUnits } from "../units";
+import { setMode, useMode } from "../mode";
 import type { Theme } from "../theme";
 
 /** Standing way back into the install, for anyone who dismissed the sheet or
@@ -260,6 +261,7 @@ export function SettingsPage({
 }) {
   const units = useUnits();
   const metric = units.height === "m";
+  const mode = useMode();
   // no async data - ready as soon as it mounts (lets the splash lift promptly)
   useEffect(signalReady, []);
 
@@ -294,6 +296,32 @@ export function SettingsPage({
               </button>
             </div>
           </div>
+          <div class="settings-row">
+            <span class="label">Mode</span>
+            <div class="segmented" role="radiogroup" aria-label="Mode">
+              <button
+                role="radio"
+                aria-checked={mode === "surf"}
+                class={mode === "surf" ? "on" : ""}
+                onClick={() => setMode("surf")}
+              >
+                Surf
+              </button>
+              <button
+                role="radio"
+                aria-checked={mode === "swim"}
+                class={mode === "swim" ? "on" : ""}
+                onClick={() => setMode("swim")}
+              >
+                Swim
+              </button>
+            </div>
+          </div>
+          <p class="settings-note">
+            {mode === "swim"
+              ? "Spot pages read the same forecast for a sea swimmer: Calm to Stay out, shore break, rip risk. Surf mode is one tap away."
+              : "Swim mode re-reads every spot for a sea swimmer - calm water first, waves last."}
+          </p>
           <div class="settings-row">
             <span class="label">Theme</span>
             <div class="segmented" role="radiogroup" aria-label="Theme">

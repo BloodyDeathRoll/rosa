@@ -54,6 +54,7 @@ jobs:
       - run: npm ci
       # sync-data copies ../data/out, a gitignored VM build artifact - an empty index stands in
       - run: mkdir -p ../data/out && echo '{"spots":{}}' > ../data/out/index.json
+      - run: npm test # vitest: swim derivations + the surf-mode byte-for-byte snapshot
       - run: npm run build # tsc --noEmit + vite build
 
   user-api:

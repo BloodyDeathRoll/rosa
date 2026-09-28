@@ -278,6 +278,46 @@ function ReadingTheForecast() {
         as the words, so you can scan a day without reading a single number.
       </p>
 
+      <h2 id="swim">Swim mode</h2>
+      <p>
+        Switch it on in Profile, next to units, and every spot page reads the same forecast for a
+        sea swimmer instead of a surfer. Nothing new is fetched and nothing is forecast twice: the
+        swim reading is worked out on your phone from the numbers already on the page.
+      </p>
+      <p>
+        The scale is <b>inverted</b>. Where a surfer wants size and period, a swimmer wants
+        neither, so the words run <b>Calm</b>, <b>Easy</b>, <b>Choppy</b>, <b>Rough</b>,{" "}
+        <b>Stay out</b>, and Calm is the top. An hour starts at a hundred and loses points for
+        the breaking wave (nothing to thirty centimetres, heavy by a metre, the floor from a
+        metre and a half), for chop (a short-period wind sea, scaled by the wind's knots), for a
+        wind that pushes you out to sea - the surfer's cherished offshore - and for murky water
+        below about five metres of visibility. If the bathing-water agency says pollution is
+        likely today, the hour is Stay out whatever the sea is doing. Where there is no pollution
+        source we say so on the card rather than leave a blank.
+      </p>
+      <p>
+        <b>Shore break</b> is the breaking wave as one figure in centimetres.{" "}
+        <b>Surge</b> is how often the sets arrive and how hard they pull at the shore, from the
+        wave's period and height. The wind reads <b>pushes in</b>, <b>pushes out</b> or{" "}
+        <b>drift</b>, and pushing out is the one to respect: it is amber, red once it is blowing.
+        The gear line comes from the water temperature alone: skins from 20 °C, a wetsuit below
+        that, cap and gloves below 15, cold-water caution below 11.
+      </p>
+      <p>
+        <b>Rip risk</b> is a <b>heuristic</b>, not a measurement. Bigger waves with longer periods
+        move more water up the beach, and that water has to get back out somewhere, so the chip
+        rises with height and period together. It knows nothing about this beach's sandbars or
+        channels. Treat "high" as a reason to look at the water for a while before you get in, and
+        "low" as no promise at all.
+      </p>
+      <p>
+        The tide card marks each turn of the tide as <b>slack</b> and shades the hours the water
+        moves fastest; slack is the easier swim. The day strip's three bars become Calm, water
+        temperature and clarity, with the shore break underneath, and the best swim of the day is
+        the highest-scoring daylight hour, a slacker tide breaking ties. A spot the database marks
+        as rock or reef says so instead of rating the water: it is not a swimming beach.
+      </p>
+
       <h2>Units</h2>
       <p>
         Metres or feet, and Celsius or Fahrenheit, are yours to set in Profile. Wind is always in

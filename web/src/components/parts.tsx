@@ -2,6 +2,7 @@ import type { ComponentChildren } from "preact";
 import { useState } from "preact/hooks";
 import type { Bucket } from "../types";
 import { ratingVar, ratingWord } from "../conditions";
+import { SWIM_WORD, type SwimBucket } from "../lib/swim";
 import { gaEvent } from "../ga";
 import { DEFAULT_TITLE, SITE } from "../head";
 import { CheckIcon, ShareIcon, StarIcon } from "./icons";
@@ -62,6 +63,15 @@ export function Pill({ bucket }: { bucket: Bucket }) {
   return (
     <span class="pill" data-bucket={bucket}>
       {ratingWord(bucket)}
+    </span>
+  );
+}
+
+/** Swim-mode rating pill - same shape, the swim scale's word and tint (`data-swim`). */
+export function SwimPill({ bucket }: { bucket: SwimBucket }) {
+  return (
+    <span class="pill" data-swim={bucket}>
+      {SWIM_WORD[bucket]}
     </span>
   );
 }

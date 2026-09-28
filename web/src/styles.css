@@ -70,6 +70,23 @@
   --wind-bad: #d0574a;
   --warn-orange: var(--wind-cross);
 
+  /* Swim mode's scale (lib/swim.ts) - inverted from surf: Calm is the top and
+     wears the surf Good green, Stay out is the darkest. Its three neutral bars
+     (water temp, clarity) and the tide-flow shading sit beside it. */
+  --swim-calm: #24b161;
+  --swim-easy: #11b7f2;
+  --swim-choppy: #e48022;
+  --swim-rough: #d0574a;
+  --swim-out: #6e2320;
+  --swim-calm-fg: #ffffff;
+  --swim-easy-fg: #ffffff;
+  --swim-choppy-fg: #ffffff;
+  --swim-rough-fg: #ffffff;
+  --swim-out-fg: #ffffff;
+  --swim-temp: #b98a3c;
+  --swim-clarity: #3f8fa8;
+  --swim-flow: color-mix(in srgb, var(--wind-cross) 16%, transparent);
+
   /* Chart bars are a single neutral teal; the day's condition color is carried
      by a rule beneath the column, not the bars themselves. */
   --chart-bar: #186a83;
@@ -2262,6 +2279,149 @@ a.rank-card:hover {
 }
 .tide-ext small {
   font-size: 10.6px;
+  color: var(--muted-foreground);
+}
+
+/* ---------------------------------------------------------------------------
+   SWIM MODE (Profile > Mode). Every rule here is scoped to a class the surf
+   render never emits, so surf mode is untouched (src/test/surf-mode.test.tsx). */
+.pill[data-swim="CALM"] {
+  background: var(--swim-calm);
+  color: var(--swim-calm-fg);
+}
+.pill[data-swim="EASY"] {
+  background: var(--swim-easy);
+  color: var(--swim-easy-fg);
+}
+.pill[data-swim="CHOPPY"] {
+  background: var(--swim-choppy);
+  color: var(--swim-choppy-fg);
+}
+.pill[data-swim="ROUGH"] {
+  background: var(--swim-rough);
+  color: var(--swim-rough-fg);
+}
+.pill[data-swim="OUT"] {
+  background: var(--swim-out);
+  color: var(--swim-out-fg);
+}
+
+/* rock / reef shore: the banner stands where the rating would */
+.swim-banner {
+  margin: 0 16px 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--swim-rough) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--swim-rough) 40%, transparent);
+  color: var(--foreground);
+  font-size: 13.2px;
+  font-weight: 600;
+}
+
+/* "no pollution data" under the pill - an unknown said out loud */
+.swim-unknown {
+  font-size: 11px;
+  color: var(--muted-foreground);
+}
+
+/* Best-swim tag: the Calm green in place of the surf tag's Epic green */
+.best-tag.swim-tag {
+  background: var(--swim-calm);
+}
+
+/* Surge word: low / med / high */
+.swim-row .swell-cell .lvl {
+  font-style: normal;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 9.9px;
+}
+.swim-row .lvl-med {
+  color: var(--swim-choppy);
+}
+.swim-row .lvl-high {
+  color: var(--swim-rough);
+}
+
+/* Wind as push: out is the one to respect (amber, red once it blows); in and
+   drift stay neutral. The surf green-for-offshore never applies here. The
+   chip word is two words, so the cell gives up side padding and never wraps. */
+.swim-row .wind-cell {
+  padding: 8px 3px;
+}
+.swim-row .wind-cell .wclass {
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+.swim-row .wind-cell.push-in .wclass,
+.swim-row .wind-cell.push-in .top svg,
+.swim-row .wind-cell.push-drift .wclass,
+.swim-row .wind-cell.push-drift .top svg {
+  color: var(--muted-foreground);
+}
+.swim-row .wind-cell.push-out .wclass,
+.swim-row .wind-cell.push-out .top svg {
+  color: var(--wind-cross);
+}
+.swim-row .wind-cell.push-out.hard .wclass,
+.swim-row .wind-cell.push-out.hard .top svg {
+  color: var(--wind-bad);
+}
+/* the day strip's wind arrow when the noon wind pushes out */
+.swim-col .chart-wind.push-out {
+  color: var(--wind-cross);
+}
+
+/* Rip chip over the water temperature; kJ · hPa beneath while the header expand is on */
+.swim-rip {
+  gap: 3px;
+}
+.rip-chip {
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 9.9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--emphasis-bg);
+  color: var(--foreground);
+}
+.rip-chip.rip-med {
+  background: color-mix(in srgb, var(--swim-choppy) 22%, transparent);
+  color: var(--swim-choppy);
+}
+.rip-chip.rip-high {
+  background: color-mix(in srgb, var(--swim-rough) 22%, transparent);
+  color: var(--swim-rough);
+}
+.swim-rip > small {
+  font-size: 11px;
+  color: var(--muted-foreground);
+}
+.hour-grid.head button.head-info {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+}
+.hour-grid.head button.head-info.on {
+  color: var(--foreground);
+}
+
+/* Tide: fastest-flow hours shaded, a dot at each slack */
+.tide-flow {
+  fill: var(--swim-flow);
+}
+.tide-slack {
+  fill: var(--background);
+  stroke: var(--accent);
+  stroke-width: 1.5;
+}
+.tide-legend {
+  margin: 4px 0 6px;
+  font-size: 11px;
   color: var(--muted-foreground);
 }
 

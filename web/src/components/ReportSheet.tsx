@@ -2,6 +2,7 @@ import { useEffect, useState } from "preact/hooks";
 import { ChevronLeftIcon } from "./icons";
 import { mailtoFor, send, MESSAGE_MAX, type Outbound } from "../contact";
 import { lockScroll } from "../scroller";
+import type { Mode } from "../lib/swim";
 
 /** Per-spot "Report", a full screen of its own.
 
@@ -22,6 +23,16 @@ export const REPORT_REASONS = [
   "Forecast too low",
   "Wind is wrong",
   "Camera is offline",
+] as const;
+
+/** What a swimmer reports: the water, not the forecast's numbers. */
+export const SWIM_REPORT_TAGS = [
+  "Jellyfish",
+  "Stingers",
+  "Strong current",
+  "Murky water",
+  "Clean water",
+  "Calm water",
 ] as const;
 
 const OTHER = "Something else";
@@ -46,9 +57,12 @@ function CheckIcon() {
 export function ReportSheet({
   spot,
   onClose,
+  mode = "surf",
 }: {
   spot: NonNullable<Outbound["spot"]>;
   onClose: () => void;
+  /** swim: the tag set is the swimmer's (SWIM_REPORT_TAGS); surf: unchanged */
+  mode?: Mode;
 }) {
   const [picked, setPicked] = useState<string[]>([]);
   const [note, setNote] = useState("");
@@ -71,9 +85,11 @@ export function ReportSheet({
   const trimmed = note.trim();
   const ready = picked.length > 0 && (!needsNote || trimmed.length > 0);
 
+  const reasons: readonly string[] = mode === "swim" ? SWIM_REPORT_TAGS : REPORT_REASONS;
   const outbound: Outbound = {
     kind: "report",
-    reason: picked.join("; "),
+    // a swim report says so, so the reader knows which scale the words came from
+    reason: (mode === "swim" ? "[swim] " : "") + picked.join("; "),
     message: trimmed,
     spot,
   };
@@ -114,9 +130,13 @@ export function ReportSheet({
             {spot.lat.toFixed(4)}, {spot.lon.toFixed(4)}
           </p>
 
-          <p class="report-q">What is wrong? Tick everything that applies.</p>
+          <p class="report-q">
+            {mode === "swim"
+              ? "What did you find in the water? Tick everything that applies."
+              : "What is wrong? Tick everything that applies."}
+          </p>
           <div class="report-list">
-            {[...REPORT_REASONS, OTHER].map((r) => {
+            {[...reasons, OTHER].map((r) => {
               const on = picked.includes(r);
               return (
                 <button

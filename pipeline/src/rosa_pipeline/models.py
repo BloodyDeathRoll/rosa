@@ -61,6 +61,10 @@ class Spot:
     # the nearest OSM place node, never rendered as part of the spot's name.
     town: str | None = None
     tide_best: str | None = None  # local knowledge: "low" | "mid" | "high" (never derived)
+    # Shore type, for the web's swim mode only: "sand" | "rock" | "reef" | "mixed". Unset for
+    # every spot today (2026-09-28) - nothing derives it and nothing scores on it. rock/reef
+    # makes swim mode say "not a swimming beach" instead of rating the water.
+    shore: str | None = None
     # Live cams, only ever streams whose operator publishes them as embeddable (CLAUDE.md
     # legal red line: never scrape a cam, never touch a competitor's). Today that means
     # public YouTube live streams, embedded through YouTube's own player with the channel

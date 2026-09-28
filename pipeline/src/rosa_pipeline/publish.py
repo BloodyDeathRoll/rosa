@@ -465,6 +465,8 @@ def build_payload(
             # search-only: the town a break is often known by. Key omitted when unset.
             **({"town": spot.town} if spot.town else {}),
             "tide_best": spot.tide_best,
+            # swim mode's shore type; key omitted when unset, so today's output is unchanged
+            **({"shore": spot.shore} if spot.shore else {}),
             "lat": spot.lat,
             "lon": spot.lon,
             "timezone": spot.timezone,

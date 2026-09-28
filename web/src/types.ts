@@ -118,6 +118,9 @@ export interface SpotPayload {
     /** Nearest settlement - search matches it, nothing renders it as part of the name. */
     town?: string;
     tide_best?: "low" | "mid" | "high" | null;
+    /** Shore type from the spot DB; absent for almost every spot. rock / reef = not
+        a swimming beach, and swim mode says so instead of rating the water. */
+    shore?: "sand" | "rock" | "reef" | "mixed";
     lat: number;
     lon: number;
     timezone: string;

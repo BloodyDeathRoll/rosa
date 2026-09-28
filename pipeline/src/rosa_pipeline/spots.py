@@ -117,6 +117,9 @@ def load_spots_file(path: Path) -> list[Spot]:
         tide_best = raw.get("tide_best")
         if tide_best is not None and tide_best not in ("low", "mid", "high"):
             raise ValueError(f"{raw['id']}: tide_best must be low|mid|high, got {tide_best!r}")
+        shore = raw.get("shore")
+        if shore is not None and shore not in ("sand", "rock", "reef", "mixed"):
+            raise ValueError(f"{raw['id']}: shore must be sand|rock|reef|mixed, got {shore!r}")
         if "cam" in raw and "cams" in raw:
             raise ValueError(f"{raw['id']}: use either cam: or cams:, not both")
         raw_cams = raw.get("cams") or ([raw["cam"]] if raw.get("cam") else [])
@@ -158,6 +161,7 @@ def load_spots_file(path: Path) -> list[Spot]:
                 region=region,
                 town=(raw.get("town") or None),
                 tide_best=tide_best,
+                shore=shore,
                 cams=tuple(cams),
             )
         )

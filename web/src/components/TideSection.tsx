@@ -1,4 +1,5 @@
 import { dateOf } from "../format";
+import { fastFlow, tideFlow, type Mode } from "../lib/swim";
 import type { HourEntry } from "../types";
 
 /** Real tide curve for the selected day, from the pipeline's per-hour `tide`
@@ -86,6 +87,7 @@ export function TideSection({
   nowT,
   metric,
   tideBest,
+  mode = "surf",
 }: {
   /** the spot's full hourly series (neighbouring days pad the curve's edges) */
   hours: HourEntry[];
@@ -96,7 +98,10 @@ export function TideSection({
   metric: boolean;
   /** spot-DB local knowledge - "low" | "mid" | "high" when known */
   tideBest?: string | null;
+  /** swim: slack markers at every turn and the fastest-flow hours shaded; surf: unchanged */
+  mode?: Mode;
 }) {
+  const swim = mode === "swim";
   // day's samples ± one neighbour on each side for edge continuity
   const dayIdx = hours.map((h, i) => ({ h, i })).filter(({ h }) => dateOf(h.t) === date);
   const first = dayIdx[0]?.i ?? -1;
@@ -146,6 +151,11 @@ export function TideSection({
     ? `~${Math.max(range, 0.1).toFixed(1)} m range - barely matters here`
     : `${fmtTide(lo, metric)} to ${fmtTide(hi, metric)}`;
 
+  // swim mode: the hours the water moves fastest (max |dh/dt| of this same series),
+  // each shaded over its own 3 h slot; slack = a dot on the curve at each high and low
+  const fast = swim && !micro ? fastFlow(tideFlow(pts)) : [];
+  const step = pts.length > 1 ? pts[1]!.min - pts[0]!.min : 180;
+
   return (
     <div class="tide-sec">
       <div class="head">
@@ -164,6 +174,21 @@ export function TideSection({
             </linearGradient>
           </defs>
           <path d={`${line} L${W},${H} L0,${H} Z`} fill="url(#tide-water)" stroke="none" />
+          {fast.map((f) => {
+            const x0 = Math.max(0, xOf(f.min - step / 2));
+            const x1 = Math.min(W, xOf(f.min + step / 2));
+            if (x1 <= x0) return null;
+            return (
+              <rect
+                key={`flow-${f.min}`}
+                class="tide-flow"
+                x={x0.toFixed(1)}
+                y={LABEL_H}
+                width={(x1 - x0).toFixed(1)}
+                height={H - LABEL_H}
+              />
+            );
+          })}
           {extremes.map((e) => (
             <line
               key={e.min}
@@ -176,6 +201,16 @@ export function TideSection({
             />
           ))}
           <path d={line} fill="none" stroke="var(--accent)" stroke-width="1.5" />
+          {swim &&
+            extremes.map((e) => (
+              <circle
+                key={`slack-${e.min}`}
+                class="tide-slack"
+                cx={xOf(e.min).toFixed(1)}
+                cy={yOf(e.v).toFixed(1)}
+                r="3"
+              />
+            ))}
           {nowX && (
             <line
               x1={nowX}
@@ -201,6 +236,13 @@ export function TideSection({
           </span>
         ))}
       </div>
+      {swim && (
+        <p class="tide-legend">
+          {fast.length > 0
+            ? "Dots mark slack water - the easier swim. Shaded hours: the water moves fastest."
+            : "Dots mark slack water - the easier swim."}
+        </p>
+      )}
       {tideBest && (
         <p class="tide-best">
           Locals surf this spot best around {tideBest === "mid" ? "mid" : tideBest} tide

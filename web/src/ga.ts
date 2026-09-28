@@ -139,6 +139,8 @@ export interface GaPrefs {
       "[object Object]" into GA for every user until 2026-09-10. Format it at the call
       site with `unitsTag()` so the property stays one short, groupable value. */
   units?: string;
+  /** "surf" | "swim" (mode.ts) */
+  mode?: string;
   theme?: string;
   region?: string;
   signed_in?: boolean;

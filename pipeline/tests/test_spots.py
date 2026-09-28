@@ -1,5 +1,7 @@
 from pathlib import Path
 
+import pytest
+
 from rosa_pipeline.spots import load_spots, load_spots_file
 from rosa_pipeline.transform import in_window
 
@@ -188,3 +190,30 @@ def test_every_cam_can_follow_its_stream():
     ]
     assert bad == [], f"cams with no usable channel id: {bad}"
     assert [sid for sid, c in cams if not c.title.strip()] == []
+
+
+def test_shore_type_is_optional_and_validated(tmp_path):
+    """`shore` (swim mode's rock/reef banner) is unset by default and only ever one of four
+    words. Nothing in the fleet sets it yet; the field is wired, not populated."""
+    spots = load_spots(SPOTS_DIR)
+    assert all(s.shore is None for s in spots.values())
+    yaml_ok = """
+spots:
+  - id: reefy
+    name: Reefy
+    lat: 32.0
+    lon: 34.7
+    timezone: Asia/Jerusalem
+    offshore_direction: 90
+    swell_window: [250, 340]
+    height_coeff: 1.0
+    break_type: reef
+    shore: reef
+    ideal: {wind_dir: [45, 135], size_m: [0.6, 1.5]}
+"""
+    (tmp_path / "t.yaml").write_text(yaml_ok)
+    (reefy,) = load_spots_file(tmp_path / "t.yaml")
+    assert reefy.shore == "reef"
+    (tmp_path / "bad.yaml").write_text(yaml_ok.replace("shore: reef", "shore: pebbles"))
+    with pytest.raises(ValueError, match="shore must be"):
+        load_spots_file(tmp_path / "bad.yaml")

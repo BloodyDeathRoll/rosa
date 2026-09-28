@@ -18,8 +18,34 @@ import {
 } from "../components/icons";
 import { DayScrubber } from "../components/CoastChart";
 import { ReportSheet } from "../components/ReportSheet";
-import { Pill, ShareButton, StarButton } from "../components/parts";
+import { Pill, ShareButton, StarButton, SwimPill } from "../components/parts";
 import { ratingVar } from "../conditions";
+import {
+  bestSwim,
+  CHOP_MAX,
+  daySwim,
+  daylightOf,
+  GEAR_WORD,
+  gearFor,
+  peakPeriod,
+  PUSH_OUT_MAX,
+  PUSH_OUT_RED_KT,
+  PUSH_WORD,
+  pushOf,
+  ripLevel,
+  rockyEntry,
+  shoreBreak,
+  SURGE_HIGH,
+  surgeLevel,
+  SWIM_RAIL_FILL,
+  swimNote,
+  swimScore,
+  swimVar,
+  toKnots,
+  type DaySwim,
+  type Mode,
+} from "../lib/swim";
+import { useMode } from "../mode";
 import { useFavorites } from "../favorites";
 import { stashView } from "../feedback";
 import { pushRecent } from "../recents";
@@ -407,6 +433,7 @@ export function SpotPanel({
   spots,
   id,
   onReport,
+  mode = "surf",
 }: {
   data: SpotPayload;
   dayIndex: number;
@@ -416,7 +443,12 @@ export function SpotPanel({
   spots: [string, IndexEntry][];
   id: string;
   onReport: () => void;
+  /** surf (default) renders exactly what it always has; swim re-reads the same data */
+  mode?: Mode;
 }) {
+    // swim mode only: kJ / hPa shown under the rip column (the header's expand)
+    const [power, setPower] = useState(false);
+    const swim = mode === "swim";
     const days = data.days;
     const cur = data.current;
     const i = Math.min(Math.max(dayIndex, 0), days.length - 1);
@@ -429,7 +461,12 @@ export function SpotPanel({
         const [hh, mm] = fmtClock(d, data.spot.timezone).split(":");
         return Number(hh) * 60 + Number(mm);
       };
-      const chips = sessionChips(dayHours, toMin(sun.firstLight), toMin(sun.lastLight));
+      const daylight = swim ? daylightOf(data.spot, day.date) : null;
+      const chips = daylight
+        ? bestSwim(dayHours, data.hours, data.water, daylight)
+        : sessionChips(dayHours, toMin(sun.firstLight), toMin(sun.lastLight));
+      const dsw = daylight ? daySwim(dayHours, data.water, daylight) : null;
+      const rocky = swim && rockyEntry(data.spot.shore);
       // best-session slots → tinted rows, with a "Best session" tag overlaid on the
       // first row of each contiguous run (top-right, just under the row's top border)
       const bestSet = new Set(chips.map((c) => c.t));
@@ -440,20 +477,81 @@ export function SpotPanel({
         const prevBest = i > 0 && bestSet.has(dayHours[i - 1]!.t);
         const nextBest = i + 1 < dayHours.length && bestSet.has(dayHours[i + 1]!.t);
         hourRows.push(
-          <HourRow
-            key={h.t}
-            h={h}
-            units={units}
-            best={isBest}
-            first={isBest && !prevBest}
-            last={isBest && !nextBest}
-            label={isBest && !prevBest ? "Best session" : undefined}
-          />
+          swim ? (
+            <SwimHourRow
+              key={h.t}
+              h={h}
+              water={data.water}
+              units={units}
+              power={power}
+              best={isBest}
+              first={isBest && !prevBest}
+              last={isBest && !nextBest}
+              label={isBest && !prevBest ? "Best swim" : undefined}
+            />
+          ) : (
+            <HourRow
+              key={h.t}
+              h={h}
+              units={units}
+              best={isBest}
+              first={isBest && !prevBest}
+              last={isBest && !nextBest}
+              label={isBest && !prevBest ? "Best session" : undefined}
+            />
+          )
         );
       }
       return (
         <div class="spot-main">
           <CamSection data={data} all={spots} />
+          {rocky && (
+            <p class="swim-banner" role="note">
+              Rocky entry - not a swimming beach
+            </p>
+          )}
+          {dsw ? (
+            <section class="spot-card swim-card">
+              <div class="rc-left">
+                <div class="rc-head">
+                  {!rocky && <SwimPill bucket={dsw.bucket} />}
+                  <button
+                    class="accent-link"
+                    onClick={() => {
+                      setPendingPin(id);
+                      navigate("/map");
+                    }}
+                  >
+                    <MapIcon size={14} />
+                    Map
+                  </button>
+                </div>
+                {/* an unknown is said out loud - never a grey blank */}
+                {dsw.pollutionUnknown && <span class="swim-unknown">no pollution data</span>}
+                <div class="rc-temps">
+                  <span>
+                    <ThermometerIcon />
+                    <span class="tabular">air {cur.air !== null ? fmtTemp(cur.air, units) : "-"}</span>
+                  </span>
+                  <span>
+                    <WavesIcon />
+                    <span class="tabular">
+                      water {cur.sst !== null ? fmtTemp(cur.sst, units) : "-"}
+                    </span>
+                  </span>
+                  {gearFor(cur.sst) && (
+                    <span>
+                      <ShirtIcon />
+                      <span class="suit">{GEAR_WORD[gearFor(cur.sst)!]}</span>
+                    </span>
+                  )}
+                </div>
+              </div>
+              <div class="rc-right">
+                <SwimDayBars day={dsw} water={data.water} />
+              </div>
+            </section>
+          ) : (
           <section class="spot-card">
             <div class="rc-left">
               <div class="rc-head">
@@ -492,6 +590,7 @@ export function SpotPanel({
               <DayBars day={day} hours={dayHours} water={data.water} />
             </div>
           </section>
+          )}
 
           {/* one box around the day's table, so the wide layout can seat it
               beside the rating/tide column (styles.css DESKTOP) */}
@@ -501,7 +600,7 @@ export function SpotPanel({
               <b>
                 {dayLabel(day.date, today)} · {dayDate(day.date)}
               </b>
-              <span>{dayNote(days, i, dayHours)}</span>
+              <span>{swim ? swimNote(dayHours, data.water) : dayNote(days, i, dayHours)}</span>
             </div>
             {/* Reports are read by a human before anything changes - see ReportSheet. */}
             <button
@@ -513,6 +612,36 @@ export function SpotPanel({
               Report
             </button>
           </div>
+          {swim ? (
+            <div class="hour-grid head">
+              <span aria-hidden="true" />
+              <span aria-hidden="true" />
+              <a class="head-info" href="/about/reading#swim" aria-label="What shore break means">
+                <span aria-hidden="true">shore break {units.height === "ft" ? "in" : "cm"}</span>
+                <InfoIcon size={12} />
+              </a>
+              <a class="head-info" href="/about/reading#swim" aria-label="What surge means">
+                <span aria-hidden="true">surge</span>
+                <InfoIcon size={12} />
+              </a>
+              <a class="head-info" href="/about/reading#swim" aria-label="What push in and push out mean">
+                <span aria-hidden="true">wind kt</span>
+                <InfoIcon size={12} />
+              </a>
+              {/* the expand: kJ and hPa live under the rip chip while this is on */}
+              <button
+                class={`head-info${power ? " on" : ""}`}
+                aria-expanded={power}
+                aria-label={power ? "Hide wave energy and pressure" : "Show wave energy and pressure"}
+                onClick={() => setPower((p) => !p)}
+              >
+                <span class="pp-head" aria-hidden="true">
+                  rip<small>water</small>
+                </span>
+                <InfoIcon size={12} />
+              </button>
+            </div>
+          ) : (
           <div class="hour-grid head">
             <span aria-hidden="true" />
             <span aria-hidden="true" />
@@ -537,6 +666,7 @@ export function SpotPanel({
               <InfoIcon size={12} />
             </a>
           </div>
+          )}
           {hourRows}
           {dayHours.length === 0 && (
             <p class="state">Beyond the model horizon - no hourly detail yet.</p>
@@ -551,6 +681,7 @@ export function SpotPanel({
             nowT={day.date === today ? nowIn(data.spot.timezone) : null}
             metric={units.height === "m"}
             tideBest={data.spot.tide_best}
+            mode={mode}
           />
 
           <div class="sun-row">
@@ -575,6 +706,135 @@ export function SpotPanel({
       );
 }
 
+/** Swim mode's five bars: Clarity / Pollution for the spot (measured), then the
+    selected day's worst Chop / Surge / Push. Same markup as DayBars, so the two
+    modes' cards sit identically. */
+function SwimDayBars({ day, water }: { day: DaySwim; water: SpotPayload["water"] }) {
+  const clarity = water?.clarity ?? null;
+  const pollution = water?.pollution ?? null;
+  const rows: BarRow[] = [
+    clarity
+      ? { l: "Clarity", q: Math.min(1, clarity.zsd_m / CLARITY_FULL_M), tag: "daily" }
+      : { l: "Clarity", q: null },
+    pollution
+      ? {
+          l: "Pollution",
+          q: pollution.grade / 4,
+          tag: pollution.cadence === "yearly" ? "yearly" : "daily",
+          alert: pollution.alert,
+        }
+      : { l: "Pollution", q: null },
+    { l: "Chop", q: Math.max(0.12, 1 - day.worst.chop / CHOP_MAX) },
+    { l: "Surge", q: Math.max(0.12, 1 - Math.min(1, day.worst.surge / SURGE_HIGH)) },
+    { l: "Push", q: Math.max(0.12, 1 - day.worst.push / PUSH_OUT_MAX) },
+  ];
+  return (
+    <div class="why-bars">
+      {rows.map((b) => (
+        <div class="bar" key={b.l}>
+          <span>{b.l}</span>
+          {b.q === null ? (
+            <span class="bar-nodata">no data</span>
+          ) : (
+            <span class="track">
+              <i
+                class={b.alert ? "q-poor" : qClass(b.q)}
+                style={`width:${Math.round(b.q * 100)}%`}
+              />
+            </span>
+          )}
+          <span class="bar-tag">{b.tag ?? ""}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/** One hour read for a swimmer: swim rail, shore break as one figure, surge, the
+    wind as push in / out / drift (never the surfer's green-for-offshore), rip risk
+    and water temperature. kJ and hPa sit behind the header's expand (`power`). */
+function SwimHourRow({
+  h,
+  water,
+  units,
+  power,
+  best,
+  first,
+  last,
+  label,
+}: {
+  h: HourEntry;
+  water: SpotPayload["water"];
+  units: Units;
+  power: boolean;
+  best?: boolean;
+  first?: boolean;
+  last?: boolean;
+  label?: string;
+}) {
+  const s = swimScore(h, water);
+  const tp = peakPeriod(h);
+  const surge = surgeLevel(h);
+  const rip = ripLevel(h);
+  const push = pushOf(h);
+  const kts = toKnots(h.wind.kph);
+  const brk = shoreBreak(h.h_mid, units.height === "ft");
+  return (
+    <div
+      class={`hour-grid row swim-row${best ? " best" : ""}${first ? " best-first" : ""}${
+        last ? " best-last" : ""
+      }`}
+    >
+      {label && <span class="best-tag swim-tag">{label}</span>}
+      <span class="t tabular">{hourOf(h.t)}</span>
+      <span class="bar">
+        <i style={`height:${SWIM_RAIL_FILL[s.bucket]}%;background:${swimVar(s.bucket)}`} />
+      </span>
+      <span class="surf">
+        <b class="tabular">{brk.n}</b>
+      </span>
+      <span class="vec swell-cell">
+        {tp !== null ? (
+          <>
+            <span class="top">
+              <b class="tabular">{Math.round(tp)}s</b>
+            </span>
+            <small>
+              sets · <em class={`lvl lvl-${surge}`}>{surge}</em>
+            </small>
+          </>
+        ) : (
+          <small>-</small>
+        )}
+      </span>
+      <span
+        class={`wind-cell push-${push}${push === "out" && kts >= PUSH_OUT_RED_KT ? " hard" : ""}`}
+      >
+        <span class="top">
+          <WindDirIcon rotate={arrowRotation(h.wind.dir)} />
+          <b class="tabular">{knots(h.wind.kph)}</b>
+          <small class="cardinal tabular">{cardinal(h.wind.dir)}</small>
+        </span>
+        <small class="wclass">{PUSH_WORD[push]}</small>
+      </span>
+      <span class="pp swim-rip">
+        <b
+          class={`rip-chip rip-${rip}`}
+          title="Rip risk - a heuristic from wave height and period, not a measurement"
+        >
+          {rip}
+        </b>
+        <small class="tabular">{h.sst !== null ? fmtTemp(h.sst, units) : "-"}</small>
+        {power && (
+          <small class="press tabular">
+            {Math.round(h.energy_kj)} kJ · {h.pressure ?? "-"}
+          </small>
+        )}
+      </span>
+    </div>
+  );
+}
+
 // Selected date carried across spot→spot navigation (the switcher chips keep
 // SpotPage mounted, so this survives the id change). Cleared on unmount, so
 // arriving fresh from Home/Map/Favorites still opens on today.
@@ -590,6 +850,7 @@ export function SpotPage({ id }: { id: string }) {
   const [reporting, setReporting] = useState(false);
   const [spots, setSpots] = useState<[string, IndexEntry][]>([]);
   const units = useUnits();
+  const mode = useMode();
   // commit a day: settle both the highlight (live) and the content (daySel)
   const commitDay = useCallback((i: number) => {
     setDaySel(i);
@@ -724,10 +985,11 @@ export function SpotPage({ id }: { id: string }) {
         spots={spots}
         id={id}
         onReport={() => setReporting(true)}
+        mode={mode}
       />
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data, units, liveDay, id, spots]);
+  }, [data, units, liveDay, id, spots, mode]);
 
   const spotName = splitName(data?.spot.name ?? curEntry?.name ?? "").name;
 
@@ -781,6 +1043,7 @@ export function SpotPage({ id }: { id: string }) {
           today={today}
           onSelect={commitDay}
           onScrub={setLiveDay}
+          mode={mode}
         />
       </div>
       {panel}
@@ -794,6 +1057,7 @@ export function SpotPage({ id }: { id: string }) {
             lon: data.spot.lon,
           }}
           onClose={() => setReporting(false)}
+          mode={mode}
         />
       )}
       {nearby.length > 0 && (
