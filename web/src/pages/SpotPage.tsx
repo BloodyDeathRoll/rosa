@@ -526,8 +526,6 @@ export function SpotPanel({
                     Map
                   </button>
                 </div>
-                {/* an unknown is said out loud - never a grey blank */}
-                {dsw.pollutionUnknown && <span class="swim-unknown">no pollution data</span>}
                 <div class="rc-temps">
                   <span>
                     <ThermometerIcon />

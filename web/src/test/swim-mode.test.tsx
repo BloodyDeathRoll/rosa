@@ -69,8 +69,8 @@ describe("swim mode (toggle on)", () => {
   it("no pollution source is said out loud", () => {
     const noWater = { ...data, water: { clarity: null, pollution: null } };
     const h = panel(noWater);
-    expect(h).toContain("no pollution data");
-    expect(h).toContain("no data");
+    expect(h).not.toContain("no pollution data"); // the Pollution bar's "no data" says it once
+    expect(h).toContain("<span>Pollution</span><span class=\"bar-nodata\">no data</span>");
   });
 
   it("a rock or reef shore shows the banner instead of a rating", () => {

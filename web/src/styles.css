@@ -2318,12 +2318,6 @@ a.rank-card:hover {
   font-weight: 600;
 }
 
-/* "no pollution data" under the pill - an unknown said out loud */
-.swim-unknown {
-  font-size: 11px;
-  color: var(--muted-foreground);
-}
-
 /* Best-swim tag: the Calm green in place of the surf tag's Epic green */
 .best-tag.swim-tag {
   background: var(--swim-calm);
