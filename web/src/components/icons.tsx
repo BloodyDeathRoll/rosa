@@ -129,6 +129,23 @@ export const MoonIcon = ({ size = 12 }: IconProps) => (
   </svg>
 );
 
+/** Surf mode (Profile > Mode): a breaking wave over flat water. */
+export const SurfIcon = ({ size = 12 }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
+    <path d="M2 16c3 0 4.5-2 5.5-4.5S10.5 5 15 5c3 0 5 2 5 4.5 0 1.9-1.4 3-3 3-1.4 0-2.5-1-2.5-2.3" />
+    <path d="M2 20c1.5 0 2.5-1 4-1s2.5 1 4 1 2.5-1 4-1 2.5 1 4 1 2.5-1 4-1" />
+  </svg>
+);
+
+/** Swim mode (Profile > Mode): a swimmer's head and stroke above the water line. */
+export const SwimIcon = ({ size = 12 }: IconProps) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
+    <circle cx="17" cy="7" r="2" />
+    <path d="M3 13.5 8 10l4 3 5-2.5" />
+    <path d="M2 18c1.5 0 2.5-1 4-1s2.5 1 4 1 2.5-1 4-1 2.5 1 4 1 2.5-1 4-1" />
+  </svg>
+);
+
 export const ThermometerIcon = ({ size = 15 }: IconProps) => (
   <svg width={size} height={size} viewBox="0 0 24 24" {...base}>
     <path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z" />

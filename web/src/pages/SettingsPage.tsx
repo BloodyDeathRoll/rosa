@@ -2,7 +2,7 @@ import { useEffect, useState } from "preact/hooks";
 import { navigate } from "../router";
 import { accountSupported, deleteAccount, signOut } from "../account";
 import { GoogleButton } from "../components/GoogleButton";
-import { MoonIcon, SunIcon } from "../components/icons";
+import { MoonIcon, SunIcon, SurfIcon, SwimIcon } from "../components/icons";
 import { AppHeader } from "../components/parts";
 import { feedbackPref, setFeedbackPref } from "../feedback";
 import { manualInstallOffer, openInChrome, runInstall, type InstallOffer } from "../install";
@@ -305,6 +305,7 @@ export function SettingsPage({
                 class={mode === "surf" ? "on" : ""}
                 onClick={() => setMode("surf")}
               >
+                <SurfIcon />
                 Surf
               </button>
               <button
@@ -313,13 +314,14 @@ export function SettingsPage({
                 class={mode === "swim" ? "on" : ""}
                 onClick={() => setMode("swim")}
               >
+                <SwimIcon />
                 Swim
               </button>
             </div>
           </div>
           <p class="settings-note">
             {mode === "swim"
-              ? "Spot pages read the same forecast for a sea swimmer: Calm to Stay out, shore break, rip risk. Surf mode is one tap away."
+              ? "Every screen reads the same forecast for a sea swimmer: Calm to Stay out, shore break, rip risk. Surf mode is one tap away."
               : "Swim mode re-reads every spot for a sea swimmer - calm water first, waves last."}
           </p>
           <div class="settings-row">
