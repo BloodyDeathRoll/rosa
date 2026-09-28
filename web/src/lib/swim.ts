@@ -38,6 +38,13 @@ export const PUSH_OUT_RED_KT = 12;
 export const CLARITY_CLEAR_M = 5;
 export const CLARITY_MAX = 20;
 
+/** The card's words. Shore break (the day's figure, m): tiny up to BREAK_FREE_M, small
+    up to BREAK_SMALL_M, big below BREAK_HEAVY_M, heavy below BREAK_FLOOR_M, then
+    dangerous. Clarity (Secchi depth, m): clear from CLARITY_CLEAR_M, hazy from
+    CLARITY_HAZY_M, murky below. */
+export const BREAK_SMALL_M = 0.6;
+export const CLARITY_HAZY_M = 2.5;
+
 /** Score → word. Inverted from surf: Calm is the top. Below OUT_MIN is "Stay out";
     a pollution alert caps the score at OUT_CAP whatever the sea is doing. */
 export const CALM_MIN = 80;
@@ -466,3 +473,41 @@ const CARDINALS = [
   "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE",
   "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW",
 ];
+
+// ---------------------------------------------------------------------------------
+// The swim card's words - one per factor, on the swim colours
+// ---------------------------------------------------------------------------------
+
+export interface FactorWord {
+  word: string;
+  bucket: SwimBucket;
+}
+
+export function breakWord(m: number): FactorWord {
+  if (m <= BREAK_FREE_M) return { word: "tiny", bucket: "CALM" };
+  if (m <= BREAK_SMALL_M) return { word: "small", bucket: "EASY" };
+  if (m < BREAK_HEAVY_M) return { word: "big", bucket: "CHOPPY" };
+  if (m < BREAK_FLOOR_M) return { word: "heavy", bucket: "ROUGH" };
+  return { word: "dangerous", bucket: "OUT" };
+}
+
+export function surgeWord(level: Level): FactorWord {
+  return level === "low"
+    ? { word: "low", bucket: "CALM" }
+    : level === "med"
+      ? { word: "med", bucket: "CHOPPY" }
+      : { word: "high", bucket: "ROUGH" };
+}
+
+export function pushWord(h: Pick<HourEntry, "wind">): FactorWord {
+  const p = pushOf(h);
+  if (p !== "out") return { word: PUSH_WORD[p], bucket: "CALM" };
+  return { word: PUSH_WORD.out, bucket: toKnots(h.wind.kph) >= PUSH_OUT_RED_KT ? "ROUGH" : "CHOPPY" };
+}
+
+export function clarityWord(zsd: number): FactorWord {
+  if (zsd >= CLARITY_CLEAR_M) return { word: "clear", bucket: "CALM" };
+  if (zsd >= CLARITY_HAZY_M) return { word: "hazy", bucket: "CHOPPY" };
+  return { word: "murky", bucket: "ROUGH" };
+}
+

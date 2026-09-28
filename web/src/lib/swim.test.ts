@@ -233,3 +233,20 @@ describe("display helpers", () => {
     expect(rockyEntry(undefined)).toBe(false);
   });
 });
+
+describe("card words", () => {
+  it("shore break, clarity and push words follow their thresholds", async () => {
+    const { breakWord, clarityWord, pushWord } = await import("./swim");
+    expect(breakWord(0.25).word).toBe("tiny");
+    expect(breakWord(0.45).word).toBe("small");
+    expect(breakWord(0.8).word).toBe("big");
+    expect(breakWord(1.2).word).toBe("heavy");
+    expect(breakWord(1.6).word).toBe("dangerous");
+    expect(clarityWord(8.8).word).toBe("clear");
+    expect(clarityWord(3).word).toBe("hazy");
+    expect(clarityWord(1).word).toBe("murky");
+    expect(pushWord({ wind: { kph: 5 * 1.852, dir: 0, class: "offshore" } }).bucket).toBe("CHOPPY");
+    expect(pushWord({ wind: { kph: 15 * 1.852, dir: 0, class: "offshore" } }).bucket).toBe("ROUGH");
+    expect(pushWord({ wind: { kph: 15 * 1.852, dir: 0, class: "onshore" } }).word).toBe("pushes in");
+  });
+});

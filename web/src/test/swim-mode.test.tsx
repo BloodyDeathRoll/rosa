@@ -58,25 +58,25 @@ describe("swim mode (toggle on)", () => {
     expect(html).toContain('aria-expanded="false"');
   });
 
-  it("card: the word and Map, the best hour and score, the split bar, gear; no factor rows", () => {
-    expect(html).toContain("swim-why");
+  it("card: word + Map left, best hour + rip right, one line per factor, no chop, gear", () => {
+    expect(html).toContain("swim-words");
     expect(html).toMatch(/class="sw-left">.*data-swim=.*Map<\/button><\/span>/s);
-    expect(html).toMatch(/best hour \d\d:\d\d · \d+\/100/);
-    expect(html).toContain("sw-bar");
-    expect(html).not.toContain("Points lost at the best hour");
-    expect(html).not.toContain("sw-row");
-    for (const l of ["Clarity", "Chop", "Surge", "Push"]) expect(html).not.toContain(`<span>${l}</span>`);
+    expect(html).toMatch(/best \d\d:\d\d · rip risk (low|med|high)/);
+    for (const l of ["Shore break", "Surge", "Wind", "Clarity"]) expect(html).toContain(`class="sw-l">${l}<`);
+    expect(html).not.toContain('class="sw-l">Chop<');
+    expect(html).toMatch(/class="sw-w" style="color:var\(--swim-(calm|easy|choppy|rough|out)\)"/);
     expect(html).not.toMatch(/\bq-(good|fair|warn|poor)\b/);
     expect(html).toMatch(/class="suit">(skins|wetsuit|wetsuit \+ cap \+ gloves|cold-water caution)</);
   });
 
-  it("no pollution source: no pollution text at all; no clarity source is said", () => {
+  it("no pollution source: no pollution line at all; no clarity source says no data", () => {
     const noWater = { ...data, water: { clarity: null, pollution: null } };
     const h = panel(noWater);
     expect(h).not.toMatch(/pollution/i);
-    expect(h).toContain("clarity: no data");
+    expect(h).toMatch(/class="sw-l">Clarity<.*?no data/s);
+    expect(panel(data)).toContain('class="sw-l">Pollution<'); // Bondi has an NSW source
     const alert = { ...data, water: { ...data.water!, pollution: { ...data.water!.pollution!, alert: true } } };
-    expect(panel(alert)).toContain("Pollution likely today - capped at Stay out");
+    expect(panel(alert)).toContain("likely today");
   });
 
   it("a rock or reef shore shows the banner instead of a rating", () => {

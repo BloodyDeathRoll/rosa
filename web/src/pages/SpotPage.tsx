@@ -22,6 +22,11 @@ import { Pill, ShareButton, StarButton, SwimPill } from "../components/parts";
 import { ratingVar } from "../conditions";
 import {
   bestSwim,
+  breakWord,
+  clarityWord,
+  pushWord,
+  surgeWord,
+  type FactorWord,
   daySwim,
   daylightOf,
   GEAR_WORD,
@@ -507,7 +512,7 @@ export function SpotPanel({
             </p>
           )}
           {dsw ? (
-            <SwimWhyCard
+            <SwimWordsCard
               data={data}
               date={day.date}
               units={units}
@@ -672,10 +677,11 @@ export function SpotPanel({
       );
 }
 
-/** Swim mode's card: the rating word, the best daylight hour and its score, then WHY -
-    one bar split into the points kept and the points each factor took at that hour,
-    listed underneath. The rating explains itself; nothing here is on a second scale. */
-function SwimWhyCard({
+/** Swim mode's card (option D, with the operator's notes): the word and Map on the
+    left, the best daylight hour and its rip risk on the right, then one line per
+    factor - value and a word on the swim colours - and air / water / gear centred at
+    the bottom. No chop row; no pollution row where there is no source. */
+function SwimWordsCard({
   data,
   date,
   units,
@@ -690,24 +696,36 @@ function SwimWhyCard({
 }) {
   const sv = swimDayView(data, date);
   const rep = sv.rep ?? data.current;
-  const s = swimScore(rep, data.water);
-  const factors = [
-    { l: "Shore break", p: s.pen.brk, c: "var(--swim-pen-brk)" },
-    { l: "Chop", p: s.pen.chop, c: "var(--swim-pen-chop)" },
-    { l: "Wind push", p: s.pen.push, c: "var(--swim-pen-push)" },
-    { l: "Murky water", p: s.pen.clarity, c: "var(--swim-pen-clarity)" },
-  ];
-  const lost = factors.filter((f) => Math.round(f.p) >= 1);
-  const clean = factors.filter((f) => Math.round(f.p) < 1).map((f) => f.l);
+  const feet = units.height === "ft";
+  const brk = shoreBreak(sv.brkM, feet);
+  const tp = peakPeriod(rep);
+  const clarity = data.water?.clarity ?? null;
   const pollution = data.water?.pollution ?? null;
-  // no pollution source = no pollution text at all; a source that reads clean says so
-  const unknowns = [
-    ...(s.clarityUnknown ? ["clarity: no data"] : []),
-    ...(pollution !== null && !s.polluted ? [`pollution: ${pollution.label.toLowerCase()}`] : []),
+  const rows: { l: string; v: string; w: FactorWord | null }[] = [
+    { l: "Shore break", v: `${brk.n} ${brk.unit}`, w: breakWord(sv.brkM) },
+    { l: "Surge", v: tp !== null ? `sets ${Math.round(tp)} s` : "", w: surgeWord(surgeLevel(rep)) },
+    {
+      l: "Wind",
+      v: `${Math.round(toKnots(rep.wind.kph))} kt ${cardinal(rep.wind.dir)}`,
+      w: pushWord(rep),
+    },
+    clarity
+      ? { l: "Clarity", v: `${clarity.zsd_m} m`, w: clarityWord(clarity.zsd_m) }
+      : { l: "Clarity", v: "", w: null },
+    ...(pollution
+      ? [
+          {
+            l: "Pollution",
+            v: pollution.label,
+            w: pollution.alert
+              ? { word: "likely today", bucket: "OUT" as const }
+              : { word: pollution.grade >= 3 ? "clean" : "poor", bucket: pollution.grade >= 3 ? ("CALM" as const) : ("ROUGH" as const) },
+          },
+        ]
+      : []),
   ];
-  const gear = sv.gear;
   return (
-    <section class="spot-card swim-why">
+    <section class="spot-card swim-words">
       <div class="sw-head">
         <span class="sw-left">
           {!rocky && <SwimPill bucket={sv.bucket} />}
@@ -718,29 +736,19 @@ function SwimWhyCard({
         </span>
         {!rocky && sv.rep && (
           <span class="sw-sub tabular">
-            best hour {hourOf(rep.t)} · {s.score}/100
+            best {hourOf(rep.t)} · rip risk {ripLevel(rep)}
           </span>
         )}
       </div>
-      {!rocky && (
-        <>
-          <div class="sw-bar" aria-hidden="true">
-            <i style={`width:${s.score}%;background:${swimVar(s.bucket)}`} />
-            {!s.polluted &&
-              lost.map((f) => (
-                <i key={f.l} title={`${f.l} −${Math.round(f.p)}`} style={`width:${f.p}%;background:${f.c}`} />
-              ))}
-          </div>
-          {s.polluted && <p class="sw-alert">Pollution likely today - capped at Stay out</p>}
-          {(clean.length > 0 || unknowns.length > 0) && (
-            <p class="sw-cap">
-              {[clean.length ? `No penalty: ${clean.join(" · ")}` : "", ...unknowns]
-                .filter(Boolean)
-                .join(" · ")}
-            </p>
-          )}
-        </>
-      )}
+      {rows.map((r) => (
+        <div class="sw-line" key={r.l}>
+          <span class="sw-l">{r.l}</span>
+          <span class="sw-v tabular">{r.v}</span>
+          <span class="sw-w" style={r.w ? `color:${swimVar(r.w.bucket)}` : undefined}>
+            {r.w ? r.w.word : "no data"}
+          </span>
+        </div>
+      ))}
       <div class="sw-temps">
         <span>
           <ThermometerIcon />
@@ -750,10 +758,10 @@ function SwimWhyCard({
           <WavesIcon />
           <span class="tabular">water {rep.sst !== null ? fmtTemp(rep.sst, units) : "-"}</span>
         </span>
-        {gear && (
+        {sv.gear && (
           <span>
             <ShirtIcon />
-            <span class="suit">{GEAR_WORD[gear]}</span>
+            <span class="suit">{GEAR_WORD[sv.gear]}</span>
           </span>
         )}
       </div>

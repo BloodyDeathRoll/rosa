@@ -84,11 +84,6 @@
   --swim-rough-fg: #ffffff;
   --swim-out-fg: #ffffff;
   --swim-flow: color-mix(in srgb, var(--wind-cross) 16%, transparent);
-  /* the swim card's "points lost" breakdown, one colour per factor */
-  --swim-pen-brk: #8a5cf6;
-  --swim-pen-chop: #e48022;
-  --swim-pen-push: #d0574a;
-  --swim-pen-clarity: #3f8fa8;
   /* a swim reading still loading, or a rock / reef shore */
   --swim-none: color-mix(in srgb, var(--muted-foreground) 45%, transparent);
 
@@ -2372,68 +2367,72 @@ a.rank-card:hover {
   vertical-align: -1px;
 }
 
-/* Swim card (option B): rating, best hour, and the points each factor took */
-.spot-card.swim-why {
+/* Swim card (option D + the operator's notes): word and Map left, best hour and rip
+   risk right, one line per factor with its word on the swim colours, meta centred */
+.spot-card.swim-words {
   flex-direction: column;
   align-items: stretch;
-  gap: 8px;
+  gap: 4px;
 }
-.swim-why .sw-head {
+.swim-words .sw-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
   flex-wrap: wrap;
+  margin-bottom: 6px;
 }
-.swim-why .sw-left {
+.swim-words .sw-left {
   display: flex;
   align-items: center;
   gap: 12px;
 }
-.swim-why .sw-sub {
+.swim-words .sw-sub {
   font-size: 13px;
   color: var(--muted-foreground);
 }
-.swim-why .sw-bar {
+.swim-words .sw-line {
   display: flex;
-  height: 10px;
-  border-radius: 6px;
-  overflow: hidden;
-  background: var(--emphasis-bg);
-  margin: 4px 0 2px;
+  align-items: baseline;
+  gap: 10px;
+  padding: 4px 0;
+  font-size: 14px;
 }
-.swim-why .sw-bar i {
-  display: block;
-  height: 100%;
-}
-.swim-why .sw-cap {
-  font-size: 12px;
+.swim-words .sw-l {
+  width: 96px;
+  flex: none;
   color: var(--muted-foreground);
 }
-.swim-why .sw-alert {
-  font-size: 13px;
+.swim-words .sw-v {
   font-weight: 600;
-  color: var(--swim-rough);
 }
-.swim-why .sw-temps {
+.swim-words .sw-w {
+  margin-left: auto;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+.swim-words .sw-temps {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 8px 16px;
-  margin-top: 4px;
+  margin-top: 6px;
   padding-top: 10px;
   border-top: 1px solid var(--border);
   font-size: 13.2px;
 }
-.swim-why .sw-temps > span {
+.swim-words .sw-temps > span {
   display: flex;
   align-items: center;
   gap: 6px;
 }
-.swim-why .sw-temps svg {
+.swim-words .sw-temps svg {
   color: var(--muted-foreground);
 }
-.swim-why .sw-temps .suit {
+.swim-words .sw-temps .suit {
   font-weight: 500;
 }
 
