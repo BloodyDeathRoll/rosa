@@ -41,15 +41,18 @@ jobs:
           CLAUDE_CODE_DISABLE_BACKGROUND_TASKS: '1'
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          show_full_output: true
           # The action refuses bot-opened PRs by default; Dependabot's get reviewed too. Only
           # Dependabot - '*' would let any GitHub App trigger a review. Its runs read the
           # Dependabot copy of CLAUDE_CODE_OAUTH_TOKEN (GitHub hides Actions secrets from them).
           allowed_bots: 'dependabot'
           plugin_marketplaces: 'https://github.com/anthropics/claude-code.git'
           plugins: 'code-review@claude-code-plugins'
-          prompt: '/code-review:code-review --comment ${{ github.repository }}/pull/${{ github.event.pull_request.number }}'
-          claude_args: '--allowedTools "mcp__github_inline_comment__create_inline_comment"'
+          # The plugin skips automated PRs by design, so Dependabot bumps get a direct prompt.
+          prompt: >-
+            ${{ github.event.pull_request.user.login == 'dependabot[bot]'
+            && format('Review dependency-bump PR {0}/pull/{1}. Read the diff (gh pr diff), then check each bumped package for breaking or behaviour changes (release notes, changelogs) that affect how this repo uses it (grep the code). Post each real problem as an inline comment, then post one summary PR comment (gh pr comment) that lists every bump with a verdict and ends with "No issues found" if there are none.', github.repository, github.event.pull_request.number)
+            || format('/code-review:code-review --comment {0}/pull/{1}', github.repository, github.event.pull_request.number) }}
+          claude_args: '--allowedTools "mcp__github_inline_comment__create_inline_comment,Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr comment:*),WebFetch,Grep,Read"'
           # See https://github.com/anthropics/claude-code-action/blob/main/docs/usage.md
           # or https://code.claude.com/docs/en/cli-reference for available options
 
