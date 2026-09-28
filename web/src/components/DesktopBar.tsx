@@ -9,6 +9,26 @@ import { fmtRange, useUnits } from "../units";
 import type { IndexEntry } from "../types";
 import { SearchIcon, UserIcon } from "./icons";
 import { ShareButton } from "./parts";
+import { shoreBreak, swimVar } from "../lib/swim";
+import { useMode } from "../mode";
+import { useSwimView } from "../swimData";
+
+/** One favorite in the ticker, read for a swimmer: swim colour, shore break. */
+function SwimTick({ id, e }: { id: string; e: IndexEntry }) {
+  const units = useUnits();
+  const [sv, ref] = useSwimView(id, true);
+  const brk = sv ? shoreBreak(sv.brkM, units.height === "ft") : null;
+  return (
+    <a class="desk-tick" href={`/spot/${id}`} ref={ref}>
+      <i
+        style={`background:${sv && !sv.rocky ? swimVar(sv.bucket) : "var(--swim-none)"}`}
+        aria-hidden="true"
+      />
+      <span>{splitName(e.name).name}</span>
+      <b class="tabular">{brk ? `${brk.n} ${brk.unit}` : "…"}</b>
+    </a>
+  );
+}
 
 const NAV: { tab: Tab; label: string }[] = [
   { tab: "today", label: "Today" },
@@ -27,6 +47,7 @@ export function DesktopBar({ active }: { active: Tab | null }) {
   const [who, setWho] = useState<Profile | null>(profile);
   const [favs] = useFavorites();
   const units = useUnits();
+  const mode = useMode();
 
   useEffect(() => {
     let disposed = false;
@@ -99,7 +120,9 @@ export function DesktopBar({ active }: { active: Tab | null }) {
         <div class="desk-ticker">
           <div class="desk-ticker-row">
             <span class="desk-ticker-label">Your spots</span>
-            {ticker.map(([id, e]) => (
+            {ticker.map(([id, e]) => mode === "swim" ? (
+              <SwimTick key={id} id={id} e={e} />
+            ) : (
               <a key={id} class="desk-tick" href={`/spot/${id}`}>
                 <i style={`background:${ratingVar(e.bucket)}`} aria-hidden="true" />
                 <span>{splitName(e.name).name}</span>

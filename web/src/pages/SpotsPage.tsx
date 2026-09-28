@@ -11,7 +11,9 @@ import {
   ALL_GROUP,
 } from "../components/GroupChips";
 import { SearchIcon } from "../components/icons";
-import { AppHeader, ShareButton, SpotTitle, StarButton, TierDot } from "../components/parts";
+import { AppHeader, ShareButton, SpotTitle, StarButton, SwimDot, TierDot } from "../components/parts";
+import type { Mode } from "../lib/swim";
+import { useMode } from "../mode";
 import { DEFAULT_TITLE } from "../head";
 import { SpotCard } from "../components/SpotCard";
 import { ratingWord } from "../conditions";
@@ -38,14 +40,28 @@ export function Row({
   entry,
   payload,
   onToggle,
+  mode = "surf",
 }: {
   id: string;
   entry: IndexEntry;
   payload: SpotPayload | undefined;
   onToggle: () => void;
+  mode?: Mode;
 }) {
   const units = useUnits();
   const { name, region } = splitName(entry.name);
+  if (mode === "swim") {
+    return (
+      <a class="spot-row-card" href={`/spot/${id}`}>
+        <SwimDot bucket={null} />
+        <span class="mid">
+          <SpotTitle name={name} region={region} />
+          <span class="line tabular">…</span>
+        </span>
+        <StarButton on name={name} size={16} onToggle={onToggle} />
+      </a>
+    );
+  }
   return (
     <a class="spot-row-card" href={`/spot/${id}`}>
       <TierDot bucket={entry.bucket} />
@@ -63,6 +79,7 @@ export function Row({
 /** Spots tab = saved favorites, filtered by a Surfline-style region group bar
     ("All" + one chip per region present in your favorites). */
 export function SpotsPage() {
+  const mode = useMode();
   const [index, setIndex] = useState<Record<string, IndexEntry> | null>(null);
   const [payloads, setPayloads] = useState<Record<string, SpotPayload>>({});
   const [error, setError] = useState<string | null>(null);
@@ -192,6 +209,7 @@ export function SpotsPage() {
                       date={todayIn(p.spot.timezone)}
                       isFav
                       onToggle={() => onToggle(id)}
+                      mode={mode}
                     />
                   ) : (
                     <Row
@@ -200,6 +218,7 @@ export function SpotsPage() {
                       entry={e}
                       payload={undefined}
                       onToggle={() => onToggle(id)}
+                      mode={mode}
                     />
                   );
                 })}

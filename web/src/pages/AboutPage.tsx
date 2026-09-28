@@ -280,8 +280,9 @@ function ReadingTheForecast() {
 
       <h2 id="swim">Swim mode</h2>
       <p>
-        Switch it on in Profile, next to units, and every spot page reads the same forecast for a
-        sea swimmer instead of a surfer. Nothing new is fetched and nothing is forecast twice: the
+        Switch it on in Profile, next to units, and the whole app - the home cards, the map, your
+        spots, search and every spot page - reads the same forecast for a sea swimmer instead of a
+        surfer. Nothing new is fetched and nothing is forecast twice: the
         swim reading is worked out on your phone from the numbers already on the page.
       </p>
       <p>

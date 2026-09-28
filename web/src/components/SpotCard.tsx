@@ -1,5 +1,6 @@
 import { CamIcon } from "./icons";
-import { Pill, SpotTitle, StarButton } from "./parts";
+import { Pill, SpotTitle, StarButton, SwimPill } from "./parts";
+import { shoreBreak, swimDayView, swimWindLabel, type Mode } from "../lib/swim";
 import { bestWindow, dateOf, splitName, windLabel } from "../format";
 import { fmtRange, useUnits } from "../units";
 import type { DayEntry, HourEntry, SpotPayload } from "../types";
@@ -35,14 +36,45 @@ export function SpotCard({
   date,
   isFav,
   onToggle,
+  mode = "surf",
 }: {
   data: SpotPayload;
   date: string;
   isFav?: boolean;
   onToggle?: () => void;
+  /** swim: the swim word, shore break and the wind as push */
+  mode?: Mode;
 }) {
   const units = useUnits();
   const { name, region } = splitName(data.spot.name);
+  if (mode === "swim") {
+    const sv = swimDayView(data, date);
+    const brk = shoreBreak(sv.brkM, units.height === "ft");
+    return (
+      <a class="rank-card" href={`/spot/${data.spot.id}`}>
+        <div class="mid">
+          <div class="card-top">
+            <SpotTitle name={name} region={region} />
+            <SwimPill bucket={sv.rocky ? "ROCK" : sv.bucket} />
+          </div>
+          <div class="card-stats tabular">
+            <span class="surf-range">
+              {brk.n} {brk.unit}
+            </span>
+            <span class="wind-stat">{swimWindLabel(sv.rep ?? data.current)}</span>
+          </div>
+        </div>
+        <span class="card-side">
+          {data.spot.cam && (
+            <span class="cam-mark" title="Live cam">
+              <CamIcon />
+            </span>
+          )}
+          {onToggle && <StarButton on={!!isFav} name={name} size={18} onToggle={onToggle} />}
+        </span>
+      </a>
+    );
+  }
   const dv = dayView(data, date);
   const href = `/spot/${data.spot.id}`;
   return (

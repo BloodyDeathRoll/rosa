@@ -104,6 +104,28 @@ function swimColumn(data: SpotPayload, date: string) {
   };
 }
 
+/** Swim mode's three bars alone - Calm / Water temp / Clarity, the same bars the spot
+    page's day strip draws - for the Today card beside its shore-break figure. */
+export function SwimMiniBars({ data, date }: { data: SpotPayload; date: string }) {
+  const c = swimColumn(data, date);
+  if (!c.hasAny) return null;
+  return (
+    <span class="chart-plot" style={`height:${CHART_H}px`} aria-hidden="true">
+      {c.bars.map((b, i) => (
+        <span
+          key={i}
+          class={`chart-bar${b === null ? " stub" : ""}`}
+          style={
+            b !== null
+              ? `height:${Math.max(BAR_MIN, Math.round(b.f * CHART_H))}px;background:${b.color}`
+              : `height:${BAR_MIN}px`
+          }
+        />
+      ))}
+    </span>
+  );
+}
+
 /** One day's three daypart bars alone (no wind arrow, no range label) - the
     extended Today card drops this next to its surf range so the card carries the
     same at-a-glance shape as the chart rows. `maxH` is the caller's shared scale
@@ -331,12 +353,15 @@ export function CoastChart({
   dates,
   today,
   homeRegion,
+  mode = "surf",
 }: {
   spots: SpotPayload[];
   dates: string[];
   today: string;
   /** Region you're in right now - pinned to the top, the rest run A-Z. */
   homeRegion?: string | null;
+  /** swim: each cell is the spot page's swim column (Calm / temp / clarity, shore break) */
+  mode?: Mode;
 }) {
   const units = useUnits();
   // shared, comparable scale: the tallest bar across every spot + hour shown
@@ -383,6 +408,40 @@ export function CoastChart({
           <span class="coast-name">{splitName(data.spot.name).name}</span>
           <div class="coast-cells track" ref={register} onScroll={onScroll}>
             {dates.map((date) => {
+              if (mode === "swim") {
+                const c = swimColumn(data, date);
+                const brk = c.day
+                  ? shoreBreak((c.day.h_max[0] + c.day.h_max[1]) / 2, units.height === "ft")
+                  : null;
+                return (
+                  <span key={date} class="chart-col swim-col">
+                    <span
+                      class={`chart-wind${c.push === "out" ? " push-out" : ""}`}
+                      aria-hidden="true"
+                    >
+                      {c.wind !== null ? <SwellDirIcon size={13} rotate={arrowRotation(c.wind)} /> : null}
+                    </span>
+                    <span class="chart-plot" style={`height:${ROW_CHART_H}px`}>
+                      {c.hasAny ? (
+                        c.bars.map((b, i) => (
+                          <span
+                            key={i}
+                            class={`chart-bar${b === null ? " stub" : ""}`}
+                            style={
+                              b !== null
+                                ? `height:${Math.max(BAR_MIN, Math.round(b.f * ROW_CHART_H))}px;background:${b.color}`
+                                : `height:${BAR_MIN}px`
+                            }
+                          />
+                        ))
+                      ) : (
+                        <span class="chart-empty" />
+                      )}
+                    </span>
+                    <span class="chart-val tabular">{brk ? `${brk.n}${brk.unit}` : "-"}</span>
+                  </span>
+                );
+              }
               const { bars, hasAny, wind, day } = dayColumn(data, date);
               return (
                 <span key={date} class="chart-col">

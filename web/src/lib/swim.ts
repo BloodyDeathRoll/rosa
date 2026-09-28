@@ -414,3 +414,60 @@ export function shoreBreak(hMid: number, feet: boolean): { n: string; unit: stri
 export function rockyEntry(shore: string | undefined): boolean {
   return shore === "rock" || shore === "reef";
 }
+
+// ---------------------------------------------------------------------------------
+// One spot, one day - what every card outside the spot page shows
+// ---------------------------------------------------------------------------------
+
+export interface SwimDayView {
+  /** best daylight hour's swim score, the day's rating */
+  score: number;
+  bucket: SwimBucket;
+  /** shore break, m: midpoint of the day's surf range (the day strip's figure) */
+  brkM: number;
+  /** the best daylight swim hour - the card's wind, air and water readout */
+  rep: HourEntry | null;
+  gear: Gear | null;
+  /** the spot DB says rock / reef: not a swimming beach */
+  rocky: boolean;
+}
+
+export function swimDayView(data: SpotPayload, date: string): SwimDayView {
+  const hrs = data.hours.filter((h) => h.t.slice(0, 10) === date);
+  const lit = daylightOf(data.spot, date);
+  const d = daySwim(hrs, data.water, lit);
+  const litHrs = hrs.filter(lit);
+  const pool = litHrs.length ? litHrs : hrs;
+  let rep: HourEntry | null = null;
+  let repScore = -1;
+  for (const h of pool) {
+    const s = swimScore(h, data.water).score;
+    if (s > repScore) {
+      rep = h;
+      repScore = s;
+    }
+  }
+  const day = data.days.find((x) => x.date === date);
+  const range = day?.h_max ?? data.current.h;
+  return {
+    score: d.score,
+    bucket: d.bucket,
+    brkM: (range[0] + range[1]) / 2,
+    rep,
+    gear: gearFor(d.sst ?? data.current.sst),
+    rocky: rockyEntry(data.spot.shore),
+  };
+}
+
+/** The card's one-line wind readout in swim words: "WNW 7 kt pushes in". */
+export function swimWindLabel(h: Pick<HourEntry, "wind">): string {
+  const kts = Math.round(toKnots(h.wind.kph));
+  const i = Math.round((((h.wind.dir % 360) + 360) % 360) / 22.5) % 16;
+  const card = CARDINALS[i] ?? "";
+  return `${card} ${kts} kt ${PUSH_WORD[pushOf(h)]}`;
+}
+
+const CARDINALS = [
+  "N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE",
+  "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW",
+];

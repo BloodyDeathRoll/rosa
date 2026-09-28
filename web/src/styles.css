@@ -86,6 +86,8 @@
   --swim-temp: #b98a3c;
   --swim-clarity: #3f8fa8;
   --swim-flow: color-mix(in srgb, var(--wind-cross) 16%, transparent);
+  /* a swim reading still loading, or a rock / reef shore */
+  --swim-none: color-mix(in srgb, var(--muted-foreground) 45%, transparent);
 
   /* Chart bars are a single neutral teal; the day's condition color is carried
      by a rule beneath the column, not the bars themselves. */
@@ -2304,6 +2306,11 @@ a.rank-card:hover {
 .pill[data-swim="OUT"] {
   background: var(--swim-out);
   color: var(--swim-out-fg);
+}
+.pill[data-swim="ROCK"],
+.pill[data-swim="NONE"] {
+  background: var(--swim-none);
+  color: var(--foreground);
 }
 
 /* rock / reef shore: the banner stands where the rating would */

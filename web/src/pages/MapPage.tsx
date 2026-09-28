@@ -12,7 +12,10 @@ import {
   SearchIcon,
 } from "../components/icons";
 import { SatMap } from "../components/MiniMap";
-import { Pill, ShareButton, SpotTitle } from "../components/parts";
+import { Pill, ShareButton, SpotTitle, SwimDot, SwimPill } from "../components/parts";
+import { shoreBreak, swimVar, type SwimBucket } from "../lib/swim";
+import { useMode } from "../mode";
+import { requestSwim, swimViewOf, useSwimTick, useSwimView } from "../swimData";
 import { ratingVar } from "../conditions";
 import { splitName } from "../format";
 import { distanceKm, getPosition, refreshPosition, type LatLon } from "../geo";
@@ -95,6 +98,31 @@ export function MapPage({ theme }: { theme: Theme }) {
   const ensureYouRef = useRef<((p: LatLon) => void) | null>(null);
   const [searching, setSearching] = useState(false);
   const [query, setQuery] = useState("");
+
+  // Swim mode: pins take the swim colour and the shore-break figure. The map's
+  // handlers are bound once, so they read the mode from a ref; readings arrive as
+  // forecasts load (swimData.ts) and each batch re-draws the pins.
+  const mode = useMode();
+  const swimOnRef = useRef(mode === "swim");
+  swimOnRef.current = mode === "swim";
+  const swimTick = useSwimTick(mode === "swim");
+  const reclusterRef = useRef<(() => void) | null>(null);
+  // set for a redraw caused by arriving readings (not a map move): it must not
+  // re-set an unchanged card list, which would cut the carousel's centring scroll short
+  const dataRedrawRef = useRef(false);
+  const visibleRef = useRef<string[]>([]);
+  const firstPaint = useRef(true);
+  useEffect(() => {
+    // the map draws itself on load; only a later mode switch or a batch of readings
+    // needs a redraw
+    if (firstPaint.current) {
+      firstPaint.current = false;
+      return;
+    }
+    dataRedrawRef.current = true;
+    reclusterRef.current?.();
+    dataRedrawRef.current = false;
+  }, [mode, swimTick]);
 
   // Toggle the pill on the focused pin and remember it. `fromScroll` skips the
   // re-center effect so it doesn't yank a carousel the user is dragging.
@@ -226,10 +254,19 @@ export function MapPage({ theme }: { theme: Theme }) {
           // Group by screen distance, widening the radius until the pin count is
           // sane. Grid buckets keep each pass linear, so the retries are cheap.
           let px = CLUSTER_PX;
-          let groups = groupPoints(pts, px);
+          // swim: a cluster is represented by its best swim, not its best surf - except
+          // the focused spot, which keeps its card as readings land and re-rank clusters
+          const swimScoreOf = swimOnRef.current
+            ? (q: P) => {
+                if (q.id === focusRef.current) return Infinity;
+                const v = swimViewOf(q.id);
+                return v && !v.rocky ? v.score : -1;
+              }
+            : undefined;
+          let groups = groupPoints(pts, px, swimScoreOf);
           while (groups.length > MAX_PINS && px < MAX_CLUSTER_PX) {
             px *= 1.6;
-            groups = groupPoints(pts, px);
+            groups = groupPoints(pts, px, swimScoreOf);
           }
 
           for (const g of groups) {
@@ -242,7 +279,11 @@ export function MapPage({ theme }: { theme: Theme }) {
               );
             } else {
               const es = g.members.map((x) => x.e);
-              const el = makeCluster(es, () => fitToMembers(m, es));
+              const el = makeCluster(
+                es,
+                () => fitToMembers(m, es),
+                swimOnRef.current ? g.members.map((x) => x.id) : undefined
+              );
               markersRef.current.push(
                 new maplibregl.Marker({ element: el }).setLngLat([g.lon, g.lat]).addTo(m)
               );
@@ -261,7 +302,11 @@ export function MapPage({ theme }: { theme: Theme }) {
             .filter((g) => g.x >= 0 && g.x <= W && g.y >= 0 && g.y <= visH)
             .map((g) => g.rep)
             .sort((a, z) => a.e.lat - z.e.lat);
-          setVisible(inView.map((p) => p.id));
+          const ids = inView.map((p) => p.id);
+          const same =
+            ids.length === visibleRef.current.length && ids.every((x, i) => x === visibleRef.current[i]);
+          if (!(dataRedrawRef.current && same)) setVisible(ids);
+          visibleRef.current = ids;
 
           // Keep the focus if still visible; else focus the spot nearest the
           // center of the *visible* strip (above the sheet).
@@ -277,16 +322,39 @@ export function MapPage({ theme }: { theme: Theme }) {
                 .sort((a, z) => a.d - z.d)[0]?.id ?? null;
           }
           applyFocusRef.current(f);
+
+          if (swimOnRef.current) {
+            const onScreen = (g: Group) => g.x >= 0 && g.x <= W && g.y >= 0 && g.y <= H;
+            const shown = groups.filter(onScreen);
+            requestSwim([
+              ...shown.filter((g) => g.members.length === 1).map((g) => g.rep.id),
+              ...shown.flatMap((g) => (g.members.length > 1 ? g.members.map((x) => x.id) : [])),
+            ].slice(0, SWIM_PIN_FETCH_MAX));
+          }
         };
+        reclusterRef.current = recluster;
 
         const makeDot = (id: string, e: IndexEntry) => {
           const el = document.createElement("div");
           el.className = "spot-dot";
           el.dataset.id = id;
-          el.style.setProperty("--tier", ratingVar(e.bucket));
+          if (swimOnRef.current) {
+            const v = swimViewOf(id);
+            el.style.setProperty(
+              "--tier",
+              v && !v.rocky ? swimVar(v.bucket) : "var(--swim-none)"
+            );
+          } else {
+            el.style.setProperty("--tier", ratingVar(e.bucket));
+          }
           const label = document.createElement("span");
           label.className = "dot-label";
-          label.textContent = fmtRange(e.h, getUnits(), false);
+          const sv = swimOnRef.current ? swimViewOf(id) : undefined;
+          label.textContent = swimOnRef.current
+            ? sv
+              ? shoreBreak(sv.brkM, getUnits().height === "ft").n
+              : "…"
+            : fmtRange(e.h, getUnits(), false);
           el.appendChild(label);
           if (id === focusRef.current) el.classList.add("focus");
           el.addEventListener("click", (ev) => {
@@ -310,6 +378,7 @@ export function MapPage({ theme }: { theme: Theme }) {
 
     return () => {
       disposed = true;
+      reclusterRef.current = null; // never redraw pins on a removed map
       map?.remove();
       mapRef.current = null;
     };
@@ -521,7 +590,7 @@ export function MapPage({ theme }: { theme: Theme }) {
               {q ? (
                 results.length ? (
                   results.map(([id, e]) => (
-                    <MapRow key={id} entry={e} dist={dist(e)} onSelect={() => pick(id)} />
+                    <MapRow key={id} id={id} entry={e} dist={dist(e)} onSelect={() => pick(id)} />
                   ))
                 ) : (
                   <p class="search-empty">No spots match “{query}”.</p>
@@ -545,7 +614,7 @@ type Group = { rep: P; members: P[]; lon: number; lat: number; x: number; y: num
     3x3 neighbourhood - linear, which is what makes retrying at a wider radius
     cheap enough to do on every move. The group's representative (the card the
     carousel shows for it) is its best-rated member. */
-function groupPoints(pts: P[], px: number): Group[] {
+function groupPoints(pts: P[], px: number, score?: (p: P) => number): Group[] {
   const cells = new Map<string, P[]>();
   const cell = (v: number) => Math.floor(v / px);
   for (const p of pts) {
@@ -575,7 +644,9 @@ function groupPoints(pts: P[], px: number): Group[] {
       }
     }
     const n = members.length;
-    const rep = members.reduce((best, q) => (q.e.rating > best.e.rating ? q : best), p);
+    const rep = score
+      ? members.reduce((best, q) => (score(q) > score(best) ? q : best), p)
+      : members.reduce((best, q) => (q.e.rating > best.e.rating ? q : best), p);
     groups.push({
       rep,
       members,
@@ -611,15 +682,39 @@ function fitToMembers(m: MLMap, members: IndexEntry[]): void {
 
 const TIER_RANK: Record<string, number> = { FLAT: 0, POOR: 1, FAIR: 2, GOOD: 3, FIRING: 4 };
 
+// Swim mode: most readings a single map move may fetch (the pins on screen are capped
+// at MAX_PINS; cluster members ride along after the singles).
+const SWIM_PIN_FETCH_MAX = 120;
+const SWIM_RANK: Record<SwimBucket, number> = { OUT: 0, ROUGH: 1, CHOPPY: 2, EASY: 3, CALM: 4 };
+
+/** The cluster ring in swim colours; members still loading (or rocky) are neutral slices. */
+function swimStops(ids: string[]): string {
+  const buckets = ids
+    .map((id) => {
+      const v = swimViewOf(id);
+      return v && !v.rocky ? v.bucket : null;
+    })
+    .sort((a, b) => (a ? SWIM_RANK[a] : -1) - (b ? SWIM_RANK[b] : -1));
+  const n = buckets.length;
+  return buckets
+    .map(
+      (b, i) =>
+        `${b ? swimVar(b) : "var(--swim-none)"} ${((i / n) * 360).toFixed(1)}deg ${(((i + 1) / n) * 360).toFixed(1)}deg`
+    )
+    .join(", ");
+}
+
 /** Count bubble for overlapping pins. The ring is a conic blend of the members'
     tier colors (equal slice per spot), so a 2×green + 2×yellow cluster reads as
     half green, half yellow. */
-function makeCluster(entries: IndexEntry[], onClick: () => void): HTMLElement {
+function makeCluster(entries: IndexEntry[], onClick: () => void, swimIds?: string[]): HTMLElement {
   const sorted = [...entries].sort((a, b) => (TIER_RANK[a.bucket] ?? 0) - (TIER_RANK[b.bucket] ?? 0));
   const n = sorted.length;
-  const stops = sorted
-    .map((e, i) => `${ratingVar(e.bucket)} ${((i / n) * 360).toFixed(1)}deg ${(((i + 1) / n) * 360).toFixed(1)}deg`)
-    .join(", ");
+  const stops = swimIds
+    ? swimStops(swimIds)
+    : sorted
+        .map((e, i) => `${ratingVar(e.bucket)} ${((i / n) * 360).toFixed(1)}deg ${(((i + 1) / n) * 360).toFixed(1)}deg`)
+        .join(", ");
   const el = document.createElement("div");
   el.className = "map-cluster";
   el.style.background = `conic-gradient(${stops})`;
@@ -655,8 +750,53 @@ export function MapCard({
   img: boolean;
 }) {
   const units = useUnits();
+  const mode = useMode();
+  const [sv, swimRef] = useSwimView(id, mode === "swim");
   const { name, region } = splitName(entry.name);
   const sub = dist !== null ? `${dist} km${region ? ` · ${region}` : ""}` : region || "";
+  if (mode === "swim") {
+    const brk = sv ? shoreBreak(sv.brkM, units.height === "ft") : null;
+    return (
+      <a
+        class={`map-card${center ? " center" : ""}${img ? "" : " noimg"}`}
+        data-id={id}
+        href={`/spot/${id}`}
+        ref={swimRef}
+      >
+        {img && (
+          <span class="map-card-bg">
+            {entry.cam ? (
+              <img
+                class="map-card-cam"
+                src={`https://i.ytimg.com/vi/${entry.cam}/mqdefault.jpg`}
+                alt=""
+                loading="lazy"
+                decoding="async"
+              />
+            ) : (
+              <SatMap lat={entry.lat} lon={entry.lon} height={CARD_H} pin={false} />
+            )}
+          </span>
+        )}
+        <span class="map-card-shade" />
+        <span class="map-card-body">
+          <span class="map-card-head">
+            <SwimPill bucket={sv ? (sv.rocky ? "ROCK" : sv.bucket) : null} />
+            {entry.cam && (
+              <span class="map-card-live">
+                <CamIcon size={11} /> live cam
+              </span>
+            )}
+          </span>
+          <span class="map-card-name">
+            <SpotTitle name={name} region={null} />
+          </span>
+          <span class="map-card-h tabular">{brk ? `${brk.n} ${brk.unit}` : "…"}</span>
+          {sub && <span class="map-card-sub tabular">{sub}</span>}
+        </span>
+      </a>
+    );
+  }
   return (
     <a class={`map-card${center ? " center" : ""}${img ? "" : " noimg"}`} data-id={id} href={`/spot/${id}`}>
       {img && (
@@ -699,16 +839,35 @@ export function MapCard({
 
 /** Compact spot row used only in the search overlay - frames the spot. */
 function MapRow({
+  id,
   entry,
   dist,
   onSelect,
 }: {
+  id: string;
   entry: IndexEntry;
   dist: number | null;
   onSelect: () => void;
 }) {
   const units = useUnits();
+  const mode = useMode();
+  const [sv, swimRef] = useSwimView(id, mode === "swim");
   const { name, region } = splitName(entry.name);
+  if (mode === "swim") {
+    const brk = sv ? shoreBreak(sv.brkM, units.height === "ft") : null;
+    const swimSub = dist !== null ? `${dist} km` : region || (brk ? `${brk.n} ${brk.unit}` : "…");
+    return (
+      <div class="map-loc" ref={swimRef}>
+        <button class="map-loc-main" onClick={onSelect}>
+          <SwimDot bucket={sv && !sv.rocky ? sv.bucket : null} />
+          <span class="mid">
+            <SpotTitle name={name} region={dist !== null ? region : ""} />
+            <span class="line tabular">{swimSub}</span>
+          </span>
+        </button>
+      </div>
+    );
+  }
   const sub = dist !== null ? `${dist} km` : region || fmtRange(entry.h, units);
   return (
     <div class="map-loc">

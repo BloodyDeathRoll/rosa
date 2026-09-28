@@ -7,7 +7,10 @@ import {
   MapPinIcon,
   SearchIcon,
 } from "../components/icons";
-import { SpotTitle, StarButton, TierDot } from "../components/parts";
+import { SpotTitle, StarButton, SwimDot, TierDot } from "../components/parts";
+import { shoreBreak, SWIM_WORD, type Mode } from "../lib/swim";
+import { useMode } from "../mode";
+import { useSwimView } from "../swimData";
 import { ratingWord } from "../conditions";
 import { useFavorites } from "../favorites";
 import { splitName } from "../format";
@@ -27,17 +30,45 @@ export function ResultRow({
   entry,
   isFav,
   onToggle,
+  mode = "surf",
 }: {
   id: string;
   entry: IndexEntry;
   isFav: boolean;
   onToggle: () => void;
+  mode?: Mode;
 }) {
   const units = useUnits();
+  const [sv, swimRef] = useSwimView(id, mode === "swim");
   const { name, region } = splitName(entry.name);
   // A break's town is what half of them are actually famous under, and it is why a row
   // matched a search for it - so it stands in as the subtitle when the name carries none.
   const sub = region ?? entry.town ?? null;
+  if (mode === "swim") {
+    // the day's figure, as on the spot page - nothing until the forecast is in, so a
+    // row never shows a number the spot page would contradict
+    const brk = sv ? shoreBreak(sv.brkM, units.height === "ft") : null;
+    const word = sv ? (sv.rocky ? "Rocky" : SWIM_WORD[sv.bucket]) : null;
+    return (
+      <a class="spot-row-card plain" href={`/spot/${id}`} ref={swimRef}>
+        <SwimDot bucket={sv && !sv.rocky ? sv.bucket : null} />
+        <span class="mid">
+          <SpotTitle name={name} region={sub} />
+          <span class="line tabular">
+            {brk && word ? `${brk.n} ${brk.unit} · ${word}` : "…"}
+          </span>
+        </span>
+        <span class="card-side">
+          {(entry.cams?.length ?? (entry.cam ? 1 : 0)) > 0 && (
+            <span class="cam-mark" title="Live cam">
+              <CamIcon />
+            </span>
+          )}
+          <StarButton on={isFav} name={name} size={16} onToggle={onToggle} />
+        </span>
+      </a>
+    );
+  }
   return (
     <a class="spot-row-card plain" href={`/spot/${id}`}>
       <TierDot bucket={entry.bucket} />
@@ -83,6 +114,7 @@ function RegionRow({ region }: { region: RegionInfo }) {
     an open, autofocused search field over the user's recently-visited spots;
     typing reveals matching spots + map areas. */
 export function SearchPage() {
+  const mode = useMode();
   const [index, setIndex] = useState<Record<string, IndexEntry> | null>(null);
   const [query, setQuery] = useState("");
   const [favs, onToggle] = useFavorites();
@@ -158,7 +190,7 @@ export function SearchPage() {
                 <span class="eyebrow">Recent</span>
                 <div class="spot-group-list">
                   {recents.map(([id, e]) => (
-                    <ResultRow key={id} id={id} entry={e} isFav={favs.includes(id)} onToggle={() => onToggle(id)} />
+                    <ResultRow key={id} id={id} entry={e} isFav={favs.includes(id)} onToggle={() => onToggle(id)} mode={mode} />
                   ))}
                 </div>
               </div>
@@ -182,7 +214,7 @@ export function SearchPage() {
                   <span class="eyebrow">Spots</span>
                   <div class="spot-group-list">
                     {spotMatches.map(([id, e]) => (
-                      <ResultRow key={id} id={id} entry={e} isFav={favs.includes(id)} onToggle={() => onToggle(id)} />
+                      <ResultRow key={id} id={id} entry={e} isFav={favs.includes(id)} onToggle={() => onToggle(id)} mode={mode} />
                     ))}
                   </div>
                 </div>

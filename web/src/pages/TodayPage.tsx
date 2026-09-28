@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "preact/hooks";
 import { navigate } from "../router";
 import { ACCOUNT_EVENT, profile, type Profile } from "../session";
 import { fetchIndex, fetchSpot } from "../api";
-import { CoastChart, DayBars } from "../components/CoastChart";
+import { CoastChart, DayBars, SwimMiniBars } from "../components/CoastChart";
 import {
   ALL_GROUP,
   GroupChips,
@@ -12,7 +12,9 @@ import {
 } from "../components/GroupChips";
 import { SatMap } from "../components/MiniMap";
 import { CamIcon, SearchIcon, ShirtIcon, ThermometerIcon, WavesIcon } from "../components/icons";
-import { AppHeader, Pill, ShareButton, SpotTitle } from "../components/parts";
+import { AppHeader, Pill, ShareButton, SpotTitle, SwimPill } from "../components/parts";
+import { GEAR_WORD, peakPeriod, shoreBreak, swimDayView, swimWindLabel, type Mode } from "../lib/swim";
+import { useMode } from "../mode";
 import { dayView } from "../components/SpotCard";
 import { useFavorites } from "../favorites";
 import { pendingPrompt, resolvePrompt, type FbPrompt } from "../feedback";
@@ -171,8 +173,92 @@ function useFirstName(): string | null {
   return who?.name?.trim().split(/\s+/)[0] || null;
 }
 
-export function DetailCard({ data, date, maxH }: { data: SpotPayload; date: string; maxH: number }) {
+/** Today's card read for a swimmer: the swim word, the shore break as one figure, the
+    spot page's three swim bars, the wind as push, and the gear line. */
+function SwimDetailCard({ data, date }: { data: SpotPayload; date: string }) {
   const units = useUnits();
+  const { name, region } = splitName(data.spot.name);
+  const sv = swimDayView(data, date);
+  const rep = sv.rep ?? data.current;
+  const tp = peakPeriod(rep);
+  const brk = shoreBreak(sv.brkM, units.height === "ft");
+  const open = () => navigate(`/spot/${data.spot.id}`);
+  return (
+    <div class="detail-card">
+      <button class="open" onClick={open}>
+        <span class="dc-cover">
+          {data.spot.cam ? (
+            <img
+              class="dc-cam"
+              src={`https://i.ytimg.com/vi/${data.spot.cam.yt}/mqdefault.jpg`}
+              alt=""
+              loading="lazy"
+              decoding="async"
+            />
+          ) : (
+            <SatMap lat={data.spot.lat} lon={data.spot.lon} height={141} />
+          )}
+          {data.spot.cam && (
+            <span class="cam-badge" title="Live cam">
+              <CamIcon />
+            </span>
+          )}
+        </span>
+        <div class="dc-body">
+          <span class="top">
+            <SpotTitle name={name} region={region} />
+            <span class="hc-rail">
+              <SwimPill bucket={sv.rocky ? "ROCK" : sv.bucket} />
+            </span>
+          </span>
+          <span class="range-row">
+            <span class="surf-range tabular">
+              {brk.n} {brk.unit}
+            </span>
+            <span class="hc-rail">
+              <SwimMiniBars data={data} date={date} />
+            </span>
+          </span>
+          <span class="line tabular">
+            {swimWindLabel(rep)}
+            {tp !== null ? ` · sets ${Math.round(tp)} s` : ""}
+          </span>
+          <span class="temps-row">
+            <span>
+              <ThermometerIcon />
+              <span class="tabular">air {rep.air !== null ? fmtTemp(rep.air, units) : "-"}</span>
+            </span>
+            <span>
+              <WavesIcon />
+              <span class="tabular">water {rep.sst !== null ? fmtTemp(rep.sst, units) : "-"}</span>
+            </span>
+            {sv.gear && (
+              <span>
+                <ShirtIcon />
+                <span class="suit">{GEAR_WORD[sv.gear]}</span>
+              </span>
+            )}
+          </span>
+        </div>
+      </button>
+    </div>
+  );
+}
+
+export function DetailCard({
+  data,
+  date,
+  maxH,
+  mode = "surf",
+}: {
+  data: SpotPayload;
+  date: string;
+  maxH: number;
+  mode?: Mode;
+}) {
+  const units = useUnits();
+  // after the hook, so a mode switch never changes this component's hook order
+  if (mode === "swim") return <SwimDetailCard data={data} date={date} />;
   const { name, region } = splitName(data.spot.name);
   const dv = dayView(data, date);
   const swell = dv.rep.swells.find((s) => s.in_window) ?? dv.rep.swells[0];
@@ -291,6 +377,7 @@ function FeedbackRow({ p, onDone }: { p: FbPrompt; onDone: () => void }) {
 
 export function TodayPage() {
   const hello = greeting(useFirstName());
+  const mode = useMode();
   const [index, setIndex] = useState<Record<string, IndexEntry> | null>(null);
   const [pos, setPos] = useState<LatLon | null>(null);
   const [payloads, setPayloads] = useState<Record<string, SpotPayload>>({});
@@ -420,7 +507,8 @@ export function TodayPage() {
     <main class="page">
       <AppHeader lead={hello} right={search} />
       <div class="home">
-        {prompt && <FeedbackRow p={prompt} onDone={() => setPrompt(null)} />}
+        {/* "Surfed it yesterday?" grades a surf call - not asked in swim mode */}
+        {prompt && mode === "surf" && <FeedbackRow p={prompt} onDone={() => setPrompt(null)} />}
         {plan.regions.length > 2 && (
           <GroupChips
             groups={plan.regions}
@@ -435,12 +523,12 @@ export function TodayPage() {
           <div class="home-cards" ref={cardsRef}>
             {carousel.map((d) => (
               <div class="hc-slide" key={d.spot.id} data-id={d.spot.id}>
-                <DetailCard data={d} date={todayIn(d.spot.timezone)} maxH={chartMax} />
+                <DetailCard data={d} date={todayIn(d.spot.timezone)} maxH={chartMax} mode={mode} />
               </div>
             ))}
           </div>
         )}
-        <CoastChart spots={carousel} dates={dates} today={today} homeRegion={homeRegion} />
+        <CoastChart spots={carousel} dates={dates} today={today} homeRegion={homeRegion} mode={mode} />
       </div>
     </main>
   );

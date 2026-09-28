@@ -2,7 +2,7 @@ import type { ComponentChildren } from "preact";
 import { useState } from "preact/hooks";
 import type { Bucket } from "../types";
 import { ratingVar, ratingWord } from "../conditions";
-import { SWIM_WORD, type SwimBucket } from "../lib/swim";
+import { SWIM_WORD, swimVar, type SwimBucket } from "../lib/swim";
 import { gaEvent } from "../ga";
 import { DEFAULT_TITLE, SITE } from "../head";
 import { CheckIcon, ShareIcon, StarIcon } from "./icons";
@@ -67,12 +67,30 @@ export function Pill({ bucket }: { bucket: Bucket }) {
   );
 }
 
-/** Swim-mode rating pill - same shape, the swim scale's word and tint (`data-swim`). */
-export function SwimPill({ bucket }: { bucket: SwimBucket }) {
+/** Swim-mode rating pill - same shape, the swim scale's word and tint (`data-swim`).
+    "ROCK" = the spot DB says rock / reef; null = the reading is still loading. */
+export function SwimPill({ bucket }: { bucket: SwimBucket | "ROCK" | null }) {
+  if (bucket === null)
+    return (
+      <span class="pill" data-swim="NONE" aria-label="Loading">
+        …
+      </span>
+    );
   return (
     <span class="pill" data-swim={bucket}>
-      {SWIM_WORD[bucket]}
+      {bucket === "ROCK" ? "Rocky" : SWIM_WORD[bucket]}
     </span>
+  );
+}
+
+/** Swim-mode 10px dot: the swim colour, or neutral while loading / rocky. */
+export function SwimDot({ bucket }: { bucket: SwimBucket | null }) {
+  return (
+    <span
+      class="tier-dot"
+      style={`background:${bucket ? swimVar(bucket) : "var(--swim-none)"}`}
+      aria-hidden="true"
+    />
   );
 }
 
