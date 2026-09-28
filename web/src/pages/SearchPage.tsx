@@ -22,7 +22,7 @@ type Entry = [string, IndexEntry];
 
 /** A spot result / recent row (card-less) → opens the spot page; the star on the
     right toggles favorites in place without navigating. */
-function ResultRow({
+export function ResultRow({
   id,
   entry,
   isFav,

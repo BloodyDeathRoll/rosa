@@ -33,7 +33,7 @@ function payloadLine(data: SpotPayload, units: Units): string {
 }
 
 /** Fallback row while a favorite's full payload is still loading. */
-function Row({
+export function Row({
   id,
   entry,
   payload,

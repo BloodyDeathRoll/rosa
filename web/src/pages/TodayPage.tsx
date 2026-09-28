@@ -171,7 +171,7 @@ function useFirstName(): string | null {
   return who?.name?.trim().split(/\s+/)[0] || null;
 }
 
-function DetailCard({ data, date, maxH }: { data: SpotPayload; date: string; maxH: number }) {
+export function DetailCard({ data, date, maxH }: { data: SpotPayload; date: string; maxH: number }) {
   const units = useUnits();
   const { name, region } = splitName(data.spot.name);
   const dv = dayView(data, date);
