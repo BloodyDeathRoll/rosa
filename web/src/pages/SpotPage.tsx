@@ -700,23 +700,22 @@ function SwimWhyCard({
   const lost = factors.filter((f) => Math.round(f.p) >= 1);
   const clean = factors.filter((f) => Math.round(f.p) < 1).map((f) => f.l);
   const pollution = data.water?.pollution ?? null;
+  // no pollution source = no pollution text at all; a source that reads clean says so
   const unknowns = [
     ...(s.clarityUnknown ? ["clarity: no data"] : []),
-    ...(pollution === null
-      ? ["pollution: no data"]
-      : s.polluted
-        ? []
-        : [`pollution: ${pollution.label.toLowerCase()}`]),
+    ...(pollution !== null && !s.polluted ? [`pollution: ${pollution.label.toLowerCase()}`] : []),
   ];
   const gear = sv.gear;
   return (
     <section class="spot-card swim-why">
       <div class="sw-head">
-        {!rocky && <SwimPill bucket={sv.bucket} />}
-        <button class="accent-link" onClick={onMap}>
-          <MapIcon size={14} />
-          Map
-        </button>
+        <span class="sw-left">
+          {!rocky && <SwimPill bucket={sv.bucket} />}
+          <button class="accent-link" onClick={onMap}>
+            <MapIcon size={14} />
+            Map
+          </button>
+        </span>
         {!rocky && sv.rep && (
           <span class="sw-sub tabular">
             best hour {hourOf(rep.t)} · {s.score}/100
@@ -728,24 +727,11 @@ function SwimWhyCard({
           <div class="sw-bar" aria-hidden="true">
             <i style={`width:${s.score}%;background:${swimVar(s.bucket)}`} />
             {!s.polluted &&
-              lost.map((f) => <i key={f.l} style={`width:${f.p}%;background:${f.c}`} />)}
-          </div>
-          {s.polluted ? (
-            <p class="sw-alert">Pollution likely today - capped at Stay out</p>
-          ) : lost.length > 0 ? (
-            <>
-              <p class="sw-cap">Points lost at the best hour</p>
-              {lost.map((f) => (
-                <div class="sw-row" key={f.l}>
-                  <i style={`background:${f.c}`} aria-hidden="true" />
-                  <span>{f.l}</span>
-                  <b class="tabular">−{Math.round(f.p)}</b>
-                </div>
+              lost.map((f) => (
+                <i key={f.l} title={`${f.l} −${Math.round(f.p)}`} style={`width:${f.p}%;background:${f.c}`} />
               ))}
-            </>
-          ) : (
-            <p class="sw-cap">Nothing took a point at the best hour</p>
-          )}
+          </div>
+          {s.polluted && <p class="sw-alert">Pollution likely today - capped at Stay out</p>}
           {(clean.length > 0 || unknowns.length > 0) && (
             <p class="sw-cap">
               {[clean.length ? `No penalty: ${clean.join(" · ")}` : "", ...unknowns]

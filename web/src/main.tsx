@@ -2,6 +2,7 @@ import { render } from "preact";
 import { syncFavorites } from "./account";
 import { initAnalytics } from "./analytics";
 import { initGa, gaEvent, unitsTag } from "./ga";
+import { getMode } from "./mode";
 import { inPlayApp } from "./install";
 import { App } from "./app";
 import { MovedScreen, onLegacyOrigin } from "./components/MovedScreen";
@@ -57,6 +58,8 @@ initAnalytics();
 // properties go in with it so the first page_view already carries them.
 initGa({
   units: unitsTag(getUnits()),
+  // "surf" | "swim" (mode.ts; setMode re-sends it on a switch)
+  mode: getMode(),
   theme: String(initialTheme()),
   signed_in: signedIn(),
   favorites: getFavorites().length,

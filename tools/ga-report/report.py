@@ -161,6 +161,14 @@ def main() -> int:
     )
     for prop in ("units", "theme", "signed_in", "installed"):
         out[f"pref_{prop}"] = query(token, [f"customUser:{prop}"], ["activeUsers"], d, 10, "activeUsers")
+    # swim mode (2026-09-28): "mode" is a user-scoped custom dimension the operator has to
+    # register before the Data API accepts it - until then the query fails, so it is
+    # reported as missing instead of taking the whole report down
+    try:
+        out["pref_mode"] = query(token, ["customUser:mode"], ["activeUsers"], d, 10, "activeUsers")
+    except Exception as e:  # any API refusal means "not registered yet"
+        print(f"mode: not queryable yet ({type(e).__name__}) - register the user property")
+        out["pref_mode"] = []
 
     if a.json:
         print(json.dumps(out, indent=1))
@@ -197,7 +205,7 @@ def main() -> int:
     table("OPENED, NOT KEPT (views >= 10, lowest favourite rate first)",
           ("spot", "views", "favs", "rate"), cold[:15], (26, 7, 6, 6))
 
-    for prop in ("units", "theme", "signed_in", "installed"):
+    for prop in ("units", "theme", "signed_in", "installed", "mode"):
         table(f"PREFERENCE: {prop}", (prop, "users"),
               [(r[0][0] or "(unset)", r[1][0]) for r in out[f"pref_{prop}"]], (20, 8))
     return 0

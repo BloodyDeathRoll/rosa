@@ -5,12 +5,12 @@ import { SwellDirIcon } from "./icons";
 import { arrowRotation, dateOf, dayLabel, dayNum, splitName } from "../format";
 import { fmtRange, heightUnit, useUnits } from "../units";
 import {
-  daySwim,
   daylightOf,
   pushOf,
   rockyEntry,
   shoreBreak,
   SWIM_WORD,
+  swimScore,
   swimVar,
   type Mode,
 } from "../lib/swim";
@@ -71,50 +71,58 @@ function dayColumn(data: SpotPayload, date: string) {
   return { bars, hasAny: hrs.length > 0, wind: noon?.wind.dir ?? null, day };
 }
 
-/** Swim mode's column: ONE bar - the day's swim rating (height = the best daylight
-    hour's score, colour = its word; neutral on a rock / reef shore) - the wind arrow
-    tinted when it pushes out, and the shore break as one figure. Every swim strip and
-    chart row draws this same bar, so no two screens disagree. */
+/** Swim mode's column (option D, 2026-09-28): an hour RIBBON - one segment per daylight
+    hour, coloured by that hour's swim word (neutral on a rock / reef shore) - with the
+    best hour printed under it, the wind arrow tinted when it pushes out, and the shore
+    break as one figure. Every swim strip and chart row draws this same ribbon, so no
+    two screens disagree. */
 function swimColumn(data: SpotPayload, date: string) {
   const hrs = data.hours.filter((h) => dateOf(h.t) === date);
   const day = data.days.find((d) => d.date === date);
-  const sw = daySwim(hrs, data.water, daylightOf(data.spot, date));
+  const lit = daylightOf(data.spot, date);
+  const litHrs = hrs.filter(lit);
   const rocky = rockyEntry(data.spot.shore);
-  const bars: ({ f: number; color: string } | null)[] = [
-    hrs.length ? { f: sw.score / 100, color: rocky ? "var(--swim-none)" : swimVar(sw.bucket) } : null,
-  ];
-  const noon = hrs.reduce<(typeof hrs)[number] | null>((best, h) => {
+  let best: { t: string; s: number } | null = null;
+  const segs = litHrs.map((h) => {
+    const sc = swimScore(h, data.water);
+    if (!best || sc.score > best.s) best = { t: h.t.slice(11, 16), s: sc.score };
+    return { t: h.t.slice(11, 16), color: rocky ? "var(--swim-none)" : swimVar(sc.bucket) };
+  });
+  const noon = hrs.reduce<(typeof hrs)[number] | null>((b, h) => {
     const hour = Number(h.t.slice(11, 13));
     const d = Math.abs(hour - 12);
-    return !best || d < Math.abs(Number(best.t.slice(11, 13)) - 12) ? h : best;
+    return !b || d < Math.abs(Number(b.t.slice(11, 13)) - 12) ? h : b;
   }, null);
   return {
-    bars,
-    hasAny: hrs.length > 0,
+    segs,
+    best: rocky ? null : (best as { t: string; s: number } | null)?.t ?? null,
+    hasAny: litHrs.length > 0,
     wind: noon?.wind.dir ?? null,
     push: noon ? pushOf(noon) : null,
     day,
   };
 }
 
-/** Swim mode's day bar alone - the same bar the spot page's day strip draws - for the
-    Today card beside its shore-break figure. */
+/** The ribbon itself: daylight hours left to right, one coloured segment each. */
+function SwimRibbon({ segs, wide }: { segs: { t: string; color: string }[]; wide?: boolean }) {
+  return (
+    <span class={`swim-ribbon${wide ? " wide" : ""}`} aria-hidden="true">
+      {segs.map((g) => (
+        <i key={g.t} style={`background:${g.color}`} />
+      ))}
+    </span>
+  );
+}
+
+/** Swim mode's ribbon alone - the same one the spot page's day strip draws - for the
+    Today card beside its shore-break figure, with the best hour under it. */
 export function SwimMiniBars({ data, date }: { data: SpotPayload; date: string }) {
   const c = swimColumn(data, date);
   if (!c.hasAny) return null;
   return (
-    <span class="chart-plot" style={`height:${CHART_H}px`} aria-hidden="true">
-      {c.bars.map((b, i) => (
-        <span
-          key={i}
-          class={`chart-bar swim-bar${b === null ? " stub" : ""}`}
-          style={
-            b !== null
-              ? `height:${Math.max(BAR_MIN, Math.round(b.f * CHART_H))}px;background:${b.color}`
-              : `height:${BAR_MIN}px`
-          }
-        />
-      ))}
+    <span class="swim-mini">
+      <SwimRibbon segs={c.segs} wide />
+      {c.best && <span class="swim-best tabular">best {c.best}</span>}
     </span>
   );
 }
@@ -268,23 +276,10 @@ export function DayScrubber({
                   >
                     {c.wind !== null ? <SwellDirIcon size={13} rotate={arrowRotation(c.wind)} /> : null}
                   </span>
-                  <span class="chart-plot" style={`height:${CHART_H}px`}>
-                    {c.hasAny ? (
-                      c.bars.map((b, j) => (
-                        <span
-                          key={j}
-                          class={`chart-bar swim-bar${b === null ? " stub" : ""}`}
-                          style={
-                            b !== null
-                              ? `height:${Math.max(BAR_MIN, Math.round(b.f * CHART_H))}px;background:${b.color}`
-                              : `height:${BAR_MIN}px`
-                          }
-                        />
-                      ))
-                    ) : (
-                      <span class="chart-empty" />
-                    )}
+                  <span class="chart-plot swim-plot">
+                    {c.hasAny ? <SwimRibbon segs={c.segs} /> : <span class="chart-empty" />}
                   </span>
+                  <span class="swim-best tabular">{c.best ?? ""}</span>
                   <span class="chart-val tabular">
                     {c.hasAny ? `${brk.n}${brk.unit}` : "-"}
                   </span>
@@ -423,23 +418,10 @@ export function CoastChart({
                     >
                       {c.wind !== null ? <SwellDirIcon size={13} rotate={arrowRotation(c.wind)} /> : null}
                     </span>
-                    <span class="chart-plot" style={`height:${ROW_CHART_H}px`}>
-                      {c.hasAny ? (
-                        c.bars.map((b, i) => (
-                          <span
-                            key={i}
-                            class={`chart-bar swim-bar${b === null ? " stub" : ""}`}
-                            style={
-                              b !== null
-                                ? `height:${Math.max(BAR_MIN, Math.round(b.f * ROW_CHART_H))}px;background:${b.color}`
-                                : `height:${BAR_MIN}px`
-                            }
-                          />
-                        ))
-                      ) : (
-                        <span class="chart-empty" />
-                      )}
-                    </span>
+                    <span class="chart-plot swim-plot">
+                    {c.hasAny ? <SwimRibbon segs={c.segs} /> : <span class="chart-empty" />}
+                  </span>
+                  <span class="swim-best tabular">{c.best ?? ""}</span>
                     <span class="chart-val tabular">{brk ? `${brk.n}${brk.unit}` : "-"}</span>
                   </span>
                 );

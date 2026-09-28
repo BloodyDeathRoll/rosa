@@ -34,7 +34,8 @@ describe("swim mode on every card", () => {
   it("the Today card carries the same word as the spot page, its bars and gear", () => {
     const html = render(<DetailCard data={data} date={TODAY} maxH={2} mode="swim" />);
     expect(html).toContain(`data-swim="${sv.bucket}"`);
-    expect(html.match(/class="chart-bar swim-bar/g)!.length).toBe(1); // the strip's one bar
+    expect(html).toContain("swim-ribbon"); // the strip's hour ribbon
+    expect(html).toMatch(/best \d\d:\d\d/);
     expect(html).toMatch(/\d+ cm/);
     expect(html).toMatch(/pushes (in|out)|drift/);
     expect(html).toMatch(/class="suit">(skins|wetsuit|wetsuit \+ cap \+ gloves|cold-water caution)</);

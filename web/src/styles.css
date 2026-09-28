@@ -2319,15 +2319,39 @@ a.rank-card:hover {
   color: var(--foreground);
 }
 
-/* One bar per day in every swim strip (option A, 2026-09-28): wider than the
-   surf mode's three daypart bars, rounded like a pill */
-.chart-bar.swim-bar {
-  flex: none;
-  width: 22px;
-  border-radius: 5px;
+/* Swim strips (option D, 2026-09-28): one segment per daylight hour, coloured by
+   that hour's swim word, the best hour printed under it */
+.chart-plot.swim-plot {
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0 4px;
 }
-.coast-row .chart-bar.swim-bar {
-  width: 18px;
+.swim-ribbon {
+  display: flex;
+  gap: 1px;
+  width: 44px;
+  height: 12px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.swim-ribbon.wide {
+  width: 64px;
+}
+.swim-ribbon i {
+  flex: 1;
+  display: block;
+}
+.swim-best {
+  font-size: 11px;
+  color: var(--muted-foreground);
+  min-height: 14px;
+}
+.swim-mini {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
 }
 
 /* the swim scale's key, under the swim day strip */
@@ -2357,8 +2381,14 @@ a.rank-card:hover {
 .swim-why .sw-head {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
   flex-wrap: wrap;
+}
+.swim-why .sw-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 .swim-why .sw-sub {
   font-size: 13px;
@@ -2385,27 +2415,9 @@ a.rank-card:hover {
   font-weight: 600;
   color: var(--swim-rough);
 }
-.swim-why .sw-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13.5px;
-}
-.swim-why .sw-row i {
-  width: 9px;
-  height: 9px;
-  border-radius: 3px;
-  flex: none;
-}
-.swim-why .sw-row span {
-  color: var(--muted-foreground);
-}
-.swim-why .sw-row b {
-  margin-left: auto;
-  font-weight: 700;
-}
 .swim-why .sw-temps {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 8px 16px;
   margin-top: 4px;
