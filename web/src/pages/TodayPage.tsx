@@ -173,6 +173,15 @@ function useFirstName(): string | null {
   return who?.name?.trim().split(/\s+/)[0] || null;
 }
 
+/** The home cards keep air / water / suit on ONE line (operator, 2026-09-28). The words
+    "air" and "water" give way to their icons (a title names them), and a long suit label
+    steps the row's type down: measured at 360 px, "5/4 hooded + gloves" needs 11.5 px and
+    "wetsuit + cap + gloves" 10.9 px, everything shorter fits at 13.2 px. */
+function tempsRowClass(suit: string | null | undefined): string {
+  const n = suit?.length ?? 0;
+  return n >= 20 ? "temps-row fit-xs" : n >= 17 ? "temps-row fit-s" : "temps-row";
+}
+
 /** Today's card read for a swimmer: the swim word, the shore break as one figure, the
     spot page's three swim bars, the wind as push, and the gear line. */
 function SwimDetailCard({ data, date }: { data: SpotPayload; date: string }) {
@@ -223,14 +232,14 @@ function SwimDetailCard({ data, date }: { data: SpotPayload; date: string }) {
             {swimWindLabel(rep, units)}
             {tp !== null ? ` · sets ${Math.round(tp)} s` : ""}
           </span>
-          <span class="temps-row">
-            <span>
+          <span class={tempsRowClass(sv.gear ? GEAR_WORD[sv.gear] : null)}>
+            <span title="Air temperature">
               <ThermometerIcon />
-              <span class="tabular">air {rep.air !== null ? fmtTemp(rep.air, units) : "-"}</span>
+              <span class="tabular">{rep.air !== null ? fmtTemp(rep.air, units) : "-"}</span>
             </span>
-            <span>
+            <span title="Water temperature">
               <WavesIcon />
-              <span class="tabular">water {rep.sst !== null ? fmtTemp(rep.sst, units) : "-"}</span>
+              <span class="tabular">{rep.sst !== null ? fmtTemp(rep.sst, units) : "-"}</span>
             </span>
             {sv.gear && (
               <span>
@@ -306,18 +315,14 @@ export function DetailCard({
               ? ` · ${Math.round(swell.peak_period ?? swell.period)} s ${cardinal(swell.dir)}`
               : ""}
           </span>
-          <span class="temps-row">
-            <span>
+          <span class={tempsRowClass(data.current.wetsuit)}>
+            <span title="Air temperature">
               <ThermometerIcon />
-              <span class="tabular">
-                air {dv.rep.air !== null ? fmtTemp(dv.rep.air, units) : "-"}
-              </span>
+              <span class="tabular">{dv.rep.air !== null ? fmtTemp(dv.rep.air, units) : "-"}</span>
             </span>
-            <span>
+            <span title="Water temperature">
               <WavesIcon />
-              <span class="tabular">
-                water {dv.rep.sst !== null ? fmtTemp(dv.rep.sst, units) : "-"}
-              </span>
+              <span class="tabular">{dv.rep.sst !== null ? fmtTemp(dv.rep.sst, units) : "-"}</span>
             </span>
             {data.current.wetsuit && (
               <span>

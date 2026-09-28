@@ -926,6 +926,21 @@ button {
   margin-top: 4px;
   padding: 10px 0;
   border-top: none;
+  /* the home cards keep air / water / suit on ONE line (operator, 2026-09-28): this
+     row alone stays below the +10% type scale so it fits a phone-width card */
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+.detail-card .temps-row > span {
+  font-size: 13.2px;
+  white-space: nowrap;
+  gap: 4px;
+}
+.detail-card .temps-row.fit-s > span {
+  font-size: 11.4px;
+}
+.detail-card .temps-row.fit-xs > span {
+  font-size: 10.8px;
 }
 .detail-card .foot {
   display: flex;
