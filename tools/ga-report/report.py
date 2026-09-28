@@ -166,8 +166,8 @@ def main() -> int:
     # reported as missing instead of taking the whole report down
     try:
         out["pref_mode"] = query(token, ["customUser:mode"], ["activeUsers"], d, 10, "activeUsers")
-    except Exception as e:  # any API refusal means "not registered yet"
-        print(f"mode: not queryable yet ({type(e).__name__}) - register the user property")
+    except SystemExit as e:  # run_report turns an API refusal into SystemExit
+        print(f"mode: not queryable yet - register the user property ({str(e)[:80]})")
         out["pref_mode"] = []
 
     if a.json:
