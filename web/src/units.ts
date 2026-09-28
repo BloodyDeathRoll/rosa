@@ -57,6 +57,17 @@ export function fmtRange(h: [number, number], u: Units, withUnit = true): string
   return withUnit ? `${range} ${heightUnit(u)}` : range;
 }
 
+/** Wind speed: km/h with metric units, knots with feet (2026-09-28 - it was knots for
+    everyone). The pipeline publishes km/h; the metric/imperial switch in Profile sets both
+    heights and wind, like temperature. */
+export function fmtWind(kph: number, u: Units): string {
+  return String(u.height === "ft" ? Math.round(kph / 1.852) : Math.round(kph));
+}
+
+export function windUnit(u: Units): string {
+  return u.height === "ft" ? "kt" : "km/h";
+}
+
 export function fmtTemp(c: number, u: Units): string {
   return u.temp === "f" ? `${Math.round(c * 1.8 + 32)}°F` : `${Math.round(c)}°C`;
 }

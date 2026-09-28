@@ -73,7 +73,7 @@ import { currentIds } from "../cams";
 import { TideSection } from "../components/TideSection";
 import { MapCard, setPendingPin } from "./MapPage";
 import { fmtClock, sunTimes } from "../sun";
-import { fmtH, fmtTemp, heightUnit, useUnits, type Units } from "../units";
+import { fmtH, fmtTemp, fmtWind, heightUnit, useUnits, windUnit, type Units } from "../units";
 import type { DayEntry, HourEntry, IndexEntry, SpotPayload } from "../types";
 
 const NEARBY_KM = 50; // the app's nearby radius, same as the cam picker's
@@ -413,7 +413,7 @@ function HourRow({
       <span class={`wind-cell wc-${h.wind.class}`}>
         <span class="top">
           <WindDirIcon rotate={arrowRotation(h.wind.dir)} />
-          <b class="tabular">{knots(h.wind.kph)}</b>
+          <b class="tabular">{fmtWind(h.wind.kph, units)}</b>
           <small class="cardinal tabular">{cardinal(h.wind.dir)}</small>
         </span>
         <small class="wclass">{windClassWord(h.wind.class)}</small>
@@ -599,7 +599,7 @@ export function SpotPanel({
                 <InfoIcon size={12} />
               </a>
               <a class="head-info" href="/about/reading#swim" aria-label="What push in and push out mean">
-                <span aria-hidden="true">wind kt</span>
+                <span aria-hidden="true">wind {windUnit(units)}</span>
                 <InfoIcon size={12} />
               </a>
               {/* the expand: kJ and hPa live under the rip chip while this is on */}
@@ -630,7 +630,7 @@ export function SpotPanel({
               <InfoIcon size={12} />
             </a>
             <a class="head-info" href="/about/reading#wind" aria-label="What the wind numbers mean">
-              <span aria-hidden="true">wind kt</span>
+              <span aria-hidden="true">wind {windUnit(units)}</span>
               <InfoIcon size={12} />
             </a>
             <a class="head-info" href="/about/reading#kj" aria-label="What kJ and hPa mean">
@@ -716,7 +716,7 @@ function SwimWordsCard({
     { l: "Surge", v: tp !== null ? `sets ${Math.round(tp)} s` : "", w: surgeWord(surgeLevel(rep)) },
     {
       l: "Wind",
-      v: `${Math.round(toKnots(rep.wind.kph))} kt ${cardinal(rep.wind.dir)}`,
+      v: `${fmtWind(rep.wind.kph, units)} ${windUnit(units)} ${cardinal(rep.wind.dir)}`,
       w: pushWord(rep),
     },
     clarity
@@ -841,7 +841,7 @@ function SwimHourRow({
       >
         <span class="top">
           <WindDirIcon rotate={arrowRotation(h.wind.dir)} />
-          <b class="tabular">{knots(h.wind.kph)}</b>
+          <b class="tabular">{fmtWind(h.wind.kph, units)}</b>
           <small class="cardinal tabular">{cardinal(h.wind.dir)}</small>
         </span>
         <small class="wclass">{PUSH_WORD[push]}</small>

@@ -220,7 +220,7 @@ function SwimDetailCard({ data, date }: { data: SpotPayload; date: string }) {
             </span>
           </span>
           <span class="line tabular">
-            {swimWindLabel(rep)}
+            {swimWindLabel(rep, units)}
             {tp !== null ? ` · sets ${Math.round(tp)} s` : ""}
           </span>
           <span class="temps-row">
@@ -301,7 +301,7 @@ export function DetailCard({
             </span>
           </span>
           <span class="line tabular">
-            {windLabel(dv.rep)}
+            {windLabel(dv.rep, units)}
             {swell
               ? ` · ${Math.round(swell.peak_period ?? swell.period)} s ${cardinal(swell.dir)}`
               : ""}

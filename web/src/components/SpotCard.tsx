@@ -61,7 +61,7 @@ export function SpotCard({
             <span class="surf-range">
               {brk.n} {brk.unit}
             </span>
-            <span class="wind-stat">{swimWindLabel(sv.rep ?? data.current)}</span>
+            <span class="wind-stat">{swimWindLabel(sv.rep ?? data.current, units)}</span>
           </div>
         </div>
         <span class="card-side">
@@ -86,7 +86,7 @@ export function SpotCard({
         </div>
         <div class="card-stats tabular">
           <span class="surf-range">{fmtRange(dv.range, units)}</span>
-          <span class="wind-stat">{windLabel(dv.rep)}</span>
+          <span class="wind-stat">{windLabel(dv.rep, units)}</span>
         </div>
       </div>
       <span class="card-side">

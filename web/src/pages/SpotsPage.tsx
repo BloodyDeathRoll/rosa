@@ -31,7 +31,7 @@ function payloadLine(data: SpotPayload, units: Units): string {
   const cur = data.current;
   const today = data.hours.filter((h) => dateOf(h.t) === dateOf(data.hours[0]?.t ?? ""));
   const bw = bestWindow(today);
-  return `${fmtH(cur.h_mid, units)} ${heightUnit(units)} · ${windLabel(cur)} · best ${bw ? bw.start : "-"}`;
+  return `${fmtH(cur.h_mid, units)} ${heightUnit(units)} · ${windLabel(cur, units)} · best ${bw ? bw.start : "-"}`;
 }
 
 /** Fallback row while a favorite's full payload is still loading. */

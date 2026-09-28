@@ -6,6 +6,7 @@
     constants block below so the scale can be tuned without touching the presentation. */
 
 import { fmtClock, sunTimes } from "../sun";
+import { fmtWind, windUnit, type Units } from "../units";
 import type { HourEntry, SpotPayload, WaterClarity, WaterPollution } from "../types";
 
 // ---------------------------------------------------------------------------------
@@ -22,11 +23,15 @@ export const BREAK_PENALTY_MAX = 90;
 
 /** Chop: a wind sea (short peak period) driven by the wind. Peak periods at or above
     CHOP_PERIOD_CLEAN_S carry no chop factor; the factor is full at CHOP_PERIOD_FULL_S.
-    Penalty = factor × knots × CHOP_PER_KT, capped at CHOP_MAX. */
+    Penalty = factor × knots × CHOP_PER_KT, capped at CHOP_MAX.
+    Calibrated 2026-09-28 at Hilton Beach, Tel Aviv (docs/CALIBRATION.md): the operator in
+    the water called 15:00 "choppy and windy" at 11-13 kt onshore (IMS Tel Aviv Coast, gusts
+    to 16) over a 4 s wind sea, which the first weights (1.6 / kt, cap 35) scored Calm 81.
+    3.5 / kt puts 12 kt on a full wind sea at 58, Choppy; the cap lets a gale reach Stay out. */
 export const CHOP_PERIOD_CLEAN_S = 8;
 export const CHOP_PERIOD_FULL_S = 4;
-export const CHOP_PER_KT = 1.6;
-export const CHOP_MAX = 35;
+export const CHOP_PER_KT = 3.5;
+export const CHOP_MAX = 70;
 
 /** Wind pushing a swimmer out (surf-mode "offshore"): knots × PUSH_OUT_PER_KT, capped.
     Chips turn from amber to red at PUSH_OUT_RED_KT. */
@@ -46,9 +51,9 @@ export const BREAK_SMALL_M = 0.6;
 export const CLARITY_HAZY_M = 2.5;
 /** Chop words from the hour's chop penalty (0..CHOP_MAX): flat below CHOP_LIGHT, light
     below CHOP_CHOPPY, choppy below CHOP_ROUGH, rough above. */
-export const CHOP_LIGHT = 5;
-export const CHOP_CHOPPY = 15;
-export const CHOP_ROUGH = 25;
+export const CHOP_LIGHT = 10;
+export const CHOP_CHOPPY = 25;
+export const CHOP_ROUGH = 45;
 
 /** Score → word. Inverted from surf: Calm is the top. Below OUT_MIN is "Stay out";
     a pollution alert caps the score at OUT_CAP whatever the sea is doing. */
@@ -466,12 +471,11 @@ export function swimDayView(data: SpotPayload, date: string): SwimDayView {
   };
 }
 
-/** The card's one-line wind readout in swim words: "WNW 7 kt pushes in". */
-export function swimWindLabel(h: Pick<HourEntry, "wind">): string {
-  const kts = Math.round(toKnots(h.wind.kph));
+/** The card's one-line wind readout in swim words: "WNW 13 km/h pushes in". */
+export function swimWindLabel(h: Pick<HourEntry, "wind">, u: Units): string {
   const i = Math.round((((h.wind.dir % 360) + 360) % 360) / 22.5) % 16;
   const card = CARDINALS[i] ?? "";
-  return `${card} ${kts} kt ${PUSH_WORD[pushOf(h)]}`;
+  return `${card} ${fmtWind(h.wind.kph, u)} ${windUnit(u)} ${PUSH_WORD[pushOf(h)]}`;
 }
 
 const CARDINALS = [

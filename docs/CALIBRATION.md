@@ -3628,3 +3628,14 @@ it (5 tries, 10/20/30/40 s apart; 3 tries at 5/10 s still lost 2 of 21).
 ## 2026-09-26 - A calm METAR hour has no wind direction (Dream 09-26)
 
 `observe.parse_metar_json` kept `wdir_deg=0` on a calm report (`00000KT`; METAR writes north as 360), so every calm hour entered the station wind-direction card as a "from north" truth. Calm now parses to `wdir_deg=None`, like `VRB` already did; the speed pair still scores. Station `wdir` MAE/bias at METAR stations moves on cards built after this date; how many hours are calm was not measured. Harness-only, nothing published moves. The wider proposal (drop calm from `wdir` for every wind source in `verify.pair_series`) is held until a before/after `verify --stations --archive` rerun on the VM.
+
+## 2026-09-28 - Swim-mode chop weight, from the water at Hilton Beach (Tel Aviv), plus the IMS beach-station read
+
+**Observed:** the operator at Hilton Beach, ~15:00-18:00 local, "choppy and windy". IMS TEL AVIV COAST (178, 3.5 km south of the pin) measured 11.5 / 13.4 / 11.3 / 11.1 / 10.7 kt at 13:00-17:00, gusts 14-16 kt, WNW (onshore). Rosa's published wind (GFS via Open-Meteo, 08:20Z run) for the same hours: 10.4-12.1 kt - **the wind was right**. Surfline showed 20 / 23 / 16 at 12 / 15 / 18: those are km/h, and convert to 10.8 / 12.4 / 8.6 kt against Rosa's 9.7 / 12.0 / 8.6 - the same GFS to the rounding (as found 2026-08-30). The "9 kt" the operator saw was the 18:00 row (8.6) of a 3-hourly table.
+
+**What was wrong:** swim mode's reading of that wind. 15:00 (12.0 kt onshore over a 4 s wind sea, 0.2 m shore break) scored **Calm 81** - chop took 19 of a 35-point cap (`CHOP_PER_KT` 1.6). **Changed** (`web/src/lib/swim.ts`, web only, nothing upstream): `CHOP_PER_KT` 1.6 -> 3.5, `CHOP_MAX` 35 -> 70, card words `CHOP_LIGHT/CHOPPY/ROUGH` 5/15/25 -> 10/25/45. Hilton today under the new weights: 09:00 Calm 80, 12:00 Easy 69, 15:00 **Choppy 58**, 18:00 Easy 74, 21:00 Calm 83. One observation, one spot, one sea state - it moves the swim scale only (no surf number, no published field), and it is the first point on it; a pinned test (`swim.test.ts`, "chop calibration") holds it.
+
+**IMS beach-station read (OPEN-ITEMS 25, due today) - TEL AVIV COAST only so far:** `verify --station 178 --archive --bias-profile` on the VM (the command needs `.env` loaded for `IMS_API_TOKEN` and runs from `~/rosa` with `uv run --project pipeline`): ~210 paired hours, speed bias ~0, MAE ~0.7 m/s; by hour of day -0.6 to +0.5 m/s; the pooled diurnal correction fitted on the earlier hours made the later hours WORSE (+3.1% MAE). **No wind correction is warranted at this beach.** The other four beach stations (46, 124, 208, 106) are still to read. Note: the IMS API only serves ~9 days back, so each read pairs what the archive holds against the observations still online.
+
+**Display:** wind now shows in km/h with metric units and knots with feet (it was knots for everyone); the switch in Profile sets both.
+

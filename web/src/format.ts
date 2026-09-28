@@ -1,6 +1,7 @@
 /** Small formatting helpers. All times in payloads are already spot-local ISO strings. */
 
 import type { HourEntry } from "./types";
+import { fmtWind, windUnit, type Units } from "./units";
 
 export function hourOf(iso: string): string {
   return iso.slice(11, 16);
@@ -74,9 +75,10 @@ export function knots(kph: number): number {
   return Math.round(kph / 1.852);
 }
 
-/** "E 4 kt offshore" - cardinal, speed, wind class per the design's spot line. */
-export function windLabel(h: Pick<HourEntry, "wind">): string {
-  return `${cardinal(h.wind.dir)} ${knots(h.wind.kph)} kt ${windClassWord(h.wind.class)}`;
+/** "E 7 km/h offshore" (metric) / "E 4 kt offshore" (feet) - cardinal, speed, wind class
+    per the design's spot line. */
+export function windLabel(h: Pick<HourEntry, "wind">, u: Units): string {
+  return `${cardinal(h.wind.dir)} ${fmtWind(h.wind.kph, u)} ${windUnit(u)} ${windClassWord(h.wind.class)}`;
 }
 
 /** Short word for the wind class, e.g. "cross-shore" → "cross". */

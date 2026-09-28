@@ -250,3 +250,23 @@ describe("card words", () => {
     expect(pushWord({ wind: { kph: 15 * 1.852, dir: 0, class: "onshore" } }).word).toBe("pushes in");
   });
 });
+
+describe("chop calibration (Hilton Beach, 2026-09-28 15:00)", () => {
+  it("12 kt onshore over a 4 s wind sea - 'choppy and windy' in the water - is Choppy", () => {
+    const h = hour({ h_mid: 0.2, tp: 4, kts: 12, wind: { kph: 12 * 1.852, dir: 293, class: "onshore" } });
+    const s = swimScore(h, clearWater);
+    expect(s.bucket).toBe("CHOPPY");
+    // the same hour with the wind down to a morning 5 kt stays Calm
+    expect(swimScore({ ...h, wind: { ...h.wind, kph: 5 * 1.852 } }, clearWater).bucket).toBe("CALM");
+  });
+});
+
+describe("wind units", () => {
+  it("km/h with metres, knots with feet", async () => {
+    const { fmtWind, windUnit } = await import("../units");
+    expect(fmtWind(22.2, { height: "m", temp: "c" })).toBe("22");
+    expect(windUnit({ height: "m", temp: "c" })).toBe("km/h");
+    expect(fmtWind(22.2, { height: "ft", temp: "f" })).toBe("12");
+    expect(windUnit({ height: "ft", temp: "f" })).toBe("kt");
+  });
+});

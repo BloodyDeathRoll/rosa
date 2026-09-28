@@ -168,7 +168,7 @@ function ReadingTheForecast() {
 
       <h2 id="wind">Wind</h2>
       <p>
-        Shown in knots, with the direction it is blowing <b>from</b>, and a word for what that means
+        Shown in km/h (knots if you use feet), with the direction it is blowing <b>from</b>, and a word for what that means
         at this particular spot:
       </p>
       <ul class="about-sub">
@@ -290,7 +290,7 @@ function ReadingTheForecast() {
         neither, so the words run <b>Calm</b>, <b>Easy</b>, <b>Choppy</b>, <b>Rough</b>,{" "}
         <b>Stay out</b>, and Calm is the top. An hour starts at a hundred and loses points for
         the breaking wave (nothing to thirty centimetres, heavy by a metre, the floor from a
-        metre and a half), for chop (a short-period wind sea, scaled by the wind's knots), for a
+        metre and a half), for chop (a short-period wind sea, scaled by the wind speed), for a
         wind that pushes you out to sea - the surfer's cherished offshore - and for murky water
         below about five metres of visibility. If the bathing-water agency says pollution is
         likely today, the hour is Stay out whatever the sea is doing. Where there is no pollution
@@ -324,8 +324,9 @@ function ReadingTheForecast() {
 
       <h2>Units</h2>
       <p>
-        Metres or feet, and Celsius or Fahrenheit, are yours to set in Profile. Wind is always in
-        knots and period always in seconds, because that is what surf forecasts everywhere use.
+        Metres or feet, and Celsius or Fahrenheit, are yours to set in Profile. Wind follows the
+        same switch: km/h with metres, knots with feet. Period is always in seconds, because that
+        is what surf forecasts everywhere use.
       </p>
 
       <h2>Swell alerts</h2>
