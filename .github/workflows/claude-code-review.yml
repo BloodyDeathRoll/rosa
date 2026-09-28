@@ -35,6 +35,10 @@ jobs:
       - name: Run Claude Code Review
         id: claude-review
         uses: anthropics/claude-code-action@9171db3e57d6a3140a37ddc2ba92788584e0ead6 # v1.0.234
+        env:
+          # The code-review plugin backgrounds its sub-agents and the headless run exits before
+          # they report ("waiting for the eligibility check"), passing green with no review.
+          CLAUDE_CODE_DISABLE_BACKGROUND_TASKS: '1'
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # The action refuses bot-opened PRs by default; Dependabot's get reviewed too. Only
