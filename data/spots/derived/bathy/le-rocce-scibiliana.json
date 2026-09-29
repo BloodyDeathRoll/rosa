@@ -1,0 +1,72 @@
+{
+  "spot": "le-rocce-scibiliana",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.7306,
+    12.4709
+  ],
+  "bearing_seaward_deg": 262.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 194.0,
+  "mean_slope_m_per_km": 10.76,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.73029,
+      "lon": 12.46808,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.72997,
+      "lon": 12.46527,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.72935,
+      "lon": 12.45964,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.72809,
+      "lon": 12.44838,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.72684,
+      "lon": 12.43712,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.72433,
+      "lon": 12.4146,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.72055,
+      "lon": 12.38083,
+      "depth_m": 113.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.7155,
+      "lon": 12.3358,
+      "depth_m": 162.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.7079,
+      "lon": 12.26828,
+      "depth_m": 194.0
+    }
+  ]
+}

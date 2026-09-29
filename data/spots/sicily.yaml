@@ -1,0 +1,66 @@
+# Rosa spot database - Sicily. Central Mediterranean wind swell: the north coast (Palermo,
+# Cefalu) takes the Tyrrhenian's NW-N mistral swell, the west (Trapani, San Vito) the W-NW,
+# the south coast (Agrigento, Gela, Ragusa) the SW-S from the Strait of Sicily, and the east
+# (Catania, Siracusa) the Ionian's SE-E. Short-period, like Cyprus. Offshore direction
+# varies per coast. Every spot carries offshore_km along its own seaward normal.
+
+defaults: &sic
+  timezone: Europe/Rome
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [240, 30]
+  ideal:
+    wind_dir: [90, 180]
+    size_m: [0.6, 1.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-29 - sicily, 42 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 42 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/sicily/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: acqualadrone, name: "Acqualadrone", town: "Messina", lat: 38.2998, lon: 15.5501, offshore_direction: 181, swell_window: [296, 66], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: torre-faro, name: "Torre Faro", town: "Messina", lat: 38.2724, lon: 15.6427, offshore_direction: 192, swell_window: [307, 77], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: tarantonio, name: "Tarantonio", town: "Villafranca Tirrena", lat: 38.2465, lon: 15.4389, offshore_direction: 145, swell_window: [260, 30], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: mondello, name: "Mondello", town: "Palermo", lat: 38.2009, lon: 13.3290, offshore_direction: 238, swell_window: [353, 123], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: la-tonnara, name: "La Tonnara", town: "Cinisi", lat: 38.1896, lon: 13.1247, offshore_direction: 199, swell_window: [314, 84], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: isola-delle-femmine, name: "Isola delle Femmine", town: "Isola delle Femmine", lat: 38.1859, lon: 13.2363, offshore_direction: 133, swell_window: [248, 18], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: san-vito-lo-capo, name: "San Vito Lo Capo", town: "San Vito Lo Capo", lat: 38.1767, lon: 12.7370, offshore_direction: 196, swell_window: [311, 81], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: magaggiari, name: "Magaggiari", town: "Cinisi", lat: 38.1608, lon: 13.0843, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: praiola, name: "Praiola", town: "Terrasini", lat: 38.1547, lon: 13.0808, offshore_direction: 112, swell_window: [227, 357], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: arenella-palermo, name: "Arenella Palermo", town: "Palermo", lat: 38.1534, lon: 13.3750, offshore_direction: 272, swell_window: [27, 157], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: mongiove, name: "Mongiove", town: "Mongiove", lat: 38.1506, lon: 15.0232, offshore_direction: 160, swell_window: [275, 45], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: aspra, name: "Aspra", town: "Aspra", lat: 38.1048, lon: 13.4988, offshore_direction: 137, swell_window: [252, 22], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: cornino, name: "Cornino", town: "Cornino", lat: 38.0923, lon: 12.6615, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: ciammarita, name: "Ciammarita", town: "Trappeto", lat: 38.0752, lon: 13.0578, offshore_direction: 114, swell_window: [229, 359], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: lido-valderice, name: "Lido Valderice", town: "Valderice", lat: 38.0706, lon: 12.6306, offshore_direction: 135, swell_window: [250, 20], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: pizzolungo, name: "Pizzolungo", town: "Pizzolungo", lat: 38.0645, lon: 12.5602, offshore_direction: 132, swell_window: [247, 17], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: cefalu, name: "Cefalù", town: "Cefalù", lat: 38.0366, lon: 14.0170, offshore_direction: 151, swell_window: [266, 36], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: cala-rosa, name: "Cala Rosa", town: "Termini Imerese", lat: 37.9908, lon: 13.7048, offshore_direction: 183, swell_window: [298, 68], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: le-rocce-scibiliana, name: "Le Rocce Scibiliana", town: "Marsala", lat: 37.7306, lon: 12.4709, offshore_direction: 82, swell_window: [197, 327], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: tre-fontane, name: "Tre Fontane", town: "Tre Fontane", lat: 37.5695, lon: 12.7254, offshore_direction: 331, swell_window: [86, 216], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: faro-granitola, name: "Faro Granitola", town: "Campobello di Mazara", lat: 37.5661, lon: 12.6621, offshore_direction: 43, swell_window: [158, 288], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: puzziteddu, name: "Puzziteddu", town: "Mazara del Vallo", lat: 37.5597, lon: 12.6792, offshore_direction: 23, swell_window: [138, 268], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: san-giovanni-li-cuti, name: "San Giovanni Li Cuti", town: "Catania", lat: 37.5195, lon: 15.1091, offshore_direction: 310, swell_window: [65, 195], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: la-playa, name: "La Playa", town: "Catania", lat: 37.4833, lon: 15.0869, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: le-capannine, name: "Le Capannine", town: "Catania", lat: 37.4415, lon: 15.0876, offshore_direction: 277, swell_window: [32, 162], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: giallonardo, name: "Giallonardo", town: "Realmonte", lat: 37.3176, lon: 13.4167, offshore_direction: 63, swell_window: [178, 308], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: ponente, name: "Ponente", town: "Porto Empedocle", lat: 37.2916, lon: 13.5094, offshore_direction: 6, swell_window: [121, 251], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: kaos, name: "Kaos", town: "Agrigento", lat: 37.2870, lon: 13.5511, offshore_direction: 353, swell_window: [108, 238], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: san-leone, name: "San Leone", town: "Agrigento", lat: 37.2600, lon: 13.5888, offshore_direction: 11, swell_window: [126, 256], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: cannatello, name: "Cannatello", town: "Agrigento", lat: 37.2394, lon: 13.6167, offshore_direction: 56, swell_window: [171, 301], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: punta-milocca, name: "Punta Milocca", town: "Siracusa", lat: 37.0078, lon: 15.2870, offshore_direction: 358, swell_window: [113, 243], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: arenella-siracusa, name: "Arenella Siracusa", town: "Siracusa", lat: 36.9965, lon: 15.2640, offshore_direction: 296, swell_window: [51, 181], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: fontane-bianche, name: "Fontane Bianche", town: "Fontane Bianche", lat: 36.9624, lon: 15.2075, offshore_direction: 283, swell_window: [38, 168], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: scoglitti, name: "Scoglitti", town: "Scoglitti", lat: 36.8949, lon: 14.4248, offshore_direction: 62, swell_window: [177, 307], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: punta-braccetto, name: "Punta Braccetto", town: "Punta Braccetto", lat: 36.8162, lon: 14.4645, offshore_direction: 30, swell_window: [145, 275], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: punta-secca, name: "Punta Secca", town: "Punta Secca", lat: 36.7897, lon: 14.4917, offshore_direction: 42, swell_window: [157, 287], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: marina-di-ragusa, name: "Marina di Ragusa", town: "Marina di Ragusa", lat: 36.7820, lon: 14.5584, offshore_direction: 34, swell_window: [149, 279], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: donnalucata, name: "Donnalucata", town: "Donnalucata", lat: 36.7645, lon: 14.6320, offshore_direction: 12, swell_window: [127, 257], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: sampieri, name: "Sampieri", town: "Sampieri", lat: 36.7190, lon: 14.7485, offshore_direction: 31, swell_window: [146, 276], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: marina-di-modica, name: "Marina di Modica", town: "Marina di Modica", lat: 36.7108, lon: 14.7731, offshore_direction: 346, swell_window: [101, 231], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: morghella, name: "Morghella", town: "Pachino", lat: 36.7023, lon: 15.1230, offshore_direction: 247, swell_window: [2, 132], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: punta-delle-formiche, name: "Punta delle Formiche", town: "Pachino", lat: 36.6611, lon: 15.0556, offshore_direction: 44, swell_window: [159, 289], offshore_km: 5.0, <<: *sic }  # sat-verified 2026-09-29 (websearch-seeded)

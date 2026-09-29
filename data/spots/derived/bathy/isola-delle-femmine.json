@@ -1,0 +1,72 @@
+{
+  "spot": "isola-delle-femmine",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.1859,
+    13.2363
+  ],
+  "bearing_seaward_deg": 313.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 802.0,
+  "mean_slope_m_per_km": 45.75,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.18743,
+      "lon": 13.23421,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.18897,
+      "lon": 13.23212,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.19203,
+      "lon": 13.22793,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.19817,
+      "lon": 13.21956,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.2043,
+      "lon": 13.21119,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.21656,
+      "lon": 13.19444,
+      "depth_m": 132.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.23495,
+      "lon": 13.16931,
+      "depth_m": 171.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.25946,
+      "lon": 13.13578,
+      "depth_m": 360.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.2962,
+      "lon": 13.08545,
+      "depth_m": 802.0
+    }
+  ]
+}

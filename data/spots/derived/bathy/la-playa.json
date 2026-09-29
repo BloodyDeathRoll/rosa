@@ -1,0 +1,72 @@
+{
+  "spot": "la-playa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.4833,
+    15.0869
+  ],
+  "bearing_seaward_deg": 100.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 1461.0,
+  "mean_slope_m_per_km": 82.03,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.48291,
+      "lon": 15.08969,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.48252,
+      "lon": 15.09248,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.48174,
+      "lon": 15.09806,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.48017,
+      "lon": 15.10922,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.47861,
+      "lon": 15.12038,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.47548,
+      "lon": 15.1427,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.47077,
+      "lon": 15.17617,
+      "depth_m": 405.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.46448,
+      "lon": 15.2208,
+      "depth_m": 847.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.45502,
+      "lon": 15.28772,
+      "depth_m": 1461.0
+    }
+  ]
+}

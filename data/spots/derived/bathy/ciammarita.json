@@ -1,0 +1,72 @@
+{
+  "spot": "ciammarita",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.0752,
+    13.0578
+  ],
+  "bearing_seaward_deg": 294.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 635.0,
+  "mean_slope_m_per_km": 36.23,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.07611,
+      "lon": 13.05519,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.07703,
+      "lon": 13.05258,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.07886,
+      "lon": 13.04736,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.08251,
+      "lon": 13.03692,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.08617,
+      "lon": 13.02649,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.09348,
+      "lon": 13.0056,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.10443,
+      "lon": 12.97427,
+      "depth_m": 126.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.11903,
+      "lon": 12.93249,
+      "depth_m": 496.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.14089,
+      "lon": 12.86977,
+      "depth_m": 635.0
+    }
+  ]
+}

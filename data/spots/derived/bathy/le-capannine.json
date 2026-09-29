@@ -1,0 +1,72 @@
+{
+  "spot": "le-capannine",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.4415,
+    15.0876
+  ],
+  "bearing_seaward_deg": 97.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 1368.0,
+  "mean_slope_m_per_km": 77.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.44123,
+      "lon": 15.09041,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.44095,
+      "lon": 15.09322,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.4404,
+      "lon": 15.09884,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.43931,
+      "lon": 15.11008,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.43821,
+      "lon": 15.12133,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.43601,
+      "lon": 15.14381,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.4327,
+      "lon": 15.17753,
+      "depth_m": 412.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.42827,
+      "lon": 15.22248,
+      "depth_m": 852.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.4216,
+      "lon": 15.28991,
+      "depth_m": 1368.0
+    }
+  ]
+}

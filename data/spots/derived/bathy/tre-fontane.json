@@ -1,0 +1,72 @@
+{
+  "spot": "tre-fontane",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.5695,
+    12.7254
+  ],
+  "bearing_seaward_deg": 151.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 102.0,
+  "mean_slope_m_per_km": 6.31,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.56753,
+      "lon": 12.72678,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.56557,
+      "lon": 12.72815,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.56163,
+      "lon": 12.7309,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.55377,
+      "lon": 12.7364,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.5459,
+      "lon": 12.7419,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.53017,
+      "lon": 12.75289,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.50657,
+      "lon": 12.76937,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.47509,
+      "lon": 12.79133,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.42788,
+      "lon": 12.82423,
+      "depth_m": 102.0
+    }
+  ]
+}

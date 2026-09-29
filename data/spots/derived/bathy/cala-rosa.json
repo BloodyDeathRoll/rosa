@@ -1,0 +1,72 @@
+{
+  "spot": "cala-rosa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.9908,
+    13.7048
+  ],
+  "bearing_seaward_deg": 3.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 701.0,
+  "mean_slope_m_per_km": 39.32,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.99305,
+      "lon": 13.70495,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.99529,
+      "lon": 13.7051,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.99978,
+      "lon": 13.7054,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.00876,
+      "lon": 13.70599,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.01774,
+      "lon": 13.70659,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.0357,
+      "lon": 13.70779,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.06265,
+      "lon": 13.70958,
+      "depth_m": 136.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.09857,
+      "lon": 13.71198,
+      "depth_m": 395.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.15246,
+      "lon": 13.71557,
+      "depth_m": 701.0
+    }
+  ]
+}

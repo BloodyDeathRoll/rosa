@@ -1,0 +1,72 @@
+{
+  "spot": "sampieri",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.719,
+    14.7485
+  ],
+  "bearing_seaward_deg": 211.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 81.0,
+  "mean_slope_m_per_km": 4.9,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.71707,
+      "lon": 14.74706,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.71515,
+      "lon": 14.74561,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.71129,
+      "lon": 14.74272,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.70358,
+      "lon": 14.73695,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.69587,
+      "lon": 14.73117,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.68045,
+      "lon": 14.71962,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.65732,
+      "lon": 14.70231,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.62648,
+      "lon": 14.67924,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.5802,
+      "lon": 14.64468,
+      "depth_m": 81.0
+    }
+  ]
+}

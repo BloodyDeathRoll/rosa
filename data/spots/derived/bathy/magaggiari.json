@@ -1,0 +1,72 @@
+{
+  "spot": "magaggiari",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.1608,
+    13.0843
+  ],
+  "bearing_seaward_deg": 280.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 903.0,
+  "mean_slope_m_per_km": 51.49,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.16119,
+      "lon": 13.08148,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.16158,
+      "lon": 13.07867,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.16236,
+      "lon": 13.07304,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.16392,
+      "lon": 13.06177,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.16548,
+      "lon": 13.05051,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.16859,
+      "lon": 13.02797,
+      "depth_m": 166.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.17326,
+      "lon": 12.99417,
+      "depth_m": 594.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.17946,
+      "lon": 12.9491,
+      "depth_m": 778.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.18874,
+      "lon": 12.88147,
+      "depth_m": 903.0
+    }
+  ]
+}

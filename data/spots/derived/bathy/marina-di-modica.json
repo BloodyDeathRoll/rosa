@@ -1,0 +1,72 @@
+{
+  "spot": "marina-di-modica",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.7108,
+    14.7731
+  ],
+  "bearing_seaward_deg": 166.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 95.0,
+  "mean_slope_m_per_km": 5.52,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.70862,
+      "lon": 14.77378,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.70644,
+      "lon": 14.77446,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.70207,
+      "lon": 14.77581,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.69335,
+      "lon": 14.77853,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.68462,
+      "lon": 14.78124,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.66717,
+      "lon": 14.78666,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.64099,
+      "lon": 14.79479,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.60608,
+      "lon": 14.80562,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.55372,
+      "lon": 14.82185,
+      "depth_m": 95.0
+    }
+  ]
+}

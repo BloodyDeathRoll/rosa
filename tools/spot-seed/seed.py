@@ -271,6 +271,9 @@ REGIONS = {
     "canary-islands": (27.60, -18.20, 29.45, -13.30),
     # Cyprus, the whole island: Paphos and the west coast, Limassol, Larnaca and Ayia Napa
     "cyprus": (34.55, 32.25, 35.72, 34.62),
+    # Sicily, the whole island plus the Egadi (europe/italy/isole - the extract also holds
+    # Sardinia, which is outside this box). Lampedusa and Pantelleria are not seeded.
+    "sicily": (36.60, 12.25, 38.35, 15.70),
     # Algeria's whole Mediterranean coast, the Moroccan border to Tunisia: Oran and
     # Mostaganem in the west, the Algiers / Tipaza beaches, Bejaia, Jijel, Skikda, Annaba
     "algeria": (35.05, -2.25, 37.15, 8.65),

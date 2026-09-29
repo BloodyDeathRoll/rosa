@@ -1,0 +1,72 @@
+{
+  "spot": "donnalucata",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.7645,
+    14.632
+  ],
+  "bearing_seaward_deg": 192.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 86.0,
+  "mean_slope_m_per_km": 4.68,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.7623,
+      "lon": 14.63142,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.7601,
+      "lon": 14.63083,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.7557,
+      "lon": 14.62967,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.74691,
+      "lon": 14.62733,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.73811,
+      "lon": 14.625,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.72052,
+      "lon": 14.62034,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.69413,
+      "lon": 14.61334,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.65894,
+      "lon": 14.60403,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.60615,
+      "lon": 14.59007,
+      "depth_m": 86.0
+    }
+  ]
+}

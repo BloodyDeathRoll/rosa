@@ -1,0 +1,72 @@
+{
+  "spot": "san-vito-lo-capo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.1767,
+    12.737
+  ],
+  "bearing_seaward_deg": 16.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 1088.0,
+  "mean_slope_m_per_km": 61.24,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.17886,
+      "lon": 12.73779,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.18102,
+      "lon": 12.73858,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.18534,
+      "lon": 12.74015,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.19399,
+      "lon": 12.74331,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.20263,
+      "lon": 12.74646,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.21992,
+      "lon": 12.75278,
+      "depth_m": 721.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.24586,
+      "lon": 12.76225,
+      "depth_m": 913.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.28043,
+      "lon": 12.77489,
+      "depth_m": 759.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.33229,
+      "lon": 12.79388,
+      "depth_m": 1088.0
+    }
+  ]
+}

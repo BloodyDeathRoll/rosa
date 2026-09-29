@@ -1,0 +1,72 @@
+{
+  "spot": "san-leone",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.26,
+    13.5888
+  ],
+  "bearing_seaward_deg": 191.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 85.0,
+  "mean_slope_m_per_km": 4.51,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.25779,
+      "lon": 13.58826,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.25559,
+      "lon": 13.58772,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.25117,
+      "lon": 13.58664,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.24234,
+      "lon": 13.58449,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.23352,
+      "lon": 13.58233,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.21586,
+      "lon": 13.57803,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.18937,
+      "lon": 13.57157,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.15406,
+      "lon": 13.56296,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.10109,
+      "lon": 13.55007,
+      "depth_m": 85.0
+    }
+  ]
+}

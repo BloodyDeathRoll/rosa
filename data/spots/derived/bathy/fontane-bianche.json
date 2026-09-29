@@ -1,0 +1,72 @@
+{
+  "spot": "fontane-bianche",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.9624,
+    15.2075
+  ],
+  "bearing_seaward_deg": 103.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 878.0,
+  "mean_slope_m_per_km": 49.46,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.96189,
+      "lon": 15.21024,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.96139,
+      "lon": 15.21298,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.96038,
+      "lon": 15.21847,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.95835,
+      "lon": 15.22943,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.95633,
+      "lon": 15.2404,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.95227,
+      "lon": 15.26233,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.94618,
+      "lon": 15.29521,
+      "depth_m": 84.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.93805,
+      "lon": 15.33906,
+      "depth_m": 166.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.92582,
+      "lon": 15.40481,
+      "depth_m": 878.0
+    }
+  ]
+}

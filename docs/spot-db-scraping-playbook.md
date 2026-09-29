@@ -215,7 +215,32 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-09-16, DB = 2254 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-09-29, DB = 2332 spots, ALL sat-verified)
+
+**Sicily 0 -> 42 (2026-09-29)** - one box over the whole island plus the Egadi, on the
+`europe/italy/isole` extract (Sicily + Sardinia; `data/osm/sicily.osm.pbf` is a symlink to it) and
+a new `sicily` basin. Zero OSM surf nodes (219 named beaches): web flow end to end. Italian names
+came from wannasurf's Sicily index, surfproject.it/surf/sicilia.html (39 spots with their towns -
+the best single source) and mondo.surf; English "surf in Sicily" pages repeat the same ten.
+54 geocoded -> 42 kept, 13 moved, 10 dropped, 16 normals re-aimed. What was new:
+1. **`ca_xref.py` snapped across the island**: "Arenella, Siracusa" went to Palermo's Spiaggia
+   dell'Arenella, 250 km away: Photon answered Palermo, and the snap accepts an OSM name
+   within 1.5 km of ANY provider, so a wrong provider drags the pin with it (spread 210 km).
+   Marina di Ragusa went to Marina di Acate the same way (spread 29 km), and two Cefalu breaks
+   to the town beach. Distrust any `osm:` snap on a row whose spread is > 5 km.
+   Read every `osm:` src against the web name.
+2. **Google gave Terrasini's Cala Rossa for Termini Imerese's Cala Rosa** (57 km); Photon had
+   the right town.
+3. **The seeded coastline normal was off by 60-120 deg at 16 of 42 pins**, mostly on the
+   south-east corner (Scoglitti, Punta Secca, Donnalucata, San Leone): harbour moles and small
+   points next to the pin. A 2-deg sweep of the 0.5-5 km ray for the largest land-free arc,
+   aimed at its middle, fixed all 16 (script in `work/sicily/arc.py`).
+
+**Gap queue:** Cefalu's Kamikaze (3 km east of town on the SS113 - locate it on a z14 read),
+Santa Lucia (Cefalu), the Granitola sub-peaks (Canada Point, Cala dei Turchi), Sciacca (San Marco,
+Ciminiera), Portopalo, Aci Trezza, Lampedusa, Pantelleria. The rest of Italy (Sardinia, Tuscany,
+Lazio, Liguria) is not seeded.
+
 
 **South America closed 1947 -> 2254 (2026-09-16): Chile Central 51, Mar del Plata 48, Ecuador 47,
 Chile South 34, Chile North 30, Uruguay 26, Alagoas 25, Paraiba 17, Patagonia Argentina 16,

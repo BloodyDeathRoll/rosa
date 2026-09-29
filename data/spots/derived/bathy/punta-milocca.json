@@ -1,0 +1,72 @@
+{
+  "spot": "punta-milocca",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.0078,
+    15.287
+  ],
+  "bearing_seaward_deg": 178.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 1074.0,
+  "mean_slope_m_per_km": 60.85,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.00555,
+      "lon": 15.2871,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.00331,
+      "lon": 15.2872,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.99881,
+      "lon": 15.28739,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.98982,
+      "lon": 15.28779,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.98084,
+      "lon": 15.28818,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.96286,
+      "lon": 15.28896,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.9359,
+      "lon": 15.29014,
+      "depth_m": 132.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.89995,
+      "lon": 15.29171,
+      "depth_m": 752.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.84602,
+      "lon": 15.29406,
+      "depth_m": 1074.0
+    }
+  ]
+}

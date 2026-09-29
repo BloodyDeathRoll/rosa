@@ -1,0 +1,72 @@
+{
+  "spot": "arenella-siracusa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.9965,
+    15.264
+  ],
+  "bearing_seaward_deg": 116.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 2568.0,
+  "mean_slope_m_per_km": 145.13,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.99551,
+      "lon": 15.26653,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.99453,
+      "lon": 15.26906,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.99256,
+      "lon": 15.27412,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.98861,
+      "lon": 15.28424,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.98467,
+      "lon": 15.29436,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.97678,
+      "lon": 15.31459,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.96493,
+      "lon": 15.34493,
+      "depth_m": 147.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.94913,
+      "lon": 15.38537,
+      "depth_m": 437.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.9254,
+      "lon": 15.446,
+      "depth_m": 2568.0
+    }
+  ]
+}

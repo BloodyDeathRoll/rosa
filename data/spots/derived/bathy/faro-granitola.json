@@ -1,0 +1,72 @@
+{
+  "spot": "faro-granitola",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.5661,
+    12.6621
+  ],
+  "bearing_seaward_deg": 223.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 126.0,
+  "mean_slope_m_per_km": 6.87,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.56446,
+      "lon": 12.66017,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.56281,
+      "lon": 12.65823,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.55952,
+      "lon": 12.65436,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.55294,
+      "lon": 12.64663,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.54637,
+      "lon": 12.63889,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.53321,
+      "lon": 12.62343,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.51347,
+      "lon": 12.60024,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.48714,
+      "lon": 12.56934,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.44763,
+      "lon": 12.52304,
+      "depth_m": 126.0
+    }
+  ]
+}

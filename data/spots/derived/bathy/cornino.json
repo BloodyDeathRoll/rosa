@@ -1,0 +1,72 @@
+{
+  "spot": "cornino",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.0923,
+    12.6615
+  ],
+  "bearing_seaward_deg": 270.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 126.0,
+  "mean_slope_m_per_km": 6.82,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.0923,
+      "lon": 12.65864,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.0923,
+      "lon": 12.65579,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.0923,
+      "lon": 12.65007,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.0923,
+      "lon": 12.63865,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.0923,
+      "lon": 12.62722,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.09229,
+      "lon": 12.60437,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.09226,
+      "lon": 12.57008,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.09222,
+      "lon": 12.52438,
+      "depth_m": 135.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.09212,
+      "lon": 12.45582,
+      "depth_m": 126.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "la-tonnara",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.1896,
+    13.1247
+  ],
+  "bearing_seaward_deg": 19.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 935.0,
+  "mean_slope_m_per_km": 52.28,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.19173,
+      "lon": 13.12563,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.19385,
+      "lon": 13.12656,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.1981,
+      "lon": 13.12843,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.20661,
+      "lon": 13.13215,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.21511,
+      "lon": 13.13588,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.23211,
+      "lon": 13.14334,
+      "depth_m": 216.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.25762,
+      "lon": 13.15453,
+      "depth_m": 355.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.29163,
+      "lon": 13.16947,
+      "depth_m": 582.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.34264,
+      "lon": 13.1919,
+      "depth_m": 935.0
+    }
+  ]
+}

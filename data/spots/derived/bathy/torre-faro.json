@@ -1,0 +1,72 @@
+{
+  "spot": "torre-faro",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.2724,
+    15.6427
+  ],
+  "bearing_seaward_deg": 12.0,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 478.0,
+  "mean_slope_m_per_km": 26.31,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.2746,
+      "lon": 15.6433,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.2768,
+      "lon": 15.64389,
+      "depth_m": 99.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.2812,
+      "lon": 15.64508,
+      "depth_m": 145.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.28999,
+      "lon": 15.64746,
+      "depth_m": 181.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.29879,
+      "lon": 15.64985,
+      "depth_m": 219.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.31638,
+      "lon": 15.65462,
+      "depth_m": 250.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.34277,
+      "lon": 15.66177,
+      "depth_m": 303.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.37796,
+      "lon": 15.67132,
+      "depth_m": 456.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.43073,
+      "lon": 15.68566,
+      "depth_m": 478.0
+    }
+  ]
+}

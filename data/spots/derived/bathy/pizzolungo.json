@@ -1,0 +1,72 @@
+{
+  "spot": "pizzolungo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.0645,
+    12.5602
+  ],
+  "bearing_seaward_deg": 312.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 330.0,
+  "mean_slope_m_per_km": 18.14,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.066,
+      "lon": 12.55808,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.06751,
+      "lon": 12.55596,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.07052,
+      "lon": 12.55171,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.07653,
+      "lon": 12.54322,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.08255,
+      "lon": 12.53473,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.09458,
+      "lon": 12.51774,
+      "depth_m": 137.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.11262,
+      "lon": 12.49225,
+      "depth_m": 142.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.13667,
+      "lon": 12.45824,
+      "depth_m": 230.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.17272,
+      "lon": 12.40718,
+      "depth_m": 330.0
+    }
+  ]
+}

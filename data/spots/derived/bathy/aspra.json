@@ -1,0 +1,72 @@
+{
+  "spot": "aspra",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.1048,
+    13.4988
+  ],
+  "bearing_seaward_deg": 317.0,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 44.0,
+  "mean_slope_m_per_km": 1.86,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.10644,
+      "lon": 13.49685,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.10809,
+      "lon": 13.4949,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.11138,
+      "lon": 13.491,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.11795,
+      "lon": 13.48321,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.12453,
+      "lon": 13.47541,
+      "depth_m": 103.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.13768,
+      "lon": 13.45981,
+      "depth_m": 146.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.1574,
+      "lon": 13.4364,
+      "depth_m": 239.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.18369,
+      "lon": 13.40517,
+      "depth_m": 299.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.22311,
+      "lon": 13.35827,
+      "depth_m": 44.0
+    }
+  ]
+}

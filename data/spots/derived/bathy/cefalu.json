@@ -1,0 +1,72 @@
+{
+  "spot": "cefalu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.0366,
+    14.017
+  ],
+  "bearing_seaward_deg": 331.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 1213.0,
+  "mean_slope_m_per_km": 67.89,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.03857,
+      "lon": 14.01562,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.04053,
+      "lon": 14.01423,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.04447,
+      "lon": 14.01146,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.05233,
+      "lon": 14.00593,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.0602,
+      "lon": 14.00039,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.07592,
+      "lon": 13.98931,
+      "depth_m": 175.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.09952,
+      "lon": 13.97268,
+      "depth_m": 664.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.13097,
+      "lon": 13.95049,
+      "depth_m": 990.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.17814,
+      "lon": 13.91716,
+      "depth_m": 1213.0
+    }
+  ]
+}

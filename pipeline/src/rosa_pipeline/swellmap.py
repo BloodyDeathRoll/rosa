@@ -40,6 +40,9 @@ BASINS: dict[str, tuple[str, ...]] = {
     # Cyprus sits in the same Levantine wind-swell sea as Israel but 300 km north-west;
     # its own frame keeps Israel's box as it is
     "cyprus": ("Cyprus",),
+    # Sicily sits between the Tyrrhenian (north coast, NW mistral swell), the Strait of
+    # Sicily (south coast, SW-S) and the Ionian (east coast, SE-E): its own frame
+    "sicily": ("Sicily",),
     # Algeria's north-facing coast: Mistral and Gulf of Lion storms from the NW, a sea of
     # its own between Spain and Sardinia
     "algeria": ("Algeria",),

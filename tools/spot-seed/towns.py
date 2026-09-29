@@ -89,6 +89,7 @@ REGION_PBF = {
     "Cadiz": "cadiz",
     "Canary Islands": "canary-islands",
     "Cyprus": "cyprus",
+    "Sicily": "sicily",
     "Algeria": "algeria",
     "Rio Grande Do Sul": "rio-grande-do-sul",
     "Santa Catarina": "santa-catarina",

@@ -1,0 +1,72 @@
+{
+  "spot": "mondello",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.2009,
+    13.329
+  ],
+  "bearing_seaward_deg": 58.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 1454.0,
+  "mean_slope_m_per_km": 81.69,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.20209,
+      "lon": 13.33143,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.20328,
+      "lon": 13.33385,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.20567,
+      "lon": 13.33871,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.21043,
+      "lon": 13.34841,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.21519,
+      "lon": 13.35812,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.22472,
+      "lon": 13.37754,
+      "depth_m": 108.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.239,
+      "lon": 13.40668,
+      "depth_m": 574.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.25803,
+      "lon": 13.44555,
+      "depth_m": 1110.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.28655,
+      "lon": 13.5039,
+      "depth_m": 1454.0
+    }
+  ]
+}
