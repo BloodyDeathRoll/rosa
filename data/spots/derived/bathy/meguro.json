@@ -1,0 +1,72 @@
+{
+  "spot": "meguro",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.127,
+    143.3175
+  ],
+  "bearing_seaward_deg": 99.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 126.0,
+  "mean_slope_m_per_km": 7.49,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.12665,
+      "lon": 143.32049,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.1263,
+      "lon": 143.32349,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.12559,
+      "lon": 143.32948,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.12418,
+      "lon": 143.34145,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.12277,
+      "lon": 143.35343,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.11995,
+      "lon": 143.37738,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.11571,
+      "lon": 143.41329,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.11003,
+      "lon": 143.46118,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.10148,
+      "lon": 143.53299,
+      "depth_m": 126.0
+    }
+  ]
+}

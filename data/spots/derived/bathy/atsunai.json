@@ -1,0 +1,72 @@
+{
+  "spot": "atsunai",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.8104,
+    143.826
+  ],
+  "bearing_seaward_deg": 161.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 73.0,
+  "mean_slope_m_per_km": 4.0,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.80827,
+      "lon": 143.827,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.80615,
+      "lon": 143.828,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.8019,
+      "lon": 143.82999,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.79339,
+      "lon": 143.83398,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.78489,
+      "lon": 143.83797,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.76788,
+      "lon": 143.84594,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.74237,
+      "lon": 143.85789,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.70835,
+      "lon": 143.87381,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.65732,
+      "lon": 143.89766,
+      "depth_m": 73.0
+    }
+  ]
+}

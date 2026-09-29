@@ -1,0 +1,72 @@
+{
+  "spot": "ishihama",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.6658,
+    140.7146
+  ],
+  "bearing_seaward_deg": 96.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 104.0,
+  "mean_slope_m_per_km": 5.58,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.66556,
+      "lon": 140.71739,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.66533,
+      "lon": 140.72018,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.66486,
+      "lon": 140.72575,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.66392,
+      "lon": 140.7369,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.66298,
+      "lon": 140.74805,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.66109,
+      "lon": 140.77035,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.65825,
+      "lon": 140.80379,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.65444,
+      "lon": 140.84838,
+      "depth_m": 76.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.64871,
+      "lon": 140.91526,
+      "depth_m": 104.0
+    }
+  ]
+}

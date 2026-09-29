@@ -1,0 +1,72 @@
+{
+  "spot": "oya-kaigan",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.8134,
+    141.5633
+  ],
+  "bearing_seaward_deg": 166.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 109.0,
+  "mean_slope_m_per_km": 6.42,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.81122,
+      "lon": 141.564,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.80904,
+      "lon": 141.5647,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.80467,
+      "lon": 141.56609,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.79595,
+      "lon": 141.56888,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.78722,
+      "lon": 141.57167,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.76977,
+      "lon": 141.57725,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.74359,
+      "lon": 141.58562,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.70868,
+      "lon": 141.59676,
+      "depth_m": 76.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.65632,
+      "lon": 141.61345,
+      "depth_m": 109.0
+    }
+  ]
+}

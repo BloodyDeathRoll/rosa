@@ -1,0 +1,72 @@
+{
+  "spot": "honjohama",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    39.3966,
+    140.0164
+  ],
+  "bearing_seaward_deg": 281.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 371.0,
+  "mean_slope_m_per_km": 20.62,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 39.39703,
+      "lon": 140.01354,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 39.39746,
+      "lon": 140.01069,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 39.39832,
+      "lon": 140.00498,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 39.40003,
+      "lon": 139.99355,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 39.40174,
+      "lon": 139.98213,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 39.40517,
+      "lon": 139.95927,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 39.41029,
+      "lon": 139.92499,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 39.41711,
+      "lon": 139.87927,
+      "depth_m": 101.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 39.42731,
+      "lon": 139.81068,
+      "depth_m": 371.0
+    }
+  ]
+}

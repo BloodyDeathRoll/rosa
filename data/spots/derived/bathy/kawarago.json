@@ -1,0 +1,72 @@
+{
+  "spot": "kawarago",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.5455,
+    140.6454
+  ],
+  "bearing_seaward_deg": 108.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 101.0,
+  "mean_slope_m_per_km": 5.63,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.54481,
+      "lon": 140.64806,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.54411,
+      "lon": 140.65072,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.54272,
+      "lon": 140.65605,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.53994,
+      "lon": 140.66669,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.53716,
+      "lon": 140.67734,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.53159,
+      "lon": 140.69862,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.52324,
+      "lon": 140.73055,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.51208,
+      "lon": 140.7731,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.49532,
+      "lon": 140.83691,
+      "depth_m": 101.0
+    }
+  ]
+}

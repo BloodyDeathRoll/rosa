@@ -1,0 +1,72 @@
+{
+  "spot": "katagai",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.5303,
+    140.4568
+  ],
+  "bearing_seaward_deg": 121.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 37.0,
+  "mean_slope_m_per_km": 1.8,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.52914,
+      "lon": 140.45917,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.52798,
+      "lon": 140.46154,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.52567,
+      "lon": 140.46627,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.52103,
+      "lon": 140.47574,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.5164,
+      "lon": 140.48521,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.50713,
+      "lon": 140.50415,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.49322,
+      "lon": 140.53254,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.47466,
+      "lon": 140.57039,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.44681,
+      "lon": 140.62713,
+      "depth_m": 37.0
+    }
+  ]
+}

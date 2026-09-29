@@ -1,0 +1,72 @@
+{
+  "spot": "shizunai",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.3344,
+    142.3612
+  ],
+  "bearing_seaward_deg": 231.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 434.0,
+  "mean_slope_m_per_km": 24.17,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.33299,
+      "lon": 142.35884,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.33157,
+      "lon": 142.35647,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.32874,
+      "lon": 142.35175,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.32308,
+      "lon": 142.34229,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.31742,
+      "lon": 142.33284,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.30609,
+      "lon": 142.31395,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.2891,
+      "lon": 142.28562,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.26643,
+      "lon": 142.24787,
+      "depth_m": 111.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.2324,
+      "lon": 142.19129,
+      "depth_m": 434.0
+    }
+  ]
+}

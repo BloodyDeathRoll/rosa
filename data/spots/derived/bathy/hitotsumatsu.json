@@ -1,0 +1,72 @@
+{
+  "spot": "hitotsumatsu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.4128,
+    140.3951
+  ],
+  "bearing_seaward_deg": 107.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.41214,
+      "lon": 140.39774,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.41149,
+      "lon": 140.40038,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.41017,
+      "lon": 140.40565,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.40754,
+      "lon": 140.4162,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.40491,
+      "lon": 140.42675,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.39964,
+      "lon": 140.44785,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.39174,
+      "lon": 140.4795,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.38118,
+      "lon": 140.52168,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.36532,
+      "lon": 140.58493,
+      "depth_m": 35.0
+    }
+  ]
+}

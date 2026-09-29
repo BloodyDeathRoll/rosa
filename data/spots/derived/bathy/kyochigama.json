@@ -1,0 +1,72 @@
+{
+  "spot": "kyochigama",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.0949,
+    140.6061
+  ],
+  "bearing_seaward_deg": 74.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 62.0,
+  "mean_slope_m_per_km": 3.21,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.09552,
+      "lon": 140.60877,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.09614,
+      "lon": 140.61145,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.09738,
+      "lon": 140.6168,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.09986,
+      "lon": 140.6275,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.10233,
+      "lon": 140.6382,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.10728,
+      "lon": 140.6596,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.1147,
+      "lon": 140.69171,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.12458,
+      "lon": 140.73453,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.13937,
+      "lon": 140.79878,
+      "depth_m": 62.0
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+# Rosa spot database - Hokkaido. The Pacific coast (Tomakomai, Muroran, Hidaka, Tokachi)
+# takes E-SE typhoon and low-pressure swell; the Sea of Japan coast (Otaru, Ishikari)
+# runs on the winter NW monsoon wind swell; Hakodate's Tsugaru Strait shore on E-SE.
+# Offshore direction varies per coast. Every spot carries offshore_km along its own
+# seaward normal.
+
+defaults: &hk
+  timezone: Asia/Tokyo
+  height_coeff: 1.0
+  break_type: beach
+  ideal:
+    wind_dir: [225, 315]       # metadata only (scorer uses offshore_direction)
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-29 - hokkaido, 18 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 18 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/hokkaido/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: usuya, name: "Usuya", town: "Obira", lat: 43.9993, lon: 141.6551, offshore_direction: 113, swell_window: [228, 358], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: atta, name: "Atta", town: "Ishikari", lat: 43.3959, lon: 141.4312, offshore_direction: 88, swell_window: [203, 333], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: ishikari, name: "Ishikari", town: "Ishikari", lat: 43.2493, lon: 141.3498, offshore_direction: 130, swell_window: [245, 15], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: shioya, name: "Shioya", town: "Otaru", lat: 43.2110, lon: 140.9152, offshore_direction: 171, swell_window: [286, 56], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: dream-beach, name: "Dream Beach", town: "Otaru", lat: 43.1568, lon: 141.2053, offshore_direction: 156, swell_window: [271, 41], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: zenibako, name: "Zenibako", town: "Otaru", lat: 43.1469, lon: 141.1726, offshore_direction: 186, swell_window: [301, 71], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: atsunai, name: "Atsunai", town: "Urahoro", lat: 42.8104, lon: 143.8260, offshore_direction: 341, swell_window: [96, 226], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: yufutsu, name: "Yufutsu", town: "Tomakomai", lat: 42.6267, lon: 141.7225, offshore_direction: 14, swell_window: [129, 259], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: hamaatsuma, name: "Hamaatsuma", town: "Atsuma", lat: 42.6014, lon: 141.8310, offshore_direction: 19, swell_window: [134, 264], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: mukawa, name: "Mukawa", town: "Mukawa", lat: 42.5609, lon: 141.9240, offshore_direction: 32, swell_window: [147, 277], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: shiraoi, name: "Shiraoi", town: "Shiraoi", lat: 42.4778, lon: 141.2427, offshore_direction: 322, swell_window: [77, 207], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: shizunai, name: "Shizunai", town: "Shinhidaka", lat: 42.3344, lon: 142.3612, offshore_direction: 51, swell_window: [166, 296], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: itanki, name: "Itanki", town: "Muroran", lat: 42.3337, lon: 141.0261, offshore_direction: 314, swell_window: [69, 199], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: hiroo, name: "Hiroo", town: "Hiroo", lat: 42.2534, lon: 143.3105, offshore_direction: 291, swell_window: [46, 176], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: mitsuishi, name: "Mitsuishi", town: "Shinhidaka", lat: 42.2251, lon: 142.6229, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: meguro, name: "Meguro", town: "Erimo", lat: 42.1270, lon: 143.3175, offshore_direction: 279, swell_window: [34, 164], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: samani, name: "Samani", town: "Samani", lat: 42.1260, lon: 142.9266, offshore_direction: 346, swell_window: [101, 231], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: sumiyoshi-hakodate, name: "Sumiyoshi (Hakodate)", town: "Hakodate", lat: 41.7575, lon: 140.7230, offshore_direction: 299, swell_window: [54, 184], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-09-29 (websearch-seeded)

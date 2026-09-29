@@ -1,0 +1,72 @@
+{
+  "spot": "nakoso",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.8669,
+    140.7894
+  ],
+  "bearing_seaward_deg": 84.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 68.0,
+  "mean_slope_m_per_km": 3.61,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.86713,
+      "lon": 140.79219,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.86737,
+      "lon": 140.79499,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.86784,
+      "lon": 140.80058,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.86878,
+      "lon": 140.81176,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.86972,
+      "lon": 140.82294,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.87159,
+      "lon": 140.8453,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.87439,
+      "lon": 140.87884,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.87811,
+      "lon": 140.92357,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.88365,
+      "lon": 140.99067,
+      "depth_m": 68.0
+    }
+  ]
+}

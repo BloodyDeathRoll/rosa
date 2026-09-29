@@ -1,0 +1,72 @@
+{
+  "spot": "zenibako",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.1469,
+    141.1726
+  ],
+  "bearing_seaward_deg": 6.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 31.0,
+  "mean_slope_m_per_km": 1.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.14914,
+      "lon": 141.17292,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.15137,
+      "lon": 141.17324,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.15584,
+      "lon": 141.17389,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.16479,
+      "lon": 141.17518,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.17373,
+      "lon": 141.17647,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.19162,
+      "lon": 141.17905,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.21845,
+      "lon": 141.18292,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.25423,
+      "lon": 141.18809,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.30789,
+      "lon": 141.19585,
+      "depth_m": 31.0
+    }
+  ]
+}

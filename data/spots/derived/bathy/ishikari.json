@@ -1,0 +1,72 @@
+{
+  "spot": "ishikari",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.2493,
+    141.3498
+  ],
+  "bearing_seaward_deg": 310.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 37.0,
+  "mean_slope_m_per_km": 1.75,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.25075,
+      "lon": 141.34744,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.25219,
+      "lon": 141.34507,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.25508,
+      "lon": 141.34034,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.26086,
+      "lon": 141.33088,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.26664,
+      "lon": 141.32142,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.27819,
+      "lon": 141.30249,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.29552,
+      "lon": 141.27408,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.31861,
+      "lon": 141.23617,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.35323,
+      "lon": 141.17926,
+      "depth_m": 37.0
+    }
+  ]
+}

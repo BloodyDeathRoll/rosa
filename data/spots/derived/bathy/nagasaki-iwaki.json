@@ -1,0 +1,72 @@
+{
+  "spot": "nagasaki-iwaki",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.9544,
+    140.9401
+  ],
+  "bearing_seaward_deg": 150.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 120.0,
+  "mean_slope_m_per_km": 6.48,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.95245,
+      "lon": 140.94151,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.95051,
+      "lon": 140.94291,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.94661,
+      "lon": 140.94573,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.93882,
+      "lon": 140.95135,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.93103,
+      "lon": 140.95698,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.91545,
+      "lon": 140.96822,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.89208,
+      "lon": 140.98508,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.86092,
+      "lon": 141.00754,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.81417,
+      "lon": 141.0412,
+      "depth_m": 120.0
+    }
+  ]
+}

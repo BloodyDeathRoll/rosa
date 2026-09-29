@@ -1,0 +1,72 @@
+{
+  "spot": "rock-island",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    9.8389,
+    126.1607
+  ],
+  "bearing_seaward_deg": 47.0,
+  "nearshore_depth_m": 184.0,
+  "offshore_depth_m": 2940.0,
+  "mean_slope_m_per_km": 155.27,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 9.84043,
+      "lon": 126.16237,
+      "depth_m": 184.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 9.84197,
+      "lon": 126.16404,
+      "depth_m": 224.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 9.84503,
+      "lon": 126.16738,
+      "depth_m": 264.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 9.85117,
+      "lon": 126.17405,
+      "depth_m": 421.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 9.8573,
+      "lon": 126.18073,
+      "depth_m": 506.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 9.86957,
+      "lon": 126.19408,
+      "depth_m": 949.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 9.88796,
+      "lon": 126.21411,
+      "depth_m": 1824.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 9.91249,
+      "lon": 126.24082,
+      "depth_m": 2153.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 9.94928,
+      "lon": 126.2809,
+      "depth_m": 2940.0
+    }
+  ]
+}

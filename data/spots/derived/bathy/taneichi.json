@@ -1,0 +1,72 @@
+{
+  "spot": "taneichi",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    40.401,
+    141.72
+  ],
+  "bearing_seaward_deg": 66.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 104.0,
+  "mean_slope_m_per_km": 5.8,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.40191,
+      "lon": 141.7227,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.40283,
+      "lon": 141.72539,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.40466,
+      "lon": 141.73079,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.40831,
+      "lon": 141.74158,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.41197,
+      "lon": 141.75237,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.41928,
+      "lon": 141.77396,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.43023,
+      "lon": 141.80635,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.44482,
+      "lon": 141.84955,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.46668,
+      "lon": 141.91438,
+      "depth_m": 104.0
+    }
+  ]
+}

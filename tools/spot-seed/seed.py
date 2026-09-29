@@ -169,6 +169,9 @@ REGIONS = {
     # south half: Okinawa main island and the Keramas, Miyako and the Yaeyamas (Ishigaki,
     # Iriomote); Daito and Yonaguni are out
     "okinawa": (24.0, 122.9, 27.0, 128.5),
+    # Hokkaido, north of the japan box's 41.6 edge: Hakodate, the Tomakomai-Muroran
+    # Pacific beaches, Hidaka and Tokachi, the Otaru-Ishikari Sea of Japan coast
+    "hokkaido": (41.40, 139.30, 45.60, 146.00),
     # the WA west-coast gaps, closed 2026-09-03: Two Rocks up through Lancelin, Cervantes,
     # Jurien Bay and Green Head to Dongara (the perth box ends at -31.40, wa-north starts
     # at -29.20)

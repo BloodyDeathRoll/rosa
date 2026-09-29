@@ -1,0 +1,72 @@
+{
+  "spot": "iioka",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.7003,
+    140.7061
+  ],
+  "bearing_seaward_deg": 174.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 1.92,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.69806,
+      "lon": 140.70639,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.69583,
+      "lon": 140.70668,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.69136,
+      "lon": 140.70726,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.68241,
+      "lon": 140.70841,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.67347,
+      "lon": 140.70957,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.65558,
+      "lon": 140.71188,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.62875,
+      "lon": 140.71535,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.59297,
+      "lon": 140.71997,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.53931,
+      "lon": 140.72689,
+      "depth_m": 35.0
+    }
+  ]
+}

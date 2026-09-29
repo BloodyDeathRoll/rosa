@@ -1,0 +1,72 @@
+{
+  "spot": "shioya",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.211,
+    140.9152
+  ],
+  "bearing_seaward_deg": 351.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 83.0,
+  "mean_slope_m_per_km": 4.17,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.21322,
+      "lon": 140.91472,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.21544,
+      "lon": 140.91423,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.21988,
+      "lon": 140.91327,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.22876,
+      "lon": 140.91134,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.23765,
+      "lon": 140.90941,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.25541,
+      "lon": 140.90554,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.28206,
+      "lon": 140.89974,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.31759,
+      "lon": 140.892,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.37088,
+      "lon": 140.88036,
+      "depth_m": 83.0
+    }
+  ]
+}

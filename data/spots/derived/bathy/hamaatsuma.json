@@ -1,0 +1,72 @@
+{
+  "spot": "hamaatsuma",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.6014,
+    141.831
+  ],
+  "bearing_seaward_deg": 199.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 60.0,
+  "mean_slope_m_per_km": 3.04,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.59927,
+      "lon": 141.83001,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.59715,
+      "lon": 141.82901,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.5929,
+      "lon": 141.82702,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.58439,
+      "lon": 141.82305,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.57589,
+      "lon": 141.81907,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.55888,
+      "lon": 141.81113,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.53337,
+      "lon": 141.79921,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.49935,
+      "lon": 141.78335,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.44832,
+      "lon": 141.75958,
+      "depth_m": 60.0
+    }
+  ]
+}

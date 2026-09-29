@@ -1,0 +1,72 @@
+{
+  "spot": "arahama-sendai",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.2226,
+    140.9907
+  ],
+  "bearing_seaward_deg": 112.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 34.0,
+  "mean_slope_m_per_km": 1.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.22176,
+      "lon": 140.99335,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.22092,
+      "lon": 140.99601,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.21923,
+      "lon": 141.00131,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.21586,
+      "lon": 141.01193,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.21249,
+      "lon": 141.02254,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.20574,
+      "lon": 141.04376,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.19562,
+      "lon": 141.07558,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.1821,
+      "lon": 141.118,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.1618,
+      "lon": 141.18159,
+      "depth_m": 34.0
+    }
+  ]
+}

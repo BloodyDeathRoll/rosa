@@ -1,0 +1,72 @@
+{
+  "spot": "ajigaura",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.3856,
+    140.6168
+  ],
+  "bearing_seaward_deg": 76.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 94.0,
+  "mean_slope_m_per_km": 5.8,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.38614,
+      "lon": 140.61951,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.38669,
+      "lon": 140.62222,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.38778,
+      "lon": 140.62764,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.38995,
+      "lon": 140.63848,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.39212,
+      "lon": 140.64932,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.39647,
+      "lon": 140.671,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.40297,
+      "lon": 140.70353,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.41164,
+      "lon": 140.74691,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.4246,
+      "lon": 140.812,
+      "depth_m": 94.0
+    }
+  ]
+}

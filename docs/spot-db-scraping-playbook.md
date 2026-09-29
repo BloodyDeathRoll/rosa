@@ -215,7 +215,19 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-09-29, DB = 2636 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-09-29, DB = 2726 spots, ALL sat-verified)
+
+**Philippines 16 -> 32 and north Japan +74 (2026-09-29)** - two parallel forks, web flow only.
+Japan: Honshu north of Tokyo +56 into `japan.yaml`, a new `hokkaido` region (18, box
+41.40-45.60 N, pbf symlinked to japan, joined the `japan` basin). Best Japanese name source:
+japan.surfride.net's regional point pages; geocode in Japanese. Google returned the town,
+harbour or car park for most names (51 of 74 moved). `towns.py` on the 2.4 GB Japan extract
+takes more than 10 minutes - run it in the background. `ca_final.py` title-cases apostrophes
+(`Stimpy'S`, id `stimpy-s`) - fix by hand. Gap queue: Lindy's (Baler), Tangbo and the Guiuan
+outer reefs, Dicasalarin; Japan's Takasegawa, Esan, Shiranuka and the Niigata port beaches.
+The existing `cloud-9` pin is ~250 m off the reef - re-place it.
+
+
 
 **Northern Europe 0 -> 226 (2026-09-29, DB 2410 -> 2636): Scotland West 42, Scotland East 38, Germany 34,
 Netherlands 33, Denmark 26, Sweden 26, Norway South 18, Lofoten 9.** Eight boxes, eight parallel

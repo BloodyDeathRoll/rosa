@@ -1,0 +1,72 @@
+{
+  "spot": "saud-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.5971,
+    120.7823
+  ],
+  "bearing_seaward_deg": 280.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 640.0,
+  "mean_slope_m_per_km": 36.39,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.59749,
+      "lon": 120.77996,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.59788,
+      "lon": 120.77763,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.59866,
+      "lon": 120.77296,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.60022,
+      "lon": 120.76361,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.60178,
+      "lon": 120.75427,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.6049,
+      "lon": 120.73558,
+      "depth_m": 149.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.60958,
+      "lon": 120.70754,
+      "depth_m": 457.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.61581,
+      "lon": 120.67015,
+      "depth_m": 532.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.62514,
+      "lon": 120.61407,
+      "depth_m": 640.0
+    }
+  ]
+}

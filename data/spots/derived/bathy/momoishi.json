@@ -1,0 +1,72 @@
+{
+  "spot": "momoishi",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    40.6428,
+    141.4472
+  ],
+  "bearing_seaward_deg": 85.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 77.0,
+  "mean_slope_m_per_km": 4.17,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.643,
+      "lon": 141.45015,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.64319,
+      "lon": 141.4531,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.64358,
+      "lon": 141.45901,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.64437,
+      "lon": 141.47081,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.64515,
+      "lon": 141.48262,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.6467,
+      "lon": 141.50624,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.64903,
+      "lon": 141.54166,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.65212,
+      "lon": 141.5889,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.65671,
+      "lon": 141.65977,
+      "depth_m": 77.0
+    }
+  ]
+}

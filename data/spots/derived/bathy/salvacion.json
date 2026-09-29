@@ -1,0 +1,72 @@
+{
+  "spot": "salvacion",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    9.8554,
+    126.1127
+  ],
+  "bearing_seaward_deg": 86.0,
+  "nearshore_depth_m": -18.0,
+  "offshore_depth_m": 2587.0,
+  "mean_slope_m_per_km": 146.76,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 9.85556,
+      "lon": 126.11498,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 9.85571,
+      "lon": 126.11725,
+      "depth_m": 122.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 9.85603,
+      "lon": 126.12181,
+      "depth_m": 134.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 9.85665,
+      "lon": 126.13091,
+      "depth_m": 178.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 9.85728,
+      "lon": 126.14002,
+      "depth_m": 181.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 9.85853,
+      "lon": 126.15823,
+      "depth_m": 241.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 9.86041,
+      "lon": 126.18555,
+      "depth_m": 634.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 9.86291,
+      "lon": 126.22197,
+      "depth_m": 1660.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 9.86665,
+      "lon": 126.27661,
+      "depth_m": 2587.0
+    }
+  ]
+}

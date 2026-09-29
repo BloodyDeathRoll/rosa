@@ -1,0 +1,72 @@
+{
+  "spot": "mukawa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.5609,
+    141.924
+  ],
+  "bearing_seaward_deg": 212.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 66.0,
+  "mean_slope_m_per_km": 3.72,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.55899,
+      "lon": 141.92238,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.55709,
+      "lon": 141.92077,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.55327,
+      "lon": 141.91753,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.54565,
+      "lon": 141.91106,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.53802,
+      "lon": 141.9046,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.52276,
+      "lon": 141.89167,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.49988,
+      "lon": 141.87229,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.46935,
+      "lon": 141.84647,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.42356,
+      "lon": 141.80779,
+      "depth_m": 66.0
+    }
+  ]
+}

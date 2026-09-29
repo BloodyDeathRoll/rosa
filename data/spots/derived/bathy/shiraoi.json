@@ -1,0 +1,72 @@
+{
+  "spot": "shiraoi",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.4778,
+    141.2427
+  ],
+  "bearing_seaward_deg": 142.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 303.0,
+  "mean_slope_m_per_km": 16.68,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.47603,
+      "lon": 141.24458,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.47426,
+      "lon": 141.24645,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.47071,
+      "lon": 141.25021,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.46363,
+      "lon": 141.25771,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.45654,
+      "lon": 141.26521,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.44236,
+      "lon": 141.28021,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.42109,
+      "lon": 141.3027,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.39272,
+      "lon": 141.33266,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.35016,
+      "lon": 141.37755,
+      "depth_m": 303.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "borongan",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    11.6144,
+    125.439
+  ],
+  "bearing_seaward_deg": 82.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 896.0,
+  "mean_slope_m_per_km": 50.31,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.61471,
+      "lon": 125.44127,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.61503,
+      "lon": 125.44355,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.61565,
+      "lon": 125.44809,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.6169,
+      "lon": 125.45718,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.61815,
+      "lon": 125.46628,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.62065,
+      "lon": 125.48446,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.6244,
+      "lon": 125.51174,
+      "depth_m": 261.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.6294,
+      "lon": 125.54811,
+      "depth_m": 497.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.63688,
+      "lon": 125.60267,
+      "depth_m": 896.0
+    }
+  ]
+}

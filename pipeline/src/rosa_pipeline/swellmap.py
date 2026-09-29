@@ -106,7 +106,9 @@ BASINS: dict[str, tuple[str, ...]] = {
     # 30 deg of latitude and drown the Central American detail in sea room.
     "mexico": ("Mexico",),
     "sri-lanka": ("Sri Lanka",),
-    "japan": ("Japan",),
+    # Hokkaido joins Honshu's frame: the same NE Pacific / Sea of Japan swell, and the
+    # padded Honshu box already reaches 44 N
+    "japan": ("Japan", "Hokkaido"),
     # the Ryukyu arc is 600-1,000 km SW of Honshu's surf coast: its own frame
     "ryukyu": ("Tanegashima Amami", "Okinawa"),
     "philippines": ("Philippines",),

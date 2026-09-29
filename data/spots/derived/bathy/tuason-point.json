@@ -1,0 +1,72 @@
+{
+  "spot": "tuason-point",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    9.8094,
+    126.1694
+  ],
+  "bearing_seaward_deg": 89.0,
+  "nearshore_depth_m": 262.0,
+  "offshore_depth_m": 2869.0,
+  "mean_slope_m_per_km": 146.87,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 9.80944,
+      "lon": 126.17168,
+      "depth_m": 262.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 9.80948,
+      "lon": 126.17396,
+      "depth_m": 262.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 9.80956,
+      "lon": 126.17853,
+      "depth_m": 266.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 9.80971,
+      "lon": 126.18765,
+      "depth_m": 575.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 9.80987,
+      "lon": 126.19678,
+      "depth_m": 692.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 9.81018,
+      "lon": 126.21503,
+      "depth_m": 927.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 9.81065,
+      "lon": 126.2424,
+      "depth_m": 1329.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 9.81127,
+      "lon": 126.2789,
+      "depth_m": 1943.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 9.81219,
+      "lon": 126.33366,
+      "depth_m": 2869.0
+    }
+  ]
+}

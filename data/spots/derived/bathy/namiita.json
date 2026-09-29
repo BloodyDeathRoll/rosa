@@ -1,0 +1,72 @@
+{
+  "spot": "namiita",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    39.3821,
+    141.9386
+  ],
+  "bearing_seaward_deg": 76.0,
+  "nearshore_depth_m": -33.0,
+  "offshore_depth_m": 198.0,
+  "mean_slope_m_per_km": 13.01,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 39.38264,
+      "lon": 141.94142,
+      "depth_m": -33.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 39.38319,
+      "lon": 141.94424,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 39.38428,
+      "lon": 141.94989,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 39.38645,
+      "lon": 141.96118,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 39.38862,
+      "lon": 141.97247,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 39.39296,
+      "lon": 141.99506,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 39.39947,
+      "lon": 142.02894,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 39.40813,
+      "lon": 142.07413,
+      "depth_m": 139.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 39.42108,
+      "lon": 142.14193,
+      "depth_m": 198.0
+    }
+  ]
+}

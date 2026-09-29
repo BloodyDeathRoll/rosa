@@ -1,0 +1,72 @@
+{
+  "spot": "samani",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.126,
+    142.9266
+  ],
+  "bearing_seaward_deg": 166.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 78.0,
+  "mean_slope_m_per_km": 4.28,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.12382,
+      "lon": 142.92733,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.12164,
+      "lon": 142.92807,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.11727,
+      "lon": 142.92953,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.10855,
+      "lon": 142.93247,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.09982,
+      "lon": 142.9354,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.08237,
+      "lon": 142.94126,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.05619,
+      "lon": 142.95004,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.02128,
+      "lon": 142.96174,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.96892,
+      "lon": 142.97927,
+      "depth_m": 78.0
+    }
+  ]
+}

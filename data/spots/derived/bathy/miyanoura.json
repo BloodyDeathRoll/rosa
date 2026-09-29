@@ -1,0 +1,72 @@
+{
+  "spot": "miyanoura",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.9739,
+    139.8335
+  ],
+  "bearing_seaward_deg": 310.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 93.0,
+  "mean_slope_m_per_km": 4.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.97535,
+      "lon": 139.83128,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.97679,
+      "lon": 139.82907,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.97968,
+      "lon": 139.82464,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.98546,
+      "lon": 139.81577,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.99124,
+      "lon": 139.80691,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 39.0028,
+      "lon": 139.78917,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 39.02012,
+      "lon": 139.76256,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 39.04322,
+      "lon": 139.72706,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 39.07784,
+      "lon": 139.67376,
+      "depth_m": 93.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "kitaizumi",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.6582,
+    141.02
+  ],
+  "bearing_seaward_deg": 81.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 50.0,
+  "mean_slope_m_per_km": 2.59,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.65855,
+      "lon": 141.0228,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.6589,
+      "lon": 141.02561,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.65961,
+      "lon": 141.03122,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.66101,
+      "lon": 141.04244,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.66242,
+      "lon": 141.05366,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.66522,
+      "lon": 141.0761,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.66942,
+      "lon": 141.10977,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.67501,
+      "lon": 141.15467,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.68335,
+      "lon": 141.22203,
+      "depth_m": 50.0
+    }
+  ]
+}

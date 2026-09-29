@@ -1,0 +1,72 @@
+{
+  "spot": "shirasato",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.4847,
+    140.4233
+  ],
+  "bearing_seaward_deg": 116.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 36.0,
+  "mean_slope_m_per_km": 1.75,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.48371,
+      "lon": 140.42578,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.48273,
+      "lon": 140.42826,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.48076,
+      "lon": 140.43323,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.47681,
+      "lon": 140.44315,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.47287,
+      "lon": 140.45308,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.46498,
+      "lon": 140.47292,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.45314,
+      "lon": 140.50268,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.43733,
+      "lon": 140.54235,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.41361,
+      "lon": 140.60182,
+      "depth_m": 36.0
+    }
+  ]
+}

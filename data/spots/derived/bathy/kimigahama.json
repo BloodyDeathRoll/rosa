@@ -1,0 +1,72 @@
+{
+  "spot": "kimigahama",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.7138,
+    140.8662
+  ],
+  "bearing_seaward_deg": 107.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 90.0,
+  "mean_slope_m_per_km": 5.13,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.71314,
+      "lon": 140.86885,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.71249,
+      "lon": 140.8715,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.71117,
+      "lon": 140.87679,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.70854,
+      "lon": 140.88738,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.70591,
+      "lon": 140.89797,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.70064,
+      "lon": 140.91915,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.69274,
+      "lon": 140.95092,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.68218,
+      "lon": 140.99326,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.66632,
+      "lon": 141.05675,
+      "depth_m": 90.0
+    }
+  ]
+}

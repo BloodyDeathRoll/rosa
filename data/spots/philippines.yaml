@@ -64,3 +64,27 @@ spots:
   # geocode cross-checked + ESRI sat-verified. Locations verified; params TODO-tune. ====
   - { id: charlies-point, name: "Charlie's Point (Baler)", town: "Purok 3", lat: 15.7693, lon: 121.5634, offshore_direction: 270, swell_window: [0, 90], offshore_bearing: 90.0, offshore_km: 5.0, <<: *phe }  # websearch-seeded 2026-07-24 (geocoded+sat-verified) - TODO verify
   - { id: magic-left, name: "Magic Left (Pundaquit)", town: "Pundaquit", lat: 14.9213, lon: 120.0613, offshore_direction: 90, swell_window: [230, 320], offshore_bearing: 270.0, offshore_km: 5.0, <<: *phw }  # websearch-seeded 2026-07-24 (geocoded+sat-verified) - TODO verify
+
+  # ==== SEEDED 2026-09-29 - philippines, 16 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 16 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/philippines/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: saud-beach, name: "Saud Beach", town: "Pagudpud", lat: 18.5971, lon: 120.7823, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, <<: *phe }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: aparri, name: "Aparri", town: "Aparri", lat: 18.3394, lon: 121.7013, offshore_direction: 201, swell_window: [316, 86], offshore_km: 5.0, <<: *phe }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: monaliza-point, name: "Monaliza Point", town: "San Juan", lat: 16.6576, lon: 120.3194, offshore_direction: 97, swell_window: [212, 342], offshore_km: 5.0, <<: *phw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: carille, name: "Carille", town: "San Fernando", lat: 16.6325, lon: 120.3120, offshore_direction: 98, swell_window: [213, 343], offshore_km: 5.0, <<: *phw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: twin-rocks, name: "Twin Rocks", town: "Virac", lat: 13.5225, lon: 124.2169, offshore_direction: 309, swell_window: [64, 194], offshore_km: 5.0, <<: *phe }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: gubat, name: "Gubat", town: "Gubat", lat: 12.9010, lon: 124.1192, offshore_direction: 245, swell_window: [0, 130], offshore_km: 5.0, <<: *phe }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: borongan, name: "Borongan", town: "Borongan", lat: 11.6144, lon: 125.4390, offshore_direction: 262, swell_window: [17, 147], offshore_km: 5.0, <<: *phe }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: salvacion, name: "Salvacion", town: "Salvacion", lat: 9.8554, lon: 126.1127, offshore_direction: 266, swell_window: [21, 151], offshore_km: 5.0, <<: *phe }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: stimpys, name: "Stimpy's", town: "General Luna", lat: 9.8441, lon: 126.1577, offshore_direction: 231, swell_window: [346, 116], offshore_km: 5.0, <<: *phe }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: rock-island, name: "Rock Island", town: "General Luna", lat: 9.8389, lon: 126.1607, offshore_direction: 227, swell_window: [342, 112], offshore_km: 5.0, <<: *phe }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: quicksilver, name: "Quicksilver", town: "General Luna", lat: 9.8145, lon: 126.1655, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, <<: *phe }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: jacking-horse, name: "Jacking Horse", town: "General Luna", lat: 9.8133, lon: 126.1623, offshore_direction: 213, swell_window: [328, 98], offshore_km: 5.0, <<: *phe }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: tuason-point, name: "Tuason Point", town: "General Luna", lat: 9.8094, lon: 126.1694, offshore_direction: 269, swell_window: [24, 154], offshore_km: 5.0, <<: *phe }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: cemetery, name: "Cemetery", town: "General Luna", lat: 9.7842, lon: 126.1731, offshore_direction: 268, swell_window: [23, 153], offshore_km: 5.0, <<: *phe }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: daku, name: "Daku", town: "General Luna", lat: 9.7412, lon: 126.1726, offshore_direction: 267, swell_window: [22, 152], offshore_km: 5.0, <<: *phe }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: dahican, name: "Dahican", town: "Mati", lat: 6.9243, lon: 126.2811, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, <<: *phe }  # sat-verified 2026-09-29 (websearch-seeded)

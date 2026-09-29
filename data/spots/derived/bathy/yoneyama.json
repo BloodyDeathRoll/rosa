@@ -1,0 +1,72 @@
+{
+  "spot": "yoneyama",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.3188,
+    138.4333
+  ],
+  "bearing_seaward_deg": 307.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 351.0,
+  "mean_slope_m_per_km": 19.21,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.32015,
+      "lon": 138.43104,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.32151,
+      "lon": 138.42878,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.32421,
+      "lon": 138.42427,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.32962,
+      "lon": 138.41523,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.33503,
+      "lon": 138.4062,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.34585,
+      "lon": 138.38813,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.36208,
+      "lon": 138.36101,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.3837,
+      "lon": 138.32483,
+      "depth_m": 115.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.41611,
+      "lon": 138.27053,
+      "depth_m": 351.0
+    }
+  ]
+}

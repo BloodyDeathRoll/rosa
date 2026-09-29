@@ -1,0 +1,72 @@
+{
+  "spot": "todogaura",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    40.0984,
+    141.8264
+  ],
+  "bearing_seaward_deg": 73.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 112.0,
+  "mean_slope_m_per_km": 6.25,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.09906,
+      "lon": 141.82921,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.09971,
+      "lon": 141.83202,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.10103,
+      "lon": 141.83764,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.10366,
+      "lon": 141.84889,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.10628,
+      "lon": 141.86013,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.11153,
+      "lon": 141.88263,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.1194,
+      "lon": 141.91637,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.12987,
+      "lon": 141.96138,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.14555,
+      "lon": 142.02892,
+      "depth_m": 112.0
+    }
+  ]
+}

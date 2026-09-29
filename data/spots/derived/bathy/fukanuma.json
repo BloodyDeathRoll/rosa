@@ -1,0 +1,72 @@
+{
+  "spot": "fukanuma",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.219,
+    140.9888
+  ],
+  "bearing_seaward_deg": 112.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 33.0,
+  "mean_slope_m_per_km": 1.3,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.21816,
+      "lon": 140.99145,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.21732,
+      "lon": 140.99411,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.21563,
+      "lon": 140.99941,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.21226,
+      "lon": 141.01002,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.20889,
+      "lon": 141.02064,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.20214,
+      "lon": 141.04185,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.19202,
+      "lon": 141.07367,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.1785,
+      "lon": 141.11609,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.1582,
+      "lon": 141.17968,
+      "depth_m": 33.0
+    }
+  ]
+}

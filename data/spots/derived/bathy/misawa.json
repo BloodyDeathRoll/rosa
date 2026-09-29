@@ -1,0 +1,72 @@
+{
+  "spot": "misawa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    40.7734,
+    141.4113
+  ],
+  "bearing_seaward_deg": 85.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 117.0,
+  "mean_slope_m_per_km": 6.37,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.7736,
+      "lon": 141.41426,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.77379,
+      "lon": 141.41722,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.77418,
+      "lon": 141.42313,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.77497,
+      "lon": 141.43496,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.77575,
+      "lon": 141.44679,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.7773,
+      "lon": 141.47045,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.77963,
+      "lon": 141.50595,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.78272,
+      "lon": 141.55328,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.78731,
+      "lon": 141.62429,
+      "depth_m": 117.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "osuka",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    40.5281,
+    141.5834
+  ],
+  "bearing_seaward_deg": 57.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 90.0,
+  "mean_slope_m_per_km": 5.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.52932,
+      "lon": 141.58588,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.53055,
+      "lon": 141.58836,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.533,
+      "lon": 141.59332,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.53789,
+      "lon": 141.60325,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.54279,
+      "lon": 141.61318,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.55258,
+      "lon": 141.63303,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.56726,
+      "lon": 141.66283,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.58682,
+      "lon": 141.70258,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.61613,
+      "lon": 141.76225,
+      "depth_m": 90.0
+    }
+  ]
+}

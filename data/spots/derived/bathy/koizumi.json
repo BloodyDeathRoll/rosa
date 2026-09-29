@@ -1,0 +1,72 @@
+{
+  "spot": "koizumi",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.7721,
+    141.5144
+  ],
+  "bearing_seaward_deg": 127.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 136.0,
+  "mean_slope_m_per_km": 7.55,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.77075,
+      "lon": 141.5167,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.76939,
+      "lon": 141.51901,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.76669,
+      "lon": 141.52361,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.76127,
+      "lon": 141.53282,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.75586,
+      "lon": 141.54203,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.74503,
+      "lon": 141.56044,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.72878,
+      "lon": 141.58805,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.7071,
+      "lon": 141.62485,
+      "depth_m": 105.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.67456,
+      "lon": 141.67999,
+      "depth_m": 136.0
+    }
+  ]
+}

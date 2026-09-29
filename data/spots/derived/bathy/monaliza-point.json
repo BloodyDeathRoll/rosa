@@ -1,0 +1,72 @@
+{
+  "spot": "monaliza-point",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    16.6576,
+    120.3194
+  ],
+  "bearing_seaward_deg": 277.0,
+  "nearshore_depth_m": -14.0,
+  "offshore_depth_m": 652.0,
+  "mean_slope_m_per_km": 37.52,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 16.65787,
+      "lon": 120.31707,
+      "depth_m": -14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 16.65815,
+      "lon": 120.31474,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 16.6587,
+      "lon": 120.31008,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 16.65979,
+      "lon": 120.30077,
+      "depth_m": 101.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 16.66089,
+      "lon": 120.29145,
+      "depth_m": 145.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.66307,
+      "lon": 120.27281,
+      "depth_m": 192.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.66635,
+      "lon": 120.24486,
+      "depth_m": 258.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.67072,
+      "lon": 120.20759,
+      "depth_m": 552.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.67726,
+      "lon": 120.15167,
+      "depth_m": 652.0
+    }
+  ]
+}

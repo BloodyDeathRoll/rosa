@@ -1,0 +1,72 @@
+{
+  "spot": "igarashihama",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.8718,
+    138.9265
+  ],
+  "bearing_seaward_deg": 329.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 110.0,
+  "mean_slope_m_per_km": 5.86,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.87373,
+      "lon": 138.92503,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.87565,
+      "lon": 138.92357,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.87951,
+      "lon": 138.92063,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.88722,
+      "lon": 138.91476,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.89492,
+      "lon": 138.90889,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.91034,
+      "lon": 138.89715,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.93346,
+      "lon": 138.87952,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.96428,
+      "lon": 138.856,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.01051,
+      "lon": 138.82068,
+      "depth_m": 110.0
+    }
+  ]
+}
