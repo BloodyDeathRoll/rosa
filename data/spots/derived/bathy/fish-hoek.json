@@ -1,0 +1,72 @@
+{
+  "spot": "fish-hoek",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.1376,
+    18.4348
+  ],
+  "bearing_seaward_deg": 126.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 44.0,
+  "mean_slope_m_per_km": 3.04,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.13892,
+      "lon": 18.437,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.14024,
+      "lon": 18.4392,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.14289,
+      "lon": 18.44359,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.14817,
+      "lon": 18.45238,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.15346,
+      "lon": 18.46118,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.16402,
+      "lon": 18.47877,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.17987,
+      "lon": 18.50516,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.20099,
+      "lon": 18.54036,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.23265,
+      "lon": 18.5932,
+      "depth_m": 44.0
+    }
+  ]
+}

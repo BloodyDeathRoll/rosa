@@ -216,6 +216,15 @@ REGIONS = {
     # Cape, then the KwaZulu-Natal points from Scottburgh through Durban to Ballito.
     # The Cape Peninsula and the west coast are their own region later.
     "south-africa-east": (-34.30, 24.60, -29.30, 31.40),
+    # South Africa's Atlantic and southern Cape: the Garden Route (Mossel Bay, Victoria
+    # Bay, Stilbaai) west of Cape St Francis, Agulhas, the Overberg, the Cape Peninsula,
+    # then the west coast (Elands Bay, Lamberts Bay) north to the Orange River border.
+    # Its E edge is south-africa-east's W edge, so no break is offered twice.
+    "south-africa-west": (-34.90, 16.40, -28.62, 24.60),
+    # Namibia's whole coast, Orange River to the Kunene: Luderitz, the Walvis Bay /
+    # Swakopmund / Skeleton Bay stretch, Henties Bay and the Skeleton Coast. Its N edge is
+    # angola's S edge.
+    "namibia": (-28.62, 11.70, -17.30, 15.40),
     # Mozambique's surfed south: Ponta do Ouro and Ponta Malongane on the border, then
     # Tofo and Tofinho up at Inhambane
     "mozambique": (-27.00, 32.60, -10.40, 40.90),

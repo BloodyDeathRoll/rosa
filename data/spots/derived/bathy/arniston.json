@@ -1,0 +1,72 @@
+{
+  "spot": "arniston",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.6691,
+    20.2345
+  ],
+  "bearing_seaward_deg": 124.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 66.0,
+  "mean_slope_m_per_km": 4.34,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.67036,
+      "lon": 20.23677,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.67161,
+      "lon": 20.23903,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.67413,
+      "lon": 20.24357,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.67916,
+      "lon": 20.25263,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.68418,
+      "lon": 20.2617,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.69424,
+      "lon": 20.27984,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.70931,
+      "lon": 20.30706,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.7294,
+      "lon": 20.34336,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.75951,
+      "lon": 20.39785,
+      "depth_m": 66.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "milnerton",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.8817,
+    18.4863
+  ],
+  "bearing_seaward_deg": 287.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 75.0,
+  "mean_slope_m_per_km": 4.11,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.88104,
+      "lon": 18.48371,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.88039,
+      "lon": 18.48112,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.87907,
+      "lon": 18.47594,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.87644,
+      "lon": 18.46558,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.87381,
+      "lon": 18.45522,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.86854,
+      "lon": 18.43451,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.86064,
+      "lon": 18.40345,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.85009,
+      "lon": 18.36203,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.83423,
+      "lon": 18.29994,
+      "depth_m": 75.0
+    }
+  ]
+}

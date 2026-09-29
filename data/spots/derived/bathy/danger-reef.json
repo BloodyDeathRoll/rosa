@@ -1,0 +1,72 @@
+{
+  "spot": "danger-reef",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.1212,
+    18.4569
+  ],
+  "bearing_seaward_deg": 140.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 39.0,
+  "mean_slope_m_per_km": 1.97,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.12292,
+      "lon": 18.45865,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.12464,
+      "lon": 18.46039,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.12809,
+      "lon": 18.46388,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.13498,
+      "lon": 18.47087,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.14187,
+      "lon": 18.47785,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.15564,
+      "lon": 18.49183,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.1763,
+      "lon": 18.5128,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.20384,
+      "lon": 18.54078,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.24514,
+      "lon": 18.58277,
+      "depth_m": 39.0
+    }
+  ]
+}

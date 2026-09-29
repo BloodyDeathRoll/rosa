@@ -1,0 +1,72 @@
+{
+  "spot": "stilbaai",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.374,
+    21.4298
+  ],
+  "bearing_seaward_deg": 125.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 64.0,
+  "mean_slope_m_per_km": 3.44,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.37529,
+      "lon": 21.43203,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.37658,
+      "lon": 21.43426,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.37916,
+      "lon": 21.43873,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.38432,
+      "lon": 21.44765,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.38947,
+      "lon": 21.45658,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.39978,
+      "lon": 21.47444,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.41525,
+      "lon": 21.50124,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.43585,
+      "lon": 21.53698,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.46674,
+      "lon": 21.59064,
+      "depth_m": 64.0
+    }
+  ]
+}

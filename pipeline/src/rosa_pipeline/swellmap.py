@@ -125,6 +125,9 @@ BASINS: dict[str, tuple[str, ...]] = {
         "Rhode Island",
     ),
     "angola": ("Angola",),
+    # the south-east Atlantic: Southern Ocean SW groundswell up the Cape and Namibian
+    # coasts, Cape Agulhas round to the Kunene, between Angola's frame and east-africa's
+    "southwest-africa": ("South Africa West", "Namibia"),
     "peru": ("Peru",),
     # Ecuador sits on the equator where the Humboldt coast turns east: its own frame
     # rather than stretching Peru's box 1,500 km north

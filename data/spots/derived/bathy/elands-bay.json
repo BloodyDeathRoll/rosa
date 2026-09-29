@@ -1,0 +1,72 @@
+{
+  "spot": "elands-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -32.315,
+    18.3332
+  ],
+  "bearing_seaward_deg": 316.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 86.0,
+  "mean_slope_m_per_km": 4.56,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.31338,
+      "lon": 18.33135,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.31177,
+      "lon": 18.3295,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -32.30853,
+      "lon": 18.32581,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.30206,
+      "lon": 18.31842,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -32.29559,
+      "lon": 18.31103,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.28265,
+      "lon": 18.29625,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -32.26323,
+      "lon": 18.2741,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -32.23734,
+      "lon": 18.24457,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -32.19849,
+      "lon": 18.20031,
+      "depth_m": 86.0
+    }
+  ]
+}

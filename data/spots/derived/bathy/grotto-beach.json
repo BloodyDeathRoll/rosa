@@ -1,0 +1,72 @@
+{
+  "spot": "grotto-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.4147,
+    19.2883
+  ],
+  "bearing_seaward_deg": 217.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 87.0,
+  "mean_slope_m_per_km": 5.18,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.4165,
+      "lon": 19.28666,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.41829,
+      "lon": 19.28502,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.42188,
+      "lon": 19.28174,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.42906,
+      "lon": 19.27518,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.43625,
+      "lon": 19.26861,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.45061,
+      "lon": 19.25548,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.47215,
+      "lon": 19.23578,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.50086,
+      "lon": 19.20949,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.54392,
+      "lon": 19.17003,
+      "depth_m": 87.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "struisbaai",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.7869,
+    20.048
+  ],
+  "bearing_seaward_deg": 87.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 62.0,
+  "mean_slope_m_per_km": 3.49,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.78678,
+      "lon": 20.05073,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.78666,
+      "lon": 20.05347,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.78643,
+      "lon": 20.05894,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.78596,
+      "lon": 20.06987,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.78548,
+      "lon": 20.08081,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.78453,
+      "lon": 20.10267,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.7831,
+      "lon": 20.13548,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.78118,
+      "lon": 20.17921,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.77827,
+      "lon": 20.24481,
+      "depth_m": 62.0
+    }
+  ]
+}

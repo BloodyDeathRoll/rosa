@@ -1,0 +1,72 @@
+{
+  "spot": "glen-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.947,
+    18.3778
+  ],
+  "bearing_seaward_deg": 273.0,
+  "nearshore_depth_m": -18.0,
+  "offshore_depth_m": 109.0,
+  "mean_slope_m_per_km": 7.15,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.94688,
+      "lon": 18.37509,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.94676,
+      "lon": 18.37239,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.94653,
+      "lon": 18.36697,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.94606,
+      "lon": 18.35615,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.94558,
+      "lon": 18.34532,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.94463,
+      "lon": 18.32367,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.9432,
+      "lon": 18.29119,
+      "depth_m": 83.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.94128,
+      "lon": 18.24789,
+      "depth_m": 96.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.93837,
+      "lon": 18.18295,
+      "depth_m": 109.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "misty-cliffs",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.1842,
+    18.3623
+  ],
+  "bearing_seaward_deg": 257.0,
+  "nearshore_depth_m": -26.0,
+  "offshore_depth_m": 199.0,
+  "mean_slope_m_per_km": 12.68,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.18471,
+      "lon": 18.35965,
+      "depth_m": -26.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.18521,
+      "lon": 18.357,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.18622,
+      "lon": 18.35171,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.18824,
+      "lon": 18.34111,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.19026,
+      "lon": 18.33052,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.1943,
+      "lon": 18.30933,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.20036,
+      "lon": 18.27754,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.20841,
+      "lon": 18.23515,
+      "depth_m": 137.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.22047,
+      "lon": 18.17155,
+      "depth_m": 199.0
+    }
+  ]
+}

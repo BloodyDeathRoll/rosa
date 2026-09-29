@@ -1,0 +1,72 @@
+{
+  "spot": "yzerfontein",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.3412,
+    18.1599
+  ],
+  "bearing_seaward_deg": 320.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 58.0,
+  "mean_slope_m_per_km": 3.38,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.33948,
+      "lon": 18.15817,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.33776,
+      "lon": 18.15644,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.33431,
+      "lon": 18.15298,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.32742,
+      "lon": 18.14606,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.32053,
+      "lon": 18.13915,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.30675,
+      "lon": 18.12532,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.28607,
+      "lon": 18.10458,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.2585,
+      "lon": 18.07694,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.21713,
+      "lon": 18.03552,
+      "depth_m": 58.0
+    }
+  ]
+}

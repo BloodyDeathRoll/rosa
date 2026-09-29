@@ -1,0 +1,72 @@
+{
+  "spot": "gourits-mouth",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.3472,
+    21.8835
+  ],
+  "bearing_seaward_deg": 150.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 76.0,
+  "mean_slope_m_per_km": 4.39,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.34915,
+      "lon": 21.88486,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.35109,
+      "lon": 21.88622,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.35499,
+      "lon": 21.88895,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.36278,
+      "lon": 21.89439,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.37056,
+      "lon": 21.89984,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.38614,
+      "lon": 21.91074,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.4095,
+      "lon": 21.9271,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.44064,
+      "lon": 21.94893,
+      "depth_m": 76.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.48735,
+      "lon": 21.9817,
+      "depth_m": 76.0
+    }
+  ]
+}

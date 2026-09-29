@@ -1,0 +1,72 @@
+{
+  "spot": "crayfish-factory",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.1797,
+    18.343
+  ],
+  "bearing_seaward_deg": 210.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 179.0,
+  "mean_slope_m_per_km": 9.75,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.18165,
+      "lon": 18.34164,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.18359,
+      "lon": 18.34028,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.18749,
+      "lon": 18.33756,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.19528,
+      "lon": 18.33213,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.20306,
+      "lon": 18.32669,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.21864,
+      "lon": 18.31581,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.242,
+      "lon": 18.29948,
+      "depth_m": 90.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.27314,
+      "lon": 18.2777,
+      "depth_m": 110.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.31985,
+      "lon": 18.245,
+      "depth_m": 179.0
+    }
+  ]
+}

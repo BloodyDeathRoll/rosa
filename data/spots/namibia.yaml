@@ -1,0 +1,34 @@
+# Rosa spot database - Namibia. A west-facing South Atlantic desert coast: SW Southern Ocean
+# groundswell wrapping into long sand points (Skeleton Bay) and Benguela-cold beach breaks
+# around Swakopmund, Walvis Bay and Luderitz. The afternoon S-SW trade is onshore to
+# cross-shore; offshore is the E "berg" wind off the desert. Every spot carries offshore_km
+# along its own seaward normal.
+
+defaults: &na
+  timezone: Africa/Windhoek
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [180, 300]
+  ideal:
+    wind_dir: [45, 135]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-29 - namibia, 10 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 10 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/namibia/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: torra-bay, name: "Torra Bay", town: "Torra Bay", lat: -20.3160, lon: 13.2339, offshore_direction: 49, swell_window: [164, 294], offshore_km: 5.0, <<: *na }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: bococks-bay, name: "Bocock's Bay", town: "Mile 108", lat: -21.5114, lon: 13.8605, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, <<: *na }  # sat-verified 2026-09-29 (websearch-seeded; normal re-aimed to the open-water arc)
+  - { id: cape-cross, name: "Cape Cross", town: "Cape Cross", lat: -21.7733, lon: 13.9502, offshore_direction: 38, swell_window: [153, 283], offshore_km: 5.0, <<: *na }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: henties-bay, name: "Henties Bay", town: "Henties Bay", lat: -22.1063, lon: 14.2666, offshore_direction: 61, swell_window: [176, 306], offshore_km: 5.0, <<: *na }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: wlotzkasbaken, name: "Wlotzkasbaken", town: "Wlotzkasbaken", lat: -22.4087, lon: 14.4444, offshore_direction: 61, swell_window: [176, 306], offshore_km: 5.0, <<: *na }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: thicklip, name: "Thicklip", town: "Swakopmund", lat: -22.6445, lon: 14.5248, offshore_direction: 63, swell_window: [178, 308], offshore_km: 5.0, <<: *na }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: vineta, name: "Vineta", town: "Swakopmund", lat: -22.6590, lon: 14.5261, offshore_direction: 111, swell_window: [226, 356], offshore_km: 5.0, <<: *na }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: the-mole, name: "The Mole", town: "Swakopmund", lat: -22.6704, lon: 14.5238, offshore_direction: 88, swell_window: [203, 333], offshore_km: 5.0, <<: *na }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: tiger-reef, name: "Tiger Reef", town: "Swakopmund", lat: -22.6872, lon: 14.5230, offshore_direction: 53, swell_window: [168, 298], offshore_km: 5.0, <<: *na }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: skeleton-bay, name: "Skeleton Bay", town: "Walvis Bay", lat: -22.9284, lon: 14.4297, offshore_direction: 148, swell_window: [263, 33], offshore_km: 5.0, <<: *na }  # sat-verified 2026-09-29 (websearch-seeded)

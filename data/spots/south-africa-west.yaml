@@ -1,0 +1,92 @@
+# Rosa spot database - South Africa (west and south-west coast). The Atlantic side of the
+# Cape (the west coast, the Cape Peninsula) takes Southern Ocean SW groundswell head on and
+# is offshore in the summer SE "Cape Doctor"; False Bay and the Overberg / Garden Route face
+# south and prefer the winter NW-N. Cold Benguela water. Offshore direction varies per
+# coast. Every spot carries offshore_km along its own seaward normal.
+
+defaults: &saw
+  timezone: Africa/Johannesburg
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [180, 300]
+  ideal:
+    wind_dir: [90, 180]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-29 - south-africa-west, 68 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 68 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/south-africa-west/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: strandfontein, name: "Strandfontein", town: "Strandfontein", lat: -31.7517, lon: 18.2261, offshore_direction: 43, swell_window: [158, 288], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded; normal re-aimed to the open-water arc)
+  - { id: doring-bay, name: "Doring Bay", town: "Doringbaai", lat: -31.8223, lon: 18.2352, offshore_direction: 53, swell_window: [168, 298], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: lamberts-bay, name: "Lamberts Bay", town: "Lambert's Bay", lat: -32.0857, lon: 18.3120, offshore_direction: 133, swell_window: [248, 18], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: elands-bay, name: "Elands Bay", town: "Elands Bay", lat: -32.3150, lon: 18.3332, offshore_direction: 136, swell_window: [251, 21], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded; normal re-aimed to the open-water arc)
+  - { id: cape-st-martin, name: "Cape St Martin", town: "Paternoster", lat: -32.7142, lon: 17.9210, offshore_direction: 53, swell_window: [168, 298], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: yzerfontein, name: "Yzerfontein", town: "Yzerfontein", lat: -33.3412, lon: 18.1599, offshore_direction: 140, swell_window: [255, 25], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: silwerstroom, name: "Silwerstroom", town: "Atlantis", lat: -33.5892, lon: 18.3598, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded; normal re-aimed to the open-water arc)
+  - { id: kreefte-reef, name: "Kreefte Reef", town: "Bloubergstrand", lat: -33.7585, lon: 18.4410, offshore_direction: 105, swell_window: [220, 350], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: derde-steen, name: "Derde Steen", town: "Bloubergstrand", lat: -33.7663, lon: 18.4425, offshore_direction: 78, swell_window: [193, 323], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: tweede-steen, name: "Tweede Steen", town: "Bloubergstrand", lat: -33.7772, lon: 18.4457, offshore_direction: 80, swell_window: [195, 325], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: big-bay, name: "Big Bay", town: "Bloubergstrand", lat: -33.7924, lon: 18.4545, offshore_direction: 53, swell_window: [168, 298], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: table-view, name: "Table View", town: "Milnerton", lat: -33.8248, lon: 18.4765, offshore_direction: 102, swell_window: [217, 347], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded; normal re-aimed to the open-water arc)
+  - { id: sunset-beach-za, name: "Sunset Beach", town: "Milnerton", lat: -33.8578, lon: 18.4879, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: milnerton, name: "Milnerton", town: "Milnerton", lat: -33.8817, lon: 18.4863, offshore_direction: 107, swell_window: [222, 352], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: rocklands, name: "Rocklands", town: "Sea Point", lat: -33.9083, lon: 18.3929, offshore_direction: 142, swell_window: [257, 27], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: glen-beach, name: "Glen Beach", town: "Camps Bay", lat: -33.9470, lon: 18.3778, offshore_direction: 93, swell_window: [208, 338], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: natures-valley, name: "Nature's Valley", town: "Nature's Valley", lat: -33.9856, lon: 23.5485, offshore_direction: 347, swell_window: [102, 232], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: wilderness, name: "Wilderness", town: "Wilderness", lat: -34.0004, lon: 22.6137, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: keurbooms, name: "Keurbooms", town: "Keurboomstrand", lat: -34.0044, lon: 23.4597, offshore_direction: 6, swell_window: [121, 251], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: victoria-bay, name: "Victoria Bay", town: "George", lat: -34.0053, lon: 22.5507, offshore_direction: 338, swell_window: [93, 223], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: llandudno, name: "Llandudno", town: "Llandudno", lat: -34.0081, lon: 18.3399, offshore_direction: 155, swell_window: [270, 40], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: sandy-bay, name: "Sandy Bay", town: "Llandudno", lat: -34.0234, lon: 18.3306, offshore_direction: 107, swell_window: [222, 352], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded; normal re-aimed to the open-water arc)
+  - { id: lookout-beach, name: "Lookout Beach", town: "Plettenberg Bay", lat: -34.0485, lon: 23.3800, offshore_direction: 293, swell_window: [48, 178], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: brak-river, name: "Brak River", town: "Groot Brakrivier", lat: -34.0533, lon: 22.2643, offshore_direction: 349, swell_window: [104, 234], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: herolds-bay, name: "Herolds Bay", town: "Herolds Bay", lat: -34.0546, lon: 22.3922, offshore_direction: 358, swell_window: [113, 243], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded; normal re-aimed to the open-water arc)
+  - { id: monwabisi, name: "Monwabisi", town: "Khayelitsha", lat: -34.0729, lon: 18.6897, offshore_direction: 356, swell_window: [111, 241], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: robberg-beach, name: "Robberg Beach", town: "Plettenberg Bay", lat: -34.0783, lon: 23.3720, offshore_direction: 292, swell_window: [47, 177], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: noetzie, name: "Noetzie", town: "Noetzie", lat: -34.0810, lon: 23.1286, offshore_direction: 349, swell_window: [104, 234], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: buffalo-bay, name: "Buffalo Bay", town: "Buffelsbaai", lat: -34.0863, lon: 22.9693, offshore_direction: 42, swell_window: [157, 287], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: the-hoek, name: "The Hoek", town: "Noordhoek", lat: -34.0969, lon: 18.3524, offshore_direction: 39, swell_window: [154, 284], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded; normal re-aimed to the open-water arc)
+  - { id: sunrise-beach, name: "Sunrise Beach", town: "Muizenberg", lat: -34.1026, lon: 18.4894, offshore_direction: 337, swell_window: [92, 222], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: muizenberg, name: "Muizenberg", town: "Muizenberg", lat: -34.1097, lon: 18.4702, offshore_direction: 296, swell_window: [51, 181], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: noordhoek, name: "Noordhoek", town: "Noordhoek", lat: -34.1130, lon: 18.3518, offshore_direction: 77, swell_window: [192, 322], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: strand, name: "Strand", town: "Strand", lat: -34.1185, lon: 18.8265, offshore_direction: 53, swell_window: [168, 298], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: danger-reef, name: "Danger Reef", town: "Muizenberg", lat: -34.1212, lon: 18.4569, offshore_direction: 320, swell_window: [75, 205], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded; normal re-aimed to the open-water arc)
+  - { id: kalk-bay-reef, name: "Kalk Bay Reef", town: "Kalk Bay", lat: -34.1259, lon: 18.4516, offshore_direction: 285, swell_window: [40, 170], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded; normal re-aimed to the open-water arc)
+  - { id: long-beach-za, name: "Long Beach", town: "Kommetjie", lat: -34.1326, lon: 18.3345, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded; normal re-aimed to the open-water arc)
+  - { id: clovelly, name: "Clovelly", town: "Fish Hoek", lat: -34.1327, lon: 18.4403, offshore_direction: 317, swell_window: [72, 202], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: outer-kom, name: "Outer Kom", town: "Kommetjie", lat: -34.1339, lon: 18.3252, offshore_direction: 112, swell_window: [227, 357], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded; normal re-aimed to the open-water arc)
+  - { id: fish-hoek, name: "Fish Hoek", town: "Fish Hoek", lat: -34.1376, lon: 18.4348, offshore_direction: 306, swell_window: [61, 191], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: inner-kom, name: "Inner Kom", town: "Kommetjie", lat: -34.1434, lon: 18.3208, offshore_direction: 138, swell_window: [253, 23], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded; normal re-aimed to the open-water arc)
+  - { id: diaz-beach, name: "Diaz Beach", town: "Mossel Bay", lat: -34.1598, lon: 22.1110, offshore_direction: 248, swell_window: [3, 133], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: glencairn, name: "Glencairn", town: "Simon's Town", lat: -34.1600, lon: 18.4322, offshore_direction: 262, swell_window: [17, 147], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: crayfish-factory, name: "Crayfish Factory", town: "Kommetjie", lat: -34.1797, lon: 18.3430, offshore_direction: 30, swell_window: [145, 275], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: inner-pool, name: "Inner Pool", town: "Mossel Bay", lat: -34.1831, lon: 22.1578, offshore_direction: 247, swell_window: [2, 132], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: misty-cliffs, name: "Misty Cliffs", town: "Misty Cliffs", lat: -34.1842, lon: 18.3623, offshore_direction: 77, swell_window: [192, 322], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded; normal re-aimed to the open-water arc)
+  - { id: outer-pool, name: "Outer Pool", town: "Mossel Bay", lat: -34.1862, lon: 22.1598, offshore_direction: 356, swell_window: [111, 241], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: scarborough-za, name: "Scarborough", town: "Scarborough", lat: -34.2000, lon: 18.3703, offshore_direction: 91, swell_window: [206, 336], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: dana-bay, name: "Dana Bay", town: "Danabaai", lat: -34.2056, lon: 22.0565, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: kogel-bay, name: "Kogel Bay", town: "Gordon's Bay", lat: -34.2345, lon: 18.8482, offshore_direction: 55, swell_window: [170, 300], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: olifantsbos, name: "Olifantsbos", town: "Cape Point", lat: -34.2661, lon: 18.3833, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded; normal re-aimed to the open-water arc)
+  - { id: vleesbaai, name: "Vleesbaai", town: "Vleesbaai", lat: -34.2887, lon: 21.9134, offshore_direction: 265, swell_window: [20, 150], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded; normal re-aimed to the open-water arc)
+  - { id: buffels-bay, name: "Buffels Bay", town: "Cape Point", lat: -34.3179, lon: 18.4616, offshore_direction: 259, swell_window: [14, 144], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded; normal re-aimed to the open-water arc)
+  - { id: kleinmond, name: "Kleinmond", town: "Kleinmond", lat: -34.3420, lon: 19.0375, offshore_direction: 308, swell_window: [63, 193], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: pringle-bay, name: "Pringle Bay", town: "Pringle Bay", lat: -34.3427, lon: 18.8285, offshore_direction: 86, swell_window: [201, 331], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: gourits-mouth, name: "Gourits Mouth", town: "Gouritsmond", lat: -34.3472, lon: 21.8835, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded; normal re-aimed to the open-water arc)
+  - { id: dias-beach, name: "Dias Beach", town: "Cape Point", lat: -34.3550, lon: 18.4824, offshore_direction: 277, swell_window: [32, 162], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: bettys-bay, name: "Betty's Bay", town: "Betty's Bay", lat: -34.3598, lon: 18.9063, offshore_direction: 331, swell_window: [86, 216], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: stilbaai, name: "Stilbaai", town: "Stilbaai", lat: -34.3740, lon: 21.4298, offshore_direction: 305, swell_window: [60, 190], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: hawston, name: "Hawston", town: "Hawston", lat: -34.3962, lon: 19.1250, offshore_direction: 74, swell_window: [189, 319], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: voelklip, name: "Voelklip", town: "Hermanus", lat: -34.4114, lon: 19.2808, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded; normal re-aimed to the open-water arc)
+  - { id: grotto-beach, name: "Grotto Beach", town: "Hermanus", lat: -34.4147, lon: 19.2883, offshore_direction: 37, swell_window: [152, 282], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: onrus, name: "Onrus", town: "Onrus", lat: -34.4195, lon: 19.1806, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded; normal re-aimed to the open-water arc)
+  - { id: cape-infanta, name: "Cape Infanta", town: "Infanta", lat: -34.4212, lon: 20.8561, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded; normal re-aimed to the open-water arc)
+  - { id: jongensfontein, name: "Jongensfontein", town: "Jongensfontein", lat: -34.4267, lon: 21.3386, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: pearly-beach, name: "Pearly Beach", town: "Pearly Beach", lat: -34.6681, lon: 19.4979, offshore_direction: 7, swell_window: [122, 252], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: arniston, name: "Arniston", town: "Arniston", lat: -34.6691, lon: 20.2345, offshore_direction: 304, swell_window: [59, 189], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: struisbaai, name: "Struisbaai", town: "Struisbaai", lat: -34.7869, lon: 20.0480, offshore_direction: 267, swell_window: [22, 152], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)

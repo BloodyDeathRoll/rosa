@@ -1,0 +1,72 @@
+{
+  "spot": "robberg-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.0783,
+    23.372
+  ],
+  "bearing_seaward_deg": 112.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 93.0,
+  "mean_slope_m_per_km": 5.86,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.07914,
+      "lon": 23.37452,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.07998,
+      "lon": 23.37703,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.08167,
+      "lon": 23.38207,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.08504,
+      "lon": 23.39214,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.0884,
+      "lon": 23.40221,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.09513,
+      "lon": 23.42235,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.10523,
+      "lon": 23.45256,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.11867,
+      "lon": 23.49286,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.13881,
+      "lon": 23.55334,
+      "depth_m": 93.0
+    }
+  ]
+}

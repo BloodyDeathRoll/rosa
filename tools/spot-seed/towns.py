@@ -71,6 +71,8 @@ REGION_PBF = {
     "Cape Verde": "cape-verde",
     "Ghana": "ghana",
     "South Africa East": "south-africa-east",
+    "South Africa West": "south-africa-west",
+    "Namibia": "namibia",
     "Mozambique": "mozambique",
     "Kenya": "kenya",
     "New Zealand": "new-zealand",

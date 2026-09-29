@@ -1,0 +1,72 @@
+{
+  "spot": "clovelly",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.1327,
+    18.4403
+  ],
+  "bearing_seaward_deg": 137.0,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 45.0,
+  "mean_slope_m_per_km": 1.8,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.13434,
+      "lon": 18.44215,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.13599,
+      "lon": 18.44401,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.13928,
+      "lon": 18.44771,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.14585,
+      "lon": 18.45512,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.15243,
+      "lon": 18.46253,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.16558,
+      "lon": 18.47736,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.1853,
+      "lon": 18.49961,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.21159,
+      "lon": 18.5293,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.25102,
+      "lon": 18.57386,
+      "depth_m": 45.0
+    }
+  ]
+}

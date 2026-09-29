@@ -1,0 +1,72 @@
+{
+  "spot": "doring-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -31.8223,
+    18.2352
+  ],
+  "bearing_seaward_deg": 233.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 107.0,
+  "mean_slope_m_per_km": 5.97,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -31.82365,
+      "lon": 18.23309,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -31.82501,
+      "lon": 18.23097,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -31.82771,
+      "lon": 18.22675,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -31.83312,
+      "lon": 18.21829,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -31.83853,
+      "lon": 18.20984,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -31.84935,
+      "lon": 18.19292,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -31.86558,
+      "lon": 18.16755,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -31.88721,
+      "lon": 18.13369,
+      "depth_m": 98.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -31.91963,
+      "lon": 18.08289,
+      "depth_m": 107.0
+    }
+  ]
+}

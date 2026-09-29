@@ -1,0 +1,72 @@
+{
+  "spot": "pringle-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.3427,
+    18.8285
+  ],
+  "bearing_seaward_deg": 266.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 84.0,
+  "mean_slope_m_per_km": 4.51,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.34286,
+      "lon": 18.82578,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.34301,
+      "lon": 18.82307,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.34333,
+      "lon": 18.81763,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.34395,
+      "lon": 18.80677,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.34458,
+      "lon": 18.7959,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.34582,
+      "lon": 18.77417,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.34769,
+      "lon": 18.74157,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.35016,
+      "lon": 18.6981,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.35384,
+      "lon": 18.6329,
+      "depth_m": 84.0
+    }
+  ]
+}

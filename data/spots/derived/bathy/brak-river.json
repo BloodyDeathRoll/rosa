@@ -1,0 +1,72 @@
+{
+  "spot": "brak-river",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.0533,
+    22.2643
+  ],
+  "bearing_seaward_deg": 169.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 64.0,
+  "mean_slope_m_per_km": 3.32,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.05551,
+      "lon": 22.26482,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.05771,
+      "lon": 22.26534,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.06213,
+      "lon": 22.26637,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.07096,
+      "lon": 22.26844,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.07978,
+      "lon": 22.27052,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.09744,
+      "lon": 22.27466,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.12392,
+      "lon": 22.28088,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.15923,
+      "lon": 22.28918,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.2122,
+      "lon": 22.30165,
+      "depth_m": 64.0
+    }
+  ]
+}

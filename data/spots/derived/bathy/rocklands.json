@@ -1,0 +1,72 @@
+{
+  "spot": "rocklands",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.9083,
+    18.3929
+  ],
+  "bearing_seaward_deg": 322.0,
+  "nearshore_depth_m": 20.0,
+  "offshore_depth_m": 81.0,
+  "mean_slope_m_per_km": 3.44,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.90653,
+      "lon": 18.39123,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.90476,
+      "lon": 18.38956,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.90121,
+      "lon": 18.38623,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.89413,
+      "lon": 18.37956,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.88704,
+      "lon": 18.37289,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.87286,
+      "lon": 18.35956,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.85159,
+      "lon": 18.33956,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.82323,
+      "lon": 18.31292,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.78068,
+      "lon": 18.27299,
+      "depth_m": 81.0
+    }
+  ]
+}

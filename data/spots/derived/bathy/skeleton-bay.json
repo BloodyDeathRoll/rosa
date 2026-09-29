@@ -1,0 +1,72 @@
+{
+  "spot": "skeleton-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -22.9284,
+    14.4297
+  ],
+  "bearing_seaward_deg": 328.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 76.0,
+  "mean_slope_m_per_km": 4.45,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -22.92649,
+      "lon": 14.42841,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -22.92459,
+      "lon": 14.42711,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -22.92077,
+      "lon": 14.42453,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -22.91315,
+      "lon": 14.41935,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -22.90552,
+      "lon": 14.41418,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -22.89026,
+      "lon": 14.40383,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -22.86738,
+      "lon": 14.38832,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -22.83687,
+      "lon": 14.36765,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -22.79109,
+      "lon": 14.33665,
+      "depth_m": 76.0
+    }
+  ]
+}

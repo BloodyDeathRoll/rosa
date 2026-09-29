@@ -1,0 +1,72 @@
+{
+  "spot": "natures-valley",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.9856,
+    23.5485
+  ],
+  "bearing_seaward_deg": 167.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 94.0,
+  "mean_slope_m_per_km": 5.24,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.98779,
+      "lon": 23.54911,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.98998,
+      "lon": 23.54972,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.99436,
+      "lon": 23.55094,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.00313,
+      "lon": 23.55338,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.01189,
+      "lon": 23.55582,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.02941,
+      "lon": 23.56071,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.0557,
+      "lon": 23.56803,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.09075,
+      "lon": 23.57781,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.14332,
+      "lon": 23.5925,
+      "depth_m": 94.0
+    }
+  ]
+}

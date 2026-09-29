@@ -1,0 +1,72 @@
+{
+  "spot": "kreefte-reef",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.7585,
+    18.441
+  ],
+  "bearing_seaward_deg": 285.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 77.0,
+  "mean_slope_m_per_km": 4.0,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.75792,
+      "lon": 18.43839,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.75734,
+      "lon": 18.43578,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.75617,
+      "lon": 18.43055,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.75384,
+      "lon": 18.4201,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.75151,
+      "lon": 18.40966,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.74685,
+      "lon": 18.38876,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.73985,
+      "lon": 18.35743,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.73051,
+      "lon": 18.31566,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.71646,
+      "lon": 18.25302,
+      "depth_m": 77.0
+    }
+  ]
+}

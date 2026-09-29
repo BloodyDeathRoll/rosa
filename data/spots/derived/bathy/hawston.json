@@ -1,0 +1,72 @@
+{
+  "spot": "hawston",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.3962,
+    19.125
+  ],
+  "bearing_seaward_deg": 254.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 80.0,
+  "mean_slope_m_per_km": 4.79,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.39682,
+      "lon": 19.12238,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.39744,
+      "lon": 19.11976,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.39868,
+      "lon": 19.11452,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.40116,
+      "lon": 19.10405,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.40363,
+      "lon": 19.09357,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.40858,
+      "lon": 19.07261,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.416,
+      "lon": 19.04117,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.42588,
+      "lon": 18.99924,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.44067,
+      "lon": 18.93632,
+      "depth_m": 80.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "sunrise-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.1026,
+    18.4894
+  ],
+  "bearing_seaward_deg": 157.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 41.0,
+  "mean_slope_m_per_km": 2.2,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.10467,
+      "lon": 18.49046,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.10674,
+      "lon": 18.49152,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.11088,
+      "lon": 18.49364,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.11916,
+      "lon": 18.49789,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.12743,
+      "lon": 18.50213,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.14399,
+      "lon": 18.51063,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.16882,
+      "lon": 18.52338,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.20193,
+      "lon": 18.54038,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.25159,
+      "lon": 18.56592,
+      "depth_m": 41.0
+    }
+  ]
+}

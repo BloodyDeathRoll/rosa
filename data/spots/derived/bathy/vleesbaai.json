@@ -1,0 +1,72 @@
+{
+  "spot": "vleesbaai",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.2887,
+    21.9134
+  ],
+  "bearing_seaward_deg": 85.0,
+  "nearshore_depth_m": -23.0,
+  "offshore_depth_m": 55.0,
+  "mean_slope_m_per_km": 4.39,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.2885,
+      "lon": 21.91611,
+      "depth_m": -23.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.28831,
+      "lon": 21.91882,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.28792,
+      "lon": 21.92424,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.28713,
+      "lon": 21.93509,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.28634,
+      "lon": 21.94593,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.28477,
+      "lon": 21.96761,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.2824,
+      "lon": 22.00014,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.27923,
+      "lon": 22.04351,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.27444,
+      "lon": 22.10855,
+      "depth_m": 55.0
+    }
+  ]
+}

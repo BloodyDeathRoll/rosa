@@ -1,0 +1,72 @@
+{
+  "spot": "strandfontein",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -31.7517,
+    18.2261
+  ],
+  "bearing_seaward_deg": 223.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 104.0,
+  "mean_slope_m_per_km": 6.08,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -31.75334,
+      "lon": 18.2243,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -31.75499,
+      "lon": 18.22249,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -31.75828,
+      "lon": 18.21889,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -31.76485,
+      "lon": 18.21167,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -31.77143,
+      "lon": 18.20446,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -31.78458,
+      "lon": 18.19002,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -31.8043,
+      "lon": 18.16836,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -31.8306,
+      "lon": 18.13947,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -31.87002,
+      "lon": 18.0961,
+      "depth_m": 104.0
+    }
+  ]
+}

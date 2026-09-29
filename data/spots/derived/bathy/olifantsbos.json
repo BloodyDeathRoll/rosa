@@ -1,0 +1,72 @@
+{
+  "spot": "olifantsbos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.2661,
+    18.3833
+  ],
+  "bearing_seaward_deg": 270.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 224.0,
+  "mean_slope_m_per_km": 12.51,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.2661,
+      "lon": 18.38058,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.2661,
+      "lon": 18.37786,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.2661,
+      "lon": 18.37242,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.2661,
+      "lon": 18.36154,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.2661,
+      "lon": 18.35065,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.26609,
+      "lon": 18.32889,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.26607,
+      "lon": 18.29624,
+      "depth_m": 94.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.26603,
+      "lon": 18.25272,
+      "depth_m": 136.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.26594,
+      "lon": 18.18742,
+      "depth_m": 224.0
+    }
+  ]
+}

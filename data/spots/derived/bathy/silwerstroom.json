@@ -1,0 +1,72 @@
+{
+  "spot": "silwerstroom",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.5892,
+    18.3598
+  ],
+  "bearing_seaward_deg": 240.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 95.0,
+  "mean_slope_m_per_km": 5.3,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.59032,
+      "lon": 18.35746,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.59145,
+      "lon": 18.35513,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.5937,
+      "lon": 18.35045,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.59819,
+      "lon": 18.3411,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.60269,
+      "lon": 18.33175,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.61167,
+      "lon": 18.31304,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.62515,
+      "lon": 18.28497,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.64311,
+      "lon": 18.24754,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.67002,
+      "lon": 18.19135,
+      "depth_m": 95.0
+    }
+  ]
+}

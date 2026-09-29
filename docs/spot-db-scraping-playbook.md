@@ -215,7 +215,25 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-09-29, DB = 2332 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-09-29, DB = 2410 spots, ALL sat-verified)
+
+**South Africa West 0 -> 68, Namibia 0 -> 10 (2026-09-29)** - two boxes on `africa/south-africa`
+(symlinked) and `africa/namibia`, a new `southwest-africa` basin. Zero OSM surf nodes: web flow end
+to end. **surf-forecast.com's per-country break index was the only complete name source** (every
+Cape Peninsula, Overberg, Garden Route and West Coast break with its area); English guides repeat
+the same ten. 104 names -> 8 keep / 70 move / 26 drop. What was new:
+1. **Nearly every Cape geocode is on the sand or the promenade**, 50-250 m back from the water -
+   63 of 68 kept South African pins were moves.
+2. **Surf names with no place behind them do not geocode at all**: Dungeons, Guns, Lockjoint,
+   Paradise. Skeleton Bay only resolved as "Donkey Bay" (three providers within 0.6 km). Try the
+   local place name before dropping a marquee wave.
+3. **Google resolved "Strandfontein" to Cape Town's False Bay suburb, 260 km from the West Coast
+   village**; Photon had the right one. Same-name towns are common in the Western Cape.
+4. **21 of 78 normals needed re-aiming** - False Bay, Hermanus and the Kommetjie points.
+
+**Gap queue:** Dungeons, Guns / Lockjoint / Paradise (Swakopmund), Donkin Bay, Jacobs Bay,
+Vredenburg Point, Dunes (Noordhoek), Off The Wall, De Kelders, Goukamma, Luderitz, Mile 108; all need
+a source with coordinates.
 
 **Sicily 0 -> 42 (2026-09-29)** - one box over the whole island plus the Egadi, on the
 `europe/italy/isole` extract (Sicily + Sardinia; `data/osm/sicily.osm.pbf` is a symlink to it) and

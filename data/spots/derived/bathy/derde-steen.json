@@ -1,0 +1,72 @@
+{
+  "spot": "derde-steen",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.7663,
+    18.4425
+  ],
+  "bearing_seaward_deg": 258.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 84.0,
+  "mean_slope_m_per_km": 4.39,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.76677,
+      "lon": 18.43985,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.76723,
+      "lon": 18.43721,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.76817,
+      "lon": 18.43192,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.77004,
+      "lon": 18.42134,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.77191,
+      "lon": 18.41075,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.77564,
+      "lon": 18.38959,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.78123,
+      "lon": 18.35783,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.78867,
+      "lon": 18.31549,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.79981,
+      "lon": 18.25195,
+      "depth_m": 84.0
+    }
+  ]
+}

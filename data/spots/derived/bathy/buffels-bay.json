@@ -1,0 +1,72 @@
+{
+  "spot": "buffels-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.3179,
+    18.4616
+  ],
+  "bearing_seaward_deg": 79.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 67.0,
+  "mean_slope_m_per_km": 3.27,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.31747,
+      "lon": 18.46427,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.31704,
+      "lon": 18.46694,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.31618,
+      "lon": 18.47229,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.31447,
+      "lon": 18.48298,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.31275,
+      "lon": 18.49366,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.30931,
+      "lon": 18.51504,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.30414,
+      "lon": 18.5471,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.29724,
+      "lon": 18.58983,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.28686,
+      "lon": 18.65392,
+      "depth_m": 67.0
+    }
+  ]
+}

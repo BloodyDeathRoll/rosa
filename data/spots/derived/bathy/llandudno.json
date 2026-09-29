@@ -1,0 +1,72 @@
+{
+  "spot": "llandudno",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.0081,
+    18.3399
+  ],
+  "bearing_seaward_deg": 335.0,
+  "nearshore_depth_m": -13.0,
+  "offshore_depth_m": 91.0,
+  "mean_slope_m_per_km": 5.86,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.00606,
+      "lon": 18.33875,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.00402,
+      "lon": 18.33761,
+      "depth_m": -91.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.99995,
+      "lon": 18.33532,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.9918,
+      "lon": 18.33073,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.98365,
+      "lon": 18.32615,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.96734,
+      "lon": 18.31699,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.94289,
+      "lon": 18.30325,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.91028,
+      "lon": 18.28494,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.86136,
+      "lon": 18.25751,
+      "depth_m": 91.0
+    }
+  ]
+}

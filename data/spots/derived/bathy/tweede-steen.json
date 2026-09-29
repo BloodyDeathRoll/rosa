@@ -1,0 +1,72 @@
+{
+  "spot": "tweede-steen",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.7772,
+    18.4457
+  ],
+  "bearing_seaward_deg": 260.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 88.0,
+  "mean_slope_m_per_km": 4.62,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.77759,
+      "lon": 18.44304,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.77798,
+      "lon": 18.44037,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.77876,
+      "lon": 18.43504,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.78032,
+      "lon": 18.42439,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.78188,
+      "lon": 18.41373,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.785,
+      "lon": 18.39242,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.78966,
+      "lon": 18.36045,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.79587,
+      "lon": 18.31781,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.80516,
+      "lon": 18.25385,
+      "depth_m": 88.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "cape-infanta",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.4212,
+    20.8561
+  ],
+  "bearing_seaward_deg": 95.0,
+  "nearshore_depth_m": -19.0,
+  "offshore_depth_m": 64.0,
+  "mean_slope_m_per_km": 4.68,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.4214,
+      "lon": 20.85882,
+      "depth_m": -19.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.42159,
+      "lon": 20.86153,
+      "depth_m": -19.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.42198,
+      "lon": 20.86696,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.42277,
+      "lon": 20.87782,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.42355,
+      "lon": 20.88868,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.42511,
+      "lon": 20.91041,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.42744,
+      "lon": 20.94299,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.43054,
+      "lon": 20.98644,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.43515,
+      "lon": 21.05162,
+      "depth_m": 64.0
+    }
+  ]
+}

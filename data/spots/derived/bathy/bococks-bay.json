@@ -1,0 +1,72 @@
+{
+  "spot": "bococks-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -21.5114,
+    13.8605
+  ],
+  "bearing_seaward_deg": 255.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 80.0,
+  "mean_slope_m_per_km": 4.56,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -21.51198,
+      "lon": 13.85817,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -21.51256,
+      "lon": 13.85583,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -21.51373,
+      "lon": 13.85116,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -21.51605,
+      "lon": 13.84183,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -21.51838,
+      "lon": 13.83249,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -21.52303,
+      "lon": 13.81381,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -21.53,
+      "lon": 13.78579,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -21.53929,
+      "lon": 13.74843,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -21.55321,
+      "lon": 13.69238,
+      "depth_m": 80.0
+    }
+  ]
+}

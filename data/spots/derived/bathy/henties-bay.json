@@ -1,0 +1,72 @@
+{
+  "spot": "henties-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -22.1063,
+    14.2666
+  ],
+  "bearing_seaward_deg": 241.0,
+  "nearshore_depth_m": -13.0,
+  "offshore_depth_m": 59.0,
+  "mean_slope_m_per_km": 4.06,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -22.10739,
+      "lon": 14.26448,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -22.10848,
+      "lon": 14.26236,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -22.11066,
+      "lon": 14.25811,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -22.11502,
+      "lon": 14.24962,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -22.11938,
+      "lon": 14.24113,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -22.12809,
+      "lon": 14.22414,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -22.14117,
+      "lon": 14.19867,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -22.15859,
+      "lon": 14.16469,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -22.18471,
+      "lon": 14.1137,
+      "depth_m": 59.0
+    }
+  ]
+}

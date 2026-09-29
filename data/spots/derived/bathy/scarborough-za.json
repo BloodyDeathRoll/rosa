@@ -1,0 +1,72 @@
+{
+  "spot": "scarborough-za",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.2,
+    18.3703
+  ],
+  "bearing_seaward_deg": 271.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 188.0,
+  "mean_slope_m_per_km": 10.87,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.19996,
+      "lon": 18.36758,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.19992,
+      "lon": 18.36486,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.19984,
+      "lon": 18.35943,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.19968,
+      "lon": 18.34856,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.19952,
+      "lon": 18.33768,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.1992,
+      "lon": 18.31594,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.19871,
+      "lon": 18.28333,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.19805,
+      "lon": 18.23984,
+      "depth_m": 147.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.19702,
+      "lon": 18.17461,
+      "depth_m": 188.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "tiger-reef",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -22.6872,
+    14.523
+  ],
+  "bearing_seaward_deg": 233.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 63.0,
+  "mean_slope_m_per_km": 3.89,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -22.68855,
+      "lon": 14.52105,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -22.68991,
+      "lon": 14.51911,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -22.69261,
+      "lon": 14.51522,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -22.69802,
+      "lon": 14.50743,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -22.70344,
+      "lon": 14.49964,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -22.71426,
+      "lon": 14.48407,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -22.73049,
+      "lon": 14.4607,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -22.75212,
+      "lon": 14.42954,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -22.78456,
+      "lon": 14.38278,
+      "depth_m": 63.0
+    }
+  ]
+}

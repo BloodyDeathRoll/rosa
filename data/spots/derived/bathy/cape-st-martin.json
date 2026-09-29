@@ -1,0 +1,72 @@
+{
+  "spot": "cape-st-martin",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -32.7142,
+    17.921
+  ],
+  "bearing_seaward_deg": 233.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 79.0,
+  "mean_slope_m_per_km": 4.06,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.71555,
+      "lon": 17.91887,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.71691,
+      "lon": 17.91673,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -32.71961,
+      "lon": 17.91246,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.72502,
+      "lon": 17.90393,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -32.73043,
+      "lon": 17.89539,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.74125,
+      "lon": 17.87831,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -32.75748,
+      "lon": 17.85268,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -32.77911,
+      "lon": 17.81849,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -32.81153,
+      "lon": 17.76718,
+      "depth_m": 79.0
+    }
+  ]
+}

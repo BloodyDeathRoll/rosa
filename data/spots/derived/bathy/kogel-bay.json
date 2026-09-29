@@ -1,0 +1,72 @@
+{
+  "spot": "kogel-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.2345,
+    18.8482
+  ],
+  "bearing_seaward_deg": 235.0,
+  "nearshore_depth_m": -33.0,
+  "offshore_depth_m": 78.0,
+  "mean_slope_m_per_km": 6.25,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.23579,
+      "lon": 18.84597,
+      "depth_m": -33.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.23708,
+      "lon": 18.84374,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.23966,
+      "lon": 18.83929,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.24482,
+      "lon": 18.83038,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.24997,
+      "lon": 18.82146,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.26028,
+      "lon": 18.80363,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.27575,
+      "lon": 18.77688,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.29635,
+      "lon": 18.74119,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.32724,
+      "lon": 18.68763,
+      "depth_m": 78.0
+    }
+  ]
+}
