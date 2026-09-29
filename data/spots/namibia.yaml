@@ -32,3 +32,12 @@ spots:
   - { id: the-mole, name: "The Mole", town: "Swakopmund", lat: -22.6704, lon: 14.5238, offshore_direction: 88, swell_window: [203, 333], offshore_km: 5.0, <<: *na }  # sat-verified 2026-09-29 (websearch-seeded)
   - { id: tiger-reef, name: "Tiger Reef", town: "Swakopmund", lat: -22.6872, lon: 14.5230, offshore_direction: 53, swell_window: [168, 298], offshore_km: 5.0, <<: *na }  # sat-verified 2026-09-29 (websearch-seeded)
   - { id: skeleton-bay, name: "Skeleton Bay", town: "Walvis Bay", lat: -22.9284, lon: 14.4297, offshore_direction: 148, swell_window: [263, 33], offshore_km: 5.0, <<: *na }  # sat-verified 2026-09-29 (websearch-seeded)
+
+  # ==== SEEDED 2026-09-29 - namibia, 1 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 1 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/namibia/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: grosse-bucht, name: "Grosse Bucht", town: "Lüderitz", lat: -26.7361, lon: 15.0980, offshore_direction: 5, swell_window: [120, 250], offshore_km: 5.0, <<: *na }  # sat-verified 2026-09-29 (websearch-seeded; normal re-aimed to the open-water arc)

@@ -215,7 +215,7 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-09-29, DB = 2726 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-09-29, DB = 2741 spots, ALL sat-verified)
 
 **Philippines 16 -> 32 and north Japan +74 (2026-09-29)** - two parallel forks, web flow only.
 Japan: Honshu north of Tokyo +56 into `japan.yaml`, a new `hokkaido` region (18, box
@@ -256,7 +256,7 @@ Maasvlakte's Slufter and Blokken, Schiermonnikoog; Fehmarn's Wulfener Hals, Kiel
 Ellenbogen; Gotland's east coast and Faro (east of the Sweden box), Norrland. Ireland, Iceland,
 Faroe, Normandy and the English south coast are not seeded.
 
-**South Africa West 0 -> 68, Namibia 0 -> 10 (2026-09-29)** - two boxes on `africa/south-africa`
+**South Africa West 0 -> 82, Namibia 0 -> 11 (2026-09-29, two passes)** - two boxes on `africa/south-africa`
 (symlinked) and `africa/namibia`, a new `southwest-africa` basin. Zero OSM surf nodes: web flow end
 to end. **surf-forecast.com's per-country break index was the only complete name source** (every
 Cape Peninsula, Overberg, Garden Route and West Coast break with its area); English guides repeat
@@ -270,9 +270,17 @@ the same ten. 104 names -> 8 keep / 70 move / 26 drop. What was new:
    village**; Photon had the right one. Same-name towns are common in the Western Cape.
 4. **21 of 78 normals needed re-aiming** - False Bay, Hermanus and the Kommetjie points.
 
-**Gap queue:** Dungeons, Guns / Lockjoint / Paradise (Swakopmund), Donkin Bay, Jacobs Bay,
-Vredenburg Point, Dunes (Noordhoek), Off The Wall, De Kelders, Goukamma, Luderitz, Mile 108; all need
-a source with coordinates.
+A second pass re-queued the pass-1 drops with better queries plus ~60 unqueued index names and
+local beach names (94 in all): +15 (Melkbosstrand, Holbaai, Little Bay, Baileys Cottage, Kakapo,
+Witsands, Platboom, Strand Pipe, Kanon, Dolphin Point, Wildside, Gerickes Point, Sedgefield,
+Groenvlei, Grosse Bucht). Filler names that no surf source names (Camps Bay, Paternoster,
+Macassar, Mnandi, Glentana, Die Dam...) were dropped even where the tile showed surf.
+
+**Gap queue (two strikes each, need a source with coordinates):** Dungeons, Off The Wall, Guns /
+Lockjoint / Paradise / Fiji / Graveyards / Last Toilet (Swakopmund), the Kommetjie sub-peaks (365s,
+Extensions, Sollys, Crons, Boneyards, Horse Trails), Nine Mile Reef, Captains, Donkin Bay, Jacobs
+Bay, Vredenburg Point, De Kelders, Goukamma, Ding Dangs, The Wedge (Plett), the Northern Cape
+(Port Nolloth, Hondeklip Bay - no surf source), Mile 108.
 
 **Sicily 0 -> 42 (2026-09-29)** - one box over the whole island plus the Egadi, on the
 `europe/italy/isole` extract (Sicily + Sardinia; `data/osm/sicily.osm.pbf` is a symlink to it) and

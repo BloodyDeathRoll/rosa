@@ -1,0 +1,72 @@
+{
+  "spot": "holbaai",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.7468,
+    18.44
+  ],
+  "bearing_seaward_deg": 287.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 69.0,
+  "mean_slope_m_per_km": 3.55,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.74614,
+      "lon": 18.43741,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.74549,
+      "lon": 18.43483,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.74417,
+      "lon": 18.42966,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.74154,
+      "lon": 18.41932,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.73891,
+      "lon": 18.40897,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.73364,
+      "lon": 18.38829,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.72574,
+      "lon": 18.35728,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.71519,
+      "lon": 18.31593,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.69933,
+      "lon": 18.25393,
+      "depth_m": 69.0
+    }
+  ]
+}

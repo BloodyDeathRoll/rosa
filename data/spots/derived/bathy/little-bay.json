@@ -1,0 +1,72 @@
+{
+  "spot": "little-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.7977,
+    18.4571
+  ],
+  "bearing_seaward_deg": 242.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 78.0,
+  "mean_slope_m_per_km": 4.17,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.79876,
+      "lon": 18.45471,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.79981,
+      "lon": 18.45232,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.80192,
+      "lon": 18.44754,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.80614,
+      "lon": 18.43799,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.81036,
+      "lon": 18.42843,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.8188,
+      "lon": 18.40931,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.83145,
+      "lon": 18.38063,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.84831,
+      "lon": 18.34237,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.87358,
+      "lon": 18.28495,
+      "depth_m": 78.0
+    }
+  ]
+}

@@ -90,3 +90,25 @@ spots:
   - { id: pearly-beach, name: "Pearly Beach", town: "Pearly Beach", lat: -34.6681, lon: 19.4979, offshore_direction: 7, swell_window: [122, 252], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
   - { id: arniston, name: "Arniston", town: "Arniston", lat: -34.6691, lon: 20.2345, offshore_direction: 304, swell_window: [59, 189], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
   - { id: struisbaai, name: "Struisbaai", town: "Struisbaai", lat: -34.7869, lon: 20.0480, offshore_direction: 267, swell_window: [22, 152], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+
+  # ==== SEEDED 2026-09-29 - south-africa-west, 14 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 14 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/south-africa-west/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: melkbosstrand, name: "Melkbosstrand", town: "Melkbosstrand", lat: -33.7242, lon: 18.4411, offshore_direction: 114, swell_window: [229, 359], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: holbaai, name: "Holbaai", town: "Melkbosstrand", lat: -33.7468, lon: 18.4400, offshore_direction: 107, swell_window: [222, 352], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: little-bay, name: "Little Bay", town: "Bloubergstrand", lat: -33.7977, lon: 18.4571, offshore_direction: 62, swell_window: [177, 307], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded; normal re-aimed to the open-water arc)
+  - { id: dolphin-point, name: "Dolphin Point", town: "Wilderness", lat: -33.9991, lon: 22.5603, offshore_direction: 328, swell_window: [83, 213], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: gerickes-point, name: "Gerickes Point", town: "Sedgefield", lat: -34.0276, lon: 22.7746, offshore_direction: 5, swell_window: [120, 250], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: sedgefield, name: "Sedgefield", town: "Sedgefield", lat: -34.0373, lon: 22.8068, offshore_direction: 18, swell_window: [133, 263], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: groenvlei, name: "Groenvlei", town: "Sedgefield", lat: -34.0472, lon: 22.8378, offshore_direction: 15, swell_window: [130, 260], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: wildside, name: "Wildside", town: "Buffelsbaai", lat: -34.0827, lon: 22.9573, offshore_direction: 64, swell_window: [179, 309], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: strand-pipe, name: "Strand Pipe", town: "Strand", lat: -34.1014, lon: 18.8116, offshore_direction: 56, swell_window: [171, 301], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: baileys-cottage, name: "Baileys Cottage", town: "Muizenberg", lat: -34.1134, lon: 18.4665, offshore_direction: 355, swell_window: [110, 240], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded; normal re-aimed to the open-water arc)
+  - { id: kakapo, name: "Kakapo", town: "Kommetjie", lat: -34.1238, lon: 18.3476, offshore_direction: 119, swell_window: [234, 4], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: witsands, name: "Witsands", town: "Scarborough", lat: -34.1791, lon: 18.3556, offshore_direction: 34, swell_window: [149, 279], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: kanon, name: "Kanon", town: "Kanon", lat: -34.3325, lon: 21.9058, offshore_direction: 254, swell_window: [9, 139], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: platboom, name: "Platboom", town: "Cape Point", lat: -34.3379, lon: 18.4525, offshore_direction: 18, swell_window: [133, 263], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)

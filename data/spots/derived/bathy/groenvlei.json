@@ -1,0 +1,72 @@
+{
+  "spot": "groenvlei",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.0472,
+    22.8378
+  ],
+  "bearing_seaward_deg": 195.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 85.0,
+  "mean_slope_m_per_km": 5.24,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.04937,
+      "lon": 22.8371,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.05154,
+      "lon": 22.8364,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.05589,
+      "lon": 22.83499,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.06457,
+      "lon": 22.83218,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.07326,
+      "lon": 22.82937,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.09063,
+      "lon": 22.82375,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.11669,
+      "lon": 22.81531,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.15144,
+      "lon": 22.80405,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.20355,
+      "lon": 22.78714,
+      "depth_m": 85.0
+    }
+  ]
+}

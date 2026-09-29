@@ -1,0 +1,72 @@
+{
+  "spot": "melkbosstrand",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.7242,
+    18.4411
+  ],
+  "bearing_seaward_deg": 294.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 69.0,
+  "mean_slope_m_per_km": 3.44,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.72329,
+      "lon": 18.43863,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.72237,
+      "lon": 18.43616,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.72054,
+      "lon": 18.43122,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.71688,
+      "lon": 18.42135,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.71322,
+      "lon": 18.41147,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.7059,
+      "lon": 18.39172,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.69491,
+      "lon": 18.3621,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.68025,
+      "lon": 18.32263,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.65823,
+      "lon": 18.26343,
+      "depth_m": 69.0
+    }
+  ]
+}

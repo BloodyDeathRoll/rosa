@@ -1,0 +1,72 @@
+{
+  "spot": "baileys-cottage",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.1134,
+    18.4665
+  ],
+  "bearing_seaward_deg": 175.0,
+  "nearshore_depth_m": -40.0,
+  "offshore_depth_m": 33.0,
+  "mean_slope_m_per_km": 4.11,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.11564,
+      "lon": 18.46674,
+      "depth_m": -40.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.11788,
+      "lon": 18.46697,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.12236,
+      "lon": 18.46745,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.13132,
+      "lon": 18.46839,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.14028,
+      "lon": 18.46934,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.15819,
+      "lon": 18.47124,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.18507,
+      "lon": 18.47408,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.22091,
+      "lon": 18.47787,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.27466,
+      "lon": 18.48357,
+      "depth_m": 33.0
+    }
+  ]
+}
