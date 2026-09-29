@@ -1,0 +1,72 @@
+{
+  "spot": "tolderstien",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    57.0443,
+    8.4936
+  ],
+  "bearing_seaward_deg": 327.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 24.0,
+  "mean_slope_m_per_km": 1.07,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 57.04619,
+      "lon": 8.49135,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 57.04807,
+      "lon": 8.4891,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 57.05184,
+      "lon": 8.48459,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 57.05938,
+      "lon": 8.47558,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 57.06692,
+      "lon": 8.46657,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 57.082,
+      "lon": 8.44853,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 57.10462,
+      "lon": 8.42145,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 57.13476,
+      "lon": 8.38529,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 57.17996,
+      "lon": 8.33093,
+      "depth_m": 24.0
+    }
+  ]
+}

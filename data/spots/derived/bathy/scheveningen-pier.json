@@ -1,0 +1,72 @@
+{
+  "spot": "scheveningen-pier",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    52.1168,
+    4.2809
+  ],
+  "bearing_seaward_deg": 316.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 0.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 52.11842,
+      "lon": 4.27836,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 52.12003,
+      "lon": 4.27581,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 52.12327,
+      "lon": 4.27072,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 52.12974,
+      "lon": 4.26055,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 52.1362,
+      "lon": 4.25037,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 52.14913,
+      "lon": 4.22999,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 52.16853,
+      "lon": 4.19942,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 52.19437,
+      "lon": 4.1586,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 52.2331,
+      "lon": 4.09729,
+      "depth_m": 20.0
+    }
+  ]
+}

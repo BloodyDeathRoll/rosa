@@ -1,0 +1,72 @@
+{
+  "spot": "sango-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    58.5697,
+    -4.7397
+  ],
+  "bearing_seaward_deg": 48.0,
+  "nearshore_depth_m": 19.0,
+  "offshore_depth_m": 60.0,
+  "mean_slope_m_per_km": 2.31,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 58.5712,
+      "lon": -4.7365,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 58.57271,
+      "lon": -4.73329,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 58.57572,
+      "lon": -4.72688,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 58.58173,
+      "lon": -4.71406,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 58.58775,
+      "lon": -4.70123,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 58.59977,
+      "lon": -4.67556,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 58.6178,
+      "lon": -4.63703,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 58.64182,
+      "lon": -4.58559,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 58.67781,
+      "lon": -4.50829,
+      "depth_m": 60.0
+    }
+  ]
+}

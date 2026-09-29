@@ -1,0 +1,72 @@
+{
+  "spot": "zandvoort",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    52.3697,
+    4.5194
+  ],
+  "bearing_seaward_deg": 290.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 18.0,
+  "mean_slope_m_per_km": 0.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 52.37047,
+      "lon": 4.51594,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 52.37124,
+      "lon": 4.51248,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 52.37278,
+      "lon": 4.50556,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 52.37585,
+      "lon": 4.49171,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 52.37892,
+      "lon": 4.47787,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 52.38506,
+      "lon": 4.45017,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 52.39426,
+      "lon": 4.40861,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 52.40649,
+      "lon": 4.35317,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 52.4248,
+      "lon": 4.26995,
+      "depth_m": 18.0
+    }
+  ]
+}

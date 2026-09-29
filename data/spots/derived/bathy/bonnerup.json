@@ -1,0 +1,72 @@
+{
+  "spot": "bonnerup",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    56.5336,
+    10.7205
+  ],
+  "bearing_seaward_deg": 344.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 13.0,
+  "mean_slope_m_per_km": 0.73,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 56.53576,
+      "lon": 10.71938,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 56.53792,
+      "lon": 10.71825,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 56.54224,
+      "lon": 10.716,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 56.55089,
+      "lon": 10.71151,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 56.55953,
+      "lon": 10.70701,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 56.57682,
+      "lon": 10.698,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 56.60275,
+      "lon": 10.68447,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 56.63733,
+      "lon": 10.66641,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 56.68918,
+      "lon": 10.63925,
+      "depth_m": 13.0
+    }
+  ]
+}

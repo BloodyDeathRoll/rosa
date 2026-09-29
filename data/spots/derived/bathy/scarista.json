@@ -1,0 +1,72 @@
+{
+  "spot": "scarista",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    57.8275,
+    -7.0471
+  ],
+  "bearing_seaward_deg": 314.0,
+  "nearshore_depth_m": -22.0,
+  "offshore_depth_m": 38.0,
+  "mean_slope_m_per_km": 3.38,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 57.82906,
+      "lon": -7.05014,
+      "depth_m": -22.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 57.83062,
+      "lon": -7.05318,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 57.83375,
+      "lon": -7.05925,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 57.83999,
+      "lon": -7.07141,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 57.84624,
+      "lon": -7.08357,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 57.85872,
+      "lon": -7.1079,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 57.87744,
+      "lon": -7.14443,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 57.90238,
+      "lon": -7.1932,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 57.93976,
+      "lon": -7.26647,
+      "depth_m": 38.0
+    }
+  ]
+}

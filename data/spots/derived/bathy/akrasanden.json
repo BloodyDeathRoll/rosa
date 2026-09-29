@@ -1,0 +1,72 @@
+{
+  "spot": "akrasanden",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    59.2481,
+    5.1955
+  ],
+  "bearing_seaward_deg": 242.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 236.0,
+  "mean_slope_m_per_km": 13.24,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 59.24704,
+      "lon": 5.19162,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 59.24599,
+      "lon": 5.18774,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 59.24388,
+      "lon": 5.17997,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 59.23965,
+      "lon": 5.16445,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 59.23543,
+      "lon": 5.14893,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 59.22697,
+      "lon": 5.1179,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 59.21426,
+      "lon": 5.07139,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 59.1973,
+      "lon": 5.00942,
+      "depth_m": 171.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 59.1718,
+      "lon": 4.91659,
+      "depth_m": 236.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "uttakleiv",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    68.2107,
+    13.5029
+  ],
+  "bearing_seaward_deg": 332.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 193.0,
+  "mean_slope_m_per_km": 10.82,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 68.21269,
+      "lon": 13.50006,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 68.21467,
+      "lon": 13.49721,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 68.21864,
+      "lon": 13.49152,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 68.22658,
+      "lon": 13.48014,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 68.23452,
+      "lon": 13.46874,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 68.25039,
+      "lon": 13.44593,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 68.2742,
+      "lon": 13.41165,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 68.30593,
+      "lon": 13.36584,
+      "depth_m": 105.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 68.3535,
+      "lon": 13.29688,
+      "depth_m": 193.0
+    }
+  ]
+}

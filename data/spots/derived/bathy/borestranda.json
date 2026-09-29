@@ -1,0 +1,72 @@
+{
+  "spot": "borestranda",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    58.8012,
+    5.548
+  ],
+  "bearing_seaward_deg": 266.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 201.0,
+  "mean_slope_m_per_km": 11.27,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 58.80104,
+      "lon": 5.54367,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 58.80089,
+      "lon": 5.53934,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 58.80057,
+      "lon": 5.53068,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 58.79994,
+      "lon": 5.51336,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 58.79931,
+      "lon": 5.49605,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 58.79803,
+      "lon": 5.46141,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 58.79611,
+      "lon": 5.40947,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 58.79351,
+      "lon": 5.34022,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 58.78953,
+      "lon": 5.23637,
+      "depth_m": 201.0
+    }
+  ]
+}

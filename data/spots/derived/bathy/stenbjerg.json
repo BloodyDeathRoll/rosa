@@ -1,0 +1,72 @@
+{
+  "spot": "stenbjerg",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    56.9298,
+    8.3361
+  ],
+  "bearing_seaward_deg": 290.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 26.0,
+  "mean_slope_m_per_km": 1.18,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 56.93057,
+      "lon": 8.33223,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 56.93134,
+      "lon": 8.32836,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 56.93287,
+      "lon": 8.32061,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 56.93595,
+      "lon": 8.30512,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 56.93902,
+      "lon": 8.28963,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 56.94516,
+      "lon": 8.25863,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 56.95435,
+      "lon": 8.21212,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 56.96657,
+      "lon": 8.15007,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 56.98485,
+      "lon": 8.05692,
+      "depth_m": 26.0
+    }
+  ]
+}

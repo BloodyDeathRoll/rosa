@@ -1,0 +1,72 @@
+{
+  "spot": "feall-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    56.5925,
+    -6.658
+  ],
+  "bearing_seaward_deg": 326.0,
+  "nearshore_depth_m": 19.0,
+  "offshore_depth_m": 78.0,
+  "mean_slope_m_per_km": 3.32,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 56.59436,
+      "lon": -6.66028,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 56.59623,
+      "lon": -6.66257,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 56.59996,
+      "lon": -6.66714,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 56.60741,
+      "lon": -6.67627,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 56.61486,
+      "lon": -6.68542,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 56.62977,
+      "lon": -6.70371,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 56.65212,
+      "lon": -6.73119,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 56.68192,
+      "lon": -6.76786,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 56.72659,
+      "lon": -6.82299,
+      "depth_m": 78.0
+    }
+  ]
+}

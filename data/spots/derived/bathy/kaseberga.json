@@ -1,0 +1,72 @@
+{
+  "spot": "kaseberga",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    55.3851,
+    14.0668
+  ],
+  "bearing_seaward_deg": 142.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 33.0,
+  "mean_slope_m_per_km": 1.52,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 55.38333,
+      "lon": 14.06924,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 55.38156,
+      "lon": 14.07167,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 55.37801,
+      "lon": 14.07655,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 55.37092,
+      "lon": 14.08629,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 55.36384,
+      "lon": 14.09602,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 55.34966,
+      "lon": 14.11549,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 55.32838,
+      "lon": 14.14466,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 55.3,
+      "lon": 14.18351,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 55.25741,
+      "lon": 14.24168,
+      "depth_m": 33.0
+    }
+  ]
+}

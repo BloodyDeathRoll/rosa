@@ -215,7 +215,34 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-09-29, DB = 2410 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-09-29, DB = 2636 spots, ALL sat-verified)
+
+**Northern Europe 0 -> 226 (2026-09-29, DB 2410 -> 2636): Scotland West 42, Scotland East 38, Germany 34,
+Netherlands 33, Denmark 26, Sweden 26, Norway South 18, Lofoten 9.** Eight boxes, eight parallel
+subagents, on `europe/united-kingdom/scotland`, `europe/{norway,denmark,netherlands,sweden}` and a
+LOCAL MERGE of `europe/germany/{schleswig-holstein,niedersachsen,mecklenburg-vorpommern}`
+(pyosmium `MergeInputReader` -> `data/osm/germany-coast.osm.pbf`; the whole-Germany extract is
+~4 GB for two short coasts). Two new basins (`scotland-west`, `lofoten`); the rest joined
+`north-sea`. **Zero usable Tier-A across all eight** (Germany's 5 surf nodes were shops, clubs and
+a sheltered bay; the Netherlands' one was a surf school). What was new:
+1. **Nominatim answered 429 for the whole run** with eight forks sharing it, so most pins rest on
+   Google + Photon + the tile. Run fewer geocoders in parallel, or pace Nominatim.
+2. **Google gives the village, farm, campsite or golf course, not the sand**, on every northern
+   coast: 160 of 226 pins moved. Photon put Sandend near Glasgow, Feall Bay in London and Laggan
+   Bay in Shetland - long spreads are the provider, not the break.
+3. **`ca_final.py` still drops Nordic letters** from ids (`lberg`, `hellest`, `nrland`): fold
+   o-slash/ae/a-ring by hand, and umlauts to ae/oe/ue.
+4. **Shore normals re-aimed at 54 pins**: harbour walls and groynes (Hvide Sande, Agger), Zeeland's
+   corner, Baltic bays whose ray reaches the far shore at 18 km (Lubeck Bay, Eckernforde, the Firth
+   of Forth, Bjare), and Hebridean islands in the ray. Steep Hebridean coves read land to 0.5-2 km
+   on every bearing (Balnakiel, Hushinish, Horgabost) and St Combs to 0.5 km; all end in water.
+
+**Gap queue:** Hanstholm's harbour reefs, Bornholm; Fraserburgh's reefs (Wisemans, Phingask,
+Westpoint), Caithness east; Lewis reefs, the Uists, Kintyre's Southend sub-peaks; Norway's Spot
+X/Y, Point Perfect, the Lista reefs, Karmoy; Vesteralen/Andoya (outside the Lofoten box);
+Maasvlakte's Slufter and Blokken, Schiermonnikoog; Fehmarn's Wulfener Hals, Kieler Forde, Sylt's
+Ellenbogen; Gotland's east coast and Faro (east of the Sweden box), Norrland. Ireland, Iceland,
+Faroe, Normandy and the English south coast are not seeded.
 
 **South Africa West 0 -> 68, Namibia 0 -> 10 (2026-09-29)** - two boxes on `africa/south-africa`
 (symlinked) and `africa/namibia`, a new `southwest-africa` basin. Zero OSM surf nodes: web flow end

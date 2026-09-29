@@ -1,0 +1,72 @@
+{
+  "spot": "zinnowitz",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    54.0818,
+    13.9161
+  ],
+  "bearing_seaward_deg": 33.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 12.0,
+  "mean_slope_m_per_km": 0.39,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 54.08369,
+      "lon": 13.91819,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 54.08557,
+      "lon": 13.92028,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 54.08934,
+      "lon": 13.92445,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 54.09688,
+      "lon": 13.93281,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 54.10442,
+      "lon": 13.94116,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 54.1195,
+      "lon": 13.95789,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 54.14212,
+      "lon": 13.98299,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 54.17227,
+      "lon": 14.01651,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 54.21747,
+      "lon": 14.06688,
+      "depth_m": 12.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "wassenaarse-slag",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    52.163,
+    4.3445
+  ],
+  "bearing_seaward_deg": 317.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 19.0,
+  "mean_slope_m_per_km": 1.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 52.16464,
+      "lon": 4.342,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 52.16629,
+      "lon": 4.3395,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 52.16958,
+      "lon": 4.3345,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 52.17615,
+      "lon": 4.3245,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 52.18273,
+      "lon": 4.31449,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 52.19588,
+      "lon": 4.29447,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 52.21559,
+      "lon": 4.26442,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 52.24187,
+      "lon": 4.2243,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 52.28125,
+      "lon": 4.16404,
+      "depth_m": 19.0
+    }
+  ]
+}

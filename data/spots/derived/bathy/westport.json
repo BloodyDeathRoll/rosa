@@ -1,0 +1,72 @@
+{
+  "spot": "westport",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    55.4739,
+    -5.7124
+  ],
+  "bearing_seaward_deg": 251.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 93.0,
+  "mean_slope_m_per_km": 4.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 55.47317,
+      "lon": -5.71615,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 55.47244,
+      "lon": -5.7199,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 55.47097,
+      "lon": -5.7274,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 55.46804,
+      "lon": -5.7424,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 55.46511,
+      "lon": -5.7574,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 55.45924,
+      "lon": -5.78739,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 55.45042,
+      "lon": -5.83235,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 55.43863,
+      "lon": -5.89227,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 55.4209,
+      "lon": -5.98209,
+      "depth_m": 93.0
+    }
+  ]
+}

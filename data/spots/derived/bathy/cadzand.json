@@ -1,0 +1,72 @@
+{
+  "spot": "cadzand",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    51.3813,
+    3.3864
+  ],
+  "bearing_seaward_deg": 334.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 8.0,
+  "mean_slope_m_per_km": 0.28,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 51.38332,
+      "lon": 3.38482,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 51.38534,
+      "lon": 3.38324,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 51.38938,
+      "lon": 3.38008,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 51.39747,
+      "lon": 3.37376,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 51.40555,
+      "lon": 3.36744,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 51.42171,
+      "lon": 3.35479,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 51.44595,
+      "lon": 3.3358,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 51.47827,
+      "lon": 3.31044,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 51.52674,
+      "lon": 3.27234,
+      "depth_m": 8.0
+    }
+  ]
+}

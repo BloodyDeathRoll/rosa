@@ -1,0 +1,72 @@
+{
+  "spot": "dalbeg",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    58.3136,
+    -6.7362
+  ],
+  "bearing_seaward_deg": 290.0,
+  "nearshore_depth_m": -18.0,
+  "offshore_depth_m": 75.0,
+  "mean_slope_m_per_km": 5.24,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 58.31437,
+      "lon": -6.74022,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 58.31514,
+      "lon": -6.74424,
+      "depth_m": -24.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 58.31667,
+      "lon": -6.75229,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 58.31975,
+      "lon": -6.76838,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 58.32282,
+      "lon": -6.78448,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 58.32895,
+      "lon": -6.81668,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 58.33814,
+      "lon": -6.865,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 58.35036,
+      "lon": -6.92946,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 58.36864,
+      "lon": -7.02625,
+      "depth_m": 75.0
+    }
+  ]
+}

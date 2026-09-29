@@ -1,0 +1,72 @@
+{
+  "spot": "st-combs",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    57.6604,
+    -1.9104
+  ],
+  "bearing_seaward_deg": 47.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 79.0,
+  "mean_slope_m_per_km": 4.96,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 57.66193,
+      "lon": -1.90733,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 57.66347,
+      "lon": -1.90425,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 57.66653,
+      "lon": -1.8981,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 57.67266,
+      "lon": -1.8858,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 57.67879,
+      "lon": -1.8735,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 57.69105,
+      "lon": -1.84887,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 57.70943,
+      "lon": -1.8119,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 57.73391,
+      "lon": -1.76256,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 57.77061,
+      "lon": -1.68841,
+      "depth_m": 79.0
+    }
+  ]
+}

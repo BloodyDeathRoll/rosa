@@ -1,0 +1,47 @@
+# Rosa spot database - Sweden: the Kattegat west coast (Halland), Skane and the Baltic east coast. Short-period wind swell; offshore direction varies per coast.
+# Every spot carries offshore_km along its own seaward normal.
+
+defaults: &se
+  timezone: Europe/Stockholm
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [180, 330]
+  ideal:
+    wind_dir: [45, 135]
+    size_m: [0.6, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-09-29 - sweden, 26 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 26 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/sweden/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: toro-stenstrand, name: "Torö Stenstrand", town: "Nynäshamn", lat: 58.7976, lon: 17.8006, offshore_direction: 333, swell_window: [88, 218], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: kneippbyn, name: "Kneippbyn", town: "Visby", lat: 57.6105, lon: 18.2417, offshore_direction: 134, swell_window: [249, 19], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: tofta, name: "Tofta", town: "Tofta", lat: 57.4876, lon: 18.1276, offshore_direction: 84, swell_window: [199, 329], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: 126 -> 84, middle of the open arc]
+  - { id: asa-stenudden, name: "Åsa Stenudden", town: "Åsa", lat: 57.3371, lon: 12.0646, offshore_direction: 66, swell_window: [181, 311], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: stravalla, name: "Stråvalla", town: "Frillesås", lat: 57.2971, lon: 12.1646, offshore_direction: 61, swell_window: [176, 306], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: 47 -> 61, middle of the open arc]
+  - { id: kasa, name: "Kåsa", town: "Varberg", lat: 57.0893, lon: 12.2419, offshore_direction: 51, swell_window: [166, 296], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: apelviken, name: "Apelviken", town: "Varberg", lat: 57.0849, lon: 12.2522, offshore_direction: 5, swell_window: [120, 250], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: olofsbo, name: "Olofsbo", town: "Olofsbo", lat: 56.9166, lon: 12.3883, offshore_direction: 22, swell_window: [137, 267], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: skrea, name: "Skrea", town: "Falkenberg", lat: 56.8832, lon: 12.5047, offshore_direction: 50, swell_window: [165, 295], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: ugglarp, name: "Ugglarp", town: "Ugglarp", lat: 56.8092, lon: 12.6093, offshore_direction: 72, swell_window: [187, 317], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: 128 -> 72, middle of the open arc]
+  - { id: steninge, name: "Steninge", town: "Steninge", lat: 56.7583, lon: 12.6291, offshore_direction: 91, swell_window: [206, 336], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: 186 -> 91, middle of the open arc]
+  - { id: vilsharad, name: "Vilshärad", town: "Villshärad", lat: 56.7003, lon: 12.6850, offshore_direction: 104, swell_window: [219, 349], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: ringenas, name: "Ringenäs", town: "Ringenäs", lat: 56.6803, lon: 12.7113, offshore_direction: 15, swell_window: [130, 260], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: tylosand, name: "Tylösand", town: "Tylösand", lat: 56.6487, lon: 12.7279, offshore_direction: 110, swell_window: [225, 355], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: sandhamn-halmstad, name: "Sandhamn", town: "Tylösand", lat: 56.6419, lon: 12.7336, offshore_direction: 322, swell_window: [77, 207], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: 280 -> 322, middle of the open arc]
+  - { id: ostra-stranden, name: "Östra Stranden", town: "Halmstad", lat: 56.6358, lon: 12.8942, offshore_direction: 63, swell_window: [178, 308], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: laxvik, name: "Laxvik", town: "Laxvik", lat: 56.5939, lon: 12.9242, offshore_direction: 56, swell_window: [171, 301], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: lagaoset, name: "Lagaoset", town: "Mellbystrand", lat: 56.5524, lon: 12.9453, offshore_direction: 96, swell_window: [211, 341], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed by GEBCO sweep: 51 -> 96, the 231 ray hits the Bjare peninsula at 18 km; open arc 240-312]
+  - { id: molle, name: "Mölle", town: "Mölle", lat: 56.2819, lon: 12.4916, offshore_direction: 53, swell_window: [168, 298], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: aspet, name: "Äspet", town: "Åhus", lat: 55.9179, lon: 14.3220, offshore_direction: 318, swell_window: [73, 203], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: 135 -> 318, middle of the open arc]
+  - { id: knabackshusen, name: "Knäbäckshusen", town: "Simrishamn", lat: 55.6405, lon: 14.2781, offshore_direction: 262, swell_window: [17, 147], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: vik-simrishamn, name: "Vik", town: "Vik", lat: 55.6165, lon: 14.2856, offshore_direction: 210, swell_window: [325, 95], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: brantevik, name: "Brantevik", town: "Brantevik", lat: 55.5123, lon: 14.3490, offshore_direction: 311, swell_window: [66, 196], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: hollviken, name: "Höllviken", town: "Höllviken", lat: 55.3991, lon: 12.9504, offshore_direction: 336, swell_window: [91, 221], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: kaseberga, name: "Kåseberga", town: "Kåseberga", lat: 55.3851, lon: 14.0668, offshore_direction: 322, swell_window: [77, 207], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: ales-stenar, name: "Ales Stenar", town: "Kåseberga", lat: 55.3820, lon: 14.0521, offshore_direction: 22, swell_window: [137, 267], offshore_km: 5.0, <<: *se }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: 341 -> 22, middle of the open arc]

@@ -1,0 +1,72 @@
+{
+  "spot": "ostra-stranden",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    56.6358,
+    12.8942
+  ],
+  "bearing_seaward_deg": 243.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 21.0,
+  "mean_slope_m_per_km": 1.13,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 56.63478,
+      "lon": 12.89056,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 56.63376,
+      "lon": 12.88692,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 56.63172,
+      "lon": 12.87963,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 56.62763,
+      "lon": 12.86507,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 56.62354,
+      "lon": 12.8505,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 56.61536,
+      "lon": 12.82139,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 56.60308,
+      "lon": 12.77774,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 56.58668,
+      "lon": 12.71958,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 56.56203,
+      "lon": 12.63245,
+      "depth_m": 21.0
+    }
+  ]
+}

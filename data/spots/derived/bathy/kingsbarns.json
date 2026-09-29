@@ -1,0 +1,72 @@
+{
+  "spot": "kingsbarns",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    56.3036,
+    -2.6446
+  ],
+  "bearing_seaward_deg": 70.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 45.0,
+  "mean_slope_m_per_km": 2.37,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 56.30437,
+      "lon": -2.64079,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 56.30514,
+      "lon": -2.63698,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 56.30667,
+      "lon": -2.62937,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 56.30975,
+      "lon": -2.61413,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 56.31282,
+      "lon": -2.59889,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 56.31896,
+      "lon": -2.56841,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 56.32815,
+      "lon": -2.52266,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 56.34038,
+      "lon": -2.46163,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 56.35866,
+      "lon": -2.37002,
+      "depth_m": 45.0
+    }
+  ]
+}

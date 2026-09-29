@@ -1,0 +1,72 @@
+{
+  "spot": "fehmarn-suedstrand",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    54.4096,
+    11.2043
+  ],
+  "bearing_seaward_deg": 156.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 0.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 54.40755,
+      "lon": 11.20587,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 54.40549,
+      "lon": 11.20744,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 54.40138,
+      "lon": 11.21058,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 54.39317,
+      "lon": 11.21687,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 54.38495,
+      "lon": 11.22314,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 54.36852,
+      "lon": 11.23569,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 54.34386,
+      "lon": 11.2545,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 54.31099,
+      "lon": 11.27954,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 54.26166,
+      "lon": 11.31703,
+      "depth_m": 20.0
+    }
+  ]
+}

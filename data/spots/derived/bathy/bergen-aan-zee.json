@@ -1,0 +1,72 @@
+{
+  "spot": "bergen-aan-zee",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    52.6612,
+    4.6245
+  ],
+  "bearing_seaward_deg": 278.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 19.0,
+  "mean_slope_m_per_km": 0.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 52.66151,
+      "lon": 4.62083,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 52.66183,
+      "lon": 4.61716,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 52.66245,
+      "lon": 4.60982,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 52.6637,
+      "lon": 4.59513,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 52.66495,
+      "lon": 4.58045,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 52.66744,
+      "lon": 4.55107,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 52.67115,
+      "lon": 4.50701,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 52.67609,
+      "lon": 4.44824,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 52.68343,
+      "lon": 4.36007,
+      "depth_m": 19.0
+    }
+  ]
+}

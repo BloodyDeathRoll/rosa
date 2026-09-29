@@ -1,0 +1,72 @@
+{
+  "spot": "cambo-sands",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    56.3043,
+    -2.6462
+  ],
+  "bearing_seaward_deg": 53.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 31.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 56.30565,
+      "lon": -2.64296,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 56.30701,
+      "lon": -2.63973,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 56.30971,
+      "lon": -2.63325,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 56.31512,
+      "lon": -2.6203,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 56.32053,
+      "lon": -2.60735,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 56.33134,
+      "lon": -2.58142,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 56.34755,
+      "lon": -2.54251,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 56.36915,
+      "lon": -2.49058,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 56.4015,
+      "lon": -2.41257,
+      "depth_m": 31.0
+    }
+  ]
+}

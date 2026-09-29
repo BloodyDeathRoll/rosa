@@ -1,0 +1,72 @@
+{
+  "spot": "camperduin",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    52.7252,
+    4.6356
+  ],
+  "bearing_seaward_deg": 280.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 21.0,
+  "mean_slope_m_per_km": 1.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 52.72559,
+      "lon": 4.63194,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 52.72598,
+      "lon": 4.62829,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 52.72676,
+      "lon": 4.62098,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 52.72832,
+      "lon": 4.60635,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 52.72988,
+      "lon": 4.59172,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 52.73299,
+      "lon": 4.56247,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 52.73764,
+      "lon": 4.51858,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 52.74381,
+      "lon": 4.46004,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 52.75302,
+      "lon": 4.37221,
+      "depth_m": 21.0
+    }
+  ]
+}

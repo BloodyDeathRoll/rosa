@@ -1,0 +1,72 @@
+{
+  "spot": "tisvildeleje",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    56.0544,
+    12.0542
+  ],
+  "bearing_seaward_deg": 311.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 25.0,
+  "mean_slope_m_per_km": 1.13,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 56.05587,
+      "lon": 12.05116,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 56.05735,
+      "lon": 12.04812,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 56.0603,
+      "lon": 12.04204,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 56.0662,
+      "lon": 12.02988,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 56.07209,
+      "lon": 12.01772,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 56.08389,
+      "lon": 11.99338,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 56.10156,
+      "lon": 11.95684,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 56.12511,
+      "lon": 11.90808,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 56.16041,
+      "lon": 11.83481,
+      "depth_m": 25.0
+    }
+  ]
+}

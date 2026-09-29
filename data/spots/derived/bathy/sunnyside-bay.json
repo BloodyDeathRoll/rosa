@@ -1,0 +1,72 @@
+{
+  "spot": "sunnyside-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    57.6934,
+    -2.7807
+  ],
+  "bearing_seaward_deg": 19.0,
+  "nearshore_depth_m": -26.0,
+  "offshore_depth_m": 91.0,
+  "mean_slope_m_per_km": 6.59,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 57.69553,
+      "lon": -2.77933,
+      "depth_m": -26.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 57.69765,
+      "lon": -2.77796,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 57.7019,
+      "lon": -2.77522,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 57.71041,
+      "lon": -2.76974,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 57.71891,
+      "lon": -2.76425,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 57.73591,
+      "lon": -2.75328,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 57.76142,
+      "lon": -2.73679,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 57.79542,
+      "lon": -2.71477,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 57.84642,
+      "lon": -2.68167,
+      "depth_m": 91.0
+    }
+  ]
+}

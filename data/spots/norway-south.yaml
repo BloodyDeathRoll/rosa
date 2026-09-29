@@ -1,0 +1,39 @@
+# Rosa spot database - Norway South: south-west Norway: Lista, Jaeren and Stad. North Sea and Norwegian Sea swell from the W-NW; offshore on an E wind.
+# Every spot carries offshore_km along its own seaward normal.
+
+defaults: &nos
+  timezone: Europe/Oslo
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [180, 340]
+  ideal:
+    wind_dir: [45, 135]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-09-29 - norway-south, 18 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 18 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/norway-south/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: ervik, name: "Ervik", town: "Ervik", lat: 62.1671, lon: 5.1146, offshore_direction: 116, swell_window: [231, 1], offshore_km: 5.0, <<: *nos }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: hoddevik, name: "Hoddevik", town: "Hoddevik", lat: 62.1238, lon: 5.1608, offshore_direction: 115, swell_window: [230, 0], offshore_km: 5.0, <<: *nos }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: akrasanden, name: "Åkrasanden", town: "Åkrehamn", lat: 59.2481, lon: 5.1955, offshore_direction: 62, swell_window: [177, 307], offshore_km: 5.0, <<: *nos }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed to the middle of the GEBCO open arc: the coastline normal crossed land]
+  - { id: sandvesanden, name: "Sandvesanden", town: "Sandve", lat: 59.1708, lon: 5.1947, offshore_direction: 55, swell_window: [170, 300], offshore_km: 5.0, <<: *nos }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: solastranden, name: "Solastranden", town: "Sola", lat: 58.8862, lon: 5.6016, offshore_direction: 80, swell_window: [195, 325], offshore_km: 5.0, <<: *nos }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: olberg, name: "Ølberg", town: "Sola", lat: 58.8698, lon: 5.5687, offshore_direction: 124, swell_window: [239, 9], offshore_km: 5.0, <<: *nos }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: vigdel, name: "Vigdel", town: "Vigdel", lat: 58.8609, lon: 5.5599, offshore_direction: 125, swell_window: [240, 10], offshore_km: 5.0, <<: *nos }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed to the middle of the GEBCO open arc: the coastline normal crossed land]
+  - { id: hellesto, name: "Hellestø", town: "Tjelta", lat: 58.8448, lon: 5.5605, offshore_direction: 80, swell_window: [195, 325], offshore_km: 5.0, <<: *nos }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: borestranda, name: "Borestranda", town: "Bore", lat: 58.8012, lon: 5.5480, offshore_direction: 86, swell_window: [201, 331], offshore_km: 5.0, <<: *nos }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: reve-havn, name: "Reve Havn", town: "Reve", lat: 58.7715, lon: 5.5163, offshore_direction: 111, swell_window: [226, 356], offshore_km: 5.0, <<: *nos }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: orre, name: "Orre", town: "Orre", lat: 58.7399, lon: 5.5126, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, <<: *nos }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: narland, name: "Nærland", town: "Nærbø", lat: 58.6873, lon: 5.5505, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, <<: *nos }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: prestegarden, name: "Prestegården", town: "Hå", lat: 58.6671, lon: 5.5451, offshore_direction: 26, swell_window: [141, 271], offshore_km: 5.0, <<: *nos }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: kvassheim, name: "Kvassheim", town: "Kvassheim", lat: 58.5458, lon: 5.6795, offshore_direction: 47, swell_window: [162, 292], offshore_km: 5.0, <<: *nos }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed to the middle of the GEBCO open arc: the coastline normal crossed land]
+  - { id: brusand, name: "Brusand", town: "Brusand", lat: 58.5352, lon: 5.7467, offshore_direction: 5, swell_window: [120, 250], offshore_km: 5.0, <<: *nos }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: ogna, name: "Ogna", town: "Ogna", lat: 58.5138, lon: 5.7947, offshore_direction: 84, swell_window: [199, 329], offshore_km: 5.0, <<: *nos }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: lista-fyr, name: "Lista Fyr", town: "Vestbygd", lat: 58.1080, lon: 6.5655, offshore_direction: 48, swell_window: [163, 293], offshore_km: 5.0, <<: *nos }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: havika, name: "Havika", town: "Farsund", lat: 58.0691, lon: 6.7128, offshore_direction: 11, swell_window: [126, 256], offshore_km: 5.0, <<: *nos }  # sat-verified 2026-09-29 (websearch-seeded)

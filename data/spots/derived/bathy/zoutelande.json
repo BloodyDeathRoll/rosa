@@ -1,0 +1,72 @@
+{
+  "spot": "zoutelande",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    51.4964,
+    3.4882
+  ],
+  "bearing_seaward_deg": 219.0,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 6.0,
+  "mean_slope_m_per_km": -0.39,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 51.49465,
+      "lon": 3.48593,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 51.49291,
+      "lon": 3.48365,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 51.48941,
+      "lon": 3.47911,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 51.48242,
+      "lon": 3.47002,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 51.47543,
+      "lon": 3.46094,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 51.46145,
+      "lon": 3.44278,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 51.44047,
+      "lon": 3.41556,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 51.41248,
+      "lon": 3.37931,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 51.37048,
+      "lon": 3.32502,
+      "depth_m": 6.0
+    }
+  ]
+}

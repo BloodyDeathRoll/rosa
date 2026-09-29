@@ -1,0 +1,72 @@
+{
+  "spot": "spey-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    57.6745,
+    -3.0943
+  ],
+  "bearing_seaward_deg": 6.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 91.0,
+  "mean_slope_m_per_km": 5.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 57.67674,
+      "lon": -3.09386,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 57.67897,
+      "lon": -3.09342,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 57.68344,
+      "lon": -3.09254,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 57.69239,
+      "lon": -3.09078,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 57.70133,
+      "lon": -3.08902,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 57.71922,
+      "lon": -3.0855,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 57.74605,
+      "lon": -3.08021,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 57.78183,
+      "lon": -3.07314,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 57.83549,
+      "lon": -3.06252,
+      "depth_m": 91.0
+    }
+  ]
+}

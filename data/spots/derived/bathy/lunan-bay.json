@@ -1,0 +1,72 @@
+{
+  "spot": "lunan-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    56.6468,
+    -2.5031
+  ],
+  "bearing_seaward_deg": 99.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 59.0,
+  "mean_slope_m_per_km": 2.76,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 56.64645,
+      "lon": -2.49906,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 56.6461,
+      "lon": -2.49502,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 56.64539,
+      "lon": -2.48694,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 56.64398,
+      "lon": -2.47079,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 56.64257,
+      "lon": -2.45464,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 56.63974,
+      "lon": -2.42234,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 56.63548,
+      "lon": -2.37389,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 56.62977,
+      "lon": -2.30932,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 56.62114,
+      "lon": -2.21249,
+      "depth_m": 59.0
+    }
+  ]
+}

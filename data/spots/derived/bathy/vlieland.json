@@ -1,0 +1,72 @@
+{
+  "spot": "vlieland",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    53.2869,
+    4.9922
+  ],
+  "bearing_seaward_deg": 320.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 28.0,
+  "mean_slope_m_per_km": 1.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 53.28862,
+      "lon": 4.98978,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 53.29034,
+      "lon": 4.98736,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 53.29379,
+      "lon": 4.98253,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 53.30068,
+      "lon": 4.97285,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 53.30756,
+      "lon": 4.96318,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 53.32134,
+      "lon": 4.94381,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 53.34199,
+      "lon": 4.91474,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 53.36951,
+      "lon": 4.87594,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 53.41078,
+      "lon": 4.81764,
+      "depth_m": 28.0
+    }
+  ]
+}

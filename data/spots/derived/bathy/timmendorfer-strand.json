@@ -1,0 +1,72 @@
+{
+  "spot": "timmendorfer-strand",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    53.9974,
+    10.7869
+  ],
+  "bearing_seaward_deg": 39.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 10.0,
+  "mean_slope_m_per_km": 0.34,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 53.99915,
+      "lon": 10.78931,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 54.00089,
+      "lon": 10.79171,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 54.00439,
+      "lon": 10.79653,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 54.01138,
+      "lon": 10.80616,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 54.01836,
+      "lon": 10.8158,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 54.03234,
+      "lon": 10.83508,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 54.05329,
+      "lon": 10.86403,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 54.08121,
+      "lon": 10.90267,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 54.12308,
+      "lon": 10.96073,
+      "depth_m": 10.0
+    }
+  ]
+}

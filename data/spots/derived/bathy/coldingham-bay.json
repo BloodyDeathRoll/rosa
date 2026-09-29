@@ -1,0 +1,72 @@
+{
+  "spot": "coldingham-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    55.8925,
+    -2.1339
+  ],
+  "bearing_seaward_deg": 58.0,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 70.0,
+  "mean_slope_m_per_km": 3.32,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 55.89369,
+      "lon": -2.1305,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 55.89488,
+      "lon": -2.1271,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 55.89726,
+      "lon": -2.1203,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 55.90203,
+      "lon": -2.10669,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 55.90679,
+      "lon": -2.09308,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 55.91631,
+      "lon": -2.06585,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 55.93058,
+      "lon": -2.02499,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 55.94958,
+      "lon": -1.97045,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 55.97804,
+      "lon": -1.88854,
+      "depth_m": 70.0
+    }
+  ]
+}

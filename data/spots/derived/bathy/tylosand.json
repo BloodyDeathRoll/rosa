@@ -1,0 +1,72 @@
+{
+  "spot": "tylosand",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    56.6487,
+    12.7279
+  ],
+  "bearing_seaward_deg": 290.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 23.0,
+  "mean_slope_m_per_km": 1.3,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 56.64947,
+      "lon": 12.72406,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 56.65024,
+      "lon": 12.72021,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 56.65177,
+      "lon": 12.71253,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 56.65485,
+      "lon": 12.69715,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 56.65792,
+      "lon": 12.68177,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 56.66406,
+      "lon": 12.65101,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 56.67325,
+      "lon": 12.60485,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 56.68547,
+      "lon": 12.54326,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 56.70376,
+      "lon": 12.45081,
+      "depth_m": 23.0
+    }
+  ]
+}

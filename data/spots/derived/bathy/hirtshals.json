@@ -1,0 +1,72 @@
+{
+  "spot": "hirtshals",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    57.5906,
+    9.9495
+  ],
+  "bearing_seaward_deg": 325.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 49.0,
+  "mean_slope_m_per_km": 2.54,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 57.59244,
+      "lon": 9.94709,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 57.59428,
+      "lon": 9.94469,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 57.59797,
+      "lon": 9.93987,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 57.60533,
+      "lon": 9.93024,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 57.6127,
+      "lon": 9.92061,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 57.62742,
+      "lon": 9.90133,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 57.64951,
+      "lon": 9.87238,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 57.67895,
+      "lon": 9.83373,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 57.72308,
+      "lon": 9.77563,
+      "depth_m": 49.0
+    }
+  ]
+}

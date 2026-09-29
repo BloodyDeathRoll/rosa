@@ -1,0 +1,72 @@
+{
+  "spot": "reve-havn",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    58.7715,
+    5.5163
+  ],
+  "bearing_seaward_deg": 291.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 176.0,
+  "mean_slope_m_per_km": 9.63,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 58.77231,
+      "lon": 5.51225,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 58.77311,
+      "lon": 5.5082,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 58.77472,
+      "lon": 5.5001,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 58.77794,
+      "lon": 5.48391,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 58.78116,
+      "lon": 5.4677,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 58.78759,
+      "lon": 5.43529,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 58.79722,
+      "lon": 5.38665,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 58.81003,
+      "lon": 5.32175,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 58.82918,
+      "lon": 5.22432,
+      "depth_m": 176.0
+    }
+  ]
+}

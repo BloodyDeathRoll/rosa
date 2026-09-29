@@ -1,0 +1,72 @@
+{
+  "spot": "sandvesanden",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    59.1708,
+    5.1947
+  ],
+  "bearing_seaward_deg": 235.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 241.0,
+  "mean_slope_m_per_km": 13.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 59.16951,
+      "lon": 5.19111,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 59.16822,
+      "lon": 5.18751,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 59.16564,
+      "lon": 5.18033,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 59.16048,
+      "lon": 5.16596,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 59.15532,
+      "lon": 5.1516,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 59.14499,
+      "lon": 5.12288,
+      "depth_m": 140.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 59.12948,
+      "lon": 5.07984,
+      "depth_m": 188.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 59.10879,
+      "lon": 5.02251,
+      "depth_m": 234.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 59.07769,
+      "lon": 4.93666,
+      "depth_m": 241.0
+    }
+  ]
+}

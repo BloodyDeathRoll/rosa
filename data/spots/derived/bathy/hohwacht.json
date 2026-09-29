@@ -1,0 +1,72 @@
+{
+  "spot": "hohwacht",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    54.3244,
+    10.6664
+  ],
+  "bearing_seaward_deg": 28.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 13.0,
+  "mean_slope_m_per_km": 0.45,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 54.32639,
+      "lon": 10.66821,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 54.32837,
+      "lon": 10.67002,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 54.33234,
+      "lon": 10.67364,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 54.34028,
+      "lon": 10.68088,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 54.34822,
+      "lon": 10.68813,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 54.3641,
+      "lon": 10.70263,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 54.38791,
+      "lon": 10.72441,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 54.41966,
+      "lon": 10.75348,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 54.46726,
+      "lon": 10.79717,
+      "depth_m": 13.0
+    }
+  ]
+}

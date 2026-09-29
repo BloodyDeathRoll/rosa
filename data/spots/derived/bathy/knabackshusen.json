@@ -1,0 +1,72 @@
+{
+  "spot": "knabackshusen",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    55.6405,
+    14.2781
+  ],
+  "bearing_seaward_deg": 82.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 51.0,
+  "mean_slope_m_per_km": 2.7,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 55.64081,
+      "lon": 14.28204,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 55.64113,
+      "lon": 14.28599,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 55.64175,
+      "lon": 14.29388,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 55.643,
+      "lon": 14.30966,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 55.64425,
+      "lon": 14.32544,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 55.64673,
+      "lon": 14.35701,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 55.65045,
+      "lon": 14.40437,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 55.65537,
+      "lon": 14.46753,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 55.6627,
+      "lon": 14.56229,
+      "depth_m": 51.0
+    }
+  ]
+}

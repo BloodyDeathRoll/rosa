@@ -1,0 +1,72 @@
+{
+  "spot": "bogsted-rende",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    56.98,
+    8.4038
+  ],
+  "bearing_seaward_deg": 299.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 0.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 56.98109,
+      "lon": 8.40019,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 56.98218,
+      "lon": 8.39658,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 56.98436,
+      "lon": 8.38936,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 56.98872,
+      "lon": 8.37492,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 56.99307,
+      "lon": 8.36048,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 57.00178,
+      "lon": 8.33159,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 57.01483,
+      "lon": 8.28822,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 57.0322,
+      "lon": 8.23035,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 57.05821,
+      "lon": 8.14344,
+      "depth_m": 20.0
+    }
+  ]
+}

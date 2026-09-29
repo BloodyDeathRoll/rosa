@@ -1,0 +1,72 @@
+{
+  "spot": "talisker-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    57.2839,
+    -6.4593
+  ],
+  "bearing_seaward_deg": 253.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 112.0,
+  "mean_slope_m_per_km": 6.7,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 57.28324,
+      "lon": -6.46328,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 57.28259,
+      "lon": -6.46726,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 57.28127,
+      "lon": -6.47521,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 57.27864,
+      "lon": -6.49112,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 57.276,
+      "lon": -6.50703,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 57.27073,
+      "lon": -6.53883,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 57.2628,
+      "lon": -6.58653,
+      "depth_m": 94.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 57.2522,
+      "lon": -6.65008,
+      "depth_m": 96.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 57.23625,
+      "lon": -6.74535,
+      "depth_m": 112.0
+    }
+  ]
+}

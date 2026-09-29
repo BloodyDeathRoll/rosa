@@ -1,0 +1,72 @@
+{
+  "spot": "ervik",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    62.1671,
+    5.1146
+  ],
+  "bearing_seaward_deg": 296.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 201.0,
+  "mean_slope_m_per_km": 11.15,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 62.16809,
+      "lon": 5.11027,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 62.16907,
+      "lon": 5.10594,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 62.17104,
+      "lon": 5.09729,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 62.17498,
+      "lon": 5.07997,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 62.17892,
+      "lon": 5.06264,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 62.18678,
+      "lon": 5.02798,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 62.19857,
+      "lon": 4.97596,
+      "depth_m": 198.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 62.21425,
+      "lon": 4.90653,
+      "depth_m": 157.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 62.23771,
+      "lon": 4.80225,
+      "depth_m": 201.0
+    }
+  ]
+}

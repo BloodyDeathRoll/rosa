@@ -1,0 +1,72 @@
+{
+  "spot": "sheigra",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    58.49,
+    -5.1207
+  ],
+  "bearing_seaward_deg": 234.0,
+  "nearshore_depth_m": 26.0,
+  "offshore_depth_m": 78.0,
+  "mean_slope_m_per_km": 2.93,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 58.48868,
+      "lon": -5.12418,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 58.48736,
+      "lon": -5.12766,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 58.48471,
+      "lon": -5.13462,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 58.47942,
+      "lon": -5.14853,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 58.47414,
+      "lon": -5.16244,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 58.46355,
+      "lon": -5.19025,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 58.44766,
+      "lon": -5.23193,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 58.42646,
+      "lon": -5.28745,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 58.39461,
+      "lon": -5.3706,
+      "depth_m": 78.0
+    }
+  ]
+}

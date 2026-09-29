@@ -1,0 +1,72 @@
+{
+  "spot": "toro-stenstrand",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    58.7976,
+    17.8006
+  ],
+  "bearing_seaward_deg": 153.0,
+  "nearshore_depth_m": 30.0,
+  "offshore_depth_m": 50.0,
+  "mean_slope_m_per_km": 1.13,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 58.7956,
+      "lon": 17.80257,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 58.79359,
+      "lon": 17.80454,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 58.78959,
+      "lon": 17.80848,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 58.78157,
+      "lon": 17.81635,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 58.77356,
+      "lon": 17.82423,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 58.75753,
+      "lon": 17.83996,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 58.73348,
+      "lon": 17.86353,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 58.70141,
+      "lon": 17.89491,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 58.65329,
+      "lon": 17.94187,
+      "depth_m": 50.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "vik-simrishamn",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    55.6165,
+    14.2856
+  ],
+  "bearing_seaward_deg": 30.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 29.0,
+  "mean_slope_m_per_km": 1.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 55.61845,
+      "lon": 14.28759,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 55.62039,
+      "lon": 14.28958,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 55.62429,
+      "lon": 14.29356,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 55.63208,
+      "lon": 14.30153,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 55.63986,
+      "lon": 14.3095,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 55.65544,
+      "lon": 14.32545,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 55.67879,
+      "lon": 14.3494,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 55.70992,
+      "lon": 14.38138,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 55.75661,
+      "lon": 14.42944,
+      "depth_m": 29.0
+    }
+  ]
+}

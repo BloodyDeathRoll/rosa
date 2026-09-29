@@ -1,0 +1,72 @@
+{
+  "spot": "hvide-sande-south",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    55.9943,
+    8.1201
+  ],
+  "bearing_seaward_deg": 220.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 18.0,
+  "mean_slope_m_per_km": 1.01,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 55.99258,
+      "lon": 8.11752,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 55.99086,
+      "lon": 8.11493,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 55.98741,
+      "lon": 8.10977,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 55.98052,
+      "lon": 8.09944,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 55.97363,
+      "lon": 8.08911,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 55.95984,
+      "lon": 8.06847,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 55.93916,
+      "lon": 8.03753,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 55.91157,
+      "lon": 7.99633,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 55.87015,
+      "lon": 7.93465,
+      "depth_m": 18.0
+    }
+  ]
+}

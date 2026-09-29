@@ -1,0 +1,72 @@
+{
+  "spot": "castricum-aan-zee",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    52.5574,
+    4.6042
+  ],
+  "bearing_seaward_deg": 285.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 17.0,
+  "mean_slope_m_per_km": 0.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 52.55798,
+      "lon": 4.60063,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 52.55856,
+      "lon": 4.59706,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 52.55973,
+      "lon": 4.58991,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 52.56205,
+      "lon": 4.57562,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 52.56438,
+      "lon": 4.56133,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 52.56902,
+      "lon": 4.53274,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 52.57597,
+      "lon": 4.48985,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 52.58521,
+      "lon": 4.43263,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 52.59902,
+      "lon": 4.34677,
+      "depth_m": 17.0
+    }
+  ]
+}

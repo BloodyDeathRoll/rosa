@@ -1,0 +1,72 @@
+{
+  "spot": "gilleleje",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    56.1287,
+    12.3058
+  ],
+  "bearing_seaward_deg": 342.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 29.0,
+  "mean_slope_m_per_km": 1.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 56.13084,
+      "lon": 12.30455,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 56.13298,
+      "lon": 12.30331,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 56.13725,
+      "lon": 12.30081,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 56.14581,
+      "lon": 12.29582,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 56.15436,
+      "lon": 12.29083,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 56.17146,
+      "lon": 12.28084,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 56.19712,
+      "lon": 12.26584,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 56.23132,
+      "lon": 12.2458,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 56.28262,
+      "lon": 12.21568,
+      "depth_m": 29.0
+    }
+  ]
+}

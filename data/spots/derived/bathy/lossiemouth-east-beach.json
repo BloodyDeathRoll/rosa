@@ -1,0 +1,72 @@
+{
+  "spot": "lossiemouth-east-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    57.7193,
+    -3.2762
+  ],
+  "bearing_seaward_deg": 50.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 78.0,
+  "mean_slope_m_per_km": 4.28,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 57.72075,
+      "lon": -3.27298,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 57.72219,
+      "lon": -3.26975,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 57.72508,
+      "lon": -3.2633,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 57.73086,
+      "lon": -3.25039,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 57.73664,
+      "lon": -3.23748,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 57.74819,
+      "lon": -3.21165,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 57.7655,
+      "lon": -3.17287,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 57.78857,
+      "lon": -3.12111,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 57.82314,
+      "lon": -3.04334,
+      "depth_m": 78.0
+    }
+  ]
+}

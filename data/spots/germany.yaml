@@ -1,0 +1,55 @@
+# Rosa spot database - Germany: the North Sea islands and coast (Sylt, St Peter-Ording, Norderney) and the Baltic (Fehmarn, Warnemuende, Ruegen). Short-period wind swell; offshore direction varies per coast.
+# Every spot carries offshore_km along its own seaward normal.
+
+defaults: &de
+  timezone: Europe/Berlin
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [180, 30]
+  ideal:
+    wind_dir: [45, 135]
+    size_m: [0.6, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-09-29 - germany, 34 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 34 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/germany/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: list-weststrand, name: "List Weststrand", town: "List", lat: 55.0508, lon: 8.3944, offshore_direction: 122, swell_window: [237, 7], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: buhne-16, name: "Buhne 16", town: "Kampen", lat: 54.9772, lon: 8.3411, offshore_direction: 108, swell_window: [223, 353], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: wenningstedt, name: "Wenningstedt", town: "Wenningstedt", lat: 54.9370, lon: 8.3129, offshore_direction: 107, swell_window: [222, 352], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: brandenburger-strand, name: "Brandenburger Strand", town: "Westerland", lat: 54.9121, lon: 8.2981, offshore_direction: 103, swell_window: [218, 348], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: rantum, name: "Rantum", town: "Rantum", lat: 54.8672, lon: 8.2883, offshore_direction: 92, swell_window: [207, 337], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: hoernum, name: "Hörnum", town: "Hörnum", lat: 54.7538, lon: 8.2780, offshore_direction: 94, swell_window: [209, 339], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: kreptitz, name: "Kreptitzer Heide", town: "Dranske", lat: 54.6553, lon: 13.2447, offshore_direction: 163, swell_window: [278, 48], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: damp, name: "Damp", town: "Damp", lat: 54.5863, lon: 10.0261, offshore_direction: 261, swell_window: [16, 146], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: the seeded normal pointed inland across the resort]
+  - { id: westermarkelsdorf, name: "Westermarkelsdorf", town: "Westermarkelsdorf", lat: 54.5210, lon: 11.0408, offshore_direction: 125, swell_window: [240, 10], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: buelk, name: "Bülk", town: "Strande", lat: 54.4559, lon: 10.1973, offshore_direction: 203, swell_window: [318, 88], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: kiekut, name: "Kiekut", town: "Eckernförde", lat: 54.4484, lon: 9.8751, offshore_direction: 229, swell_window: [344, 114], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: the N ray crosses Eckernfoerde Bay to the far shore; aimed at the bay mouth]
+  - { id: zingst, name: "Zingst", town: "Zingst", lat: 54.4416, lon: 12.6816, offshore_direction: 174, swell_window: [289, 59], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: prora, name: "Prora", town: "Prora", lat: 54.4312, lon: 13.5834, offshore_direction: 250, swell_window: [5, 135], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: brasilien, name: "Brasilien", town: "Schönberger Strand", lat: 54.4220, lon: 10.4000, offshore_direction: 219, swell_window: [334, 104], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: fehmarn-suedstrand, name: "Fehmarn Südstrand", town: "Burg auf Fehmarn", lat: 54.4096, lon: 11.2043, offshore_direction: 336, swell_window: [91, 221], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: staberhuk, name: "Staberhuk", town: "Fehmarn", lat: 54.4079, lon: 11.3119, offshore_direction: 225, swell_window: [340, 110], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: binz, name: "Binz", town: "Binz", lat: 54.3988, lon: 13.6240, offshore_direction: 203, swell_window: [318, 88], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: wustrow, name: "Wustrow", town: "Wustrow", lat: 54.3537, lon: 12.3877, offshore_direction: 77, swell_window: [192, 322], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: st-peter-ording, name: "St. Peter-Ording", town: "Sankt Peter-Ording", lat: 54.3329, lon: 8.5892, offshore_direction: 109, swell_window: [224, 354], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: hohwacht, name: "Hohwacht", town: "Hohwacht", lat: 54.3244, lon: 10.6664, offshore_direction: 208, swell_window: [323, 93], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: weissenhaeuser-strand, name: "Weißenhäuser Strand", town: "Wangels", lat: 54.3145, lon: 10.7945, offshore_direction: 147, swell_window: [262, 32], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: neuhaus-dierhagen, name: "Neuhaus", town: "Dierhagen", lat: 54.2860, lon: 12.3157, offshore_direction: 141, swell_window: [256, 26], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: dahme, name: "Dahme", town: "Dahme", lat: 54.2289, lon: 11.0878, offshore_direction: 255, swell_window: [10, 140], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: helgoland-duene, name: "Helgoland Düne", town: "Helgoland", lat: 54.1893, lon: 7.9121, offshore_direction: 159, swell_window: [274, 44], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: warnemuende, name: "Warnemünde", town: "Warnemünde", lat: 54.1843, lon: 12.0853, offshore_direction: 152, swell_window: [267, 37], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: kuehlungsborn, name: "Kühlungsborn", town: "Kühlungsborn", lat: 54.1532, lon: 11.7345, offshore_direction: 175, swell_window: [290, 60], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: karlshagen, name: "Karlshagen", town: "Karlshagen", lat: 54.1197, lon: 13.8470, offshore_direction: 232, swell_window: [347, 117], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: pelzerhaken, name: "Pelzerhaken", town: "Pelzerhaken", lat: 54.0874, lon: 10.8748, offshore_direction: 283, swell_window: [38, 168], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: the SE ray crosses Luebeck Bay to the Mecklenburg shore at 18 km]
+  - { id: zinnowitz, name: "Zinnowitz", town: "Zinnowitz", lat: 54.0818, lon: 13.9161, offshore_direction: 213, swell_window: [328, 98], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: timmendorfer-strand, name: "Timmendorfer Strand", town: "Timmendorfer Strand", lat: 53.9974, lon: 10.7869, offshore_direction: 219, swell_window: [334, 104], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: barendorf, name: "Barendorf", town: "Barendorf", lat: 53.9755, lon: 10.9554, offshore_direction: 197, swell_window: [312, 82], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: the NW ray reaches Fehmarn/Holstein at 18 km; aimed NNE out of Luebeck Bay]
+  - { id: weisse-duene, name: "Weiße Düne", town: "Norderney", lat: 53.7215, lon: 7.2010, offshore_direction: 184, swell_window: [299, 69], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: norderney-nordstrand, name: "Norderney Nordstrand", town: "Norderney", lat: 53.7149, lon: 7.1566, offshore_direction: 158, swell_window: [273, 43], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: borkum-nordstrand, name: "Borkum Nordstrand", town: "Borkum", lat: 53.5896, lon: 6.6566, offshore_direction: 77, swell_window: [192, 322], offshore_km: 5.0, <<: *de }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: the Wadden flats read as land at 8-18 km on the seeded bearing]

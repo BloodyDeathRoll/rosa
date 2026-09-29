@@ -1,0 +1,72 @@
+{
+  "spot": "yellowcraig",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    56.0639,
+    -2.7782
+  ],
+  "bearing_seaward_deg": 42.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 33.0,
+  "mean_slope_m_per_km": 1.8,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 56.06557,
+      "lon": -2.77551,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 56.06724,
+      "lon": -2.77281,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 56.07058,
+      "lon": -2.76742,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 56.07726,
+      "lon": -2.75663,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 56.08395,
+      "lon": -2.74585,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 56.0973,
+      "lon": -2.72426,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 56.11734,
+      "lon": -2.69185,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 56.14403,
+      "lon": -2.64858,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 56.18405,
+      "lon": -2.58357,
+      "depth_m": 33.0
+    }
+  ]
+}

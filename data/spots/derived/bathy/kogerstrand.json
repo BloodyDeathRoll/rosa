@@ -1,0 +1,72 @@
+{
+  "spot": "kogerstrand",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    53.1012,
+    4.7525
+  ],
+  "bearing_seaward_deg": 308.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 27.0,
+  "mean_slope_m_per_km": 1.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 53.10258,
+      "lon": 4.74955,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 53.10397,
+      "lon": 4.7466,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 53.10674,
+      "lon": 4.7407,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 53.11227,
+      "lon": 4.72889,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 53.11781,
+      "lon": 4.71708,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 53.12887,
+      "lon": 4.69345,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 53.14546,
+      "lon": 4.65798,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 53.16756,
+      "lon": 4.61064,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 53.20067,
+      "lon": 4.53955,
+      "depth_m": 27.0
+    }
+  ]
+}

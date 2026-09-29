@@ -1,0 +1,72 @@
+{
+  "spot": "weissenhaeuser-strand",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    54.3145,
+    10.7945
+  ],
+  "bearing_seaward_deg": 327.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 18.0,
+  "mean_slope_m_per_km": 0.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 54.31639,
+      "lon": 10.7924,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 54.31827,
+      "lon": 10.7903,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 54.32204,
+      "lon": 10.7861,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 54.32958,
+      "lon": 10.7777,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 54.33712,
+      "lon": 10.7693,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 54.3522,
+      "lon": 10.75248,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 54.37482,
+      "lon": 10.72723,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 54.40497,
+      "lon": 10.69352,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 54.45017,
+      "lon": 10.64286,
+      "depth_m": 18.0
+    }
+  ]
+}

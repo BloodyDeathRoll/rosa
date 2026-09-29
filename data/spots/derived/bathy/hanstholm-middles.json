@@ -1,0 +1,72 @@
+{
+  "spot": "hanstholm-middles",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    57.122,
+    8.6359
+  ],
+  "bearing_seaward_deg": 7.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 24.0,
+  "mean_slope_m_per_km": 1.3,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 57.12423,
+      "lon": 8.6364,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 57.12646,
+      "lon": 8.63691,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 57.13093,
+      "lon": 8.63792,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 57.13985,
+      "lon": 8.63994,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 57.14878,
+      "lon": 8.64196,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 57.16663,
+      "lon": 8.64601,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 57.19341,
+      "lon": 8.65208,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 57.22911,
+      "lon": 8.6602,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 57.28267,
+      "lon": 8.6724,
+      "depth_m": 24.0
+    }
+  ]
+}

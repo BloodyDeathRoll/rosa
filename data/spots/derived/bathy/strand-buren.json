@@ -1,0 +1,72 @@
+{
+  "spot": "strand-buren",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    53.4634,
+    5.8088
+  ],
+  "bearing_seaward_deg": 355.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 24.0,
+  "mean_slope_m_per_km": 1.35,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 53.46564,
+      "lon": 5.80847,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 53.46788,
+      "lon": 5.80814,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 53.47236,
+      "lon": 5.80748,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 53.48132,
+      "lon": 5.80617,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 53.49028,
+      "lon": 5.80485,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 53.50819,
+      "lon": 5.80221,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 53.53507,
+      "lon": 5.79825,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 53.57091,
+      "lon": 5.79296,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 53.62466,
+      "lon": 5.78501,
+      "depth_m": 24.0
+    }
+  ]
+}

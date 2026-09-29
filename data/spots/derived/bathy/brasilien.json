@@ -1,0 +1,72 @@
+{
+  "spot": "brasilien",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    54.422,
+    10.4
+  ],
+  "bearing_seaward_deg": 39.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 16.0,
+  "mean_slope_m_per_km": 0.73,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 54.42375,
+      "lon": 10.40243,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 54.42549,
+      "lon": 10.40486,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 54.42899,
+      "lon": 10.40973,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 54.43598,
+      "lon": 10.41946,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 54.44296,
+      "lon": 10.4292,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 54.45694,
+      "lon": 10.44868,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 54.47789,
+      "lon": 10.47793,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 54.50581,
+      "lon": 10.51697,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 54.54768,
+      "lon": 10.57564,
+      "depth_m": 16.0
+    }
+  ]
+}

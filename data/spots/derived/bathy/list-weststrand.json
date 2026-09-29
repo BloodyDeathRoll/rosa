@@ -1,0 +1,72 @@
+{
+  "spot": "list-weststrand",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    55.0508,
+    8.3944
+  ],
+  "bearing_seaward_deg": 302.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 14.0,
+  "mean_slope_m_per_km": 0.56,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 55.05199,
+      "lon": 8.39107,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 55.05318,
+      "lon": 8.38774,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 55.05556,
+      "lon": 8.38108,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 55.06033,
+      "lon": 8.36777,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 55.06509,
+      "lon": 8.35445,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 55.07461,
+      "lon": 8.32779,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 55.08888,
+      "lon": 8.28779,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 55.10788,
+      "lon": 8.23441,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 55.13635,
+      "lon": 8.15424,
+      "depth_m": 14.0
+    }
+  ]
+}

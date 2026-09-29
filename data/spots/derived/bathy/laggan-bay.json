@@ -1,0 +1,72 @@
+{
+  "spot": "laggan-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    55.6858,
+    -6.2733
+  ],
+  "bearing_seaward_deg": 249.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 89.0,
+  "mean_slope_m_per_km": 4.68,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 55.68499,
+      "lon": -6.27702,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 55.68419,
+      "lon": -6.28075,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 55.68258,
+      "lon": -6.28819,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 55.67935,
+      "lon": -6.30308,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 55.67612,
+      "lon": -6.31797,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 55.66966,
+      "lon": -6.34774,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 55.65996,
+      "lon": -6.39237,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 55.647,
+      "lon": -6.45184,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 55.6275,
+      "lon": -6.54098,
+      "depth_m": 89.0
+    }
+  ]
+}

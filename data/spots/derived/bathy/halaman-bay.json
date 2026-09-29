@@ -1,0 +1,72 @@
+{
+  "spot": "halaman-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    56.9736,
+    -7.5232
+  ],
+  "bearing_seaward_deg": 310.0,
+  "nearshore_depth_m": 26.0,
+  "offshore_depth_m": 63.0,
+  "mean_slope_m_per_km": 2.08,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 56.97505,
+      "lon": -7.52636,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 56.97649,
+      "lon": -7.52952,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 56.97938,
+      "lon": -7.53584,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 56.98516,
+      "lon": -7.54849,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 56.99094,
+      "lon": -7.56114,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 57.00249,
+      "lon": -7.58645,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 57.0198,
+      "lon": -7.62445,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 57.04288,
+      "lon": -7.67516,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 57.07745,
+      "lon": -7.75136,
+      "depth_m": 63.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "duindamseslag",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    52.2784,
+    4.4572
+  ],
+  "bearing_seaward_deg": 296.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 19.0,
+  "mean_slope_m_per_km": 0.96,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 52.27939,
+      "lon": 4.4539,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 52.28037,
+      "lon": 4.45059,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 52.28234,
+      "lon": 4.44399,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 52.28628,
+      "lon": 4.43077,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 52.29022,
+      "lon": 4.41756,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 52.29809,
+      "lon": 4.39111,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 52.30989,
+      "lon": 4.35143,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 52.3256,
+      "lon": 4.29849,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 52.34912,
+      "lon": 4.21902,
+      "depth_m": 19.0
+    }
+  ]
+}

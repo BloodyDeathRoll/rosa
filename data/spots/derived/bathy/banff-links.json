@@ -1,0 +1,72 @@
+{
+  "spot": "banff-links",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    57.671,
+    -2.5533
+  ],
+  "bearing_seaward_deg": 20.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 89.0,
+  "mean_slope_m_per_km": 4.96,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 57.67311,
+      "lon": -2.55186,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 57.67523,
+      "lon": -2.55042,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 57.67945,
+      "lon": -2.54755,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 57.6879,
+      "lon": -2.54179,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 57.69635,
+      "lon": -2.53603,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 57.71325,
+      "lon": -2.52451,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 57.7386,
+      "lon": -2.5072,
+      "depth_m": 99.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 57.77239,
+      "lon": -2.48409,
+      "depth_m": 101.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 57.82307,
+      "lon": -2.44933,
+      "depth_m": 89.0
+    }
+  ]
+}

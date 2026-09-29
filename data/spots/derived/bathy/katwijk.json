@@ -1,0 +1,72 @@
+{
+  "spot": "katwijk",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    52.1994,
+    4.3843
+  ],
+  "bearing_seaward_deg": 292.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 19.0,
+  "mean_slope_m_per_km": 0.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 52.20024,
+      "lon": 4.3809,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 52.20108,
+      "lon": 4.3775,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 52.20277,
+      "lon": 4.37069,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 52.20613,
+      "lon": 4.35709,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 52.2095,
+      "lon": 4.34348,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 52.21623,
+      "lon": 4.31625,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 52.2263,
+      "lon": 4.2754,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 52.23971,
+      "lon": 4.2209,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 52.25979,
+      "lon": 4.13909,
+      "depth_m": 19.0
+    }
+  ]
+}

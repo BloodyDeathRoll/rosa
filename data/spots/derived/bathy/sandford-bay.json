@@ -1,0 +1,72 @@
+{
+  "spot": "sandford-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    57.4813,
+    -1.7868
+  ],
+  "bearing_seaward_deg": 128.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 85.0,
+  "mean_slope_m_per_km": 5.13,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 57.47992,
+      "lon": -1.7835,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 57.47853,
+      "lon": -1.78021,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 57.47576,
+      "lon": -1.77362,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 57.47022,
+      "lon": -1.76044,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 57.46468,
+      "lon": -1.74727,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 57.4536,
+      "lon": -1.72094,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 57.43696,
+      "lon": -1.68147,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 57.41476,
+      "lon": -1.62889,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 57.38142,
+      "lon": -1.55016,
+      "depth_m": 85.0
+    }
+  ]
+}

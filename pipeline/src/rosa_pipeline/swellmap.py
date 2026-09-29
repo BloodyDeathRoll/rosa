@@ -86,7 +86,20 @@ BASINS: dict[str, tuple[str, ...]] = {
     # open North Atlantic and Morocco's box would have to stretch 700 km south-west
     "canaries": ("Canary Islands",),
     # the North Sea / Pentland Firth coasts face the other way
-    "north-sea": ("North East England", "North Scotland"),
+    "north-sea": (
+        "North East England",
+        "North Scotland",
+        "Scotland East",
+        "Norway South",
+        "Denmark",
+        "Netherlands",
+        "Germany",
+        "Sweden",
+    ),
+    # Scotland's Atlantic side takes open North Atlantic groundswell from the W-NW
+    "scotland-west": ("Scotland West",),
+    # Lofoten, above the Arctic Circle: Norwegian Sea swell, ~1,000 km north of Jaeren
+    "lofoten": ("Lofoten",),
     "central-america": ("Costa Rica", "Nicaragua", "El Salvador", "Panama"),
     # Mexico gets its own box rather than joining central-america: its spots run from
     # Tijuana to the Oaxaca isthmus, and merging them would stretch one frame over

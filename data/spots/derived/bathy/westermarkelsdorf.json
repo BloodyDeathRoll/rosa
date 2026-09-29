@@ -1,0 +1,72 @@
+{
+  "spot": "westermarkelsdorf",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    54.521,
+    11.0408
+  ],
+  "bearing_seaward_deg": 305.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 0.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 54.52229,
+      "lon": 11.03763,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 54.52358,
+      "lon": 11.03445,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 54.52616,
+      "lon": 11.02811,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 54.53131,
+      "lon": 11.01541,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 54.53647,
+      "lon": 11.00271,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 54.54677,
+      "lon": 10.9773,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 54.56222,
+      "lon": 10.93916,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 54.5828,
+      "lon": 10.88826,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 54.61363,
+      "lon": 10.81181,
+      "depth_m": 20.0
+    }
+  ]
+}

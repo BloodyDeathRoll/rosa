@@ -1,0 +1,72 @@
+{
+  "spot": "hargen",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    52.7144,
+    4.6346
+  ],
+  "bearing_seaward_deg": 261.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 0.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 52.71405,
+      "lon": 4.63093,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 52.7137,
+      "lon": 4.62727,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 52.71299,
+      "lon": 4.61994,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 52.71158,
+      "lon": 4.60528,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 52.71017,
+      "lon": 4.59062,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 52.70734,
+      "lon": 4.5613,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 52.70309,
+      "lon": 4.51733,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 52.69739,
+      "lon": 4.45872,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 52.68878,
+      "lon": 4.37083,
+      "depth_m": 20.0
+    }
+  ]
+}

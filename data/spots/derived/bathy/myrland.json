@@ -1,0 +1,72 @@
+{
+  "spot": "myrland",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    68.1644,
+    13.3705
+  ],
+  "bearing_seaward_deg": 358.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 166.0,
+  "mean_slope_m_per_km": 9.07,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 68.16665,
+      "lon": 13.37029,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 68.16889,
+      "lon": 13.37008,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 68.17339,
+      "lon": 13.36966,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 68.18238,
+      "lon": 13.36881,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 68.19136,
+      "lon": 13.36797,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 68.20934,
+      "lon": 13.36627,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 68.2363,
+      "lon": 13.36373,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 68.27225,
+      "lon": 13.36033,
+      "depth_m": 110.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 68.32618,
+      "lon": 13.3552,
+      "depth_m": 166.0
+    }
+  ]
+}

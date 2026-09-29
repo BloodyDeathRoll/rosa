@@ -1,0 +1,72 @@
+{
+  "spot": "scheveningen-zuid",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    52.0973,
+    4.2524
+  ],
+  "bearing_seaward_deg": 301.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 21.0,
+  "mean_slope_m_per_km": 1.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 52.09846,
+      "lon": 4.24926,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 52.09962,
+      "lon": 4.24613,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 52.10193,
+      "lon": 4.23985,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 52.10656,
+      "lon": 4.2273,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 52.11119,
+      "lon": 4.21474,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 52.12044,
+      "lon": 4.18963,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 52.13431,
+      "lon": 4.15193,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 52.15279,
+      "lon": 4.10163,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 52.18046,
+      "lon": 4.02611,
+      "depth_m": 21.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "balevullin",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    56.5216,
+    -6.9555
+  ],
+  "bearing_seaward_deg": 302.0,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 143.0,
+  "mean_slope_m_per_km": 7.44,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 56.52279,
+      "lon": -6.95896,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 56.52398,
+      "lon": -6.96241,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 56.52636,
+      "lon": -6.96933,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 56.53113,
+      "lon": -6.98316,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 56.53589,
+      "lon": -6.99699,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 56.54541,
+      "lon": -7.02467,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 56.55968,
+      "lon": -7.06622,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 56.57868,
+      "lon": -7.12166,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 56.60713,
+      "lon": -7.20493,
+      "depth_m": 143.0
+    }
+  ]
+}

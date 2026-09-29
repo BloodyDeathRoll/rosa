@@ -1,0 +1,72 @@
+{
+  "spot": "balmedie",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    57.2543,
+    -2.0342
+  ],
+  "bearing_seaward_deg": 113.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 73.0,
+  "mean_slope_m_per_km": 3.89,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 57.25342,
+      "lon": -2.03037,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 57.25254,
+      "lon": -2.02655,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 57.25079,
+      "lon": -2.0189,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 57.24727,
+      "lon": -2.0036,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 57.24375,
+      "lon": -1.9883,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 57.23671,
+      "lon": -1.95771,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 57.22613,
+      "lon": -1.91186,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 57.212,
+      "lon": -1.85076,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 57.19075,
+      "lon": -1.7592,
+      "depth_m": 73.0
+    }
+  ]
+}

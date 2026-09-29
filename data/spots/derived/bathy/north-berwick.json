@@ -1,0 +1,72 @@
+{
+  "spot": "north-berwick",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    56.0595,
+    -2.7136
+  ],
+  "bearing_seaward_deg": 29.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 1.8,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 56.06147,
+      "lon": -2.71165,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 56.06343,
+      "lon": -2.7097,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 56.06737,
+      "lon": -2.70579,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 56.07523,
+      "lon": -2.69798,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 56.08309,
+      "lon": -2.69016,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 56.09882,
+      "lon": -2.67452,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 56.12241,
+      "lon": -2.65103,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 56.15385,
+      "lon": -2.61966,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 56.201,
+      "lon": -2.57252,
+      "depth_m": 35.0
+    }
+  ]
+}

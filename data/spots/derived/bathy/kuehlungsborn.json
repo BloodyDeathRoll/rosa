@@ -1,0 +1,72 @@
+{
+  "spot": "kuehlungsborn",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    54.1532,
+    11.7345
+  ],
+  "bearing_seaward_deg": 355.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 25.0,
+  "mean_slope_m_per_km": 1.18,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 54.15544,
+      "lon": 11.73417,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 54.15768,
+      "lon": 11.73383,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 54.16216,
+      "lon": 11.73316,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 54.17112,
+      "lon": 11.73182,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 54.18008,
+      "lon": 11.73048,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 54.19799,
+      "lon": 11.7278,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 54.22487,
+      "lon": 11.72377,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 54.26071,
+      "lon": 11.7184,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 54.31446,
+      "lon": 11.71031,
+      "depth_m": 25.0
+    }
+  ]
+}

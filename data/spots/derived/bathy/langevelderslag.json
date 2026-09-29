@@ -1,0 +1,72 @@
+{
+  "spot": "langevelderslag",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    52.3012,
+    4.4718
+  ],
+  "bearing_seaward_deg": 292.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 18.0,
+  "mean_slope_m_per_km": 0.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 52.30204,
+      "lon": 4.46839,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 52.30288,
+      "lon": 4.46498,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 52.30457,
+      "lon": 4.45816,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 52.30793,
+      "lon": 4.44452,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 52.3113,
+      "lon": 4.43088,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 52.31802,
+      "lon": 4.4036,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 52.3281,
+      "lon": 4.36265,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 52.34151,
+      "lon": 4.30802,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 52.36159,
+      "lon": 4.22602,
+      "depth_m": 18.0
+    }
+  ]
+}

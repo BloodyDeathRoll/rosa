@@ -1,0 +1,72 @@
+{
+  "spot": "sandhamn-halmstad",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    56.6419,
+    12.7336
+  ],
+  "bearing_seaward_deg": 142.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 11.0,
+  "mean_slope_m_per_km": 0.56,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 56.64013,
+      "lon": 12.73612,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 56.63836,
+      "lon": 12.73863,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 56.63481,
+      "lon": 12.74367,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 56.62772,
+      "lon": 12.75373,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 56.62064,
+      "lon": 12.76379,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 56.60646,
+      "lon": 12.7839,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 56.58518,
+      "lon": 12.81403,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 56.5568,
+      "lon": 12.85416,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 56.51421,
+      "lon": 12.91424,
+      "depth_m": 11.0
+    }
+  ]
+}

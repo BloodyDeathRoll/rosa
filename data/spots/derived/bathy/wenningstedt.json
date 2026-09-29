@@ -1,0 +1,72 @@
+{
+  "spot": "wenningstedt",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    54.937,
+    8.3129
+  ],
+  "bearing_seaward_deg": 287.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 15.0,
+  "mean_slope_m_per_km": 0.73,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 54.93766,
+      "lon": 8.30916,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 54.93831,
+      "lon": 8.30541,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 54.93963,
+      "lon": 8.29793,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 54.94226,
+      "lon": 8.28295,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 54.94488,
+      "lon": 8.26798,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 54.95012,
+      "lon": 8.23802,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 54.95798,
+      "lon": 8.19307,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 54.96842,
+      "lon": 8.13311,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 54.98403,
+      "lon": 8.04311,
+      "depth_m": 15.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "barendorf",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    53.9755,
+    10.9554
+  ],
+  "bearing_seaward_deg": 17.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 1.07,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 53.97765,
+      "lon": 10.95652,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 53.9798,
+      "lon": 10.95764,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 53.9841,
+      "lon": 10.95987,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 53.9927,
+      "lon": 10.96435,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 54.0013,
+      "lon": 10.96882,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 54.0185,
+      "lon": 10.97778,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 54.0443,
+      "lon": 10.99122,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 54.07869,
+      "lon": 11.00918,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 54.13028,
+      "lon": 11.03617,
+      "depth_m": 20.0
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+# Rosa spot database - Scotland East: Scotland's North Sea side: the Moray coast, Fraserburgh, Aberdeen, Fife and East Lothian. N-NE North Sea swell from lows passing into Scandinavia; offshore on a W wind.
+# Every spot carries offshore_km along its own seaward normal.
+
+defaults: &sce
+  timezone: Europe/London
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [0, 150]
+  ideal:
+    wind_dir: [200, 290]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-29 - scotland-east, 38 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 38 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/scotland-east/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: lossiemouth-east-beach, name: "Lossiemouth East Beach", town: "Lossiemouth", lat: 57.7193, lon: -3.2762, offshore_direction: 230, swell_window: [345, 115], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: seeded 36 crossed land, now the middle of the open arc]
+  - { id: sandhaven, name: "Sandhaven", town: "Sandhaven", lat: 57.6984, lon: -2.0622, offshore_direction: 185, swell_window: [300, 70], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: seeded 97 crossed land, now the middle of the open arc]
+  - { id: broadsea, name: "Broadsea", town: "Fraserburgh", lat: 57.6981, lon: -2.0196, offshore_direction: 172, swell_window: [287, 57], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: cullen-bay, name: "Cullen Bay", town: "Cullen", lat: 57.6949, lon: -2.8356, offshore_direction: 200, swell_window: [315, 85], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: sunnyside-bay, name: "Sunnyside Bay", town: "Cullen", lat: 57.6934, lon: -2.7807, offshore_direction: 199, swell_window: [314, 84], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: fraserburgh, name: "Fraserburgh", town: "Fraserburgh", lat: 57.6844, lon: -2.0003, offshore_direction: 223, swell_window: [338, 108], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: sandend, name: "Sandend", town: "Sandend", lat: 57.6833, lon: -2.7462, offshore_direction: 180, swell_window: [295, 65], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: seeded 205 crossed land, now the middle of the open arc]
+  - { id: pennan, name: "Pennan", town: "Pennan", lat: 57.6793, lon: -2.2608, offshore_direction: 168, swell_window: [283, 53], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: philorth, name: "Philorth", town: "Fraserburgh", lat: 57.6755, lon: -1.9636, offshore_direction: 158, swell_window: [273, 43], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: spey-bay, name: "Spey Bay", town: "Spey Bay", lat: 57.6745, lon: -3.0943, offshore_direction: 186, swell_window: [301, 71], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: seeded 35 crossed land, now the middle of the open arc]
+  - { id: boyndie-bay, name: "Boyndie Bay", town: "Banff", lat: 57.6717, lon: -2.5554, offshore_direction: 200, swell_window: [315, 85], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: banff-links, name: "Banff Links", town: "Banff", lat: 57.6710, lon: -2.5533, offshore_direction: 200, swell_window: [315, 85], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: st-combs, name: "St Combs", town: "St Combs", lat: 57.6604, lon: -1.9104, offshore_direction: 227, swell_window: [342, 112], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: sandford-bay, name: "Sandford Bay", town: "Peterhead", lat: 57.4813, lon: -1.7868, offshore_direction: 308, swell_window: [63, 193], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: cruden-bay, name: "Cruden Bay", town: "Cruden Bay", lat: 57.4100, lon: -1.8561, offshore_direction: 304, swell_window: [59, 189], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: newburgh, name: "Newburgh", town: "Newburgh", lat: 57.3191, lon: -1.9771, offshore_direction: 292, swell_window: [47, 177], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: balmedie, name: "Balmedie", town: "Balmedie", lat: 57.2543, lon: -2.0342, offshore_direction: 293, swell_window: [48, 178], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: aberdeen-beach, name: "Aberdeen Beach", town: "Aberdeen", lat: 57.1547, lon: -2.0759, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: palmer-cove, name: "Palmer Cove", town: "Aberdeen", lat: 57.0964, lon: -2.0749, offshore_direction: 286, swell_window: [41, 171], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: seeded 126 crossed land, now the middle of the open arc]
+  - { id: stonehaven, name: "Stonehaven", town: "Stonehaven", lat: 56.9640, lon: -2.2063, offshore_direction: 229, swell_window: [344, 114], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: seeded 239 crossed land, now the middle of the open arc]
+  - { id: inverbervie, name: "Inverbervie", town: "Inverbervie", lat: 56.8424, lon: -2.2744, offshore_direction: 307, swell_window: [62, 192], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: seeded 269 crossed land, now the middle of the open arc]
+  - { id: johnshaven, name: "Johnshaven", town: "Johnshaven", lat: 56.7935, lon: -2.3343, offshore_direction: 321, swell_window: [76, 206], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: st-cyrus, name: "St Cyrus", town: "St Cyrus", lat: 56.7652, lon: -2.4106, offshore_direction: 304, swell_window: [59, 189], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: montrose, name: "Montrose", town: "Montrose", lat: 56.7094, lon: -2.4474, offshore_direction: 254, swell_window: [9, 139], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: seeded 292 crossed land, now the middle of the open arc]
+  - { id: lunan-bay, name: "Lunan Bay", town: "Arbroath", lat: 56.6468, lon: -2.5031, offshore_direction: 279, swell_window: [34, 164], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: arbroath, name: "Arbroath", town: "Arbroath", lat: 56.5510, lon: -2.6041, offshore_direction: 321, swell_window: [76, 206], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: st-andrews-west-sands, name: "St Andrews West Sands", town: "St Andrews", lat: 56.3541, lon: -2.8087, offshore_direction: 255, swell_window: [10, 140], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: st-andrews-east-sands, name: "St Andrews East Sands", town: "St Andrews", lat: 56.3361, lon: -2.7800, offshore_direction: 249, swell_window: [4, 134], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: cambo-sands, name: "Cambo Sands", town: "Kingsbarns", lat: 56.3043, lon: -2.6462, offshore_direction: 233, swell_window: [348, 118], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: kingsbarns, name: "Kingsbarns", town: "Kingsbarns", lat: 56.3036, lon: -2.6446, offshore_direction: 250, swell_window: [5, 135], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: yellowcraig, name: "Yellowcraig", town: "Dirleton", lat: 56.0639, lon: -2.7782, offshore_direction: 222, swell_window: [337, 107], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: seeded 178 crossed the Firth of Forth onto Fife at 18 km, now the middle of the open 18-66 deg arc]
+  - { id: north-berwick, name: "North Berwick", town: "North Berwick", lat: 56.0595, lon: -2.7136, offshore_direction: 209, swell_window: [324, 94], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: belhaven-bay, name: "Belhaven Bay", town: "Dunbar", lat: 56.0026, lon: -2.5499, offshore_direction: 242, swell_window: [357, 127], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: white-sands-dunbar, name: "White Sands", town: "Dunbar", lat: 55.9882, lon: -2.4654, offshore_direction: 196, swell_window: [311, 81], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: thorntonloch, name: "Thorntonloch", town: "Dunbar", lat: 55.9622, lon: -2.3979, offshore_direction: 247, swell_window: [2, 132], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: pease-bay, name: "Pease Bay", town: "Cockburnspath", lat: 55.9322, lon: -2.3330, offshore_direction: 209, swell_window: [324, 94], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: coldingham-bay, name: "Coldingham Bay", town: "Coldingham", lat: 55.8925, lon: -2.1339, offshore_direction: 238, swell_window: [353, 123], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: eyemouth, name: "Eyemouth", town: "Eyemouth", lat: 55.8734, lon: -2.0898, offshore_direction: 239, swell_window: [354, 124], offshore_km: 5.0, <<: *sce }  # sat-verified 2026-09-29 (websearch-seeded)

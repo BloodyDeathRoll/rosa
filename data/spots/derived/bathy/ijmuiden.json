@@ -1,0 +1,72 @@
+{
+  "spot": "ijmuiden",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    52.4505,
+    4.5514
+  ],
+  "bearing_seaward_deg": 255.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 18.0,
+  "mean_slope_m_per_km": 0.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 52.44992,
+      "lon": 4.54784,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 52.44934,
+      "lon": 4.54427,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 52.44817,
+      "lon": 4.53715,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 52.44584,
+      "lon": 4.5229,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 52.44351,
+      "lon": 4.50865,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 52.43884,
+      "lon": 4.48015,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 52.43182,
+      "lon": 4.43742,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 52.42245,
+      "lon": 4.38047,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 52.40833,
+      "lon": 4.29508,
+      "depth_m": 18.0
+    }
+  ]
+}

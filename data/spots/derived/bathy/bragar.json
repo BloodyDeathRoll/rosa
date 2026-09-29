@@ -1,0 +1,72 @@
+{
+  "spot": "bragar",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    58.3312,
+    -6.6888
+  ],
+  "bearing_seaward_deg": 328.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 66.0,
+  "mean_slope_m_per_km": 3.83,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 58.33311,
+      "lon": -6.69107,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 58.33501,
+      "lon": -6.69334,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 58.33883,
+      "lon": -6.69788,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 58.34645,
+      "lon": -6.70696,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 58.35408,
+      "lon": -6.71605,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 58.36933,
+      "lon": -6.73424,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 58.39219,
+      "lon": -6.76154,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 58.42267,
+      "lon": -6.79801,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 58.46838,
+      "lon": -6.85283,
+      "depth_m": 66.0
+    }
+  ]
+}

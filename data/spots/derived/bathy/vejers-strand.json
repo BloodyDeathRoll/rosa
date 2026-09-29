@@ -1,0 +1,72 @@
+{
+  "spot": "vejers-strand",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    55.6265,
+    8.115
+  ],
+  "bearing_seaward_deg": 288.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 9.0,
+  "mean_slope_m_per_km": 0.45,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 55.62719,
+      "lon": 8.11121,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 55.62789,
+      "lon": 8.10743,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 55.62928,
+      "lon": 8.09985,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 55.63205,
+      "lon": 8.0847,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 55.63483,
+      "lon": 8.06954,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 55.64037,
+      "lon": 8.03923,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 55.64867,
+      "lon": 7.99374,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 55.65971,
+      "lon": 7.93305,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 55.67622,
+      "lon": 7.84197,
+      "depth_m": 9.0
+    }
+  ]
+}

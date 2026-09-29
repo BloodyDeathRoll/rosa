@@ -1,0 +1,72 @@
+{
+  "spot": "olofsbo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    56.9166,
+    12.3883
+  ],
+  "bearing_seaward_deg": 202.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 1.8,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 56.91452,
+      "lon": 12.38676,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 56.91243,
+      "lon": 12.38521,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 56.90826,
+      "lon": 12.38213,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 56.89992,
+      "lon": 12.37596,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 56.89158,
+      "lon": 12.3698,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 56.8749,
+      "lon": 12.35748,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 56.84988,
+      "lon": 12.33901,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 56.81652,
+      "lon": 12.31444,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 56.76646,
+      "lon": 12.27765,
+      "depth_m": 35.0
+    }
+  ]
+}

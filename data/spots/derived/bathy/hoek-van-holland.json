@@ -1,0 +1,72 @@
+{
+  "spot": "hoek-van-holland",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    51.995,
+    4.1137
+  ],
+  "bearing_seaward_deg": 316.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 22.0,
+  "mean_slope_m_per_km": 1.07,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 51.99662,
+      "lon": 4.11116,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 51.99823,
+      "lon": 4.10863,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 52.00147,
+      "lon": 4.10355,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 52.00794,
+      "lon": 4.0934,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 52.0144,
+      "lon": 4.08325,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 52.02733,
+      "lon": 4.06293,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 52.04673,
+      "lon": 4.03244,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 52.07257,
+      "lon": 3.99174,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 52.1113,
+      "lon": 3.9306,
+      "depth_m": 22.0
+    }
+  ]
+}

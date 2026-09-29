@@ -1,0 +1,72 @@
+{
+  "spot": "rageleje",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    56.099,
+    12.1598
+  ],
+  "bearing_seaward_deg": 330.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 27.0,
+  "mean_slope_m_per_km": 1.13,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 56.10095,
+      "lon": 12.15778,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 56.10289,
+      "lon": 12.15577,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 56.10679,
+      "lon": 12.15174,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 56.11458,
+      "lon": 12.14367,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 56.12236,
+      "lon": 12.1356,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 56.13794,
+      "lon": 12.11945,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 56.16129,
+      "lon": 12.0952,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 56.19242,
+      "lon": 12.06282,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 56.2391,
+      "lon": 12.01416,
+      "depth_m": 27.0
+    }
+  ]
+}

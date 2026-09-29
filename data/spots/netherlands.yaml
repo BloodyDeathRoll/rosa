@@ -1,0 +1,54 @@
+# Rosa spot database - Netherlands: the Dutch North Sea coast, Zeeland to the Wadden. Short-period wind swell from the SW-N; offshore on an E wind.
+# Every spot carries offshore_km along its own seaward normal.
+
+defaults: &nl
+  timezone: Europe/Amsterdam
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [180, 20]
+  ideal:
+    wind_dir: [45, 135]
+    size_m: [0.6, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-09-29 - netherlands, 33 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 33 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/netherlands/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: strand-buren, name: "Strand Buren", town: "Buren", lat: 53.4634, lon: 5.8088, offshore_direction: 175, swell_window: [290, 60], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: terschelling, name: "Terschelling", town: "Terschelling", lat: 53.4045, lon: 5.2597, offshore_direction: 163, swell_window: [278, 48], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: vlieland, name: "Vlieland", town: "Vlieland", lat: 53.2869, lon: 4.9922, offshore_direction: 140, swell_window: [255, 25], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: kogerstrand, name: "Kogerstrand", town: "De Koog", lat: 53.1012, lon: 4.7525, offshore_direction: 128, swell_window: [243, 13], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed to the middle of the GEBCO open arc]
+  - { id: texel-paal-17, name: "Texel Paal 17", town: "De Koog", lat: 53.0809, lon: 4.7331, offshore_direction: 117, swell_window: [232, 2], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: westerslag, name: "Westerslag", town: "Den Hoorn", lat: 53.0560, lon: 4.7148, offshore_direction: 108, swell_window: [223, 353], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: texel-paal-12, name: "Texel Paal 12", town: "Den Hoorn", lat: 53.0389, lon: 4.7103, offshore_direction: 93, swell_window: [208, 338], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: callantsoog, name: "Callantsoog", town: "Callantsoog", lat: 52.8349, lon: 4.6888, offshore_direction: 95, swell_window: [210, 340], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed to the middle of the GEBCO open arc]
+  - { id: petten, name: "Petten", town: "Petten", lat: 52.7714, lon: 4.6535, offshore_direction: 112, swell_window: [227, 357], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: camperduin, name: "Camperduin", town: "Camperduin", lat: 52.7252, lon: 4.6356, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: hargen, name: "Hargen", town: "Schoorl", lat: 52.7144, lon: 4.6346, offshore_direction: 81, swell_window: [196, 326], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: bergen-aan-zee, name: "Bergen aan Zee", town: "Bergen aan Zee", lat: 52.6612, lon: 4.6245, offshore_direction: 98, swell_window: [213, 343], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: egmond-aan-zee, name: "Egmond aan Zee", town: "Egmond aan Zee", lat: 52.6193, lon: 4.6163, offshore_direction: 108, swell_window: [223, 353], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: castricum-aan-zee, name: "Castricum aan Zee", town: "Castricum", lat: 52.5574, lon: 4.6042, offshore_direction: 105, swell_window: [220, 350], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: wijk-aan-zee-noordpier, name: "Wijk aan Zee Noordpier", town: "Wijk aan Zee", lat: 52.4687, lon: 4.5620, offshore_direction: 99, swell_window: [214, 344], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed to the middle of the GEBCO open arc]
+  - { id: ijmuiden, name: "IJmuiden", town: "IJmuiden", lat: 52.4505, lon: 4.5514, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: zandvoort, name: "Zandvoort", town: "Zandvoort", lat: 52.3697, lon: 4.5194, offshore_direction: 110, swell_window: [225, 355], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: langevelderslag, name: "Langevelderslag", town: "Noordwijk", lat: 52.3012, lon: 4.4718, offshore_direction: 112, swell_window: [227, 357], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: duindamseslag, name: "Duindamseslag", town: "Noordwijk", lat: 52.2784, lon: 4.4572, offshore_direction: 116, swell_window: [231, 1], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: noordwijk, name: "Noordwijk", town: "Noordwijk", lat: 52.2517, lon: 4.4306, offshore_direction: 118, swell_window: [233, 3], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: katwijk, name: "Katwijk", town: "Katwijk", lat: 52.1994, lon: 4.3843, offshore_direction: 112, swell_window: [227, 357], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: wassenaarse-slag, name: "Wassenaarse Slag", town: "Wassenaar", lat: 52.1630, lon: 4.3445, offshore_direction: 137, swell_window: [252, 22], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: scheveningen-pier, name: "Scheveningen Pier", town: "Scheveningen", lat: 52.1168, lon: 4.2809, offshore_direction: 136, swell_window: [251, 21], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: scheveningen-zuid, name: "Scheveningen Zuid", town: "Scheveningen", lat: 52.0973, lon: 4.2524, offshore_direction: 121, swell_window: [236, 6], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: kijkduin, name: "Kijkduin", town: "The Hague", lat: 52.0706, lon: 4.2162, offshore_direction: 132, swell_window: [247, 17], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: ter-heijde, name: "Ter Heijde", town: "Ter Heijde", lat: 52.0328, lon: 4.1628, offshore_direction: 127, swell_window: [242, 12], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: s-gravenzande, name: "'s-Gravenzande", town: "'s-Gravenzande", lat: 52.0129, lon: 4.1379, offshore_direction: 131, swell_window: [246, 16], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: hoek-van-holland, name: "Hoek van Holland", town: "Hoek van Holland", lat: 51.9950, lon: 4.1137, offshore_direction: 136, swell_window: [251, 21], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: maasvlakte, name: "Maasvlakte", town: "Rotterdam", lat: 51.9289, lon: 3.9786, offshore_direction: 69, swell_window: [184, 314], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: domburg, name: "Domburg", town: "Domburg", lat: 51.5643, lon: 3.4877, offshore_direction: 144, swell_window: [259, 29], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed to the middle of the GEBCO open arc]
+  - { id: westkapelle, name: "Westkapelle", town: "Westkapelle", lat: 51.5179, lon: 3.4473, offshore_direction: 42, swell_window: [157, 287], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed to the middle of the GEBCO open arc]
+  - { id: zoutelande, name: "Zoutelande", town: "Zoutelande", lat: 51.4964, lon: 3.4882, offshore_direction: 39, swell_window: [154, 284], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed to the middle of the GEBCO open arc]
+  - { id: cadzand, name: "Cadzand", town: "Cadzand-Bad", lat: 51.3813, lon: 3.3864, offshore_direction: 154, swell_window: [269, 39], offshore_km: 5.0, <<: *nl }  # sat-verified 2026-09-29 (websearch-seeded)

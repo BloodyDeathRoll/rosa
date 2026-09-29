@@ -1,0 +1,72 @@
+{
+  "spot": "apelviken",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    57.0849,
+    12.2522
+  ],
+  "bearing_seaward_deg": 185.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 32.0,
+  "mean_slope_m_per_km": 1.75,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 57.08266,
+      "lon": 12.25184,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 57.08042,
+      "lon": 12.25148,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 57.07594,
+      "lon": 12.25076,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 57.06698,
+      "lon": 12.24932,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 57.05802,
+      "lon": 12.24788,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 57.0401,
+      "lon": 12.245,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 57.01323,
+      "lon": 12.24068,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 56.97739,
+      "lon": 12.23494,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 56.92364,
+      "lon": 12.22635,
+      "depth_m": 32.0
+    }
+  ]
+}

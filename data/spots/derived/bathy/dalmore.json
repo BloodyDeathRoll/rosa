@@ -1,0 +1,72 @@
+{
+  "spot": "dalmore",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    58.3059,
+    -6.7572
+  ],
+  "bearing_seaward_deg": 335.0,
+  "nearshore_depth_m": -30.0,
+  "offshore_depth_m": 63.0,
+  "mean_slope_m_per_km": 5.24,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 58.30794,
+      "lon": -6.75901,
+      "depth_m": -30.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 58.30998,
+      "lon": -6.76082,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 58.31405,
+      "lon": -6.76444,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 58.3222,
+      "lon": -6.77167,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 58.33035,
+      "lon": -6.77892,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 58.34665,
+      "lon": -6.79341,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 58.37109,
+      "lon": -6.81518,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 58.40368,
+      "lon": -6.84425,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 58.45254,
+      "lon": -6.88796,
+      "depth_m": 63.0
+    }
+  ]
+}

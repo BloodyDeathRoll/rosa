@@ -1,0 +1,72 @@
+{
+  "spot": "narland",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    58.6873,
+    5.5505
+  ],
+  "bearing_seaward_deg": 270.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 236.0,
+  "mean_slope_m_per_km": 13.3,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 58.6873,
+      "lon": 5.54617,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 58.6873,
+      "lon": 5.54185,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 58.6873,
+      "lon": 5.5332,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 58.6873,
+      "lon": 5.51589,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 58.68729,
+      "lon": 5.49859,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 58.68727,
+      "lon": 5.46398,
+      "depth_m": 118.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 58.68723,
+      "lon": 5.41207,
+      "depth_m": 232.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 58.68713,
+      "lon": 5.34285,
+      "depth_m": 245.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 58.68692,
+      "lon": 5.23902,
+      "depth_m": 236.0
+    }
+  ]
+}

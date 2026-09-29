@@ -1,0 +1,72 @@
+{
+  "spot": "cruden-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    57.41,
+    -1.8561
+  ],
+  "bearing_seaward_deg": 124.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 76.0,
+  "mean_slope_m_per_km": 4.45,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 57.40874,
+      "lon": -1.85264,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 57.40749,
+      "lon": -1.84918,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 57.40497,
+      "lon": -1.84226,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 57.39994,
+      "lon": -1.82842,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 57.39491,
+      "lon": -1.81459,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 57.38484,
+      "lon": -1.78694,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 57.36972,
+      "lon": -1.74548,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 57.34954,
+      "lon": -1.69027,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 57.31923,
+      "lon": -1.60756,
+      "depth_m": 76.0
+    }
+  ]
+}

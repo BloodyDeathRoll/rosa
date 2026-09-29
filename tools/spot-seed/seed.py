@@ -283,6 +283,33 @@ REGIONS = {
     # Sicily, the whole island plus the Egadi (europe/italy/isole - the extract also holds
     # Sardinia, which is outside this box). Lampedusa and Pantelleria are not seeded.
     "sicily": (36.60, 12.25, 38.35, 15.70),
+    # ---- northern Europe (2026-09-29). Scotland on europe/united-kingdom/scotland; the
+    # North Sea / Baltic countries on their own country extracts.
+    # Scotland's Atlantic side: Kintyre (Machrihanish, Westport), Islay, Tiree, the Outer
+    # Hebrides (Lewis, Harris) and the north-west mainland to Durness. The north coast from
+    # Farr east is north-scotland's.
+    "scotland-west": (55.25, -7.70, 58.65, -4.50),
+    # Scotland's North Sea side: the Moray coast (Sandend, Lossiemouth), Fraserburgh,
+    # Aberdeen, Lunan Bay, Fife (St Andrews) and East Lothian (Belhaven, Pease Bay)
+    "scotland-east": (55.85, -3.60, 57.75, -1.75),
+    # Norway's south-west: Lista and Jaeren (Borestranda, Brusand, Point Perfect) north to
+    # Stad (Hoddevik, Ervik). Lofoten is its own box.
+    "norway-south": (57.95, 4.80, 62.30, 7.20),
+    # Lofoten: Unstad, Flakstad, Skagsanden
+    "lofoten": (67.85, 12.90, 68.45, 14.50),
+    # Denmark: the North Sea coast of Jutland (Klitmoller "Cold Hawaii", Hanstholm, Hvide
+    # Sande, Lokken, Skagen) and north Zealand's Kattegat shore (Hornbaek)
+    "denmark": (55.00, 7.95, 57.80, 12.70),
+    # the Dutch coast: Zeeland (Domburg, Westkapelle) north through Scheveningen,
+    # Zandvoort and Wijk aan Zee to the Wadden islands
+    "netherlands": (51.35, 3.35, 53.55, 7.00),
+    # Germany's two coasts on a merged extract (schleswig-holstein + niedersachsen +
+    # mecklenburg-vorpommern = data/osm/germany-coast.osm.pbf): the North Sea (Sylt,
+    # St Peter-Ording, Norderney) and the Baltic (Fehmarn, Weissenhaus, Warnemuende, Ruegen)
+    "germany": (53.40, 6.60, 55.10, 14.50),
+    # Sweden: the Halland / Kattegat west coast (Apelviken, Tylosand), Skane (Molle) and
+    # the Baltic east coast (Toro)
+    "sweden": (55.30, 11.10, 59.00, 18.50),
     # Algeria's whole Mediterranean coast, the Moroccan border to Tunisia: Oran and
     # Mostaganem in the west, the Algiers / Tipaza beaches, Bejaia, Jijel, Skikda, Annaba
     "algeria": (35.05, -2.25, 37.15, 8.65),

@@ -1,0 +1,72 @@
+{
+  "spot": "sandwood-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    58.5432,
+    -5.0559
+  ],
+  "bearing_seaward_deg": 322.0,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 82.0,
+  "mean_slope_m_per_km": 4.0,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 58.54497,
+      "lon": -5.05855,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 58.54674,
+      "lon": -5.06121,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 58.55029,
+      "lon": -5.06651,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 58.55737,
+      "lon": -5.07713,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 58.56446,
+      "lon": -5.08775,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 58.57862,
+      "lon": -5.109,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 58.59987,
+      "lon": -5.14092,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 58.62818,
+      "lon": -5.18353,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 58.67062,
+      "lon": -5.24757,
+      "depth_m": 82.0
+    }
+  ]
+}

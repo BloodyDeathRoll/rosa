@@ -1,0 +1,72 @@
+{
+  "spot": "st-peter-ording",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    54.3329,
+    8.5892
+  ],
+  "bearing_seaward_deg": 289.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 10.0,
+  "mean_slope_m_per_km": 0.56,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 54.33363,
+      "lon": 8.58555,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 54.33436,
+      "lon": 8.58191,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 54.33583,
+      "lon": 8.57462,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 54.33875,
+      "lon": 8.56003,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 54.34168,
+      "lon": 8.54544,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 54.34752,
+      "lon": 8.51626,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 54.35627,
+      "lon": 8.47247,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 54.36791,
+      "lon": 8.41405,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 54.38532,
+      "lon": 8.32636,
+      "depth_m": 10.0
+    }
+  ]
+}

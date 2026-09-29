@@ -1,0 +1,72 @@
+{
+  "spot": "wijk-aan-zee-noordpier",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    52.4687,
+    4.562
+  ],
+  "bearing_seaward_deg": 279.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 22.0,
+  "mean_slope_m_per_km": 1.13,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 52.46905,
+      "lon": 4.55835,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 52.4694,
+      "lon": 4.55471,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 52.47011,
+      "lon": 4.54742,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 52.47151,
+      "lon": 4.53284,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 52.47291,
+      "lon": 4.51825,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 52.47571,
+      "lon": 4.48908,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 52.4799,
+      "lon": 4.44532,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 52.48545,
+      "lon": 4.38696,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 52.49373,
+      "lon": 4.2994,
+      "depth_m": 22.0
+    }
+  ]
+}

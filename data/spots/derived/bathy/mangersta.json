@@ -1,0 +1,72 @@
+{
+  "spot": "mangersta",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    58.1644,
+    -7.0898
+  ],
+  "bearing_seaward_deg": 253.0,
+  "nearshore_depth_m": -15.0,
+  "offshore_depth_m": 91.0,
+  "mean_slope_m_per_km": 5.97,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 58.16374,
+      "lon": -7.09388,
+      "depth_m": -15.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 58.16309,
+      "lon": -7.09795,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 58.16177,
+      "lon": -7.1061,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 58.15914,
+      "lon": -7.1224,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 58.1565,
+      "lon": -7.1387,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 58.15123,
+      "lon": -7.17129,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 58.1433,
+      "lon": -7.22016,
+      "depth_m": 130.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 58.1327,
+      "lon": -7.28528,
+      "depth_m": 119.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 58.11674,
+      "lon": -7.38289,
+      "depth_m": 91.0
+    }
+  ]
+}

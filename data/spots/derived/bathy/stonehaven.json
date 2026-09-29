@@ -1,0 +1,72 @@
+{
+  "spot": "stonehaven",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    56.964,
+    -2.2063
+  ],
+  "bearing_seaward_deg": 49.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 63.0,
+  "mean_slope_m_per_km": 3.66,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 56.96547,
+      "lon": -2.20319,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 56.96695,
+      "lon": -2.20007,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 56.9699,
+      "lon": -2.19385,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 56.9758,
+      "lon": -2.18139,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 56.98169,
+      "lon": -2.16893,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 56.99348,
+      "lon": -2.144,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 57.01116,
+      "lon": -2.10657,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 57.03471,
+      "lon": -2.05662,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 57.07,
+      "lon": -1.98156,
+      "depth_m": 63.0
+    }
+  ]
+}

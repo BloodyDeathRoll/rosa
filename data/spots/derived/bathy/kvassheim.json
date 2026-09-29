@@ -1,0 +1,72 @@
+{
+  "spot": "kvassheim",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    58.5458,
+    5.6795
+  ],
+  "bearing_seaward_deg": 227.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 314.0,
+  "mean_slope_m_per_km": 17.63,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 58.54427,
+      "lon": 5.67635,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 58.54273,
+      "lon": 5.6732,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 58.53967,
+      "lon": 5.6669,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 58.53353,
+      "lon": 5.6543,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 58.52739,
+      "lon": 5.64171,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 58.51512,
+      "lon": 5.61653,
+      "depth_m": 245.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 58.49669,
+      "lon": 5.57881,
+      "depth_m": 286.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 58.47211,
+      "lon": 5.52856,
+      "depth_m": 289.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 58.4352,
+      "lon": 5.45333,
+      "depth_m": 314.0
+    }
+  ]
+}

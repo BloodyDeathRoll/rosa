@@ -1,0 +1,72 @@
+{
+  "spot": "lagaoset",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    56.5524,
+    12.9453
+  ],
+  "bearing_seaward_deg": 276.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 21.0,
+  "mean_slope_m_per_km": 1.07,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 56.55263,
+      "lon": 12.94124,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 56.55287,
+      "lon": 12.93719,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 56.55334,
+      "lon": 12.92907,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 56.55428,
+      "lon": 12.91284,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 56.55521,
+      "lon": 12.89662,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 56.55707,
+      "lon": 12.86415,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 56.55985,
+      "lon": 12.81546,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 56.56353,
+      "lon": 12.75052,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 56.56898,
+      "lon": 12.65308,
+      "depth_m": 21.0
+    }
+  ]
+}

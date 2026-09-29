@@ -1,0 +1,72 @@
+{
+  "spot": "norderney-nordstrand",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    53.7149,
+    7.1566
+  ],
+  "bearing_seaward_deg": 338.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 22.0,
+  "mean_slope_m_per_km": 1.13,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 53.71698,
+      "lon": 7.15518,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 53.71907,
+      "lon": 7.15375,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 53.72324,
+      "lon": 7.15091,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 53.73158,
+      "lon": 7.14521,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 53.73991,
+      "lon": 7.13951,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 53.75659,
+      "lon": 7.12811,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 53.7816,
+      "lon": 7.11099,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 53.81494,
+      "lon": 7.08813,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 53.86495,
+      "lon": 7.05377,
+      "depth_m": 22.0
+    }
+  ]
+}

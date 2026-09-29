@@ -1,0 +1,72 @@
+{
+  "spot": "havika",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    58.0691,
+    6.7128
+  ],
+  "bearing_seaward_deg": 191.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 365.0,
+  "mean_slope_m_per_km": 20.45,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 58.06689,
+      "lon": 6.71199,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 58.06469,
+      "lon": 6.71118,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 58.06027,
+      "lon": 6.70956,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 58.05144,
+      "lon": 6.70631,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 58.04262,
+      "lon": 6.70307,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 58.02496,
+      "lon": 6.6966,
+      "depth_m": 199.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 57.99847,
+      "lon": 6.6869,
+      "depth_m": 391.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 57.96316,
+      "lon": 6.67398,
+      "depth_m": 385.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 57.91018,
+      "lon": 6.65466,
+      "depth_m": 365.0
+    }
+  ]
+}

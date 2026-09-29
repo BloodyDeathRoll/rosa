@@ -1,0 +1,72 @@
+{
+  "spot": "karlshagen",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    54.1197,
+    13.847
+  ],
+  "bearing_seaward_deg": 52.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 11.0,
+  "mean_slope_m_per_km": 0.34,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 54.12108,
+      "lon": 13.85002,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 54.12247,
+      "lon": 13.85305,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 54.12524,
+      "lon": 13.85909,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 54.13077,
+      "lon": 13.87119,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 54.1363,
+      "lon": 13.88329,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 54.14737,
+      "lon": 13.9075,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 54.16396,
+      "lon": 13.94384,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 54.18605,
+      "lon": 13.99233,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 54.21916,
+      "lon": 14.06517,
+      "depth_m": 11.0
+    }
+  ]
+}

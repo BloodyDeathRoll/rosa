@@ -1,0 +1,72 @@
+{
+  "spot": "egmond-aan-zee",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    52.6193,
+    4.6163
+  ],
+  "bearing_seaward_deg": 288.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 1.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 52.61999,
+      "lon": 4.61278,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 52.62069,
+      "lon": 4.60926,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 52.62208,
+      "lon": 4.60221,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 52.62485,
+      "lon": 4.58812,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 52.62763,
+      "lon": 4.57403,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 52.63317,
+      "lon": 4.54584,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 52.64148,
+      "lon": 4.50354,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 52.65253,
+      "lon": 4.44711,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 52.66905,
+      "lon": 4.36242,
+      "depth_m": 20.0
+    }
+  ]
+}

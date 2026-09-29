@@ -1,0 +1,72 @@
+{
+  "spot": "vilsharad",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    56.7003,
+    12.685
+  ],
+  "bearing_seaward_deg": 284.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 25.0,
+  "mean_slope_m_per_km": 1.3,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 56.70084,
+      "lon": 12.68103,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 56.70139,
+      "lon": 12.67705,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 56.70247,
+      "lon": 12.66911,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 56.70465,
+      "lon": 12.65321,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 56.70682,
+      "lon": 12.63731,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 56.71115,
+      "lon": 12.60551,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 56.71764,
+      "lon": 12.55779,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 56.72626,
+      "lon": 12.49414,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 56.73913,
+      "lon": 12.39861,
+      "depth_m": 25.0
+    }
+  ]
+}

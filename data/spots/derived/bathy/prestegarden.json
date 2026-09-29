@@ -1,0 +1,72 @@
+{
+  "spot": "prestegarden",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    58.6671,
+    5.5451
+  ],
+  "bearing_seaward_deg": 206.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 279.0,
+  "mean_slope_m_per_km": 15.66,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 58.66508,
+      "lon": 5.5432,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 58.66306,
+      "lon": 5.54131,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 58.65902,
+      "lon": 5.53752,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 58.65093,
+      "lon": 5.52994,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 58.64285,
+      "lon": 5.52237,
+      "depth_m": 102.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 58.62668,
+      "lon": 5.50724,
+      "depth_m": 212.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 58.60242,
+      "lon": 5.48456,
+      "depth_m": 254.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 58.57007,
+      "lon": 5.45438,
+      "depth_m": 268.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 58.52153,
+      "lon": 5.4092,
+      "depth_m": 279.0
+    }
+  ]
+}

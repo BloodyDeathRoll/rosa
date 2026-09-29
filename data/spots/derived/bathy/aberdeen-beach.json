@@ -1,0 +1,72 @@
+{
+  "spot": "aberdeen-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    57.1547,
+    -2.0759
+  ],
+  "bearing_seaward_deg": 80.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 82.0,
+  "mean_slope_m_per_km": 4.39,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 57.15509,
+      "lon": -2.07182,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 57.15548,
+      "lon": -2.06774,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 57.15626,
+      "lon": -2.05957,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 57.15782,
+      "lon": -2.04324,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 57.15938,
+      "lon": -2.02691,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 57.16248,
+      "lon": -1.99424,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 57.16713,
+      "lon": -1.94522,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 57.17329,
+      "lon": -1.87985,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 57.18247,
+      "lon": -1.78175,
+      "depth_m": 82.0
+    }
+  ]
+}

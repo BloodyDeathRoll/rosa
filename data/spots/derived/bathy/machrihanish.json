@@ -1,0 +1,72 @@
+{
+  "spot": "machrihanish",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    55.4273,
+    -5.725
+  ],
+  "bearing_seaward_deg": 315.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 84.0,
+  "mean_slope_m_per_km": 4.9,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 55.42889,
+      "lon": -5.7278,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 55.43048,
+      "lon": -5.7306,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 55.43366,
+      "lon": -5.73621,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 55.44002,
+      "lon": -5.74742,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 55.44637,
+      "lon": -5.75864,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 55.45908,
+      "lon": -5.78108,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 55.47814,
+      "lon": -5.81477,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 55.50354,
+      "lon": -5.85974,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 55.5416,
+      "lon": -5.9273,
+      "depth_m": 84.0
+    }
+  ]
+}

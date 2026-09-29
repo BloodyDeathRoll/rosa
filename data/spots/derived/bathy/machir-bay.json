@@ -1,0 +1,72 @@
+{
+  "spot": "machir-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    55.7828,
+    -6.4579
+  ],
+  "bearing_seaward_deg": 239.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 53.0,
+  "mean_slope_m_per_km": 2.54,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 55.78164,
+      "lon": -6.46133,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 55.78048,
+      "lon": -6.46475,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 55.77817,
+      "lon": -6.47161,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 55.77353,
+      "lon": -6.48531,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 55.7689,
+      "lon": -6.49901,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 55.75962,
+      "lon": -6.5264,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 55.7457,
+      "lon": -6.56746,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 55.72711,
+      "lon": -6.62217,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 55.69918,
+      "lon": -6.70412,
+      "depth_m": 53.0
+    }
+  ]
+}

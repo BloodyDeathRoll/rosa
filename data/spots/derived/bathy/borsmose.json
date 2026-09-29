@@ -1,0 +1,72 @@
+{
+  "spot": "borsmose",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    55.6717,
+    8.1407
+  ],
+  "bearing_seaward_deg": 286.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 17.0,
+  "mean_slope_m_per_km": 0.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 55.67232,
+      "lon": 8.13687,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 55.67294,
+      "lon": 8.13304,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 55.67418,
+      "lon": 8.12537,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 55.67665,
+      "lon": 8.11004,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 55.67913,
+      "lon": 8.0947,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 55.68407,
+      "lon": 8.06403,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 55.69147,
+      "lon": 8.018,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 55.70131,
+      "lon": 7.95661,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 55.71601,
+      "lon": 7.86446,
+      "depth_m": 17.0
+    }
+  ]
+}

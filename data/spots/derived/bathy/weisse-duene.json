@@ -1,0 +1,72 @@
+{
+  "spot": "weisse-duene",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    53.7215,
+    7.201
+  ],
+  "bearing_seaward_deg": 4.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 22.0,
+  "mean_slope_m_per_km": 1.24,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 53.72374,
+      "lon": 7.20127,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 53.72599,
+      "lon": 7.20153,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 53.73047,
+      "lon": 7.20206,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 53.73944,
+      "lon": 7.20312,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 53.74841,
+      "lon": 7.20418,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 53.76636,
+      "lon": 7.20631,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 53.79327,
+      "lon": 7.2095,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 53.82915,
+      "lon": 7.21376,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 53.88298,
+      "lon": 7.22016,
+      "depth_m": 22.0
+    }
+  ]
+}

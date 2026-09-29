@@ -1,0 +1,72 @@
+{
+  "spot": "balephuil",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    56.4565,
+    -6.9447
+  ],
+  "bearing_seaward_deg": 209.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 54.0,
+  "mean_slope_m_per_km": 2.7,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 56.45453,
+      "lon": -6.94667,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 56.45257,
+      "lon": -6.94864,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 56.44863,
+      "lon": -6.95259,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 56.44077,
+      "lon": -6.96047,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 56.4329,
+      "lon": -6.96836,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 56.41717,
+      "lon": -6.98411,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 56.39356,
+      "lon": -7.00772,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 56.36208,
+      "lon": -7.03915,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 56.31484,
+      "lon": -7.0862,
+      "depth_m": 54.0
+    }
+  ]
+}

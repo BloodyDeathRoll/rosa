@@ -1,0 +1,72 @@
+{
+  "spot": "horgabost",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    57.8645,
+    -6.9794
+  ],
+  "bearing_seaward_deg": 270.0,
+  "nearshore_depth_m": -22.0,
+  "offshore_depth_m": 34.0,
+  "mean_slope_m_per_km": 3.15,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 57.8645,
+      "lon": -6.98363,
+      "depth_m": -22.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 57.8645,
+      "lon": -6.98785,
+      "depth_m": -24.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 57.8645,
+      "lon": -6.99631,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 57.8645,
+      "lon": -7.01321,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 57.86449,
+      "lon": -7.03012,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 57.86447,
+      "lon": -7.06393,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 57.86443,
+      "lon": -7.11466,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 57.86434,
+      "lon": -7.18228,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 57.86414,
+      "lon": -7.28372,
+      "depth_m": 34.0
+    }
+  ]
+}

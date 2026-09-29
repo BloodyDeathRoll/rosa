@@ -1,0 +1,72 @@
+{
+  "spot": "port-bharrapol",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    56.4714,
+    -6.9765
+  ],
+  "bearing_seaward_deg": 288.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 77.0,
+  "mean_slope_m_per_km": 3.77,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 56.47209,
+      "lon": -6.98037,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 56.47279,
+      "lon": -6.98424,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 56.47418,
+      "lon": -6.99199,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 56.47695,
+      "lon": -7.00747,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 56.47973,
+      "lon": -7.02296,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 56.48527,
+      "lon": -7.05395,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 56.49357,
+      "lon": -7.10045,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 56.50461,
+      "lon": -7.16248,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 56.52111,
+      "lon": -7.25559,
+      "depth_m": 77.0
+    }
+  ]
+}

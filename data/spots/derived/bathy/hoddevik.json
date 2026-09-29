@@ -1,0 +1,72 @@
+{
+  "spot": "hoddevik",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    62.1238,
+    5.1608
+  ],
+  "bearing_seaward_deg": 295.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 124.0,
+  "mean_slope_m_per_km": 6.87,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 62.12475,
+      "lon": 5.15644,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 62.1257,
+      "lon": 5.15208,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 62.1276,
+      "lon": 5.14337,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 62.1314,
+      "lon": 5.12593,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 62.13519,
+      "lon": 5.10848,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 62.14278,
+      "lon": 5.07358,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 62.15414,
+      "lon": 5.0212,
+      "depth_m": 134.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 62.16925,
+      "lon": 4.9513,
+      "depth_m": 133.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 62.19186,
+      "lon": 4.84631,
+      "depth_m": 124.0
+    }
+  ]
+}

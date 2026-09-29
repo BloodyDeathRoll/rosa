@@ -1,0 +1,72 @@
+{
+  "spot": "havstokken",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    56.1138,
+    12.2044
+  ],
+  "bearing_seaward_deg": 344.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 29.0,
+  "mean_slope_m_per_km": 1.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 56.11596,
+      "lon": 12.20329,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 56.11812,
+      "lon": 12.20218,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 56.12244,
+      "lon": 12.19995,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 56.13109,
+      "lon": 12.1955,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 56.13973,
+      "lon": 12.19105,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 56.15702,
+      "lon": 12.18214,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 56.18295,
+      "lon": 12.16877,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 56.21753,
+      "lon": 12.1509,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 56.26938,
+      "lon": 12.12405,
+      "depth_m": 29.0
+    }
+  ]
+}

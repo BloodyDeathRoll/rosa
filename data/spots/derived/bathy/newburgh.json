@@ -1,0 +1,72 @@
+{
+  "spot": "newburgh",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    57.3191,
+    -1.9771
+  ],
+  "bearing_seaward_deg": 112.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 75.0,
+  "mean_slope_m_per_km": 4.06,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 57.31826,
+      "lon": -1.97324,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 57.31742,
+      "lon": -1.96938,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 57.31573,
+      "lon": -1.96166,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 57.31236,
+      "lon": -1.94622,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 57.30898,
+      "lon": -1.93079,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 57.30223,
+      "lon": -1.89992,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 57.29209,
+      "lon": -1.85365,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 57.27854,
+      "lon": -1.79199,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 57.25815,
+      "lon": -1.69959,
+      "depth_m": 75.0
+    }
+  ]
+}

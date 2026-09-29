@@ -1,0 +1,72 @@
+{
+  "spot": "staberhuk",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    54.4079,
+    11.3119
+  ],
+  "bearing_seaward_deg": 45.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 21.0,
+  "mean_slope_m_per_km": 0.96,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 54.40949,
+      "lon": 11.31463,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 54.41108,
+      "lon": 11.31736,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 54.41426,
+      "lon": 11.32283,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 54.42062,
+      "lon": 11.33376,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 54.42697,
+      "lon": 11.34469,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 54.43968,
+      "lon": 11.36657,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 54.45874,
+      "lon": 11.39942,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 54.48414,
+      "lon": 11.44326,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 54.5222,
+      "lon": 11.50912,
+      "depth_m": 21.0
+    }
+  ]
+}

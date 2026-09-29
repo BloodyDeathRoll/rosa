@@ -1,0 +1,72 @@
+{
+  "spot": "arbroath",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    56.551,
+    -2.6041
+  ],
+  "bearing_seaward_deg": 141.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 29.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 56.54925,
+      "lon": -2.60153,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 56.54751,
+      "lon": -2.59897,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 56.54401,
+      "lon": -2.59383,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 56.53702,
+      "lon": -2.58357,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 56.53003,
+      "lon": -2.57331,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 56.51604,
+      "lon": -2.55281,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 56.49506,
+      "lon": -2.52208,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 56.46707,
+      "lon": -2.48116,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 56.42506,
+      "lon": -2.41989,
+      "depth_m": 29.0
+    }
+  ]
+}

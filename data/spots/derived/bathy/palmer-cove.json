@@ -1,0 +1,72 @@
+{
+  "spot": "palmer-cove",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    57.0964,
+    -2.0749
+  ],
+  "bearing_seaward_deg": 106.0,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 108.0,
+  "mean_slope_m_per_km": 5.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 57.09578,
+      "lon": -2.07092,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 57.09516,
+      "lon": -2.06694,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 57.09392,
+      "lon": -2.05899,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 57.09144,
+      "lon": -2.04308,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 57.08895,
+      "lon": -2.02717,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 57.08398,
+      "lon": -1.99536,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 57.0765,
+      "lon": -1.94766,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 57.06651,
+      "lon": -1.88409,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 57.05145,
+      "lon": -1.7888,
+      "depth_m": 108.0
+    }
+  ]
+}

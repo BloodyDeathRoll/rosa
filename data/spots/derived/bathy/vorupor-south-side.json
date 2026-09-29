@@ -1,0 +1,72 @@
+{
+  "spot": "vorupor-south-side",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    56.9591,
+    8.3598
+  ],
+  "bearing_seaward_deg": 290.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 26.0,
+  "mean_slope_m_per_km": 1.13,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 56.95987,
+      "lon": 8.35593,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 56.96064,
+      "lon": 8.35205,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 56.96217,
+      "lon": 8.3443,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 56.96525,
+      "lon": 8.3288,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 56.96832,
+      "lon": 8.31329,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 56.97446,
+      "lon": 8.28227,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 56.98365,
+      "lon": 8.23572,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 56.99587,
+      "lon": 8.17362,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 57.01415,
+      "lon": 8.0804,
+      "depth_m": 26.0
+    }
+  ]
+}

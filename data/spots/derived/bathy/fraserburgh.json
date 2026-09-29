@@ -1,0 +1,72 @@
+{
+  "spot": "fraserburgh",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    57.6844,
+    -2.0003
+  ],
+  "bearing_seaward_deg": 43.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 94.0,
+  "mean_slope_m_per_km": 5.46,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 57.68604,
+      "lon": -1.99743,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 57.68769,
+      "lon": -1.99456,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 57.69098,
+      "lon": -1.98882,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 57.69755,
+      "lon": -1.97735,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 57.70413,
+      "lon": -1.96586,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 57.71727,
+      "lon": -1.94288,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 57.73698,
+      "lon": -1.90838,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 57.76325,
+      "lon": -1.86232,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 57.80262,
+      "lon": -1.79311,
+      "depth_m": 94.0
+    }
+  ]
+}

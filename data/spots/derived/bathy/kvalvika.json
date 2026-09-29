@@ -1,0 +1,72 @@
+{
+  "spot": "kvalvika",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    68.0774,
+    13.0953
+  ],
+  "bearing_seaward_deg": 301.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 125.0,
+  "mean_slope_m_per_km": 6.87,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 68.07856,
+      "lon": 13.09014,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 68.07972,
+      "lon": 13.08498,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 68.08203,
+      "lon": 13.07465,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 68.08666,
+      "lon": 13.05399,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 68.09128,
+      "lon": 13.03332,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 68.10053,
+      "lon": 12.99196,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 68.11437,
+      "lon": 12.92986,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 68.1328,
+      "lon": 12.84694,
+      "depth_m": 153.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 68.16035,
+      "lon": 12.72231,
+      "depth_m": 125.0
+    }
+  ]
+}

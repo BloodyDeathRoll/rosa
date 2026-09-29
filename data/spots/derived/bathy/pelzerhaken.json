@@ -1,0 +1,72 @@
+{
+  "spot": "pelzerhaken",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    54.0874,
+    10.8748
+  ],
+  "bearing_seaward_deg": 103.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 23.0,
+  "mean_slope_m_per_km": 1.24,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 54.08689,
+      "lon": 10.87853,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 54.08639,
+      "lon": 10.88227,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 54.08538,
+      "lon": 10.88974,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 54.08335,
+      "lon": 10.90468,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 54.08132,
+      "lon": 10.91961,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 54.07726,
+      "lon": 10.94948,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 54.07116,
+      "lon": 10.99427,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 54.06299,
+      "lon": 11.05397,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 54.05069,
+      "lon": 11.14347,
+      "depth_m": 23.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "borkum-nordstrand",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    53.5896,
+    6.6566
+  ],
+  "bearing_seaward_deg": 257.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 3.0,
+  "mean_slope_m_per_km": 0.11,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 53.58909,
+      "lon": 6.65291,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 53.58859,
+      "lon": 6.64922,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 53.58758,
+      "lon": 6.64184,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 53.58555,
+      "lon": 6.62708,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 53.58352,
+      "lon": 6.61232,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 53.57946,
+      "lon": 6.5828,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 53.57336,
+      "lon": 6.53854,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 53.56519,
+      "lon": 6.47955,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 53.55289,
+      "lon": 6.3911,
+      "depth_m": 3.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "neuhaus-dierhagen",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    54.286,
+    12.3157
+  ],
+  "bearing_seaward_deg": 321.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 24.0,
+  "mean_slope_m_per_km": 1.18,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 54.28775,
+      "lon": 12.31328,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 54.28949,
+      "lon": 12.31085,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 54.29299,
+      "lon": 12.306,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 54.29998,
+      "lon": 12.2963,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 54.30696,
+      "lon": 12.2866,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 54.32094,
+      "lon": 12.26718,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 54.34189,
+      "lon": 12.23803,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 54.36981,
+      "lon": 12.19912,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 54.41168,
+      "lon": 12.14065,
+      "depth_m": 24.0
+    }
+  ]
+}

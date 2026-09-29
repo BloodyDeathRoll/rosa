@@ -1,0 +1,72 @@
+{
+  "spot": "helgoland-duene",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    54.1893,
+    7.9121
+  ],
+  "bearing_seaward_deg": 339.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 22.0,
+  "mean_slope_m_per_km": 1.24,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 54.1914,
+      "lon": 7.91072,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 54.1935,
+      "lon": 7.90935,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 54.1977,
+      "lon": 7.90659,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 54.20609,
+      "lon": 7.90108,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 54.21449,
+      "lon": 7.89557,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 54.23128,
+      "lon": 7.88453,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 54.25646,
+      "lon": 7.86796,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 54.29003,
+      "lon": 7.84584,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 54.34038,
+      "lon": 7.81259,
+      "depth_m": 22.0
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+# Rosa spot database - Denmark: Jutland's North Sea coast (Cold Hawaii, Hvide Sande, Lokken) and north Zealand's Kattegat shore. Short-period North Sea wind swell from the W-NW; offshore on an E wind.
+# Every spot carries offshore_km along its own seaward normal.
+
+defaults: &dk
+  timezone: Europe/Copenhagen
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [200, 20]
+  ideal:
+    wind_dir: [45, 135]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-09-29 - denmark, 26 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 26 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/denmark/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: hirtshals, name: "Hirtshals", town: "Hirtshals", lat: 57.5906, lon: 9.9495, offshore_direction: 145, swell_window: [260, 30], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: lokken, name: "Løkken", town: "Løkken", lat: 57.3629, lon: 9.6957, offshore_direction: 115, swell_window: [230, 0], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: hanstholm-middles, name: "Middles", town: "Hanstholm", lat: 57.1220, lon: 8.6359, offshore_direction: 187, swell_window: [302, 72], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: vigso-bay, name: "Vigsø Bay", town: "Vigsø", lat: 57.1018, lon: 8.7284, offshore_direction: 224, swell_window: [339, 109], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: tolderstien, name: "Tolderstien", town: "Klitmøller", lat: 57.0443, lon: 8.4936, offshore_direction: 147, swell_window: [262, 32], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: klitmoller-reef, name: "Klitmøller Reef", town: "Klitmøller", lat: 57.0442, lon: 8.4818, offshore_direction: 179, swell_window: [294, 64], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: bunkers, name: "Bunkers", town: "Klitmøller", lat: 57.0331, lon: 8.4638, offshore_direction: 116, swell_window: [231, 1], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: bogsted-rende, name: "Bøgsted Rende", town: "Nørre Vorupør", lat: 56.9800, lon: 8.4038, offshore_direction: 119, swell_window: [234, 4], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: vorupor, name: "Vorupør", town: "Nørre Vorupør", lat: 56.9598, lon: 8.3687, offshore_direction: 160, swell_window: [275, 45], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: vorupor-south-side, name: "Vorupør South Side", town: "Nørre Vorupør", lat: 56.9591, lon: 8.3598, offshore_direction: 110, swell_window: [225, 355], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: stenbjerg, name: "Stenbjerg", town: "Stenbjerg", lat: 56.9298, lon: 8.3361, offshore_direction: 110, swell_window: [225, 355], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: lyngby-thy, name: "Lyngby", town: "Lyngby", lat: 56.8790, lon: 8.2895, offshore_direction: 113, swell_window: [228, 358], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: agger, name: "Agger", town: "Agger", lat: 56.7805, lon: 8.2287, offshore_direction: 94, swell_window: [209, 339], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: the seeded normal (22) followed a groyne; re-aimed to the middle of the open arc]
+  - { id: bonnerup, name: "Bønnerup", town: "Bønnerup", lat: 56.5336, lon: 10.7205, offshore_direction: 164, swell_window: [279, 49], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: gilleleje, name: "Gilleleje", town: "Gilleleje", lat: 56.1287, lon: 12.3058, offshore_direction: 162, swell_window: [277, 47], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: smidstrup, name: "Smidstrup Strand", town: "Gilleleje", lat: 56.1238, lon: 12.2550, offshore_direction: 160, swell_window: [275, 45], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: havstokken, name: "Havstokken", town: "Rågeleje", lat: 56.1138, lon: 12.2044, offshore_direction: 164, swell_window: [279, 49], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: rageleje, name: "Rågeleje", town: "Rågeleje", lat: 56.0990, lon: 12.1598, offshore_direction: 150, swell_window: [265, 35], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: hornbaek, name: "Hornbæk", town: "Hornbæk", lat: 56.0935, lon: 12.4609, offshore_direction: 190, swell_window: [305, 75], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: tisvildeleje, name: "Tisvildeleje", town: "Tisvildeleje", lat: 56.0544, lon: 12.0542, offshore_direction: 131, swell_window: [246, 16], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: hvide-sande, name: "Hvide Sande", town: "Hvide Sande", lat: 56.0081, lon: 8.1101, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: the seeded normal (313) came off the harbour mole 0.9 km away and pointed into the dunes; re-aimed to the middle of the open arc]
+  - { id: hvide-sande-south, name: "Hvide Sande South Pier", town: "Hvide Sande", lat: 55.9943, lon: 8.1201, offshore_direction: 40, swell_window: [155, 285], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: the seeded normal (64) crossed the south mole; GEBCO reads the 0.5 km shoreline cell as land from 240 deg north, so aimed at the middle of the open arc]
+  - { id: hundested, name: "Hundested", town: "Hundested", lat: 55.9849, lon: 11.8837, offshore_direction: 158, swell_window: [273, 43], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: borsmose, name: "Børsmose", town: "Børsmose Strand", lat: 55.6717, lon: 8.1407, offshore_direction: 106, swell_window: [221, 351], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: vejers-strand, name: "Vejers Strand", town: "Vejers Strand", lat: 55.6265, lon: 8.1150, offshore_direction: 108, swell_window: [223, 353], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)
+  - { id: rodvig, name: "Rødvig", town: "Rødvig", lat: 55.2503, lon: 12.3635, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, <<: *dk }  # sat-verified 2026-09-29 (websearch-seeded)
