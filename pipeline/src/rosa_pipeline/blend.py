@@ -39,7 +39,9 @@ from __future__ import annotations
 
 import json
 import math
+import sys
 import tempfile
+import time
 from collections.abc import Mapping
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
@@ -120,6 +122,12 @@ JOIN_TOL_H = SPECTRAL_JOIN_TOL_H
 # meets (3-10 retries a day at 1947 spots, all recovered). The weather host is the
 # blend arm's last per-spot Open-Meteo call; plan C3b is its exit.
 AUX_BATCH_SIZE = 100
+# The weather leg's fallback when the host refuses a batch (2026-09-30): each point's last
+# good body, VM-local and gitignored like the rest of data/cache. A body older than the
+# age limit is not used - extract joins wind by timestamp, so an old body only thins the
+# far end of the forecast, but a wind forecast more than a day old is not one to publish.
+WEATHER_CACHE_DIR = Path("data/cache/weather")
+WEATHER_CACHE_MAX_AGE_H = 24.0
 
 # the full GFS-Wave partition schema, mapped onto the OM key family extract expects.
 # Message order matters: shts/mpts/swdir each appear THREE times in a gridded file
@@ -399,10 +407,26 @@ class GfsFullFixtureSource:
 # ---------------------------------------------------------------------------
 
 
+def _cached_weather(cache_dir: Path | None, lat: float, lon: float) -> dict | None:
+    """This point's last good weather body, or None when there is none, it is older than
+    WEATHER_CACHE_MAX_AGE_H, or it does not read back (a write torn by a killed cycle)."""
+    if cache_dir is None:
+        return None
+    path = cache_dir / f"weather_{fixture_key(lat, lon)}.json"
+    try:
+        if time.time() - path.stat().st_mtime > WEATHER_CACHE_MAX_AGE_H * 3600.0:
+            return None
+        body = json.loads(path.read_text())
+    except (OSError, ValueError):
+        return None
+    return body if isinstance(body, dict) and "hourly" in body else None
+
+
 def fetch_weather_many(
     coords: list[tuple[float, float]],
     *,
     capture_dir: Path | None = None,
+    cache_dir: Path | None = None,
     timeout_s: float = 30.0,
 ) -> list[dict]:
     """One Open-Meteo weather body per point, batched comma-joined.
@@ -412,48 +436,106 @@ def fetch_weather_many(
     tide fallbacks; EOT20 and OISST are primary and the fallback never fired in the VM
     log, while its weight (1.21/point, the vendor floors a location at 1) was the entire
     marine-host spend - at 1947 spots four cycles crossed the daily budget and the
-    20:20Z cycle was refused. It is gone; SST is ``sst_daily``, tide is the constants."""
+    20:20Z cycle was refused. It is gone; SST is ``sst_daily``, tide is the constants.
+
+    ``cache_dir`` (2026-09-30): a refused batch no longer kills the cycle. At 2741 spots
+    four cycles ask this host for ~13,300 units a day against its 10,000 allowance, and
+    on 2026-09-29 the 20:20Z cycle died on a 429 the retry rightly refuses to wait out -
+    two hours of wave downloads thrown away, every spot stale, the dead-man check down.
+    Every good body is now kept per point, and once a batch fails (any HTTP or transport
+    error left after ``retrying_get``) the rest of the run is served from that cache
+    without asking again: the wind is then the previous cycle's forecast, at most
+    WEATHER_CACHE_MAX_AGE_H old, joined by timestamp like any other. A point with no
+    usable cached body gets an empty series, which extract turns into "no forecast at
+    point" - its spots keep their previous payload. Nothing fresh AND nothing cached is
+    still the hard failure it was. None (the default) keeps the old fail-fast behaviour."""
     out: list[dict] = []
     if not coords:
         return out
+    refused: Exception | None = None
+    stale = missing = 0
     with httpx.Client(timeout=timeout_s) as client:
         for i in range(0, len(coords), AUX_BATCH_SIZE):
             batch = coords[i : i + AUX_BATCH_SIZE]
-            lat_s = ",".join(f"{lat:g}" for lat, _ in batch)
-            lon_s = ",".join(f"{lon:g}" for _, lon in batch)
-            # retrying_get, same as the OM arm's batches: a lone 503 on a weather
-            # batch killed the 2026-08-16 08:20Z cycle, and this leg runs AFTER the
-            # GFS/ECMWF downloads - a transient here throws all of that away.
-            # retry_429=True since 2026-08-28: this leg is ESSENTIAL to the cycle
-            # (the whole run dies at raise_for_status below), and the DB growth to 624
-            # spots pushed the burst past the MINUTELY cap - the 20:20Z and 02:20Z
-            # cycles both died on the same weather batch ~64 min in. Only the
-            # minutely-cap 429 is retried (fetch._retry_wait_s); hourly/daily still
-            # fail fast, which is rosa_pipeline.quota's job on the om arm.
-            wresp = retrying_get(
-                client,
-                WEATHER_URL,
-                {
-                    "latitude": lat_s,
-                    "longitude": lon_s,
-                    "hourly": ",".join(WEATHER_HOURLY),
-                    "forecast_days": FORECAST_DAYS,
-                    "past_days": PAST_DAYS,
-                    "models": WEATHER_MODEL,
-                },
-                retry_429=True,
-            )
-            wresp_ok = wresp.raise_for_status().json()
-            wb = [wresp_ok] if isinstance(wresp_ok, dict) else list(wresp_ok)
-            if len(wb) != len(batch):
-                raise ValueError("open-meteo returned a different location count")
-            for (lat, lon), w in zip(batch, wb, strict=True):
-                if capture_dir is not None:
-                    capture_dir.mkdir(parents=True, exist_ok=True)
-                    (capture_dir / f"weather_{fixture_key(lat, lon)}.json").write_text(
-                        json.dumps(w)
+            wb: list[dict] | None = None
+            if refused is None:
+                lat_s = ",".join(f"{lat:g}" for lat, _ in batch)
+                lon_s = ",".join(f"{lon:g}" for _, lon in batch)
+                try:
+                    # retrying_get, same as the OM arm's batches: a lone 503 on a weather
+                    # batch killed the 2026-08-16 08:20Z cycle, and this leg runs AFTER the
+                    # GFS/ECMWF downloads - a transient here throws all of that away.
+                    # retry_429=True since 2026-08-28: the DB growth to 624 spots pushed
+                    # the burst past the MINUTELY cap. Only the minutely-cap 429 is
+                    # retried (fetch._retry_wait_s); an hourly/daily one comes straight
+                    # back and lands in the cache fallback below.
+                    wresp = retrying_get(
+                        client,
+                        WEATHER_URL,
+                        {
+                            "latitude": lat_s,
+                            "longitude": lon_s,
+                            "hourly": ",".join(WEATHER_HOURLY),
+                            "forecast_days": FORECAST_DAYS,
+                            "past_days": PAST_DAYS,
+                            "models": WEATHER_MODEL,
+                        },
+                        retry_429=True,
                     )
+                    wresp_ok = wresp.raise_for_status().json()
+                except httpx.HTTPError as e:
+                    if cache_dir is None:
+                        raise
+                    refused = e
+                    reason = ""
+                    if isinstance(e, httpx.HTTPStatusError):
+                        # the vendor names the bucket in the body - keep it in the log,
+                        # the 2026-09-29 traceback carried the URL and not the reason
+                        reason = f" {e.response.status_code}: {e.response.text[:200]!r}"
+                    print(
+                        f"warn: open-meteo weather refused at point {i} of {len(coords)}"
+                        f" ({type(e).__name__}{reason}) - the rest of this run uses each "
+                        "point's cached weather",
+                        file=sys.stderr,
+                    )
+                else:
+                    wb = [wresp_ok] if isinstance(wresp_ok, dict) else list(wresp_ok)
+                    if len(wb) != len(batch):
+                        raise ValueError("open-meteo returned a different location count")
+            for k, (lat, lon) in enumerate(batch):
+                if wb is not None:
+                    w = wb[k]
+                    text = json.dumps(w)
+                    if capture_dir is not None:
+                        capture_dir.mkdir(parents=True, exist_ok=True)
+                        (capture_dir / f"weather_{fixture_key(lat, lon)}.json").write_text(text)
+                    if cache_dir is not None:
+                        try:  # best-effort: a full disk must not cost a good fetch
+                            cache_dir.mkdir(parents=True, exist_ok=True)
+                            path = cache_dir / f"weather_{fixture_key(lat, lon)}.json"
+                            tmp = path.with_suffix(".tmp")
+                            tmp.write_text(text)
+                            tmp.replace(path)
+                        except OSError as e:
+                            print(f"warn: weather cache write failed: {e!r}", file=sys.stderr)
+                else:
+                    cached = _cached_weather(cache_dir, lat, lon)
+                    if cached is None:
+                        missing += 1
+                        w = {"hourly": {"time": []}}
+                    else:
+                        stale += 1
+                        w = cached
                 out.append(w)
+    if refused is not None:
+        if stale == 0 and missing == len(coords):
+            raise refused  # nothing fresh, nothing cached: the hard failure it always was
+        print(
+            f"warn: weather for {stale} of {len(coords)} point(s) is the cached body from "
+            f"an earlier cycle (under {WEATHER_CACHE_MAX_AGE_H:g} h old); {missing} had no "
+            "usable cache and publish nothing this cycle",
+            file=sys.stderr,
+        )
     return out
 
 

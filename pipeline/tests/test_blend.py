@@ -617,3 +617,115 @@ def test_a_node_with_a_sea_and_no_partition_takes_one_whole_set_from_the_nearest
         "swell1_p": 10.0,
         "swell1_d": 250.0,
     }
+
+
+# --- weather leg: a refused batch falls back to each point's cached body (2026-09-30) ---
+
+
+_REAL_CLIENT = __import__("httpx").Client  # captured before any test patches it
+
+
+def _weather_transport(monkeypatch, handler):
+    """Route fetch_weather_many's own httpx.Client through a MockTransport."""
+    import httpx
+
+    from rosa_pipeline import blend as blend_mod
+
+    monkeypatch.setattr(
+        blend_mod.httpx,
+        "Client",
+        lambda **kw: _REAL_CLIENT(transport=httpx.MockTransport(handler), **kw),
+    )
+
+
+def _weather_body(tag: float) -> dict:
+    return {"hourly": {"time": ["2026-09-29T00:00"], "wind_speed_10m": [tag]}}
+
+
+_DAILY_429 = {
+    "error": True,
+    "reason": "Daily API request limit exceeded. Please try again tomorrow.",
+}
+
+
+def test_refused_weather_batch_is_served_from_the_cache(monkeypatch, tmp_path, capsys):
+    """2026-09-29 20:20Z: a daily-bucket 429 on the weather host killed the whole cycle.
+    With a cache the run survives on the previous cycle's bodies, and stops asking."""
+    import httpx
+
+    from rosa_pipeline import blend as blend_mod
+
+    monkeypatch.setattr(blend_mod, "AUX_BATCH_SIZE", 2)
+    coords = [(1.0, 1.0), (2.0, 2.0), (3.0, 3.0), (4.0, 4.0), (5.0, 5.0)]
+    calls: list[int] = []
+
+    def ok(request):
+        n = len(request.url.params["latitude"].split(","))
+        calls.append(n)
+        lats = [float(x) for x in request.url.params["latitude"].split(",")]
+        bodies = [_weather_body(lat) for lat in lats]
+        return httpx.Response(200, json=bodies if n > 1 else bodies[0])
+
+    _weather_transport(monkeypatch, ok)
+    first = blend_mod.fetch_weather_many(coords, cache_dir=tmp_path)
+    assert [w["hourly"]["wind_speed_10m"] for w in first] == [[1.0], [2.0], [3.0], [4.0], [5.0]]
+    (tmp_path / "weather_4_4.json").unlink()  # a point seeded since the last good cycle
+
+    calls.clear()
+
+    def second_batch_refused(request):
+        calls.append(1)
+        if len(calls) == 1:
+            return httpx.Response(200, json=[_weather_body(10.0), _weather_body(20.0)])
+        return httpx.Response(429, json=_DAILY_429)
+
+    _weather_transport(monkeypatch, second_batch_refused)
+    got = blend_mod.fetch_weather_many(coords, cache_dir=tmp_path)
+    # batch 1 fresh; batch 2 refused -> cache (3) and empty (4, no cache); batch 3 never asked
+    assert [w["hourly"].get("wind_speed_10m") for w in got] == [[10.0], [20.0], [3.0], None, [5.0]]
+    assert got[3]["hourly"]["time"] == []
+    assert len(calls) == 2
+    err = capsys.readouterr().err
+    assert "Daily API request limit" in err
+    assert "2 of 5 point(s)" in err and "1 had no usable cache" in err
+
+
+def test_refused_weather_without_a_cache_dir_still_raises(monkeypatch):
+    import httpx
+
+    from rosa_pipeline import blend as blend_mod
+
+    _weather_transport(monkeypatch, lambda request: httpx.Response(429, json=_DAILY_429))
+    with pytest.raises(httpx.HTTPStatusError):
+        blend_mod.fetch_weather_many([(1.0, 1.0)])
+
+
+def test_refused_weather_with_nothing_cached_still_raises(monkeypatch, tmp_path):
+    """Nothing fresh and nothing cached must stay a failed cycle, not a silent empty one."""
+    import httpx
+
+    from rosa_pipeline import blend as blend_mod
+
+    _weather_transport(monkeypatch, lambda request: httpx.Response(429, json=_DAILY_429))
+    with pytest.raises(httpx.HTTPStatusError):
+        blend_mod.fetch_weather_many([(1.0, 1.0), (2.0, 2.0)], cache_dir=tmp_path)
+
+
+def test_weather_cache_older_than_the_limit_is_not_used(monkeypatch, tmp_path):
+    import json
+    import os
+    import time
+
+    import httpx
+
+    from rosa_pipeline import blend as blend_mod
+
+    fresh, old = tmp_path / "weather_1_1.json", tmp_path / "weather_2_2.json"
+    fresh.write_text(json.dumps(_weather_body(1.0)))
+    old.write_text(json.dumps(_weather_body(2.0)))
+    too_old = time.time() - (blend_mod.WEATHER_CACHE_MAX_AGE_H + 1) * 3600
+    os.utime(old, (too_old, too_old))
+    _weather_transport(monkeypatch, lambda request: httpx.Response(429, json=_DAILY_429))
+    got = blend_mod.fetch_weather_many([(1.0, 1.0), (2.0, 2.0)], cache_dir=tmp_path)
+    assert got[0]["hourly"]["wind_speed_10m"] == [1.0]
+    assert got[1]["hourly"]["time"] == []

@@ -1020,6 +1020,7 @@ def _cmd_run(args: argparse.Namespace) -> int:
     if getattr(args, "wave_source", "om") == "blend":
         # fetch-plane plan B: the A/B arm. Not promoted - see blend.py's module docstring.
         from .blend import (
+            WEATHER_CACHE_DIR,
             BlendedSource,
             GfsFullFixtureSource,
             GfsFullSource,
@@ -1039,7 +1040,9 @@ def _cmd_run(args: argparse.Namespace) -> int:
         else:
             blend_src = BlendedSource(
                 gfs=GfsFullSource(capture_dir=args.capture, aims=aims),
-                weather=lambda coords: fetch_weather_many(coords, capture_dir=args.capture),
+                weather=lambda coords: fetch_weather_many(
+                    coords, capture_dir=args.capture, cache_dir=WEATHER_CACHE_DIR
+                ),
                 sst=OisstSource(capture_dir=args.capture),
                 tp=GwamSource(capture_dir=args.capture, aims=aims),
             )
