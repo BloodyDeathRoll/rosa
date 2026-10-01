@@ -353,11 +353,22 @@ class GfsFullSource:
                             data
                         )
                     valid = run + timedelta(hours=step)
-                    for i, sea in zip(
-                        members,
-                        parse_gfs_full(data, pts, valid, run=run, aims=self.aims),
-                        strict=True,
-                    ):
+                    try:
+                        seas = parse_gfs_full(data, pts, valid, run=run, aims=self.aims)
+                    except Exception as e:
+                        # one bad file costs its step, never the run (gwam.GwamSource's
+                        # rule): a body that starts with GRIB and will not parse is the
+                        # same miss as a non-200, and this call sits under _cmd_run's
+                        # unguarded fetch_many - raising here unpublished the whole fleet
+                        import sys
+
+                        print(
+                            f"warn: gfs-wave {run:%Y%m%d%H} f{step:03d} box {box.key} "
+                            f"unreadable: {e!r} - step skipped",
+                            file=sys.stderr,
+                        )
+                        continue
+                    for i, sea in zip(members, seas, strict=True):
                         if sea is not None:
                             series[i].append(sea)
         return series

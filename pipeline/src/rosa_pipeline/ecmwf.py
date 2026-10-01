@@ -19,6 +19,7 @@ License: ECMWF open data is CC-BY-4.0 - attributed in the published payload (roa
 from __future__ import annotations
 
 import json
+import sys
 import tempfile
 from collections.abc import Mapping
 from concurrent.futures import ThreadPoolExecutor
@@ -276,9 +277,12 @@ class EcmwfSource:
             self.capture_dir.mkdir(parents=True, exist_ok=True)
             (self.capture_dir / f"ecmwf_f{step:03d}.grib2").write_bytes(data)
         valid = cycle + timedelta(hours=step)
-        for i, sp in enumerate(
-            parse_grib_points(data, points, valid, self.params, run=cycle, aims=self.aims)
-        ):
+        try:
+            seas = parse_grib_points(data, points, valid, self.params, run=cycle, aims=self.aims)
+        except Exception as e:  # one bad file costs its step, never the member (gwam's rule)
+            print(f"warn: ecmwf f{step:03d} unreadable: {e!r} - step skipped", file=sys.stderr)
+            return
+        for i, sp in enumerate(seas):
             if sp is not None:
                 series[i].append(sp)
 
@@ -297,7 +301,9 @@ class EcmwfSource:
                     return None
                 parts.append(resp.content)
             return b"".join(parts)
-        except httpx.HTTPError:
+        except (httpx.HTTPError, ValueError, KeyError):
+            # ValueError/KeyError: a 200 whose .index is not the newline-JSON it should be
+            # (an error page, a torn body) - a missing step like any other, not a raise
             return None
 
 

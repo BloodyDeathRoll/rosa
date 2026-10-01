@@ -20,6 +20,7 @@ per-point) and sequential.
 
 from __future__ import annotations
 
+import sys
 import tempfile
 from collections.abc import Mapping
 from concurrent.futures import ThreadPoolExecutor
@@ -288,7 +289,15 @@ class GFSWaveSource:
             name = f"gfswave_f{step:03d}_{box.key}.grib2"
             (self.capture_dir / name).write_bytes(data)
         valid = cycle + timedelta(hours=step)
-        for i, wp in zip(members, parse_grib_points(data, pts, valid), strict=True):
+        try:
+            wps = parse_grib_points(data, pts, valid)
+        except Exception as e:  # one bad file costs its step, never the member (gwam's rule)
+            print(
+                f"warn: gfswave f{step:03d} box {box.key} unreadable: {e!r} - step skipped",
+                file=sys.stderr,
+            )
+            return
+        for i, wp in zip(members, wps, strict=True):
             if wp is not None:
                 series[i].append(wp)
 

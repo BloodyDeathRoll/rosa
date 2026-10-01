@@ -435,7 +435,10 @@ def skill_payload(
     number is straight from lead_time_scorecard, so the ceiling it feeds is
     auditable against the same harness the accuracy claims come from. ``buoy_ids``
     is the provenance the payload carries all the way to the published
-    confidence_meta: a fleet-wide ceiling measured at one buoy must say so."""
+    confidence_meta: a fleet-wide ceiling measured at one buoy must say so.
+    ``buoy_hours`` (parallel to ``per_buoy``) is each buoy's compared hours summed over
+    the lead buckets, so the provenance can name only the buoys the number came from -
+    a registered buoy that paired nothing (wave-silent) stays in ``buoy_ids`` only."""
     buckets: dict[str, dict] = {}
     for label, _lo, _hi in LEAD_BUCKETS:
         merged = merge_var_scores([b[label][key] for b in per_buoy if label in b])
@@ -451,13 +454,19 @@ def skill_payload(
                 round(merged.scatter_index, 4) if merged.scatter_index is not None else None
             ),
         }
-    return {
+    out = {
         "generated": generated,
         "variable": key,
         "buoys": len(per_buoy),
         "buoy_ids": sorted(buoy_ids or []),
         "buckets": buckets,
     }
+    if buoy_ids is not None and len(buoy_ids) == len(per_buoy):
+        out["buoy_hours"] = {
+            bid: sum(b[label][key].n for label, _lo, _hi in LEAD_BUCKETS if label in b)
+            for bid, b in sorted(zip(buoy_ids, per_buoy, strict=True))
+        }
+    return out
 
 
 def _bucket_for(lead_h: float, buckets: tuple[tuple[str, float, float], ...]) -> str | None:

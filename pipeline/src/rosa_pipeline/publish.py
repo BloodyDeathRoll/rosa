@@ -109,7 +109,12 @@ def load_skill_ceilings(path: Path) -> tuple[dict[int, float], str] | None:
         for tier_i in range(1, len(_CEILING_TIERS)):
             ceilings[tier_i] = min(ceilings[tier_i], ceilings[tier_i - 1])
         generated = skill.get("generated", "?")
-        buoys = ", ".join(skill.get("buoy_ids") or []) or "unknown buoys"
+        ids = skill.get("buoy_ids") or []
+        hours = skill.get("buoy_hours")
+        if isinstance(hours, dict):
+            # name only the buoys the measurement came from (older files lack the key)
+            ids = [b for b in ids if int(hours.get(b) or 0) > 0]
+        buoys = ", ".join(ids) or "unknown buoys"
     except (OSError, ValueError, KeyError, TypeError, AttributeError):
         # AttributeError: a bucket map that parsed as a non-dict (.get on a str)
         if path.exists():

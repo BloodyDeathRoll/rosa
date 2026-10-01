@@ -184,3 +184,21 @@ def test_skill_payload_covers_every_bucket_and_carries_provenance() -> None:
     assert out["buckets"]["0-1d"]["n"] == 10
     assert out["variable"] == "hs"
     assert out["buoy_ids"] == ["46042"]
+
+
+def test_measured_source_names_only_buoys_with_compared_hours(tmp_path: Path) -> None:
+    """A registered buoy that paired zero hours (a wave-silent station) contributed
+    nothing to the ceiling, so the published provenance must not name it."""
+    reporting = {label: {"hs": _vs(SKILL_N_FLOOR)} for label, _lo, _hi in LEAD_BUCKETS}
+    silent = {label: {"hs": _vs(0)} for label, _lo, _hi in LEAD_BUCKETS}
+    out = skill_payload(
+        [reporting, silent],
+        generated="2026-09-30T00:00:00+00:00",
+        buoy_ids=["A-reporting", "B-silent"],
+    )
+    assert out["buoy_ids"] == ["A-reporting", "B-silent"]  # the pass reached both
+    assert out["buoy_hours"]["B-silent"] == 0
+    p = tmp_path / "skill.json"
+    p.write_text(json.dumps(out))
+    _ceilings, source = load_skill_ceilings(p)
+    assert "A-reporting" in source and "B-silent" not in source

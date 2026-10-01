@@ -1216,12 +1216,19 @@ def _cmd_run(args: argparse.Namespace) -> int:
         workers = _score_workers(getattr(args, "workers", 0), len(points))
         if workers > 1:
             import multiprocessing
+            from concurrent.futures import ProcessPoolExecutor
 
             try:
                 # fork, not spawn: the workers read this process's fetched series through
-                # _POINT_CTX copy-on-write - nothing is pickled in, only events come back
-                with multiprocessing.get_context("fork").Pool(workers) as pool:
-                    for events in pool.imap(_score_point, range(len(points)), chunksize=4):
+                # _POINT_CTX copy-on-write - nothing is pickled in, only events come back.
+                # ProcessPoolExecutor, not multiprocessing.Pool: a Pool whose worker is
+                # killed respawns it, loses the task and leaves imap blocked forever - the
+                # `except` below never ran, and a hung `run --all` holds publish.sh's lock
+                # so every later cycle skips. The executor raises BrokenProcessPool instead.
+                with ProcessPoolExecutor(
+                    max_workers=workers, mp_context=multiprocessing.get_context("fork")
+                ) as pool:
+                    for events in pool.map(_score_point, range(len(points)), chunksize=4):
                         replay(events)
                         n_done += 1
             except Exception as e:
