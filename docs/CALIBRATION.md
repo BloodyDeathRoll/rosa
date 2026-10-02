@@ -3639,3 +3639,9 @@ it (5 tries, 10/20/30/40 s apart; 3 tries at 5/10 s still lost 2 of 21).
 
 **Display:** wind now shows in km/h with metric units and knots with feet (it was knots for everyone); the switch in Profile sets both.
 
+
+## 2026-10-02 - A calm hour has no wind direction on any card (Dream 09-26 proposal, same-input A/B)
+
+The 2026-09-26 METAR fix nulled a calm report's direction at parse; IMS and NDBC still passed through whatever the vane logged at 0 m/s. **Changed:** `verify._reports(o, attr)` drops `wdir_deg` as a truth when `wspd_ms == 0`, in all four obs indexes (`pair_series`, `lead_time_scorecard`, `station_bias_profile`, `_station_pairs`) - the proposal named `pair_series` only, but the station lead card goes through `lead_time_scorecard`. Harness only; nothing published moves.
+
+**A/B on the VM, same input** (archived rows + live obs pickled once, scored by base and candidate): METAR 206 stations, 8,116 calm obs, 0 with a direction - output byte-identical. IMS 21 stations, 172 calm obs, all with a direction, at 9 stations. n is unchanged (10-min obs: the next windy row within 30 min takes the pair); per-station wdir MAE moves -0.9..+1.4 deg; pooled wdir MAE 42.4 -> 42.4 (0-1d) .. 69.0 -> 69.2 (9d+); `ws` identical. No earlier station verdict changes.

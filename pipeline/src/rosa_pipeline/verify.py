@@ -211,6 +211,16 @@ def _collapse_hour(hour_pairs: list[tuple[float, float]], circular: bool) -> tup
     return sum(ms) / len(ms), sum(os_) / len(os_)
 
 
+def _reports(o: BuoyObs, o_attr: str) -> bool:
+    """Whether ``o`` carries a truth for ``o_attr``. A calm hour has no wind direction, so
+    its ``wdir_deg`` is not one, whatever the instrument logged: METAR nulls it at parse,
+    IMS and NDBC pass through what the vane reports at 0 m/s. Enforced once, here, for every
+    card that pairs against observations."""
+    if getattr(o, o_attr) is None:
+        return False
+    return not (o_attr == "wdir_deg" and getattr(o, "wspd_ms", None) == 0)
+
+
 def _obs_index(obs: list[BuoyObs]) -> tuple[list[BuoyObs], list[datetime]]:
     """Sort once, so ``_nearest_obs`` can bisect instead of rescanning.
 
@@ -294,7 +304,7 @@ def pair_series(
     pairs: dict[str, list[tuple[float, float]]] = {key: [] for key, *_ in variables}
     for key, _label, _unit, m_attr, o_attr, _circ in variables:
         # indexed once per variable, outside the model loop
-        index = _obs_index([o for o in obs if getattr(o, o_attr) is not None])
+        index = _obs_index([o for o in obs if _reports(o, o_attr)])
         for mp in model:
             mv = getattr(mp, m_attr)
             if mv is None:
@@ -494,7 +504,7 @@ def lead_time_scorecard(
     tol = timedelta(minutes=tol_min)
     # indexed once per variable, not rescanned per archived row - the archive only grows
     valid_obs = {
-        o_attr: _obs_index([o for o in obs if getattr(o, o_attr) is not None])
+        o_attr: _obs_index([o for o in obs if _reports(o, o_attr)])
         for *_head, o_attr, _circ in variables
     }
     # The archive appends the whole horizon 4x/day, so one valid hour is archived
@@ -589,7 +599,7 @@ def station_bias_profile(
     """
     tol = timedelta(minutes=tol_min)
     idx = {
-        o_attr: _obs_index([o for o in obs if getattr(o, o_attr) is not None])
+        o_attr: _obs_index([o for o in obs if _reports(o, o_attr)])
         for *_head, o_attr, _circ in STATION_VARIABLES
     }
     obs_times = [o.time for o in obs]
@@ -705,7 +715,7 @@ def _station_pairs(
     key = ws_key()
     o_attr = STATION_VARIABLES[0][4]
     tol = timedelta(minutes=tol_min)
-    idx = _obs_index([o for o in obs if getattr(o, o_attr) is not None])
+    idx = _obs_index([o for o in obs if _reports(o, o_attr)])
     obs_times = [o.time for o in obs]
     if not obs_times:
         return []

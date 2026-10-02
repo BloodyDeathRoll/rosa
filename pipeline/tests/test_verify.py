@@ -373,3 +373,21 @@ def test_pooled_lead_card_carries_the_apd_footnote() -> None:
     assert "never calibrate against it" in out
     wind = {"0-1d": {"ws": VarScore("ws", "Wind speed", "m/s", 10, 0.1, 0.2, 0.3, None)}}
     assert "never calibrate" not in render_pooled_lead([wind], "pooled")
+
+
+def test_calm_hour_is_no_direction_truth_on_any_card() -> None:
+    # the vane still logs a heading at 0 m/s (IMS, NDBC); that is not a truth to grade against
+    from rosa_pipeline.verify import STATION_VARIABLES
+
+    t0 = datetime(2026, 7, 21, 6, 0, tzinfo=UTC)
+    t1 = t0 + timedelta(hours=1)
+    obs = [_obs(t0, wspd_ms=0.0, wdir_deg=0.0), _obs(t1, wspd_ms=4.0, wdir_deg=270.0)]
+    model = [WavePoint(time=t, hs=1.0, tp=10.0, dir=250.0, ws=3.0, wdir=90.0) for t in (t0, t1)]
+    pairs = pair_series(model, obs)
+    assert pairs["wdir"] == [(90.0, 270.0)]  # the calm hour is gone, the windy one stays
+    assert len(pairs["ws"]) == 2  # calm is still a wind SPEED truth
+    run = (t0 - timedelta(hours=6)).isoformat()
+    rows = [{"run": run, "valid": t.isoformat(), "ws": 3.0, "wdir": 90.0} for t in (t0, t1)]
+    card = lead_time_scorecard(rows, obs, variables=STATION_VARIABLES)["0-1d"]
+    assert card["wdir"].n == 1
+    assert card["ws"].n == 2
