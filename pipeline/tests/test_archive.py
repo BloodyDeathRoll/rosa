@@ -44,6 +44,9 @@ def test_file_store_appends_and_survives_partial_line(tmp_path) -> None:
     (tmp_path / "46042.jsonl").open("a", encoding="utf-8").write('{"run": "e", "va')
     rows = store.read("46042")
     assert [r["hs"] for r in rows] == [1.0, 2.0]  # partial line skipped, good rows intact
+    # the next run starts on a fresh line: the tear costs only the torn row
+    store.append("46042", [{"run": "f", "valid": "g", "hs": 3.0}])
+    assert [r["hs"] for r in store.read("46042")] == [1.0, 2.0, 3.0]
 
 
 def _obs(t: datetime, **kw) -> BuoyObs:

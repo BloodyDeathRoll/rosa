@@ -84,7 +84,18 @@ class FileArchiveStore:
         if not rows:
             return
         self.root.mkdir(parents=True, exist_ok=True)
-        with self._path(key).open("a", encoding="utf-8") as fh:
+        path = self._path(key)
+        # A killed append leaves a last line with no newline. Start on a fresh line, or this
+        # run's first row is glued onto it and `read` skips both - the tear must cost only
+        # the torn row, as the class docstring promises.
+        torn = False
+        if path.exists() and path.stat().st_size:
+            with path.open("rb") as fh:
+                fh.seek(-1, 2)
+                torn = fh.read(1) != b"\n"
+        with path.open("a", encoding="utf-8") as fh:
+            if torn:
+                fh.write("\n")
             for row in rows:
                 fh.write(json.dumps(row, separators=(",", ":")) + "\n")
 
