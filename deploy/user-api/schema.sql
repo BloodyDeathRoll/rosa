@@ -18,3 +18,16 @@ CREATE TABLE IF NOT EXISTS users (
 );
 CREATE INDEX IF NOT EXISTS users_created ON users(created_at);
 CREATE INDEX IF NOT EXISTS users_last_seen ON users(last_seen_at);
+
+-- TEMPORARY (2026-10-06): which Android app opens rosa.surf/?token=…&accountId=…
+-- (web/src/probe.ts). One row per such load, no IP, capped at 5000 rows by the Worker.
+-- Drop the table with the route once the app is named.
+CREATE TABLE IF NOT EXISTS probes (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  at INTEGER NOT NULL,                        -- unix ms
+  country TEXT,                               -- Cloudflare's request.cf.country
+  asn INTEGER,                                -- the network: a datacenter here means a bot farm
+  as_org TEXT,
+  headers TEXT NOT NULL,                      -- JSON, IP/cookie/auth headers removed
+  client TEXT NOT NULL                        -- JSON the page sent (probe.ts)
+);

@@ -19,6 +19,12 @@ name = "SIGNIN_LIMIT"
 namespace_id = "1001"
 simple = { limit = 10, period = 60 }
 
+# POST /probe per client IP - TEMPORARY, see src/index.ts probe().
+[[ratelimits]]
+name = "PROBE_LIMIT"
+namespace_id = "1002"
+simple = { limit = 10, period = 60 }
+
 [[d1_databases]]
 binding = "DB"
 database_name = "rosa-users"

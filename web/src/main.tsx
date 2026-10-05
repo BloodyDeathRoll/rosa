@@ -13,6 +13,7 @@ import { initialTheme } from "./theme";
 import { mountParticles } from "./components/particles";
 import { appReady } from "./splash";
 import { adoptLegacyHash } from "./router";
+import { probeForeignApp } from "./probe";
 import "@fontsource-variable/inter";
 import "./styles.css";
 
@@ -43,6 +44,8 @@ function importFromQuery(): void {
 // become their path form before the router reads them
 adoptLegacyHash();
 if (!onLegacyOrigin()) importFromQuery();
+// the unknown app that opens `/?token=…&accountId=…` (probe.ts, temporary)
+probeForeignApp();
 
 const root = document.getElementById("app");
 if (root) {

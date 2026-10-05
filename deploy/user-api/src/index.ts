@@ -10,6 +10,8 @@
 //   GET    /admin/stats   x-admin-secret -> counts                        "how many users"
 //   GET    /yt-feed?ch=UC...             -> {entries}                     a channel's YouTube feed,
 //                         for the cam player: a 24/7 stream's id changes on every restart
+//   POST   /probe         {ua, hints, …}  -> {ok}                         TEMPORARY: which app opens
+//                         rosa.surf/?token=… (web/src/probe.ts); rows in D1 `probes`
 //
 // Authenticated routes take `Authorization: Bearer <session>` (see session.ts).
 // The user key is Google's `sub`, never anything of ours, so the rows move to any
@@ -28,6 +30,7 @@ export interface Env {
   SESSION_SECRET: string;
   ADMIN_SECRET: string;
   SIGNIN_LIMIT?: RateLimit; // wrangler.toml [[ratelimits]]; absent in tests and bare `wrangler dev`
+  PROBE_LIMIT?: RateLimit;
 }
 
 const GOOGLE_TOKEN_URL = "https://oauth2.googleapis.com/token";
@@ -253,6 +256,41 @@ async function ytFeed(url: URL, ctx: ExecutionContext): Promise<Response> {
   return res;
 }
 
+/** Headers worth keeping from a probe. Not the IP (cf-connecting-ip, x-forwarded-for,
+    x-real-ip), not cookies or auth: the question is which app, never which person. */
+const PROBE_DROP = new Set(["cookie", "authorization", "cf-connecting-ip", "x-forwarded-for", "x-real-ip", "true-client-ip", "cf-ray", "cdn-loop", "cf-visitor", "cf-ew-via", "cf-worker"]);
+const PROBE_MAX_ROWS = 5000;
+
+/** POST /probe - TEMPORARY (web/src/probe.ts says why). One row per load of
+    rosa.surf/?token=…: the page's self-description plus the request headers and
+    Cloudflare's country / network. Capped per IP and in total, so the open route
+    can neither flood D1 nor run up a bill. */
+async function probe(req: Request, env: Env, now: number): Promise<Response> {
+  if (env.PROBE_LIMIT) {
+    const { success } = await env.PROBE_LIMIT.limit({ key: req.headers.get("cf-connecting-ip") ?? "unknown" });
+    if (!success) throw new HttpError(429, "rate");
+  }
+  const client = await readJson(req);
+  const count = await env.DB.prepare("SELECT COUNT(*) AS n FROM probes").first<{ n: number }>();
+  if ((count?.n ?? 0) >= PROBE_MAX_ROWS) return json(200, { ok: false });
+  const headers: Record<string, string> = {};
+  for (const [k, v] of req.headers) if (!PROBE_DROP.has(k)) headers[k] = v.slice(0, 512);
+  const cf = (req as Request & { cf?: Record<string, unknown> }).cf ?? {};
+  await env.DB.prepare(
+    "INSERT INTO probes (at, country, asn, as_org, headers, client) VALUES (?1, ?2, ?3, ?4, ?5, ?6)",
+  )
+    .bind(
+      now,
+      typeof cf.country === "string" ? cf.country : null,
+      typeof cf.asn === "number" ? cf.asn : null,
+      typeof cf.asOrganization === "string" ? cf.asOrganization : null,
+      JSON.stringify(headers),
+      JSON.stringify(client),
+    )
+    .run();
+  return json(200, { ok: true });
+}
+
 async function route(req: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
   const url = new URL(req.url);
   const path = url.pathname.replace(/\/+$/, "") || "/";
@@ -265,6 +303,7 @@ async function route(req: Request, env: Env, ctx: ExecutionContext): Promise<Res
   }
   if (path === "/admin/stats" && req.method === "GET") return stats(req, env, now);
   if (path === "/yt-feed" && req.method === "GET") return ytFeed(url, ctx);
+  if (path === "/probe" && req.method === "POST") return probe(req, env, now);
 
   if (path === "/me" && req.method === "GET") {
     const row = await auth(req, env, ctx, now);
@@ -289,7 +328,7 @@ async function route(req: Request, env: Env, ctx: ExecutionContext): Promise<Res
     return json(200, { ok: true });
   }
 
-  const known = ["/auth/google", "/auth/logout", "/me", "/me/favorites", "/admin/stats", "/yt-feed"];
+  const known = ["/auth/google", "/auth/logout", "/me", "/me/favorites", "/admin/stats", "/yt-feed", "/probe"];
   return json(known.includes(path) ? 405 : 404, { error: known.includes(path) ? "method" : "not found" });
 }
 
