@@ -96,10 +96,32 @@ def spread_deg(kind: str, period_s: float) -> float:
     return SPREAD_LONG_SWELL_DEG
 
 
+def _cos_power_r1(m: float) -> float:
+    """r1 of D ~ cos^m(theta) on +-90 deg: I(m+1)/I(m), I(n) = sqrt(pi) G((n+1)/2)/G(n/2+1)."""
+
+    def log_i(n: float) -> float:
+        return math.lgamma((n + 1.0) / 2.0) - math.lgamma(n / 2.0 + 1.0)
+
+    return math.exp(log_i(m + 1.0) - log_i(m))
+
+
 def spread_power(sigma_deg: float) -> float:
-    """cos^m power for a one-sided directional spread sigma: sigma^2 = 2 / (m + 1)."""
+    """cos^m power whose shape (cos_power_spread, +-90 deg) has the one-sided spread sigma,
+    in the buoy definition the class table is measured in: sigma^2 = 2 (1 - r1)
+    (spectra.py). sigma^2 = 2 / (m + 1) is the cos^2s(theta/2) relation; on this shape it
+    lands every class ~30% narrow (35 deg -> 24). Solved by bisection; floor m = 1."""
     s = math.radians(sigma_deg)
-    return max(1.0, 2.0 / (s * s) - 1.0)
+    target = 1.0 - s * s / 2.0
+    lo, hi = 1.0, 2000.0
+    if _cos_power_r1(lo) >= target:
+        return lo
+    for _ in range(60):
+        mid = 0.5 * (lo + hi)
+        if _cos_power_r1(mid) < target:
+            lo = mid
+        else:
+            hi = mid
+    return 0.5 * (lo + hi)
 
 
 def jonswap(freqs: np.ndarray, hs: float, tp: float, gamma: float = JONSWAP_GAMMA) -> np.ndarray:

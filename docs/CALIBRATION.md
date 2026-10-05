@@ -3645,3 +3645,22 @@ it (5 tries, 10/20/30/40 s apart; 3 tries at 5/10 s still lost 2 of 21).
 The 2026-09-26 METAR fix nulled a calm report's direction at parse; IMS and NDBC still passed through whatever the vane logged at 0 m/s. **Changed:** `verify._reports(o, attr)` drops `wdir_deg` as a truth when `wspd_ms == 0`, in all four obs indexes (`pair_series`, `lead_time_scorecard`, `station_bias_profile`, `_station_pairs`) - the proposal named `pair_series` only, but the station lead card goes through `lead_time_scorecard`. Harness only; nothing published moves.
 
 **A/B on the VM, same input** (archived rows + live obs pickled once, scored by base and candidate): METAR 206 stations, 8,116 calm obs, 0 with a direction - output byte-identical. IMS 21 stations, 172 calm obs, all with a direction, at 9 stations. n is unchanged (10-min obs: the next windy row within 30 min takes the pair); per-station wdir MAE moves -0.9..+1.4 deg; pooled wdir MAE 42.4 -> 42.4 (0-1d) .. 69.0 -> 69.2 (9d+); `ws` identical. No earlier station verdict changes.
+
+## 2026-10-06 - Stage-4 SWAN A/B, first read (4.5): SWAN loses to the published blend; recording had died on 2026-09-27
+
+**Recording stopped early.** The last `.swan` rows are from the 2026-09-26 23:17Z cycle. From 2026-09-27 the chain took ~56 min for days 0-7 and publish.sh's 50 min `timeout` killed `run.sh` at f168 every cycle ("warn: swan socal failed"). So the read has 8 days, not 3 weeks.
+
+**Read.** On the VM, a copy of the archive at the 23 bight buoys: `.swan` rows with a `cycle` key only (the 570 pre-stamp-fix rows dropped, 2026-09-18), and gfswave/ecmwf rows cut to the same run window (2026-09-19 06Z to 2026-09-26 23Z). `verify --all-buoys --archive --source {swan,gfswave,blend}` on that copy. Hs, n-weighted bias / MAE (m):
+
+| | lead | swan | gfswave | blend |
+|---|---|---|---|---|
+| CDIP (17) | 0-1d | +0.08 / 0.15 | -0.12 / 0.16 | -0.00 / **0.10** |
+| | 1-3d | +0.11 / 0.20 | -0.10 / 0.17 | +0.02 / **0.13** |
+| | 4-5d | +0.05 / 0.23 | -0.14 / 0.21 | +0.00 / **0.15** |
+| NDBC (6) | 0-1d | +0.05 / 0.18 | -0.21 / 0.22 | -0.05 / **0.12** |
+| | 1-3d | +0.12 / 0.24 | -0.18 / 0.21 | -0.02 / **0.15** |
+| | 4-5d | +0.04 / 0.28 | -0.26 / 0.30 | -0.08 / **0.20** |
+
+The blend wins at 19 of 23 buoys at 0-1d. SWAN reads ~0.1 m high where the blend is near zero bias. Not the same pairs: SWAN tables 3-hourly per cycle and has ~2x the n of the other two members.
+
+**Changed (operator, 2026-10-06):** the held boundary spread fix applied (Dream 2026-09-26 `swan-spread-power-kuik.diff`) - `swan.spread_power` now solves the cos^m power whose buoy spread sqrt(2(1 - r1)) equals the class table. Wind sea 35 deg is now m 1.36 (was 4.36, which landed at 24 deg), mid swell 20 deg is m 6.93 (was 15.4). And the slot guard is raised to 80 min (a cycle uses ~3.3 h of its 6 h). Recording resumes. **`.swan` rows from before this commit reached the VM used the narrow boundary: never pool them with later rows.** The next read compares the post-fix rows against the same buoys, again with CDIP and NDBC scored apart.

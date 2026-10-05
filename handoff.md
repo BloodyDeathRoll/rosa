@@ -9,7 +9,7 @@ plus the held items from earlier nights; verify, log back to Dream, commit to ma
   (calm has no wind direction). Both are pipeline-only, so the VM pulls them at the next cron cycle and no web deploy is needed.
 - Repo suite: 692 passed, ruff clean (pytest runs the lint).
 - Rosa Dream backlog: 0 open except two items:
-  - `swan-spread-power-kuik.diff` (report 2026-09-26): held until the Stage-4 SWAN A/B read on 2026-10-05.
+  - `swan-spread-power-kuik.diff` (report 2026-09-26): APPLIED 2026-10-06 after the Stage-4 SWAN A/B read (SWAN lost; CALIBRATION.md 2026-10-06).
   - push-api rate limits (report 2026-09-25 finding 4 / swarm 09-25 proposal 5): blocked, Vercel Hobby has no rate limiting (OPEN-ITEMS 33).
 - Swarm audits (09-11, 09-25): all 4 findings fixed in the ledger, and every proposal has been applied or rejected.
 - The Dream ledger `~/Projects/Dream/assignments/codebase-reviewer/reports/.state/rosa.applied`
@@ -37,6 +37,6 @@ plus the held items from earlier nights; verify, log back to Dream, commit to ma
 - KOXR and LPCS METAR fetches returned a transient 504 from aviationweather.gov. Those 2 stations were left out of the A/B.
 
 ## Next Step
-1. On or after 2026-10-05: read the Stage-4 SWAN A/B (memory `stage4-swan-ab-due-2026-10-05`), then re-offer `swan-spread-power-kuik.diff` from report 2026-09-26. It still passes `git apply --check`, and it re-pins `test_spread_power_matches_the_payload_spread_classes`.
+1. DONE 2026-10-06: SWAN A/B read (lost to the blend), spread fix applied, SWAN timeout 50 -> 80 min. Re-read the post-fix `.swan` rows only, from ~2026-10-27 (OPEN-ITEMS 11).
 2. The next Dream night: run `/dream-review`.
 3. After the next VM cycle (cron 02:20/08:20/14:20/20:20 UTC), you can confirm the VM pulled `8f1ec4f` with `ssh ubuntu@82.70.253.255 'git -C ~/rosa log --oneline -1'`.

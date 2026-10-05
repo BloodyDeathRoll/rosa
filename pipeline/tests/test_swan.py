@@ -29,9 +29,15 @@ def test_jonswap_returns_the_height_and_mean_period_it_was_given():
 
 
 def test_spread_power_matches_the_payload_spread_classes():
-    """sigma^2 = 2/(m+1): 35 deg wind sea is a broad m~4, 20 deg mid swell m~15."""
-    assert swan.spread_power(35.0) == pytest.approx(4.36, abs=0.05)
-    assert swan.spread_power(20.0) == pytest.approx(15.4, abs=0.1)
+    """The cos^m shape SWAN gets has the class's buoy spread, sigma = sqrt(2(1 - r1)):
+    35 deg wind sea is a broad m~1.4, 20 deg mid swell m~6.9 (Dream 2026-09-26)."""
+    assert swan.spread_power(35.0) == pytest.approx(1.36, abs=0.02)
+    assert swan.spread_power(20.0) == pytest.approx(6.93, abs=0.02)
+    th = np.radians(np.linspace(-90.0, 90.0, 18001))
+    for sigma in (35.0, 25.0, 20.0, 24.0):
+        d = np.clip(np.cos(th), 0.0, None) ** swan.spread_power(sigma)
+        r1 = float((d * np.cos(th)).sum() / d.sum())
+        assert math.degrees(math.sqrt(2.0 * (1.0 - r1))) == pytest.approx(sigma, abs=0.2)
     assert swan.spread_deg("wind", 5.0) == 35.0
     assert swan.spread_deg("swell", 8.0) == 25.0
     assert swan.spread_deg("swell", 12.0) == 20.0

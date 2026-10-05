@@ -74,21 +74,22 @@ run_evidence() {
 
   # 4e) Stage-4 pilot (docs/rosa-stage4-plan.md): for every region with committed SWAN
   #     grids, rebuild the boundary from this cycle's GFS-Wave partitions, run the SWAN
-  #     chain (outer + nests, ~40 s a step on this box, days 0-7 = ~38 min) and append
+  #     chain (outer + nests, ~56 min for days 0-7 on this box, 2026-10-05) and append
   #     SWAN's sea at the registered buoys to the archive as the `swan` member. RECORDING
   #     ONLY: `run --all` above still publishes the march. The 4.5 A/B on the .swan rows
   #     is what earns `--nearshore swan` a place in that command. Non-fatal and silent
   #     on failure (a pilot is never worth a forecast cycle); run.log in the run dir has
-  #     every SWAN run's timing. The 50 min `timeout` is the slot guard: a cycle already
-  #     takes ~4.3 h of its 6 h, and an overrun makes the lock skip the next cycle - a
-  #     pilot must never cost a public refresh. LAST since 2026-09-17 (it ran before
+  #     every SWAN run's timing. The 80 min `timeout` is the slot guard: a cycle takes
+  #     ~3.3 h of its 6 h (2026-10-05), and an overrun makes the lock skip the next cycle -
+  #     a pilot must never cost a public refresh. It was 50 min until 2026-10-06; the chain
+  #     grew to ~56 min and the guard killed every run from 2026-09-27 on. LAST since 2026-09-17 (it ran before
   #     `run --all` until then and delayed the public forecast ~50 min a cycle); it
   #     fetches its own GFS-Wave box, so nothing upstream depends on its position.
   cd "$HOME/rosa"
   for REGION in socal; do
     if [ -f "data/swan/$REGION/outer/meta.json" ] && [ -x "$HOME/bin/swan-omp.exe" ]; then
       ( uv run --project pipeline rosa-pipeline swan --region "$REGION" --steps 0-168 --nests --chain \
-          && timeout 3000 bash "data/swan/$REGION/run/run.sh" \
+          && timeout 4800 bash "data/swan/$REGION/run/run.sh" \
           && uv run --project pipeline rosa-pipeline swan-archive --run "data/swan/$REGION/run" ) \
         || echo "warn: swan $REGION failed - cycle continues on the march"
     fi
