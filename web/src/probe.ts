@@ -49,9 +49,29 @@ function injectedGlobals(): string[] {
   }
 }
 
+/** True on exactly the loads described above: the app's own `webview=ANDROID_WEBVIEW`
+    marker, or its token pair. Read once at boot, before the router touches the URL. */
+const FROM_FOREIGN_APP = (() => {
+  const q = new URLSearchParams(location.search);
+  return q.get("webview") === "ANDROID_WEBVIEW" || (q.has("token") && q.has("accountId"));
+})();
+
+export const fromForeignApp = (): boolean => FROM_FOREIGN_APP;
+
+/** The visitor's own answer to "which app sent you here?" (ForeignAppAsk.tsx). Same
+    route, same table; `kind` tells the rows apart. */
+export function sendForeignAppAnswer(answer: string, lang: string): void {
+  if (!API) return;
+  fetch(`${API}/probe`, {
+    method: "POST",
+    body: JSON.stringify({ kind: "answer", answer: answer.slice(0, 200), lang, ua: navigator.userAgent }),
+    keepalive: true,
+  }).catch(() => undefined);
+}
+
 export function probeForeignApp(): void {
   const q = new URLSearchParams(location.search);
-  if (!API || !q.has("token") || !q.has("accountId")) return;
+  if (!API || !FROM_FOREIGN_APP) return;
   void (async () => {
     const nav = navigator as Navigator & {
       userAgentData?: { getHighEntropyValues(h: string[]): Promise<Record<string, unknown>> };
