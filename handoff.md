@@ -65,3 +65,22 @@ Then:
   the `probes` table and the privacy paragraph; log the answer in `docs/SESSIONS.md`.
 - If no answers after a few days: email Rosa VPN support (rosaconnect.online) asking whether their app links to rosa.surf; the operator had agreed to this on 10-06 but it was not sent.
 - Add the probe/ask card to `docs/UI.md` while it lives.
+
+---
+
+## Parallel session 2026-10-06: showreel (marketing video, no repo code)
+- The operator picked **v14 blues** on 2026-10-06. There are 4 renders in `~/Videos/rosa-showreel-v14-30s-blues{,-light,-9x16,-light-9x16}.mp4`. I checked them as stills only; I never heard the audio.
+- What changed from v7:
+  - The phone floats in 3D the whole time.
+  - "Your favorites" is callout A in the same CLEAR wave as the other three.
+  - The GETS BETTER globe and graph are centered.
+  - The ending zooms into the spinning globe, then the wave footage fades in.
+  - "Showreel" is gone from the top-right corner.
+  - Light versions: the CTA and tag text are white on color, and the black logo keeps a blue icon and dot (memory `rosa-showreel-light-rules`).
+- The operator's sound rules: no bells; a swoosh only on the 5 step-title cards; the beat plays straight under the titles. The music is "Old Steel (Blues Rock Promo)" by AlexGrohl (Pixabay, free licence).
+- **The sources exist only in a scratchpad, which gets wiped:** `/tmp/claude-1000/-home-shahar--superset-worktrees-rosa-fluff-spacecraft-fbe83e80/09b632a0-5b96-48b7-bb88-e0e2e1099dfb/scratchpad/re/fable/`
+  - The film is `reel13.html` (switches `?theme=light`, `?ar=916`). It was built by the patch chain `mk8.py`..`mk13.py`.
+  - The soundtrack: `python3 audiov15.py blues` (chain `mka10`..`mka15`).
+  - Render with `Q=... OUT=frq WK=20 node render13.cjs`, then `ffmpeg tmix=frames=4,fps=60`.
+  - Next step: ask the operator where to keep them. The v7 sources were lost once already and had to be rebuilt by replaying the session JSONL.
+- The numbers on screen (2,741 spots, 0.74/1.04 s on 4G, 78 KB, 620 updates) were true on 2026-10-04. The app screens are from live rosa.surf on 2026-10-05.
