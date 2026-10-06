@@ -1,40 +1,67 @@
 # Session Handoff — 2026-10-06
 
 ## Goal
-Work the Dream overnight-review backlog for rosa (/dream-review) across every report night, apply what the operator accepts, verify it, log it back to Dream, and commit to main.
+Explain the Arab-country traffic in Rosa's analytics, find which Android app opens
+`rosa.surf/?token=…&accountId=…&username=…&webview=ANDROID_WEBVIEW`, and name it.
 
 ## Current State
-- Committed and pushed to main: `e549205` (swellmap parse guard + SESSIONS.md). It touches the pipeline only, so the VM pulls it at the next cron cycle and there's no web deploy.
-- Repo suite: 692 passed. Pytest runs the ruff lint, and the pre-push hook passed.
-- Dream reports reviewed: 30 rosa nights, through 2026-10-06. The ledger had already closed everything through 10-02.
-  - 10-04 and 10-05 filed nothing; the reviewer's shell was dead.
-  - 10-06 filed one finding, the swellmap parse guard (now applied).
-- Rosa Dream backlog: 0 open except push-api rate limits (report 2026-09-25, finding 4). It is blocked because Vercel Hobby has no rate limiting (OPEN-ITEMS 33).
-- Swarm audits (09-11, 09-25): all 4 findings are marked fixed in `~/Projects/swarm/audits/rosa/ledger.jsonl`.
-- The Dream ledger `~/Projects/Dream/assignments/codebase-reviewer/reports/.state/rosa.applied` has 2026-10-06 lines for the apply and for the commit.
-- Not verified yet: that the VM pulled `e549205`, and a live swellmap cycle with the guard in place.
+- Explained in part: since 2026-09-03 an unknown Android app opens rosa.surf's home page
+  with its own one-minute sign-in token (EdDSA JWT, `iss: token-service`, `aud: autologin`,
+  `flow: DEFAULT`, one `kid`). GA4 (28 d to 10-05): ~950 such loads from ~690 of its
+  accounts; ~480 of ~1000 Rosa users were in Arab countries, all "direct", home page only,
+  ~40 s, one spot_view per ~8 users. The app is still unnamed.
+- Visitors are real phones (20 models, Arabic/Turkish/Persian/Spanish/Russian locales) in
+  the phone's own Chrome / Samsung browser, no referrer, no injected globals - the link is
+  handed to the system browser (or Custom Tabs). Some arrive via VPN/datacenter exits.
+- rosa.surf has no prior owner: first certificates ever are 2026-09-06 (the cutover day).
+- Rosa VPN (`com.roza.vpn`, 5M+ installs, same regions) was the best suspect; its public
+  package and site reference neither rosa.surf nor this URL shape. Not proven, not excluded.
+- LIVE, TEMPORARY instrumentation (both deployed and verified end to end):
+  1. `POST /probe` on the user API + D1 table `probes` (Worker version 9bcc3440). The page
+     posts UA, client hints, referrer, query keys, globals on exactly those loads. 23 rows
+     by 10-06 09:57 local; they are what the "real phones" statement above rests on.
+  2. A card "Which app brought you here?" (7 languages, text box, Send) shown ONLY on those
+     loads, above the sign-in screen. Live on rosa.surf since 10-06 ~10:30 local
+     (`index-8NxDzNk9.js`). Zero answers read yet.
+- Privacy page has a paragraph on this recording. Not yet in `docs/UI.md`.
+- The other 10-06 session (Dream review) committed `e549205` (swellmap parse guard) and
+  `1441feb` (stage-4 SWAN); see `docs/SESSIONS.md` 2026-10-06 entries. VM pull of those
+  is unverified.
+- Separately noticed: first-time visitors land on the full-screen "Continue with Google"
+  sign-in. Not changed; reported only.
 
 ## Active Files
-- `pipeline/src/rosa_pipeline/swellmap.py`: new `_parse_or_skip(parse, raw, what)`, used at three parse sites. These are `build_basin_payload` and the two `fetch_planes_at` closures, in `run_swellmap_all` and `run_swellmap_world`.
-- `docs/SESSIONS.md`: entry "SESSION (2026-10-06, cont.)".
-- `pipeline/.venv`: created in this worktree with `uv sync` (gitignored).
+- `web/src/probe.ts` - detects the foreign-app load, posts the browser's self-description, sends the answer.
+- `web/src/components/ForeignAppAsk.tsx` - the "which app?" card; `app.tsx` mounts it after `ConsentBar`.
+- `web/src/styles.css` - `.ask-app*` rules (z-index 9999, above `.signin-screen` 9998).
+- `web/src/main.tsx` - calls `probeForeignApp()` at boot, before the router touches the URL.
+- `web/src/pages/AboutPage.tsx` - privacy paragraph.
+- `deploy/user-api/src/index.ts` - `probe()` route, `PROBE_DROP` headers, 5000-row cap; `wrangler.toml` `PROBE_LIMIT` 10/min/IP; `schema.sql` `probes` table.
+- `tools/ga-report/report.py` - reused (unchanged) for the ad-hoc GA4 queries.
 
 ## Changes Made This Session
-1. **swellmap-step-parse-guard.diff (Dream 10-06, MEDIUM, scored 40/100 "low-confidence" only because the reviewer ran nothing).**
-   - The bug: a GRIB body that downloads (200, starts with `GRIB`) but fails to parse raised out of the swellmap run. Every basin and the world layer then kept the previous cycle's map, and publish.sh swallows the return code.
-   - The fix: the failure is now treated as a missing step. This is the same rule blend/ecmwf/gfswave got on 2026-10-01 (4e2b2b9).
-   - Proof `test_swellmap_unparseable_step_costs_its_step.py`, run here: FAIL on HEAD (0/4 frames on all three paths), PASS after (4/5).
-   - Hunk 1 had drifted (`git apply --check` failed), so it was ported by hand. Hunks 2-3 went in as filed.
-   - The operator approved the hand port and the commit on 2026-10-06. That is history, not standing approval.
-2. No repo test was added. The proof lives in the Dream report's `tests/`.
+1. GA4 read by country, source, browser, language, events, token URLs (script in scratchpad, not committed). Decoded every token: one `kid`, 693 accountIds, iat = open time.
+2. `bd86a54` probe: Worker route + D1 table + page call. No IP, token, accountId or username stored - the question is which app, not which person. Deployed; test row inserted, read back, deleted.
+3. Domain history (certspotter), Rosa VPN listing/site/public package checked, GitHub code search for the URL shape (nothing).
+4. `d0a5a5e` the ask card, gated on `webview=ANDROID_WEBVIEW` or `token`+`accountId`. Screenshot-verified in ar/tr and absent without params. Deployed.
+5. Memory `token-app-probe-read-due-2026-10-07`: remind at the 10-07 dream review.
 
 ## Failed Attempts
-- `~/Projects/rosa/pipeline/.venv/bin/python` is a dead symlink. It points at `~/snap/code/264/.local/share/uv/python/...`, which is gone. Dream's applier and the targets.yaml test command use that venv, so they will fail until it is rebuilt (`cd ~/Projects/rosa/pipeline && ~/.local/bin/uv sync`). It has not been rebuilt.
-- `uv` is not on PATH in this shell. Both `uv sync` and the pre-push hook failed with "uv: command not found". Use `~/.local/bin/uv`, and push with `PATH=$HOME/.local/bin:$PATH git push origin HEAD:main`.
-- `git apply` / `patch --dry-run` of the 10-06 diff: hunk 1 failed at line 348 (malformed hunk header against the drifted file), so it was hand-ported.
+- Vercel Web Analytics API: "Web Analytics not found" on project `rosa`; Hobby runtime logs keep 1 h and the `token=` query timed out. Not a source.
+- Web/GitHub searches for the JWT `kid`, `webview=ANDROID_WEBVIEW`, `aud autologin token-service`: nothing.
+- Wayback (429), rdap.org (403), crt.sh (502) all unreachable from here; certspotter answered instead.
+- `npx wrangler` in the worktree deployed to the wrong account twice: the Worker lives in
+  einhanamer@gmail.com (`c283cc56…`), and `node_modules/.cache/wrangler/wrangler-account.json`
+  cached the outlook account. Fix: `CLOUDFLARE_ACCOUNT_ID=c283cc56c3871e4f4683b478e5c1da24` and delete that cache file.
+- `.githooks/pre-push` needs `uv` on PATH (`PATH=$HOME/.local/bin:$PATH`).
+- `pkill -f "vite preview"` killed the calling shell (exit 144) - match the pid, not the string.
+- Playwright is not installed in `web/`; the screenshot script ran from `~/Projects/oneshot-old-2026-10-02`.
 
 ## Next Step
-1. After the next VM cycle (cron 02:20/08:20/14:20/20:20 UTC), confirm the VM pulled `e549205`: `ssh ubuntu@82.70.253.255 'git -C ~/rosa log --oneline -1'`. In the publish log, check that swellmap still writes `world.json` and the basins.
-2. Optional, needs the user's OK: rebuild the dead venv in `~/Projects/rosa/pipeline` so Dream's applier and the reviewer's test command work again.
-3. The next Dream night: run `/dream-review`. The reviewer's shell was dead 10-04 to 10-06 (pb_0372), so expect more unrun proofs.
-4. Ongoing: re-read the post-fix `.swan` rows from ~2026-10-27 (OPEN-ITEMS 11).
+On/after 2026-10-07 read the answers:
+`cd deploy/user-api && CLOUDFLARE_ACCOUNT_ID=c283cc56c3871e4f4683b478e5c1da24 npx wrangler d1 execute rosa-users --remote --json --command "SELECT at, country, json_extract(client,'\$.answer') a, json_extract(client,'\$.lang') l FROM probes WHERE json_extract(client,'\$.kind')='answer'"`
+Then:
+- If the app is named: remove `probe.ts`, `ForeignAppAsk.tsx`, the `/probe` route, `PROBE_LIMIT`,
+  the `probes` table and the privacy paragraph; log the answer in `docs/SESSIONS.md`.
+- If no answers after a few days: email Rosa VPN support (rosaconnect.online) asking whether their app links to rosa.surf; the operator had agreed to this on 10-06 but it was not sent.
+- Add the probe/ask card to `docs/UI.md` while it lives.
