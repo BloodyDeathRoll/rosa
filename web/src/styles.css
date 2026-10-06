@@ -4005,29 +4005,6 @@ a.rank-card:hover {
   color: #fff;
   background: var(--accent);
 }
-/* "Which app brought you here?" (ForeignAppAsk.tsx) - the consent card with a text box */
-.ask-app {
-  z-index: 9999; /* above the sign-in screen (9998): a first-time visitor sees that first */
-  align-items: flex-end;
-}
-.ask-app-input {
-  margin-top: 6px;
-  width: 100%;
-  padding: 8px 10px;
-  border-radius: 10px;
-  border: 1px solid var(--border, rgba(127, 127, 127, 0.35));
-  background: var(--secondary);
-  color: inherit;
-  font-size: 14.3px;
-}
-.ask-app .consent-yes:disabled {
-  opacity: 0.5;
-}
-.ask-app-close {
-  padding: 8px 11px;
-  font-size: 16px;
-  line-height: 1;
-}
 @media (min-width: 900px) {
   .consent-bar {
     left: auto;

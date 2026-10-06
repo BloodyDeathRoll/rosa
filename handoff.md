@@ -57,7 +57,15 @@ Explain the Arab-country traffic in Rosa's analytics, find which Android app ope
 - `pkill -f "vite preview"` killed the calling shell (exit 144) - match the pid, not the string.
 - Playwright is not installed in `web/`; the screenshot script ran from `~/Projects/oneshot-old-2026-10-02`.
 
-## Next Step
+## Resolved 2026-10-06 evening
+The app is **Tango Live** (`com.sgiggle.production`): a server-sent promo bottom sheet whose
+campaign link is rosa.surf, enriched on tap with a 60 s Tango autologin token (confirmed in
+Tango's own APK; details in `docs/SESSIONS.md` 2026-10-06 Tango). Probe, ask card, Worker route,
+rate limit, D1 table and privacy paragraph are all removed and deployed. info@rosa.surf now
+exists (alias on shahar@cronus.media, Microsoft 365). Remaining: send the drafted email to
+support@tango.me from info@rosa.surf. Everything below this line is history.
+
+## Next Step (superseded)
 On/after 2026-10-07 read the answers:
 `cd deploy/user-api && CLOUDFLARE_ACCOUNT_ID=c283cc56c3871e4f4683b478e5c1da24 npx wrangler d1 execute rosa-users --remote --json --command "SELECT at, country, json_extract(client,'\$.answer') a, json_extract(client,'\$.lang') l FROM probes WHERE json_extract(client,'\$.kind')='answer'"`
 Then:

@@ -431,11 +431,6 @@ function Privacy() {
         way it never receives anything that identifies you, and if you decline, that answer is
         remembered on this device and applies wherever you travel.
       </p>
-      <p>
-        When another app opens Rosa inside itself with its own sign-in link, we store the technical
-        description that app's browser gives of itself (browser, device model, language, country),
-        to learn which app it is. Not your IP address, and nothing from that sign-in link.
-      </p>
       <h2>Third-party services</h2>
       <p>
         Rosa is built on open data and services from these providers, each with their own privacy
