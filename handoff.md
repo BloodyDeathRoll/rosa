@@ -1,6 +1,57 @@
 # Session Handoff — 2026-10-06
 
 ## Goal
+Write a funny Reddit post announcing the v14 blues 30 s showreel, in the voice of the
+three earlier Rosa posts (Swim mode, Android drop, Silent launch). No repo code.
+
+## Current State
+- Final text agreed with the operator (below). Not posted; the operator posts it by hand.
+- Facts in the post were checked against `handoff.md` (showreel section) and
+  `docs/SESSIONS.md` 2026-10-06 showreel: 2,741 spots, 0.74/1.04 s on 4G (true on 10-04),
+  one drone shot in the opening, "Old Steel (Blues Rock Promo)" by AlexGrohl (Pixabay).
+- Video files: `~/Videos/rosa-showreel-v14-30s-blues{,-light,-9x16,-light-9x16}.mp4`.
+
+Final post:
+```
+Title: We made a promo video. Nobody says "stoked" in it.
+
+30 seconds, one drone shot (apparently that's the law). No guy doing a slow-mo cutback.
+Also missing: a voiceover about the ocean's energy, a guide to your inner energy, yoga,
+acai. Too bad about the last one.
+
+Just the app: 2,741 spots worldwide, loads in under a second on beach 4G, and a blues
+riff we're pretty sure a real person recorded.
+
+Still free. Still no ads. Still no paywall between you and the dawn patrol.
+
+Watch it, then tell us what's wrong with it. Last time you did, we fixed most of it. Most.
+
+https://rosa.surf 🤙
+```
+
+## Active Files
+- `handoff.md` - this file only. Working tree clean, nothing committed.
+
+## Changes Made This Session
+1. Drafted the post; first draft said "no drone shot" and the operator corrected it (the
+   opening is a drone shot). Turned the correction into the joke.
+2. Operator rewrote the first paragraph (yoga/acai list); I only swapped `|` separators for
+   commas and split the acai punchline into its own sentence.
+
+## Failed Attempts
+- First draft claimed "No drone shot" without having watched the video; the handoff notes
+  only say the stills were checked. Lesson: read the showreel section before describing it.
+
+## Next Step
+Operator posts the text above with the 16:9 dark render. Then the open items from the
+parallel sessions below: send the drafted Tango email from info@rosa.surf, and decide where
+the showreel sources live (still only in a wiped-on-exit scratchpad).
+
+---
+
+## Parallel session 2026-10-06: Tango traffic (resolved, email still unsent)
+
+## Goal
 Explain the Arab-country traffic in Rosa's analytics, find which Android app opens
 `rosa.surf/?token=…&accountId=…&username=…&webview=ANDROID_WEBVIEW`, and name it.
 
