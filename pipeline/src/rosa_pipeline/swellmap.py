@@ -369,8 +369,21 @@ def build_basin_payload(
     acc = BasinFrames(basin, cycle)
     for step in steps:
         raw = fetch(step)
-        acc.add(step, parse_grib_field(raw) if raw is not None else None)
+        what = f"{basin.name} f{step:03d}"
+        acc.add(step, _parse_or_skip(parse_grib_field, raw, what) if raw is not None else None)
     return acc.payload()
+
+
+def _parse_or_skip(parse: Callable[[bytes], _T | None], raw: bytes, what: str) -> _T | None:
+    """One bad file costs its step, never the layer (gwam.GwamSource's rule). A body that
+    is 200 and starts with GRIB can still fail to parse; it must read as a missing step,
+    exactly like a failed download, not raise out of the run and cost every basin and
+    the world layer their refresh."""
+    try:
+        return parse(raw)
+    except Exception as e:
+        print(f"warn: swellmap {what}: unparseable GRIB ({e!r}) - step skipped")
+        return None
 
 
 def slice_basin_field(
@@ -875,7 +888,7 @@ def run_swellmap_all(
             time.sleep(REQUEST_GAP_S)
             if resp.status_code != 200 or not _is_grib(resp.content):
                 return None
-            return parse_grib_planes(resp.content)
+            return _parse_or_skip(parse_grib_planes, resp.content, f"world f{step:03d}")
 
         run_cycle, first = _resolve_cycle(cycle, fetch_planes_at, steps[0])
         if run_cycle != cycle:
@@ -968,7 +981,7 @@ def run_swellmap_world(out_dir: Path, now: datetime | None = None) -> int:
             time.sleep(REQUEST_GAP_S)
             if resp.status_code != 200 or not _is_grib(resp.content):
                 return None
-            return parse_grib_planes(resp.content)
+            return _parse_or_skip(parse_grib_planes, resp.content, f"world f{step:03d}")
 
         w_cycle, first = _resolve_cycle(cycle, fetch_planes_at, steps[0])
         if w_cycle != cycle:
