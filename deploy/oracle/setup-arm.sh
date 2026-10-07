@@ -37,7 +37,7 @@ sudo apt-get install -y -qq \
   libnetcdf-dev libnetcdff-dev netcdf-bin \
   git curl unzip pkg-config
 
-echo "=== 2/4 uv (python toolchain, same as rosa-instance) ==="
+echo "=== 2/4 uv (python toolchain) ==="
 if ! command -v uv >/dev/null 2>&1 && [ ! -x "$HOME/.local/bin/uv" ]; then
   curl -LsSf https://astral.sh/uv/install.sh | sh
 fi

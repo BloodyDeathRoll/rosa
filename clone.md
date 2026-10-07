@@ -172,7 +172,7 @@ OpenTopoData API.
 ## 6. What still only runs on the VM
 
 Cloning does not move the schedule. The Oracle VM `rosa-arm` (82.70.253.255, "the box" - see
-`deploy/oracle/README.md`; `rosa-instance` is the idle spare since 2026-08-30) is the only
+`deploy/oracle/README.md`; `rosa-instance`, the old micro, was terminated 2026-10-07) is the only
 thing that publishes: cron 4x/day at 02:20/08:20/14:20/20:20 UTC runs
 `deploy/oracle/publish.sh` (git pull -> buoy archive -> `run --all` -> swellmap -> prebuilt Vercel
 deploy to `rosa-data` -> push notify).

@@ -60,7 +60,7 @@ def stale_message(fetched_at: datetime, now: datetime, max_age_h: float = MAX_AG
         return None
     return (
         f"Forecast data is STALE: last good cycle {age_h:.1f} h ago "
-        f"(limit {max_age_h:g} h). Check rosa-instance + publish.log."
+        f"(limit {max_age_h:g} h). Check rosa-arm + publish.log."
     )
 
 
@@ -94,7 +94,7 @@ def rot_message(
     # The whole fleet rotting is not a partial cycle - it is no cycle, and pointing at
     # publish.log's failing ids would send the reader looking for a list that isn't there.
     cause = (
-        "No cycle has landed - check rosa-instance + publish.log."
+        "No cycle has landed - check rosa-arm + publish.log."
         if len(rotting) == total
         else "A partial cycle is leaving them behind - check publish.log for the failing ids."
     )

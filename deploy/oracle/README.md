@@ -5,14 +5,14 @@
 Rosa's whole backend is always-on Oracle VMs in one VCN. Nothing else runs on a schedule -
 no GitHub Actions, no systemd timers, no request-time backend.
 
-| | **`rosa-arm`** - "the box" (since 2026-08-30) | **`rosa-backup`** | `rosa-instance` (spare) |
-|---|---|---|---|
-| Shape | A1.Flex, 4 OCPU / 24 GB, aarch64, 106 GB disk (2026-10-07; the three boot volumes now total the 200 GB Always Free cap) | E2.1.Micro, 1/8 OCPU / 1 GB | E2.1.Micro |
-| Address | `82.70.253.255` (public), `10.0.0.35` | `10.0.0.11` (private, reach it *through* the box) | `82.70.218.149`, `10.0.0.28` |
-| Job | **Does the work.** Runs the whole forecast cycle. | **Watches the box.** Holds the off-box archive copy. | Nothing. Ran the cycle 2026-07-23 → 2026-08-30; crontab emptied (`~/crontab.before-arm-move.bak`), checkout and `.env` left in place as a fallback. |
-| Schedule | `publish.sh` 4×/day (02:20/08:20/14:20/20:20 UTC); 03:40 archive rsync to the backup; `cam-watch.sh` Mondays 05:40 | `freshness-watch.py` hourly at :17; receives the 03:40 archive rsync | - |
-| Checkout | `~/rosa`, **read-only** deploy key - it can pull, never push | `~/rosa-watch` (watchdog), `~/rosa-archive-backup` (rsync target) | `~/rosa` |
-| Key logs | `~/rosa/publish.log`, `~/rosa/cam-watch.log` | `~/rosa-watch/watch.log` | `~/rosa/publish.log` (history to 2026-08-30) |
+| | **`rosa-arm`** - "the box" (since 2026-08-30) | **`rosa-backup`** |
+|---|---|---|
+| Shape | A1.Flex, 4 OCPU / 24 GB, aarch64, 153 GB disk (2026-10-07; with the backup's 47 GB that is the 200 GB Always Free cap) | E2.1.Micro, 1/8 OCPU / 1 GB |
+| Address | `82.70.253.255` (public), `10.0.0.35` | `10.0.0.11` (private, reach it *through* the box) |
+| Job | **Does the work.** Runs the whole forecast cycle. | **Watches the box.** Holds the off-box archive copy. |
+| Schedule | `publish.sh` 4×/day (02:20/08:20/14:20/20:20 UTC); 03:40 archive rsync to the backup; `cam-watch.sh` Mondays 05:40 | `freshness-watch.py` hourly at :17; receives the 03:40 archive rsync |
+| Checkout | `~/rosa`, **read-only** deploy key - it can pull, never push | `~/rosa-watch` (watchdog), `~/rosa-archive-backup` (rsync target) |
+| Key logs | `~/rosa/publish.log`, `~/rosa/cam-watch.log` | `~/rosa-watch/watch.log` |
 
 ```bash
 ssh -i ~/.config/rosa/ssh-key-2026-07-23.key ubuntu@82.70.253.255       # the box
@@ -23,6 +23,10 @@ ssh -i ~/.config/rosa/ssh-key-2026-07-23.key ubuntu@82.70.253.255 \
 When these docs say **"the box"** they mean `rosa-arm`, and "reaches the box on the next
 pull" means the change is on `main` and `publish.sh` will `git pull` it at the top of the next
 cycle - there is no separate deploy step for VM code.
+
+`rosa-instance` (E2 micro, ran the cycle 2026-07-23 -> 2026-08-30, idle spare after) was
+**terminated 2026-10-07** with its boot volume; its 47 GB went to `rosa-arm`. Its buoy archive
+(48 files) was checked present in full on `rosa-arm` first.
 
 **Why the move (2026-08-30, OPEN-ITEMS 24):** the E2 micro is a burstable 1/8-OCPU shape.
 `sar` during a 624-spot cycle read 6% user / ~45% steal for six hours - the box was getting
@@ -151,7 +155,7 @@ right: anyone holding it can suppress your outage alerts). Open-Meteo and NDBC a
 `rosa-arm` runs Open-Meteo's own API in Docker (`deploy/oracle/open-meteo/docker-compose.yml`, copied to
 `~/open-meteo/`; `cd ~/open-meteo && sudo docker compose up -d`), on `http://127.0.0.1:8080` only. It
 reads Open-Meteo's database from their AWS open-data bucket on demand and caches it in a 40 GB
-`cache.bin` that is allocated in full at start (the disk went 11 -> 52 GB used). `restart: always`.
+`cache.bin` that is allocated in full at start (11 -> 52 GB used). `restart: always`.
 **Nothing uses it yet** - the weather leg still calls api.open-meteo.com. First reading, two points,
 `gfs_seamless`, 16 days: wind speed and temperature byte-identical to the public API; gusts and
 pressure differ on most hours (up to 38 km/h and 4.6 hPa), and Miami's wind direction on 85 of 408

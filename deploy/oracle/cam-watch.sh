@@ -41,7 +41,7 @@ trap 'rm -f "$OUT"' EXIT
     echo "cam-scan itself failed:"
     sed 's/^/  /' "$OUT"
     uv run --project "$HOME/rosa/pipeline" rosa-pipeline alert \
-      --message "Cam check FAILED to run ($(date -u +%H:%MZ)). See cam-watch.log on rosa-instance." \
+      --message "Cam check FAILED to run ($(date -u +%H:%MZ)). See cam-watch.log on rosa-arm." \
       || echo "warn: alert push failed too"
     exit 0   # a broken checker must not look like a clean week
   fi
