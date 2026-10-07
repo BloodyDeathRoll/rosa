@@ -1,6 +1,10 @@
 # Self-hosted Open-Meteo on rosa-arm (2026-10-07, OPEN-ITEMS 34): the weather leg's
-# per-spot calls without the public API's daily cap. Reads Open-Meteo's own database
-# from its AWS open-data bucket on demand and keeps an LRU cache on the box's disk.
+# per-spot calls without the public API's daily cap. `sync` keeps a local copy of the
+# files gfs_seamless reads for our 5 fields (from Open-Meteo's AWS open-data bucket,
+# checked every 5 min); anything not synced is read from the bucket on demand into an
+# LRU cache. On-demand alone was too slow: a cold pass over 2765 points ran > 50 min.
+# Where the fields live (S3 listing, 2026-10-07): gfs013 = temperature + 10 m wind u/v;
+# gfs025 = gusts + MSL pressure; hrrr_conus = all five (US).
 # Data CC-BY-4.0 (attribution in the footer already), code AGPL-3.0 (run unmodified).
 # Start: cd ~/open-meteo && docker compose up -d   API: http://127.0.0.1:8080 (box only)
 volumes:
@@ -17,4 +21,15 @@ services:
       CACHE_SIZE: 40GB
     ports:
       - '127.0.0.1:8080:8080'
+    restart: always
+
+  open-meteo-sync:
+    image: ghcr.io/open-meteo/open-meteo
+    container_name: open-meteo-sync
+    volumes:
+      - open-meteo-data:/app/data
+    command: >
+      sync ncep_gfs013,ncep_gfs025,ncep_hrrr_conus
+      temperature_2m,wind_u_component_10m,wind_v_component_10m,wind_gusts_10m,pressure_msl
+      --past-days 3 --repeat-interval 5
     restart: always

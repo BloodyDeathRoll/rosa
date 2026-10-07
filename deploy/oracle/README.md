@@ -153,13 +153,17 @@ right: anyone holding it can suppress your outage alerts). Open-Meteo and NDBC a
 ## Self-hosted Open-Meteo (2026-10-07, OPEN-ITEMS 34)
 
 `rosa-arm` runs Open-Meteo's own API in Docker (`deploy/oracle/open-meteo/docker-compose.yml`, copied to
-`~/open-meteo/`; `cd ~/open-meteo && sudo docker compose up -d`), on `http://127.0.0.1:8080` only. It
-reads Open-Meteo's database from their AWS open-data bucket on demand and caches it in a 40 GB
-`cache.bin` that is allocated in full at start (11 -> 52 GB used). `restart: always`.
+`~/open-meteo/`; `cd ~/open-meteo && sudo docker compose up -d`), on `http://127.0.0.1:8080` only. A second
+container (`open-meteo-sync`) keeps a local copy of the files our 5 fields come from (GFS 0.11 for
+temperature and 10 m wind, GFS 0.25 for gusts and MSL pressure, HRRR for all five over the US),
+checking Open-Meteo's AWS open-data bucket every 5 min; anything else is read from the bucket on
+demand into a 40 GB `cache.bin` allocated in full at start. On-demand alone was too slow: a cold
+pass over all 2765 points ran > 50 min. Both `restart: always`.
 **Nothing uses it yet** - the weather leg still calls api.open-meteo.com. The switch is built and off: `ROSA_WEATHER_URL=http://127.0.0.1:8080/v1/forecast` in `~/rosa/.env` sends the weather leg here first, and any failure sends that batch and the rest of the run back to the public API (`blend.fetch_weather_many`). First reading, two points,
 `gfs_seamless`, 16 days: wind speed and temperature byte-identical to the public API; gusts and
 pressure differ on most hours (up to 38 km/h and 4.6 hPa), and Miami's wind direction on 85 of 408
-hours. That difference is the step-2 question before any switch. Cold request ~25 s, warm ~1.3 s.
+hours - the public API was still serving the 06Z GFS 0.25 run (where gusts and pressure live) while
+the bucket already had 12Z. Same-run comparison pending. Cold request ~25 s, warm ~1.3 s.
 
 ## Ops alerting (2026-07-28, third eye live 2026-08-04)
 Three independent eyes, after two silent run-crash incidents left stale data serving. They
