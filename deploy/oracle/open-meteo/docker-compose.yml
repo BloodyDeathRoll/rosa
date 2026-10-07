@@ -1,0 +1,20 @@
+# Self-hosted Open-Meteo on rosa-arm (2026-10-07, OPEN-ITEMS 34): the weather leg's
+# per-spot calls without the public API's daily cap. Reads Open-Meteo's own database
+# from its AWS open-data bucket on demand and keeps an LRU cache on the box's disk.
+# Data CC-BY-4.0 (attribution in the footer already), code AGPL-3.0 (run unmodified).
+# Start: cd ~/open-meteo && docker compose up -d   API: http://127.0.0.1:8080 (box only)
+volumes:
+  open-meteo-data:
+
+services:
+  open-meteo:
+    image: ghcr.io/open-meteo/open-meteo
+    container_name: open-meteo
+    volumes:
+      - open-meteo-data:/app/data
+    environment:
+      REMOTE_DATA_DIRECTORY: https://openmeteo.s3.amazonaws.com/data/
+      CACHE_SIZE: 40GB
+    ports:
+      - '127.0.0.1:8080:8080'
+    restart: always
