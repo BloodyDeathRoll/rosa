@@ -49,6 +49,9 @@ const policy = {
     origin("VITE_USER_API"),
     "https://tiles.openfreemap.org",
     "https://accounts.google.com/gsi/",
+    // contact.ts mails Contact Us + spot Reports from the browser. Missing from 2026-09-25
+    // (CSP enforced) to 2026-10-07: every message was stored by push-api, none mailed.
+    "https://formsubmit.co",
     ...GA,
   ],
   "frame-src": ["https://accounts.google.com/gsi/", "https://www.youtube-nocookie.com"],
