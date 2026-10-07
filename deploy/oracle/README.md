@@ -7,7 +7,7 @@ no GitHub Actions, no systemd timers, no request-time backend.
 
 | | **`rosa-arm`** - "the box" (since 2026-08-30) | **`rosa-backup`** | `rosa-instance` (spare) |
 |---|---|---|---|
-| Shape | A1.Flex, 4 OCPU / 24 GB, aarch64 | E2.1.Micro, 1/8 OCPU / 1 GB | E2.1.Micro |
+| Shape | A1.Flex, 4 OCPU / 24 GB, aarch64, 106 GB disk (2026-10-07; the three boot volumes now total the 200 GB Always Free cap) | E2.1.Micro, 1/8 OCPU / 1 GB | E2.1.Micro |
 | Address | `82.70.253.255` (public), `10.0.0.35` | `10.0.0.11` (private, reach it *through* the box) | `82.70.218.149`, `10.0.0.28` |
 | Job | **Does the work.** Runs the whole forecast cycle. | **Watches the box.** Holds the off-box archive copy. | Nothing. Ran the cycle 2026-07-23 → 2026-08-30; crontab emptied (`~/crontab.before-arm-move.bak`), checkout and `.env` left in place as a fallback. |
 | Schedule | `publish.sh` 4×/day (02:20/08:20/14:20/20:20 UTC); 03:40 archive rsync to the backup; `cam-watch.sh` Mondays 05:40 | `freshness-watch.py` hourly at :17; receives the 03:40 archive rsync | - |
