@@ -25,7 +25,7 @@ const ALLOWED_ORIGINS = new Set([
 ]);
 
 const MAX_MESSAGE = 2000;
-const CONTACT_TO = process.env.CONTACT_TO || "einhanamer@gmail.com";
+const CONTACT_TO = process.env.CONTACT_TO || "info@rosa.surf";
 const CONTACT_FROM = process.env.CONTACT_FROM || "Rosa <onboarding@resend.dev>";
 
 function cors(req, res) {

@@ -14,7 +14,7 @@ import { gaEvent } from "./ga";
 import { profile } from "./session";
 
 const API = (import.meta.env.VITE_PUSH_API as string | undefined) ?? "";
-export const CONTACT_EMAIL = "einhanamer@gmail.com";
+export const CONTACT_EMAIL = "info@rosa.surf";
 const FORM = `https://formsubmit.co/ajax/${encodeURIComponent(CONTACT_EMAIL)}`;
 export const MESSAGE_MAX = 2000;
 
