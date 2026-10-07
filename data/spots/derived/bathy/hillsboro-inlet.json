@@ -1,0 +1,72 @@
+{
+  "spot": "hillsboro-inlet",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    26.2557,
+    -80.081
+  ],
+  "bearing_seaward_deg": 99.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 287.0,
+  "mean_slope_m_per_km": 15.94,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 26.25535,
+      "lon": -80.07852,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 26.255,
+      "lon": -80.07605,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 26.25429,
+      "lon": -80.0711,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 26.25288,
+      "lon": -80.06119,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 26.25148,
+      "lon": -80.05129,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 26.24866,
+      "lon": -80.03148,
+      "depth_m": 162.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 26.24442,
+      "lon": -80.00177,
+      "depth_m": 201.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 26.23877,
+      "lon": -79.96217,
+      "depth_m": 250.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 26.23027,
+      "lon": -79.90276,
+      "depth_m": 287.0
+    }
+  ]
+}

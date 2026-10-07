@@ -1,0 +1,72 @@
+{
+  "spot": "lake-worth-pier",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    26.6123,
+    -80.0359
+  ],
+  "bearing_seaward_deg": 91.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 316.0,
+  "mean_slope_m_per_km": 18.37,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 26.61226,
+      "lon": -80.03339,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 26.61222,
+      "lon": -80.03087,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 26.61214,
+      "lon": -80.02584,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 26.61198,
+      "lon": -80.01579,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 26.61183,
+      "lon": -80.00573,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 26.61151,
+      "lon": -79.98561,
+      "depth_m": 156.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 26.61102,
+      "lon": -79.95544,
+      "depth_m": 186.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 26.61037,
+      "lon": -79.91521,
+      "depth_m": 244.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 26.60936,
+      "lon": -79.85487,
+      "depth_m": 316.0
+    }
+  ]
+}

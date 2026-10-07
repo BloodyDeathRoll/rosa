@@ -1,0 +1,47 @@
+# Rosa spot database - South Florida (seeded 2026-10-07). Miami Beach north through Fort
+# Lauderdale, Boca, Delray and the Palm Beaches to Jupiter, Stuart and Jensen Beach: beach,
+# pier and inlet breaks, mostly on winter NE windswell and Aug-Oct hurricane swell.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &sfl
+  timezone: America/New_York
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [0, 130]
+  ideal:
+    wind_dir: [230, 320]
+    size_m: [0.5, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-10-07 - south-florida, 24 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 24 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/south-florida/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: jensen-beach, name: "Jensen Beach", town: "Jensen Beach", lat: 27.2546, lon: -80.1953, offshore_direction: 245, swell_window: [0, 130], offshore_km: 5.0, <<: *sfl }  # sat-verified 2026-10-07 (websearch-seeded)
+  - { id: stuart-public-beach, name: "Stuart Public Beach", town: "Stuart", lat: 27.2145, lon: -80.1736, offshore_direction: 247, swell_window: [2, 132], offshore_km: 5.0, <<: *sfl }  # sat-verified 2026-10-07 (websearch-seeded)
+  - { id: hobe-sound, name: "Hobe Sound", town: "Hobe Sound", lat: 27.0664, lon: -80.1142, offshore_direction: 252, swell_window: [7, 137], offshore_km: 5.0, <<: *sfl }  # sat-verified 2026-10-07 (websearch-seeded)
+  - { id: coral-cove, name: "Coral Cove", town: "Tequesta", lat: 26.9634, lon: -80.0776, offshore_direction: 246, swell_window: [1, 131], offshore_km: 5.0, <<: *sfl }  # sat-verified 2026-10-07 (websearch-seeded)
+  - { id: jupiter-inlet, name: "Jupiter Inlet", town: "Jupiter", lat: 26.9428, lon: -80.0703, offshore_direction: 292, swell_window: [47, 177], offshore_km: 5.0, <<: *sfl }  # sat-verified 2026-10-07 (websearch-seeded)
+  - { id: juno-pier, name: "Juno Pier", town: "Juno Beach", lat: 26.8928, lon: -80.0556, offshore_direction: 257, swell_window: [12, 142], offshore_km: 5.0, <<: *sfl }  # sat-verified 2026-10-07 (websearch-seeded)
+  - { id: ocean-reef-park, name: "Ocean Reef Park", town: "Riviera Beach", lat: 26.7937, lon: -80.0311, offshore_direction: 281, swell_window: [36, 166], offshore_km: 5.0, <<: *sfl }  # sat-verified 2026-10-07 (websearch-seeded)
+  - { id: palm-beach-jetties, name: "Palm Beach Jetties", town: "Palm Beach", lat: 26.7708, lon: -80.0340, offshore_direction: 283, swell_window: [38, 168], offshore_km: 5.0, <<: *sfl }  # sat-verified 2026-10-07 (websearch-seeded)
+  - { id: reef-road, name: "Reef Road", town: "Palm Beach", lat: 26.7636, lon: -80.0356, offshore_direction: 269, swell_window: [24, 154], offshore_km: 5.0, <<: *sfl }  # sat-verified 2026-10-07 (websearch-seeded)
+  - { id: lake-worth-pier, name: "Lake Worth Pier", town: "Lake Worth Beach", lat: 26.6123, lon: -80.0359, offshore_direction: 271, swell_window: [26, 156], offshore_km: 5.0, <<: *sfl }  # sat-verified 2026-10-07 (websearch-seeded)
+  - { id: lantana, name: "Lantana", town: "Lantana", lat: 26.5847, lon: -80.0373, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, <<: *sfl }  # sat-verified 2026-10-07 (websearch-seeded)
+  - { id: boynton-inlet, name: "Boynton Inlet", town: "Boynton Beach", lat: 26.5441, lon: -80.0423, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, <<: *sfl }  # sat-verified 2026-10-07 (websearch-seeded)
+  - { id: delray-beach, name: "Delray Beach", town: "Delray Beach", lat: 26.4617, lon: -80.0569, offshore_direction: 276, swell_window: [31, 161], offshore_km: 5.0, <<: *sfl }  # sat-verified 2026-10-07 (websearch-seeded)
+  - { id: spanish-river, name: "Spanish River", town: "Boca Raton", lat: 26.3788, lon: -80.0658, offshore_direction: 272, swell_window: [27, 157], offshore_km: 5.0, <<: *sfl }  # sat-verified 2026-10-07 (websearch-seeded)
+  - { id: boca-inlet, name: "Boca Inlet", town: "Boca Raton", lat: 26.3350, lon: -80.0699, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, <<: *sfl }  # sat-verified 2026-10-07 (websearch-seeded)
+  - { id: deerfield-beach-pier, name: "Deerfield Beach Pier", town: "Deerfield Beach", lat: 26.3160, lon: -80.0739, offshore_direction: 277, swell_window: [32, 162], offshore_km: 5.0, <<: *sfl }  # sat-verified 2026-10-07 (websearch-seeded)
+  - { id: hillsboro-inlet, name: "Hillsboro Inlet", town: "Hillsboro Beach", lat: 26.2557, lon: -80.0810, offshore_direction: 279, swell_window: [34, 164], offshore_km: 5.0, <<: *sfl }  # sat-verified 2026-10-07 (websearch-seeded)
+  - { id: pompano-beach-pier, name: "Pompano Beach Pier", town: "Pompano Beach", lat: 26.2345, lon: -80.0876, offshore_direction: 274, swell_window: [29, 159], offshore_km: 5.0, <<: *sfl }  # sat-verified 2026-10-07 (websearch-seeded)
+  - { id: fort-lauderdale-14th-street, name: "Fort Lauderdale 14th Street", town: "Fort Lauderdale", lat: 26.1458, lon: -80.1011, offshore_direction: 277, swell_window: [32, 162], offshore_km: 5.0, <<: *sfl }  # sat-verified 2026-10-07 (websearch-seeded)
+  - { id: dania-beach-pier, name: "Dania Beach Pier", town: "Dania Beach", lat: 26.0576, lon: -80.1108, offshore_direction: 277, swell_window: [32, 162], offshore_km: 5.0, <<: *sfl }  # sat-verified 2026-10-07 (websearch-seeded)
+  - { id: haulover, name: "Haulover", town: "Miami Beach", lat: 25.9016, lon: -80.1207, offshore_direction: 272, swell_window: [27, 157], offshore_km: 5.0, <<: *sfl }  # sat-verified 2026-10-07 (websearch-seeded)
+  - { id: 21st-street, name: "21st Street", town: "Miami Beach", lat: 25.7965, lon: -80.1250, offshore_direction: 281, swell_window: [36, 166], offshore_km: 5.0, <<: *sfl }  # sat-verified 2026-10-07 (websearch-seeded)
+  - { id: fifth-street, name: "Fifth Street", town: "Miami Beach", lat: 25.7746, lon: -80.1293, offshore_direction: 278, swell_window: [33, 163], offshore_km: 5.0, <<: *sfl }  # sat-verified 2026-10-07 (websearch-seeded)
+  - { id: south-pointe, name: "South Pointe", town: "Miami Beach", lat: 25.7648, lon: -80.1295, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, <<: *sfl }  # sat-verified 2026-10-07 (websearch-seeded)

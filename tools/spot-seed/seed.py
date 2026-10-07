@@ -258,6 +258,10 @@ REGIONS = {
     # Smyrna. The box stops short of the Gulf side; Florida's south-east and north-east
     # are their own regions later.
     "florida-space-coast": (27.30, -80.95, 29.30, -80.30),
+    # Florida's south-east: Miami Beach and Haulover, Fort Lauderdale, Pompano, Boca,
+    # Delray, the Palm Beaches, Juno, Jupiter and Stuart, up to the Space Coast box.
+    # Biscayne Bay and the Intracoastal sit inside the rectangle and carry no swell.
+    "south-florida": (25.60, -80.40, 27.30, -79.95),
     # Rhode Island's ocean shore: Narragansett and Point Judith, Matunuck and the south
     # county beaches, and Newport's Atlantic side. Narragansett Bay is inside the
     # rectangle and carries no swell.

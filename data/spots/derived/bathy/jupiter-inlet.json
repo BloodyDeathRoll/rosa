@@ -1,0 +1,72 @@
+{
+  "spot": "jupiter-inlet",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    26.9428,
+    -80.0703
+  ],
+  "bearing_seaward_deg": 112.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 213.0,
+  "mean_slope_m_per_km": 11.83,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 26.94196,
+      "lon": -80.06796,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 26.94112,
+      "lon": -80.06562,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 26.93943,
+      "lon": -80.06095,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 26.93606,
+      "lon": -80.05159,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 26.93269,
+      "lon": -80.04224,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 26.92595,
+      "lon": -80.02354,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 26.91583,
+      "lon": -79.99549,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 26.90233,
+      "lon": -79.9581,
+      "depth_m": 128.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 26.88206,
+      "lon": -79.90203,
+      "depth_m": 213.0
+    }
+  ]
+}

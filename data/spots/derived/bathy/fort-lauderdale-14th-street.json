@@ -1,0 +1,72 @@
+{
+  "spot": "fort-lauderdale-14th-street",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    26.1458,
+    -80.1011
+  ],
+  "bearing_seaward_deg": 97.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 277.0,
+  "mean_slope_m_per_km": 15.44,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 26.14553,
+      "lon": -80.09861,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 26.14525,
+      "lon": -80.09613,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 26.1447,
+      "lon": -80.09116,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 26.14361,
+      "lon": -80.08121,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 26.14251,
+      "lon": -80.07127,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 26.14031,
+      "lon": -80.05138,
+      "depth_m": 157.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 26.13701,
+      "lon": -80.02156,
+      "depth_m": 208.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 26.1326,
+      "lon": -79.98179,
+      "depth_m": 238.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 26.12596,
+      "lon": -79.92214,
+      "depth_m": 277.0
+    }
+  ]
+}

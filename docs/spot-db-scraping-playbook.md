@@ -215,7 +215,27 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-09-29, DB = 2741 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-10-07, DB = 2765 spots, ALL sat-verified)
+
+**South Florida 0 -> 24 (2026-10-07)** - one box (25.60-27.30 N) from Miami Beach to Stuart on the
+existing `north-america/us/florida` extract (`south-florida.osm.pbf` is a symlink), joined `us-east`.
+Zero OSM surf nodes (28 named beaches, 0 surf features): web flow end to end. surf-forecast.com's
+Florida break index was the name source; queries were plain `"<place>, Florida"` (the US override).
+28 names -> 24 kept (all moves), 4 dropped. What was new:
+1. **Render at z15 first on this coast.** Google gave the park, car park, street or inlet channel for
+   nearly every name; a z15 tile (2.7 km) always held the surf, so the move was read there and
+   confirmed at z16. No name needed the z13 recovery pass.
+2. **A clean single-provider geocode can still be the wrong town.** `Fort Lauderdale 14th Street`
+   came back on Lauderdale-by-the-Sea's pier (spread 10 km, Google right about a *different* beach);
+   the break is on A1A at NE 14th Ct, 5 km south. `Jupiter Inlet South Jetty` geocoded to the Gulf.
+3. **Three normals off the coastline were wrong**: South Pointe (30, the jetty), Boynton Inlet (190,
+   the inlet channel), Jensen Beach (48). Set by hand from the tile; profiles all end in water.
+Dropped: First Street (South Pointe's own beach), Jupiter Inlet North Jetty (sub-spot across the
+mouth), and two query proxies no surf source names (Bal Harbour, Bathtub Reef). **Gap queue:**
+the Sunny Isles motel breaks (Dunes, Harbor House), Stuart Rocks, Jap Rock, Stumps, Flagpoles,
+the Treasure Coast between Stuart and Sebastian (Fort Pierce Inlet, Walton Rocks - inside the
+Space Coast box), Key Biscayne.
+
 
 **Philippines 16 -> 32 and north Japan +74 (2026-09-29)** - two parallel forks, web flow only.
 Japan: Honshu north of Tokyo +56 into `japan.yaml`, a new `hokkaido` region (18, box

@@ -133,6 +133,7 @@ BASINS: dict[str, tuple[str, ...]] = {
     # the US east coast: North Atlantic groundswell and, Aug-Oct, hurricane swell
     # tracking up the seaboard; one frame from Florida to New England
     "us-east": (
+        "South Florida",
         "Florida Space Coast",
         "Outer Banks",
         "New Jersey",

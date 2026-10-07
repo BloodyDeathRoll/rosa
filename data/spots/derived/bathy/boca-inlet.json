@@ -1,0 +1,72 @@
+{
+  "spot": "boca-inlet",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    26.335,
+    -80.0699
+  ],
+  "bearing_seaward_deg": 110.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 264.0,
+  "mean_slope_m_per_km": 14.76,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 26.33423,
+      "lon": -80.06754,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 26.33346,
+      "lon": -80.06519,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 26.33192,
+      "lon": -80.06047,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 26.32885,
+      "lon": -80.05104,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 26.32577,
+      "lon": -80.04161,
+      "depth_m": 109.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 26.31961,
+      "lon": -80.02276,
+      "depth_m": 155.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 26.31037,
+      "lon": -79.99448,
+      "depth_m": 199.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 26.29805,
+      "lon": -79.95678,
+      "depth_m": 240.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 26.27953,
+      "lon": -79.90025,
+      "depth_m": 264.0
+    }
+  ]
+}

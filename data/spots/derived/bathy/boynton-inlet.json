@@ -1,0 +1,72 @@
+{
+  "spot": "boynton-inlet",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    26.5441,
+    -80.0423
+  ],
+  "bearing_seaward_deg": 95.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 326.0,
+  "mean_slope_m_per_km": 17.92,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 26.5439,
+      "lon": -80.0398,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 26.54371,
+      "lon": -80.03729,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 26.54332,
+      "lon": -80.03229,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 26.54253,
+      "lon": -80.02227,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 26.54175,
+      "lon": -80.01226,
+      "depth_m": 103.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 26.54017,
+      "lon": -79.99223,
+      "depth_m": 160.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 26.53781,
+      "lon": -79.96219,
+      "depth_m": 200.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 26.53464,
+      "lon": -79.92213,
+      "depth_m": 246.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 26.52988,
+      "lon": -79.86206,
+      "depth_m": 326.0
+    }
+  ]
+}

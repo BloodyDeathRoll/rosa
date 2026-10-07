@@ -1,0 +1,72 @@
+{
+  "spot": "jensen-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    27.2546,
+    -80.1953
+  ],
+  "bearing_seaward_deg": 65.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 1.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 27.25555,
+      "lon": -80.19301,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 27.2565,
+      "lon": -80.19072,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 27.2584,
+      "lon": -80.18613,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 27.2622,
+      "lon": -80.17696,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 27.266,
+      "lon": -80.16779,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 27.2736,
+      "lon": -80.14945,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 27.28499,
+      "lon": -80.12193,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 27.30017,
+      "lon": -80.08523,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 27.32292,
+      "lon": -80.03017,
+      "depth_m": 35.0
+    }
+  ]
+}

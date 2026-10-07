@@ -1,0 +1,72 @@
+{
+  "spot": "ocean-reef-park",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    26.7937,
+    -80.0311
+  ],
+  "bearing_seaward_deg": 101.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 315.0,
+  "mean_slope_m_per_km": 17.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 26.79327,
+      "lon": -80.02863,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 26.79284,
+      "lon": -80.02616,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 26.79198,
+      "lon": -80.02121,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 26.79027,
+      "lon": -80.01132,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 26.78855,
+      "lon": -80.00143,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 26.78511,
+      "lon": -79.98165,
+      "depth_m": 103.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 26.77995,
+      "lon": -79.95199,
+      "depth_m": 165.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 26.77306,
+      "lon": -79.91244,
+      "depth_m": 219.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 26.7627,
+      "lon": -79.85313,
+      "depth_m": 315.0
+    }
+  ]
+}

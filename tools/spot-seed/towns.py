@@ -84,6 +84,7 @@ REGION_PBF = {
     "New Jersey": "new-jersey",
     "Outer Banks": "outer-banks",
     "Florida Space Coast": "florida-space-coast",
+    "South Florida": "south-florida",
     "Rhode Island": "rhode-island",
     "Basque Country": "basque-country",
     "Cantabria": "cantabria",
