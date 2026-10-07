@@ -39,6 +39,7 @@ from __future__ import annotations
 
 import json
 import math
+import os
 import sys
 import tempfile
 import time
@@ -130,6 +131,14 @@ AUX_BATCH_SIZE = 100
 # far end of the forecast, but a wind forecast more than a day old is not one to publish.
 WEATHER_CACHE_DIR = Path("data/cache/weather")
 WEATHER_CACHE_MAX_AGE_H = 24.0
+# A self-hosted Open-Meteo (2026-10-07, OPEN-ITEMS 34): the same API, run on the box from
+# Open-Meteo's own AWS open-data copy, with no daily cap. Off unless ROSA_WEATHER_URL names
+# it (e.g. http://127.0.0.1:8080/v1/forecast in ~/rosa/.env). Any failure there - down,
+# slow, a wrong-shaped batch - sends that batch and the rest of the run to the public API,
+# so turning it on can never cost a cycle. Its first request after a start reads cold from
+# S3 (~25 s for two points), hence the long timeout.
+WEATHER_URL_ENV = "ROSA_WEATHER_URL"
+SELF_HOSTED_TIMEOUT_S = 300.0
 
 # the full GFS-Wave partition schema, mapped onto the OM key family extract expects.
 # Message order matters: shts/mpts/swdir each appear THREE times in a gridded file
@@ -435,6 +444,29 @@ def _cached_weather(cache_dir: Path | None, lat: float, lon: float) -> dict | No
     return body if isinstance(body, dict) and "hourly" in body else None
 
 
+def _ask_self_hosted(
+    client: httpx.Client, url: str, params: dict, batch: list, at: int, total: int
+) -> list[dict] | None:
+    """One weather batch from the self-hosted Open-Meteo, attributed like the public
+    API's; None (with a warning) on any failure, so the caller falls back to the API."""
+    try:
+        body = client.get(url, params=params, timeout=SELF_HOSTED_TIMEOUT_S)
+        got = body.raise_for_status().json()
+        wb = [got] if isinstance(got, dict) else list(got)
+        if len(wb) != len(batch):
+            raise ValueError("self-hosted open-meteo returned a different location count")
+        wb = _order_by_location_id(wb)
+        _check_batch_order(wb, batch)
+    except (httpx.HTTPError, ValueError) as e:
+        print(
+            f"warn: self-hosted weather failed at point {at} of {total} ({e!r}) - "
+            "the rest of this run asks api.open-meteo.com",
+            file=sys.stderr,
+        )
+        return None
+    return wb
+
+
 def fetch_weather_many(
     coords: list[tuple[float, float]],
     *,
@@ -467,6 +499,7 @@ def fetch_weather_many(
         return out
     refused: Exception | None = None
     stale = missing = 0
+    self_hosted = os.environ.get(WEATHER_URL_ENV) or None
     with httpx.Client(timeout=timeout_s) as client:
         for i in range(0, len(coords), AUX_BATCH_SIZE):
             batch = coords[i : i + AUX_BATCH_SIZE]
@@ -474,56 +507,62 @@ def fetch_weather_many(
             if refused is None:
                 lat_s = ",".join(f"{lat:g}" for lat, _ in batch)
                 lon_s = ",".join(f"{lon:g}" for _, lon in batch)
-                try:
-                    # retrying_get, same as the OM arm's batches: a lone 503 on a weather
-                    # batch killed the 2026-08-16 08:20Z cycle, and this leg runs AFTER the
-                    # GFS/ECMWF downloads - a transient here throws all of that away.
-                    # retry_429=True since 2026-08-28: the DB growth to 624 spots pushed
-                    # the burst past the MINUTELY cap. Only the minutely-cap 429 is
-                    # retried (fetch._retry_wait_s); an hourly/daily one comes straight
-                    # back and lands in the cache fallback below.
-                    wresp = retrying_get(
-                        client,
-                        WEATHER_URL,
-                        {
-                            "latitude": lat_s,
-                            "longitude": lon_s,
-                            "hourly": ",".join(WEATHER_HOURLY),
-                            "forecast_days": FORECAST_DAYS,
-                            "past_days": PAST_DAYS,
-                            "models": WEATHER_MODEL,
-                        },
-                        retry_429=True,
-                    )
-                    wresp_ok = wresp.raise_for_status().json()
-                except httpx.HTTPError as e:
-                    if cache_dir is None:
-                        raise
-                    refused = e
-                    reason = ""
-                    if isinstance(e, httpx.HTTPStatusError):
-                        # the vendor names the bucket in the body - keep it in the log,
-                        # the 2026-09-29 traceback carried the URL and not the reason
-                        reason = f" {e.response.status_code}: {e.response.text[:200]!r}"
-                    print(
-                        f"warn: open-meteo weather refused at point {i} of {len(coords)}"
-                        f" ({type(e).__name__}{reason}) - the rest of this run uses each "
-                        "point's cached weather",
-                        file=sys.stderr,
-                    )
-                else:
-                    wb = [wresp_ok] if isinstance(wresp_ok, dict) else list(wresp_ok)
-                    if len(wb) != len(batch):
-                        raise ValueError("open-meteo returned a different location count")
-                    # The attribution the OM arm's _fetch_batch and the archive's
-                    # fetch_*_many apply (2026-09-14): bodies back in request order by
-                    # their location_id, then each must name the coordinate it answers
-                    # for. This is the default arm's one per-spot call - a mis-ordered
-                    # batch would publish (and capture, and cache) one spot's wind under
-                    # another spot's id. Measured 2026-10-07 on the VM's cache: the
-                    # largest body offset over all 2741 points is 0.175 deg, under the cap.
-                    wb = _order_by_location_id(wb)
-                    _check_batch_order(wb, batch)
+                params = {
+                    "latitude": lat_s,
+                    "longitude": lon_s,
+                    "hourly": ",".join(WEATHER_HOURLY),
+                    "forecast_days": FORECAST_DAYS,
+                    "past_days": PAST_DAYS,
+                    "models": WEATHER_MODEL,
+                }
+                if self_hosted is not None:
+                    wb = _ask_self_hosted(client, self_hosted, params, batch, i, len(coords))
+                    if wb is None:
+                        self_hosted = None  # down or wrong: the rest of the run asks the API
+                if wb is None:
+                    try:
+                        # retrying_get, same as the OM arm's batches: a lone 503 on a weather
+                        # batch killed the 2026-08-16 08:20Z cycle, and this leg runs AFTER the
+                        # GFS/ECMWF downloads - a transient here throws all of that away.
+                        # retry_429=True since 2026-08-28: the DB growth to 624 spots pushed
+                        # the burst past the MINUTELY cap. Only the minutely-cap 429 is
+                        # retried (fetch._retry_wait_s); an hourly/daily one comes straight
+                        # back and lands in the cache fallback below.
+                        wresp = retrying_get(
+                            client,
+                            WEATHER_URL,
+                            params,
+                            retry_429=True,
+                        )
+                        wresp_ok = wresp.raise_for_status().json()
+                    except httpx.HTTPError as e:
+                        if cache_dir is None:
+                            raise
+                        refused = e
+                        reason = ""
+                        if isinstance(e, httpx.HTTPStatusError):
+                            # the vendor names the bucket in the body - keep it in the log,
+                            # the 2026-09-29 traceback carried the URL and not the reason
+                            reason = f" {e.response.status_code}: {e.response.text[:200]!r}"
+                        print(
+                            f"warn: open-meteo weather refused at point {i} of {len(coords)}"
+                            f" ({type(e).__name__}{reason}) - the rest of this run uses each "
+                            "point's cached weather",
+                            file=sys.stderr,
+                        )
+                    else:
+                        wb = [wresp_ok] if isinstance(wresp_ok, dict) else list(wresp_ok)
+                        if len(wb) != len(batch):
+                            raise ValueError("open-meteo returned a different location count")
+                        # The attribution the OM arm's _fetch_batch and the archive's
+                        # fetch_*_many apply (2026-09-14): bodies back in request order by
+                        # their location_id, then each must name the coordinate it answers
+                        # for. This is the default arm's one per-spot call - a mis-ordered
+                        # batch would publish (and capture, and cache) one spot's wind under
+                        # another spot's id. Measured 2026-10-07 on the VM's cache: the
+                        # largest body offset over all 2741 points is 0.175 deg, under the cap.
+                        wb = _order_by_location_id(wb)
+                        _check_batch_order(wb, batch)
             for k, (lat, lon) in enumerate(batch):
                 if wb is not None:
                     w = wb[k]

@@ -156,7 +156,7 @@ right: anyone holding it can suppress your outage alerts). Open-Meteo and NDBC a
 `~/open-meteo/`; `cd ~/open-meteo && sudo docker compose up -d`), on `http://127.0.0.1:8080` only. It
 reads Open-Meteo's database from their AWS open-data bucket on demand and caches it in a 40 GB
 `cache.bin` that is allocated in full at start (11 -> 52 GB used). `restart: always`.
-**Nothing uses it yet** - the weather leg still calls api.open-meteo.com. First reading, two points,
+**Nothing uses it yet** - the weather leg still calls api.open-meteo.com. The switch is built and off: `ROSA_WEATHER_URL=http://127.0.0.1:8080/v1/forecast` in `~/rosa/.env` sends the weather leg here first, and any failure sends that batch and the rest of the run back to the public API (`blend.fetch_weather_many`). First reading, two points,
 `gfs_seamless`, 16 days: wind speed and temperature byte-identical to the public API; gusts and
 pressure differ on most hours (up to 38 km/h and 4.6 hPa), and Miami's wind direction on 85 of 408
 hours. That difference is the step-2 question before any switch. Cold request ~25 s, warm ~1.3 s.

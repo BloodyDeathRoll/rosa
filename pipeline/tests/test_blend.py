@@ -780,3 +780,73 @@ def test_weather_cache_older_than_the_limit_is_not_used(monkeypatch, tmp_path):
     got = blend_mod.fetch_weather_many([(1.0, 1.0), (2.0, 2.0)], cache_dir=tmp_path)
     assert got[0]["hourly"]["wind_speed_10m"] == [1.0]
     assert got[1]["hourly"]["time"] == []
+
+
+# --- weather leg: the self-hosted Open-Meteo, off unless ROSA_WEATHER_URL (2026-10-07) ---
+
+
+def test_self_hosted_weather_is_asked_first_when_configured(monkeypatch, tmp_path):
+    import httpx
+
+    from rosa_pipeline import blend as blend_mod
+
+    monkeypatch.setattr(blend_mod, "AUX_BATCH_SIZE", 2)
+    monkeypatch.setenv(blend_mod.WEATHER_URL_ENV, "http://127.0.0.1:8080/v1/forecast")
+    hosts: list[str] = []
+
+    def handler(request):
+        hosts.append(request.url.host)
+        lats = [float(x) for x in request.url.params["latitude"].split(",")]
+        bodies = [_weather_body(lat) for lat in lats]
+        return httpx.Response(200, json=bodies if len(bodies) > 1 else bodies[0])
+
+    _weather_transport(monkeypatch, handler)
+    got = blend_mod.fetch_weather_many([(1.0, 1.0), (2.0, 2.0), (3.0, 3.0)], cache_dir=tmp_path)
+    assert [w["hourly"]["wind_speed_10m"] for w in got] == [[1.0], [2.0], [3.0]]
+    assert hosts == ["127.0.0.1", "127.0.0.1"]  # the public API is never asked
+
+
+def test_self_hosted_weather_failure_falls_back_to_the_api_for_the_rest(
+    monkeypatch, tmp_path, capsys
+):
+    """Turning it on must never cost a cycle: one failed batch there, and that batch and
+    every later one go to api.open-meteo.com."""
+    import httpx
+
+    from rosa_pipeline import blend as blend_mod
+
+    monkeypatch.setattr(blend_mod, "AUX_BATCH_SIZE", 2)
+    monkeypatch.setenv(blend_mod.WEATHER_URL_ENV, "http://127.0.0.1:8080/v1/forecast")
+    hosts: list[str] = []
+
+    def handler(request):
+        hosts.append(request.url.host)
+        lats = [float(x) for x in request.url.params["latitude"].split(",")]
+        if request.url.host == "127.0.0.1" and len(hosts) > 1:
+            return httpx.Response(500, text="down")
+        bodies = [_weather_body(lat) for lat in lats]
+        return httpx.Response(200, json=bodies if len(bodies) > 1 else bodies[0])
+
+    _weather_transport(monkeypatch, handler)
+    coords = [(1.0, 1.0), (2.0, 2.0), (3.0, 3.0), (4.0, 4.0), (5.0, 5.0)]
+    got = blend_mod.fetch_weather_many(coords, cache_dir=tmp_path)
+    assert [w["hourly"]["wind_speed_10m"] for w in got] == [[1.0], [2.0], [3.0], [4.0], [5.0]]
+    assert hosts == ["127.0.0.1", "127.0.0.1", "api.open-meteo.com", "api.open-meteo.com"]
+    assert "self-hosted weather failed at point 2 of 5" in capsys.readouterr().err
+
+
+def test_weather_ignores_the_self_hosted_path_when_unset(monkeypatch):
+    import httpx
+
+    from rosa_pipeline import blend as blend_mod
+
+    monkeypatch.delenv(blend_mod.WEATHER_URL_ENV, raising=False)
+    hosts: list[str] = []
+
+    def handler(request):
+        hosts.append(request.url.host)
+        return httpx.Response(200, json=_weather_body(1.0))
+
+    _weather_transport(monkeypatch, handler)
+    blend_mod.fetch_weather_many([(1.0, 1.0)])
+    assert hosts == ["api.open-meteo.com"]
