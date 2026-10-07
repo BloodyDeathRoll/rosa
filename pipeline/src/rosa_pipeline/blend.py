@@ -60,6 +60,8 @@ from .fetch import (
     WEATHER_MODEL,
     WEATHER_URL,
     RawForecast,
+    _check_batch_order,
+    _order_by_location_id,
     fixture_key,
     retrying_get,
 )
@@ -513,6 +515,15 @@ def fetch_weather_many(
                     wb = [wresp_ok] if isinstance(wresp_ok, dict) else list(wresp_ok)
                     if len(wb) != len(batch):
                         raise ValueError("open-meteo returned a different location count")
+                    # The attribution the OM arm's _fetch_batch and the archive's
+                    # fetch_*_many apply (2026-09-14): bodies back in request order by
+                    # their location_id, then each must name the coordinate it answers
+                    # for. This is the default arm's one per-spot call - a mis-ordered
+                    # batch would publish (and capture, and cache) one spot's wind under
+                    # another spot's id. Measured 2026-10-07 on the VM's cache: the
+                    # largest body offset over all 2741 points is 0.175 deg, under the cap.
+                    wb = _order_by_location_id(wb)
+                    _check_batch_order(wb, batch)
             for k, (lat, lon) in enumerate(batch):
                 if wb is not None:
                     w = wb[k]
@@ -1019,9 +1030,12 @@ class BlendedSource:
         ecmwf_series: list[list[SpectralSea]] | None = None,
     ) -> list[RawForecast]:
         fetched_at = datetime.now(UTC).isoformat(timespec="seconds")
+        # weather FIRST (Dream 2026-10-07): it is the arm's only essential per-spot leg,
+        # so a refusal with no usable cache fails the run in a few requests instead of
+        # after the whole GFS-Wave download. A refusal WITH a cache falls back either way.
+        weather = self.weather(coords)
         gfs_series = self.gfs.fetch_series(coords)
         sp_series = ecmwf_series if ecmwf_series is not None else [[] for _ in coords]
-        weather = self.weather(coords)
         sst_vals: list[float | None] = [None] * len(coords)
         if self.sst is not None:
             try:  # guarded: an NCEI outage must never sink the run - SST goes blank

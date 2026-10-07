@@ -8,6 +8,7 @@ network; ``now`` is frozen to the fixture cycle, the e2e-test pattern.
 
 from __future__ import annotations
 
+import json
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
@@ -688,6 +689,56 @@ def test_refused_weather_batch_is_served_from_the_cache(monkeypatch, tmp_path, c
     err = capsys.readouterr().err
     assert "Daily API request limit" in err
     assert "2 of 5 point(s)" in err and "1 had no usable cache" in err
+
+
+def test_weather_batch_is_attributed_by_location_id_and_coordinate(monkeypatch, tmp_path):
+    """Dream 2026-10-07: the default arm's weather leg zipped batch bodies by list
+    position - the one Open-Meteo batch site the 2026-09-14 attribution missed. A swapped
+    batch must come back in request order; a body far from its point must be refused."""
+    import httpx
+
+    from rosa_pipeline import blend as blend_mod
+
+    coords = [(32.875, 34.75), (32.958, 34.75)]  # 0.083 deg apart: only the id can tell
+
+    def body(i: int, lat: float) -> dict:
+        b = {"latitude": lat, "longitude": 34.75, **_weather_body(lat)}
+        if i:
+            b["location_id"] = i
+        return b
+
+    swapped = [body(1, 32.958), body(0, 32.875)]
+    _weather_transport(monkeypatch, lambda request: httpx.Response(200, json=swapped))
+    got = blend_mod.fetch_weather_many(coords, cache_dir=tmp_path)
+    assert [w["hourly"]["wind_speed_10m"] for w in got] == [[32.875], [32.958]]
+    cached = json.loads((tmp_path / "weather_32.875_34.75.json").read_text())
+    assert cached["latitude"] == 32.875  # the cache holds each point's own body
+
+    far = [body(0, 36.625), body(1, 32.958)]
+    _weather_transport(monkeypatch, lambda request: httpx.Response(200, json=far))
+    with pytest.raises(ValueError, match="came back at"):
+        blend_mod.fetch_weather_many(coords, cache_dir=tmp_path)
+
+
+def test_blended_source_asks_for_weather_before_the_wave_download():
+    """Dream 2026-10-07: the weather leg is the arm's only essential per-spot request, so
+    it runs first - a refusal with nothing cached fails the cycle before the NOMADS pull."""
+    order: list[str] = []
+
+    class Gfs:
+        def fetch_series(self, coords):
+            order.append("gfs")
+            raise RuntimeError("stop after the order is known")
+
+    def weather(coords):
+        order.append("weather")
+        return [{"hourly": {"time": []}} for _ in coords]
+
+    from rosa_pipeline.blend import BlendedSource
+
+    with pytest.raises(RuntimeError):
+        BlendedSource(gfs=Gfs(), weather=weather).fetch_many([(1.0, 1.0)])
+    assert order == ["weather", "gfs"]
 
 
 def test_refused_weather_without_a_cache_dir_still_raises(monkeypatch):

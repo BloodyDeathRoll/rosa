@@ -528,11 +528,6 @@ class OpenMeteoSource:
         mj, wj = marine.json(), weather.json()
         marine_list = _order_by_location_id(mj if isinstance(mj, list) else [mj])
         weather_list = _order_by_location_id(wj if isinstance(wj, list) else [wj])
-        if ensemble is None:
-            ensemble_list: list[dict | None] = [None] * len(coords)
-        else:
-            ej = ensemble.json()
-            ensemble_list = _order_by_location_id(ej if isinstance(ej, list) else [ej])
         # The same attribution the archive's fetch_*_many use: bodies are put back in
         # request order by their location_id, then each must name the coordinate it
         # answers for - a mis-ordered trio would publish one spot's sea under another
@@ -540,11 +535,18 @@ class OpenMeteoSource:
         # Bodies without a coordinate (old captures) pass through.
         _check_batch_order(marine_list, coords)
         _check_batch_order(weather_list, coords)
+        ensemble_list: list[dict | None] = [None] * len(coords)
         if ensemble is not None:
             try:
+                ej = ensemble.json()
+                ensemble_list = _order_by_location_id(ej if isinstance(ej, list) else [ej])
                 _check_batch_order(ensemble_list, coords)
             except ValueError as e:
-                # expendable, like every other ensemble failure: degrade, never sink
+                # expendable, like every other ensemble failure: degrade, never sink.
+                # ValueError covers every step: a 200 that is not JSON, a location_id
+                # set that is not 0..n-1, a count that does not match, and a body at
+                # the wrong coordinate (the first three sat outside this guard until
+                # 2026-10-07 and sank the batch, marine + weather bodies included).
                 print(
                     f"warn: open-meteo ensemble batch mis-attributed ({e}) - "
                     "publishing without the confidence ensemble (horizon proxy only)",

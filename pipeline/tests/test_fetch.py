@@ -36,6 +36,26 @@ def test_ensemble_429_degrades_instead_of_sinking_the_run(capsys):
     assert "429" in capsys.readouterr().err
 
 
+def test_ensemble_that_will_not_attribute_degrades_instead_of_sinking_the_run(capsys):
+    """Dream 2026-10-07: a 200 ensemble body that is not JSON, or whose location_id set is
+    not 0..n-1, sat outside the degrade guard and sank the batch, marine + weather too."""
+    for bad in (
+        httpx.Response(200, text="<html>busy</html>"),
+        httpx.Response(200, json=[{"location_id": 1}, {"location_id": 1}]),
+    ):
+
+        def handler(request: httpx.Request, bad=bad) -> httpx.Response:
+            if _is_ensemble(request):
+                return bad
+            return httpx.Response(200, json=_body({"hourly": {"time": ["2026-07-24T00:00"]}}))
+
+        raws = OpenMeteoSource(transport=httpx.MockTransport(handler)).fetch_many(COORDS)
+        assert len(raws) == len(COORDS)
+        assert all(r.ensemble is None for r in raws)
+        assert all(r.weather["hourly"]["time"] == ["2026-07-24T00:00"] for r in raws)
+        assert "horizon proxy only" in capsys.readouterr().err
+
+
 def test_weather_requests_name_the_published_wind_model():
     """The 10 m wind is GFS since 2026-08-30 (fetch.WEATHER_MODEL): the run's weather leg
     and the archive's wind batch both send `models=`, and the A/B member is a different
