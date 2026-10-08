@@ -150,7 +150,7 @@ def test_every_committed_spot_picks_the_same_oisst_cell_as_before():
     lons = np.arange(0.125, 360.0, 0.25)
     reach = int(NEAREST_MAX_DEG / 0.25)
     spots = load_spots(Path(__file__).resolve().parents[2] / "data" / "spots")
-    assert len(spots) == 2780
+    assert len(spots) == 2847
 
     near_seam = []
     for s in spots.values():
@@ -173,15 +173,38 @@ def test_every_committed_spot_picks_the_same_oisst_cell_as_before():
     # every column within the search radius by the signed distance
     assert sorted(s.id for s, _ in near_seam) == [
         "ain-el-turk",
+        "bexhill",
+        "birling-gap",
+        "brighton",
+        "camber-sands",
         "cap-ivi",
         "cayton-bay",
+        "courseulles-sur-mer",
+        "deauville",
+        "east-wittering",
+        "etretat",
+        "fairlight",
+        "fecamp",
+        "hastings",
+        "hayling-island",
         "kokrobite",
         "labadi",
+        "le-havre",
+        "les-petites-dalles",
+        "littlehampton",
+        "luc-sur-mer",
         "runswick-bay",
+        "sainte-adresse",
         "saltburn",
         "sandsend",
         "scarborough-north-bay",
+        "shoreham",
+        "south-lancing",
+        "vaucottes",
+        "veules-les-roses",
+        "west-wittering",
         "whitby",
+        "yport",
     ], "seam-spot set changed"
     for s, cols in near_seam:
         assert len(cols) == 2 * reach + 1, f"{s.id}: window truncated at the seam"
