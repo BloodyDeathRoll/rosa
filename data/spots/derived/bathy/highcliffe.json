@@ -1,0 +1,72 @@
+{
+  "spot": "highcliffe",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    50.7361,
+    -1.6968
+  ],
+  "bearing_seaward_deg": 180.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 2.14,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 50.73385,
+      "lon": -1.6968,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 50.7316,
+      "lon": -1.6968,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 50.72711,
+      "lon": -1.6968,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 50.71811,
+      "lon": -1.6968,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 50.70912,
+      "lon": -1.6968,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 50.69113,
+      "lon": -1.6968,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 50.66415,
+      "lon": -1.6968,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.62818,
+      "lon": -1.6968,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.57422,
+      "lon": -1.6968,
+      "depth_m": 30.0
+    }
+  ]
+}

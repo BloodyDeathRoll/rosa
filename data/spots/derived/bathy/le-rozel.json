@@ -1,0 +1,72 @@
+{
+  "spot": "le-rozel",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    49.4812,
+    -1.8492
+  ],
+  "bearing_seaward_deg": 271.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 29.0,
+  "mean_slope_m_per_km": 1.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 49.48124,
+      "lon": -1.85266,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 49.48128,
+      "lon": -1.85612,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 49.48136,
+      "lon": -1.86304,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 49.48151,
+      "lon": -1.87688,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 49.48166,
+      "lon": -1.89072,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 49.48196,
+      "lon": -1.9184,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 49.4824,
+      "lon": -1.95992,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 49.48296,
+      "lon": -2.01529,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 49.48376,
+      "lon": -2.09833,
+      "depth_m": 29.0
+    }
+  ]
+}

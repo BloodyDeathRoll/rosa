@@ -1,0 +1,72 @@
+{
+  "spot": "kimmeridge-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    50.6121,
+    -2.135
+  ],
+  "bearing_seaward_deg": 213.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 39.0,
+  "mean_slope_m_per_km": 2.7,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 50.61021,
+      "lon": -2.13693,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 50.60833,
+      "lon": -2.13886,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 50.60456,
+      "lon": -2.14272,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 50.59701,
+      "lon": -2.15043,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 50.58947,
+      "lon": -2.15815,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 50.57438,
+      "lon": -2.17356,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 50.55175,
+      "lon": -2.19667,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.52156,
+      "lon": -2.22745,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.47626,
+      "lon": -2.27354,
+      "depth_m": 39.0
+    }
+  ]
+}

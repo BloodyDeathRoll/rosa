@@ -1,0 +1,72 @@
+{
+  "spot": "durlston-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    50.6009,
+    -1.9521
+  ],
+  "bearing_seaward_deg": 78.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 24.0,
+  "mean_slope_m_per_km": 1.13,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 50.60137,
+      "lon": -1.94864,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 50.60183,
+      "lon": -1.94517,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 50.60277,
+      "lon": -1.93824,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 50.60464,
+      "lon": -1.92438,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 50.6065,
+      "lon": -1.91052,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 50.61023,
+      "lon": -1.88279,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 50.61581,
+      "lon": -1.84119,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.62322,
+      "lon": -1.78571,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.63429,
+      "lon": -1.70246,
+      "depth_m": 24.0
+    }
+  ]
+}

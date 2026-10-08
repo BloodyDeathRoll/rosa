@@ -1,0 +1,72 @@
+{
+  "spot": "dawlish-warren",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    50.5993,
+    -3.437
+  ],
+  "bearing_seaward_deg": 144.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 36.0,
+  "mean_slope_m_per_km": 1.97,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 50.59748,
+      "lon": -3.43492,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 50.59566,
+      "lon": -3.43284,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 50.59202,
+      "lon": -3.42867,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 50.58475,
+      "lon": -3.42035,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 50.57747,
+      "lon": -3.41203,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 50.56291,
+      "lon": -3.39539,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 50.54108,
+      "lon": -3.37046,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.51195,
+      "lon": -3.33725,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.46824,
+      "lon": -3.28751,
+      "depth_m": 36.0
+    }
+  ]
+}

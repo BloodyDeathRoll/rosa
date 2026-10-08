@@ -1,0 +1,72 @@
+{
+  "spot": "southbourne",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    50.7184,
+    -1.7931
+  ],
+  "bearing_seaward_deg": 185.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 32.0,
+  "mean_slope_m_per_km": 1.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 50.71616,
+      "lon": -1.79341,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 50.71392,
+      "lon": -1.79372,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 50.70944,
+      "lon": -1.79434,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 50.70048,
+      "lon": -1.79558,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 50.69152,
+      "lon": -1.79681,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 50.6736,
+      "lon": -1.79928,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 50.64673,
+      "lon": -1.80299,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.61089,
+      "lon": -1.80792,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.55714,
+      "lon": -1.81531,
+      "depth_m": 32.0
+    }
+  ]
+}

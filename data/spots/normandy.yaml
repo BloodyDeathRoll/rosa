@@ -1,0 +1,53 @@
+# Rosa spot database - Normandy (seeded 2026-10-09). The Cotentin's west coast takes Atlantic
+# W-NW swell up the Channel; the Calvados and Seine-Maritime shores face north and need a
+# Channel W-NW or a North Sea windswell. Big tides: most breaks are tide-specific.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &nor
+  timezone: Europe/Paris
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [220, 340]
+  ideal:
+    wind_dir: [30, 160]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-10-09 - normandy, 30 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 30 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/normandy/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: berneval, name: "Berneval", town: "Berneval-sur-Mer", lat: 49.9694, lon: 1.1933, offshore_direction: 170, swell_window: [285, 55], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: pourville, name: "Pourville", town: "Hautot-sur-Mer", lat: 49.9185, lon: 1.0319, offshore_direction: 179, swell_window: [294, 64], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: veules-les-roses, name: "Veules-les-Roses", town: "Veules-les-Roses", lat: 49.8799, lon: 0.8031, offshore_direction: 151, swell_window: [266, 36], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: les-petites-dalles, name: "Les Petites Dalles", town: "Les Petites Dalles", lat: 49.8257, lon: 0.5242, offshore_direction: 161, swell_window: [276, 46], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: fecamp, name: "Fecamp", town: "Fécamp", lat: 49.7607, lon: 0.3613, offshore_direction: 116, swell_window: [231, 1], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: yport, name: "Yport", town: "Yport", lat: 49.7403, lon: 0.3089, offshore_direction: 181, swell_window: [296, 66], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: vaucottes, name: "Vaucottes", town: "Vaucottes", lat: 49.7384, lon: 0.2905, offshore_direction: 147, swell_window: [262, 32], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: etretat, name: "Etretat", town: "Étretat", lat: 49.7085, lon: 0.2008, offshore_direction: 122, swell_window: [237, 7], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: anse-saint-martin, name: "Anse Saint-Martin", town: "La Hague", lat: 49.7067, lon: -1.8848, offshore_direction: 187, swell_window: [302, 72], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: la-mondree, name: "La Mondree", town: "Fermanville", lat: 49.6917, lon: -1.4522, offshore_direction: 155, swell_window: [270, 40], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: ecalgrain, name: "Ecalgrain", town: "La Hague", lat: 49.6901, lon: -1.9371, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: anse-du-brick, name: "Anse du Brick", town: "Maupertus-sur-Mer", lat: 49.6690, lon: -1.4891, offshore_direction: 132, swell_window: [247, 17], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: collignon, name: "Collignon", town: "Tourlaville", lat: 49.6549, lon: -1.5569, offshore_direction: 201, swell_window: [316, 86], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: vauville, name: "Vauville", town: "Vauville", lat: 49.6453, lon: -1.8587, offshore_direction: 64, swell_window: [179, 309], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: biville, name: "Biville", town: "Biville", lat: 49.6093, lon: -1.8457, offshore_direction: 73, swell_window: [188, 318], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: siouville, name: "Siouville", town: "Siouville-Hague", lat: 49.5658, lon: -1.8498, offshore_direction: 111, swell_window: [226, 356], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: dielette, name: "Dielette", town: "Flamanville", lat: 49.5516, lon: -1.8653, offshore_direction: 135, swell_window: [250, 20], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: sainte-adresse, name: "Sainte-Adresse", town: "Sainte-Adresse", lat: 49.5019, lon: 0.0838, offshore_direction: 28, swell_window: [143, 273], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: sciotot, name: "Sciotot", town: "Les Pieux", lat: 49.4967, lon: -1.8494, offshore_direction: 77, swell_window: [192, 322], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: le-havre, name: "Le Havre", town: "Le Havre", lat: 49.4952, lon: 0.0905, offshore_direction: 72, swell_window: [187, 317], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: le-rozel, name: "Le Rozel", town: "Le Rozel", lat: 49.4812, lon: -1.8492, offshore_direction: 91, swell_window: [206, 336], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: surtainville, name: "Surtainville", town: "Surtainville", lat: 49.4619, lon: -1.8352, offshore_direction: 69, swell_window: [184, 314], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: baubigny, name: "Baubigny", town: "Baubigny", lat: 49.4230, lon: -1.8272, offshore_direction: 88, swell_window: [203, 333], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: hatainville, name: "Hatainville", town: "Les Moitiers-d'Allonne", lat: 49.3996, lon: -1.8288, offshore_direction: 83, swell_window: [198, 328], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: deauville, name: "Deauville", town: "Deauville", lat: 49.3618, lon: 0.0633, offshore_direction: 110, swell_window: [225, 355], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: carteret, name: "Carteret", town: "Barneville-Carteret", lat: 49.3584, lon: -1.7633, offshore_direction: 50, swell_window: [165, 295], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: courseulles-sur-mer, name: "Courseulles-sur-Mer", town: "Courseulles-sur-Mer", lat: 49.3364, lon: -0.4496, offshore_direction: 181, swell_window: [296, 66], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: luc-sur-mer, name: "Luc-sur-Mer", town: "Luc-sur-Mer", lat: 49.3214, lon: -0.3542, offshore_direction: 212, swell_window: [327, 97], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: bretteville-sur-ay, name: "Bretteville-sur-Ay", town: "Bretteville-sur-Ay", lat: 49.2532, lon: -1.6634, offshore_direction: 72, swell_window: [187, 317], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: carolles, name: "Carolles", town: "Carolles", lat: 48.7625, lon: -1.5724, offshore_direction: 96, swell_window: [211, 341], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)

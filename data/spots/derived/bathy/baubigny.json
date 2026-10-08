@@ -1,0 +1,72 @@
+{
+  "spot": "baubigny",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    49.423,
+    -1.8272
+  ],
+  "bearing_seaward_deg": 268.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 29.0,
+  "mean_slope_m_per_km": 1.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 49.42292,
+      "lon": -1.83065,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 49.42284,
+      "lon": -1.83411,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 49.42269,
+      "lon": -1.84102,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 49.42237,
+      "lon": -1.85483,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 49.42205,
+      "lon": -1.86865,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 49.42141,
+      "lon": -1.89628,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 49.42044,
+      "lon": -1.93773,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 49.41912,
+      "lon": -1.99299,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 49.41708,
+      "lon": -2.07588,
+      "depth_m": 29.0
+    }
+  ]
+}

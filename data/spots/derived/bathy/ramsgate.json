@@ -1,0 +1,72 @@
+{
+  "spot": "ramsgate",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    51.3321,
+    1.4259
+  ],
+  "bearing_seaward_deg": 114.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 56.0,
+  "mean_slope_m_per_km": 3.04,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 51.33119,
+      "lon": 1.42919,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 51.33027,
+      "lon": 1.43247,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 51.32844,
+      "lon": 1.43905,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 51.32478,
+      "lon": 1.45219,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 51.32112,
+      "lon": 1.46534,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 51.31379,
+      "lon": 1.49162,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 51.30279,
+      "lon": 1.53103,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 51.2881,
+      "lon": 1.58354,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 51.26602,
+      "lon": 1.66225,
+      "depth_m": 56.0
+    }
+  ]
+}

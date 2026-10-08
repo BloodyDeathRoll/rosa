@@ -1,0 +1,72 @@
+{
+  "spot": "hayling-island",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    50.783,
+    -0.9816
+  ],
+  "bearing_seaward_deg": 190.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 19.0,
+  "mean_slope_m_per_km": 1.24,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 50.78079,
+      "lon": -0.98222,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 50.77857,
+      "lon": -0.98283,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 50.77414,
+      "lon": -0.98407,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 50.76529,
+      "lon": -0.98654,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 50.75643,
+      "lon": -0.98901,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 50.73872,
+      "lon": -0.99394,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 50.71215,
+      "lon": -1.00133,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.67672,
+      "lon": -1.01117,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.62357,
+      "lon": -1.02591,
+      "depth_m": 19.0
+    }
+  ]
+}

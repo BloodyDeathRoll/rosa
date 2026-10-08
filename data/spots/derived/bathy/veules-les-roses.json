@@ -1,0 +1,72 @@
+{
+  "spot": "veules-les-roses",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    49.8799,
+    0.8031
+  ],
+  "bearing_seaward_deg": 331.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 28.0,
+  "mean_slope_m_per_km": 1.52,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 49.88187,
+      "lon": 0.80141,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 49.88383,
+      "lon": 0.79972,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 49.88777,
+      "lon": 0.79633,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 49.89563,
+      "lon": 0.78956,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 49.9035,
+      "lon": 0.78279,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 49.91922,
+      "lon": 0.76924,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 49.94281,
+      "lon": 0.7489,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 49.97426,
+      "lon": 0.72175,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.02142,
+      "lon": 0.68095,
+      "depth_m": 28.0
+    }
+  ]
+}

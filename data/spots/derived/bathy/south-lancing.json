@@ -1,0 +1,72 @@
+{
+  "spot": "south-lancing",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    50.8187,
+    -0.3254
+  ],
+  "bearing_seaward_deg": 129.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 22.0,
+  "mean_slope_m_per_km": 1.41,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 50.81729,
+      "lon": -0.32263,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 50.81587,
+      "lon": -0.31987,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 50.81304,
+      "lon": -0.31434,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 50.80738,
+      "lon": -0.30328,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 50.80172,
+      "lon": -0.29222,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 50.79039,
+      "lon": -0.27012,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 50.77339,
+      "lon": -0.23699,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.75071,
+      "lon": -0.19284,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.71666,
+      "lon": -0.12671,
+      "depth_m": 22.0
+    }
+  ]
+}

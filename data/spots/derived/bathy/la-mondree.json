@@ -1,0 +1,72 @@
+{
+  "spot": "la-mondree",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    49.6917,
+    -1.4522
+  ],
+  "bearing_seaward_deg": 335.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 59.0,
+  "mean_slope_m_per_km": 3.15,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 49.69374,
+      "lon": -1.45367,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 49.69578,
+      "lon": -1.45514,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 49.69985,
+      "lon": -1.45808,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 49.708,
+      "lon": -1.46395,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 49.71615,
+      "lon": -1.46983,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 49.73245,
+      "lon": -1.4816,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 49.7569,
+      "lon": -1.49927,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 49.78949,
+      "lon": -1.52285,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 49.83836,
+      "lon": -1.55827,
+      "depth_m": 59.0
+    }
+  ]
+}

@@ -204,6 +204,17 @@ REGIONS = {
     "landes": (43.35, -1.85, 45.10, -1.05),
     # Brittany's Atlantic tip: La Torche and the Pays Bigouden, Crozon, Quiberon
     "brittany": (47.45, -4.85, 48.75, -3.00),
+    # Normandy: the Cotentin's west coast (Siouville, Le Rozel, Surtainville, Carteret down to
+    # Carolles) and its north tip (Ecalgrain, Anse St Martin), then the Calvados and
+    # Seine-Maritime shores (Luc, Courseulles, Trouville, Le Havre, Etretat, Fecamp, Pourville).
+    # The Channel Islands are inside the rectangle but not in the extract. The extract is a
+    # local merge of europe/france/{basse,haute}-normandie (data/osm/normandy.osm.pbf).
+    "normandy": (48.70, -1.98, 50.10, 1.50),
+    # England's south coast east of the cornwall-devon box: south Devon from Thurlestone and
+    # Hope Cove east (the box overlaps cornwall-devon's by 0.05 deg; Bantham/Bigbury are
+    # already in the DB), Dorset (Kimmeridge, Bournemouth), the Isle of Wight, Hampshire,
+    # Sussex and Kent round to Joss Bay on Thanet.
+    "england-south": (50.20, -3.90, 51.40, 1.46),
     # Senegal: the Dakar peninsula (Ngor, Ouakam, the Almadies reefs, Yoff, Virage),
     # the Petite Cote south to Toubab Dialaw and Somone, and Cap Skirring in Casamance
     "senegal": (12.25, -17.60, 14.90, -16.65),

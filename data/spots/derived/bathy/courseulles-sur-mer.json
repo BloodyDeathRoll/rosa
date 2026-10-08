@@ -1,0 +1,72 @@
+{
+  "spot": "courseulles-sur-mer",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    49.3364,
+    -0.4496
+  ],
+  "bearing_seaward_deg": 1.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 36.0,
+  "mean_slope_m_per_km": 1.97,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 49.33865,
+      "lon": -0.44954,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 49.3409,
+      "lon": -0.44948,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 49.34539,
+      "lon": -0.44936,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 49.35438,
+      "lon": -0.44912,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 49.36338,
+      "lon": -0.44888,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 49.38136,
+      "lon": -0.44839,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 49.40833,
+      "lon": -0.44767,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 49.4443,
+      "lon": -0.4467,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 49.49825,
+      "lon": -0.44525,
+      "depth_m": 36.0
+    }
+  ]
+}

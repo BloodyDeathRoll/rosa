@@ -1,0 +1,72 @@
+{
+  "spot": "boscombe-pier",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    50.7191,
+    -1.8437
+  ],
+  "bearing_seaward_deg": 187.0,
+  "nearshore_depth_m": -17.0,
+  "offshore_depth_m": 31.0,
+  "mean_slope_m_per_km": 2.7,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 50.71687,
+      "lon": -1.84413,
+      "depth_m": -17.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 50.71464,
+      "lon": -1.84457,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 50.71017,
+      "lon": -1.84543,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 50.70125,
+      "lon": -1.84716,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 50.69232,
+      "lon": -1.84889,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 50.67447,
+      "lon": -1.85235,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 50.64769,
+      "lon": -1.85753,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.61198,
+      "lon": -1.86443,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.55842,
+      "lon": -1.87475,
+      "depth_m": 31.0
+    }
+  ]
+}

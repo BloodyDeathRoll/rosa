@@ -75,7 +75,9 @@ BASINS: dict[str, tuple[str, ...]] = {
     "biscay-celtic": (
         "Landes",
         "Brittany",
+        "Normandy",
         "Cornwall Devon",
+        "England South",
         "Wales",
         "Basque Country",
         "Cantabria",

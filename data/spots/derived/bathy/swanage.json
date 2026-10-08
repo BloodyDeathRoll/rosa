@@ -1,0 +1,72 @@
+{
+  "spot": "swanage",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    50.6124,
+    -1.9566
+  ],
+  "bearing_seaward_deg": 89.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 28.0,
+  "mean_slope_m_per_km": 1.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 50.61244,
+      "lon": -1.95306,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 50.61248,
+      "lon": -1.94951,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 50.61256,
+      "lon": -1.94243,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 50.61271,
+      "lon": -1.92826,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 50.61286,
+      "lon": -1.91409,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 50.61316,
+      "lon": -1.88575,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 50.6136,
+      "lon": -1.84324,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.61416,
+      "lon": -1.78655,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.61495,
+      "lon": -1.70152,
+      "depth_m": 28.0
+    }
+  ]
+}

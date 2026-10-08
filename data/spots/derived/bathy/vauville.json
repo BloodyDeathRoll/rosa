@@ -1,0 +1,72 @@
+{
+  "spot": "vauville",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    49.6453,
+    -1.8587
+  ],
+  "bearing_seaward_deg": 244.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 33.0,
+  "mean_slope_m_per_km": 2.54,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 49.64431,
+      "lon": -1.86182,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 49.64333,
+      "lon": -1.86494,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 49.64136,
+      "lon": -1.87118,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 49.63741,
+      "lon": -1.88366,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 49.63347,
+      "lon": -1.89614,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 49.62557,
+      "lon": -1.92109,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 49.61372,
+      "lon": -1.9585,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 49.5979,
+      "lon": -2.00835,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 49.57412,
+      "lon": -2.08307,
+      "depth_m": 33.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "surtainville",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    49.4619,
+    -1.8352
+  ],
+  "bearing_seaward_deg": 249.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 1.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 49.46109,
+      "lon": -1.83843,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 49.46029,
+      "lon": -1.84166,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 49.45868,
+      "lon": -1.84812,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 49.45545,
+      "lon": -1.86103,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 49.45222,
+      "lon": -1.87395,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 49.44577,
+      "lon": -1.89977,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 49.43607,
+      "lon": -1.93849,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 49.42312,
+      "lon": -1.99009,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 49.40366,
+      "lon": -2.06744,
+      "depth_m": 30.0
+    }
+  ]
+}

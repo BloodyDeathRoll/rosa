@@ -1,0 +1,64 @@
+# Rosa spot database - England South (seeded 2026-10-09). South Devon east of Bantham, Dorset,
+# the Isle of Wight, Hampshire, Sussex and Kent: Atlantic SW swell up the Channel, smaller and
+# rarer the further east; offshore on a northerly. Kent's Thanet faces east (North Sea).
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &ens
+  timezone: Europe/London
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [180, 270]
+  ideal:
+    wind_dir: [300, 60]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-10-09 - england-south, 41 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 41 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/england-south/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: joss-bay, name: "Joss Bay", town: "Broadstairs", lat: 51.3811, lon: 1.4474, offshore_direction: 245, swell_window: [0, 130], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: broadstairs, name: "Broadstairs", town: "Broadstairs", lat: 51.3576, lon: 1.4444, offshore_direction: 307, swell_window: [62, 192], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: ramsgate, name: "Ramsgate", town: "Ramsgate", lat: 51.3321, lon: 1.4259, offshore_direction: 294, swell_window: [49, 179], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: wear-bay, name: "Wear Bay", town: "Folkestone", lat: 51.0898, lon: 1.2048, offshore_direction: 297, swell_window: [52, 182], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: camber-sands, name: "Camber Sands", town: "Camber", lat: 50.9284, lon: 0.7960, offshore_direction: 322, swell_window: [77, 207], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: fairlight, name: "Fairlight", town: "Fairlight", lat: 50.8728, lon: 0.6698, offshore_direction: 311, swell_window: [66, 196], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: hastings, name: "Hastings", town: "Hastings", lat: 50.8533, lon: 0.5822, offshore_direction: 3, swell_window: [118, 248], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: bexhill, name: "Bexhill", town: "Bexhill-on-Sea", lat: 50.8368, lon: 0.4771, offshore_direction: 343, swell_window: [98, 228], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: shoreham, name: "Shoreham", town: "Shoreham-by-Sea", lat: 50.8261, lon: -0.2706, offshore_direction: 2, swell_window: [117, 247], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: south-lancing, name: "South Lancing", town: "Lancing", lat: 50.8187, lon: -0.3254, offshore_direction: 309, swell_window: [64, 194], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: brighton, name: "Brighton", town: "Brighton", lat: 50.8185, lon: -0.1353, offshore_direction: 8, swell_window: [123, 253], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: littlehampton, name: "Littlehampton", town: "Littlehampton", lat: 50.8014, lon: -0.5402, offshore_direction: 347, swell_window: [102, 232], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: hayling-island, name: "Hayling Island", town: "Hayling Island", lat: 50.7830, lon: -0.9816, offshore_direction: 10, swell_window: [125, 255], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: west-wittering, name: "West Wittering", town: "West Wittering", lat: 50.7753, lon: -0.9094, offshore_direction: 38, swell_window: [153, 283], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: east-wittering, name: "East Wittering", town: "East Wittering", lat: 50.7636, lon: -0.8712, offshore_direction: 24, swell_window: [139, 269], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: birling-gap, name: "Birling Gap", town: "Birling Gap", lat: 50.7423, lon: 0.2007, offshore_direction: 53, swell_window: [168, 298], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: highcliffe, name: "Highcliffe", town: "Highcliffe-on-Sea", lat: 50.7361, lon: -1.6968, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: lyme-regis, name: "Lyme Regis", town: "Lyme Regis", lat: 50.7191, lon: -2.9400, offshore_direction: 349, swell_window: [104, 234], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: boscombe-pier, name: "Boscombe Pier", town: "Bournemouth", lat: 50.7191, lon: -1.8437, offshore_direction: 7, swell_window: [122, 252], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: southbourne, name: "Southbourne", town: "Bournemouth", lat: 50.7184, lon: -1.7931, offshore_direction: 5, swell_window: [120, 250], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: west-bay, name: "West Bay", town: "West Bay", lat: 50.7089, lon: -2.7624, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: beer, name: "Beer", town: "Beer", lat: 50.6957, lon: -3.0899, offshore_direction: 323, swell_window: [78, 208], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: sidmouth, name: "Sidmouth", town: "Sidmouth", lat: 50.6767, lon: -3.2412, offshore_direction: 328, swell_window: [83, 213], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: whitecliff-bay, name: "Whitecliff Bay", town: "Bembridge", lat: 50.6722, lon: -1.0938, offshore_direction: 327, swell_window: [82, 212], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: freshwater-bay, name: "Freshwater Bay", town: "Freshwater Bay", lat: 50.6688, lon: -1.5109, offshore_direction: 1, swell_window: [116, 246], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: compton-bay, name: "Compton Bay", town: "Brook", lat: 50.6579, lon: -1.4714, offshore_direction: 50, swell_window: [165, 295], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: ringstead-bay, name: "Ringstead Bay", town: "Weymouth", lat: 50.6315, lon: -2.3413, offshore_direction: 7, swell_window: [122, 252], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: shanklin, name: "Shanklin", town: "Shanklin", lat: 50.6310, lon: -1.1704, offshore_direction: 299, swell_window: [54, 184], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: chesil-beach, name: "Chesil Beach", town: "Portland", lat: 50.6267, lon: -2.5605, offshore_direction: 40, swell_window: [155, 285], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: mupe-bay, name: "Mupe Bay", town: "West Lulworth", lat: 50.6196, lon: -2.2210, offshore_direction: 16, swell_window: [131, 261], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: exmouth, name: "Exmouth", town: "Exmouth", lat: 50.6144, lon: -3.4143, offshore_direction: 347, swell_window: [102, 232], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: swanage, name: "Swanage", town: "Swanage", lat: 50.6124, lon: -1.9566, offshore_direction: 269, swell_window: [24, 154], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: kimmeridge-bay, name: "Kimmeridge Bay", town: "Kimmeridge", lat: 50.6121, lon: -2.1350, offshore_direction: 33, swell_window: [148, 278], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: broad-bench, name: "Broad Bench", town: "Kimmeridge", lat: 50.6084, lon: -2.1463, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: durlston-bay, name: "Durlston Bay", town: "Swanage", lat: 50.6009, lon: -1.9521, offshore_direction: 258, swell_window: [13, 143], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: dawlish-warren, name: "Dawlish Warren", town: "Dawlish Warren", lat: 50.5993, lon: -3.4370, offshore_direction: 324, swell_window: [79, 209], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: chapman-s-pool, name: "Chapman's Pool", town: "Worth Matravers", lat: 50.5930, lon: -2.0648, offshore_direction: 29, swell_window: [144, 274], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: ventnor, name: "Ventnor", town: "Ventnor", lat: 50.5926, lon: -1.2079, offshore_direction: 11, swell_window: [126, 256], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: niton, name: "Niton", town: "Niton", lat: 50.5770, lon: -1.2871, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: thurlestone, name: "Thurlestone", town: "Thurlestone", lat: 50.2675, lon: -3.8702, offshore_direction: 47, swell_window: [162, 292], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: hope-cove, name: "Hope Cove", town: "Hope Cove", lat: 50.2451, lon: -3.8613, offshore_direction: 95, swell_window: [210, 340], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)

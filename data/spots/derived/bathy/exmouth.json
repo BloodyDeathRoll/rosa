@@ -1,0 +1,72 @@
+{
+  "spot": "exmouth",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    50.6144,
+    -3.4143
+  ],
+  "bearing_seaward_deg": 167.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 34.0,
+  "mean_slope_m_per_km": 1.86,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 50.61221,
+      "lon": -3.4135,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 50.61002,
+      "lon": -3.41271,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 50.60564,
+      "lon": -3.41111,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 50.59687,
+      "lon": -3.40793,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 50.58811,
+      "lon": -3.40474,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 50.57059,
+      "lon": -3.39837,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 50.5443,
+      "lon": -3.38883,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.50924,
+      "lon": -3.37613,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.45666,
+      "lon": -3.3571,
+      "depth_m": 34.0
+    }
+  ]
+}

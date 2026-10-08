@@ -1,0 +1,72 @@
+{
+  "spot": "sainte-adresse",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    49.5019,
+    0.0838
+  ],
+  "bearing_seaward_deg": 208.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 7.0,
+  "mean_slope_m_per_km": 0.34,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 49.49991,
+      "lon": 0.08217,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 49.49793,
+      "lon": 0.08055,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 49.49396,
+      "lon": 0.0773,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 49.48602,
+      "lon": 0.0708,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 49.47808,
+      "lon": 0.06431,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 49.46219,
+      "lon": 0.05132,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 49.43836,
+      "lon": 0.03186,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 49.40659,
+      "lon": 0.00594,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 49.35891,
+      "lon": -0.03288,
+      "depth_m": 7.0
+    }
+  ]
+}

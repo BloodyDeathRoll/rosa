@@ -1,0 +1,72 @@
+{
+  "spot": "biville",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    49.6093,
+    -1.8457
+  ],
+  "bearing_seaward_deg": 253.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 32.0,
+  "mean_slope_m_per_km": 1.63,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 49.60864,
+      "lon": -1.84902,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 49.60799,
+      "lon": -1.85234,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 49.60667,
+      "lon": -1.85897,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 49.60404,
+      "lon": -1.87224,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 49.60141,
+      "lon": -1.88551,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 49.59613,
+      "lon": -1.91204,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 49.58822,
+      "lon": -1.95183,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 49.57764,
+      "lon": -2.00486,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 49.56173,
+      "lon": -2.08436,
+      "depth_m": 32.0
+    }
+  ]
+}

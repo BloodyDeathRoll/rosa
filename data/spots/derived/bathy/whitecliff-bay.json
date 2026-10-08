@@ -1,0 +1,72 @@
+{
+  "spot": "whitecliff-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    50.6722,
+    -1.0938
+  ],
+  "bearing_seaward_deg": 147.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 27.0,
+  "mean_slope_m_per_km": 1.86,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 50.67031,
+      "lon": -1.09187,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 50.66843,
+      "lon": -1.08994,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 50.66466,
+      "lon": -1.08607,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 50.65711,
+      "lon": -1.07835,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 50.64957,
+      "lon": -1.07063,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 50.63448,
+      "lon": -1.05519,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 50.61184,
+      "lon": -1.03205,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.58166,
+      "lon": -1.00124,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.53636,
+      "lon": -0.95509,
+      "depth_m": 27.0
+    }
+  ]
+}

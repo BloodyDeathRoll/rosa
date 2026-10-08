@@ -1,0 +1,72 @@
+{
+  "spot": "hope-cove",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    50.2451,
+    -3.8613
+  ],
+  "bearing_seaward_deg": 275.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 47.0,
+  "mean_slope_m_per_km": 2.25,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 50.2453,
+      "lon": -3.8648,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 50.24549,
+      "lon": -3.8683,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 50.24588,
+      "lon": -3.87531,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 50.24666,
+      "lon": -3.88932,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 50.24744,
+      "lon": -3.90333,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 50.249,
+      "lon": -3.93135,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 50.25132,
+      "lon": -3.97339,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.25438,
+      "lon": -4.02944,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.25894,
+      "lon": -4.11354,
+      "depth_m": 47.0
+    }
+  ]
+}

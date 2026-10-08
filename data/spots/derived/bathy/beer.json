@@ -1,0 +1,72 @@
+{
+  "spot": "beer",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    50.6957,
+    -3.0899
+  ],
+  "bearing_seaward_deg": 143.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 31.0,
+  "mean_slope_m_per_km": 1.58,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 50.6939,
+      "lon": -3.08776,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 50.69211,
+      "lon": -3.08563,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 50.68852,
+      "lon": -3.08136,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 50.68133,
+      "lon": -3.07282,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 50.67415,
+      "lon": -3.06428,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 50.65978,
+      "lon": -3.04721,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 50.63822,
+      "lon": -3.02163,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.60947,
+      "lon": -2.98756,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.56632,
+      "lon": -2.93653,
+      "depth_m": 31.0
+    }
+  ]
+}

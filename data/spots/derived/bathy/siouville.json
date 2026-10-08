@@ -1,0 +1,72 @@
+{
+  "spot": "siouville",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    49.5658,
+    -1.8498
+  ],
+  "bearing_seaward_deg": 291.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 1.92,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 49.56661,
+      "lon": -1.85304,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 49.56741,
+      "lon": -1.85627,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 49.56902,
+      "lon": -1.86275,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 49.57224,
+      "lon": -1.87569,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 49.57546,
+      "lon": -1.88864,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 49.5819,
+      "lon": -1.91455,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 49.59154,
+      "lon": -1.95342,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 49.60437,
+      "lon": -2.00526,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 49.62358,
+      "lon": -2.08309,
+      "depth_m": 35.0
+    }
+  ]
+}

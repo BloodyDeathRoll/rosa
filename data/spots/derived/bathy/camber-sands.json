@@ -1,0 +1,72 @@
+{
+  "spot": "camber-sands",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    50.9284,
+    0.796
+  ],
+  "bearing_seaward_deg": 142.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 50.92663,
+      "lon": 0.7982,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 50.92486,
+      "lon": 0.80039,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 50.92131,
+      "lon": 0.80478,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 50.91423,
+      "lon": 0.81356,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 50.90714,
+      "lon": 0.82234,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 50.89296,
+      "lon": 0.83989,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 50.87169,
+      "lon": 0.86619,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.84331,
+      "lon": 0.90122,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.80073,
+      "lon": 0.95369,
+      "depth_m": 30.0
+    }
+  ]
+}

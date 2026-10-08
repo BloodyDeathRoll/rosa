@@ -1,0 +1,72 @@
+{
+  "spot": "west-wittering",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    50.7753,
+    -0.9094
+  ],
+  "bearing_seaward_deg": 218.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 15.0,
+  "mean_slope_m_per_km": 0.79,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 50.77353,
+      "lon": -0.91159,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 50.77176,
+      "lon": -0.91378,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 50.76821,
+      "lon": -0.91815,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 50.76113,
+      "lon": -0.92691,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 50.75404,
+      "lon": -0.93566,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 50.73986,
+      "lon": -0.95315,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 50.71859,
+      "lon": -0.97936,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.69021,
+      "lon": -1.01428,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.64763,
+      "lon": -1.06657,
+      "depth_m": 15.0
+    }
+  ]
+}

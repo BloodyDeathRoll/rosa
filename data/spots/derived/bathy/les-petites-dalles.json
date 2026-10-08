@@ -1,0 +1,72 @@
+{
+  "spot": "les-petites-dalles",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    49.8257,
+    0.5242
+  ],
+  "bearing_seaward_deg": 341.0,
+  "nearshore_depth_m": -24.0,
+  "offshore_depth_m": 34.0,
+  "mean_slope_m_per_km": 3.27,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 49.82783,
+      "lon": 0.52307,
+      "depth_m": -24.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 49.82995,
+      "lon": 0.52193,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 49.8342,
+      "lon": 0.51966,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 49.84271,
+      "lon": 0.51512,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 49.85121,
+      "lon": 0.51058,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 49.86821,
+      "lon": 0.50149,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 49.89372,
+      "lon": 0.48784,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 49.92773,
+      "lon": 0.46962,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 49.97873,
+      "lon": 0.44225,
+      "depth_m": 34.0
+    }
+  ]
+}

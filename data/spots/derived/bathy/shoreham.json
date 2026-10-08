@@ -1,0 +1,72 @@
+{
+  "spot": "shoreham",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    50.8261,
+    -0.2706
+  ],
+  "bearing_seaward_deg": 182.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 26.0,
+  "mean_slope_m_per_km": 1.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 50.82385,
+      "lon": -0.27072,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 50.82161,
+      "lon": -0.27085,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 50.81711,
+      "lon": -0.2711,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 50.80812,
+      "lon": -0.27159,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 50.79914,
+      "lon": -0.27209,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 50.78116,
+      "lon": -0.27308,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 50.7542,
+      "lon": -0.27457,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.71825,
+      "lon": -0.27655,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.66432,
+      "lon": -0.27951,
+      "depth_m": 26.0
+    }
+  ]
+}

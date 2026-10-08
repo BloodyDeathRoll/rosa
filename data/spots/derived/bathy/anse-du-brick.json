@@ -1,0 +1,72 @@
+{
+  "spot": "anse-du-brick",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    49.669,
+    -1.4891
+  ],
+  "bearing_seaward_deg": 312.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 62.0,
+  "mean_slope_m_per_km": 3.27,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 49.6705,
+      "lon": -1.49168,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 49.67201,
+      "lon": -1.49426,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 49.67502,
+      "lon": -1.49943,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 49.68103,
+      "lon": -1.50976,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 49.68705,
+      "lon": -1.52009,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 49.69908,
+      "lon": -1.54076,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 49.71711,
+      "lon": -1.57179,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 49.74115,
+      "lon": -1.6132,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 49.77717,
+      "lon": -1.67539,
+      "depth_m": 62.0
+    }
+  ]
+}

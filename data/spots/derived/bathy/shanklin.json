@@ -1,0 +1,72 @@
+{
+  "spot": "shanklin",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    50.631,
+    -1.1704
+  ],
+  "bearing_seaward_deg": 119.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 23.0,
+  "mean_slope_m_per_km": 1.46,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 50.62991,
+      "lon": -1.1673,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 50.62882,
+      "lon": -1.1642,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 50.62664,
+      "lon": -1.158,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 50.62228,
+      "lon": -1.1456,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 50.61791,
+      "lon": -1.13321,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 50.60918,
+      "lon": -1.10843,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 50.59608,
+      "lon": -1.07127,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.57859,
+      "lon": -1.02176,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.55231,
+      "lon": -0.94757,
+      "depth_m": 23.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "deauville",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    49.3618,
+    0.0633
+  ],
+  "bearing_seaward_deg": 290.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 22.0,
+  "mean_slope_m_per_km": 1.18,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 49.36257,
+      "lon": 0.06006,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 49.36334,
+      "lon": 0.05681,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 49.36488,
+      "lon": 0.05032,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 49.36795,
+      "lon": 0.03735,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 49.37102,
+      "lon": 0.02437,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 49.37716,
+      "lon": -0.0016,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 49.38636,
+      "lon": -0.04056,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 49.39861,
+      "lon": -0.09253,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 49.41693,
+      "lon": -0.17053,
+      "depth_m": 22.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "vaucottes",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    49.7384,
+    0.2905
+  ],
+  "bearing_seaward_deg": 327.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 1.63,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 49.74029,
+      "lon": 0.28861,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 49.74217,
+      "lon": 0.28671,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 49.74594,
+      "lon": 0.28292,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 49.75348,
+      "lon": 0.27534,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 49.76102,
+      "lon": 0.26775,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 49.77611,
+      "lon": 0.25258,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 49.79872,
+      "lon": 0.22979,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 49.82887,
+      "lon": 0.19938,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 49.87408,
+      "lon": 0.1537,
+      "depth_m": 30.0
+    }
+  ]
+}

@@ -68,6 +68,8 @@ REGION_PBF = {
     "North East England": "north-east-england",
     "Landes": "landes",
     "Brittany": "brittany",
+    "Normandy": "normandy",
+    "England South": "england-south",
     "Senegal": "senegal",
     "Cape Verde": "cape-verde",
     "Ghana": "ghana",
