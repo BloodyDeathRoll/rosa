@@ -183,6 +183,41 @@ The station/buoy wind archive (`fetch.fetch_wind_many`) asks it first too, same 
 step 4f pushes an admin alert when a cycle fell back; step 4g pushes once when Open-Meteo publishes a
 release newer than 1.6.0, the cue to check it carries #2157 and return to the official image. Cold request ~25 s, warm ~1.3 s.
 
+**Marine too since 2026-10-08 12:42Z (OPEN-ITEMS 32):** a third container, `open-meteo-sync-marine`,
+keeps every file `/v1/marine` reads for us (~7 GB): marine `best_match` = meteofrance_currents (sea
+level) + meteofrance_sea_surface_temperature + dwd_ewam + meteofrance_wave, with ecmwf_wam025 when
+mfwave is > 26 h stale; plus dwd_gwam and ncep_gfswave016 for the om arm and its ensemble. Same-run
+comparison against marine-api.open-meteo.com (all model runs matched first): the buoy archive's
+request at all 36 registry buoys, and the om arm's marine (17 fields x 3 models) and ensemble (3 x 4)
+requests on 62 spots - **every value identical**. One metadata difference: where the first ensemble
+model (gfswave016) has no sea cell, the box returns `latitude: null` and the public API the next
+model's cell; `_check_batch_order` already lets a missing coordinate through and nothing else reads
+it, so payloads are unaffected. `ROSA_MARINE_URL=http://127.0.0.1:8080/v1/marine` in `~/rosa/.env`
+(backup `~/rosa/.env.bak-2026-10-08-marine`); pre-flight with the real code: 36/36 buoys and a 20-point
+om-arm batch, 0 public marine calls, 0.1 s and 0.8 s. Fallback line: `warn: self-hosted marine failed`
+(4f alerts on it). Disk after all three syncs: 74 GB used of 148.
+
+### Moving an Open-Meteo dependency in-house (the process, used for weather then marine)
+
+1. **Inventory.** Every caller of the host, the exact params each sends (models, hourly fields,
+   days, past_days), and which bucket model dirs and variables those resolve to (the server's
+   `ForecastapiController` names the domains behind a `*_best_match`; list the bucket for variables).
+2. **Sync.** Add a `sync` service for those models/variables to the compose file; measure disk
+   first (bucket object sizes) and keep a wide margin. Never rely on on-demand bucket reads for a
+   fleet (> 50 min for 2765 points).
+3. **Same-run, byte-identical compare.** Check `last_run_initialisation_time` on both hosts
+   (`/data/<model>/static/meta.json`) first; then send the pipeline's real requests to both at the
+   same moment and diff every value. Any difference is a cause to find (the HRRR rotation was a code
+   fix newer than the image), never a tolerance to accept.
+4. **Switch with fallback.** An env var (`ROSA_<HOST>_URL`), off by default; the self-hosted call
+   first, the public host on ANY failure (HTTP, timeout, bad body, mis-attributed batch), a
+   `warn: self-hosted <host> failed` line; tests for asked-first, fell-back, and unset.
+5. **Pre-flight.** Pull on the box outside a cycle (`pgrep -af publish.sh | grep -v "bash -c"`) and
+   run the real code path with the env set: full bodies, 0 public calls.
+6. **Enable.** Back up `~/rosa/.env`, append the line with a dated comment saying how to go back.
+7. **Alert.** `publish.sh` 4f pushes on the fallback line.
+8. **Watch one cycle** in `publish.log`: no fallback line, the cycle's done marker, fresh payloads.
+
 ## Ops alerting (2026-07-28, third eye live 2026-08-04)
 Three independent eyes, after two silent run-crash incidents left stale data serving. They
 escalate outward - the box reports its own failures, the backup catches a box that has gone
