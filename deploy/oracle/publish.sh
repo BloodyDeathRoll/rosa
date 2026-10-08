@@ -221,6 +221,30 @@ JSON
   # and an argv token shows in `ps` for the whole deploy (Dream review 2026-09-25).
   vercel deploy --prebuilt --prod --yes --archive=tgz
 
+  # 3b) the web app's prerendered spot pages (OPEN-ITEMS 35e, 2026-10-08). rosa.surf/spot/<id>
+  #     is a file the WEB build writes (web/scripts/prerender.mjs, from the published index),
+  #     not data, so a spot added, removed, renamed or moved answered 404 or showed stale facts
+  #     until someone redeployed the web app by hand - the South Florida seed sat at 404 for a
+  #     day. Redeploy it here whenever the published spot list changes: a signature of every
+  #     spot's id, name, region, town and coordinates (what the shells carry), saved after a
+  #     good deploy. index.json is upsert-only (a failed spot keeps its row), so a partial run
+  #     does not trigger it. Non-fatal: a failed web build keeps the live site and alerts.
+  cd "$HOME/rosa"
+  WEB_SIG=$(python3 -c 'import hashlib, json; s = json.load(open("data/out/index.json"))["spots"]; print(hashlib.sha256(json.dumps({k: [v.get(f) for f in ("name", "region", "town", "lat", "lon")] for k, v in sorted(s.items())}).encode()).hexdigest())' || true)
+  if [ -n "$WEB_SIG" ] && [ "$WEB_SIG" != "$(cat "$HOME/.rosa-web-spots.sha" 2>/dev/null)" ]; then
+    echo "spot list changed - redeploying the web app's spot pages"
+    mkdir -p web/.vercel
+    # the web project link (gitignored); its ids are not secrets - VERCEL_TOKEN is the key
+    [ -f web/.vercel/project.json ] || echo '{"projectId":"prj_byWctijqaVdOWxFOi5s0Z2E9I5kf","orgId":"team_jeHaUEFEe9q9CoUA71Vij1Kr","projectName":"rosa"}' > web/.vercel/project.json
+    if (cd web && npm ci --no-audit --no-fund --loglevel=error && npm run deploy); then
+      echo "$WEB_SIG" > "$HOME/.rosa-web-spots.sha"
+    else
+      uv run --project pipeline rosa-pipeline alert \
+        --message "Web redeploy FAILED after a spot-list change ($(date -u +%H:%MZ)): new or changed spots may 404 on rosa.surf. The forecast data published fine. See publish.log." \
+        || echo "warn: web redeploy alert push failed"
+    fi
+  fi
+
   # 4) swell-alert pushes (grouped: one swell = one notification). Only runs
   #    when the push secrets are present in ~/rosa/.env; never fails the cycle.
   if [ -n "${PUSH_SUBS_URL:-}" ]; then

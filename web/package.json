@@ -6,10 +6,11 @@
   "scripts": {
     "sync-data": "rm -rf public/data && mkdir -p public/data && cp -r ../data/out/. public/data/",
     "dev": "npm run sync-data && vite",
-    "build": "npm run sync-data && tsc --noEmit && vite build && npm run prerender",
+    "sync-index": "rm -rf public/data && mkdir -p public/data && (cp ../data/out/index.json public/data/ 2>/dev/null || true)",
+    "build": "npm run sync-index && tsc --noEmit && vite build && npm run prerender",
     "preview": "vite preview",
     "test": "vitest run",
-    "prepare-output": "rm -rf .vercel/output && mkdir -p .vercel/output/static && node scripts/csp.mjs && cp -r dist/. .vercel/output/static/",
+    "prepare-output": "rm -rf .vercel/output && mkdir -p .vercel/output/static && node scripts/csp.mjs && cp -r dist/. .vercel/output/static/ && rm -rf .vercel/output/static/data",
     "deploy": "npm run build && npm run prepare-output && vercel deploy --prebuilt --prod --archive=tgz",
     "prerender": "vite build --ssr src/prerender-entry.tsx --outDir dist-ssr && node scripts/prerender.mjs"
   },

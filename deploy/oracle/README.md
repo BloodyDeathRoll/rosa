@@ -69,9 +69,9 @@ the *published* data over HTTPS and never talks to the pipeline.
    the budget (default 9,400 units; `ROSA_OM_DAILY_BUDGET` moves it, `--ignore-quota`
    overrides once). The cycle then alerts, pings the dead-man anyway, and exits 0 with the
    previous payloads still serving. The blend arm's one per-spot Open-Meteo call is the
-   WEATHER host (1.21 units/spot, ~2,730 a run at 2254 spots, ~10,900 a day plus ~916 for the
-   station wind archive - at the vendor's 10,000/day line; OPEN-ITEMS 34 tracks the exit,
-   plan C3b lost its A/B 2026-09-26), which the ledger does not meter. On the om arm a fifth fleet run of
+   WEATHER host, which the ledger does not meter; since 2026-10-08 it is answered by the
+   self-hosted Open-Meteo on this box (`ROSA_WEATHER_URL`, public API only as fallback - see
+   "Self-hosted Open-Meteo" below), so it no longer spends public quota (OPEN-ITEMS 34). On the om arm a fifth fleet run of
    any kind - including an ad-hoc one from a laptop against the same IP - is what the guard
    exists to stop. It fired for real on 2026-08-15 before it existed (OPEN-ITEMS 19).
    **Exit 4 is a PARTIAL run, and it DEPLOYS**: a small share of the fleet failed and the
@@ -85,6 +85,11 @@ the *published* data over HTTPS and never talks to the pipeline.
 4. `vercel deploy --prebuilt` of `data/out` → the **rosa-data** project
    (https://rosa-data-opal.vercel.app, `/data/*` with permissive CORS; the app fetches it via
    `VITE_DATA_BASE`). Logs to `~/rosa/publish.log`.
+4b. **Web spot pages (since 2026-10-08, OPEN-ITEMS 35e)** - when the published spot list
+   changed (signature of every spot's id/name/region/town/coordinates vs
+   `~/.rosa-web-spots.sha`), `npm ci && npm run deploy` in `web/` redeploys rosa.surf so new,
+   renamed or moved spots get their prerendered `/spot/<id>` page (~17 s build on this box).
+   `web/.vercel/project.json` is written if missing. Non-fatal; a failed build alerts.
 5. `rosa-pipeline notify` - grouped swell-alert Web Pushes (one swell = one notification)
    to every subscription stored by https://rosa-push.vercel.app. Skipped silently unless the
    push secrets are in `~/rosa/.env`; sent-state lives in `data/verify/push-state.json`.
