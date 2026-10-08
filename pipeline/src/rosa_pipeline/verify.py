@@ -13,11 +13,15 @@ Two comparison notes baked in:
   (``ENERGY_PERIOD_VARIABLES``); the APD pairing survives only as a labelled fallback
   for stations that publish no spectra, and must never be calibrated against.
 - Direction is circular - errors wrap at ±180°, and scatter-index is undefined for it.
-- NDBC's MWD is the direction AT THE DOMINANT PERIOD (NDBC measurement descriptions,
-  checked 2026-09-13) - a PEAK direction despite its name. GFS-Wave's dirpw is a peak too,
-  so that row is like-for-like; Open-Meteo's wave_direction and ECMWF's mwd are MEANS, so
-  their direction rows carry a peak-vs-mean offset in bimodal seas and are not a
-  calibratable bias (CALIBRATION.md 2026-09-13).
+- Direction pairs like-for-like too (2026-10-08, OPEN-ITEMS 37b). NDBC's MWD is the
+  direction AT THE DOMINANT PERIOD (NDBC measurement descriptions, checked 2026-09-13) - a
+  PEAK. Open-Meteo's wave_direction and ECMWF's mwd are MEANS, so their like-for-like row
+  is "dirm", against the buoy's MEASURED mean (``mdir_deg``: the spectrum's energy-weighted
+  mean from alpha1/r1, or CMEMS VMDR). GFS-Wave's dirpw is a peak, so its like-for-like row
+  is "dir", against MWD. Every card carries both rows; "dir" is the pairing every card had
+  before, kept so history stays comparable and the peak-vs-mean offset stays visible.
+  The blend's direction is a circular mean of dirpw (peak) and mwd (mean): neither row is
+  like-for-like for it (CALIBRATION.md 2026-09-13, 2026-10-08).
 
 The nowcast path (compare today's forecast hours to the buoy's recent obs) needs no stored
 history and works immediately; the archive path (Stage 0 next increment) extends this to
@@ -53,10 +57,25 @@ _WIND_VARIABLES = (
     ("wdir", "Wind direction", "°", "wdir", "wdir_deg", True),
 )
 
+# Direction rows (2026-10-08, OPEN-ITEMS 37b). "dir" pairs the buoy's MWD - a PEAK - on
+# every card, exactly as before, so every earlier scorecard stays comparable. "dirm" pairs
+# the buoy's MEASURED MEAN (mdir_deg). On a MEAN-direction card (Open-Meteo, ECMWF mwd,
+# the blend) "dirm" is the like-for-like row and "dir" carries the peak-vs-mean offset;
+# on GFS-Wave's (dirpw, a peak) it is the other way round. The fourth field is the
+# archive/model attribute - "dir" for both; the key only names the row.
+_MEAN_DIR_ROWS = (
+    ("dir", "Wave dir. vs MWD", "°", "dir", "mwd_deg", True),
+    ("dirm", "Wave dir. (mean)", "°", "dir", "mdir_deg", True),
+)
+_PEAK_DIR_ROWS = (
+    ("dir", "Wave dir. (peak)", "°", "dir", "mwd_deg", True),
+    ("dirm", "Wave dir. vs mean", "°", "dir", "mdir_deg", True),
+)
+
 VARIABLES = (
     ("hs", "Sig. wave height", "m", "hs", "hs_m", False),
     ("tp", APD_FALLBACK_LABEL, "s", "tp", "apd_s", False),
-    ("dir", "Wave direction", "°", "dir", "mwd_deg", True),
+    *_MEAN_DIR_ROWS,
     *_WIND_VARIABLES,
 )
 
@@ -65,26 +84,31 @@ VARIABLES = (
 ENERGY_PERIOD_VARIABLES = (
     ("hs", "Sig. wave height", "m", "hs", "hs_m", False),
     ("tp", "Energy period", "s", "tp", "tm_m10_s", False),
-    ("dir", "Wave direction", "°", "dir", "mwd_deg", True),
+    *_MEAN_DIR_ROWS,
     *_WIND_VARIABLES,
 )
 
 # GFS-Wave archive rows carry a PEAK period (perpw), so tp pairs with the buoy's DPD
 # (dominant period), not APD - pairing mean-vs-dominant would fabricate a bias (Stage 3a).
+# Its direction (dirpw) is a peak too, so "dir" pairs MWD.
 GFSWAVE_VARIABLES = (
     ("hs", "Sig. wave height", "m", "hs", "hs_m", False),
     ("tp", "Peak period", "s", "tp", "dpd_s", False),
-    ("dir", "Wave direction", "°", "dir", "mwd_deg", True),
+    *_PEAK_DIR_ROWS,
     *_WIND_VARIABLES,
 )
 
-# ECMWF archive rows store pp1d - also a peak period, same DPD pairing (Stage 3b).
-# No wind: the open-data wave stream does not publish it.
+# ECMWF archive rows store pp1d - also a peak period, same DPD pairing (Stage 3b) - and
+# mwd, a MEAN direction. No wind: the open-data wave stream does not publish it.
 ECMWF_VARIABLES = (
     ("hs", "Sig. wave height", "m", "hs", "hs_m", False),
     ("tp", "Peak period", "s", "tp", "dpd_s", False),
-    ("dir", "Wave direction", "°", "dir", "mwd_deg", True),
+    *_MEAN_DIR_ROWS,
 )
+# The SWAN pilot's card: ECMWF's pairing (TPsmoo, a peak period -> DPD) without the mean
+# direction row. SWAN's DIR is a mean, so "dirm" belongs here too, but the pilot's card is
+# pinned to hs/tp/dir (test_swan_buoys) and changing it is not this change's call.
+SWAN_VARIABLES = ECMWF_VARIABLES[:3]
 
 # Coastal wind stations (rosa_pipeline.stations) archive the model's 10 m wind only, so
 # their card is the wind pair alone - a wave row against an airport would be nonsense.
@@ -266,7 +290,8 @@ def _nearest_obs(
 def with_energy_period(
     obs: list[BuoyObs], measures: Sequence[SpectrumMeasures], *, tol_min: int = 30
 ) -> list[BuoyObs]:
-    """Attach each observation's measured energy period Tm-1,0, from the nearest spectrum.
+    """Attach each observation's measured energy period Tm-1,0 - and its measured mean wave
+    direction - from the nearest spectrum.
 
     This is what makes a like-for-like period comparison possible: the standard-met file
     publishes only APD (Tm02), while the model serves Tm-1,0. Observations with no
@@ -287,7 +312,12 @@ def with_energy_period(
                 gap = abs(ordered[j].time - o.time)
                 if gap <= best_gap:
                     best, best_gap = ordered[j], gap
-        out.append(o if best is None else replace(o, tm_m10_s=best.tm_m10_s))
+        if best is None:
+            out.append(o)
+        else:
+            # the measured mean direction rides along (2026-10-08, OPEN-ITEMS 37b) - the
+            # spectrum both come from is the same one, so they share the tolerance
+            out.append(replace(o, tm_m10_s=best.tm_m10_s, mdir_deg=best.mean_dir_deg))
     return out
 
 
@@ -537,8 +567,9 @@ def lead_time_scorecard(
         label = _bucket_for(lead_h, buckets)
         if label is None:
             continue
-        for key, _label, _unit, _m_attr, o_attr, _circ in variables:
-            mv = row.get(key)
+        for key, _label, _unit, m_attr, o_attr, _circ in variables:
+            # the archive field, not the row key: "dir" and "dirp" both read row["dir"]
+            mv = row.get(m_attr)
             if mv is None:
                 continue
             o = _nearest_obs(valid, valid_obs[o_attr], tol)
@@ -826,10 +857,9 @@ def render_lead_scorecard(
     ]
     for lead_label, scores in by_lead.items():
         # Iterate the card that was handed in, not the module-level VARIABLES. The caller may
-        # have built it from ENERGY_PERIOD_/GFSWAVE_/ECMWF_VARIABLES (cli.py:476-493); that
-        # works today only because all four tuples happen to share the same three keys, an
-        # invariant nothing enforces. A source that adds a fourth variable would silently
-        # print three rows and drop it. `label`/`unit` already come off the VarScore.
+        # have built it from ENERGY_PERIOD_/GFSWAVE_/ECMWF_VARIABLES, and those no longer
+        # share one key set (the SWAN pilot's card has no "dirm" row - 2026-10-08).
+        # `label`/`unit` already come off the VarScore.
         if not any(s.n for s in scores.values()):
             lines.append(f"  {lead_label:<6}(no matured forecasts yet)")
             continue

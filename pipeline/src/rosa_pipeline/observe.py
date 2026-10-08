@@ -56,6 +56,10 @@ class BuoyObs:
     # Tm-1,0 (m-1/m0) measured from the station's own spectrum - not in the standard-met
     # file, filled in by verify.with_energy_period() where spectra are published.
     tm_m10_s: float | None = None
+    # MEASURED MEAN wave direction, deg true FROM. NDBC: energy-weighted from the station's
+    # own spectrum (spectra.mean_direction, filled in by verify.with_energy_period); CMEMS:
+    # VMDR. mwd_deg above stays the PEAK direction on both networks (2026-10-08, 37b).
+    mdir_deg: float | None = None
     # co-located wind, same line of the same file (see module docstring)
     wdir_deg: float | None = None  # direction the wind blows FROM
     wspd_ms: float | None = None  # m/s, as NDBC reports it - not kph
@@ -188,15 +192,13 @@ def parse_cmems_nc(data: bytes, station: str) -> list[BuoyObs]:
         VTPK  peak period (s)               -> dpd_s   (same definition as NDBC's DPD)
         TEMP  sea temperature (degC)        -> wtmp_c
 
-    DIRECTION IS A KNOWN MISMATCH, deliberately not hidden: these files carry VMDR (mean
-    direction) only sometimes, and VPED (direction at the spectral PEAK) always. NDBC's MWD
-    is the direction at the dominant period - a PEAK direction (NDBC's measurement
-    descriptions, checked 2026-09-13; this said "a mean" until then). So VPED is the
-    like-for-like with NDBC and VMDR is not. We still prefer VMDR and fall back to VPED:
-    switching moves scorecards and is not done here (CALIBRATION.md 2026-09-13). The
-    peak-vs-mean offset is the one already documented for ISRAMAR - a known bias, not an
-    error. Never pool direction rows across NDBC and CMEMS stations. Never read a
-    direction score across sources without checking which one this station supplied.
+    DIRECTION, both definitions kept apart (2026-10-08, OPEN-ITEMS 37b):
+        VPED  direction at the spectral PEAK -> mwd_deg   (like NDBC's MWD, also a peak)
+        VMDR  MEAN wave direction            -> mdir_deg  (like NDBC's spectral mean)
+    These files carry VPED always and VMDR only sometimes. Until 2026-10-08 one column
+    took VMDR and fell back to VPED, so a CMEMS row paired a mean where NDBC's paired a
+    peak (CALIBRATION.md 2026-09-13); each now lands in the field of its own definition,
+    and a station without VMDR simply has no mean row.
 
     No wind: these platforms publish waves only, so wdir_deg/wspd_ms stay None (unlike NDBC,
     where wind shares the line - see the module docstring and open item 4).
@@ -240,9 +242,8 @@ def parse_cmems_nc(data: bytes, station: str) -> list[BuoyObs]:
         hs = column("VHM0")
         tm02 = column("VTM02")
         tpk = column("VTPK")
-        direction = column("VMDR")
-        if direction is None or np.all(np.isnan(direction)):
-            direction = column("VPED")
+        peak_dir = column("VPED")
+        mean_dir = column("VMDR")
         temp = column("TEMP")
 
         def at(arr: np.ndarray | None, i: int) -> float | None:
@@ -261,7 +262,8 @@ def parse_cmems_nc(data: bytes, station: str) -> list[BuoyObs]:
                     hs_m=at(hs, i),
                     dpd_s=at(tpk, i),
                     apd_s=at(tm02, i),
-                    mwd_deg=at(direction, i),
+                    mwd_deg=at(peak_dir, i),
+                    mdir_deg=at(mean_dir, i),
                     wtmp_c=at(temp, i),
                 )
             )

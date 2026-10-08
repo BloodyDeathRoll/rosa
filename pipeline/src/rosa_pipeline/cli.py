@@ -98,6 +98,7 @@ from .verify import (
     ENERGY_PERIOD_VARIABLES,
     GFSWAVE_VARIABLES,
     STATION_VARIABLES,
+    SWAN_VARIABLES,
     VARIABLES,
     _station_pairs,
     build_scorecard,
@@ -138,8 +139,8 @@ SOURCE_VARIABLES = {
     # the published wind comes from the weather host, not these files
     "blend": ECMWF_VARIABLES,
     # SWAN tables TPsmoo, a peak period -> DPD, and no wind (the wind it ran under is the
-    # GFS field the stations card already scores)
-    "swan": ECMWF_VARIABLES,
+    # GFS field the stations card already scores); no mean-direction row yet (verify.py)
+    "swan": SWAN_VARIABLES,
 }
 # coastal-station archive keys: the published wind model (fetch.WEATHER_MODEL, GFS since
 # 2026-08-30) lives at "<station>"; "<station>.icon" holds the ICON A/B member archived
@@ -1368,36 +1369,50 @@ def _obs_for(buoy: Buoy, args: argparse.Namespace):
     return NDBCSource(capture_dir=args.capture).fetch(buoy)
 
 
+def _measured_spectra(buoy: Buoy, args: argparse.Namespace) -> tuple[list, str]:
+    """The station's measured spectra (SpectrumMeasures), or ([], why-not)."""
+    if buoy.source != "ndbc":
+        return [], f"source {buoy.source!r} publishes no spectra"
+    try:
+        src = (
+            SpectraFixtureSource(args.obs_fixtures)
+            if args.obs_fixtures is not None
+            else NDBCSpectraSource(capture_dir=args.capture)
+        )
+        measures = [m for m in (measure(s) for s in src.fetch(buoy)) if m]
+    except (OSError, httpx.HTTPError) as exc:
+        return [], f"spectra unavailable ({type(exc).__name__})"
+    if not measures:
+        return [], "station publishes no spectral files"
+    return measures, ""
+
+
 def _with_measured_energy_period(
     buoy: Buoy, obs: list, args: argparse.Namespace, variables: tuple
 ) -> tuple[list, tuple]:
     """Enrich observations with Tm-1,0 from the station's spectra, for a like-for-like
-    period comparison against Open-Meteo (which serves Tm-1,0, not APD/Tm02).
+    period comparison against Open-Meteo (which serves Tm-1,0, not APD/Tm02). The measured
+    mean wave direction rides along (``with_energy_period``, OPEN-ITEMS 37b).
 
     Falls back to the labelled APD pairing - loudly - whenever the station publishes no
     spectra, so a scorecard is never silently built on the definitional +2 s offset."""
-    reason = ""
-    if buoy.source != "ndbc":
-        reason = f"source {buoy.source!r} publishes no spectra"
-    else:
-        try:
-            src = (
-                SpectraFixtureSource(args.obs_fixtures)
-                if args.obs_fixtures is not None
-                else NDBCSpectraSource(capture_dir=args.capture)
-            )
-            measures = [m for m in (measure(s) for s in src.fetch(buoy)) if m]
-        except (OSError, httpx.HTTPError) as exc:
-            measures, reason = [], f"spectra unavailable ({type(exc).__name__})"
-        if not reason and not measures:
-            reason = "station publishes no spectral files"
-        if not reason:
-            enriched = with_energy_period(obs, measures, tol_min=args.tol_min)
-            if any(o.tm_m10_s is not None for o in enriched):
-                return enriched, ENERGY_PERIOD_VARIABLES
-            reason = "no spectrum within tolerance of any observation"
+    measures, reason = _measured_spectra(buoy, args)
+    if not reason:
+        enriched = with_energy_period(obs, measures, tol_min=args.tol_min)
+        if any(o.tm_m10_s is not None for o in enriched):
+            return enriched, ENERGY_PERIOD_VARIABLES
+        reason = "no spectrum within tolerance of any observation"
     print(f"{buoy.id}: period vs APD - {reason}", file=sys.stderr)
     return obs, variables
+
+
+def _with_measured_mean_direction(buoy: Buoy, obs: list, args: argparse.Namespace) -> list:
+    """The direction half of the enrichment above, for the sources whose period row stays
+    their own (gfswave/ecmwf/blend/swan pair DPD): every card's "dir"/"dirp"/"dirm" rows
+    need the measured mean (OPEN-ITEMS 37b). Quiet on a station without spectra - its mean
+    rows just pair nothing (or VMDR, on CMEMS)."""
+    measures, reason = _measured_spectra(buoy, args)
+    return obs if reason else with_energy_period(obs, measures, tol_min=args.tol_min)
 
 
 def _model_for(buoy: Buoy, args: argparse.Namespace, marine: dict | None = None):
@@ -1634,6 +1649,9 @@ def _cmd_verify(args: argparse.Namespace) -> int:
             if source == "om":
                 # like-for-like period: Open-Meteo serves Tm-1,0, the met file only APD (Tm02)
                 obs, variables = _with_measured_energy_period(buoy, obs, args, variables)
+            else:
+                # like-for-like direction on every card: the measured mean beside MWD (37b)
+                obs = _with_measured_mean_direction(buoy, obs, args)
             if args.archive:
                 store = FileArchiveStore(args.archive_dir)
                 if args.source == "blend":

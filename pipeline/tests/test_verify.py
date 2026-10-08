@@ -391,3 +391,46 @@ def test_calm_hour_is_no_direction_truth_on_any_card() -> None:
     card = lead_time_scorecard(rows, obs, variables=STATION_VARIABLES)["0-1d"]
     assert card["wdir"].n == 1
     assert card["ws"].n == 2
+
+
+# --- direction pairs like-for-like: the measured mean beside MWD (2026-10-08, 37b) ---
+
+
+def test_with_energy_period_attaches_the_measured_mean_direction() -> None:
+    t0 = datetime(2026, 10, 8, 11, 50, tzinfo=UTC)
+    m = SpectrumMeasures(
+        time=t0,
+        hs_m=1.6,
+        tp_s=11.4,
+        tm_m10_s=8.0,
+        tm02_s=6.4,
+        qp=2.0,
+        consistency=2,
+        sigma_peak_deg=None,
+        windsea=False,
+        mean_dir_deg=297.0,
+    )
+    (o,) = with_energy_period([_obs(t0, hs_m=1.7, mwd_deg=270.0)], [m])
+    assert o.mdir_deg == 297.0 and o.mwd_deg == 270.0 and o.tm_m10_s == 8.0
+
+
+def test_mean_card_scores_dirm_against_the_mean_and_dir_against_mwd() -> None:
+    """Both rows read the same archived row["dir"]: "dir" keeps the old MWD (peak)
+    pairing, "dirm" pairs the measured mean - so the offset between them is visible."""
+    run = datetime(2026, 10, 8, 0, 0, tzinfo=UTC)
+    valid = run + timedelta(hours=12)
+    rows = [{"run": run.isoformat(), "valid": valid.isoformat(), "hs": 1.5, "dir": 290.0}]
+    obs = [_obs(valid, hs_m=1.6, mwd_deg=270.0, mdir_deg=296.0)]
+    card = lead_time_scorecard(rows, obs, variables=ENERGY_PERIOD_VARIABLES)
+    cell = next(c for c in card.values() if c["dir"].n)
+    assert round(cell["dir"].bias, 6) == 20.0  # 290 vs MWD 270
+    assert round(cell["dirm"].bias, 6) == -6.0  # 290 vs the measured mean 296
+    assert cell["dirm"].label == "Wave dir. (mean)"
+
+
+def test_gfswave_card_keeps_mwd_as_its_like_for_like_direction() -> None:
+    from rosa_pipeline.verify import GFSWAVE_VARIABLES
+
+    rows_attr = {v[0]: (v[1], v[4]) for v in GFSWAVE_VARIABLES}
+    assert rows_attr["dir"] == ("Wave dir. (peak)", "mwd_deg")
+    assert rows_attr["dirm"] == ("Wave dir. vs mean", "mdir_deg")

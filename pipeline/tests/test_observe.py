@@ -304,3 +304,11 @@ def test_ims_source_gives_up_with_a_clear_error_after_the_last_html_page(monkeyp
     with pytest.raises(RuntimeError, match="non-JSON"):
         observe.IMSSource(token="t", retry_wait_s=0.0).fetch(Station("79", "X", 32.0, 34.8, "ims"))
     assert len(calls) == observe.IMS_ATTEMPTS
+
+
+def test_cmems_direction_lands_in_the_field_of_its_own_definition() -> None:
+    """VPED (a peak, like NDBC's MWD) -> mwd_deg; VMDR (a mean) -> mdir_deg. This file
+    carries VPED only, so every row has a peak and no mean (2026-10-08, 37b)."""
+    obs = CMEMSFixtureSource(FIX_ROOT).fetch(SINES)
+    assert any(o.mwd_deg is not None for o in obs)
+    assert all(o.mdir_deg is None for o in obs)

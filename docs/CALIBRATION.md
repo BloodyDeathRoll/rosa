@@ -3664,3 +3664,57 @@ The 2026-09-26 METAR fix nulled a calm report's direction at parse; IMS and NDBC
 The blend wins at 19 of 23 buoys at 0-1d. SWAN reads ~0.1 m high where the blend is near zero bias. Not the same pairs: SWAN tables 3-hourly per cycle and has ~2x the n of the other two members.
 
 **Changed (operator, 2026-10-06):** the held boundary spread fix applied (Dream 2026-09-26 `swan-spread-power-kuik.diff`) - `swan.spread_power` now solves the cos^m power whose buoy spread sqrt(2(1 - r1)) equals the class table. Wind sea 35 deg is now m 1.36 (was 4.36, which landed at 24 deg), mid swell 20 deg is m 6.93 (was 15.4). And the slot guard is raised to 80 min (a cycle uses ~3.3 h of its 6 h). Recording resumes. **`.swan` rows from before this commit reached the VM used the narrow boundary: never pool them with later rows.** The next read compares the post-fix rows against the same buoys, again with CDIP and NDBC scored apart.
+
+## 2026-10-08 - Direction pairs mean-vs-mean: NDBC's measured mean from alpha1/r1 (OPEN-ITEMS 37b)
+
+Scorecards only. No published rating, confidence or event moves: `skill.json` is built from
+the om card's Hs row alone (`verify.skill_payload`, `key="hs"`), and the same-input A/B
+below found every pre-existing row byte-identical.
+
+**The pairing.** NDBC's MWD is a PEAK direction (2026-09-13 above). The buoy's own spectrum
+now gives a measured MEAN: realtime2 `.swdir` (alpha1, deg true FROM, per frequency) with
+`.swr1` (r1) and `.data_spec` (E(f)) - all three verified live on 46042 the same day, 999 =
+missing. `spectra.mean_direction` takes the first-moment mean
+
+    theta_m = atan2( int E b1 df , int E a1 df ),   a1 = r1 cos(alpha1), b1 = r1 sin(alpha1)
+
+which is the mean direction of the full directional spectrum (a1(f) is the cos-moment of
+the normalized spreading at f) - the definition WW3 and ECMWF WAM use for their mean
+direction. It is NOT the E-weighted circular mean of alpha1, which drops r1 and over-weights
+the directionally spread frequencies. Rows with less than 90 % of m0 in bins carrying a
+direction, or a resultant below 0.05, publish none. It rides into `BuoyObs.mdir_deg` with
+Tm-1,0 (`with_energy_period`, same 30-min spectrum match), for every archive source now,
+not just om. CMEMS: VPED (peak) -> `mwd_deg`, VMDR (mean) -> `mdir_deg`; the old
+VMDR-else-VPED column is gone. The captured Portuguese files carried no VMDR, so their mean
+rows are n = 0 and their MWD rows did not move.
+
+**Cards.** `"dir"` keeps the old pairing (vs MWD) on every card, so all earlier scorecards stay
+comparable. A new `"dirm"` row pairs the measured mean. On the mean-direction cards (om,
+ecmwf, blend) it is the like-for-like row, labelled "Wave dir. (mean)", and "dir" reads "Wave
+dir. vs MWD"; on GFS-Wave's (dirpw, a peak) "dir" is like-for-like ("Wave dir. (peak)") and
+"dirm" is the side row. The SWAN pilot's card keeps hs/tp/dir only (its DIR is a mean, but
+`test_swan_buoys` pins the card; adding the row is left to whoever owns that read).
+
+**Same-input A/B, 2026-10-08 ~12:40Z, on the VM's archive.** One capture of every registered
+buoy's observations and spectra (33 NDBC + 8 CMEMS files), then `verify --all-buoys --archive
+--source {om,gfswave,ecmwf,blend}` with the old code and the new code, both replaying it.
+Old rows identical in the new output: 848 / 917 / 630 / 630 of 848 / 917 / 630 / 630.
+NDBC fleet, pooled n-weighted, 0-1 d (the other leads run the same way):
+
+| card | vs MWD (peak): bias / MAE / RMSE | vs measured mean: bias / MAE / RMSE |
+|---|---|---|
+| om (Open-Meteo mean) | +8.5 / 27.3 / 38.4 deg | **-6.2 / 18.6 / 27.4 deg** |
+| ecmwf (mwd, mean) | +11.7 / 27.0 / 38.0 | **-3.7 / 13.9 / 21.0** |
+| gfswave (dirpw, peak) | **-10.6 / 28.1 / 43.2** | -25.6 / 36.1 / 49.6 |
+| blend (peak/mean mix) | +0.5 / 25.4 / 35.5 | -14.8 / 23.3 / 32.6 |
+
+**The control group is the read.** Each model scores best against the truth of its own
+definition - the two mean models against the measured mean (MAE down 32 % and 49 %), the
+peak model against MWD - and both mean models move from a clockwise bias to a small
+anticlockwise one. That is the signature of a definition gap, not of a model error, and it
+says the "+15.6 deg against buoy mwd" and the "+16 deg clockwise" average above were largely
+peak-vs-mean. What remains mean-vs-mean (om -3 to -6 deg, ecmwf -2 to -4 deg across leads)
+is the first direction bias on these cards that is a measurement, and it is small. The blend's
+bearing is a circular mean of a peak and a mean, so neither row is like-for-like for it and no
+blend direction bias should be quoted. Per-station signs were not read here - item 6's
+"average hiding sign flips" still applies before any correction is proposed.

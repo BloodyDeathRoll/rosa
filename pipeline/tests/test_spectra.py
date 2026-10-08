@@ -15,6 +15,7 @@ from rosa_pipeline.buoys import Buoy
 from rosa_pipeline.spectra import (
     SpectrumObs,
     build_report,
+    mean_direction,
     measure,
     moment,
     parse_spectra,
@@ -185,3 +186,79 @@ def test_cli_verify_spectra_offline(tmp_path, capsys) -> None:
     out = capsys.readouterr().out
     assert "measured spectra vs Stage-3b assumptions - buoy 51201" in out
     assert "usable spectra: 6 hrs" in out
+
+
+# --- measured MEAN wave direction from alpha1 + r1 (2026-10-08, OPEN-ITEMS 37b) ---
+# Real capture: buoy 46042 Monterey, 2026-10-08 10:50-11:50Z, first 3 rows of .data_spec,
+# .swr1 and .swdir. NDBC's own WVHT for those rows is 1.7 m and MWD (the PEAK) 258-270 deg.
+
+
+def _spec46042() -> list[SpectrumObs]:
+    def read(ext: str) -> str:
+        return (FIXTURES / f"46042.{ext}").read_text(encoding="utf-8")
+
+    return parse_spectra(read("data_spec"), read("swr1"), "46042", read("swdir"))
+
+
+def _flat(alpha: list[float | None], r1: list[float | None], energy: list[float]) -> SpectrumObs:
+    freqs = tuple(0.05 + 0.01 * i for i in range(len(energy)))
+    return SpectrumObs(
+        station="x",
+        time=T0,
+        freqs=freqs,
+        energy=tuple(energy),
+        r1=tuple(r1),
+        sep_freq=None,
+        alpha1=tuple(alpha),
+    )
+
+
+def test_parse_spectra_reads_alpha1_and_drops_ndbc_999() -> None:
+    specs = _spec46042()
+    assert len(specs) == 3
+    newest = specs[-1]
+    assert len(newest.alpha1) == len(newest.freqs)
+    # the four lowest bins are 999.0 in the file (no energy there) - missing, not 999 deg
+    assert newest.alpha1[:4] == (None, None, None, None)
+    assert newest.alpha1[4] == 208.0
+
+
+def test_real_spectrum_mean_direction_sits_between_swell_peak_and_wind_sea() -> None:
+    """A bimodal sea: an 11 s swell from ~265 (NDBC's MWD, the peak) and a NW wind sea
+    at the higher frequencies. The energy-weighted mean lands between them, ~296 deg -
+    the peak-vs-mean offset 37(b) exists to stop scoring as a model bias."""
+    ms = [measure(s) for s in _spec46042()]
+    assert all(m is not None for m in ms)
+    assert [round(m.hs_m, 1) for m in ms] == [1.7, 1.7, 1.6]  # = NDBC's WVHT
+    assert [round(m.mean_dir_deg) for m in ms] == [297, 296, 297]
+
+
+def test_mean_direction_of_a_one_direction_sea_is_that_direction() -> None:
+    s = _flat([270.0] * 5, [0.8] * 5, [1.0, 2.0, 3.0, 2.0, 1.0])
+    assert abs(mean_direction(s) - 270.0) < 1e-9
+
+
+def test_mean_direction_wraps_through_north() -> None:
+    s = _flat([350.0, 350.0, 10.0, 10.0], [0.9] * 4, [1.0, 1.0, 1.0, 1.0])
+    d = mean_direction(s)
+    assert min(d, 360.0 - d) < 1e-6  # 0, not 180
+
+
+def test_mean_direction_weights_by_r1_not_energy_alone() -> None:
+    """Equal energy from 270 (r1 0.9, a clean swell) and 180 (r1 0.1, spread wind sea).
+    The first-moment mean leans hard to 270; an E-weighted circular mean of alpha1 would
+    say 225 - the form mean_direction deliberately is not."""
+    s = _flat([270.0, 270.0, 180.0, 180.0], [0.9, 0.9, 0.1, 0.1], [1.0, 1.0, 1.0, 1.0])
+    assert 255.0 < mean_direction(s) < 265.0
+
+
+def test_mean_direction_refuses_a_row_missing_its_energetic_bins() -> None:
+    s = _flat([270.0, None, None, 270.0], [0.8] * 4, [0.1, 5.0, 5.0, 0.1])
+    assert mean_direction(s) is None
+
+
+def test_mean_direction_none_without_a_swdir_file() -> None:
+    spec = parse_spectra(DATA_SPEC, SWR1, "51201")[-1]
+    assert spec.alpha1 == ()
+    m = measure(spec)
+    assert m is not None and m.mean_dir_deg is None
