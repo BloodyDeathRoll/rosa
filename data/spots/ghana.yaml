@@ -19,6 +19,6 @@ spots:
   # tools/spot-seed/work/ghana/judge.json). offshore_direction is the nearest coastline
   # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
   # place nodes (tools/spot-seed/towns.py). North to south.
-  - { id: labadi, name: "Labadi", town: "Accra", lat: 5.5636, lon: -0.1371, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, <<: *gt }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: labadi, name: "Labadi", town: "Accra", lat: 5.5608, lon: -0.1419, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, <<: *gt }  # user-verified 2026-10-08 (was 5.5636,-0.1371)
   - { id: kokrobite, name: "Kokrobite", town: "Kokrobite", lat: 5.4963, lon: -0.3624, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, <<: *gt }  # sat-verified 2026-09-03 (websearch-seeded)
   - { id: busua, name: "Busua", town: "Busua", lat: 4.8080, lon: -1.9340, offshore_direction: 336, swell_window: [91, 221], offshore_km: 5.0, <<: *gt }  # sat-verified 2026-09-03 (websearch-seeded)
