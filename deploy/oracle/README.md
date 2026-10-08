@@ -178,7 +178,7 @@ fields identical at every hour (62,832 values each)**.
 **ON since 2026-10-08 07:10Z:** `ROSA_WEATHER_URL=http://127.0.0.1:8080/v1/forecast` in `~/rosa/.env`
 (backup `~/rosa/.env.bak-2026-10-08`; delete the line to go back). Pre-flight on the box, the real
 `fetch_weather_many` over all 2765 points: 2765 full bodies (408 h each), 0 public-API calls, 11 s.
-A `warn: self-hosted weather failed` line in `publish.log` means that run fell back to the public API. Cold request ~25 s, warm ~1.3 s.
+A `warn: self-hosted weather failed` line in `publish.log` means that run fell back to the public API. First live cycle, 2026-10-08 08:20Z -> 11:26Z: no fallback, no refusal, payloads published. Cold request ~25 s, warm ~1.3 s.
 
 ## Ops alerting (2026-07-28, third eye live 2026-08-04)
 Three independent eyes, after two silent run-crash incidents left stale data serving. They
