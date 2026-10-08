@@ -99,6 +99,7 @@ trap 'trap - ERR; set +e; run_evidence >> "$LOG" 2>&1' EXIT
 
 {
   echo "=== $(date -u +%FT%TZ) run start ==="
+  RUN_FROM=$(wc -l < "$LOG")  # this cycle's first log line, for the 4f check
   cd "$HOME/rosa"
 
   # stay current with main (code pushes reach the box on the next cycle);
@@ -241,6 +242,33 @@ JSON
   #     run_evidence above. Also fired from the EXIT trap, so a cycle that dies at
   #     `run --all` or the deploy still records them.
   run_evidence
+
+  # 4f) the self-hosted Open-Meteo (2026-10-08, deploy/oracle/README.md). Every weather-host
+  #     call asks it first and quietly falls back to the public API on any failure, so a
+  #     dead container would cost nothing visible - until the public quota runs out again.
+  #     Push when this cycle fell back. grep -c, not grep -q: under pipefail an early-exit
+  #     grep -q kills tail with SIGPIPE and the match reads as false.
+  if [ -n "${ROSA_WEATHER_URL:-}" ]; then
+    FELL_BACK=$(tail -n +"$RUN_FROM" "$LOG" | grep -c "self-hosted weather failed" || true)
+    if [ "${FELL_BACK:-0}" -gt 0 ]; then
+      uv run --project pipeline rosa-pipeline alert \
+        --message "Weather fell back to the public Open-Meteo ($FELL_BACK time(s), $(date -u +%H:%MZ)): the self-hosted copy on rosa-arm failed. Forecast still published. Check: sudo docker ps; cd ~/open-meteo && sudo docker compose up -d" \
+        || echo "warn: fallback alert push failed"
+    fi
+  fi
+
+  # 4g) back to the official Open-Meteo image: the box runs a self-built one because the
+  #     newest release (1.6.0) predates the HRRR wind-direction fix (#2157). Push once per
+  #     new release so the switch back is not forgotten. Non-fatal, ~1 GitHub call a cycle.
+  if grep -q "image: open-meteo-local" "$HOME/open-meteo/docker-compose.yml" 2>/dev/null; then
+    OM_TAG=$(curl -fsS -m 10 https://api.github.com/repos/open-meteo/open-meteo/releases/latest \
+      | python3 -c 'import json,sys; print(json.load(sys.stdin)["tag_name"])' 2>/dev/null || true)
+    if [ -n "$OM_TAG" ] && [ "$OM_TAG" != "1.6.0" ] && [ ! -e "$HOME/.om-release-alerted-$OM_TAG" ]; then
+      uv run --project pipeline rosa-pipeline alert \
+        --message "Open-Meteo $OM_TAG is released. If it carries the HRRR wind fix (#2157), switch rosa-arm back to the official image (deploy/oracle/README.md)." \
+        && touch "$HOME/.om-release-alerted-$OM_TAG" || echo "warn: release alert push failed"
+    fi
+  fi
 
   # 5) dead-man ping: "a cycle completed" - its absence is the alarm
   if [ -n "${HEALTHCHECK_URL:-}" ]; then

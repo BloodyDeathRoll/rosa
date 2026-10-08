@@ -405,3 +405,35 @@ def test_unclassifiable_429_from_an_unmetered_host_ignores_the_marine_ledger(mon
     resp = httpx.Response(429, text="Too Many Requests")
     assert fetch._retry_wait_s(resp, 0, fetch.WEATHER_URL) == fetch._MINUTE_RETRY_WAIT_S
     assert fetch._retry_wait_s(resp, 0, fetch.MARINE_URL) is None
+
+
+def test_wind_archive_asks_the_self_hosted_open_meteo_first(monkeypatch, capsys):
+    """2026-10-08: the station/buoy wind archive rides the same self-hosted Open-Meteo as
+    the weather leg; on any failure there it asks the public API, never failing on it."""
+    coords = [(32.3817, 34.8035), (36.6, -122.0)]
+    monkeypatch.setenv(fetch.WEATHER_URL_ENV, "http://127.0.0.1:8080/v1/forecast")
+    hosts: list[str] = []
+
+    def body(lat, lon):
+        return {"latitude": lat, "longitude": lon, "hourly": {"time": []}}
+
+    def up(request):
+        hosts.append(request.url.host)
+        return httpx.Response(200, json=[body(32.375, 34.8125), body(36.625, -122.0)])
+
+    def down_here(request):
+        hosts.append(request.url.host)
+        if request.url.host == "127.0.0.1":
+            return httpx.Response(503, text="starting")
+        return httpx.Response(200, json=[body(32.375, 34.8125), body(36.625, -122.0)])
+
+    for handler, want in ((up, ["127.0.0.1"]), (down_here, ["127.0.0.1", "api.open-meteo.com"])):
+        hosts.clear()
+        client, orig = _many_with(handler)
+        fetch.httpx.Client = client  # type: ignore[attr-defined]
+        try:
+            assert len(fetch.fetch_wind_many(coords)) == 2
+        finally:
+            fetch.httpx.Client = orig  # type: ignore[attr-defined]
+        assert hosts == want
+    assert "self-hosted weather failed for 2 wind point(s)" in capsys.readouterr().err

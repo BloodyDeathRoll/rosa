@@ -8,6 +8,7 @@ FixtureSource replays a captured file so tests and offline runs never touch the 
 from __future__ import annotations
 
 import json
+import os
 import sys
 import time
 from dataclasses import dataclass
@@ -21,6 +22,20 @@ from .geo import dlon180
 
 MARINE_URL = "https://marine-api.open-meteo.com/v1/marine"
 WEATHER_URL = "https://api.open-meteo.com/v1/forecast"
+# A self-hosted Open-Meteo (2026-10-07, OPEN-ITEMS 34): the same API, run on the box from
+# Open-Meteo's own AWS open-data copy, with no daily cap. Off unless ROSA_WEATHER_URL names
+# it (e.g. http://127.0.0.1:8080/v1/forecast in ~/rosa/.env). The weather-host callers
+# (blend's weather leg, the station/buoy wind archive) ask it first and fall back to
+# WEATHER_URL on any failure, so turning it on can never cost a cycle. Its first request
+# after a start can read cold from S3, hence the long timeout.
+WEATHER_URL_ENV = "ROSA_WEATHER_URL"
+SELF_HOSTED_TIMEOUT_S = 300.0
+
+
+def self_hosted_weather_url() -> str | None:
+    return os.environ.get(WEATHER_URL_ENV) or None
+
+
 FORECAST_DAYS = 16
 # Open-Meteo returns data from 00:00 UTC; a spot west of UTC would open on a "today"
 # missing everything before its local midnight (Costa Rica lost 00:00-18:00). One past
@@ -326,27 +341,38 @@ def fetch_wind_many(
     ``model`` defaults to the published wind model."""
     if not coords:
         return []
+    params = {
+        "latitude": ",".join(f"{lat:g}" for lat, _ in coords),
+        "longitude": ",".join(f"{lon:g}" for _, lon in coords),
+        "hourly": "wind_speed_10m,wind_direction_10m",
+        "wind_speed_unit": "ms",
+        "forecast_days": FORECAST_DAYS,
+        "models": model,
+    }
+
+    def attributed(data: object) -> list[dict]:
+        bodies = [data] if isinstance(data, dict) else list(data)  # type: ignore[arg-type]
+        if len(bodies) != len(coords):
+            raise ValueError(f"open-meteo returned {len(bodies)} locations for {len(coords)} buoys")
+        bodies = _order_by_location_id(bodies)
+        _check_batch_order(bodies, coords)
+        return bodies
+
     with httpx.Client(timeout=timeout_s) as client:
-        resp = retrying_get(
-            client,
-            WEATHER_URL,
-            {
-                "latitude": ",".join(f"{lat:g}" for lat, _ in coords),
-                "longitude": ",".join(f"{lon:g}" for _, lon in coords),
-                "hourly": "wind_speed_10m,wind_direction_10m",
-                "wind_speed_unit": "ms",
-                "forecast_days": FORECAST_DAYS,
-                "models": model,
-            },
-        )
+        self_hosted = self_hosted_weather_url()
+        if self_hosted is not None:
+            try:
+                got = client.get(self_hosted, params=params, timeout=SELF_HOSTED_TIMEOUT_S)
+                return attributed(got.raise_for_status().json())
+            except (httpx.HTTPError, ValueError) as e:
+                print(
+                    f"warn: self-hosted weather failed for {len(coords)} wind point(s) ({e!r})"
+                    " - asking api.open-meteo.com",
+                    file=sys.stderr,
+                )
+        resp = retrying_get(client, WEATHER_URL, params)
         resp.raise_for_status()
-    data = resp.json()
-    bodies = [data] if isinstance(data, dict) else list(data)
-    if len(bodies) != len(coords):
-        raise ValueError(f"open-meteo returned {len(bodies)} locations for {len(coords)} buoys")
-    bodies = _order_by_location_id(bodies)
-    _check_batch_order(bodies, coords)
-    return bodies
+    return attributed(resp.json())
 
 
 def _order_by_location_id(bodies: list) -> list:

@@ -57,9 +57,11 @@ from .extract import SPECTRAL_JOIN_TOL_H, _nearest_spectral
 from .fetch import (
     FORECAST_DAYS,
     PAST_DAYS,
+    SELF_HOSTED_TIMEOUT_S,
     WEATHER_HOURLY,
     WEATHER_MODEL,
     WEATHER_URL,
+    WEATHER_URL_ENV,
     RawForecast,
     _check_batch_order,
     _order_by_location_id,
@@ -131,14 +133,6 @@ AUX_BATCH_SIZE = 100
 # far end of the forecast, but a wind forecast more than a day old is not one to publish.
 WEATHER_CACHE_DIR = Path("data/cache/weather")
 WEATHER_CACHE_MAX_AGE_H = 24.0
-# A self-hosted Open-Meteo (2026-10-07, OPEN-ITEMS 34): the same API, run on the box from
-# Open-Meteo's own AWS open-data copy, with no daily cap. Off unless ROSA_WEATHER_URL names
-# it (e.g. http://127.0.0.1:8080/v1/forecast in ~/rosa/.env). Any failure there - down,
-# slow, a wrong-shaped batch - sends that batch and the rest of the run to the public API,
-# so turning it on can never cost a cycle. Its first request after a start reads cold from
-# S3 (~25 s for two points), hence the long timeout.
-WEATHER_URL_ENV = "ROSA_WEATHER_URL"
-SELF_HOSTED_TIMEOUT_S = 300.0
 
 # the full GFS-Wave partition schema, mapped onto the OM key family extract expects.
 # Message order matters: shts/mpts/swdir each appear THREE times in a gridded file
