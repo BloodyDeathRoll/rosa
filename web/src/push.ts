@@ -1,17 +1,25 @@
 /** Web Push client: subscribe this device to swell alerts for the user's
-    favorite spots. The subscription is stored by a tiny API (VITE_PUSH_API);
-    the pipeline VM sends grouped pushes after each publish cycle. */
+    favorite spots. The subscription is stored by a tiny API (rosa-push), reached
+    through the user API's rate-limited /push/sub relay (OPEN-ITEMS 33a); the
+    pipeline VM sends grouped pushes after each publish cycle. */
 import { gaEvent } from "./ga";
 
 import { getFavorites } from "./favorites";
 import { feedbackPref } from "./feedback";
 import { getHome } from "./geo";
 
-const API = (import.meta.env.VITE_PUSH_API as string | undefined) ?? "";
+const API = (import.meta.env.VITE_USER_API as string | undefined) ?? "";
 const VAPID_PUBLIC = (import.meta.env.VITE_VAPID_PUBLIC as string | undefined) ?? "";
 const INTENT_KEY = "rosa.push"; // "on" | "off" - the user's choice, survives permission churn
 
 export type PushState = "on" | "off" | "denied" | "unsupported";
+
+/** Registering the device failed; `status` 429 means the relay's per-IP limit. */
+export class PushApiError extends Error {
+  constructor(readonly status: number) {
+    super(`push api ${status}`);
+  }
+}
 
 export function pushSupported(): boolean {
   return (
@@ -43,7 +51,7 @@ export async function pushState(): Promise<PushState> {
 
 async function post(sub: PushSubscription, spots: string[]): Promise<void> {
   const json = sub.toJSON();
-  const res = await fetch(`${API}/api/sub`, {
+  const res = await fetch(`${API}/push/sub`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -56,7 +64,7 @@ async function post(sub: PushSubscription, spots: string[]): Promise<void> {
       feedback: feedbackPref(), // "Spot feedback" toggle → evening 👍👎 ask on/off
     }),
   });
-  if (!res.ok) throw new Error(`push api ${res.status}`);
+  if (!res.ok) throw new PushApiError(res.status);
 }
 
 /** Ask permission, subscribe, and register the device. */
@@ -82,7 +90,7 @@ export async function disablePush(): Promise<void> {
   localStorage.setItem(INTENT_KEY, "off");
   const sub = await subscription().catch(() => null);
   if (!sub) return;
-  await fetch(`${API}/api/sub`, {
+  await fetch(`${API}/push/sub`, {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ endpoint: sub.endpoint }),

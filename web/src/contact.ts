@@ -3,7 +3,8 @@
 
     Two hops, fired together:
       - the push API's /contact endpoint STORES the message as a private blob, so it
-        survives when mail fails;
+        survives when mail fails (reached through the user API's rate-limited
+        /push/contact relay, OPEN-ITEMS 33a);
       - FormSubmit MAILS it. It has to run in the browser: FormSubmit answers 403 to a
         serverless caller from a datacenter IP whatever headers it sends (measured
         2026-09-03), and it is built for browser forms.
@@ -13,7 +14,7 @@ import { gaEvent } from "./ga";
 
 import { profile } from "./session";
 
-const API = (import.meta.env.VITE_PUSH_API as string | undefined) ?? "";
+const API = (import.meta.env.VITE_USER_API as string | undefined) ?? "";
 export const CONTACT_EMAIL = "info@rosa.surf";
 const FORM = `https://formsubmit.co/ajax/${encodeURIComponent(CONTACT_EMAIL)}`;
 export const MESSAGE_MAX = 2000;
@@ -70,7 +71,7 @@ export async function send(o: Outbound): Promise<boolean> {
   gaEvent("message_send", { kind: o.kind ?? "contact" });
   const text = body(o);
 
-  const stored = fetch(`${API}/api/contact`, {
+  const stored = fetch(`${API}/push/contact`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({

@@ -29,8 +29,9 @@ self.addEventListener("push", (event) => {
   );
 });
 
-// SW is a static file - no build-time env; same origin the app is built with
-var FEEDBACK_API = "https://rosa-push.vercel.app/api/feedback";
+// SW is a static file - no build-time env; the VITE_USER_API origin the app is built
+// with, through its rate-limited relay to rosa-push (OPEN-ITEMS 33a)
+var FEEDBACK_API = "https://rosa-user-api.einhanamer.workers.dev/push/feedback";
 
 self.addEventListener("notificationclick", (event) => {
   event.notification.close();

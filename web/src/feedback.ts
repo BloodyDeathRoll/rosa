@@ -11,7 +11,7 @@ import { splitName, todayIn } from "./format";
 import { distanceKm, getHome, getPosition } from "./geo";
 import type { SpotPayload } from "./types";
 
-const API = (import.meta.env.VITE_PUSH_API as string | undefined) ?? "";
+const API = (import.meta.env.VITE_USER_API as string | undefined) ?? ""; // rosa-push via the user API's /push/feedback relay
 const VIEWS_KEY = "rosa.fb.views";
 const PREF_KEY = "rosa.fb.pref"; // "on" (default) | "off"
 const LAST_KEY = "rosa.fb.last"; // ms epoch of the last resolved prompt
@@ -136,7 +136,7 @@ export async function resolvePrompt(p: FbPrompt, verdict: "up" | "down" | null):
   }
   localStorage.setItem(LAST_KEY, String(Date.now()));
   if (verdict === null) return;
-  await fetch(`${API}/api/feedback`, {
+  await fetch(`${API}/push/feedback`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({

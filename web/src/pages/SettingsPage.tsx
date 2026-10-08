@@ -6,7 +6,7 @@ import { MoonIcon, SunIcon, SurfIcon, SwimIcon } from "../components/icons";
 import { AppHeader } from "../components/parts";
 import { feedbackPref, setFeedbackPref } from "../feedback";
 import { manualInstallOffer, openInChrome, runInstall, type InstallOffer } from "../install";
-import { disablePush, enablePush, pushState, syncPushSpots, type PushState } from "../push";
+import { disablePush, enablePush, PushApiError, pushState, syncPushSpots, type PushState } from "../push";
 import { ACCOUNT_EVENT, profile, type Profile } from "../session";
 import { signalReady } from "../splash";
 import { setUnits, useUnits } from "../units";
@@ -155,7 +155,7 @@ function AccountCard() {
 function NotificationsCard() {
   const [state, setState] = useState<PushState | null>(null);
   const [busy, setBusy] = useState(false);
-  const [failed, setFailed] = useState(false);
+  const [failed, setFailed] = useState<"down" | "busy" | null>(null);
   const [fb, setFbState] = useState(feedbackPref);
   useEffect(() => {
     void pushState().then(setState);
@@ -170,34 +170,37 @@ function NotificationsCard() {
 
   const turnOn = async () => {
     setBusy(true);
-    setFailed(false);
+    setFailed(null);
     try {
       setState(await enablePush());
-    } catch {
+    } catch (e) {
       // permission granted but registering with the alert service failed -
       // say so instead of silently snapping back to Off
       setState("off");
-      setFailed(true);
+      setFailed(e instanceof PushApiError && e.status === 429 ? "busy" : "down");
     }
     setBusy(false);
   };
   const turnOff = async () => {
     setBusy(true);
-    setFailed(false);
+    setFailed(null);
     await disablePush().catch(() => undefined);
     setState("off");
     setBusy(false);
   };
 
-  const note = failed
-    ? "Couldn't reach the alert service - check your connection and try again."
-    : state === "unsupported"
-      ? "Not available in this browser. On iPhone, add Rosa to your home screen first."
-      : state === "denied"
-        ? "Notifications are blocked for Rosa in your browser settings - allow them there, then try again."
-        : state === "on"
-          ? "One heads-up when a new swell is on the way to your favorite spots. Never more than one per swell."
-          : "Get a heads-up when a new swell is on the way to your favorite spots.";
+  const note =
+    failed === "busy"
+      ? "Too many tries in a row - wait a minute, then try again."
+      : failed
+        ? "Couldn't reach the alert service - check your connection and try again."
+        : state === "unsupported"
+          ? "Not available in this browser. On iPhone, add Rosa to your home screen first."
+          : state === "denied"
+            ? "Notifications are blocked for Rosa in your browser settings - allow them there, then try again."
+            : state === "on"
+              ? "One heads-up when a new swell is on the way to your favorite spots. Never more than one per swell."
+              : "Get a heads-up when a new swell is on the way to your favorite spots.";
 
   return (
     <section class="settings-card">
