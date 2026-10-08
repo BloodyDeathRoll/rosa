@@ -159,7 +159,7 @@ temperature and 10 m wind, GFS 0.25 for gusts and MSL pressure, HRRR for all fiv
 checking Open-Meteo's AWS open-data bucket every 5 min; anything else is read from the bucket on
 demand into a 40 GB `cache.bin` allocated in full at start. On-demand alone was too slow: a cold
 pass over all 2765 points ran > 50 min. Both `restart: always`.
-**Nothing uses it yet** - the weather leg still calls api.open-meteo.com. The switch is built and off: `ROSA_WEATHER_URL=http://127.0.0.1:8080/v1/forecast` in `~/rosa/.env` sends the weather leg here first, and any failure sends that batch and the rest of the run back to the public API (`blend.fetch_weather_many`). First reading, two points,
+The weather leg uses it (see ON below). The switch: `ROSA_WEATHER_URL=http://127.0.0.1:8080/v1/forecast` in `~/rosa/.env` sends the weather leg here first, and any failure sends that batch and the rest of the run back to the public API (`blend.fetch_weather_many`). First reading, two points,
 `gfs_seamless`, 16 days: wind speed and temperature byte-identical to the public API; gusts and
 pressure differ on most hours (up to 38 km/h and 4.6 hPa), and Miami's wind direction on 85 of 408
 hours - the public API was still serving the 06Z GFS 0.25 run (where gusts and pressure live) while
@@ -173,7 +173,12 @@ fixed it on 2026-09-28 (open-meteo/open-meteo#2157); the newest image, 1.6.0 (20
 it and 1.7.0 is unreleased. **Resolved 2026-10-08:** both containers now run `open-meteo-local:290493f`, built on the box
 from open-meteo main (build steps in the compose file; back to the official image once 1.7.0+ ships).
 Same-run comparison, 154 spots, all three GFS sources on the same run as the public API: **all five
-fields identical at every hour (62,832 values each)**. Ready for step 3 (`ROSA_WEATHER_URL`). Cold request ~25 s, warm ~1.3 s.
+fields identical at every hour (62,832 values each)**.
+
+**ON since 2026-10-08 07:10Z:** `ROSA_WEATHER_URL=http://127.0.0.1:8080/v1/forecast` in `~/rosa/.env`
+(backup `~/rosa/.env.bak-2026-10-08`; delete the line to go back). Pre-flight on the box, the real
+`fetch_weather_many` over all 2765 points: 2765 full bodies (408 h each), 0 public-API calls, 11 s.
+A `warn: self-hosted weather failed` line in `publish.log` means that run fell back to the public API. Cold request ~25 s, warm ~1.3 s.
 
 ## Ops alerting (2026-07-28, third eye live 2026-08-04)
 Three independent eyes, after two silent run-crash incidents left stale data serving. They
