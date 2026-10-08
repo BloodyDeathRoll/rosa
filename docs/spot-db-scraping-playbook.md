@@ -207,6 +207,12 @@ that `bathy` read gebco2020 via OpenTopoData and the two disagreed by a cell at 
 The sweep samples bearings and the profile samples the ray the physics marches, so still **judge
 the fix on the committed profile, not on the sweep**.
 
+- **New spots need a web deploy, not just a publish.** The forecast reaches the CDN on the next VM
+  cycle, but `rosa.surf/spot/<id>` is a prerendered page built by `cd web && npm run deploy`
+  (check `web/.vercel/project.json` names project `rosa`, and the output says "Aliased
+  https://rosa.surf"). Without it the new spots 404 (South Florida, 2026-10-07/08; OPEN-ITEMS 35e).
+  Confirm one new `/spot/<id>` answers 200 before calling a seed done.
+
 ## 4. Chunked, long-running workflow
 - Do **one region (or one gap area) at a time**; the `work/<region>/` cache makes every stage
   resumable and re-runnable cheaply (`--fresh <stage>` forces a refetch).
