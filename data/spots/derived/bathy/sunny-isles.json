@@ -1,0 +1,72 @@
+{
+  "spot": "sunny-isles",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    25.9302,
+    -80.1183
+  ],
+  "bearing_seaward_deg": 97.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 270.0,
+  "mean_slope_m_per_km": 14.99,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 25.92993,
+      "lon": -80.11582,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 25.92965,
+      "lon": -80.11334,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 25.9291,
+      "lon": -80.10837,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 25.92801,
+      "lon": -80.09845,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 25.92691,
+      "lon": -80.08852,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 25.92471,
+      "lon": -80.06868,
+      "depth_m": 134.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 25.92141,
+      "lon": -80.0389,
+      "depth_m": 250.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 25.917,
+      "lon": -79.99921,
+      "depth_m": 275.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 25.91036,
+      "lon": -79.93967,
+      "depth_m": 270.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "skull-island",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -8.3299,
+    157.1618
+  ],
+  "bearing_seaward_deg": 165.0,
+  "nearshore_depth_m": 155.0,
+  "offshore_depth_m": 662.0,
+  "mean_slope_m_per_km": 28.56,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -8.33207,
+      "lon": 157.16239,
+      "depth_m": 155.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -8.33424,
+      "lon": 157.16298,
+      "depth_m": 184.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -8.33859,
+      "lon": 157.16415,
+      "depth_m": 238.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -8.34727,
+      "lon": 157.16651,
+      "depth_m": 449.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -8.35596,
+      "lon": 157.16886,
+      "depth_m": 797.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -8.37333,
+      "lon": 157.17356,
+      "depth_m": 802.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -8.39939,
+      "lon": 157.18062,
+      "depth_m": 958.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -8.43414,
+      "lon": 157.19004,
+      "depth_m": 962.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -8.48626,
+      "lon": 157.20416,
+      "depth_m": 662.0
+    }
+  ]
+}

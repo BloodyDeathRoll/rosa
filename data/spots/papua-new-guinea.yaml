@@ -24,3 +24,8 @@ spots:
   - { id: nusa-island, name: "Nusa Island", town: "Kavieng", lat: -2.5825, lon: 150.7810, offshore_direction: 212, swell_window: [297, 127], offshore_km: 5.0, <<: *png }  # sat-verified 2026-09-21 (websearch-seeded); reef pass at channel mouth; normal re-aimed by GEBCO arc sweep (290 crossed land x3, 212 clears)
   - { id: rubio-plantation, name: "Rubio Plantation", town: "New Ireland", lat: -3.4491, lon: 152.1985, offshore_direction: 200, swell_window: [285, 115], offshore_km: 5.0, <<: *png }  # sat-verified 2026-09-21 (websearch-seeded); visible break lines off a forest-edge beach; normal re-aimed by GEBCO arc sweep (270 crossed land x2, 200 clears to 1 near-shore cell - steep slope, non-disqualifying per the NZ precedent)
   - { id: lido-point, name: "Lido Point", town: "Vanimo", lat: -2.6645, lon: 141.2708, offshore_direction: 180, swell_window: [265, 95], offshore_km: 5.0, <<: *png }  # sat-verified 2026-09-21 (websearch-seeded); clear point wrapping visible swell lines; by-eye guess (190) already clean, sweep refined to 180
+
+  # ==== ADDED 2026-10-09 - operator-supplied coordinates (authority: user-verified), each rendered
+  # on ESRI imagery at z16 and seen on surf before entering. offshore_direction = nearest coastline
+  # candidate's shore normal, checked by the 3c gate on the cut profile. North to south.
+  - { id: kavieng, name: "Kavieng", town: "Kavieng", lat: -2.5603, lon: 150.7919, offshore_direction: 134, swell_window: [249, 19], offshore_km: 5.0, <<: *png }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)

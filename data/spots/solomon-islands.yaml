@@ -21,3 +21,8 @@ spots:
   # ==== WEB-SEARCH SEEDED (2026-09-21, google-geocoded, sat-verified) ====
   - { id: titiana-si, name: "Titiana", town: "Gizo", lat: -8.1092, lon: 156.8176, offshore_direction: 324, swell_window: [49, 239], offshore_km: 5.0, <<: *si }  # sat-verified 2026-09-21 (websearch-seeded); reef whitewater visible offshore; normal re-aimed by GEBCO arc sweep
   - { id: paellonge-si, name: "Paellonge", town: "Gizo", lat: -8.0947, lon: 156.7862, offshore_direction: 302, swell_window: [27, 217], offshore_km: 5.0, <<: *si }  # sat-verified 2026-09-21 (websearch-seeded); reef whitewater visible SW; normal re-aimed by GEBCO arc sweep
+
+  # ==== ADDED 2026-10-09 - operator-supplied coordinates (authority: user-verified), each rendered
+  # on ESRI imagery at z16 and seen on surf before entering. offshore_direction = nearest coastline
+  # candidate's shore normal, checked by the 3c gate on the cut profile. North to south.
+  - { id: skull-island, name: "Skull Island", town: "Munda", lat: -8.3299, lon: 157.1618, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, <<: *si }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked); normal set by hand to seaward 165 - the open Solomon Sea on a z13 read; the coastline candidate (seaward 221) ran along the reef spit

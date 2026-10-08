@@ -1,0 +1,72 @@
+{
+  "spot": "stuart-rocks",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    27.1743,
+    -80.1516
+  ],
+  "bearing_seaward_deg": 67.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 65.0,
+  "mean_slope_m_per_km": 3.32,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 27.17518,
+      "lon": -80.14927,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 27.17606,
+      "lon": -80.14695,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 27.17781,
+      "lon": -80.14229,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 27.18133,
+      "lon": -80.13299,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 27.18484,
+      "lon": -80.12368,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 27.19186,
+      "lon": -80.10507,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 27.20239,
+      "lon": -80.07714,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 27.21642,
+      "lon": -80.03989,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 27.23745,
+      "lon": -79.98401,
+      "depth_m": 65.0
+    }
+  ]
+}

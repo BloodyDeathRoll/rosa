@@ -45,3 +45,10 @@ spots:
   - { id: 21st-street, name: "21st Street", town: "Miami Beach", lat: 25.7965, lon: -80.1250, offshore_direction: 281, swell_window: [36, 166], offshore_km: 5.0, <<: *sfl }  # sat-verified 2026-10-07 (websearch-seeded)
   - { id: fifth-street, name: "Fifth Street", town: "Miami Beach", lat: 25.7746, lon: -80.1293, offshore_direction: 278, swell_window: [33, 163], offshore_km: 5.0, <<: *sfl }  # sat-verified 2026-10-07 (websearch-seeded)
   - { id: south-pointe, name: "South Pointe", town: "Miami Beach", lat: 25.7648, lon: -80.1295, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, <<: *sfl }  # sat-verified 2026-10-07 (websearch-seeded)
+
+  # ==== ADDED 2026-10-09 - operator-supplied coordinates (authority: user-verified), each rendered
+  # on ESRI imagery at z16 and seen on surf before entering. offshore_direction = nearest coastline
+  # candidate's shore normal, checked by the 3c gate on the cut profile. North to south.
+  - { id: stuart-rocks, name: "Stuart Rocks", town: "Stuart", lat: 27.1743, lon: -80.1516, offshore_direction: 247, swell_window: [2, 132], offshore_km: 5.0, break_type: reef, <<: *sfl }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)
+  - { id: japanese-rock, name: "Japanese Rock", town: "Highland Beach", lat: 26.3923, lon: -80.0653, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, break_type: reef, <<: *sfl }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)
+  - { id: sunny-isles, name: "Sunny Isles", town: "Sunny Isles Beach", lat: 25.9302, lon: -80.1183, offshore_direction: 277, swell_window: [32, 162], offshore_km: 5.0, <<: *sfl }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)
