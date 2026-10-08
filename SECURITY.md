@@ -24,6 +24,7 @@ One maintainer holds all of them. None is in git.
 | `PUSH_ADMIN_SECRET` | `rosa-push` Vercel env; box `~/rosa/.env`; backup `~/.config/rosa/push-admin-secret.txt` | Set the new value in all three, then redeploy `deploy/push-api`. Until the box has it, alerts and feedback pulls get 401. |
 | `SESSION_SECRET` | `rosa-user-api` Worker secret | `npx wrangler secret put SESSION_SECRET`. **Signs every user out.** |
 | `ADMIN_SECRET` (user-api) | Worker secret; workstation `~/rosa-push/user-api-admin-secret.txt` | `wrangler secret put ADMIN_SECRET`, update the file `stats.sh` reads. |
+| `PUSH_RELAY_SECRET` | `rosa-user-api` Worker secret; `rosa-push` Vercel env (production); backup `~/.config/rosa/push-relay-secret.txt` | `wrangler secret put PUSH_RELAY_SECRET` and the rosa-push env, then redeploy `deploy/push-api`. Until both match, Contact Us, feedback and push sign-up through the relay get 403 from rosa-push. |
 | `GOOGLE_CLIENT_SECRET` | Worker secret; workstation `.env.local` | Google Cloud "Rosa" > Clients > `rosa-web`, then `wrangler secret put`. Sign-in fails until both match. |
 | `GOOGLE_MAPS_API_KEY` (also the YouTube Data API) | box `~/rosa/.env`; workstation `.env.local` | Google Cloud console; update both. Cam checks and spot tooling stop until then. |
 | `HEALTHCHECK_URL` | box `~/rosa/.env` | healthchecks.io. It is a capability: whoever holds it can silence the outage alert. |
@@ -45,6 +46,10 @@ session working in the repo does not hold the box's key (audit 2026-09-11).
   POSTs.
 - **Admin surfaces** compare `x-admin-secret` in constant time (push-api `api/_admin.js`,
   user-api `secretsEqual`).
+- **Public writes** (Contact Us, 👍👎 feedback, push sign-up) go through the Worker's per-IP
+  rate-limited `/push/*` relay (`deploy/user-api/src/relay.ts`, since 2026-10-08); rosa-push
+  refuses those writes without the relay's `x-relay-secret` (`api/_relay.js`; sub and feedback
+  still take a direct write until 2026-10-22, for apps not yet updated).
 - **Sign-in** is rate-limited per IP in the Worker; Google ID tokens are verified against
   Google's keys (`iss`, `aud`, `exp`, `email_verified`); sessions are HMAC with an epoch
   that a logout bumps.

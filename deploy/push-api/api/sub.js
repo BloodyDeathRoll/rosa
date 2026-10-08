@@ -1,4 +1,5 @@
 // Rosa push-subscription endpoint (the app's only write surface).
+// (both via the user-api Worker's rate-limited /push/sub relay since 2026-10-08)
 // POST  {endpoint, keys:{p256dh,auth}, spots:[ids]} → upsert this device
 // DELETE {endpoint}                                 → forget this device
 //
@@ -8,6 +9,7 @@
 
 import { del, put } from "@vercel/blob";
 import { createHash } from "node:crypto";
+import { relayOk } from "./_relay.js";
 
 const ALLOWED_ORIGINS = new Set([
   "https://rosa.surf",
@@ -56,6 +58,9 @@ export function isPushService(endpoint) {
 export default async function handler(req, res) {
   cors(req, res);
   if (req.method === "OPTIONS") return res.status(204).end();
+  // only through the user-api Worker's rate-limited relay (_relay.js, OPEN-ITEMS 33a);
+  // direct writes from not-yet-updated apps are let through until GRACE_UNTIL
+  if (!relayOk(req, { grace: true })) return res.status(403).json({ error: "relay" });
   const body = req.body ?? {};
   const endpoint = body.endpoint;
   if (typeof endpoint !== "string" || endpoint.length > 1024 || !isPushService(endpoint)) {

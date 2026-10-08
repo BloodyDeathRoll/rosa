@@ -1,5 +1,5 @@
 // Crowd 👍👎 feedback drop-box (the calibration truth no buoy can give).
-// POST   (app/SW origins) one FeedbackRecord-shaped row → stored as a private blob
+// POST   (via the user-api relay) one FeedbackRecord-shaped row → stored as a private blob
 // GET    (x-admin-secret) all rows, each with its blob `id`
 // DELETE (x-admin-secret) {ids} → prune rows the VM has merged into its store
 //
@@ -9,6 +9,7 @@
 import { del, get, list, put } from "@vercel/blob";
 import { randomUUID } from "node:crypto";
 import { adminOk } from "./_admin.js";
+import { relayOk } from "./_relay.js";
 
 const ALLOWED_ORIGINS = new Set([
   "https://rosa.surf",
@@ -36,6 +37,9 @@ export default async function handler(req, res) {
   if (req.method === "OPTIONS") return res.status(204).end();
 
   if (req.method === "POST") {
+    // only through the user-api Worker's rate-limited relay (_relay.js, OPEN-ITEMS 33a);
+    // direct posts from not-yet-updated service workers pass until GRACE_UNTIL
+    if (!relayOk(req, { grace: true })) return res.status(403).json({ error: "relay" });
     const b = req.body ?? {};
     const predicted = b.predicted && typeof b.predicted === "object" ? b.predicted : {};
     if (

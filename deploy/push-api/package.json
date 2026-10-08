@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "test": "node --test test/admin.test.mjs"
+    "test": "node --test test/admin.test.mjs test/relay.test.mjs"
   },
   "dependencies": {
     "@vercel/blob": "^2.8.0"

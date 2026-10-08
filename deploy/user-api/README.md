@@ -25,6 +25,7 @@ talks only to the two calls below, so moving to any other host later is: export 
 | `DELETE /me` | Bearer | | `{ok}` - the row and everything in it |
 | `GET /admin/stats` | `x-admin-secret` | | user counts (below) |
 | `GET /yt-feed?ch=UC...` | none | | `{entries: [{id, title, published}]}` newest first - the channel's public YouTube feed, relayed with CORS and cached 5 min at the edge (`src/ytfeed.ts`). The cam player (`web/src/cams.ts`) plays the newest entry whose title matches the cam's, because a 24/7 stream gets a new video id on every restart. No API key, no quota. |
+| `POST /push/contact`, `POST /push/feedback`, `POST`/`DELETE /push/sub` | none, per-IP limit | forwarded as-is | rosa-push's own answer - a rate-limited relay to `deploy/push-api`'s write routes (`src/relay.ts`, OPEN-ITEMS 33a, 2026-10-08). The Worker adds `x-relay-secret` (`PUSH_RELAY_SECRET`, same value on the rosa-push project), and rosa-push refuses those writes without it, so nobody can post around the limit. Over the limit: 429 `rate`. |
 
 The browser uses the GIS **code client** (`google.accounts.oauth2.initCodeClient`, popup,
 `select_account: true`) so a surfer with two Google accounts always gets the chooser; the
@@ -52,6 +53,7 @@ npx wrangler d1 execute rosa-users --remote --file schema.sql
 grep '^GOOGLE_CLIENT_SECRET=' ../../.env.local | cut -d= -f2- | npx wrangler secret put GOOGLE_CLIENT_SECRET   # the repo-root .env.local holds it (gitignored)
 openssl rand -hex 32 | npx wrangler secret put SESSION_SECRET
 openssl rand -hex 32 | tee ~/rosa-push/user-api-admin-secret.txt | npx wrangler secret put ADMIN_SECRET
+openssl rand -hex 32 | tr -d '\n' > ~/.config/rosa/push-relay-secret.txt   # then: wrangler secret put PUSH_RELAY_SECRET < that file, and the same value as PUSH_RELAY_SECRET on the rosa-push Vercel project (production) + redeploy it
 npx wrangler deploy
 ```
 
@@ -125,7 +127,8 @@ dashboard (Storage & Databases > D1 > rosa-users) shows the row count as a cross
 `npm test` - `node --test`, no dependencies: the Google verifier (good token; expired,
 wrong audience, wrong issuer, unverified email, unknown kid, forged signature, tampered
 payload, `alg=none`), the session HMAC (round-trip, expiry, tamper, wrong secret), and the
-sign-in rate limit against a fake binding (per-IP budget, missing IP header, no binding).
+sign-in rate limit against a fake binding (per-IP budget, missing IP header, no binding). `test/relay.test.mjs`: the /push/* relay (forwarding with the secret, per-route
+budgets, 429, no secret = 503, oversized body, unreachable rosa-push).
 
 ## Limits and the first ceiling
 
@@ -137,3 +140,11 @@ A toggle is one write; a launch is one read. The first thing to hit is writes at
 Limiting, `wrangler.toml`); over it the Worker answers 429 `rate`. It is the one anonymous
 route that does real work - a Google token exchange and a D1 write. Counters are per
 Cloudflare location and eventually consistent, so it bounds abuse; it is not an exact quota.
+
+The /push/* relay has its own budgets per client IP (`wrangler.toml`): contact 5 a minute
+(each one mails a human), feedback 20, sub 30 (the app re-posts the subscription on every
+favorite toggle). **Measured 2026-10-08 from the VM's fixed IP: the limiter is loose** - the
+sign-in limit of 10 let 22 through before the first 429, feedback's 20 let ~40 through, then
+everything over it was refused for the rest of the minute. Expect up to ~2x the nominal number.
+A tester on a connection that rotates its egress address (the workstation did: two IPv4s and
+an IPv6) never sees a 429 at all - test from a fixed address.

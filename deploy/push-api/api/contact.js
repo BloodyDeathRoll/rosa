@@ -14,6 +14,7 @@
 
 import { put } from "@vercel/blob";
 import { randomUUID } from "node:crypto";
+import { relayOk } from "./_relay.js";
 
 const ALLOWED_ORIGINS = new Set([
   "https://rosa.surf",
@@ -109,6 +110,8 @@ export default async function handler(req, res) {
   cors(req, res);
   if (req.method === "OPTIONS") return res.status(204).end();
   if (req.method !== "POST") return res.status(405).json({ error: "method" });
+  // only through the user-api Worker's rate-limited relay (_relay.js, OPEN-ITEMS 33a)
+  if (!relayOk(req)) return res.status(403).json({ error: "relay" });
 
   const b = req.body ?? {};
   const message = typeof b.message === "string" ? b.message.trim() : "";
