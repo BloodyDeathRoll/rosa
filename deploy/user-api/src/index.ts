@@ -10,6 +10,9 @@
 //   GET    /admin/stats   x-admin-secret -> counts                        "how many users"
 //   GET    /yt-feed?ch=UC...             -> {entries}                     a channel's YouTube feed,
 //                         for the cam player: a 24/7 stream's id changes on every restart
+//   POST   /push/contact | /push/feedback | /push/sub, DELETE /push/sub
+//                                        -> rosa-push's answer             per-IP rate-limited relay
+//                         to the push-api write routes (src/relay.ts, OPEN-ITEMS 33a)
 //
 // Authenticated routes take `Authorization: Bearer <session>` (see session.ts).
 // The user key is Google's `sub`, never anything of ours, so the rows move to any
@@ -18,10 +21,11 @@
 
 import { TokenError, verifyIdToken } from "./google.ts";
 import { signInAllowed } from "./ratelimit.ts";
+import { relay, type RelayEnv } from "./relay.ts";
 import { mint, secretsEqual, SESSION_TTL_MS, verify } from "./session.ts";
 import { CHANNEL_ID, FEED_TTL_S, FEED_URL, parseFeed } from "./ytfeed.ts";
 
-export interface Env {
+export interface Env extends RelayEnv {
   DB: D1Database;
   GOOGLE_CLIENT_ID: string;
   GOOGLE_CLIENT_SECRET: string; // secret: needed to exchange a code for an ID token
@@ -265,6 +269,8 @@ async function route(req: Request, env: Env, ctx: ExecutionContext): Promise<Res
   }
   if (path === "/admin/stats" && req.method === "GET") return stats(req, env, now);
   if (path === "/yt-feed" && req.method === "GET") return ytFeed(url, ctx);
+  const relayed = await relay(req, env, path);
+  if (relayed) return relayed;
 
   if (path === "/me" && req.method === "GET") {
     const row = await auth(req, env, ctx, now);

@@ -10,7 +10,11 @@ enabled = true
 [vars]
 # Public OAuth client id (the same value the web app ships as VITE_GOOGLE_CLIENT_ID).
 GOOGLE_CLIENT_ID = "889597220636-g818ovtnfo4ecgf49ap34ih52dk4qrcv.apps.googleusercontent.com"
-# Secrets, NOT here: `npx wrangler secret put SESSION_SECRET` and `... ADMIN_SECRET`.
+# rosa-push, where the /push/* relay forwards (src/relay.ts)
+PUSH_API_ORIGIN = "https://rosa-push.vercel.app"
+# Secrets, NOT here: `npx wrangler secret put SESSION_SECRET`, `... ADMIN_SECRET`,
+# `... GOOGLE_CLIENT_SECRET` and `... PUSH_RELAY_SECRET` (the last also set on the
+# rosa-push Vercel project, same value - it is what makes rosa-push refuse direct writes).
 
 # POST /auth/google per client IP (audit 2026-09-11) - the one anonymous route that does
 # real work (Google token exchange + a D1 write). Workers Rate Limiting: period is 10 or 60.
@@ -23,3 +27,21 @@ simple = { limit = 10, period = 60 }
 binding = "DB"
 database_name = "rosa-users"
 database_id = "b252d46b-7356-4ab2-9d11-b3e932cd9fc5"
+
+# The push-api write routes relayed by src/relay.ts (OPEN-ITEMS 33a, 2026-10-08), per
+# client IP. Contact Us mails a human per POST; feedback is one tap per notification or
+# one web prompt a week; sub re-posts on every favorite toggle, so it gets the most room.
+[[ratelimits]]
+name = "CONTACT_LIMIT"
+namespace_id = "1002"
+simple = { limit = 5, period = 60 }
+
+[[ratelimits]]
+name = "FEEDBACK_LIMIT"
+namespace_id = "1003"
+simple = { limit = 20, period = 60 }
+
+[[ratelimits]]
+name = "SUB_LIMIT"
+namespace_id = "1004"
+simple = { limit = 30, period = 60 }
