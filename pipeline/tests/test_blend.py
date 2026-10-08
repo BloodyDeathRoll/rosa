@@ -850,3 +850,35 @@ def test_weather_ignores_the_self_hosted_path_when_unset(monkeypatch):
     _weather_transport(monkeypatch, handler)
     blend_mod.fetch_weather_many([(1.0, 1.0)])
     assert hosts == ["api.open-meteo.com"]
+
+
+def test_blend_archive_rows_publish_gfs_alone_past_the_ecmwf_horizon() -> None:
+    """OPEN-ITEMS 37a: skill.json is written from this card, and past ECMWF's last step
+    compose_raw publishes GFS-Wave alone - so the rebuild scores those hours as GFS alone
+    (the 9d+ ceiling), while holds BETWEEN ECMWF steps stay unscored, and a run whose
+    ECMWF member stopped short (a failed fetch, not the horizon) gets no tail."""
+    from rosa_pipeline.blend import JOIN_TOL_H, blend_archive_rows
+
+    run = "2026-10-01T02:20:00+00:00"
+    t0 = datetime.fromisoformat(run)
+
+    def at(h: float) -> str:
+        return (t0 + timedelta(hours=h)).isoformat()
+
+    last = 225.0  # a full ECMWF member: 240 h from its 12z cycle, archived 14 h later
+    gfs = [
+        {"run": run, "valid": at(222), "hs": 1.0, "tp": 9.0, "dir": 300.0},  # ECMWF hold
+        {"run": run, "valid": at(225), "hs": 1.0, "tp": 9.0, "dir": 300.0},  # joined
+        {"run": run, "valid": at(last + JOIN_TOL_H), "hs": 1.1, "tp": 9.0, "dir": 300.0},
+        {"run": run, "valid": at(240), "hs": 1.4, "tp": 12.0, "dir": 280.0},  # GFS alone
+    ]
+    ecmwf = [
+        {"run": run, "valid": at(219), "hs": 2.0, "tp": 10.0, "dir": 310.0},
+        {"run": run, "valid": at(last), "hs": 2.0, "tp": 10.0, "dir": 310.0},
+    ]
+    rows = blend_archive_rows(gfs, ecmwf)
+    assert [r["valid"] for r in rows] == [at(225), at(240)]
+    assert rows[1] == {"run": run, "valid": at(240), "hs": 1.4, "tp": 12.0, "dir": 280.0}
+
+    short = [{"run": run, "valid": at(30), "hs": 2.0, "tp": 10.0, "dir": 310.0}]
+    assert blend_archive_rows(gfs, short) == []  # stopped at 30 h: no tail invented

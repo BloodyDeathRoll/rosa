@@ -257,9 +257,11 @@ JSON
   #     (this cycle already read the previous one). After the deploy on purpose -
   #     a buoy-obs outage must neither delay nor break publishing - and non-fatal
   #     for the same reason. ISRAMAR buoys are skipped inside the command (legal
-  #     red line: manual calibration use only).
+  #     red line: manual calibration use only). --source blend since 2026-10-08
+  #     (OPEN-ITEMS 37a): the ceilings measure the blend run --all ships, GFS-Wave alone
+  #     past ECMWF's horizon - not Open-Meteo, which the om archive still records.
   cd "$HOME/rosa"
-  uv run --project pipeline rosa-pipeline verify --all-buoys --archive --write-skill \
+  uv run --project pipeline rosa-pipeline verify --all-buoys --archive --source blend --write-skill \
     || echo "warn: skill measurement failed - published ceilings stay as-is"
 
   # 4c-4e) the evidence legs (station wind archive + its scorecard, SWAN pilot) - see

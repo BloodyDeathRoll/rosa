@@ -109,6 +109,8 @@ def load_skill_ceilings(path: Path) -> tuple[dict[int, float], str] | None:
         for tier_i in range(1, len(_CEILING_TIERS)):
             ceilings[tier_i] = min(ceilings[tier_i], ceilings[tier_i - 1])
         generated = skill.get("generated", "?")
+        # which forecast was measured (blend since 2026-10-08); older files carry no key
+        card = f", {skill['source']} card" if isinstance(skill.get("source"), str) else ""
         ids = skill.get("buoy_ids") or []
         hours = skill.get("buoy_hours")
         if isinstance(hours, dict):
@@ -126,7 +128,9 @@ def load_skill_ceilings(path: Path) -> tuple[dict[int, float], str] | None:
             f"static defaults (skill.json {generated}: no tier past n>={SKILL_N_FLOOR})"
         )
     leads = ",".join(matured) if matured else f"none past n>={SKILL_N_FLOOR}"
-    return ceilings, f"measured (verify skill.json {generated}, buoys: {buoys}, leads: {leads})"
+    return ceilings, (
+        f"measured (verify skill.json {generated}{card}, buoys: {buoys}, leads: {leads})"
+    )
 
 
 def _horizon_ceiling(day_index: int, ceilings: dict[int, float] | None = None) -> float:

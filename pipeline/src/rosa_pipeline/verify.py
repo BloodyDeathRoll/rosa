@@ -467,6 +467,7 @@ def skill_payload(
     key: str = "hs",
     generated: str,
     buoy_ids: list[str] | None = None,
+    source: str | None = None,
 ) -> dict:
     """The lead-bucket skill summary ``verify --archive`` persists for the pipeline.
 
@@ -478,7 +479,9 @@ def skill_payload(
     confidence_meta: a fleet-wide ceiling measured at one buoy must say so.
     ``buoy_hours`` (parallel to ``per_buoy``) is each buoy's compared hours summed over
     the lead buckets, so the provenance can name only the buoys the number came from -
-    a registered buoy that paired nothing (wave-silent) stays in ``buoy_ids`` only."""
+    a registered buoy that paired nothing (wave-silent) stays in ``buoy_ids`` only.
+    ``source`` names the archive card the numbers are (blend since 2026-10-08, om
+    before), so the published provenance can say which forecast was measured."""
     buckets: dict[str, dict] = {}
     for label, _lo, _hi in LEAD_BUCKETS:
         merged = merge_var_scores([b[label][key] for b in per_buoy if label in b])
@@ -501,6 +504,8 @@ def skill_payload(
         "buoy_ids": sorted(buoy_ids or []),
         "buckets": buckets,
     }
+    if source is not None:
+        out["source"] = source
     if buoy_ids is not None and len(buoy_ids) == len(per_buoy):
         out["buoy_hours"] = {
             bid: sum(b[label][key].n for label, _lo, _hi in LEAD_BUCKETS if label in b)

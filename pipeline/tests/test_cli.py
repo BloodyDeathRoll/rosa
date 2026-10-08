@@ -376,6 +376,36 @@ def test_verify_all_buoys_fleet_pass(tmp_path, monkeypatch, capsys):
     assert len(skill["buoy_ids"]) >= 2  # the rest of the fleet still contributed
 
 
+def test_verify_fleet_pass_writes_skill_from_the_shipped_blend(tmp_path, monkeypatch, capsys):
+    """OPEN-ITEMS 37a: publish.sh runs `verify --all-buoys --archive --source blend
+    --write-skill`, so skill.json measures the blend run --all ships and says so; a
+    member source (gfswave) still never becomes the published ceilings."""
+    import rosa_pipeline.cli as cli
+
+    root = Path(__file__).resolve().parents[2]
+    monkeypatch.setattr(cli, "_obs_for", lambda buoy, args: [])
+    monkeypatch.setattr(cli, "_with_measured_mean_direction", lambda b, o, a: o)
+    argv = [
+        "verify",
+        "--all-buoys",
+        "--archive",
+        "--write-skill",
+        "--buoys-dir",
+        str(root / "data" / "buoys"),
+        "--isramar-dir",
+        str(tmp_path / "no-isramar"),
+        "--archive-dir",
+        str(tmp_path / "archive"),
+    ]
+    assert main([*argv, "--source", "blend"]) == 0
+    skill = json.loads((tmp_path / "skill.json").read_text())
+    assert skill["source"] == "blend"
+    (tmp_path / "skill.json").unlink()
+    assert main([*argv, "--source", "gfswave"]) == 0
+    assert not (tmp_path / "skill.json").exists()
+    assert "is an A/B member, not a published model" in capsys.readouterr().err
+
+
 BUOYS_YAML = """\
 buoys:
   - {id: "11111", name: "B1", lat: 30.0, lon: -120.0, source: ndbc}

@@ -146,8 +146,10 @@ right: anyone holding it can suppress your outage alerts). Open-Meteo and NDBC a
   since 2026-09-14; free, by mail from ims@ims.gov.il). Without it those stations fail
   per station and the pass is METAR-only.
 - **Measured confidence ceilings (2026-08-07):** every cycle ends with
-  `verify --all-buoys --archive --write-skill`, which scores the whole fleet
-  (ISRAMAR buoys skipped - legal red line) and writes `data/verify/skill.json`;
+  `verify --all-buoys --archive --source blend --write-skill`, which scores the whole
+  fleet on the blend `run --all` actually ships (since 2026-10-08, OPEN-ITEMS 37a; it
+  was the om archive before) (ISRAMAR buoys skipped - legal red line) and writes
+  `data/verify/skill.json`;
   the next cycle's `run --all` publishes ceilings derived from it, with the
   contributing buoys named in each payload's `confidence_meta.ceiling_source`.
   Single-buoy spot checks like the one above never touch skill.json - persisting

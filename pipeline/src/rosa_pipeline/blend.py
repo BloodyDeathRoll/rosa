@@ -622,15 +622,33 @@ def _circ(a: float | None, b: float | None, w: float = W_GFS) -> float | None:
     return round(math.degrees(math.atan2(y, x)), 1) % 360.0
 
 
+def _iso(s: object) -> datetime | None:
+    try:
+        return datetime.fromisoformat(str(s))
+    except ValueError:
+        return None
+
+
+# A run's ECMWF rows count as reaching the model's horizon (240 h from its cycle) when
+# the last one sits at least this far past the archive's invocation time. The archive
+# stamps rows with the invocation, 14-21 h after the 00/12z cycle it read, so a full
+# ECMWF member ends at a 219-231 h lead; a member that stops much earlier is a failed
+# fetch, not the horizon, and its run gets no GFS-alone tail (37a, 2026-10-08).
+BLEND_TAIL_MIN_ECMWF_LEAD_H = 200.0
+
+
 def blend_archive_rows(gfs_rows: list, ecmwf_rows: list) -> list[dict]:
     """The published blend rebuilt offline from a buoy's two member archives, so
-    ``verify --archive --source blend`` can score the model run --all actually ships
-    (Dream 2026-09-12, step 1: RECORDING ONLY - skill.json still comes from om).
+    ``verify --archive --source blend`` scores the model run --all actually ships - the
+    card skill.json is written from since 2026-10-08 (OPEN-ITEMS 37a).
 
     Joined on (run, valid): the archive stamps both members with one invocation time, so
-    a shared key is the same cycle's forecast for the same hour. Only hours BOTH members
-    carry are kept - compose_raw holds ECMWF's nearest 6-hourly step between steps, and
-    scoring those hours would score the hold. hs/tp/dir combine exactly as
+    a shared key is the same cycle's forecast for the same hour. Inside ECMWF's range only
+    hours BOTH members carry are kept - compose_raw holds ECMWF's nearest 6-hourly step
+    between steps, and scoring those hours would score the hold. Past the run's last
+    ECMWF step (more than JOIN_TOL_H beyond it, on a run whose ECMWF member reached its
+    horizon) compose_raw publishes GFS-Wave alone, and so does this: those hours are the
+    9d+ tail the published confidence ceiling prices. hs/tp/dir combine exactly as
     compose_raw does (hs <- swh, tp <- perpw|pp1d, dir <- dirpw|mwd), including its rule
     that a value one member lacks is the other member's alone."""
     ec = {
@@ -638,12 +656,34 @@ def blend_archive_rows(gfs_rows: list, ecmwf_rows: list) -> list[dict]:
         for r in ecmwf_rows
         if isinstance(r, dict) and r.get("run") and r.get("valid")
     }
+    last_ec: dict[str, datetime] = {}
+    for run, valid in ec:
+        t = _iso(valid)
+        if t is not None and (run not in last_ec or t > last_ec[run]):
+            last_ec[run] = t
+    tail_from: dict[str, datetime] = {}
+    for run, t in last_ec.items():
+        r0 = _iso(run)
+        if r0 is not None and (t - r0).total_seconds() / 3600 >= BLEND_TAIL_MIN_ECMWF_LEAD_H:
+            tail_from[run] = t + timedelta(hours=JOIN_TOL_H)
     out: list[dict] = []
     for g in gfs_rows:
         if not isinstance(g, dict):
             continue
         e = ec.get((g.get("run"), g.get("valid")))
         if e is None:
+            edge = tail_from.get(str(g.get("run")))
+            t = _iso(g.get("valid"))
+            if edge is not None and t is not None and t > edge:
+                out.append(
+                    {
+                        "run": g["run"],
+                        "valid": g["valid"],
+                        "hs": g.get("hs"),
+                        "tp": g.get("tp"),
+                        "dir": g.get("dir"),
+                    }
+                )
             continue
         out.append(
             {

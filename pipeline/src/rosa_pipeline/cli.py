@@ -142,6 +142,11 @@ SOURCE_VARIABLES = {
     # GFS field the stations card already scores); no mean-direction row yet (verify.py)
     "swan": SWAN_VARIABLES,
 }
+# sources whose archive card `verify --archive --write-skill` may persist as skill.json,
+# the published confidence ceilings. blend is what run --all ships and what publish.sh
+# writes from since 2026-10-08 (OPEN-ITEMS 37a, CALIBRATION.md 2026-10-08); om stays
+# writable as the comparison arm. The member sources (gfswave/ecmwf/swan) never are.
+SKILL_SOURCES = ("blend", "om")
 # coastal-station archive keys: the published wind model (fetch.WEATHER_MODEL, GFS since
 # 2026-08-30) lives at "<station>"; "<station>.icon" holds the ICON A/B member archived
 # 2026-08-30 -> 2026-09-16. That A/B was read 2026-09-16 (GFS wind speed bias -0.04 vs
@@ -398,7 +403,8 @@ def _build_parser() -> argparse.ArgumentParser:
     verify.add_argument(
         "--write-skill",
         action="store_true",
-        help="with --archive: persist the lead-bucket Hs scorecard as skill.json, the "
+        help="with --archive: persist the lead-bucket Hs scorecard of --source (blend - "
+        "the shipped model, what publish.sh writes - or om) as skill.json, the "
         "measured horizon ceilings run --all publishes fleet-wide. Opt-in on purpose: "
         "it should only be written from a run covering the full buoy fleet, not the "
         "single-buoy spot checks",
@@ -422,7 +428,8 @@ def _build_parser() -> argparse.ArgumentParser:
         default="om",
         help="with --archive: which archived source to score (Stage 3a/3b A/B). "
         "gfswave/ecmwf pair their peak period with buoy DPD. blend rebuilds the "
-        "published 50/50 blend from both member archives (recording only). swan: the "
+        "published 50/50 blend from both member archives (GFS-Wave alone past ECMWF's "
+        "horizon, as published) - the card skill.json comes from. swan: the "
         "Stage-4 regional model's sea at the buoy (swan-archive), peak period vs DPD",
     )
     verify.add_argument("--fixtures", type=Path, default=None, help="replay marine json (offline)")
@@ -1670,7 +1677,7 @@ def _cmd_verify(args: argparse.Namespace) -> int:
                     variables=variables,
                 )
                 print(render_lead_scorecard(buoy, by_lead))
-                if source == "om":
+                if source in SKILL_SOURCES:
                     skill_by_lead.append(by_lead)
                     skill_buoys.append(buoy.id)
             else:
@@ -1702,6 +1709,7 @@ def _cmd_verify(args: argparse.Namespace) -> int:
             skill_by_lead,
             generated=datetime.now(UTC).isoformat(timespec="seconds"),
             buoy_ids=skill_buoys,
+            source=args.source if args.archive else "om",
         )
         tmp = skill_path.with_suffix(".json.tmp")
         tmp.write_text(json.dumps(payload, indent=1) + "\n", encoding="utf-8")
@@ -1710,17 +1718,13 @@ def _cmd_verify(args: argparse.Namespace) -> int:
     elif skill_by_lead:
         print("skill: not persisted (pass --write-skill to update the published ceilings)")
     elif getattr(args, "write_skill", False):
-        # --write-skill only ever collects the om source (the model run --all publishes);
-        # a Stage-3a/3b A/B pass asks for it and would otherwise get scorecards, no
-        # skill.json and not one word about why. Say what did not happen.
-        if args.archive and args.source == "blend":
-            # the shipped model, but recorded only: moving the published ceilings onto
-            # it moves confidence fleet-wide - a pb_0049 A/B + CALIBRATION.md entry first
-            why = "--source 'blend' is recorded only - switching skill.json to it needs the A/B"
-        elif args.archive and args.source != "om":
-            why = f"--source {args.source!r} is an A/B member, not the published model"
+        # --write-skill collects only SKILL_SOURCES (the shipped blend, and om for the
+        # comparison arm); a Stage-3a/3b member pass asks for it and would otherwise get
+        # scorecards, no skill.json and not one word about why. Say what did not happen.
+        if args.archive and args.source not in SKILL_SOURCES:
+            why = f"--source {args.source!r} is an A/B member, not a published model"
         else:
-            why = "no archived om scorecards in this pass"
+            why = f"no archived {args.source if args.archive else 'om'} scorecards in this pass"
         print(f"skill: nothing to persist - {why}", file=sys.stderr)
     if getattr(args, "write_spread", False):
         # Opt-in and recording-only. The harness already builds these numbers every run

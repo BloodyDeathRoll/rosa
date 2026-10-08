@@ -3718,3 +3718,56 @@ is the first direction bias on these cards that is a measurement, and it is smal
 bearing is a circular mean of a peak and a mean, so neither row is like-for-like for it and no
 blend direction bias should be quoted. Per-station signs were not read here - item 6's
 "average hiding sign flips" still applies before any correction is proposed.
+
+## 2026-10-08 - Confidence ceilings move to the shipped blend's own card (OPEN-ITEMS 37a, same-input A/B)
+
+**Why.** `skill.json` - the measured horizon ceilings every published confidence is capped by -
+was written from the `om` archive, but Rosa has shipped the GFS-Wave+ECMWF blend since
+2026-08-26. Principle 3: confidence describes what we publish. So `publish.sh` step 4b now runs
+`verify --all-buoys --archive --source blend --write-skill`; `om` stays writable for comparison.
+
+**The card had to be the published blend, tail included.** `blend_archive_rows` joined only
+hours both members carry, so its 9d+ bucket was empty by construction: the archive stamps rows
+with the invocation time, 14-21 h after the 00/12z ECMWF cycle, so ECMWF rows end at a 219-231 h
+lead and past that `compose_raw` publishes GFS-Wave ALONE (blend.py docstring, plan B3). The
+rebuild now does the same: past the run's last ECMWF step plus JOIN_TOL_H, on a run whose ECMWF
+member reached its horizon (last lead >= 200 h - a member that stopped earlier is a failed fetch
+and gets no tail), GFS-Wave's row stands alone. Holds between ECMWF steps stay unscored, as
+before. This also moved the 7-9 d bucket a little (its last ~12 h are GFS alone too).
+
+**Same-input A/B.** Both arms through the shipped harness on the VM, 2026-10-08 ~20:50Z, against
+ONE capture of the buoy observations and spectra (36 buoys, NDBC realtime2 + CMEMS; a replay of
+the capture reproduced the live pass exactly): base = main's `verify --archive --write-skill`
+(om), candidate = this change with `--source blend`. Hs, merged over buoys:
+
+| lead | om n | om bias | om rmse | om SI | blend n | blend bias | blend rmse | blend SI |
+|---|---|---|---|---|---|---|---|---|
+| 0-1 d | 25162 | +0.016 | 0.215 | 0.172 | 4199 | -0.042 | 0.214 | 0.162 |
+| 1-3 d | 24659 | +0.023 | 0.240 | 0.194 | 4115 | -0.030 | 0.229 | 0.176 |
+| 3-4 d | 23651 | +0.030 | 0.273 | 0.219 | 3947 | -0.021 | 0.256 | 0.196 |
+| 4-5 d | 23147 | +0.024 | 0.292 | 0.230 | 3863 | -0.017 | 0.271 | 0.205 |
+| 5-7 d | 22643 | -0.016 | 0.359 | 0.278 | 3779 | -0.023 | 0.334 | 0.251 |
+| 7-9 d | 21635 | -0.024 | 0.456 | 0.344 | 3611 | -0.037 | 0.455 | 0.333 |
+| 9 d+ | 864 | +0.129 | 0.419 | 0.346 | 3359 | -0.065 | 0.634 | 0.470 |
+
+The blend's n is ~1/6 of om's because only hours on ECMWF's 6-hourly steps are scored (holds
+are not), and every bucket is still 33-42x the 100-hour floor; the same 35 buoys pair hours on
+both cards (Faro pairs none on either), over the same archive span (both member archives start 2026-07-23). The blend measures better
+than Open-Meteo at every lead to 9 d and worse past it, where it is GFS-Wave alone - so the
+ceilings rise a little where Rosa is better and drop where it is weaker:
+
+| tier | om ceiling | blend ceiling |
+|---|---|---|
+| days 0-3 | 0.806 | 0.823 |
+| days 4-9 | 0.717 | 0.739 |
+| day 10+ | 0.654 | 0.530 |
+
+**Fleet impact, all 2765 live payloads (42,826 published day entries).** Published confidence is
+`min(agreement, ceiling)`, labelled high >= 0.7 > medium >= 0.45 > low. For every tier the old and
+new ceilings sit in the same label band (both >= 0.7; both in [0.45, 0.7)), so **no label can
+change for any input** - and on the live payloads 0 do. Day 10+: 15,102 of 15,176 entries move
+0.65 -> 0.53 (15,037 capped, 65 whose agreement sat between the two ceilings); 74 below 0.53 are
+unchanged. Days 0-9: 18,653 capped entries may rise by at most +0.02 (their agreement above the
+old cap is unknown, so the new value is bounded, not exact); 8,997 agreement-bound entries are
+unchanged. Provenance: `skill.json` carries `"source": "blend"` and `ceiling_source` reads
+"..., blend card, buoys: ...".

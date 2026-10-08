@@ -202,3 +202,17 @@ def test_measured_source_names_only_buoys_with_compared_hours(tmp_path: Path) ->
     p.write_text(json.dumps(out))
     _ceilings, source = load_skill_ceilings(p)
     assert "A-reporting" in source and "B-silent" not in source
+
+
+def test_provenance_names_the_measured_card(tmp_path: Path) -> None:
+    """OPEN-ITEMS 37a: skill.json says which forecast its numbers measure (the shipped
+    blend since 2026-10-08), and the published ceiling_source repeats it; a file
+    without the key (written before) reads exactly as it always did."""
+    buckets = {lb: {"n": SKILL_N_FLOOR, "scatter_index": 0.2} for lb, _a, _b in LEAD_BUCKETS}
+    p = tmp_path / "skill.json"
+    p.write_text(json.dumps({"generated": "g", "source": "blend", "buckets": buckets}))
+    _ceilings, why = load_skill_ceilings(p)
+    assert why.startswith("measured (verify skill.json g, blend card, buoys:")
+    p.write_text(json.dumps({"generated": "g", "buckets": buckets}))
+    _ceilings, why = load_skill_ceilings(p)
+    assert why.startswith("measured (verify skill.json g, buoys:")
