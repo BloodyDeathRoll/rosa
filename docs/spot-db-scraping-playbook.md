@@ -220,7 +220,32 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-10-07, DB = 2765 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-10-09, DB = 2780 spots, ALL sat-verified)
+
+**Iceland 0 -> 10 (2026-10-09)** - one box over the whole island on the `europe/iceland` extract, new
+`iceland` basin. Zero OSM surf nodes (14 named beaches): web flow end to end. Name sources:
+surf-forecast's Iceland index (9 breaks), thesurfatlas, perfectwavetravel and Icelandic rental-car
+guides; English guides repeat the same four (Sandvik, Grindavik, Thorli, Gardur).
+1. **Geocode in Icelandic** (thorn, eth, accents in the query): every Reykjanes name resolved within
+   1 km on Google + Photon; Nominatim returned nothing for any of them.
+2. **Google gave the town or lighthouse for 8 of 11 names**; a z13 read found the break on the next
+   point every time. Google put Eyvik 278 km off in south Iceland - trust the provider that matches
+   the guide's coast (Photon's Tjornes hit).
+3. **Breidavik is two candidates 10 km apart** (Latrabjarg headland vs the golden-sand bay); the bay
+   is the break. Gardur and Hafnir read dark reef shelf with no whitewater - kept, sources name them.
+4. Hafnarfjordur dropped (fjord harbour, moored ships). Sandvik's normal crossed the bay's north arm
+   and was re-aimed to seaward 256. Gap queue: Grindavik Antenas, Snaefellsnes (sources name no break).
+
+**Lampedusa + Pantelleria 0 -> 0 (2026-10-09).** A temporary `sicily-islands` box on the local
+`italy-isole` extract: 117 candidates past the depth gate, 0 OSM surf features, 8 named beaches - all
+dropped on the tile (Lampedusa's sheltered south-coast swimming coves, Pantelleria's volcanic cliff and
+harbour). No surf source names a break on either island (surf-forecast puts the nearest in Tunisia and
+Malta). If the operator supplies one, add a `sicily-islands` region on the `sicily` basin.
+
+**Operator-supplied pins (2026-10-09, user-verified, 2765 -> 2770):** Sunny Isles, Stuart Rocks,
+Japanese Rock (surf-forecast's "Jap Rock"; surfnerd's neutral name used), Kavieng, Skull Island - each
+rendered and seen on surf. Skull Island's coastline normal ran along the reef spit (GEBCO cannot see
+it); set by hand to the open Solomon Sea from a z13 read.
 
 **New Caledonia Tier A- check (2026-10-08): 23 candidates -> 0 kept.** The 23 named-beach
 candidates are 17 distinct OSM beaches; all rendered at z15 and all sit inside the barrier-reef
