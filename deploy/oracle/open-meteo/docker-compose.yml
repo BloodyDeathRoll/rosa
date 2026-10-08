@@ -5,6 +5,11 @@
 # LRU cache. On-demand alone was too slow: a cold pass over 2765 points ran > 50 min.
 # Where the fields live (S3 listing, 2026-10-07): gfs013 = temperature + 10 m wind u/v;
 # gfs025 = gusts + MSL pressure; hrrr_conus = all five (US).
+# IMAGE: built on the box from open-meteo main @ 290493f (2026-10-08) because the newest
+# release, 1.6.0, predates the HRRR wind-direction fix (#2157):
+#   git clone https://github.com/open-meteo/open-meteo ~/om-src && cd ~/om-src &&
+#   git checkout 290493ffb9 && sudo docker build -t open-meteo-local:290493f .   (~17 min)
+# Go back to ghcr.io/open-meteo/open-meteo once a release (1.7.0+) carries #2157.
 # Data CC-BY-4.0 (attribution in the footer already), code AGPL-3.0 (run unmodified).
 # Start: cd ~/open-meteo && docker compose up -d   API: http://127.0.0.1:8080 (box only)
 volumes:
@@ -12,7 +17,7 @@ volumes:
 
 services:
   open-meteo:
-    image: ghcr.io/open-meteo/open-meteo
+    image: open-meteo-local:290493f
     container_name: open-meteo
     volumes:
       - open-meteo-data:/app/data
@@ -24,7 +29,7 @@ services:
     restart: always
 
   open-meteo-sync:
-    image: ghcr.io/open-meteo/open-meteo
+    image: open-meteo-local:290493f
     container_name: open-meteo-sync
     volumes:
       - open-meteo-data:/app/data

@@ -170,8 +170,10 @@ public API at every hour of every spot. Fleet speed with the sync done: all 2765
 4 s warm, no bad batch. **Blocker:** wind direction differs at the US (HRRR) spots for the first ~3.5
 days by a steady rotation of 0.62 x (lon + 97.5) deg - the HRRR grid-to-true-north turn. Open-Meteo
 fixed it on 2026-09-28 (open-meteo/open-meteo#2157); the newest image, 1.6.0 (2026-09-10), predates
-it and 1.7.0 is unreleased. **Do not turn `ROSA_WEATHER_URL` on until the image carries #2157**
-(pull, `docker compose up -d`, rerun the direction check on the US spots). Cold request ~25 s, warm ~1.3 s.
+it and 1.7.0 is unreleased. **Resolved 2026-10-08:** both containers now run `open-meteo-local:290493f`, built on the box
+from open-meteo main (build steps in the compose file; back to the official image once 1.7.0+ ships).
+Same-run comparison, 154 spots, all three GFS sources on the same run as the public API: **all five
+fields identical at every hour (62,832 values each)**. Ready for step 3 (`ROSA_WEATHER_URL`). Cold request ~25 s, warm ~1.3 s.
 
 ## Ops alerting (2026-07-28, third eye live 2026-08-04)
 Three independent eyes, after two silent run-crash incidents left stale data serving. They
