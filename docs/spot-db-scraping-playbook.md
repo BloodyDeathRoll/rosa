@@ -223,6 +223,14 @@ the fix on the committed profile, not on the sweep**.
 
 ## 5. Session log & queue (as of 2026-10-07, DB = 2765 spots, ALL sat-verified)
 
+**New Caledonia Tier A- check (2026-10-08): 23 candidates -> 0 kept.** The 23 named-beach
+candidates are 17 distinct OSM beaches; all rendered at z15 and all sit inside the barrier-reef
+lagoon or a sheltered bay - glassy water, moored boats, mudflat, no breaking line. Web search
+confirms none is a surf break. **A lagoon nation's beach pipeline finds only lagoon beaches**:
+where a barrier reef fronts the coast (New Caledonia, much of Fiji and the Maldives), skip the
+Tier A- pass and go straight to the web flow for the passes. Gap queue: Dumbea Pass, Tenia Pass,
+La Roche Percee (Bourail - widen the box west to ~165.4).
+
 **South Florida 0 -> 24 (2026-10-07)** - one box (25.60-27.30 N) from Miami Beach to Stuart on the
 existing `north-america/us/florida` extract (`south-florida.osm.pbf` is a symlink), joined `us-east`.
 Zero OSM surf nodes (28 named beaches, 0 surf features): web flow end to end. surf-forecast.com's

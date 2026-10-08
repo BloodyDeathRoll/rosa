@@ -2,9 +2,9 @@
 # so far - the Noumea lagoon and Isle of Pines were researched; most candidates
 # (Dumbea Pass, Les Ronfleurs, Kuto Bay) geocoded onto an inland mangrove, a resort
 # building, or a flat enclosed lagoon respectively and were dropped rather than
-# guessed. Only one spot confirmed this pass; the 23 OSM Tier A- (named-beach)
-# candidates the coastline pipeline found are not yet individually sat-verified -
-# see docs/OPEN-ITEMS.md.
+# guessed. Only one spot confirmed this pass. The 23 OSM Tier A- (named-beach)
+# candidates were sat-verified 2026-10-08 and all dropped - every one is inside
+# the lagoon or a sheltered bay (docs/OPEN-ITEMS.md 40).
 
 defaults: &nc
   timezone: Pacific/Noumea
