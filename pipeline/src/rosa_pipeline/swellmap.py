@@ -100,6 +100,8 @@ BASINS: dict[str, tuple[str, ...]] = {
     "scotland-west": ("Scotland West",),
     # Lofoten, above the Arctic Circle: Norwegian Sea swell, ~1,000 km north of Jaeren
     "lofoten": ("Lofoten",),
+    # Iceland, mid North Atlantic: every coast faces open ocean, its own frame
+    "iceland": ("Iceland",),
     "central-america": ("Costa Rica", "Nicaragua", "El Salvador", "Panama"),
     # Mexico gets its own box rather than joining central-america: its spots run from
     # Tijuana to the Oaxaca isthmus, and merging them would stretch one frame over

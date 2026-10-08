@@ -1,0 +1,33 @@
+# Rosa spot database - Iceland (seeded 2026-10-09). The Reykjanes peninsula carries most of
+# the surf (Sandvik, Grindavik, Hafnir, Gardur, Thorlakshofn), with scattered breaks in the
+# Westfjords, on the north coast and in the east. Open North Atlantic swell, cold water.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &isl
+  timezone: Atlantic/Reykjavik
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [150, 290]
+  ideal:
+    wind_dir: [315, 45]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-10-09 - iceland, 10 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 10 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/iceland/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: eyvik, name: "Eyvik", town: "Húsavík", lat: 66.0945, lon: -17.3177, offshore_direction: 165, swell_window: [280, 50], offshore_km: 5.0, <<: *isl }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: breidavik, name: "Breidavik", town: "Patreksfjörður", lat: 65.5532, lon: -24.3694, offshore_direction: 114, swell_window: [229, 359], offshore_km: 5.0, <<: *isl }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: stokksnes, name: "Stokksnes", town: "Höfn", lat: 64.2477, lon: -14.9681, offshore_direction: 276, swell_window: [31, 161], offshore_km: 5.0, <<: *isl }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: grotta, name: "Grotta", town: "Seltjarnarnes", lat: 64.1664, lon: -22.0228, offshore_direction: 79, swell_window: [194, 324], offshore_km: 5.0, <<: *isl }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: gardur, name: "Gardur", town: "Garður", lat: 64.0825, lon: -22.6815, offshore_direction: 201, swell_window: [316, 86], offshore_km: 5.0, <<: *isl }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: hafnir, name: "Hafnir", town: "Hafnir", lat: 63.9317, lon: -22.6957, offshore_direction: 58, swell_window: [173, 303], offshore_km: 5.0, <<: *isl }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: sandvik, name: "Sandvik", town: "Hafnir", lat: 63.8598, lon: -22.6998, offshore_direction: 76, swell_window: [191, 321], offshore_km: 5.0, <<: *isl }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: thorlakshofn, name: "Thorlakshofn", town: "Þorlákshöfn", lat: 63.8492, lon: -21.3596, offshore_direction: 302, swell_window: [57, 187], offshore_km: 5.0, <<: *isl }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: grindavik, name: "Grindavik", town: "Grindavík", lat: 63.8326, lon: -22.4412, offshore_direction: 315, swell_window: [70, 200], offshore_km: 5.0, <<: *isl }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: hopsnes, name: "Hopsnes", town: "Grindavík", lat: 63.8221, lon: -22.4061, offshore_direction: 33, swell_window: [148, 278], offshore_km: 5.0, <<: *isl }  # sat-verified 2026-10-09 (websearch-seeded)

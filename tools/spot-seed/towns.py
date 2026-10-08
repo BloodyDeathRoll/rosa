@@ -98,6 +98,7 @@ REGION_PBF = {
     "Scotland East": "scotland-east",
     "Norway South": "norway-south",
     "Lofoten": "lofoten",
+    "Iceland": "iceland",
     "Denmark": "denmark",
     "Netherlands": "netherlands",
     "Germany": "germany",

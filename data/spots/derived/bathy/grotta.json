@@ -1,0 +1,72 @@
+{
+  "spot": "grotta",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    64.1664,
+    -22.0228
+  ],
+  "bearing_seaward_deg": 259.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 34.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 64.16597,
+      "lon": -22.02786,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 64.16554,
+      "lon": -22.03293,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 64.16468,
+      "lon": -22.04306,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 64.16296,
+      "lon": -22.06331,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 64.16124,
+      "lon": -22.08357,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 64.15778,
+      "lon": -22.12406,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 64.15258,
+      "lon": -22.18479,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 64.14561,
+      "lon": -22.26572,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 64.13506,
+      "lon": -22.38705,
+      "depth_m": 34.0
+    }
+  ]
+}

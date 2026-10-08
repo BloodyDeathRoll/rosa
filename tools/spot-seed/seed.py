@@ -304,6 +304,10 @@ REGIONS = {
     "norway-south": (57.95, 4.80, 62.30, 7.20),
     # Lofoten: Unstad, Flakstad, Skagsanden
     "lofoten": (67.85, 12.90, 68.45, 14.50),
+    # Iceland: the whole island - Reykjanes (Sandvik, Grindavik, Hafnir, Gardur), Thorlakshofn,
+    # Grotta, Breidavik in the Westfjords, Eyvik on the north coast and Stokksnes in the east.
+    # The breaks are scattered round every coast, so the box is the country.
+    "iceland": (63.20, -24.60, 66.60, -13.40),
     # Denmark: the North Sea coast of Jutland (Klitmoller "Cold Hawaii", Hanstholm, Hvide
     # Sande, Lokken, Skagen) and north Zealand's Kattegat shore (Hornbaek)
     "denmark": (55.00, 7.95, 57.80, 12.70),

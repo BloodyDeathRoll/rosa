@@ -1,0 +1,72 @@
+{
+  "spot": "thorlakshofn",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    63.8492,
+    -21.3596
+  ],
+  "bearing_seaward_deg": 122.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 67.0,
+  "mean_slope_m_per_km": 3.21,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 63.84801,
+      "lon": -21.35527,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 63.84682,
+      "lon": -21.35095,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 63.84443,
+      "lon": -21.3423,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 63.83966,
+      "lon": -21.325,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 63.83489,
+      "lon": -21.30771,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 63.82535,
+      "lon": -21.27315,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 63.81101,
+      "lon": -21.22135,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 63.79186,
+      "lon": -21.15237,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 63.76308,
+      "lon": -21.04907,
+      "depth_m": 67.0
+    }
+  ]
+}
