@@ -1,0 +1,72 @@
+{
+  "spot": "winthrop-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.3751,
+    -70.9675
+  ],
+  "bearing_seaward_deg": 48.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 27.0,
+  "mean_slope_m_per_km": 1.07,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.3766,
+      "lon": -70.96524,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.37811,
+      "lon": -70.96298,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.38112,
+      "lon": -70.95845,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.38713,
+      "lon": -70.9494,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.39315,
+      "lon": -70.94035,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.40518,
+      "lon": -70.92224,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.42322,
+      "lon": -70.89507,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.44726,
+      "lon": -70.85881,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.4833,
+      "lon": -70.80438,
+      "depth_m": 27.0
+    }
+  ]
+}

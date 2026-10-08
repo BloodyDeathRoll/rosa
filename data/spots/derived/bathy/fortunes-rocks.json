@@ -1,0 +1,72 @@
+{
+  "spot": "fortunes-rocks",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.4332,
+    -70.3699
+  ],
+  "bearing_seaward_deg": 126.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 94.0,
+  "mean_slope_m_per_km": 4.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.43188,
+      "lon": -70.3674,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.43056,
+      "lon": -70.36489,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.42791,
+      "lon": -70.35988,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.42263,
+      "lon": -70.34987,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.41734,
+      "lon": -70.33985,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.40676,
+      "lon": -70.31983,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.39088,
+      "lon": -70.2898,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.3697,
+      "lon": -70.2498,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.33791,
+      "lon": -70.18984,
+      "depth_m": 94.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "horseneck-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.506,
+    -71.0584
+  ],
+  "bearing_seaward_deg": 197.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 24.0,
+  "mean_slope_m_per_km": 0.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.50385,
+      "lon": -71.05928,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.5017,
+      "lon": -71.06016,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.4974,
+      "lon": -71.06191,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.4888,
+      "lon": -71.06542,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.4802,
+      "lon": -71.06893,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.463,
+      "lon": -71.07594,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.43719,
+      "lon": -71.08646,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.40279,
+      "lon": -71.10047,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.35118,
+      "lon": -71.12145,
+      "depth_m": 24.0
+    }
+  ]
+}

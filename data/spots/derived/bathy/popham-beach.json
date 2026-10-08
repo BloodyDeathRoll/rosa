@@ -1,0 +1,72 @@
+{
+  "spot": "popham-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.7313,
+    -69.7988
+  ],
+  "bearing_seaward_deg": 167.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 106.0,
+  "mean_slope_m_per_km": 5.3,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.72911,
+      "lon": -69.7981,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.72692,
+      "lon": -69.7974,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.72254,
+      "lon": -69.796,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.71377,
+      "lon": -69.7932,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.70501,
+      "lon": -69.7904,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.68749,
+      "lon": -69.78481,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.6612,
+      "lon": -69.77643,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.62614,
+      "lon": -69.76526,
+      "depth_m": 76.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.57356,
+      "lon": -69.74854,
+      "depth_m": 106.0
+    }
+  ]
+}

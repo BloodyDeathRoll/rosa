@@ -1,0 +1,29 @@
+# Rosa spot database - New Hampshire (seeded 2026-10-09). Hampton north through Rye: an
+# east-facing ledge-and-cobble coast on nor'easter and hurricane swell. Every spot carries its
+# own offshore_direction and swell_window; break_type per spot.
+
+defaults: &nh
+  timezone: America/New_York
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [30, 180]
+  ideal:
+    wind_dir: [240, 330]
+    size_m: [0.6, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-10-09 - new-hampshire, 7 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 7 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/new-hampshire/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: rye-on-the-rocks, name: "Rye on the Rocks", town: "Rye", lat: 43.0017, lon: -70.7419, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, <<: *nh }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: jenness-beach, name: "Jenness Beach", town: "Rye", lat: 42.9858, lon: -70.7600, offshore_direction: 297, swell_window: [52, 182], offshore_km: 5.0, <<: *nh }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: fox-hill-point, name: "Fox Hill Point", town: "Rye", lat: 42.9644, lon: -70.7687, offshore_direction: 232, swell_window: [347, 117], offshore_km: 5.0, <<: *nh }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: plaice-cove, name: "Plaice Cove", town: "Hampton", lat: 42.9467, lon: -70.7856, offshore_direction: 250, swell_window: [5, 135], offshore_km: 5.0, <<: *nh }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: the-wall-nh, name: "The Wall", town: "Hampton", lat: 42.9406, lon: -70.7927, offshore_direction: 296, swell_window: [51, 181], offshore_km: 5.0, <<: *nh }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: hampton-beach, name: "Hampton Beach", town: "Hampton", lat: 42.9111, lon: -70.8073, offshore_direction: 282, swell_window: [37, 167], offshore_km: 5.0, <<: *nh }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: seabrook-beach, name: "Seabrook Beach", town: "Seabrook", lat: 42.8841, lon: -70.8136, offshore_direction: 283, swell_window: [38, 168], offshore_km: 5.0, <<: *nh }  # sat-verified 2026-10-09 (websearch-seeded)

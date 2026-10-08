@@ -277,6 +277,16 @@ REGIONS = {
     # county beaches, and Newport's Atlantic side. Narragansett Bay is inside the
     # rectangle and carries no swell.
     "rhode-island": (41.13, -71.90, 41.55, -71.10),
+    # Massachusetts: Westport's Horseneck on the south coast, Martha's Vineyard and Nantucket's
+    # south shores, the outer Cape (Chatham to Provincetown), the South Shore (Marshfield to
+    # Nantasket) and the North Shore (Nahant, Cape Ann, Plum Island to Salisbury). Buzzards Bay,
+    # Cape Cod Bay and Boston Harbor are inside the rectangle and carry no ocean swell.
+    "massachusetts": (41.22, -71.10, 42.88, -69.90),
+    # New Hampshire's 18 miles: Seabrook and Hampton north through North Hampton and Rye.
+    "new-hampshire": (42.86, -70.88, 43.08, -70.70),
+    # Maine: Kittery and York north through Ogunquit, Wells, Kennebunk, Biddeford, Old Orchard,
+    # Scarborough and Cape Elizabeth, then Popham, Reid State Park and Pemaquid to Acadia.
+    "maine": (43.07, -70.75, 44.45, -68.00),
     # ---- Spain. One box per autonomous community, each on its own Geofabrik extract
     # (europe/spain/<community>); the Mediterranean coast is barely surfed and is left out.
     # The Basque coast from Hondarribia west past Zarautz, Mundaka and Sopelana to Muskiz.

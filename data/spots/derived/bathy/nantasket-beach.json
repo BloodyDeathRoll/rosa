@@ -1,0 +1,72 @@
+{
+  "spot": "nantasket-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.2918,
+    -70.8741
+  ],
+  "bearing_seaward_deg": 64.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 62.0,
+  "mean_slope_m_per_km": 3.38,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.29279,
+      "lon": -70.87137,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.29377,
+      "lon": -70.86864,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.29574,
+      "lon": -70.86317,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.29968,
+      "lon": -70.85224,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.30362,
+      "lon": -70.84131,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.3115,
+      "lon": -70.81945,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.32331,
+      "lon": -70.78664,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.33903,
+      "lon": -70.74288,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.36259,
+      "lon": -70.67719,
+      "depth_m": 62.0
+    }
+  ]
+}

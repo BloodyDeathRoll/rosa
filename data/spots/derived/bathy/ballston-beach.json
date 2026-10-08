@@ -1,0 +1,72 @@
+{
+  "spot": "ballston-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.0007,
+    -70.0197
+  ],
+  "bearing_seaward_deg": 60.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 166.0,
+  "mean_slope_m_per_km": 9.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.00182,
+      "lon": -70.01708,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.00295,
+      "lon": -70.01446,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.0052,
+      "lon": -70.00922,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.00969,
+      "lon": -69.99874,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.01419,
+      "lon": -69.98825,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.02317,
+      "lon": -69.96728,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.03664,
+      "lon": -69.93581,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.05459,
+      "lon": -69.89383,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.08148,
+      "lon": -69.83081,
+      "depth_m": 166.0
+    }
+  ]
+}

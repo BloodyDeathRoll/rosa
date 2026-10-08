@@ -1,0 +1,72 @@
+{
+  "spot": "good-harbor-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.6194,
+    -70.6312
+  ],
+  "bearing_seaward_deg": 137.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 72.0,
+  "mean_slope_m_per_km": 3.49,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.61776,
+      "lon": -70.62912,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.61611,
+      "lon": -70.62703,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.61282,
+      "lon": -70.62287,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.60624,
+      "lon": -70.61453,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.59967,
+      "lon": -70.6062,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.58651,
+      "lon": -70.58955,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.56676,
+      "lon": -70.56458,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.54043,
+      "lon": -70.53131,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.50091,
+      "lon": -70.48146,
+      "depth_m": 72.0
+    }
+  ]
+}

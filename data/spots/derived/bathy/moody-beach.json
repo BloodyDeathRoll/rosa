@@ -1,0 +1,72 @@
+{
+  "spot": "moody-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.2768,
+    -70.5793
+  ],
+  "bearing_seaward_deg": 109.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 69.0,
+  "mean_slope_m_per_km": 3.66,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.27607,
+      "lon": -70.57638,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.27534,
+      "lon": -70.57346,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.27387,
+      "lon": -70.56762,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.27094,
+      "lon": -70.55594,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.26801,
+      "lon": -70.54427,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.26215,
+      "lon": -70.52092,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.25334,
+      "lon": -70.4859,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.24158,
+      "lon": -70.43923,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.22391,
+      "lon": -70.36925,
+      "depth_m": 69.0
+    }
+  ]
+}

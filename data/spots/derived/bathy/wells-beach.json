@@ -1,0 +1,72 @@
+{
+  "spot": "wells-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.3026,
+    -70.565
+  ],
+  "bearing_seaward_deg": 92.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 68.0,
+  "mean_slope_m_per_km": 3.38,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.30252,
+      "lon": -70.56191,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.30244,
+      "lon": -70.55882,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.30229,
+      "lon": -70.55265,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.30197,
+      "lon": -70.5403,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.30165,
+      "lon": -70.52795,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.30101,
+      "lon": -70.50325,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.30005,
+      "lon": -70.4662,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.29874,
+      "lon": -70.41681,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.29674,
+      "lon": -70.34272,
+      "depth_m": 68.0
+    }
+  ]
+}

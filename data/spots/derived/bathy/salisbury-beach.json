@@ -1,0 +1,72 @@
+{
+  "spot": "salisbury-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.8434,
+    -70.8152
+  ],
+  "bearing_seaward_deg": 84.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 86.0,
+  "mean_slope_m_per_km": 4.62,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.84363,
+      "lon": -70.81215,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.84387,
+      "lon": -70.8091,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.84434,
+      "lon": -70.803,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.84528,
+      "lon": -70.7908,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.84621,
+      "lon": -70.7786,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.84808,
+      "lon": -70.7542,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.85088,
+      "lon": -70.7176,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.85459,
+      "lon": -70.66879,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.86011,
+      "lon": -70.59557,
+      "depth_m": 86.0
+    }
+  ]
+}

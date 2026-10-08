@@ -1,0 +1,72 @@
+{
+  "spot": "nahant-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.4421,
+    -70.938
+  ],
+  "bearing_seaward_deg": 95.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 48.0,
+  "mean_slope_m_per_km": 2.42,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.4419,
+      "lon": -70.93496,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.44171,
+      "lon": -70.93193,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.44132,
+      "lon": -70.92586,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.44053,
+      "lon": -70.91372,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.43974,
+      "lon": -70.90158,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.43816,
+      "lon": -70.8773,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.43579,
+      "lon": -70.84089,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.4326,
+      "lon": -70.79234,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.42778,
+      "lon": -70.71953,
+      "depth_m": 48.0
+    }
+  ]
+}

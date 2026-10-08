@@ -1,0 +1,72 @@
+{
+  "spot": "long-beach-rockport",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.6297,
+    -70.6165
+  ],
+  "bearing_seaward_deg": 135.0,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 95.0,
+  "mean_slope_m_per_km": 4.73,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.62811,
+      "lon": -70.61434,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.62652,
+      "lon": -70.61218,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.62334,
+      "lon": -70.60786,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.61698,
+      "lon": -70.59922,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.61062,
+      "lon": -70.59058,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.5979,
+      "lon": -70.57331,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.57881,
+      "lon": -70.54741,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.55334,
+      "lon": -70.51291,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.51513,
+      "lon": -70.46121,
+      "depth_m": 95.0
+    }
+  ]
+}

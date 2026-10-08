@@ -1,0 +1,72 @@
+{
+  "spot": "egypt-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.2206,
+    -70.7448
+  ],
+  "bearing_seaward_deg": 18.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 63.0,
+  "mean_slope_m_per_km": 3.04,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.22274,
+      "lon": -70.74386,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.22488,
+      "lon": -70.74292,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.22915,
+      "lon": -70.74105,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.23771,
+      "lon": -70.73729,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.24626,
+      "lon": -70.73354,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.26336,
+      "lon": -70.72602,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.28902,
+      "lon": -70.71475,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.32323,
+      "lon": -70.6997,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.37453,
+      "lon": -70.67709,
+      "depth_m": 63.0
+    }
+  ]
+}

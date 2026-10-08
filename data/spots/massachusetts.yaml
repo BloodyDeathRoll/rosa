@@ -1,0 +1,53 @@
+# Rosa spot database - Massachusetts (seeded 2026-10-09). Horseneck on the south coast, the
+# south shores of Martha's Vineyard and Nantucket, the outer Cape from Chatham to Provincetown,
+# the South Shore and the North Shore to Salisbury: cold water, mostly autumn hurricane swell
+# and winter nor'easters. Facing changes all the way round, so every spot carries its own
+# offshore_direction and swell_window; break_type per spot.
+
+defaults: &ma
+  timezone: America/New_York
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [30, 200]
+  ideal:
+    wind_dir: [230, 330]
+    size_m: [0.6, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-10-09 - massachusetts, 29 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 29 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/massachusetts/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: salisbury-beach, name: "Salisbury Beach", town: "Salisbury Beach", lat: 42.8434, lon: -70.8152, offshore_direction: 264, swell_window: [19, 149], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: plum-island, name: "Plum Island", town: "Newburyport", lat: 42.8145, lon: -70.8080, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: long-beach-rockport, name: "Long Beach Rockport", town: "Rockport", lat: 42.6297, lon: -70.6165, offshore_direction: 315, swell_window: [70, 200], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: good-harbor-beach, name: "Good Harbor Beach", town: "Gloucester", lat: 42.6194, lon: -70.6312, offshore_direction: 317, swell_window: [72, 202], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: brace-cove, name: "Brace Cove", town: "Gloucester", lat: 42.5926, lon: -70.6504, offshore_direction: 295, swell_window: [50, 180], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: devereux-beach, name: "Devereux Beach", town: "Marblehead", lat: 42.4900, lon: -70.8570, offshore_direction: 325, swell_window: [80, 210], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: lynn-beach, name: "Lynn Beach", town: "Lynn", lat: 42.4583, lon: -70.9343, offshore_direction: 305, swell_window: [60, 190], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: nahant-beach, name: "Nahant Beach", town: "Nahant", lat: 42.4421, lon: -70.9380, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: winthrop-beach, name: "Winthrop Beach", town: "Winthrop", lat: 42.3751, lon: -70.9675, offshore_direction: 228, swell_window: [343, 113], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: nantasket-beach, name: "Nantasket Beach", town: "Hull", lat: 42.2918, lon: -70.8741, offshore_direction: 244, swell_window: [359, 129], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: egypt-beach, name: "Egypt Beach", town: "Scituate", lat: 42.2206, lon: -70.7448, offshore_direction: 198, swell_window: [313, 83], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: rexhame-beach, name: "Rexhame Beach", town: "Marshfield", lat: 42.1234, lon: -70.6773, offshore_direction: 216, swell_window: [331, 101], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: fieldstone, name: "Fieldstone", town: "Marshfield", lat: 42.1080, lon: -70.6631, offshore_direction: 234, swell_window: [349, 119], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: brant-rock, name: "Brant Rock", town: "Marshfield", lat: 42.0927, lon: -70.6400, offshore_direction: 235, swell_window: [350, 120], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: green-harbor, name: "Green Harbor", town: "Marshfield", lat: 42.0769, lon: -70.6470, offshore_direction: 282, swell_window: [37, 167], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: longnook-beach, name: "Longnook Beach", town: "Truro", lat: 42.0208, lon: -70.0365, offshore_direction: 237, swell_window: [352, 122], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: ballston-beach, name: "Ballston Beach", town: "Truro", lat: 42.0007, lon: -70.0197, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: newcomb-hollow, name: "Newcomb Hollow", town: "Wellfleet", lat: 41.9632, lon: -69.9946, offshore_direction: 252, swell_window: [7, 137], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: white-crest-beach, name: "White Crest Beach", town: "Wellfleet", lat: 41.9342, lon: -69.9780, offshore_direction: 254, swell_window: [9, 139], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: lecount-hollow, name: "Lecount Hollow", town: "Wellfleet", lat: 41.9232, lon: -69.9734, offshore_direction: 256, swell_window: [11, 141], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: marconi-beach, name: "Marconi Beach", town: "Wellfleet", lat: 41.8918, lon: -69.9611, offshore_direction: 263, swell_window: [18, 148], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: nauset-light-beach, name: "Nauset Light Beach", town: "Eastham", lat: 41.8589, lon: -69.9504, offshore_direction: 254, swell_window: [9, 139], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: coast-guard-beach, name: "Coast Guard Beach", town: "Eastham", lat: 41.8435, lon: -69.9454, offshore_direction: 264, swell_window: [19, 149], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: nauset-beach, name: "Nauset Beach", town: "Orleans", lat: 41.7885, lon: -69.9344, offshore_direction: 278, swell_window: [33, 163], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: horseneck-beach, name: "Horseneck Beach", town: "Westport", lat: 41.5060, lon: -71.0584, offshore_direction: 17, swell_window: [132, 262], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: katama, name: "Katama", town: "Edgartown", lat: 41.3488, lon: -70.5118, offshore_direction: 5, swell_window: [120, 250], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: madaket, name: "Madaket", town: "Nantucket", lat: 41.2706, lon: -70.2051, offshore_direction: 33, swell_window: [148, 278], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: cisco-beach, name: "Cisco Beach", town: "Nantucket", lat: 41.2523, lon: -70.1578, offshore_direction: 24, swell_window: [139, 269], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: surfside-nantucket, name: "Surfside Nantucket", town: "Nantucket", lat: 41.2423, lon: -70.0945, offshore_direction: 332, swell_window: [87, 217], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)

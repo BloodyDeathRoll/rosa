@@ -1,0 +1,72 @@
+{
+  "spot": "reid-state-park",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.7773,
+    -69.7292
+  ],
+  "bearing_seaward_deg": 133.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 96.0,
+  "mean_slope_m_per_km": 4.73,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.77577,
+      "lon": -69.72692,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.77423,
+      "lon": -69.72465,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.77117,
+      "lon": -69.72009,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.76503,
+      "lon": -69.71099,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.7589,
+      "lon": -69.70188,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.74662,
+      "lon": -69.68368,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.72821,
+      "lon": -69.65639,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.70365,
+      "lon": -69.62002,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.66678,
+      "lon": -69.56554,
+      "depth_m": 96.0
+    }
+  ]
+}

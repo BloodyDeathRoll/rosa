@@ -1,0 +1,72 @@
+{
+  "spot": "surfside-nantucket",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.2423,
+    -70.0945
+  ],
+  "bearing_seaward_deg": 152.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 22.0,
+  "mean_slope_m_per_km": 0.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.24031,
+      "lon": -70.0931,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.23833,
+      "lon": -70.09169,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.23436,
+      "lon": -70.08889,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.22642,
+      "lon": -70.08327,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.21848,
+      "lon": -70.07766,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.20259,
+      "lon": -70.06644,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.17877,
+      "lon": -70.04962,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.14699,
+      "lon": -70.02722,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.09933,
+      "lon": -69.99365,
+      "depth_m": 22.0
+    }
+  ]
+}

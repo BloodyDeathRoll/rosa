@@ -1,0 +1,72 @@
+{
+  "spot": "devereux-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.49,
+    -70.857
+  ],
+  "bearing_seaward_deg": 145.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 33.0,
+  "mean_slope_m_per_km": 2.08,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.48816,
+      "lon": -70.85525,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.48632,
+      "lon": -70.8535,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.48263,
+      "lon": -70.85001,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.47527,
+      "lon": -70.84301,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.4679,
+      "lon": -70.83602,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.45316,
+      "lon": -70.82204,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.43105,
+      "lon": -70.80109,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.40157,
+      "lon": -70.77318,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.35733,
+      "lon": -70.73135,
+      "depth_m": 33.0
+    }
+  ]
+}

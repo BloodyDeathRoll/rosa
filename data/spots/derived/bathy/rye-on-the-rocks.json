@@ -1,0 +1,72 @@
+{
+  "spot": "rye-on-the-rocks",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.0017,
+    -70.7419
+  ],
+  "bearing_seaward_deg": 90.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 73.0,
+  "mean_slope_m_per_km": 3.94,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.0017,
+      "lon": -70.73883,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.0017,
+      "lon": -70.73575,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.0017,
+      "lon": -70.7296,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.0017,
+      "lon": -70.71731,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.00169,
+      "lon": -70.70501,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.00168,
+      "lon": -70.68042,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.00166,
+      "lon": -70.64352,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.00161,
+      "lon": -70.59434,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.00149,
+      "lon": -70.52055,
+      "depth_m": 73.0
+    }
+  ]
+}

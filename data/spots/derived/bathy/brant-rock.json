@@ -1,0 +1,72 @@
+{
+  "spot": "brant-rock",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.0927,
+    -70.64
+  ],
+  "bearing_seaward_deg": 55.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 61.0,
+  "mean_slope_m_per_km": 2.99,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.09399,
+      "lon": -70.63752,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.09528,
+      "lon": -70.63504,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.09786,
+      "lon": -70.63007,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.10301,
+      "lon": -70.62014,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.10817,
+      "lon": -70.61021,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.11848,
+      "lon": -70.59034,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.13394,
+      "lon": -70.56053,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.15454,
+      "lon": -70.52075,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.18541,
+      "lon": -70.46104,
+      "depth_m": 61.0
+    }
+  ]
+}

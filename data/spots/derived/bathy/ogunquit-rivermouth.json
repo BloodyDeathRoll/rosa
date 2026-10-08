@@ -1,0 +1,72 @@
+{
+  "spot": "ogunquit-rivermouth",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.2467,
+    -70.5913
+  ],
+  "bearing_seaward_deg": 100.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 72.0,
+  "mean_slope_m_per_km": 3.94,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.24631,
+      "lon": -70.58826,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.24592,
+      "lon": -70.58522,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.24514,
+      "lon": -70.57914,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.24357,
+      "lon": -70.56698,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.24201,
+      "lon": -70.55483,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.23888,
+      "lon": -70.53051,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.23417,
+      "lon": -70.49405,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.22787,
+      "lon": -70.44544,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.21838,
+      "lon": -70.37254,
+      "depth_m": 72.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "scarborough-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.5437,
+    -70.3067
+  ],
+  "bearing_seaward_deg": 130.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 76.0,
+  "mean_slope_m_per_km": 4.0,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.54225,
+      "lon": -70.30432,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.54081,
+      "lon": -70.30195,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.53792,
+      "lon": -70.2972,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.53214,
+      "lon": -70.2877,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.52635,
+      "lon": -70.2782,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.51479,
+      "lon": -70.2592,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.49743,
+      "lon": -70.23072,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.47427,
+      "lon": -70.19278,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.43952,
+      "lon": -70.13592,
+      "depth_m": 76.0
+    }
+  ]
+}

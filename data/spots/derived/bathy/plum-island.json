@@ -1,0 +1,72 @@
+{
+  "spot": "plum-island",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.8145,
+    -70.808
+  ],
+  "bearing_seaward_deg": 90.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 94.0,
+  "mean_slope_m_per_km": 5.13,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.8145,
+      "lon": -70.80494,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.8145,
+      "lon": -70.80187,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.8145,
+      "lon": -70.79574,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.8145,
+      "lon": -70.78348,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.81449,
+      "lon": -70.77122,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.81448,
+      "lon": -70.7467,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.81446,
+      "lon": -70.70992,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.81441,
+      "lon": -70.66088,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.81429,
+      "lon": -70.58733,
+      "depth_m": 94.0
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+# Rosa spot database - Maine (seeded 2026-10-09). York to Acadia: south- and east-facing
+# beaches and ledges on nor'easter and hurricane swell. Every spot carries its own
+# offshore_direction and swell_window; break_type per spot.
+
+defaults: &me
+  timezone: America/New_York
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [60, 200]
+  ideal:
+    wind_dir: [270, 360]
+    size_m: [0.6, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-10-09 - maine, 18 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 18 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/maine/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: reid-state-park, name: "Reid State Park", town: "Georgetown", lat: 43.7773, lon: -69.7292, offshore_direction: 313, swell_window: [68, 198], offshore_km: 5.0, <<: *me }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: popham-beach, name: "Popham Beach", town: "Phippsburg", lat: 43.7313, lon: -69.7988, offshore_direction: 347, swell_window: [102, 232], offshore_km: 5.0, <<: *me }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: crescent-beach, name: "Crescent Beach", town: "Cape Elizabeth", lat: 43.5625, lon: -70.2293, offshore_direction: 328, swell_window: [83, 213], offshore_km: 5.0, <<: *me }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: higgins-beach, name: "Higgins Beach", town: "Scarborough", lat: 43.5591, lon: -70.2769, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, <<: *me }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: two-lights, name: "Two Lights", town: "Cape Elizabeth", lat: 43.5589, lon: -70.2034, offshore_direction: 308, swell_window: [63, 193], offshore_km: 5.0, <<: *me }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: scarborough-beach, name: "Scarborough Beach", town: "Scarborough", lat: 43.5437, lon: -70.3067, offshore_direction: 310, swell_window: [65, 195], offshore_km: 5.0, <<: *me }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: pine-point, name: "Pine Point", town: "Scarborough", lat: 43.5403, lon: -70.3303, offshore_direction: 355, swell_window: [110, 240], offshore_km: 5.0, <<: *me }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: old-orchard-beach, name: "Old Orchard Beach", town: "Old Orchard Beach", lat: 43.5147, lon: -70.3723, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, <<: *me }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: fortunes-rocks, name: "Fortunes Rocks", town: "Biddeford", lat: 43.4332, lon: -70.3699, offshore_direction: 306, swell_window: [61, 191], offshore_km: 5.0, <<: *me }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: gooch-s-beach, name: "Gooch's Beach", town: "Kennebunk", lat: 43.3459, lon: -70.4847, offshore_direction: 22, swell_window: [137, 267], offshore_km: 5.0, <<: *me }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: wells-jetties, name: "Wells Jetties", town: "Wells", lat: 43.3191, lon: -70.5537, offshore_direction: 295, swell_window: [50, 180], offshore_km: 5.0, <<: *me }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: wells-beach, name: "Wells Beach", town: "Wells", lat: 43.3026, lon: -70.5650, offshore_direction: 272, swell_window: [27, 157], offshore_km: 5.0, <<: *me }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: moody-point, name: "Moody Point", town: "Wells", lat: 43.2862, lon: -70.5697, offshore_direction: 284, swell_window: [39, 169], offshore_km: 5.0, <<: *me }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: moody-beach, name: "Moody Beach", town: "Wells", lat: 43.2768, lon: -70.5793, offshore_direction: 289, swell_window: [44, 174], offshore_km: 5.0, <<: *me }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: ogunquit-beach, name: "Ogunquit Beach", town: "Ogunquit", lat: 43.2559, lon: -70.5898, offshore_direction: 282, swell_window: [37, 167], offshore_km: 5.0, <<: *me }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: ogunquit-rivermouth, name: "Ogunquit Rivermouth", town: "Ogunquit", lat: 43.2467, lon: -70.5913, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, <<: *me }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: short-sands-me, name: "Short Sands", town: "York", lat: 43.1749, lon: -70.6067, offshore_direction: 304, swell_window: [59, 189], offshore_km: 5.0, <<: *me }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: long-sands, name: "Long Sands", town: "York", lat: 43.1638, lon: -70.6159, offshore_direction: 317, swell_window: [72, 202], offshore_km: 5.0, <<: *me }  # sat-verified 2026-10-09 (websearch-seeded)

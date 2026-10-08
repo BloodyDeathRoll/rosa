@@ -1,0 +1,72 @@
+{
+  "spot": "seabrook-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.8841,
+    -70.8136
+  ],
+  "bearing_seaward_deg": 103.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 87.0,
+  "mean_slope_m_per_km": 4.62,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.88359,
+      "lon": -70.81061,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.88309,
+      "lon": -70.80762,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.88208,
+      "lon": -70.80164,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.88005,
+      "lon": -70.78968,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.87803,
+      "lon": -70.77773,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.87397,
+      "lon": -70.75382,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.86788,
+      "lon": -70.71795,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.85973,
+      "lon": -70.67015,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.84748,
+      "lon": -70.59847,
+      "depth_m": 87.0
+    }
+  ]
+}

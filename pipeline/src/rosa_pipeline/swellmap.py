@@ -143,6 +143,9 @@ BASINS: dict[str, tuple[str, ...]] = {
         "New Jersey",
         "Long Island",
         "Rhode Island",
+        "Massachusetts",
+        "New Hampshire",
+        "Maine",
     ),
     "angola": ("Angola",),
     # the south-east Atlantic: Southern Ocean SW groundswell up the Cape and Namibian

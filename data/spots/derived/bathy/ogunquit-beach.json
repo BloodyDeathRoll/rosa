@@ -1,0 +1,72 @@
+{
+  "spot": "ogunquit-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.2559,
+    -70.5898
+  ],
+  "bearing_seaward_deg": 102.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 72.0,
+  "mean_slope_m_per_km": 3.55,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.25543,
+      "lon": -70.58678,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.25496,
+      "lon": -70.58376,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.25403,
+      "lon": -70.57772,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.25216,
+      "lon": -70.56564,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.25028,
+      "lon": -70.55357,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.24654,
+      "lon": -70.52942,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.2409,
+      "lon": -70.4932,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.23337,
+      "lon": -70.44491,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.22204,
+      "lon": -70.37251,
+      "depth_m": 72.0
+    }
+  ]
+}

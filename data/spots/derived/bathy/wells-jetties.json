@@ -1,0 +1,72 @@
+{
+  "spot": "wells-jetties",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.3191,
+    -70.5537
+  ],
+  "bearing_seaward_deg": 115.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 81.0,
+  "mean_slope_m_per_km": 4.17,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.31815,
+      "lon": -70.5509,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.3172,
+      "lon": -70.5481,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.3153,
+      "lon": -70.5425,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.3115,
+      "lon": -70.5313,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.30769,
+      "lon": -70.5201,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.30008,
+      "lon": -70.4977,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.28866,
+      "lon": -70.46412,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.27341,
+      "lon": -70.41937,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.25051,
+      "lon": -70.35227,
+      "depth_m": 81.0
+    }
+  ]
+}
