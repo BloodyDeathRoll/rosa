@@ -437,3 +437,88 @@ def test_wind_archive_asks_the_self_hosted_open_meteo_first(monkeypatch, capsys)
             fetch.httpx.Client = orig  # type: ignore[attr-defined]
         assert hosts == want
     assert "self-hosted weather failed for 2 wind point(s)" in capsys.readouterr().err
+
+
+# --- the marine API from the self-hosted Open-Meteo, off unless ROSA_MARINE_URL (2026-10-08) ---
+
+
+def test_buoy_marine_batch_asks_the_self_hosted_copy_first(monkeypatch, capsys):
+    """The archive's fleet request rides the self-hosted /v1/marine; a refusal OR a batch
+    that will not attribute there falls back to marine-api.open-meteo.com, never fails."""
+    coords = [(32.3817, 34.8035), (36.6, -122.0)]
+    monkeypatch.setenv(fetch.MARINE_URL_ENV, "http://127.0.0.1:8080/v1/marine")
+    hosts: list[str] = []
+
+    def body(lat, lon):
+        return {"latitude": lat, "longitude": lon, "hourly": {"time": []}}
+
+    good = [body(32.375, 34.8125), body(36.625, -122.0)]
+    swapped = [body(36.625, -122.0), body(32.375, 34.8125)]
+
+    def make(local):
+        def handler(request):
+            hosts.append(request.url.host)
+            return local if request.url.host == "127.0.0.1" else httpx.Response(200, json=good)
+
+        return handler
+
+    cases = (
+        (httpx.Response(200, json=good), ["127.0.0.1"]),
+        (httpx.Response(503, text="starting"), ["127.0.0.1", "marine-api.open-meteo.com"]),
+        (httpx.Response(200, json=swapped), ["127.0.0.1", "marine-api.open-meteo.com"]),
+    )
+    for local, want in cases:
+        hosts.clear()
+        client, orig = _many_with(make(local))
+        fetch.httpx.Client = client  # type: ignore[attr-defined]
+        try:
+            assert len(fetch.fetch_marine_waves_many(coords)) == 2
+        finally:
+            fetch.httpx.Client = orig  # type: ignore[attr-defined]
+        assert hosts == want
+    assert "self-hosted marine failed for 2 buoy(s)" in capsys.readouterr().err
+
+
+def test_om_arm_marine_and_ensemble_ask_the_self_hosted_copy_first(monkeypatch, capsys):
+    monkeypatch.setenv(fetch.MARINE_URL_ENV, "http://127.0.0.1:8080/v1/marine")
+    seen: list[str] = []
+    ok = _body({"hourly": {"time": ["2026-07-24T00:00"]}})
+
+    def up(request):
+        seen.append(request.url.host)
+        return httpx.Response(200, json=ok)
+
+    raws = OpenMeteoSource(transport=httpx.MockTransport(up)).fetch_many(COORDS)
+    assert len(raws) == len(COORDS) and all(r.ensemble is not None for r in raws)
+    # marine + ensemble from the box, weather from the weather host as before
+    assert seen == ["127.0.0.1", "api.open-meteo.com", "127.0.0.1"]
+
+    seen.clear()
+
+    def down_here(request):
+        seen.append(request.url.host)
+        if request.url.host == "127.0.0.1":
+            return httpx.Response(500, text="down")
+        return httpx.Response(200, json=ok)
+
+    raws = OpenMeteoSource(transport=httpx.MockTransport(down_here)).fetch_many(COORDS)
+    assert len(raws) == len(COORDS)
+    assert seen.count("marine-api.open-meteo.com") == 2  # marine + ensemble fell back
+    assert "self-hosted marine failed for an om-arm batch" in capsys.readouterr().err
+
+
+def test_marine_ignores_the_self_hosted_path_when_unset(monkeypatch):
+    monkeypatch.delenv(fetch.MARINE_URL_ENV, raising=False)
+    hosts: list[str] = []
+
+    def handler(request):
+        hosts.append(request.url.host)
+        return httpx.Response(200, json={"hourly": {"time": []}})
+
+    client, orig = _many_with(handler)
+    fetch.httpx.Client = client  # type: ignore[attr-defined]
+    try:
+        fetch.fetch_marine_waves(1.0, 1.0)
+    finally:
+        fetch.httpx.Client = orig  # type: ignore[attr-defined]
+    assert hosts == ["marine-api.open-meteo.com"]

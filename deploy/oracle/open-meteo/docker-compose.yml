@@ -38,3 +38,19 @@ services:
       temperature_2m,wind_u_component_10m,wind_v_component_10m,wind_gusts_10m,pressure_msl
       --past-days 3 --repeat-interval 5
     restart: always
+
+  # The marine API (/v1/marine, OPEN-ITEMS 32, 2026-10-08): every file the archive's
+  # best_match request and the om arm's marine + ensemble requests read. marine
+  # best_match = meteofrance_currents (sea level) + meteofrance_sea_surface_temperature +
+  # dwd_ewam + meteofrance_wave, with ecmwf_wam025 standing in when mfwave is > 26 h stale
+  # (open-meteo ForecastapiController). ~12 GB.
+  open-meteo-sync-marine:
+    image: open-meteo-local:290493f
+    container_name: open-meteo-sync-marine
+    volumes:
+      - open-meteo-data:/app/data
+    command: >
+      sync meteofrance_wave,meteofrance_currents,meteofrance_sea_surface_temperature,dwd_ewam,dwd_gwam,ncep_gfswave016,ecmwf_wam025
+      wave_height,wave_period,wave_direction,wave_peak_period,wind_wave_height,wind_wave_direction,wind_wave_period,wind_wave_peak_period,swell_wave_height,swell_wave_direction,swell_wave_period,swell_wave_peak_period,secondary_swell_wave_height,secondary_swell_wave_direction,secondary_swell_wave_period,tertiary_swell_wave_height,tertiary_swell_wave_direction,tertiary_swell_wave_period,sea_surface_temperature,sea_level_height_msl
+      --past-days 3 --repeat-interval 5
+    restart: always

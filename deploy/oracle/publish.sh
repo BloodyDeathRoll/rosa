@@ -244,15 +244,16 @@ JSON
   run_evidence
 
   # 4f) the self-hosted Open-Meteo (2026-10-08, deploy/oracle/README.md). Every weather-host
-  #     call asks it first and quietly falls back to the public API on any failure, so a
-  #     dead container would cost nothing visible - until the public quota runs out again.
-  #     Push when this cycle fell back. grep -c, not grep -q: under pipefail an early-exit
-  #     grep -q kills tail with SIGPIPE and the match reads as false.
-  if [ -n "${ROSA_WEATHER_URL:-}" ]; then
-    FELL_BACK=$(tail -n +"$RUN_FROM" "$LOG" | grep -c "self-hosted weather failed" || true)
+  #     call (ROSA_WEATHER_URL) and every marine-host call (ROSA_MARINE_URL - the buoy
+  #     archive, the om arm) asks it first and quietly falls back to the public API on any
+  #     failure, so a dead container would cost nothing visible - until the public quota
+  #     runs out again. Push when this cycle fell back. grep -c, not grep -q: under pipefail
+  #     an early-exit grep -q kills tail with SIGPIPE and the match reads as false.
+  if [ -n "${ROSA_WEATHER_URL:-}${ROSA_MARINE_URL:-}" ]; then
+    FELL_BACK=$(tail -n +"$RUN_FROM" "$LOG" | grep -cE "self-hosted (weather|marine) failed" || true)
     if [ "${FELL_BACK:-0}" -gt 0 ]; then
       uv run --project pipeline rosa-pipeline alert \
-        --message "Weather fell back to the public Open-Meteo ($FELL_BACK time(s), $(date -u +%H:%MZ)): the self-hosted copy on rosa-arm failed. Forecast still published. Check: sudo docker ps; cd ~/open-meteo && sudo docker compose up -d" \
+        --message "Open-Meteo fell back to the public API ($FELL_BACK time(s), $(date -u +%H:%MZ)): the self-hosted copy on rosa-arm failed. Forecast still published. Check: sudo docker ps; cd ~/open-meteo && sudo docker compose up -d" \
         || echo "warn: fallback alert push failed"
     fi
   fi

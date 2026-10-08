@@ -11,10 +11,11 @@ import json
 import os
 import sys
 import time
+from collections.abc import Callable
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path
-from typing import Protocol
+from typing import Any, Protocol
 
 import httpx
 
@@ -34,6 +35,39 @@ SELF_HOSTED_TIMEOUT_S = 300.0
 
 def self_hosted_weather_url() -> str | None:
     return os.environ.get(WEATHER_URL_ENV) or None
+
+
+# The marine API from the same self-hosted Open-Meteo (2026-10-08, OPEN-ITEMS 32): the
+# open-meteo-sync-marine container keeps every file the buoy archive and the om arm read,
+# and a same-run comparison against marine-api.open-meteo.com was identical in every value.
+# Off unless ROSA_MARINE_URL names it (http://127.0.0.1:8080/v1/marine in ~/rosa/.env);
+# every marine caller asks it first and falls back to MARINE_URL on any failure.
+MARINE_URL_ENV = "ROSA_MARINE_URL"
+
+
+def self_hosted_marine_url() -> str | None:
+    return os.environ.get(MARINE_URL_ENV) or None
+
+
+def _self_hosted_marine(
+    client: httpx.Client, params: dict, what: str, check: Callable[[Any], Any] | None = None
+) -> Any | None:
+    """One marine request from the self-hosted Open-Meteo, parsed (and ``check``ed, e.g. the
+    batch attribution); None with a warning on any failure, so the caller asks MARINE_URL."""
+    url = self_hosted_marine_url()
+    if url is None:
+        return None
+    try:
+        got = client.get(url, params=params, timeout=SELF_HOSTED_TIMEOUT_S)
+        data = got.raise_for_status().json()
+        return check(data) if check is not None else data
+    except (httpx.HTTPError, ValueError) as e:
+        print(
+            f"warn: self-hosted marine failed for {what} ({e!r}) - "
+            "asking marine-api.open-meteo.com",
+            file=sys.stderr,
+        )
+        return None
 
 
 FORECAST_DAYS = 16
@@ -277,17 +311,17 @@ def retrying_get(
 def fetch_marine_waves(lat: float, lon: float, *, timeout_s: float = 30.0) -> dict:
     """Total sea-state marine forecast at one point, for buoy validation (roadmap Stage 0).
     Single best_match model (plain hourly keys); caller handles any capture/replay."""
+    params = {
+        "latitude": f"{lat:g}",
+        "longitude": f"{lon:g}",
+        "hourly": ",".join(MARINE_WAVE_FIELDS),
+        "forecast_days": FORECAST_DAYS,
+    }
     with httpx.Client(timeout=timeout_s) as client:
-        resp = retrying_get(
-            client,
-            MARINE_URL,
-            {
-                "latitude": f"{lat:g}",
-                "longitude": f"{lon:g}",
-                "hourly": ",".join(MARINE_WAVE_FIELDS),
-                "forecast_days": FORECAST_DAYS,
-            },
-        )
+        got = _self_hosted_marine(client, params, "1 buoy")
+        if got is not None:
+            return got
+        resp = retrying_get(client, MARINE_URL, params)
         resp.raise_for_status()
     return resp.json()
 
@@ -310,26 +344,28 @@ def fetch_marine_waves_many(
     archive already degrades without."""
     if not coords:
         return []
+    params = {
+        "latitude": ",".join(f"{lat:g}" for lat, _ in coords),
+        "longitude": ",".join(f"{lon:g}" for _, lon in coords),
+        "hourly": ",".join(MARINE_WAVE_FIELDS),
+        "forecast_days": FORECAST_DAYS,
+    }
+
+    def attributed(data: Any) -> list[dict]:
+        bodies = [data] if isinstance(data, dict) else list(data)
+        if len(bodies) != len(coords):
+            raise ValueError(f"open-meteo returned {len(bodies)} locations for {len(coords)} buoys")
+        bodies = _order_by_location_id(bodies)
+        _check_batch_order(bodies, coords)
+        return bodies
+
     with httpx.Client(timeout=timeout_s) as client:
-        resp = retrying_get(
-            client,
-            MARINE_URL,
-            {
-                "latitude": ",".join(f"{lat:g}" for lat, _ in coords),
-                "longitude": ",".join(f"{lon:g}" for _, lon in coords),
-                "hourly": ",".join(MARINE_WAVE_FIELDS),
-                "forecast_days": FORECAST_DAYS,
-            },
-            retry_429=True,
-        )
+        got = _self_hosted_marine(client, params, f"{len(coords)} buoy(s)", attributed)
+        if got is not None:
+            return got
+        resp = retrying_get(client, MARINE_URL, params, retry_429=True)
         resp.raise_for_status()
-    data = resp.json()
-    bodies = [data] if isinstance(data, dict) else list(data)
-    if len(bodies) != len(coords):
-        raise ValueError(f"open-meteo returned {len(bodies)} locations for {len(coords)} buoys")
-    bodies = _order_by_location_id(bodies)
-    _check_batch_order(bodies, coords)
-    return bodies
+    return attributed(resp.json())
 
 
 def fetch_wind_many(
@@ -490,6 +526,20 @@ class OpenMeteoSource:
     def _get_retrying(
         self, client: httpx.Client, url: str, params: dict, *, retry_429: bool = False
     ) -> httpx.Response:
+        self_hosted = self_hosted_marine_url() if url == MARINE_URL else None
+        if self_hosted is not None:
+            # the marine and ensemble requests ask the self-hosted copy first (OPEN-ITEMS
+            # 32); a 4xx/5xx or an unparseable body there falls back to the public host
+            try:
+                got = client.get(self_hosted, params=params, timeout=SELF_HOSTED_TIMEOUT_S)
+                got.raise_for_status().json()
+                return got
+            except (httpx.HTTPError, ValueError) as e:
+                print(
+                    f"warn: self-hosted marine failed for an om-arm batch ({e!r}) - "
+                    "asking marine-api.open-meteo.com",
+                    file=sys.stderr,
+                )
         return retrying_get(client, url, params, retry_429=retry_429)
 
     def _fetch_batch(self, coords: list[tuple[float, float]]) -> list[RawForecast]:
