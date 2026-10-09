@@ -47,6 +47,9 @@ the *published* data over HTTPS and never talks to the pipeline.
    overrun could deploy a half-written tree. Non-blocking: a second instance logs a skip and
    exits 0. Sits above the ERR trap, so a skip is never an ops alert.
 1. `git pull` - code pushes reach the box on the next cycle (`data/` + `.env` are gitignored)
+   **A change to `publish.sh` itself takes effect one cycle later**: the pull replaces the file,
+   but the running bash keeps reading the copy it opened (seen 2026-10-09: step 3b, pushed before
+   the 02:20Z cycle, first ran at 08:20Z). Pipeline code (`rosa-pipeline ...`) is current at once.
 2. `rosa-pipeline archive` - append the model's forecast at every registered buoy to the VM's
    persistent disk (`data/verify/archive/`). This is the calibration lead-time clock - the one
    thing that can't be back-filled.
