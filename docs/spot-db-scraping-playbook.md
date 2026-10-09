@@ -220,7 +220,28 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-10-09, DB = 2944 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-10-09, DB = 3021 spots, ALL sat-verified)
+
+**Northern South America + Galapagos 0 -> 77 (2026-10-09): Colombia Pacific 11, Colombia Caribbean 22,
+Venezuela 39, Galapagos 5** - extracts `south-america/{colombia,venezuela}` + `ecuador` (symlinked for
+the Galapagos); new basins `caribbean-south` and `galapagos`, Colombia Pacific joined `ecuador`.
+1. surf-forecast's per-country index was the whole name source. The Galapagos only resolves per
+   island (`/regions/Galapagos-San-Cristobal/breaks`, `Galapagos-Santa-Cruz`).
+2. Google confuses same-name places across Latin America (El Paredon -> Guatemala, Las Gaviotas ->
+   Cuba, Gordon Beach -> Tel Aviv): a spread over 500 km means drop or re-query, never the pin.
+3. Only 3 of 77 pins were kept unmoved (village, car park or lodge 100 m to 3 km inland).
+   Venezuela's Caracas coast is groin cells every few hundred metres - pin the gap where the
+   whitewater runs, never the groin. The Gulfs of Cariaco and Paria are flat water.
+4. GEBCO reads 0.25-0.5 km of land on every bearing along the steep Choco, Tayrona and Venezuelan
+   coastal ranges (22 of 77) - re-aim only for offshore_depth_m <= 0 or land past ~1 km. Coves
+   between headlands need a hand bearing (Choroni Playa Grande).
+5. **Image tool failures are silent**: when a tile read returns `[media removed: request limit]`
+   the tile was NOT seen - stop and re-read before writing any move or "confirmed" note (caught and
+   redone here; a coordinator spot-check of 6 pins confirmed the final pins).
+Gap queue: Tongo Reef, Punta Pitt, Cerro Gallina, Palmas Grandes, Seymour Norte (Galapagos); El Mystic,
+Siete Olas, Playa Kasimesh, El Bolsillo, Colpipe, Las Gaviotas, El Paredon, Viento Fresco, Gordon Beach
+(Colombia); Funeral Point, Puerto Cruz, Punta Arena, Piedras Negras, Los Pocitos, Puerto Arrecife,
+Playa Los Cuatro (Venezuela).
 
 **US South-East 0 -> 43 (2026-10-09): Florida Northeast 11, Florida Panhandle 6 (Central time),
 Florida Gulf 8, South Carolina 11, Georgia 1, Outer Banks +6 (the Carolina gaps)** - a new
