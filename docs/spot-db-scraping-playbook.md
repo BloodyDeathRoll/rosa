@@ -220,7 +220,22 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-10-09, DB = 2901 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-10-09, DB = 2944 spots, ALL sat-verified)
+
+**US South-East 0 -> 43 (2026-10-09): Florida Northeast 11, Florida Panhandle 6 (Central time),
+Florida Gulf 8, South Carolina 11, Georgia 1, Outer Banks +6 (the Carolina gaps)** - a new
+`gulf-of-mexico` basin; the Atlantic regions joined `us-east`. 0 usable OSM surf nodes: web flow end
+to end, surf-forecast's state indexes as the name source.
+1. Google gave the pier root, car park, park road or inlet channel almost everywhere - all 43 pins
+   were moves, most off a z15 tile, three (Mayport Poles, Ormond, Wiggins Pass) needed z14.
+2. Neighbours collapse onto one pin (Holden Beach onto Ocean Isle Pier - Photon had it right; The
+   Washout onto Folly Pier - fixed by geocoding the street, East Arctic Ave).
+3. **Gulf tiles show turquoise flat water with sandbars as their normal state** - not a no-surf
+   tell there; judge on the bar and pier position.
+4. Normals ran along a jetty or into a pass (St Andrews Jetty, Wiggins Pass, Surf City) - set by hand.
+   Not yet queued: Destin, Calle Hermosa, Redington Breakwater, Honeymoon Island, Anclote, Bradenton
+   Beach, Turtle Beach, Pelican Poles, Murrells Inlet, Dunes Cove, Ocean Lakes, 35th St IOP, Bogue Pier,
+   Shackleford Banks, Chicahauk, Laundromats, Columbia St.
 
 **New England 0 -> 54 (2026-10-09): Massachusetts 29, New Hampshire 7, Maine 18** - three regions on
 `north-america/us/{massachusetts,new-hampshire,maine}`, all on `us-east`. surf-forecast's per-state
