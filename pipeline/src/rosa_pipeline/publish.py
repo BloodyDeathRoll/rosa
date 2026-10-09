@@ -451,7 +451,7 @@ def build_payload(
     # on the half-covered tail day - whose h_peak/rating are read off exactly the few
     # hours `_covers_day` had just rejected as too thin to forecast from - and one that
     # finished yesterday, which the web renders as live (notify filters those, the payload
-    # did not). Both link to `/#/spot/<id>?ev=<peak date>`, a day with no card behind it.
+    # did not). Both link to `/spot/<id>?ev=<peak date>`, a day with no card behind it.
     published_dates = {d["date"] for d in days}
     events = [
         {

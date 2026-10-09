@@ -99,7 +99,7 @@ class TestPlanning:
         assert n.title == "New swell - Israel"
         assert "Beit Yanai" in n.body
         assert "+2 more spots" in n.body
-        assert n.url.endswith(f"#/spot/beit-yanai?ev={events[0].peak.date().isoformat()}")
+        assert n.url.endswith(f".surf/spot/beit-yanai?ev={events[0].peak.date().isoformat()}")
         assert set(n.keys) == {event_key(e) for e in events}
 
     def test_non_favorited_group_skipped(self):

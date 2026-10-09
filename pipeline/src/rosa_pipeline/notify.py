@@ -268,7 +268,7 @@ def plan_notifications(
                 Notification(
                     title=f"New swell - {where}",
                     body=body,
-                    url=f"{APP_ORIGIN}/#/spot/{best.spot_id}?ev={best.peak.date().isoformat()}",
+                    url=f"{APP_ORIGIN}/spot/{best.spot_id}?ev={best.peak.date().isoformat()}",
                     # the browser collapses same-tag notifications: a second safety
                     # net for the one-swell-one-notification rule
                     tag=f"rosa-{_slug(where)}-{best.peak.date().isoformat()}",
@@ -730,7 +730,7 @@ def plan_feedback_push(
     n = Notification(
         title=f"Surfed {name} today?",
         body=f"Rosa called {word} ·{h_txt}",
-        url=f"{APP_ORIGIN}/#/spot/{best.spot_id}",
+        url=f"{APP_ORIGIN}/spot/{best.spot_id}",
         tag=f"rosa-fb-{best.spot_id}-{best.date}",
         keys=(feedback_key(best.spot_id, best.date),),
     )
