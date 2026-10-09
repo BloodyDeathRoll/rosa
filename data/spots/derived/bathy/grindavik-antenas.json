@@ -1,0 +1,72 @@
+{
+  "spot": "grindavik-antenas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    63.8304,
+    -22.4541
+  ],
+  "bearing_seaward_deg": 170.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 144.0,
+  "mean_slope_m_per_km": 7.83,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 63.82819,
+      "lon": -22.45321,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 63.82597,
+      "lon": -22.45233,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 63.82154,
+      "lon": -22.45056,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 63.81269,
+      "lon": -22.44702,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 63.80383,
+      "lon": -22.44349,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 63.78612,
+      "lon": -22.43642,
+      "depth_m": 106.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 63.75954,
+      "lon": -22.42584,
+      "depth_m": 109.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 63.72411,
+      "lon": -22.41177,
+      "depth_m": 120.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 63.67097,
+      "lon": -22.39072,
+      "depth_m": 144.0
+    }
+  ]
+}

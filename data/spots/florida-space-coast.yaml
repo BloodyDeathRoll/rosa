@@ -33,3 +33,10 @@ spots:
   - { id: melbourne-beach, name: "Melbourne Beach", town: "Melbourne Beach", lat: 28.0683, lon: -80.5538, offshore_direction: 249, swell_window: [4, 134], offshore_km: 5.0, <<: *fsc }  # sat-verified 2026-09-03 (websearch-seeded)
   - { id: spanish-house, name: "Spanish House", town: "Melbourne Beach", lat: 27.8762, lon: -80.4538, offshore_direction: 243, swell_window: [358, 128], offshore_km: 5.0, <<: *fsc }  # sat-verified 2026-09-03 (websearch-seeded)
   - { id: sebastian-inlet, name: "Sebastian Inlet", town: "Melbourne Beach", lat: 27.8623, lon: -80.4457, offshore_direction: 274, swell_window: [29, 159], offshore_km: 5.0, <<: *fsc }  # sat-verified 2026-09-03 (websearch-seeded)
+
+  # ==== ADDED 2026-10-09 - operator-supplied coordinates (authority: user-verified), each rendered
+  # on ESRI imagery at z16 (z13 where the open sea was unclear) and seen on surf before entering.
+  # offshore_direction = nearest coastline candidate's shore normal unless noted, checked by the 3c
+  # gate on the cut profile. North to south.
+  - { id: fort-pierce-inlet, name: "Fort Pierce Inlet", town: "Fort Pierce", lat: 27.4750, lon: -80.2872, offshore_direction: 289, swell_window: [44, 174], offshore_km: 5.0, <<: *fsc }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)
+  - { id: walton-rocks, name: "Walton Rocks", town: "Jensen Beach", lat: 27.3466, lon: -80.2349, offshore_direction: 248, swell_window: [3, 133], offshore_km: 5.0, break_type: reef, <<: *fsc }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)

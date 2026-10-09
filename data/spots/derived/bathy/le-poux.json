@@ -1,0 +1,72 @@
+{
+  "spot": "le-poux",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    49.4688,
+    -1.8424
+  ],
+  "bearing_seaward_deg": 260.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 28.0,
+  "mean_slope_m_per_km": 1.52,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 49.46841,
+      "lon": -1.84581,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 49.46802,
+      "lon": -1.84921,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 49.46724,
+      "lon": -1.85603,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 49.46567,
+      "lon": -1.86966,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 49.46411,
+      "lon": -1.88328,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 49.46097,
+      "lon": -1.91053,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 49.45626,
+      "lon": -1.9514,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 49.44994,
+      "lon": -2.00588,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 49.44043,
+      "lon": -2.08757,
+      "depth_m": 28.0
+    }
+  ]
+}

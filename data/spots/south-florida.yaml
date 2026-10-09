@@ -52,3 +52,13 @@ spots:
   - { id: stuart-rocks, name: "Stuart Rocks", town: "Stuart", lat: 27.1743, lon: -80.1516, offshore_direction: 247, swell_window: [2, 132], offshore_km: 5.0, break_type: reef, <<: *sfl }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)
   - { id: japanese-rock, name: "Japanese Rock", town: "Highland Beach", lat: 26.3923, lon: -80.0653, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, break_type: reef, <<: *sfl }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)
   - { id: sunny-isles, name: "Sunny Isles", town: "Sunny Isles Beach", lat: 25.9302, lon: -80.1183, offshore_direction: 277, swell_window: [32, 162], offshore_km: 5.0, <<: *sfl }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)
+
+  # ==== ADDED 2026-10-09 - operator-supplied coordinates (authority: user-verified), each rendered
+  # on ESRI imagery at z16 (z13 where the open sea was unclear) and seen on surf before entering.
+  # offshore_direction = nearest coastline candidate's shore normal unless noted, checked by the 3c
+  # gate on the cut profile. North to south.
+  - { id: stumps, name: "Stumps", town: "Hobe Sound", lat: 27.1134, lon: -80.1383, offshore_direction: 250, swell_window: [5, 135], offshore_km: 5.0, <<: *sfl }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)
+  - { id: flagpoles, name: "Flagpoles", town: "Palm Beach", lat: 26.6969, lon: -80.0327, offshore_direction: 271, swell_window: [26, 156], offshore_km: 5.0, <<: *sfl }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)
+  - { id: harbor-house, name: "Harbor House", town: "Bal Harbour", lat: 25.8984, lon: -80.1206, offshore_direction: 265, swell_window: [20, 150], offshore_km: 5.0, <<: *sfl }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)
+  - { id: dunes-fl, name: "Dunes", town: "Miami Beach", lat: 25.8131, lon: -80.1201, offshore_direction: 274, swell_window: [29, 159], offshore_km: 5.0, <<: *sfl }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)
+  - { id: key-biscayne, name: "Key Biscayne", town: "Key Biscayne", lat: 25.6941, lon: -80.1557, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, <<: *sfl }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)

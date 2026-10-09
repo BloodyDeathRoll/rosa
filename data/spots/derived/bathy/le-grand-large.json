@@ -1,0 +1,72 @@
+{
+  "spot": "le-grand-large",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    49.4889,
+    -1.8501
+  ],
+  "bearing_seaward_deg": 267.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 28.0,
+  "mean_slope_m_per_km": 1.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 49.48878,
+      "lon": -1.85356,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 49.48866,
+      "lon": -1.85701,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 49.48843,
+      "lon": -1.86393,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 49.48796,
+      "lon": -1.87775,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 49.48748,
+      "lon": -1.89157,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 49.48653,
+      "lon": -1.91922,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 49.48508,
+      "lon": -1.96069,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 49.48313,
+      "lon": -2.01598,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 49.48016,
+      "lon": -2.09891,
+      "depth_m": 28.0
+    }
+  ]
+}

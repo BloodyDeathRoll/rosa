@@ -1,0 +1,72 @@
+{
+  "spot": "teignmouth",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    50.5362,
+    -3.4935
+  ],
+  "bearing_seaward_deg": 150.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 44.0,
+  "mean_slope_m_per_km": 2.37,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 50.53425,
+      "lon": -3.49173,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 50.53231,
+      "lon": -3.48996,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 50.52841,
+      "lon": -3.48643,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 50.52062,
+      "lon": -3.47936,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 50.51283,
+      "lon": -3.47229,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 50.49725,
+      "lon": -3.45816,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 50.47388,
+      "lon": -3.43698,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.44271,
+      "lon": -3.40877,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.39594,
+      "lon": -3.36653,
+      "depth_m": 44.0
+    }
+  ]
+}

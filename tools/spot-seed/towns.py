@@ -113,6 +113,8 @@ REGION_PBF = {
     "Norway South": "norway-south",
     "Lofoten": "lofoten",
     "Iceland": "iceland",
+    "Samoa": "samoa",
+    "New Caledonia": "new-caledonia",
     "Denmark": "denmark",
     "Netherlands": "netherlands",
     "Germany": "germany",

@@ -1,0 +1,72 @@
+{
+  "spot": "la-crecque",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    49.6424,
+    -1.8563
+  ],
+  "bearing_seaward_deg": 249.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 33.0,
+  "mean_slope_m_per_km": 1.63,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 49.64159,
+      "lon": -1.85954,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 49.64079,
+      "lon": -1.86278,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 49.63918,
+      "lon": -1.86926,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 49.63595,
+      "lon": -1.88223,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 49.63272,
+      "lon": -1.89519,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 49.62627,
+      "lon": -1.92111,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 49.61657,
+      "lon": -1.95997,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 49.60362,
+      "lon": -2.01176,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 49.58415,
+      "lon": -2.0894,
+      "depth_m": 33.0
+    }
+  ]
+}

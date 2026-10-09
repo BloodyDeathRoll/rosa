@@ -1,0 +1,72 @@
+{
+  "spot": "aganoa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -13.7745,
+    -172.288
+  ],
+  "bearing_seaward_deg": 210.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 2668.0,
+  "mean_slope_m_per_km": 150.48,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -13.77645,
+      "lon": -172.28916,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -13.77839,
+      "lon": -172.29031,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -13.78229,
+      "lon": -172.29263,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -13.79008,
+      "lon": -172.29726,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -13.79786,
+      "lon": -172.30189,
+      "depth_m": 125.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -13.81344,
+      "lon": -172.31115,
+      "depth_m": 165.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -13.8368,
+      "lon": -172.32505,
+      "depth_m": 1302.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -13.86795,
+      "lon": -172.34358,
+      "depth_m": 2327.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -13.91468,
+      "lon": -172.37139,
+      "depth_m": 2668.0
+    }
+  ]
+}

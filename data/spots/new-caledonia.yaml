@@ -19,3 +19,11 @@ spots:
 
   # ==== WEB-SEARCH SEEDED (2026-09-21, google-geocoded, sat-verified) ====
   - { id: ouano-beach, name: "Ouano Beach", town: "Bourail", lat: -21.8468, lon: 165.8101, offshore_direction: 48, swell_window: [133, 323], offshore_km: 5.0, <<: *nc }  # sat-verified 2026-09-21 (websearch-seeded); reef whitewater visible offshore, pin sits on the lagoon side of the spit; normal re-aimed by GEBCO arc sweep (by-eye 180 crossed land x7 straight across the spit, 48 clears cleanly)
+
+  # ==== ADDED 2026-10-09 - operator-supplied coordinates (authority: user-verified), each rendered
+  # on ESRI imagery at z16 (z13 where the open sea was unclear) and seen on surf before entering.
+  # offshore_direction = nearest coastline candidate's shore normal unless noted, checked by the 3c
+  # gate on the cut profile. North to south.
+  - { id: la-roche-percee, name: "La Roche Percee", town: "Bourail", lat: -21.6091, lon: 165.4566, offshore_direction: 35, swell_window: [150, 280], offshore_km: 5.0, <<: *nc }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked); normal set by hand to seaward 215 - Bourail bay opens SW on the tile; the candidate pointed inland
+  - { id: tenia, name: "Tenia", town: "Boulouparis", lat: -22.0215, lon: 165.9190, offshore_direction: 50, swell_window: [165, 295], offshore_km: 5.0, <<: *nc }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked); normal set by hand to seaward 230 - the barrier-reef break faces the open Coral Sea SW of the reef on the tile; the nearest coastline candidate is 2.3 km away on the islet
+  - { id: dumbea-pass, name: "Dumbea Pass", town: "Noumea", lat: -22.3553, lon: 166.2587, offshore_direction: 355, swell_window: [110, 240], offshore_km: 5.0, <<: *nc }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked); normal set by hand to seaward 175 - the pass opens south to the open sea between the two reef arms on the z13 tile; the nearest coastline candidate is 7 km away

@@ -1,0 +1,72 @@
+{
+  "spot": "beer-point",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    50.6962,
+    -3.0873
+  ],
+  "bearing_seaward_deg": 122.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 28.0,
+  "mean_slope_m_per_km": 1.3,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 50.69501,
+      "lon": -3.08429,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 50.69382,
+      "lon": -3.08128,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 50.69143,
+      "lon": -3.07526,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 50.68667,
+      "lon": -3.06322,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 50.6819,
+      "lon": -3.05119,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 50.67236,
+      "lon": -3.02713,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 50.65803,
+      "lon": -2.99106,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.63892,
+      "lon": -2.94299,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.61022,
+      "lon": -2.87097,
+      "depth_m": 28.0
+    }
+  ]
+}

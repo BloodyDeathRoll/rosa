@@ -1,0 +1,72 @@
+{
+  "spot": "salailua",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -13.7215,
+    -172.6018
+  ],
+  "bearing_seaward_deg": 255.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 2477.0,
+  "mean_slope_m_per_km": 139.49,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -13.72208,
+      "lon": -172.60404,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -13.72266,
+      "lon": -172.60627,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -13.72383,
+      "lon": -172.61074,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -13.72615,
+      "lon": -172.61968,
+      "depth_m": 309.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -13.72848,
+      "lon": -172.62863,
+      "depth_m": 484.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -13.73313,
+      "lon": -172.64651,
+      "depth_m": 1182.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -13.74011,
+      "lon": -172.67334,
+      "depth_m": 1473.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -13.74941,
+      "lon": -172.70912,
+      "depth_m": 2087.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -13.76334,
+      "lon": -172.76278,
+      "depth_m": 2477.0
+    }
+  ]
+}

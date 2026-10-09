@@ -1,0 +1,72 @@
+{
+  "spot": "la-roche-percee",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -21.6091,
+    165.4566
+  ],
+  "bearing_seaward_deg": 215.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 2061.0,
+  "mean_slope_m_per_km": 116.79,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -21.61094,
+      "lon": 165.45521,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -21.61278,
+      "lon": 165.45383,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -21.61647,
+      "lon": 165.45105,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -21.62383,
+      "lon": 165.4455,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -21.6312,
+      "lon": 165.43995,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -21.64593,
+      "lon": 165.42885,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -21.66803,
+      "lon": 165.4122,
+      "depth_m": 623.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -21.69749,
+      "lon": 165.38998,
+      "depth_m": 1394.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -21.74167,
+      "lon": 165.35664,
+      "depth_m": 2061.0
+    }
+  ]
+}

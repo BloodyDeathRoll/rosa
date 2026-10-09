@@ -1,0 +1,72 @@
+{
+  "spot": "prestons",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.5448,
+    -70.8604
+  ],
+  "bearing_seaward_deg": 130.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 52.0,
+  "mean_slope_m_per_km": 2.54,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.54335,
+      "lon": -70.85806,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.54191,
+      "lon": -70.85572,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.53902,
+      "lon": -70.85105,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.53324,
+      "lon": -70.8417,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.52745,
+      "lon": -70.83236,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.51589,
+      "lon": -70.81367,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.49853,
+      "lon": -70.78565,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.47538,
+      "lon": -70.74831,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.44062,
+      "lon": -70.69237,
+      "depth_m": 52.0
+    }
+  ]
+}

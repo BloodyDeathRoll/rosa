@@ -51,3 +51,9 @@ spots:
   - { id: madaket, name: "Madaket", town: "Nantucket", lat: 41.2706, lon: -70.2051, offshore_direction: 33, swell_window: [148, 278], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
   - { id: cisco-beach, name: "Cisco Beach", town: "Nantucket", lat: 41.2523, lon: -70.1578, offshore_direction: 24, swell_window: [139, 269], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
   - { id: surfside-nantucket, name: "Surfside Nantucket", town: "Nantucket", lat: 41.2423, lon: -70.0945, offshore_direction: 332, swell_window: [87, 217], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-10-09 (websearch-seeded)
+
+  # ==== ADDED 2026-10-09 - operator-supplied coordinates (authority: user-verified), each rendered
+  # on ESRI imagery at z16 (z13 where the open sea was unclear) and seen on surf before entering.
+  # offshore_direction = nearest coastline candidate's shore normal unless noted, checked by the 3c
+  # gate on the cut profile. North to south.
+  - { id: prestons, name: "Prestons", town: "Beverly", lat: 42.5448, lon: -70.8604, offshore_direction: 310, swell_window: [65, 195], offshore_km: 5.0, break_type: point, <<: *ma }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked); normal set by hand to seaward 130 - middle of the open arc off the point on the tile; Salem Sound islands close the arc either side

@@ -38,3 +38,9 @@ spots:
   - { id: ogunquit-rivermouth, name: "Ogunquit Rivermouth", town: "Ogunquit", lat: 43.2467, lon: -70.5913, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, <<: *me }  # sat-verified 2026-10-09 (websearch-seeded)
   - { id: short-sands-me, name: "Short Sands", town: "York", lat: 43.1749, lon: -70.6067, offshore_direction: 304, swell_window: [59, 189], offshore_km: 5.0, <<: *me }  # sat-verified 2026-10-09 (websearch-seeded)
   - { id: long-sands, name: "Long Sands", town: "York", lat: 43.1638, lon: -70.6159, offshore_direction: 317, swell_window: [72, 202], offshore_km: 5.0, <<: *me }  # sat-verified 2026-10-09 (websearch-seeded)
+
+  # ==== ADDED 2026-10-09 - operator-supplied coordinates (authority: user-verified), each rendered
+  # on ESRI imagery at z16 (z13 where the open sea was unclear) and seen on surf before entering.
+  # offshore_direction = nearest coastline candidate's shore normal unless noted, checked by the 3c
+  # gate on the cut profile. North to south.
+  - { id: doc-browns, name: "Doc Browns", town: "Cape Elizabeth", lat: 43.5619, lon: -70.2312, offshore_direction: 328, swell_window: [83, 213], offshore_km: 5.0, break_type: reef, <<: *me }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)

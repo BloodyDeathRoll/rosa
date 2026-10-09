@@ -31,3 +31,9 @@ spots:
   - { id: thorlakshofn, name: "Thorlakshofn", town: "Þorlákshöfn", lat: 63.8492, lon: -21.3596, offshore_direction: 302, swell_window: [57, 187], offshore_km: 5.0, <<: *isl }  # sat-verified 2026-10-09 (websearch-seeded)
   - { id: grindavik, name: "Grindavik", town: "Grindavík", lat: 63.8326, lon: -22.4412, offshore_direction: 315, swell_window: [70, 200], offshore_km: 5.0, <<: *isl }  # sat-verified 2026-10-09 (websearch-seeded)
   - { id: hopsnes, name: "Hopsnes", town: "Grindavík", lat: 63.8221, lon: -22.4061, offshore_direction: 33, swell_window: [148, 278], offshore_km: 5.0, <<: *isl }  # sat-verified 2026-10-09 (websearch-seeded)
+
+  # ==== ADDED 2026-10-09 - operator-supplied coordinates (authority: user-verified), each rendered
+  # on ESRI imagery at z16 (z13 where the open sea was unclear) and seen on surf before entering.
+  # offshore_direction = nearest coastline candidate's shore normal unless noted, checked by the 3c
+  # gate on the cut profile. North to south.
+  - { id: grindavik-antenas, name: "Grindavik Antenas", town: "Grindavík", lat: 63.8304, lon: -22.4541, offshore_direction: 350, swell_window: [105, 235], offshore_km: 5.0, break_type: reef, <<: *isl }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked); normal set by hand to seaward 170 - open sea due S of the reef on the z13 tile; the candidate (seaward 120) clipped the Grindavik headland

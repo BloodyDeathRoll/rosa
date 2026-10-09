@@ -1,0 +1,72 @@
+{
+  "spot": "teavanui-pass",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -16.4866,
+    -151.7757
+  ],
+  "bearing_seaward_deg": 260.0,
+  "nearshore_depth_m": 27.0,
+  "offshore_depth_m": 2731.0,
+  "mean_slope_m_per_km": 152.34,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -16.48699,
+      "lon": -151.77801,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -16.48738,
+      "lon": -151.78032,
+      "depth_m": 95.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -16.48816,
+      "lon": -151.78494,
+      "depth_m": 277.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -16.48972,
+      "lon": -151.79417,
+      "depth_m": 703.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -16.49128,
+      "lon": -151.80341,
+      "depth_m": 1000.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -16.4944,
+      "lon": -151.82188,
+      "depth_m": 1524.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -16.49908,
+      "lon": -151.8496,
+      "depth_m": 1947.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -16.50531,
+      "lon": -151.88655,
+      "depth_m": 2379.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -16.51464,
+      "lon": -151.94198,
+      "depth_m": 2731.0
+    }
+  ]
+}

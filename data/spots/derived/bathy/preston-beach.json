@@ -1,0 +1,72 @@
+{
+  "spot": "preston-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    50.4431,
+    -3.5551
+  ],
+  "bearing_seaward_deg": 115.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 49.0,
+  "mean_slope_m_per_km": 2.7,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 50.44215,
+      "lon": -3.5519,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 50.4412,
+      "lon": -3.5487,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 50.4393,
+      "lon": -3.5423,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 50.4355,
+      "lon": -3.52951,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 50.43169,
+      "lon": -3.51671,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 50.42408,
+      "lon": -3.49113,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 50.41265,
+      "lon": -3.45278,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.39739,
+      "lon": -3.40167,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.37446,
+      "lon": -3.32506,
+      "depth_m": 49.0
+    }
+  ]
+}

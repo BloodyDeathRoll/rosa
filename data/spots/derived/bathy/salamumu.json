@@ -1,0 +1,72 @@
+{
+  "spot": "salamumu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -14.0025,
+    -171.9225
+  ],
+  "bearing_seaward_deg": 210.0,
+  "nearshore_depth_m": 149.0,
+  "offshore_depth_m": 2876.0,
+  "mean_slope_m_per_km": 153.63,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -14.00445,
+      "lon": -171.92366,
+      "depth_m": 149.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -14.00639,
+      "lon": -171.92482,
+      "depth_m": 149.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -14.01029,
+      "lon": -171.92713,
+      "depth_m": -29.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -14.01808,
+      "lon": -171.93177,
+      "depth_m": 235.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -14.02586,
+      "lon": -171.9364,
+      "depth_m": 482.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -14.04144,
+      "lon": -171.94568,
+      "depth_m": 770.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -14.0648,
+      "lon": -171.95958,
+      "depth_m": 1916.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -14.09595,
+      "lon": -171.97813,
+      "depth_m": 2645.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -14.14268,
+      "lon": -172.00597,
+      "depth_m": 2876.0
+    }
+  ]
+}

@@ -27,3 +27,10 @@ spots:
   - { id: the-wall-nh, name: "The Wall", town: "Hampton", lat: 42.9406, lon: -70.7927, offshore_direction: 296, swell_window: [51, 181], offshore_km: 5.0, <<: *nh }  # sat-verified 2026-10-09 (websearch-seeded)
   - { id: hampton-beach, name: "Hampton Beach", town: "Hampton", lat: 42.9111, lon: -70.8073, offshore_direction: 282, swell_window: [37, 167], offshore_km: 5.0, <<: *nh }  # sat-verified 2026-10-09 (websearch-seeded)
   - { id: seabrook-beach, name: "Seabrook Beach", town: "Seabrook", lat: 42.8841, lon: -70.8136, offshore_direction: 283, swell_window: [38, 168], offshore_km: 5.0, <<: *nh }  # sat-verified 2026-10-09 (websearch-seeded)
+
+  # ==== ADDED 2026-10-09 - operator-supplied coordinates (authority: user-verified), each rendered
+  # on ESRI imagery at z16 (z13 where the open sea was unclear) and seen on surf before entering.
+  # offshore_direction = nearest coastline candidate's shore normal unless noted, checked by the 3c
+  # gate on the cut profile. North to south.
+  - { id: linkys, name: "Linkys", town: "North Hampton", lat: 42.9599, lon: -70.7725, offshore_direction: 326, swell_window: [81, 211], offshore_km: 5.0, break_type: reef, <<: *nh }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)
+  - { id: costellos, name: "Costellos", town: "North Hampton", lat: 42.9514, lon: -70.7833, offshore_direction: 287, swell_window: [42, 172], offshore_km: 5.0, break_type: reef, <<: *nh }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)

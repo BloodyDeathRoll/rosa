@@ -47,3 +47,14 @@ spots:
   - { id: deauville, name: "Deauville", town: "Deauville", lat: 49.3618, lon: 0.0633, offshore_direction: 110, swell_window: [225, 355], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
   - { id: courseulles-sur-mer, name: "Courseulles-sur-Mer", town: "Courseulles-sur-Mer", lat: 49.3364, lon: -0.4496, offshore_direction: 181, swell_window: [296, 66], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
   - { id: luc-sur-mer, name: "Luc-sur-Mer", town: "Luc-sur-Mer", lat: 49.3214, lon: -0.3542, offshore_direction: 212, swell_window: [327, 97], offshore_km: 5.0, <<: *nor }  # sat-verified 2026-10-09 (websearch-seeded)
+
+  # ==== ADDED 2026-10-09 - operator-supplied coordinates (authority: user-verified), each rendered
+  # on ESRI imagery at z16 (z13 where the open sea was unclear) and seen on surf before entering.
+  # offshore_direction = nearest coastline candidate's shore normal unless noted, checked by the 3c
+  # gate on the cut profile. North to south.
+  - { id: nez-bayard, name: "Nez Bayard", town: "Auderville", lat: 49.7283, lon: -1.9353, offshore_direction: 171, swell_window: [286, 56], offshore_km: 5.0, break_type: reef, <<: *nor }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)
+  - { id: fort-de-st-germain-des-vaux, name: "Fort de St Germain des Vaux", town: "Saint-Germain-des-Vaux", lat: 49.7189, lon: -1.9007, offshore_direction: 222, swell_window: [337, 107], offshore_km: 5.0, break_type: reef, <<: *nor }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)
+  - { id: la-crecque, name: "La Crecque", town: "Biville", lat: 49.6424, lon: -1.8563, offshore_direction: 69, swell_window: [184, 314], offshore_km: 5.0, <<: *nor }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)
+  - { id: les-cous-cous, name: "Les Cous Cous", town: "Flamanville", lat: 49.5554, lon: -1.8589, offshore_direction: 127, swell_window: [242, 12], offshore_km: 5.0, break_type: reef, <<: *nor }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)
+  - { id: le-grand-large, name: "Le Grand Large", town: "Le Rozel", lat: 49.4889, lon: -1.8501, offshore_direction: 87, swell_window: [202, 332], offshore_km: 5.0, <<: *nor }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)
+  - { id: le-poux, name: "Le Poux", town: "Surtainville", lat: 49.4688, lon: -1.8424, offshore_direction: 80, swell_window: [195, 325], offshore_km: 5.0, break_type: reef, <<: *nor }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)

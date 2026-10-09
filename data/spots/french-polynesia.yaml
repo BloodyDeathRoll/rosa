@@ -42,3 +42,9 @@ spots:
   - { id: maraa, name: "Maraa", town: "Paea", lat: -17.7523, lon: -149.5786, offshore_direction: 38, swell_window: [153, 283], offshore_km: 5.0, <<: *pf }  # sat-verified 2026-08-31 (websearch-seeded)
   - { id: papara, name: "Papara", town: "Papara", lat: -17.7762, lon: -149.4832, offshore_direction: 30, swell_window: [145, 275], offshore_km: 5.0, <<: *pf }  # sat-verified 2026-08-31 (websearch-seeded)
   - { id: teahupoo, name: "Teahupoo", town: "Teahupoo", lat: -17.8667, lon: -149.2537, offshore_direction: 24, swell_window: [139, 269], offshore_km: 5.0, <<: *pf }  # sat-verified 2026-08-31 (websearch-seeded)
+
+  # ==== ADDED 2026-10-09 - operator-supplied coordinates (authority: user-verified), each rendered
+  # on ESRI imagery at z16 (z13 where the open sea was unclear) and seen on surf before entering.
+  # offshore_direction = nearest coastline candidate's shore normal unless noted, checked by the 3c
+  # gate on the cut profile. North to south.
+  - { id: teavanui-pass, name: "Teavanui Pass", town: "Vaitape", lat: -16.4866, lon: -151.7757, offshore_direction: 80, swell_window: [195, 325], offshore_km: 5.0, <<: *pf }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked); normal set by hand to seaward 260 - the pass opens west to the open Pacific on the z13 tile; the candidate (seaward 200) ran along the outer reef

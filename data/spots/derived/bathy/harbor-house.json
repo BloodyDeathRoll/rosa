@@ -1,0 +1,72 @@
+{
+  "spot": "harbor-house",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    25.8984,
+    -80.1206
+  ],
+  "bearing_seaward_deg": 85.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 270.0,
+  "mean_slope_m_per_km": 14.65,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 25.8986,
+      "lon": -80.11811,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 25.89879,
+      "lon": -80.11562,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 25.89918,
+      "lon": -80.11064,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 25.89997,
+      "lon": -80.10068,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 25.90075,
+      "lon": -80.09072,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 25.90231,
+      "lon": -80.0708,
+      "depth_m": 130.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 25.90465,
+      "lon": -80.04092,
+      "depth_m": 242.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 25.90776,
+      "lon": -80.00108,
+      "depth_m": 302.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 25.9124,
+      "lon": -79.94131,
+      "depth_m": 270.0
+    }
+  ]
+}

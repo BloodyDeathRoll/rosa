@@ -1,0 +1,72 @@
+{
+  "spot": "key-biscayne",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    25.6941,
+    -80.1557
+  ],
+  "bearing_seaward_deg": 90.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 330.0,
+  "mean_slope_m_per_km": 18.48,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 25.6941,
+      "lon": -80.1532,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 25.6941,
+      "lon": -80.15071,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 25.6941,
+      "lon": -80.14572,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 25.6941,
+      "lon": -80.13574,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 25.6941,
+      "lon": -80.12576,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 25.69409,
+      "lon": -80.1058,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 25.69408,
+      "lon": -80.07586,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 25.69405,
+      "lon": -80.03594,
+      "depth_m": 263.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 25.69399,
+      "lon": -79.97606,
+      "depth_m": 330.0
+    }
+  ]
+}

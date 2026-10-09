@@ -2,13 +2,13 @@
   "spot": "tiavea-bay",
   "source": "gebco2024 via local grid",
   "origin": [
-    -13.978,
-    -171.4615
+    -13.9736,
+    -171.4656
   ],
-  "bearing_seaward_deg": 0.0,
+  "bearing_seaward_deg": 16.0,
   "nearshore_depth_m": 1.0,
-  "offshore_depth_m": 2438.0,
-  "mean_slope_m_per_km": 137.3,
+  "offshore_depth_m": 2635.0,
+  "mean_slope_m_per_km": 148.39,
   "land_samples": 0,
   "missing_samples": 0,
   "non_monotone_samples": 0,
@@ -16,57 +16,57 @@
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": -13.97575,
-      "lon": -171.4615,
+      "lat": -13.97144,
+      "lon": -171.46496,
       "depth_m": 1.0
     },
     {
       "dist_km": 0.5,
-      "lat": -13.9735,
-      "lon": -171.4615,
+      "lat": -13.96928,
+      "lon": -171.46432,
       "depth_m": 1.0
     },
     {
       "dist_km": 1.0,
-      "lat": -13.96901,
-      "lon": -171.4615,
+      "lat": -13.96496,
+      "lon": -171.46305,
       "depth_m": 1.0
     },
     {
       "dist_km": 2.0,
-      "lat": -13.96001,
-      "lon": -171.4615,
+      "lat": -13.95631,
+      "lon": -171.46049,
       "depth_m": 1.0
     },
     {
       "dist_km": 3.0,
-      "lat": -13.95102,
-      "lon": -171.4615,
+      "lat": -13.94767,
+      "lon": -171.45794,
       "depth_m": 1.0
     },
     {
       "dist_km": 5.0,
-      "lat": -13.93303,
-      "lon": -171.4615,
-      "depth_m": 217.0
+      "lat": -13.93038,
+      "lon": -171.45283,
+      "depth_m": 269.0
     },
     {
       "dist_km": 8.0,
-      "lat": -13.90605,
-      "lon": -171.4615,
-      "depth_m": 945.0
+      "lat": -13.90444,
+      "lon": -171.44517,
+      "depth_m": 1201.0
     },
     {
       "dist_km": 12.0,
-      "lat": -13.87008,
-      "lon": -171.4615,
-      "depth_m": 1724.0
+      "lat": -13.86986,
+      "lon": -171.43496,
+      "depth_m": 1956.0
     },
     {
       "dist_km": 18.0,
-      "lat": -13.81612,
-      "lon": -171.4615,
-      "depth_m": 2438.0
+      "lat": -13.81799,
+      "lon": -171.41965,
+      "depth_m": 2635.0
     }
   ]
 }

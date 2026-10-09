@@ -1,0 +1,72 @@
+{
+  "spot": "fort-pierce-inlet",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    27.475,
+    -80.2872
+  ],
+  "bearing_seaward_deg": 109.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 0.62,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 27.47427,
+      "lon": -80.2848,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 27.47354,
+      "lon": -80.28241,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 27.47207,
+      "lon": -80.27762,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 27.46914,
+      "lon": -80.26803,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 27.46621,
+      "lon": -80.25845,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 27.46035,
+      "lon": -80.23929,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 27.45156,
+      "lon": -80.21054,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 27.43982,
+      "lon": -80.17223,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 27.42219,
+      "lon": -80.11477,
+      "depth_m": 20.0
+    }
+  ]
+}

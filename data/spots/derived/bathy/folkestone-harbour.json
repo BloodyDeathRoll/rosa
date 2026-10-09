@@ -1,0 +1,72 @@
+{
+  "spot": "folkestone-harbour",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    51.0764,
+    1.1907
+  ],
+  "bearing_seaward_deg": 187.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 32.0,
+  "mean_slope_m_per_km": 1.13,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 51.07417,
+      "lon": 1.19026,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 51.07194,
+      "lon": 1.18983,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 51.06747,
+      "lon": 1.18896,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 51.05855,
+      "lon": 1.18721,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 51.04962,
+      "lon": 1.18547,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 51.03177,
+      "lon": 1.18199,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 51.00499,
+      "lon": 1.17677,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.96928,
+      "lon": 1.16982,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.91572,
+      "lon": 1.15941,
+      "depth_m": 32.0
+    }
+  ]
+}

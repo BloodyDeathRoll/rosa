@@ -1,0 +1,72 @@
+{
+  "spot": "paignton",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    50.4332,
+    -3.5577
+  ],
+  "bearing_seaward_deg": 91.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 42.0,
+  "mean_slope_m_per_km": 2.31,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 50.43316,
+      "lon": -3.55417,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 50.43312,
+      "lon": -3.55064,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 50.43304,
+      "lon": -3.54358,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 50.43288,
+      "lon": -3.52947,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 50.43272,
+      "lon": -3.51535,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 50.43239,
+      "lon": -3.48712,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 50.43189,
+      "lon": -3.44477,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 50.43119,
+      "lon": -3.38831,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 50.4301,
+      "lon": -3.30362,
+      "depth_m": 42.0
+    }
+  ]
+}

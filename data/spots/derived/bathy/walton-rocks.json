@@ -1,0 +1,72 @@
+{
+  "spot": "walton-rocks",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    27.3466,
+    -80.2349
+  ],
+  "bearing_seaward_deg": 68.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 23.0,
+  "mean_slope_m_per_km": 0.96,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 27.34744,
+      "lon": -80.23255,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 27.34828,
+      "lon": -80.23021,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 27.34997,
+      "lon": -80.22551,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 27.35334,
+      "lon": -80.21612,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 27.3567,
+      "lon": -80.20674,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 27.36344,
+      "lon": -80.18796,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 27.37353,
+      "lon": -80.15978,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 27.38698,
+      "lon": -80.12221,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 27.40714,
+      "lon": -80.06583,
+      "depth_m": 23.0
+    }
+  ]
+}

@@ -23,7 +23,7 @@ spots:
   # place nodes (tools/spot-seed/towns.py). North to south.
   - { id: joss-bay, name: "Joss Bay", town: "Broadstairs", lat: 51.3811, lon: 1.4474, offshore_direction: 245, swell_window: [0, 130], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
   - { id: broadstairs, name: "Broadstairs", town: "Broadstairs", lat: 51.3576, lon: 1.4444, offshore_direction: 307, swell_window: [62, 192], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
-  - { id: ramsgate, name: "Ramsgate", town: "Ramsgate", lat: 51.3321, lon: 1.4259, offshore_direction: 294, swell_window: [49, 179], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: the-wall-ramsgate, name: "The Wall", town: "Ramsgate", lat: 51.3305, lon: 1.4254, offshore_direction: 294, swell_window: [49, 179], offshore_km: 5.0, <<: *ens }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked); replaces the web-seeded `ramsgate` pin (0.18 km), the same wave
   - { id: wear-bay, name: "Wear Bay", town: "Folkestone", lat: 51.0898, lon: 1.2048, offshore_direction: 297, swell_window: [52, 182], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
   - { id: camber-sands, name: "Camber Sands", town: "Camber", lat: 50.9284, lon: 0.7960, offshore_direction: 322, swell_window: [77, 207], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
   - { id: fairlight, name: "Fairlight", town: "Fairlight", lat: 50.8728, lon: 0.6698, offshore_direction: 311, swell_window: [66, 196], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
@@ -62,3 +62,15 @@ spots:
   - { id: niton, name: "Niton", town: "Niton", lat: 50.5770, lon: -1.2871, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
   - { id: thurlestone, name: "Thurlestone", town: "Thurlestone", lat: 50.2675, lon: -3.8702, offshore_direction: 47, swell_window: [162, 292], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
   - { id: hope-cove, name: "Hope Cove", town: "Hope Cove", lat: 50.2451, lon: -3.8613, offshore_direction: 95, swell_window: [210, 340], offshore_km: 5.0, <<: *ens }  # sat-verified 2026-10-09 (websearch-seeded)
+
+  # ==== ADDED 2026-10-09 - operator-supplied coordinates (authority: user-verified), each rendered
+  # on ESRI imagery at z16 (z13 where the open sea was unclear) and seen on surf before entering.
+  # offshore_direction = nearest coastline candidate's shore normal unless noted, checked by the 3c
+  # gate on the cut profile. North to south.
+  - { id: folkestone-harbour, name: "Folkestone Harbour", town: "Folkestone", lat: 51.0764, lon: 1.1907, offshore_direction: 7, swell_window: [122, 252], offshore_km: 5.0, <<: *ens }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)
+  - { id: stamco, name: "Stamco", town: "Bexhill-on-Sea", lat: 50.8423, lon: 0.5048, offshore_direction: 351, swell_window: [106, 236], offshore_km: 5.0, <<: *ens }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)
+  - { id: hot-pipe, name: "Hot Pipe", town: "Portslade", lat: 50.8252, lon: -0.2357, offshore_direction: 15, swell_window: [130, 260], offshore_km: 5.0, break_type: reef, <<: *ens }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)
+  - { id: beer-point, name: "Beer Point", town: "Beer", lat: 50.6962, lon: -3.0873, offshore_direction: 302, swell_window: [57, 187], offshore_km: 5.0, <<: *ens }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)
+  - { id: teignmouth, name: "Teignmouth", town: "Teignmouth", lat: 50.5362, lon: -3.4935, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, <<: *ens }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)
+  - { id: preston-beach, name: "Preston Beach", town: "Paignton", lat: 50.4431, lon: -3.5551, offshore_direction: 295, swell_window: [50, 180], offshore_km: 5.0, <<: *ens }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)
+  - { id: paignton, name: "Paignton", town: "Paignton", lat: 50.4332, lon: -3.5577, offshore_direction: 271, swell_window: [26, 156], offshore_km: 5.0, <<: *ens }  # user-verified 2026-10-09 (operator-supplied pin, sat-checked)
