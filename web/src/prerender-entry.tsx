@@ -7,3 +7,6 @@ import { AboutPage, type AboutDoc } from "./pages/AboutPage";
 export function renderAbout(doc: AboutDoc): string {
   return render(<AboutPage doc={doc} />);
 }
+
+// the per-spot share card template, run by scripts/og-cards.mjs at build time
+export { OG_CARD_VERSION, OG_H, OG_W, cardWhere, ogCardSvg } from "./ogCard";

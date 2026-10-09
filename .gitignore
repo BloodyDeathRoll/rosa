@@ -24,6 +24,7 @@ node_modules/
 web/dist/
 web/dev-dist/
 web/dist-ssr/
+web/.og-cache/
 web/public/data/
 web/public/olderIcons.zip
 

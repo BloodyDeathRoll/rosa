@@ -91,7 +91,8 @@ the *published* data over HTTPS and never talks to the pipeline.
 4b. **Web spot pages (since 2026-10-08, OPEN-ITEMS 35e)** - when the published spot list
    changed (signature of every spot's id/name/region/town/coordinates vs
    `~/.rosa-web-spots.sha`), `npm ci && npm run deploy` in `web/` redeploys rosa.surf so new,
-   renamed or moved spots get their prerendered `/spot/<id>` page (~17 s build on this box).
+   renamed or moved spots get their prerendered `/spot/<id>` page and share card (~11 s build
+   on this box with `web/.og-cache` warm; ~115 ms per new card, so a cold cache is ~6 min).
    `web/.vercel/project.json` is written if missing. Non-fatal; a failed build alerts.
 5. `rosa-pipeline notify` - grouped swell-alert Web Pushes (one swell = one notification)
    to every subscription stored by https://rosa-push.vercel.app. Skipped silently unless the

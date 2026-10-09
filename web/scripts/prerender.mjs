@@ -55,7 +55,7 @@ const template = readFileSync(join(DIST, "index.html"), "utf8");
 if (!template.includes("<!-- prerender:app-static -->")) throw new Error("prerender: index.html lost its static block");
 
 /** dist/index.html with this screen's head and static body. */
-function shell({ title, description = DEFAULT_DESCRIPTION, path, noindex = false, jsonLd = null, body }) {
+function shell({ title, description = DEFAULT_DESCRIPTION, path, noindex = false, jsonLd = null, body, image = null }) {
   const url = SITE + path;
   let html = template;
   const set = (re, repl) => {
@@ -70,6 +70,12 @@ function shell({ title, description = DEFAULT_DESCRIPTION, path, noindex = false
   set(/<meta property="og:url" content="[^"]*" \/>/, `<meta property="og:url" content="${esc(url)}" />`);
   set(/<meta name="twitter:title" content="[^"]*" \/>/, `<meta name="twitter:title" content="${esc(title)}" />`);
   set(/<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/>/, `<meta name="twitter:description" content="${esc(description)}" />`);
+  // a spot's own share card (scripts/og-cards.mjs); every other screen keeps og.jpg
+  if (image) {
+    set(/<meta property="og:image" content="[^"]*" \/>/, `<meta property="og:image" content="${esc(image.url)}" />`);
+    set(/<meta property="og:image:alt" content="[^"]*" \/>/, `<meta property="og:image:alt" content="${esc(image.alt)}" />`);
+    set(/<meta name="twitter:image" content="[^"]*" \/>/, `<meta name="twitter:image" content="${esc(image.url)}" />`);
+  }
   // the WebSite graph belongs to the root only; a screen brings its own or none
   // id="ld-page" is what head.ts updates in place on hydration - without it the
   // app would append a second block beside this one
@@ -123,7 +129,8 @@ function spotPage(id, sp, nearby) {
         }
         <p><a href="/">Rosa - free surf forecast</a> · <a href="/map">Surf map</a></p>
       </main>`;
-  return shell({ title, description, path: `/spot/${id}`, jsonLd, body });
+  const image = { url: `${SITE}/og/spot/${id}.jpg`, alt: `${sp.name} surf forecast on Rosa` };
+  return shell({ title, description, path: `/spot/${id}`, jsonLd, body, image });
 }
 
 const ABOUT = {
@@ -188,4 +195,9 @@ write(
     .join("\n")}\n</urlset>\n`,
 );
 
+const { writeCards } = await import("./og-cards.mjs");
+const og = await writeCards(entries, DIST);
+console.log(
+  `prerender: ${og.cards} share cards (${og.rendered} rendered, ${og.cards - og.rendered} cached) in ${(og.ms / 1000).toFixed(1)} s, ${(og.bytes / 1e6).toFixed(1)} MB`,
+);
 console.log(`prerender: ${ids.length} spot pages, ${Object.keys(ABOUT).length} about pages, ${Object.keys(SCREENS).length} screens, sitemap ${urls.length} urls`);

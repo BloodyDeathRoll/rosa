@@ -16,7 +16,11 @@ export interface Head {
   noindex?: boolean;
   /** schema.org object for this screen, or null to clear the page one */
   jsonLd?: Record<string, unknown> | null;
+  /** share image (1200x630 JPEG) and its alt; default the site-wide og.jpg */
+  image?: { url: string; alt: string };
 }
+
+export const DEFAULT_IMAGE = { url: `${SITE}/og.jpg`, alt: "Rosa - free surf forecast" };
 
 function meta(sel: string, attr: "name" | "property", key: string): HTMLMetaElement {
   let el = document.head.querySelector<HTMLMetaElement>(sel);
@@ -48,6 +52,10 @@ export function setHead(h: Head): void {
   meta('meta[property="og:url"]', "property", "og:url").content = url;
   meta('meta[name="twitter:title"]', "name", "twitter:title").content = h.title;
   meta('meta[name="twitter:description"]', "name", "twitter:description").content = description;
+  const image = h.image ?? DEFAULT_IMAGE;
+  meta('meta[property="og:image"]', "property", "og:image").content = image.url;
+  meta('meta[property="og:image:alt"]', "property", "og:image:alt").content = image.alt;
+  meta('meta[name="twitter:image"]', "name", "twitter:image").content = image.url;
   link("canonical").href = url;
   const robots = meta('meta[name="robots"]', "name", "robots");
   if (h.noindex) robots.content = "noindex, follow";
@@ -76,6 +84,8 @@ export function spotHead(spot: { id: string; name: string; region?: string; town
     title: `${spot.name} surf forecast${where ? ` - ${where}` : ""} | Rosa`,
     description: `Free 15-day surf forecast for ${spot.name}: waves, wind and tide, updated four times a day.`,
     path: `/spot/${spot.id}`,
+    // the build's per-spot share card (scripts/og-cards.mjs) - same URL as the shell's
+    image: { url: `${SITE}/og/spot/${spot.id}.jpg`, alt: `${spot.name} surf forecast on Rosa` },
     jsonLd: {
       "@type": "Place",
       name: spot.name,
