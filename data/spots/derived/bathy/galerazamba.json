@@ -1,0 +1,72 @@
+{
+  "spot": "galerazamba",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.801,
+    -75.2596
+  ],
+  "bearing_seaward_deg": 22.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 1.86,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.80308,
+      "lon": -75.25874,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.80517,
+      "lon": -75.25789,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.80934,
+      "lon": -75.25617,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.81768,
+      "lon": -75.25274,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.82601,
+      "lon": -75.24931,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.84269,
+      "lon": -75.24245,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.86771,
+      "lon": -75.23216,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.90106,
+      "lon": -75.21843,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.95108,
+      "lon": -75.19783,
+      "depth_m": 30.0
+    }
+  ]
+}

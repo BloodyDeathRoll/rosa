@@ -1,0 +1,72 @@
+{
+  "spot": "manglecito",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -0.826,
+    -89.545
+  ],
+  "bearing_seaward_deg": 295.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 497.0,
+  "mean_slope_m_per_km": 27.61,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -0.82505,
+      "lon": -89.54704,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -0.8241,
+      "lon": -89.54908,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -0.8222,
+      "lon": -89.55315,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -0.8184,
+      "lon": -89.5613,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -0.8146,
+      "lon": -89.56945,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -0.807,
+      "lon": -89.58576,
+      "depth_m": 148.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -0.79559,
+      "lon": -89.61021,
+      "depth_m": 208.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -0.78039,
+      "lon": -89.64282,
+      "depth_m": 416.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -0.75758,
+      "lon": -89.69172,
+      "depth_m": 497.0
+    }
+  ]
+}

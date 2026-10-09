@@ -1,0 +1,29 @@
+# Rosa spot database - Galapagos (seeded 2026-10-09). San Cristobal and Santa Cruz. Reef and point breaks open to N swell Dec-May
+# and S swell Jun-Sep; every spot's window follows its own shore normal.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+region: Galapagos
+defaults: &ga
+  timezone: Pacific/Galapagos
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [0, 360]
+  ideal:
+    wind_dir: [0, 360]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-10-09 - galapagos, 5 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 5 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/galapagos/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: tortuga-bay, name: "Tortuga Bay", town: "Puerto Ayora", lat: -0.7625, lon: -90.3344, offshore_direction: 351, swell_window: [106, 236], offshore_km: 5.0, <<: *ga }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: manglecito, name: "Manglecito", town: "Puerto Baquerizo Moreno", lat: -0.8260, lon: -89.5450, offshore_direction: 115, swell_window: [230, 0], offshore_km: 5.0, <<: *ga }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: carola, name: "Carola", town: "Puerto Baquerizo Moreno", lat: -0.8892, lon: -89.6135, offshore_direction: 152, swell_window: [267, 37], offshore_km: 5.0, <<: *ga }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: el-canon, name: "El Canon", town: "Puerto Baquerizo Moreno", lat: -0.8999, lon: -89.6193, offshore_direction: 180, swell_window: [295, 65], offshore_km: 5.0, <<: *ga }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: loberia, name: "Loberia", town: "Puerto Baquerizo Moreno", lat: -0.9284, lon: -89.6127, offshore_direction: 56, swell_window: [171, 301], offshore_km: 5.0, <<: *ga }  # sat-verified 2026-10-09 (websearch-seeded)

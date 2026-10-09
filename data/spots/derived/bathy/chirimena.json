@@ -1,0 +1,72 @@
+{
+  "spot": "chirimena",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.6097,
+    -66.1749
+  ],
+  "bearing_seaward_deg": 30.0,
+  "nearshore_depth_m": -17.0,
+  "offshore_depth_m": 77.0,
+  "mean_slope_m_per_km": 5.3,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.61165,
+      "lon": -66.17376,
+      "depth_m": -17.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.61359,
+      "lon": -66.17261,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.61749,
+      "lon": -66.17033,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.62528,
+      "lon": -66.16575,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.63306,
+      "lon": -66.16117,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.64864,
+      "lon": -66.15202,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.672,
+      "lon": -66.13829,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.70316,
+      "lon": -66.11999,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.74988,
+      "lon": -66.09252,
+      "depth_m": 77.0
+    }
+  ]
+}

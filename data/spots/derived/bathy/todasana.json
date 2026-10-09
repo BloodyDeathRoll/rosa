@@ -1,0 +1,72 @@
+{
+  "spot": "todasana",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.6286,
+    -66.46
+  ],
+  "bearing_seaward_deg": 9.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 221.0,
+  "mean_slope_m_per_km": 13.13,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.63082,
+      "lon": -66.45964,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.63304,
+      "lon": -66.45928,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.63748,
+      "lon": -66.45857,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.64636,
+      "lon": -66.45714,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.65525,
+      "lon": -66.45571,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.67301,
+      "lon": -66.45284,
+      "depth_m": 140.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.69966,
+      "lon": -66.44855,
+      "depth_m": 182.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.73519,
+      "lon": -66.44282,
+      "depth_m": 183.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.78848,
+      "lon": -66.43422,
+      "depth_m": 221.0
+    }
+  ]
+}

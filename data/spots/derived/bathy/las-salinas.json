@@ -1,0 +1,72 @@
+{
+  "spot": "las-salinas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    11.0045,
+    -63.7812
+  ],
+  "bearing_seaward_deg": 59.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 34.0,
+  "mean_slope_m_per_km": 1.97,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.00566,
+      "lon": -63.77924,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.00682,
+      "lon": -63.77727,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.00913,
+      "lon": -63.77335,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.01376,
+      "lon": -63.76549,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.01839,
+      "lon": -63.75764,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.02766,
+      "lon": -63.74193,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.04155,
+      "lon": -63.71837,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.06007,
+      "lon": -63.68695,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.08784,
+      "lon": -63.6398,
+      "depth_m": 34.0
+    }
+  ]
+}

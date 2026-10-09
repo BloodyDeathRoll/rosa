@@ -1,0 +1,72 @@
+{
+  "spot": "mecana",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    6.2674,
+    -77.389
+  ],
+  "bearing_seaward_deg": 309.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 204.0,
+  "mean_slope_m_per_km": 12.06,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 6.26881,
+      "lon": -77.39076,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 6.27023,
+      "lon": -77.39252,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 6.27306,
+      "lon": -77.39603,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 6.27872,
+      "lon": -77.40306,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 6.28438,
+      "lon": -77.41009,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 6.2957,
+      "lon": -77.42416,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 6.31267,
+      "lon": -77.44525,
+      "depth_m": 96.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 6.33531,
+      "lon": -77.47338,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 6.36926,
+      "lon": -77.51558,
+      "depth_m": 204.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "playa-copey",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.6711,
+    -63.305
+  ],
+  "bearing_seaward_deg": 20.0,
+  "nearshore_depth_m": -22.0,
+  "offshore_depth_m": 55.0,
+  "mean_slope_m_per_km": 4.34,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.67321,
+      "lon": -63.30422,
+      "depth_m": -22.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.67533,
+      "lon": -63.30343,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.67955,
+      "lon": -63.30187,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.688,
+      "lon": -63.29874,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.69645,
+      "lon": -63.29561,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.71335,
+      "lon": -63.28935,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.73871,
+      "lon": -63.27995,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.77251,
+      "lon": -63.26743,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.82321,
+      "lon": -63.24863,
+      "depth_m": 55.0
+    }
+  ]
+}

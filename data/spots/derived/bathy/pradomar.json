@@ -1,0 +1,72 @@
+{
+  "spot": "pradomar",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    11.0026,
+    -74.9545
+  ],
+  "bearing_seaward_deg": 286.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 154.0,
+  "mean_slope_m_per_km": 8.9,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.00322,
+      "lon": -74.9567,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.00384,
+      "lon": -74.9589,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.00508,
+      "lon": -74.96331,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.00756,
+      "lon": -74.97211,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.01004,
+      "lon": -74.98092,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.01499,
+      "lon": -74.99854,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.02242,
+      "lon": -75.02496,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.03233,
+      "lon": -75.06019,
+      "depth_m": 175.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.04718,
+      "lon": -75.11304,
+      "depth_m": 154.0
+    }
+  ]
+}

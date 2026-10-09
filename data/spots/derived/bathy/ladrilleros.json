@@ -1,0 +1,72 @@
+{
+  "spot": "ladrilleros",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    3.9376,
+    -77.3668
+  ],
+  "bearing_seaward_deg": 249.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 59.0,
+  "mean_slope_m_per_km": 3.27,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 3.93679,
+      "lon": -77.3689,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 3.93599,
+      "lon": -77.37101,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 3.93438,
+      "lon": -77.37522,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 3.93115,
+      "lon": -77.38363,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 3.92793,
+      "lon": -77.39205,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 3.92148,
+      "lon": -77.40888,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 3.91181,
+      "lon": -77.43412,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 3.89892,
+      "lon": -77.46778,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 3.87957,
+      "lon": -77.51827,
+      "depth_m": 59.0
+    }
+  ]
+}

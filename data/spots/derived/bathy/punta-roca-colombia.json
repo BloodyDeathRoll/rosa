@@ -1,0 +1,72 @@
+{
+  "spot": "punta-roca-colombia",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    11.0456,
+    -74.9159
+  ],
+  "bearing_seaward_deg": 0.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 599.0,
+  "mean_slope_m_per_km": 33.97,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.04785,
+      "lon": -74.9159,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.0501,
+      "lon": -74.9159,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.05459,
+      "lon": -74.9159,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.06359,
+      "lon": -74.9159,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.07258,
+      "lon": -74.9159,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.09057,
+      "lon": -74.9159,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.11755,
+      "lon": -74.9159,
+      "depth_m": 194.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.15352,
+      "lon": -74.9159,
+      "depth_m": 339.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.20748,
+      "lon": -74.9159,
+      "depth_m": 599.0
+    }
+  ]
+}

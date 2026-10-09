@@ -1,0 +1,72 @@
+{
+  "spot": "cartagena-jetty",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.4016,
+    -75.5593
+  ],
+  "bearing_seaward_deg": 305.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 308.0,
+  "mean_slope_m_per_km": 17.92,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.40289,
+      "lon": -75.56117,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.40418,
+      "lon": -75.56304,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.40676,
+      "lon": -75.56679,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.41192,
+      "lon": -75.57428,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.41707,
+      "lon": -75.58177,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.42739,
+      "lon": -75.59675,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.44286,
+      "lon": -75.61923,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.46349,
+      "lon": -75.6492,
+      "depth_m": 128.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.49442,
+      "lon": -75.69416,
+      "depth_m": 308.0
+    }
+  ]
+}

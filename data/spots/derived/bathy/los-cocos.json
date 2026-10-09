@@ -1,0 +1,72 @@
+{
+  "spot": "los-cocos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.6152,
+    -66.835
+  ],
+  "bearing_seaward_deg": 37.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 251.0,
+  "mean_slope_m_per_km": 14.48,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.617,
+      "lon": -66.83362,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.61879,
+      "lon": -66.83225,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.62238,
+      "lon": -66.82949,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.62956,
+      "lon": -66.82399,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.63675,
+      "lon": -66.81848,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.65111,
+      "lon": -66.80746,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.67266,
+      "lon": -66.79094,
+      "depth_m": 147.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.70138,
+      "lon": -66.7689,
+      "depth_m": 214.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.74447,
+      "lon": -66.73584,
+      "depth_m": 251.0
+    }
+  ]
+}

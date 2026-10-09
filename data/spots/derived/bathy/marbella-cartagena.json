@@ -1,0 +1,72 @@
+{
+  "spot": "marbella-cartagena",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.4364,
+    -75.5398
+  ],
+  "bearing_seaward_deg": 357.0,
+  "nearshore_depth_m": 220.0,
+  "offshore_depth_m": 28.0,
+  "mean_slope_m_per_km": -10.82,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 5,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.43865,
+      "lon": -75.53992,
+      "depth_m": 220.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.44089,
+      "lon": -75.54004,
+      "depth_m": 220.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.44538,
+      "lon": -75.54028,
+      "depth_m": 180.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.45436,
+      "lon": -75.54076,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.46334,
+      "lon": -75.54124,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.4813,
+      "lon": -75.54219,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.50825,
+      "lon": -75.54363,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.54417,
+      "lon": -75.54555,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.59806,
+      "lon": -75.54842,
+      "depth_m": 28.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "playa-surfista",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.6098,
+    -66.9828
+  ],
+  "bearing_seaward_deg": 19.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 242.0,
+  "mean_slope_m_per_km": 14.14,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.61193,
+      "lon": -66.98206,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.61405,
+      "lon": -66.98131,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.6183,
+      "lon": -66.97982,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.62681,
+      "lon": -66.97684,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.63531,
+      "lon": -66.97386,
+      "depth_m": 96.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.65232,
+      "lon": -66.9679,
+      "depth_m": 167.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.67783,
+      "lon": -66.95896,
+      "depth_m": 225.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.71184,
+      "lon": -66.94704,
+      "depth_m": 264.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.76285,
+      "lon": -66.92915,
+      "depth_m": 242.0
+    }
+  ]
+}

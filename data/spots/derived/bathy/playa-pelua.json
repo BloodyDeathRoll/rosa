@@ -1,0 +1,72 @@
+{
+  "spot": "playa-pelua",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.6259,
+    -66.715
+  ],
+  "bearing_seaward_deg": 39.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 241.0,
+  "mean_slope_m_per_km": 13.86,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.62765,
+      "lon": -66.71356,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.62939,
+      "lon": -66.71212,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.63289,
+      "lon": -66.70924,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.63988,
+      "lon": -66.70348,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.64687,
+      "lon": -66.69772,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.66084,
+      "lon": -66.6862,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.68181,
+      "lon": -66.66892,
+      "depth_m": 180.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.70976,
+      "lon": -66.64588,
+      "depth_m": 209.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.75169,
+      "lon": -66.61131,
+      "depth_m": 241.0
+    }
+  ]
+}

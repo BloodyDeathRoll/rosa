@@ -1,0 +1,72 @@
+{
+  "spot": "el-valle",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    6.1136,
+    -77.4376
+  ],
+  "bearing_seaward_deg": 222.0,
+  "nearshore_depth_m": -24.0,
+  "offshore_depth_m": 1912.0,
+  "mean_slope_m_per_km": 109.07,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 6.11193,
+      "lon": -77.43911,
+      "depth_m": -24.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 6.11026,
+      "lon": -77.44063,
+      "depth_m": -24.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 6.10692,
+      "lon": -77.44365,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 6.10023,
+      "lon": -77.4497,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 6.09355,
+      "lon": -77.45576,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 6.08018,
+      "lon": -77.46786,
+      "depth_m": 143.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 6.06013,
+      "lon": -77.48601,
+      "depth_m": 385.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 6.0334,
+      "lon": -77.51021,
+      "depth_m": 1059.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 5.99329,
+      "lon": -77.54651,
+      "depth_m": 1912.0
+    }
+  ]
+}

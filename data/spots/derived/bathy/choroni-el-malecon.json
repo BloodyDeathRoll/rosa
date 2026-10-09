@@ -1,0 +1,72 @@
+{
+  "spot": "choroni-el-malecon",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.5103,
+    -67.6068
+  ],
+  "bearing_seaward_deg": 320.0,
+  "nearshore_depth_m": -13.0,
+  "offshore_depth_m": 445.0,
+  "mean_slope_m_per_km": 25.8,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.51202,
+      "lon": -67.60827,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.51374,
+      "lon": -67.60974,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.51719,
+      "lon": -67.61268,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.52408,
+      "lon": -67.61856,
+      "depth_m": 105.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.53097,
+      "lon": -67.62444,
+      "depth_m": 172.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.54474,
+      "lon": -67.6362,
+      "depth_m": 270.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.56541,
+      "lon": -67.65384,
+      "depth_m": 348.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.59296,
+      "lon": -67.67737,
+      "depth_m": 410.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.63429,
+      "lon": -67.71267,
+      "depth_m": 445.0
+    }
+  ]
+}

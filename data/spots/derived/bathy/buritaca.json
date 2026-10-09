@@ -1,0 +1,72 @@
+{
+  "spot": "buritaca",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    11.265,
+    -73.768
+  ],
+  "bearing_seaward_deg": 356.0,
+  "nearshore_depth_m": 23.0,
+  "offshore_depth_m": 373.0,
+  "mean_slope_m_per_km": 19.72,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.26724,
+      "lon": -73.76816,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.26949,
+      "lon": -73.76832,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.27397,
+      "lon": -73.76864,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.28294,
+      "lon": -73.76928,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.29191,
+      "lon": -73.76992,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.30986,
+      "lon": -73.7712,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.33677,
+      "lon": -73.77312,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.37266,
+      "lon": -73.77568,
+      "depth_m": 313.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.42648,
+      "lon": -73.77952,
+      "depth_m": 373.0
+    }
+  ]
+}

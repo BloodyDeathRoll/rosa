@@ -1,0 +1,72 @@
+{
+  "spot": "hilton-cartagena",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.3934,
+    -75.5618
+  ],
+  "bearing_seaward_deg": 292.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 240.0,
+  "mean_slope_m_per_km": 13.18,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.39424,
+      "lon": -75.56392,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.39508,
+      "lon": -75.56604,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.39677,
+      "lon": -75.57028,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.40014,
+      "lon": -75.57876,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.40351,
+      "lon": -75.58723,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.41024,
+      "lon": -75.60419,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.42034,
+      "lon": -75.62963,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.43381,
+      "lon": -75.66354,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.454,
+      "lon": -75.71442,
+      "depth_m": 240.0
+    }
+  ]
+}

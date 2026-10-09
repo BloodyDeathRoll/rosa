@@ -1,0 +1,72 @@
+{
+  "spot": "parguito",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    11.1309,
+    -63.8469
+  ],
+  "bearing_seaward_deg": 45.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 1.86,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.13249,
+      "lon": -63.84528,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.13408,
+      "lon": -63.84366,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.13726,
+      "lon": -63.84042,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.14362,
+      "lon": -63.83394,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.14998,
+      "lon": -63.82746,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.16269,
+      "lon": -63.81449,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.18177,
+      "lon": -63.79504,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.2072,
+      "lon": -63.76911,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.24534,
+      "lon": -63.73019,
+      "depth_m": 30.0
+    }
+  ]
+}

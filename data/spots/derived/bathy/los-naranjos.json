@@ -1,0 +1,72 @@
+{
+  "spot": "los-naranjos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    11.2973,
+    -73.8924
+  ],
+  "bearing_seaward_deg": 10.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 435.0,
+  "mean_slope_m_per_km": 24.96,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.29951,
+      "lon": -73.892,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.30173,
+      "lon": -73.8916,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.30616,
+      "lon": -73.89081,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.31501,
+      "lon": -73.88921,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.32387,
+      "lon": -73.88762,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.34158,
+      "lon": -73.88444,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.36815,
+      "lon": -73.87966,
+      "depth_m": 209.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.40358,
+      "lon": -73.87328,
+      "depth_m": 377.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.45672,
+      "lon": -73.86372,
+      "depth_m": 435.0
+    }
+  ]
+}

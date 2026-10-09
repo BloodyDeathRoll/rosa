@@ -1,0 +1,72 @@
+{
+  "spot": "juan-tornillo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    3.9265,
+    -77.3583
+  ],
+  "bearing_seaward_deg": 195.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 49.0,
+  "mean_slope_m_per_km": 2.2,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 3.92433,
+      "lon": -77.35888,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 3.92216,
+      "lon": -77.35947,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 3.91781,
+      "lon": -77.36063,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 3.90913,
+      "lon": -77.36297,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 3.90044,
+      "lon": -77.3653,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 3.88307,
+      "lon": -77.36996,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 3.85701,
+      "lon": -77.37696,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 3.82226,
+      "lon": -77.38629,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 3.77014,
+      "lon": -77.40029,
+      "depth_m": 49.0
+    }
+  ]
+}

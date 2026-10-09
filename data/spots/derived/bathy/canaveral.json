@@ -1,0 +1,72 @@
+{
+  "spot": "canaveral",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    11.3117,
+    -73.9321
+  ],
+  "bearing_seaward_deg": 33.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 412.0,
+  "mean_slope_m_per_km": 23.49,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.31359,
+      "lon": -73.93085,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.31547,
+      "lon": -73.9296,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.31924,
+      "lon": -73.9271,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.32678,
+      "lon": -73.92211,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.33433,
+      "lon": -73.91711,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.34941,
+      "lon": -73.90712,
+      "depth_m": 95.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.37204,
+      "lon": -73.89213,
+      "depth_m": 234.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.4022,
+      "lon": -73.87214,
+      "depth_m": 377.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.44745,
+      "lon": -73.84215,
+      "depth_m": 412.0
+    }
+  ]
+}

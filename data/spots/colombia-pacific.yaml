@@ -1,0 +1,35 @@
+# Rosa spot database - Colombia Pacific (seeded 2026-10-09). Choco and Valle del Cauca: Bahia Solano and El Valle, Nuqui and Termales,
+# Pico de Loro, Ladrilleros, Tumaco. S-SW groundswell Apr-Oct, NW swell Dec-Mar, warm water, heavy rain.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+region: Colombia Pacific
+defaults: &cp
+  timezone: America/Bogota
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [180, 310]
+  ideal:
+    wind_dir: [45, 135]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-10-09 - colombia-pacific, 11 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 11 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/colombia-pacific/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: mecana, name: "Mecana", town: "Mecana", lat: 6.2674, lon: -77.3890, offshore_direction: 129, swell_window: [244, 14], offshore_km: 5.0, <<: *cp }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: el-valle, name: "El Valle", town: "El Valle", lat: 6.1136, lon: -77.4376, offshore_direction: 42, swell_window: [157, 287], offshore_km: 5.0, <<: *cp }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: jurubida, name: "Jurubida", town: "Jurubidá", lat: 5.8429, lon: -77.2810, offshore_direction: 49, swell_window: [164, 294], offshore_km: 5.0, <<: *cp }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: tribuga, name: "Tribuga", town: "Tribugá", lat: 5.7663, lon: -77.2568, offshore_direction: 82, swell_window: [197, 327], offshore_km: 5.0, <<: *cp }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: pela-pela, name: "Pela Pela", town: "Nuqui", lat: 5.6303, lon: -77.4053, offshore_direction: 151, swell_window: [266, 36], offshore_km: 5.0, <<: *cp }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: el-cantil, name: "El Cantil", town: "Nuqui", lat: 5.6259, lon: -77.4210, offshore_direction: 151, swell_window: [266, 36], offshore_km: 5.0, <<: *cp }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: terco, name: "Terco", town: "Nuqui", lat: 5.6192, lon: -77.4300, offshore_direction: 125, swell_window: [240, 10], offshore_km: 5.0, <<: *cp }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: termales, name: "Termales", town: "Nuqui", lat: 5.6068, lon: -77.4413, offshore_direction: 142, swell_window: [257, 27], offshore_km: 5.0, <<: *cp }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: pico-de-loro, name: "Pico de Loro", town: "Nuqui", lat: 5.4948, lon: -77.5346, offshore_direction: 115, swell_window: [230, 0], offshore_km: 5.0, <<: *cp }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: ladrilleros, name: "Ladrilleros", town: "Ladrilleros", lat: 3.9376, lon: -77.3668, offshore_direction: 69, swell_window: [184, 314], offshore_km: 5.0, <<: *cp }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: juan-tornillo, name: "Juan Tornillo", town: "Juanchaco", lat: 3.9265, lon: -77.3583, offshore_direction: 15, swell_window: [130, 260], offshore_km: 5.0, <<: *cp }  # sat-verified 2026-10-09 (websearch-seeded)

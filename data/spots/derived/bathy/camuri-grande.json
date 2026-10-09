@@ -1,0 +1,72 @@
+{
+  "spot": "camuri-grande",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.6231,
+    -66.6921
+  ],
+  "bearing_seaward_deg": 300.0,
+  "nearshore_depth_m": -31.0,
+  "offshore_depth_m": 228.0,
+  "mean_slope_m_per_km": 14.59,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.62422,
+      "lon": -66.69408,
+      "depth_m": -31.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.62535,
+      "lon": -66.69606,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.6276,
+      "lon": -66.70002,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.63209,
+      "lon": -66.70795,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.63659,
+      "lon": -66.71587,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.64558,
+      "lon": -66.73172,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.65907,
+      "lon": -66.7555,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.67704,
+      "lon": -66.78721,
+      "depth_m": 165.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.70401,
+      "lon": -66.83477,
+      "depth_m": 228.0
+    }
+  ]
+}

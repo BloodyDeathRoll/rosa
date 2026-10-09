@@ -1,0 +1,72 @@
+{
+  "spot": "cuyagua",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.4981,
+    -67.6915
+  ],
+  "bearing_seaward_deg": 25.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 620.0,
+  "mean_slope_m_per_km": 35.38,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.50014,
+      "lon": -67.69053,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.50218,
+      "lon": -67.68957,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.50625,
+      "lon": -67.68763,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.5144,
+      "lon": -67.68377,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.52255,
+      "lon": -67.6799,
+      "depth_m": 158.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.53885,
+      "lon": -67.67217,
+      "depth_m": 266.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.5633,
+      "lon": -67.66057,
+      "depth_m": 338.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.5959,
+      "lon": -67.6451,
+      "depth_m": 450.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.6448,
+      "lon": -67.62189,
+      "depth_m": 620.0
+    }
+  ]
+}

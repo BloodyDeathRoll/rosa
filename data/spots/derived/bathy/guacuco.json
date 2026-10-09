@@ -1,0 +1,72 @@
+{
+  "spot": "guacuco",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    11.0541,
+    -63.8149
+  ],
+  "bearing_seaward_deg": 57.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 32.0,
+  "mean_slope_m_per_km": 2.48,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.05532,
+      "lon": -63.81298,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.05655,
+      "lon": -63.81106,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.059,
+      "lon": -63.80721,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.0639,
+      "lon": -63.79953,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.06879,
+      "lon": -63.79184,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.07859,
+      "lon": -63.77647,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.09328,
+      "lon": -63.75341,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.11286,
+      "lon": -63.72266,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.14223,
+      "lon": -63.67653,
+      "depth_m": 32.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "casa-grande",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    11.279,
+    -73.8657
+  ],
+  "bearing_seaward_deg": 2.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 394.0,
+  "mean_slope_m_per_km": 22.82,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.28125,
+      "lon": -73.86562,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.28349,
+      "lon": -73.86554,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.28799,
+      "lon": -73.86538,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.29698,
+      "lon": -73.86506,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.30596,
+      "lon": -73.86474,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.32394,
+      "lon": -73.8641,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.3509,
+      "lon": -73.86314,
+      "depth_m": 107.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.38685,
+      "lon": -73.86186,
+      "depth_m": 273.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.44078,
+      "lon": -73.85994,
+      "depth_m": 394.0
+    }
+  ]
+}

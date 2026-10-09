@@ -1,0 +1,72 @@
+{
+  "spot": "dunas-de-taroa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    12.4375,
+    -71.6096
+  ],
+  "bearing_seaward_deg": 20.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 380.0,
+  "mean_slope_m_per_km": 21.41,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 12.43961,
+      "lon": -71.60881,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 12.44173,
+      "lon": -71.60803,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 12.44595,
+      "lon": -71.60645,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 12.4544,
+      "lon": -71.6033,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 12.46285,
+      "lon": -71.60015,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 12.47975,
+      "lon": -71.59385,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 12.50511,
+      "lon": -71.5844,
+      "depth_m": 169.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 12.53891,
+      "lon": -71.57179,
+      "depth_m": 241.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 12.58961,
+      "lon": -71.55287,
+      "depth_m": 380.0
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+# Rosa spot database - Colombia Caribbean (seeded 2026-10-09). Cartagena, Galerazamba, Puerto Colombia, Santa Marta, Tayrona,
+# Palomino and the Guajira. NE trade windswell most of the year, N swell Nov-Mar.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+region: Colombia Caribbean
+defaults: &cc
+  timezone: America/Bogota
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [315, 90]
+  ideal:
+    wind_dir: [135, 225]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-10-09 - colombia-caribbean, 22 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 22 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/colombia-caribbean/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: punta-gallinas, name: "Punta Gallinas", town: "Punta Gallinas", lat: 12.4590, lon: -71.6681, offshore_direction: 165, swell_window: [280, 50], offshore_km: 5.0, <<: *cc }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: dunas-de-taroa, name: "Dunas de Taroa", town: "Taroa", lat: 12.4375, lon: -71.6096, offshore_direction: 200, swell_window: [315, 85], offshore_km: 5.0, <<: *cc }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: cabo-de-la-vela, name: "Cabo de la Vela", town: "Cabo de la Vela", lat: 12.2075, lon: -72.1806, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, <<: *cc }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: arrecifes, name: "Arrecifes", town: "Parque Tayrona", lat: 11.3197, lon: -73.9510, offshore_direction: 236, swell_window: [351, 121], offshore_km: 5.0, <<: *cc }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: canaveral, name: "Canaveral", town: "Parque Tayrona", lat: 11.3117, lon: -73.9321, offshore_direction: 213, swell_window: [328, 98], offshore_km: 5.0, <<: *cc }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: los-naranjos, name: "Los Naranjos", town: "Los Naranjos", lat: 11.2973, lon: -73.8924, offshore_direction: 190, swell_window: [305, 75], offshore_km: 5.0, <<: *cc }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: mendihuaca, name: "Mendihuaca", town: "Mendihuaca", lat: 11.2815, lon: -73.8703, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, <<: *cc }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: casa-grande, name: "Casa Grande", town: "Mendihuaca", lat: 11.2790, lon: -73.8657, offshore_direction: 182, swell_window: [297, 67], offshore_km: 5.0, <<: *cc }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: costeno-beach, name: "Costeno Beach", town: "Mendihuaca", lat: 11.2733, lon: -73.8456, offshore_direction: 196, swell_window: [311, 81], offshore_km: 5.0, <<: *cc }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: buritaca, name: "Buritaca", town: "Buritaca", lat: 11.2650, lon: -73.7680, offshore_direction: 176, swell_window: [291, 61], offshore_km: 5.0, <<: *cc }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: palomino, name: "Palomino", town: "Palomino", lat: 11.2559, lon: -73.5563, offshore_direction: 222, swell_window: [337, 107], offshore_km: 5.0, <<: *cc }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: punta-roca-colombia, name: "Punta Roca", town: "Puerto Colombia", lat: 11.0456, lon: -74.9159, offshore_direction: 180, swell_window: [295, 65], offshore_km: 5.0, <<: *cc }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: salgar, name: "Salgar", town: "Salgar", lat: 11.0217, lon: -74.9341, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, <<: *cc }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: pradomar, name: "Pradomar", town: "Puerto Colombia", lat: 11.0026, lon: -74.9545, offshore_direction: 106, swell_window: [221, 351], offshore_km: 5.0, <<: *cc }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: miramar-colombia, name: "Miramar", town: "Puerto Colombia", lat: 10.9987, lon: -74.9550, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, <<: *cc }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: el-muelle-colombia, name: "El Muelle", town: "Puerto Colombia", lat: 10.9889, lon: -74.9624, offshore_direction: 102, swell_window: [217, 347], offshore_km: 5.0, <<: *cc }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: la-caracola, name: "La Caracola", town: "Puerto Colombia", lat: 10.8902, lon: -75.0611, offshore_direction: 160, swell_window: [275, 45], offshore_km: 5.0, <<: *cc }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: galerazamba, name: "Galerazamba", town: "Galerazamba", lat: 10.8010, lon: -75.2596, offshore_direction: 202, swell_window: [317, 87], offshore_km: 5.0, <<: *cc }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: punta-canoa, name: "Punta Canoa", town: "Punta de Canoa", lat: 10.5747, lon: -75.5072, offshore_direction: 180, swell_window: [295, 65], offshore_km: 5.0, <<: *cc }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: marbella-cartagena, name: "Marbella", town: "Cartagena", lat: 10.4364, lon: -75.5398, offshore_direction: 177, swell_window: [292, 62], offshore_km: 5.0, <<: *cc }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: cartagena-jetty, name: "Cartagena Jetty", town: "Cartagena", lat: 10.4016, lon: -75.5593, offshore_direction: 125, swell_window: [240, 10], offshore_km: 5.0, <<: *cc }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: hilton-cartagena, name: "Hilton", town: "Cartagena", lat: 10.3934, lon: -75.5618, offshore_direction: 112, swell_window: [227, 357], offshore_km: 5.0, <<: *cc }  # sat-verified 2026-10-09 (websearch-seeded)

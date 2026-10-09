@@ -1,0 +1,72 @@
+{
+  "spot": "el-cantil",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    5.6259,
+    -77.421
+  ],
+  "bearing_seaward_deg": 331.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 803.0,
+  "mean_slope_m_per_km": 45.92,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 5.62787,
+      "lon": -77.4221,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 5.62983,
+      "lon": -77.42319,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 5.63377,
+      "lon": -77.42538,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 5.64163,
+      "lon": -77.42976,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 5.6495,
+      "lon": -77.43414,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 5.66523,
+      "lon": -77.44291,
+      "depth_m": 172.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 5.68882,
+      "lon": -77.45605,
+      "depth_m": 315.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 5.72029,
+      "lon": -77.47358,
+      "depth_m": 503.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 5.76748,
+      "lon": -77.49988,
+      "depth_m": 803.0
+    }
+  ]
+}

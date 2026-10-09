@@ -1,0 +1,72 @@
+{
+  "spot": "playa-el-agua",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    11.141,
+    -63.8576
+  ],
+  "bearing_seaward_deg": 50.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 1.97,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.14245,
+      "lon": -63.85584,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.14389,
+      "lon": -63.85409,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.14678,
+      "lon": -63.85058,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.15256,
+      "lon": -63.84356,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.15834,
+      "lon": -63.83653,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.1699,
+      "lon": -63.82249,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.18724,
+      "lon": -63.80142,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.21036,
+      "lon": -63.77332,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.24503,
+      "lon": -63.73117,
+      "depth_m": 30.0
+    }
+  ]
+}

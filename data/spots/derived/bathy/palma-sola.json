@@ -1,0 +1,72 @@
+{
+  "spot": "palma-sola",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.5052,
+    -68.1715
+  ],
+  "bearing_seaward_deg": 40.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 53.0,
+  "mean_slope_m_per_km": 3.15,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.50692,
+      "lon": -68.17003,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.50864,
+      "lon": -68.16856,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.51209,
+      "lon": -68.16562,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.51898,
+      "lon": -68.15974,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.52587,
+      "lon": -68.15386,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.53964,
+      "lon": -68.1421,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.56031,
+      "lon": -68.12446,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.58786,
+      "lon": -68.10093,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.62919,
+      "lon": -68.06563,
+      "depth_m": 53.0
+    }
+  ]
+}

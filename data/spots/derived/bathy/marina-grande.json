@@ -1,0 +1,72 @@
+{
+  "spot": "marina-grande",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.6133,
+    -67.0087
+  ],
+  "bearing_seaward_deg": 15.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 121.0,
+  "mean_slope_m_per_km": 7.44,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.61547,
+      "lon": -67.00811,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.61764,
+      "lon": -67.00752,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.62199,
+      "lon": -67.00633,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.63067,
+      "lon": -67.00396,
+      "depth_m": 126.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.63936,
+      "lon": -67.0016,
+      "depth_m": 176.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.65673,
+      "lon": -66.99686,
+      "depth_m": 208.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.68279,
+      "lon": -66.98975,
+      "depth_m": 239.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.71754,
+      "lon": -66.98027,
+      "depth_m": 257.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.76966,
+      "lon": -66.96605,
+      "depth_m": 121.0
+    }
+  ]
+}

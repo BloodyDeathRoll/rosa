@@ -1,0 +1,72 @@
+{
+  "spot": "playa-waikiki",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.4833,
+    -68.0382
+  ],
+  "bearing_seaward_deg": 0.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 61.0,
+  "mean_slope_m_per_km": 3.61,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.48555,
+      "lon": -68.0382,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.4878,
+      "lon": -68.0382,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.49229,
+      "lon": -68.0382,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.50129,
+      "lon": -68.0382,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.51028,
+      "lon": -68.0382,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.52827,
+      "lon": -68.0382,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.55525,
+      "lon": -68.0382,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.59122,
+      "lon": -68.0382,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.64518,
+      "lon": -68.0382,
+      "depth_m": 61.0
+    }
+  ]
+}

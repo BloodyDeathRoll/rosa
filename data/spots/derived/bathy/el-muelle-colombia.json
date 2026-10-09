@@ -1,0 +1,72 @@
+{
+  "spot": "el-muelle-colombia",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.9889,
+    -74.9624
+  ],
+  "bearing_seaward_deg": 282.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 89.0,
+  "mean_slope_m_per_km": 4.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.98937,
+      "lon": -74.96464,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.98983,
+      "lon": -74.96688,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.99077,
+      "lon": -74.97136,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.99264,
+      "lon": -74.98032,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.99451,
+      "lon": -74.98928,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.99825,
+      "lon": -75.00721,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.00385,
+      "lon": -75.03409,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.01132,
+      "lon": -75.06994,
+      "depth_m": 125.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.02251,
+      "lon": -75.12372,
+      "depth_m": 89.0
+    }
+  ]
+}

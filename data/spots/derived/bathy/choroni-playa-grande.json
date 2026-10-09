@@ -1,0 +1,72 @@
+{
+  "spot": "choroni-playa-grande",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.5084,
+    -67.5984
+  ],
+  "bearing_seaward_deg": 45.0,
+  "nearshore_depth_m": -24.0,
+  "offshore_depth_m": 720.0,
+  "mean_slope_m_per_km": 41.92,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.50999,
+      "lon": -67.59678,
+      "depth_m": -24.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.51158,
+      "lon": -67.59517,
+      "depth_m": -43.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.51476,
+      "lon": -67.59193,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.52112,
+      "lon": -67.58546,
+      "depth_m": 157.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.52748,
+      "lon": -67.579,
+      "depth_m": 144.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.54019,
+      "lon": -67.56606,
+      "depth_m": 210.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.55927,
+      "lon": -67.54665,
+      "depth_m": 323.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.5847,
+      "lon": -67.52077,
+      "depth_m": 515.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.62284,
+      "lon": -67.48194,
+      "depth_m": 720.0
+    }
+  ]
+}

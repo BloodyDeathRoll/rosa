@@ -1,0 +1,63 @@
+# Rosa spot database - Venezuela (seeded 2026-10-09). the Caribbean coast from Puerto Cabello and Choroni through the Caracas
+# coast to Margarita and Sucre. NE trade windswell, N swell Nov-Mar.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+region: Venezuela
+defaults: &ve
+  timezone: America/Caracas
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [315, 90]
+  ideal:
+    wind_dir: [135, 225]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-10-09 - venezuela, 39 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 39 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/venezuela/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: playa-el-agua, name: "Playa El Agua", town: "Playa El Agua", lat: 11.1410, lon: -63.8576, offshore_direction: 230, swell_window: [345, 115], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: parguito, name: "Parguito", town: "Playa Parguito", lat: 11.1309, lon: -63.8469, offshore_direction: 225, swell_window: [340, 110], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: playa-caribe, name: "Playa Caribe", town: "Juan Griego", lat: 11.1099, lon: -63.9714, offshore_direction: 139, swell_window: [254, 24], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: guacuco, name: "Guacuco", town: "Guacuco", lat: 11.0541, lon: -63.8149, offshore_direction: 237, swell_window: [352, 122], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: las-salinas, name: "Las Salinas", town: "Pampatar", lat: 11.0045, lon: -63.7812, offshore_direction: 239, swell_window: [354, 124], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: chaguarama, name: "Chaguarama", town: "Chaguarama de Sotillo", lat: 10.7109, lon: -62.9909, offshore_direction: 215, swell_window: [330, 100], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: pui-puy, name: "Pui Puy", town: "Puipuy", lat: 10.6988, lon: -62.9650, offshore_direction: 183, swell_window: [298, 68], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: playa-tio-pedro, name: "Playa Tio Pedro", town: "Carúpano", lat: 10.6752, lon: -63.2383, offshore_direction: 172, swell_window: [287, 57], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: playa-copey, name: "Playa Copey", town: "Carupano", lat: 10.6711, lon: -63.3050, offshore_direction: 200, swell_window: [315, 85], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: los-caracas, name: "Los Caracas", town: "Los Caracas", lat: 10.6289, lon: -66.5705, offshore_direction: 180, swell_window: [295, 65], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: la-punta-los-caracas, name: "La Punta", town: "Los Caracas", lat: 10.6288, lon: -66.5734, offshore_direction: 139, swell_window: [254, 24], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: todasana, name: "Todasana", town: "Todasana", lat: 10.6286, lon: -66.4600, offshore_direction: 189, swell_window: [304, 74], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: playa-pelua, name: "Playa Pelua", town: "Camuri Grande", lat: 10.6259, lon: -66.7150, offshore_direction: 219, swell_window: [334, 104], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: anare, name: "Anare", town: "Anare", lat: 10.6243, lon: -66.6501, offshore_direction: 170, swell_window: [285, 55], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: camuri-grande, name: "Camuri Grande", town: "Camuri Grande", lat: 10.6231, lon: -66.6921, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: pantaleta, name: "Pantaleta", town: "Camuri Grande", lat: 10.6227, lon: -66.7096, offshore_direction: 206, swell_window: [321, 91], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: otro-pais, name: "Otro Pais", town: "Naiguatá", lat: 10.6212, lon: -66.7320, offshore_direction: 201, swell_window: [316, 86], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: chirere, name: "Chirere", town: "Chirere", lat: 10.6197, lon: -66.1906, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: playa-corrales, name: "Playa Corrales", town: "Caraballeda", lat: 10.6187, lon: -66.8599, offshore_direction: 180, swell_window: [295, 65], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: la-sabana, name: "La Sabana", town: "La Sabana", lat: 10.6166, lon: -66.3744, offshore_direction: 180, swell_window: [295, 65], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: los-cocos, name: "Los Cocos", town: "Caraballeda", lat: 10.6152, lon: -66.8350, offshore_direction: 217, swell_window: [332, 102], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: tanaguarena, name: "Tanaguarena", town: "Caraballeda", lat: 10.6143, lon: -66.8242, offshore_direction: 156, swell_window: [271, 41], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: marina-grande, name: "Marina Grande", town: "Catia La Mar", lat: 10.6133, lon: -67.0087, offshore_direction: 195, swell_window: [310, 80], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: punta-piedras, name: "Punta Piedras", town: "Macuto", lat: 10.6123, lon: -66.8858, offshore_direction: 183, swell_window: [298, 68], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: playa-surfista, name: "Playa Surfista", town: "La Guaira", lat: 10.6098, lon: -66.9828, offshore_direction: 199, swell_window: [314, 84], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: chirimena, name: "Chirimena", town: "Chirimena", lat: 10.6097, lon: -66.1749, offshore_direction: 210, swell_window: [325, 95], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: mamo, name: "Mamo", town: "Catia La Mar", lat: 10.5930, lon: -67.0578, offshore_direction: 153, swell_window: [268, 38], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: choroni-el-malecon, name: "Choroni El Malecon", town: "Choroni", lat: 10.5103, lon: -67.6068, offshore_direction: 140, swell_window: [255, 25], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: choroni-playa-grande, name: "Choroni Playa Grande", town: "Choroni", lat: 10.5084, lon: -67.5984, offshore_direction: 225, swell_window: [340, 110], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: palma-sola, name: "Palma Sola", town: "Palma Sola", lat: 10.5052, lon: -68.1715, offshore_direction: 220, swell_window: [335, 105], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: cuyagua, name: "Cuyagua", town: "Cuyagua", lat: 10.4981, lon: -67.6915, offshore_direction: 205, swell_window: [320, 90], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: bahia-de-cata, name: "Bahia de Cata", town: "Cata", lat: 10.4932, lon: -67.7416, offshore_direction: 186, swell_window: [301, 71], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: el-playon, name: "El Playon", town: "Ocumare de la Costa", lat: 10.4886, lon: -67.7679, offshore_direction: 159, swell_window: [274, 44], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: el-palito, name: "El Palito", town: "El Palito", lat: 10.4854, lon: -68.1152, offshore_direction: 205, swell_window: [320, 90], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: playa-waikiki, name: "Playa Waikiki", town: "Puerto Cabello", lat: 10.4833, lon: -68.0382, offshore_direction: 180, swell_window: [295, 65], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: cumboto, name: "Cumboto", town: "Puerto Cabello", lat: 10.4782, lon: -68.0308, offshore_direction: 204, swell_window: [319, 89], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: la-bocaina, name: "La Bocaina", town: "Puerto Cabello", lat: 10.4650, lon: -67.9312, offshore_direction: 230, swell_window: [345, 115], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: patanemo, name: "Patanemo", town: "Patanemo", lat: 10.4543, lon: -67.9221, offshore_direction: 191, swell_window: [306, 76], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: unare, name: "Unare", town: "Boca de Unare", lat: 10.1305, lon: -65.3856, offshore_direction: 191, swell_window: [306, 76], offshore_km: 5.0, <<: *ve }  # sat-verified 2026-10-09 (websearch-seeded)

@@ -1,0 +1,72 @@
+{
+  "spot": "palomino",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    11.2559,
+    -73.5563
+  ],
+  "bearing_seaward_deg": 42.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 55.0,
+  "mean_slope_m_per_km": 3.55,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.25757,
+      "lon": -73.55477,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.25924,
+      "lon": -73.55323,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.26258,
+      "lon": -73.55016,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.26927,
+      "lon": -73.54403,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.27595,
+      "lon": -73.53789,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.28931,
+      "lon": -73.52562,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.30936,
+      "lon": -73.50721,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.33609,
+      "lon": -73.48265,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.37618,
+      "lon": -73.44581,
+      "depth_m": 55.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "costeno-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    11.2733,
+    -73.8456
+  ],
+  "bearing_seaward_deg": 16.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 383.0,
+  "mean_slope_m_per_km": 21.52,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.27546,
+      "lon": -73.84497,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.27762,
+      "lon": -73.84434,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.28194,
+      "lon": -73.84307,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.29059,
+      "lon": -73.84054,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.29923,
+      "lon": -73.83802,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.31652,
+      "lon": -73.83296,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.34246,
+      "lon": -73.82537,
+      "depth_m": 90.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.37704,
+      "lon": -73.81526,
+      "depth_m": 298.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.4289,
+      "lon": -73.80008,
+      "depth_m": 383.0
+    }
+  ]
+}

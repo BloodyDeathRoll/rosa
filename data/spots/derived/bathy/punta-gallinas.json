@@ -1,0 +1,72 @@
+{
+  "spot": "punta-gallinas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    12.459,
+    -71.6681
+  ],
+  "bearing_seaward_deg": 345.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 374.0,
+  "mean_slope_m_per_km": 21.13,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 12.46117,
+      "lon": -71.6687,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 12.46334,
+      "lon": -71.66929,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 12.46769,
+      "lon": -71.67048,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 12.47637,
+      "lon": -71.67287,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 12.48506,
+      "lon": -71.67525,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 12.50243,
+      "lon": -71.68002,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 12.52849,
+      "lon": -71.68718,
+      "depth_m": 226.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 12.56324,
+      "lon": -71.69672,
+      "depth_m": 328.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 12.61536,
+      "lon": -71.71103,
+      "depth_m": 374.0
+    }
+  ]
+}

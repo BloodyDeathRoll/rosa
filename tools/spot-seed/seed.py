@@ -409,6 +409,19 @@ REGIONS = {
     # Ecuador's mainland coast: Montanita and Ayampe in the south, Manta, Canoa and
     # Mompiche north; the Galapagos are 900 km offshore and not seeded
     "ecuador": (-3.50, -81.20, 1.60, -79.40),
+    # Colombia's Pacific coast (Choco and Valle): Bahia Solano and El Valle, Nuqui, Termales,
+    # Pico de Loro, Ladrilleros south to Tumaco. Mangrove and river mouth most of the way.
+    "colombia-pacific": (1.40, -79.20, 7.30, -77.10),
+    # Colombia's Caribbean coast: Cartagena, Galerazamba, Puerto Colombia / Salgar, Santa
+    # Marta, Tayrona, Palomino east to the Guajira (Cabo de la Vela, Punta Gallinas)
+    "colombia-caribbean": (10.15, -75.80, 12.55, -71.60),
+    # Venezuela's Caribbean coast: Puerto Cabello and the Carabobo/Aragua bays (Patanemo,
+    # Cata, Cuyagua, Choroni), the Caracas coast (Los Caracas, Todasana, Chirimena), Unare,
+    # Margarita (Playa El Agua, Parguito) and Sucre east to the Paria peninsula
+    "venezuela": (9.90, -68.40, 11.25, -61.80),
+    # the Galapagos: San Cristobal (Carola, El Canon, Loberia, Tongo Reef, Manglecito, Punta
+    # Pitt) and Santa Cruz (Tortuga Bay, Cerro Gallina, Seymour Norte) - 900 km off Ecuador
+    "galapagos": (-1.10, -90.65, -0.30, -89.15),
     # ---- the south-west Atlantic. Uruguay and Argentina face E-SE into the same swell
     # Uruguay: Montevideo east through Punta del Este, La Paloma and Punta del Diablo
     "uruguay": (-35.10, -56.60, -33.60, -53.10),

@@ -160,7 +160,14 @@ BASINS: dict[str, tuple[str, ...]] = {
     "peru": ("Peru",),
     # Ecuador sits on the equator where the Humboldt coast turns east: its own frame
     # rather than stretching Peru's box 1,500 km north
-    "ecuador": ("Ecuador",),
+    # Colombia's Pacific coast joins it: the same S-SW groundswell and NW winter swell, one
+    # frame from Montanita to the Panama border
+    "ecuador": ("Ecuador", "Colombia Pacific"),
+    # the southern Caribbean: NE trade windswell and the winter N swells on the Colombian
+    # and Venezuelan coasts, Cartagena to the Paria peninsula
+    "caribbean-south": ("Colombia Caribbean", "Venezuela"),
+    # the Galapagos, 900 km offshore: its own small frame rather than stretching Ecuador's
+    "galapagos": ("Galapagos",),
     # Chile in two frames: the desert north (Arica to Antofagasta) takes the same S-SW
     # Southern Ocean groundswell arriving from much further away than it does in the
     # south, and one box over 24 deg of latitude would drown the detail in sea room
