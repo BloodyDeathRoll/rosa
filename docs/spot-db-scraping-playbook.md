@@ -220,7 +220,34 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-10-09, DB = 2780 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-10-09, DB = 2901 spots, ALL sat-verified)
+
+**New England 0 -> 54 (2026-10-09): Massachusetts 29, New Hampshire 7, Maine 18** - three regions on
+`north-america/us/{massachusetts,new-hampshire,maine}`, all on `us-east`. surf-forecast's per-state
+indexes were the complete name source; 65 names geocoded serially, all but one within 4 km.
+1. A z15 first read again: Google gave the car park, access road or state-park lot for almost
+   every name (only Nantasket and Seabrook near the water).
+2. Google's pin for one name can land on a neighbouring named break ("Brant Rock" sat on
+   Fieldstone) - rename to the break the tile shows, drop the duplicate row.
+3. Reef names with no place behind them (Costellos, Linkys, Trayhan's, Doc Brown's) return the
+   town's commercial strip - a long inland spread means gap queue, not a move.
+4. Jetty-mouth beaches pull the coastline normal onto the jetty (Plum Island, Pine Point); rocky
+   points and river mouths fail 3c (Rye on the Rocks, Ogunquit Rivermouth, Brace Cove) - all set to
+   the middle of the open arc. OSM's only "surf" tags were beach names containing "Surf".
+
+**Normandy 0 -> 26 (+4 held), England South 0 -> 41 (2026-10-09)** - both on `biscay-celtic`. No
+single Normandy extract on Geofabrik (`normandie-latest` 404s): merge `basse-normandie` +
+`haute-normandie` with pyosmium `MergeInputReader` into `data/osm/normandy.osm.pbf`; `england-south`
+symlinks `england-latest`. Web flow end to end (Normandy 0 OSM surf nodes; England's one = Littlehampton).
+1. Name sources: surf-forecast's France and United-Kingdom indexes (the England index page is
+   empty - use United-Kingdom), mondo.surf, Dorset guides. 74 of 75 names resolved; Google gave the
+   town/car park, so 70 of 71 kept pins moved at z15.
+2. 13 bad normals on Channel headlands and bays; Ecalgrain's ray hit Alderney at 18 km. GEBCO reads
+   Camber's and South Lancing's drying flats as land to 0.5 km - aim at the narrow open arc.
+3. **The Gulf of St Malo breaks the tide sanity cap**: EOT20 amplitude sums 6.0-7.6 m at Carolles,
+   Bretteville-sur-Ay, Carteret, Hatainville vs `test_committed_constants_are_sane`'s 6.0 m. Those 4
+   are held pending the operator's call on the cap.
+4. Spots within ~1 deg of the meridian join `test_geo_seam`'s pinned seam list (23 Channel spots).
 
 **Iceland 0 -> 10 (2026-10-09)** - one box over the whole island on the `europe/iceland` extract, new
 `iceland` basin. Zero OSM surf nodes (14 named beaches): web flow end to end. Name sources:
