@@ -1,6 +1,8 @@
 # Rosa spot database - Scotland West: Scotland's Atlantic side: Kintyre, Islay, Tiree, the Outer Hebrides and the north-west mainland. Open North Atlantic groundswell from the W-NW; offshore on an E wind, cold water.
 # Every spot carries offshore_km along its own seaward normal.
 
+country: "United Kingdom"
+
 defaults: &scw
   timezone: Europe/London
   height_coeff: 1.0

@@ -1,6 +1,8 @@
 # Rosa spot database - North Scotland (seeded 2026-09-03). Thurso's reefs face N into Atlantic swell wrapping through the Pentland Firth; offshore on a S wind, cold water.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "United Kingdom"
+
 defaults: &nsc
   timezone: Europe/London
   height_coeff: 1.0

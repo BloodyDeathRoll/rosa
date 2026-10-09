@@ -90,6 +90,7 @@ def load_spots_file(path: Path) -> list[Spot]:
     data = yaml.safe_load(path.read_text(encoding="utf-8"))
     rows: list[dict] = data["spots"]
     region = data.get("region") or _region_from_stem(path.stem)
+    country = data.get("country") or region
     spots: list[Spot] = []
     for i, raw in enumerate(rows):
         ideal = raw["ideal"]
@@ -159,6 +160,7 @@ def load_spots_file(path: Path) -> list[Spot]:
                 ideal_wind_dir=_pair(ideal["wind_dir"]),
                 ideal_size_m=_pair(ideal["size_m"]),
                 region=region,
+                country=country,
                 town=(raw.get("town") or None),
                 tide_best=tide_best,
                 shore=shore,

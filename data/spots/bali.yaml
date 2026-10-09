@@ -5,6 +5,8 @@
 # swell_window and offshore_direction are per spot; the anchor's default is the west coast.
 # Reef throughout except the Kuta-Canggu and Medewi beaches, set per spot.
 
+country: "Indonesia"
+
 defaults: &bali
   timezone: Asia/Makassar
   height_coeff: 1.0

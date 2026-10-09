@@ -2,6 +2,8 @@
 # West-facing Indian Ocean coast: SW groundswell year-round, the SE trade / land breeze offshore
 # in the morning and the sea breeze onshore by afternoon. Every spot carries offshore_km along
 # its own seaward normal; break_type per spot.
+country: "Australia"
+
 region: "WA Midwest"
 
 defaults: &wam

@@ -3,6 +3,8 @@
 # pier and inlet breaks, mostly on winter NE windswell and Aug-Oct hurricane swell.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "USA"
+
 defaults: &sfl
   timezone: America/New_York
   height_coeff: 1.0

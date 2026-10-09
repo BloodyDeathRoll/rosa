@@ -1,6 +1,8 @@
 # Rosa spot database - South Australia (seeded 2026-09-02). Fleurieu and Yorke peninsulas, Southern Ocean SW groundswell, offshore from the N/NE.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "Australia"
+
 defaults: &sa
   timezone: Australia/Adelaide
   height_coeff: 1.0

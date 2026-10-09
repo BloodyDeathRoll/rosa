@@ -1,6 +1,8 @@
 # Rosa spot database - Mauritius (seeded 2026-09-04). Volcanic island exposed to Indian Ocean and Southern Ocean swell on all sides; reef breaks dominate.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "Mauritius"
+
 defaults: &mau
   timezone: Indian/Mauritius
   height_coeff: 1.0

@@ -471,6 +471,7 @@ def build_payload(
             "id": spot.id,
             "name": spot.name,
             "region": spot.region,
+            "country": spot.country,
             # search-only: the town a break is often known by. Key omitted when unset.
             **({"town": spot.town} if spot.town else {}),
             "tide_best": spot.tide_best,
@@ -550,6 +551,8 @@ def _index_entry(payload: dict) -> dict:
     return {
         "name": payload["spot"]["name"],
         "region": payload["spot"].get("region", ""),
+        # favourites group by country (Hokkaido under Japan); an older payload has none
+        **({"country": payload["spot"]["country"]} if payload["spot"].get("country") else {}),
         # the search index matches name, region, town and id - see web/src/pages/SearchPage.tsx
         **({"town": payload["spot"]["town"]} if payload["spot"].get("town") else {}),
         "lat": payload["spot"]["lat"],

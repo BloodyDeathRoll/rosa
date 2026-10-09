@@ -1,6 +1,8 @@
 # Rosa spot database - Sao Paulo (seeded 2026-09-11). The south-facing coast from Guaruja to Ubatuba (Maresias, Itamambuca): S-SE groundswell, offshore on a N wind.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "Brazil"
+
 region: Sao Paulo
 defaults: &sp
   timezone: America/Sao_Paulo

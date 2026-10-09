@@ -1,6 +1,8 @@
 # Rosa spot database - Kenya (seeded 2026-09-03 - East Africa). The Diani and Galu reefs south of Mombasa: lagoon and reef-pass waves on the kaskazi and kusi monsoon swells, best Jun-Sep.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "Kenya"
+
 defaults: &ken
   timezone: Africa/Nairobi
   height_coeff: 1.0

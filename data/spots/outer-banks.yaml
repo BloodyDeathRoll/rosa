@@ -4,6 +4,8 @@
 # Peak season is hurricane swell Aug-Oct; offshore on a W-SW wind.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "USA"
+
 defaults: &obx
   timezone: America/New_York
   height_coeff: 1.0

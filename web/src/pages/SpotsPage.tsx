@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from "preact/hooks";
 import { fetchIndex, fetchSpot } from "../api";
 import {
   GroupChips,
-  groupNameOf,
+  chipOf,
   groupsOf,
   saveGroup,
   savedGroup,
@@ -155,7 +155,16 @@ export function SpotsPage() {
   const shown =
     activeGroup === ALL_GROUP
       ? favRows
-      : favRows.filter(([, e]) => groupNameOf(e.region) === activeGroup);
+      : favRows.filter(([, e]) => chipOf(e) === activeGroup);
+  // Under "All" the sections are countries, each split by region when it holds more
+  // than one (Japan: Hokkaido, Japan, Okinawa); under a country chip, its regions.
+  const sections =
+    activeGroup === ALL_GROUP
+      ? sectionsOf(shown, ([, e]) => chipOf(e)).map((c) => ({
+          ...c,
+          regions: sectionsOf(c.rows, ([, e]) => e.region),
+        }))
+      : [{ group: activeGroup, rows: shown, regions: sectionsOf(shown, ([, e]) => e.region) }];
 
   if (error) {
     return (
@@ -193,35 +202,40 @@ export function SpotsPage() {
             />
           )}
           <div class="rank-list">
-            {sectionsOf(shown, ([, e]) => e.region).map(({ group, rows }) => (
+            {sections.map(({ group, regions }) => (
               <Fragment key={group}>
-                {/* Only under "All" - inside a filtered group every row is that
-                    group, so the heading would just repeat the selected chip. */}
+                {/* Country headings only under "All" with more than one country - inside a
+                    chip every row is that country, so the heading would repeat the chip. */}
                 {activeGroup === ALL_GROUP && groups.length > 2 && (
                   <h3 class="group-label">{group}</h3>
                 )}
-                {rows.map(([id, e]) => {
-                  const p = payloads[id];
-                  return p ? (
-                    <SpotCard
-                      key={id}
-                      data={p}
-                      date={todayIn(p.spot.timezone)}
-                      isFav
-                      onToggle={() => onToggle(id)}
-                      mode={mode}
-                    />
-                  ) : (
-                    <Row
-                      key={id}
-                      id={id}
-                      entry={e}
-                      payload={undefined}
-                      onToggle={() => onToggle(id)}
-                      mode={mode}
-                    />
-                  );
-                })}
+                {regions.map(({ group: region, rows }) => (
+                  <Fragment key={region}>
+                    {regions.length > 1 && <h4 class="group-label group-sub">{region}</h4>}
+                    {rows.map(([id, e]) => {
+                      const p = payloads[id];
+                      return p ? (
+                        <SpotCard
+                          key={id}
+                          data={p}
+                          date={todayIn(p.spot.timezone)}
+                          isFav
+                          onToggle={() => onToggle(id)}
+                          mode={mode}
+                        />
+                      ) : (
+                        <Row
+                          key={id}
+                          id={id}
+                          entry={e}
+                          payload={undefined}
+                          onToggle={() => onToggle(id)}
+                          mode={mode}
+                        />
+                      );
+                    })}
+                  </Fragment>
+                ))}
               </Fragment>
             ))}
           </div>

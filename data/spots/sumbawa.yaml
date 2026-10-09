@@ -3,6 +3,8 @@
 # SW Indian Ocean groundswell year-round, biggest May-Oct with the SE trade offshore on the
 # south and west coasts. Reef throughout; swell_window and offshore_direction are per spot.
 
+country: "Indonesia"
+
 defaults: &sbw
   timezone: Asia/Makassar
   height_coeff: 1.0

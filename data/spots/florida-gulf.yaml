@@ -3,6 +3,8 @@
 # jetties and piers on local windswell behind fronts and tropical-storm swell.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "USA"
+
 defaults: &fgu
   timezone: America/New_York
   height_coeff: 1.0

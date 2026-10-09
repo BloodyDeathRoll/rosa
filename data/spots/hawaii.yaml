@@ -7,6 +7,8 @@
 # ⚠ offshore_point: the loader default pushes 0.06° WEST, which runs along this
 # NNW-facing shore - the spot carries an explicit seaward offshore ray instead.
 
+country: "USA"
+
 defaults: &hi
   timezone: Pacific/Honolulu
   height_coeff: 1.0

@@ -1,6 +1,8 @@
 # Rosa spot database - Cape Verde (seeded 2026-09-03 - West Africa). Sal, Boa Vista and Sao Vicente: reef points on the north and east shores. NW groundswell Nov-Mar with the NE trade blowing offshore on the classic right-handers.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "Cape Verde"
+
 defaults: &cv
   timezone: Atlantic/Cape_Verde
   height_coeff: 1.0

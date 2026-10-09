@@ -1,5 +1,7 @@
 # Rosa spot database - WA North (Coral Coast) (seeded 2026-09-02). Geraldton to Gnaraloo: west-facing Indian Ocean coast, SW groundswell, SE trade offshore in the morning.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
+country: "Australia"
+
 region: "WA North"
 
 defaults: &wan

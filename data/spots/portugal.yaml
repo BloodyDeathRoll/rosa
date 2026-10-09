@@ -11,6 +11,8 @@
 # tagged "approx - TODO verify"; orientations reasoned from coastal facing, not
 # surveyed. Same seed quality as costa-rica.yaml - calibrate before trusting.
 
+country: "Portugal"
+
 defaults: &pt
   timezone: Europe/Lisbon
   height_coeff: 1.0
@@ -77,11 +79,11 @@ spots:
   - { id: mindelo, name: "Mindelo", town: "Areia - Mindelo", lat: 41.308, lon: -8.7397, offshore_direction: 72, offshore_bearing: 252.0, offshore_km: 5.0, swell_window: [175, 340], <<: *pt }  # sat-verified 2026-08-15 (kept) 2026-07-24 - TODO verify
   - { id: aterro, name: "Praia do Aterro", town: "Perafita", lat: 41.2094, lon: -8.716, offshore_direction: 104, offshore_bearing: 284.0, offshore_km: 5.0, swell_window: [194, 345], <<: *pt }  # sat-verified 2026-08-15 (kept) 2026-07-24 - TODO verify
   - { id: le-a, name: "Leça", town: "Matosinhos", lat: 41.1861, lon: -8.7077, offshore_direction: 145, offshore_bearing: 325.0, offshore_km: 5.0, swell_window: [235, 345], <<: *pt }  # sat-verified 2026-08-15 (kept) 2026-07-24 - TODO verify
-  - { id: po-spot, name: "Spot de Surf", town: "Casais do Moinho da Praia", lat: 39.3993, lon: -9.2785, offshore_direction: 143, offshore_bearing: 323.0, offshore_km: 5.0, swell_window: [255, 25], <<: *pt }  # sat-verified 2026-08-15 (kept) 2026-07-24 - TODO verify
-  - { id: cantinho-bah-a, name: "Spot de Surf Cantinho da Bahía", town: "Baleal", lat: 39.3679, lon: -9.3396, offshore_direction: 115, offshore_bearing: 295.0, offshore_km: 5.0, <<: *pt }  # sat-verified 2026-08-15 (kept) 2026-07-24 - TODO verify
-  - { id: po-sport, name: "Sport de Surf", town: "Peniche", lat: 39.3611, lon: -9.3534, offshore_direction: 155, offshore_bearing: 335.0, offshore_km: 5.01, <<: *pt }  # sat-verified 2026-08-15 (kept) 2026-07-24 - TODO verify
+  - { id: po-spot, name: "Praia das Piscinas", town: "Casais do Moinho da Praia", lat: 39.3993, lon: -9.2785, offshore_direction: 143, offshore_bearing: 323.0, offshore_km: 5.0, swell_window: [255, 25], <<: *pt }  # sat-verified 2026-08-15 (kept) 2026-07-24 - TODO verify; name fixed 2026-10-09 (was the OSM tag text "Spot de Surf", id kept for saved favorites)
+  - { id: cantinho-bah-a, name: "Cantinho da Baía", town: "Baleal", lat: 39.3679, lon: -9.3396, offshore_direction: 115, offshore_bearing: 295.0, offshore_km: 5.0, <<: *pt }  # sat-verified 2026-08-15 (kept) 2026-07-24 - TODO verify; name fixed 2026-10-09 (was the OSM tag text "Spot de Surf Cantinho da Bahía", id kept for saved favorites)
+  - { id: po-sport, name: "Praia da Baía", town: "Peniche", lat: 39.3611, lon: -9.3534, offshore_direction: 155, offshore_bearing: 335.0, offshore_km: 5.01, <<: *pt }  # sat-verified 2026-08-15 (kept) 2026-07-24 - TODO verify; name fixed 2026-10-09 (was the OSM tag text "Sport de Surf", id kept for saved favorites)
   - { id: ba-a, name: "Praia da Baía", town: "Peniche", lat: 39.3605, lon: -9.359, offshore_direction: 183, offshore_bearing: 3.0, offshore_km: 5.0, swell_window: [305, 50], <<: *pt }  # sat-verified 2026-08-15 (kept) 2026-07-24 - TODO verify
-  - { id: molhe-leste, name: "Spot de Surf do Molhe Leste", town: "Peniche", lat: 39.3505, lon: -9.3686, offshore_direction: 29, offshore_bearing: 209.0, offshore_km: 5.0, swell_window: [175, 275], <<: *pt }  # sat-verified 2026-08-15 (kept) 2026-07-24 - TODO verify
+  - { id: molhe-leste, name: "Molhe Leste", town: "Peniche", lat: 39.3505, lon: -9.3686, offshore_direction: 29, offshore_bearing: 209.0, offshore_km: 5.0, swell_window: [175, 275], <<: *pt }  # sat-verified 2026-08-15 (kept) 2026-07-24 - TODO verify; name fixed 2026-10-09 (was the OSM tag text "Spot de Surf do Molhe Leste", id kept for saved favorites)
   - { id: consola-o, name: "Praia da Consolação", town: "Casal Moinho", lat: 39.3385, lon: -9.3607, offshore_direction: 75, offshore_bearing: 254.9, offshore_km: 5.0, swell_window: [180, 300], <<: *pt }  # sat-verified 2026-08-15 (kept) 2026-07-24 - TODO verify
   - { id: crazy, name: "Crazy Left", town: "Ericeira", lat: 38.9965, lon: -9.4255, offshore_direction: 93, offshore_bearing: 272.9, offshore_km: 5.0, swell_window: [195, 355], <<: *pt }  # sat-verified 2026-08-15 (kept) 2026-07-24 - TODO verify
   - { id: bordeira, name: "Praia da Bordeira", town: "Carrapateira", lat: 37.2019, lon: -8.9006, offshore_direction: 131, offshore_bearing: 311.0, offshore_km: 5.0, swell_window: [240, 20], <<: *pt }  # sat-verified 2026-08-15 (kept) 2026-07-24 - TODO verify

@@ -3,6 +3,8 @@
 # cold water, strong N winds in summer. Offshore wind is from the east. Every spot carries
 # offshore_km along its own seaward normal, so the sample point follows the pin.
 
+country: "USA"
+
 defaults: &or
   timezone: America/Los_Angeles
   height_coeff: 1.0

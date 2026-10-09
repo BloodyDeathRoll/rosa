@@ -1,6 +1,8 @@
 # Rosa spot database - Landes & Basque coast (seeded 2026-09-03). Biscay's west-facing beach breaks (Hossegor, Seignosse, Capbreton) and the Basque reefs (Guethary, Anglet): W-NW groundswell, offshore on an E wind.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "France"
+
 defaults: &lan
   timezone: Europe/Paris
   height_coeff: 1.0

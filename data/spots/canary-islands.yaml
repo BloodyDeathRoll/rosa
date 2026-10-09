@@ -3,6 +3,8 @@
 # the south shores work on the rarer S swells. Offshore direction varies per coast.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "Spain"
+
 defaults: &ic
   timezone: Atlantic/Canary
   height_coeff: 1.0

@@ -1,6 +1,8 @@
 # Rosa spot database - Santa Catarina (seeded 2026-09-11). Florianopolis, Garopaba and Imbituba: beaches and points facing E-SE, lit by S-SE groundswell; offshore on a W-NW wind.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "Brazil"
+
 region: Santa Catarina
 defaults: &sc
   timezone: America/Sao_Paulo

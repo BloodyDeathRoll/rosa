@@ -3,6 +3,8 @@
 # most east and south-east swell, so the inlets and their jetty sandbars carry the region.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "USA"
+
 defaults: &fsc
   timezone: America/New_York
   height_coeff: 1.0

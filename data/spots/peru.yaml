@@ -5,6 +5,8 @@
 # whole way. Offshore wind is easterly off the land. Every spot carries offshore_km along its
 # own seaward normal, so the sample point follows the pin.
 
+country: "Peru"
+
 defaults: &pe
   timezone: America/Lima
   height_coeff: 1.0

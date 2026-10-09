@@ -1,6 +1,8 @@
 # Rosa spot database - Fernando de Noronha (seeded 2026-09-11). The archipelago's north shore (Cacimba do Padre, Boldro) faces the North Atlantic NW-N groundswell of Dec-Mar; offshore on the SE trade.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "Brazil"
+
 region: Fernando de Noronha
 defaults: &fn
   timezone: America/Noronha

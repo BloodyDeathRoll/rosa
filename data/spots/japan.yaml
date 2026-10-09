@@ -13,6 +13,8 @@
 # tagged "approx - TODO verify"; orientations reasoned from coastal facing, not
 # surveyed. Same seed quality as costa-rica.yaml - calibrate before trusting.
 
+country: "Japan"
+
 defaults: &jp
   timezone: Asia/Tokyo
   height_coeff: 1.0

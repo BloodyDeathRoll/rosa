@@ -4,6 +4,8 @@
 # beach breaks (Gunnamatta, Woolamai) mixed - break_type per spot. Every spot carries
 # offshore_km along its own seaward normal.
 
+country: "Australia"
+
 defaults: &vic
   timezone: Australia/Melbourne
   height_coeff: 1.0

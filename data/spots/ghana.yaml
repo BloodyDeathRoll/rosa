@@ -1,6 +1,8 @@
 # Rosa spot database - Ghana (seeded 2026-09-03 - West Africa). Busua, Cape Three Points and Dixcove west of Takoradi, Kokrobite and Accra. Year-round S-SW South Atlantic swell, small and consistent; land breeze offshore in the morning.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "Ghana"
+
 defaults: &gt
   timezone: Africa/Accra
   height_coeff: 1.0

@@ -7,6 +7,8 @@
 # the SE trade blowing off the island; north-facing spots override. Every spot carries
 # offshore_km along its own seaward normal, so the sample point follows the pin.
 
+country: "French Polynesia"
+
 defaults: &pf
   timezone: Pacific/Tahiti
   height_coeff: 1.0

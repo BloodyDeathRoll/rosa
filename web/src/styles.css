@@ -1438,6 +1438,17 @@ a.rank-card:hover {
 .rank-list .group-label:first-child {
   margin-top: 4px;
 }
+/* a region inside a country section on Your spots (Japan: Hokkaido, Okinawa) */
+.group-label.group-sub {
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+.rank-list .group-label + .group-sub {
+  margin-top: 2px;
+}
 
 /* Extended-card carousel at the top of Home: every listed spot gets the rich
    card, swipe moves between them. Same centered-snap pattern as the map sheet;

@@ -3,6 +3,8 @@
 # the pin. Defaults are TODO calibrate.
 
 region: Alagoas
+country: "Brazil"
+
 defaults: &al
   timezone: America/Maceio
   height_coeff: 1.0

@@ -4,6 +4,8 @@
 # and winter nor'easters. Facing changes all the way round, so every spot carries its own
 # offshore_direction and swell_window; break_type per spot.
 
+country: "USA"
+
 defaults: &ma
   timezone: America/New_York
   height_coeff: 1.0

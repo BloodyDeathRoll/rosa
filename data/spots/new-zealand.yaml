@@ -4,6 +4,8 @@
 # own offshore_direction (from coastline geometry) and offshore_km along that normal, so
 # no single default push applies fleet-wide.
 
+country: "New Zealand"
+
 defaults: &nz
   timezone: Pacific/Auckland
   height_coeff: 1.0

@@ -55,6 +55,10 @@ class Spot:
     ideal_wind_dir: tuple[float, float]
     ideal_size_m: tuple[float, float]
     region: str = ""  # display country/area (e.g. "Israel"); used for search
+    # The country the region is in (e.g. "Japan" for Hokkaido, "USA" for Hawaii) - the
+    # favourites group by it (2026-10-09: a surfer looked for Atsunai under "Japan" and it
+    # sat under its own "Hokkaido" chip). Declared per region file (`country:`).
+    country: str = ""
     # Nearest settlement (e.g. "Puerto Escondido"), for SEARCH only - a break is famous under
     # the town's name at least as often as its own, and a search that only matches the break
     # name finds nothing for "Puerto Escondido" while holding three of its waves. Derived from

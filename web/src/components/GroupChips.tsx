@@ -1,12 +1,20 @@
+import { profile } from "../session";
 import type { IndexEntry } from "../types";
 
 export const ALL_GROUP = "All";
 const OTHER_GROUP = "Other";
 const GROUP_KEY = "rosa.spotsGroup"; // the chip you last picked, restored on open
 
+/** One remembered chip per account (2026-10-09): several people share a device, and a
+    chip picked under one account hid another account's spots ("Atsunai is missing"). */
+function groupKey(): string {
+  const p = profile();
+  return p ? `${GROUP_KEY}:${p.sub}` : GROUP_KEY;
+}
+
 export function savedGroup(): string {
   try {
-    return localStorage.getItem(GROUP_KEY) ?? ALL_GROUP;
+    return localStorage.getItem(groupKey()) ?? ALL_GROUP;
   } catch {
     return ALL_GROUP;
   }
@@ -14,7 +22,7 @@ export function savedGroup(): string {
 
 export function saveGroup(group: string): void {
   try {
-    localStorage.setItem(GROUP_KEY, group);
+    localStorage.setItem(groupKey(), group);
   } catch {
     // storage blocked - the filter just won't survive a relaunch
   }
@@ -22,6 +30,12 @@ export function saveGroup(group: string): void {
 
 export function groupNameOf(region: string | null | undefined): string {
   return region?.trim() || OTHER_GROUP;
+}
+
+/** The chip a spot falls under: its country, so Hokkaido and Okinawa sit under Japan and
+    Hawaii under USA (2026-10-09); an index without countries falls back to the region. */
+export function chipOf(e: { country?: string; region?: string } | null | undefined): string {
+  return e?.country?.trim() || groupNameOf(e?.region);
 }
 
 /** Split a list into region sections, ordered A-Z, optionally with one group
@@ -48,10 +62,10 @@ export function sectionsOf<T>(
   });
 }
 
-/** Region groups present among the given entries, "All" first (Surfline-style
+/** Country groups present among the given entries, "All" first (Surfline-style
     favorites group bar). Returns just ["All"] when there are no entries. */
 export function groupsOf(rows: [string, IndexEntry][]): string[] {
-  return [ALL_GROUP, ...sectionsOf(rows, ([, e]) => e.region).map((s) => s.group)];
+  return [ALL_GROUP, ...sectionsOf(rows, ([, e]) => chipOf(e)).map((s) => s.group)];
 }
 
 /** Horizontal, scrollable group pills - the selected one is filled. */

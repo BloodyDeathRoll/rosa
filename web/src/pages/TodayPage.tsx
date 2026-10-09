@@ -6,7 +6,7 @@ import { CoastChart, DayBars, SwimMiniBars } from "../components/CoastChart";
 import {
   ALL_GROUP,
   GroupChips,
-  groupNameOf,
+  chipOf,
   saveGroup,
   savedGroup,
 } from "../components/GroupChips";
@@ -80,13 +80,13 @@ export function planToday({
   // spot you opened. With none, no region is "yours" and nothing is nearest.
   const favRegionCount = new Map<string, number>();
   for (const id of myFavs) {
-    const r = groupNameOf(index[id]!.region);
+    const r = chipOf(index[id]);
     favRegionCount.set(r, (favRegionCount.get(r) ?? 0) + 1);
   }
   const favRegion = [...favRegionCount.entries()].sort((a, b) => b[1] - a[1])[0]?.[0];
   const favHome = favRegion
     ? [...myFavs]
-        .filter((id) => groupNameOf(index[id]!.region) === favRegion)
+        .filter((id) => chipOf(index[id]) === favRegion)
         .sort((a, b) => index[b]!.lat - index[a]!.lat)[0]
     : undefined;
   const from =
@@ -100,8 +100,10 @@ export function planToday({
   const nearestId = pos ? (byDistFrom(pos, allIds)[0] ?? null) : null;
   const homeId = from ? byDistFrom(from, allIds)[0] : undefined;
   const homeRegion = homeId ? (index[homeId]!.region?.trim() || null) : null;
+  // the chips are countries (Hokkaido under Japan); the coast chart keeps its regions
+  const homeChip = homeId ? chipOf(index[homeId]) : null;
 
-  const regionOf = (id: string) => groupNameOf(index[id]!.region);
+  const regionOf = (id: string) => chipOf(index[id]);
   // Only where you are, what you favorited, and the ONE spot you looked at last
   // - browsing history is not a set of places you surf, so a week of poking at
   // spots around the world must not turn into a row of chips.
@@ -112,8 +114,8 @@ export function planToday({
     if (!regions.includes(r)) regions.push(r);
   }
   // "All" and the home region lead; the rest read A-Z
-  const tail = regions.slice(homeRegion ? 2 : 1).sort((a, b) => a.localeCompare(b));
-  const ordered = [...regions.slice(0, homeRegion ? 2 : 1), ...tail];
+  const tail = regions.slice(homeChip ? 2 : 1).sort((a, b) => a.localeCompare(b));
+  const ordered = [...regions.slice(0, homeChip ? 2 : 1), ...tail];
 
   const scope = ordered.includes(group) ? group : ALL_GROUP;
   const inScope = (id: string) => scope === ALL_GROUP || regionOf(id) === scope;
@@ -136,7 +138,7 @@ export function planToday({
     // you could drive to - not five spots around whatever you last browsed
     // abroad. In a region you're only looking at, it's the anchor.
     const origin =
-      (scope === ALL_GROUP || scope === homeRegion) && from ? from : anchor ? at(anchor) : from;
+      (scope === ALL_GROUP || scope === homeChip) && from ? from : anchor ? at(anchor) : from;
     const pool = allIds.filter((id) => inScope(id) && !ids.includes(id));
     for (const id of origin ? byDistFrom(origin, pool) : pool) {
       if (ids.length >= MIN_SPOTS) break;

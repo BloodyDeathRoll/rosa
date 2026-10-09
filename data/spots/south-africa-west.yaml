@@ -4,6 +4,8 @@
 # south and prefer the winter NW-N. Cold Benguela water. Offshore direction varies per
 # coast. Every spot carries offshore_km along its own seaward normal.
 
+country: "South Africa"
+
 defaults: &saw
   timezone: Africa/Johannesburg
   height_coeff: 1.0

@@ -1,6 +1,8 @@
 # Rosa spot database - Cornwall & Devon (seeded 2026-09-03). Atlantic W-NW groundswell, biggest Sep-Mar; the north coast faces NW and is offshore on an E-SE wind, the south coast the reverse.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "United Kingdom"
+
 defaults: &cd
   timezone: Europe/London
   height_coeff: 1.0

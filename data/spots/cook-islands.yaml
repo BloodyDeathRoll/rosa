@@ -4,6 +4,8 @@
 # flow only. Rutaki Passage's geocode landed inland (village, not the reef channel)
 # and was dropped. offshore_direction re-aimed by aim_normal.py's GEBCO arc sweep.
 
+country: "Cook Islands"
+
 defaults: &ck
   timezone: Pacific/Rarotonga
   height_coeff: 1.0

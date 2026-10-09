@@ -1,6 +1,8 @@
 # Rosa spot database - Lofoten: the Lofoten islands above the Arctic Circle: Norwegian Sea swell from the W-N onto the outer islands' north-west beaches.
 # Every spot carries offshore_km along its own seaward normal.
 
+country: "Norway"
+
 defaults: &lof
   timezone: Europe/Oslo
   height_coeff: 1.0

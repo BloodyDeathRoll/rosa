@@ -9,6 +9,8 @@
 # still clip one near-shore GEBCO cell at their best bearing (shallow lagoon reef flat,
 # non-disqualifying per the NZ precedent - see docs/spot-db-scraping-playbook.md).
 
+country: "Vanuatu"
+
 defaults: &vu
   timezone: Pacific/Efate
   height_coeff: 1.0

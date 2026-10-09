@@ -1,6 +1,8 @@
 # Rosa spot database - Sweden: the Kattegat west coast (Halland), Skane and the Baltic east coast. Short-period wind swell; offshore direction varies per coast.
 # Every spot carries offshore_km along its own seaward normal.
 
+country: "Sweden"
+
 defaults: &se
   timezone: Europe/Stockholm
   height_coeff: 1.0

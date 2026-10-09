@@ -5,6 +5,8 @@
 # offshore_bearing carry the geometry - the region default below is the Pacific case and
 # every Caribbean spot overrides it.
 
+country: "Panama"
+
 defaults: &pa
   timezone: America/Panama
   height_coeff: 1.0

@@ -2,6 +2,8 @@
 # South-facing Southern Ocean coast: SW groundswell year-round, biggest in winter, cold water;
 # offshore wind is from the N. Granite points and exposed beach breaks; break_type per spot.
 # Every spot carries offshore_km along its own seaward normal.
+country: "Australia"
+
 region: "WA South"
 
 defaults: &was

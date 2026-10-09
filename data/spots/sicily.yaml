@@ -4,6 +4,8 @@
 # (Catania, Siracusa) the Ionian's SE-E. Short-period, like Cyprus. Offshore direction
 # varies per coast. Every spot carries offshore_km along its own seaward normal.
 
+country: "Italy"
+
 defaults: &sic
   timezone: Europe/Rome
   height_coeff: 1.0

@@ -4,6 +4,8 @@
 # Every spot carries offshore_km along its own seaward normal, so the sample point follows
 # the pin.
 
+country: "Australia"
+
 defaults: &syd
   timezone: Australia/Sydney
   height_coeff: 1.0

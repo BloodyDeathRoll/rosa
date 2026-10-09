@@ -4,6 +4,8 @@
 # cross-shore; offshore is the E "berg" wind off the desert. Every spot carries offshore_km
 # along its own seaward normal.
 
+country: "Namibia"
+
 defaults: &na
   timezone: Africa/Windhoek
   height_coeff: 1.0

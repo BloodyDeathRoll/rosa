@@ -177,6 +177,22 @@ def test_every_spot_carries_a_town():
     assert missing == [], f"spots with no town: {missing[:10]}"
 
 
+def test_every_region_file_declares_its_country():
+    """The favourites chips group by country (Hokkaido and Okinawa under Japan, Hawaii and
+    the Florida regions under USA): a region file without `country:` would fall back to its
+    own region name and split a country's spots across two chips again (2026-10-09)."""
+    import yaml
+
+    missing = sorted(
+        p.stem
+        for p in SPOTS_DIR.glob("*.yaml")
+        if not str(
+            (yaml.safe_load(p.read_text(encoding="utf-8")) or {}).get("country") or ""
+        ).strip()
+    )
+    assert missing == [], f"region files with no country: {missing}"
+
+
 def test_every_cam_can_follow_its_stream():
     """A 24/7 stream gets a new video id on every restart, so the committed `yt` rots within
     hours; the player finds the current one as the newest same-title broadcast in the

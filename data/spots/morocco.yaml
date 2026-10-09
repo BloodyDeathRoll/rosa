@@ -5,6 +5,8 @@
 # sample point follows the pin. The Mediterranean coast is out of scope (see the
 # seed.py bbox comment).
 
+country: "Morocco"
+
 defaults: &ma
   timezone: Africa/Casablanca
   height_coeff: 1.0

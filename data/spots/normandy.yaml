@@ -3,6 +3,8 @@
 # Channel W-NW or a North Sea windswell. Big tides: most breaks are tide-specific.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "France"
+
 defaults: &nor
   timezone: Europe/Paris
   height_coeff: 1.0

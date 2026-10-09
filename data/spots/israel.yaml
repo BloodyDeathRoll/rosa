@@ -9,6 +9,8 @@
 #   normal) to cast the ray elsewhere. A pin is the ONLY place a location is written down.
 # swell_window: swell source directions that reach the break.
 
+country: "Israel"
+
 defaults: &il
   timezone: Asia/Jerusalem
   swell_window: [250, 340]

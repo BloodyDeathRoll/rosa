@@ -10,6 +10,8 @@
 # that starts on land. offshore_direction re-aimed by aim_normal.py's GEBCO arc sweep
 # for the rest.
 
+country: "Samoa"
+
 defaults: &ws
   timezone: Pacific/Apia
   height_coeff: 1.0

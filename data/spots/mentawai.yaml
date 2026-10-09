@@ -4,6 +4,8 @@
 # on the west-facing breaks. Reef throughout; swell_window and offshore_direction per spot.
 # Towns are the island or the nearest village - most breaks have no settlement within 12 km.
 
+country: "Indonesia"
+
 defaults: &mtw
   timezone: Asia/Jakarta
   height_coeff: 1.0

@@ -1,6 +1,8 @@
 # Rosa spot database - North East England (seeded 2026-09-03). North Sea coast facing E-NE: short-period N-NE windswell, biggest in autumn and winter; offshore on a W-SW wind.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "United Kingdom"
+
 defaults: &nee
   timezone: Europe/London
   height_coeff: 1.0

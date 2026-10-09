@@ -1,6 +1,8 @@
 # Rosa spot database - Rio Grande do Norte (seeded 2026-09-11). Pipa and Natal face E-SE into the trade swell; the north coast faces N. Offshore varies per coast.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "Brazil"
+
 region: Rio Grande do Norte
 defaults: &rn
   timezone: America/Fortaleza

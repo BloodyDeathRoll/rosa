@@ -1,6 +1,8 @@
 # Rosa spot database - Netherlands: the Dutch North Sea coast, Zeeland to the Wadden. Short-period wind swell from the SW-N; offshore on an E wind.
 # Every spot carries offshore_km along its own seaward normal.
 
+country: "Netherlands"
+
 defaults: &nl
   timezone: Europe/Amsterdam
   height_coeff: 1.0

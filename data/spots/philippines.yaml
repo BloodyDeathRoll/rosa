@@ -17,6 +17,8 @@
 # tagged "approx - TODO verify"; orientations reasoned from coastal facing, not
 # surveyed. Same seed quality as costa-rica.yaml - calibrate before trusting.
 
+country: "Philippines"
+
 west: &phw
   timezone: Asia/Manila
   height_coeff: 1.0

@@ -3,6 +3,8 @@
 # the afternoon sea breeze ("the Fremantle Doctor") blows onshore from the SW most summer days.
 # Offshore wind is from the east. Every spot carries offshore_km along its own seaward normal.
 
+country: "Australia"
+
 defaults: &per
   timezone: Australia/Perth
   height_coeff: 1.0

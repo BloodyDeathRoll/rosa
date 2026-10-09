@@ -1,6 +1,8 @@
 # Rosa spot database - Rio Grande do Sul (seeded 2026-09-11). A straight east-facing sand coast (Torres, Tramandai): S-SE groundswell and E wind swell, offshore on a W wind.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "Brazil"
+
 region: Rio Grande do Sul
 defaults: &rs
   timezone: America/Sao_Paulo

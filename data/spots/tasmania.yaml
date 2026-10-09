@@ -1,6 +1,8 @@
 # Rosa spot database - Tasmania (seeded 2026-09-02). East and south coasts: Tasman Sea E swell and Southern Ocean S-SW swell, cold water, offshore from the W.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "Australia"
+
 defaults: &tas
   timezone: Australia/Hobart
   height_coeff: 1.0

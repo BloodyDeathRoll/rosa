@@ -4,6 +4,8 @@
 # Offshore direction varies per coast. Every spot carries offshore_km along its own
 # seaward normal.
 
+country: "Japan"
+
 defaults: &hk
   timezone: Asia/Tokyo
   height_coeff: 1.0

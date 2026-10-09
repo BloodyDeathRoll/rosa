@@ -6,6 +6,8 @@
 # Swell is S-SW Southern Ocean groundswell year-round; offshore on the SW-facing passes
 # is the prevailing SE trade. Every spot carries offshore_km along its own seaward normal.
 
+country: "Fiji"
+
 defaults: &fj
   timezone: Pacific/Fiji
   height_coeff: 1.0

@@ -3,6 +3,8 @@
 # islands catch both, so every spot carries its own swell_window and offshore_direction.
 # Reef throughout except the Tanegashima beaches; break_type per spot.
 
+country: "Japan"
+
 defaults: &tan
   timezone: Asia/Tokyo
   height_coeff: 1.0

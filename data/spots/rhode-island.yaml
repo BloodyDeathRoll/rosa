@@ -3,6 +3,8 @@
 # offshore on a N-NW wind. Cobble reefs and breachway bars mixed - break_type per spot.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "USA"
+
 defaults: &ri
   timezone: America/New_York
   height_coeff: 1.0

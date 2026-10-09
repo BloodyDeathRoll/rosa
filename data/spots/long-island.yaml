@@ -4,6 +4,8 @@
 # jetties throughout, with Montauk's cobble points the only reef-like breaks.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "USA"
+
 defaults: &li
   timezone: America/New_York
   height_coeff: 1.0

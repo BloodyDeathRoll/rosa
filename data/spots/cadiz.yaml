@@ -3,6 +3,8 @@
 # of Cadiz, offshore on the E Levante wind.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "Spain"
+
 defaults: &cad
   timezone: Europe/Madrid
   height_coeff: 1.0

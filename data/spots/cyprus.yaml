@@ -3,6 +3,8 @@
 # Short-period, like Israel's. Offshore direction varies per coast.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "Cyprus"
+
 defaults: &cy
   timezone: Asia/Nicosia
   height_coeff: 1.0

@@ -15,6 +15,8 @@
 # sat-verified per spot (see per-line tags). Orientations derive from coastline
 # geometry, not survey - calibrate before trusting.
 
+country: "El Salvador"
+
 defaults: &sv
   timezone: America/El_Salvador
   height_coeff: 1.0

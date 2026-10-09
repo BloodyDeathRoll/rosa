@@ -16,6 +16,8 @@
 # TODO verify"); orientations reasoned from coastal facing, not surveyed. Calibration starting
 # point, same as the israel.yaml + costa-rica.yaml seeds.
 
+country: "Sri Lanka"
+
 south: &sl_s
   timezone: Asia/Colombo
   swell_window: [150, 230]     # SSE → SW

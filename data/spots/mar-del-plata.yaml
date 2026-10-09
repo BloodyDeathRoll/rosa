@@ -2,6 +2,8 @@
 # Every spot carries offshore_km along its own seaward normal, so the deep-water sample follows
 # the pin. Defaults are TODO calibrate.
 
+country: "Argentina"
+
 region: Mar del Plata
 defaults: &mdp
   timezone: America/Argentina/Buenos_Aires

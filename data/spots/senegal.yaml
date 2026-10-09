@@ -1,6 +1,8 @@
 # Rosa spot database - Senegal (seeded 2026-09-03 - West Africa). Dakar's peninsula points and reefs, the Petite Cote beaches and Cap Skirring. N-NW Atlantic groundswell Oct-Apr; the NE harmattan trade is offshore on the west-facing breaks.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "Senegal"
+
 defaults: &sen
   timezone: Africa/Dakar
   height_coeff: 1.0

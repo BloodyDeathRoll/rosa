@@ -3,6 +3,8 @@
 # Open to every NW-SW North Atlantic swell; offshore on an E wind.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "Spain"
+
 defaults: &gal
   timezone: Europe/Madrid
   height_coeff: 1.0

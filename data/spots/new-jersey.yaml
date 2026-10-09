@@ -3,6 +3,8 @@
 # NE windswell; offshore on a W-NW wind.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "USA"
+
 defaults: &nj
   timezone: America/New_York
   height_coeff: 1.0

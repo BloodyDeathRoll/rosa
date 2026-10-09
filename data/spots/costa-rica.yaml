@@ -21,6 +21,8 @@
 # treat as a calibration starting point, same as the israel.yaml seed. ideal.size_m bumped
 # for the more powerful Pacific coast (calibrate per spot from the log, don't trust blindly).
 
+country: "Costa Rica"
+
 pacific: &pac
   timezone: America/Costa_Rica
   swell_window: [190, 310]     # SSW → NW

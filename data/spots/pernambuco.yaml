@@ -1,6 +1,8 @@
 # Rosa spot database - Pernambuco (seeded 2026-09-11). The east-facing reef-lined coast (Maracaipe, Porto de Galinhas): SE trade swell, offshore on a W wind.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "Brazil"
+
 region: Pernambuco
 defaults: &pe
   timezone: America/Recife

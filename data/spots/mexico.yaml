@@ -18,6 +18,8 @@
 # sat-verified per spot (see per-line tags). Orientations derive from coastline
 # geometry, not survey - calibrate before trusting.
 
+country: "Mexico"
+
 defaults: &mx
   timezone: America/Mexico_City
   height_coeff: 1.0

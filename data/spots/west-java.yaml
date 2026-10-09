@@ -4,6 +4,8 @@
 # Reef points and river-mouth beaches mixed; break_type, swell_window and offshore_direction
 # are per spot.
 
+country: "Indonesia"
+
 defaults: &wjv
   timezone: Asia/Jakarta
   height_coeff: 1.0

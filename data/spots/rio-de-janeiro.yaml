@@ -1,6 +1,8 @@
 # Rosa spot database - Rio de Janeiro (seeded 2026-09-11). South-facing beaches and points from Paraty to Buzios (Prainha, Itauna, Arraial): S-SW groundswell, offshore on a N wind.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "Brazil"
+
 region: Rio de Janeiro
 defaults: &rj
   timezone: America/Sao_Paulo

@@ -1,6 +1,8 @@
 # Rosa spot database - Madagascar (seeded 2026-09-04). East coast faces open Indian Ocean swell; south tip catches Southern Ocean groundswell.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "Madagascar"
+
 defaults: &mad
   timezone: Indian/Antananarivo
   height_coeff: 1.0

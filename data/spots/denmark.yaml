@@ -1,6 +1,8 @@
 # Rosa spot database - Denmark: Jutland's North Sea coast (Cold Hawaii, Hvide Sande, Lokken) and north Zealand's Kattegat shore. Short-period North Sea wind swell from the W-NW; offshore on an E wind.
 # Every spot carries offshore_km along its own seaward normal.
 
+country: "Denmark"
+
 defaults: &dk
   timezone: Europe/Copenhagen
   height_coeff: 1.0

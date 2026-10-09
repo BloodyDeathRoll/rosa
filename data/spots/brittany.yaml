@@ -1,6 +1,8 @@
 # Rosa spot database - Brittany (seeded 2026-09-03). Finistere and Morbihan: La Torche's bay, Crozon's beaches, Quiberon's Cote Sauvage - W-SW Atlantic swell, offshore on an E-NE wind.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "France"
+
 defaults: &bre
   timezone: Europe/Paris
   height_coeff: 1.0

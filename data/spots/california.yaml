@@ -5,6 +5,8 @@
 # Swell regime: NW winter groundswell + S-SSW summer swell; Santa Monica Bay is
 # shadowed from due W-NW by Point Dume - windows reflect the bay geometry.
 
+country: "USA"
+
 defaults: &ca
   timezone: America/Los_Angeles
   height_coeff: 1.0

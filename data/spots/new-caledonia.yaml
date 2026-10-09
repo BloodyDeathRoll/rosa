@@ -6,6 +6,8 @@
 # candidates were sat-verified 2026-10-08 and all dropped - every one is inside
 # the lagoon or a sheltered bay (docs/OPEN-ITEMS.md 40).
 
+country: "New Caledonia"
+
 defaults: &nc
   timezone: Pacific/Noumea
   height_coeff: 1.0

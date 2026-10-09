@@ -159,7 +159,8 @@ Four things, in this order:
 2. **OSM extract** - `data/osm/<region>.osm.pbf` from
    `download.geofabrik.de/<continent>/<country>-latest.osm.pbf`. Gitignored, one-time.
    Without it `--osm local` silently falls back to Overpass.
-3. **Region defaults** - a new `data/spots/<region>.yaml` needs its anchor block: timezone,
+3. **Region defaults** - a new `data/spots/<region>.yaml` needs a top-level `country:` (the
+   favourites chips group by it - Hokkaido under Japan; test-enforced) and its anchor block: timezone,
    a default `swell_window`, `height_coeff: 1.0`, `ideal` wind/size, and the seaward
    convention for that coast (the YAML loader's default pushes the sample point 0.06 deg
    **W**, which is right only for a west-facing coast - every other coast sets `offshore_km`,

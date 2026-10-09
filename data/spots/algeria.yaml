@@ -2,6 +2,8 @@
 # from the NW-NE storms between Spain and Sardinia, short-period like Israel's, offshore on a S wind.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "Algeria"
+
 defaults: &dz
   timezone: Africa/Algiers
   height_coeff: 1.0

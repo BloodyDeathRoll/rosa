@@ -4,6 +4,8 @@
 # points and beach breaks; break_type per spot. Every spot carries offshore_km along its own
 # seaward normal.
 
+country: "Australia"
+
 defaults: &sc
   timezone: Australia/Brisbane
   height_coeff: 1.0

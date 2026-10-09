@@ -1,6 +1,8 @@
 # Rosa spot database - Scotland East: Scotland's North Sea side: the Moray coast, Fraserburgh, Aberdeen, Fife and East Lothian. N-NE North Sea swell from lows passing into Scandinavia; offshore on a W wind.
 # Every spot carries offshore_km along its own seaward normal.
 
+country: "United Kingdom"
+
 defaults: &sce
   timezone: Europe/London
   height_coeff: 1.0

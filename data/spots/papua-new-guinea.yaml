@@ -9,6 +9,8 @@
 # aim_normal.py's GEBCO arc sweep (the by-eye initial guess crossed land on nusa-island
 # and rubio-plantation - both re-aimed to the sweep's best bearing).
 
+country: "Papua New Guinea"
+
 defaults: &png
   timezone: Pacific/Port_Moresby
   height_coeff: 1.0

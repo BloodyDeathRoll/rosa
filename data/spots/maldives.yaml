@@ -7,6 +7,8 @@
 # the regional default below; west-facing spots override it. Every spot carries offshore_km
 # along its own seaward normal, so the sample point follows the pin.
 
+country: "Maldives"
+
 defaults: &mv
   timezone: Indian/Maldives
   height_coeff: 1.0

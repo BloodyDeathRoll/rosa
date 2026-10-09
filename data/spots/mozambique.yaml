@@ -1,6 +1,8 @@
 # Rosa spot database - Mozambique (seeded 2026-09-03 - East Africa). Ponta do Ouro and Malongane on the South African border, Tofo and Tofinho at Inhambane. S-SE swell, warm water, offshore on the W land breeze.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "Mozambique"
+
 defaults: &moz
   timezone: Africa/Maputo
   height_coeff: 1.0

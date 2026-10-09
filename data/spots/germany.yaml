@@ -1,6 +1,8 @@
 # Rosa spot database - Germany: the North Sea islands and coast (Sylt, St Peter-Ording, Norderney) and the Baltic (Fehmarn, Warnemuende, Ruegen). Short-period wind swell; offshore direction varies per coast.
 # Every spot carries offshore_km along its own seaward normal.
 
+country: "Germany"
+
 defaults: &de
   timezone: Europe/Berlin
   height_coeff: 1.0

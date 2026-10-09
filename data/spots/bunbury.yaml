@@ -3,6 +3,8 @@
 # in the morning and the sea breeze onshore by afternoon. Every spot carries offshore_km along
 # its own seaward normal; break_type per spot.
 
+country: "Australia"
+
 defaults: &bun
   timezone: Australia/Perth
   height_coeff: 1.0

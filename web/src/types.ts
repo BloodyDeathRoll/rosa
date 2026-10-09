@@ -115,6 +115,8 @@ export interface SpotPayload {
     id: string;
     name: string;
     region?: string;
+    /** The region's country ("Japan" for Hokkaido) - the favourites chips group by it. */
+    country?: string;
     /** Nearest settlement - search matches it, nothing renders it as part of the name. */
     town?: string;
     tide_best?: "low" | "mid" | "high" | null;
@@ -155,6 +157,9 @@ export interface SpotPayload {
 export interface IndexEntry {
   name: string;
   region?: string;
+  /** The region's country ("Japan" for Hokkaido, "USA" for Hawaii); absent on an index
+      published before 2026-10-09, when the chip falls back to the region. */
+  country?: string;
   /** Nearest settlement, so "tel aviv" finds every Tel Aviv break. Search-only. */
   town?: string;
   lat: number;

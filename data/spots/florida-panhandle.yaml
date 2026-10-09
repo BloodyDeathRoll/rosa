@@ -3,6 +3,8 @@
 # behind winter fronts and tropical-storm swell. Central time.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "USA"
+
 defaults: &fpa
   timezone: America/Chicago
   height_coeff: 1.0

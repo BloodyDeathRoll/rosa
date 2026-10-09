@@ -2,6 +2,8 @@
 # Every spot carries offshore_km along its own seaward normal, so the deep-water sample follows
 # the pin. Defaults are TODO calibrate.
 
+country: "Uruguay"
+
 region: Uruguay
 defaults: &uy
   timezone: America/Montevideo

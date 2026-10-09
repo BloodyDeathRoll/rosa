@@ -4,6 +4,8 @@
 # Defaults are TODO calibrate.
 
 region: Colombia Pacific
+country: "Colombia"
+
 defaults: &cp
   timezone: America/Bogota
   height_coeff: 1.0

@@ -2,6 +2,8 @@
 # (Zarautz, Sopelana) and the Mundaka rivermouth left: NW groundswell, offshore on a S wind.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "Spain"
+
 defaults: &eus
   timezone: Europe/Madrid
   height_coeff: 1.0

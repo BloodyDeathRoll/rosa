@@ -3,6 +3,8 @@
 # Hunting Island: south-east-facing barrier beach on hurricane swell and NE windswell.
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "USA"
+
 defaults: &sc
   timezone: America/New_York
   height_coeff: 1.0

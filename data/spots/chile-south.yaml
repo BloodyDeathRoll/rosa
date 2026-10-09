@@ -5,6 +5,8 @@
 # the pin. Defaults are TODO calibrate.
 
 region: Chile South
+country: "Chile"
+
 defaults: &cls
   timezone: America/Santiago
   height_coeff: 1.0

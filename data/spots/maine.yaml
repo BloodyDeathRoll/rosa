@@ -2,6 +2,8 @@
 # beaches and ledges on nor'easter and hurricane swell. Every spot carries its own
 # offshore_direction and swell_window; break_type per spot.
 
+country: "USA"
+
 defaults: &me
   timezone: America/New_York
   height_coeff: 1.0

@@ -3,6 +3,8 @@
 # rarer the further east; offshore on a northerly. Kent's Thanet faces east (North Sea).
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 
+country: "United Kingdom"
+
 defaults: &ens
   timezone: Europe/London
   height_coeff: 1.0
