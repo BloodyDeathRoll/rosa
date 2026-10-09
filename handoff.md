@@ -1,97 +1,83 @@
-# Session Handoff — 2026-10-07
+# Session Handoff — 2026-10-09
 
 ## Goal
-Make info@rosa.surf a real Rosa sender and receiver, route all app contact/report mail there,
-and work the Dream 2026-10-07 review. All done; three small threads remain (below).
+Long session (2026-10-07 to 10-09): get Rosa off the public Open-Meteo quota without cutting the
+16-day horizon or paying, clear the board, seed a big batch of new coasts, SEO, and fix the
+"Atsunai favourite missing" report by grouping favourite chips by country.
 
 ## Current State
-- **info@rosa.surf = shared mailbox "Rosa"** in the Cronus Media Microsoft 365 tenant (no
-  licence, 50 GB). shahar@cronus.media has Send As + Full Access. The 10-06 alias is removed.
-  Mail from it shows "Rosa". Verified by a Gmail round trip and a message trace. The operator
-  has it on the Outlook phone app.
-- **DKIM on** for rosa.surf (Status Valid). The selector1/selector2 `_domainkey` CNAMEs are at
-  GoDaddy and resolve publicly.
-- **Mailbox photo NOT set.** Graph `Set-MgUserPhotoContent` returned 404 twice (unlicensed
-  shared mailbox). The tenant has 1 Business Basic seat and it is used. The operator said
-  "try tomorrow". Memory `rosa-mailbox-photo-retry-due-2026-10-08` has the steps.
-- **Contact Us + spot Reports mail to info@rosa.surf** (`512007c`). FormSubmit is activated
-  for the new address. The operator confirmed reports now arrive after reopening the app.
-- **CSP fix `d8b4ded`, live.** `formsubmit.co` was missing from `connect-src` from 2026-09-25,
-  so no report was mailed in that window. The 3 real user reports from that window were resent
-  to info@rosa.surf (FormSubmit said success; arrival not confirmed by the operator):
-  ollies-point 09-26 and 09-27, witchs-rock 09-29.
-- **Dream 2026-10-07: 3 items applied, committed `79f7654`, pushed.** Pipeline-only. The VM
-  pulls it next cycle. VM pickup NOT verified yet.
-- Dream backlog: 0 open except push-api rate limits (blocked on Vercel Hobby, OPEN-ITEMS 33a).
-  Swarm: 2 audits, all closed.
-- Working tree clean, HEAD = origin/main = `79f7654` before this handoff file.
+- **Self-hosted Open-Meteo on rosa-arm (82.70.253.255) is live** for weather AND marine
+  (`ROSA_WEATHER_URL`, `ROSA_MARINE_URL` in `~/rosa/.env`), image `open-meteo-local:290493f`
+  built from open-meteo main (HRRR direction fix #2157). Falls back to the public API on any
+  failure; `publish.sh` 4f alerts on fallback, 4g alerts when an official 1.7.0+ release ships.
+  Compose file: `deploy/oracle/open-meteo/docker-compose.yml`. Disk 153 GB; rosa-instance terminated.
+- **Spot DB 3056**, tests pass. New this session: South Florida, Iceland 11, Normandy 32,
+  England South 48, Massachusetts/NH/Maine, US south-east (Florida NE/Panhandle/Gulf, SC, GA,
+  Outer Banks +6), Colombia 33, Venezuela 39, Galapagos 5, plus ~75 operator-supplied pins.
+  New Caledonia's 23 lagoon candidates: 0 kept. Lampedusa + Pantelleria: no named break, 0.
+- **Country chips (`f4db4fe`) - deployed to rosa.surf, NOT yet verified live.** Every
+  `data/spots/*.yaml` has `country:`; pipeline publishes `country` in the payload and index;
+  the web groups chips by country (regions as sub-headings) and remembers the chip per account.
+  At 11:55 Israel on 10-09 the live index (`https://rosa-data-opal.vercel.app/data/index.json`)
+  still had no `country` (atsunai generated 02:26Z, before the pull). Until a cycle publishes it,
+  the web falls back to region chips.
+- **Atsunai cause (verified):** the server D1 row for jp.einh@gmail.com contains `atsunai`; it was
+  hidden under a separate "Hokkaido" chip plus a device-wide remembered chip. The per-account
+  chip is the fix; not confirmed on the operator's phone.
+- **Portuguese names fixed** (ids unchanged): Cantinho da Baía, Praia da Baía, Molhe Leste,
+  Praia das Piscinas (nearest OSM locality, no surf source confirms it).
+- **SEO (OPEN-ITEMS 35):** push links on `/spot/{id}?ev=`, per-spot 1200x630 share cards built in
+  the web build (resvg + Inter, cached in `web/.og-cache`). Search Console waits on the operator's
+  HTML verification tag.
+- **publish.sh 3b** redeploys the web when the spot list signature changes (sig in
+  `~/.rosa-web-spots.sha`). A publish.sh change takes effect one cycle after the pull.
+- Rosa mailbox (info@rosa.surf) photo is set and verified.
+- HEAD = origin/main = `eff4457`, working tree clean before this file.
 
 ## Active Files
-- `web/src/contact.ts` - `CONTACT_EMAIL` is now info@rosa.surf (FormSubmit + mailto).
-- `deploy/push-api/api/contact.js` - `CONTACT_TO` default is now info@rosa.surf.
-- `web/scripts/csp.mjs` - `https://formsubmit.co` added to `connect-src`.
-- `pipeline/src/rosa_pipeline/blend.py` - `fetch_weather_many` attributes bodies by
-  `location_id` + coordinate. `BlendedSource.fetch_many` fetches weather before GFS.
-- `pipeline/src/rosa_pipeline/fetch.py` - OM ensemble json/id-ordering is inside its degrade guard.
-- `pipeline/tests/test_blend.py`, `pipeline/tests/test_fetch.py` - 3 new tests, red without the change.
-- `docs/SESSIONS.md` (2026-10-07 entry), `docs/OPEN-ITEMS.md` 33(b) (the CSP crawl missed the mail hop).
-- Memory: `rosa-email-address.md` rewritten. `rosa-mailbox-photo-retry-due-2026-10-08.md` is new.
-- Dream `reports/.state/rosa.applied` - 4 lines appended for 10-07.
+- `data/spots/*.yaml` - `country:` on all 127 region files; new regions; portugal names.
+- `pipeline/src/rosa_pipeline/{models,spots,publish}.py` - `Spot.country`, payload + index `country`.
+- `pipeline/tests/test_spots.py` - `test_every_region_file_declares_its_country`.
+- `web/src/components/GroupChips.tsx` - `chipOf()`, per-account `rosa.spotsGroup:<sub>` key.
+- `web/src/pages/{SpotsPage,TodayPage}.tsx`, `web/src/styles.css`, `web/src/types.ts` - country chips.
+- `web/src/test/group-chips.test.ts` - chip tests.
+- `docs/SPOT-GAPS.md` - NEW: names waiting for operator pins + 3 pins to re-check.
+- `docs/spot-db-scraping-playbook.md`, `docs/SPOT-DB.md`, `docs/UI.md`, `CLAUDE.md` - counts, notes.
+- `deploy/oracle/publish.sh`, `deploy/oracle/open-meteo/`, `deploy/oracle/README.md` - self-host.
 
 ## Changes Made This Session
-1. Dream review (morning): 29 nights through 10-06, nothing open.
-2. Diagnosed "sent as Cronus Media": an Exchange alias keeps the mailbox display name. I
-   replaced it with a shared mailbox via Exchange Online PowerShell (alias removed, mailbox
-   created, Send As + Full Access granted).
-3. DKIM: I created the config, the operator added the 2 CNAMEs, and I enabled it.
-4. Message trace showed replies were delivered to the Rosa mailbox. The operator was looking
-   in their own inbox.
-5. Moved the app's contact address from einhanamer@gmail.com to info@rosa.surf. Deployed
-   push-api (`rosa-push`) and web (`rosa`). Committed `512007c`.
-6. "Not receiving reports": the live CSP blocked formsubmit.co. Fixed and deployed. Committed
-   `d8b4ded` alone so another deploy cannot drop it.
-7. Dream 10-07 (reviewer shell dead, nothing run there):
-   - Ensemble diff applied with git apply.
-   - Weather-leg diff conflicted (the 09-30 cache fallback had changed the code), so I ported
-     it by hand. Before enabling the 0.3 deg cap I measured the VM's weather cache: max offset
-     0.175 deg over 2741 points.
-   - Weather-first proposal applied. Its premise is stale: a refusal already falls back to the
-     cache, so the gain is only the nothing-cached case.
-   - Proofs FAIL then PASS. Suite 695 passed, ruff clean.
-8. Resent the 3 stored user reports via FormSubmit with their original dates noted.
+1. Self-hosted Open-Meteo (weather then marine) instead of a smaller horizon or a paid plan -
+   operator refused both ("absolutely NOT dropping to 13 days", "Not going for paid either").
+   Built our own image because the release lagged the HRRR direction fix.
+2. Board: 35 redeploy + SEO, 32 marine in-house, 37b buoy mean-direction pairing, 37a confidence
+   ceilings from the blend card, 33a rate-limited relay for push-api writes.
+3. Seeding sweep via parallel fork agents on worktree branches, merged one at a time on main.
+4. Operator-supplied pins: each rendered and checked; Tiavea Bay moved, Ramsgate -> The Wall.
+5. Country chips + per-account chip memory (Atsunai), because regions like Hokkaido were their
+   own chip and the chip choice leaked between accounts on one device.
+6. `docs/SPOT-GAPS.md` at the operator's request, to work through the missing names later.
 
 ## Failed Attempts
-- `Set-UserPhoto` no longer exists in Exchange Online.
-- Graph `Set-MgUserPhotoContent -UserId info@rosa.surf` returns 404 ImageNotFoundException
-  (tried 11:52 and 13:05 local). Outlook web "edit photo" opens the Cronus Media profile, not Rosa.
-- `Get-MessageTrace` is deprecated. Use `Get-MessageTraceV2`.
-- The first device code expired before sign-in finished. Codes last about 15 min, and each
-  script run needs a fresh one.
-- `dig` is blocked in the sandbox (connection refused to every resolver). Use DNS-over-HTTPS:
-  `curl -s -H 'accept: application/dns-json' 'https://dns.google/resolve?name=X&type=CNAME'`.
-- `pkill -f` on a pattern matching the calling shell killed it (exit 144) again. Match the pid.
-- `vercel link` in a worktree rewrites `.env.local`, and these are symlinks into ~/Projects/rosa.
-  The push-api one now holds only BLOB_READ_WRITE_TOKEN + VERCEL_OIDC_TOKEN. Nothing broke.
-- Worktree `deploy/push-api` has no node_modules. Run blob scripts from
-  `~/Projects/rosa/deploy/push-api` (it has `@vercel/blob`).
-- The 2026-09-25 CSP "zero violations" crawl never sent a message, so it missed the mail hop.
+- 02:20Z cycle did not run 3b: bash keeps the already-opened publish.sh, so a change lands one
+  cycle late. Web was redeployed by hand.
+- Web deploy failed `Cannot find package '@resvg/resvg-js'` - fix: `npm ci` in `web/` first.
+- First `country:` insertion script assumed a `defaults:` key (costa-rica has none) - insert
+  before the first top-level key instead.
+- Skull Island coastline normal ran along the reef spit (GEBCO blind) - set by hand.
+- Graph lookup of info@rosa.surf by address 404s - use the object id / mail filter.
+- A fork agent's image tool returned no picture while it marked pins checked
+  (`[media removed: request limit]`); re-checked, coordinator spot-checked 6 pins.
+- 4 Gulf of St Malo (Normandy) spots held: EOT20 amplitude sum 6.0-7.6 m exceeds the 6 m cap in
+  `test_committed_constants_are_sane`. Their data was in session scratch (gone) - would need a re-cut.
 
 ## Next Step
-1. Verify the VM pulled `79f7654` and the next cycle ran clean. Check the deploy log or
-   `fetched_at` on the CDN per memory `pipeline-change-smoke-rule`. Watch for a
-   `came back at` ValueError from the new weather attribution.
-2. On/after 2026-10-08: retry the mailbox photo with the object id (memory
-   `rosa-mailbox-photo-retry-due-2026-10-08`). If it still 404s, ask the operator about a
-   temporary licence. They have not approved spending on one.
-3. Ask the operator to confirm the 3 resent reports arrived in the Rosa inbox.
-4. Still open from 10-06:
-   - Send the Tango email from info@rosa.surf to support@tango.me.
-   - The operator posts the Reddit showreel text (in `docs/SESSIONS.md` 10-06 / git `bd68e65`
-     handoff).
-   - Decide where the showreel sources live. They were in a scratchpad and are likely gone.
-5. Not changed, operator to decide: `VAPID_SUB` on the VM and `deploy/backup/freshness-watch.py`
-   still say `mailto:shaharnaor@outlook.com`.
-
-Tooling: `~/.local/opt/powershell/pwsh` (7.6.6) with ExchangeOnlineManagement 3.10.1 and
-Microsoft.Graph 2.41.1. Sign in with `Connect-ExchangeOnline -Device` /
-`Connect-MgGraph -UseDeviceCode`; the operator enters the code.
+1. Verify country chips live: `curl -s https://rosa-data-opal.vercel.app/data/index.json` and
+   check `spots.atsunai.country == "Japan"` (after the 08:20Z or 14:20Z cycle = 11:20/17:20 Israel).
+   Then confirm rosa.surf Your spots shows Atsunai under Japan.
+2. Waiting on the operator (re-ask, nothing is pre-approved):
+   - Search Console HTML tag for the URL-prefix property https://rosa.surf/, then sitemap submit.
+   - The 4 held Normandy spots: raise the tide cap to ~8 m or leave them out.
+   - Pins for the names in `docs/SPOT-GAPS.md`; re-check Bolt Head, Trayhan's, Maine Beach.
+   - iPhone sign-in test (OPEN-ITEMS 30).
+3. Later: switch to the official Open-Meteo image when 1.7.0+ ships (4g alert); SWAN re-read due
+   2026-10-27.
