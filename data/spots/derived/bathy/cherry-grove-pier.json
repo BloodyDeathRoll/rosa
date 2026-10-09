@@ -1,0 +1,72 @@
+{
+  "spot": "cherry-grove-pier",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    33.8294,
+    -78.6322
+  ],
+  "bearing_seaward_deg": 161.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 15.0,
+  "mean_slope_m_per_km": 0.62,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.82727,
+      "lon": -78.63132,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.82515,
+      "lon": -78.63044,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.8209,
+      "lon": -78.62868,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.81239,
+      "lon": -78.62515,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.80389,
+      "lon": -78.62163,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.78688,
+      "lon": -78.61459,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.76137,
+      "lon": -78.60403,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.72735,
+      "lon": -78.58995,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.67633,
+      "lon": -78.56887,
+      "depth_m": 15.0
+    }
+  ]
+}

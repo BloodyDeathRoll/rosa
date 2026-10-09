@@ -1,0 +1,23 @@
+# Rosa spot database - Georgia (seeded 2026-10-09). Tybee Island, the state's surfed beach:
+# east-facing, shallow and tidal, on hurricane swell and NE windswell.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &ga
+  timezone: America/New_York
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [30, 180]
+  ideal:
+    wind_dir: [225, 315]
+    size_m: [0.5, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-10-09 - georgia, 1 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 1 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/georgia/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: tybee-pier, name: "Tybee Pier", town: "Tybee Island", lat: 31.9914, lon: -80.8454, offshore_direction: 298, swell_window: [53, 183], offshore_km: 5.0, <<: *ga }  # sat-verified 2026-10-09 (websearch-seeded)

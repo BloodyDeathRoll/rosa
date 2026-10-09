@@ -1,0 +1,35 @@
+# Rosa spot database - Florida Northeast (seeded 2026-10-09). Fernandina and Amelia Island south
+# through the Jacksonville beaches and Mayport, Vilano, St Augustine, Matanzas and Flagler to
+# Ormond and Daytona: east-facing barrier beach, piers, jetties and inlet sandbars, on NE
+# windswell and Aug-Oct hurricane swell.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &fne
+  timezone: America/New_York
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [0, 150]
+  ideal:
+    wind_dir: [225, 315]
+    size_m: [0.5, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-10-09 - florida-northeast, 11 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 11 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/florida-northeast/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: fernandina-beach-pier, name: "Fernandina Beach Pier", town: "Fernandina Beach", lat: 30.6691, lon: -81.4296, offshore_direction: 278, swell_window: [33, 163], offshore_km: 5.0, <<: *fne }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: little-talbot-island, name: "Little Talbot Island", town: "Jacksonville", lat: 30.4546, lon: -81.4099, offshore_direction: 261, swell_window: [16, 146], offshore_km: 5.0, <<: *fne }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: mayport-poles, name: "Mayport Poles", town: "Jacksonville", lat: 30.3874, lon: -81.3959, offshore_direction: 277, swell_window: [32, 162], offshore_km: 5.0, <<: *fne }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: jacksonville-beach-pier, name: "Jacksonville Beach Pier", town: "Jacksonville Beach", lat: 30.2931, lon: -81.3879, offshore_direction: 259, swell_window: [14, 144], offshore_km: 5.0, <<: *fne }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: vilano-beach, name: "Vilano Beach", town: "Vilano Beach", lat: 29.9386, lon: -81.2986, offshore_direction: 253, swell_window: [8, 138], offshore_km: 5.0, <<: *fne }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: st-augustine-beach-pier, name: "St Augustine Beach Pier", town: "Saint Augustine Beach", lat: 29.8569, lon: -81.2643, offshore_direction: 267, swell_window: [22, 152], offshore_km: 5.0, <<: *fne }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: matanzas-inlet, name: "Matanzas Inlet", town: "St. Augustine", lat: 29.7103, lon: -81.2258, offshore_direction: 268, swell_window: [23, 153], offshore_km: 5.0, <<: *fne }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: flagler-beach-pier, name: "Flagler Beach Pier", town: "Flagler Beach", lat: 29.4798, lon: -81.1251, offshore_direction: 248, swell_window: [3, 133], offshore_km: 5.0, <<: *fne }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: ormond-beach, name: "Ormond Beach", town: "Ormond Beach", lat: 29.2849, lon: -81.0337, offshore_direction: 246, swell_window: [1, 131], offshore_km: 5.0, <<: *fne }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: daytona-main-street-pier, name: "Daytona Main Street Pier", town: "Daytona Beach", lat: 29.2271, lon: -81.0058, offshore_direction: 246, swell_window: [1, 131], offshore_km: 5.0, <<: *fne }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: sunglow-pier, name: "Sunglow Pier", town: "Daytona Beach Shores", lat: 29.1468, lon: -80.9640, offshore_direction: 244, swell_window: [359, 129], offshore_km: 5.0, <<: *fne }  # sat-verified 2026-10-09 (websearch-seeded)

@@ -139,6 +139,9 @@ BASINS: dict[str, tuple[str, ...]] = {
     "us-east": (
         "South Florida",
         "Florida Space Coast",
+        "Florida Northeast",
+        "Georgia",
+        "South Carolina",
         "Outer Banks",
         "New Jersey",
         "Long Island",
@@ -147,6 +150,9 @@ BASINS: dict[str, tuple[str, ...]] = {
         "New Hampshire",
         "Maine",
     ),
+    # the Gulf of Mexico: local windswell off winter fronts and tropical-storm swell; the
+    # Florida panhandle and the Gulf side of the peninsula share one closed basin
+    "gulf-of-mexico": ("Florida Panhandle", "Florida Gulf"),
     "angola": ("Angola",),
     # the south-east Atlantic: Southern Ocean SW groundswell up the Cape and Namibian
     # coasts, Cape Agulhas round to the Kunene, between Angola's frame and east-africa's

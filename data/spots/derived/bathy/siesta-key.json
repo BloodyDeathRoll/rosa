@@ -1,0 +1,72 @@
+{
+  "spot": "siesta-key",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    27.2637,
+    -82.5526
+  ],
+  "bearing_seaward_deg": 211.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 13.0,
+  "mean_slope_m_per_km": 0.45,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 27.26177,
+      "lon": -82.5539,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 27.25985,
+      "lon": -82.55521,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 27.25599,
+      "lon": -82.55781,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 27.24828,
+      "lon": -82.56302,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 27.24057,
+      "lon": -82.56823,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 27.22515,
+      "lon": -82.57864,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 27.20202,
+      "lon": -82.59426,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 27.17118,
+      "lon": -82.61508,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 27.12491,
+      "lon": -82.64628,
+      "depth_m": 13.0
+    }
+  ]
+}

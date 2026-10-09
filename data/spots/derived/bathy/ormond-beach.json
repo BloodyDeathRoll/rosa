@@ -1,0 +1,72 @@
+{
+  "spot": "ormond-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    29.2849,
+    -81.0337
+  ],
+  "bearing_seaward_deg": 66.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 19.0,
+  "mean_slope_m_per_km": 0.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 29.28581,
+      "lon": -81.03135,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 29.28673,
+      "lon": -81.02899,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 29.28856,
+      "lon": -81.02428,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 29.29221,
+      "lon": -81.01486,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 29.29587,
+      "lon": -81.00544,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 29.30318,
+      "lon": -80.98659,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 29.31414,
+      "lon": -80.95832,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 29.32875,
+      "lon": -80.92062,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 29.35063,
+      "lon": -80.86404,
+      "depth_m": 19.0
+    }
+  ]
+}

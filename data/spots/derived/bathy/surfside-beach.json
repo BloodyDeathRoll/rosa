@@ -1,0 +1,72 @@
+{
+  "spot": "surfside-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    33.6053,
+    -78.9703
+  ],
+  "bearing_seaward_deg": 130.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 14.0,
+  "mean_slope_m_per_km": 0.45,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.60385,
+      "lon": -78.96823,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.60241,
+      "lon": -78.96616,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.59952,
+      "lon": -78.96203,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.59374,
+      "lon": -78.95376,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.58796,
+      "lon": -78.94549,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.57639,
+      "lon": -78.92896,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.55904,
+      "lon": -78.90416,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.53589,
+      "lon": -78.87112,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.50116,
+      "lon": -78.82159,
+      "depth_m": 14.0
+    }
+  ]
+}

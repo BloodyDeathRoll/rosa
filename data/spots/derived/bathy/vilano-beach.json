@@ -1,0 +1,72 @@
+{
+  "spot": "vilano-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    29.9386,
+    -81.2986
+  ],
+  "bearing_seaward_deg": 73.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 14.0,
+  "mean_slope_m_per_km": 0.45,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 29.93926,
+      "lon": -81.29612,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 29.93991,
+      "lon": -81.29364,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 29.94123,
+      "lon": -81.28868,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 29.94386,
+      "lon": -81.27875,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 29.94648,
+      "lon": -81.26882,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 29.95174,
+      "lon": -81.24897,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 29.95961,
+      "lon": -81.21919,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 29.9701,
+      "lon": -81.17947,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 29.98581,
+      "lon": -81.11987,
+      "depth_m": 14.0
+    }
+  ]
+}

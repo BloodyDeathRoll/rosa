@@ -1,0 +1,72 @@
+{
+  "spot": "okaloosa-pier",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    30.3926,
+    -86.5924
+  ],
+  "bearing_seaward_deg": 190.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 22.0,
+  "mean_slope_m_per_km": 0.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 30.39039,
+      "lon": -86.59285,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 30.38817,
+      "lon": -86.59331,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 30.38374,
+      "lon": -86.59421,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 30.37489,
+      "lon": -86.59602,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 30.36603,
+      "lon": -86.59783,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 30.34832,
+      "lon": -86.60145,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 30.32175,
+      "lon": -86.60687,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 30.28632,
+      "lon": -86.6141,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 30.23318,
+      "lon": -86.62494,
+      "depth_m": 22.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "st-augustine-beach-pier",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    29.8569,
+    -81.2643
+  ],
+  "bearing_seaward_deg": 87.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 16.0,
+  "mean_slope_m_per_km": 0.51,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 29.85702,
+      "lon": -81.26171,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 29.85714,
+      "lon": -81.25912,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 29.85737,
+      "lon": -81.25394,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 29.85784,
+      "lon": -81.24359,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 29.85831,
+      "lon": -81.23323,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 29.85924,
+      "lon": -81.21252,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 29.86064,
+      "lon": -81.18145,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 29.86249,
+      "lon": -81.14003,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 29.86524,
+      "lon": -81.07789,
+      "depth_m": 16.0
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+# Rosa spot database - Florida Gulf (seeded 2026-10-09). The Gulf side of the peninsula:
+# Clearwater and the Pinellas beaches, Anna Maria, Siesta, Venice and Naples. West-facing beach,
+# jetties and piers on local windswell behind fronts and tropical-storm swell.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &fgu
+  timezone: America/New_York
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [180, 330]
+  ideal:
+    wind_dir: [45, 135]
+    size_m: [0.4, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-10-09 - florida-gulf, 8 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 8 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/florida-gulf/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: sand-key-jetty, name: "Sand Key Jetty", town: "Clearwater Beach", lat: 27.9633, lon: -82.8333, offshore_direction: 76, swell_window: [191, 321], offshore_km: 5.0, <<: *fgu }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: indian-rocks-beach, name: "Indian Rocks Beach", town: "Indian Rocks Beach", lat: 27.8913, lon: -82.8513, offshore_direction: 99, swell_window: [214, 344], offshore_km: 5.0, <<: *fgu }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: upham-beach, name: "Upham Beach", town: "Saint Pete Beach", lat: 27.7365, lon: -82.7542, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, <<: *fgu }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: anna-maria-island, name: "Anna Maria Island", town: "Holmes Beach", lat: 27.5252, lon: -82.7376, offshore_direction: 48, swell_window: [163, 293], offshore_km: 5.0, <<: *fgu }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: siesta-key, name: "Siesta Key", town: "Siesta Key", lat: 27.2637, lon: -82.5526, offshore_direction: 31, swell_window: [146, 276], offshore_km: 5.0, <<: *fgu }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: venice-jetty, name: "Venice Jetty", town: "Venice", lat: 27.1141, lon: -82.4696, offshore_direction: 78, swell_window: [193, 323], offshore_km: 5.0, <<: *fgu }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: wiggins-pass, name: "Wiggins Pass", town: "Naples", lat: 26.2891, lon: -81.8321, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, <<: *fgu }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: naples-pier, name: "Naples Pier", town: "Naples", lat: 26.1312, lon: -81.8073, offshore_direction: 76, swell_window: [191, 321], offshore_km: 5.0, <<: *fgu }  # sat-verified 2026-10-09 (websearch-seeded)

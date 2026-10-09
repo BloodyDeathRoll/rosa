@@ -1,0 +1,29 @@
+# Rosa spot database - Florida Panhandle (seeded 2026-10-09). Pensacola, Navarre, Okaloosa and
+# Fort Walton, Destin and Panama City: south-facing Gulf beach and piers, on local windswell
+# behind winter fronts and tropical-storm swell. Central time.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+defaults: &fpa
+  timezone: America/Chicago
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [110, 250]
+  ideal:
+    wind_dir: [315, 45]
+    size_m: [0.4, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-10-09 - florida-panhandle, 6 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 6 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/florida-panhandle/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: okaloosa-pier, name: "Okaloosa Pier", town: "Fort Walton Beach", lat: 30.3926, lon: -86.5924, offshore_direction: 10, swell_window: [125, 255], offshore_km: 5.0, <<: *fpa }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: navarre-beach-pier, name: "Navarre Beach Pier", town: "Navarre", lat: 30.3778, lon: -86.8628, offshore_direction: 351, swell_window: [106, 236], offshore_km: 5.0, <<: *fpa }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: pensacola-beach-pier, name: "Pensacola Beach Pier", town: "Pensacola Beach", lat: 30.3297, lon: -87.1417, offshore_direction: 348, swell_window: [103, 233], offshore_km: 5.0, <<: *fpa }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: fort-pickens, name: "Fort Pickens", town: "Pensacola Beach", lat: 30.3258, lon: -87.2982, offshore_direction: 41, swell_window: [156, 286], offshore_km: 5.0, <<: *fpa }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: panama-city-beach-pier, name: "Panama City Beach Pier", town: "Panama City Beach", lat: 30.1891, lon: -85.8311, offshore_direction: 27, swell_window: [142, 272], offshore_km: 5.0, <<: *fpa }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: st-andrews-jetty, name: "St Andrews Jetty", town: "Panama City Beach", lat: 30.1227, lon: -85.7355, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, <<: *fpa }  # sat-verified 2026-10-09 (websearch-seeded)

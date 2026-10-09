@@ -1,0 +1,72 @@
+{
+  "spot": "fernandina-beach-pier",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    30.6691,
+    -81.4296
+  ],
+  "bearing_seaward_deg": 98.0,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 17.0,
+  "mean_slope_m_per_km": 0.34,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 30.66879,
+      "lon": -81.42701,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 30.66847,
+      "lon": -81.42442,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 30.66785,
+      "lon": -81.41925,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 30.6666,
+      "lon": -81.40889,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 30.66534,
+      "lon": -81.39854,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 30.66283,
+      "lon": -81.37783,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 30.65906,
+      "lon": -81.34678,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 30.65402,
+      "lon": -81.30537,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 30.64644,
+      "lon": -81.24327,
+      "depth_m": 17.0
+    }
+  ]
+}

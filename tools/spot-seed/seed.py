@@ -273,6 +273,22 @@ REGIONS = {
     # Delray, the Palm Beaches, Juno, Jupiter and Stuart, up to the Space Coast box.
     # Biscayne Bay and the Intracoastal sit inside the rectangle and carry no swell.
     "south-florida": (25.60, -80.40, 27.30, -79.95),
+    # Florida's north-east: Fernandina and Amelia Island, the Jacksonville beaches and Mayport,
+    # Vilano, St Augustine, Matanzas, Flagler and Ormond down to Daytona. Its south edge
+    # overlaps the space-coast box (29.05-29.30) so Daytona's piers fall inside; New Smyrna
+    # is the space coast's.
+    "florida-northeast": (29.05, -81.70, 30.75, -81.20),
+    # The Florida panhandle's Gulf beaches: Pensacola, Navarre, Okaloosa/Fort Walton, Destin
+    # and Panama City (Central time). Gulf surf is local windswell and tropical swell.
+    "florida-panhandle": (29.90, -87.60, 30.45, -85.60),
+    # The Gulf side of the peninsula: Clearwater and the Pinellas beaches, Anna Maria,
+    # Siesta, Venice and Naples. Tampa Bay and the back bays sit inside the box.
+    "florida-gulf": (26.05, -83.00, 28.20, -81.75),
+    # South Carolina's ocean shore: the Grand Strand (North Myrtle to Garden City and
+    # Surfside), Isle of Palms, Folly Beach, Edisto and Hunting Island.
+    "south-carolina": (32.20, -80.80, 33.90, -78.50),
+    # Georgia's barrier islands; Tybee Island is the surfed one.
+    "georgia": (30.70, -81.60, 32.10, -80.75),
     # Rhode Island's ocean shore: Narragansett and Point Judith, Matunuck and the south
     # county beaches, and Newport's Atlantic side. Narragansett Bay is inside the
     # rectangle and carries no swell.

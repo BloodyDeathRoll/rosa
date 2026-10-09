@@ -1,0 +1,72 @@
+{
+  "spot": "springmaid-pier",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    33.6569,
+    -78.9176
+  ],
+  "bearing_seaward_deg": 141.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 14.0,
+  "mean_slope_m_per_km": 0.51,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.65515,
+      "lon": -78.9159,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.65341,
+      "lon": -78.9142,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.64991,
+      "lon": -78.9108,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.64292,
+      "lon": -78.904,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.63593,
+      "lon": -78.89721,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.62195,
+      "lon": -78.88362,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.60098,
+      "lon": -78.86324,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.573,
+      "lon": -78.83609,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.53104,
+      "lon": -78.79539,
+      "depth_m": 14.0
+    }
+  ]
+}

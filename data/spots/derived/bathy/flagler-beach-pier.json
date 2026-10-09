@@ -1,0 +1,72 @@
+{
+  "spot": "flagler-beach-pier",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    29.4798,
+    -81.1251
+  ],
+  "bearing_seaward_deg": 68.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 0.73,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 29.48064,
+      "lon": -81.12271,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 29.48148,
+      "lon": -81.12031,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 29.48317,
+      "lon": -81.11552,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 29.48654,
+      "lon": -81.10594,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 29.4899,
+      "lon": -81.09636,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 29.49664,
+      "lon": -81.0772,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 29.50673,
+      "lon": -81.04845,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 29.52018,
+      "lon": -81.01011,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 29.54033,
+      "lon": -80.95258,
+      "depth_m": 20.0
+    }
+  ]
+}

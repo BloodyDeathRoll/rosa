@@ -1,0 +1,72 @@
+{
+  "spot": "st-andrews-jetty",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    30.1227,
+    -85.7355
+  ],
+  "bearing_seaward_deg": 225.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 26.0,
+  "mean_slope_m_per_km": 0.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 30.12111,
+      "lon": -85.73734,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 30.11952,
+      "lon": -85.73918,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 30.11634,
+      "lon": -85.74285,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 30.10998,
+      "lon": -85.7502,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 30.10362,
+      "lon": -85.75755,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 30.0909,
+      "lon": -85.77225,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 30.07181,
+      "lon": -85.79429,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 30.04636,
+      "lon": -85.82366,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 30.00817,
+      "lon": -85.86768,
+      "depth_m": 26.0
+    }
+  ]
+}

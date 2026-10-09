@@ -1,0 +1,72 @@
+{
+  "spot": "garden-city-pier",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    33.5765,
+    -78.9975
+  ],
+  "bearing_seaward_deg": 128.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 13.0,
+  "mean_slope_m_per_km": 0.45,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.57512,
+      "lon": -78.99537,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.57373,
+      "lon": -78.99325,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.57096,
+      "lon": -78.98899,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.56543,
+      "lon": -78.98049,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.55989,
+      "lon": -78.97199,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.54881,
+      "lon": -78.95498,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.53219,
+      "lon": -78.92949,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.51002,
+      "lon": -78.89551,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.47674,
+      "lon": -78.84457,
+      "depth_m": 13.0
+    }
+  ]
+}

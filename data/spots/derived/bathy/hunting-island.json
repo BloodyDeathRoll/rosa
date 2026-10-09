@@ -1,0 +1,72 @@
+{
+  "spot": "hunting-island",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    32.3593,
+    -80.4425
+  ],
+  "bearing_seaward_deg": 111.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 13.0,
+  "mean_slope_m_per_km": 0.79,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.35849,
+      "lon": -80.44002,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.35769,
+      "lon": -80.43753,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.35608,
+      "lon": -80.43256,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.35285,
+      "lon": -80.42262,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.34963,
+      "lon": -80.41269,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.34318,
+      "lon": -80.39281,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.33349,
+      "lon": -80.36301,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.32057,
+      "lon": -80.32328,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.30116,
+      "lon": -80.26371,
+      "depth_m": 13.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "mayport-poles",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    30.3874,
+    -81.3959
+  ],
+  "bearing_seaward_deg": 97.0,
+  "nearshore_depth_m": 14.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 0.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 30.38713,
+      "lon": -81.39331,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 30.38685,
+      "lon": -81.39073,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 30.3863,
+      "lon": -81.38555,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 30.38521,
+      "lon": -81.37521,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 30.38411,
+      "lon": -81.36486,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 30.38191,
+      "lon": -81.34416,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 30.37861,
+      "lon": -81.31313,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 30.37419,
+      "lon": -81.27174,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 30.36754,
+      "lon": -81.20968,
+      "depth_m": 30.0
+    }
+  ]
+}

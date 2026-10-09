@@ -1,0 +1,72 @@
+{
+  "spot": "isle-of-palms-pier",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    32.7852,
+    -79.7848
+  ],
+  "bearing_seaward_deg": 150.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 17.0,
+  "mean_slope_m_per_km": 0.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.78325,
+      "lon": -79.78346,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.78131,
+      "lon": -79.78213,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.77741,
+      "lon": -79.77945,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.76962,
+      "lon": -79.7741,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.76183,
+      "lon": -79.76876,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.74626,
+      "lon": -79.75807,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.72289,
+      "lon": -79.74204,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.69172,
+      "lon": -79.72068,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.64497,
+      "lon": -79.68868,
+      "depth_m": 17.0
+    }
+  ]
+}

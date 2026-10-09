@@ -1,0 +1,72 @@
+{
+  "spot": "holden-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    33.9099,
+    -78.2972
+  ],
+  "bearing_seaward_deg": 174.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 16.0,
+  "mean_slope_m_per_km": 0.62,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.90766,
+      "lon": -78.29692,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.90543,
+      "lon": -78.29663,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.90096,
+      "lon": -78.29607,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.89201,
+      "lon": -78.29494,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.88307,
+      "lon": -78.2938,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.86518,
+      "lon": -78.29154,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.83835,
+      "lon": -78.28815,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.80257,
+      "lon": -78.28362,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.74891,
+      "lon": -78.27685,
+      "depth_m": 16.0
+    }
+  ]
+}

@@ -38,3 +38,17 @@ spots:
   - { id: crystal-pier, name: "Crystal Pier", town: "Wrightsville Beach", lat: 34.1926, lon: -77.8033, offshore_direction: 299, swell_window: [54, 184], offshore_km: 5.0, <<: *obx }  # sat-verified 2026-09-03 (websearch-seeded)
   - { id: carolina-beach-pier, name: "Carolina Beach Pier", town: "Carolina Beach", lat: 34.0564, lon: -77.8797, offshore_direction: 291, swell_window: [46, 176], offshore_km: 5.0, <<: *obx }  # sat-verified 2026-09-03 (websearch-seeded)
   - { id: kure-beach, name: "Kure Beach", town: "Kure Beach", lat: 33.9864, lon: -77.9077, offshore_direction: 285, swell_window: [40, 170], offshore_km: 5.0, <<: *obx }  # sat-verified 2026-09-03 (websearch-seeded)
+
+  # ==== SEEDED 2026-10-09 - outer-banks, 6 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 6 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/outer-banks/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: surf-city-pier, name: "Surf City Pier", town: "Surf City", lat: 34.4250, lon: -77.5446, offshore_direction: 325, swell_window: [80, 210], offshore_km: 5.0, <<: *obx }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: masonboro-inlet, name: "Masonboro Inlet", town: "Wrightsville Beach", lat: 34.1866, lon: -77.8069, offshore_direction: 329, swell_window: [84, 214], offshore_km: 5.0, <<: *obx }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: fort-fisher, name: "Fort Fisher", town: "Kure Beach", lat: 33.9649, lon: -77.9198, offshore_direction: 292, swell_window: [47, 177], offshore_km: 5.0, <<: *obx }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: holden-beach, name: "Holden Beach", town: "Holden Beach", lat: 33.9099, lon: -78.2972, offshore_direction: 354, swell_window: [109, 239], offshore_km: 5.0, <<: *obx }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: oak-island-pier, name: "Oak Island Pier", town: "Oak Island", lat: 33.9030, lon: -78.0814, offshore_direction: 14, swell_window: [129, 259], offshore_km: 5.0, <<: *obx }  # sat-verified 2026-10-09 (websearch-seeded)
+  - { id: ocean-isle-beach-pier, name: "Ocean Isle Beach Pier", town: "Ocean Isle Beach", lat: 33.8868, lon: -78.4352, offshore_direction: 344, swell_window: [99, 229], offshore_km: 5.0, <<: *obx }  # sat-verified 2026-10-09 (websearch-seeded)

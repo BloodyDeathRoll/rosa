@@ -1,0 +1,72 @@
+{
+  "spot": "indian-rocks-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    27.8913,
+    -82.8513
+  ],
+  "bearing_seaward_deg": 279.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 12.0,
+  "mean_slope_m_per_km": 0.96,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 27.89165,
+      "lon": -82.85381,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 27.892,
+      "lon": -82.85632,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 27.89271,
+      "lon": -82.86135,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 27.89411,
+      "lon": -82.8714,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 27.89552,
+      "lon": -82.88145,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 27.89833,
+      "lon": -82.90155,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 27.90253,
+      "lon": -82.93171,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 27.90813,
+      "lon": -82.97192,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 27.91651,
+      "lon": -83.03224,
+      "depth_m": 12.0
+    }
+  ]
+}

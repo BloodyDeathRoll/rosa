@@ -1,0 +1,72 @@
+{
+  "spot": "matanzas-inlet",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    29.7103,
+    -81.2258
+  ],
+  "bearing_seaward_deg": 88.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 19.0,
+  "mean_slope_m_per_km": 0.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 29.71038,
+      "lon": -81.22321,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 29.71046,
+      "lon": -81.22063,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 29.71061,
+      "lon": -81.21545,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 29.71093,
+      "lon": -81.2051,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 29.71124,
+      "lon": -81.19476,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 29.71186,
+      "lon": -81.17406,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 29.71279,
+      "lon": -81.14301,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 29.71401,
+      "lon": -81.10162,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 29.71582,
+      "lon": -81.03952,
+      "depth_m": 19.0
+    }
+  ]
+}

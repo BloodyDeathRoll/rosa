@@ -1,0 +1,72 @@
+{
+  "spot": "little-talbot-island",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    30.4546,
+    -81.4099
+  ],
+  "bearing_seaward_deg": 81.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 14.0,
+  "mean_slope_m_per_km": 0.56,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 30.45495,
+      "lon": -81.40732,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 30.4553,
+      "lon": -81.40475,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 30.45601,
+      "lon": -81.3996,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 30.45741,
+      "lon": -81.38929,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 30.45882,
+      "lon": -81.37899,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 30.46162,
+      "lon": -81.35838,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 30.46583,
+      "lon": -81.32746,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 30.47142,
+      "lon": -81.28623,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 30.47979,
+      "lon": -81.22438,
+      "depth_m": 14.0
+    }
+  ]
+}

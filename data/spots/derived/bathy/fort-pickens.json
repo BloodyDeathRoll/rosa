@@ -1,0 +1,72 @@
+{
+  "spot": "fort-pickens",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    30.3258,
+    -87.2982
+  ],
+  "bearing_seaward_deg": 221.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 17.0,
+  "mean_slope_m_per_km": 0.79,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 30.3241,
+      "lon": -87.29991,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 30.32241,
+      "lon": -87.30162,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 30.31901,
+      "lon": -87.30503,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 30.31222,
+      "lon": -87.31187,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 30.30544,
+      "lon": -87.3187,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 30.29186,
+      "lon": -87.33237,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 30.27149,
+      "lon": -87.35285,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 30.24433,
+      "lon": -87.38016,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 30.20357,
+      "lon": -87.42108,
+      "depth_m": 17.0
+    }
+  ]
+}

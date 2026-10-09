@@ -1,0 +1,72 @@
+{
+  "spot": "panama-city-beach-pier",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    30.1891,
+    -85.8311
+  ],
+  "bearing_seaward_deg": 207.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 28.0,
+  "mean_slope_m_per_km": 1.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 30.1871,
+      "lon": -85.83228,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 30.18509,
+      "lon": -85.83346,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 30.18109,
+      "lon": -85.83582,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 30.17307,
+      "lon": -85.84055,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 30.16506,
+      "lon": -85.84527,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 30.14903,
+      "lon": -85.85471,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 30.12499,
+      "lon": -85.86886,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 30.09293,
+      "lon": -85.88773,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 30.04484,
+      "lon": -85.916,
+      "depth_m": 28.0
+    }
+  ]
+}

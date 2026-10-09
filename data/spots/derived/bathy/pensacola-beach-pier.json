@@ -1,0 +1,72 @@
+{
+  "spot": "pensacola-beach-pier",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    30.3297,
+    -87.1417
+  ],
+  "bearing_seaward_deg": 168.0,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 25.0,
+  "mean_slope_m_per_km": 0.79,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 30.3275,
+      "lon": -87.14116,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 30.3253,
+      "lon": -87.14062,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 30.3209,
+      "lon": -87.13953,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 30.31211,
+      "lon": -87.13737,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 30.30331,
+      "lon": -87.1352,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 30.28572,
+      "lon": -87.13087,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 30.25933,
+      "lon": -87.12438,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 30.22414,
+      "lon": -87.11573,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 30.17135,
+      "lon": -87.10277,
+      "depth_m": 25.0
+    }
+  ]
+}
