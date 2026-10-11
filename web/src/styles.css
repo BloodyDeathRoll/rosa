@@ -4016,6 +4016,13 @@ a.rank-card:hover {
   color: #fff;
   background: var(--accent);
 }
+/* "Tango sent you here by mistake" (TangoNotice.tsx) - the consent card with one OK */
+.tango-notice {
+  z-index: 9999; /* above the sign-in screen (9998): a first-time visitor sees that first */
+}
+.tango-notice .consent-text small {
+  color: inherit;
+}
 @media (min-width: 900px) {
   .consent-bar {
     left: auto;

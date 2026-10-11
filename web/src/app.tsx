@@ -5,6 +5,7 @@ import { DesktopBar } from "./components/DesktopBar";
 import { DuplicateNote } from "./components/DuplicateNote";
 import { InstallPrompt } from "./components/InstallPrompt";
 import { ConsentBar } from "./components/ConsentBar";
+import { TangoNotice } from "./components/TangoNotice";
 import { ReportNudge } from "./components/ReportNudge";
 import { SignInScreen } from "./components/SignInScreen";
 import { AboutPage } from "./pages/AboutPage";
@@ -108,6 +109,7 @@ export function App() {
           (you're deeper than any section). About lives under Profile. */}
       {route.page !== "search" && <TabBar active={active} />}
       <ConsentBar />
+      <TangoNotice />
       <ReportNudge />
       <InstallPrompt />
       <DuplicateNote />
