@@ -2929,6 +2929,10 @@ a.rank-card:hover {
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
 }
+/* white type on the green tiers (Good, Epic, Calm), both themes */
+.spot-dot[data-green] .dot-label {
+  color: #fff;
+}
 
 /* Overlapping pins collapse into a count bubble (tap to zoom in). The ring is a
    conic blend of the members' tier colors, set inline per cluster; the inner

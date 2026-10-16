@@ -344,8 +344,10 @@ export function MapPage({ theme }: { theme: Theme }) {
               "--tier",
               v && !v.rocky ? swimVar(v.bucket) : "var(--swim-none)"
             );
+            if (v && !v.rocky && v.bucket === "CALM") el.dataset.green = "";
           } else {
             el.style.setProperty("--tier", ratingVar(e.bucket));
+            if (e.bucket === "GOOD" || e.bucket === "FIRING") el.dataset.green = "";
           }
           const label = document.createElement("span");
           label.className = "dot-label";
