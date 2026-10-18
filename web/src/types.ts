@@ -164,6 +164,10 @@ export interface IndexEntry {
   town?: string;
   lat: number;
   lon: number;
+  /** The DAY headline for the spot's current date - best daylight hour, the same
+      rating, tier and range the spot page's Today shows (since 2026-10-18; before that
+      the publish-time hour, which at night rated a land breeze "Epic" on the map while
+      the spot page said Fair). */
   rating: number;
   bucket: Bucket;
   h: [number, number];

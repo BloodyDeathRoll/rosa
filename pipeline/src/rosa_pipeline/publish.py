@@ -547,6 +547,24 @@ def write_spot_json(payload: dict, out_dir: Path) -> Path:
     return path
 
 
+def _index_headline(payload: dict) -> dict:
+    """The rating, bucket and range the index carries for a spot = the DAY headline the
+    spot page shows for the same date (best daylight hour, ``days``), never the
+    ``current`` hour. ``current`` is whatever hour the run fell on: at 21:00 local a
+    5 km/h land breeze is "offshore" and a waist-high 8 s wind swell rated 75 FIRING at
+    Isla Uvita (2026-10-18), so the map pin and its card said Epic 0.5-0.7 while the spot
+    page - which reads the day off dawn-to-dusk hours exactly so that a night land breeze
+    cannot drive it - said Fair 0.3-0.5. 47 of 3056 pins were greener than anything their
+    own spot page showed that morning. Falls back to ``current`` only when the payload
+    has no day for that date (a spot with no full day still reports)."""
+    cur = payload["current"]
+    cur_date = cur["t"][:10]
+    day = next((d for d in payload["days"] if d["date"] == cur_date), None)
+    if day is None:
+        return {"rating": cur["rating"], "bucket": cur["bucket"], "h": cur["h"]}
+    return {"rating": day["rating_max"], "bucket": day["bucket"], "h": day["h_max"]}
+
+
 def _index_entry(payload: dict) -> dict:
     return {
         "name": payload["spot"]["name"],
@@ -557,9 +575,7 @@ def _index_entry(payload: dict) -> dict:
         **({"town": payload["spot"]["town"]} if payload["spot"].get("town") else {}),
         "lat": payload["spot"]["lat"],
         "lon": payload["spot"]["lon"],
-        "rating": payload["current"]["rating"],
-        "bucket": payload["current"]["bucket"],
-        "h": payload["current"]["h"],
+        **_index_headline(payload),
         "generated_at": payload["generated_at"],
         # just video ids: enough for the map card still and the nearby-cams strip
         # without fetching whole payloads. Full credit travels in the spot payload.

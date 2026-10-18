@@ -4,7 +4,7 @@ from dataclasses import replace
 from datetime import UTC, datetime, timedelta
 
 from rosa_pipeline.models import HourForecast, ScoredHour, Spot, SwellPartition
-from rosa_pipeline.publish import build_payload
+from rosa_pipeline.publish import _index_entry, build_payload
 from rosa_pipeline.score import bucket
 
 SWELL = SwellPartition(height_m=1.0, period_s=10.0, direction_deg=290.0)
@@ -243,3 +243,16 @@ def test_model_run_is_published_only_when_the_source_knew_it():
     run = {"gfswave": "2026-09-08T06:00+00:00", "ecmwf": None}
     payload = build_payload(SPOT, hours, fetched_at="t", now=hours[0].hour.time, model_run=run)
     assert payload["model_run"] == run
+
+
+def test_index_entry_carries_the_day_headline_not_the_night_hour():
+    # Isla Uvita 2026-10-18: the run fell on 21:00 local, a land-breeze hour rated FIRING,
+    # and the map pin said Epic while the spot page (daylight max) said Fair. The index
+    # must carry the same day headline the spot page shows, never the current hour.
+    hours = [scored(0, 90), scored(9, 42), scored(12, 38)]
+    payload = build_payload(SPOT, hours, fetched_at="t", now=hours[0].hour.time)
+    assert payload["current"]["rating"] == 90  # the hour itself is still published
+    entry = _index_entry(payload)
+    assert entry["rating"] == payload["days"][0]["rating_max"] == 42
+    assert entry["bucket"] == payload["days"][0]["bucket"] == "FAIR"
+    assert entry["h"] == payload["days"][0]["h_max"]
