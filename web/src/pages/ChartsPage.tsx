@@ -322,6 +322,10 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
             ? Math.max(HOME_ZOOM, minZoomFor(wrapRef.current.clientHeight))
             : minZoomFor(wrapRef.current.clientHeight),
           minZoom: minZoomFor(wrapRef.current.clientHeight),
+          // the overlay is a flat canvas rotated with the bearing - it can turn
+          // but not tilt, so pitch stays off
+          maxPitch: 0,
+          pitchWithRotate: false,
           attributionControl: false,
         });
         m.addControl(
@@ -536,13 +540,36 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
       fctx.clearRect(0, 0, W, H);
       fctx.imageSmoothingEnabled = true;
 
-      // Continuous-plane x mapping (project() doesn't wrap): one world's pixel
-      // width lets any longitude - including the 0-360 world grid - land on the
-      // right screen x, and repeats the layer on the neighbouring world copies.
-      const worldW = m.project([180, 0]).x - m.project([-180, 0]).x;
-      const xOfLon = (lon: number) => m.project([-180, 0]).x + ((lon + 180) / 360) * worldW;
+      // Draw in an unrotated (north-up) mercator plane and spin the whole canvas
+      // by the map bearing around the screen centre, so the field and arrows
+      // turn with the basemap. project() can't be used per axis once the map is
+      // rotated: screen x then depends on latitude too.
+      const center = m.getCenter();
+      const sc = m.project(center);
+      const angle = (-m.getBearing() * Math.PI) / 180; // maplibre: angle = -bearing
+      fctx.translate(sc.x, sc.y);
+      fctx.rotate(angle);
+      fctx.translate(-sc.x, -sc.y);
+      ctx.translate(sc.x, sc.y);
+      ctx.rotate(angle);
+      ctx.translate(-sc.x, -sc.y);
+      // the rotated screen fits inside this box of the unrotated plane
+      const R = Math.hypot(W, H) / 2;
+      const xMin = sc.x - R;
+      const xMax = sc.x + R;
+      const yMin = sc.y - R;
+      const yMax = sc.y + R;
+
+      // Continuous-plane mapping (no wrap): one world's pixel width lets any
+      // longitude - including the 0-360 world grid - land on the right x, and
+      // repeats the layer on the neighbouring world copies.
+      const worldW = 512 * 2 ** m.getZoom();
+      const mercY = (lat: number) =>
+        (180 - (180 / Math.PI) * Math.log(Math.tan(Math.PI / 4 + (lat * Math.PI) / 360))) / 360;
+      const cMercY = mercY(center.lat);
+      const xOfLon = (lon: number) => sc.x + ((lon - center.lng) / 360) * worldW;
       const yOfLat = (lat: number) =>
-        m.project([0, Math.max(-DATA_LAT_N, Math.min(DATA_LAT_N, lat))]).y;
+        sc.y + (mercY(Math.max(-DATA_LAT_N, Math.min(DATA_LAT_N, lat))) - cMercY) * worldW;
 
       for (const layer of layers) {
         let grid = gridCanvases.get(layer.id);
@@ -564,7 +591,7 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
           const yb = yOfLat(latB);
           const top = Math.min(ya, yb);
           const rowH = Math.abs(yb - ya);
-          if (top > H || top + rowH < 0) continue;
+          if (top > yMax || top + rowH < yMin) continue;
           // subdivide tall rows so mercator row placement stays exact while the
           // pre-upscaled source supplies the vertical interpolation
           const S = Math.min(K, Math.max(1, Math.ceil(rowH / 3)));
@@ -578,7 +605,7 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
             const srcY = j * K + (s * K) / S;
             for (let k = -1; k <= 1; k++) {
               const dx = k * worldW;
-              if (xL + dx > W || xL + spanW + dx < 0) continue;
+              if (xL + dx > xMax || xL + spanW + dx < xMin) continue;
               // slight overlap so adjacent strips can't leave hairline seams -
               // harmless because the strips are opaque
               fctx.drawImage(grid, 0, srcY, layer.nx, K / S, xL + dx, sy, spanW, sh + 0.6);
@@ -588,9 +615,12 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
       }
 
       // one composite pass: the whole field fades over the basemap uniformly
+      // (the field canvas is already in screen space - composite unrotated)
+      ctx.save();
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.globalAlpha = OVERLAY_ALPHA;
       ctx.drawImage(field, 0, 0, W, H);
-      ctx.globalAlpha = 1;
+      ctx.restore();
 
       for (const layer of layers) {
         // Direction arrows - wind direction on the Wind chart, swell elsewhere.
@@ -604,7 +634,7 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
           const lat = layer.lat0 + j * layer.dLat;
           if (Math.abs(lat) > DATA_LAT_N) continue;
           const y = yOfLat(lat);
-          if (y < 0 || y > H) continue;
+          if (y < yMin || y > yMax) continue;
           for (let i = 0; i < layer.nx; i += stride) {
             const idx = j * layer.nx + i;
             const qd = layer.dirQ(idx);
@@ -613,7 +643,7 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
             const bx = xOfLon(layer.lon0 + i * layer.dLon);
             for (let k = -1; k <= 1; k++) {
               const x = bx + k * worldW;
-              if (x < 0 || x > W) continue;
+              if (x < xMin || x > xMax) continue;
               const rad = ((qd * layer.dirScale + 180) * Math.PI) / 180;
               const ax = Math.sin(rad) * len;
               const ay = -Math.cos(rad) * len;
