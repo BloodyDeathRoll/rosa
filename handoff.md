@@ -1,36 +1,29 @@
-# Session Handoff — 2026-10-23
+# Session Handoff — 2026-10-24
 
 ## Goal
-Operator report: the Cloudflare D1 database `rosa-users` sat at 399 rows and a fresh sign-in added nothing. Find out why, then (asked later) remove the accounts that were never real users.
+Operator report (five phone screenshots): on the Charts page, rotating the map with two fingers turned the basemap but the swell field and arrows stayed north-up. Find and ship a fix.
 
 ## Current State
-- No code changed. The Worker, the D1 binding and the web bundle were checked and are correct.
-- `rosa-users` now holds **33 rows** (was 399). 366 rows were deleted at 08:25Z on 2026-10-23 with
-  `DELETE FROM users WHERE json_array_length(favorites)=0 AND last_seen_at-created_at < 86400000`.
-- Full pre-delete export: `~/.config/rosa/d1-users-backup-20261023T082419Z.json` (399 rows, every column, mode 600). Restore = INSERT those rows back; nothing else references them.
-- The "stuck at 399" had two parts, both verified, neither a fault:
-  1. The operator's test sign-in (08:10Z) used a Google account already in the table (row created 2026-10-06). `signIn` in `deploy/user-api/src/index.ts` is `INSERT ... ON CONFLICT(sub) DO UPDATE`, so the same account can never add a row. Seen in D1 (`last_seen_at` = 08:10:33Z) and in D1 analytics (3 write queries in that hour).
-  2. New sign-ups ran 5-18 a day from 09-18 to 10-18 and then stopped, because they were Tango Live promo visitors (SESSIONS 2026-10-06) signing in with Google on Rosa's first-load `SignInScreen`. GA4 loads with `webview=ANDROID_WEBVIEW` fell from 25-50 users a day to 1-2 on 2026-10-20. Israel traffic stayed flat (2-5 a day).
-- Real-user sign-up rate is near zero and was before Tango too: 10 of the 399 rows had a favorite, 32 came back after the sign-up day.
-- Untested: an actual new-account registration end to end (the operator has not yet signed in with an account unknown to the table while someone watched `wrangler tail`).
+- Fixed, committed on main (`136adf3`), deployed to rosa.surf, operator confirmed on the phone.
+- Pitch (tilt) is now disabled on the Charts map. Rotation works.
+- `docs/SESSIONS.md` has the 2026-10-24 entry. `docs/OPEN-ITEMS.md` not touched (nothing opened or closed).
+- The SESSIONS entry and this handoff are committed by the handoff commit.
 
 ## Active Files
-- `docs/SESSIONS.md` - 2026-10-23 entry (the only repo change).
-- `handoff.md` - this file.
-- `~/.config/rosa/d1-users-backup-20261023T082419Z.json` - outside the repo, the deleted rows.
+- `web/src/pages/ChartsPage.tsx` - the draw loop (`draw` inside the frame effect) and the `maplibregl.Map` options.
+- `docs/SESSIONS.md` - 2026-10-24 entry.
+- `web/.vercel/project.json` (untracked, gitignored) - copied from `~/Projects/rosa/web/` so this worktree deploys to the `rosa` project, not a stray one.
 
 ## Changes Made This Session
-1. Diagnosis, read-only: `wrangler d1 execute rosa-users --remote` (count, per-day sign-ups, last_seen, cohorts), Cloudflare GraphQL (`workersInvocationsAdaptive`, `d1AnalyticsAdaptiveGroups`), live Worker settings via the API (one D1 binding, id `b252d46b-…`), `wrangler d1 list` (one database), probes of `POST /auth/google` (401 `token:code` / `token:malformed` as designed), the live `index-*.js` on rosa.surf (correct Worker URL + client id), CSP header (GSI allowed), GA4 through `tools/ga-report/report.py`.
-2. Operator asked which rows came from Tango. Answer: not identifiable - the table stores sub, email, name, picture, favorites, timestamps only. Offered the proxy "no favorites and never returned": 366 vs 33.
-3. Operator said "remove all that have no favorites and never returned" (2026-10-23, ~08:24Z). Exported the whole table first, then ran the DELETE. 366 deleted, 33 remain. This was a one-time instruction; nothing is scheduled.
+1. Diagnosis: the overlay computed x from `m.project([lon,0]).x` and y from `m.project([0,lat]).y`. That separation only holds at bearing 0.
+2. Fix in `draw`: positions come from an unrotated mercator plane (`worldW = 512 * 2 ** zoom`, `mercY(lat)` = MapLibre's `mercatorYfromLat`, both relative to `m.project(m.getCenter())`), and both the field context and the arrow context are rotated by `-bearing` around the screen centre. Sign verified in `node_modules/maplibre-gl/src/geo/projection/mercator_transform.ts` (`rotateZ(m, m, -this.bearingInRadians)`).
+3. Culling bounds changed from `[0,W]x[0,H]` to the rotated screen's bounding box (radius `hypot(W,H)/2` around the centre) so rows and arrows are not dropped at the corners after rotation.
+4. The field-to-screen composite is done with the transform reset (the field canvas is already in screen space).
+5. `maxPitch: 0`, `pitchWithRotate: false` on the map: a 2D canvas cannot do perspective, so tilt is off rather than wrong.
+6. `npx tsc --noEmit` clean, `vitest` 47/47. Committed, pushed, `npm run deploy` in `web/` (production, aliases rosa.surf + www).
 
 ## Failed Attempts
-- Vercel MCP `aggregate_pageviews` on project `rosa`: 404 "Web Analytics not found" - Web Analytics is not enabled there. GA4 is the only visitor source.
-- Cloudflare `workers/observability/telemetry/query` with the wrangler OAuth token: "Authentication error" - that token has no Workers Logs scope. Request-level history is unavailable after the fact; `wrangler tail` live is the only view.
-- `uv` is not on PATH in this worktree shell and `~/Projects/rosa/pipeline/.venv` does not exist here; system `python3` ran `tools/ga-report/report.py` fine (it needs only `cryptography`).
-- GA4 `dateRange` is not a dimension (400); run one report per date range instead.
+None. The worktree had no `.vercel/project.json`; copying the one from `~/Projects/rosa/web/` fixed the link before deploying (memory: worktrees can land on a stray "web" project).
 
 ## Next Step
-1. If the operator still wants proof that registration works: run `cd deploy/user-api && npx wrangler tail --format pretty`, have them sign in on rosa.surf with a Google account never used on Rosa (or Profile > delete account first), expect one `POST /auth/google` 200 and `SELECT COUNT(*) FROM users` to read 34.
-2. If the real-vs-Tango split matters going forward: store the sign-in origin (e.g. a `source` column set from a client flag when the landing URL carried `webview=ANDROID_WEBVIEW` / `token`+`accountId`) - needs an operator decision, nothing built. Alternatively stop showing `SignInScreen` on first load for those visitors (`web/src/components/SignInScreen.tsx`, `TangoNotice.tsx` already detects the loads).
-3. `docs/OPEN-ITEMS.md` was not touched; add an item only if 2 is wanted.
+Nothing pending from this session. If rotation looks off at high latitude, compare `yOfLat` in `web/src/pages/ChartsPage.tsx` against `m.project([lon, lat])` at bearing 0 in the browser console (they must match to the pixel); the formula is MapLibre's own.
