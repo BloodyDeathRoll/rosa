@@ -69,7 +69,7 @@ export default defineConfig({
         // crawler files and data are never answered with the shell
         // /widget/ is the embeddable card: a third-party page frames it, and the
         // installed app's worker would otherwise answer that frame with the shell
-        navigateFallbackDenylist: [/^\/data\//, /^\/widget\//, /\.(xml|txt|json)$/],
+        navigateFallbackDenylist: [/^\/data\//, /^\/widget\//, /^\/ig$/, /\.(xml|txt|json)$/],
         // app shell precached; the heavy maplibre chunk is fetched (and then cached)
         // only when the Map tab opens; forecast JSON served stale-while-revalidate so
         // the last forecast is readable offline and refreshes in the background

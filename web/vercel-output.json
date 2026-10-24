@@ -53,6 +53,10 @@
       }
     },
     {
+      "src": "^/ig/?$",
+      "dest": "/ig"
+    },
+    {
       "handle": "filesystem"
     },
     {
