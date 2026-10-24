@@ -5,7 +5,7 @@
 export const SITE = "https://rosa.surf";
 export const DEFAULT_TITLE = "Rosa - free surf forecast, worldwide";
 export const DEFAULT_DESCRIPTION =
-  "Free 15-day surf forecast, worldwide. Waves, wind and tide, updated four times a day.";
+  "Free 16-day surf forecast, worldwide. Waves, wind and tide, updated four times a day.";
 
 export interface Head {
   title: string;
@@ -82,7 +82,7 @@ export function spotHead(spot: { id: string; name: string; region?: string; town
   const where = [spot.town, spot.region].filter((s): s is string => !!s && s !== spot.name).join(", ");
   return {
     title: `${spot.name} surf forecast${where ? ` - ${where}` : ""} | Rosa`,
-    description: `Free 15-day surf forecast for ${spot.name}: waves, wind and tide, updated four times a day.`,
+    description: `Free 16-day surf forecast for ${spot.name}: waves, wind and tide, updated four times a day.`,
     path: `/spot/${spot.id}`,
     // the build's per-spot share card (scripts/og-cards.mjs) - same URL as the shell's
     image: { url: `${SITE}/og/spot/${spot.id}.jpg`, alt: `${spot.name} surf forecast on Rosa` },

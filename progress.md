@@ -3,7 +3,7 @@
 Last updated: 17 Sep 2026. Updated at every `/session-off` (project skill `.claude/skills/session-off`).
 
 ## Status now
-- **Live and healthy.** 2,254 spots worldwide, a 15-day forecast, updated 4 times a day. Last update checked: 07:29 on 17 Sep.
+- **Live and healthy.** 2,254 spots worldwide, a 16-day forecast, updated 4 times a day. Last update checked: 07:29 on 17 Sep.
 - **South America is in (16 Sep):** Chile, Ecuador, Uruguay, Argentina and the three missing Brazilian states - 307 new spots, every pin checked on satellite photos.
 - **Wave data** comes from NOAA and ECMWF (the European forecast centre), blended 50/50. It has been the main source since 26 Aug.
 - **Wind** is GFS, the US weather model. The weather stations confirmed that choice on 16 Sep (the old model read about 0.8 m/s too light at every lead), so we stopped recording the old one. **Tide and water temperature** come from free global datasets.
@@ -21,7 +21,7 @@ Last updated: 17 Sep 2026. Updated at every `/session-off` (project skill `.clau
 - **Side by side by eye:** in Israel our heights track theirs hour by hour, mostly inside their range. Their wind turned out to be plain GFS, so we switched to GFS on 30 Aug.
 - **Against buoys, the new blend vs our old source (8 weeks of data, read 17 Sep):** level on wave height everywhere (within 1 cm), better on wave direction by 3 to 5 degrees. Hawaii, which used to favour the old source, is now level. Portugal has too little buoy data to read.
 - **Where they lead:** a proper nearshore model, cams, human forecasters, years of tuning.
-- **Where we lead:** free for the full 15 days, a public rating formula, and a confidence figure shown on every forecast.
+- **Where we lead:** free for the full 16 days, a public rating formula, and a confidence figure shown on every forecast.
 - **Honest gap:** buoys only exist in the US and Portugal. Most spots have no ground truth. That includes Israel, where the formula was tuned.
 
 ## Weak spots and fixes in flight

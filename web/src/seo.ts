@@ -52,14 +52,14 @@ export function headFor(route: Route): void {
     case "map":
       setHead({
         title: "Surf map - every spot, rated right now | Rosa",
-        description: "Live surf map, worldwide. Tap a spot for its 15-day forecast.",
+        description: "Live surf map, worldwide. Tap a spot for its 16-day forecast.",
         path,
       });
       return;
     case "charts":
       setHead({
         title: "Swell charts - animated wave height and period | Rosa",
-        description: "Animated swell charts for every ocean, 15 days out.",
+        description: "Animated swell charts for every ocean, 16 days out.",
         path,
       });
       return;
