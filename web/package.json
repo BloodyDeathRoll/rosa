@@ -10,7 +10,7 @@
     "build": "npm run sync-index && tsc --noEmit && vite build && npm run prerender",
     "preview": "vite preview",
     "test": "vitest run",
-    "prepare-output": "rm -rf .vercel/output && mkdir -p .vercel/output/static && node scripts/csp.mjs && cp -r dist/. .vercel/output/static/ && rm -rf .vercel/output/static/data",
+    "prepare-output": "rm -rf .vercel/output && mkdir -p .vercel/output/static && node scripts/csp.mjs && node scripts/edge.mjs && cp -r dist/. .vercel/output/static/ && rm -rf .vercel/output/static/data",
     "deploy": "npm run build && npm run prepare-output && vercel deploy --prebuilt --prod --archive=tgz",
     "prerender": "vite build --ssr src/prerender-entry.tsx --outDir dist-ssr && node scripts/prerender.mjs"
   },
