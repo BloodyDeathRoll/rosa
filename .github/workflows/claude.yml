@@ -29,7 +29,14 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 1
-          persist-credentials: false
+          # Credentials stay persisted on purpose: in tag mode the action fetches the
+          # PR branch (`git fetch origin <head>`) BEFORE it installs its own token, so
+          # `persist-credentials: false` made every `@claude` comment on a PR die with
+          # "could not read Username" (2026-09-25 .. 2026-10-24, unnoticed because the
+          # pull_request review workflow kept posting). The action then replaces the
+          # checkout token with its own app token before Claude runs, and GITHUB_TOKEN
+          # here is read-only anyway. The review workflow runs in agent mode, which
+          # never fetches, so it keeps `persist-credentials: false`.
 
       - name: Run Claude Code
         id: claude
