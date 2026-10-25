@@ -12,8 +12,8 @@
     "db:remote": "wrangler d1 execute rosa-users --remote --file schema.sql"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^5.20260921.1",
+    "@cloudflare/workers-types": "^5.20261016.1",
     "typescript": "^7.0.2",
-    "wrangler": "^4.136.1"
+    "wrangler": "^4.151.1"
   }
 }
