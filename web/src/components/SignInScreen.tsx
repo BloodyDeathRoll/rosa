@@ -6,23 +6,15 @@ import { ACCOUNT_EVENT, SIGNIN_REQUEST_EVENT, signedIn } from "../session";
 import { GoogleButton } from "./GoogleButton";
 import { mountParticles } from "./particles";
 
-const SEEN_KEY = "rosa.signin.seen"; // sessionStorage: "Not now" holds for this launch
 const PENDING_KEY = "rosa.signin.pending"; // the spot tapped before signing in
 
-/** The sign-in screen. Same look as the splash, so on a signed-out launch the
-    splash lifts straight onto it (it mounts underneath at once: z 9998 vs 9999)
-    and the app appears behind the moment the user answers. "Not now" keeps the
-    forecast fully usable; only saving a spot asks again, through
-    `requestSignIn(spotId)`, and that spot is saved the instant sign-in lands. */
+/** The sign-in screen. Never shown on launch (since 2026-10-26 the splash lifts
+    straight onto the app, signed in or not): it opens only when a signed-out
+    user tries to save a spot, through `requestSignIn(spotId)`, and that spot is
+    saved the instant sign-in lands. Same look as the splash. "Not now" closes it
+    and the forecast stays fully usable; the next star tap asks again. */
 export function SignInScreen() {
-  const [open, setOpen] = useState<boolean>(() => {
-    if (!accountSupported() || signedIn()) return false;
-    try {
-      return sessionStorage.getItem(SEEN_KEY) !== "1";
-    } catch {
-      return true;
-    }
-  });
+  const [open, setOpen] = useState(false);
   const particlesRef = useRef<HTMLCanvasElement>(null);
 
   const readPending = (): string | null => {
@@ -105,11 +97,6 @@ export function SignInScreen() {
   if (!open) return null;
 
   const later = () => {
-    try {
-      sessionStorage.setItem(SEEN_KEY, "1");
-    } catch {
-      // fine - it asks again next launch
-    }
     writePending(null);
     setOpen(false);
   };
