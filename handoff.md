@@ -1,28 +1,30 @@
-# Session Handoff — 2026-10-25
+# Session Handoff — 2026-10-26
 
 ## Goal
-Fix the "15-day" site copy, then clear every open PR: agent review, audit, fix, merge, delete branch.
+Change the launch flow so the splash lifts straight onto the app. A signed-in user stays signed in; a signed-out user sees the sign-in screen only when they try to save a spot.
 
 ## Current State
-- Zero open PRs. Main is at 037fb1a (PR 37 merge). rosa.surf deployed from main after the merges.
-- `@claude` comment trigger on PRs works again (7dcff3f). It had been silently broken since 2026-09-25.
-- `docs/SESSIONS.md` has the 2026-10-24/25 entry. `docs/OPEN-ITEMS.md` not touched (nothing opened or closed).
+- Done and live. Commit 1af4101 is on main and deployed to rosa.surf (deployment `dpl_FYuRRChB4kA6JX8j4JxHjvHkym5R`, project "rosa").
+- Verified: the live bundle has no `rosa.signin.seen` key and still has `rosa.signin.pending`.
+- `tsc --noEmit` clean, vitest 47/47 pass. No test covers `SignInScreen` itself.
+- Not checked on a phone or in a browser: the star-tap path to the sign-in screen and the save after sign-in.
+- `docs/OPEN-ITEMS.md` not touched (nothing opened or closed).
 
 ## Active Files
-- `.github/workflows/claude.yml` - checkout no longer sets `persist-credentials: false` (comment in the file explains why).
-- `web/edge/ig.js`, `web/scripts/edge.mjs`, `web/vercel-output.json`, `web/vite.config.ts` - the `/ig` edge redirect (PR 38).
-- `web/index.html`, `web/src/head.ts`, `web/src/seo.ts`, `progress.md` - 16-day copy.
+- `web/src/components/SignInScreen.tsx` - starts closed; opens only on `SIGNIN_REQUEST_EVENT` (star tap via `requestSignIn` in `favorites.ts`, or Profile's Sign in).
+- `docs/UI.md` - account paragraph says the screen is never shown on launch since 2026-10-26.
+- `docs/SESSIONS.md` - 2026-10-26 launch-flow entry appended.
 
 ## Changes Made This Session
-1. c215c9f: copy 15-day -> 16-day everywhere (pipeline horizon is 16).
-2. PR 38: Workbox denylist fix `/^\/ig\/?(\?|$)/` (ab41993); operator merged.
-3. Merged in order, squash, branch deleted: #35, #34, #31, #32, #37. Each SHA pin verified against its tag; ruff 0.17.1 run locally on the pipeline.
-4. 7dcff3f: `claude.yml` keeps checkout credentials so the action's PR-branch fetch works in tag mode.
-5. `cd web && npm ci && npm run deploy` from main. Verified `/ig` 302 (also `/ig/?fbclid=`), `/map` in headless Chrome with MapLibre 6.14: worker loads, no console errors, tiles render.
+1. Removed the launch-time open from `SignInScreen.tsx`. The initial state was "open if signed out and not dismissed this launch". It is now `useState(false)`.
+2. Removed `SEEN_KEY` (`rosa.signin.seen`, sessionStorage). "Not now" now just clears the pending spot and closes.
+3. Kept as-is: the pending-spot replay after sign-in, the ACCOUNT_EVENT close, the splash look and particles.
+4. Committed straight to main, pushed, and ran `npm run deploy` from `web/`.
 
 ## Failed Attempts
-- `@claude review` posted via `gh pr comment` on all five dependabot PRs: every run died at `git fetch origin <branch>` ("could not read Username"). That was the trigger bug, not a `gh` problem.
-- The pre-push hook fails with `uv: command not found` unless `PATH=$HOME/.local/bin:$PATH` is exported first.
+- `npx prettier --write` on the file reflowed unrelated lines. Prettier is not a project tool. The file was restored and only the intended edit re-applied.
+- This worktree's `web/` had no `.vercel/project.json`. It was copied from `~/Projects/rosa/web/.vercel/project.json` (project "rosa") before deploying.
+- The pre-push hook needs `PATH=$HOME/.local/bin:$PATH` or it fails with `uv: command not found`.
 
 ## Next Step
-Nothing pending. If a future `@claude` PR run fails again, read the job log for the step after "This is an open PR, checking out PR branch..." first.
+Nothing pending. Optional check: on rosa.surf while signed out, tap a spot's star, sign in, and confirm the spot is saved.
