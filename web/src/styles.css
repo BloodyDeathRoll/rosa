@@ -3406,6 +3406,22 @@ a.rank-card:hover {
   border-bottom: none;
   padding-bottom: 16px
 }
+.about-socials {
+  display: flex;
+  gap: 8px;
+}
+.about-socials a {
+  width: 40px;
+  height: 40px;
+  margin: -8px 0;
+  display: grid;
+  place-items: center;
+  color: var(--foreground);
+}
+.about-socials svg {
+  width: 24px;
+  height: 24px;
+}
 .settings-row .label {
   font-size: 16.4px;
   font-weight: 500;
@@ -4262,6 +4278,24 @@ a.rank-card:hover {
     height: 100%;
     object-fit: cover;
     display: block;
+  }
+  /* Instagram + Reddit, between search and share */
+  .desk-socials {
+    flex: none;
+    display: flex;
+    gap: 4px;
+    margin-right: -20px;
+  }
+  .desk-socials a {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    color: var(--muted-foreground);
+    transition: color 0.15s;
+  }
+  .desk-socials a:hover {
+    color: var(--foreground);
   }
   /* share, beside the avatar: the desktop home of every screen's share button */
   .desk-share {

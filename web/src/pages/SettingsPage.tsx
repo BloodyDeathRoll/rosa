@@ -3,7 +3,7 @@ import { navigate } from "../router";
 import { accountSupported, deleteAccount, signOut } from "../account";
 import { GoogleButton } from "../components/GoogleButton";
 import { MoonIcon, SunIcon, SurfIcon, SwimIcon } from "../components/icons";
-import { AppHeader } from "../components/parts";
+import { AppHeader, SocialLinks } from "../components/parts";
 import { feedbackPref, setFeedbackPref } from "../feedback";
 import { manualInstallOffer, openInChrome, runInstall, type InstallOffer } from "../install";
 import { disablePush, enablePush, PushApiError, pushState, syncPushSpots, type PushState } from "../push";
@@ -373,6 +373,10 @@ export function SettingsPage({
           <button class="settings-row tall about-link" onClick={() => (navigate("/about/contact"))}>
             <span class="label">Contact us</span>
           </button>
+          <div class="settings-row tall about-link">
+            <span class="label">Follow Rosa</span>
+            <SocialLinks class="about-socials" />
+          </div>
         </section>
 
         <footer class="settings-foot">

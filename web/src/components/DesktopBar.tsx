@@ -8,7 +8,7 @@ import { TAB_ROUTES, type Tab } from "../tabs";
 import { fmtRange, useUnits } from "../units";
 import type { IndexEntry } from "../types";
 import { SearchIcon, UserIcon } from "./icons";
-import { ShareButton } from "./parts";
+import { ShareButton, SocialLinks } from "./parts";
 import { shoreBreak, swimVar } from "../lib/swim";
 import { useMode } from "../mode";
 import { useSwimView } from "../swimData";
@@ -38,7 +38,7 @@ const NAV: { tab: Tab; label: string }[] = [
 ];
 
 /** Wide-screen chrome (styles.css DESKTOP block; `display: none` on phones):
-    brand, the four sections as text links, a search field, share and the
+    brand, the four sections as text links, a search field, socials, share and the
     account avatar on one row, and under it a ticker of your favorites - name, today's
     range, tier dot - so a glance at any page answers "where?" before a click.
     Profile has no link of its own: the avatar is the way in, as on Surfline. */
@@ -102,6 +102,7 @@ export function DesktopBar({ active }: { active: Tab | null }) {
           <SearchIcon size={16} stroke={1.5} />
           <span>Search spots or regions</span>
         </a>
+        <SocialLinks class="desk-socials" />
         <ShareButton class="desk-share" />
         <a
           class={`desk-account${active === "settings" ? " on" : ""}`}

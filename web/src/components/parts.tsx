@@ -5,7 +5,7 @@ import { ratingVar, ratingWord } from "../conditions";
 import { SWIM_WORD, swimVar, type SwimBucket } from "../lib/swim";
 import { gaEvent } from "../ga";
 import { DEFAULT_TITLE, SITE } from "../head";
-import { CheckIcon, ShareIcon, StarIcon } from "./icons";
+import { CheckIcon, InstagramIcon, RedditIcon, ShareIcon, StarIcon } from "./icons";
 
 /** Share button, left of search in every header that has one (and beside the
     account avatar on desktop). Shares `path` on the canonical site: the OS share
@@ -164,5 +164,20 @@ export function AppHeader({
       </span>
       {right}
     </header>
+  );
+}
+
+/** Rosa's socials: in the desktop bar between search and share, and the last
+    row of the profile's About card on phones. */
+export function SocialLinks({ class: cls }: { class: string }) {
+  return (
+    <div class={cls}>
+      <a href="https://www.instagram.com/rosa_surf_forecast" target="_blank" rel="noopener" aria-label="Rosa on Instagram">
+        <InstagramIcon />
+      </a>
+      <a href="https://www.reddit.com/r/rosasurf/" target="_blank" rel="noopener" aria-label="Rosa on Reddit">
+        <RedditIcon />
+      </a>
+    </div>
   );
 }
