@@ -1,0 +1,72 @@
+{
+  "spot": "pulau-pinang",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    2.0385,
+    97.385
+  ],
+  "bearing_seaward_deg": 241.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 143.0,
+  "mean_slope_m_per_km": 7.89,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 2.03741,
+      "lon": 97.38303,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 2.03632,
+      "lon": 97.38106,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 2.03414,
+      "lon": 97.37713,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 2.02978,
+      "lon": 97.36926,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 2.02542,
+      "lon": 97.36139,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 2.0167,
+      "lon": 97.34565,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 2.00362,
+      "lon": 97.32204,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 1.98618,
+      "lon": 97.29056,
+      "depth_m": 96.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 1.96001,
+      "lon": 97.24334,
+      "depth_m": 143.0
+    }
+  ]
+}

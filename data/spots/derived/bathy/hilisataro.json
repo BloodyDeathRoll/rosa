@@ -1,0 +1,72 @@
+{
+  "spot": "hilisataro",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    0.6127,
+    97.8884
+  ],
+  "bearing_seaward_deg": 120.0,
+  "nearshore_depth_m": 18.0,
+  "offshore_depth_m": 609.0,
+  "mean_slope_m_per_km": 33.3,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 0.61158,
+      "lon": 97.89035,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 0.61045,
+      "lon": 97.89229,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 0.6082,
+      "lon": 97.89619,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 0.60371,
+      "lon": 97.90398,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 0.59921,
+      "lon": 97.91177,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 0.59022,
+      "lon": 97.92734,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 0.57673,
+      "lon": 97.95071,
+      "depth_m": 111.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 0.55874,
+      "lon": 97.98186,
+      "depth_m": 317.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 0.53176,
+      "lon": 98.0286,
+      "depth_m": 609.0
+    }
+  ]
+}

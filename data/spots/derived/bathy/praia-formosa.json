@@ -1,0 +1,72 @@
+{
+  "spot": "praia-formosa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    32.6389,
+    -16.9512
+  ],
+  "bearing_seaward_deg": 222.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 2785.0,
+  "mean_slope_m_per_km": 156.34,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.63723,
+      "lon": -16.95299,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.63556,
+      "lon": -16.95477,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.63222,
+      "lon": -16.95835,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.62553,
+      "lon": -16.96549,
+      "depth_m": 115.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.61885,
+      "lon": -16.97263,
+      "depth_m": 573.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.60548,
+      "lon": -16.98692,
+      "depth_m": 1121.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.58542,
+      "lon": -17.00833,
+      "depth_m": 1388.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.55867,
+      "lon": -17.03688,
+      "depth_m": 2075.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.51854,
+      "lon": -17.07966,
+      "depth_m": 2785.0
+    }
+  ]
+}

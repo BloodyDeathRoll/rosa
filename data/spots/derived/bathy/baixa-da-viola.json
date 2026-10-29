@@ -1,0 +1,72 @@
+{
+  "spot": "baixa-da-viola",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.8406,
+    -25.3693
+  ],
+  "bearing_seaward_deg": 358.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 1486.0,
+  "mean_slope_m_per_km": 84.11,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.84285,
+      "lon": -25.3694,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.84509,
+      "lon": -25.3695,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.84959,
+      "lon": -25.3697,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.85858,
+      "lon": -25.3701,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.86756,
+      "lon": -25.37049,
+      "depth_m": 98.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.88554,
+      "lon": -25.37129,
+      "depth_m": 176.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.9125,
+      "lon": -25.37248,
+      "depth_m": 557.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.94845,
+      "lon": -25.37408,
+      "depth_m": 932.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.00238,
+      "lon": -25.37647,
+      "depth_m": 1486.0
+    }
+  ]
+}

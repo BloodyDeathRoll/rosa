@@ -1,0 +1,72 @@
+{
+  "spot": "faja-grande",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    39.4616,
+    -31.2588
+  ],
+  "bearing_seaward_deg": 306.0,
+  "nearshore_depth_m": -122.0,
+  "offshore_depth_m": 1588.0,
+  "mean_slope_m_per_km": 96.34,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 39.46292,
+      "lon": -31.26116,
+      "depth_m": -122.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 39.46424,
+      "lon": -31.26351,
+      "depth_m": -62.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 39.46689,
+      "lon": -31.26822,
+      "depth_m": -19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 39.47217,
+      "lon": -31.27765,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 39.47745,
+      "lon": -31.28708,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 39.48802,
+      "lon": -31.30594,
+      "depth_m": 223.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 39.50386,
+      "lon": -31.33424,
+      "depth_m": 927.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 39.52498,
+      "lon": -31.37199,
+      "depth_m": 1210.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 39.55663,
+      "lon": -31.42866,
+      "depth_m": 1588.0
+    }
+  ]
+}

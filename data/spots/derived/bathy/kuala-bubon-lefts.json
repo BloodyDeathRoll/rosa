@@ -1,0 +1,72 @@
+{
+  "spot": "kuala-bubon-lefts",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    4.1921,
+    96.0247
+  ],
+  "bearing_seaward_deg": 205.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 55.0,
+  "mean_slope_m_per_km": 2.87,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 4.19006,
+      "lon": 96.02375,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 4.18802,
+      "lon": 96.02279,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 4.18395,
+      "lon": 96.02089,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 4.1758,
+      "lon": 96.01708,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 4.16765,
+      "lon": 96.01327,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 4.15135,
+      "lon": 96.00565,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 4.12689,
+      "lon": 95.99422,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 4.09429,
+      "lon": 95.97898,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 4.04539,
+      "lon": 95.95612,
+      "depth_m": 55.0
+    }
+  ]
+}

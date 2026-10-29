@@ -1,0 +1,34 @@
+# Rosa spot database - Nias (seeded 2026-10-29). Lagundri Bay / Sorake on the south tip,
+# the Hinako islands (Asu, Bawa) off the west coast, and Afulu in the north-west. Indian
+# Ocean groundswell from the S-SW, biggest Apr-Oct. Reef throughout; swell_window and
+# offshore_direction per spot.
+
+country: "Indonesia"
+
+defaults: &nia
+  timezone: Asia/Jakarta
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [160, 280]
+  ideal:
+    wind_dir: [0, 120]
+    size_m: [1.0, 3.0]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - nias, 9 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 9 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/nias/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: afulu, name: "Afulu", town: "Afulu", lat: 1.2462, lon: 97.2465, offshore_direction: 50, swell_window: [165, 295], offshore_km: 5.0, <<: *nia }  # sat-verified 2026-10-29 (websearch-seeded)  [normal set by hand from the tile, seaward 230]
+  - { id: sirombu, name: "Sirombu", town: "Sirombu", lat: 0.9383, lon: 97.4068, offshore_direction: 21, swell_window: [136, 266], offshore_km: 5.0, <<: *nia }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: asu, name: "Asu", town: "Hinako", lat: 0.8952, lon: 97.2818, offshore_direction: 341, swell_window: [96, 226], offshore_km: 5.0, <<: *nia }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: heruanga, name: "Heruanga", town: "Hinako", lat: 0.8613, lon: 97.2898, offshore_direction: 347, swell_window: [102, 232], offshore_km: 5.0, <<: *nia }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: hamutala, name: "Hamutala", town: "Hinako", lat: 0.8346, lon: 97.3800, offshore_direction: 353, swell_window: [108, 238], offshore_km: 5.0, <<: *nia }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: bawa, name: "Bawa", town: "Hinako", lat: 0.8110, lon: 97.3560, offshore_direction: 343, swell_window: [98, 228], offshore_km: 5.0, <<: *nia }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: hilisataro, name: "Hilisataro", town: "Hilisataro Nadisa", lat: 0.6127, lon: 97.8884, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, <<: *nia }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: lagundri-the-point, name: "Lagundri - The Point", town: "Lagundri", lat: 0.5649, lon: 97.7302, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, <<: *nia }  # sat-verified 2026-10-29 (websearch-seeded)  [normal set by hand from the tile, seaward 200]
+  - { id: lagundri-indicators, name: "Lagundri - Indicators", town: "Lagundri", lat: 0.5636, lon: 97.7242, offshore_direction: 13, swell_window: [128, 258], offshore_km: 5.0, <<: *nia }  # sat-verified 2026-10-29 (websearch-seeded)

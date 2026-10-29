@@ -1,0 +1,72 @@
+{
+  "spot": "lampuuk",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    5.4934,
+    95.2286
+  ],
+  "bearing_seaward_deg": 253.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 31.0,
+  "mean_slope_m_per_km": 2.31,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 5.49274,
+      "lon": 95.22644,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 5.49209,
+      "lon": 95.22428,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 5.49077,
+      "lon": 95.21996,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 5.48814,
+      "lon": 95.21132,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 5.48551,
+      "lon": 95.20268,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 5.48025,
+      "lon": 95.1854,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 5.47236,
+      "lon": 95.15948,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 5.46184,
+      "lon": 95.12493,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 5.44605,
+      "lon": 95.07309,
+      "depth_m": 31.0
+    }
+  ]
+}

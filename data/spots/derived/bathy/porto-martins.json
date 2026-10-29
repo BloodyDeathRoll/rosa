@@ -1,0 +1,72 @@
+{
+  "spot": "porto-martins",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.677,
+    -27.0576
+  ],
+  "bearing_seaward_deg": 176.0,
+  "nearshore_depth_m": 37.0,
+  "offshore_depth_m": 686.0,
+  "mean_slope_m_per_km": 36.56,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.67476,
+      "lon": -27.0574,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.67251,
+      "lon": -27.0572,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.66803,
+      "lon": -27.0568,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.65906,
+      "lon": -27.05599,
+      "depth_m": 84.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.65009,
+      "lon": -27.05519,
+      "depth_m": 130.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.63214,
+      "lon": -27.05358,
+      "depth_m": 160.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.60523,
+      "lon": -27.05118,
+      "depth_m": 263.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.56934,
+      "lon": -27.04797,
+      "depth_m": 386.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.51552,
+      "lon": -27.04317,
+      "depth_m": 686.0
+    }
+  ]
+}

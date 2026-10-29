@@ -1,0 +1,72 @@
+{
+  "spot": "madalena-do-mar",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    32.6978,
+    -17.1311
+  ],
+  "bearing_seaward_deg": 204.0,
+  "nearshore_depth_m": 54.0,
+  "offshore_depth_m": 3123.0,
+  "mean_slope_m_per_km": 172.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.69575,
+      "lon": -17.13219,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.69369,
+      "lon": -17.13327,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.68958,
+      "lon": -17.13545,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.68137,
+      "lon": -17.13979,
+      "depth_m": 115.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.67315,
+      "lon": -17.14414,
+      "depth_m": 314.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.65672,
+      "lon": -17.15282,
+      "depth_m": 1208.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.63207,
+      "lon": -17.16585,
+      "depth_m": 2061.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.5992,
+      "lon": -17.1832,
+      "depth_m": 2660.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.54989,
+      "lon": -17.20921,
+      "depth_m": 3123.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "paul-do-mar",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    32.7529,
+    -17.2255
+  ],
+  "bearing_seaward_deg": 224.0,
+  "nearshore_depth_m": -50.0,
+  "offshore_depth_m": 2732.0,
+  "mean_slope_m_per_km": 156.73,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.75128,
+      "lon": -17.22736,
+      "depth_m": -50.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.74967,
+      "lon": -17.22921,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.74643,
+      "lon": -17.23293,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.73996,
+      "lon": -17.24035,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.73349,
+      "lon": -17.24778,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.72055,
+      "lon": -17.26263,
+      "depth_m": 715.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.70113,
+      "lon": -17.28489,
+      "depth_m": 1451.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.67524,
+      "lon": -17.31456,
+      "depth_m": 2255.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.63638,
+      "lon": -17.35903,
+      "depth_m": 2732.0
+    }
+  ]
+}

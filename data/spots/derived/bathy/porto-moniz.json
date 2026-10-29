@@ -1,0 +1,72 @@
+{
+  "spot": "porto-moniz",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    32.8684,
+    -17.1684
+  ],
+  "bearing_seaward_deg": 30.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 2690.0,
+  "mean_slope_m_per_km": 152.23,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.87035,
+      "lon": -17.16706,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.87229,
+      "lon": -17.16572,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.87619,
+      "lon": -17.16305,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.88398,
+      "lon": -17.15769,
+      "depth_m": 353.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.89176,
+      "lon": -17.15233,
+      "depth_m": 811.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.90734,
+      "lon": -17.14162,
+      "depth_m": 1408.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.9307,
+      "lon": -17.12554,
+      "depth_m": 1832.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.96184,
+      "lon": -17.10409,
+      "depth_m": 2361.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.00855,
+      "lon": -17.07188,
+      "depth_m": 2690.0
+    }
+  ]
+}

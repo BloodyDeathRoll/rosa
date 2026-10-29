@@ -1,0 +1,72 @@
+{
+  "spot": "heruanga",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    0.8613,
+    97.2898
+  ],
+  "bearing_seaward_deg": 167.0,
+  "nearshore_depth_m": 32.0,
+  "offshore_depth_m": 922.0,
+  "mean_slope_m_per_km": 50.14,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 0.85911,
+      "lon": 97.29031,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 0.85692,
+      "lon": 97.29081,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 0.85254,
+      "lon": 97.29182,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 0.84377,
+      "lon": 97.29385,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 0.83501,
+      "lon": 97.29587,
+      "depth_m": 146.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 0.81749,
+      "lon": 97.29992,
+      "depth_m": 297.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 0.7912,
+      "lon": 97.30599,
+      "depth_m": 487.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 0.75615,
+      "lon": 97.31408,
+      "depth_m": 480.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 0.70357,
+      "lon": 97.32622,
+      "depth_m": 922.0
+    }
+  ]
+}

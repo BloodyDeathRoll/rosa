@@ -1,0 +1,72 @@
+{
+  "spot": "almoxarife",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.5545,
+    -28.6088
+  ],
+  "bearing_seaward_deg": 63.0,
+  "nearshore_depth_m": 48.0,
+  "offshore_depth_m": 1173.0,
+  "mean_slope_m_per_km": 63.38,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.55552,
+      "lon": -28.60624,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.55654,
+      "lon": -28.60368,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.55858,
+      "lon": -28.59855,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.56266,
+      "lon": -28.5883,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.56674,
+      "lon": -28.57805,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.5749,
+      "lon": -28.55755,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.58713,
+      "lon": -28.52679,
+      "depth_m": 102.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.60343,
+      "lon": -28.48576,
+      "depth_m": 655.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.62785,
+      "lon": -28.42417,
+      "depth_m": 1173.0
+    }
+  ]
+}

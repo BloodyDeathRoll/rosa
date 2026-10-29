@@ -1,0 +1,72 @@
+{
+  "spot": "faja-da-areia",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    32.8153,
+    -17.0271
+  ],
+  "bearing_seaward_deg": 18.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 2504.0,
+  "mean_slope_m_per_km": 141.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.81744,
+      "lon": -17.02627,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.81958,
+      "lon": -17.02545,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.82385,
+      "lon": -17.02379,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.83241,
+      "lon": -17.02049,
+      "depth_m": 109.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.84096,
+      "lon": -17.01718,
+      "depth_m": 182.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.85806,
+      "lon": -17.01056,
+      "depth_m": 564.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.88372,
+      "lon": -17.00063,
+      "depth_m": 1014.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.91793,
+      "lon": -16.98737,
+      "depth_m": 1915.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.96924,
+      "lon": -16.96748,
+      "depth_m": 2504.0
+    }
+  ]
+}

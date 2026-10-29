@@ -1,0 +1,72 @@
+{
+  "spot": "ribeira-da-janela",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    32.8557,
+    -17.1525
+  ],
+  "bearing_seaward_deg": 30.0,
+  "nearshore_depth_m": -46.0,
+  "offshore_depth_m": 2584.0,
+  "mean_slope_m_per_km": 148.17,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.85765,
+      "lon": -17.15116,
+      "depth_m": -46.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.85959,
+      "lon": -17.14982,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.86349,
+      "lon": -17.14715,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.87128,
+      "lon": -17.14179,
+      "depth_m": 282.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.87906,
+      "lon": -17.13644,
+      "depth_m": 740.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.89464,
+      "lon": -17.12572,
+      "depth_m": 1313.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.918,
+      "lon": -17.10965,
+      "depth_m": 1905.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.94914,
+      "lon": -17.0882,
+      "depth_m": 2261.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.99585,
+      "lon": -17.056,
+      "depth_m": 2584.0
+    }
+  ]
+}

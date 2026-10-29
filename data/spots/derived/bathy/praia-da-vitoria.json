@@ -1,0 +1,72 @@
+{
+  "spot": "praia-da-vitoria",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.719,
+    -27.061
+  ],
+  "bearing_seaward_deg": 88.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 645.0,
+  "mean_slope_m_per_km": 35.77,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.71908,
+      "lon": -27.05812,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.71916,
+      "lon": -27.05524,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.71931,
+      "lon": -27.04948,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.71963,
+      "lon": -27.03796,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.71994,
+      "lon": -27.02644,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.72056,
+      "lon": -27.0034,
+      "depth_m": 106.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.72147,
+      "lon": -26.96884,
+      "depth_m": 147.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.72268,
+      "lon": -26.92276,
+      "depth_m": 456.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.72447,
+      "lon": -26.85363,
+      "depth_m": 645.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "monte-verde",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.8233,
+    -25.5282
+  ],
+  "bearing_seaward_deg": 334.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 1144.0,
+  "mean_slope_m_per_km": 64.85,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.82532,
+      "lon": -25.52945,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.82734,
+      "lon": -25.5307,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.83138,
+      "lon": -25.53319,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.83947,
+      "lon": -25.53818,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.84755,
+      "lon": -25.54318,
+      "depth_m": 90.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.86371,
+      "lon": -25.55317,
+      "depth_m": 232.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.88796,
+      "lon": -25.56816,
+      "depth_m": 528.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.92028,
+      "lon": -25.58817,
+      "depth_m": 839.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.96876,
+      "lon": -25.61821,
+      "depth_m": 1144.0
+    }
+  ]
+}

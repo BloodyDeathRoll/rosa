@@ -88,8 +88,9 @@ BASINS: dict[str, tuple[str, ...]] = {
         "Galicia",
     ),
     # the Canaries: 100 km off Morocco, but its own frame - the north shores face the
-    # open North Atlantic and Morocco's box would have to stretch 700 km south-west
-    "canaries": ("Canary Islands",),
+    # open North Atlantic and Morocco's box would have to stretch 700 km south-west.
+    # Madeira, ~450 km north, takes the same open North Atlantic swell
+    "canaries": ("Canary Islands", "Madeira"),
     # the North Sea / Pentland Firth coasts face the other way
     "north-sea": (
         "North East England",
@@ -108,6 +109,9 @@ BASINS: dict[str, tuple[str, ...]] = {
     "lofoten": ("Lofoten",),
     # Iceland, mid North Atlantic: every coast faces open ocean, its own frame
     "iceland": ("Iceland",),
+    # the Azores, mid North Atlantic 1,400 km west of Lisbon: every coast faces open ocean and
+    # the archipelago spans 600 km - the portugal box would have to stretch across the basin
+    "azores": ("Azores",),
     # Korea: the East Sea (typhoon swell and winter NE wind swell) down to Busan, the Yellow
     # Sea at Taean and Jeju in the north of the East China Sea. Its own frame: the japan box
     # is built round Honshu's Pacific coast and would have to stretch 1,000 km west
@@ -209,8 +213,23 @@ BASINS: dict[str, tuple[str, ...]] = {
     "australia-south": ("Victoria", "South Australia", "Tasmania", "WA South", "Esperance"),
     # Perth + Margaret River share one Indian Ocean frame: the same SW groundswell
     "australia-west": ("Perth", "Margaret River", "WA North", "WA Midwest", "Bunbury", "Exmouth"),
-    # Bali first; later Indonesian regions (Lombok/Sumbawa, Java, Mentawai) join here
-    "indonesia": ("Bali", "Lombok", "Sumbawa", "East Java", "West Java", "Mentawai"),
+    # Bali first; later Indonesian regions (Lombok/Sumbawa, Java, Mentawai) join here;
+    # Sumba and Rote (Nusa Tenggara Timur) take the same SW Indian Ocean groundswell further east
+    # Aceh, Simeulue, Nias and Krui (2026-10-29) are the same SW groundswell on Sumatra's west coast
+    "indonesia": (
+        "Bali",
+        "Lombok",
+        "Sumbawa",
+        "East Java",
+        "West Java",
+        "Mentawai",
+        "Sumba",
+        "Rote",
+        "Aceh",
+        "Simeulue",
+        "Nias",
+        "Krui",
+    ),
     "french-polynesia": ("French Polynesia",),
     "fiji": ("Fiji",),
     # Melanesia, seeded 2026-09-21: PNG's two clusters sit ~1,300 km apart on the same

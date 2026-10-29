@@ -1,0 +1,51 @@
+# Rosa spot database - Madeira and Porto Santo (seeded 2026-10-29). Boulder points and lava
+# reefs under the cliffs: the south-west coast (Jardim do Mar, Ponta Pequena, Paul do Mar) takes
+# the NW North Atlantic groundswell wrapping the island with the NE trades offshore; the north
+# shore faces the swell head-on. Same open North Atlantic swell as the Canaries, ~450 km south.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+country: "Portugal"
+
+defaults: &mad
+  timezone: Atlantic/Madeira
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [230, 20]
+  ideal:
+    wind_dir: [20, 120]
+    size_m: [1.0, 3.0]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - madeira, 25 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 25 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/madeira/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: cabeco, name: "Cabeço", town: "Vila Baleira", lat: 33.0344, lon: -16.3632, offshore_direction: 318, swell_window: [73, 203], offshore_km: 5.0, break_type: beach, <<: *mad }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: ponta-do-tristao, name: "Ponta do Tristão", town: "Santa", lat: 32.8699, lon: -17.2007, offshore_direction: 164, swell_window: [279, 49], offshore_km: 5.0, <<: *mad }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: porto-moniz, name: "Porto Moniz", town: "Porto Moniz", lat: 32.8684, lon: -17.1684, offshore_direction: 210, swell_window: [325, 95], offshore_km: 5.0, <<: *mad }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: achadas-da-cruz, name: "Achadas da Cruz", town: "Achadas da Cruz", lat: 32.8570, lon: -17.2143, offshore_direction: 138, swell_window: [253, 23], offshore_km: 5.0, <<: *mad }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: ribeira-da-janela, name: "Ribeira da Janela", town: "Ribeira da Janela", lat: 32.8557, lon: -17.1525, offshore_direction: 210, swell_window: [325, 95], offshore_km: 5.0, <<: *mad }  # sat-verified 2026-10-29 (websearch-seeded); normal set by hand to seaward 30 - the coastline candidate (63) crossed the river-mouth fan to 0.5 km (3c gate, read off the tile)
+  - { id: contreiras, name: "Contreiras", town: "Ribeira da Janela", lat: 32.8424, lon: -17.1405, offshore_direction: 216, swell_window: [331, 101], offshore_km: 5.0, <<: *mad }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: ponta-delgada, name: "Ponta Delgada", town: "Ponta Delgada", lat: 32.8303, lon: -16.9883, offshore_direction: 201, swell_window: [316, 86], offshore_km: 5.0, <<: *mad }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: sao-jorge, name: "São Jorge", town: "São Jorge", lat: 32.8300, lon: -16.8978, offshore_direction: 215, swell_window: [330, 100], offshore_km: 5.0, <<: *mad }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: seixal, name: "Seixal", town: "Seixal", lat: 32.8219, lon: -17.1028, offshore_direction: 200, swell_window: [315, 85], offshore_km: 5.0, break_type: beach, <<: *mad }  # sat-verified 2026-10-29 (websearch-seeded); normal set by hand to seaward 20 - the candidate (83) faced the harbour cove and hit land at 18 km (3c gate, read off the tile)
+  - { id: faja-da-areia, name: "Fajã da Areia", town: "São Vicente", lat: 32.8153, lon: -17.0271, offshore_direction: 198, swell_window: [313, 83], offshore_km: 5.0, <<: *mad }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: ponta-do-pargo, name: "Ponta do Pargo", town: "Ponta do Pargo", lat: 32.8145, lon: -17.2654, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, <<: *mad }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: sao-vicente, name: "São Vicente", town: "São Vicente", lat: 32.8116, lon: -17.0390, offshore_direction: 167, swell_window: [282, 52], offshore_km: 5.0, <<: *mad }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: faial, name: "Faial", town: "Faial", lat: 32.7904, lon: -16.8466, offshore_direction: 220, swell_window: [335, 105], offshore_km: 5.0, break_type: beach, <<: *mad }  # sat-verified 2026-10-29 (websearch-seeded); normal set by hand to seaward 40 - the candidate (98) ran along the shelf toward Ponta de Sao Lourenco (116 m at 18 km) (3c gate, read off the tile)
+  - { id: porto-da-cruz, name: "Porto da Cruz", town: "Porto da Cruz", lat: 32.7748, lon: -16.8289, offshore_direction: 200, swell_window: [315, 85], offshore_km: 5.0, break_type: beach, <<: *mad }  # sat-verified 2026-10-29 (websearch-seeded); normal set by hand to seaward 20 - Praia da Alagoa opens north; the candidate (123) crossed the headland (3c gate, read off the tile)
+  - { id: faja-da-ovelha, name: "Fajã da Ovelha", town: "Fajã da Ovelha", lat: 32.7683, lon: -17.2405, offshore_direction: 94, swell_window: [209, 339], offshore_km: 5.0, <<: *mad }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: paul-do-mar, name: "Paul do Mar", town: "Paul do Mar", lat: 32.7529, lon: -17.2255, offshore_direction: 44, swell_window: [159, 289], offshore_km: 5.0, <<: *mad }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: ponta-pequena, name: "Ponta Pequena", town: "Paul do Mar", lat: 32.7478, lon: -17.2207, offshore_direction: 72, swell_window: [187, 317], offshore_km: 5.0, <<: *mad }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: jardim-do-mar, name: "Jardim do Mar", town: "Jardim do Mar", lat: 32.7376, lon: -17.2128, offshore_direction: 44, swell_window: [159, 289], offshore_km: 5.0, <<: *mad }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: machico, name: "Machico", town: "Machico", lat: 32.7166, lon: -16.7643, offshore_direction: 320, swell_window: [75, 205], offshore_km: 5.0, break_type: beach, <<: *mad }  # sat-verified 2026-10-29 (websearch-seeded); normal set by hand to seaward 140 - the bay opens SE; the candidate (53) crossed the north shore of the bay (3c gate, read off the tile)
+  - { id: madalena-do-mar, name: "Madalena do Mar", town: "Madalena do Mar", lat: 32.6978, lon: -17.1311, offshore_direction: 24, swell_window: [139, 269], offshore_km: 5.0, <<: *mad }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: ponta-do-sol, name: "Ponta do Sol", town: "Ponta do Sol", lat: 32.6794, lon: -17.1052, offshore_direction: 10, swell_window: [125, 255], offshore_km: 5.0, <<: *mad }  # sat-verified 2026-10-29 (websearch-seeded); normal set by hand to seaward 190 - the beach faces S; the candidate (118) crossed the point to 1 km (3c gate, read off the tile)
+  - { id: lugar-de-baixo, name: "Lugar de Baixo", town: "Lugar de Baixo", lat: 32.6786, lon: -17.0889, offshore_direction: 346, swell_window: [101, 231], offshore_km: 5.0, <<: *mad }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: faja-dos-padres, name: "Fajã dos Padres", town: "Quinta Grande", lat: 32.6552, lon: -17.0232, offshore_direction: 15, swell_window: [130, 260], offshore_km: 5.0, <<: *mad }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: cabo-girao, name: "Cabo Girão", town: "Quinta Grande", lat: 32.6533, lon: -17.0051, offshore_direction: 353, swell_window: [108, 238], offshore_km: 5.0, <<: *mad }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: praia-formosa, name: "Praia Formosa", town: "Funchal", lat: 32.6389, lon: -16.9512, offshore_direction: 42, swell_window: [157, 287], offshore_km: 5.0, break_type: beach, <<: *mad }  # sat-verified 2026-10-29 (websearch-seeded)

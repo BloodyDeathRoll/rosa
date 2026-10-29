@@ -1,0 +1,72 @@
+{
+  "spot": "cabo-girao",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    32.6533,
+    -17.0051
+  ],
+  "bearing_seaward_deg": 173.0,
+  "nearshore_depth_m": -308.0,
+  "offshore_depth_m": 2639.0,
+  "mean_slope_m_per_km": 166.03,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.65107,
+      "lon": -17.00477,
+      "depth_m": -308.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.64884,
+      "lon": -17.00445,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.64437,
+      "lon": -17.0038,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.63545,
+      "lon": -17.0025,
+      "depth_m": 122.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.62652,
+      "lon": -17.0012,
+      "depth_m": 138.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.60867,
+      "lon": -16.99859,
+      "depth_m": 897.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.58189,
+      "lon": -16.99469,
+      "depth_m": 1749.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.54618,
+      "lon": -16.9895,
+      "depth_m": 1990.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.49263,
+      "lon": -16.98171,
+      "depth_m": 2639.0
+    }
+  ]
+}

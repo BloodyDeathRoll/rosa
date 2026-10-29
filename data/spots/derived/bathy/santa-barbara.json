@@ -1,0 +1,72 @@
+{
+  "spot": "santa-barbara",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.8173,
+    -25.5486
+  ],
+  "bearing_seaward_deg": 335.0,
+  "nearshore_depth_m": -30.0,
+  "offshore_depth_m": 1212.0,
+  "mean_slope_m_per_km": 69.97,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.81934,
+      "lon": -25.5498,
+      "depth_m": -30.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.82138,
+      "lon": -25.55101,
+      "depth_m": -17.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.82545,
+      "lon": -25.55341,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.8336,
+      "lon": -25.55822,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.84175,
+      "lon": -25.56304,
+      "depth_m": 94.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.85805,
+      "lon": -25.57267,
+      "depth_m": 288.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.8825,
+      "lon": -25.58712,
+      "depth_m": 715.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.91509,
+      "lon": -25.60641,
+      "depth_m": 943.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.96398,
+      "lon": -25.63537,
+      "depth_m": 1212.0
+    }
+  ]
+}

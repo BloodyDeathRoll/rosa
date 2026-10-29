@@ -1,0 +1,72 @@
+{
+  "spot": "agua-d-alto",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.7166,
+    -25.4732
+  ],
+  "bearing_seaward_deg": 180.0,
+  "nearshore_depth_m": -16.0,
+  "offshore_depth_m": 1172.0,
+  "mean_slope_m_per_km": 66.93,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.71435,
+      "lon": -25.4732,
+      "depth_m": -16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.7121,
+      "lon": -25.4732,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.70761,
+      "lon": -25.4732,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.69861,
+      "lon": -25.4732,
+      "depth_m": 111.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.68962,
+      "lon": -25.4732,
+      "depth_m": 282.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.67163,
+      "lon": -25.4732,
+      "depth_m": 562.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.64465,
+      "lon": -25.4732,
+      "depth_m": 777.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.60868,
+      "lon": -25.4732,
+      "depth_m": 904.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.55472,
+      "lon": -25.4732,
+      "depth_m": 1172.0
+    }
+  ]
+}

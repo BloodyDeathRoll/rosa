@@ -1,0 +1,72 @@
+{
+  "spot": "faja-da-caldeira-de-santo-cristo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.6279,
+    -27.9276
+  ],
+  "bearing_seaward_deg": 54.0,
+  "nearshore_depth_m": -35.0,
+  "offshore_depth_m": 1170.0,
+  "mean_slope_m_per_km": 67.89,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.62922,
+      "lon": -27.92527,
+      "depth_m": -35.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.63054,
+      "lon": -27.92294,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.63319,
+      "lon": -27.91829,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.63847,
+      "lon": -27.90897,
+      "depth_m": 95.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.64375,
+      "lon": -27.89965,
+      "depth_m": 144.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.65432,
+      "lon": -27.88102,
+      "depth_m": 678.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.67016,
+      "lon": -27.85305,
+      "depth_m": 972.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.69128,
+      "lon": -27.81574,
+      "depth_m": 1208.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.72293,
+      "lon": -27.75974,
+      "depth_m": 1170.0
+    }
+  ]
+}

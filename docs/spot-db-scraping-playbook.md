@@ -222,7 +222,30 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-10-29, DB = 3499 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-10-29, DB = 3593 spots, ALL sat-verified)
+
+**Azores 27, Madeira 25, Sumatra 28, Sumba 9 + Rote 5, 3499 -> 3593 (2026-10-29, second pass).** Four
+parallel subagents, web flow end to end, Google still down; a 10-pin coordinator re-render was all on the
+break. The Azores got a new `azores` basin; Madeira joined `canaries`; the Sumatran regions (`aceh`,
+`simeulue`, `nias`, `krui`) and `sumba`, `rote` joined `indonesia` (now one name per line, ruff format).
+- **Extracts:** the Azores are `europe/azores` (Portugal's extract excludes them; `europe/portugal/azores`
+  404s). Madeira has no Geofabrik extract but sits inside `europe/portugal` - a pyosmium bbox cut. Sumatra
+  is `asia/indonesia/sumatra` (283 MB), Sumba/Rote `asia/indonesia/nusa-tenggara` (177 MB).
+- **The pyosmium name search of the extract placed nearly every pin** (capes, fajas, islands, bays, surf
+  camps); Photon gave island or province centroids for most surf names. Madeira's village and cape nodes
+  sit on the cliff-top faja 100-250 m behind the shore; Indonesian village nodes can sit 7-8 km inland
+  (Tanjung Setia, Way Jambu) - anchor on capes, islands and camps instead.
+- **GEBCO puts a false shoal 2-5 km off Krui**: Ujung Bocur and Pulau Pisang carry an explicit
+  `shore_normal` separate from the wind normal. Steep volcanic shores (Azores north coasts, Nihiwatu,
+  Cement Factory) read land to 0.5-1 km on every bearing but end in water.
+- Bathing re-match: +39 (the Azores and Madeira).
+
+Gap queue: Azores - Santa Iria, Pedra do Caldeirao, Vila Franca, Capelinhos, Graciosa, Pico. Madeira -
+Pizo, Supertubes (Porto Santo). Sumatra - Simeulue's Dylan's, The Peak, Thailand Left/Right; the
+Banyaks' Gunturs, Dindos, Lizards Nest, Treasure Island; Nias' The Machine, Shark Hole; Krui's
+Mandiri, The Peak, The Slab, Way Jambu; Aceh's A-Frame, Calang reefs; Bengkulu and Air Manis (not
+seeded). Sumba - Wainyapu, Watu Bela, The Office/Racetrack (Kalala's sub-peaks). Rote - Suckie
+Mama's, the Bommie. Savu and West Timor not seeded.
 
 **Asia, the Caribbean, the Spanish Mediterranean and five singles, 3056 -> 3499 (2026-10-29).** Nine
 parallel subagents, web flow end to end (Tier A was empty or a surf school everywhere). 29 new regions;

@@ -1,0 +1,72 @@
+{
+  "spot": "ujung-bocur",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -5.3088,
+    103.9906
+  ],
+  "bearing_seaward_deg": 310.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 47.0,
+  "mean_slope_m_per_km": 2.48,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -5.30735,
+      "lon": 103.98887,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -5.30591,
+      "lon": 103.98714,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -5.30302,
+      "lon": 103.98368,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -5.29724,
+      "lon": 103.97676,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -5.29146,
+      "lon": 103.96984,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -5.2799,
+      "lon": 103.95601,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -5.26255,
+      "lon": 103.93525,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -5.23943,
+      "lon": 103.90758,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -5.20473,
+      "lon": 103.86608,
+      "depth_m": 47.0
+    }
+  ]
+}

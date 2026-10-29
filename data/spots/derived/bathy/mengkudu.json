@@ -1,0 +1,72 @@
+{
+  "spot": "mengkudu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -10.3287,
+    120.1941
+  ],
+  "bearing_seaward_deg": 176.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 1794.0,
+  "mean_slope_m_per_km": 100.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -10.33094,
+      "lon": 120.19426,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -10.33319,
+      "lon": 120.19442,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -10.33767,
+      "lon": 120.19474,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -10.34664,
+      "lon": 120.19538,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -10.35561,
+      "lon": 120.19601,
+      "depth_m": 145.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -10.37356,
+      "lon": 120.19729,
+      "depth_m": 370.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -10.40047,
+      "lon": 120.1992,
+      "depth_m": 816.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -10.43636,
+      "lon": 120.20175,
+      "depth_m": 1246.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -10.49018,
+      "lon": 120.20558,
+      "depth_m": 1794.0
+    }
+  ]
+}

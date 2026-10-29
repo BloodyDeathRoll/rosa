@@ -1,0 +1,72 @@
+{
+  "spot": "sao-jorge",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    32.83,
+    -16.8978
+  ],
+  "bearing_seaward_deg": 35.0,
+  "nearshore_depth_m": -65.0,
+  "offshore_depth_m": 2121.0,
+  "mean_slope_m_per_km": 123.15,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.83184,
+      "lon": -16.89627,
+      "depth_m": -65.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.83368,
+      "lon": -16.89473,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.83737,
+      "lon": -16.89166,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.84473,
+      "lon": -16.88552,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.8521,
+      "lon": -16.87938,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.86683,
+      "lon": -16.86709,
+      "depth_m": 622.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.88892,
+      "lon": -16.84866,
+      "depth_m": 1395.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.91838,
+      "lon": -16.82406,
+      "depth_m": 1923.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.96255,
+      "lon": -16.78714,
+      "depth_m": 2121.0
+    }
+  ]
+}

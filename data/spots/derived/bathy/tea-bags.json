@@ -1,0 +1,72 @@
+{
+  "spot": "tea-bags",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    2.3471,
+    96.23
+  ],
+  "bearing_seaward_deg": 217.0,
+  "nearshore_depth_m": 31.0,
+  "offshore_depth_m": 650.0,
+  "mean_slope_m_per_km": 34.87,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 2.3453,
+      "lon": 96.22865,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 2.34351,
+      "lon": 96.22729,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 2.33992,
+      "lon": 96.22458,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 2.33274,
+      "lon": 96.21917,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 2.32555,
+      "lon": 96.21375,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 2.31119,
+      "lon": 96.20292,
+      "depth_m": 348.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 2.28964,
+      "lon": 96.18667,
+      "depth_m": 289.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 2.26091,
+      "lon": 96.165,
+      "depth_m": 965.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 2.21782,
+      "lon": 96.13251,
+      "depth_m": 650.0
+    }
+  ]
+}

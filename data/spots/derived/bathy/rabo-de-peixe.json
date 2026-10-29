@@ -1,0 +1,72 @@
+{
+  "spot": "rabo-de-peixe",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.8187,
+    -25.5815
+  ],
+  "bearing_seaward_deg": 4.0,
+  "nearshore_depth_m": 32.0,
+  "offshore_depth_m": 1044.0,
+  "mean_slope_m_per_km": 57.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.82094,
+      "lon": -25.5813,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.82319,
+      "lon": -25.5811,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.82767,
+      "lon": -25.58071,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.83664,
+      "lon": -25.57991,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.84561,
+      "lon": -25.57912,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.86356,
+      "lon": -25.57753,
+      "depth_m": 431.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.89047,
+      "lon": -25.57514,
+      "depth_m": 611.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.92636,
+      "lon": -25.57196,
+      "depth_m": 932.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.98018,
+      "lon": -25.56717,
+      "depth_m": 1044.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "lagundri-indicators",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    0.5636,
+    97.7242
+  ],
+  "bearing_seaward_deg": 193.0,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 188.0,
+  "mean_slope_m_per_km": 9.97,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 0.56141,
+      "lon": 97.72369,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 0.55922,
+      "lon": 97.72319,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 0.55484,
+      "lon": 97.72218,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 0.54607,
+      "lon": 97.72015,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 0.53731,
+      "lon": 97.71813,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 0.51979,
+      "lon": 97.71408,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 0.4935,
+      "lon": 97.70802,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 0.45845,
+      "lon": 97.69992,
+      "depth_m": 155.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 0.40587,
+      "lon": 97.68778,
+      "depth_m": 188.0
+    }
+  ]
+}

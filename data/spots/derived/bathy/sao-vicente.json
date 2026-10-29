@@ -1,0 +1,72 @@
+{
+  "spot": "sao-vicente",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    32.8116,
+    -17.039
+  ],
+  "bearing_seaward_deg": 347.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 2427.0,
+  "mean_slope_m_per_km": 136.68,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.81379,
+      "lon": -17.0396,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.81598,
+      "lon": -17.0402,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.82036,
+      "lon": -17.04141,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.82913,
+      "lon": -17.04382,
+      "depth_m": 109.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.83789,
+      "lon": -17.04622,
+      "depth_m": 294.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.85541,
+      "lon": -17.05104,
+      "depth_m": 1027.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.8817,
+      "lon": -17.05827,
+      "depth_m": 1376.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.91675,
+      "lon": -17.06792,
+      "depth_m": 1931.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.96932,
+      "lon": -17.0824,
+      "depth_m": 2427.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "praia-formosa-santa-maria",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.9508,
+    -25.0976
+  ],
+  "bearing_seaward_deg": 169.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 2414.0,
+  "mean_slope_m_per_km": 135.77,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.94859,
+      "lon": -25.09706,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.94639,
+      "lon": -25.09653,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.94197,
+      "lon": -25.09545,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.93314,
+      "lon": -25.09331,
+      "depth_m": 132.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.92432,
+      "lon": -25.09116,
+      "depth_m": 389.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.90666,
+      "lon": -25.08687,
+      "depth_m": 831.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.88017,
+      "lon": -25.08044,
+      "depth_m": 1394.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.84486,
+      "lon": -25.07187,
+      "depth_m": 2094.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.79189,
+      "lon": -25.05903,
+      "depth_m": 2414.0
+    }
+  ]
+}

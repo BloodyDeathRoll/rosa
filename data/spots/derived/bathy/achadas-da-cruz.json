@@ -1,0 +1,72 @@
+{
+  "spot": "achadas-da-cruz",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    32.857,
+    -17.2143
+  ],
+  "bearing_seaward_deg": 318.0,
+  "nearshore_depth_m": -48.0,
+  "offshore_depth_m": 3033.0,
+  "mean_slope_m_per_km": 173.58,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.85867,
+      "lon": -17.21609,
+      "depth_m": -48.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.86034,
+      "lon": -17.21788,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.86368,
+      "lon": -17.22146,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.87037,
+      "lon": -17.22863,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.87705,
+      "lon": -17.2358,
+      "depth_m": 182.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.89041,
+      "lon": -17.25013,
+      "depth_m": 1319.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.91045,
+      "lon": -17.27164,
+      "depth_m": 1927.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.93717,
+      "lon": -17.30034,
+      "depth_m": 2598.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.97723,
+      "lon": -17.34342,
+      "depth_m": 3033.0
+    }
+  ]
+}

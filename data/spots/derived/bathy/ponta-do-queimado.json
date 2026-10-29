@@ -1,0 +1,72 @@
+{
+  "spot": "ponta-do-queimado",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.7673,
+    -27.3772
+  ],
+  "bearing_seaward_deg": 296.0,
+  "nearshore_depth_m": 55.0,
+  "offshore_depth_m": 1694.0,
+  "mean_slope_m_per_km": 92.34,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.76829,
+      "lon": -27.37979,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.76927,
+      "lon": -27.38238,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.77124,
+      "lon": -27.38757,
+      "depth_m": 90.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.77518,
+      "lon": -27.39794,
+      "depth_m": 114.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.77912,
+      "lon": -27.40831,
+      "depth_m": 117.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.787,
+      "lon": -27.42905,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.79881,
+      "lon": -27.46017,
+      "depth_m": 197.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.81454,
+      "lon": -27.50169,
+      "depth_m": 857.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.83811,
+      "lon": -27.56399,
+      "depth_m": 1694.0
+    }
+  ]
+}

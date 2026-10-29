@@ -1,0 +1,32 @@
+# Rosa spot database - Rote (seeded 2026-10-29), Nusa Tenggara Timur, off West Timor's SW tip.
+# The Nemberala reefs on Rote's south-west coast (T-Land, the Bommie, Boa, Suckie Mama's) and
+# the offshore islands Ndana, Do'o and Ndao, all boat or short-drive from Nemberala.
+# SW Indian Ocean groundswell, biggest May-Oct with the SE trade offshore on the west-facing
+# Nemberala reefs. Reef throughout; swell_window and offshore_direction are per spot; every
+# spot carries offshore_km along its own seaward normal.
+
+country: "Indonesia"
+
+defaults: &rot
+  timezone: Asia/Makassar
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [180, 300]
+  ideal:
+    wind_dir: [60, 150]
+    size_m: [1.0, 3.0]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - rote, 5 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 5 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/rote/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: ndao, name: "Ndao", town: "Ndao Nuse", lat: -10.8332, lon: 122.6723, offshore_direction: 36, swell_window: [151, 281], offshore_km: 5.0, <<: *rot }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: do-o, name: "Do'o", town: "Ndao Nuse", lat: -10.8413, lon: 122.7314, offshore_direction: 21, swell_window: [136, 266], offshore_km: 5.0, <<: *rot }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: t-land, name: "T-Land", town: "Nemberala", lat: -10.8894, lon: 122.8126, offshore_direction: 78, swell_window: [193, 323], offshore_km: 5.0, <<: *rot }  # sat-verified 2026-10-29 (websearch-seeded); normal re-aimed to seaward 258 (the coastline normal 120 met Pulau Do'o at 18 km; open arc 158-358 bar ~296-300)
+  - { id: boa, name: "Boa", town: "Boa", lat: -10.9393, lon: 122.8404, offshore_direction: 32, swell_window: [147, 277], offshore_km: 5.0, <<: *rot }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: ndana, name: "Ndana", town: "Boa", lat: -10.9901, lon: 122.8473, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, <<: *rot }  # sat-verified 2026-10-29 (websearch-seeded)

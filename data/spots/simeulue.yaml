@@ -1,0 +1,29 @@
+# Rosa spot database - Simeulue (seeded 2026-10-29). Simeulue and the Banyak islands off
+# Aceh's south-west coast: reef points and passes open to Indian Ocean groundswell from the
+# S-W, biggest Apr-Oct; the Banyaks (Bay of Plenty, Tuangku, Bangkaru) are boat-access.
+# Reef throughout; swell_window and offshore_direction per spot.
+
+country: "Indonesia"
+
+defaults: &smu
+  timezone: Asia/Jakarta
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [170, 290]
+  ideal:
+    wind_dir: [0, 120]
+    size_m: [1.0, 3.0]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - simeulue, 4 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 4 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/simeulue/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: tea-bags, name: "Tea Bags", town: "Pulau Teupah", lat: 2.3471, lon: 96.2300, offshore_direction: 37, swell_window: [152, 282], offshore_km: 5.0, <<: *smu }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: alus-point, name: "Alus Point", town: "Alus Alus", lat: 2.3384, lon: 96.3721, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, <<: *smu }  # sat-verified 2026-10-29 (websearch-seeded)  [normal set by hand from the tile, seaward 180]
+  - { id: pulau-pinang, name: "Pulau Pinang", town: "Pulau Banyak", lat: 2.0385, lon: 97.3850, offshore_direction: 61, swell_window: [176, 306], offshore_km: 5.0, <<: *smu }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: lolok-point, name: "Lolok Point", town: "Pulau Banyak", lat: 2.0340, lon: 97.3386, offshore_direction: 32, swell_window: [147, 277], offshore_km: 5.0, <<: *smu }  # sat-verified 2026-10-29 (websearch-seeded)

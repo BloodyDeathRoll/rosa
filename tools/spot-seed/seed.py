@@ -155,6 +155,12 @@ REGIONS = {
     # West: Sawarna and Pelabuhan Ratu / Cimaja, Ujung Genteng, then Batu Karas and
     # Pangandaran; the Bogor/Jakarta north stays out
     "west-java": (-7.85, 106.25, -6.90, 108.70),
+    # Sumba's west and south coasts: Pero/Kodi, Lamboya-Wanukaka (Marosi, Nihiwatu, Rua),
+    # Tarimbang and Kalala/Baing in the south-east; the N edge stops above Pero but the
+    # unsurfed Waingapu north coast east of 119.9 still falls inside and bathy-prunes
+    "sumba": (-10.40, 118.90, -9.55, 120.75),
+    # Rote's south-west (Nemberala, Boa) plus Ndao, Do'o and Ndana; Kupang/Timor stays out
+    "rote": (-11.05, 122.60, -10.70, 123.25),
     # Gold Coast: the QLD line at Coolangatta/Snapper up through Kirra, Currumbin, Burleigh
     # and Surfers to The Spit and South Stradbroke; Byron's box already holds Tweed Heads
     "gold-coast": (-28.18, 153.35, -27.80, 153.60),
@@ -178,6 +184,13 @@ REGIONS = {
     # the Mentawai chain, Siberut down to South Pagai; the Sumatran mainland stays east of
     # the box (Padang is at 100.35, the chain's east edge is ~100.5)
     "mentawai": (-3.30, 98.60, -0.85, 100.55),
+    # Sumatra's west coast north and south of the Mentawai box (2026-10-29): Aceh's tip
+    # (Lhoknga, Pulo Aceh, Weh) down to Meulaboh; Simeulue + the Banyaks; Nias + Hinako;
+    # Lampung's Krui coast to Belimbing
+    "aceh": (4.00, 94.90, 6.00, 96.40),
+    "simeulue": (1.95, 95.70, 3.00, 97.55),
+    "nias": (0.45, 97.00, 1.55, 98.00),
+    "krui": (-6.00, 103.70, -4.85, 104.80),
     # Japan's southern islands, north half: Tanegashima and Yakushima (just south of the
     # japan box's 30.0 edge), Amami Oshima, Tokunoshima and Okinoerabu
     "tanegashima-amami": (27.0, 128.3, 30.9, 131.2),
@@ -354,6 +367,10 @@ REGIONS = {
     # the Canary Islands, all seven (africa/canary-islands - NOT europe/spain/canarias,
     # which 404s to a 9 KB HTML page)
     "canary-islands": (27.60, -18.20, 29.45, -13.30),
+    # Madeira and Porto Santo: the boulder points under the SW cliffs (Jardim do Mar, Ponta
+    # Pequena, Paul do Mar), the south coast to Funchal and the north shore (Porto Moniz to
+    # Porto da Cruz). No Geofabrik sub-extract: madeira.osm.pbf is a local bbox cut of portugal
+    "madeira": (32.35, -17.35, 33.15, -16.20),
     # ---- the Spanish Mediterranean (2026-10-29), one box per community extract
     # (europe/spain/{cataluna,valencia,murcia,islas-baleares}; andalusia on andalucia).
     # Catalonia: the Costa Brava (Empuriabrava, L'Escala), the Maresme and Barcelona
@@ -404,6 +421,10 @@ REGIONS = {
     # Faroe Islands: the whole archipelago - Tjornuvik (Streymoy), Sandavagur (Vagar),
     # Husavik and Dalur (Sandoy), Famjin (Suduroy), Nolsoy
     "faroe-islands": (61.35, -7.75, 62.42, -6.20),
+    # the Azores: the whole archipelago, mid North Atlantic - Sao Miguel (Santa Barbara,
+    # Monte Verde, Populo, Mosteiros), Terceira, Sao Jorge (the Fajas), Faial, Pico, Flores,
+    # Santa Maria; every island coast faces open ocean, so the box is the islands
+    "azores": (36.85, -31.35, 39.80, -24.70),
     # Denmark: the North Sea coast of Jutland (Klitmoller "Cold Hawaii", Hanstholm, Hvide
     # Sande, Lokken, Skagen) and north Zealand's Kattegat shore (Hornbaek)
     "denmark": (55.00, 7.95, 57.80, 12.70),

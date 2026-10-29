@@ -1,0 +1,72 @@
+{
+  "spot": "machico",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    32.7166,
+    -16.7643
+  ],
+  "bearing_seaward_deg": 140.0,
+  "nearshore_depth_m": -70.0,
+  "offshore_depth_m": 1615.0,
+  "mean_slope_m_per_km": 94.93,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.71488,
+      "lon": -16.76258,
+      "depth_m": -70.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.71316,
+      "lon": -16.76086,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.70971,
+      "lon": -16.75743,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.70282,
+      "lon": -16.75056,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.69593,
+      "lon": -16.74369,
+      "depth_m": 293.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.68215,
+      "lon": -16.72996,
+      "depth_m": 925.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.66147,
+      "lon": -16.70937,
+      "depth_m": 1235.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.6339,
+      "lon": -16.68193,
+      "depth_m": 1580.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.59253,
+      "lon": -16.6408,
+      "depth_m": 1615.0
+    }
+  ]
+}

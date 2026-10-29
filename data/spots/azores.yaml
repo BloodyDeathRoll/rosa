@@ -1,0 +1,54 @@
+# Rosa spot database - the Azores (seeded 2026-10-29). Nine volcanic islands in the middle of
+# the North Atlantic, 1,400 km west of Lisbon: black-sand beach breaks and boulder reefs on Sao
+# Miguel's north shore (Santa Barbara, Monte Verde, Rabo de Peixe) and south shore (Populo,
+# Milicias, Ribeira Quente), the Faja point breaks of Sao Jorge, and scattered reefs on Terceira,
+# Faial, Pico, Flores and Santa Maria. Every coast faces open ocean, so offshore direction varies
+# per coast. Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+country: "Portugal"
+
+defaults: &az
+  timezone: Atlantic/Azores
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [270, 60]
+  ideal:
+    wind_dir: [135, 225]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - azores, 27 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 27 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/azores/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: faja-grande, name: "Faja Grande", town: "Fajã Grande", lat: 39.4616, lon: -31.2588, offshore_direction: 126, swell_window: [241, 11], offshore_km: 5.0, <<: *az }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: quatro-ribeiras, name: "Quatro Ribeiras", town: "Quatro Ribeiras", lat: 38.7930, lon: -27.2247, offshore_direction: 183, swell_window: [298, 68], offshore_km: 5.0, break_type: reef, <<: *az }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: vila-nova, name: "Vila Nova", town: "Vila Nova", lat: 38.7827, lon: -27.1205, offshore_direction: 162, swell_window: [277, 47], offshore_km: 5.0, break_type: reef, <<: *az }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: ponta-do-queimado, name: "Ponta do Queimado", town: "Serreta", lat: 38.7673, lon: -27.3772, offshore_direction: 116, swell_window: [231, 1], offshore_km: 5.0, break_type: reef, <<: *az }  # sat-verified 2026-10-29 (websearch-seeded); normal re-aimed to seaward 296, the middle of the open W-NW arc (200-32) off the point; the coastline normal ran NNE along the cliff
+  - { id: praia-da-vitoria, name: "Praia da Vitoria", town: "Praia da Vitória", lat: 38.7190, lon: -27.0610, offshore_direction: 268, swell_window: [23, 153], offshore_km: 5.0, <<: *az }  # sat-verified 2026-10-29 (websearch-seeded); normal re-aimed to seaward 88, the middle of the open arc (38-138) through the breakwater mouth
+  - { id: santa-catarina, name: "Santa Catarina", town: "Praia da Vitória", lat: 38.7071, lon: -27.0458, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, break_type: reef, <<: *az }  # sat-verified 2026-10-29 (websearch-seeded); normal re-aimed to seaward 90, the middle of the open E arc (0-180); the coastline normal ran NNE along the port breakwater
+  - { id: porto-martins, name: "Porto Martins", town: "Porto Martins", lat: 38.6770, lon: -27.0576, offshore_direction: 356, swell_window: [111, 241], offshore_km: 5.0, break_type: reef, <<: *az }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: sao-mateus-da-calheta, name: "Sao Mateus da Calheta", town: "São Mateus da Calheta", lat: 38.6525, lon: -27.2767, offshore_direction: 359, swell_window: [114, 244], offshore_km: 5.0, break_type: reef, <<: *az }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: contendas, name: "Contendas", town: "Vila de São Sebastião", lat: 38.6437, lon: -27.0777, offshore_direction: 3, swell_window: [118, 248], offshore_km: 5.0, break_type: reef, <<: *az }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: faja-dos-cubres, name: "Faja dos Cubres", town: "Fajã dos Cubres", lat: 38.6429, lon: -27.9638, offshore_direction: 259, swell_window: [14, 144], offshore_km: 5.0, break_type: reef, <<: *az }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: faja-do-belo, name: "Faja do Belo", town: "Fajã do Belo", lat: 38.6316, lon: -27.9425, offshore_direction: 247, swell_window: [2, 132], offshore_km: 5.0, break_type: reef, <<: *az }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: faja-da-caldeira-de-santo-cristo, name: "Faja da Caldeira de Santo Cristo", town: "Fajã da Caldeira de Santo Cristo", lat: 38.6279, lon: -27.9276, offshore_direction: 234, swell_window: [349, 119], offshore_km: 5.0, break_type: reef, <<: *az }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: praia-do-norte-faial, name: "Praia do Norte (Faial)", town: "Praia do Norte", lat: 38.6118, lon: -28.7524, offshore_direction: 153, swell_window: [268, 38], offshore_km: 5.0, break_type: reef, <<: *az }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: faja-dos-vimes, name: "Faja dos Vimes", town: "Fajã dos Vimes", lat: 38.5827, lon: -27.9313, offshore_direction: 72, swell_window: [187, 317], offshore_km: 5.0, break_type: reef, <<: *az }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: almoxarife, name: "Almoxarife", town: "Praia do Almoxarife", lat: 38.5545, lon: -28.6088, offshore_direction: 243, swell_window: [358, 128], offshore_km: 5.0, <<: *az }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: mosteiros, name: "Mosteiros", town: "Mosteiros", lat: 37.8879, lon: -25.8239, offshore_direction: 87, swell_window: [202, 332], offshore_km: 5.0, <<: *az }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: baixa-da-viola, name: "Baixa da Viola", town: "Maia", lat: 37.8406, lon: -25.3693, offshore_direction: 178, swell_window: [293, 63], offshore_km: 5.0, break_type: reef, <<: *az }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: monte-verde, name: "Monte Verde", town: "Ribeira Grande", lat: 37.8233, lon: -25.5282, offshore_direction: 154, swell_window: [269, 39], offshore_km: 5.0, <<: *az }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: rabo-de-peixe, name: "Rabo de Peixe", town: "Rabo de Peixe", lat: 37.8187, lon: -25.5815, offshore_direction: 184, swell_window: [299, 69], offshore_km: 5.0, break_type: reef, <<: *az }  # sat-verified 2026-10-29 (websearch-seeded); normal re-aimed to seaward 4, the middle of the open N arc (302-66); the coastline normal ran ENE along the shore and crossed land at 3 and 8 km
+  - { id: santa-barbara, name: "Santa Barbara", town: "Ribeira Grande", lat: 37.8173, lon: -25.5486, offshore_direction: 155, swell_window: [270, 40], offshore_km: 5.0, <<: *az }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: santana, name: "Santana", town: "Rabo de Peixe", lat: 37.8148, lon: -25.5613, offshore_direction: 183, swell_window: [298, 68], offshore_km: 5.0, break_type: reef, <<: *az }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: milicias, name: "Milicias", town: "Ponta Delgada", lat: 37.7505, lon: -25.6245, offshore_direction: 38, swell_window: [153, 283], offshore_km: 5.0, <<: *az }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: populo, name: "Populo", town: "Ponta Delgada", lat: 37.7502, lon: -25.6186, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, <<: *az }  # sat-verified 2026-10-29 (websearch-seeded); normal re-aimed to seaward 180, the middle of the clean S arc (168-192); 218 read land to 0.5 km
+  - { id: ribeira-quente, name: "Ribeira Quente", town: "Ribeira Quente", lat: 37.7300, lon: -25.3103, offshore_direction: 344, swell_window: [99, 229], offshore_km: 5.0, <<: *az }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: agua-d-alto, name: "Agua d'Alto", town: "Água de Alto", lat: 37.7166, lon: -25.4732, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, <<: *az }  # sat-verified 2026-10-29 (websearch-seeded); normal re-aimed to seaward 180, the middle of the clean S arc (156-204); 210 read land to 0.5 km
+  - { id: anjos, name: "Anjos", town: "Anjos", lat: 37.0081, lon: -25.1552, offshore_direction: 171, swell_window: [286, 56], offshore_km: 5.0, break_type: reef, <<: *az }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: praia-formosa-santa-maria, name: "Praia Formosa", town: "Praia Formosa", lat: 36.9508, lon: -25.0976, offshore_direction: 349, swell_window: [104, 234], offshore_km: 5.0, <<: *az }  # sat-verified 2026-10-29 (websearch-seeded)

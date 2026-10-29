@@ -1,0 +1,72 @@
+{
+  "spot": "afulu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    1.2462,
+    97.2465
+  ],
+  "bearing_seaward_deg": 230.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 188.0,
+  "mean_slope_m_per_km": 10.42,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 1.24475,
+      "lon": 97.24478,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 1.24331,
+      "lon": 97.24305,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 1.24042,
+      "lon": 97.23961,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 1.23464,
+      "lon": 97.23272,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 1.22886,
+      "lon": 97.22583,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 1.2173,
+      "lon": 97.21205,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 1.19995,
+      "lon": 97.19137,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 1.17683,
+      "lon": 97.16381,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 1.14214,
+      "lon": 97.12247,
+      "depth_m": 188.0
+    }
+  ]
+}

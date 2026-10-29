@@ -1,0 +1,72 @@
+{
+  "spot": "ponta-delgada",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    32.8303,
+    -16.9883
+  ],
+  "bearing_seaward_deg": 21.0,
+  "nearshore_depth_m": -13.0,
+  "offshore_depth_m": 2531.0,
+  "mean_slope_m_per_km": 143.32,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.8324,
+      "lon": -16.98734,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.8345,
+      "lon": -16.98638,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.8387,
+      "lon": -16.98446,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.84709,
+      "lon": -16.98063,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.85549,
+      "lon": -16.97679,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.87228,
+      "lon": -16.96911,
+      "depth_m": 211.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.89746,
+      "lon": -16.95759,
+      "depth_m": 1425.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.93104,
+      "lon": -16.94222,
+      "depth_m": 2141.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.98141,
+      "lon": -16.91914,
+      "depth_m": 2531.0
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+# Rosa spot database - Krui (seeded 2026-10-29). Lampung's west coast (Pesisir Barat):
+# Krui town, Tanjung Setia and the reefs south to Ujung Siging and Belimbing. The coast
+# faces SW straight into Indian Ocean groundswell, biggest Apr-Oct; mornings are offshore
+# on the NE land breeze. Reef with a few beach breaks (Mandiri); per-spot normals.
+
+country: "Indonesia"
+
+defaults: &kru
+  timezone: Asia/Jakarta
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [160, 280]
+  ideal:
+    wind_dir: [0, 90]
+    size_m: [1.0, 3.0]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - krui, 8 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 8 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/krui/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: jimmys, name: "Jimmys", town: "Penengahan", lat: -5.0072, lon: 103.7424, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, <<: *kru }  # sat-verified 2026-10-29 (websearch-seeded)  [normal set by hand from the tile, seaward 240]
+  - { id: jennys-right, name: "Jennys Right", town: "Kuripan", lat: -5.0458, lon: 103.7514, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, <<: *kru }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: pulau-pisang, name: "Pulau Pisang", town: "Pulau Pisang", lat: -5.1253, lon: 103.8396, offshore_direction: 40, swell_window: [155, 285], shore_normal: 180, offshore_km: 5.0, <<: *kru }  # sat-verified 2026-10-29 (websearch-seeded)  [wind normal from the tile (seaward 220); shore_normal 180 set by hand - GEBCO reads a phantom shoal 2-5 km off this coast on the tile bearing]
+  - { id: krui-right, name: "Krui Right", town: "Krui", lat: -5.1838, lon: 103.9303, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, <<: *kru }  # sat-verified 2026-10-29 (websearch-seeded)  [normal set by hand from the tile, seaward 240]
+  - { id: krui-left, name: "Krui Left", town: "Krui", lat: -5.1980, lon: 103.9223, offshore_direction: 80, swell_window: [195, 325], offshore_km: 5.0, <<: *kru }  # sat-verified 2026-10-29 (websearch-seeded)  [normal set by hand from the tile, seaward 260]
+  - { id: ujung-walur, name: "Ujung Walur", town: "Walur", lat: -5.2386, lon: 103.9109, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, <<: *kru }  # sat-verified 2026-10-29 (websearch-seeded)  [normal set by hand from the tile, seaward 240]
+  - { id: ujung-bocur, name: "Ujung Bocur", town: "Tanjung Setia", lat: -5.3088, lon: 103.9906, offshore_direction: 70, swell_window: [185, 315], shore_normal: 310, offshore_km: 5.0, <<: *kru }  # sat-verified 2026-10-29 (websearch-seeded)  [wind normal from the tile (seaward 250); shore_normal 310 set by hand - GEBCO reads a phantom shoal 2-5 km off this coast on the tile bearing]
+  - { id: balimbing, name: "Balimbing", town: "Belimbing", lat: -5.9228, lon: 104.5532, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, <<: *kru }  # sat-verified 2026-10-29 (websearch-seeded)

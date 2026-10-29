@@ -47,6 +47,13 @@ agu-adoura:
   season: 2025
   site_id: PTCD8J
   src: eea
+agua-d-alto:
+  km: 0.03
+  name: ÁGUA D'ALTO
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTAU3K
+  src: eea
 aguas-blancas:
   km: 0.84
   name: PLAYA ES FIGUERAL PM1
@@ -82,6 +89,13 @@ almerimar:
   season: 2025
   site_id: ES611M9022321
   src: eea
+almoxarife:
+  km: 0.06
+  name: ALMOXARIFE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTAN3X
+  src: eea
 altafulla:
   km: 0.76
   name: PLAYA D'ALTAFULLA PM1
@@ -95,6 +109,13 @@ andrin:
   quality: 1 - Excellent
   season: 2025
   site_id: ES120M036514
+  src: eea
+anjos:
+  km: 0.39
+  name: ANJOS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTAX8L
   src: eea
 anse-du-brick:
   km: 0.22
@@ -527,12 +548,26 @@ bunkers:
   season: 2025
   site_id: DKBW233
   src: eea
+cabeco:
+  km: 0.34
+  name: PORTO SANTO-CABEÇO DA PONTA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTMQ7P
+  src: eea
 cabestan:
   km: 0.25
   name: ANSE DU CABESTAN
   quality: 1 - Excellent
   season: 2025
   site_id: FRH0229003M029725
+  src: eea
+cabo-girao:
+  km: 0.21
+  name: FAJÃ DOS ASNOS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTMN3L
   src: eea
 cabrera:
   km: 0.35
@@ -769,6 +804,13 @@ consola-o:
   quality: 1 - Excellent
   season: 2025
   site_id: PTCF2K
+  src: eea
+contendas:
+  km: 1.8
+  name: SALGA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTAQ3D
   src: eea
 coogee-beach:
   km: 0.03
@@ -1180,11 +1222,46 @@ etretat:
   season: 2025
   site_id: FRD2276254M076383
   src: eea
+faial:
+  km: 0.23
+  name: RIBEIRA DO FAIAL
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTMK7D
+  src: eea
 fairy-bower:
   km: 0.21
   name: Shelly Beach (Manly)
   site_id: 995753ed-db2a-4cb8-9349-922cf3312766
   src: nsw
+faja-da-areia:
+  km: 0.6
+  name: CLUBE NAVAL DE SÃO VICENTE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTMH8L
+  src: eea
+faja-da-ovelha:
+  km: 0.67
+  name: RIBEIRA DAS GALINHAS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTME9L
+  src: eea
+faja-dos-padres:
+  km: 0.12
+  name: FAJÃ DOS PADRES
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTMN2J
+  src: eea
+faja-grande:
+  km: 0.37
+  name: FAJÃ GRANDE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTAJ9Q
+  src: eea
 famara:
   km: 0.85
   name: PLAYA FAMARA PM4
@@ -1511,6 +1588,13 @@ itzurun:
   quality: 1 - Excellent
   season: 2025
   site_id: ES212M081593
+  src: eea
+jardim-do-mar:
+  km: 0.49
+  name: PORTINHO
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTMH8F
   src: eea
 kaos:
   km: 0.05
@@ -2182,6 +2266,13 @@ luc-sur-mer:
   season: 2025
   site_id: FRD1114384M014160
   src: eea
+lugar-de-baixo:
+  km: 0.22
+  name: LUGAR DE BAIXO
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTMU9L
+  src: eea
 lyngby-thy:
   km: 0.04
   name: LYNGBY
@@ -2195,6 +2286,20 @@ maasvlakte:
   quality: 1 - Excellent
   season: 2025
   site_id: NLBW95_TWEEDMVTBSD
+  src: eea
+machico:
+  km: 0.1
+  name: S. ROQUE
+  quality: 2 - Good
+  season: 2025
+  site_id: PTMU2P
+  src: eea
+madalena-do-mar:
+  km: 0.84
+  name: MADALENA DO MAR
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTMJ9X
   src: eea
 magaggiari:
   km: 0.06
@@ -2330,6 +2435,13 @@ milady:
   season: 2025
   site_id: FRI1564125M064070
   src: eea
+milicias:
+  km: 0.07
+  name: MILÍCIAS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTAE3V
+  src: eea
 mimizan:
   km: 0.22
   name: PLAGE SUD
@@ -2412,6 +2524,13 @@ montalvo:
   season: 2025
   site_id: ES114M051392
   src: eea
+monte-verde:
+  km: 0.65
+  name: POÇAS DA RIBEIRA GRANDE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTAT2N
+  src: eea
 montgat:
   km: 0.43
   name: PLAYA DE LES ROQUES PM1
@@ -2425,6 +2544,13 @@ morghella:
   quality: 1 - Excellent
   season: 2025
   site_id: IT019089014005
+  src: eea
+mosteiros:
+  km: 0.03
+  name: MOSTEIROS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTAW8J
   src: eea
 moulin-de-la-rive:
   km: 1.3
@@ -2637,6 +2763,13 @@ patos:
   quality: 1 - Excellent
   season: 2025
   site_id: ES114M035364
+  src: eea
+paul-do-mar:
+  km: 0.09
+  name: PORTO
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTMK9W
   src: eea
 peizas:
   km: 0.09
@@ -3065,12 +3198,40 @@ ponente:
   season: 2025
   site_id: IT019084028001
   src: eea
+ponta-delgada:
+  km: 0.46
+  name: PONTA DELGADA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTMU3L
+  src: eea
+ponta-do-sol:
+  km: 0.05
+  name: PONTA DO SOL
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTMQ3E
+  src: eea
+ponta-pequena:
+  km: 0.63
+  name: PORTO
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTMK9W
+  src: eea
 ponzos:
   km: 0.43
   name: PLAYA PONZOS PM1
   quality: 1 - Excellent
   season: 2025
   site_id: ES111M03685
+  src: eea
+populo:
+  km: 0.04
+  name: PÓPULO
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTAL8M
   src: eea
 pors-carn:
   km: 0.37
@@ -3121,6 +3282,27 @@ portman:
   season: 2025
   site_id: ES620M0411659
   src: eea
+porto-da-cruz:
+  km: 0.03
+  name: ALAGOA
+  quality: 2 - Good
+  season: 2025
+  site_id: PTMU7X
+  src: eea
+porto-martins:
+  km: 0.42
+  name: PORTO MARTINS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTAD9H
+  src: eea
+porto-moniz:
+  km: 0.16
+  name: PORTO MONIZ
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTMV3Q
+  src: eea
 porz-ar-villiec:
   km: 0.09
   name: PORS AR VILLEC
@@ -3156,6 +3338,13 @@ praia-america:
   season: 2025
   site_id: ES114M035361
   src: eea
+praia-da-vitoria:
+  km: 0.47
+  name: PRAIA DA RIVIERA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTAL8T
+  src: eea
 praia-do-amado:
   km: 0.12
   name: AMADO
@@ -3169,6 +3358,27 @@ praia-do-meco:
   quality: 1 - Excellent
   season: 2025
   site_id: PTCN7E
+  src: eea
+praia-do-norte-faial:
+  km: 0.36
+  name: FAJÃ
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTAL9P
+  src: eea
+praia-formosa:
+  km: 0.41
+  name: FORMOSA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTMH3U
+  src: eea
+praia-formosa-santa-maria:
+  km: 0.04
+  name: FORMOSA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTAH7T
   src: eea
 praia-grande:
   km: 0.41
@@ -3289,6 +3499,13 @@ puzziteddu:
   season: 2025
   site_id: IT019081004006
   src: eea
+quatro-ribeiras:
+  km: 0.09
+  name: QUATRO RIBEIRAS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTAF3K
+  src: eea
 queenscliff-beach:
   km: 0.15
   name: Queenscliff Beach
@@ -3328,6 +3545,13 @@ ribeira-dilhas:
   quality: 1 - Excellent
   season: 2025
   site_id: PTCT3D
+  src: eea
+ribeira-quente:
+  km: 0.05
+  name: PRAIA DO FOGO (RIBEIRA QUENTE)
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTAW9C
   src: eea
 ringenas:
   km: 0.11
@@ -3579,6 +3803,20 @@ sant-tomas:
   season: 2025
   site_id: ES533M9021264
   src: eea
+santa-barbara:
+  km: 0.03
+  name: AREAL DE SANTA BÁRBARA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTAP8T
+  src: eea
+santa-catarina:
+  km: 1.54
+  name: PRAIA DA RIVIERA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTAL8T
+  src: eea
 santa-comba:
   km: 0.67
   name: PLAYA SANTA COMBA PM1
@@ -3607,6 +3845,13 @@ santa-marina:
   season: 2025
   site_id: ES120M056525
   src: eea
+santana:
+  km: 1.17
+  name: AREAL DE SANTA BÁRBARA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTAP8T
+  src: eea
 santocha:
   km: 0.19
   name: SANTOCHA ET PREVENTORIUM
@@ -3614,12 +3859,26 @@ santocha:
   season: 2025
   site_id: FRI1340065M040122
   src: eea
+sao-mateus-da-calheta:
+  km: 0.58
+  name: NEGRITO
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTAQ3T
+  src: eea
 sao-torpes:
   km: 0.21
   name: SÃO TORPES
   quality: 1 - Excellent
   season: 2025
   site_id: PTCX3M
+  src: eea
+sao-vicente:
+  km: 0.59
+  name: CLUBE NAVAL DE SÃO VICENTE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTMH8L
   src: eea
 sarridal:
   km: 1.51
@@ -3662,6 +3921,13 @@ segur-de-calafell:
   quality: 1 - Excellent
   season: 2025
   site_id: ES514M0372800
+  src: eea
+seixal:
+  km: 0.06
+  name: PORTO DO SEIXAL
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTMH9N
   src: eea
 shark-island:
   km: 0.63
@@ -4100,6 +4366,13 @@ vila-ancora:
   quality: 3 - Sufficient
   season: 2025
   site_id: PTCQ8J
+  src: eea
+vila-nova:
+  km: 1.41
+  name: ESCALEIRAS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: PTAN3F
   src: eea
 vilarrube:
   km: 0.6

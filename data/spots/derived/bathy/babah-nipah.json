@@ -1,0 +1,72 @@
+{
+  "spot": "babah-nipah",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    4.8194,
+    95.4173
+  ],
+  "bearing_seaward_deg": 215.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 60.0,
+  "mean_slope_m_per_km": 3.27,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 4.81756,
+      "lon": 95.41601,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 4.81572,
+      "lon": 95.41471,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 4.81203,
+      "lon": 95.41212,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 4.80467,
+      "lon": 95.40695,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 4.7973,
+      "lon": 95.40177,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 4.78257,
+      "lon": 95.39142,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 4.76046,
+      "lon": 95.37589,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 4.731,
+      "lon": 95.35519,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 4.68679,
+      "lon": 95.32414,
+      "depth_m": 60.0
+    }
+  ]
+}

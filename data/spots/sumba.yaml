@@ -1,0 +1,36 @@
+# Rosa spot database - Sumba (seeded 2026-10-29), Nusa Tenggara Timur, the next Indonesian
+# region east of Sumbawa. The west coast at Pero / Kodi, the south-west Lamboya and Wanukaka
+# coast (Marosi, Nihiwatu, Rua), Tarimbang on the central south coast and Kalala near Baing in
+# the south-east. Southern Ocean SW groundswell year-round, biggest May-Oct with the SE trade;
+# reef throughout. swell_window and offshore_direction are per spot; every spot carries
+# offshore_km along its own seaward normal.
+
+country: "Indonesia"
+
+defaults: &smb
+  timezone: Asia/Makassar
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [170, 290]
+  ideal:
+    wind_dir: [60, 150]
+    size_m: [1.0, 3.0]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - sumba, 9 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 9 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/sumba/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: pero-sumba, name: "Pero", town: "Bondo Kodi", lat: -9.6064, lon: 118.9829, offshore_direction: 43, swell_window: [158, 288], offshore_km: 5.0, <<: *smb }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: wanukaka, name: "Wanukaka", town: "Wanukaka", lat: -9.7525, lon: 119.4493, offshore_direction: 344, swell_window: [99, 229], offshore_km: 5.0, <<: *smb }  # sat-verified 2026-10-29 (websearch-seeded); normal re-aimed to seaward 164 (the coastline normal 97 ran across the point's own headland; open arc 102-226)
+  - { id: kerewe, name: "Kerewe", town: "Patiala Bawa", lat: -9.7617, lon: 119.3344, offshore_direction: 310, swell_window: [65, 195], offshore_km: 5.0, <<: *smb }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: rua, name: "Rua", town: "Rua", lat: -9.7651, lon: 119.4160, offshore_direction: 317, swell_window: [72, 202], offshore_km: 5.0, <<: *smb }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: marosi, name: "Marosi", town: "Patiala Bawa", lat: -9.7652, lon: 119.3133, offshore_direction: 38, swell_window: [153, 283], offshore_km: 5.0, <<: *smb }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: nihiwatu, name: "Nihiwatu (Occy's Left)", town: "Lamboya", lat: -9.7814, lon: 119.3741, offshore_direction: 50, swell_window: [165, 295], offshore_km: 5.0, <<: *smb }  # sat-verified 2026-10-29 (websearch-seeded); normal re-aimed to seaward 230 (the coastline normal 105 ran up the beach; GEBCO reads the cliff-backed shore as land to 0.5 km on every bearing, middle of the 210-250 arc)
+  - { id: millers-right, name: "Miller's Right (Tarimbang)", town: "Tarimbang", lat: -9.9823, lon: 119.9374, offshore_direction: 24, swell_window: [139, 269], offshore_km: 5.0, <<: *smb }  # sat-verified 2026-10-29 (websearch-seeded); normal re-aimed to seaward 204 (the coastline normal 330 ran across Tarimbang bay's west headland; open arc 154-256)
+  - { id: kalala, name: "Kalala", town: "Baing", lat: -10.2624, lon: 120.6012, offshore_direction: 12, swell_window: [127, 257], offshore_km: 5.0, <<: *smb }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: mengkudu, name: "Mengkudu (Salura)", town: "Praisalura", lat: -10.3287, lon: 120.1941, offshore_direction: 356, swell_window: [111, 241], offshore_km: 5.0, <<: *smb }  # sat-verified 2026-10-29 (websearch-seeded)

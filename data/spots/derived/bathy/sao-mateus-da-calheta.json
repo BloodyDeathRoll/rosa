@@ -1,0 +1,72 @@
+{
+  "spot": "sao-mateus-da-calheta",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.6525,
+    -27.2767
+  ],
+  "bearing_seaward_deg": 179.0,
+  "nearshore_depth_m": 34.0,
+  "offshore_depth_m": 1189.0,
+  "mean_slope_m_per_km": 65.07,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.65025,
+      "lon": -27.27665,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.648,
+      "lon": -27.2766,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.64351,
+      "lon": -27.2765,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.63452,
+      "lon": -27.2763,
+      "depth_m": 290.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.62552,
+      "lon": -27.2761,
+      "depth_m": 519.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.60754,
+      "lon": -27.2757,
+      "depth_m": 888.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.58057,
+      "lon": -27.27509,
+      "depth_m": 1051.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.5446,
+      "lon": -27.27429,
+      "depth_m": 1146.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.49065,
+      "lon": -27.27309,
+      "depth_m": 1189.0
+    }
+  ]
+}

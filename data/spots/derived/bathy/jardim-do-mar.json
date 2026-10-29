@@ -1,0 +1,72 @@
+{
+  "spot": "jardim-do-mar",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    32.7376,
+    -17.2128
+  ],
+  "bearing_seaward_deg": 224.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 2835.0,
+  "mean_slope_m_per_km": 159.27,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.73598,
+      "lon": -17.21466,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.73437,
+      "lon": -17.21651,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.73113,
+      "lon": -17.22023,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.72466,
+      "lon": -17.22765,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.71819,
+      "lon": -17.23508,
+      "depth_m": 181.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.70525,
+      "lon": -17.24992,
+      "depth_m": 702.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.68583,
+      "lon": -17.27218,
+      "depth_m": 1658.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.65994,
+      "lon": -17.30185,
+      "depth_m": 2372.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.62108,
+      "lon": -17.34631,
+      "depth_m": 2835.0
+    }
+  ]
+}

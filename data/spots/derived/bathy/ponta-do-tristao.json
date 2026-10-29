@@ -1,0 +1,72 @@
+{
+  "spot": "ponta-do-tristao",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    32.8699,
+    -17.2007
+  ],
+  "bearing_seaward_deg": 344.0,
+  "nearshore_depth_m": 25.0,
+  "offshore_depth_m": 2797.0,
+  "mean_slope_m_per_km": 156.17,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.87206,
+      "lon": -17.20144,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.87422,
+      "lon": -17.20218,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.87854,
+      "lon": -17.20365,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.88719,
+      "lon": -17.2066,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.89583,
+      "lon": -17.20956,
+      "depth_m": 171.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.91312,
+      "lon": -17.21546,
+      "depth_m": 489.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.93906,
+      "lon": -17.22433,
+      "depth_m": 1117.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.97363,
+      "lon": -17.23616,
+      "depth_m": 1758.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.0255,
+      "lon": -17.25392,
+      "depth_m": 2797.0
+    }
+  ]
+}

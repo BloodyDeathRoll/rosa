@@ -1,0 +1,72 @@
+{
+  "spot": "lagundri-the-point",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    0.5649,
+    97.7302
+  ],
+  "bearing_seaward_deg": 200.0,
+  "nearshore_depth_m": -13.0,
+  "offshore_depth_m": 202.0,
+  "mean_slope_m_per_km": 12.11,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 0.56279,
+      "lon": 97.72943,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 0.56067,
+      "lon": 97.72866,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 0.55645,
+      "lon": 97.72712,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 0.548,
+      "lon": 97.72405,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 0.53955,
+      "lon": 97.72097,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 0.52265,
+      "lon": 97.71482,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 0.49729,
+      "lon": 97.70559,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 0.46349,
+      "lon": 97.69329,
+      "depth_m": 153.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 0.41278,
+      "lon": 97.67483,
+      "depth_m": 202.0
+    }
+  ]
+}

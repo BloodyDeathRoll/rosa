@@ -1,0 +1,72 @@
+{
+  "spot": "nihiwatu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -9.7814,
+    119.3741
+  ],
+  "bearing_seaward_deg": 230.0,
+  "nearshore_depth_m": -33.0,
+  "offshore_depth_m": 582.0,
+  "mean_slope_m_per_km": 34.65,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -9.78285,
+      "lon": 119.37235,
+      "depth_m": -33.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -9.78429,
+      "lon": 119.3706,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -9.78718,
+      "lon": 119.36711,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -9.79296,
+      "lon": 119.36012,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -9.79874,
+      "lon": 119.35313,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -9.8103,
+      "lon": 119.33914,
+      "depth_m": 118.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -9.82764,
+      "lon": 119.31817,
+      "depth_m": 172.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -9.85076,
+      "lon": 119.29019,
+      "depth_m": 307.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -9.88543,
+      "lon": 119.24823,
+      "depth_m": 582.0
+    }
+  ]
+}

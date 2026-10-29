@@ -1,0 +1,72 @@
+{
+  "spot": "wanukaka",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -9.7525,
+    119.4493
+  ],
+  "bearing_seaward_deg": 164.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 563.0,
+  "mean_slope_m_per_km": 31.55,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -9.75466,
+      "lon": 119.44993,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -9.75682,
+      "lon": 119.45056,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -9.76114,
+      "lon": 119.45182,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -9.76979,
+      "lon": 119.45433,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -9.77843,
+      "lon": 119.45685,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -9.79572,
+      "lon": 119.46188,
+      "depth_m": 124.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -9.82166,
+      "lon": 119.46943,
+      "depth_m": 198.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -9.85624,
+      "lon": 119.47949,
+      "depth_m": 314.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -9.9081,
+      "lon": 119.4946,
+      "depth_m": 563.0
+    }
+  ]
+}

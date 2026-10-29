@@ -1,0 +1,72 @@
+{
+  "spot": "santana",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.8148,
+    -25.5613
+  ],
+  "bearing_seaward_deg": 3.0,
+  "nearshore_depth_m": -29.0,
+  "offshore_depth_m": 1006.0,
+  "mean_slope_m_per_km": 58.31,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.81705,
+      "lon": -25.56115,
+      "depth_m": -29.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.81929,
+      "lon": -25.561,
+      "depth_m": -29.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.82378,
+      "lon": -25.5607,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.83276,
+      "lon": -25.56011,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.84174,
+      "lon": -25.55951,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.8597,
+      "lon": -25.55832,
+      "depth_m": 179.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.88665,
+      "lon": -25.55653,
+      "depth_m": 562.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.92257,
+      "lon": -25.55414,
+      "depth_m": 926.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.97646,
+      "lon": -25.55055,
+      "depth_m": 1006.0
+    }
+  ]
+}

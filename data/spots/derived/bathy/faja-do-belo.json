@@ -1,0 +1,72 @@
+{
+  "spot": "faja-do-belo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.6316,
+    -27.9425
+  ],
+  "bearing_seaward_deg": 67.0,
+  "nearshore_depth_m": -148.0,
+  "offshore_depth_m": 1252.0,
+  "mean_slope_m_per_km": 78.87,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.63248,
+      "lon": -27.93985,
+      "depth_m": -148.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.63336,
+      "lon": -27.9372,
+      "depth_m": -42.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.63511,
+      "lon": -27.9319,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.63863,
+      "lon": -27.9213,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.64214,
+      "lon": -27.9107,
+      "depth_m": 115.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.64916,
+      "lon": -27.8895,
+      "depth_m": 250.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.65968,
+      "lon": -27.85769,
+      "depth_m": 806.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.6737,
+      "lon": -27.81526,
+      "depth_m": 1148.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.6947,
+      "lon": -27.75158,
+      "depth_m": 1252.0
+    }
+  ]
+}
