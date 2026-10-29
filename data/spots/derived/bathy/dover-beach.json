@@ -1,0 +1,72 @@
+{
+  "spot": "dover-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    13.066,
+    -59.5683
+  ],
+  "bearing_seaward_deg": 177.0,
+  "nearshore_depth_m": 91.0,
+  "offshore_depth_m": 433.0,
+  "mean_slope_m_per_km": 19.27,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.06375,
+      "lon": -59.56818,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.06151,
+      "lon": -59.56806,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.05702,
+      "lon": -59.56782,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.04804,
+      "lon": -59.56733,
+      "depth_m": 103.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.03906,
+      "lon": -59.56685,
+      "depth_m": 177.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.0211,
+      "lon": -59.56588,
+      "depth_m": 214.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 12.99415,
+      "lon": -59.56444,
+      "depth_m": 266.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 12.95823,
+      "lon": -59.5625,
+      "depth_m": 306.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 12.90434,
+      "lon": -59.55961,
+      "depth_m": 433.0
+    }
+  ]
+}

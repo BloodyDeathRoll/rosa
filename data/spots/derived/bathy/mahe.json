@@ -1,0 +1,72 @@
+{
+  "spot": "mahe",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    11.6953,
+    75.5344
+  ],
+  "bearing_seaward_deg": 271.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 25.0,
+  "mean_slope_m_per_km": 1.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.69534,
+      "lon": 75.5321,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.69538,
+      "lon": 75.52981,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.69546,
+      "lon": 75.52522,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.69561,
+      "lon": 75.51604,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.69577,
+      "lon": 75.50685,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.69608,
+      "lon": 75.48849,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.69655,
+      "lon": 75.46094,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.69716,
+      "lon": 75.42421,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.69808,
+      "lon": 75.36911,
+      "depth_m": 25.0
+    }
+  ]
+}

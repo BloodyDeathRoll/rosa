@@ -1,0 +1,72 @@
+{
+  "spot": "chunan",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    24.6963,
+    120.8519
+  ],
+  "bearing_seaward_deg": 315.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 61.0,
+  "mean_slope_m_per_km": 4.11,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 24.69789,
+      "lon": 120.85015,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 24.69948,
+      "lon": 120.8484,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 24.70266,
+      "lon": 120.8449,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 24.70902,
+      "lon": 120.8379,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 24.71538,
+      "lon": 120.8309,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 24.72809,
+      "lon": 120.81689,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 24.74716,
+      "lon": 120.79588,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 24.77259,
+      "lon": 120.76786,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 24.81071,
+      "lon": 120.7258,
+      "depth_m": 61.0
+    }
+  ]
+}

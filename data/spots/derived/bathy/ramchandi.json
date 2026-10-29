@@ -1,0 +1,72 @@
+{
+  "spot": "ramchandi",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    19.8438,
+    86.028
+  ],
+  "bearing_seaward_deg": 169.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 31.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 19.84159,
+      "lon": 86.02846,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 19.83939,
+      "lon": 86.02891,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 19.83497,
+      "lon": 86.02982,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 19.82614,
+      "lon": 86.03165,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 19.81732,
+      "lon": 86.03347,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 19.79966,
+      "lon": 86.03712,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 19.77318,
+      "lon": 86.04259,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 19.73786,
+      "lon": 86.04988,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 19.68489,
+      "lon": 86.0608,
+      "depth_m": 31.0
+    }
+  ]
+}

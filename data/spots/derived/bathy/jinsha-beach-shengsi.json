@@ -1,0 +1,72 @@
+{
+  "spot": "jinsha-beach-shengsi",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    30.717,
+    122.4706
+  ],
+  "bearing_seaward_deg": 16.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 17.0,
+  "mean_slope_m_per_km": 0.96,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 30.71916,
+      "lon": 122.47132,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 30.72132,
+      "lon": 122.47204,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 30.72564,
+      "lon": 122.47348,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 30.73429,
+      "lon": 122.47637,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 30.74293,
+      "lon": 122.47925,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 30.76022,
+      "lon": 122.48502,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 30.78616,
+      "lon": 122.49368,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 30.82073,
+      "lon": 122.50524,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 30.8726,
+      "lon": 122.52259,
+      "depth_m": 17.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "honeymoon-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    24.9334,
+    121.8869
+  ],
+  "bearing_seaward_deg": 122.0,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 507.0,
+  "mean_slope_m_per_km": 27.83,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 24.93221,
+      "lon": 121.889,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 24.93102,
+      "lon": 121.89111,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 24.92863,
+      "lon": 121.89531,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 24.92387,
+      "lon": 121.90372,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 24.9191,
+      "lon": 121.91213,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 24.90957,
+      "lon": 121.92894,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 24.89526,
+      "lon": 121.95416,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 24.87618,
+      "lon": 121.98778,
+      "depth_m": 197.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 24.84754,
+      "lon": 122.03818,
+      "depth_m": 507.0
+    }
+  ]
+}

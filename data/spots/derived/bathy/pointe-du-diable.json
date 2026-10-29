@@ -1,0 +1,72 @@
+{
+  "spot": "pointe-du-diable",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -21.331,
+    55.4509
+  ],
+  "bearing_seaward_deg": 210.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 1596.0,
+  "mean_slope_m_per_km": 89.58,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -21.33295,
+      "lon": 55.44969,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -21.33489,
+      "lon": 55.44849,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -21.33879,
+      "lon": 55.44607,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -21.34658,
+      "lon": 55.44124,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -21.35436,
+      "lon": 55.43642,
+      "depth_m": 191.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -21.36994,
+      "lon": 55.42676,
+      "depth_m": 493.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -21.3933,
+      "lon": 55.41227,
+      "depth_m": 962.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -21.42445,
+      "lon": 55.39294,
+      "depth_m": 1339.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -21.47117,
+      "lon": 55.36393,
+      "depth_m": 1596.0
+    }
+  ]
+}

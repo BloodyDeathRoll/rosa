@@ -1,0 +1,72 @@
+{
+  "spot": "jungmun",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    33.245,
+    126.4108
+  ],
+  "bearing_seaward_deg": 177.0,
+  "nearshore_depth_m": -13.0,
+  "offshore_depth_m": 100.0,
+  "mean_slope_m_per_km": 6.37,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.24275,
+      "lon": 126.41094,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.24051,
+      "lon": 126.41108,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.23602,
+      "lon": 126.41136,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.22704,
+      "lon": 126.41193,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.21806,
+      "lon": 126.41249,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.2001,
+      "lon": 126.41361,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.17315,
+      "lon": 126.4153,
+      "depth_m": 101.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.13723,
+      "lon": 126.41754,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.08334,
+      "lon": 126.42091,
+      "depth_m": 100.0
+    }
+  ]
+}

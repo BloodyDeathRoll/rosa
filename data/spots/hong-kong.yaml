@@ -1,0 +1,33 @@
+# Rosa spot database - Hong Kong (seeded 2026-10-29). Lantau's south coast (Cheung Sha, Pui O),
+# Hong Kong Island's south-east corner (Big Wave Bay, Shek O) and Sai Kung East (Tai Long Wan):
+# NE monsoon windswell Oct-Apr, typhoon swell in summer. Every spot carries its own
+# offshore_direction and swell_window; break_type per spot.
+
+country: "Hong Kong"
+
+defaults: &hk
+  timezone: Asia/Hong_Kong
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [40, 220]
+  ideal:
+    wind_dir: [270, 360]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - hong-kong, 8 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 8 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/hong-kong/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: tai-wan, name: "Tai Wan", town: "Sai Kung", lat: 22.4147, lon: 114.3795, offshore_direction: 313, swell_window: [68, 198], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: ham-tin, name: "Ham Tin", town: "Sai Kung", lat: 22.4093, lon: 114.3759, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-10-29 (websearch-seeded); 3c: normal set by hand to seaward 100 (middle of the open arc on the GEBCO sweep; coastline candidate gave seaward 40)
+  - { id: sai-wan, name: "Sai Wan", town: "Sai Kung", lat: 22.3996, lon: 114.3704, offshore_direction: 258, swell_window: [13, 143], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-10-29 (websearch-seeded); 3c: normal set by hand to seaward 78 (middle of the open arc on the GEBCO sweep; coastline candidate gave seaward 60)
+  - { id: big-wave-bay, name: "Big Wave Bay", town: "Shek O", lat: 22.2462, lon: 114.2476, offshore_direction: 264, swell_window: [19, 149], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: pui-o, name: "Pui O", town: "Lantau", lat: 22.2392, lon: 113.9771, offshore_direction: 22, swell_window: [137, 267], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: cheung-sha, name: "Cheung Sha", town: "Lantau", lat: 22.2340, lon: 113.9524, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: shek-o, name: "Shek O", town: "Shek O", lat: 22.2287, lon: 114.2515, offshore_direction: 286, swell_window: [41, 171], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-10-29 (websearch-seeded); 3c: normal set by hand to seaward 106 (middle of the open arc on the GEBCO sweep; coastline candidate gave seaward 30)
+  - { id: tai-long-wan-lantau, name: "Tai Long Wan Lantau", town: "Lantau", lat: 22.2210, lon: 113.8854, offshore_direction: 318, swell_window: [73, 203], offshore_km: 5.0, <<: *hk }  # sat-verified 2026-10-29 (websearch-seeded); 3c: normal set by hand to seaward 138 (middle of the open arc on the GEBCO sweep; coastline candidate gave seaward 207)

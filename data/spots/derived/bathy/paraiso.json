@@ -1,0 +1,72 @@
+{
+  "spot": "paraiso",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    17.99,
+    -71.1617
+  ],
+  "bearing_seaward_deg": 142.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 2696.0,
+  "mean_slope_m_per_km": 152.56,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 17.98823,
+      "lon": -71.16024,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 17.98646,
+      "lon": -71.15879,
+      "depth_m": -28.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 17.98291,
+      "lon": -71.15588,
+      "depth_m": 103.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 17.97583,
+      "lon": -71.15006,
+      "depth_m": 183.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 17.96874,
+      "lon": -71.14424,
+      "depth_m": 579.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 17.95456,
+      "lon": -71.1326,
+      "depth_m": 1333.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 17.9333,
+      "lon": -71.11514,
+      "depth_m": 1781.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 17.90495,
+      "lon": -71.09188,
+      "depth_m": 2231.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 17.86241,
+      "lon": -71.05699,
+      "depth_m": 2696.0
+    }
+  ]
+}

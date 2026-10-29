@@ -1,0 +1,72 @@
+{
+  "spot": "torre-bank",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.1372,
+    1.4038
+  ],
+  "bearing_seaward_deg": 122.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 204.0,
+  "mean_slope_m_per_km": 11.44,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.13601,
+      "lon": 1.40633,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.13482,
+      "lon": 1.40886,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.13243,
+      "lon": 1.41393,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.12767,
+      "lon": 1.42405,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.1229,
+      "lon": 1.43417,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.11336,
+      "lon": 1.45441,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.09905,
+      "lon": 1.48477,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.07995,
+      "lon": 1.52521,
+      "depth_m": 90.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.05127,
+      "lon": 1.58584,
+      "depth_m": 204.0
+    }
+  ]
+}

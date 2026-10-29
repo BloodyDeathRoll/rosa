@@ -1,0 +1,72 @@
+{
+  "spot": "altafulla",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.1326,
+    1.3733
+  ],
+  "bearing_seaward_deg": 159.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 270.0,
+  "mean_slope_m_per_km": 15.04,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.1305,
+      "lon": 1.37437,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.1284,
+      "lon": 1.37544,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.1242,
+      "lon": 1.37758,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.11581,
+      "lon": 1.38186,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.10741,
+      "lon": 1.38613,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.09062,
+      "lon": 1.39468,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.06543,
+      "lon": 1.4075,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.03184,
+      "lon": 1.42457,
+      "depth_m": 159.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.98145,
+      "lon": 1.45014,
+      "depth_m": 270.0
+    }
+  ]
+}

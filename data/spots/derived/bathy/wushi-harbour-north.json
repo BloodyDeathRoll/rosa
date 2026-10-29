@@ -1,0 +1,72 @@
+{
+  "spot": "wushi-harbour-north",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    24.8697,
+    121.8427
+  ],
+  "bearing_seaward_deg": 127.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 152.0,
+  "mean_slope_m_per_km": 8.51,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 24.86835,
+      "lon": 121.84468,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 24.86699,
+      "lon": 121.84666,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 24.86429,
+      "lon": 121.85062,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 24.85887,
+      "lon": 121.85853,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 24.85346,
+      "lon": 121.86645,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 24.84263,
+      "lon": 121.88227,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 24.82639,
+      "lon": 121.90601,
+      "depth_m": 160.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 24.80472,
+      "lon": 121.93765,
+      "depth_m": 198.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 24.77221,
+      "lon": 121.98508,
+      "depth_m": 152.0
+    }
+  ]
+}

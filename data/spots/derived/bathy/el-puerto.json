@@ -1,0 +1,72 @@
+{
+  "spot": "el-puerto",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.7924,
+    0.1824
+  ],
+  "bearing_seaward_deg": 110.0,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 113.0,
+  "mean_slope_m_per_km": 5.75,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.79163,
+      "lon": 0.18511,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.79086,
+      "lon": 0.18782,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.78932,
+      "lon": 0.19324,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.78625,
+      "lon": 0.20408,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.78317,
+      "lon": 0.21492,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.77701,
+      "lon": 0.2366,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.76776,
+      "lon": 0.26911,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.75542,
+      "lon": 0.31244,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.73687,
+      "lon": 0.37741,
+      "depth_m": 113.0
+    }
+  ]
+}

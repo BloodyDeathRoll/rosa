@@ -1,0 +1,72 @@
+{
+  "spot": "playa-de-la-chapineta",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.5565,
+    -1.1695
+  ],
+  "bearing_seaward_deg": 252.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 64.0,
+  "mean_slope_m_per_km": 3.27,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.55581,
+      "lon": -1.1722,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.55511,
+      "lon": -1.17489,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.55372,
+      "lon": -1.18029,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.55094,
+      "lon": -1.19108,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.54816,
+      "lon": -1.20186,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.54259,
+      "lon": -1.22344,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.53424,
+      "lon": -1.25579,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.52308,
+      "lon": -1.29891,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.50632,
+      "lon": -1.36357,
+      "depth_m": 64.0
+    }
+  ]
+}

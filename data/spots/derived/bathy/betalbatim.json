@@ -1,0 +1,72 @@
+{
+  "spot": "betalbatim",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    15.2932,
+    73.9071
+  ],
+  "bearing_seaward_deg": 252.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 27.0,
+  "mean_slope_m_per_km": 1.63,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 15.29251,
+      "lon": 73.90488,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 15.29181,
+      "lon": 73.90267,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 15.29042,
+      "lon": 73.89823,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 15.28764,
+      "lon": 73.88937,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 15.28486,
+      "lon": 73.8805,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 15.2793,
+      "lon": 73.86277,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 15.27096,
+      "lon": 73.83617,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 15.25983,
+      "lon": 73.80071,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 15.24312,
+      "lon": 73.74753,
+      "depth_m": 27.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "port-ginesta",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.2602,
+    1.9295
+  ],
+  "bearing_seaward_deg": 152.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 350.0,
+  "mean_slope_m_per_km": 19.21,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.25821,
+      "lon": 1.9309,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.25623,
+      "lon": 1.93231,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.25226,
+      "lon": 1.93512,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.24432,
+      "lon": 1.94073,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.23638,
+      "lon": 1.94634,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.22049,
+      "lon": 1.95757,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.19667,
+      "lon": 1.97439,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.16489,
+      "lon": 1.9968,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.11723,
+      "lon": 2.03038,
+      "depth_m": 350.0
+    }
+  ]
+}

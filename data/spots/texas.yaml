@@ -1,0 +1,50 @@
+# Rosa spot database - Texas (seeded 2026-10-29). The Gulf coast from Bolivar and Galveston's
+# seawall piers and jetties through Surfside and Quintana, Matagorda, Port Aransas, Corpus
+# Christi's Padre Island and South Padre to Boca Chica: south-east-facing beach, jetties and
+# piers on local windswell, winter fronts and tropical-storm swell. Central time.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+country: "USA"
+
+defaults: &tx
+  timezone: America/Chicago
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [70, 200]
+  ideal:
+    wind_dir: [270, 360]
+    size_m: [0.4, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - texas, 24 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 24 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/texas/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: high-island, name: "High Island", town: "High Island", lat: 29.5489, lon: -94.3880, offshore_direction: 338, swell_window: [93, 223], offshore_km: 5.0, <<: *tx }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: rollover-pass, name: "Rollover Pass", town: "Rollover", lat: 29.5058, lon: -94.5003, offshore_direction: 327, swell_window: [82, 212], offshore_km: 5.0, <<: *tx }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: bolivar, name: "Bolivar", town: "Crystal Beach", lat: 29.4414, lon: -94.6504, offshore_direction: 328, swell_window: [83, 213], offshore_km: 5.0, <<: *tx }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: pleasure-pier, name: "Pleasure Pier", town: "Galveston", lat: 29.2860, lon: -94.7905, offshore_direction: 318, swell_window: [73, 203], offshore_km: 5.0, <<: *tx }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: 37th-street-jetty, name: "37th Street Jetty", town: "Galveston", lat: 29.2790, lon: -94.8019, offshore_direction: 322, swell_window: [77, 207], offshore_km: 5.0, <<: *tx }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: 61st-street-pier, name: "61st Street Pier", town: "Galveston", lat: 29.2647, lon: -94.8251, offshore_direction: 329, swell_window: [84, 214], offshore_km: 5.0, <<: *tx }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: jamaica-beach, name: "Jamaica Beach", town: "Jamaica Beach", lat: 29.1803, lon: -94.9712, offshore_direction: 325, swell_window: [80, 210], offshore_km: 5.0, <<: *tx }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: surfside-beach-tx, name: "Surfside Beach", town: "Surfside Beach", lat: 28.9498, lon: -95.2842, offshore_direction: 321, swell_window: [76, 206], offshore_km: 5.0, <<: *tx }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: surfside-jetty, name: "Surfside Jetty", town: "Surfside", lat: 28.9382, lon: -95.2942, offshore_direction: 308, swell_window: [63, 193], offshore_km: 5.0, <<: *tx }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: quintana-jetty, name: "Quintana Jetty", town: "Quintana", lat: 28.9337, lon: -95.2977, offshore_direction: 335, swell_window: [90, 220], offshore_km: 5.0, <<: *tx }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: matagorda, name: "Matagorda", town: "Matagorda", lat: 28.6107, lon: -95.9392, offshore_direction: 335, swell_window: [90, 220], offshore_km: 5.0, <<: *tx }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: port-oconnor, name: "Port O'Connor", town: "Port O'Connor", lat: 28.4218, lon: -96.3302, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, <<: *tx }  # sat-verified 2026-10-29 (websearch-seeded); normal set by hand to seaward 150 from the tile
+  - { id: san-jose-island, name: "San Jose Island", town: "Port Aransas", lat: 27.8410, lon: -97.0433, offshore_direction: 288, swell_window: [43, 173], offshore_km: 5.0, <<: *tx }  # sat-verified 2026-10-29 (websearch-seeded); normal set by hand to seaward 108 from the tile
+  - { id: port-aransas-south-jetty, name: "Port Aransas South Jetty", town: "Port Aransas", lat: 27.8333, lon: -97.0448, offshore_direction: 320, swell_window: [75, 205], offshore_km: 5.0, <<: *tx }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: horace-caldwell-pier, name: "Horace Caldwell Pier", town: "Port Aransas", lat: 27.8271, lon: -97.0519, offshore_direction: 312, swell_window: [67, 197], offshore_km: 5.0, <<: *tx }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: fish-pass-jetty, name: "Fish Pass Jetty", town: "Corpus Christi", lat: 27.6753, lon: -97.1652, offshore_direction: 302, swell_window: [57, 187], offshore_km: 5.0, <<: *tx }  # sat-verified 2026-10-29 (websearch-seeded); normal set by hand to seaward 122 from the tile
+  - { id: jp-luby, name: "JP Luby", town: "Corpus Christi", lat: 27.6239, lon: -97.1965, offshore_direction: 294, swell_window: [49, 179], offshore_km: 5.0, <<: *tx }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: packery-channel, name: "Packery Channel", town: "Corpus Christi", lat: 27.6129, lon: -97.2010, offshore_direction: 310, swell_window: [65, 195], offshore_km: 5.0, <<: *tx }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: bob-hall-pier, name: "Bob Hall Pier", town: "Corpus Christi", lat: 27.5808, lon: -97.2187, offshore_direction: 295, swell_window: [50, 180], offshore_km: 5.0, <<: *tx }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: padre-island-national-seashore, name: "Padre Island National Seashore", town: "Corpus Christi", lat: 27.4393, lon: -97.2892, offshore_direction: 291, swell_window: [46, 176], offshore_km: 5.0, <<: *tx }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: port-mansfield-jetty, name: "Port Mansfield Jetty", town: "Port Mansfield", lat: 26.5614, lon: -97.2695, offshore_direction: 278, swell_window: [33, 163], offshore_km: 5.0, <<: *tx }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: south-padre-island, name: "South Padre Island", town: "South Padre Island", lat: 26.1374, lon: -97.1672, offshore_direction: 263, swell_window: [18, 148], offshore_km: 5.0, <<: *tx }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: isla-blanca, name: "Isla Blanca", town: "South Padre Island", lat: 26.0682, lon: -97.1534, offshore_direction: 265, swell_window: [20, 150], offshore_km: 5.0, <<: *tx }  # sat-verified 2026-10-29 (websearch-seeded); normal set by hand to seaward 85 from the tile
+  - { id: boca-chica, name: "Boca Chica", town: "Starbase", lat: 26.0091, lon: -97.1486, offshore_direction: 265, swell_window: [20, 150], offshore_km: 5.0, <<: *tx }  # sat-verified 2026-10-29 (websearch-seeded)

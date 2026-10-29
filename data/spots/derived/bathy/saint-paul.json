@@ -1,0 +1,72 @@
+{
+  "spot": "saint-paul",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -21.0053,
+    55.2716
+  ],
+  "bearing_seaward_deg": 314.0,
+  "nearshore_depth_m": 21.0,
+  "offshore_depth_m": 683.0,
+  "mean_slope_m_per_km": 37.3,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -21.00374,
+      "lon": 55.26987,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -21.00218,
+      "lon": 55.26814,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -20.99905,
+      "lon": 55.26467,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -20.99281,
+      "lon": 55.25774,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -20.98656,
+      "lon": 55.25081,
+      "depth_m": 340.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -20.97406,
+      "lon": 55.23696,
+      "depth_m": 418.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -20.95531,
+      "lon": 55.21618,
+      "depth_m": 439.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -20.93031,
+      "lon": 55.18849,
+      "depth_m": 535.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -20.89281,
+      "lon": 55.14696,
+      "depth_m": 683.0
+    }
+  ]
+}

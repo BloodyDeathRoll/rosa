@@ -1,0 +1,72 @@
+{
+  "spot": "duli",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    23.0231,
+    121.3355
+  ],
+  "bearing_seaward_deg": 139.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 665.0,
+  "mean_slope_m_per_km": 37.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 23.0214,
+      "lon": 121.3371,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 23.01971,
+      "lon": 121.33871,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 23.01631,
+      "lon": 121.34191,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 23.00952,
+      "lon": 121.34832,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 23.00274,
+      "lon": 121.35473,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 22.98916,
+      "lon": 121.36755,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 22.96879,
+      "lon": 121.38676,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 22.94163,
+      "lon": 121.41238,
+      "depth_m": 201.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 22.90089,
+      "lon": 121.45079,
+      "depth_m": 665.0
+    }
+  ]
+}

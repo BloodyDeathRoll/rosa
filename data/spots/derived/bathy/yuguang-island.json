@@ -1,0 +1,72 @@
+{
+  "spot": "yuguang-island",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    22.9792,
+    120.1557
+  ],
+  "bearing_seaward_deg": 251.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 111.0,
+  "mean_slope_m_per_km": 6.2,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 22.97847,
+      "lon": 120.15339,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 22.97774,
+      "lon": 120.15108,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 22.97627,
+      "lon": 120.14646,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 22.97334,
+      "lon": 120.13723,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 22.97041,
+      "lon": 120.12799,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 22.96455,
+      "lon": 120.10952,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 22.95576,
+      "lon": 120.08182,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 22.94403,
+      "lon": 120.04489,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 22.92641,
+      "lon": 119.98951,
+      "depth_m": 111.0
+    }
+  ]
+}

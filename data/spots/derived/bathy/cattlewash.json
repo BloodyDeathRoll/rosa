@@ -1,0 +1,72 @@
+{
+  "spot": "cattlewash",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    13.2226,
+    -59.5317
+  ],
+  "bearing_seaward_deg": 46.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 2383.0,
+  "mean_slope_m_per_km": 133.69,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.22416,
+      "lon": -59.53004,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.22572,
+      "lon": -59.52838,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.22885,
+      "lon": -59.52505,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.23509,
+      "lon": -59.51841,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.24134,
+      "lon": -59.51176,
+      "depth_m": 238.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.25383,
+      "lon": -59.49847,
+      "depth_m": 717.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.27257,
+      "lon": -59.47853,
+      "depth_m": 1154.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.29755,
+      "lon": -59.45193,
+      "depth_m": 1722.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.33502,
+      "lon": -59.41203,
+      "depth_m": 2383.0
+    }
+  ]
+}

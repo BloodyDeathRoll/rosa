@@ -1,0 +1,37 @@
+# Rosa spot database - Tonga (seeded 2026-10-29). Tongatapu's north-west tip (the Ha'atafu and
+# Kanokupolu reef breaks), 'Eua, Foa in Ha'apai and the outer reefs of southern Vava'u. Almost
+# every break is a reef or pass paddled or boated to across a lagoon: `break_type` reef. South to
+# south-west Southern Ocean groundswell in winter, north swell in summer; the prevailing SE trade
+# is offshore on the west-facing Tongatapu breaks. Tonga sits EAST of the antimeridian (lon
+# ~ -176..-173.9), so the region never crosses it. Every spot carries offshore_km along its own
+# seaward normal.
+
+country: "Tonga"
+
+defaults: &to
+  timezone: Pacific/Tongatapu
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [150, 280]
+  ideal:
+    wind_dir: [40, 160]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - tonga, 9 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 9 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/tonga/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: good-from-afar, name: "Good From Afar (Foelifuka)", town: "Vava'u", lat: -18.7152, lon: -174.1475, offshore_direction: 107, swell_window: [222, 352], offshore_km: 5.0, <<: *to }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: ovaka-pass, name: "Ovaka Pass", town: "Ovaka", lat: -18.7592, lon: -174.1009, offshore_direction: 54, swell_window: [169, 299], offshore_km: 5.0, <<: *to }  # sat-verified 2026-10-29 (websearch-seeded); normal re-aimed to seaward 234, the middle of the open SW arc (the coastline normal 201 met Vava'u at 8 km)
+  - { id: muomua, name: "M&Ms (Mu'omu'a)", town: "Vava'u", lat: -18.7949, lon: -174.1122, offshore_direction: 73, swell_window: [188, 318], offshore_km: 5.0, <<: *to }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: drive-by-right, name: "Drive By Right (Fonua'one'one)", town: "Vava'u", lat: -18.8210, lon: -174.0603, offshore_direction: 35, swell_window: [150, 280], offshore_km: 5.0, <<: *to }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: taula-left, name: "Taula Left", town: "Vava'u", lat: -18.8511, lon: -174.0117, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, <<: *to }  # sat-verified 2026-10-29 (websearch-seeded); normal set by hand to seaward 240 off the tile (the nearest coastline candidate was the lagoon side, seaward 80; GEBCO does not see the islet)
+  - { id: lighthouse-tongatapu, name: "Lighthouse", town: "Ha'atafu", lat: -21.0605, lon: -175.3265, offshore_direction: 138, swell_window: [253, 23], offshore_km: 5.0, <<: *to }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: motels, name: "Motels", town: "Ha'atafu", lat: -21.0680, lon: -175.3359, offshore_direction: 131, swell_window: [246, 16], offshore_km: 5.0, <<: *to }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: the-pass-tongatapu, name: "The Pass", town: "Kanokupolu", lat: -21.0736, lon: -175.3409, offshore_direction: 127, swell_window: [242, 12], offshore_km: 5.0, <<: *to }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: ufilei, name: "Ufilei", town: "ʻOhonua", lat: -21.3313, lon: -174.9499, offshore_direction: 144, swell_window: [259, 29], offshore_km: 5.0, <<: *to }  # sat-verified 2026-10-29 (websearch-seeded)

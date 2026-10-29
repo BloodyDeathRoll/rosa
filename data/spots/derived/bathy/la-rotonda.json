@@ -1,0 +1,72 @@
+{
+  "spot": "la-rotonda",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.4717,
+    2.295
+  ],
+  "bearing_seaward_deg": 129.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 84.0,
+  "mean_slope_m_per_km": 4.34,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.47029,
+      "lon": 2.29733,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.46887,
+      "lon": 2.29966,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.46604,
+      "lon": 2.30433,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.46038,
+      "lon": 2.31365,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.45472,
+      "lon": 2.32298,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.44339,
+      "lon": 2.34162,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.4264,
+      "lon": 2.36957,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.40373,
+      "lon": 2.40681,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.36971,
+      "lon": 2.46263,
+      "depth_m": 84.0
+    }
+  ]
+}

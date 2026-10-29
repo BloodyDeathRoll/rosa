@@ -1,0 +1,72 @@
+{
+  "spot": "aiguaoliva",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    40.444,
+    0.4543
+  ],
+  "bearing_seaward_deg": 101.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 47.0,
+  "mean_slope_m_per_km": 2.59,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.44357,
+      "lon": 0.4572,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.44314,
+      "lon": 0.4601,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.44228,
+      "lon": 0.4659,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.44057,
+      "lon": 0.4775,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.43885,
+      "lon": 0.4891,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.43541,
+      "lon": 0.51229,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.43024,
+      "lon": 0.54708,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.42332,
+      "lon": 0.59346,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.41292,
+      "lon": 0.663,
+      "depth_m": 47.0
+    }
+  ]
+}

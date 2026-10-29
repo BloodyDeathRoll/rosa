@@ -1,0 +1,72 @@
+{
+  "spot": "desembocadura-del-tordera",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.6515,
+    2.7778
+  ],
+  "bearing_seaward_deg": 131.0,
+  "nearshore_depth_m": 14.0,
+  "offshore_depth_m": 99.0,
+  "mean_slope_m_per_km": 4.79,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.65002,
+      "lon": 2.78007,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.64855,
+      "lon": 2.78234,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.6456,
+      "lon": 2.78688,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.6397,
+      "lon": 2.79596,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.6338,
+      "lon": 2.80504,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.62199,
+      "lon": 2.8232,
+      "depth_m": 121.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.60428,
+      "lon": 2.85042,
+      "depth_m": 698.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.58065,
+      "lon": 2.88668,
+      "depth_m": 429.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.54518,
+      "lon": 2.94104,
+      "depth_m": 99.0
+    }
+  ]
+}

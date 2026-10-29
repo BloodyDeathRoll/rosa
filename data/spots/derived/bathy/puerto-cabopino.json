@@ -1,0 +1,72 @@
+{
+  "spot": "puerto-cabopino",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.4844,
+    -4.7422
+  ],
+  "bearing_seaward_deg": 180.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 672.0,
+  "mean_slope_m_per_km": 37.63,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.48215,
+      "lon": -4.7422,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.4799,
+      "lon": -4.7422,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.47541,
+      "lon": -4.7422,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.46641,
+      "lon": -4.7422,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.45742,
+      "lon": -4.7422,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.43943,
+      "lon": -4.7422,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.41245,
+      "lon": -4.7422,
+      "depth_m": 205.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.37648,
+      "lon": -4.7422,
+      "depth_m": 319.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.32252,
+      "lon": -4.7422,
+      "depth_m": 672.0
+    }
+  ]
+}

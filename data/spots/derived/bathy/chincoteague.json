@@ -1,0 +1,72 @@
+{
+  "spot": "chincoteague",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.8895,
+    -75.3418
+  ],
+  "bearing_seaward_deg": 118.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 1.18,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.88844,
+      "lon": -75.33928,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.88739,
+      "lon": -75.33677,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.88528,
+      "lon": -75.33174,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.88105,
+      "lon": -75.32168,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.87683,
+      "lon": -75.31162,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.86838,
+      "lon": -75.29151,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.8557,
+      "lon": -75.26134,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.83877,
+      "lon": -75.22114,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.81336,
+      "lon": -75.16088,
+      "depth_m": 20.0
+    }
+  ]
+}

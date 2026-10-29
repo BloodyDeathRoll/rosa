@@ -1,0 +1,72 @@
+{
+  "spot": "fengbin-rivermouth",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    23.598,
+    121.5295
+  ],
+  "bearing_seaward_deg": 98.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 3450.0,
+  "mean_slope_m_per_km": 194.2,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 23.59769,
+      "lon": 121.53193,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 23.59737,
+      "lon": 121.53436,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 23.59675,
+      "lon": 121.53922,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 23.5955,
+      "lon": 121.54894,
+      "depth_m": 170.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 23.59424,
+      "lon": 121.55865,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 23.59173,
+      "lon": 121.57809,
+      "depth_m": 90.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 23.58797,
+      "lon": 121.60724,
+      "depth_m": 224.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 23.58294,
+      "lon": 121.64611,
+      "depth_m": 1302.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 23.57537,
+      "lon": 121.7044,
+      "depth_m": 3450.0
+    }
+  ]
+}

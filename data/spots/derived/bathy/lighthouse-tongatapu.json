@@ -1,0 +1,72 @@
+{
+  "spot": "lighthouse-tongatapu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -21.0605,
+    -175.3265
+  ],
+  "bearing_seaward_deg": 318.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 1410.0,
+  "mean_slope_m_per_km": 79.04,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -21.05883,
+      "lon": -175.32811,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -21.05716,
+      "lon": -175.32972,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -21.05382,
+      "lon": -175.33295,
+      "depth_m": 123.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -21.04713,
+      "lon": -175.3394,
+      "depth_m": 242.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -21.04045,
+      "lon": -175.34584,
+      "depth_m": 874.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -21.02708,
+      "lon": -175.35873,
+      "depth_m": 1074.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -21.00703,
+      "lon": -175.37807,
+      "depth_m": 1410.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -20.98028,
+      "lon": -175.40384,
+      "depth_m": 1790.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -20.94016,
+      "lon": -175.44248,
+      "depth_m": 1410.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "puerto-marina",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.5995,
+    -4.5096
+  ],
+  "bearing_seaward_deg": 127.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 350.0,
+  "mean_slope_m_per_km": 19.38,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.59815,
+      "lon": -4.50736,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.59679,
+      "lon": -4.50513,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.59409,
+      "lon": -4.50065,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.58867,
+      "lon": -4.49171,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.58326,
+      "lon": -4.48277,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.57243,
+      "lon": -4.46488,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.55618,
+      "lon": -4.43807,
+      "depth_m": 103.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.5345,
+      "lon": -4.40233,
+      "depth_m": 230.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.50197,
+      "lon": -4.34877,
+      "depth_m": 350.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "la-preciosa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    19.6796,
+    -69.9945
+  ],
+  "bearing_seaward_deg": 309.0,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 2057.0,
+  "mean_slope_m_per_km": 115.15,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 19.68101,
+      "lon": -69.99636,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 19.68243,
+      "lon": -69.99821,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 19.68526,
+      "lon": -70.00192,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 19.69092,
+      "lon": -70.00935,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 19.69658,
+      "lon": -70.01677,
+      "depth_m": 220.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 19.70789,
+      "lon": -70.03162,
+      "depth_m": 353.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 19.72487,
+      "lon": -70.0539,
+      "depth_m": 931.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 19.74749,
+      "lon": -70.08361,
+      "depth_m": 1327.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 19.78142,
+      "lon": -70.12819,
+      "depth_m": 2057.0
+    }
+  ]
+}

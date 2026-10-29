@@ -1,0 +1,72 @@
+{
+  "spot": "hamdeok",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    33.545,
+    126.6737
+  ],
+  "bearing_seaward_deg": 0.0,
+  "nearshore_depth_m": -18.0,
+  "offshore_depth_m": 128.0,
+  "mean_slope_m_per_km": 8.23,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.54725,
+      "lon": 126.6737,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.5495,
+      "lon": 126.6737,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.55399,
+      "lon": 126.6737,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.56299,
+      "lon": 126.6737,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.57198,
+      "lon": 126.6737,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.58997,
+      "lon": 126.6737,
+      "depth_m": 116.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.61695,
+      "lon": 126.6737,
+      "depth_m": 132.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.65292,
+      "lon": 126.6737,
+      "depth_m": 126.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.70688,
+      "lon": 126.6737,
+      "depth_m": 128.0
+    }
+  ]
+}

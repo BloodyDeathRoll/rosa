@@ -1,0 +1,39 @@
+# Rosa spot database - Virginia (seeded 2026-10-29). Virginia Beach from the North End and First
+# Street Jetty through Croatan, Camp Pendleton and Dam Neck to Sandbridge, plus the Eastern
+# Shore: east-facing beach, jetties and piers on North Atlantic groundswell, nor'easters and
+# Aug-Oct hurricane swell; offshore on a W wind.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+country: "USA"
+
+defaults: &va
+  timezone: America/New_York
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [25, 165]
+  ideal:
+    wind_dir: [225, 315]
+    size_m: [0.6, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - virginia, 13 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 13 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/virginia/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: chincoteague, name: "Chincoteague", town: "Chincoteague", lat: 37.8895, lon: -75.3418, offshore_direction: 298, swell_window: [53, 183], offshore_km: 5.0, <<: *va }  # sat-verified 2026-10-29 (websearch-seeded); normal set by hand to seaward 118 from the tile
+  - { id: grandview-va, name: "Grandview", town: "Hampton", lat: 37.0948, lon: -76.2743, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, <<: *va }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: fishermans-island, name: "Fishermans Island", town: "Kiptopeke", lat: 37.0903, lon: -75.9394, offshore_direction: 271, swell_window: [26, 156], offshore_km: 5.0, <<: *va }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: 81st-street, name: "81st Street", town: "Virginia Beach", lat: 36.9058, lon: -75.9872, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, <<: *va }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: north-end, name: "North End", town: "Virginia Beach", lat: 36.8954, lon: -75.9851, offshore_direction: 258, swell_window: [13, 143], offshore_km: 5.0, <<: *va }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: 42nd-street, name: "42nd Street", town: "Virginia Beach", lat: 36.8705, lon: -75.9790, offshore_direction: 256, swell_window: [11, 141], offshore_km: 5.0, <<: *va }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: 15th-street-pier, name: "15th Street Pier", town: "Virginia Beach", lat: 36.8441, lon: -75.9712, offshore_direction: 258, swell_window: [13, 143], offshore_km: 5.0, <<: *va }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: first-street-jetty, name: "First Street Jetty", town: "Virginia Beach", lat: 36.8309, lon: -75.9677, offshore_direction: 249, swell_window: [4, 134], offshore_km: 5.0, <<: *va }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: croatan, name: "Croatan", town: "Virginia Beach", lat: 36.8231, lon: -75.9671, offshore_direction: 255, swell_window: [10, 140], offshore_km: 5.0, <<: *va }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: camp-pendleton, name: "Camp Pendleton", town: "Virginia Beach", lat: 36.8139, lon: -75.9652, offshore_direction: 257, swell_window: [12, 142], offshore_km: 5.0, <<: *va }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: dam-neck, name: "Dam Neck", town: "Virginia Beach", lat: 36.7746, lon: -75.9534, offshore_direction: 253, swell_window: [8, 138], offshore_km: 5.0, <<: *va }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: sandbridge, name: "Sandbridge", town: "Sandbridge", lat: 36.7460, lon: -75.9422, offshore_direction: 253, swell_window: [8, 138], offshore_km: 5.0, <<: *va }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: little-island-pier, name: "Little Island Pier", town: "Sandbridge", lat: 36.6938, lon: -75.9221, offshore_direction: 247, swell_window: [2, 132], offshore_km: 5.0, <<: *va }  # sat-verified 2026-10-29 (websearch-seeded)

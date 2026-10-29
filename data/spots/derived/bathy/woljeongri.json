@@ -1,0 +1,72 @@
+{
+  "spot": "woljeongri",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    33.5569,
+    126.7965
+  ],
+  "bearing_seaward_deg": 15.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 123.0,
+  "mean_slope_m_per_km": 6.65,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.55907,
+      "lon": 126.7972,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.56124,
+      "lon": 126.7979,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.56559,
+      "lon": 126.79929,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.57427,
+      "lon": 126.80209,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.58296,
+      "lon": 126.80488,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.60033,
+      "lon": 126.81047,
+      "depth_m": 109.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.62639,
+      "lon": 126.81886,
+      "depth_m": 144.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.66114,
+      "lon": 126.83006,
+      "depth_m": 138.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.71325,
+      "lon": 126.84687,
+      "depth_m": 123.0
+    }
+  ]
+}

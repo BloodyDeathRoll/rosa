@@ -1,0 +1,72 @@
+{
+  "spot": "dongchong",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    22.4919,
+    114.5805
+  ],
+  "bearing_seaward_deg": 102.0,
+  "nearshore_depth_m": -27.0,
+  "offshore_depth_m": 21.0,
+  "mean_slope_m_per_km": 2.7,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 22.49143,
+      "lon": 114.58288,
+      "depth_m": -27.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 22.49097,
+      "lon": 114.58526,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 22.49003,
+      "lon": 114.59002,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 22.48816,
+      "lon": 114.59954,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 22.48629,
+      "lon": 114.60906,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 22.48254,
+      "lon": 114.6281,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 22.47692,
+      "lon": 114.65666,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 22.46942,
+      "lon": 114.69473,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 22.45815,
+      "lon": 114.75183,
+      "depth_m": 21.0
+    }
+  ]
+}

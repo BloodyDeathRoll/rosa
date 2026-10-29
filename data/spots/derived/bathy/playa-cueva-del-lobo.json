@@ -1,0 +1,72 @@
+{
+  "spot": "playa-cueva-del-lobo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.1113,
+    -1.8429
+  ],
+  "bearing_seaward_deg": 120.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 1393.0,
+  "mean_slope_m_per_km": 78.2,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.11018,
+      "lon": -1.84046,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.10905,
+      "lon": -1.83802,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.1068,
+      "lon": -1.83313,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.10231,
+      "lon": -1.82337,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.09781,
+      "lon": -1.81361,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.08881,
+      "lon": -1.79408,
+      "depth_m": 281.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.0753,
+      "lon": -1.76481,
+      "depth_m": 761.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.05728,
+      "lon": -1.72579,
+      "depth_m": 1289.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.03023,
+      "lon": -1.66729,
+      "depth_m": 1393.0
+    }
+  ]
+}

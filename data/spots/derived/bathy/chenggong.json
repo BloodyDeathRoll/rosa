@@ -1,0 +1,72 @@
+{
+  "spot": "chenggong",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    23.1168,
+    121.3977
+  ],
+  "bearing_seaward_deg": 127.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 2106.0,
+  "mean_slope_m_per_km": 118.59,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 23.11545,
+      "lon": 121.39965,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 23.11409,
+      "lon": 121.4016,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 23.11139,
+      "lon": 121.40551,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 23.10597,
+      "lon": 121.41332,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 23.10056,
+      "lon": 121.42113,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 23.08973,
+      "lon": 121.43674,
+      "depth_m": 139.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 23.07349,
+      "lon": 121.46015,
+      "depth_m": 779.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 23.05183,
+      "lon": 121.49137,
+      "depth_m": 1276.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 23.01932,
+      "lon": 121.53817,
+      "depth_m": 2106.0
+    }
+  ]
+}

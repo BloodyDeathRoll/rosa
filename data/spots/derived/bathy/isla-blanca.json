@@ -1,0 +1,72 @@
+{
+  "spot": "isla-blanca",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    26.0682,
+    -97.1534
+  ],
+  "bearing_seaward_deg": 85.0,
+  "nearshore_depth_m": 14.0,
+  "offshore_depth_m": 26.0,
+  "mean_slope_m_per_km": 0.68,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 26.0684,
+      "lon": -97.15091,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 26.06859,
+      "lon": -97.14841,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 26.06898,
+      "lon": -97.14343,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 26.06977,
+      "lon": -97.13345,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 26.07055,
+      "lon": -97.12348,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 26.07211,
+      "lon": -97.10353,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 26.07445,
+      "lon": -97.07361,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 26.07756,
+      "lon": -97.03371,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 26.0822,
+      "lon": -96.97385,
+      "depth_m": 26.0
+    }
+  ]
+}

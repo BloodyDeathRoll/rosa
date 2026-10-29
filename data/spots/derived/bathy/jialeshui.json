@@ -1,0 +1,72 @@
+{
+  "spot": "jialeshui",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    21.9941,
+    120.864
+  ],
+  "bearing_seaward_deg": 127.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 1276.0,
+  "mean_slope_m_per_km": 71.66,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 21.99275,
+      "lon": 120.86594,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 21.99139,
+      "lon": 120.86787,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 21.98869,
+      "lon": 120.87175,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 21.98327,
+      "lon": 120.87949,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 21.97786,
+      "lon": 120.88724,
+      "depth_m": 165.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 21.96703,
+      "lon": 120.90272,
+      "depth_m": 373.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 21.95079,
+      "lon": 120.92595,
+      "depth_m": 733.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 21.92913,
+      "lon": 120.95691,
+      "depth_m": 960.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.89662,
+      "lon": 121.00333,
+      "depth_m": 1276.0
+    }
+  ]
+}

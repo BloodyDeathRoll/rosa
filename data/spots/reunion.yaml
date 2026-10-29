@@ -1,0 +1,51 @@
+# Rosa spot database - Reunion (seeded 2026-10-29). French volcanic island 200 km WSW of
+# Mauritius. The surf is the west coast's fringing reef (Saint-Leu, Trois-Bassins, Boucan,
+# Roches Noires / Saint-Gilles, Saint-Paul, Etang-Sale), the south (Saint-Pierre, Manapany)
+# on Southern Ocean SW groundswell, and the east (Saint-Benoit, Sainte-Marie) on trade-wind
+# swell and cyclone swell. The ESE trade is offshore on the west coast.
+# Shark risk: a prefectoral bathing and surfing ban has covered most of the coast since 2013
+# (outside the reef lagoons and a few supervised zones). Rosa forecasts the waves; it does not
+# say whether a spot is legal or safe to surf.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+country: "Réunion"
+
+defaults: &re
+  timezone: Indian/Reunion
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [180, 300]
+  ideal:
+    wind_dir: [45, 135]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - reunion, 21 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 21 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/reunion/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: barachois, name: "Barachois", town: "Saint-Denis", lat: -20.8714, lon: 55.4494, offshore_direction: 212, swell_window: [327, 97], offshore_km: 5.0, <<: *re }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: le-butor, name: "Le Butor", town: "Saint-Denis", lat: -20.8842, lon: 55.4728, offshore_direction: 208, swell_window: [323, 93], offshore_km: 5.0, <<: *re }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: bois-rouge, name: "Bois-Rouge", town: "Sainte-Suzanne", lat: -20.9126, lon: 55.6371, offshore_direction: 183, swell_window: [298, 68], offshore_km: 5.0, <<: *re }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: pointe-des-galets, name: "Pointe des Galets", town: "Le Port", lat: -20.9570, lon: 55.2773, offshore_direction: 81, swell_window: [196, 326], offshore_km: 5.0, <<: *re }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: bout-de-l-etang, name: "Bout de l'Étang", town: "Saint-Paul", lat: -20.9910, lon: 55.2802, offshore_direction: 101, swell_window: [216, 346], offshore_km: 5.0, break_type: beach, <<: *re }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: saint-benoit, name: "Saint-Benoît", town: "Saint-Benoît", lat: -21.0051, lon: 55.7011, offshore_direction: 265, swell_window: [20, 150], offshore_km: 5.0, <<: *re }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: saint-paul, name: "Saint-Paul", town: "Saint-Paul", lat: -21.0053, lon: 55.2716, offshore_direction: 134, swell_window: [249, 19], offshore_km: 5.0, break_type: beach, <<: *re }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: le-cimetiere, name: "Le Cimetière", town: "Saint-Paul", lat: -21.0146, lon: 55.2592, offshore_direction: 148, swell_window: [263, 33], offshore_km: 5.0, break_type: beach, <<: *re }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: boucan, name: "Boucan", town: "Boucan-Canot", lat: -21.0267, lon: 55.2252, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, <<: *re }  # sat-verified 2026-10-29 (websearch-seeded; normal re-aimed to the open arc's middle, seaward 300)
+  - { id: cap-homard, name: "Cap Homard", town: "Boucan-Canot", lat: -21.0328, lon: 55.2205, offshore_direction: 135, swell_window: [250, 20], offshore_km: 5.0, <<: *re }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: roches-noires, name: "Roches Noires", town: "Saint-Gilles-les-Bains", lat: -21.0523, lon: 55.2227, offshore_direction: 99, swell_window: [214, 344], offshore_km: 5.0, <<: *re }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: les-brisants, name: "Les Brisants", town: "Saint-Gilles-les-Bains", lat: -21.0568, lon: 55.2216, offshore_direction: 102, swell_window: [217, 347], offshore_km: 5.0, break_type: beach, <<: *re }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: hermitage, name: "L'Hermitage", town: "La Saline les Bains", lat: -21.0856, lon: 55.2229, offshore_direction: 41, swell_window: [156, 286], offshore_km: 5.0, <<: *re }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: trois-roches, name: "Trois Roches", town: "La Saline les Bains", lat: -21.1104, lon: 55.2529, offshore_direction: 52, swell_window: [167, 297], offshore_km: 5.0, <<: *re }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: trois-bassins, name: "Trois-Bassins", town: "Trois-Bassins", lat: -21.1198, lon: 55.2582, offshore_direction: 47, swell_window: [162, 292], offshore_km: 5.0, <<: *re }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: kelonia, name: "Kélonia", town: "Saint-Leu", lat: -21.1528, lon: 55.2775, offshore_direction: 46, swell_window: [161, 291], offshore_km: 5.0, <<: *re }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: saint-leu, name: "Saint-Leu", town: "Saint-Leu", lat: -21.1645, lon: 55.2855, offshore_direction: 104, swell_window: [219, 349], offshore_km: 5.0, <<: *re }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: etang-sale, name: "Étang-Salé", town: "L'Étang-Salé les Bains", lat: -21.2597, lon: 55.3308, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, break_type: beach, <<: *re }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: pointe-du-diable, name: "Pointe du Diable", town: "Saint-Pierre", lat: -21.3310, lon: 55.4509, offshore_direction: 30, swell_window: [145, 275], offshore_km: 5.0, <<: *re }  # sat-verified 2026-10-29 (websearch-seeded; normal re-aimed to the open arc's middle, seaward 210)
+  - { id: saint-pierre, name: "Saint-Pierre", town: "Saint-Pierre", lat: -21.3468, lon: 55.4756, offshore_direction: 18, swell_window: [133, 263], offshore_km: 5.0, <<: *re }  # sat-verified 2026-10-29 (websearch-seeded; normal re-aimed to the open arc's middle, seaward 198)
+  - { id: manapany, name: "Manapany", town: "Manapany-les-Bains", lat: -21.3769, lon: 55.5896, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, <<: *re }  # sat-verified 2026-10-29 (websearch-seeded; normal re-aimed to the open arc's middle, seaward 200)

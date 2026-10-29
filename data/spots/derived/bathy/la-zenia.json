@@ -1,0 +1,72 @@
+{
+  "spot": "la-zenia",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.9243,
+    -0.7216
+  ],
+  "bearing_seaward_deg": 104.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 102.0,
+  "mean_slope_m_per_km": 5.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.92376,
+      "lon": -0.71883,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.92321,
+      "lon": -0.71607,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.92212,
+      "lon": -0.71054,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.91995,
+      "lon": -0.69948,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.91777,
+      "lon": -0.68842,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.91341,
+      "lon": -0.6663,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.90686,
+      "lon": -0.63312,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.89812,
+      "lon": -0.5889,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.88497,
+      "lon": -0.52259,
+      "depth_m": 102.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "hawa-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    8.3887,
+    76.976
+  ],
+  "bearing_seaward_deg": 230.0,
+  "nearshore_depth_m": 16.0,
+  "offshore_depth_m": 56.0,
+  "mean_slope_m_per_km": 2.25,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 8.38725,
+      "lon": 76.97426,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 8.38581,
+      "lon": 76.97252,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 8.38292,
+      "lon": 76.96904,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 8.37714,
+      "lon": 76.96207,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 8.37136,
+      "lon": 76.95511,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 8.35979,
+      "lon": 76.94118,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 8.34245,
+      "lon": 76.9203,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 8.31932,
+      "lon": 76.89245,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 8.28463,
+      "lon": 76.85069,
+      "depth_m": 56.0
+    }
+  ]
+}

@@ -69,6 +69,21 @@ OVERPASS = [
 REGIONS = {
     "new-zealand": (-47.30, 166.35, -34.40, 178.60),
     "sri-lanka": (5.85, 79.60, 7.05, 81.95),
+    # ---- mainland India (2026-10-29), one box per surfed state on Geofabrik's zone extracts
+    # (asia/india/{western,southern,eastern}-zone; Goa on western, Odisha on eastern, the rest
+    # on southern). Andaman, Lakshadweep, Maharashtra and Gujarat are not seeded.
+    # Goa: Arambol, Ashwem, Morjim, Baga down to Agonda and Palolem
+    "goa": (14.89, 73.60, 15.82, 74.15),
+    # Karnataka: Sasihithlu, Mulki, Mangaluru, Kapu, Malpe, Maravanthe, Murudeshwar, Gokarna
+    "karnataka": (12.72, 73.95, 14.88, 74.90),
+    # Kerala: Kannur and Kozhikode south through Cherai to Varkala, Kovalam and Poovar
+    "kerala": (8.25, 74.80, 12.70, 77.10),
+    # Tamil Nadu + Puducherry: Kanyakumari round to Covelong Point and Chennai
+    "tamil-nadu": (8.05, 77.15, 13.60, 80.40),
+    # Andhra Pradesh: the Krishna and Godavari bars up to Visakhapatnam and Chintapalli
+    "andhra-pradesh": (15.65, 80.95, 18.25, 83.75),
+    # Odisha: Puri, Chandrabhaga and Ramchandi on the Konark coast
+    "odisha": (19.70, 85.75, 19.95, 86.20),
     "israel": (31.40, 34.20, 33.25, 35.20),
     "japan": (30.0, 129.0, 41.6, 142.2),
     "portugal": (36.90, -9.60, 42.20, -6.90),
@@ -169,6 +184,10 @@ REGIONS = {
     # south half: Okinawa main island and the Keramas, Miyako and the Yaeyamas (Ishigaki,
     # Iriomote); Daito and Yonaguni are out
     "okinawa": (24.0, 122.9, 27.0, 128.5),
+    # Taiwan: the whole island (the north coast, Yilan, Hualien, Taitung, Kenting and the
+    # scattered west-coast beaches) plus Penghu (Longmen) and Green / Orchid Island. The
+    # breaks face every direction, so the box is the country (asia/taiwan extract)
+    "taiwan": (21.85, 119.30, 25.35, 122.10),
     # Hokkaido, north of the japan box's 41.6 edge: Hakodate, the Tomakomai-Muroran
     # Pacific beaches, Hidaka and Tokachi, the Otaru-Ishikari Sea of Japan coast
     "hokkaido": (41.40, 139.30, 45.60, 146.00),
@@ -253,6 +272,11 @@ REGIONS = {
     "madagascar": (-25.70, 43.10, -12.00, 50.60),
     # Mauritius: small volcanic island fully exposed to Indian Ocean + S.O. swell
     "mauritius": (-20.60, 57.25, -19.95, 57.85),
+    # Reunion: the whole island - the west-coast reefs (Saint-Leu, Trois-Bassins, Boucan,
+    # Saint-Gilles, Etang-Sale), the south (Saint-Pierre, Manapany) and the east (Saint-Benoit)
+    "reunion": (-21.42, 55.18, -20.84, 55.86),
+    # Liberia: Robertsport's points (Grand Cape Mount) south-east to Monrovia's beaches
+    "liberia": (6.10, -11.55, 6.95, -10.55),
     # ---- the US east coast. Every box is Atlantic-facing only; bays, sounds and the
     # Gulf side are excluded, and each box is scoped to ONE state extract.
     # New York's ocean beaches: Rockaway and Long Beach west, the Fire Island barrier,
@@ -303,6 +327,14 @@ REGIONS = {
     # Maine: Kittery and York north through Ogunquit, Wells, Kennebunk, Biddeford, Old Orchard,
     # Scarborough and Cape Elizabeth, then Popham, Reid State Park and Pemaquid to Acadia.
     "maine": (43.07, -70.75, 44.45, -68.00),
+    # Virginia's ocean shore: Virginia Beach from the North End and First Street Jetty through
+    # Croatan, Camp Pendleton and Dam Neck to Sandbridge, plus the Eastern Shore's Fishermans
+    # Island and Chincoteague. The Chesapeake Bay mouth sits inside the rectangle.
+    "virginia": (36.54, -76.40, 38.03, -75.15),
+    # Texas's Gulf coast, Sabine Pass to Boca Chica: Bolivar, Galveston, Surfside and Quintana,
+    # Matagorda, Port Aransas, Corpus Christi's Padre Island and South Padre (Central time).
+    # Galveston Bay, the Laguna Madre and the back bays are inside the box and carry no swell.
+    "texas": (25.90, -97.60, 29.80, -93.80),
     # ---- Spain. One box per autonomous community, each on its own Geofabrik extract
     # (europe/spain/<community>); the Mediterranean coast is barely surfed and is left out.
     # The Basque coast from Hondarribia west past Zarautz, Mundaka and Sopelana to Muskiz.
@@ -322,6 +354,22 @@ REGIONS = {
     # the Canary Islands, all seven (africa/canary-islands - NOT europe/spain/canarias,
     # which 404s to a 9 KB HTML page)
     "canary-islands": (27.60, -18.20, 29.45, -13.30),
+    # ---- the Spanish Mediterranean (2026-10-29), one box per community extract
+    # (europe/spain/{cataluna,valencia,murcia,islas-baleares}; andalusia on andalucia).
+    # Catalonia: the Costa Brava (Empuriabrava, L'Escala), the Maresme and Barcelona
+    # (Masnou, Barceloneta, Bogatell), the Garraf and Costa Daurada to the Ebro delta
+    "catalonia": (40.50, 0.50, 42.45, 3.35),
+    # Valencia: Castellon (Benicassim, Irta), Valencia city, Cullera and Oliva, Javea,
+    # Calp, Benidorm, Alicante and the Vega Baja to Pilar de la Horadada
+    "valencia": (37.83, -0.80, 40.80, 0.60),
+    # Murcia: La Manga, Calblanque and Portman
+    "murcia": (37.35, -1.80, 37.88, -0.60),
+    # Andalusia's MEDITERRANEAN coast only: Malaga (Manilva east of the Guadiaro, Marbella,
+    # Fuengirola, Malaga city), Granada (La Herradura, Motril) and Almeria (Mojacar). The W
+    # edge stops short of Sotogrande and the Bay of Algeciras, which are Cadiz province
+    "andalusia": (36.25, -5.26, 37.40, -1.60),
+    # the Balearic Islands: Mallorca, Menorca, Ibiza and Formentera
+    "balearic-islands": (38.60, 1.15, 40.10, 4.35),
     # Cyprus, the whole island: Paphos and the west coast, Limassol, Larnaca and Ayia Napa
     "cyprus": (34.55, 32.25, 35.72, 34.62),
     # Sicily, the whole island plus the Egadi (europe/italy/isole - the extract also holds
@@ -345,6 +393,17 @@ REGIONS = {
     # Grotta, Breidavik in the Westfjords, Eyvik on the north coast and Stokksnes in the east.
     # The breaks are scattered round every coast, so the box is the country.
     "iceland": (63.20, -24.60, 66.60, -13.40),
+    # South Korea mainland: the East Sea coast from Goseong (the DMZ fence) south through
+    # Yangyang, Gangneung, Donghae, Pohang and Ulsan to Busan, plus Taean (Mallipo, Hagampo)
+    # and Goheung (Namyeol). The surf is scattered round three coasts, so the box is the
+    # mainland; the web flow names the breaks.
+    "south-korea": (34.40, 126.00, 38.62, 129.60),
+    # Jeju: the whole island - Jungmun and the Gangjeong reef in the south, Woljeongri,
+    # Gwakji and Iho Taewoo in the north
+    "jeju": (33.10, 126.10, 33.60, 127.00),
+    # Faroe Islands: the whole archipelago - Tjornuvik (Streymoy), Sandavagur (Vagar),
+    # Husavik and Dalur (Sandoy), Famjin (Suduroy), Nolsoy
+    "faroe-islands": (61.35, -7.75, 62.42, -6.20),
     # Denmark: the North Sea coast of Jutland (Klitmoller "Cold Hawaii", Hanstholm, Hvide
     # Sande, Lokken, Skagen) and north Zealand's Kattegat shore (Hornbaek)
     "denmark": (55.00, 7.95, 57.80, 12.70),
@@ -419,6 +478,17 @@ REGIONS = {
     # Cata, Cuyagua, Choroni), the Caracas coast (Los Caracas, Todasana, Chirimena), Unare,
     # Margarita (Playa El Agua, Parguito) and Sucre east to the Paria peninsula
     "venezuela": (9.90, -68.40, 11.25, -61.80),
+    # the Dominican Republic: the north coast (Puerto Plata, Sosua, Cabarete, Encuentro, Rio
+    # San Juan, Nagua), the east (Macao) and the south coast to Bahia de las Aguilas. W edge
+    # at -71.70 keeps Haiti out (`haiti-and-domrep` extract, symlinked)
+    "dominican-republic": (17.45, -71.70, 19.95, -68.30),
+    # Barbados: Soup Bowl / Bathsheba on the east coast, the south coast (Freights, South
+    # Point, Brandons) and the west coast reefs; the island only exists inside Geofabrik's
+    # whole central-america extract, so barbados.osm.pbf is a local bbox cut of it
+    "barbados": (13.03, -59.67, 13.34, -59.41),
+    # Guatemala's Pacific coast: Ocos and Tilapa on the Mexican border through Champerico,
+    # El Paredon, Sipacate, Puerto San Jose, Iztapa and Monterrico to Las Lisas
+    "guatemala": (13.70, -92.25, 14.60, -90.08),
     # the Galapagos: San Cristobal (Carola, El Canon, Loberia, Tongo Reef, Manglecito, Punta
     # Pitt) and Santa Cruz (Tortuga Bay, Cerro Gallina, Seymour Norte) - 900 km off Ecuador
     "galapagos": (-1.10, -90.65, -0.30, -89.15),
@@ -455,6 +525,26 @@ REGIONS = {
     # Cook Islands: Rarotonga only - Aitutaki's reef is a closeout/kitesurf destination,
     # no named surf break in any guide, so it is not scoped
     "cook-islands": (-21.30, -159.85, -21.15, -159.70),
+    # Tonga: Tongatapu's NW tip (Ha'atafu, Kanokupolu), 'Eua (Ufilei), Foa in Ha'apai
+    # (Houmale'eia) and southern Vava'u (Ovaka, Taula). East of the antimeridian, lon < -173.8
+    "tonga": (-21.50, -175.40, -18.50, -173.85),
+    # ---- China (2026-10-29), all on asia/china (which carries Hong Kong too).
+    # Hainan's east and south coasts: Boao and Wanning (Riyue Bay, Shimei Bay, Shenzhou
+    # peninsula) through Lingshui to Sanya (Houhai, Yalong Bay, Dadonghai). The west coast
+    # is left out
+    "hainan": (18.10, 109.30, 19.75, 111.10),
+    # Guangdong from Shangchuan Dao east through Shenzhen (Xichong, Dongchong, Dameisha),
+    # Huizhou (Shuangyue Bay), Shanwei (Honghai Bay, Jieshi Bay) to Shantou and Nan'ao
+    "guangdong": (21.40, 110.80, 23.55, 117.20),
+    # Hong Kong: Lantau's south coast (Cheung Sha, Pui O), Hong Kong Island's south-east
+    # (Big Wave Bay, Shek O) and Sai Kung East (Tai Long Wan)
+    "hong-kong": (22.15, 113.85, 22.50, 114.45),
+    # Fujian: Dongshan Island north through Pingtan to Xiapu (Funingwan)
+    "fujian": (23.50, 117.20, 27.00, 120.40),
+    # Zhejiang: the Zhoushan archipelago (Zhujiajian, Shengsi)
+    "zhejiang": (29.60, 121.80, 30.85, 123.00),
+    # Shandong: Qingdao's beaches (Shilaoren, Laoshan, Huangdao) and Weihai
+    "shandong": (35.70, 119.90, 37.60, 122.60),
 }
 
 

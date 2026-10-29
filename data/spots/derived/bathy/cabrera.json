@@ -1,0 +1,72 @@
+{
+  "spot": "cabrera",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.5058,
+    2.4015
+  ],
+  "bearing_seaward_deg": 107.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 110.0,
+  "mean_slope_m_per_km": 5.97,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.50514,
+      "lon": 2.40437,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.50449,
+      "lon": 2.40724,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.50317,
+      "lon": 2.41298,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.50054,
+      "lon": 2.42447,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.49791,
+      "lon": 2.43595,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.49264,
+      "lon": 2.45891,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.48473,
+      "lon": 2.49334,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.47417,
+      "lon": 2.53924,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.45829,
+      "lon": 2.60806,
+      "depth_m": 110.0
+    }
+  ]
+}

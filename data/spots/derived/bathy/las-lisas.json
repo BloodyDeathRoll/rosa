@@ -1,0 +1,72 @@
+{
+  "spot": "las-lisas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    13.7997,
+    -90.2628
+  ],
+  "bearing_seaward_deg": 205.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 52.0,
+  "mean_slope_m_per_km": 2.99,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.79766,
+      "lon": -90.26378,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.79562,
+      "lon": -90.26476,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.79155,
+      "lon": -90.26671,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.7834,
+      "lon": -90.27063,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.77525,
+      "lon": -90.27454,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.75895,
+      "lon": -90.28236,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.73449,
+      "lon": -90.2941,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.70189,
+      "lon": -90.30974,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.65298,
+      "lon": -90.3332,
+      "depth_m": 52.0
+    }
+  ]
+}

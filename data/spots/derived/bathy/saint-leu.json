@@ -1,0 +1,72 @@
+{
+  "spot": "saint-leu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -21.1645,
+    55.2855
+  ],
+  "bearing_seaward_deg": 284.0,
+  "nearshore_depth_m": 14.0,
+  "offshore_depth_m": 607.0,
+  "mean_slope_m_per_km": 33.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -21.16396,
+      "lon": 55.28316,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -21.16341,
+      "lon": 55.28082,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -21.16232,
+      "lon": 55.27614,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -21.16015,
+      "lon": 55.26679,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -21.15797,
+      "lon": 55.25743,
+      "depth_m": 140.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -21.15362,
+      "lon": 55.23872,
+      "depth_m": 485.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -21.14708,
+      "lon": 55.21065,
+      "depth_m": 719.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -21.13836,
+      "lon": 55.17323,
+      "depth_m": 579.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -21.12525,
+      "lon": 55.11711,
+      "depth_m": 607.0
+    }
+  ]
+}

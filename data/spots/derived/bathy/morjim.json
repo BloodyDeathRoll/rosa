@@ -1,0 +1,72 @@
+{
+  "spot": "morjim",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    15.6225,
+    73.7299
+  ],
+  "bearing_seaward_deg": 244.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 32.0,
+  "mean_slope_m_per_km": 1.75,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 15.62151,
+      "lon": 73.7278,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 15.62053,
+      "lon": 73.7257,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 15.61856,
+      "lon": 73.72151,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 15.61461,
+      "lon": 73.71311,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 15.61067,
+      "lon": 73.70472,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 15.60278,
+      "lon": 73.68794,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 15.59095,
+      "lon": 73.66277,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 15.57517,
+      "lon": 73.62921,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 15.55149,
+      "lon": 73.57888,
+      "depth_m": 32.0
+    }
+  ]
+}

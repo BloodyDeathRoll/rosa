@@ -1,0 +1,72 @@
+{
+  "spot": "houbihu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    21.9431,
+    120.7484
+  ],
+  "bearing_seaward_deg": 146.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 397.0,
+  "mean_slope_m_per_km": 22.03,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 21.94124,
+      "lon": 120.74976,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 21.93937,
+      "lon": 120.75111,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 21.93564,
+      "lon": 120.75382,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 21.92819,
+      "lon": 120.75924,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 21.92073,
+      "lon": 120.76466,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 21.90582,
+      "lon": 120.7755,
+      "depth_m": 109.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 21.88345,
+      "lon": 120.79176,
+      "depth_m": 141.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 21.85362,
+      "lon": 120.81342,
+      "depth_m": 144.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.80887,
+      "lon": 120.8459,
+      "depth_m": 397.0
+    }
+  ]
+}

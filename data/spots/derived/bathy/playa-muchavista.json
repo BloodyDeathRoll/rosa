@@ -1,0 +1,72 @@
+{
+  "spot": "playa-muchavista",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.3968,
+    -0.4054
+  ],
+  "bearing_seaward_deg": 97.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 83.0,
+  "mean_slope_m_per_km": 4.39,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.39653,
+      "lon": -0.40255,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.39625,
+      "lon": -0.39971,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.3957,
+      "lon": -0.39401,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.39461,
+      "lon": -0.38262,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.39351,
+      "lon": -0.37123,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.39131,
+      "lon": -0.34846,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.388,
+      "lon": -0.3143,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.38357,
+      "lon": -0.26875,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.37689,
+      "lon": -0.20045,
+      "depth_m": 83.0
+    }
+  ]
+}

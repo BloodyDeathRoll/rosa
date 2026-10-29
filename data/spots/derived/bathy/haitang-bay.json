@@ -1,0 +1,72 @@
+{
+  "spot": "haitang-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.3647,
+    109.7474
+  ],
+  "bearing_seaward_deg": 112.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 45.0,
+  "mean_slope_m_per_km": 2.42,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.36386,
+      "lon": 109.7496,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.36302,
+      "lon": 109.75179,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.36133,
+      "lon": 109.75619,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.35796,
+      "lon": 109.76497,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.35459,
+      "lon": 109.77376,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.34785,
+      "lon": 109.79132,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.33774,
+      "lon": 109.81768,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.32424,
+      "lon": 109.85281,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.30399,
+      "lon": 109.90549,
+      "depth_m": 45.0
+    }
+  ]
+}

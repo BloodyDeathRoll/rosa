@@ -1,0 +1,72 @@
+{
+  "spot": "garraf",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.254,
+    1.9037
+  ],
+  "bearing_seaward_deg": 127.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 255.0,
+  "mean_slope_m_per_km": 13.92,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.25265,
+      "lon": 1.90609,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.25129,
+      "lon": 1.90848,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.24859,
+      "lon": 1.91325,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.24317,
+      "lon": 1.9228,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.23776,
+      "lon": 1.93235,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.22693,
+      "lon": 1.95145,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.21068,
+      "lon": 1.98008,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.189,
+      "lon": 2.01823,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.15645,
+      "lon": 2.07541,
+      "depth_m": 255.0
+    }
+  ]
+}

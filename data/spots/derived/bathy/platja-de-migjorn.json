@@ -1,0 +1,72 @@
+{
+  "spot": "platja-de-migjorn",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.6849,
+    1.4569
+  ],
+  "bearing_seaward_deg": 178.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 166.0,
+  "mean_slope_m_per_km": 8.96,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.68265,
+      "lon": 1.457,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.68041,
+      "lon": 1.4571,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.67591,
+      "lon": 1.4573,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.66692,
+      "lon": 1.4577,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.65794,
+      "lon": 1.45811,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.63996,
+      "lon": 1.45891,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.613,
+      "lon": 1.46011,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.57705,
+      "lon": 1.46172,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.52312,
+      "lon": 1.46412,
+      "depth_m": 166.0
+    }
+  ]
+}

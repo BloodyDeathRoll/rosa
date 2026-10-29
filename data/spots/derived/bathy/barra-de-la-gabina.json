@@ -1,0 +1,72 @@
+{
+  "spot": "barra-de-la-gabina",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    13.7687,
+    -90.1874
+  ],
+  "bearing_seaward_deg": 203.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 47.0,
+  "mean_slope_m_per_km": 2.87,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.76663,
+      "lon": -90.1883,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.76456,
+      "lon": -90.18921,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.76042,
+      "lon": -90.19102,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.75214,
+      "lon": -90.19464,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.74386,
+      "lon": -90.19825,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.72731,
+      "lon": -90.20549,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.70247,
+      "lon": -90.21633,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.66936,
+      "lon": -90.2308,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.61968,
+      "lon": -90.25248,
+      "depth_m": 47.0
+    }
+  ]
+}

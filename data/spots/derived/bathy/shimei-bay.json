@@ -1,0 +1,72 @@
+{
+  "spot": "shimei-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.6685,
+    110.2816
+  ],
+  "bearing_seaward_deg": 145.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 24.0,
+  "mean_slope_m_per_km": 1.07,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.66666,
+      "lon": 110.28296,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.66482,
+      "lon": 110.28432,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.66113,
+      "lon": 110.28704,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.65377,
+      "lon": 110.29249,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.6464,
+      "lon": 110.29793,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.63166,
+      "lon": 110.30882,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.60956,
+      "lon": 110.32514,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.58009,
+      "lon": 110.3469,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.53587,
+      "lon": 110.37953,
+      "depth_m": 24.0
+    }
+  ]
+}

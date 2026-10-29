@@ -1,0 +1,72 @@
+{
+  "spot": "grandview-va",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.0948,
+    -76.2743
+  ],
+  "bearing_seaward_deg": 60.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 10.0,
+  "mean_slope_m_per_km": 0.51,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.09592,
+      "lon": -76.27186,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.09705,
+      "lon": -76.26942,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.0993,
+      "lon": -76.26454,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.10379,
+      "lon": -76.25477,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.10829,
+      "lon": -76.245,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.11727,
+      "lon": -76.22546,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.13075,
+      "lon": -76.19615,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.1487,
+      "lon": -76.15705,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.17561,
+      "lon": -76.09836,
+      "depth_m": 10.0
+    }
+  ]
+}

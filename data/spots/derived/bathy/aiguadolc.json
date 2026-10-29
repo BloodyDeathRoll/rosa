@@ -1,0 +1,72 @@
+{
+  "spot": "aiguadolc",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.236,
+    1.828
+  ],
+  "bearing_seaward_deg": 134.0,
+  "nearshore_depth_m": -19.0,
+  "offshore_depth_m": 138.0,
+  "mean_slope_m_per_km": 8.85,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.23444,
+      "lon": 1.83015,
+      "depth_m": -19.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.23288,
+      "lon": 1.8323,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.22975,
+      "lon": 1.8366,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.2235,
+      "lon": 1.8452,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.21726,
+      "lon": 1.8538,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.20476,
+      "lon": 1.87099,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.186,
+      "lon": 1.89677,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.16099,
+      "lon": 1.93111,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.12345,
+      "lon": 1.98258,
+      "depth_m": 138.0
+    }
+  ]
+}

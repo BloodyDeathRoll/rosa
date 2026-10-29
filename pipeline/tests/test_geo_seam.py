@@ -138,7 +138,8 @@ def test_every_committed_spot_picks_the_same_oisst_cell_as_before():
     downstream of it - moves. Spots inside that radius are the reason the wrap exists:
     since 2026-09-03 the Yorkshire coast (Saltburn to Cayton Bay, 0.97 W to 0.36 W) and
     Ghana's Accra pair (Kokrobite and Labadi, 0.36 W to 0.14 W) sit inside it, since
-    2026-09-11 Algeria's Oran pair (Ain El Turk 0.79 W, Cap Ivi 0.22 E) too, and the old
+    2026-09-11 Algeria's Oran pair (Ain El Turk 0.79 W, Cap Ivi 0.22 E) and since 2026-10-29
+    the Valencian and Murcian coasts (Castellon to Cartagena) too, and the old
     code clipped those windows at column 0 and lost the cells across the seam. They are
     asserted separately: same centre cell, full-width window, and it must actually wrap.
     """
@@ -150,7 +151,7 @@ def test_every_committed_spot_picks_the_same_oisst_cell_as_before():
     lons = np.arange(0.125, 360.0, 0.25)
     reach = int(NEAREST_MAX_DEG / 0.25)
     spots = load_spots(Path(__file__).resolve().parents[2] / "data" / "spots")
-    assert len(spots) == 3056
+    assert len(spots) == 3499
 
     near_seam = []
     for s in spots.values():
@@ -172,16 +173,27 @@ def test_every_committed_spot_picks_the_same_oisst_cell_as_before():
     # the seam spots the wrap exists for: a full-width window that really wraps, and
     # every column within the search radius by the signed distance
     assert sorted(s.id for s, _ in near_seam) == [
+        "aiguaoliva",
         "ain-el-turk",
         "bexhill",
         "birling-gap",
         "brighton",
+        "cala-cantalar",
+        "cala-finestrat",
+        "calblanque",
         "camber-sands",
         "cap-ivi",
         "cayton-bay",
         "courseulles-sur-mer",
         "deauville",
+        "derecha-de-la-cala",
         "east-wittering",
+        "el-arenal",
+        "el-cantal-roig",
+        "el-jucar",
+        "el-perello",
+        "el-puerto",
+        "el-saler",
         "etretat",
         "fairlight",
         "fecamp",
@@ -189,21 +201,59 @@ def test_every_committed_spot_picks_the_same_oisst_cell_as_before():
         "hayling-island",
         "hot-pipe",
         "kokrobite",
+        "la-calita",
+        "la-manga",
+        "la-mata",
+        "la-placa",
+        "la-siesta",
+        "la-zenia",
         "labadi",
         "le-havre",
         "les-petites-dalles",
+        "les-rotes",
         "littlehampton",
         "luc-sur-mer",
+        "malva-rosa",
+        "miami-platja",
+        "oliva-beach",
+        "pico-madrid",
+        "platja-de-lampolla",
+        "platja-de-lauir",
+        "platja-de-miramar",
+        "platja-de-xeraco",
+        "playa-de-bellreguard",
+        "playa-de-entremares",
+        "playa-de-la-albufereta",
+        "playa-de-las-arenas",
+        "playa-de-san-juan",
+        "playa-del-bol",
+        "playa-del-cura",
+        "playa-del-descargador",
+        "playa-del-dosel",
+        "playa-del-gorguel",
+        "playa-del-postiguet",
+        "playa-del-saladar",
+        "playa-del-torres",
+        "playa-muchavista",
+        "playa-poniente",
+        "port-saplaya",
+        "portman",
+        "puerto-benidorm",
+        "punta-prima",
+        "rio-algar",
         "runswick-bay",
+        "sagunto",
         "sainte-adresse",
         "saltburn",
         "sandsend",
         "scarborough-north-bay",
         "shoreham",
+        "sierra-de-irta",
         "south-lancing",
         "stamco",
         "vaucottes",
         "veules-les-roses",
+        "voramar",
         "west-wittering",
         "whitby",
         "yport",

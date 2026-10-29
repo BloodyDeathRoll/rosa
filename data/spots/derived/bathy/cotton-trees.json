@@ -1,0 +1,72 @@
+{
+  "spot": "cotton-trees",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    6.7479,
+    -11.3842
+  ],
+  "bearing_seaward_deg": 315.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 25.0,
+  "mean_slope_m_per_km": 1.75,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 6.74949,
+      "lon": -11.3858,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 6.75108,
+      "lon": -11.3874,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 6.75426,
+      "lon": -11.3906,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 6.76062,
+      "lon": -11.39701,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 6.76698,
+      "lon": -11.40341,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 6.77969,
+      "lon": -11.41622,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 6.79877,
+      "lon": -11.43543,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 6.8242,
+      "lon": -11.46105,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 6.86235,
+      "lon": -11.49949,
+      "depth_m": 25.0
+    }
+  ]
+}

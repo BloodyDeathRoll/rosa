@@ -1,0 +1,72 @@
+{
+  "spot": "palolem",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    15.0093,
+    74.0242
+  ],
+  "bearing_seaward_deg": 213.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 27.0,
+  "mean_slope_m_per_km": 1.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 15.00741,
+      "lon": 74.02293,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 15.00553,
+      "lon": 74.02166,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 15.00176,
+      "lon": 74.01913,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 14.99422,
+      "lon": 74.01406,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 14.98667,
+      "lon": 74.00899,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 14.97159,
+      "lon": 73.99885,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 14.94896,
+      "lon": 73.98364,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 14.91878,
+      "lon": 73.96337,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 14.87352,
+      "lon": 73.93298,
+      "depth_m": 27.0
+    }
+  ]
+}

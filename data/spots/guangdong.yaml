@@ -1,0 +1,35 @@
+# Rosa spot database - Guangdong, China (seeded 2026-10-29). South-facing South China Sea coast
+# from Shangchuan Dao east through Shenzhen's Dapeng peninsula (Xichong, Dongchong), Huizhou
+# (Shuangyue Bay), Shanwei (Honghai Bay, Jieshi Bay) to Shantou and Nan'ao: NE monsoon windswell
+# in winter, SW monsoon and typhoon swell in summer. Every spot carries its own
+# offshore_direction and swell_window; break_type per spot.
+
+country: "China"
+
+defaults: &gd
+  timezone: Asia/Shanghai
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [60, 240]
+  ideal:
+    wind_dir: [300, 30]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - guangdong, 9 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 9 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/guangdong/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: qingao-bay, name: "Qing'ao Bay", town: "Nan'ao", lat: 23.4401, lon: 117.1307, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, <<: *gd }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: mazu-eikon, name: "Mazu Eikon", town: "Shantou", lat: 23.2256, lon: 116.6855, offshore_direction: 317, swell_window: [72, 202], offshore_km: 5.0, <<: *gd }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: honghai-bay, name: "Honghai Bay", town: "Shanwei", lat: 22.6647, lon: 115.5671, offshore_direction: 272, swell_window: [27, 157], offshore_km: 5.0, <<: *gd }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: gaoyangwei, name: "Gaoyangwei", town: "Huidong", lat: 22.6495, lon: 114.9323, offshore_direction: 320, swell_window: [75, 205], offshore_km: 5.0, <<: *gd }  # sat-verified 2026-10-29 (websearch-seeded); 3c: normal set by hand to seaward 140 (middle of the open arc on the GEBCO sweep; coastline candidate gave seaward 325)
+  - { id: shuangyue-bay, name: "Shuangyue Bay", town: "Huidong", lat: 22.6010, lon: 114.9027, offshore_direction: 289, swell_window: [44, 174], offshore_km: 5.0, <<: *gd }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: da-mei-sha, name: "Da Mei Sha", town: "Shenzhen", lat: 22.5949, lon: 114.3039, offshore_direction: 320, swell_window: [75, 205], offshore_km: 5.0, <<: *gd }  # sat-verified 2026-10-29 (websearch-seeded); 3c: normal set by hand to seaward 140 (open arc on a full 0.25-18 km sweep)
+  - { id: dongchong, name: "Dongchong", town: "Shenzhen", lat: 22.4919, lon: 114.5805, offshore_direction: 282, swell_window: [37, 167], offshore_km: 5.0, <<: *gd }  # sat-verified 2026-10-29 (websearch-seeded); 3c: normal set by hand to seaward 102 (middle of the open arc on the GEBCO sweep; coastline candidate gave seaward 228)
+  - { id: xichong, name: "Xichong", town: "Shenzhen", lat: 22.4844, lon: 114.5440, offshore_direction: 2, swell_window: [117, 247], offshore_km: 5.0, <<: *gd }  # sat-verified 2026-10-29 (websearch-seeded); 3c: normal set by hand to seaward 182 (middle of the open arc on the GEBCO sweep; coastline candidate gave seaward 223)
+  - { id: shangchuan-dao, name: "Shangchuan Dao", town: "Taishan", lat: 21.7029, lon: 112.8043, offshore_direction: 294, swell_window: [49, 179], offshore_km: 5.0, <<: *gd }  # sat-verified 2026-10-29 (websearch-seeded)

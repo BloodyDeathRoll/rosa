@@ -1,0 +1,72 @@
+{
+  "spot": "fishermans-cove",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    12.7971,
+    80.2506
+  ],
+  "bearing_seaward_deg": 85.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 59.0,
+  "mean_slope_m_per_km": 3.15,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 12.7973,
+      "lon": 80.2529,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 12.79749,
+      "lon": 80.25519,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 12.79788,
+      "lon": 80.25979,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 12.79867,
+      "lon": 80.26897,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 12.79945,
+      "lon": 80.27816,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 12.80102,
+      "lon": 80.29654,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 12.80336,
+      "lon": 80.3241,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 12.80648,
+      "lon": 80.36085,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 12.81116,
+      "lon": 80.41598,
+      "depth_m": 59.0
+    }
+  ]
+}

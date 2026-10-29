@@ -1,0 +1,72 @@
+{
+  "spot": "playa-grande-do",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    19.6785,
+    -70.0165
+  ],
+  "bearing_seaward_deg": 15.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 3344.0,
+  "mean_slope_m_per_km": 188.62,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 19.68067,
+      "lon": -70.01588,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 19.68284,
+      "lon": -70.01526,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 19.68719,
+      "lon": -70.01403,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 19.69587,
+      "lon": -70.01156,
+      "depth_m": 257.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 19.70456,
+      "lon": -70.00908,
+      "depth_m": 482.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 19.72193,
+      "lon": -70.00414,
+      "depth_m": 1078.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 19.74799,
+      "lon": -69.99672,
+      "depth_m": 1413.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 19.78274,
+      "lon": -69.98682,
+      "depth_m": 2871.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 19.83486,
+      "lon": -69.97196,
+      "depth_m": 3344.0
+    }
+  ]
+}

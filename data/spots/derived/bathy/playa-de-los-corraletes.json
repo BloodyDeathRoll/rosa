@@ -1,0 +1,72 @@
+{
+  "spot": "playa-de-los-corraletes",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.7503,
+    -2.219
+  ],
+  "bearing_seaward_deg": 241.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 282.0,
+  "mean_slope_m_per_km": 15.49,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.74921,
+      "lon": -2.22145,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.74812,
+      "lon": -2.22391,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.74594,
+      "lon": -2.22882,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.74158,
+      "lon": -2.23863,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.73722,
+      "lon": -2.24845,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.72849,
+      "lon": -2.26807,
+      "depth_m": 195.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.71539,
+      "lon": -2.2975,
+      "depth_m": 200.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.69792,
+      "lon": -2.33672,
+      "depth_m": 240.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.67169,
+      "lon": -2.39552,
+      "depth_m": 282.0
+    }
+  ]
+}

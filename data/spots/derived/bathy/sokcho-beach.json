@@ -1,0 +1,72 @@
+{
+  "spot": "sokcho-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.1875,
+    128.6068
+  ],
+  "bearing_seaward_deg": 58.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 1020.0,
+  "mean_slope_m_per_km": 57.13,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.18869,
+      "lon": 128.60923,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.18988,
+      "lon": 128.61165,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.19227,
+      "lon": 128.6165,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.19703,
+      "lon": 128.62621,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.20179,
+      "lon": 128.63592,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.21132,
+      "lon": 128.65533,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.2256,
+      "lon": 128.68447,
+      "depth_m": 492.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.24463,
+      "lon": 128.72333,
+      "depth_m": 1000.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.27315,
+      "lon": 128.78166,
+      "depth_m": 1020.0
+    }
+  ]
+}

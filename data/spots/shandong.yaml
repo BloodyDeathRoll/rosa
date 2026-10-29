@@ -1,0 +1,28 @@
+# Rosa spot database - Shandong, China (seeded 2026-10-29). Qingdao's south-facing Yellow Sea
+# beaches (Shilaoren, Laoshan, Huangdao) and Weihai: typhoon swell in late summer, short-period
+# windswell otherwise. Every spot carries its own offshore_direction and swell_window;
+# break_type per spot.
+
+country: "China"
+
+defaults: &sd
+  timezone: Asia/Shanghai
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [90, 250]
+  ideal:
+    wind_dir: [300, 30]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - shandong, 3 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 3 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/shandong/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: dapinglan, name: "Dapinglan", town: "Qingdao", lat: 36.1259, lon: 120.6488, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, <<: *sd }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: shilaoren, name: "Shilaoren", town: "Qingdao", lat: 36.0907, lon: 120.4689, offshore_direction: 331, swell_window: [86, 216], offshore_km: 5.0, <<: *sd }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: golden-sand-beach, name: "Golden Sand Beach Huangdao", town: "Qingdao", lat: 35.9584, lon: 120.2448, offshore_direction: 309, swell_window: [64, 194], offshore_km: 5.0, <<: *sd }  # sat-verified 2026-10-29 (websearch-seeded)

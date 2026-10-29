@@ -1,0 +1,72 @@
+{
+  "spot": "chulamar",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    13.9108,
+    -90.8971
+  ],
+  "bearing_seaward_deg": 171.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 92.0,
+  "mean_slope_m_per_km": 4.96,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.90858,
+      "lon": -90.89674,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.90636,
+      "lon": -90.89638,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.90192,
+      "lon": -90.89565,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.89304,
+      "lon": -90.8942,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.88415,
+      "lon": -90.89275,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.86639,
+      "lon": -90.88985,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.83974,
+      "lon": -90.88551,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.80421,
+      "lon": -90.87972,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.75091,
+      "lon": -90.87103,
+      "depth_m": 92.0
+    }
+  ]
+}

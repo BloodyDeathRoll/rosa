@@ -1,0 +1,72 @@
+{
+  "spot": "hajodae",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.0227,
+    128.7262
+  ],
+  "bearing_seaward_deg": 43.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 1000.0,
+  "mean_slope_m_per_km": 56.23,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.02434,
+      "lon": 128.72815,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.02599,
+      "lon": 128.73009,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.02928,
+      "lon": 128.73399,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.03585,
+      "lon": 128.74177,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.04243,
+      "lon": 128.74956,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.05558,
+      "lon": 128.76515,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.0753,
+      "lon": 128.78853,
+      "depth_m": 197.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.10159,
+      "lon": 128.81973,
+      "depth_m": 501.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.14101,
+      "lon": 128.86657,
+      "depth_m": 1000.0
+    }
+  ]
+}

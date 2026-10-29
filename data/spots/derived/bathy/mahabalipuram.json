@@ -1,0 +1,72 @@
+{
+  "spot": "mahabalipuram",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    12.6195,
+    80.199
+  ],
+  "bearing_seaward_deg": 102.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 50.0,
+  "mean_slope_m_per_km": 2.59,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 12.61903,
+      "lon": 80.20125,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 12.61857,
+      "lon": 80.20351,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 12.61763,
+      "lon": 80.20801,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 12.61576,
+      "lon": 80.21703,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 12.61389,
+      "lon": 80.22604,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 12.61015,
+      "lon": 80.24407,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 12.60453,
+      "lon": 80.27111,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 12.59704,
+      "lon": 80.30716,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 12.58579,
+      "lon": 80.36124,
+      "depth_m": 50.0
+    }
+  ]
+}

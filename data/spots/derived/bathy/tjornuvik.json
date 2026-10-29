@@ -1,0 +1,72 @@
+{
+  "spot": "tjornuvik",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    62.2903,
+    -7.147
+  ],
+  "bearing_seaward_deg": 24.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 109.0,
+  "mean_slope_m_per_km": 6.2,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 62.29235,
+      "lon": -7.14503,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 62.29441,
+      "lon": -7.14307,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 62.29852,
+      "lon": -7.13913,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 62.30673,
+      "lon": -7.13126,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 62.31495,
+      "lon": -7.12338,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 62.33137,
+      "lon": -7.10761,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 62.35601,
+      "lon": -7.08393,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 62.38886,
+      "lon": -7.05229,
+      "depth_m": 98.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 62.43811,
+      "lon": -7.0047,
+      "depth_m": 109.0
+    }
+  ]
+}

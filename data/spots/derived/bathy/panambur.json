@@ -1,0 +1,72 @@
+{
+  "spot": "panambur",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    12.9373,
+    74.8042
+  ],
+  "bearing_seaward_deg": 256.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 31.0,
+  "mean_slope_m_per_km": 1.58,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 12.93676,
+      "lon": 74.80196,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 12.93621,
+      "lon": 74.79972,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 12.93512,
+      "lon": 74.79525,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 12.93295,
+      "lon": 74.78629,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 12.93077,
+      "lon": 74.77734,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 12.92642,
+      "lon": 74.75944,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 12.91989,
+      "lon": 74.73258,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 12.91117,
+      "lon": 74.69677,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 12.89809,
+      "lon": 74.64307,
+      "depth_m": 31.0
+    }
+  ]
+}

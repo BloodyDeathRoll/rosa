@@ -1,0 +1,72 @@
+{
+  "spot": "chandrabhaga",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    19.8654,
+    86.1123
+  ],
+  "bearing_seaward_deg": 163.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 36.0,
+  "mean_slope_m_per_km": 2.31,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 19.86325,
+      "lon": 86.113,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 19.8611,
+      "lon": 86.1137,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 19.8568,
+      "lon": 86.1151,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 19.8482,
+      "lon": 86.11789,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 19.8396,
+      "lon": 86.12069,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 19.8224,
+      "lon": 86.12627,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 19.7966,
+      "lon": 86.13466,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 19.76219,
+      "lon": 86.14583,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 19.71059,
+      "lon": 86.16257,
+      "depth_m": 36.0
+    }
+  ]
+}

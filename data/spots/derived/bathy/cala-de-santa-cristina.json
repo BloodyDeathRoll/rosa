@@ -1,0 +1,72 @@
+{
+  "spot": "cala-de-santa-cristina",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.6882,
+    2.8187
+  ],
+  "bearing_seaward_deg": 129.0,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 89.0,
+  "mean_slope_m_per_km": 4.39,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.68679,
+      "lon": 2.82104,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.68537,
+      "lon": 2.82338,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.68254,
+      "lon": 2.82806,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.67688,
+      "lon": 2.83741,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.67122,
+      "lon": 2.84677,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.65989,
+      "lon": 2.86547,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.6429,
+      "lon": 2.89352,
+      "depth_m": 223.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.62023,
+      "lon": 2.93089,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.5862,
+      "lon": 2.98689,
+      "depth_m": 89.0
+    }
+  ]
+}

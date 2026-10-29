@@ -1,0 +1,72 @@
+{
+  "spot": "guibia",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.4593,
+    -69.905
+  ],
+  "bearing_seaward_deg": 168.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 1005.0,
+  "mean_slope_m_per_km": 56.34,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.4571,
+      "lon": -69.90451,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.4549,
+      "lon": -69.90401,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.4505,
+      "lon": -69.90303,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.44171,
+      "lon": -69.90106,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.43291,
+      "lon": -69.89909,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.41532,
+      "lon": -69.89515,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.38893,
+      "lon": -69.88924,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.35374,
+      "lon": -69.88136,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.30096,
+      "lon": -69.86955,
+      "depth_m": 1005.0
+    }
+  ]
+}

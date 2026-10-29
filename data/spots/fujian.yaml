@@ -1,0 +1,29 @@
+# Rosa spot database - Fujian, China (seeded 2026-10-29). The Taiwan Strait coast from Dongshan
+# Island north through Quanzhou and Pingtan to Xiapu: NE monsoon swell funnelled down the strait
+# in winter, typhoon swell in summer. Every spot carries its own offshore_direction and
+# swell_window; break_type per spot.
+
+country: "China"
+
+defaults: &fj
+  timezone: Asia/Shanghai
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [20, 200]
+  ideal:
+    wind_dir: [240, 330]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - fujian, 4 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 4 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/fujian/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: airport-lefts-fuzhou, name: "Airport Lefts", town: "Changle", lat: 25.9620, lon: 119.7019, offshore_direction: 298, swell_window: [53, 183], offshore_km: 5.0, <<: *fj }  # sat-verified 2026-10-29 (websearch-seeded); 3c: normal set by hand to seaward 118 (middle of the open arc on the GEBCO sweep; coastline candidate gave seaward 196)
+  - { id: haitan-bay, name: "Haitan Bay", town: "Pingtan", lat: 25.5009, lon: 119.8051, offshore_direction: 257, swell_window: [12, 142], offshore_km: 5.0, <<: *fj }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: jinluan-bay, name: "Jinluan Bay", town: "Dongshan", lat: 23.6876, lon: 117.4727, offshore_direction: 272, swell_window: [27, 157], offshore_km: 5.0, <<: *fj }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: wujiao-bay, name: "Wujiao Bay", town: "Dongshan", lat: 23.6212, lon: 117.4170, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, <<: *fj }  # sat-verified 2026-10-29 (websearch-seeded)

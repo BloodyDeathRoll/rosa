@@ -1,0 +1,72 @@
+{
+  "spot": "playa-del-torres",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.5145,
+    -0.1983
+  ],
+  "bearing_seaward_deg": 200.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 80.0,
+  "mean_slope_m_per_km": 3.94,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.51239,
+      "lon": -0.19928,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.51027,
+      "lon": -0.20027,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.50605,
+      "lon": -0.20223,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.4976,
+      "lon": -0.20616,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.48915,
+      "lon": -0.21009,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.47224,
+      "lon": -0.21794,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.44689,
+      "lon": -0.22972,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.41308,
+      "lon": -0.24541,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.36236,
+      "lon": -0.26891,
+      "depth_m": 80.0
+    }
+  ]
+}

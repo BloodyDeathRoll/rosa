@@ -1,0 +1,72 @@
+{
+  "spot": "bongsudae",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.3232,
+    128.529
+  ],
+  "bearing_seaward_deg": 109.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 1112.0,
+  "mean_slope_m_per_km": 62.42,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.32247,
+      "lon": 128.53171,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.32174,
+      "lon": 128.53442,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.32027,
+      "lon": 128.53984,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.31734,
+      "lon": 128.55068,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.31441,
+      "lon": 128.56151,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.30855,
+      "lon": 128.58318,
+      "depth_m": 105.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.29974,
+      "lon": 128.61568,
+      "depth_m": 170.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.28799,
+      "lon": 128.659,
+      "depth_m": 501.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.27034,
+      "lon": 128.72395,
+      "depth_m": 1112.0
+    }
+  ]
+}

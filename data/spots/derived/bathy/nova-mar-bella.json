@@ -1,0 +1,72 @@
+{
+  "spot": "nova-mar-bella",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.3987,
+    2.2132
+  ],
+  "bearing_seaward_deg": 140.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 276.0,
+  "mean_slope_m_per_km": 15.15,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.39698,
+      "lon": 2.21513,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.39526,
+      "lon": 2.21705,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.39181,
+      "lon": 2.22091,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.38492,
+      "lon": 2.22861,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.37803,
+      "lon": 2.23631,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.36425,
+      "lon": 2.25171,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.34357,
+      "lon": 2.2748,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.31599,
+      "lon": 2.30556,
+      "depth_m": 132.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.27461,
+      "lon": 2.35165,
+      "depth_m": 276.0
+    }
+  ]
+}

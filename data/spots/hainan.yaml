@@ -1,0 +1,37 @@
+# Rosa spot database - Hainan, China (seeded 2026-10-29). China's surf capital: the east coast
+# from Boao through Wanning (Riyue Bay, Shimei Bay, the Shenzhou peninsula) takes the NE monsoon
+# swell Oct-Apr; the south coast round Sanya (Houhai, Yalong Bay, Dadonghai) takes the summer
+# SW monsoon and typhoon swell. Warm water. Facing changes round the island, so every spot carries
+# its own offshore_direction and swell_window; break_type per spot.
+
+country: "China"
+
+defaults: &hn
+  timezone: Asia/Shanghai
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [20, 200]
+  ideal:
+    wind_dir: [225, 315]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - hainan, 11 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 11 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/hainan/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: ocean-bay-golf-club, name: "Ocean Bay Golf Club", town: "Wanning", lat: 18.6690, lon: 110.3533, offshore_direction: 62, swell_window: [177, 307], offshore_km: 5.0, break_type: point, <<: *hn }  # sat-verified 2026-10-29 (websearch-seeded); 3c: normal set by hand to seaward 242 (middle of the open arc on the GEBCO sweep; coastline candidate gave seaward 270)
+  - { id: shimei-bay, name: "Shimei Bay", town: "Wanning", lat: 18.6685, lon: 110.2816, offshore_direction: 325, swell_window: [80, 210], offshore_km: 5.0, <<: *hn }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: nanyan-bay, name: "Nanyan Bay", town: "Wanning", lat: 18.6679, lon: 110.2928, offshore_direction: 46, swell_window: [161, 291], offshore_km: 5.0, <<: *hn }  # sat-verified 2026-10-29 (websearch-seeded); 3c: normal set by hand to seaward 226 (middle of the open arc on the GEBCO sweep; coastline candidate gave seaward 178)
+  - { id: riyue-bay, name: "Riyue Bay", town: "Wanning", lat: 18.6297, lon: 110.2149, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, break_type: point, <<: *hn }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: xiangshui-bay, name: "Xiangshui Bay", town: "Lingshui", lat: 18.5346, lon: 110.1071, offshore_direction: 316, swell_window: [71, 201], offshore_km: 5.0, <<: *hn }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: fuli-bay, name: "Fuli Bay", town: "Lingshui", lat: 18.5131, lon: 110.0960, offshore_direction: 285, swell_window: [40, 170], offshore_km: 5.0, <<: *hn }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: qingshui-bay, name: "Qingshui Bay", town: "Lingshui", lat: 18.4094, lon: 109.8900, offshore_direction: 336, swell_window: [91, 221], offshore_km: 5.0, <<: *hn }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: haitang-bay, name: "Haitang Bay", town: "Sanya", lat: 18.3647, lon: 109.7474, offshore_direction: 292, swell_window: [47, 177], offshore_km: 5.0, <<: *hn }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: houhai, name: "Houhai", town: "Sanya", lat: 18.2699, lon: 109.7213, offshore_direction: 264, swell_window: [19, 149], offshore_km: 5.0, <<: *hn }  # sat-verified 2026-10-29 (websearch-seeded); 3c: normal set by hand to seaward 84 (open arc on a full 0.25-18 km sweep)
+  - { id: jinzonglu, name: "Jinzonglu", town: "Sanya", lat: 18.2322, lon: 109.6459, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, <<: *hn }  # sat-verified 2026-10-29 (websearch-seeded); 3c: normal set by hand to seaward 200 (middle of the open arc on the GEBCO sweep; coastline candidate gave seaward 167)
+  - { id: dadonghai, name: "Dadonghai", town: "Sanya", lat: 18.2221, lon: 109.5179, offshore_direction: 357, swell_window: [112, 242], offshore_km: 5.0, <<: *hn }  # sat-verified 2026-10-29 (websearch-seeded)

@@ -1,0 +1,72 @@
+{
+  "spot": "xichong",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    22.4844,
+    114.544
+  ],
+  "bearing_seaward_deg": 182.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 28.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 22.48215,
+      "lon": 114.54392,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 22.47991,
+      "lon": 114.54383,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 22.47541,
+      "lon": 114.54366,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 22.46642,
+      "lon": 114.54332,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 22.45744,
+      "lon": 114.54298,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 22.43946,
+      "lon": 114.5423,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 22.4125,
+      "lon": 114.54128,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 22.37655,
+      "lon": 114.53993,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 22.32262,
+      "lon": 114.53789,
+      "depth_m": 28.0
+    }
+  ]
+}

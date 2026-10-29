@@ -1,0 +1,72 @@
+{
+  "spot": "jinha",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.3829,
+    129.3457
+  ],
+  "bearing_seaward_deg": 130.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 119.0,
+  "mean_slope_m_per_km": 6.65,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.38145,
+      "lon": 129.34781,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.38001,
+      "lon": 129.34992,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.37712,
+      "lon": 129.35415,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.37134,
+      "lon": 129.3626,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.36556,
+      "lon": 129.37104,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.35399,
+      "lon": 129.38793,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.33664,
+      "lon": 129.41326,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.31349,
+      "lon": 129.44701,
+      "depth_m": 96.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.27875,
+      "lon": 129.4976,
+      "depth_m": 119.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "riyue-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.6297,
+    110.2149
+  ],
+  "bearing_seaward_deg": 150.0,
+  "nearshore_depth_m": 14.0,
+  "offshore_depth_m": 41.0,
+  "mean_slope_m_per_km": 1.52,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.62775,
+      "lon": 110.21609,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.62581,
+      "lon": 110.21727,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.62191,
+      "lon": 110.21965,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.61412,
+      "lon": 110.22439,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.60633,
+      "lon": 110.22913,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.59076,
+      "lon": 110.23862,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.56739,
+      "lon": 110.25285,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.53623,
+      "lon": 110.27181,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.48949,
+      "lon": 110.30024,
+      "depth_m": 41.0
+    }
+  ]
+}

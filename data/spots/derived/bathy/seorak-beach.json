@@ -1,0 +1,72 @@
+{
+  "spot": "seorak-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.1301,
+    128.6235
+  ],
+  "bearing_seaward_deg": 72.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 846.0,
+  "mean_slope_m_per_km": 47.38,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.13079,
+      "lon": 128.62622,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.13149,
+      "lon": 128.62894,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.13288,
+      "lon": 128.63437,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.13566,
+      "lon": 128.64525,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.13843,
+      "lon": 128.65612,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.14398,
+      "lon": 128.67788,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.1523,
+      "lon": 128.71051,
+      "depth_m": 199.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.16338,
+      "lon": 128.75404,
+      "depth_m": 486.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.17996,
+      "lon": 128.81935,
+      "depth_m": 846.0
+    }
+  ]
+}

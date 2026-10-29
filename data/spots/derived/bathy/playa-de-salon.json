@@ -1,0 +1,72 @@
+{
+  "spot": "playa-de-salon",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.7437,
+    -3.8771
+  ],
+  "bearing_seaward_deg": 162.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 661.0,
+  "mean_slope_m_per_km": 36.73,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.74156,
+      "lon": -3.87623,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.73942,
+      "lon": -3.87537,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.73515,
+      "lon": -3.87363,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.72659,
+      "lon": -3.87017,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.71804,
+      "lon": -3.8667,
+      "depth_m": 84.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.70093,
+      "lon": -3.85977,
+      "depth_m": 177.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.67527,
+      "lon": -3.84938,
+      "depth_m": 262.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.64106,
+      "lon": -3.83554,
+      "depth_m": 408.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.58973,
+      "lon": -3.8148,
+      "depth_m": 661.0
+    }
+  ]
+}

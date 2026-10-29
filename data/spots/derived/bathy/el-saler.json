@@ -1,0 +1,72 @@
+{
+  "spot": "el-saler",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    39.3826,
+    -0.3228
+  ],
+  "bearing_seaward_deg": 77.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 78.0,
+  "mean_slope_m_per_km": 4.06,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 39.38311,
+      "lon": -0.31997,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 39.38361,
+      "lon": -0.31713,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 39.38462,
+      "lon": -0.31146,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 39.38664,
+      "lon": -0.30012,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 39.38866,
+      "lon": -0.28879,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 39.3927,
+      "lon": -0.26611,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 39.39875,
+      "lon": -0.23208,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 39.4068,
+      "lon": -0.18671,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 39.41884,
+      "lon": -0.11863,
+      "depth_m": 78.0
+    }
+  ]
+}

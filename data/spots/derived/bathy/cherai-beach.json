@@ -1,0 +1,72 @@
+{
+  "spot": "cherai-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.1438,
+    76.177
+  ],
+  "bearing_seaward_deg": 251.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 29.0,
+  "mean_slope_m_per_km": 1.58,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.14307,
+      "lon": 76.17484,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.14234,
+      "lon": 76.17268,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.14087,
+      "lon": 76.16836,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.13794,
+      "lon": 76.15972,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.13502,
+      "lon": 76.15109,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.12916,
+      "lon": 76.13381,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.12037,
+      "lon": 76.1079,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.10865,
+      "lon": 76.07335,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.09106,
+      "lon": 76.02154,
+      "depth_m": 29.0
+    }
+  ]
+}

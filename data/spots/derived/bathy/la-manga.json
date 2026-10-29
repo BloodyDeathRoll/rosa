@@ -1,0 +1,72 @@
+{
+  "spot": "la-manga",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.6531,
+    -0.7167
+  ],
+  "bearing_seaward_deg": 68.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 117.0,
+  "mean_slope_m_per_km": 6.25,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.65394,
+      "lon": -0.71407,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.65478,
+      "lon": -0.71143,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.65647,
+      "lon": -0.70617,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.65984,
+      "lon": -0.69563,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.6632,
+      "lon": -0.6851,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.66993,
+      "lon": -0.66403,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.68002,
+      "lon": -0.63241,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.69346,
+      "lon": -0.59025,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.71359,
+      "lon": -0.52697,
+      "depth_m": 117.0
+    }
+  ]
+}

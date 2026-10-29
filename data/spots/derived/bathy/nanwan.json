@@ -1,0 +1,72 @@
+{
+  "spot": "nanwan",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    21.9588,
+    120.7647
+  ],
+  "bearing_seaward_deg": 190.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 403.0,
+  "mean_slope_m_per_km": 22.65,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 21.95659,
+      "lon": 120.76428,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 21.95437,
+      "lon": 120.76386,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 21.94994,
+      "lon": 120.76302,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 21.94109,
+      "lon": 120.76133,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 21.93223,
+      "lon": 120.75965,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 21.91452,
+      "lon": 120.75628,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 21.88795,
+      "lon": 120.75124,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 21.85252,
+      "lon": 120.74451,
+      "depth_m": 99.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.79938,
+      "lon": 120.73443,
+      "depth_m": 403.0
+    }
+  ]
+}

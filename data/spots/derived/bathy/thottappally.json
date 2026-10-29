@@ -1,0 +1,72 @@
+{
+  "spot": "thottappally",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    9.3158,
+    76.3789
+  ],
+  "bearing_seaward_deg": 245.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 36.0,
+  "mean_slope_m_per_km": 1.75,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 9.31485,
+      "lon": 76.37684,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 9.3139,
+      "lon": 76.37477,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 9.312,
+      "lon": 76.37064,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 9.3082,
+      "lon": 76.36238,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 9.3044,
+      "lon": 76.35412,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 9.29679,
+      "lon": 76.3376,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 9.28539,
+      "lon": 76.31283,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 9.27018,
+      "lon": 76.2798,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 9.24736,
+      "lon": 76.23026,
+      "depth_m": 36.0
+    }
+  ]
+}

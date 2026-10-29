@@ -1,0 +1,72 @@
+{
+  "spot": "cala-cantalar",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.3537,
+    -0.4235
+  ],
+  "bearing_seaward_deg": 171.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 62.0,
+  "mean_slope_m_per_km": 3.44,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.35148,
+      "lon": -0.42305,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.34926,
+      "lon": -0.4226,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.34482,
+      "lon": -0.42171,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.33593,
+      "lon": -0.41991,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.32705,
+      "lon": -0.41812,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.30929,
+      "lon": -0.41454,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.28264,
+      "lon": -0.40916,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.24711,
+      "lon": -0.402,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.19381,
+      "lon": -0.39128,
+      "depth_m": 62.0
+    }
+  ]
+}

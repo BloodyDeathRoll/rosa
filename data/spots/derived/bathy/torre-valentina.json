@@ -1,0 +1,72 @@
+{
+  "spot": "torre-valentina",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.8375,
+    3.0936
+  ],
+  "bearing_seaward_deg": 128.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 128.0,
+  "mean_slope_m_per_km": 6.7,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.83612,
+      "lon": 3.09598,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.83473,
+      "lon": 3.09836,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.83196,
+      "lon": 3.10311,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.82642,
+      "lon": 3.11262,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.82089,
+      "lon": 3.12213,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.80981,
+      "lon": 3.14114,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.79318,
+      "lon": 3.16964,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.771,
+      "lon": 3.20762,
+      "depth_m": 115.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.73771,
+      "lon": 3.26455,
+      "depth_m": 128.0
+    }
+  ]
+}

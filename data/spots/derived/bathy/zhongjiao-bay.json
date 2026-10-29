@@ -1,0 +1,72 @@
+{
+  "spot": "zhongjiao-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    25.2372,
+    121.6364
+  ],
+  "bearing_seaward_deg": 37.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 128.0,
+  "mean_slope_m_per_km": 7.04,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 25.239,
+      "lon": 121.6379,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 25.24079,
+      "lon": 121.63939,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 25.24438,
+      "lon": 121.64238,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 25.25156,
+      "lon": 121.64837,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 25.25875,
+      "lon": 121.65435,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 25.27311,
+      "lon": 121.66633,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 25.29465,
+      "lon": 121.68429,
+      "depth_m": 102.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 25.32337,
+      "lon": 121.70825,
+      "depth_m": 127.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 25.36644,
+      "lon": 121.74422,
+      "depth_m": 128.0
+    }
+  ]
+}

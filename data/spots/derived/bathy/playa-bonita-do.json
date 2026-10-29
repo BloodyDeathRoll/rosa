@@ -1,0 +1,72 @@
+{
+  "spot": "playa-bonita-do",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    19.3156,
+    -69.567
+  ],
+  "bearing_seaward_deg": 20.0,
+  "nearshore_depth_m": 81.0,
+  "offshore_depth_m": 2323.0,
+  "mean_slope_m_per_km": 126.31,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 19.31771,
+      "lon": -69.56619,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 19.31983,
+      "lon": -69.56537,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 19.32405,
+      "lon": -69.56374,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 19.3325,
+      "lon": -69.56048,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 19.34095,
+      "lon": -69.55722,
+      "depth_m": 110.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 19.35785,
+      "lon": -69.5507,
+      "depth_m": 170.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 19.3832,
+      "lon": -69.54091,
+      "depth_m": 597.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 19.41701,
+      "lon": -69.52786,
+      "depth_m": 1046.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 19.46771,
+      "lon": -69.50828,
+      "depth_m": 2323.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "playa-de-percheles",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.5296,
+    -1.3811
+  ],
+  "bearing_seaward_deg": 164.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 1074.0,
+  "mean_slope_m_per_km": 60.0,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.52744,
+      "lon": -1.38032,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.52528,
+      "lon": -1.37954,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.52096,
+      "lon": -1.37797,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.51231,
+      "lon": -1.37485,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.50367,
+      "lon": -1.37173,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.48637,
+      "lon": -1.36548,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.46044,
+      "lon": -1.35612,
+      "depth_m": 218.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.42586,
+      "lon": -1.34364,
+      "depth_m": 322.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.37398,
+      "lon": -1.32495,
+      "depth_m": 1074.0
+    }
+  ]
+}

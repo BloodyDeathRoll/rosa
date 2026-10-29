@@ -1,0 +1,72 @@
+{
+  "spot": "platja-de-cavalleria",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    40.0597,
+    4.0765
+  ],
+  "bearing_seaward_deg": 286.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 76.0,
+  "mean_slope_m_per_km": 3.83,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.06032,
+      "lon": 4.07368,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.06094,
+      "lon": 4.07085,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.06218,
+      "lon": 4.0652,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.06466,
+      "lon": 4.05391,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.06713,
+      "lon": 4.04261,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.07208,
+      "lon": 4.02002,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.0795,
+      "lon": 3.98611,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.08937,
+      "lon": 3.9409,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.10414,
+      "lon": 3.87306,
+      "depth_m": 76.0
+    }
+  ]
+}

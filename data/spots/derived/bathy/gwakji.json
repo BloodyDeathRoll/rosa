@@ -1,0 +1,72 @@
+{
+  "spot": "gwakji",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    33.4512,
+    126.3051
+  ],
+  "bearing_seaward_deg": 267.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 77.0,
+  "mean_slope_m_per_km": 4.23,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.45108,
+      "lon": 126.30241,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.45096,
+      "lon": 126.29972,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.45073,
+      "lon": 126.29434,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.45026,
+      "lon": 126.28357,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.44978,
+      "lon": 126.27281,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.44884,
+      "lon": 126.25128,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.4474,
+      "lon": 126.21899,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.44549,
+      "lon": 126.17594,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.44258,
+      "lon": 126.11137,
+      "depth_m": 77.0
+    }
+  ]
+}

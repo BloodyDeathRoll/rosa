@@ -1,0 +1,72 @@
+{
+  "spot": "golden-sand-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.9584,
+    120.2448
+  ],
+  "bearing_seaward_deg": 129.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 29.0,
+  "mean_slope_m_per_km": 1.52,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.95699,
+      "lon": 120.24696,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.95557,
+      "lon": 120.24912,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.95274,
+      "lon": 120.25343,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.94708,
+      "lon": 120.26207,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.94142,
+      "lon": 120.2707,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.93009,
+      "lon": 120.28796,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.9131,
+      "lon": 120.31384,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.89044,
+      "lon": 120.34832,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.85643,
+      "lon": 120.40002,
+      "depth_m": 29.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "donghe-rivermouth",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    22.975,
+    121.3128
+  ],
+  "bearing_seaward_deg": 112.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 1238.0,
+  "mean_slope_m_per_km": 69.69,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 22.97416,
+      "lon": 121.31506,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 22.97332,
+      "lon": 121.31733,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 22.97163,
+      "lon": 121.32186,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 22.96826,
+      "lon": 121.33091,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 22.96489,
+      "lon": 121.33997,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 22.95815,
+      "lon": 121.35808,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 22.94803,
+      "lon": 121.38524,
+      "depth_m": 154.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 22.93454,
+      "lon": 121.42145,
+      "depth_m": 285.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 22.91428,
+      "lon": 121.47575,
+      "depth_m": 1238.0
+    }
+  ]
+}

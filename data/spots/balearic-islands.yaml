@@ -1,0 +1,45 @@
+# Rosa spot database - Balearic Islands. Mallorca, Menorca, Ibiza and Formentera: every
+# coast faces a different sea - the north shores (Son Serra, Cala Mesquida, Menorca's
+# Cavalleria) take the Gulf of Lion's mistral swell from the N-NE, the south and west
+# (Es Trenc, Cala Major, Son Bou, Formentera's Migjorn) the SW-S. Short-period wind
+# swell. Offshore direction varies per coast. Every spot carries offshore_km along its
+# own seaward normal; break_type per spot.
+
+country: "Spain"
+
+defaults: &bal
+  timezone: Europe/Madrid
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [0, 360]
+  ideal:
+    wind_dir: [135, 225]
+    size_m: [0.5, 1.5]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - balearic-islands, 18 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 18 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/balearic-islands/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: platja-de-cavalleria, name: "Platja de Cavalleria", town: "Es Mercadal", lat: 40.0597, lon: 4.0765, offshore_direction: 106, swell_window: [221, 351], offshore_km: 5.0, <<: *bal }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: sant-tomas, name: "Sant Tomas", town: "Sant Tomàs", lat: 39.9144, lon: 4.0401, offshore_direction: 10, swell_window: [125, 255], offshore_km: 5.0, <<: *bal }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: son-bou, name: "Son Bou", town: "Son Bou", lat: 39.9000, lon: 4.0708, offshore_direction: 36, swell_window: [151, 281], offshore_km: 5.0, <<: *bal }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: malpas, name: "Malpas", town: "Alcúdia", lat: 39.8653, lon: 3.1373, offshore_direction: 222, swell_window: [337, 107], offshore_km: 5.0, <<: *bal }  # sat-verified 2026-10-29 (websearch-seeded); seaward re-aimed to 42 (3c gate)
+  - { id: punta-prima-menorca, name: "Punta Prima", town: "Sant Lluís", lat: 39.8135, lon: 4.2804, offshore_direction: 331, swell_window: [86, 216], offshore_km: 5.0, <<: *bal }  # sat-verified 2026-10-29 (websearch-seeded); seaward re-aimed to 151 (3c gate)
+  - { id: cala-mesquida, name: "Cala Mesquida", town: "Cala Mesquida", lat: 39.7445, lon: 3.4334, offshore_direction: 216, swell_window: [331, 101], offshore_km: 5.0, <<: *bal }  # sat-verified 2026-10-29 (websearch-seeded); seaward re-aimed to 36 (3c gate)
+  - { id: son-serra-nova, name: "Son Serra Nova", town: "Son Serra de Marina", lat: 39.7404, lon: 3.2191, offshore_direction: 198, swell_window: [313, 83], offshore_km: 5.0, <<: *bal }  # sat-verified 2026-10-29 (websearch-seeded); seaward re-aimed to 18 (3c gate)
+  - { id: son-serra-de-marina, name: "Son Serra de Marina", town: "Son Serra de Marina", lat: 39.7323, lon: 3.2357, offshore_direction: 198, swell_window: [313, 83], offshore_km: 5.0, <<: *bal }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: cala-agulla, name: "Cala Agulla", town: "Cala Ratjada", lat: 39.7224, lon: 3.4528, offshore_direction: 245, swell_window: [0, 130], offshore_km: 5.0, <<: *bal }  # sat-verified 2026-10-29 (websearch-seeded); seaward re-aimed to 65 (3c gate)
+  - { id: canyamel, name: "Canyamel", town: "Canyamel", lat: 39.6567, lon: 3.4400, offshore_direction: 311, swell_window: [66, 196], offshore_km: 5.0, <<: *bal }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: cala-major, name: "Cala Major", town: "Palma", lat: 39.5519, lon: 2.6072, offshore_direction: 351, swell_window: [106, 236], offshore_km: 5.0, <<: *bal }  # sat-verified 2026-10-29 (websearch-seeded); seaward re-aimed to 171 (3c gate)
+  - { id: paguera-tora, name: "Paguera Tora", town: "Peguera", lat: 39.5346, lon: 2.4559, offshore_direction: 32, swell_window: [147, 277], offshore_km: 5.0, <<: *bal }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: es-trenc, name: "Es Trenc", town: "Colònia de Sant Jordi", lat: 39.3422, lon: 2.9868, offshore_direction: 58, swell_window: [173, 303], offshore_km: 5.0, <<: *bal }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: punta-xarraca, name: "Punta Xarraca", town: "Portinatx", lat: 39.1102, lon: 1.4884, offshore_direction: 138, swell_window: [253, 23], offshore_km: 5.0, <<: *bal }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: aguas-blancas, name: "Aguas Blancas", town: "Santa Eulària des Riu", lat: 39.0599, lon: 1.5890, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, <<: *bal }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: cala-nova, name: "Cala Nova", town: "es Canar", lat: 39.0091, lon: 1.5824, offshore_direction: 285, swell_window: [40, 170], offshore_km: 5.0, <<: *bal }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: platja-de-llevant, name: "Platja de Llevant", town: "Formentera", lat: 38.7378, lon: 1.4446, offshore_direction: 263, swell_window: [18, 148], offshore_km: 5.0, <<: *bal }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: platja-de-migjorn, name: "Platja de Migjorn", town: "Formentera", lat: 38.6849, lon: 1.4569, offshore_direction: 358, swell_window: [113, 243], offshore_km: 5.0, <<: *bal }  # sat-verified 2026-10-29 (websearch-seeded)

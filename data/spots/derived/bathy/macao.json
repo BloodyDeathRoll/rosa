@@ -1,0 +1,72 @@
+{
+  "spot": "macao",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.7751,
+    -68.5386
+  ],
+  "bearing_seaward_deg": 41.0,
+  "nearshore_depth_m": 33.0,
+  "offshore_depth_m": 789.0,
+  "mean_slope_m_per_km": 42.59,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.7768,
+      "lon": -68.53704,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.77849,
+      "lon": -68.53548,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.78189,
+      "lon": -68.53237,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.78867,
+      "lon": -68.52614,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.79546,
+      "lon": -68.5199,
+      "depth_m": 83.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.80903,
+      "lon": -68.50744,
+      "depth_m": 176.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.82939,
+      "lon": -68.48873,
+      "depth_m": 269.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.85653,
+      "lon": -68.46378,
+      "depth_m": 422.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.89724,
+      "lon": -68.42635,
+      "depth_m": 789.0
+    }
+  ]
+}

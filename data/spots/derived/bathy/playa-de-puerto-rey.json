@@ -1,0 +1,72 @@
+{
+  "spot": "playa-de-puerto-rey",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.2088,
+    -1.8084
+  ],
+  "bearing_seaward_deg": 111.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 964.0,
+  "mean_slope_m_per_km": 54.03,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.20799,
+      "lon": -1.80576,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.20719,
+      "lon": -1.80313,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.20558,
+      "lon": -1.79786,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.20235,
+      "lon": -1.78732,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.19913,
+      "lon": -1.77678,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.19267,
+      "lon": -1.7557,
+      "depth_m": 161.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.18299,
+      "lon": -1.72409,
+      "depth_m": 543.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.17006,
+      "lon": -1.68196,
+      "depth_m": 1195.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.15064,
+      "lon": -1.61879,
+      "depth_m": 964.0
+    }
+  ]
+}

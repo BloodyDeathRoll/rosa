@@ -1,0 +1,72 @@
+{
+  "spot": "punta-xarraca",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    39.1102,
+    1.4884
+  ],
+  "bearing_seaward_deg": 318.0,
+  "nearshore_depth_m": 39.0,
+  "offshore_depth_m": 574.0,
+  "mean_slope_m_per_km": 30.14,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 39.11187,
+      "lon": 1.48646,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 39.11354,
+      "lon": 1.48452,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 39.11688,
+      "lon": 1.48064,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 39.12357,
+      "lon": 1.47289,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 39.13025,
+      "lon": 1.46513,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 39.14361,
+      "lon": 1.4496,
+      "depth_m": 95.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 39.16365,
+      "lon": 1.42631,
+      "depth_m": 118.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 39.19036,
+      "lon": 1.39523,
+      "depth_m": 403.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 39.23042,
+      "lon": 1.34857,
+      "depth_m": 574.0
+    }
+  ]
+}

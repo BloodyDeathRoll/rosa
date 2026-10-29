@@ -1,0 +1,72 @@
+{
+  "spot": "lisha",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    29.8601,
+    122.3922
+  ],
+  "bearing_seaward_deg": 90.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 17.0,
+  "mean_slope_m_per_km": 1.07,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 29.8601,
+      "lon": 122.39479,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 29.8601,
+      "lon": 122.39738,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 29.8601,
+      "lon": 122.40257,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 29.8601,
+      "lon": 122.41294,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 29.8601,
+      "lon": 122.42331,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 29.86009,
+      "lon": 122.44405,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 29.86007,
+      "lon": 122.47516,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 29.86004,
+      "lon": 122.51664,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 29.85997,
+      "lon": 122.57886,
+      "depth_m": 17.0
+    }
+  ]
+}

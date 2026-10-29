@@ -1,0 +1,72 @@
+{
+  "spot": "champerico",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    14.2918,
+    -91.9174
+  ],
+  "bearing_seaward_deg": 214.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 27.0,
+  "mean_slope_m_per_km": 1.13,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 14.28994,
+      "lon": -91.9187,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 14.28807,
+      "lon": -91.91999,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 14.28434,
+      "lon": -91.92259,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 14.27689,
+      "lon": -91.92778,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 14.26943,
+      "lon": -91.93297,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 14.25452,
+      "lon": -91.94334,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 14.23215,
+      "lon": -91.95891,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 14.20232,
+      "lon": -91.97965,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 14.15758,
+      "lon": -92.01076,
+      "depth_m": 27.0
+    }
+  ]
+}

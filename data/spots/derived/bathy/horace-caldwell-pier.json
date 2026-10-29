@@ -1,0 +1,72 @@
+{
+  "spot": "horace-caldwell-pier",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    27.8271,
+    -97.0519
+  ],
+  "bearing_seaward_deg": 132.0,
+  "nearshore_depth_m": 18.0,
+  "offshore_depth_m": 23.0,
+  "mean_slope_m_per_km": 0.28,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 27.8256,
+      "lon": -97.05001,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 27.82409,
+      "lon": -97.04812,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 27.82108,
+      "lon": -97.04434,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 27.81506,
+      "lon": -97.03679,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 27.80905,
+      "lon": -97.02923,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 27.79701,
+      "lon": -97.01412,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 27.77895,
+      "lon": -96.99147,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 27.75486,
+      "lon": -96.96127,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 27.71872,
+      "lon": -96.91601,
+      "depth_m": 23.0
+    }
+  ]
+}

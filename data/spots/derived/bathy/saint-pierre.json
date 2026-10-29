@@ -1,0 +1,72 @@
+{
+  "spot": "saint-pierre",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -21.3468,
+    55.4756
+  ],
+  "bearing_seaward_deg": 198.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 1638.0,
+  "mean_slope_m_per_km": 91.83,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -21.34894,
+      "lon": 55.47485,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -21.35108,
+      "lon": 55.47411,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -21.35535,
+      "lon": 55.47262,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -21.36391,
+      "lon": 55.46963,
+      "depth_m": 83.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -21.37246,
+      "lon": 55.46665,
+      "depth_m": 254.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -21.38956,
+      "lon": 55.46068,
+      "depth_m": 672.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -21.41522,
+      "lon": 55.45172,
+      "depth_m": 1068.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -21.44943,
+      "lon": 55.43977,
+      "depth_m": 1340.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -21.50075,
+      "lon": 55.42184,
+      "depth_m": 1638.0
+    }
+  ]
+}

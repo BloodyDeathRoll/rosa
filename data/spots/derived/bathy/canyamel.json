@@ -1,0 +1,72 @@
+{
+  "spot": "canyamel",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    39.6567,
+    3.44
+  ],
+  "bearing_seaward_deg": 131.0,
+  "nearshore_depth_m": -23.0,
+  "offshore_depth_m": 85.0,
+  "mean_slope_m_per_km": 6.08,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 39.65522,
+      "lon": 3.4422,
+      "depth_m": -23.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 39.65375,
+      "lon": 3.44441,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 39.6508,
+      "lon": 3.44882,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 39.6449,
+      "lon": 3.45763,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 39.639,
+      "lon": 3.46644,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 39.62719,
+      "lon": 3.48406,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 39.60948,
+      "lon": 3.51048,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 39.58585,
+      "lon": 3.54568,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 39.55039,
+      "lon": 3.59844,
+      "depth_m": 85.0
+    }
+  ]
+}

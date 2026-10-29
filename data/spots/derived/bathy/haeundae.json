@@ -1,0 +1,72 @@
+{
+  "spot": "haeundae",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.1578,
+    129.159
+  ],
+  "bearing_seaward_deg": 153.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 100.0,
+  "mean_slope_m_per_km": 5.52,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.1558,
+      "lon": 129.16025,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.15379,
+      "lon": 129.1615,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.14979,
+      "lon": 129.16399,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.14177,
+      "lon": 129.16899,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.13376,
+      "lon": 129.17398,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.11773,
+      "lon": 129.18396,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.09369,
+      "lon": 129.19892,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.06163,
+      "lon": 129.21886,
+      "depth_m": 94.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.01353,
+      "lon": 129.24873,
+      "depth_m": 100.0
+    }
+  ]
+}

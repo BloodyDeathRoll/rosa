@@ -1,0 +1,37 @@
+# Rosa spot database - Andhra Pradesh (seeded 2026-10-29). The Bay of Bengal coast round Visakhapatnam
+# (Rushikonda, Yarada, Lawsons Bay, Thotlakonda) plus the Godavari and Krishna river bars:
+# S-SE groundswell and cyclone swell, offshore in the SW monsoon.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+country: "India"
+
+defaults: &ap
+  timezone: Asia/Kolkata
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [60, 200]
+  ideal:
+    wind_dir: [225, 315]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - andhra-pradesh, 12 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 12 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/andhra-pradesh/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: chintapalli, name: "Chintapalli", town: "Chintapalli", lat: 18.0730, lon: 83.6580, offshore_direction: 301, swell_window: [56, 186], offshore_km: 5.0, <<: *ap }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: konada-bar, name: "Konada Bar", town: "Konada", lat: 18.0116, lon: 83.5712, offshore_direction: 322, swell_window: [77, 207], offshore_km: 5.0, <<: *ap }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: bheemunipatnam, name: "Bheemunipatnam", town: "Bheemunipatnam", lat: 17.8975, lon: 83.4552, offshore_direction: 287, swell_window: [42, 172], offshore_km: 5.0, <<: *ap }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: mangamaripeta, name: "Mangamaripeta", town: "Mangamari Peta", lat: 17.8394, lon: 83.4100, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, <<: *ap }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: thotlakonda-point, name: "Thotlakonda Point", town: "Mangamari Peta", lat: 17.8242, lon: 83.4163, offshore_direction: 271, swell_window: [26, 156], offshore_km: 5.0, <<: *ap }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: rushikonda, name: "Rushikonda", town: "Visakhapatnam", lat: 17.7815, lon: 83.3858, offshore_direction: 288, swell_window: [43, 173], offshore_km: 5.0, <<: *ap }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: jodugullapalem, name: "Jodugullapalem", town: "Visakhapatnam", lat: 17.7514, lon: 83.3511, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, <<: *ap }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: tenneti-park, name: "Tenneti Park", town: "Visakhapatnam", lat: 17.7477, lon: 83.3499, offshore_direction: 349, swell_window: [104, 234], offshore_km: 5.0, <<: *ap }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: lawsons-bay, name: "Lawsons Bay", town: "Visakhapatnam", lat: 17.7346, lon: 83.3433, offshore_direction: 278, swell_window: [33, 163], offshore_km: 5.0, <<: *ap }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: park-hotel, name: "Park Hotel", town: "Visakhapatnam", lat: 17.7207, lon: 83.3388, offshore_direction: 328, swell_window: [83, 213], offshore_km: 5.0, <<: *ap }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: rk-beach, name: "RK Beach", town: "Visakhapatnam", lat: 17.7121, lon: 83.3201, offshore_direction: 326, swell_window: [81, 211], offshore_km: 5.0, <<: *ap }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: yarada, name: "Yarada", town: "Yarada", lat: 17.6518, lon: 83.2644, offshore_direction: 327, swell_window: [82, 212], offshore_km: 5.0, <<: *ap }  # sat-verified 2026-10-29 (websearch-seeded)

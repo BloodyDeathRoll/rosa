@@ -1,0 +1,72 @@
+{
+  "spot": "marbella-playa-del-cable",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.5071,
+    -4.8691
+  ],
+  "bearing_seaward_deg": 172.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 365.0,
+  "mean_slope_m_per_km": 20.39,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.50487,
+      "lon": -4.86871,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.50265,
+      "lon": -4.86832,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.49819,
+      "lon": -4.86754,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.48929,
+      "lon": -4.86599,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.48038,
+      "lon": -4.86443,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.46257,
+      "lon": -4.86132,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.43585,
+      "lon": -4.85665,
+      "depth_m": 94.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.40023,
+      "lon": -4.85044,
+      "depth_m": 233.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.34679,
+      "lon": -4.84113,
+      "depth_m": 365.0
+    }
+  ]
+}

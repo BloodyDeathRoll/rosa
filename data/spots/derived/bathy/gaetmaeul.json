@@ -1,0 +1,72 @@
+{
+  "spot": "gaetmaeul",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.9472,
+    128.7835
+  ],
+  "bearing_seaward_deg": 29.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 819.0,
+  "mean_slope_m_per_km": 46.08,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.94917,
+      "lon": 128.78488,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.95113,
+      "lon": 128.78626,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.95507,
+      "lon": 128.78903,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.96293,
+      "lon": 128.79456,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.9708,
+      "lon": 128.80009,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.98652,
+      "lon": 128.81116,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.01012,
+      "lon": 128.82777,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.04157,
+      "lon": 128.84993,
+      "depth_m": 305.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.08874,
+      "lon": 128.88321,
+      "depth_m": 819.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "segur-de-calafell",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.1884,
+    1.605
+  ],
+  "bearing_seaward_deg": 171.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 323.0,
+  "mean_slope_m_per_km": 17.86,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.18618,
+      "lon": 1.60547,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.18396,
+      "lon": 1.60593,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.17952,
+      "lon": 1.60687,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.17063,
+      "lon": 1.60874,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.16175,
+      "lon": 1.61061,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.14399,
+      "lon": 1.61434,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.11734,
+      "lon": 1.61994,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.08181,
+      "lon": 1.6274,
+      "depth_m": 110.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.02851,
+      "lon": 1.63857,
+      "depth_m": 323.0
+    }
+  ]
+}

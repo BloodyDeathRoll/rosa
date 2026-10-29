@@ -26,12 +26,33 @@ a-machacona:
   season: 2025
   site_id: ES112M019246
   src: eea
+acqualadrone:
+  km: 0.33
+  name: ACQUALADRONI PIAZZETTA VIA LUNGOMARE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019083048014
+  src: eea
+agger:
+  km: 0.35
+  name: 25 M SYD FOR HØFDE 90
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DKBW295
+  src: eea
 agu-adoura:
   km: 0.33
   name: PAIMÓ
   quality: 1 - Excellent
   season: 2025
   site_id: PTCD8J
+  src: eea
+aguas-blancas:
+  km: 0.84
+  name: PLAYA ES FIGUERAL PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES531M0541237
   src: eea
 aguilar:
   km: 0.35
@@ -40,6 +61,34 @@ aguilar:
   season: 2025
   site_id: ES120M039518
   src: eea
+aiguadolc:
+  km: 0.03
+  name: PLAYA D'AIGUADOL? PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES511M270682
+  src: eea
+aiguaoliva:
+  km: 0.59
+  name: PLAYA DEL PUNTAL PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES522M1382173
+  src: eea
+almerimar:
+  km: 0.58
+  name: PLAYA PONIENTE ALMERIMAR PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES611M9022321
+  src: eea
+altafulla:
+  km: 0.76
+  name: PLAYA D'ALTAFULLA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES514M012787
+  src: eea
 andrin:
   km: 0.25
   name: PLAYA POO PM1
@@ -47,12 +96,33 @@ andrin:
   season: 2025
   site_id: ES120M036514
   src: eea
+anse-du-brick:
+  km: 0.22
+  name: ANSE DU BRICK
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRD1250178M050135
+  src: eea
+anse-saint-martin:
+  km: 0.41
+  name: OMONVILLE-LA-PETITE Anse Saint Martin
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRD1250041M050185
+  src: eea
 antilla:
   km: 0.11
   name: PLAYA DE ANTILLA PM1
   quality: 1 - Excellent
   season: 2025
   site_id: ES212M061579
+  src: eea
+apelviken:
+  km: 0.24
+  name: APELVIKEN 1
+  quality: 2 - Good
+  season: 2025
+  site_id: SE0A11383000000633
   src: eea
 arda:
   km: 0.04
@@ -96,6 +166,27 @@ areas:
   season: 2025
   site_id: ES114M051386
   src: eea
+arenella-palermo:
+  km: 1.66
+  name: SPIAGGIA VERGINE MARIA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019082053018
+  src: eea
+arenella-siracusa:
+  km: 0.17
+  name: LIDO ARENELLA-KM.0,7 NORD PUNTA ARENELLA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019089017008
+  src: eea
+arenys-de-mar:
+  km: 0.12
+  name: PLAYA DE LA PIC?RDIA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES511M0062319
+  src: eea
 arinaga:
   km: 0.08
   name: PLAYA ARINAGA PM1
@@ -137,6 +228,20 @@ arrigunaga:
   quality: 1 - Excellent
   season: 2025
   site_id: ES213M044605
+  src: eea
+aspet:
+  km: 0.15
+  name: SNICKARHAKENS BADPLATS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: SE0441290000000677
+  src: eea
+aspra:
+  km: 0.32
+  name: 200 MT OVEST PIAZZALE PRIME ROCCE
+  quality: 2 - Good
+  season: 2025
+  site_id: IT019082006004
   src: eea
 aterro:
   km: 0.18
@@ -234,6 +339,20 @@ barbate:
   season: 2025
   site_id: ES612M0071357
   src: eea
+barceloneta:
+  km: 0.14
+  name: PLAYA DE LA BARCELONETA PM1
+  quality: 2 - Good
+  season: 2025
+  site_id: ES511M0192383
+  src: eea
+barendorf:
+  km: 0.34
+  name: OSTSEE HOF BARENDORF
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DEMV_PR_1_0292
+  src: eea
 barona:
   km: 0.17
   name: PLAYA AREA LONGA - P. DO SON PM1
@@ -262,12 +381,33 @@ bastiagueiro:
   season: 2025
   site_id: ES111M0582138
   src: eea
+baubigny:
+  km: 0.75
+  name: FACE AU CD 131
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRD1250033M050240
+  src: eea
 bayas:
   km: 1.08
   name: PLAYA DEL SABL?N DE BAYAS PM1
   quality: 1 - Excellent
   season: 2025
   site_id: ES120M016470
+  src: eea
+bergen-aan-zee:
+  km: 0.24
+  name: BERGEN AAN ZEE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: NLBW95_BERGAZBSD
+  src: eea
+berneval:
+  km: 0.29
+  name: ST-MARTIN-PLAGE
+  quality: 2 - Good
+  season: 2025
+  site_id: FRD2276618M076083
   src: eea
 berria:
   km: 0.02
@@ -288,6 +428,13 @@ biscarrosse:
   season: 2025
   site_id: FRI1340046M040010
   src: eea
+bogatell:
+  km: 0.0
+  name: PLAYA DEL BOGATELL PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES511M019631
+  src: eea
 bolonia:
   km: 0.41
   name: PLAYA BOLONIA PM2
@@ -300,6 +447,13 @@ bondi-beach:
   name: Bondi Beach
   site_id: 405ce99c-7a0b-43f7-8d28-2ee0b65eebb5
   src: nsw
+bonnerup:
+  km: 0.34
+  name: 200 M. Ø. F. BØNNERUP HAVN
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DKBW1092
+  src: eea
 bordeira:
   km: 0.52
   name: BORDEIRA
@@ -307,11 +461,53 @@ bordeira:
   season: 2025
   site_id: PTCL2H
   src: eea
+borkum-nordstrand:
+  km: 1.68
+  name: SUEDSTRAND BORKUM
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DENI_PR_TK25_2406_01
+  src: eea
+borsmose:
+  km: 0.18
+  name: BØRSMOSE STRAND
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DKBW1299
+  src: eea
+boucan:
+  km: 0.2
+  name: PLAGE DE BOUCAN CANOT
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRY4097415M974005
+  src: eea
+brandenburger-strand:
+  km: 0.88
+  name: NORDS SYLT WESTERLAND
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DESH_PR_0073
+  src: eea
+brasilien:
+  km: 0.39
+  name: OSTS BRASILIEN
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DESH_PR_0137
+  src: eea
 bronte-beach:
   km: 0.03
   name: Bronte Beach
   site_id: e34aa8b8-142f-438d-ab18-bedce361e324
   src: nsw
+buhne-16:
+  km: 1.02
+  name: NORDS SYLT KAMPEN
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DESH_PR_0071
+  src: eea
 bungan-beach:
   km: 0.2
   name: Bungan Beach
@@ -324,12 +520,33 @@ bunker-del-hurricane:
   season: 2025
   site_id: ES612M0351416
   src: eea
+bunkers:
+  km: 1.56
+  name: KLITMØLLER
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DKBW233
+  src: eea
 cabestan:
   km: 0.25
   name: ANSE DU CABESTAN
   quality: 1 - Excellent
   season: 2025
   site_id: FRH0229003M029725
+  src: eea
+cabrera:
+  km: 0.35
+  name: PLAYA DE CABRERA (VINYALS) PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES511M029639
+  src: eea
+cadzand:
+  km: 1.08
+  name: HET ZWIN DUINLAAN BADSTRAND
+  quality: 1 - Excellent
+  season: 2025
+  site_id: NLBW89_ZWINDLBSD
   src: eea
 caion:
   km: 0.14
@@ -338,6 +555,76 @@ caion:
   season: 2025
   site_id: ES111M04198
   src: eea
+cala-agulla:
+  km: 0.11
+  name: PLAYA CALA AGULLA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES532M0141115
+  src: eea
+cala-cantalar:
+  km: 0.3
+  name: PLAYA CALAS DE CABO HUERTAS PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES521M0142780
+  src: eea
+cala-de-santa-cristina:
+  km: 0.07
+  name: PLAYA DE SANTA CRISTINA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES512M095738
+  src: eea
+cala-finestrat:
+  km: 0.0
+  name: PLAYA DE LA CALA PM1
+  quality: 2 - Good
+  season: 2025
+  site_id: ES521M069910
+  src: eea
+cala-major:
+  km: 0.01
+  name: PLAYA CALA MAJOR PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES532M0401175
+  src: eea
+cala-mesquida:
+  km: 0.06
+  name: PLAYA CALA MESQUIDA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES532M0141119
+  src: eea
+cala-nova:
+  km: 0.16
+  name: PLAYA CALA NOVA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES531M0542289
+  src: eea
+cala-rosa:
+  km: 0.7
+  name: DOGANA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019082070002
+  src: eea
+calahonda:
+  km: 1.05
+  name: PLAYA CALAHONDA 1 PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES617M0701557
+  src: eea
+calblanque:
+  km: 0.61
+  name: PLAYA CALBLANQUE PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES620M0161615
+  src: eea
 caleta-de-caballo:
   km: 1.35
   name: PLAYA RIA DE LA SANTA (LA) (SANTA SPORT) PM2
@@ -345,12 +632,26 @@ caleta-de-caballo:
   season: 2025
   site_id: ES708M0291807
   src: eea
+callantsoog:
+  km: 0.08
+  name: CALLANTSOOG
+  quality: 2 - Good
+  season: 2025
+  site_id: NLBW95_CALLOBSD
+  src: eea
 campelo:
   km: 0.16
   name: PLAYA CAMPELO - VALDOVI?O PM1
   quality: 1 - Excellent
   season: 2025
   site_id: ES111M087225
+  src: eea
+camperduin:
+  km: 0.89
+  name: CAMPERDUIN
+  quality: 1 - Excellent
+  season: 2025
+  site_id: NLBW95_CAMPDBSD
   src: eea
 camposoto:
   km: 0.34
@@ -366,12 +667,33 @@ canallave:
   season: 2025
   site_id: ES130M052552
   src: eea
+cannatello:
+  km: 0.18
+  name: CANNATELLO
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019084001011
+  src: eea
 cantinho-bah-a:
   km: 0.06
   name: BALEAL-CAMPISMO
   quality: 1 - Excellent
   season: 2025
   site_id: PTCD7K
+  src: eea
+canyamel:
+  km: 0.17
+  name: PLAYA CANYAMEL PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES532M0141117
+  src: eea
+cap-homard:
+  km: 0.71
+  name: PLAGE DE BOUCAN CANOT
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRY4097415M974005
   src: eea
 caranquexo:
   km: 0.18
@@ -394,11 +716,46 @@ carnota:
   season: 2025
   site_id: ES111M02041
   src: eea
+castricum-aan-zee:
+  km: 0.11
+  name: CASTRICUM AAN ZEE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: NLBW95_CASTCAZBSD
+  src: eea
+cefalu:
+  km: 0.17
+  name: 50 M OVEST INIZIO LUNGOMARE PIAZZA COLOM
+  quality: 2 - Good
+  season: 2025
+  site_id: IT019082027010
+  src: eea
+ciammarita:
+  km: 0.45
+  name: 300 MT. OVEST TORRENTE PINTO
+  quality: 2 - Good
+  season: 2025
+  site_id: IT019082074002
+  src: eea
 collaroy-beach:
   km: 0.39
   name: Collaroy Beach
   site_id: 9aac94a6-0188-44c5-92ab-60068862371d
   src: nsw
+collignon:
+  km: 0.17
+  name: TOURLAVILLE Rue des dauphins
+  quality: 2 - Good
+  season: 2025
+  site_id: FRD1250129M050143
+  src: eea
+comandancia:
+  km: 0.83
+  name: PLAYA DEL MIRACLE PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES514M148833
+  src: eea
 comillas:
   km: 0.05
   name: PLAYA DE COMILLAS PM1
@@ -418,6 +775,13 @@ coogee-beach:
   name: Coogee Beach
   site_id: ca53919d-8e26-40b0-b8cc-edf80ec303d9
   src: nsw
+cornino:
+  km: 0.08
+  name: CALA BUGUTO-PROSPICIENTE N.C 46-CORNINO
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019081007002
+  src: eea
 cortadura:
   km: 0.15
   name: PLAYA CORTADURA PM1
@@ -445,6 +809,13 @@ cote-des-basques:
   quality: 1 - Excellent
   season: 2025
   site_id: FRI1564122M064055
+  src: eea
+courseulles-sur-mer:
+  km: 0.12
+  name: DEVANT LA PISCINE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRD1114191M014200
   src: eea
 covas:
   km: 0.45
@@ -493,6 +864,27 @@ cueva:
   season: 2025
   site_id: ES120M034505
   src: eea
+dahme:
+  km: 0.27
+  name: OSTS DAHME
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DESH_PR_0092
+  src: eea
+damp:
+  km: 0.07
+  name: OSTS DAMP HAUPTSTRAND
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DESH_PR_0185
+  src: eea
+deauville:
+  km: 0.24
+  name: PLAGE DES SIX FUSILLES
+  quality: 2 - Good
+  season: 2025
+  site_id: FRD1114220M014040
+  src: eea
 deba:
   km: 0.26
   name: PLAYA DE DEBA PM1
@@ -510,12 +902,40 @@ dee-why-point:
   name: Dee Why Beach
   site_id: 98261de4-b6b8-4555-ac3c-f86c4bd8f413
   src: nsw
+derecha-de-la-cala:
+  km: 0.43
+  name: PLAYA DE PONENT PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES521M031883
+  src: eea
+desembocadura-del-tordera:
+  km: 0.34
+  name: PLAYA DE LA PUNTA DE LA TORDERA-DE LA CONCA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES511M1102272
+  src: eea
+domburg:
+  km: 0.06
+  name: DOMBURG BADSTRAND
+  quality: 1 - Excellent
+  season: 2025
+  site_id: NLBW89_DOMBBSD
+  src: eea
 doninos:
   km: 0.11
   name: PLAYA DONI?OS PM1
   quality: 1 - Excellent
   season: 2025
   site_id: ES111M03675
+  src: eea
+donnalucata:
+  km: 0.23
+  name: SPIAGGIA ''DONNALUCATA'' - ''HOTEL RIVIERA''
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019088011006
   src: eea
 dossen:
   km: 0.22
@@ -531,12 +951,40 @@ dourveil:
   season: 2025
   site_id: FRH0229153M029914
   src: eea
+duindamseslag:
+  km: 0.48
+  name: NOORDWIJK AAN ZEE
+  quality: 2 - Good
+  season: 2025
+  site_id: NLBW95_NOORDWKHBSD
+  src: eea
+el-arenal:
+  km: 0.07
+  name: PLAYA DE L' ARENAL PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES521M082918
+  src: eea
 el-brusco:
   km: 0.7
   name: PLAYA DE BERRIA PM1
   quality: 1 - Excellent
   season: 2025
   site_id: ES130M079564
+  src: eea
+el-cantal-roig:
+  km: 0.66
+  name: PLAYA DE L'ARENAL-BOL PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES521M047889
+  src: eea
+el-chanquete:
+  km: 0.19
+  name: PLAYA EL PALO PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES617M0671539
   src: eea
 el-chato:
   km: 0.39
@@ -566,12 +1014,26 @@ el-fronton:
   season: 2025
   site_id: ES705M0091706
   src: eea
+el-jucar:
+  km: 0.14
+  name: PLAYA DE L'ESCULLERA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES523M1052613
+  src: eea
 el-lloret:
   km: 1.07
   name: PLAYA CANTERAS (LAS) PM6
   quality: 1 - Excellent
   season: 2025
   site_id: ES705M0161755
+  src: eea
+el-masnou:
+  km: 0.07
+  name: PLAYA D'OCATA PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES511M118659
   src: eea
 el-medano:
   km: 0.25
@@ -594,6 +1056,20 @@ el-palmar:
   season: 2025
   site_id: ES612M0391419
   src: eea
+el-perello:
+  km: 0.26
+  name: PLAYA DEL PERELLO PM1
+  quality: 4 - Poor
+  season: 2025
+  site_id: ES523M2351057
+  src: eea
+el-puerto:
+  km: 0.34
+  name: PLAYA DE LA GRAVA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES521M082917
+  src: eea
 el-quemao:
   km: 1.34
   name: PLAYA RIA DE LA SANTA (LA) (SANTA SPORT) PM1
@@ -615,6 +1091,13 @@ el-roque:
   season: 2025
   site_id: ES705M0131729
   src: eea
+el-saler:
+  km: 0.26
+  name: PLAYA DEL SALER PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES523M2501069
+  src: eea
 el-sardinero:
   km: 0.05
   name: PLAYA 1? SARDINERO PM1
@@ -622,17 +1105,38 @@ el-sardinero:
   season: 2025
   site_id: ES130M075561
   src: eea
+el-sunset:
+  km: 0.46
+  name: PLAYA TORREVIGIA - TORREQUEBRADA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES617M0251505
+  src: eea
 elouera-beach:
   km: 0.05
   name: Elouera Beach
   site_id: 961b6133-9036-4e26-a575-955ab9d56373
   src: nsw
+empuriabrava:
+  km: 0.13
+  name: PLAYA D'EMPURIABRAVA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES512M0472637
+  src: eea
 erretegia:
   km: 0.1
   name: ERRETEGIA
   quality: 1 - Excellent
   season: 2025
   site_id: FRI1564125M064080
+  src: eea
+es-trenc:
+  km: 0.49
+  name: PLAYA ES TRENC PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES532M0131112
   src: eea
 esmelle:
   km: 0.4
@@ -662,6 +1166,20 @@ esteiro:
   season: 2025
   site_id: ES112M025254
   src: eea
+etang-sale:
+  km: 0.45
+  name: PLAGE D'ETANG SALE LES BAINS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRY4097404M974045
+  src: eea
+etretat:
+  km: 0.0
+  name: ETRETAT-PLAGE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRD2276254M076383
+  src: eea
 fairy-bower:
   km: 0.21
   name: Shelly Beach (Manly)
@@ -674,12 +1192,40 @@ famara:
   season: 2025
   site_id: ES708M0241786
   src: eea
+faro-de-calaburra:
+  km: 0.53
+  name: PLAYA EL CHARCON PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES617M0701558
+  src: eea
 faro-de-trafalgar:
   km: 2.0
   name: PLAYA ZAHORA PM1
   quality: 1 - Excellent
   season: 2025
   site_id: ES612M0071359
+  src: eea
+faro-granitola:
+  km: 0.22
+  name: GRANITOLA LATO OVEST FARO
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019081004002
+  src: eea
+fecamp:
+  km: 0.06
+  name: FECAMP-PLAGE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRD2276259M076313
+  src: eea
+fehmarn-suedstrand:
+  km: 1.94
+  name: OSTS FEHMARN SUEDSTRAND
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DESH_PR_0118
   src: eea
 fig-tree-bay:
   km: 0.05
@@ -701,6 +1247,13 @@ fitenia:
   quality: 1 - Excellent
   season: 2025
   site_id: ES709M0061843
+  src: eea
+fontane-bianche:
+  km: 0.2
+  name: FONTANE BIANCHE-LIDO SAYONARA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019089017016
   src: eea
 foxos:
   km: 0.38
@@ -742,12 +1295,33 @@ fuentebravia:
   season: 2025
   site_id: ES612M0272215
   src: eea
+garraf:
+  km: 0.07
+  name: PLAYA DEL GARRAF PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES511M270687
+  src: eea
 gaztetape:
   km: 0.06
   name: PLAYA DE GAZTETAPE PM1
   quality: 1 - Excellent
   season: 2025
   site_id: ES212M039575
+  src: eea
+giallonardo:
+  km: 0.08
+  name: PIETRE CADUTE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019084032008
+  src: eea
+gilleleje:
+  km: 0.04
+  name: GILLELEJE VEST
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DKBW385
   src: eea
 gorliz:
   km: 0.02
@@ -791,6 +1365,13 @@ grande-plage-quiberon:
   season: 2025
   site_id: FRH0456168M056157
   src: eea
+guadalmar:
+  km: 0.29
+  name: PLAYA GUADALMAR PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES617M0671536
+  src: eea
 guidel:
   km: 0.19
   name: LA FALAISE
@@ -805,12 +1386,110 @@ guincho:
   season: 2025
   site_id: PTCV7Q
   src: eea
+hargen:
+  km: 0.39
+  name: CAMPERDUIN
+  quality: 1 - Excellent
+  season: 2025
+  site_id: NLBW95_CAMPDBSD
+  src: eea
+havstokken:
+  km: 0.58
+  name: UDSHOLT STRAND V. FYRRESTIEN
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DKBW1613
+  src: eea
+helgoland-duene:
+  km: 0.12
+  name: NORDS HELGOLAND DUENE NORD
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DESH_PR_0123
+  src: eea
 hendaye:
   km: 0.58
   name: LES DEUX JUMEAUX
   quality: 1 - Excellent
   season: 2025
   site_id: FRI1564260M064145
+  src: eea
+hermitage:
+  km: 0.32
+  name: PLAGE DE L'HERMITAGE CENTRE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRY4097415M974025
+  src: eea
+hirtshals:
+  km: 0.08
+  name: HUSMODERSTRANDEN
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DKBW803
+  src: eea
+hoek-van-holland:
+  km: 0.52
+  name: HOEK VAN HOLLAND
+  quality: 1 - Excellent
+  season: 2025
+  site_id: NLBW95_HOEKVHLBSD
+  src: eea
+hoernum:
+  km: 1.05
+  name: NORDS SYLT HOERNUM OST OSTSTRAND
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DESH_PR_0044
+  src: eea
+hohwacht:
+  km: 0.23
+  name: OSTS HOHWACHT KURSTRAND
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DESH_PR_0144
+  src: eea
+hollviken:
+  km: 0.95
+  name: KÄMPINGE STRANDBAD
+  quality: 1 - Excellent
+  season: 2025
+  site_id: SE0441233000000022
+  src: eea
+hornbaek:
+  km: 0.39
+  name: 200 M ØST FOR UDLØB FRA NORDKYSTENS R/A
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DKBW1612
+  src: eea
+hundested:
+  km: 0.13
+  name: STRAND VED GRÅSTENVEJ
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DKBW422
+  src: eea
+hvide-sande:
+  km: 1.34
+  name: VESTERHAVET, HVIDE SANDE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DKBW164
+  src: eea
+hvide-sande-south:
+  km: 0.32
+  name: VESTERHAVET, HVIDE SANDE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DKBW164
+  src: eea
+ijmuiden:
+  km: 0.44
+  name: KENNEMERSTRAND
+  quality: 1 - Excellent
+  season: 2025
+  site_id: NLBW95_KENNMBSD
   src: eea
 ingrina:
   km: 0.05
@@ -819,12 +1498,33 @@ ingrina:
   season: 2025
   site_id: PTCK8L
   src: eea
+isola-delle-femmine:
+  km: 0.15
+  name: ANTI VIA KENNEDY
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019082043001
+  src: eea
 itzurun:
   km: 0.29
   name: PLAYA DE ITZURUN PM1
   quality: 1 - Excellent
   season: 2025
   site_id: ES212M081593
+  src: eea
+kaos:
+  km: 0.05
+  name: CAOS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019084028006
+  src: eea
+karlshagen:
+  km: 0.22
+  name: OSTSEE KARLSHAGEN HAUPTSTRAND
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DEMV_PR_1_0703
   src: eea
 karraspio:
   km: 0.14
@@ -833,6 +1533,20 @@ karraspio:
   season: 2025
   site_id: ES213M063613
   src: eea
+kasa:
+  km: 0.03
+  name: LILLA APELVIKEN
+  quality: 1 - Excellent
+  season: 2025
+  site_id: SE0A11383000000632
+  src: eea
+katwijk:
+  km: 0.31
+  name: KATWIJK AAN ZEE BOULEVARD ZUID
+  quality: 2 - Good
+  season: 2025
+  site_id: NLBW95_KATWZBSD
+  src: eea
 kersidan:
   km: 0.12
   name: KERSIDAN
@@ -840,12 +1554,47 @@ kersidan:
   season: 2025
   site_id: FRH0229293M029910
   src: eea
+kiekut:
+  km: 1.13
+  name: OSTS ECKERNFOERDE SUEDSTRAND
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DESH_PR_0244
+  src: eea
+kijkduin:
+  km: 0.22
+  name: DEN HAAG KIJKDUIN
+  quality: 2 - Good
+  season: 2025
+  site_id: NLBW95_KIJKDBSD
+  src: eea
 kings-rock:
   km: 1.76
   name: CARREÇO
   quality: 1 - Excellent
   season: 2025
   site_id: PTCD8U
+  src: eea
+klitmoller-reef:
+  km: 0.25
+  name: KLITMØLLER
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DKBW233
+  src: eea
+knabackshusen:
+  km: 1.8
+  name: STENSHUVUD
+  quality: 1 - Excellent
+  season: 2025
+  site_id: SE0441291000000332
+  src: eea
+kogerstrand:
+  km: 0.3
+  name: DE KOOG
+  quality: 1 - Excellent
+  season: 2025
+  site_id: NLBW95_KOOGBSD
   src: eea
 konnos-bay:
   km: 0.05
@@ -860,6 +1609,20 @@ kourion-beach:
   quality: 1 - Excellent
   season: 2025
   site_id: CY0005212000000111
+  src: eea
+kreptitz:
+  km: 1.87
+  name: OSTSEE BAKENBERG
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DEMV_PR_1_0768
+  src: eea
+kuehlungsborn:
+  km: 0.27
+  name: OSTSEE KUEHLUNGSBORN HAUPTSTRAND WEST
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DEMV_PR_1_0254
   src: eea
 la-arena:
   km: 0.34
@@ -903,12 +1666,33 @@ la-caleta:
   season: 2025
   site_id: ES709M0012508
   src: eea
+la-calita:
+  km: 0.12
+  name: PLAYA CALAS DE CABO HUERTAS PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES521M0142780
+  src: eea
+la-chucha:
+  km: 0.11
+  name: PLAYA CARCHUNA PM3
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES614M1401437
+  src: eea
 la-cicer:
   km: 0.4
   name: PLAYA CANTERAS (LAS) PM6
   quality: 1 - Excellent
   season: 2025
   site_id: ES705M0161755
+  src: eea
+la-crecque:
+  km: 0.1
+  name: VAUVILLE La Crecque
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRD1250041M050200
   src: eea
 la-fontanilla:
   km: 0.11
@@ -924,12 +1708,47 @@ la-graviere:
   season: 2025
   site_id: FRI1340304M040117
   src: eea
+la-herradura:
+  km: 0.61
+  name: PLAYA LA HERRADURA PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES614M0171427
+  src: eea
 la-izquierda:
   km: 0.8
   name: PLAYA TROYA I (AM?RICAS I) PM3
   quality: 1 - Excellent
   season: 2025
   site_id: ES709M0012080
+  src: eea
+la-manga:
+  km: 0.45
+  name: PLAYA LAS SIRENAS PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES620M0161625
+  src: eea
+la-mata:
+  km: 0.68
+  name: PLAYA DE TORRELAMATA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES521M133943
+  src: eea
+la-misericordia:
+  km: 0.12
+  name: PLAYA SACABA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES617M0671540
+  src: eea
+la-mondree:
+  km: 0.29
+  name: ANSE DE LA MONDREE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRD1250178M050130
   src: eea
 la-nord-biscarrosse:
   km: 0.17
@@ -944,6 +1763,27 @@ la-piste:
   quality: 1 - Excellent
   season: 2025
   site_id: FRI1340065M040124
+  src: eea
+la-placa:
+  km: 1.42
+  name: PLAYA DE SANT JOAN PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES521M014865
+  src: eea
+la-playa:
+  km: 0.08
+  name: PLAIA-TORRENTE ACQUICELLA 350 M SUD
+  quality: 3 - Sufficient
+  season: 2025
+  site_id: IT019087015011
+  src: eea
+la-rotonda:
+  km: 0.83
+  name: PLAYA DE MONTSOL?S PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES511M126664
   src: eea
 la-salvaje:
   km: 0.33
@@ -966,6 +1806,13 @@ la-santa:
   season: 2025
   site_id: ES708M0291806
   src: eea
+la-siesta:
+  km: 0.05
+  name: PLAYA DEL MUNTANYAR I PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES521M082920
+  src: eea
 la-sud:
   km: 0.03
   name: PLAGE CENTRALE/SUD
@@ -980,12 +1827,26 @@ la-tejita:
   season: 2025
   site_id: ES709M0171853
   src: eea
+la-tonnara:
+  km: 0.16
+  name: PUNTA TORRE DELL'ORSA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019082031003
+  src: eea
 la-torche:
   km: 0.37
   name: TORCHE
   quality: 1 - Excellent
   season: 2025
   site_id: FRH0229171M029765
+  src: eea
+la-zenia:
+  km: 0.09
+  name: PLAYA CALA BOSQUE PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES521M099925
   src: eea
 labenne-ocean:
   km: 0.1
@@ -1050,6 +1911,13 @@ lara-bay:
   season: 2025
   site_id: CY0006133000000142
   src: eea
+largos:
+  km: 1.19
+  name: PLAYA NUEVA ANDALUC?A PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES617M0692425
+  src: eea
 larino:
   km: 0.58
   name: PLAYA LARI?O - MUROS PM1
@@ -1077,6 +1945,27 @@ le-a:
   quality: 1 - Excellent
   season: 2025
   site_id: PTCK3P
+  src: eea
+le-capannine:
+  km: 0.07
+  name: VIALE KENNEDY 91
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019087015004
+  src: eea
+le-grand-large:
+  km: 0.92
+  name: FACE AU CAMPING DU ROZEL
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRD1250442M050225
+  src: eea
+le-havre:
+  km: 0.27
+  name: LE HAVRE-PLAGE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRD2276351M076463
   src: eea
 le-kerou:
   km: 0.06
@@ -1106,12 +1995,33 @@ le-porge:
   season: 2025
   site_id: FRI1233333M033055
   src: eea
+le-poux:
+  km: 1.09
+  name: FACE AU CD 66
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRD1250585M050235
+  src: eea
 le-prevent:
   km: 0.16
   name: PLAGE CENTRALE
   quality: 1 - Excellent
   season: 2025
   site_id: FRI1340065M040121
+  src: eea
+le-rocce-scibiliana:
+  km: 0.88
+  name: TORRE SCIBILIANA 200 MT S CAN. BONIFICA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019081024001
+  src: eea
+le-rozel:
+  km: 0.29
+  name: FACE AU CAMPING DU ROZEL
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRD1250442M050225
   src: eea
 le-vougot:
   km: 0.12
@@ -1134,12 +2044,26 @@ les-bourdaines:
   season: 2025
   site_id: FRI1340296M040104
   src: eea
+les-brisants:
+  km: 0.42
+  name: PLAGE DES ROCHES NOIRES
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRY4097415M974015
+  src: eea
 les-cavaliers:
   km: 0.14
   name: LES CAVALIERS
   quality: 1 - Excellent
   season: 2025
   site_id: FRI1564024M064010
+  src: eea
+les-cous-cous:
+  km: 1.61
+  name: FACE AU POSTE SDIS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRD1250576M050212
   src: eea
 les-culs-nus:
   km: 0.16
@@ -1155,6 +2079,41 @@ les-estagnots:
   season: 2025
   site_id: FRI1340296M040105
   src: eea
+les-petites-dalles:
+  km: 0.06
+  name: LES PETITES-DALLES
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRD2276613M076263
+  src: eea
+les-rotes:
+  km: 0.63
+  name: PLAYA DE LES ROTES PM1
+  quality: 2 - Good
+  season: 2025
+  site_id: ES521M063900
+  src: eea
+lespigo:
+  km: 0.51
+  name: PLAYA DE PONENT PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES511M2192470
+  src: eea
+lido-valderice:
+  km: 0.09
+  name: CORTIGLIOLO - LIDO VALDERICE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019081022001
+  src: eea
+lokken:
+  km: 0.04
+  name: NY STRANDVEJ, UD FOR NEDKØRSLEN
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DKBW1472
+  src: eea
 long-reef:
   km: 0.34
   name: Long Reef Beach
@@ -1166,6 +2125,13 @@ loredo:
   quality: 1 - Excellent
   season: 2025
   site_id: ES130M061555
+  src: eea
+los-alamos:
+  km: 0.29
+  name: PLAYA LOS ALAMOS PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES617M9011584
   src: eea
 los-enanos:
   km: 0.4
@@ -1180,6 +2146,13 @@ los-locos:
   quality: 1 - Excellent
   season: 2025
   site_id: ES130M085569
+  src: eea
+los-monteros:
+  km: 0.27
+  name: PLAYA LOS MONTEROS PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES617M0691552
   src: eea
 los-patos:
   km: 1.04
@@ -1202,11 +2175,67 @@ louro:
   season: 2025
   site_id: ES111M053130
   src: eea
+luc-sur-mer:
+  km: 0.16
+  name: PLAGE DU PETIT ENFER
+  quality: 2 - Good
+  season: 2025
+  site_id: FRD1114384M014160
+  src: eea
+lyngby-thy:
+  km: 0.04
+  name: LYNGBY
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DKBW293
+  src: eea
+maasvlakte:
+  km: 0.15
+  name: TWEEDE MAASVLAKTE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: NLBW95_TWEEDMVTBSD
+  src: eea
+magaggiari:
+  km: 0.06
+  name: SPIAGGIA MAGAGGIARI LATO EST
+  quality: 2 - Good
+  season: 2025
+  site_id: IT019082031001
+  src: eea
 malabar-beach:
   km: 0.02
   name: Malabar Beach
   site_id: 94c5d756-1093-48db-8dbc-70fbb523b16a
   src: nsw
+malapesquera:
+  km: 0.08
+  name: PLAYA MALAPESQUERA - SANTA ANA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES617M0251507
+  src: eea
+malpas:
+  km: 0.1
+  name: PLAYA SANT PERE PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES532M0031087
+  src: eea
+malva-rosa:
+  km: 0.28
+  name: PLAYA DE LA MALVA-ROSA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES523M2501066
+  src: eea
+manapany:
+  km: 0.39
+  name: PLAGE DE MANAPANY
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRY4097412M974085
+  src: eea
 manly-beach:
   km: 0.11
   name: South Steyne Beach
@@ -1218,6 +2247,27 @@ marbella-fr:
   quality: 1 - Excellent
   season: 2025
   site_id: FRI1564122M064060
+  src: eea
+marbella-playa-del-cable:
+  km: 1.13
+  name: PLAYA EL CABLE-RIO REAL PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES617M0691553
+  src: eea
+marina-di-modica:
+  km: 0.44
+  name: SPIAGGIA MARINA DI MODICA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019088006002
+  src: eea
+marina-di-ragusa:
+  km: 0.33
+  name: PIAZZA MALTA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019088009003
   src: eea
 marisucia:
   km: 0.43
@@ -1266,6 +2316,13 @@ meron:
   season: 2025
   site_id: ES130M080566
   src: eea
+miami-platja:
+  km: 1.11
+  name: PLAYA CALA VIENESOS-PLATJA DELS ESPENYALS PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES514M092816
+  src: eea
 milady:
   km: 0.06
   name: ILBARRITZ
@@ -1294,6 +2351,13 @@ mogueric:
   season: 2025
   site_id: FRH0229276M029179
   src: eea
+mojacar:
+  km: 0.7
+  name: PLAYA DEL LANCE NUEVO PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES611M0641315
+  src: eea
 moledo:
   km: 0.21
   name: MOLEDO
@@ -1315,17 +2379,52 @@ moliets:
   season: 2025
   site_id: FRI1340187M040060
   src: eea
+molle:
+  km: 1.08
+  name: MÖLLE, SOLVIKEN
+  quality: 1 - Excellent
+  season: 2025
+  site_id: SE0441284000000495
+  src: eea
 mona-vale-beach:
   km: 0.29
   name: Mona Vale Beach
   site_id: dcaa6d83-f59f-463f-aae5-c687f4b0b5fb
   src: nsw
+mondello:
+  km: 0.33
+  name: MONDELLO ANTI VIA ANADIOMENE
+  quality: 2 - Good
+  season: 2025
+  site_id: IT019082053007
+  src: eea
+mongiove:
+  km: 0.22
+  name: GROTTE MONGIOVE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019083066002
+  src: eea
 montalvo:
   km: 0.13
   name: PLAYA MONTALVO PM1
   quality: 1 - Excellent
   season: 2025
   site_id: ES114M051392
+  src: eea
+montgat:
+  km: 0.43
+  name: PLAYA DE LES ROQUES PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES511M1262604
+  src: eea
+morghella:
+  km: 0.09
+  name: SPIAGGIA MORGHELLA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019089014005
   src: eea
 moulin-de-la-rive:
   km: 1.3
@@ -1362,11 +2461,32 @@ nemina:
   season: 2025
   site_id: ES111M052112
   src: eea
+neuhaus-dierhagen:
+  km: 0.38
+  name: OSTSEE NEUHAUS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DEMV_PR_1_0224
+  src: eea
 newport-beach:
   km: 0.11
   name: Newport Beach
   site_id: f81d4377-2a8e-4f39-9988-f94d9c95d9be
   src: nsw
+noordwijk:
+  km: 0.78
+  name: NOORDWIJK AAN ZEE BOULEVARD
+  quality: 2 - Good
+  season: 2025
+  site_id: NLBW95_NOORDWBSD
+  src: eea
+norderney-nordstrand:
+  km: 0.2
+  name: NORDSEESTRAND NORDBAD NORDERNEY
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DENI_PR_TK25_2209_02
+  src: eea
 north-cronulla:
   km: 0.04
   name: North Cronulla Beach
@@ -1387,6 +2507,13 @@ north-wall:
   name: Shaws Bay East Arm
   site_id: affb6525-87ba-4165-b06b-f511cfe31af2
   src: nsw
+nova-mar-bella:
+  km: 0.03
+  name: PLAYA DE LA MAR BELLA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES511M019630
+  src: eea
 o-fortinon:
   km: 0.05
   name: PLAYA FORTI??N PM1
@@ -1422,6 +2549,20 @@ olinas:
   season: 2025
   site_id: ES112M005238
   src: eea
+oliva-beach:
+  km: 0.06
+  name: PLAYA DE L'AIGUA MORTA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES523M1811040
+  src: eea
+olofsbo:
+  km: 0.08
+  name: OLOFSBO
+  quality: 1 - Excellent
+  season: 2025
+  site_id: SE0A11382000000541
+  src: eea
 orrua:
   km: 0.44
   name: PLAYA DE SANTIAGO PM1
@@ -1443,6 +2584,13 @@ os-castros:
   season: 2025
   site_id: ES112M051259
   src: eea
+ostra-stranden:
+  km: 0.55
+  name: HAGÖNS CAMPINGPLATS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: SE0A11380000002976
+  src: eea
 otur:
   km: 0.16
   name: PLAYA OTUR PM1
@@ -1456,6 +2604,13 @@ oyambre:
   quality: 1 - Excellent
   season: 2025
   site_id: ES130M091570
+  src: eea
+paguera-tora:
+  km: 0.06
+  name: PLAYA TOR PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES532M0112667
   src: eea
 palm-beach:
   km: 0.12
@@ -1490,6 +2645,13 @@ peizas:
   season: 2025
   site_id: ES112M019248
   src: eea
+pelzerhaken:
+  km: 1.11
+  name: OSTS PELZERHAKEN
+  quality: 2 - Good
+  season: 2025
+  site_id: DESH_PR_0086
+  src: eea
 pen-hat:
   km: 1.34
   name: VERIAC'H
@@ -1518,6 +2680,20 @@ penhors:
   season: 2025
   site_id: FRH0229225M029751
   src: eea
+petten:
+  km: 0.41
+  name: PETTEN
+  quality: 1 - Excellent
+  season: 2025
+  site_id: NLBW95_PETTBSD
+  src: eea
+pico-madrid:
+  km: 0.03
+  name: PLAYA DE LA ROQUETA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES521M076912
+  src: eea
 pissouri-bay:
   km: 0.33
   name: PISSOURI BAY
@@ -1525,12 +2701,236 @@ pissouri-bay:
   season: 2025
   site_id: CY0005227000000116
   src: eea
+pizzolungo:
+  km: 0.81
+  name: HOTEL TIRRENO - PIZZOLUNGO
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019081008002
+  src: eea
+platja-de-lampolla:
+  km: 0.01
+  name: PLAYA DE LA AMPOLLA PM1
+  quality: 2 - Good
+  season: 2025
+  site_id: ES521M128940
+  src: eea
+platja-de-lauir:
+  km: 0.16
+  name: PLAYA DEL AHUIR PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES523M1311030
+  src: eea
+platja-de-llevant:
+  km: 0.59
+  name: PLAYA SA ROQUETA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES531M0241139
+  src: eea
+platja-de-migjorn:
+  km: 0.5
+  name: PLAYA MIGJORN PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES531M0241135
+  src: eea
+platja-de-miramar:
+  km: 0.07
+  name: PLAYA DE MIRAMAR PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES523M1681037
+  src: eea
+platja-de-premia:
+  km: 0.15
+  name: PLAYA DEL PLA DE L?S-DESC?RREGA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES511M172668
+  src: eea
+platja-de-sant-pol:
+  km: 0.08
+  name: PLAYA DE SANT POL PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES512M160765
+  src: eea
+platja-de-xeraco:
+  km: 0.08
+  name: PLAYA DE XERACO PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES523M1431033
+  src: eea
+playa-cueva-del-lobo:
+  km: 0.15
+  name: PLAYA DEL LANCE NUEVO PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES611M0641315
+  src: eea
+playa-de-bellreguard:
+  km: 0.2
+  name: PLAYA DE MIRAMAR PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES523M1681036
+  src: eea
+playa-de-bolnuevo:
+  km: 0.36
+  name: PLAYA BOLNUEVO PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES620M0261636
+  src: eea
+playa-de-carchuna:
+  km: 0.53
+  name: PLAYA CARCHUNA PM3
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES614M1401437
+  src: eea
+playa-de-entremares:
+  km: 0.16
+  name: PLAYA ENTREMARES PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES620M0161608
+  src: eea
+playa-de-la-albufereta:
+  km: 0.05
+  name: PLAYA DE L'ALBUFERETA PM1
+  quality: 2 - Good
+  season: 2025
+  site_id: ES521M014867
+  src: eea
+playa-de-la-chapineta:
+  km: 0.16
+  name: PLAYA LA AZOHIA-PLAYA EL CUARTEL PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES620M0161619
+  src: eea
+playa-de-lagos:
+  km: 0.39
+  name: PLAYA BENAJARAFE PM3
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES617M0941581
+  src: eea
+playa-de-las-alberquillas:
+  km: 1.82
+  name: PLAYA CALAS ORIENTALES(MARO) PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES617M0751560
+  src: eea
+playa-de-las-arenas:
+  km: 0.13
+  name: PLAYA DEL CABANYAL PM1
+  quality: 2 - Good
+  season: 2025
+  site_id: ES523M2501067
+  src: eea
+playa-de-los-corraletes:
+  km: 0.15
+  name: PLAYA LAS SALINAS DE CABO DE GATA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES611M0131273
+  src: eea
+playa-de-los-genoveses:
+  km: 0.24
+  name: PLAYA GENOVESES PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES611M0661323
+  src: eea
+playa-de-percheles:
+  km: 0.03
+  name: PLAYA PERCHELES PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES620M0262414
+  src: eea
+playa-de-portus:
+  km: 0.05
+  name: PLAYA EL PORTUS PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES620M0161618
+  src: eea
+playa-de-puerto-rey:
+  km: 0.11
+  name: PLAYA PUERTO REY PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES611M1001344
+  src: eea
+playa-de-salon:
+  km: 0.04
+  name: PLAYA CALAS OCCIDENTALES PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES617M0751562
+  src: eea
+playa-de-san-juan:
+  km: 0.47
+  name: PLAYA DE SANT JOAN PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES521M014866
+  src: eea
+playa-del-bobar:
+  km: 0.11
+  name: PLAYA NUEVA ALMERIA PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES611M0131290
+  src: eea
+playa-del-bol:
+  km: 0.24
+  name: PLAYA DE L'ARENAL-BOL PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES521M047889
+  src: eea
 playa-del-castillo:
   km: 0.06
   name: PLAYA CASTILLO (EL) PM1
   quality: 1 - Excellent
   season: 2025
   site_id: ES704M0141735
+  src: eea
+playa-del-cura:
+  km: 0.06
+  name: PLAYA DEL CURA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES521M133945
+  src: eea
+playa-del-dedo:
+  km: 0.08
+  name: PLAYA EL DEDO PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES617M0671538
+  src: eea
+playa-del-descargador:
+  km: 0.53
+  name: PLAYA CALA REONA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES620M0162683
+  src: eea
+playa-del-dosel:
+  km: 0.17
+  name: PLAYA DEL DOSSEL PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES523M1051016
   src: eea
 playa-del-hombre:
   km: 0.07
@@ -1546,12 +2946,40 @@ playa-del-ingles:
   season: 2025
   site_id: ES705M0191768
   src: eea
+playa-del-postiguet:
+  km: 0.02
+  name: PLAYA DEL POSTIGUET PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES521M014868
+  src: eea
+playa-del-saladar:
+  km: 0.2
+  name: PLAYA DEL SALADAR PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES521M014870
+  src: eea
 playa-del-socorro:
   km: 0.05
   name: PLAYA SOCORRO (EL) PM1
   quality: 1 - Excellent
   season: 2025
   site_id: ES709M0311876
+  src: eea
+playa-del-torres:
+  km: 0.06
+  name: PLAYA DE TORRES PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES521M139953
+  src: eea
+playa-el-bombo:
+  km: 0.26
+  name: PLAYA EL BOMBO PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES617M0701559
   src: eea
 playa-espana:
   km: 0.13
@@ -1560,12 +2988,40 @@ playa-espana:
   season: 2025
   site_id: ES120M076535
   src: eea
+playa-la-carihuela:
+  km: 0.15
+  name: PLAYA LA CARIHUELA PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES617M9011589
+  src: eea
 playa-martianez:
   km: 0.09
   name: PLAYA MARTI?NEZ PM3
   quality: 1 - Excellent
   season: 2025
   site_id: ES709M0282089
+  src: eea
+playa-muchavista:
+  km: 0.06
+  name: PLAYA DE MUTXAVISTA PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES521M050893
+  src: eea
+playa-poniente:
+  km: 0.42
+  name: PLAYA DE PONENT PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES521M031882
+  src: eea
+playa-serena-almeria:
+  km: 0.79
+  name: PLAYA DE LA URBANIZACION PLAYA SERENA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES611M0792275
   src: eea
 plentzia:
   km: 0.28
@@ -1588,12 +3044,26 @@ po-spot:
   season: 2025
   site_id: PTCX9Q
   src: eea
+pointe-du-diable:
+  km: 1.57
+  name: PLAGE DE LA RAVINE BLANCHE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRY4097416M974055
+  src: eea
 polis:
   km: 0.26
   name: POLIS CHRYSOCHOU MUNICIPAL BEACH
   quality: 1 - Excellent
   season: 2025
   site_id: CY0006343000000148
+  src: eea
+ponente:
+  km: 0.13
+  name: LIDO MARINELLA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019084028001
   src: eea
 ponzos:
   km: 0.43
@@ -1623,6 +3093,34 @@ port-blanc:
   season: 2025
   site_id: FRH0456234M056178
   src: eea
+port-de-mataro:
+  km: 0.3
+  name: PLAYA DEL VARADOR PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES511M121663
+  src: eea
+port-ginesta:
+  km: 0.36
+  name: PLAYA DE LES BOTIGUES PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES511M270686
+  src: eea
+port-saplaya:
+  km: 0.14
+  name: PLAYA DE PORT SAPLAYA PM1
+  quality: 2 - Good
+  season: 2025
+  site_id: ES523M0131010
+  src: eea
+portman:
+  km: 0.47
+  name: PLAYA PORTMAN-EL LASTRE PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES620M0411659
+  src: eea
 porz-ar-villiec:
   km: 0.09
   name: PORS AR VILLEC
@@ -1636,6 +3134,13 @@ potima-bay:
   quality: 1 - Excellent
   season: 2025
   site_id: CY0006027000000138
+  src: eea
+pourville:
+  km: 0.26
+  name: POURVILLE
+  quality: 2 - Good
+  season: 2025
+  site_id: FRD2276349M076133
   src: eea
 pozo-izquierdo:
   km: 0.13
@@ -1672,6 +3177,48 @@ praia-grande:
   season: 2025
   site_id: PTCX2W
   src: eea
+praiola:
+  km: 0.8
+  name: SPIAGGIA MAGAGGIARI LATO EST
+  quality: 2 - Good
+  season: 2025
+  site_id: IT019082031001
+  src: eea
+prora:
+  km: 1.67
+  name: OSTSEE BINZ PRORA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DEMV_PR_1_0778
+  src: eea
+puerto-benidorm:
+  km: 0.22
+  name: PLAYA DEL MAL PAS PM1
+  quality: 2 - Good
+  season: 2025
+  site_id: ES521M031881
+  src: eea
+puerto-cabopino:
+  km: 1.1
+  name: PLAYA ARTOLA PM2
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES617M0691546
+  src: eea
+puerto-marina:
+  km: 0.2
+  name: PLAYA FUENTE DE LA SALUD PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES617M0251506
+  src: eea
+punta-braccetto:
+  km: 0.02
+  name: SPIAGGIA ''PUNTA BRACCETTE''
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019088009007
+  src: eea
 punta-del-hidalgo:
   km: 0.31
   name: PLAYA ARENISCO (EL) - PISCINA NATURAL PUNTA HIDALGO PM3
@@ -1679,12 +3226,68 @@ punta-del-hidalgo:
   season: 2025
   site_id: ES709M0232432
   src: eea
+punta-del-rio:
+  km: 0.18
+  name: PLAYA PUNTA DEL R O PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES614M1732686
+  src: eea
+punta-delle-formiche:
+  km: 0.59
+  name: CONCERIE-FONDO BARCHE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019089014016
+  src: eea
 punta-galea:
   km: 1.92
   name: PLAYA DE AZKORRI PM1
   quality: 1 - Excellent
   season: 2025
   site_id: ES213M044604
+  src: eea
+punta-milocca:
+  km: 0.41
+  name: PUNTA MILOCCA-FANUSA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019089017006
+  src: eea
+punta-prima:
+  km: 0.05
+  name: PLAYA DE PUNTA PRIMA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES521M099923
+  src: eea
+punta-prima-menorca:
+  km: 0.03
+  name: PLAYA PUNTA PRIMA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES533M0521228
+  src: eea
+punta-secca:
+  km: 0.25
+  name: SPIAGGIA ''PUNTA SECCA'' AL FARO
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019088010003
+  src: eea
+punta-xarraca:
+  km: 1.47
+  name: PLAYA CALA XARRACA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES531M0501221
+  src: eea
+puzziteddu:
+  km: 0.57
+  name: C/DA LA LEPA (PROSP. VILLA ATHENA)
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019081004006
   src: eea
 queenscliff-beach:
   km: 0.15
@@ -1697,6 +3300,13 @@ quintanilla:
   quality: 1 - Excellent
   season: 2025
   site_id: ES705M0062429
+  src: eea
+rageleje:
+  km: 0.2
+  name: RÅGELEJE STRAND
+  quality: 2 - Good
+  season: 2025
+  site_id: DKBW379
   src: eea
 razo:
   km: 0.18
@@ -1719,6 +3329,20 @@ ribeira-dilhas:
   season: 2025
   site_id: PTCT3D
   src: eea
+ringenas:
+  km: 0.11
+  name: RINGENÄS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: SE0A11380000000370
+  src: eea
+rio-algar:
+  km: 0.19
+  name: PLAYA DE CAP NEGRET PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES521M018873
+  src: eea
 rio-salado:
   km: 0.49
   name: PLAYA LOS BATELES PM1
@@ -1740,12 +3364,26 @@ ris:
   season: 2025
   site_id: ES130M047549
   src: eea
+roc-de-sant-gaieta:
+  km: 0.09
+  name: PLAYA DE LA PUNTA DEL GUINEU PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES514M131822
+  src: eea
 roche:
   km: 0.45
   name: PLAYA ROCHE PM1
   quality: 1 - Excellent
   season: 2025
   site_id: ES612M0141372
+  src: eea
+roches-noires:
+  km: 0.15
+  name: PLAGE DES ROCHES NOIRES
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRY4097415M974015
   src: eea
 rodiles:
   km: 0.44
@@ -1754,12 +3392,54 @@ rodiles:
   season: 2025
   site_id: ES120M076533
   src: eea
+rodvig:
+  km: 0.33
+  name: REVGAARD
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DKBW90
+  src: eea
+s-gravenzande:
+  km: 0.12
+  name: '''S-GRAVENZANDE'
+  quality: 1 - Excellent
+  season: 2025
+  site_id: NLBW95_SGRAVZDBSD
+  src: eea
 sabon:
   km: 0.31
   name: PLAYA ALBA-SAB?N PM1
   quality: 1 - Excellent
   season: 2025
   site_id: ES111M0052122
+  src: eea
+sagunto:
+  km: 0.06
+  name: PLAYA DEL PORT DE SAGUNT PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES523M2201056
+  src: eea
+saint-leu:
+  km: 0.75
+  name: PLAGE CENTRE VILLE DE SAINT-LEU
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRY4097413M974040
+  src: eea
+saint-pierre:
+  km: 0.28
+  name: PLAGE CENTRE VILLE DE SAINT-PIERRE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRY4097416M974065
+  src: eea
+sainte-adresse:
+  km: 0.72
+  name: LE HAVRE-PLAGE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRD2276351M076463
   src: eea
 sainte-barbe:
   km: 1.92
@@ -1782,6 +3462,13 @@ salinas:
   season: 2025
   site_id: ES120M016468
   src: eea
+sampieri:
+  km: 0.16
+  name: SPIAGGIA PISCIOTTO
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019088011010
+  src: eea
 san-antolin:
   km: 0.34
   name: PLAYA SAN ANTOL?N PM1
@@ -1803,6 +3490,13 @@ san-cosme:
   season: 2025
   site_id: ES112M005234
   src: eea
+san-giovanni-li-cuti:
+  km: 0.09
+  name: SAN GIOVANNI LI CUTI
+  quality: 4 - Poor
+  season: 2025
+  site_id: IT019087015006
+  src: eea
 san-juan:
   km: 0.26
   name: PLAYA SAN JUAN DE NIEVA PM1
@@ -1817,12 +3511,26 @@ san-juan-ic:
   season: 2025
   site_id: ES708M0241789
   src: eea
+san-leone:
+  km: 0.02
+  name: EX LIDO ASTER
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019084001005
+  src: eea
 san-lorenzo:
   km: 0.03
   name: PLAYA SAN LORENZO PM2
   quality: 1 - Excellent
   season: 2025
   site_id: ES120M024485
+  src: eea
+san-vito-lo-capo:
+  km: 0.15
+  name: SPIAGGIA SAN VITO - HOTEL CAPO SAN VITO
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019081020003
   src: eea
 san-xurxo:
   km: 0.35
@@ -1831,11 +3539,46 @@ san-xurxo:
   season: 2025
   site_id: ES111M03676
   src: eea
+sandhamn-halmstad:
+  km: 0.73
+  name: SVÄRJAREHÅLAN
+  quality: 1 - Excellent
+  season: 2025
+  site_id: SE0A11380000001292
+  src: eea
 sandshoes-reef:
   km: 0.16
   name: Shelly Beach (Sutherland)
   site_id: d9267cc6-7983-47ce-a7ba-a9a1dd932ebb
   src: nsw
+sant-andreu-de-llavaneres:
+  km: 0.24
+  name: PLAYA DE LES BARQUES-ESTACI? PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES511M197672
+  src: eea
+sant-marti-dempuries:
+  km: 0.35
+  name: PLAYA DEL MOLL GREC PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES512M062725
+  src: eea
+sant-pol-de-mar:
+  km: 0.06
+  name: PLAYA DE LES BARQUES PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES511M235676
+  src: eea
+sant-tomas:
+  km: 0.03
+  name: PLAYA SANT TOM?S PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES533M9021264
+  src: eea
 santa-comba:
   km: 0.67
   name: PLAYA SANTA COMBA PM1
@@ -1885,6 +3628,41 @@ sarridal:
   season: 2025
   site_id: ES111M061155
   src: eea
+scheveningen-pier:
+  km: 1.04
+  name: SCHEVENINGEN ZWARTE PAD
+  quality: 3 - Sufficient
+  season: 2025
+  site_id: NLBW95_SCHEVNGZTPBS
+  src: eea
+scheveningen-zuid:
+  km: 0.78
+  name: SCHEVENINGEN ZUIDERSTRAND
+  quality: 2 - Good
+  season: 2025
+  site_id: NLBW95_SCHEVNGZD
+  src: eea
+sciotot:
+  km: 1.08
+  name: SCIOTOT
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRD1250402M050220
+  src: eea
+scoglitti:
+  km: 0.22
+  name: SPIAGGIA LUNGOMARE - VIA DEL MARE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019088012002
+  src: eea
+segur-de-calafell:
+  km: 0.37
+  name: PLAYA DE SERGUR PONENT PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES514M0372800
+  src: eea
 shark-island:
   km: 0.63
   name: Shelly Beach (Sutherland)
@@ -1895,6 +3673,34 @@ shelly-beach:
   name: Shelly Beach (Ballina)
   site_id: 3edce205-4954-4df5-b0f8-a7b56a826677
   src: nsw
+siouville:
+  km: 0.4
+  name: FACE AU POSTE SDIS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRD1250576M050212
+  src: eea
+sitges:
+  km: 0.02
+  name: PLAYA DE LA RIBERA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES511M270684
+  src: eea
+skrea:
+  km: 0.21
+  name: SKREA STRAND SYD
+  quality: 1 - Excellent
+  season: 2025
+  site_id: SE0A11382000002849
+  src: eea
+smidstrup:
+  km: 0.42
+  name: TINKERUP STRAND
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DKBW384
+  src: eea
 soesto:
   km: 0.12
   name: PLAYA SOESTO PM1
@@ -1909,6 +3715,27 @@ somo:
   season: 2025
   site_id: ES130M061555
   src: eea
+son-bou:
+  km: 0.12
+  name: PLAYA SON BOU PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES533M0021078
+  src: eea
+son-serra-de-marina:
+  km: 0.1
+  name: PLAYA SON SERRA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES532M0551242
+  src: eea
+son-serra-nova:
+  km: 1.76
+  name: PLAYA SON SERRA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES532M0551242
+  src: eea
 sorginetxe:
   km: 0.61
   name: PLAYA DE DEBA PM1
@@ -1921,6 +3748,13 @@ south-wall:
   name: Shaws Bay East Arm
   site_id: affb6525-87ba-4165-b06b-f511cfe31af2
   src: nsw
+st-peter-ording:
+  km: 0.16
+  name: NORDS STPETER ORDING ORDING
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DESH_PR_0078
+  src: eea
 st-raphael:
   km: 0.05
   name: PAREKKLISIA
@@ -1928,12 +3762,47 @@ st-raphael:
   season: 2025
   site_id: CY000512500000069A
   src: eea
+stenbjerg:
+  km: 0.05
+  name: STENBJERG
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DKBW311
+  src: eea
+steninge:
+  km: 0.72
+  name: STENINGE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: SE0A11380000000366
+  src: eea
+strand-buren:
+  km: 0.07
+  name: BADSTRAND BUREN, AMELAND
+  quality: 1 - Excellent
+  season: 2025
+  site_id: NLBW81_BURBSD
+  src: eea
+stravalla:
+  km: 0.1
+  name: STRÅVALLA
+  quality: 2 - Good
+  season: 2025
+  site_id: SE0A11383000000642
+  src: eea
 supertubos:
   km: 0.33
   name: MEDÃO-SUPERTUBOS
   quality: 1 - Excellent
   season: 2025
   site_id: PTCF2K
+  src: eea
+surtainville:
+  km: 0.25
+  name: FACE AU CD 66
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRD1250585M050235
   src: eea
 tamarama-beach:
   km: 0.05
@@ -1946,6 +3815,69 @@ tapia:
   quality: 2 - Good
   season: 2025
   site_id: ES120M0702496
+  src: eea
+tarantonio:
+  km: 0.19
+  name: VIA MARINA INCROCIO VIA CALAMARO
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019083105002
+  src: eea
+ter-heijde:
+  km: 0.3
+  name: MONSTER TER HEIJDE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: NLBW95_TERHDBSD
+  src: eea
+terschelling:
+  km: 0.38
+  name: BADSTRAND WEST AAN ZEE,TERSCHELLING
+  quality: 1 - Excellent
+  season: 2025
+  site_id: NLBW81_TERSLPL8
+  src: eea
+texel-paal-12:
+  km: 0.84
+  name: GROTE VLAK
+  quality: 1 - Excellent
+  season: 2025
+  site_id: NLBW95_VLAKBSD
+  src: eea
+texel-paal-17:
+  km: 0.55
+  name: BLEEKERSVALLEI
+  quality: 1 - Excellent
+  season: 2025
+  site_id: NLBW95_BLEEKBSD
+  src: eea
+timmendorfer-strand:
+  km: 0.08
+  name: OSTS TIMMENDORFER STRAND
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DESH_PR_0081
+  src: eea
+tisvildeleje:
+  km: 0.13
+  name: TISVILDELEJE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DKBW393
+  src: eea
+tofta:
+  km: 0.16
+  name: TOFTA
+  quality: 1 - Excellent
+  season: 2025
+  site_id: SE0940980000000262
+  src: eea
+tolderstien:
+  km: 0.95
+  name: KLITMØLLER
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DKBW233
   src: eea
 tonel:
   km: 0.15
@@ -1961,12 +3893,47 @@ torimbia:
   season: 2025
   site_id: ES120M0362656
   src: eea
+torre-bank:
+  km: 0.34
+  name: PLAYA DE LA PAELLA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES514M153836
+  src: eea
+torre-del-mar:
+  km: 0.12
+  name: PLAYA TORRE DEL MAR PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES617M0941575
+  src: eea
+torre-faro:
+  km: 0.4
+  name: TORRE FARO - VIA DEI DUE MARI, 27
+  quality: 1 - Excellent
+  season: 2025
+  site_id: IT019083048010
+  src: eea
+torre-valentina:
+  km: 0.28
+  name: PLAYA DE TORRE VALENTINA PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES512M034712
+  src: eea
 traba:
   km: 0.59
   name: PLAYA TRABA PM1
   quality: 1 - Excellent
   season: 2025
   site_id: ES111M04094
+  src: eea
+tre-fontane:
+  km: 0.13
+  name: 3 FONTANE (LATO EST) - BAR NETTUNO
+  quality: 3 - Sufficient
+  season: 2025
+  site_id: IT019081004004
   src: eea
 tregandin:
   km: 0.47
@@ -1982,11 +3949,39 @@ tres-piedras:
   season: 2025
   site_id: ES612M0161381
   src: eea
+trois-bassins:
+  km: 1.39
+  name: PLAGE DE LA POINTE TROIS ROCHES
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRY4097415M974040
+  src: eea
+trois-roches:
+  km: 0.21
+  name: PLAGE DE LA POINTE TROIS ROCHES
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRY4097415M974040
+  src: eea
 turimetta-beach:
   km: 0.16
   name: Turimetta Beach
   site_id: 811e1dd7-4a4b-4146-a1c6-c05c67a24d03
   src: nsw
+tylosand:
+  km: 0.04
+  name: TYLÖSAND
+  quality: 1 - Excellent
+  season: 2025
+  site_id: SE0A11380000000371
+  src: eea
+ugglarp:
+  km: 0.44
+  name: UGGLARP S VASSVIK
+  quality: 1 - Excellent
+  season: 2025
+  site_id: SE0A11382000003933
+  src: eea
 vagabundos:
   km: 0.02
   name: PLAYA SAN FELIPE PM1
@@ -2015,12 +4010,33 @@ valdevaqueros:
   season: 2025
   site_id: ES612M0351417
   src: eea
+vaucottes:
+  km: 1.31
+  name: YPORT-PLAGE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRD2276754M076343
+  src: eea
+vauville:
+  km: 0.4
+  name: VAUVILLE La Crecque
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRD1250041M050200
+  src: eea
 vega:
   km: 0.26
   name: PLAYA VEGA PM1
   quality: 1 - Excellent
   season: 2025
   site_id: ES120M056524
+  src: eea
+vejers-strand:
+  km: 0.13
+  name: VEJERS STRAND, VED ÅLESTRØMMEN
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DKBW1296
   src: eea
 venus-beach:
   km: 0.03
@@ -2035,6 +4051,13 @@ verdicio:
   quality: 1 - Excellent
   season: 2025
   site_id: ES120M025498
+  src: eea
+veules-les-roses:
+  km: 0.25
+  name: VEULES-PLAGE
+  quality: 3 - Sufficient
+  season: 2025
+  site_id: FRD2276735M076193
   src: eea
 viana-castelo:
   km: 1.94
@@ -2057,6 +4080,20 @@ vieux-boucau:
   season: 2025
   site_id: FRI1340328M040084
   src: eea
+vigso-bay:
+  km: 0.21
+  name: VIGSØ
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DKBW231
+  src: eea
+vik-simrishamn:
+  km: 1.14
+  name: Viks fiskeläge
+  quality: 1 - Excellent
+  season: 2025
+  site_id: SE0441291000004311
+  src: eea
 vila-ancora:
   km: 0.08
   name: VILA PRAIA DE ÂNCORA
@@ -2071,26 +4108,110 @@ vilarrube:
   season: 2025
   site_id: ES111M087228
   src: eea
+vilsharad:
+  km: 0.42
+  name: VILSHÄRAD
+  quality: 1 - Excellent
+  season: 2025
+  site_id: SE0A11380000000369
+  src: eea
 voodoo:
   km: 1.05
   name: Boat Harbour
   site_id: 8990825d-b48c-443f-9047-862a0b986621
   src: nsw
+voramar:
+  km: 0.07
+  name: PLAYA DE VORAMAR PM1
+  quality: 1 - Excellent
+  season: 2025
+  site_id: ES522M028972
+  src: eea
+vorupor:
+  km: 0.25
+  name: NR. VORUPØR
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DKBW310
+  src: eea
+vorupor-south-side:
+  km: 0.28
+  name: NR. VORUPØR HAVBAD
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DKBW1623
+  src: eea
 wanda-beach:
   km: 0.15
   name: Wanda Beach
   site_id: 961a22b7-38a3-424e-a7fb-8ecbda7148b1
   src: nsw
+warnemuende:
+  km: 0.73
+  name: OSTSEE AM LEUCHTTURM WARNEMUENDE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DEMV_PR_1_0235
+  src: eea
 warriewood-beach:
   km: 0.06
   name: Warriewood Beach
   site_id: 767e63ca-9d8c-4ef8-bc6a-928ac8f1cd62
   src: nsw
+wassenaarse-slag:
+  km: 0.08
+  name: WASSENAARSE SLAG
+  quality: 1 - Excellent
+  season: 2025
+  site_id: NLBW95_WASSNSSBSD
+  src: eea
+weisse-duene:
+  km: 0.53
+  name: NORDSEESTRAND WEISSE DUENE NORDERNEY
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DENI_PR_TK25_2209_03
+  src: eea
+weissenhaeuser-strand:
+  km: 0.23
+  name: OSTS WEISSENHAEUSER STRAND
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DESH_PR_0099
+  src: eea
+wenningstedt:
+  km: 0.06
+  name: NORDS SYLT WENNINGSTEDT
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DESH_PR_0072
+  src: eea
+westkapelle:
+  km: 0.97
+  name: WESTKAPELLE ERIKA BADSTRAND
+  quality: 1 - Excellent
+  season: 2025
+  site_id: NLBW89_WESTKPLERBSD
+  src: eea
 whale-beach:
   km: 0.07
   name: Whale Beach
   site_id: 0f982c83-1c9d-4f01-a4af-cf97ba9ead28
   src: nsw
+wijk-aan-zee-noordpier:
+  km: 0.85
+  name: IJMUIDEN KLEIN STRAND
+  quality: 2 - Good
+  season: 2025
+  site_id: NLBW95_IJMDZHVKSD
+  src: eea
+wustrow:
+  km: 0.27
+  name: OSTSEE WUSTROW FISCHLAENDER STRAND
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DEMV_PR_1_0217
+  src: eea
 xago:
   km: 0.46
   name: PLAYA DE XAG? PM2
@@ -2104,6 +4225,13 @@ yerbabuena:
   quality: 1 - Excellent
   season: 2025
   site_id: ES612M0072206
+  src: eea
+yport:
+  km: 0.03
+  name: YPORT-PLAGE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: FRD2276754M076343
   src: eea
 zahara-de-los-atunes:
   km: 0.55
@@ -2119,6 +4247,13 @@ zahora:
   season: 2025
   site_id: ES612M0071359
   src: eea
+zandvoort:
+  km: 0.5
+  name: ZANDVOORT AAN ZEE
+  quality: 1 - Excellent
+  season: 2025
+  site_id: NLBW95_ZANDVBSD
+  src: eea
 zarautz:
   km: 0.69
   name: PLAYA DE ZARAUTZ PM3
@@ -2132,6 +4267,27 @@ zavial:
   quality: 1 - Excellent
   season: 2025
   site_id: PTCN2M
+  src: eea
+zingst:
+  km: 0.06
+  name: OSTSEE ZINGST KURHAUS
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DEMV_PR_1_0205
+  src: eea
+zinnowitz:
+  km: 0.52
+  name: OSTSEE ZINNOWITZ FISCHERSTRAND
+  quality: 1 - Excellent
+  season: 2025
+  site_id: DEMV_PR_1_0742
+  src: eea
+zoutelande:
+  km: 0.28
+  name: ZOUTELANDE SMIDSHOEKJE BADSTRAND
+  quality: 2 - Good
+  season: 2025
+  site_id: NLBW89_ZOUTLDSHJBSD
   src: eea
 zurriola:
   km: 0.27

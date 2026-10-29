@@ -1,0 +1,72 @@
+{
+  "spot": "houhai",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.2699,
+    109.7213
+  ],
+  "bearing_seaward_deg": 84.0,
+  "nearshore_depth_m": 14.0,
+  "offshore_depth_m": 44.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.27013,
+      "lon": 109.72365,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.27037,
+      "lon": 109.72601,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.27084,
+      "lon": 109.73072,
+      "depth_m": -40.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.27178,
+      "lon": 109.74014,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.27272,
+      "lon": 109.74956,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.27459,
+      "lon": 109.76839,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.27741,
+      "lon": 109.79665,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.28115,
+      "lon": 109.83433,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.28675,
+      "lon": 109.89085,
+      "depth_m": 44.0
+    }
+  ]
+}

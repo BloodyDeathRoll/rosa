@@ -1,0 +1,72 @@
+{
+  "spot": "el-jucar",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    39.1532,
+    -0.2386
+  ],
+  "bearing_seaward_deg": 89.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 85.0,
+  "mean_slope_m_per_km": 4.73,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 39.15324,
+      "lon": -0.2357,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 39.15328,
+      "lon": -0.2328,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 39.15336,
+      "lon": -0.227,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 39.15351,
+      "lon": -0.21541,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 39.15367,
+      "lon": -0.20381,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 39.15397,
+      "lon": -0.18062,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 39.15442,
+      "lon": -0.14583,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 39.155,
+      "lon": -0.09945,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 39.15584,
+      "lon": -0.02987,
+      "depth_m": 85.0
+    }
+  ]
+}

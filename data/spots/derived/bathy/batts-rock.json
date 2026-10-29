@@ -1,0 +1,72 @@
+{
+  "spot": "batts-rock",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    13.135,
+    -59.6371
+  ],
+  "bearing_seaward_deg": 289.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 1027.0,
+  "mean_slope_m_per_km": 57.8,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.13573,
+      "lon": -59.63928,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.13646,
+      "lon": -59.64147,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.13793,
+      "lon": -59.64583,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.14086,
+      "lon": -59.65456,
+      "depth_m": 192.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.14378,
+      "lon": -59.6633,
+      "depth_m": 231.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.14964,
+      "lon": -59.68076,
+      "depth_m": 327.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.15841,
+      "lon": -59.70696,
+      "depth_m": 458.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.17011,
+      "lon": -59.7419,
+      "depth_m": 634.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.18765,
+      "lon": -59.7943,
+      "depth_m": 1027.0
+    }
+  ]
+}

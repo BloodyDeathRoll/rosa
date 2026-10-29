@@ -1,0 +1,72 @@
+{
+  "spot": "platja-de-lauir",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    39.0298,
+    -0.18
+  ],
+  "bearing_seaward_deg": 59.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 85.0,
+  "mean_slope_m_per_km": 4.45,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 39.03096,
+      "lon": -0.17752,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 39.03212,
+      "lon": -0.17504,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 39.03443,
+      "lon": -0.17008,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 39.03906,
+      "lon": -0.16015,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 39.04369,
+      "lon": -0.15022,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 39.05295,
+      "lon": -0.13037,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 39.06683,
+      "lon": -0.10057,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 39.08532,
+      "lon": -0.06083,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 39.11304,
+      "lon": -0.00117,
+      "depth_m": 85.0
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+# Rosa spot database - Murcia. La Manga and the Mar Menor's outer shore, Calblanque and
+# Portman: an E-SE-facing western Mediterranean coast on short-period Levante wind swell,
+# offshore on the W-NW. Every spot carries offshore_km along its own seaward normal;
+# break_type per spot.
+
+country: "Spain"
+
+defaults: &mur
+  timezone: Europe/Madrid
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [20, 200]
+  ideal:
+    wind_dir: [240, 330]
+    size_m: [0.5, 1.5]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - murcia, 12 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 12 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/murcia/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: la-manga, name: "La Manga", town: "La Manga del Mar Menor", lat: 37.6531, lon: -0.7167, offshore_direction: 248, swell_window: [3, 133], offshore_km: 5.0, <<: *mur }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-de-entremares, name: "Playa de Entremares", town: "La Manga del Mar Menor", lat: 37.6426, lon: -0.7106, offshore_direction: 246, swell_window: [1, 131], offshore_km: 5.0, <<: *mur }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-del-descargador, name: "Playa del Descargador", town: "Cabo de Palos", lat: 37.6207, lon: -0.7087, offshore_direction: 8, swell_window: [123, 253], offshore_km: 5.0, <<: *mur }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: calblanque, name: "Calblanque", town: "Cartagena", lat: 37.5996, lon: -0.7468, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, <<: *mur }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-de-portus, name: "Playa de Portus", town: "Cartagena", lat: 37.5841, lon: -1.0732, offshore_direction: 357, swell_window: [112, 242], offshore_km: 5.0, <<: *mur }  # sat-verified 2026-10-29 (websearch-seeded); seaward re-aimed to 177 (3c gate)
+  - { id: portman, name: "Portman", town: "Portmán", lat: 37.5817, lon: -0.8485, offshore_direction: 348, swell_window: [103, 233], offshore_km: 5.0, <<: *mur }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-de-la-parajola, name: "Playa de la Parajola", town: "Cartagena", lat: 37.5807, lon: -1.0126, offshore_direction: 328, swell_window: [83, 213], offshore_km: 5.0, <<: *mur }  # sat-verified 2026-10-29 (websearch-seeded); seaward re-aimed to 148 (3c gate)
+  - { id: playa-de-fatares, name: "Playa de Fatares", town: "Cartagena", lat: 37.5795, lon: -1.0328, offshore_direction: 6, swell_window: [121, 251], offshore_km: 5.0, <<: *mur }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-del-gorguel, name: "Playa del Gorguel", town: "Cartagena", lat: 37.5773, lon: -0.8767, offshore_direction: 337, swell_window: [92, 222], offshore_km: 5.0, <<: *mur }  # sat-verified 2026-10-29 (websearch-seeded); seaward re-aimed to 157 (3c gate)
+  - { id: playa-de-bolnuevo, name: "Playa de Bolnuevo", town: "Mazarrón", lat: 37.5616, lon: -1.3080, offshore_direction: 12, swell_window: [127, 257], offshore_km: 5.0, <<: *mur }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-de-la-chapineta, name: "Playa de la Chapineta", town: "Mazarrón", lat: 37.5565, lon: -1.1695, offshore_direction: 72, swell_window: [187, 317], offshore_km: 5.0, <<: *mur }  # sat-verified 2026-10-29 (websearch-seeded); seaward re-aimed to 252 (3c gate)
+  - { id: playa-de-percheles, name: "Playa de Percheles", town: "Mazarrón", lat: 37.5296, lon: -1.3811, offshore_direction: 344, swell_window: [99, 229], offshore_km: 5.0, <<: *mur }  # sat-verified 2026-10-29 (websearch-seeded)

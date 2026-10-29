@@ -1,0 +1,40 @@
+# Rosa spot database - Guatemala (seeded 2026-10-29). One coast only: the Pacific, a near
+# straight black-sand shore facing SSW from Ocos on the Mexican border to Las Lisas near El
+# Salvador - beach and rivermouth breaks (El Paredon, Sipacate, Iztapa, Monterrico) on S-SW
+# Southern Ocean groundswell, Apr-Oct peak, same window as El Salvador.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Guatemala"
+
+defaults: &gt
+  timezone: America/Guatemala
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [150, 260]
+  ideal:
+    wind_dir: [0, 60]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - guatemala, 13 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 13 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/guatemala/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: ocos, name: "Ocos", town: "Ocós", lat: 14.5058, lon: -92.1958, offshore_direction: 39, swell_window: [154, 284], offshore_km: 5.0, <<: *gt }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: tilapa, name: "Tilapa", town: "Tilapa", lat: 14.4919, lon: -92.1757, offshore_direction: 64, swell_window: [179, 309], offshore_km: 5.0, <<: *gt }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: champerico, name: "Champerico", town: "Champerico", lat: 14.2918, lon: -91.9174, offshore_direction: 34, swell_window: [149, 279], offshore_km: 5.0, <<: *gt }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: tulate, name: "Tulate", town: "Tulate", lat: 14.1514, lon: -91.7149, offshore_direction: 35, swell_window: [150, 280], offshore_km: 5.0, <<: *gt }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: tecojate, name: "Tecojate", town: "Tecojate", lat: 13.9733, lon: -91.3656, offshore_direction: 25, swell_window: [140, 270], offshore_km: 5.0, <<: *gt }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: iztapa, name: "Iztapa", town: "Iztapa", lat: 13.9283, lon: -90.7096, offshore_direction: 353, swell_window: [108, 238], offshore_km: 5.0, <<: *gt }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: sipacate, name: "Sipacate", town: "Sipacate", lat: 13.9207, lon: -91.1372, offshore_direction: 7, swell_window: [122, 252], offshore_km: 5.0, <<: *gt }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: puerto-san-jose, name: "Puerto San Jose", town: "Puerto San José", lat: 13.9157, lon: -90.8184, offshore_direction: 358, swell_window: [113, 243], offshore_km: 5.0, <<: *gt }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: el-paredon, name: "El Paredon", town: "El Paredón", lat: 13.9153, lon: -91.0725, offshore_direction: 2, swell_window: [117, 247], offshore_km: 5.0, <<: *gt }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: chulamar, name: "Chulamar", town: "Chulamar", lat: 13.9108, lon: -90.8971, offshore_direction: 351, swell_window: [106, 236], offshore_km: 5.0, <<: *gt }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: monterrico, name: "Monterrico", town: "Monterrico", lat: 13.8903, lon: -90.4869, offshore_direction: 15, swell_window: [130, 260], offshore_km: 5.0, <<: *gt }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: las-lisas, name: "Las Lisas", town: "Las Lisas", lat: 13.7997, lon: -90.2628, offshore_direction: 25, swell_window: [140, 270], offshore_km: 5.0, <<: *gt }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: barra-de-la-gabina, name: "Barra de la Gabina", town: "La Barrona", lat: 13.7687, lon: -90.1874, offshore_direction: 23, swell_window: [138, 268], offshore_km: 5.0, <<: *gt }  # sat-verified 2026-10-29 (websearch-seeded)

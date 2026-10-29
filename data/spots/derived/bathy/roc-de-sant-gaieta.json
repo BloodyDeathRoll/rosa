@@ -1,0 +1,72 @@
+{
+  "spot": "roc-de-sant-gaieta",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.1679,
+    1.4806
+  ],
+  "bearing_seaward_deg": 164.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 287.0,
+  "mean_slope_m_per_km": 15.66,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.16574,
+      "lon": 1.48142,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.16358,
+      "lon": 1.48225,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.15926,
+      "lon": 1.48389,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.15061,
+      "lon": 1.48718,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.14197,
+      "lon": 1.49047,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.12467,
+      "lon": 1.49705,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.09874,
+      "lon": 1.50692,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.06416,
+      "lon": 1.52005,
+      "depth_m": 138.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.01228,
+      "lon": 1.53973,
+      "depth_m": 287.0
+    }
+  ]
+}

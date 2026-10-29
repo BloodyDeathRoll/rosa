@@ -1,0 +1,72 @@
+{
+  "spot": "baishawan",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    25.2849,
+    121.5165
+  ],
+  "bearing_seaward_deg": 348.0,
+  "nearshore_depth_m": -21.0,
+  "offshore_depth_m": 108.0,
+  "mean_slope_m_per_km": 7.27,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 25.2871,
+      "lon": 121.51598,
+      "depth_m": -21.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 25.2893,
+      "lon": 121.51547,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 25.2937,
+      "lon": 121.51443,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 25.30249,
+      "lon": 121.51236,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 25.31129,
+      "lon": 121.51029,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 25.32888,
+      "lon": 121.50616,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 25.35527,
+      "lon": 121.49995,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 25.39046,
+      "lon": 121.49166,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 25.44324,
+      "lon": 121.47923,
+      "depth_m": 108.0
+    }
+  ]
+}

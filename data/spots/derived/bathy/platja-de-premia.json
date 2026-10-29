@@ -1,0 +1,72 @@
+{
+  "spot": "platja-de-premia",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.4881,
+    2.3569
+  ],
+  "bearing_seaward_deg": 189.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 95.0,
+  "mean_slope_m_per_km": 4.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.48588,
+      "lon": 2.35643,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.48366,
+      "lon": 2.35596,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.47922,
+      "lon": 2.35502,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.47033,
+      "lon": 2.35314,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.46145,
+      "lon": 2.35127,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.44369,
+      "lon": 2.34752,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.41704,
+      "lon": 2.34189,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.38151,
+      "lon": 2.3344,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.32821,
+      "lon": 2.32318,
+      "depth_m": 95.0
+    }
+  ]
+}

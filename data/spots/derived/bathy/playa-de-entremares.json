@@ -1,0 +1,72 @@
+{
+  "spot": "playa-de-entremares",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.6426,
+    -0.7106
+  ],
+  "bearing_seaward_deg": 66.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 116.0,
+  "mean_slope_m_per_km": 6.08,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.64351,
+      "lon": -0.70801,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.64443,
+      "lon": -0.70541,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.64626,
+      "lon": -0.70022,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.64991,
+      "lon": -0.68985,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.65357,
+      "lon": -0.67947,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.66088,
+      "lon": -0.65871,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.67183,
+      "lon": -0.62756,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.68643,
+      "lon": -0.58602,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.70829,
+      "lon": -0.52368,
+      "depth_m": 116.0
+    }
+  ]
+}

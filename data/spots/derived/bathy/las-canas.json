@@ -1,0 +1,72 @@
+{
+  "spot": "las-canas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    19.3137,
+    -69.3992
+  ],
+  "bearing_seaward_deg": 33.0,
+  "nearshore_depth_m": 118.0,
+  "offshore_depth_m": 2253.0,
+  "mean_slope_m_per_km": 120.28,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 19.31559,
+      "lon": -69.3979,
+      "depth_m": 118.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 19.31747,
+      "lon": -69.3966,
+      "depth_m": 128.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 19.32124,
+      "lon": -69.39401,
+      "depth_m": 143.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 19.32878,
+      "lon": -69.38882,
+      "depth_m": 153.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 19.33633,
+      "lon": -69.38363,
+      "depth_m": 167.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 19.35141,
+      "lon": -69.37324,
+      "depth_m": 188.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 19.37403,
+      "lon": -69.35766,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 19.4042,
+      "lon": -69.33688,
+      "depth_m": 1221.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 19.44944,
+      "lon": -69.3057,
+      "depth_m": 2253.0
+    }
+  ]
+}

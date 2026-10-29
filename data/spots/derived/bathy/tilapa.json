@@ -1,0 +1,72 @@
+{
+  "spot": "tilapa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    14.4919,
+    -92.1757
+  ],
+  "bearing_seaward_deg": 244.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 32.0,
+  "mean_slope_m_per_km": 1.75,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 14.49091,
+      "lon": -92.17779,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 14.48993,
+      "lon": -92.17987,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 14.48796,
+      "lon": -92.18405,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 14.48401,
+      "lon": -92.1924,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 14.48007,
+      "lon": -92.20074,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 14.47218,
+      "lon": -92.21744,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 14.46035,
+      "lon": -92.24248,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 14.44457,
+      "lon": -92.27586,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 14.42089,
+      "lon": -92.32593,
+      "depth_m": 32.0
+    }
+  ]
+}

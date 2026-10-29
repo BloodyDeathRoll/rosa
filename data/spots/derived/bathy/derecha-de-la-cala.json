@@ -1,0 +1,72 @@
+{
+  "spot": "derecha-de-la-cala",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.5274,
+    -0.1616
+  ],
+  "bearing_seaward_deg": 134.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 87.0,
+  "mean_slope_m_per_km": 4.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.52584,
+      "lon": -0.15953,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.52428,
+      "lon": -0.15747,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.52115,
+      "lon": -0.15333,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.5149,
+      "lon": -0.14506,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.50866,
+      "lon": -0.1368,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.49616,
+      "lon": -0.12027,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.4774,
+      "lon": -0.09549,
+      "depth_m": 76.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.45239,
+      "lon": -0.06247,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.41486,
+      "lon": -0.01298,
+      "depth_m": 87.0
+    }
+  ]
+}

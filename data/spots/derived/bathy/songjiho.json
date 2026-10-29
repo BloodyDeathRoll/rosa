@@ -1,0 +1,72 @@
+{
+  "spot": "songjiho",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.3412,
+    128.5189
+  ],
+  "bearing_seaward_deg": 50.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 1221.0,
+  "mean_slope_m_per_km": 68.39,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.34265,
+      "lon": 128.5211,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.34409,
+      "lon": 128.52329,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.34698,
+      "lon": 128.52768,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.35276,
+      "lon": 128.53647,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.35854,
+      "lon": 128.54526,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.3701,
+      "lon": 128.56284,
+      "depth_m": 174.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.38742,
+      "lon": 128.58921,
+      "depth_m": 514.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.41052,
+      "lon": 128.6244,
+      "depth_m": 971.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.44515,
+      "lon": 128.67723,
+      "depth_m": 1221.0
+    }
+  ]
+}

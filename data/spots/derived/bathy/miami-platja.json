@@ -1,0 +1,72 @@
+{
+  "spot": "miami-platja",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.0087,
+    0.943
+  ],
+  "bearing_seaward_deg": 125.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 78.0,
+  "mean_slope_m_per_km": 4.11,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.00741,
+      "lon": 0.94544,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.00612,
+      "lon": 0.94788,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.00354,
+      "lon": 0.95276,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.99838,
+      "lon": 0.96252,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.99322,
+      "lon": 0.97228,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.9829,
+      "lon": 0.99179,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.96741,
+      "lon": 1.02105,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.94674,
+      "lon": 1.06004,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.91572,
+      "lon": 1.11848,
+      "depth_m": 78.0
+    }
+  ]
+}

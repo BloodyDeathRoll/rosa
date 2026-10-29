@@ -1,0 +1,72 @@
+{
+  "spot": "wushibi",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    23.2285,
+    121.417
+  ],
+  "bearing_seaward_deg": 104.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 1472.0,
+  "mean_slope_m_per_km": 82.87,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 23.22796,
+      "lon": 121.41937,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 23.22741,
+      "lon": 121.42175,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 23.22632,
+      "lon": 121.4265,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 23.22415,
+      "lon": 121.43599,
+      "depth_m": 163.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 23.22197,
+      "lon": 121.44549,
+      "depth_m": 231.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 23.21761,
+      "lon": 121.46448,
+      "depth_m": 195.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 23.21108,
+      "lon": 121.49296,
+      "depth_m": 652.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 23.20235,
+      "lon": 121.53093,
+      "depth_m": 1331.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 23.18925,
+      "lon": 121.58787,
+      "depth_m": 1472.0
+    }
+  ]
+}

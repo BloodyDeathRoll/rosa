@@ -1,0 +1,72 @@
+{
+  "spot": "la-herradura",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.7336,
+    -3.7419
+  ],
+  "bearing_seaward_deg": 220.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 532.0,
+  "mean_slope_m_per_km": 29.69,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.73188,
+      "lon": -3.7437,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.73016,
+      "lon": -3.74551,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.72671,
+      "lon": -3.74911,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.71982,
+      "lon": -3.75632,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.71293,
+      "lon": -3.76353,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.69915,
+      "lon": -3.77795,
+      "depth_m": 128.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.67847,
+      "lon": -3.79956,
+      "depth_m": 259.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.6509,
+      "lon": -3.82836,
+      "depth_m": 352.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.60952,
+      "lon": -3.87153,
+      "depth_m": 532.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "punta-prima",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.9414,
+    -0.7109
+  ],
+  "bearing_seaward_deg": 135.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 89.0,
+  "mean_slope_m_per_km": 4.73,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.93981,
+      "lon": -0.70888,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.93822,
+      "lon": -0.70687,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.93504,
+      "lon": -0.70284,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.92868,
+      "lon": -0.69478,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.92232,
+      "lon": -0.68672,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.9096,
+      "lon": -0.6706,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.89051,
+      "lon": -0.64644,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.86505,
+      "lon": -0.61424,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.82685,
+      "lon": -0.56598,
+      "depth_m": 89.0
+    }
+  ]
+}

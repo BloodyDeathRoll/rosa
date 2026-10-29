@@ -1,0 +1,72 @@
+{
+  "spot": "sant-pol-de-mar",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.6003,
+    2.6242
+  ],
+  "bearing_seaward_deg": 138.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 173.0,
+  "mean_slope_m_per_km": 9.24,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.59863,
+      "lon": 2.62621,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.59696,
+      "lon": 2.62822,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.59362,
+      "lon": 2.63225,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.58693,
+      "lon": 2.64029,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.58025,
+      "lon": 2.64833,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.56688,
+      "lon": 2.66442,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.54682,
+      "lon": 2.68852,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.52006,
+      "lon": 2.72065,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.47991,
+      "lon": 2.76878,
+      "depth_m": 173.0
+    }
+  ]
+}

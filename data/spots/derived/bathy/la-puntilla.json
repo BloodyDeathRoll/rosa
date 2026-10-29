@@ -1,0 +1,72 @@
+{
+  "spot": "la-puntilla",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    19.7679,
+    -70.5177
+  ],
+  "bearing_seaward_deg": 330.0,
+  "nearshore_depth_m": -13.0,
+  "offshore_depth_m": 2261.0,
+  "mean_slope_m_per_km": 128.11,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 19.76985,
+      "lon": -70.51889,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 19.77179,
+      "lon": -70.52009,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 19.77569,
+      "lon": -70.52248,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 19.78348,
+      "lon": -70.52726,
+      "depth_m": 145.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 19.79126,
+      "lon": -70.53204,
+      "depth_m": 232.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 19.80684,
+      "lon": -70.5416,
+      "depth_m": 425.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 19.8302,
+      "lon": -70.55594,
+      "depth_m": 902.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 19.86135,
+      "lon": -70.57507,
+      "depth_m": 1644.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 19.90807,
+      "lon": -70.60378,
+      "depth_m": 2261.0
+    }
+  ]
+}

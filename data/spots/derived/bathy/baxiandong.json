@@ -1,0 +1,72 @@
+{
+  "spot": "baxiandong",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    23.3976,
+    121.4806
+  ],
+  "bearing_seaward_deg": 107.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 2074.0,
+  "mean_slope_m_per_km": 117.24,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 23.39694,
+      "lon": 121.48294,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 23.39629,
+      "lon": 121.48529,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 23.39497,
+      "lon": 121.48997,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 23.39234,
+      "lon": 121.49934,
+      "depth_m": 247.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 23.38971,
+      "lon": 121.50871,
+      "depth_m": 352.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 23.38445,
+      "lon": 121.52745,
+      "depth_m": 671.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 23.37655,
+      "lon": 121.55555,
+      "depth_m": 1330.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 23.36601,
+      "lon": 121.59302,
+      "depth_m": 1772.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 23.35018,
+      "lon": 121.64921,
+      "depth_m": 2074.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "fish-pass-jetty",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    27.6753,
+    -97.1652
+  ],
+  "bearing_seaward_deg": 122.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 22.0,
+  "mean_slope_m_per_km": 1.07,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 27.67411,
+      "lon": -97.16305,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 27.67292,
+      "lon": -97.16089,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 27.67053,
+      "lon": -97.15659,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 27.66577,
+      "lon": -97.14798,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 27.661,
+      "lon": -97.13937,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 27.65146,
+      "lon": -97.12215,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 27.63716,
+      "lon": -97.09633,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 27.61807,
+      "lon": -97.06191,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 27.58943,
+      "lon": -97.01031,
+      "depth_m": 22.0
+    }
+  ]
+}

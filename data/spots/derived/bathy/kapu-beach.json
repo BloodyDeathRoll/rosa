@@ -1,0 +1,72 @@
+{
+  "spot": "kapu-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    13.2226,
+    74.7373
+  ],
+  "bearing_seaward_deg": 255.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 2.08,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.22202,
+      "lon": 74.73507,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.22144,
+      "lon": 74.73284,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.22027,
+      "lon": 74.72838,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.21794,
+      "lon": 74.71945,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.21562,
+      "lon": 74.71053,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.21096,
+      "lon": 74.69269,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.20397,
+      "lon": 74.66592,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.19465,
+      "lon": 74.63023,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.18065,
+      "lon": 74.57671,
+      "depth_m": 30.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "bout-de-l-etang",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -20.991,
+    55.2802
+  ],
+  "bearing_seaward_deg": 281.0,
+  "nearshore_depth_m": 16.0,
+  "offshore_depth_m": 684.0,
+  "mean_slope_m_per_km": 37.63,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -20.99057,
+      "lon": 55.27784,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -20.99014,
+      "lon": 55.27547,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -20.98928,
+      "lon": 55.27074,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -20.98757,
+      "lon": 55.26129,
+      "depth_m": 122.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -20.98585,
+      "lon": 55.25183,
+      "depth_m": 340.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -20.98241,
+      "lon": 55.23293,
+      "depth_m": 312.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -20.97726,
+      "lon": 55.20456,
+      "depth_m": 96.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -20.97037,
+      "lon": 55.16675,
+      "depth_m": 342.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -20.96003,
+      "lon": 55.11004,
+      "depth_m": 684.0
+    }
+  ]
+}

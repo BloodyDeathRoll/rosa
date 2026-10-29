@@ -1,0 +1,72 @@
+{
+  "spot": "daejin-donghae",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.5823,
+    129.1095
+  ],
+  "bearing_seaward_deg": 14.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 341.0,
+  "mean_slope_m_per_km": 18.82,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.58448,
+      "lon": 129.11019,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.58666,
+      "lon": 129.11087,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.59103,
+      "lon": 129.11225,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.59975,
+      "lon": 129.11499,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.60848,
+      "lon": 129.11774,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.62593,
+      "lon": 129.12323,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.65211,
+      "lon": 129.13148,
+      "depth_m": 103.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.68701,
+      "lon": 129.14249,
+      "depth_m": 198.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.73936,
+      "lon": 129.15902,
+      "depth_m": 341.0
+    }
+  ]
+}

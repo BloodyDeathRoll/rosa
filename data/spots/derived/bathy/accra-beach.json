@@ -1,0 +1,72 @@
+{
+  "spot": "accra-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    13.0727,
+    -59.588
+  ],
+  "bearing_seaward_deg": 199.0,
+  "nearshore_depth_m": 50.0,
+  "offshore_depth_m": 583.0,
+  "mean_slope_m_per_km": 30.03,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.07057,
+      "lon": -59.58875,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.06845,
+      "lon": -59.5895,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.0642,
+      "lon": -59.59101,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.05569,
+      "lon": -59.59401,
+      "depth_m": 133.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.04719,
+      "lon": -59.59702,
+      "depth_m": 197.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.03018,
+      "lon": -59.60303,
+      "depth_m": 261.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.00467,
+      "lon": -59.61204,
+      "depth_m": 369.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 12.97066,
+      "lon": -59.62405,
+      "depth_m": 410.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 12.91964,
+      "lon": -59.64207,
+      "depth_m": 583.0
+    }
+  ]
+}

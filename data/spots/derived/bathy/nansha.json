@@ -1,0 +1,72 @@
+{
+  "spot": "nansha",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    29.8771,
+    122.4039
+  ],
+  "bearing_seaward_deg": 154.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 14.0,
+  "mean_slope_m_per_km": 1.3,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 29.87508,
+      "lon": 122.40504,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 29.87306,
+      "lon": 122.40617,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 29.86902,
+      "lon": 122.40845,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 29.86093,
+      "lon": 122.41299,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 29.85285,
+      "lon": 122.41754,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 29.83668,
+      "lon": 122.42662,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 29.81243,
+      "lon": 122.44025,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 29.78009,
+      "lon": 122.45841,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 29.73158,
+      "lon": 122.48562,
+      "depth_m": 14.0
+    }
+  ]
+}

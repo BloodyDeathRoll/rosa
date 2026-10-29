@@ -1,0 +1,72 @@
+{
+  "spot": "kannur",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    11.8814,
+    75.3438
+  ],
+  "bearing_seaward_deg": 232.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 34.0,
+  "mean_slope_m_per_km": 1.86,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.88002,
+      "lon": 75.34199,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.87863,
+      "lon": 75.34018,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.87586,
+      "lon": 75.33656,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.87033,
+      "lon": 75.32932,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.86479,
+      "lon": 75.32208,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.85371,
+      "lon": 75.30759,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.8371,
+      "lon": 75.28587,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.81495,
+      "lon": 75.25692,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.78171,
+      "lon": 75.21349,
+      "depth_m": 34.0
+    }
+  ]
+}

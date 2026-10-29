@@ -1,0 +1,72 @@
+{
+  "spot": "thotlakonda-point",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    17.8242,
+    83.4163
+  ],
+  "bearing_seaward_deg": 91.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 42.0,
+  "mean_slope_m_per_km": 2.03,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 17.82416,
+      "lon": 83.41866,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 17.82412,
+      "lon": 83.42102,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 17.82404,
+      "lon": 83.42575,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 17.82389,
+      "lon": 83.43519,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 17.82373,
+      "lon": 83.44464,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 17.82341,
+      "lon": 83.46353,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 17.82293,
+      "lon": 83.49186,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 17.82228,
+      "lon": 83.52964,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 17.8213,
+      "lon": 83.58631,
+      "depth_m": 42.0
+    }
+  ]
+}

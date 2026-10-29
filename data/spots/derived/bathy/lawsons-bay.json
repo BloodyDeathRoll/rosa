@@ -1,0 +1,72 @@
+{
+  "spot": "lawsons-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    17.7346,
+    83.3433
+  ],
+  "bearing_seaward_deg": 98.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 50.0,
+  "mean_slope_m_per_km": 2.54,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 17.73429,
+      "lon": 83.34564,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 17.73397,
+      "lon": 83.34797,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 17.73335,
+      "lon": 83.35265,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 17.7321,
+      "lon": 83.362,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 17.73084,
+      "lon": 83.37135,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 17.72834,
+      "lon": 83.39005,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 17.72457,
+      "lon": 83.4181,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 17.71955,
+      "lon": 83.45549,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 17.712,
+      "lon": 83.51158,
+      "depth_m": 50.0
+    }
+  ]
+}

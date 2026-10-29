@@ -1,0 +1,72 @@
+{
+  "spot": "arambol",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    15.679,
+    73.7044
+  ],
+  "bearing_seaward_deg": 256.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 31.0,
+  "mean_slope_m_per_km": 1.8,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 15.67846,
+      "lon": 73.70213,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 15.67791,
+      "lon": 73.69987,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 15.67682,
+      "lon": 73.69534,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 15.67465,
+      "lon": 73.68627,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 15.67247,
+      "lon": 73.67721,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 15.66812,
+      "lon": 73.65909,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 15.66158,
+      "lon": 73.6319,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 15.65287,
+      "lon": 73.59565,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 15.63978,
+      "lon": 73.54129,
+      "depth_m": 31.0
+    }
+  ]
+}

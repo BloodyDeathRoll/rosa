@@ -1,0 +1,34 @@
+# Rosa spot database - Tamil Nadu (with Puducherry) (seeded 2026-10-29). The Bay of Bengal coast from Chennai's
+# Covelong Point and Mahabalipuram through Puducherry to Manapad and Kanyakumari: S-SE
+# groundswell and cyclone swell, offshore in the SW monsoon.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+country: "India"
+
+defaults: &tn
+  timezone: Asia/Kolkata
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [60, 200]
+  ideal:
+    wind_dir: [225, 315]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - tamil-nadu, 9 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 9 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/tamil-nadu/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: fishermans-cove, name: "Fisherman's Cove", town: "Kovalam", lat: 12.7971, lon: 80.2506, offshore_direction: 265, swell_window: [20, 150], offshore_km: 5.0, <<: *tn }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: covelong-point, name: "Covelong Point", town: "Kovalam", lat: 12.7885, lon: 80.2545, offshore_direction: 274, swell_window: [29, 159], offshore_km: 5.0, <<: *tn }  # sat-verified 2026-10-29 (websearch-seeded); normal re-aimed by hand to seaward 94 (3c gate)
+  - { id: mahabalipuram, name: "Mahabalipuram", town: "Mahabalipuram", lat: 12.6195, lon: 80.1990, offshore_direction: 282, swell_window: [37, 167], offshore_km: 5.0, <<: *tn }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: auroville, name: "Auroville", town: "Auroville", lat: 11.9853, lon: 79.8488, offshore_direction: 291, swell_window: [46, 176], offshore_km: 5.0, <<: *tn }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: serenity-beach, name: "Serenity Beach", town: "Kottakuppam", lat: 11.9705, lon: 79.8452, offshore_direction: 293, swell_window: [48, 178], offshore_km: 5.0, <<: *tn }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: pondicherry, name: "Pondicherry", town: "Puducherry", lat: 11.9254, lon: 79.8347, offshore_direction: 285, swell_window: [40, 170], offshore_km: 5.0, <<: *tn }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: tiruchendur, name: "Tiruchendur", town: "Tiruchendur", lat: 8.4930, lon: 78.1290, offshore_direction: 309, swell_window: [64, 194], offshore_km: 5.0, <<: *tn }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: manapad-point, name: "Manapad Point", town: "Manapad", lat: 8.3719, lon: 78.0663, offshore_direction: 338, swell_window: [93, 223], offshore_km: 5.0, <<: *tn }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: vattakottai, name: "Vattakottai", town: "Kanyakumari", lat: 8.1269, lon: 77.5667, offshore_direction: 321, swell_window: [76, 206], offshore_km: 5.0, <<: *tn }  # sat-verified 2026-10-29 (websearch-seeded)

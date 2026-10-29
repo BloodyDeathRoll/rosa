@@ -1,0 +1,72 @@
+{
+  "spot": "san-jose-island",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    27.841,
+    -97.0433
+  ],
+  "bearing_seaward_deg": 108.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 22.0,
+  "mean_slope_m_per_km": 0.56,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 27.84031,
+      "lon": -97.04088,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 27.83961,
+      "lon": -97.03846,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 27.83822,
+      "lon": -97.03363,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 27.83544,
+      "lon": -97.02396,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 27.83266,
+      "lon": -97.01428,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 27.8271,
+      "lon": -96.99494,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 27.81875,
+      "lon": -96.96593,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 27.8076,
+      "lon": -96.92726,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 27.79087,
+      "lon": -96.86927,
+      "depth_m": 22.0
+    }
+  ]
+}

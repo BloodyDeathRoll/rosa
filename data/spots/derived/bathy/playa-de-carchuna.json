@@ -1,0 +1,72 @@
+{
+  "spot": "playa-de-carchuna",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.6954,
+    -3.4514
+  ],
+  "bearing_seaward_deg": 206.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 728.0,
+  "mean_slope_m_per_km": 41.24,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.69338,
+      "lon": -3.45263,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.69136,
+      "lon": -3.45386,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.68732,
+      "lon": -3.45632,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.67923,
+      "lon": -3.46123,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.67115,
+      "lon": -3.46615,
+      "depth_m": 202.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.65498,
+      "lon": -3.47597,
+      "depth_m": 391.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.63073,
+      "lon": -3.4907,
+      "depth_m": 445.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.59839,
+      "lon": -3.51033,
+      "depth_m": 606.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.54987,
+      "lon": -3.53973,
+      "depth_m": 728.0
+    }
+  ]
+}

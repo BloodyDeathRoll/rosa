@@ -1,0 +1,72 @@
+{
+  "spot": "shalun",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    25.1901,
+    121.4132
+  ],
+  "bearing_seaward_deg": 356.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 78.0,
+  "mean_slope_m_per_km": 4.34,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 25.19234,
+      "lon": 121.41303,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 25.19459,
+      "lon": 121.41285,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 25.19907,
+      "lon": 121.41251,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 25.20804,
+      "lon": 121.41181,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 25.21701,
+      "lon": 121.41112,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 25.23496,
+      "lon": 121.40973,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 25.26187,
+      "lon": 121.40765,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 25.29776,
+      "lon": 121.40487,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 25.35158,
+      "lon": 121.4007,
+      "depth_m": 78.0
+    }
+  ]
+}

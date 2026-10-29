@@ -1,0 +1,72 @@
+{
+  "spot": "playa-de-lagos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.7149,
+    -4.2006
+  ],
+  "bearing_seaward_deg": 177.0,
+  "nearshore_depth_m": -14.0,
+  "offshore_depth_m": 425.0,
+  "mean_slope_m_per_km": 24.73,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.71265,
+      "lon": -4.20045,
+      "depth_m": -14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.71041,
+      "lon": -4.20031,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.70592,
+      "lon": -4.20001,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.69694,
+      "lon": -4.19943,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.68796,
+      "lon": -4.19884,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.67,
+      "lon": -4.19767,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.64305,
+      "lon": -4.19591,
+      "depth_m": 203.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.60713,
+      "lon": -4.19356,
+      "depth_m": 302.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.55324,
+      "lon": -4.19005,
+      "depth_m": 425.0
+    }
+  ]
+}

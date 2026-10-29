@@ -1,0 +1,72 @@
+{
+  "spot": "namyeol",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.5804,
+    127.4871
+  ],
+  "bearing_seaward_deg": 118.0,
+  "nearshore_depth_m": -16.0,
+  "offshore_depth_m": 16.0,
+  "mean_slope_m_per_km": 1.8,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.57934,
+      "lon": 127.48951,
+      "depth_m": -16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.57829,
+      "lon": 127.49192,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.57618,
+      "lon": 127.49674,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.57195,
+      "lon": 127.50639,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.56773,
+      "lon": 127.51603,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.55928,
+      "lon": 127.53531,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.5466,
+      "lon": 127.56422,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.52968,
+      "lon": 127.60276,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.50428,
+      "lon": 127.66054,
+      "depth_m": 16.0
+    }
+  ]
+}

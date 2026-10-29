@@ -1,0 +1,72 @@
+{
+  "spot": "iho-taewoo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    33.4987,
+    126.4531
+  ],
+  "bearing_seaward_deg": 320.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 130.0,
+  "mean_slope_m_per_km": 7.21,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.50042,
+      "lon": 126.45137,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.50214,
+      "lon": 126.44963,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.50559,
+      "lon": 126.44617,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.51248,
+      "lon": 126.43923,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.51937,
+      "lon": 126.4323,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.53314,
+      "lon": 126.41843,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.5538,
+      "lon": 126.39761,
+      "depth_m": 105.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.58134,
+      "lon": 126.36983,
+      "depth_m": 120.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.62264,
+      "lon": 126.32814,
+      "depth_m": 130.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "airport-lefts-fuzhou",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    25.962,
+    119.7019
+  ],
+  "bearing_seaward_deg": 118.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 16.0,
+  "mean_slope_m_per_km": 1.3,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 25.96094,
+      "lon": 119.70411,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 25.95989,
+      "lon": 119.70632,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 25.95778,
+      "lon": 119.71073,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 25.95355,
+      "lon": 119.71956,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 25.94933,
+      "lon": 119.72839,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 25.94088,
+      "lon": 119.74605,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 25.92821,
+      "lon": 119.77253,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 25.9113,
+      "lon": 119.80784,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 25.88592,
+      "lon": 119.86077,
+      "depth_m": 16.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "port-aransas-south-jetty",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    27.8333,
+    -97.0448
+  ],
+  "bearing_seaward_deg": 140.0,
+  "nearshore_depth_m": 18.0,
+  "offshore_depth_m": 23.0,
+  "mean_slope_m_per_km": 0.28,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 27.83158,
+      "lon": -97.04317,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 27.82986,
+      "lon": -97.04153,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 27.82641,
+      "lon": -97.03826,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 27.81952,
+      "lon": -97.03173,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 27.81263,
+      "lon": -97.02519,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 27.79885,
+      "lon": -97.01213,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 27.77818,
+      "lon": -96.99253,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 27.75061,
+      "lon": -96.96642,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 27.70924,
+      "lon": -96.92727,
+      "depth_m": 23.0
+    }
+  ]
+}

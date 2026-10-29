@@ -1,0 +1,55 @@
+# Rosa spot database - Catalonia. The Costa Brava, Barcelona's Maresme and city beaches
+# (Masnou, Barceloneta, Bogatell) and the Costa Daurada south to the Ebro delta: a
+# SE-facing western Mediterranean coast that breaks on short-period E-S wind swell from
+# Levante and Gregal storms, offshore on the NW mestral. Every spot carries offshore_km
+# along its own seaward normal; break_type per spot.
+
+country: "Spain"
+
+defaults: &cat
+  timezone: Europe/Madrid
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [45, 225]
+  ideal:
+    wind_dir: [270, 360]
+    size_m: [0.5, 1.5]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - catalonia, 29 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 29 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/catalonia/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: empuriabrava, name: "Empuriabrava", town: "Empuriabrava", lat: 42.2413, lon: 3.1305, offshore_direction: 304, swell_window: [59, 189], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: sant-marti-dempuries, name: "Sant Marti d'Empuries", town: "L'Escala", lat: 42.1410, lon: 3.1185, offshore_direction: 268, swell_window: [23, 153], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: torre-valentina, name: "Torre Valentina", town: "Sant Antoni de Calonge", lat: 41.8375, lon: 3.0936, offshore_direction: 308, swell_window: [63, 193], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: platja-de-sant-pol, name: "Platja de Sant Pol", town: "Sant Feliu de Guíxols", lat: 41.7902, lon: 3.0487, offshore_direction: 341, swell_window: [96, 226], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: cala-de-santa-cristina, name: "Cala de Santa Cristina", town: "Lloret de Mar", lat: 41.6882, lon: 2.8187, offshore_direction: 309, swell_window: [64, 194], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded); seaward re-aimed to 129 (3c gate)
+  - { id: desembocadura-del-tordera, name: "Desembocadura del Tordera", town: "Blanes", lat: 41.6515, lon: 2.7778, offshore_direction: 311, swell_window: [66, 196], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: sant-pol-de-mar, name: "Sant Pol de Mar", town: "Sant Pol de Mar", lat: 41.6003, lon: 2.6242, offshore_direction: 318, swell_window: [73, 203], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: arenys-de-mar, name: "Arenys de Mar", town: "Arenys de Mar", lat: 41.5772, lon: 2.5520, offshore_direction: 1, swell_window: [116, 246], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: sant-andreu-de-llavaneres, name: "Sant Andreu de Llavaneres", town: "Sant Andreu de Llavaneres", lat: 41.5554, lon: 2.4984, offshore_direction: 316, swell_window: [71, 201], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: port-de-mataro, name: "Port de Mataro", town: "Mataró", lat: 41.5328, lon: 2.4485, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: cabrera, name: "Cabrera", town: "Vilassar de Mar", lat: 41.5058, lon: 2.4015, offshore_direction: 287, swell_window: [42, 172], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: lespigo, name: "L'Espigo", town: "Vilassar de Mar", lat: 41.5005, lon: 2.3898, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: platja-de-premia, name: "Platja de Premia", town: "Premià de Mar", lat: 41.4881, lon: 2.3569, offshore_direction: 9, swell_window: [124, 254], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: el-masnou, name: "El Masnou", town: "el Masnou", lat: 41.4766, lon: 2.3179, offshore_direction: 331, swell_window: [86, 216], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: la-rotonda, name: "La Rotonda", town: "Montgat", lat: 41.4717, lon: 2.2950, offshore_direction: 309, swell_window: [64, 194], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: montgat, name: "Montgat", town: "Montgat", lat: 41.4622, lon: 2.2729, offshore_direction: 329, swell_window: [84, 214], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: nova-mar-bella, name: "Nova Mar Bella", town: "Barcelona", lat: 41.3987, lon: 2.2132, offshore_direction: 320, swell_window: [75, 205], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: bogatell, name: "Bogatell", town: "Barcelona", lat: 41.3938, lon: 2.2071, offshore_direction: 311, swell_window: [66, 196], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: barceloneta, name: "Barceloneta", town: "Barcelona", lat: 41.3793, lon: 2.1934, offshore_direction: 298, swell_window: [53, 183], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded); seaward re-aimed to 118 (3c gate)
+  - { id: port-ginesta, name: "Port Ginesta", town: "Castelldefels", lat: 41.2602, lon: 1.9295, offshore_direction: 332, swell_window: [87, 217], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: garraf, name: "Garraf", town: "Garraf", lat: 41.2540, lon: 1.9037, offshore_direction: 307, swell_window: [62, 192], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: aiguadolc, name: "Aiguadolc", town: "Sitges", lat: 41.2360, lon: 1.8280, offshore_direction: 314, swell_window: [69, 199], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: sitges, name: "Sitges", town: "Sitges", lat: 41.2341, lon: 1.8076, offshore_direction: 337, swell_window: [92, 222], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded); seaward re-aimed to 157 (3c gate)
+  - { id: segur-de-calafell, name: "Segur de Calafell", town: "Segur de Calafell", lat: 41.1884, lon: 1.6050, offshore_direction: 351, swell_window: [106, 236], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded); seaward re-aimed to 171 (3c gate)
+  - { id: roc-de-sant-gaieta, name: "Roc de Sant Gaieta", town: "Roda de Berà", lat: 41.1679, lon: 1.4806, offshore_direction: 344, swell_window: [99, 229], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded); seaward re-aimed to 164 (3c gate)
+  - { id: torre-bank, name: "Torre Bank", town: "Torredembarra", lat: 41.1372, lon: 1.4038, offshore_direction: 302, swell_window: [57, 187], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: altafulla, name: "Altafulla", town: "Altafulla", lat: 41.1326, lon: 1.3733, offshore_direction: 339, swell_window: [94, 224], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: comandancia, name: "Comandancia", town: "Tarragona", lat: 41.1104, lon: 1.2537, offshore_direction: 304, swell_window: [59, 189], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: miami-platja, name: "Miami Platja", town: "Miami Platja", lat: 41.0087, lon: 0.9430, offshore_direction: 305, swell_window: [60, 190], offshore_km: 5.0, <<: *cat }  # sat-verified 2026-10-29 (websearch-seeded)

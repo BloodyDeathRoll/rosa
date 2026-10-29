@@ -1,0 +1,72 @@
+{
+  "spot": "sant-andreu-de-llavaneres",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.5554,
+    2.4984
+  ],
+  "bearing_seaward_deg": 136.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 137.0,
+  "mean_slope_m_per_km": 7.44,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.55378,
+      "lon": 2.50049,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.55217,
+      "lon": 2.50257,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.54893,
+      "lon": 2.50675,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.54246,
+      "lon": 2.51509,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.53599,
+      "lon": 2.52344,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.52305,
+      "lon": 2.54012,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.50363,
+      "lon": 2.56513,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.47773,
+      "lon": 2.59846,
+      "depth_m": 94.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.43886,
+      "lon": 2.6484,
+      "depth_m": 137.0
+    }
+  ]
+}

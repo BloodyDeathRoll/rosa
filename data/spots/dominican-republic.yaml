@@ -1,0 +1,51 @@
+# Rosa spot database - Dominican Republic (seeded 2026-10-29). The north (Amber) coast carries
+# most of the surf - Puerto Plata, Sosua, Cabarete, Encuentro, Rio San Juan, Nagua - on open
+# North Atlantic winter swell (Nov-Mar) and the NE trade windswell; the east (Macao, Punta
+# Cana) takes the trade swell, and the south coast (Santo Domingo, Bani, Barahona) runs on
+# Caribbean S swell and tropical systems.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Dominican Republic"
+
+defaults: &do
+  timezone: America/Santo_Domingo
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [290, 90]
+  ideal:
+    wind_dir: [135, 225]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - dominican-republic, 23 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 23 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/dominican-republic/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: encuentro, name: "Encuentro", town: "Cabarete", lat: 19.7848, lon: -70.4538, offshore_direction: 156, swell_window: [271, 41], offshore_km: 5.0, <<: *do }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: coco-pipe, name: "Coco Pipe", town: "Cabarete", lat: 19.7822, lon: -70.4462, offshore_direction: 193, swell_window: [308, 78], offshore_km: 5.0, <<: *do }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: la-puntilla, name: "La Puntilla", town: "Sosúa", lat: 19.7679, lon: -70.5177, offshore_direction: 150, swell_window: [265, 35], offshore_km: 5.0, <<: *do }  # sat-verified 2026-10-29 (websearch-seeded); normal re-aimed to seaward 330 (open GEBCO arc, 3c)
+  - { id: cabarete, name: "Cabarete", town: "Cabarete", lat: 19.7526, lon: -70.4019, offshore_direction: 143, swell_window: [258, 28], offshore_km: 5.0, <<: *do }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: la-preciosa, name: "La Preciosa", town: "Río San Juan", lat: 19.6796, lon: -69.9945, offshore_direction: 129, swell_window: [244, 14], offshore_km: 5.0, <<: *do }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-grande-do, name: "Playa Grande", town: "Río San Juan", lat: 19.6785, lon: -70.0165, offshore_direction: 195, swell_window: [310, 80], offshore_km: 5.0, <<: *do }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-bonita-do, name: "Playa Bonita", town: "Las Terrenas", lat: 19.3156, lon: -69.5670, offshore_direction: 200, swell_window: [315, 85], offshore_km: 5.0, <<: *do }  # sat-verified 2026-10-29 (websearch-seeded); normal re-aimed to seaward 20 (open GEBCO arc, 3c)
+  - { id: las-canas, name: "Las Canas", town: "El Limón", lat: 19.3137, lon: -69.3992, offshore_direction: 213, swell_window: [328, 98], offshore_km: 5.0, <<: *do }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: balata, name: "Balata", town: "Cosón", lat: 19.2967, lon: -69.6049, offshore_direction: 179, swell_window: [294, 64], offshore_km: 5.0, <<: *do }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-coson, name: "Playa Coson", town: "Cosón", lat: 19.2961, lon: -69.6137, offshore_direction: 191, swell_window: [306, 76], offshore_km: 5.0, <<: *do }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: macao, name: "Macao", town: "Uvero Alto", lat: 18.7751, lon: -68.5386, offshore_direction: 221, swell_window: [336, 106], offshore_km: 5.0, <<: *do }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: coco-nuts, name: "Coco Nuts", town: "Bávaro", lat: 18.7098, lon: -68.4371, offshore_direction: 261, swell_window: [16, 146], offshore_km: 5.0, <<: *do }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: guibia, name: "Guibia", town: "Santo Domingo", lat: 18.4593, lon: -69.9050, offshore_direction: 348, swell_window: [103, 233], offshore_km: 5.0, <<: *do }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-caribe-do, name: "Playa Caribe", town: "Juan Dolio", lat: 18.4241, lon: -69.4235, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, <<: *do }  # sat-verified 2026-10-29 (websearch-seeded); normal re-aimed to seaward 180 (open GEBCO arc, 3c)
+  - { id: najayo, name: "Najayo", town: "Carlos Pintos", lat: 18.3017, lon: -70.1045, offshore_direction: 312, swell_window: [67, 197], offshore_km: 5.0, <<: *do }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-pato, name: "Playa Pato", town: "Don Gregorio", lat: 18.2293, lon: -70.1893, offshore_direction: 16, swell_window: [131, 261], offshore_km: 5.0, <<: *do }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: baoruco, name: "Baoruco", town: "Baoruco", lat: 18.0790, lon: -71.0890, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, <<: *do }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: la-cienega, name: "La Cienaga", town: "La Ciénaga", lat: 18.0651, lon: -71.1042, offshore_direction: 341, swell_window: [96, 226], offshore_km: 5.0, <<: *do }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: san-rafael, name: "San Rafael", town: "San Rafael", lat: 18.0319, lon: -71.1322, offshore_direction: 322, swell_window: [77, 207], offshore_km: 5.0, <<: *do }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: paraiso, name: "Paraiso", town: "Paraíso", lat: 17.9900, lon: -71.1617, offshore_direction: 322, swell_window: [77, 207], offshore_km: 5.0, <<: *do }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: los-patos-do, name: "Los Patos", town: "Los Patos", lat: 17.9564, lon: -71.1830, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, <<: *do }  # sat-verified 2026-10-29 (websearch-seeded); normal re-aimed to seaward 120 (open GEBCO arc, 3c)
+  - { id: cabo-mongo, name: "Cabo Mongo", town: "Cabo Mongó", lat: 17.6224, lon: -71.4038, offshore_direction: 320, swell_window: [75, 205], offshore_km: 5.0, <<: *do }  # sat-verified 2026-10-29 (websearch-seeded); normal re-aimed to seaward 140 (open GEBCO arc, 3c)
+  - { id: cabo-beata, name: "Cabo Beata", town: "Cabo Esperanza (Piti Cabo)", lat: 17.6090, lon: -71.4202, offshore_direction: 312, swell_window: [67, 197], offshore_km: 5.0, <<: *do }  # sat-verified 2026-10-29 (websearch-seeded)

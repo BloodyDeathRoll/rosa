@@ -1,0 +1,72 @@
+{
+  "spot": "playa-del-dedo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.7165,
+    -4.3493
+  ],
+  "bearing_seaward_deg": 200.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 120.0,
+  "mean_slope_m_per_km": 6.37,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.71439,
+      "lon": -4.35026,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.71227,
+      "lon": -4.35122,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.70805,
+      "lon": -4.35314,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.6996,
+      "lon": -4.35697,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.69115,
+      "lon": -4.36081,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.67424,
+      "lon": -4.36848,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.64889,
+      "lon": -4.37997,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.61508,
+      "lon": -4.39528,
+      "depth_m": 83.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.56436,
+      "lon": -4.41823,
+      "depth_m": 120.0
+    }
+  ]
+}

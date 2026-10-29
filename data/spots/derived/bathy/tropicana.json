@@ -1,0 +1,72 @@
+{
+  "spot": "tropicana",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    6.228,
+    -10.6709
+  ],
+  "bearing_seaward_deg": 185.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 61.0,
+  "mean_slope_m_per_km": 3.83,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 6.22576,
+      "lon": -10.6711,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 6.22352,
+      "lon": -10.67129,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 6.21904,
+      "lon": -10.67169,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 6.21008,
+      "lon": -10.67248,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 6.20112,
+      "lon": -10.67327,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 6.18321,
+      "lon": -10.67484,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 6.15633,
+      "lon": -10.67721,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 6.12049,
+      "lon": -10.68036,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 6.06674,
+      "lon": -10.68509,
+      "depth_m": 61.0
+    }
+  ]
+}

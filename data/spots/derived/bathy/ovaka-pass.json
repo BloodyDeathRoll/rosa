@@ -1,0 +1,72 @@
+{
+  "spot": "ovaka-pass",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -18.7592,
+    -174.1009
+  ],
+  "bearing_seaward_deg": 234.0,
+  "nearshore_depth_m": 20.0,
+  "offshore_depth_m": 919.0,
+  "mean_slope_m_per_km": 50.65,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -18.76052,
+      "lon": -174.10282,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -18.76184,
+      "lon": -174.10474,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -18.76449,
+      "lon": -174.10858,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -18.76977,
+      "lon": -174.11627,
+      "depth_m": 84.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -18.77506,
+      "lon": -174.12395,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -18.78563,
+      "lon": -174.13933,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -18.80148,
+      "lon": -174.16239,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -18.82261,
+      "lon": -174.19314,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -18.8543,
+      "lon": -174.23929,
+      "depth_m": 919.0
+    }
+  ]
+}

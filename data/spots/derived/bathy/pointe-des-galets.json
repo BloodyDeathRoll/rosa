@@ -1,0 +1,72 @@
+{
+  "spot": "pointe-des-galets",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -20.957,
+    55.2773
+  ],
+  "bearing_seaward_deg": 261.0,
+  "nearshore_depth_m": 18.0,
+  "offshore_depth_m": 658.0,
+  "mean_slope_m_per_km": 36.06,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -20.95735,
+      "lon": 55.27492,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -20.9577,
+      "lon": 55.27254,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -20.95841,
+      "lon": 55.26779,
+      "depth_m": 204.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -20.95981,
+      "lon": 55.25828,
+      "depth_m": 427.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -20.96122,
+      "lon": 55.24876,
+      "depth_m": 560.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -20.96403,
+      "lon": 55.22974,
+      "depth_m": 455.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -20.96824,
+      "lon": 55.2012,
+      "depth_m": 136.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -20.97384,
+      "lon": 55.16315,
+      "depth_m": 329.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -20.98224,
+      "lon": 55.10606,
+      "depth_m": 658.0
+    }
+  ]
+}

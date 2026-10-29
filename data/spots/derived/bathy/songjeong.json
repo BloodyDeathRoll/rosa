@@ -1,0 +1,72 @@
+{
+  "spot": "songjeong",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.1787,
+    129.2003
+  ],
+  "bearing_seaward_deg": 121.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 105.0,
+  "mean_slope_m_per_km": 5.75,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.17754,
+      "lon": 129.20266,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.17638,
+      "lon": 129.20502,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.17407,
+      "lon": 129.20973,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.16943,
+      "lon": 129.21916,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.1648,
+      "lon": 129.22859,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.15553,
+      "lon": 129.24744,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.14162,
+      "lon": 129.27572,
+      "depth_m": 94.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.12307,
+      "lon": 129.3134,
+      "depth_m": 101.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.09521,
+      "lon": 129.36989,
+      "depth_m": 105.0
+    }
+  ]
+}

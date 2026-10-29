@@ -1,0 +1,72 @@
+{
+  "spot": "the-pass-tongatapu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -21.0736,
+    -175.3409
+  ],
+  "bearing_seaward_deg": 307.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 1939.0,
+  "mean_slope_m_per_km": 108.68,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -21.07225,
+      "lon": -175.34282,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -21.07089,
+      "lon": -175.34475,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -21.06819,
+      "lon": -175.3486,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -21.06277,
+      "lon": -175.35629,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -21.05736,
+      "lon": -175.36399,
+      "depth_m": 528.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -21.04653,
+      "lon": -175.37938,
+      "depth_m": 963.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -21.03029,
+      "lon": -175.40246,
+      "depth_m": 1356.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -21.00863,
+      "lon": -175.43322,
+      "depth_m": 1928.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -20.97612,
+      "lon": -175.47936,
+      "depth_m": 1939.0
+    }
+  ]
+}

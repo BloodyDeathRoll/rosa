@@ -1,0 +1,72 @@
+{
+  "spot": "tulate",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    14.1514,
+    -91.7149
+  ],
+  "bearing_seaward_deg": 215.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 29.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 14.14956,
+      "lon": -91.71623,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 14.14772,
+      "lon": -91.71756,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 14.14403,
+      "lon": -91.72022,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 14.13667,
+      "lon": -91.72554,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 14.1293,
+      "lon": -91.73086,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 14.11456,
+      "lon": -91.74149,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 14.09246,
+      "lon": -91.75745,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 14.06299,
+      "lon": -91.77871,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 14.01878,
+      "lon": -91.8106,
+      "depth_m": 29.0
+    }
+  ]
+}

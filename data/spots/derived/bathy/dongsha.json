@@ -1,0 +1,72 @@
+{
+  "spot": "dongsha",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    29.8835,
+    122.4142
+  ],
+  "bearing_seaward_deg": 116.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 19.0,
+  "mean_slope_m_per_km": 1.13,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 29.88251,
+      "lon": 122.41653,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 29.88153,
+      "lon": 122.41886,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 29.87956,
+      "lon": 122.42352,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 29.87561,
+      "lon": 122.43284,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 29.87167,
+      "lon": 122.44216,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 29.86378,
+      "lon": 122.4608,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 29.85194,
+      "lon": 122.48876,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 29.83614,
+      "lon": 122.52602,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 29.81243,
+      "lon": 122.58189,
+      "depth_m": 19.0
+    }
+  ]
+}

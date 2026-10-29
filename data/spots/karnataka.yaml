@@ -1,0 +1,38 @@
+# Rosa spot database - Karnataka (seeded 2026-10-29). The Arabian Sea coast from Mangaluru (Sasihithlu,
+# Mulki, Tannirbhavi) through Udupi (Kapu, Malpe, Maravanthe) to Murudeshwar and Gokarna:
+# SW monsoon swell and the pre/post-monsoon groundswell.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+country: "India"
+
+defaults: &ka
+  timezone: Asia/Kolkata
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [190, 320]
+  ideal:
+    wind_dir: [45, 135]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - karnataka, 13 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 13 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/karnataka/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: gokarna-main-beach, name: "Gokarna Main Beach", town: "Gokarna", lat: 14.5450, lon: 74.3128, offshore_direction: 79, swell_window: [194, 324], offshore_km: 5.0, <<: *ka }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: kudle, name: "Kudle", town: "Gokarna", lat: 14.5284, lon: 74.3159, offshore_direction: 74, swell_window: [189, 319], offshore_km: 5.0, <<: *ka }  # sat-verified 2026-10-29 (websearch-seeded); normal re-aimed by hand to seaward 254 (3c gate)
+  - { id: om-beach, name: "Om Beach", town: "Gokarna", lat: 14.5191, lon: 74.3254, offshore_direction: 72, swell_window: [187, 317], offshore_km: 5.0, <<: *ka }  # sat-verified 2026-10-29 (websearch-seeded); normal re-aimed by hand to seaward 252 (3c gate)
+  - { id: nirvana-beach, name: "Nirvana Beach", town: "Gokarna", lat: 14.4983, lon: 74.3595, offshore_direction: 64, swell_window: [179, 309], offshore_km: 5.0, <<: *ka }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: kumta, name: "Kumta", town: "Kumta", lat: 14.4165, lon: 74.3928, offshore_direction: 71, swell_window: [186, 316], offshore_km: 5.0, <<: *ka }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: murudeshwar, name: "Murudeshwar", town: "Murdeshwar", lat: 14.0972, lon: 74.4860, offshore_direction: 106, swell_window: [221, 351], offshore_km: 5.0, <<: *ka }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: maravanthe, name: "Maravanthe", town: "Maravanthe", lat: 13.7088, lon: 74.6414, offshore_direction: 82, swell_window: [197, 327], offshore_km: 5.0, <<: *ka }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: malpe, name: "Malpe", town: "Malpe", lat: 13.3620, lon: 74.6979, offshore_direction: 83, swell_window: [198, 328], offshore_km: 5.0, <<: *ka }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: kapu-beach, name: "Kapu Beach", town: "Kaup", lat: 13.2226, lon: 74.7373, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, <<: *ka }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: mulki, name: "Mulki", town: "Mulki", lat: 13.0829, lon: 74.7734, offshore_direction: 77, swell_window: [192, 322], offshore_km: 5.0, <<: *ka }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: sasihithlu, name: "Sasihithlu", town: "Sasihitlu", lat: 13.0590, lon: 74.7785, offshore_direction: 79, swell_window: [194, 324], offshore_km: 5.0, <<: *ka }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: panambur, name: "Panambur", town: "Mangaluru", lat: 12.9373, lon: 74.8042, offshore_direction: 76, swell_window: [191, 321], offshore_km: 5.0, <<: *ka }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: tannirbhavi, name: "Tannirbhavi", town: "Mangaluru", lat: 12.9081, lon: 74.8102, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, <<: *ka }  # sat-verified 2026-10-29 (websearch-seeded)

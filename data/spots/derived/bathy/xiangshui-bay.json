@@ -1,0 +1,72 @@
+{
+  "spot": "xiangshui-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.5346,
+    110.1071
+  ],
+  "bearing_seaward_deg": 136.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 45.0,
+  "mean_slope_m_per_km": 2.31,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.53298,
+      "lon": 110.10875,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.53137,
+      "lon": 110.11039,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.52813,
+      "lon": 110.11369,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.52166,
+      "lon": 110.12028,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.51519,
+      "lon": 110.12686,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.50225,
+      "lon": 110.14004,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.48284,
+      "lon": 110.1598,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.45695,
+      "lon": 110.18613,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.41812,
+      "lon": 110.22562,
+      "depth_m": 45.0
+    }
+  ]
+}

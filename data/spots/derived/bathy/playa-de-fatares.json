@@ -1,0 +1,72 @@
+{
+  "spot": "playa-de-fatares",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.5795,
+    -1.0328
+  ],
+  "bearing_seaward_deg": 186.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 1784.0,
+  "mean_slope_m_per_km": 99.94,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.57726,
+      "lon": -1.0331,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.57503,
+      "lon": -1.03339,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.57056,
+      "lon": -1.03399,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.56161,
+      "lon": -1.03517,
+      "depth_m": 76.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.55267,
+      "lon": -1.03636,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.53478,
+      "lon": -1.03873,
+      "depth_m": 84.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.50795,
+      "lon": -1.04228,
+      "depth_m": 144.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.47217,
+      "lon": -1.04701,
+      "depth_m": 724.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.41851,
+      "lon": -1.0541,
+      "depth_m": 1784.0
+    }
+  ]
+}

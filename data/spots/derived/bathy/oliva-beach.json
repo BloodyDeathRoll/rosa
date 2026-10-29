@@ -1,0 +1,72 @@
+{
+  "spot": "oliva-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.9005,
+    -0.0569
+  ],
+  "bearing_seaward_deg": 41.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 81.0,
+  "mean_slope_m_per_km": 4.34,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.9022,
+      "lon": -0.055,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.90389,
+      "lon": -0.05311,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.90729,
+      "lon": -0.04932,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.91407,
+      "lon": -0.04173,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.92086,
+      "lon": -0.03415,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.93443,
+      "lon": -0.01898,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.95478,
+      "lon": 0.0038,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.98191,
+      "lon": 0.03418,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 39.02259,
+      "lon": 0.0798,
+      "depth_m": 81.0
+    }
+  ]
+}

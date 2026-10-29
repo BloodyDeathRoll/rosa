@@ -1,0 +1,72 @@
+{
+  "spot": "sandavagur",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    62.0538,
+    -7.1534
+  ],
+  "bearing_seaward_deg": 180.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 66.0,
+  "mean_slope_m_per_km": 3.55,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 62.05155,
+      "lon": -7.1534,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 62.0493,
+      "lon": -7.1534,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 62.04481,
+      "lon": -7.1534,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 62.03581,
+      "lon": -7.1534,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 62.02682,
+      "lon": -7.1534,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 62.00883,
+      "lon": -7.1534,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 61.98185,
+      "lon": -7.1534,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 61.94588,
+      "lon": -7.1534,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 61.89192,
+      "lon": -7.1534,
+      "depth_m": 66.0
+    }
+  ]
+}

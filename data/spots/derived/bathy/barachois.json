@@ -1,0 +1,72 @@
+{
+  "spot": "barachois",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -20.8714,
+    55.4494
+  ],
+  "bearing_seaward_deg": 32.0,
+  "nearshore_depth_m": 17.0,
+  "offshore_depth_m": 1523.0,
+  "mean_slope_m_per_km": 84.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -20.86949,
+      "lon": 55.45068,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -20.86759,
+      "lon": 55.45195,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -20.86377,
+      "lon": 55.4545,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -20.85615,
+      "lon": 55.4596,
+      "depth_m": 456.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -20.84852,
+      "lon": 55.4647,
+      "depth_m": 788.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -20.83326,
+      "lon": 55.4749,
+      "depth_m": 1176.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -20.81038,
+      "lon": 55.49019,
+      "depth_m": 1249.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -20.77987,
+      "lon": 55.51057,
+      "depth_m": 1332.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -20.7341,
+      "lon": 55.54112,
+      "depth_m": 1523.0
+    }
+  ]
+}

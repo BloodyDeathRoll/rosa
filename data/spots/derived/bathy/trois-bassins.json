@@ -1,0 +1,72 @@
+{
+  "spot": "trois-bassins",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -21.1198,
+    55.2582
+  ],
+  "bearing_seaward_deg": 227.0,
+  "nearshore_depth_m": 18.0,
+  "offshore_depth_m": 1411.0,
+  "mean_slope_m_per_km": 78.48,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -21.12133,
+      "lon": 55.25644,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -21.12287,
+      "lon": 55.25467,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -21.12593,
+      "lon": 55.25115,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -21.13207,
+      "lon": 55.2441,
+      "depth_m": 259.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -21.1382,
+      "lon": 55.23704,
+      "depth_m": 532.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -21.15046,
+      "lon": 55.22294,
+      "depth_m": 727.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -21.16886,
+      "lon": 55.20177,
+      "depth_m": 895.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -21.19338,
+      "lon": 55.17355,
+      "depth_m": 1133.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -21.23015,
+      "lon": 55.13119,
+      "depth_m": 1411.0
+    }
+  ]
+}

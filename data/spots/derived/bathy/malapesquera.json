@@ -1,0 +1,72 @@
+{
+  "spot": "malapesquera",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.5944,
+    -4.5189
+  ],
+  "bearing_seaward_deg": 155.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 411.0,
+  "mean_slope_m_per_km": 22.99,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.59236,
+      "lon": -4.51772,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.59032,
+      "lon": -4.51653,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.58625,
+      "lon": -4.51417,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.5781,
+      "lon": -4.50943,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.56995,
+      "lon": -4.5047,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.55364,
+      "lon": -4.49524,
+      "depth_m": 90.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.52919,
+      "lon": -4.48106,
+      "depth_m": 99.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.49658,
+      "lon": -4.46217,
+      "depth_m": 254.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.44766,
+      "lon": -4.43385,
+      "depth_m": 411.0
+    }
+  ]
+}

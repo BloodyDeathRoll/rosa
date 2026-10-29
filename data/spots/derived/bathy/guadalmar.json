@@ -1,0 +1,72 @@
+{
+  "spot": "guadalmar",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.663,
+    -4.4568
+  ],
+  "bearing_seaward_deg": 140.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 296.0,
+  "mean_slope_m_per_km": 16.39,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.66128,
+      "lon": -4.455,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.65956,
+      "lon": -4.4532,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.65611,
+      "lon": -4.44959,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.64922,
+      "lon": -4.44239,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.64233,
+      "lon": -4.43519,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.62855,
+      "lon": -4.42078,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.60787,
+      "lon": -4.39919,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.5803,
+      "lon": -4.37042,
+      "depth_m": 176.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.53892,
+      "lon": -4.32729,
+      "depth_m": 296.0
+    }
+  ]
+}

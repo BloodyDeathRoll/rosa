@@ -1,0 +1,72 @@
+{
+  "spot": "maravanthe",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    13.7088,
+    74.6414
+  ],
+  "bearing_seaward_deg": 262.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 2.08,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.70849,
+      "lon": 74.63911,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.70817,
+      "lon": 74.63682,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.70755,
+      "lon": 74.63223,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.7063,
+      "lon": 74.62307,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.70504,
+      "lon": 74.6139,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.70254,
+      "lon": 74.59557,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.69878,
+      "lon": 74.56807,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.69376,
+      "lon": 74.53141,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.68622,
+      "lon": 74.47641,
+      "depth_m": 30.0
+    }
+  ]
+}

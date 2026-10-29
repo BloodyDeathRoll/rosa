@@ -1,0 +1,72 @@
+{
+  "spot": "brandons",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    13.1145,
+    -59.6277
+  ],
+  "bearing_seaward_deg": 259.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 968.0,
+  "mean_slope_m_per_km": 54.54,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.11407,
+      "lon": -59.62997,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.11364,
+      "lon": -59.63223,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.11278,
+      "lon": -59.63676,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.11107,
+      "lon": -59.64583,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.10935,
+      "lon": -59.65489,
+      "depth_m": 150.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.10592,
+      "lon": -59.67302,
+      "depth_m": 246.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.10076,
+      "lon": -59.70021,
+      "depth_m": 397.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.09389,
+      "lon": -59.73646,
+      "depth_m": 552.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.08356,
+      "lon": -59.79084,
+      "depth_m": 968.0
+    }
+  ]
+}

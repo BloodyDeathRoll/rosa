@@ -1,0 +1,72 @@
+{
+  "spot": "el-cantal-roig",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.6413,
+    0.0591
+  ],
+  "bearing_seaward_deg": 165.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 80.0,
+  "mean_slope_m_per_km": 4.45,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.63913,
+      "lon": 0.05984,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.63696,
+      "lon": 0.06059,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.63261,
+      "lon": 0.06208,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.62393,
+      "lon": 0.06506,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.61524,
+      "lon": 0.06804,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.59787,
+      "lon": 0.07399,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.5718,
+      "lon": 0.08292,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.53705,
+      "lon": 0.09481,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.48493,
+      "lon": 0.11262,
+      "depth_m": 80.0
+    }
+  ]
+}

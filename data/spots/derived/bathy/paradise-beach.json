@@ -1,0 +1,72 @@
+{
+  "spot": "paradise-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    13.1305,
+    -59.635
+  ],
+  "bearing_seaward_deg": 225.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 788.0,
+  "mean_slope_m_per_km": 44.85,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.12891,
+      "lon": -59.63663,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.12732,
+      "lon": -59.63826,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.12414,
+      "lon": -59.64153,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.11778,
+      "lon": -59.64806,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.11142,
+      "lon": -59.65459,
+      "depth_m": 150.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.0987,
+      "lon": -59.66765,
+      "depth_m": 216.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.07962,
+      "lon": -59.68723,
+      "depth_m": 296.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.05418,
+      "lon": -59.71333,
+      "depth_m": 431.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.01601,
+      "lon": -59.75248,
+      "depth_m": 788.0
+    }
+  ]
+}

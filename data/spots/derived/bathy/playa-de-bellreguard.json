@@ -1,0 +1,72 @@
+{
+  "spot": "playa-de-bellreguard",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.9632,
+    -0.1276
+  ],
+  "bearing_seaward_deg": 52.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 82.0,
+  "mean_slope_m_per_km": 4.28,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.96458,
+      "lon": -0.12532,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.96597,
+      "lon": -0.12304,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.96874,
+      "lon": -0.11849,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.97427,
+      "lon": -0.10937,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.97981,
+      "lon": -0.10025,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.99087,
+      "lon": -0.08201,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 39.00747,
+      "lon": -0.05464,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 39.02959,
+      "lon": -0.01813,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 39.06275,
+      "lon": 0.03669,
+      "depth_m": 82.0
+    }
+  ]
+}

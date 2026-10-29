@@ -1,0 +1,72 @@
+{
+  "spot": "portman",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.5817,
+    -0.8485
+  ],
+  "bearing_seaward_deg": 168.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 1524.0,
+  "mean_slope_m_per_km": 85.8,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.5795,
+      "lon": -0.84791,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.5773,
+      "lon": -0.84732,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.5729,
+      "lon": -0.84614,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.56411,
+      "lon": -0.84378,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.55531,
+      "lon": -0.84142,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.53772,
+      "lon": -0.83671,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.51133,
+      "lon": -0.82964,
+      "depth_m": 98.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.47614,
+      "lon": -0.82023,
+      "depth_m": 115.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.42335,
+      "lon": -0.80612,
+      "depth_m": 1524.0
+    }
+  ]
+}

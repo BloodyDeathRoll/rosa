@@ -1,0 +1,72 @@
+{
+  "spot": "tai-wan",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    22.4147,
+    114.3795
+  ],
+  "bearing_seaward_deg": 133.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 27.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 22.41317,
+      "lon": 114.38128,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 22.41163,
+      "lon": 114.38306,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 22.40857,
+      "lon": 114.38661,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 22.40243,
+      "lon": 114.39373,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 22.3963,
+      "lon": 114.40084,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 22.38403,
+      "lon": 114.41507,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 22.36562,
+      "lon": 114.4364,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 22.34108,
+      "lon": 114.46483,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 22.30425,
+      "lon": 114.50746,
+      "depth_m": 27.0
+    }
+  ]
+}

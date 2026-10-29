@@ -1,0 +1,72 @@
+{
+  "spot": "cabarete",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    19.7526,
+    -70.4019
+  ],
+  "bearing_seaward_deg": 323.0,
+  "nearshore_depth_m": 22.0,
+  "offshore_depth_m": 1766.0,
+  "mean_slope_m_per_km": 98.25,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 19.7544,
+      "lon": -70.40334,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 19.75619,
+      "lon": -70.40478,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 19.75978,
+      "lon": -70.40765,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 19.76696,
+      "lon": -70.4134,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 19.77415,
+      "lon": -70.41915,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 19.78851,
+      "lon": -70.43066,
+      "depth_m": 245.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 19.81005,
+      "lon": -70.44792,
+      "depth_m": 562.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 19.83877,
+      "lon": -70.47094,
+      "depth_m": 877.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 19.88185,
+      "lon": -70.5055,
+      "depth_m": 1766.0
+    }
+  ]
+}

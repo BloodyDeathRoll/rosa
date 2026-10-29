@@ -1,0 +1,72 @@
+{
+  "spot": "dam-neck",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.7746,
+    -75.9534
+  ],
+  "bearing_seaward_deg": 73.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 1.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.77526,
+      "lon": -75.95072,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.77591,
+      "lon": -75.94803,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.77723,
+      "lon": -75.94266,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.77986,
+      "lon": -75.93192,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.78248,
+      "lon": -75.92119,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.78773,
+      "lon": -75.89971,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.7956,
+      "lon": -75.86748,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.80608,
+      "lon": -75.8245,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.82177,
+      "lon": -75.76002,
+      "depth_m": 20.0
+    }
+  ]
+}

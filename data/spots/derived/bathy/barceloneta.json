@@ -1,0 +1,72 @@
+{
+  "spot": "barceloneta",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.3793,
+    2.1934
+  ],
+  "bearing_seaward_deg": 118.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 214.0,
+  "mean_slope_m_per_km": 11.38,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.37824,
+      "lon": 2.19605,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.37719,
+      "lon": 2.19869,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.37508,
+      "lon": 2.20398,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.37085,
+      "lon": 2.21456,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.36663,
+      "lon": 2.22514,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.35818,
+      "lon": 2.24629,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.34549,
+      "lon": 2.27802,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.32857,
+      "lon": 2.32029,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.30315,
+      "lon": 2.38366,
+      "depth_m": 214.0
+    }
+  ]
+}

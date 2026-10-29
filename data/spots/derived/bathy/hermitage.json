@@ -1,0 +1,72 @@
+{
+  "spot": "hermitage",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -21.0856,
+    55.2229
+  ],
+  "bearing_seaward_deg": 221.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 1054.0,
+  "mean_slope_m_per_km": 59.15,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -21.0873,
+      "lon": 55.22132,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -21.08899,
+      "lon": 55.21974,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -21.09239,
+      "lon": 55.21658,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -21.09917,
+      "lon": 55.21025,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -21.10596,
+      "lon": 55.20393,
+      "depth_m": 333.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -21.11953,
+      "lon": 55.19128,
+      "depth_m": 490.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -21.13989,
+      "lon": 55.17229,
+      "depth_m": 579.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -21.16703,
+      "lon": 55.14698,
+      "depth_m": 847.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -21.20773,
+      "lon": 55.10898,
+      "depth_m": 1054.0
+    }
+  ]
+}

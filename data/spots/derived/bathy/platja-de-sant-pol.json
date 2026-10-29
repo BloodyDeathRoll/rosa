@@ -1,0 +1,72 @@
+{
+  "spot": "platja-de-sant-pol",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.7902,
+    3.0487
+  ],
+  "bearing_seaward_deg": 161.0,
+  "nearshore_depth_m": -14.0,
+  "offshore_depth_m": 119.0,
+  "mean_slope_m_per_km": 7.49,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.78807,
+      "lon": 3.04968,
+      "depth_m": -14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.78595,
+      "lon": 3.05066,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.7817,
+      "lon": 3.05263,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.77319,
+      "lon": 3.05655,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.76469,
+      "lon": 3.06048,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.74768,
+      "lon": 3.06832,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.72217,
+      "lon": 3.08008,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.68815,
+      "lon": 3.09575,
+      "depth_m": 110.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.63712,
+      "lon": 3.11922,
+      "depth_m": 119.0
+    }
+  ]
+}

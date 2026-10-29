@@ -1,0 +1,72 @@
+{
+  "spot": "packery-channel",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    27.6129,
+    -97.201
+  ],
+  "bearing_seaward_deg": 130.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 23.0,
+  "mean_slope_m_per_km": 1.18,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 27.61145,
+      "lon": -97.19906,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 27.61001,
+      "lon": -97.19711,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 27.60712,
+      "lon": -97.19323,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 27.60134,
+      "lon": -97.18545,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 27.59556,
+      "lon": -97.17768,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 27.58399,
+      "lon": -97.16214,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 27.56664,
+      "lon": -97.13883,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 27.5435,
+      "lon": -97.10776,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 27.50878,
+      "lon": -97.06119,
+      "depth_m": 23.0
+    }
+  ]
+}

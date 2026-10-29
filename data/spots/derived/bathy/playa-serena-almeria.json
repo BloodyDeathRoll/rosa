@@ -1,0 +1,72 @@
+{
+  "spot": "playa-serena-almeria",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.7201,
+    -2.6275
+  ],
+  "bearing_seaward_deg": 133.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 391.0,
+  "mean_slope_m_per_km": 22.03,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.71857,
+      "lon": -2.62545,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.71703,
+      "lon": -2.6234,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.71397,
+      "lon": -2.6193,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.70783,
+      "lon": -2.61109,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.7017,
+      "lon": -2.60289,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.68943,
+      "lon": -2.58649,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.67102,
+      "lon": -2.5619,
+      "depth_m": 181.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.64646,
+      "lon": -2.52913,
+      "depth_m": 277.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.60961,
+      "lon": -2.48001,
+      "depth_m": 391.0
+    }
+  ]
+}

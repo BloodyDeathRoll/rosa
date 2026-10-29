@@ -1,0 +1,72 @@
+{
+  "spot": "chintapalli",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.073,
+    83.658
+  ],
+  "bearing_seaward_deg": 121.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 36.0,
+  "mean_slope_m_per_km": 1.75,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.07184,
+      "lon": 83.66003,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.07068,
+      "lon": 83.66205,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.06837,
+      "lon": 83.66611,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.06374,
+      "lon": 83.67422,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.0591,
+      "lon": 83.68232,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.04984,
+      "lon": 83.69854,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.03593,
+      "lon": 83.72286,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.01739,
+      "lon": 83.75527,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 17.98957,
+      "lon": 83.80389,
+      "depth_m": 36.0
+    }
+  ]
+}

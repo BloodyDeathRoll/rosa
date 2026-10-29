@@ -1,0 +1,61 @@
+# Rosa spot database - Taiwan (seeded 2026-10-29). The surf is on three coasts: the north
+# (Shalun, Baishawan, Jinshan, Green Bay, Fulong) and Yilan's north-east (Daxi / Honeymoon Bay,
+# Double Lions, Wai'ao, Wushi Harbour) on the winter NE monsoon swell; the east (Hualien and
+# Taitung: Jici, Baxiandong, Chenggong, Donghe, Jinzun, Dulan) on NE monsoon and typhoon swell;
+# the south (Kenting: Jialeshui, Nanwan) on summer SW monsoon and typhoon swell. A few west-coast
+# beaches (Chunan, Da'an, Tainan, Kaohsiung) work on the monsoon wind swell. The coasts face every
+# direction, so every spot carries its own swell_window, offshore_direction and offshore_km.
+
+country: "Taiwan"
+
+defaults: &tw
+  timezone: Asia/Taipei
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [0, 180]
+  ideal:
+    wind_dir: [225, 315]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - taiwan, 33 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 33 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/taiwan/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: baishawan, name: "Baishawan", town: "Shimen", lat: 25.2849, lon: 121.5165, offshore_direction: 168, swell_window: [283, 53], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: zhongjiao-bay, name: "Zhongjiao Bay", town: "Jinshan", lat: 25.2372, lon: 121.6364, offshore_direction: 217, swell_window: [332, 102], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: jinshan, name: "Jinshan", town: "Jinshan", lat: 25.2311, lon: 121.6430, offshore_direction: 207, swell_window: [322, 92], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: shalun, name: "Shalun", town: "Tamsui", lat: 25.1901, lon: 121.4132, offshore_direction: 176, swell_window: [291, 61], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: green-bay, name: "Green Bay", town: "Wanli", lat: 25.1864, lon: 121.6872, offshore_direction: 233, swell_window: [348, 118], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: fulong, name: "Fulong", town: "Fulong", lat: 25.0206, lon: 121.9479, offshore_direction: 198, swell_window: [313, 83], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded); normal re-aimed by hand (3c)
+  - { id: honeymoon-bay, name: "Honeymoon Bay", town: "Daxi", lat: 24.9334, lon: 121.8869, offshore_direction: 302, swell_window: [57, 187], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: wai-ao, name: "Wai'ao", town: "Toucheng", lat: 24.8778, lon: 121.8440, offshore_direction: 287, swell_window: [42, 172], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: wushi-harbour-north, name: "Wushi Harbour North", town: "Toucheng", lat: 24.8697, lon: 121.8427, offshore_direction: 307, swell_window: [62, 192], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: wushi-harbour-south, name: "Wushi Harbour South", town: "Toucheng", lat: 24.8642, lon: 121.8381, offshore_direction: 293, swell_window: [48, 178], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: zhuan-rivermouth, name: "Zhu'an Rivermouth", town: "Toucheng", lat: 24.8415, lon: 121.8268, offshore_direction: 277, swell_window: [32, 162], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: qiding, name: "Qiding", town: "Zhunan", lat: 24.7230, lon: 120.8652, offshore_direction: 83, swell_window: [198, 328], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: chunan, name: "Chunan", town: "Zhunan", lat: 24.6963, lon: 120.8519, offshore_direction: 135, swell_window: [250, 20], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: wuwei-harbour, name: "Wuwei Harbour", town: "Su'ao", lat: 24.6184, lon: 121.8584, offshore_direction: 231, swell_window: [346, 116], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: da-an, name: "Da'an", town: "Da'an", lat: 24.3890, lon: 120.5779, offshore_direction: 117, swell_window: [232, 2], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: jici, name: "Jici", town: "Jiqi", lat: 23.7004, lon: 121.5500, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded); normal re-aimed by hand (3c)
+  - { id: fengbin-rivermouth, name: "Fengbin Rivermouth", town: "Fengbin", lat: 23.5980, lon: 121.5295, offshore_direction: 278, swell_window: [33, 163], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: longmen, name: "Longmen", town: "Huxi", lat: 23.5667, lon: 119.6831, offshore_direction: 268, swell_window: [23, 153], break_type: reef, offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: baxiandong, name: "Baxiandong", town: "Changbin", lat: 23.3976, lon: 121.4806, offshore_direction: 287, swell_window: [42, 172], break_type: point, offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: wushibi, name: "Wushibi", town: "Changbin", lat: 23.2285, lon: 121.4170, offshore_direction: 284, swell_window: [39, 169], break_type: point, offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded); normal re-aimed by hand (3c)
+  - { id: yiwan, name: "Yiwan", town: "Chenggong", lat: 23.2089, lon: 121.3996, offshore_direction: 349, swell_window: [104, 234], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: chenggong, name: "Chenggong", town: "Chenggong", lat: 23.1168, lon: 121.3977, offshore_direction: 307, swell_window: [62, 192], break_type: reef, offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: duli, name: "Duli", town: "Chenggong", lat: 23.0231, lon: 121.3355, offshore_direction: 319, swell_window: [74, 204], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: yuguang-island, name: "Yuguang Island", town: "Anping", lat: 22.9792, lon: 120.1557, offshore_direction: 71, swell_window: [186, 316], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: donghe-rivermouth, name: "Donghe Rivermouth", town: "Donghe", lat: 22.9750, lon: 121.3128, offshore_direction: 292, swell_window: [47, 177], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: jinzun, name: "Jinzun", town: "Donghe", lat: 22.9472, lon: 121.2833, offshore_direction: 296, swell_window: [51, 181], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: dulan, name: "Dulan", town: "Dulan", lat: 22.8678, lon: 121.2255, offshore_direction: 9, swell_window: [124, 254], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: shanyuan, name: "Shanyuan", town: "Beinan", lat: 22.8308, lon: 121.1866, offshore_direction: 248, swell_window: [3, 133], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: sizihwan, name: "Sizihwan", town: "Kaohsiung", lat: 22.6259, lon: 120.2628, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: dawu, name: "Dawu", town: "Dawu", lat: 22.3413, lon: 120.8995, offshore_direction: 277, swell_window: [32, 162], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: jialeshui, name: "Jialeshui", town: "Manzhou", lat: 21.9941, lon: 120.8640, offshore_direction: 307, swell_window: [62, 192], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: nanwan, name: "Nanwan", town: "Hengchun", lat: 21.9588, lon: 120.7647, offshore_direction: 10, swell_window: [125, 255], offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded); normal re-aimed by hand (3c)
+  - { id: houbihu, name: "Houbihu", town: "Hengchun", lat: 21.9431, lon: 120.7484, offshore_direction: 326, swell_window: [81, 211], break_type: reef, offshore_km: 5.0, <<: *tw }  # sat-verified 2026-10-29 (websearch-seeded); normal re-aimed by hand (3c)

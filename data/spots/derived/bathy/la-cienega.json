@@ -1,0 +1,72 @@
+{
+  "spot": "la-cienega",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.0651,
+    -71.1042
+  ],
+  "bearing_seaward_deg": 161.0,
+  "nearshore_depth_m": -18.0,
+  "offshore_depth_m": 2726.0,
+  "mean_slope_m_per_km": 154.59,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.06297,
+      "lon": -71.10343,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.06085,
+      "lon": -71.10266,
+      "depth_m": 99.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.0566,
+      "lon": -71.10112,
+      "depth_m": 182.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.04809,
+      "lon": -71.09804,
+      "depth_m": 335.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.03959,
+      "lon": -71.09496,
+      "depth_m": 680.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.02258,
+      "lon": -71.08881,
+      "depth_m": 1528.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 17.99707,
+      "lon": -71.07957,
+      "depth_m": 1855.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 17.96306,
+      "lon": -71.06726,
+      "depth_m": 2386.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 17.91203,
+      "lon": -71.04881,
+      "depth_m": 2726.0
+    }
+  ]
+}

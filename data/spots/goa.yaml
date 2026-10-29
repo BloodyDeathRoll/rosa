@@ -1,0 +1,36 @@
+# Rosa spot database - Goa (seeded 2026-10-29). Arabian Sea beach breaks from Arambol
+# and Ashwem in the north to Agonda and Palolem in the south: SW monsoon swell (May-Sep, mostly
+# onshore) and the cleaner pre/post-monsoon groundswell.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+country: "India"
+
+defaults: &ga
+  timezone: Asia/Kolkata
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [190, 320]
+  ideal:
+    wind_dir: [45, 135]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - goa, 11 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 11 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/goa/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: arambol, name: "Arambol", town: "Arambol", lat: 15.6790, lon: 73.7044, offshore_direction: 76, swell_window: [191, 321], offshore_km: 5.0, <<: *ga }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: mandrem, name: "Mandrem", town: "Mandrem", lat: 15.6601, lon: 73.7124, offshore_direction: 77, swell_window: [192, 322], offshore_km: 5.0, <<: *ga }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: ashwem, name: "Ashwem", town: "Ashvem", lat: 15.6418, lon: 73.7183, offshore_direction: 82, swell_window: [197, 327], offshore_km: 5.0, <<: *ga }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: morjim, name: "Morjim", town: "Morjim", lat: 15.6225, lon: 73.7299, offshore_direction: 64, swell_window: [179, 309], offshore_km: 5.0, <<: *ga }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: baga, name: "Baga", town: "Calangute", lat: 15.5574, lon: 73.7501, offshore_direction: 71, swell_window: [186, 316], offshore_km: 5.0, <<: *ga }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: calangute, name: "Calangute", town: "Calangute", lat: 15.5425, lon: 73.7556, offshore_direction: 71, swell_window: [186, 316], offshore_km: 5.0, <<: *ga }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: betalbatim, name: "Betalbatim", town: "Betalbatim", lat: 15.2932, lon: 73.9071, offshore_direction: 72, swell_window: [187, 317], offshore_km: 5.0, <<: *ga }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: benaulim, name: "Benaulim", town: "Benaulim", lat: 15.2530, lon: 73.9196, offshore_direction: 74, swell_window: [189, 319], offshore_km: 5.0, <<: *ga }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: varca, name: "Varca", town: "Varca", lat: 15.2180, lon: 73.9301, offshore_direction: 72, swell_window: [187, 317], offshore_km: 5.0, <<: *ga }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: agonda, name: "Agonda", town: "Agonda", lat: 15.0423, lon: 73.9865, offshore_direction: 68, swell_window: [183, 313], offshore_km: 5.0, <<: *ga }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: palolem, name: "Palolem", town: "Palolem", lat: 15.0093, lon: 74.0242, offshore_direction: 33, swell_window: [148, 278], offshore_km: 5.0, <<: *ga }  # sat-verified 2026-10-29 (websearch-seeded)

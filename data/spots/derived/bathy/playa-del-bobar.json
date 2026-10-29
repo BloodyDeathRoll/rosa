@@ -1,0 +1,72 @@
+{
+  "spot": "playa-del-bobar",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.8198,
+    -2.4416
+  ],
+  "bearing_seaward_deg": 219.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 126.0,
+  "mean_slope_m_per_km": 6.7,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.81805,
+      "lon": -2.44337,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.81631,
+      "lon": -2.44513,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.81281,
+      "lon": -2.44867,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.80582,
+      "lon": -2.45574,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.79883,
+      "lon": -2.4628,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.78485,
+      "lon": -2.47693,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.76387,
+      "lon": -2.49812,
+      "depth_m": 94.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.7359,
+      "lon": -2.52635,
+      "depth_m": 114.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.69393,
+      "lon": -2.56865,
+      "depth_m": 126.0
+    }
+  ]
+}

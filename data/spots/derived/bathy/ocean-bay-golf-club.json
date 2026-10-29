@@ -1,0 +1,72 @@
+{
+  "spot": "ocean-bay-golf-club",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.669,
+    110.3533
+  ],
+  "bearing_seaward_deg": 242.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 11.0,
+  "mean_slope_m_per_km": 0.96,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.66794,
+      "lon": 110.3512,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.66689,
+      "lon": 110.34911,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.66478,
+      "lon": 110.34492,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.66056,
+      "lon": 110.33654,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.65633,
+      "lon": 110.32816,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.64789,
+      "lon": 110.3114,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.63521,
+      "lon": 110.28626,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.61831,
+      "lon": 110.25275,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.59294,
+      "lon": 110.2025,
+      "depth_m": 11.0
+    }
+  ]
+}

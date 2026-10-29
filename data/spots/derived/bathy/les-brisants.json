@@ -1,0 +1,72 @@
+{
+  "spot": "les-brisants",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -21.0568,
+    55.2216
+  ],
+  "bearing_seaward_deg": 282.0,
+  "nearshore_depth_m": 16.0,
+  "offshore_depth_m": 1076.0,
+  "mean_slope_m_per_km": 59.72,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -21.05633,
+      "lon": 55.21924,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -21.05587,
+      "lon": 55.21689,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -21.05493,
+      "lon": 55.21217,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -21.05306,
+      "lon": 55.20275,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -21.05119,
+      "lon": 55.19332,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -21.04744,
+      "lon": 55.17447,
+      "depth_m": 141.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -21.04183,
+      "lon": 55.1462,
+      "depth_m": 501.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -21.03433,
+      "lon": 55.1085,
+      "depth_m": 705.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -21.02306,
+      "lon": 55.05197,
+      "depth_m": 1076.0
+    }
+  ]
+}

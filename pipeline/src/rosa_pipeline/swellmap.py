@@ -46,6 +46,9 @@ BASINS: dict[str, tuple[str, ...]] = {
     # Algeria's north-facing coast: Mistral and Gulf of Lion storms from the NW, a sea of
     # its own between Spain and Sardinia
     "algeria": ("Algeria",),
+    # the Spanish Mediterranean: the north shore of the same western Mediterranean that
+    # Algeria faces (Levante and Gulf of Lion wind swell); Algeria keeps its own frame
+    "western-med": ("Catalonia", "Valencia", "Murcia", "Andalusia", "Balearic Islands"),
     # Brazil in two frames: the south and south-east (Rio Grande do Sul to Espirito Santo)
     # takes Southern Ocean groundswell from the S-SE; the north-east (Bahia to Ceara, plus
     # Noronha) the SE trade swell and, in the north, North Atlantic groundswell
@@ -98,23 +101,37 @@ BASINS: dict[str, tuple[str, ...]] = {
         "Germany",
         "Sweden",
     ),
-    # Scotland's Atlantic side takes open North Atlantic groundswell from the W-NW
-    "scotland-west": ("Scotland West",),
+    # Scotland's Atlantic side takes open North Atlantic groundswell from the W-NW; the
+    # Faroes, ~300 km north of Lewis, see the same swell train
+    "scotland-west": ("Scotland West", "Faroe Islands"),
     # Lofoten, above the Arctic Circle: Norwegian Sea swell, ~1,000 km north of Jaeren
     "lofoten": ("Lofoten",),
     # Iceland, mid North Atlantic: every coast faces open ocean, its own frame
     "iceland": ("Iceland",),
-    "central-america": ("Costa Rica", "Nicaragua", "El Salvador", "Panama"),
+    # Korea: the East Sea (typhoon swell and winter NE wind swell) down to Busan, the Yellow
+    # Sea at Taean and Jeju in the north of the East China Sea. Its own frame: the japan box
+    # is built round Honshu's Pacific coast and would have to stretch 1,000 km west
+    "korea": ("South Korea", "Jeju"),
+    "central-america": ("Costa Rica", "Nicaragua", "El Salvador", "Panama", "Guatemala"),
     # Mexico gets its own box rather than joining central-america: its spots run from
     # Tijuana to the Oaxaca isthmus, and merging them would stretch one frame over
     # 30 deg of latitude and drown the Central American detail in sea room.
     "mexico": ("Mexico",),
     "sri-lanka": ("Sri Lanka",),
+    # India's two coasts face opposite seas: the west coast takes the SW monsoon and
+    # Southern Ocean swell up the Arabian Sea, the east coast S-SE swell and cyclone swell
+    # in the Bay of Bengal - one box over both would swallow the whole subcontinent
+    "arabian-sea": ("Goa", "Karnataka", "Kerala"),
+    "bay-of-bengal": ("Tamil Nadu", "Andhra Pradesh", "Odisha"),
     # Hokkaido joins Honshu's frame: the same NE Pacific / Sea of Japan swell, and the
     # padded Honshu box already reaches 44 N
     "japan": ("Japan", "Hokkaido"),
     # the Ryukyu arc is 600-1,000 km SW of Honshu's surf coast: its own frame
     "ryukyu": ("Tanegashima Amami", "Okinawa"),
+    # Taiwan sits between the Ryukyu arc and Luzon, but its breaks face every way (NE
+    # monsoon swell on the north and east coasts, SW monsoon and typhoon swell in the
+    # south): its own frame rather than stretching ryukyu or philippines over it
+    "taiwan": ("Taiwan",),
     "philippines": ("Philippines",),
     "california": ("California",),
     # Oregon + Washington share one Pacific Northwest frame: 900 km of one coastline
@@ -123,14 +140,17 @@ BASINS: dict[str, tuple[str, ...]] = {
     "morocco": ("Morocco",),
     # the West African Atlantic: the same NW groundswell that lights Morocco, arriving
     # smaller and from further north; Cape Verde sits in the same frame
-    "west-africa": ("Senegal", "Cape Verde", "Ghana"),
+    # Liberia (Robertsport, Monrovia) sits between Senegal and Ghana on the same coast
+    "west-africa": ("Senegal", "Cape Verde", "Ghana", "Liberia"),
     # the south-west Indian Ocean: Southern Ocean groundswell up the South African
-    # coast into Mozambique, and the monsoon swell on the equatorial reefs
+    # coast into Mozambique, and the monsoon swell on the equatorial reefs; Reunion sits
+    # 200 km west of Mauritius in the same frame
     "east-africa": (
         "South Africa East",
         "Mozambique",
         "Madagascar",
         "Mauritius",
+        "Reunion",
         "Kenya",
         "Zanzibar",
     ),
@@ -149,10 +169,12 @@ BASINS: dict[str, tuple[str, ...]] = {
         "Massachusetts",
         "New Hampshire",
         "Maine",
+        # Virginia Beach sits between the Outer Banks and New Jersey on the same seaboard
+        "Virginia",
     ),
     # the Gulf of Mexico: local windswell off winter fronts and tropical-storm swell; the
-    # Florida panhandle and the Gulf side of the peninsula share one closed basin
-    "gulf-of-mexico": ("Florida Panhandle", "Florida Gulf"),
+    # Florida panhandle, the Gulf side of the peninsula and the Texas coast share one closed basin
+    "gulf-of-mexico": ("Florida Panhandle", "Florida Gulf", "Texas"),
     "angola": ("Angola",),
     # the south-east Atlantic: Southern Ocean SW groundswell up the Cape and Namibian
     # coasts, Cape Agulhas round to the Kunene, between Angola's frame and east-africa's
@@ -164,8 +186,12 @@ BASINS: dict[str, tuple[str, ...]] = {
     # frame from Montanita to the Panama border
     "ecuador": ("Ecuador", "Colombia Pacific"),
     # the southern Caribbean: NE trade windswell and the winter N swells on the Colombian
-    # and Venezuelan coasts, Cartagena to the Paria peninsula
-    "caribbean-south": ("Colombia Caribbean", "Venezuela"),
+    # and Venezuelan coasts, Cartagena to the Paria peninsula; Barbados, the Atlantic edge
+    # of the Lesser Antilles, takes the same trade swell
+    "caribbean-south": ("Colombia Caribbean", "Venezuela", "Barbados"),
+    # the northern Caribbean: Hispaniola's north coast faces the open North Atlantic winter
+    # swell, its south coast the Caribbean - a frame of its own (Puerto Rico will join it)
+    "caribbean-north": ("Dominican Republic",),
     # the Galapagos, 900 km offshore: its own small frame rather than stretching Ecuador's
     "galapagos": ("Galapagos",),
     # Chile in two frames: the desert north (Arica to Antofagasta) takes the same S-SW
@@ -197,6 +223,15 @@ BASINS: dict[str, tuple[str, ...]] = {
     # Rarotonga only, ~4,000 km east of Fiji - its own frame
     "cook-islands": ("Cook Islands",),
     "samoa": ("Samoa",),
+    # Tonga, ~900 km south of Samoa and east of the antimeridian (lon ~ -176..-174): its own
+    # frame; the west +3 deg pad stops at -179, short of the seam
+    "tonga": ("Tonga",),
+    # the northern South China Sea: Hainan, the Guangdong coast and Hong Kong share the NE
+    # monsoon swell in winter and the SW monsoon / typhoon swell in summer
+    "south-china-sea": ("Hainan", "Guangdong", "Hong Kong"),
+    # Fujian north through Zhoushan to Qingdao: the Taiwan Strait and East China Sea coast,
+    # NE monsoon swell down the strait and typhoon swell tracking north in summer
+    "east-china-sea": ("Fujian", "Zhejiang", "Shandong"),
 }
 BOX_PAD_DEG = 3.0  # sea-room around the spot extent so swell context is visible
 STEP_H = 3

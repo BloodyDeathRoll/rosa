@@ -1,0 +1,72 @@
+{
+  "spot": "puerto-benidorm",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.5359,
+    -0.1334
+  ],
+  "bearing_seaward_deg": 121.0,
+  "nearshore_depth_m": -18.0,
+  "offshore_depth_m": 84.0,
+  "mean_slope_m_per_km": 5.75,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.53474,
+      "lon": -0.13094,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.53358,
+      "lon": -0.12847,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.53127,
+      "lon": -0.12355,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.52663,
+      "lon": -0.11369,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.522,
+      "lon": -0.10384,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.51273,
+      "lon": -0.08414,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.49882,
+      "lon": -0.0546,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.48026,
+      "lon": -0.01523,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.45239,
+      "lon": 0.04378,
+      "depth_m": 84.0
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+# Rosa spot database - Barbados (seeded 2026-10-29). The east coast (Soup Bowl, Bathsheba,
+# Cattlewash) faces the open Atlantic and takes the trade windswell and N-NE winter swell
+# year round; the south coast (Freights, South Point, Brandons) runs on SE trade swell and
+# tropical systems; the west coast reefs (Duppies, Tropicana) need a winter N swell.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Barbados"
+
+defaults: &bb
+  timezone: America/Barbados
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [0, 160]
+  ideal:
+    wind_dir: [225, 315]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - barbados, 24 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 24 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/barbados/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: north-point-bb, name: "North Point", town: "Retreat", lat: 13.3355, lon: -59.6128, offshore_direction: 171, swell_window: [286, 56], offshore_km: 5.0, <<: *bb }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: maycocks, name: "Maycocks", town: "Checker Hall", lat: 13.2911, lon: -59.6496, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, <<: *bb }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: walkers, name: "Walkers", town: "Belleplaine", lat: 13.2582, lon: -59.5572, offshore_direction: 244, swell_window: [359, 129], offshore_km: 5.0, <<: *bb }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: cobblers-cove, name: "Cobblers Cove", town: "Speightstown", lat: 13.2421, lon: -59.6446, offshore_direction: 87, swell_window: [202, 332], offshore_km: 5.0, <<: *bb }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: barclays, name: "Barclays", town: "Cambridge", lat: 13.2354, lon: -59.5421, offshore_direction: 251, swell_window: [6, 136], offshore_km: 5.0, <<: *bb }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: mullins, name: "Mullins", town: "Speightstown", lat: 13.2338, lon: -59.6430, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, <<: *bb }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: gibbs, name: "Gibbs", town: "Speightstown", lat: 13.2306, lon: -59.6433, offshore_direction: 83, swell_window: [198, 328], offshore_km: 5.0, <<: *bb }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: cattlewash, name: "Cattlewash", town: "Atlantic Park", lat: 13.2226, lon: -59.5317, offshore_direction: 226, swell_window: [341, 111], offshore_km: 5.0, <<: *bb }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: soup-bowl, name: "Soup Bowl", town: "Bathsheba", lat: 13.2144, lon: -59.5221, offshore_direction: 212, swell_window: [327, 97], offshore_km: 5.0, <<: *bb }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: tent-bay, name: "Tent Bay", town: "Bathsheba", lat: 13.2114, lon: -59.5143, offshore_direction: 220, swell_window: [335, 105], offshore_km: 5.0, <<: *bb }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: martins-bay, name: "Martins Bay", town: "Martins Bay", lat: 13.1983, lon: -59.4944, offshore_direction: 211, swell_window: [326, 96], offshore_km: 5.0, <<: *bb }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: conset-point, name: "Conset Point", town: "St. Marks", lat: 13.1831, lon: -59.4585, offshore_direction: 145, swell_window: [260, 30], offshore_km: 5.0, <<: *bb }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: sandy-lane, name: "Sandy Lane", town: "Holetown", lat: 13.1736, lon: -59.6380, offshore_direction: 110, swell_window: [225, 355], offshore_km: 5.0, <<: *bb }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: ragged-point, name: "Ragged Point", town: "Ragged Point", lat: 13.1634, lon: -59.4311, offshore_direction: 210, swell_window: [325, 95], offshore_km: 5.0, <<: *bb }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: batts-rock, name: "Batts Rock", town: "Husbands", lat: 13.1350, lon: -59.6371, offshore_direction: 109, swell_window: [224, 354], offshore_km: 5.0, <<: *bb }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: paradise-beach, name: "Paradise Beach", town: "Husbands", lat: 13.1305, lon: -59.6350, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, <<: *bb }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: brandons, name: "Brandons", town: "Bridgetown", lat: 13.1145, lon: -59.6277, offshore_direction: 79, swell_window: [194, 324], offshore_km: 5.0, <<: *bb }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: crane-beach, name: "Crane Beach", town: "Crane", lat: 13.1069, lon: -59.4433, offshore_direction: 321, swell_window: [76, 206], offshore_km: 5.0, <<: *bb }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: accra-beach, name: "Accra Beach", town: "St. Lawrence", lat: 13.0727, lon: -59.5880, offshore_direction: 19, swell_window: [134, 264], offshore_km: 5.0, <<: *bb }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: dover-beach, name: "Dover Beach", town: "St. Lawrence", lat: 13.0660, lon: -59.5683, offshore_direction: 357, swell_window: [112, 242], offshore_km: 5.0, <<: *bb }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: long-beach-bb, name: "Long Beach", town: "Chancery Lane", lat: 13.0613, lon: -59.4983, offshore_direction: 299, swell_window: [54, 184], offshore_km: 5.0, <<: *bb }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: freights, name: "Freights", town: "Enterprise", lat: 13.0529, lon: -59.5359, offshore_direction: 55, swell_window: [170, 300], offshore_km: 5.0, <<: *bb }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: silver-sands, name: "Silver Sands", town: "Silver Sands", lat: 13.0488, lon: -59.5139, offshore_direction: 315, swell_window: [70, 200], offshore_km: 5.0, <<: *bb }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: south-point-bb, name: "South Point", town: "Silver Sands", lat: 13.0456, lon: -59.5295, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, <<: *bb }  # sat-verified 2026-10-29 (websearch-seeded)

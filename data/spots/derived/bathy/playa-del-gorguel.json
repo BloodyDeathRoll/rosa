@@ -1,0 +1,72 @@
+{
+  "spot": "playa-del-gorguel",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.5773,
+    -0.8767
+  ],
+  "bearing_seaward_deg": 157.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 1293.0,
+  "mean_slope_m_per_km": 72.68,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.57523,
+      "lon": -0.87559,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.57316,
+      "lon": -0.87448,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.56902,
+      "lon": -0.87227,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.56074,
+      "lon": -0.86783,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.55246,
+      "lon": -0.8634,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.53591,
+      "lon": -0.85454,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.51107,
+      "lon": -0.84126,
+      "depth_m": 99.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.47795,
+      "lon": -0.82357,
+      "depth_m": 106.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.42826,
+      "lon": -0.79705,
+      "depth_m": 1293.0
+    }
+  ]
+}

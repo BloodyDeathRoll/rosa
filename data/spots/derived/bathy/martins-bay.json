@@ -1,0 +1,72 @@
+{
+  "spot": "martins-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    13.1983,
+    -59.4944
+  ],
+  "bearing_seaward_deg": 31.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 2383.0,
+  "mean_slope_m_per_km": 134.08,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.20023,
+      "lon": -59.49321,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.20215,
+      "lon": -59.49202,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.20601,
+      "lon": -59.48964,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.21372,
+      "lon": -59.48488,
+      "depth_m": 310.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.22143,
+      "lon": -59.48013,
+      "depth_m": 530.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.23684,
+      "lon": -59.47061,
+      "depth_m": 906.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.25997,
+      "lon": -59.45633,
+      "depth_m": 1210.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.2908,
+      "lon": -59.43729,
+      "depth_m": 1852.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.33704,
+      "lon": -59.40872,
+      "depth_m": 2383.0
+    }
+  ]
+}

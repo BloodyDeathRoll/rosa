@@ -1,0 +1,72 @@
+{
+  "spot": "bheemunipatnam",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    17.8975,
+    83.4552
+  ],
+  "bearing_seaward_deg": 107.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 42.0,
+  "mean_slope_m_per_km": 2.31,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 17.89684,
+      "lon": 83.45746,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 17.89619,
+      "lon": 83.45972,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 17.89487,
+      "lon": 83.46424,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 17.89224,
+      "lon": 83.47327,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 17.88961,
+      "lon": 83.48231,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 17.88435,
+      "lon": 83.50038,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 17.87645,
+      "lon": 83.52749,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 17.86592,
+      "lon": 83.56363,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 17.8501,
+      "lon": 83.61783,
+      "depth_m": 42.0
+    }
+  ]
+}

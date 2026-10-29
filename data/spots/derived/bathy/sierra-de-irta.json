@@ -1,0 +1,72 @@
+{
+  "spot": "sierra-de-irta",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    40.2965,
+    0.3461
+  ],
+  "bearing_seaward_deg": 157.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 57.0,
+  "mean_slope_m_per_km": 2.99,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.29443,
+      "lon": 0.34725,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.29236,
+      "lon": 0.3484,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.28822,
+      "lon": 0.35071,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.27994,
+      "lon": 0.35531,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.27166,
+      "lon": 0.35992,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.25511,
+      "lon": 0.36912,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.23027,
+      "lon": 0.38292,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.19715,
+      "lon": 0.4013,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.14746,
+      "lon": 0.42885,
+      "depth_m": 57.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "playa-del-dosel",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    39.1964,
+    -0.2261
+  ],
+  "bearing_seaward_deg": 74.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 105.0,
+  "mean_slope_m_per_km": 5.52,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 39.19702,
+      "lon": -0.22331,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 39.19764,
+      "lon": -0.22052,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 39.19888,
+      "lon": -0.21494,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 39.20136,
+      "lon": -0.20379,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 39.20383,
+      "lon": -0.19263,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 39.20878,
+      "lon": -0.17032,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 39.2162,
+      "lon": -0.13684,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 39.22607,
+      "lon": -0.09219,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 39.24085,
+      "lon": -0.02519,
+      "depth_m": 105.0
+    }
+  ]
+}

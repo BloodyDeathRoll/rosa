@@ -1,0 +1,59 @@
+# Rosa spot database - Andalusia (Mediterranean). The Costa del Sol (Malaga province:
+# Marbella, Fuengirola, Torremolinos, Malaga city), the Costa Tropical (Granada: La
+# Herradura, Motril) and Almeria (Mojacar). A S-facing coast on short-period Levante (E)
+# and Poniente (W) wind swell through the Alboran Sea, offshore on a N wind. The Atlantic
+# side of Andalusia (Cadiz province, incl. Tarifa) is the cadiz region.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+country: "Spain"
+
+defaults: &and
+  timezone: Europe/Madrid
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [70, 270]
+  ideal:
+    wind_dir: [315, 45]
+    size_m: [0.5, 1.5]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - andalusia, 32 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 32 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/andalusia/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: playa-de-puerto-rey, name: "Playa de Puerto Rey", town: "Vera", lat: 37.2088, lon: -1.8084, offshore_direction: 291, swell_window: [46, 176], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: mojacar, name: "Mojacar", town: "Mojácar", lat: 37.1171, lon: -1.8367, offshore_direction: 295, swell_window: [50, 180], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-cueva-del-lobo, name: "Playa Cueva del Lobo", town: "Mojácar", lat: 37.1113, lon: -1.8429, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-del-bobar, name: "Playa del Bobar", town: "Almería", lat: 36.8198, lon: -2.4416, offshore_direction: 39, swell_window: [154, 284], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-de-las-alberquillas, name: "Playa de las Alberquillas", town: "Nerja", lat: 36.7508, lon: -3.8145, offshore_direction: 348, swell_window: [103, 233], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-de-los-corraletes, name: "Playa de los Corraletes", town: "Cabo de Gata", lat: 36.7503, lon: -2.2190, offshore_direction: 61, swell_window: [176, 306], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-de-salon, name: "Playa de Salon", town: "Nerja", lat: 36.7437, lon: -3.8771, offshore_direction: 342, swell_window: [97, 227], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded); seaward re-aimed to 162 (3c gate)
+  - { id: playa-de-los-genoveses, name: "Playa de los Genoveses", town: "San José", lat: 36.7425, lon: -2.1214, offshore_direction: 255, swell_window: [10, 140], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: torre-del-mar, name: "Torre del Mar", town: "Torre del Mar", lat: 36.7400, lon: -4.0895, offshore_direction: 311, swell_window: [66, 196], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: la-herradura, name: "La Herradura", town: "La Herradura", lat: 36.7336, lon: -3.7419, offshore_direction: 40, swell_window: [155, 285], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: punta-del-rio, name: "Punta del Rio", town: "Motril", lat: 36.7228, lon: -3.5738, offshore_direction: 19, swell_window: [134, 264], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-serena-almeria, name: "Playa Serena", town: "Roquetas de Mar", lat: 36.7201, lon: -2.6275, offshore_direction: 313, swell_window: [68, 198], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: el-chanquete, name: "El Chanquete", town: "Málaga", lat: 36.7181, lon: -4.3559, offshore_direction: 5, swell_window: [120, 250], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-del-dedo, name: "Playa del Dedo", town: "Málaga", lat: 36.7165, lon: -4.3493, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-de-lagos, name: "Playa de Lagos", town: "Benajarafe", lat: 36.7149, lon: -4.2006, offshore_direction: 357, swell_window: [112, 242], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: almerimar, name: "Almerimar", town: "Almerimar", lat: 36.7009, lon: -2.7990, offshore_direction: 47, swell_window: [162, 292], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded); seaward re-aimed to 227 (3c gate)
+  - { id: la-chucha, name: "La Chucha", town: "Carchuna", lat: 36.6965, lon: -3.4584, offshore_direction: 335, swell_window: [90, 220], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-de-carchuna, name: "Playa de Carchuna", town: "Carchuna", lat: 36.6954, lon: -3.4514, offshore_direction: 26, swell_window: [141, 271], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: la-misericordia, name: "La Misericordia", town: "Málaga", lat: 36.6919, lon: -4.4405, offshore_direction: 297, swell_window: [52, 182], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: guadalmar, name: "Guadalmar", town: "Guadalmar-San Julián", lat: 36.6630, lon: -4.4568, offshore_direction: 320, swell_window: [75, 205], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: los-alamos, name: "Los Alamos", town: "Torremolinos", lat: 36.6459, lon: -4.4763, offshore_direction: 306, swell_window: [61, 191], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-la-carihuela, name: "Playa la Carihuela", town: "Torremolinos", lat: 36.6068, lon: -4.5043, offshore_direction: 287, swell_window: [42, 172], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: puerto-marina, name: "Puerto Marina", town: "Benalmádena", lat: 36.5995, lon: -4.5096, offshore_direction: 307, swell_window: [62, 192], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: malapesquera, name: "Malapesquera", town: "Benalmádena", lat: 36.5944, lon: -4.5189, offshore_direction: 335, swell_window: [90, 220], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: el-sunset, name: "El Sunset", town: "Benalmádena", lat: 36.5823, lon: -4.5337, offshore_direction: 354, swell_window: [109, 239], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: marbella-playa-del-cable, name: "Playa del Cable", town: "Marbella", lat: 36.5071, lon: -4.8691, offshore_direction: 352, swell_window: [107, 237], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: faro-de-calaburra, name: "Faro de Calaburra", town: "Mijas", lat: 36.5070, lon: -4.6404, offshore_direction: 341, swell_window: [96, 226], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: los-monteros, name: "Los Monteros", town: "Marbella", lat: 36.4999, lon: -4.8226, offshore_direction: 16, swell_window: [131, 261], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-el-bombo, name: "Playa El Bombo", town: "Mijas", lat: 36.4948, lon: -4.6891, offshore_direction: 305, swell_window: [60, 190], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: calahonda, name: "Calahonda", town: "Marbella", lat: 36.4859, lon: -4.7358, offshore_direction: 353, swell_window: [108, 238], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: puerto-cabopino, name: "Puerto Cabopino", town: "Marbella", lat: 36.4844, lon: -4.7422, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded); seaward re-aimed to 180 (3c gate)
+  - { id: largos, name: "Largos", town: "San Pedro Alcántara", lat: 36.4783, lon: -4.9727, offshore_direction: 350, swell_window: [105, 235], offshore_km: 5.0, <<: *and }  # sat-verified 2026-10-29 (websearch-seeded)

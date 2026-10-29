@@ -1,0 +1,72 @@
+{
+  "spot": "port-oconnor",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    28.4218,
+    -96.3302
+  ],
+  "bearing_seaward_deg": 150.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 19.0,
+  "mean_slope_m_per_km": 0.39,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.41985,
+      "lon": -96.32892,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.41791,
+      "lon": -96.32764,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.41401,
+      "lon": -96.32509,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.40622,
+      "lon": -96.31998,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.39843,
+      "lon": -96.31486,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.38286,
+      "lon": -96.30465,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.35949,
+      "lon": -96.28932,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.32833,
+      "lon": -96.2689,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.28158,
+      "lon": -96.23829,
+      "depth_m": 19.0
+    }
+  ]
+}

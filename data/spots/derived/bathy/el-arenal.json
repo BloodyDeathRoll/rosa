@@ -1,0 +1,72 @@
+{
+  "spot": "el-arenal",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.773,
+    0.1912
+  ],
+  "bearing_seaward_deg": 11.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 111.0,
+  "mean_slope_m_per_km": 5.69,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.77521,
+      "lon": 0.19175,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.77741,
+      "lon": 0.1923,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.78183,
+      "lon": 0.1934,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.79066,
+      "lon": 0.1956,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.79948,
+      "lon": 0.19781,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.81714,
+      "lon": 0.20221,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.84362,
+      "lon": 0.20883,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.87893,
+      "lon": 0.21765,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.9319,
+      "lon": 0.23091,
+      "depth_m": 111.0
+    }
+  ]
+}

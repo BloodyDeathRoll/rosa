@@ -1,0 +1,72 @@
+{
+  "spot": "encuentro",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    19.7848,
+    -70.4538
+  ],
+  "bearing_seaward_deg": 336.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 2271.0,
+  "mean_slope_m_per_km": 128.45,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 19.78685,
+      "lon": -70.45477,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 19.78891,
+      "lon": -70.45574,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 19.79302,
+      "lon": -70.45769,
+      "depth_m": 162.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 19.80123,
+      "lon": -70.46158,
+      "depth_m": 325.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 19.80945,
+      "lon": -70.46546,
+      "depth_m": 475.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 19.82588,
+      "lon": -70.47324,
+      "depth_m": 596.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 19.85052,
+      "lon": -70.48491,
+      "depth_m": 1121.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 19.88338,
+      "lon": -70.50048,
+      "depth_m": 1945.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 19.93267,
+      "lon": -70.52384,
+      "depth_m": 2271.0
+    }
+  ]
+}

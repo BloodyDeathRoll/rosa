@@ -1,0 +1,72 @@
+{
+  "spot": "el-masnou",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.4766,
+    2.3179
+  ],
+  "bearing_seaward_deg": 151.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 74.0,
+  "mean_slope_m_per_km": 3.77,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.47463,
+      "lon": 2.31935,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.47267,
+      "lon": 2.32081,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.46873,
+      "lon": 2.32372,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.46087,
+      "lon": 2.32954,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.453,
+      "lon": 2.33535,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.43727,
+      "lon": 2.34698,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.41367,
+      "lon": 2.36441,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.38219,
+      "lon": 2.38763,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.33497,
+      "lon": 2.42242,
+      "depth_m": 74.0
+    }
+  ]
+}

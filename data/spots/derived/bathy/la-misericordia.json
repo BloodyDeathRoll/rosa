@@ -1,0 +1,72 @@
+{
+  "spot": "la-misericordia",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.6919,
+    -4.4405
+  ],
+  "bearing_seaward_deg": 117.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 224.0,
+  "mean_slope_m_per_km": 12.39,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.69088,
+      "lon": -4.438,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.68986,
+      "lon": -4.4355,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.68782,
+      "lon": -4.43051,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.68373,
+      "lon": -4.42052,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.67965,
+      "lon": -4.41053,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.67148,
+      "lon": -4.39055,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.65921,
+      "lon": -4.36059,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.64285,
+      "lon": -4.32066,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.61827,
+      "lon": -4.2608,
+      "depth_m": 224.0
+    }
+  ]
+}

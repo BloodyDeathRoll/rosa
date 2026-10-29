@@ -1,0 +1,72 @@
+{
+  "spot": "gaoyangwei",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    22.6495,
+    114.9323
+  ],
+  "bearing_seaward_deg": 140.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 12.0,
+  "mean_slope_m_per_km": 0.34,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 22.64778,
+      "lon": 114.93387,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 22.64606,
+      "lon": 114.93543,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 22.64261,
+      "lon": 114.93856,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 22.63572,
+      "lon": 114.94483,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 22.62883,
+      "lon": 114.95109,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 22.61505,
+      "lon": 114.96361,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 22.59438,
+      "lon": 114.98239,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 22.56681,
+      "lon": 115.00742,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 22.52546,
+      "lon": 115.04495,
+      "depth_m": 12.0
+    }
+  ]
+}

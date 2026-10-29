@@ -1,0 +1,72 @@
+{
+  "spot": "croatan",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.8231,
+    -75.9671
+  ],
+  "bearing_seaward_deg": 75.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 18.0,
+  "mean_slope_m_per_km": 0.79,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.82368,
+      "lon": -75.96439,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.82426,
+      "lon": -75.96167,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.82543,
+      "lon": -75.95625,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.82775,
+      "lon": -75.9454,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.83008,
+      "lon": -75.93454,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.83473,
+      "lon": -75.91283,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.84169,
+      "lon": -75.88026,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.85096,
+      "lon": -75.83683,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.86484,
+      "lon": -75.77166,
+      "depth_m": 18.0
+    }
+  ]
+}

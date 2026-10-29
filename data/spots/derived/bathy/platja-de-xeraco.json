@@ -1,0 +1,72 @@
+{
+  "spot": "platja-de-xeraco",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    39.048,
+    -0.1928
+  ],
+  "bearing_seaward_deg": 52.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 83.0,
+  "mean_slope_m_per_km": 4.45,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 39.04938,
+      "lon": -0.19052,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 39.05077,
+      "lon": -0.18824,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 39.05354,
+      "lon": -0.18367,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 39.05907,
+      "lon": -0.17455,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 39.06461,
+      "lon": -0.16542,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 39.07567,
+      "lon": -0.14716,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 39.09227,
+      "lon": -0.11975,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 39.11439,
+      "lon": -0.0832,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 39.14755,
+      "lon": -0.02832,
+      "depth_m": 83.0
+    }
+  ]
+}

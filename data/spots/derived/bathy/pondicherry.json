@@ -1,0 +1,72 @@
+{
+  "spot": "pondicherry",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    11.9254,
+    79.8347
+  ],
+  "bearing_seaward_deg": 105.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 67.0,
+  "mean_slope_m_per_km": 3.49,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.92482,
+      "lon": 79.83692,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.92424,
+      "lon": 79.83914,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.92307,
+      "lon": 79.84358,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.92074,
+      "lon": 79.85246,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.91842,
+      "lon": 79.86133,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.91376,
+      "lon": 79.87909,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.90677,
+      "lon": 79.90572,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.89745,
+      "lon": 79.94123,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.88346,
+      "lon": 79.99449,
+      "depth_m": 67.0
+    }
+  ]
+}

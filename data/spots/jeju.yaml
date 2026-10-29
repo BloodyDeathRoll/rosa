@@ -1,0 +1,30 @@
+# Rosa spot database - Jeju (seeded 2026-10-29). Korea's volcanic island 90 km south of the
+# peninsula: Jungmun Saekdal and the Gangjeong reef on the south coast take typhoon and
+# East China Sea swell; Woljeongri, Gwakji and Iho Taewoo on the north coast run on the
+# winter NW monsoon wind swell. Every spot carries offshore_km along its own seaward normal.
+
+country: "South Korea"
+
+defaults: &jj
+  timezone: Asia/Seoul
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [90, 270]
+  ideal:
+    wind_dir: [315, 45]        # metadata only (scorer uses offshore_direction)
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - jeju, 5 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 5 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/jeju/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: woljeongri, name: "Woljeongri", town: "Jeju", lat: 33.5569, lon: 126.7965, offshore_direction: 195, swell_window: [310, 80], offshore_km: 5.0, <<: *jj }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: hamdeok, name: "Hamdeok", town: "Jeju", lat: 33.5450, lon: 126.6737, offshore_direction: 180, swell_window: [295, 65], offshore_km: 5.0, <<: *jj }  # sat-verified 2026-10-29 (websearch-seeded; normal re-aimed to seaward 0 by hand (3c))
+  - { id: iho-taewoo, name: "Iho Taewoo", town: "Jeju", lat: 33.4987, lon: 126.4531, offshore_direction: 140, swell_window: [255, 25], offshore_km: 5.0, <<: *jj }  # sat-verified 2026-10-29 (websearch-seeded; normal re-aimed to seaward 320 by hand (3c))
+  - { id: gwakji, name: "Gwakji", town: "Jeju", lat: 33.4512, lon: 126.3051, offshore_direction: 87, swell_window: [202, 332], offshore_km: 5.0, <<: *jj }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: jungmun, name: "Jungmun", town: "Seogwipo", lat: 33.2450, lon: 126.4108, offshore_direction: 357, swell_window: [112, 242], offshore_km: 5.0, <<: *jj }  # sat-verified 2026-10-29 (websearch-seeded)

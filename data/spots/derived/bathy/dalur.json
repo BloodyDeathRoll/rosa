@@ -1,0 +1,72 @@
+{
+  "spot": "dalur",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    61.784,
+    -6.6737
+  ],
+  "bearing_seaward_deg": 110.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 96.0,
+  "mean_slope_m_per_km": 5.52,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 61.78323,
+      "lon": -6.66923,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 61.78246,
+      "lon": -6.66476,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 61.78092,
+      "lon": -6.65583,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 61.77784,
+      "lon": -6.63796,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 61.77476,
+      "lon": -6.62009,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 61.76859,
+      "lon": -6.58437,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 61.75932,
+      "lon": -6.53082,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 61.74692,
+      "lon": -6.45947,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 61.72826,
+      "lon": -6.35255,
+      "depth_m": 96.0
+    }
+  ]
+}

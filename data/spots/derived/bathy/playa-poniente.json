@@ -1,0 +1,72 @@
+{
+  "spot": "playa-poniente",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.5361,
+    -0.1477
+  ],
+  "bearing_seaward_deg": 165.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 88.0,
+  "mean_slope_m_per_km": 4.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.53393,
+      "lon": -0.14696,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.53176,
+      "lon": -0.14621,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.52741,
+      "lon": -0.14472,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.51873,
+      "lon": -0.14175,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.51004,
+      "lon": -0.13878,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.49267,
+      "lon": -0.13283,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.4666,
+      "lon": -0.12392,
+      "depth_m": 76.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.43185,
+      "lon": -0.11204,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.37973,
+      "lon": -0.09425,
+      "depth_m": 88.0
+    }
+  ]
+}

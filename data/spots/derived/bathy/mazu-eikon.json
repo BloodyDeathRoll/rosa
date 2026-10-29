@@ -1,0 +1,72 @@
+{
+  "spot": "mazu-eikon",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    23.2256,
+    116.6855
+  ],
+  "bearing_seaward_deg": 137.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 27.0,
+  "mean_slope_m_per_km": 1.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 23.22396,
+      "lon": 116.68717,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 23.22231,
+      "lon": 116.68884,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 23.21902,
+      "lon": 116.69217,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 23.21245,
+      "lon": 116.69885,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 23.20587,
+      "lon": 116.70552,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 23.19271,
+      "lon": 116.71886,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 23.17297,
+      "lon": 116.73887,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 23.14665,
+      "lon": 116.76554,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 23.10716,
+      "lon": 116.80553,
+      "depth_m": 27.0
+    }
+  ]
+}

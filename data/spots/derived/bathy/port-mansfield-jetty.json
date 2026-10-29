@@ -1,0 +1,72 @@
+{
+  "spot": "port-mansfield-jetty",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    26.5614,
+    -97.2695
+  ],
+  "bearing_seaward_deg": 98.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 26.0,
+  "mean_slope_m_per_km": 1.24,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 26.56109,
+      "lon": -97.26701,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 26.56077,
+      "lon": -97.26452,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 26.56015,
+      "lon": -97.25954,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 26.5589,
+      "lon": -97.24959,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 26.55764,
+      "lon": -97.23963,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 26.55513,
+      "lon": -97.21972,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 26.55136,
+      "lon": -97.18985,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 26.54633,
+      "lon": -97.15004,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 26.53876,
+      "lon": -97.09032,
+      "depth_m": 26.0
+    }
+  ]
+}

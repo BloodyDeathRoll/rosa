@@ -1,0 +1,72 @@
+{
+  "spot": "green-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    25.1864,
+    121.6872
+  ],
+  "bearing_seaward_deg": 53.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 141.0,
+  "mean_slope_m_per_km": 7.89,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 25.18775,
+      "lon": 121.68918,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 25.18911,
+      "lon": 121.69117,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 25.19181,
+      "lon": 121.69514,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 25.19722,
+      "lon": 121.70308,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 25.20263,
+      "lon": 121.71101,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 25.21346,
+      "lon": 121.72689,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 25.22968,
+      "lon": 121.75072,
+      "depth_m": 94.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 25.25132,
+      "lon": 121.78249,
+      "depth_m": 106.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 25.28375,
+      "lon": 121.83018,
+      "depth_m": 141.0
+    }
+  ]
+}

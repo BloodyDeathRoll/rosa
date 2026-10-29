@@ -1,0 +1,72 @@
+{
+  "spot": "mallipo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.7869,
+    126.1402
+  ],
+  "bearing_seaward_deg": 301.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 1.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.78806,
+      "lon": 126.13779,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.78922,
+      "lon": 126.13539,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.79153,
+      "lon": 126.13057,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.79616,
+      "lon": 126.12095,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.80079,
+      "lon": 126.11132,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.81005,
+      "lon": 126.09206,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.82393,
+      "lon": 126.06316,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.84243,
+      "lon": 126.02461,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.87015,
+      "lon": 125.96675,
+      "depth_m": 30.0
+    }
+  ]
+}

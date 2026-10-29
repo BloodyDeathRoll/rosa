@@ -167,7 +167,8 @@ Four things, in this order:
    optionally with `offshore_bearing`, per spot).
    Create the file **before** running `seed.py`: it reads the region's existing spots, and a
    brand-new region simply has none (`spots: []` parses fine and every Tier-A hit comes back
-   NEW). Add the region to `emit_spots.py`'s `CFG` too, and to `swellmap.BASINS` - a region
+   NEW). Add the region to `emit_spots.py`'s `CFG` too, to `towns.py`'s `REGION_PBF` (else
+   it finds no town), and to `swellmap.BASINS` - a region
    in no basin has no map layer, and `test_every_spot_region_has_a_basin` fails.
 4. **Derived data per new spot** - after `emit_spots.py`:
    `rosa-pipeline bathy --spot <id>` AND `rosa-pipeline tide --spot <id>`. Both are
@@ -221,7 +222,58 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-10-09, DB = 3021 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-10-29, DB = 3499 spots, ALL sat-verified)
+
+**Asia, the Caribbean, the Spanish Mediterranean and five singles, 3056 -> 3499 (2026-10-29).** Nine
+parallel subagents, web flow end to end (Tier A was empty or a surf school everywhere). 29 new regions;
+new basins `south-china-sea`, `east-china-sea`, `taiwan`, `korea`, `arabian-sea`, `bay-of-bengal`,
+`caribbean-north`, `tonga`, `western-med`; Texas joined `gulf-of-mexico`, Virginia `us-east`,
+Guatemala `central-america`, Barbados `caribbean-south`, Liberia `west-africa`, Reunion `east-africa`,
+the Faroes `scotland-west`. The coordinator re-rendered a 14-pin sample (one or two per group): all on
+the break. **Ireland is excluded by operator decision - never seed or suggest it.**
+- **Google Places answered `REQUEST_DENIED: You must enable Billing` for the whole run.** Every pin rests
+  on Nominatim + Photon + the tile. Both read OSM, so their agreement is not two sources, and Photon
+  returns a city centroid on a miss (six Korean names on Yangyang's centroid, six Hainan names on
+  Wanning's): an identical answer for unrelated names means no hit. **A pyosmium name search of the
+  local extract** (Korean `...해수욕장`, Chinese bay names, Texas piers and jetties, Liberia's wreck)
+  was the best geocoder this run - try it first when Google is out.
+- **Tile reads failed silently in bulk** (`[media removed: request limit]` on the first 100+ reads in
+  several forks). Every final pin was re-rendered and seen; nothing was judged on a failed read.
+- **`towns.py` needs a `REGION_PBF` entry per new region** (not only `seed.py`/`emit_spots.py`), and
+  `tide` needs `data/tide-src` (symlink it in a worktree). On China and India, OSM's nearest place is a
+  hamlet in local script: China +39, Korea +35, Taiwan +30, India +25 town overrides.
+- **Extracts:** China is one 1.6 GB `asia/china` (includes Hong Kong); India is zoned
+  (`asia/india/{western,southern,eastern}-zone`); Reunion is `europe/france/reunion` (`africa/reunion`
+  404s); Barbados has no extract - a pyosmium bbox cut of `central-america-latest`; the DR is
+  `central-america/haiti-and-domrep` with the box's W edge keeping Haiti out.
+- Per group: **China + Hong Kong 39** (Hainan 11, Guangdong 9, Hong Kong 8, Fujian 4, Zhejiang 4,
+  Shandong 3; 37 of 39 moved, 18 normals re-aimed in coves and tombolos). **Taiwan 33** (all moved;
+  Pinyin lookalikes put names in the wrong county; the Hengchun peninsula crossed two rays).
+  **South Korea 33 + Jeju 5** (Yellow Sea tidal coves dropped; Taean surfs on a 5 m tide). **India 58**
+  (Goa 11, Karnataka 13, Kerala 10, Tamil Nadu 9, Andhra Pradesh 12, Odisha 3; Maharashtra skipped, two
+  names only). **Texas 24, Virginia 13** (36 of 37 moved; Port O'Connor's break is the Matagorda Island
+  side of the jetty). **Dominican Republic 23, Barbados 24, Guatemala 13** (Guatemala's names are towns -
+  the place node snapped to the coastline candidate was right 9 of 13). **Reunion 21, Liberia 9**
+  (Robertsport's three points are named by guide order). **Tonga 9, Faroe Islands 6** (islet breaks
+  geocode to the island centroid; GEBCO cannot see Taula). **Spanish Mediterranean 133** (Valencia 42,
+  Andalusia 32, Catalonia 29, Balearics 18, Murcia 12; 49 Valencian/Murcian spots joined
+  `test_geo_seam`'s pinned seam list).
+- `rosa-pipeline horizon` was not run. `bathing --match eea` (2025 workbook) and `--match nsw` were
+  re-run: +357 spots matched (the 189 new EU spots plus Sicily, the Netherlands, Germany, Normandy,
+  Denmark and Sweden, never matched since their seeding), none changed or removed.
+
+Gap queue: Hainan's Riyue sub-peaks (Camel Left, Back Beach, Ghost Hotel), Kame Rock, Da'ao, Xintan,
+Sanya Bay; Pinghai Point, Jieshi Bay; Clubhouse Point, Fung Bay; Funingwan, Sansha; Gwen's Mouth,
+Laoshan; Macau (Hac Sa). Taiwan: Double Lions, Gongs, Mimi's Reef, The Barracks, Green Island,
+Xiaoyugang. Korea: Gangjeong/Yakcheonsa, Olders, Squids, Machine Guns, Gwangalli, Songdo. India:
+Boar Rice, Shipwreck (Kerala), Akkarai, Repos, Bhatkal, the Vizag points; Maharashtra, Gujarat, the
+Andamans, Lakshadweep (not seeded). Texas/Virginia: Condos, Cove, S-Turns, Rock Lane, 47th/51st St
+jetties. DR: the Encuentro sub-peaks, Bozo, Playa Goleta, La Boya, Banzai, Pata de Name. Barbados:
+Parlour, Duppies, Tropicana, Sandbank, Surfer's Point. Guatemala: La Barrita. Reunion: Sainte-Marie,
+Riviere du Mat, Le Port, Black Rocks, Cap Requin, Les Aigrettes, La Gare. Liberia: Camp International,
+Outer Cotton, Tico's Point. Tonga: the Ha'atafu sub-peaks, Tommas, Middles. Faroes: Nolsoy, Eidi,
+Sandagerd, Vagur. Spain: Latigo, El Socorro, Montgo di Bongo, La Manga's picos, Molino de Papel,
+Fuengirola, Es Secret, and Getares/Sotogrande/Calita/La Muralla for the cadiz region.
 
 **Northern South America + Galapagos 0 -> 77 (2026-10-09): Colombia Pacific 11, Colombia Caribbean 22,
 Venezuela 39, Galapagos 5** - extracts `south-america/{colombia,venezuela}` + `ecuador` (symlinked for
@@ -375,8 +427,9 @@ a sheltered bay; the Netherlands' one was a surf school). What was new:
 Westpoint), Caithness east; Lewis reefs, the Uists, Kintyre's Southend sub-peaks; Norway's Spot
 X/Y, Point Perfect, the Lista reefs, Karmoy; Vesteralen/Andoya (outside the Lofoten box);
 Maasvlakte's Slufter and Blokken, Schiermonnikoog; Fehmarn's Wulfener Hals, Kieler Forde, Sylt's
-Ellenbogen; Gotland's east coast and Faro (east of the Sweden box), Norrland. Ireland, Iceland,
-Faroe, Normandy and the English south coast are not seeded.
+Ellenbogen; Gotland's east coast and Faro (east of the Sweden box), Norrland. Iceland, the Faroes,
+Normandy and the English south coast were seeded later; Ireland is excluded by operator decision
+(2026-10-29).
 
 **South Africa West 0 -> 82, Namibia 0 -> 11 (2026-09-29, two passes)** - two boxes on `africa/south-africa`
 (symlinked) and `africa/namibia`, a new `southwest-africa` basin. Zero OSM surf nodes: web flow end

@@ -1,0 +1,72 @@
+{
+  "spot": "cala-nova",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    39.0091,
+    1.5824
+  ],
+  "bearing_seaward_deg": 105.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 436.0,
+  "mean_slope_m_per_km": 25.13,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 39.00852,
+      "lon": 1.58519,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 39.00794,
+      "lon": 1.58799,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 39.00677,
+      "lon": 1.59358,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 39.00444,
+      "lon": 1.60476,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 39.00211,
+      "lon": 1.61593,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.99745,
+      "lon": 1.63829,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.99044,
+      "lon": 1.67181,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.98109,
+      "lon": 1.7165,
+      "depth_m": 111.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.96703,
+      "lon": 1.78351,
+      "depth_m": 436.0
+    }
+  ]
+}

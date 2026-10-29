@@ -1,0 +1,28 @@
+# Rosa spot database - Zhejiang, China (seeded 2026-10-29). The Zhoushan archipelago
+# (Zhujiajian, Shengsi): East China Sea typhoon swell Jun-Oct, brown tidal water. Every spot
+# carries its own offshore_direction and swell_window; break_type per spot.
+
+country: "China"
+
+defaults: &zj
+  timezone: Asia/Shanghai
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [40, 220]
+  ideal:
+    wind_dir: [240, 330]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - zhejiang, 4 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 4 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/zhejiang/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: jinsha-beach-shengsi, name: "Jinsha Beach Shengsi", town: "Shengsi", lat: 30.7170, lon: 122.4706, offshore_direction: 196, swell_window: [311, 81], offshore_km: 5.0, <<: *zj }  # sat-verified 2026-10-29 (websearch-seeded); 3c: normal set by hand to seaward 16 (middle of the open arc on the GEBCO sweep; coastline candidate gave seaward 40)
+  - { id: dongsha, name: "Dongsha", town: "Zhujiajian", lat: 29.8835, lon: 122.4142, offshore_direction: 296, swell_window: [51, 181], offshore_km: 5.0, <<: *zj }  # sat-verified 2026-10-29 (websearch-seeded); 3c: normal set by hand to seaward 116 (middle of the open arc on the GEBCO sweep; coastline candidate gave seaward 111)
+  - { id: nansha, name: "Nansha", town: "Zhujiajian", lat: 29.8771, lon: 122.4039, offshore_direction: 334, swell_window: [89, 219], offshore_km: 5.0, <<: *zj }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: lisha, name: "Lisha", town: "Zhujiajian", lat: 29.8601, lon: 122.3922, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, <<: *zj }  # sat-verified 2026-10-29 (websearch-seeded); 3c: normal set by hand to seaward 90 (middle of the open arc on the GEBCO sweep; coastline candidate gave seaward 112)

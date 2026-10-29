@@ -1,0 +1,72 @@
+{
+  "spot": "saint-benoit",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -21.0051,
+    55.7011
+  ],
+  "bearing_seaward_deg": 85.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 2689.0,
+  "mean_slope_m_per_km": 151.21,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -21.0049,
+      "lon": 55.7035,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -21.00471,
+      "lon": 55.7059,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -21.00432,
+      "lon": 55.7107,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -21.00353,
+      "lon": 55.72029,
+      "depth_m": 144.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -21.00275,
+      "lon": 55.72989,
+      "depth_m": 325.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -21.00117,
+      "lon": 55.74908,
+      "depth_m": 878.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -20.99881,
+      "lon": 55.77787,
+      "depth_m": 1630.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -20.99566,
+      "lon": 55.81625,
+      "depth_m": 2255.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -20.9909,
+      "lon": 55.87382,
+      "depth_m": 2689.0
+    }
+  ]
+}

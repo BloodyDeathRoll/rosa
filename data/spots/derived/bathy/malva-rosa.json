@@ -1,0 +1,72 @@
+{
+  "spot": "malva-rosa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    39.4797,
+    -0.3229
+  ],
+  "bearing_seaward_deg": 83.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 71.0,
+  "mean_slope_m_per_km": 3.66,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 39.47997,
+      "lon": -0.32001,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 39.48025,
+      "lon": -0.31712,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 39.4808,
+      "lon": -0.31134,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 39.48189,
+      "lon": -0.29977,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 39.48298,
+      "lon": -0.2882,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 39.48517,
+      "lon": -0.26507,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 39.48843,
+      "lon": -0.23037,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 39.49277,
+      "lon": -0.1841,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 39.49924,
+      "lon": -0.11468,
+      "depth_m": 71.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "serenity-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    11.9705,
+    79.8452
+  ],
+  "bearing_seaward_deg": 113.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 38.0,
+  "mean_slope_m_per_km": 1.86,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.96962,
+      "lon": 79.84732,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.96874,
+      "lon": 79.84943,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.96699,
+      "lon": 79.85366,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.96347,
+      "lon": 79.86212,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.95996,
+      "lon": 79.87059,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.95293,
+      "lon": 79.88751,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.94238,
+      "lon": 79.91289,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.92831,
+      "lon": 79.94673,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.90721,
+      "lon": 79.99749,
+      "depth_m": 38.0
+    }
+  ]
+}

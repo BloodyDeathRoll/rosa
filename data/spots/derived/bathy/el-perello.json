@@ -1,0 +1,72 @@
+{
+  "spot": "el-perello",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    39.2775,
+    -0.2735
+  ],
+  "bearing_seaward_deg": 67.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 94.0,
+  "mean_slope_m_per_km": 5.07,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 39.27838,
+      "lon": -0.27083,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 39.27926,
+      "lon": -0.26815,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 39.28101,
+      "lon": -0.26281,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 39.28453,
+      "lon": -0.25211,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 39.28804,
+      "lon": -0.24141,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 39.29506,
+      "lon": -0.22002,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 39.30558,
+      "lon": -0.18791,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 39.3196,
+      "lon": -0.14509,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 39.34059,
+      "lon": -0.08083,
+      "depth_m": 94.0
+    }
+  ]
+}

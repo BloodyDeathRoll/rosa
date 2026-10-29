@@ -1,0 +1,35 @@
+# Rosa spot database - Kerala (seeded 2026-10-29). The Arabian Sea coast from Kannur and Kozhikode
+# south through Cherai to Varkala, Kovalam and Poovar: SW monsoon swell and Southern Ocean
+# groundswell wrapping up the coast.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+country: "India"
+
+defaults: &kl
+  timezone: Asia/Kolkata
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [180, 310]
+  ideal:
+    wind_dir: [30, 120]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - kerala, 10 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 10 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/kerala/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: kannur, name: "Kannur", town: "Kannur", lat: 11.8814, lon: 75.3438, offshore_direction: 52, swell_window: [167, 297], offshore_km: 5.0, <<: *kl }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: mahe, name: "Mahe", town: "Mahe", lat: 11.6953, lon: 75.5344, offshore_direction: 91, swell_window: [206, 336], offshore_km: 5.0, <<: *kl }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: cherai-beach, name: "Cherai Beach", town: "Cherai", lat: 10.1438, lon: 76.1770, offshore_direction: 71, swell_window: [186, 316], offshore_km: 5.0, <<: *kl }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: thottappally, name: "Thottappally", town: "Thottappally", lat: 9.3158, lon: 76.3789, offshore_direction: 65, swell_window: [180, 310], offshore_km: 5.0, <<: *kl }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: kappil, name: "Kappil", town: "Kappil", lat: 8.7687, lon: 76.6823, offshore_direction: 54, swell_window: [169, 299], offshore_km: 5.0, <<: *kl }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: edava, name: "Edava", town: "Edava", lat: 8.7503, lon: 76.6936, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, <<: *kl }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: varkala, name: "Varkala", town: "Varkala", lat: 8.7361, lon: 76.7030, offshore_direction: 59, swell_window: [174, 304], offshore_km: 5.0, <<: *kl }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: hawa-beach, name: "Hawa Beach", town: "Kovalam", lat: 8.3887, lon: 76.9760, offshore_direction: 50, swell_window: [165, 295], offshore_km: 5.0, <<: *kl }  # sat-verified 2026-10-29 (websearch-seeded); normal re-aimed by hand to seaward 230 (3c gate)
+  - { id: kovalam-lighthouse-beach, name: "Kovalam Lighthouse Beach", town: "Kovalam", lat: 8.3853, lon: 76.9791, offshore_direction: 347, swell_window: [102, 232], offshore_km: 5.0, <<: *kl }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: poovar, name: "Poovar", town: "Pozhiyoor", lat: 8.3063, lon: 77.0798, offshore_direction: 29, swell_window: [144, 274], offshore_km: 5.0, <<: *kl }  # sat-verified 2026-10-29 (websearch-seeded)

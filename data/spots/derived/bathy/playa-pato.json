@@ -1,0 +1,72 @@
+{
+  "spot": "playa-pato",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.2293,
+    -70.1893
+  ],
+  "bearing_seaward_deg": 196.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 417.0,
+  "mean_slope_m_per_km": 23.77,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.22714,
+      "lon": -70.18995,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.22498,
+      "lon": -70.1906,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.22066,
+      "lon": -70.19191,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.21201,
+      "lon": -70.19452,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.20337,
+      "lon": -70.19713,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.18608,
+      "lon": -70.20235,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.16014,
+      "lon": -70.21017,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.12556,
+      "lon": -70.2206,
+      "depth_m": 360.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.07369,
+      "lon": -70.23624,
+      "depth_m": 417.0
+    }
+  ]
+}

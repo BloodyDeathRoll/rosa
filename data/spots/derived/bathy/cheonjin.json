@@ -1,0 +1,72 @@
+{
+  "spot": "cheonjin",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.2587,
+    128.5605
+  ],
+  "bearing_seaward_deg": 62.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 1107.0,
+  "mean_slope_m_per_km": 62.2,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.25976,
+      "lon": 128.56303,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.26081,
+      "lon": 128.56556,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.26292,
+      "lon": 128.57061,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.26714,
+      "lon": 128.58073,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.27136,
+      "lon": 128.59084,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.2798,
+      "lon": 128.61108,
+      "depth_m": 121.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.29245,
+      "lon": 128.64144,
+      "depth_m": 339.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.3093,
+      "lon": 128.68193,
+      "depth_m": 705.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.33456,
+      "lon": 128.74271,
+      "depth_m": 1107.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "puerto-san-jose",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    13.9157,
+    -90.8184
+  ],
+  "bearing_seaward_deg": 178.0,
+  "nearshore_depth_m": 15.0,
+  "offshore_depth_m": 81.0,
+  "mean_slope_m_per_km": 3.72,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.91345,
+      "lon": -90.81832,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.91121,
+      "lon": -90.81824,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.90671,
+      "lon": -90.81808,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.89772,
+      "lon": -90.81775,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.88874,
+      "lon": -90.81743,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.87076,
+      "lon": -90.81678,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.8438,
+      "lon": -90.81581,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.80785,
+      "lon": -90.81452,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.75392,
+      "lon": -90.81258,
+      "depth_m": 81.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "sacheonjin",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.843,
+    128.8733
+  ],
+  "bearing_seaward_deg": 51.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 841.0,
+  "mean_slope_m_per_km": 47.21,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.84441,
+      "lon": 128.87551,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.84583,
+      "lon": 128.87773,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.84866,
+      "lon": 128.88215,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.85432,
+      "lon": 128.891,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.85998,
+      "lon": 128.89986,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.87129,
+      "lon": 128.91757,
+      "depth_m": 99.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.88826,
+      "lon": 128.94415,
+      "depth_m": 152.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.91087,
+      "lon": 128.9796,
+      "depth_m": 339.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.94477,
+      "lon": 129.03283,
+      "depth_m": 841.0
+    }
+  ]
+}

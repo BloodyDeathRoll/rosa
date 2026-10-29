@@ -1,0 +1,72 @@
+{
+  "spot": "shangchuan-dao",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    21.7029,
+    112.8043
+  ],
+  "bearing_seaward_deg": 114.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 25.0,
+  "mean_slope_m_per_km": 1.13,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 21.70199,
+      "lon": 112.80651,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 21.70107,
+      "lon": 112.80872,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 21.69924,
+      "lon": 112.81314,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 21.69558,
+      "lon": 112.82198,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 21.69192,
+      "lon": 112.83083,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 21.6846,
+      "lon": 112.84851,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 21.67362,
+      "lon": 112.87503,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 21.65897,
+      "lon": 112.91038,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.63698,
+      "lon": 112.96339,
+      "depth_m": 25.0
+    }
+  ]
+}

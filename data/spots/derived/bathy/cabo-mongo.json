@@ -1,0 +1,72 @@
+{
+  "spot": "cabo-mongo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    17.6224,
+    -71.4038
+  ],
+  "bearing_seaward_deg": 140.0,
+  "nearshore_depth_m": 53.0,
+  "offshore_depth_m": 2148.0,
+  "mean_slope_m_per_km": 118.03,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 17.62068,
+      "lon": -71.40228,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 17.61896,
+      "lon": -71.40077,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 17.61551,
+      "lon": -71.39773,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 17.60862,
+      "lon": -71.39167,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 17.60173,
+      "lon": -71.38561,
+      "depth_m": 421.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 17.58795,
+      "lon": -71.37348,
+      "depth_m": 1389.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 17.56728,
+      "lon": -71.35529,
+      "depth_m": 1754.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 17.53972,
+      "lon": -71.33105,
+      "depth_m": 1974.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 17.49836,
+      "lon": -71.2947,
+      "depth_m": 2148.0
+    }
+  ]
+}

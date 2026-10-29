@@ -1,0 +1,72 @@
+{
+  "spot": "playa-del-descargador",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.6207,
+    -0.7087
+  ],
+  "bearing_seaward_deg": 188.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 758.0,
+  "mean_slope_m_per_km": 42.99,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.61847,
+      "lon": -0.7091,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.61625,
+      "lon": -0.70949,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.61179,
+      "lon": -0.71028,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.60289,
+      "lon": -0.71186,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.59398,
+      "lon": -0.71344,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.57617,
+      "lon": -0.7166,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.54945,
+      "lon": -0.72133,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.51383,
+      "lon": -0.72763,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.46039,
+      "lon": -0.73708,
+      "depth_m": 758.0
+    }
+  ]
+}

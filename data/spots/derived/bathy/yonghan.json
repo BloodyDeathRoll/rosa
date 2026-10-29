@@ -1,0 +1,72 @@
+{
+  "spot": "yonghan",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.1136,
+    129.4264
+  ],
+  "bearing_seaward_deg": 27.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 83.0,
+  "mean_slope_m_per_km": 4.45,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.1156,
+      "lon": 129.42766,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.11761,
+      "lon": 129.42893,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.12161,
+      "lon": 129.43145,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.12963,
+      "lon": 129.43651,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.13764,
+      "lon": 129.44157,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.15366,
+      "lon": 129.45168,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.1777,
+      "lon": 129.46686,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.20974,
+      "lon": 129.48712,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.2578,
+      "lon": 129.51754,
+      "depth_m": 83.0
+    }
+  ]
+}

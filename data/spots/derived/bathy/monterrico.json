@@ -1,0 +1,72 @@
+{
+  "spot": "monterrico",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    13.8903,
+    -90.4869
+  ],
+  "bearing_seaward_deg": 195.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 69.0,
+  "mean_slope_m_per_km": 4.34,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.88813,
+      "lon": -90.4875,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.88596,
+      "lon": -90.4881,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.88161,
+      "lon": -90.4893,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.87293,
+      "lon": -90.4917,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.86424,
+      "lon": -90.49409,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.84687,
+      "lon": -90.49889,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.82081,
+      "lon": -90.50608,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.78606,
+      "lon": -90.51566,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.73393,
+      "lon": -90.53003,
+      "depth_m": 69.0
+    }
+  ]
+}

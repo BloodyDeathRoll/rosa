@@ -1,0 +1,72 @@
+{
+  "spot": "torre-del-mar",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.74,
+    -4.0895
+  ],
+  "bearing_seaward_deg": 131.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 383.0,
+  "mean_slope_m_per_km": 21.07,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.73852,
+      "lon": -4.08738,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.73705,
+      "lon": -4.08527,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.7341,
+      "lon": -4.08103,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.7282,
+      "lon": -4.07256,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.7223,
+      "lon": -4.0641,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.71049,
+      "lon": -4.04717,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.69278,
+      "lon": -4.02178,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.66916,
+      "lon": -3.98796,
+      "depth_m": 160.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.6337,
+      "lon": -3.93726,
+      "depth_m": 383.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "san-rafael",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.0319,
+    -71.1322
+  ],
+  "bearing_seaward_deg": 142.0,
+  "nearshore_depth_m": -27.0,
+  "offshore_depth_m": 2755.0,
+  "mean_slope_m_per_km": 156.73,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.03013,
+      "lon": -71.13074,
+      "depth_m": -27.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.02836,
+      "lon": -71.12929,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.02481,
+      "lon": -71.12638,
+      "depth_m": 169.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.01773,
+      "lon": -71.12056,
+      "depth_m": 377.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.01064,
+      "lon": -71.11473,
+      "depth_m": 617.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 17.99646,
+      "lon": -71.10309,
+      "depth_m": 1258.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 17.9752,
+      "lon": -71.08563,
+      "depth_m": 2041.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 17.94685,
+      "lon": -71.06236,
+      "depth_m": 2593.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 17.90431,
+      "lon": -71.02747,
+      "depth_m": 2755.0
+    }
+  ]
+}

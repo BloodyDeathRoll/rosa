@@ -1,0 +1,72 @@
+{
+  "spot": "haitan-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    25.5009,
+    119.8051
+  ],
+  "bearing_seaward_deg": 77.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 44.0,
+  "mean_slope_m_per_km": 2.7,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 25.50141,
+      "lon": 119.80753,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 25.50191,
+      "lon": 119.80995,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 25.50292,
+      "lon": 119.81481,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 25.50494,
+      "lon": 119.82452,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 25.50697,
+      "lon": 119.83423,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 25.51101,
+      "lon": 119.85365,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 25.51706,
+      "lon": 119.88278,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 25.52513,
+      "lon": 119.92163,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 25.53721,
+      "lon": 119.97991,
+      "depth_m": 44.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "bob-hall-pier",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    27.5808,
+    -97.2187
+  ],
+  "bearing_seaward_deg": 115.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 23.0,
+  "mean_slope_m_per_km": 1.18,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 27.57985,
+      "lon": -97.2164,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 27.5789,
+      "lon": -97.2141,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 27.577,
+      "lon": -97.2095,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 27.5732,
+      "lon": -97.20031,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 27.5694,
+      "lon": -97.19112,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 27.56179,
+      "lon": -97.17273,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 27.55038,
+      "lon": -97.14516,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 27.53515,
+      "lon": -97.1084,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 27.51229,
+      "lon": -97.05328,
+      "depth_m": 23.0
+    }
+  ]
+}

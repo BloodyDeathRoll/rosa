@@ -1,0 +1,72 @@
+{
+  "spot": "el-chanquete",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.7181,
+    -4.3559
+  ],
+  "bearing_seaward_deg": 185.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 216.0,
+  "mean_slope_m_per_km": 11.72,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.71586,
+      "lon": -4.35614,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.71362,
+      "lon": -4.35639,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.70914,
+      "lon": -4.35688,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.70018,
+      "lon": -4.35786,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.69122,
+      "lon": -4.35883,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.6733,
+      "lon": -4.36079,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.64643,
+      "lon": -4.36372,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.61059,
+      "lon": -4.36762,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.55684,
+      "lon": -4.37346,
+      "depth_m": 216.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "pleasure-pier",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    29.286,
+    -94.7905
+  ],
+  "bearing_seaward_deg": 138.0,
+  "nearshore_depth_m": 18.0,
+  "offshore_depth_m": 14.0,
+  "mean_slope_m_per_km": -0.23,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 4,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 29.28433,
+      "lon": -94.78878,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 29.28266,
+      "lon": -94.78705,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 29.27932,
+      "lon": -94.7836,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 29.27263,
+      "lon": -94.7767,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 29.26595,
+      "lon": -94.76981,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 29.25258,
+      "lon": -94.75601,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 29.23252,
+      "lon": -94.73533,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 29.20578,
+      "lon": -94.70777,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 29.16564,
+      "lon": -94.66646,
+      "depth_m": 14.0
+    }
+  ]
+}

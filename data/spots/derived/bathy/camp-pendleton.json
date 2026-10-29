@@ -1,0 +1,72 @@
+{
+  "spot": "camp-pendleton",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.8139,
+    -75.9652
+  ],
+  "bearing_seaward_deg": 77.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 18.0,
+  "mean_slope_m_per_km": 0.68,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.81441,
+      "lon": -75.96246,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.81491,
+      "lon": -75.95973,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.81592,
+      "lon": -75.95425,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.81794,
+      "lon": -75.94331,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.81996,
+      "lon": -75.93236,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.824,
+      "lon": -75.91047,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.83005,
+      "lon": -75.87762,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.8381,
+      "lon": -75.83381,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.85015,
+      "lon": -75.76809,
+      "depth_m": 18.0
+    }
+  ]
+}

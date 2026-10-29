@@ -1,0 +1,72 @@
+{
+  "spot": "qingao-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    23.4401,
+    117.1307
+  ],
+  "bearing_seaward_deg": 100.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 27.0,
+  "mean_slope_m_per_km": 1.97,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 23.43971,
+      "lon": 117.13311,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 23.43932,
+      "lon": 117.13553,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 23.43854,
+      "lon": 117.14035,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 23.43698,
+      "lon": 117.15001,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 23.43541,
+      "lon": 117.15966,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 23.43228,
+      "lon": 117.17896,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 23.42759,
+      "lon": 117.20792,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 23.42132,
+      "lon": 117.24652,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 23.41189,
+      "lon": 117.30442,
+      "depth_m": 27.0
+    }
+  ]
+}

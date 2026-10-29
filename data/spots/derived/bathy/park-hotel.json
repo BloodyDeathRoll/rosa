@@ -1,0 +1,72 @@
+{
+  "spot": "park-hotel",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    17.7207,
+    83.3388
+  ],
+  "bearing_seaward_deg": 148.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 57.0,
+  "mean_slope_m_per_km": 2.87,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 17.71879,
+      "lon": 83.34005,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 17.71689,
+      "lon": 83.3413,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 17.71307,
+      "lon": 83.3438,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 17.70545,
+      "lon": 83.34881,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 17.69782,
+      "lon": 83.35381,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 17.68257,
+      "lon": 83.36381,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 17.65968,
+      "lon": 83.37881,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 17.62917,
+      "lon": 83.39881,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 17.5834,
+      "lon": 83.42879,
+      "depth_m": 57.0
+    }
+  ]
+}

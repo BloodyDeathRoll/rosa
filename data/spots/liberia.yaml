@@ -1,0 +1,34 @@
+# Rosa spot database - Liberia (seeded 2026-10-29 - West Africa). Robertsport's left-hand
+# points on Grand Cape Mount, then Monrovia's beaches south-east of it. S-SW South Atlantic
+# groundswell, best roughly April to October; the morning land breeze (NE) is offshore.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+
+country: "Liberia"
+
+defaults: &lr
+  timezone: Africa/Monrovia
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [150, 280]
+  ideal:
+    wind_dir: [0, 90]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - liberia, 9 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 9 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/liberia/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: fishermans-point, name: "Fisherman's Point", town: "Robertsport", lat: 6.7522, lon: -11.3805, offshore_direction: 124, swell_window: [239, 9], offshore_km: 5.0, break_type: point, <<: *lr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: cotton-trees, name: "Cotton Trees", town: "Robertsport", lat: 6.7479, lon: -11.3842, offshore_direction: 135, swell_window: [250, 20], offshore_km: 5.0, break_type: point, <<: *lr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: cassava-point, name: "Cassava Point", town: "Robertsport", lat: 6.7442, lon: -11.3859, offshore_direction: 59, swell_window: [174, 304], offshore_km: 5.0, break_type: point, <<: *lr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: shipwreck, name: "Shipwreck", town: "Robertsport", lat: 6.7309, lon: -11.3794, offshore_direction: 58, swell_window: [173, 303], offshore_km: 5.0, <<: *lr }  # sat-verified 2026-10-29 (websearch-seeded; normal re-aimed to the open arc's middle, seaward 238)
+  - { id: mamba-point, name: "Mamba Point", town: "Monrovia", lat: 6.3111, lon: -10.8166, offshore_direction: 89, swell_window: [204, 334], offshore_km: 5.0, <<: *lr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: sixth-street, name: "6th Street", town: "Monrovia", lat: 6.2922, lon: -10.7906, offshore_direction: 22, swell_window: [137, 267], offshore_km: 5.0, <<: *lr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: coopers-beach-lr, name: "Cooper's Beach", town: "Monrovia", lat: 6.2562, lon: -10.7122, offshore_direction: 49, swell_window: [164, 294], offshore_km: 5.0, <<: *lr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: kendeja, name: "Kendeja", town: "Monrovia", lat: 6.2299, lon: -10.6797, offshore_direction: 16, swell_window: [131, 261], offshore_km: 5.0, <<: *lr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: tropicana, name: "Tropicana", town: "Monrovia", lat: 6.2280, lon: -10.6709, offshore_direction: 5, swell_window: [120, 250], offshore_km: 5.0, <<: *lr }  # sat-verified 2026-10-29 (websearch-seeded)

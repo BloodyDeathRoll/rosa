@@ -1,0 +1,72 @@
+{
+  "spot": "platja-de-lampolla",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.6871,
+    0.1307
+  ],
+  "bearing_seaward_deg": 128.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 85.0,
+  "mean_slope_m_per_km": 4.73,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.68572,
+      "lon": 0.13297,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.68433,
+      "lon": 0.13524,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.68156,
+      "lon": 0.13978,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.67603,
+      "lon": 0.14886,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.67049,
+      "lon": 0.15793,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.65941,
+      "lon": 0.17608,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.64278,
+      "lon": 0.20329,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.62061,
+      "lon": 0.23955,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.58732,
+      "lon": 0.29389,
+      "depth_m": 85.0
+    }
+  ]
+}

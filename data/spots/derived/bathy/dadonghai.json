@@ -1,0 +1,72 @@
+{
+  "spot": "dadonghai",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.2221,
+    109.5179
+  ],
+  "bearing_seaward_deg": 177.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 63.0,
+  "mean_slope_m_per_km": 3.38,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.21985,
+      "lon": 109.51802,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.21761,
+      "lon": 109.51815,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.21312,
+      "lon": 109.5184,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.20414,
+      "lon": 109.51889,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.19516,
+      "lon": 109.51939,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.1772,
+      "lon": 109.52038,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.15025,
+      "lon": 109.52186,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.11433,
+      "lon": 109.52384,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.06044,
+      "lon": 109.52681,
+      "depth_m": 63.0
+    }
+  ]
+}

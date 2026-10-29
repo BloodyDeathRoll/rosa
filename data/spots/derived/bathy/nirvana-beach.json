@@ -1,0 +1,72 @@
+{
+  "spot": "nirvana-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    14.4983,
+    74.3595
+  ],
+  "bearing_seaward_deg": 244.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 2.31,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 14.49731,
+      "lon": 74.35741,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 14.49633,
+      "lon": 74.35533,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 14.49436,
+      "lon": 74.35115,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 14.49041,
+      "lon": 74.3428,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 14.48647,
+      "lon": 74.33445,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 14.47858,
+      "lon": 74.31776,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 14.46675,
+      "lon": 74.29272,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 14.45097,
+      "lon": 74.25933,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 14.42729,
+      "lon": 74.20927,
+      "depth_m": 30.0
+    }
+  ]
+}

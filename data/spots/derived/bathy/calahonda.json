@@ -1,0 +1,72 @@
+{
+  "spot": "calahonda",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    36.4859,
+    -4.7358
+  ],
+  "bearing_seaward_deg": 173.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 697.0,
+  "mean_slope_m_per_km": 39.94,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 36.48367,
+      "lon": -4.73546,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 36.48144,
+      "lon": -4.73512,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 36.47697,
+      "lon": -4.73444,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 36.46805,
+      "lon": -4.73307,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 36.45912,
+      "lon": -4.73171,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 36.44127,
+      "lon": -4.72899,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 36.41449,
+      "lon": -4.7249,
+      "depth_m": 164.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 36.37878,
+      "lon": -4.71946,
+      "depth_m": 329.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 36.32523,
+      "lon": -4.71131,
+      "depth_m": 697.0
+    }
+  ]
+}

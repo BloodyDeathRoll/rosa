@@ -1,0 +1,61 @@
+# Rosa spot database - South Korea mainland (seeded 2026-10-29). The East Sea coast carries most
+# of the surf: Gangwon (Goseong, Sokcho, Yangyang's Jukdo / Ingu / Surfyy Beach, Gangneung,
+# Donghae), Gyeongbuk (Pohang, Yeongdeok), Ulsan and Busan on the south-east corner. A few
+# west-coast (Taean) and south-coast (Goheung) beaches that surf sources name complete it.
+# Typhoon swell (Aug-Oct) and winter NE wind swell; the W-NW winter monsoon is offshore on the
+# east coast. Every spot carries offshore_km along its own seaward normal (the loader's default
+# 0.06 deg W push is inland on this east-facing coast).
+
+country: "South Korea"
+
+defaults: &kr
+  timezone: Asia/Seoul
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [0, 160]
+  ideal:
+    wind_dir: [225, 315]       # metadata only (scorer uses offshore_direction)
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - south-korea, 33 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 33 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/south-korea/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: songjiho, name: "Songjiho", town: "Goseong", lat: 38.3412, lon: 128.5189, offshore_direction: 230, swell_window: [345, 115], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: bongsudae, name: "Bongsudae", town: "Goseong", lat: 38.3232, lon: 128.5290, offshore_direction: 289, swell_window: [44, 174], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: baekdo, name: "Baekdo", town: "Goseong", lat: 38.3002, lon: 128.5476, offshore_direction: 250, swell_window: [5, 135], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded; normal re-aimed to seaward 70 by hand (3c))
+  - { id: cheonjin, name: "Cheonjin", town: "Goseong", lat: 38.2587, lon: 128.5605, offshore_direction: 242, swell_window: [357, 127], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: sokcho-beach, name: "Sokcho Beach", town: "Sokcho", lat: 38.1875, lon: 128.6068, offshore_direction: 238, swell_window: [353, 123], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: mulchi, name: "Mulchi", town: "Yangyang", lat: 38.1511, lon: 128.6093, offshore_direction: 249, swell_window: [4, 134], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: seorak-beach, name: "Seorak Beach", town: "Yangyang", lat: 38.1301, lon: 128.6235, offshore_direction: 252, swell_window: [7, 137], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: naksan, name: "Naksan", town: "Yangyang", lat: 38.1154, lon: 128.6373, offshore_direction: 236, swell_window: [351, 121], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: surfyy-beach, name: "Surfyy Beach", town: "Yangyang", lat: 38.0285, lon: 128.7200, offshore_direction: 234, swell_window: [349, 119], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: hajodae, name: "Hajodae", town: "Yangyang", lat: 38.0227, lon: 128.7262, offshore_direction: 223, swell_window: [338, 108], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: gisamun, name: "Gisamun", town: "Yangyang", lat: 38.0049, lon: 128.7331, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded; normal re-aimed to seaward 60 by hand (3c))
+  - { id: dongsan, name: "Dongsan", town: "Yangyang", lat: 37.9835, lon: 128.7554, offshore_direction: 220, swell_window: [335, 105], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: jukdo, name: "Jukdo", town: "Yangyang", lat: 37.9758, lon: 128.7601, offshore_direction: 256, swell_window: [11, 141], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: ingu, name: "Ingu", town: "Yangyang", lat: 37.9684, lon: 128.7633, offshore_direction: 221, swell_window: [336, 106], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: gaetmaeul, name: "Gaetmaeul", town: "Yangyang", lat: 37.9472, lon: 128.7835, offshore_direction: 209, swell_window: [324, 94], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: namae, name: "Namae", town: "Yangyang", lat: 37.9380, lon: 128.7880, offshore_direction: 248, swell_window: [3, 133], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: jumunjin, name: "Jumunjin", town: "Gangneung", lat: 37.9094, lon: 128.8212, offshore_direction: 215, swell_window: [330, 100], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: sacheonjin, name: "Sacheonjin", town: "Gangneung", lat: 37.8430, lon: 128.8733, offshore_direction: 231, swell_window: [346, 116], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: gyeongpo, name: "Gyeongpo", town: "Gangneung", lat: 37.8039, lon: 128.9097, offshore_direction: 232, swell_window: [347, 117], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: geumjin, name: "Geumjin", town: "Gangneung", lat: 37.6394, lon: 129.0447, offshore_direction: 247, swell_window: [2, 132], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: mangsang, name: "Mangsang", town: "Donghae", lat: 37.5937, lon: 129.0920, offshore_direction: 216, swell_window: [331, 101], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: daejin-donghae, name: "Daejin", town: "Donghae", lat: 37.5823, lon: 129.1095, offshore_direction: 194, swell_window: [309, 79], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: yonghwa, name: "Yonghwa", town: "Samcheok", lat: 37.2906, lon: 129.3032, offshore_direction: 212, swell_window: [327, 97], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: hagampo, name: "Hagampo", town: "Taean", lat: 36.8979, lon: 126.1994, offshore_direction: 80, swell_window: [195, 325], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded; normal re-aimed to seaward 260 by hand (3c))
+  - { id: mallipo, name: "Mallipo", town: "Taean", lat: 36.7869, lon: 126.1402, offshore_direction: 121, swell_window: [236, 6], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: wolpo, name: "Wolpo", town: "Pohang", lat: 36.2030, lon: 129.3719, offshore_direction: 265, swell_window: [20, 150], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: yonghan, name: "Yonghan", town: "Pohang", lat: 36.1136, lon: 129.4264, offshore_direction: 207, swell_window: [322, 92], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: jinha, name: "Jinha", town: "Ulsan", lat: 35.3829, lon: 129.3457, offshore_direction: 310, swell_window: [65, 195], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: imnang, name: "Imnang", town: "Busan", lat: 35.3185, lon: 129.2644, offshore_direction: 304, swell_window: [59, 189], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: songjeong, name: "Songjeong", town: "Busan", lat: 35.1787, lon: 129.2003, offshore_direction: 301, swell_window: [56, 186], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: haeundae, name: "Haeundae", town: "Busan", lat: 35.1578, lon: 129.1590, offshore_direction: 333, swell_window: [88, 218], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: dadaepo, name: "Dadaepo", town: "Busan", lat: 35.0457, lon: 128.9625, offshore_direction: 26, swell_window: [141, 271], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: namyeol, name: "Namyeol", town: "Goheung", lat: 34.5804, lon: 127.4871, offshore_direction: 298, swell_window: [53, 183], offshore_km: 5.0, <<: *kr }  # sat-verified 2026-10-29 (websearch-seeded)

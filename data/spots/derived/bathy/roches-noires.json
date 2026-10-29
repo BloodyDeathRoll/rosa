@@ -1,0 +1,72 @@
+{
+  "spot": "roches-noires",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -21.0523,
+    55.2227
+  ],
+  "bearing_seaward_deg": 279.0,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 1105.0,
+  "mean_slope_m_per_km": 61.52,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -21.05195,
+      "lon": 55.22032,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -21.0516,
+      "lon": 55.21794,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -21.05089,
+      "lon": 55.21318,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -21.04949,
+      "lon": 55.20366,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -21.04808,
+      "lon": 55.19415,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -21.04526,
+      "lon": 55.17511,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -21.04103,
+      "lon": 55.14656,
+      "depth_m": 475.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -21.03538,
+      "lon": 55.1085,
+      "depth_m": 705.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -21.02689,
+      "lon": 55.05141,
+      "depth_m": 1105.0
+    }
+  ]
+}

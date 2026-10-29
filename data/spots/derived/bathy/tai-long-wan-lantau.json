@@ -1,0 +1,72 @@
+{
+  "spot": "tai-long-wan-lantau",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    22.221,
+    113.8854
+  ],
+  "bearing_seaward_deg": 138.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 27.0,
+  "mean_slope_m_per_km": 1.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 22.21933,
+      "lon": 113.88703,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 22.21766,
+      "lon": 113.88865,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 22.21432,
+      "lon": 113.8919,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 22.20763,
+      "lon": 113.8984,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 22.20095,
+      "lon": 113.9049,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 22.18758,
+      "lon": 113.91789,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 22.16753,
+      "lon": 113.93738,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 22.14078,
+      "lon": 113.96336,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 22.10066,
+      "lon": 114.00231,
+      "depth_m": 27.0
+    }
+  ]
+}

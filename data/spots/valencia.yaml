@@ -1,0 +1,69 @@
+# Rosa spot database - Valencia. The Valencian Community's coast: Castellon (Benicassim,
+# Irta), Valencia city and the Safor (Malva-rosa, Cullera, Oliva), and Alicante's Marina
+# Alta and Baixa (Javea, Calp, Benidorm), Alicante city and the Vega Baja (Guardamar,
+# Torrevieja). An E-facing western Mediterranean coast on short-period NE-SE Levante wind
+# swell, offshore on the W poniente. Every spot carries offshore_km along its own seaward
+# normal; break_type per spot.
+
+country: "Spain"
+
+defaults: &vlc
+  timezone: Europe/Madrid
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [0, 180]
+  ideal:
+    wind_dir: [225, 315]
+    size_m: [0.5, 1.5]
+
+spots:
+
+  # ==== SEEDED 2026-10-29 - valencia, 42 spots (primary coastline flow: 0 OSM surf beacons,
+  # © OpenStreetMap contributors, ODbL; secondary web-search flow: 42 named breaks, multi-geocoded
+  # then read against OSM named beaches). EVERY pin was rendered on ESRI imagery at z16 and
+  # judged before entering; moved pins were re-rendered until they sat on the break (judge log in
+  # tools/spot-seed/work/valencia/judge.json). offshore_direction is the nearest coastline
+  # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
+  # place nodes (tools/spot-seed/towns.py). North to south.
+  - { id: aiguaoliva, name: "Aiguaoliva", town: "Vinaròs", lat: 40.4440, lon: 0.4543, offshore_direction: 281, swell_window: [36, 166], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: sierra-de-irta, name: "Sierra de Irta", town: "Peñíscola", lat: 40.2965, lon: 0.3461, offshore_direction: 337, swell_window: [92, 222], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: voramar, name: "Voramar", town: "Benicàssim", lat: 40.0570, lon: 0.0854, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded); seaward re-aimed to 150 (3c gate)
+  - { id: sagunto, name: "Sagunto", town: "Port de Sagunt", lat: 39.6607, lon: -0.2083, offshore_direction: 279, swell_window: [34, 164], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: port-saplaya, name: "Port Saplaya", town: "Alboraya", lat: 39.5066, lon: -0.3217, offshore_direction: 283, swell_window: [38, 168], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded); seaward re-aimed to 103 (3c gate)
+  - { id: malva-rosa, name: "Malva-Rosa", town: "Valencia", lat: 39.4797, lon: -0.3229, offshore_direction: 263, swell_window: [18, 148], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-de-las-arenas, name: "Playa de Las Arenas", town: "Valencia", lat: 39.4689, lon: -0.3210, offshore_direction: 255, swell_window: [10, 140], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: el-saler, name: "El Saler", town: "el Saler", lat: 39.3826, lon: -0.3228, offshore_direction: 257, swell_window: [12, 142], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: el-perello, name: "El Perello", town: "el Perelló", lat: 39.2775, lon: -0.2735, offshore_direction: 247, swell_window: [2, 132], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-del-dosel, name: "Playa del Dosel", town: "Cullera", lat: 39.1964, lon: -0.2261, offshore_direction: 254, swell_window: [9, 139], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: el-jucar, name: "El Jucar", town: "Cullera", lat: 39.1532, lon: -0.2386, offshore_direction: 269, swell_window: [24, 154], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: platja-de-xeraco, name: "Platja de Xeraco", town: "Xeraco", lat: 39.0480, lon: -0.1928, offshore_direction: 232, swell_window: [347, 117], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: platja-de-lauir, name: "Platja de l'Auir", town: "Gandia", lat: 39.0298, lon: -0.1800, offshore_direction: 239, swell_window: [354, 124], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-de-bellreguard, name: "Playa de Bellreguard", town: "Bellreguard", lat: 38.9632, lon: -0.1276, offshore_direction: 232, swell_window: [347, 117], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: platja-de-miramar, name: "Platja de Miramar", town: "Miramar", lat: 38.9550, lon: -0.1196, offshore_direction: 238, swell_window: [353, 123], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: oliva-beach, name: "Oliva Beach", town: "Oliva", lat: 38.9005, lon: -0.0569, offshore_direction: 221, swell_window: [336, 106], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: les-rotes, name: "Les Rotes", town: "Dénia", lat: 38.8344, lon: 0.1350, offshore_direction: 200, swell_window: [315, 85], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded); seaward re-aimed to 20 (3c gate)
+  - { id: el-puerto, name: "El Puerto", town: "Xàbia / Jávea", lat: 38.7924, lon: 0.1824, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: la-siesta, name: "La Siesta", town: "Xàbia / Jávea", lat: 38.7870, lon: 0.1828, offshore_direction: 276, swell_window: [31, 161], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: el-arenal, name: "El Arenal", town: "Xàbia / Jávea", lat: 38.7730, lon: 0.1912, offshore_direction: 191, swell_window: [306, 76], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: platja-de-lampolla, name: "Platja de l'Ampolla", town: "Moraira", lat: 38.6871, lon: 0.1307, offshore_direction: 308, swell_window: [63, 193], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-del-bol, name: "Playa del Bol", town: "Calp", lat: 38.6419, lon: 0.0542, offshore_direction: 359, swell_window: [114, 244], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: el-cantal-roig, name: "El Cantal Roig", town: "Calp", lat: 38.6413, lon: 0.0591, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded); seaward re-aimed to 165 (3c gate)
+  - { id: rio-algar, name: "Rio Algar", town: "Altea", lat: 38.6046, lon: -0.0403, offshore_direction: 301, swell_window: [56, 186], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-poniente, name: "Playa Poniente", town: "Benidorm", lat: 38.5361, lon: -0.1477, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: puerto-benidorm, name: "Puerto Benidorm", town: "Benidorm", lat: 38.5359, lon: -0.1334, offshore_direction: 301, swell_window: [56, 186], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: derecha-de-la-cala, name: "Derecha de la Cala", town: "Benidorm", lat: 38.5274, lon: -0.1616, offshore_direction: 314, swell_window: [69, 199], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: cala-finestrat, name: "Cala Finestrat", town: "Finestrat", lat: 38.5243, lon: -0.1670, offshore_direction: 327, swell_window: [82, 212], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-del-torres, name: "Playa del Torres", town: "la Vila Joiosa", lat: 38.5145, lon: -0.1983, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-muchavista, name: "Playa Muchavista", town: "El Campello", lat: 38.3968, lon: -0.4054, offshore_direction: 277, swell_window: [32, 162], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-de-san-juan, name: "Playa de San Juan", town: "Alicante", lat: 38.3703, lon: -0.4087, offshore_direction: 268, swell_window: [23, 153], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-de-la-albufereta, name: "Playa de la Albufereta", town: "Alicante", lat: 38.3629, lon: -0.4443, offshore_direction: 355, swell_window: [110, 240], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: la-calita, name: "La Calita", town: "Alicante", lat: 38.3549, lon: -0.4280, offshore_direction: 356, swell_window: [111, 241], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded); seaward re-aimed to 176 (3c gate)
+  - { id: cala-cantalar, name: "Cala Cantalar", town: "Alicante", lat: 38.3537, lon: -0.4235, offshore_direction: 351, swell_window: [106, 236], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded); seaward re-aimed to 171 (3c gate)
+  - { id: la-placa, name: "La Placa", town: "Alicante", lat: 38.3526, lon: -0.4049, offshore_direction: 317, swell_window: [72, 202], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded); seaward re-aimed to 137 (3c gate)
+  - { id: playa-del-postiguet, name: "Playa del Postiguet", town: "Alicante", lat: 38.3462, lon: -0.4763, offshore_direction: 313, swell_window: [68, 198], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-del-saladar, name: "Playa del Saladar", town: "Urbanova", lat: 38.2837, lon: -0.5199, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: pico-madrid, name: "Pico Madrid", town: "Guardamar del Segura", lat: 38.0790, lon: -0.6472, offshore_direction: 274, swell_window: [29, 159], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: la-mata, name: "La Mata", town: "La Mata", lat: 38.0266, lon: -0.6522, offshore_direction: 282, swell_window: [37, 167], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: playa-del-cura, name: "Playa del Cura", town: "Torrevieja", lat: 37.9767, lon: -0.6695, offshore_direction: 294, swell_window: [49, 179], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: punta-prima, name: "Punta Prima", town: "Torrevieja", lat: 37.9414, lon: -0.7109, offshore_direction: 315, swell_window: [70, 200], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
+  - { id: la-zenia, name: "La Zenia", town: "Orihuela Costa", lat: 37.9243, lon: -0.7216, offshore_direction: 284, swell_window: [39, 169], offshore_km: 5.0, <<: *vlc }  # sat-verified 2026-10-29 (websearch-seeded)
