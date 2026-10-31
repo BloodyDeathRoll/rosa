@@ -1999,14 +1999,6 @@ a.rank-card:hover {
 }
 .hour-grid.head {
   padding: 6px 10px 5px 6px;
-  /* pinned under the spot head (its live height is --spot-sticky-h, SpotPage) */
-  position: sticky;
-  /* 1px under the head: a subpixel seam let the rows peek through */
-  top: calc(var(--spot-sticky-h, 0px) - 1px);
-  z-index: 5;
-  background: color-mix(in srgb, var(--body-bg) 90%, transparent);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
 }
 .hour-grid.head span {
   font-size: 10.9px;
@@ -4500,9 +4492,6 @@ a.rank-card:hover {
     padding-top: 0;
     background: color-mix(in srgb, var(--body-bg) 90%, transparent);
   }
-  .hour-grid.head {
-    top: calc(var(--desk-top) + var(--spot-sticky-h, 0px) - 1px);
-  }
   .spot-top {
     padding: 26px 0 10px;
     gap: 14px;
@@ -4578,7 +4567,7 @@ a.rank-card:hover {
     background: var(--card);
     border-radius: 18px;
     box-shadow: var(--card-shadow);
-    overflow: clip; /* not hidden: that would pin the sticky legend to this box */
+    overflow: hidden;
   }
   .spot-card {
     grid-column: 2;

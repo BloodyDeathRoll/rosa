@@ -1,7 +1,7 @@
 import type { VNode } from "preact";
 import { navigate, onRouteChange } from "../router";
 import { setHead, spotHead } from "../head";
-import { useCallback, useEffect, useMemo, useRef, useState } from "preact/hooks";
+import { useCallback, useEffect, useMemo, useState } from "preact/hooks";
 import { fetchIndex, fetchSpot } from "../api";
 import { gaEvent } from "../ga";
 import {
@@ -956,20 +956,6 @@ export function SpotPage({ id }: { id: string }) {
     return onAppScroll(onScroll);
   }, []);
 
-  // Publish the pinned head's live height as --spot-sticky-h on the page, so the
-  // table legend can stick right under it whatever the head is showing.
-  const headObs = useRef<ResizeObserver | null>(null);
-  const headRef = (el: HTMLElement | null) => {
-    headObs.current?.disconnect();
-    if (!el) return;
-    const page = el.closest(".page") as HTMLElement | null;
-    if (!page) return;
-    const apply = () => page.style.setProperty("--spot-sticky-h", `${el.offsetHeight}px`);
-    apply();
-    headObs.current = new ResizeObserver(apply);
-    headObs.current.observe(el);
-  };
-
   useEffect(() => {
     // north→south ordering, same as the map drawer's swipe order
     fetchIndex().then(
@@ -1076,7 +1062,7 @@ export function SpotPage({ id }: { id: string }) {
 
   return (
     <main class="page">
-      <div ref={headRef} class={`spot-sticky${condensed ? " condensed" : ""}`}>
+      <div class={`spot-sticky${condensed ? " condensed" : ""}`}>
         {topBar}
         <DayScrubber
           data={data}
