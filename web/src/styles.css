@@ -372,7 +372,7 @@ button {
   /* Frosted: a translucent wash of the page colour plus a heavy blur. Blur
      alone left the cards scrolling underneath legible straight through the
      greeting (2026-09-13); the wash is what keeps the header text readable. */
-  background: color-mix(in srgb, var(--body-bg) 75%, transparent);
+  background: color-mix(in srgb, var(--body-bg) 90%, transparent);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
@@ -677,7 +677,7 @@ button {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: color-mix(in srgb, var(--card) 85%, transparent);
+  background: color-mix(in srgb, var(--card) 90%, transparent);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
@@ -773,7 +773,7 @@ button {
   position: sticky;
   top: 52px;
   z-index: 18;
-  background: color-mix(in srgb, var(--card) 85%, transparent);
+  background: color-mix(in srgb, var(--card) 90%, transparent);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
@@ -1007,7 +1007,7 @@ button {
   padding: 10px calc(var(--edge, 12px) + var(--coast-pad)) 16px;
   /* Same frosted treatment as the app header above it, so the two read as one
      band and the dates stay readable over the cards passing underneath. */
-  background: color-mix(in srgb, var(--body-bg) 75%, transparent);
+  background: color-mix(in srgb, var(--body-bg) 90%, transparent);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
@@ -1654,7 +1654,7 @@ a.rank-card:hover {
   top: 0;
   z-index: 19;
   padding-top: env(safe-area-inset-top);
-  background: color-mix(in srgb, var(--card) 88%, transparent);
+  background: color-mix(in srgb, var(--card) 90%, transparent);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
@@ -1999,6 +1999,13 @@ a.rank-card:hover {
 }
 .hour-grid.head {
   padding: 6px 10px 5px 6px;
+  /* pinned under the spot head (its live height is --spot-sticky-h, SpotPage) */
+  position: sticky;
+  top: var(--spot-sticky-h, 0px);
+  z-index: 5;
+  background: color-mix(in srgb, var(--card) 90%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 .hour-grid.head span {
   font-size: 10.9px;
@@ -4192,7 +4199,7 @@ a.rank-card:hover {
     top: 0;
     z-index: 30;
     /* the same frost as the phone header and the day axis under it */
-    background: color-mix(in srgb, var(--body-bg) 75%, transparent);
+    background: color-mix(in srgb, var(--body-bg) 90%, transparent);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
@@ -4490,7 +4497,10 @@ a.rank-card:hover {
   .spot-sticky {
     top: var(--desk-top);
     padding-top: 0;
-    background: color-mix(in srgb, var(--body-bg) 88%, transparent);
+    background: color-mix(in srgb, var(--body-bg) 90%, transparent);
+  }
+  .hour-grid.head {
+    top: calc(var(--desk-top) + var(--spot-sticky-h, 0px));
   }
   .spot-top {
     padding: 26px 0 10px;
@@ -4567,7 +4577,7 @@ a.rank-card:hover {
     background: var(--card);
     border-radius: 18px;
     box-shadow: var(--card-shadow);
-    overflow: hidden;
+    overflow: clip; /* not hidden: that would pin the sticky legend to this box */
   }
   .spot-card {
     grid-column: 2;
