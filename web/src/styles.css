@@ -2001,7 +2001,8 @@ a.rank-card:hover {
   padding: 6px 10px 5px 6px;
   /* pinned under the spot head (its live height is --spot-sticky-h, SpotPage) */
   position: sticky;
-  top: var(--spot-sticky-h, 0px);
+  /* 1px under the head: a subpixel seam let the rows peek through */
+  top: calc(var(--spot-sticky-h, 0px) - 1px);
   z-index: 5;
   background: color-mix(in srgb, var(--body-bg) 90%, transparent);
   backdrop-filter: blur(8px);
@@ -4500,7 +4501,7 @@ a.rank-card:hover {
     background: color-mix(in srgb, var(--body-bg) 90%, transparent);
   }
   .hour-grid.head {
-    top: calc(var(--desk-top) + var(--spot-sticky-h, 0px));
+    top: calc(var(--desk-top) + var(--spot-sticky-h, 0px) - 1px);
   }
   .spot-top {
     padding: 26px 0 10px;
