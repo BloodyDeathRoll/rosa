@@ -1,0 +1,72 @@
+{
+  "spot": "pambula-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.94,
+    149.9094
+  ],
+  "bearing_seaward_deg": 56.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 79.0,
+  "mean_slope_m_per_km": 4.9,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.93874,
+      "lon": 149.91173,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.93749,
+      "lon": 149.91406,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.93497,
+      "lon": 149.91873,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.92994,
+      "lon": 149.92805,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.92491,
+      "lon": 149.93738,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.91485,
+      "lon": 149.95603,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.89975,
+      "lon": 149.98399,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.8796,
+      "lon": 150.02125,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.84936,
+      "lon": 150.07711,
+      "depth_m": 79.0
+    }
+  ]
+}

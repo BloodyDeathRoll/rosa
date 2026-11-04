@@ -1,0 +1,72 @@
+{
+  "spot": "almonta-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.6819,
+    135.3444
+  ],
+  "bearing_seaward_deg": 165.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 49.0,
+  "mean_slope_m_per_km": 2.59,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.68407,
+      "lon": 135.34511,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.68624,
+      "lon": 135.34582,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.69059,
+      "lon": 135.34723,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.69927,
+      "lon": 135.35006,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.70796,
+      "lon": 135.35289,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.72533,
+      "lon": 135.35856,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.75139,
+      "lon": 135.36706,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.78614,
+      "lon": 135.37841,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.83825,
+      "lon": 135.39545,
+      "depth_m": 49.0
+    }
+  ]
+}

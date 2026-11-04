@@ -1,0 +1,72 @@
+{
+  "spot": "foum-labouir",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    23.7672,
+    -15.925
+  ],
+  "bearing_seaward_deg": 265.0,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 32.0,
+  "mean_slope_m_per_km": 1.18,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 23.767,
+      "lon": -15.92745,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 23.76681,
+      "lon": -15.92989,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 23.76642,
+      "lon": -15.93479,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 23.76563,
+      "lon": -15.94458,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 23.76485,
+      "lon": -15.95437,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 23.76327,
+      "lon": -15.97394,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 23.76091,
+      "lon": -16.00331,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 23.75775,
+      "lon": -16.04246,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 23.75299,
+      "lon": -16.10119,
+      "depth_m": 32.0
+    }
+  ]
+}

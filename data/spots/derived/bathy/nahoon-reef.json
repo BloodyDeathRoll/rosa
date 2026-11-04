@@ -1,0 +1,72 @@
+{
+  "spot": "nahoon-reef",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -32.9969,
+    27.9532
+  ],
+  "bearing_seaward_deg": 115.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 86.0,
+  "mean_slope_m_per_km": 4.68,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.99785,
+      "lon": 27.95563,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.9988,
+      "lon": 27.95806,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.0007,
+      "lon": 27.96292,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.0045,
+      "lon": 27.97264,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.0083,
+      "lon": 27.98236,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.01589,
+      "lon": 28.0018,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.02728,
+      "lon": 28.03097,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.04245,
+      "lon": 28.06988,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.06519,
+      "lon": 28.12826,
+      "depth_m": 86.0
+    }
+  ]
+}

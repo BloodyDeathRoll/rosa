@@ -1,0 +1,72 @@
+{
+  "spot": "nobbys-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -32.9223,
+    151.7944
+  ],
+  "bearing_seaward_deg": 120.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 116.0,
+  "mean_slope_m_per_km": 5.97,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.92342,
+      "lon": 151.79672,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.92455,
+      "lon": 151.79904,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -32.9268,
+      "lon": 151.80368,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.93129,
+      "lon": 151.81296,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -32.93579,
+      "lon": 151.82224,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.94477,
+      "lon": 151.8408,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -32.95825,
+      "lon": 151.86866,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -32.97621,
+      "lon": 151.90581,
+      "depth_m": 84.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.00313,
+      "lon": 151.96156,
+      "depth_m": 116.0
+    }
+  ]
+}

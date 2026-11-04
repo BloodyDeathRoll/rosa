@@ -1,0 +1,72 @@
+{
+  "spot": "swansea-heads",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.0936,
+    151.661
+  ],
+  "bearing_seaward_deg": 90.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 110.0,
+  "mean_slope_m_per_km": 6.82,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.0936,
+      "lon": 151.66368,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.0936,
+      "lon": 151.66637,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.0936,
+      "lon": 151.67173,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.0936,
+      "lon": 151.68247,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.0936,
+      "lon": 151.6932,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.09359,
+      "lon": 151.71467,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.09357,
+      "lon": 151.74688,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.09353,
+      "lon": 151.78981,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.09345,
+      "lon": 151.85422,
+      "depth_m": 110.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "carbonifera",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.9482,
+    10.6823
+  ],
+  "bearing_seaward_deg": 200.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 71.0,
+  "mean_slope_m_per_km": 3.89,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.94609,
+      "lon": 10.68125,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.94397,
+      "lon": 10.6802,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.93975,
+      "lon": 10.6781,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.9313,
+      "lon": 10.6739,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.92285,
+      "lon": 10.6697,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.90594,
+      "lon": 10.6613,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.88059,
+      "lon": 10.64872,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.84678,
+      "lon": 10.63196,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.79606,
+      "lon": 10.60685,
+      "depth_m": 71.0
+    }
+  ]
+}

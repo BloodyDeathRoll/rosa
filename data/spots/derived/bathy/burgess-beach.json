@@ -1,0 +1,72 @@
+{
+  "spot": "burgess-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -32.1999,
+    152.5424
+  ],
+  "bearing_seaward_deg": 75.0,
+  "nearshore_depth_m": -23.0,
+  "offshore_depth_m": 90.0,
+  "mean_slope_m_per_km": 6.37,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.19932,
+      "lon": 152.54497,
+      "depth_m": -23.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.19874,
+      "lon": 152.54753,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -32.19757,
+      "lon": 152.55267,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.19524,
+      "lon": 152.56293,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -32.19291,
+      "lon": 152.57319,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.18825,
+      "lon": 152.59372,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -32.18125,
+      "lon": 152.62451,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -32.17191,
+      "lon": 152.66555,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -32.15787,
+      "lon": 152.7271,
+      "depth_m": 90.0
+    }
+  ]
+}

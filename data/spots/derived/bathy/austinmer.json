@@ -1,0 +1,72 @@
+{
+  "spot": "austinmer",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.3061,
+    150.9361
+  ],
+  "bearing_seaward_deg": 120.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 114.0,
+  "mean_slope_m_per_km": 6.82,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.30722,
+      "lon": 150.93846,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.30835,
+      "lon": 150.94081,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.3106,
+      "lon": 150.94553,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.31509,
+      "lon": 150.95496,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.31959,
+      "lon": 150.96439,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.32857,
+      "lon": 150.98326,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.34205,
+      "lon": 151.01156,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.36001,
+      "lon": 151.04932,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.38692,
+      "lon": 151.10598,
+      "depth_m": 114.0
+    }
+  ]
+}

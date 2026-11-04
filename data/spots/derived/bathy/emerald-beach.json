@@ -1,0 +1,72 @@
+{
+  "spot": "emerald-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -30.169,
+    153.1905
+  ],
+  "bearing_seaward_deg": 100.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 91.0,
+  "mean_slope_m_per_km": 5.07,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -30.16939,
+      "lon": 153.19306,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -30.16978,
+      "lon": 153.19562,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -30.17056,
+      "lon": 153.20074,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -30.17212,
+      "lon": 153.21099,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -30.17368,
+      "lon": 153.22123,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -30.1768,
+      "lon": 153.24172,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -30.18147,
+      "lon": 153.27246,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -30.18768,
+      "lon": 153.31345,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -30.19698,
+      "lon": 153.37495,
+      "depth_m": 91.0
+    }
+  ]
+}

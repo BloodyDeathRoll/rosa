@@ -1,0 +1,72 @@
+{
+  "spot": "warrain-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.9683,
+    150.7792
+  ],
+  "bearing_seaward_deg": 90.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 120.0,
+  "mean_slope_m_per_km": 7.21,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.9683,
+      "lon": 150.78194,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.9683,
+      "lon": 150.78469,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.9683,
+      "lon": 150.79017,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.9683,
+      "lon": 150.80115,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.9683,
+      "lon": 150.81212,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.96829,
+      "lon": 150.83407,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.96827,
+      "lon": 150.867,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.96823,
+      "lon": 150.91089,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.96814,
+      "lon": 150.97674,
+      "depth_m": 120.0
+    }
+  ]
+}

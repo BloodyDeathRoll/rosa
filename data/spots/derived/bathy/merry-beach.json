@@ -1,0 +1,72 @@
+{
+  "spot": "merry-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.5651,
+    150.3756
+  ],
+  "bearing_seaward_deg": 120.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 137.0,
+  "mean_slope_m_per_km": 8.23,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.56622,
+      "lon": 150.37799,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.56735,
+      "lon": 150.38039,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.5696,
+      "lon": 150.38517,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.57409,
+      "lon": 150.39475,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.57859,
+      "lon": 150.40433,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.58757,
+      "lon": 150.42349,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.60105,
+      "lon": 150.45223,
+      "depth_m": 111.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.619,
+      "lon": 150.49057,
+      "depth_m": 121.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.64592,
+      "lon": 150.54811,
+      "depth_m": 137.0
+    }
+  ]
+}

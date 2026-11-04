@@ -1,0 +1,72 @@
+{
+  "spot": "samurai-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -32.7662,
+    152.1262
+  ],
+  "bearing_seaward_deg": 122.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 135.0,
+  "mean_slope_m_per_km": 7.77,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.76739,
+      "lon": 152.12847,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.76858,
+      "lon": 152.13074,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -32.77097,
+      "lon": 152.13527,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.77573,
+      "lon": 152.14434,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -32.78049,
+      "lon": 152.15341,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.79002,
+      "lon": 152.17156,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -32.8043,
+      "lon": 152.19879,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -32.82334,
+      "lon": 152.23511,
+      "depth_m": 117.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -32.85188,
+      "lon": 152.28961,
+      "depth_m": 135.0
+    }
+  ]
+}

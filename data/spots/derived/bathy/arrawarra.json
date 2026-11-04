@@ -1,0 +1,72 @@
+{
+  "spot": "arrawarra",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -30.0578,
+    153.2041
+  ],
+  "bearing_seaward_deg": 30.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 25.0,
+  "mean_slope_m_per_km": 1.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -30.05585,
+      "lon": 153.2054,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -30.05391,
+      "lon": 153.2067,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -30.05001,
+      "lon": 153.20929,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -30.04222,
+      "lon": 153.21449,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -30.03443,
+      "lon": 153.21968,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -30.01886,
+      "lon": 153.23007,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -29.99549,
+      "lon": 153.24564,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -29.96433,
+      "lon": 153.26638,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -29.91758,
+      "lon": 153.29748,
+      "depth_m": 25.0
+    }
+  ]
+}

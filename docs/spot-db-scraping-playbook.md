@@ -222,7 +222,7 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-11-04, DB = 3706 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-11-04, DB = 3931 spots, ALL sat-verified)
 
 **Famous-break gap pass, 3593 -> 3602 (2026-11-04).** A hand-written list of ~470 well-known breaks
 was matched against every DB name (accent-folded tokens), every miss geocoded with Nominatim and
@@ -261,12 +261,28 @@ re-aimed two Puerto Rico normals (Gas Chambers 226, El Cocal 158) inside the eye
 - GEBCO reads 2-3 shoreline land samples on every bearing at nine PR spots and Keokea / Hakalau
   (steep volcanic coves); all end in deep water - the documented non-disqualifying case.
 
-**Gap queue (famous breaks, whole areas with zero spots):** mainland Italy and Sardinia (Varazze, Levanto,
-Santa Marinella, Banzai, Capo Mannu); far-west South Australia (Cactus, Caves at Penong, Point
-Sinclair, Elliston, Streaky Bay); Kangaroo Island (Pennington Bay); NW Tasmania (Marrawah); NSW mid
-and south coast (Angourie, Crescent Head, Merimbula); East London (Nahoon Reef); Dakhla; Tobago
-(Mount Irvine); Tortola (Cane Garden Bay); Malaysia and Thailand (Cherating, Phuket). Ireland is
-excluded by operator decision.
+**Italy + Sardinia 49, Australia 136, East London 11, Dakhla 3, Tobago 4, Tortola 5, Malaysia 7,
+Thailand 10 - 3706 -> 3931 (2026-11-04).** Same three-subagent flow; the coordinator re-rendered
+every pin on contact sheets and re-aimed 17 normals off `aim_normal.py` (only where the sweep's
+bearing agreed with the tile, or where a pin on a headland's sheltered side - Crescent Head,
+Crowdy Head, Bawley Point - had its normal pointed into the bay instead of open sea).
+- **Extracts:** `europe/italy/{nord-ovest,centro,sud}` (Sardinia is in `isole`, already local),
+  `asia/{malaysia-singapore-brunei,thailand}`; Geofabrik's `morocco` covers Dakhla and
+  `central-america` covers Tobago and the BVI. Local stems are symlinks per region.
+- **Dropped:** Italy - Capo Marina, Il Trabucco, Artiglieria, Silver Rock, Pipeline (Sardinia),
+  Maresciallo (only located by competitor text); none of Campania / Puglia / Calabria judged
+  famous enough. Australia - Point Bell, Fowlers Bay, Tractor Beach, Sceale Bay, Anxious Bay,
+  Sleaford Bay, Waterloo Bay, Stokes Bay, Couta Rocks, Temma, V-Wall, Racecourse Head, Stockton,
+  Wallagoot Gap, Haycock Point, Bannisters Point; Blackfellows and Little Kirra not locatable.
+  Dakhla - Arish, Pukas (no hit), Westpoint (= Foum Labouir). Tobago - Pigeon Point. Malaysia -
+  Cherating Beach (= the point), Kemasik.
+- **Towns set for findability:** East London (OSM now names the city KuGompo), Penong (Cactus,
+  Castles, Caves - nearest OSM place is "Kevin"), Elliston / Port Lincoln / Kangaroo Island where
+  nothing lies within 12 km.
+
+**Gap queue (famous breaks, whole areas with zero spots):** the NSW Central Coast (Terrigal,
+Avoca, Catherine Hill Bay, Swansea - between the mid-north and sydney boxes); Campania, Puglia and
+Calabria if ever judged worth it. Ireland is excluded by operator decision.
 
 
 **Azores 27, Madeira 25, Sumatra 28, Sumba 9 + Rote 5, 3499 -> 3593 (2026-10-29, second pass).** Four

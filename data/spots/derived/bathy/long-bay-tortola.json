@@ -1,0 +1,72 @@
+{
+  "spot": "long-bay-tortola",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.3976,
+    -64.6894
+  ],
+  "bearing_seaward_deg": 355.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 32.0,
+  "mean_slope_m_per_km": 1.75,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.39984,
+      "lon": -64.68961,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.40208,
+      "lon": -64.68981,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.40656,
+      "lon": -64.69023,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.41552,
+      "lon": -64.69105,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.42448,
+      "lon": -64.69188,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.44239,
+      "lon": -64.69353,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.46927,
+      "lon": -64.69601,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.50511,
+      "lon": -64.69932,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.55886,
+      "lon": -64.70428,
+      "depth_m": 32.0
+    }
+  ]
+}

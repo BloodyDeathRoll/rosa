@@ -1,0 +1,72 @@
+{
+  "spot": "one-mile-beach-forster",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -32.1902,
+    152.5366
+  ],
+  "bearing_seaward_deg": 80.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 89.0,
+  "mean_slope_m_per_km": 5.3,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.18981,
+      "lon": 152.53922,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.18942,
+      "lon": 152.54183,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -32.18864,
+      "lon": 152.54707,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.18707,
+      "lon": 152.55753,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -32.18551,
+      "lon": 152.56799,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.18238,
+      "lon": 152.58892,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -32.17768,
+      "lon": 152.62031,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -32.1714,
+      "lon": 152.66216,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -32.16195,
+      "lon": 152.72492,
+      "depth_m": 89.0
+    }
+  ]
+}

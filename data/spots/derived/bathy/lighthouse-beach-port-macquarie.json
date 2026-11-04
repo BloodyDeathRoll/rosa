@@ -1,0 +1,72 @@
+{
+  "spot": "lighthouse-beach-port-macquarie",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -31.4771,
+    152.9337
+  ],
+  "bearing_seaward_deg": 140.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 97.0,
+  "mean_slope_m_per_km": 5.92,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -31.47882,
+      "lon": 152.93539,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -31.48054,
+      "lon": 152.93709,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -31.48399,
+      "lon": 152.94048,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -31.49088,
+      "lon": 152.94726,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -31.49777,
+      "lon": 152.95404,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -31.51154,
+      "lon": 152.9676,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -31.5322,
+      "lon": 152.98796,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -31.55974,
+      "lon": 153.01511,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -31.60105,
+      "lon": 153.05587,
+      "depth_m": 97.0
+    }
+  ]
+}

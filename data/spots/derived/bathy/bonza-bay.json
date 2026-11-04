@@ -1,0 +1,72 @@
+{
+  "spot": "bonza-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -32.9761,
+    27.9661
+  ],
+  "bearing_seaward_deg": 125.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 86.0,
+  "mean_slope_m_per_km": 5.35,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.97739,
+      "lon": 27.9683,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.97868,
+      "lon": 27.97049,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -32.98126,
+      "lon": 27.97488,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.98642,
+      "lon": 27.98367,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -32.99157,
+      "lon": 27.99245,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.00188,
+      "lon": 28.01002,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.01735,
+      "lon": 28.03639,
+      "depth_m": 83.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.03796,
+      "lon": 28.07155,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.06885,
+      "lon": 28.12433,
+      "depth_m": 86.0
+    }
+  ]
+}

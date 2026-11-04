@@ -1,0 +1,72 @@
+{
+  "spot": "guroneddu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    39.2515,
+    8.3978
+  ],
+  "bearing_seaward_deg": 305.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 151.0,
+  "mean_slope_m_per_km": 8.45,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 39.25279,
+      "lon": 8.39542,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 39.25408,
+      "lon": 8.39304,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 39.25666,
+      "lon": 8.38829,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 39.26182,
+      "lon": 8.37877,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 39.26697,
+      "lon": 8.36925,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 39.27728,
+      "lon": 8.35022,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 39.29274,
+      "lon": 8.32165,
+      "depth_m": 98.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 39.31334,
+      "lon": 8.28354,
+      "depth_m": 148.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 39.34422,
+      "lon": 8.22634,
+      "depth_m": 151.0
+    }
+  ]
+}

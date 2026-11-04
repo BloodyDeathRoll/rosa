@@ -1,0 +1,72 @@
+{
+  "spot": "marina-di-pisa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.672,
+    10.2721
+  ],
+  "bearing_seaward_deg": 255.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 82.0,
+  "mean_slope_m_per_km": 4.45,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.67142,
+      "lon": 10.2691,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.67084,
+      "lon": 10.2661,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.66967,
+      "lon": 10.26009,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.66734,
+      "lon": 10.24808,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.66501,
+      "lon": 10.23607,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.66035,
+      "lon": 10.21206,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.65334,
+      "lon": 10.17605,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.64398,
+      "lon": 10.12805,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.6299,
+      "lon": 10.05607,
+      "depth_m": 82.0
+    }
+  ]
+}

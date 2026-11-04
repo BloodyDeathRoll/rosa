@@ -1,0 +1,72 @@
+{
+  "spot": "woolgoolga-back-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -30.1211,
+    153.2055
+  ],
+  "bearing_seaward_deg": 100.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 87.0,
+  "mean_slope_m_per_km": 5.01,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -30.12149,
+      "lon": 153.20806,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -30.12188,
+      "lon": 153.21062,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -30.12266,
+      "lon": 153.21574,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -30.12422,
+      "lon": 153.22598,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -30.12578,
+      "lon": 153.23622,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -30.1289,
+      "lon": 153.2567,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -30.13357,
+      "lon": 153.28742,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -30.13978,
+      "lon": 153.32839,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -30.14908,
+      "lon": 153.38986,
+      "depth_m": 87.0
+    }
+  ]
+}

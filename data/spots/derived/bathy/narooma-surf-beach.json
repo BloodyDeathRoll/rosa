@@ -1,0 +1,72 @@
+{
+  "spot": "narooma-surf-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.2245,
+    150.1411
+  ],
+  "bearing_seaward_deg": 85.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 128.0,
+  "mean_slope_m_per_km": 6.99,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.2243,
+      "lon": 150.14388,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.22411,
+      "lon": 150.14665,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.22372,
+      "lon": 150.15221,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.22293,
+      "lon": 150.16331,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.22214,
+      "lon": 150.17442,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.22057,
+      "lon": 150.19663,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.2182,
+      "lon": 150.22994,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.21502,
+      "lon": 150.27435,
+      "depth_m": 115.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.21023,
+      "lon": 150.34096,
+      "depth_m": 128.0
+    }
+  ]
+}

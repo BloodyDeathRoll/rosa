@@ -1,0 +1,72 @@
+{
+  "spot": "kamala",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    7.95,
+    98.2776
+  ],
+  "bearing_seaward_deg": 300.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 59.0,
+  "mean_slope_m_per_km": 3.15,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 7.95112,
+      "lon": 98.27563,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 7.95225,
+      "lon": 98.27367,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 7.9545,
+      "lon": 98.26974,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 7.95899,
+      "lon": 98.26187,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 7.96349,
+      "lon": 98.25401,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 7.97248,
+      "lon": 98.23828,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 7.98597,
+      "lon": 98.21468,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 8.00395,
+      "lon": 98.18322,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 8.03091,
+      "lon": 98.13602,
+      "depth_m": 59.0
+    }
+  ]
+}

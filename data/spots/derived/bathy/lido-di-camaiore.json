@@ -1,0 +1,72 @@
+{
+  "spot": "lido-di-camaiore",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.8917,
+    10.2222
+  ],
+  "bearing_seaward_deg": 245.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 34.0,
+  "mean_slope_m_per_km": 1.8,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.89075,
+      "lon": 10.21937,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.8898,
+      "lon": 10.21655,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.8879,
+      "lon": 10.21089,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.8841,
+      "lon": 10.19958,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.88029,
+      "lon": 10.18828,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.87268,
+      "lon": 10.16567,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.86126,
+      "lon": 10.13177,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.84601,
+      "lon": 10.08658,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.82311,
+      "lon": 10.01885,
+      "depth_m": 34.0
+    }
+  ]
+}

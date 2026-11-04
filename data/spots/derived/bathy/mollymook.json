@@ -1,0 +1,72 @@
+{
+  "spot": "mollymook",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.3321,
+    150.4757
+  ],
+  "bearing_seaward_deg": 105.0,
+  "nearshore_depth_m": -16.0,
+  "offshore_depth_m": 124.0,
+  "mean_slope_m_per_km": 7.89,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.33268,
+      "lon": 150.47836,
+      "depth_m": -16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.33326,
+      "lon": 150.48102,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.33443,
+      "lon": 150.48635,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.33675,
+      "lon": 150.497,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.33908,
+      "lon": 150.50765,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.34373,
+      "lon": 150.52895,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.35069,
+      "lon": 150.5609,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.35996,
+      "lon": 150.60352,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.37385,
+      "lon": 150.66746,
+      "depth_m": 124.0
+    }
+  ]
+}

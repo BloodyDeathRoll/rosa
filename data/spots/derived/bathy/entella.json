@@ -1,0 +1,72 @@
+{
+  "spot": "entella",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    44.3101,
+    9.3313
+  ],
+  "bearing_seaward_deg": 200.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 993.0,
+  "mean_slope_m_per_km": 55.77,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 44.30799,
+      "lon": 9.33023,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 44.30587,
+      "lon": 9.32915,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 44.30165,
+      "lon": 9.327,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 44.2932,
+      "lon": 9.32271,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 44.28475,
+      "lon": 9.31841,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 44.26784,
+      "lon": 9.30982,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 44.24249,
+      "lon": 9.29695,
+      "depth_m": 148.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 44.20868,
+      "lon": 9.27981,
+      "depth_m": 640.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 44.15796,
+      "lon": 9.25413,
+      "depth_m": 993.0
+    }
+  ]
+}

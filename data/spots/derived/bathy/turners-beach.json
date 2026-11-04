@@ -1,0 +1,72 @@
+{
+  "spot": "turners-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -29.4297,
+    153.364
+  ],
+  "bearing_seaward_deg": 95.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 57.0,
+  "mean_slope_m_per_km": 3.49,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -29.4299,
+      "lon": 153.36657,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -29.43009,
+      "lon": 153.36914,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -29.43048,
+      "lon": 153.37429,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -29.43127,
+      "lon": 153.38457,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -29.43205,
+      "lon": 153.39486,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -29.43361,
+      "lon": 153.41543,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -29.43595,
+      "lon": 153.4463,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -29.43905,
+      "lon": 153.48745,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -29.44368,
+      "lon": 153.54918,
+      "depth_m": 57.0
+    }
+  ]
+}

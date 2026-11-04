@@ -1,0 +1,72 @@
+{
+  "spot": "lerici-venere-azzurra",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    44.0811,
+    9.9072
+  ],
+  "bearing_seaward_deg": 220.0,
+  "nearshore_depth_m": -14.0,
+  "offshore_depth_m": 50.0,
+  "mean_slope_m_per_km": 3.61,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 44.07938,
+      "lon": 9.90519,
+      "depth_m": -14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 44.07766,
+      "lon": 9.90318,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 44.07421,
+      "lon": 9.89915,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 44.06732,
+      "lon": 9.89111,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 44.06043,
+      "lon": 9.88307,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 44.04665,
+      "lon": 9.86699,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 44.02597,
+      "lon": 9.84288,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.99839,
+      "lon": 9.81077,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.957,
+      "lon": 9.76265,
+      "depth_m": 50.0
+    }
+  ]
+}

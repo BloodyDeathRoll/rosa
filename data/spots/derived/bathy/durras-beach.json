@@ -1,0 +1,72 @@
+{
+  "spot": "durras-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.6363,
+    150.3122
+  ],
+  "bearing_seaward_deg": 150.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 123.0,
+  "mean_slope_m_per_km": 6.87,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.63825,
+      "lon": 150.31358,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.64019,
+      "lon": 150.31497,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.64409,
+      "lon": 150.31773,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.65188,
+      "lon": 150.32327,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.65966,
+      "lon": 150.3288,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.67524,
+      "lon": 150.33988,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.6986,
+      "lon": 150.3565,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.72974,
+      "lon": 150.37867,
+      "depth_m": 108.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.77645,
+      "lon": 150.41196,
+      "depth_m": 123.0
+    }
+  ]
+}

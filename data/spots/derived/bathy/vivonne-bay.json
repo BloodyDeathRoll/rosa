@@ -1,0 +1,72 @@
+{
+  "spot": "vivonne-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.9796,
+    137.1863
+  ],
+  "bearing_seaward_deg": 150.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 39.0,
+  "mean_slope_m_per_km": 2.31,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.98155,
+      "lon": 137.18769,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.98349,
+      "lon": 137.18908,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.98739,
+      "lon": 137.19186,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.99518,
+      "lon": 137.19742,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.00296,
+      "lon": 137.20297,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.01854,
+      "lon": 137.2141,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.0419,
+      "lon": 137.23079,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.07304,
+      "lon": 137.25306,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.11975,
+      "lon": 137.2865,
+      "depth_m": 39.0
+    }
+  ]
+}

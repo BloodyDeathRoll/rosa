@@ -1,0 +1,25 @@
+# Rosa spot database - Tobago (seeded 2026-11-04). The Caribbean-facing north-west coast (Mount Irvine,
+# Grafton, Castara) on N-NW winter groundswell from North Atlantic storms (Nov-Apr); Bacolet on the
+# Atlantic side takes the E trade windswell. Offshore on the leeward coast is the E-SE trade.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Trinidad and Tobago"
+
+defaults: &tob
+  timezone: America/Port_of_Spain
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [270, 30]
+  ideal:
+    wind_dir: [60, 150]
+    size_m: [0.8, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-11-04 - tobago, 4 spots (web-search flow; coordinates from OSM / Photon,
+  # every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: mount-irvine, name: "Mount Irvine", town: "Mount Irvine", lat: 11.1992, lon: -60.7966, offshore_direction: 160, swell_window: [275, 45], offshore_km: 5.0, break_type: reef, <<: *tob }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: stonehaven-bay, name: "Stonehaven Bay (Grafton)", town: "Black Rock", lat: 11.2030, lon: -60.7870, offshore_direction: 140, swell_window: [255, 25], offshore_km: 5.0, break_type: beach, <<: *tob }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: castara, name: "Castara", town: "Castara", lat: 11.2808, lon: -60.6959, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, break_type: beach, <<: *tob }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: bacolet, name: "Bacolet", town: "Scarborough", lat: 11.1746, lon: -60.7131, offshore_direction: 315, swell_window: [70, 200], offshore_km: 5.0, break_type: beach, <<: *tob }  # sat-verified 2026-11-04 (websearch-seeded)

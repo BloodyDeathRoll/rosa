@@ -1,0 +1,72 @@
+{
+  "spot": "horseshoe-bay-bermagui",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.4248,
+    150.077
+  ],
+  "bearing_seaward_deg": 25.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 26.0,
+  "mean_slope_m_per_km": 1.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.42276,
+      "lon": 150.07818,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.42072,
+      "lon": 150.07936,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.41665,
+      "lon": 150.08172,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.4085,
+      "lon": 150.08644,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.40035,
+      "lon": 150.09117,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.38404,
+      "lon": 150.10061,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.35959,
+      "lon": 150.11476,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.32698,
+      "lon": 150.13361,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.27806,
+      "lon": 150.16186,
+      "depth_m": 26.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "killick-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -31.1324,
+    152.9999
+  ],
+  "bearing_seaward_deg": 120.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 120.0,
+  "mean_slope_m_per_km": 6.59,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -31.13352,
+      "lon": 153.00217,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -31.13465,
+      "lon": 153.00445,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -31.1369,
+      "lon": 153.009,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -31.14139,
+      "lon": 153.0181,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -31.14589,
+      "lon": 153.0272,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -31.15488,
+      "lon": 153.0454,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -31.16835,
+      "lon": 153.07272,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -31.18631,
+      "lon": 153.10915,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -31.21324,
+      "lon": 153.16382,
+      "depth_m": 120.0
+    }
+  ]
+}

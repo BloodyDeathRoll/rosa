@@ -1,0 +1,72 @@
+{
+  "spot": "tathra",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.7104,
+    149.9797
+  ],
+  "bearing_seaward_deg": 100.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 119.0,
+  "mean_slope_m_per_km": 6.93,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.71079,
+      "lon": 149.98246,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.71118,
+      "lon": 149.98522,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.71196,
+      "lon": 149.99075,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.71352,
+      "lon": 150.0018,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.71508,
+      "lon": 150.01285,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.7182,
+      "lon": 150.03494,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.72286,
+      "lon": 150.0681,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.72907,
+      "lon": 150.1123,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.73834,
+      "lon": 150.17863,
+      "depth_m": 119.0
+    }
+  ]
+}

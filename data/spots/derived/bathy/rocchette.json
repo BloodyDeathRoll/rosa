@@ -1,0 +1,72 @@
+{
+  "spot": "rocchette",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.7735,
+    10.7905
+  ],
+  "bearing_seaward_deg": 200.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 131.0,
+  "mean_slope_m_per_km": 7.32,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.77139,
+      "lon": 10.78945,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.76927,
+      "lon": 10.7884,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.76505,
+      "lon": 10.78631,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.7566,
+      "lon": 10.78212,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.74815,
+      "lon": 10.77793,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.73124,
+      "lon": 10.76956,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.70589,
+      "lon": 10.75701,
+      "depth_m": 108.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.67208,
+      "lon": 10.7403,
+      "depth_m": 113.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.62136,
+      "lon": 10.71526,
+      "depth_m": 131.0
+    }
+  ]
+}

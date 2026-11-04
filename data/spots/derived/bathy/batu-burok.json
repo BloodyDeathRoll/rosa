@@ -1,0 +1,72 @@
+{
+  "spot": "batu-burok",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    5.3125,
+    103.1616
+  ],
+  "bearing_seaward_deg": 60.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 37.0,
+  "mean_slope_m_per_km": 2.37,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 5.31362,
+      "lon": 103.16356,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 5.31475,
+      "lon": 103.16551,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 5.317,
+      "lon": 103.16942,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 5.32149,
+      "lon": 103.17724,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 5.32599,
+      "lon": 103.18507,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 5.33498,
+      "lon": 103.20071,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 5.34847,
+      "lon": 103.22418,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 5.36645,
+      "lon": 103.25547,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 5.39342,
+      "lon": 103.30241,
+      "depth_m": 37.0
+    }
+  ]
+}

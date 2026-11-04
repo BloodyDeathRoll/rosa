@@ -1,0 +1,29 @@
+# Rosa spot database - Liguria (seeded 2026-11-04). The Ligurian Sea's north shore, Sanremo to
+# Lerici: south-facing coves and reefs on short-period libeccio (SW) and scirocco (SE) wind swell,
+# best Oct-Apr; the mountains behind give clean north offshores (tramontana).
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Italy"
+
+defaults: &lig
+  timezone: Europe/Rome
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [150, 260]
+  ideal:
+    wind_dir: [315, 45]
+    size_m: [0.6, 1.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-04 - liguria, 8 spots (web-search flow; coordinates from OSM / Photon,
+  # every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: sanremo-tre-ponti, name: "Tre Ponti", town: "Sanremo", lat: 43.8223, lon: 7.8127, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, break_type: beach, <<: *lig }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: varazze, name: "Varazze", town: "Varazze", lat: 44.3579, lon: 8.5768, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, break_type: reef, <<: *lig }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: arenzano, name: "Arenzano", town: "Arenzano", lat: 44.3976, lon: 8.6864, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, break_type: point, <<: *lig }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: bogliasco, name: "Bogliasco", town: "Bogliasco", lat: 44.3781, lon: 9.0685, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, break_type: beach, <<: *lig }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: recco, name: "Recco", town: "Recco", lat: 44.3606, lon: 9.1416, offshore_direction: 25, swell_window: [140, 270], offshore_km: 5.0, break_type: beach, <<: *lig }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: entella, name: "Entella", town: "Chiavari", lat: 44.3101, lon: 9.3313, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, break_type: beach, <<: *lig }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: levanto, name: "Levanto", town: "Levanto", lat: 44.1693, lon: 9.6092, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, break_type: beach, <<: *lig }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: lerici-venere-azzurra, name: "Venere Azzurra", town: "Lerici", lat: 44.0811, lon: 9.9072, offshore_direction: 40, swell_window: [155, 285], offshore_km: 5.0, break_type: beach, <<: *lig }  # sat-verified 2026-11-04 (websearch-seeded)

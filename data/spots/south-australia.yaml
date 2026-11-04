@@ -40,3 +40,26 @@ spots:
   - { id: chiton-rocks, name: "Chiton Rocks", town: "Port Elliot", lat: -35.5386, lon: 138.6539, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, <<: *sa }  # sat-verified 2026-09-03 (websearch-seeded)
   - { id: parsons, name: "Parsons", town: "Victor Harbor", lat: -35.6306, lon: 138.4680, offshore_direction: 14, swell_window: [129, 259], offshore_km: 5.0, <<: *sa }  # sat-verified 2026-09-03 (websearch-seeded)
   - { id: waitpinga, name: "Waitpinga", town: "Victor Harbor", lat: -35.6341, lon: 138.4946, offshore_direction: 12, swell_window: [127, 257], offshore_km: 5.0, <<: *sa }  # sat-verified 2026-09-03 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-04 - sa-west, 12 spots (web-search flow; coordinates from OSM / Nominatim /
+  # Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: castles, name: "Castles", town: "Penong", lat: -32.0784, lon: 132.9747, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, break_type: reef, <<: *sa }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: caves, name: "Caves", town: "Penong", lat: -32.0937, lon: 132.9790, offshore_direction: 80, swell_window: [195, 325], offshore_km: 5.0, break_type: reef, <<: *sa }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: cactus, name: "Cactus", town: "Penong", lat: -32.0866, lon: 132.9807, offshore_direction: 80, swell_window: [195, 325], offshore_km: 5.0, break_type: reef, <<: *sa }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: smooth-pool, name: "Smooth Pool", town: "Westall", lat: -32.9253, lon: 134.0777, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: reef, <<: *sa }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: granites, name: "Granites", town: "Westall", lat: -32.8952, lon: 134.0785, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: reef, <<: *sa }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: mount-camel-beach, name: "Mount Camel Beach", town: "Venus Bay", lat: -33.2900, lon: 134.7498, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, break_type: beach, <<: *sa }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: locks-well, name: "Locks Well", town: "Elliston", lat: -33.7436, lon: 135.0249, offshore_direction: 40, swell_window: [155, 285], offshore_km: 5.0, break_type: beach, <<: *sa }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: point-avoid, name: "Point Avoid", town: "Flat Rock", lat: -34.6813, lon: 135.3216, offshore_direction: 65, swell_window: [180, 310], offshore_km: 5.0, break_type: reef, <<: *sa }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: almonta-beach, name: "Almonta Beach", town: "Flat Rock", lat: -34.6819, lon: 135.3444, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, break_type: beach, <<: *sa }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: greenly-beach, name: "Greenly Beach", town: "Warrow", lat: -34.3628, lon: 135.3575, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, break_type: beach, <<: *sa }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: gunyah-beach, name: "Gunyah Beach", town: "Coffin Bay", lat: -34.6919, lon: 135.3892, offshore_direction: 25, swell_window: [140, 270], offshore_km: 5.0, break_type: beach, <<: *sa }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: fishery-bay, name: "Fishery Bay", town: "Port Lincoln", lat: -34.9124, lon: 135.6891, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, break_type: reef, <<: *sa }  # sat-verified 2026-11-04 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-04 - kangaroo-island, 5 spots (web-search flow; coordinates from OSM / Nominatim /
+  # Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: west-bay-ki, name: "West Bay", town: "Kangaroo Island", lat: -35.8859, lon: 136.5510, offshore_direction: 80, swell_window: [195, 325], offshore_km: 5.0, break_type: beach, <<: *sa }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: hanson-bay, name: "Hanson Bay", town: "Cape Younghusband", lat: -36.0176, lon: 136.8586, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, break_type: beach, <<: *sa }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: vivonne-bay, name: "Vivonne Bay", town: "Vivonne Bay", lat: -35.9796, lon: 137.1863, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, break_type: beach, <<: *sa }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: destrees-bay, name: "D'Estrees Bay", town: "Point Tinline", lat: -35.9836, lon: 137.6155, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, break_type: beach, <<: *sa }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: pennington-bay, name: "Pennington Bay", town: "Sapphiretown", lat: -35.8540, lon: 137.7411, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, break_type: beach, <<: *sa }  # sat-verified 2026-11-04 (websearch-seeded)

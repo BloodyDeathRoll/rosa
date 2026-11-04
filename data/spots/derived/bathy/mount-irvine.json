@@ -1,0 +1,72 @@
+{
+  "spot": "mount-irvine",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    11.1992,
+    -60.7966
+  ],
+  "bearing_seaward_deg": 340.0,
+  "nearshore_depth_m": 21.0,
+  "offshore_depth_m": 154.0,
+  "mean_slope_m_per_km": 7.49,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.20131,
+      "lon": -60.79738,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.20343,
+      "lon": -60.79817,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.20765,
+      "lon": -60.79974,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.2161,
+      "lon": -60.80287,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.22455,
+      "lon": -60.80601,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.24145,
+      "lon": -60.81228,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.26681,
+      "lon": -60.82169,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.30061,
+      "lon": -60.83424,
+      "depth_m": 124.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.35131,
+      "lon": -60.85307,
+      "depth_m": 154.0
+    }
+  ]
+}

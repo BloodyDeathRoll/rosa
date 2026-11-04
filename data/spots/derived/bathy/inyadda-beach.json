@@ -1,0 +1,72 @@
+{
+  "spot": "inyadda-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.2512,
+    150.5333
+  ],
+  "bearing_seaward_deg": 150.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 116.0,
+  "mean_slope_m_per_km": 6.99,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.25315,
+      "lon": 150.53468,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.25509,
+      "lon": 150.53605,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.25899,
+      "lon": 150.53881,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.26678,
+      "lon": 150.54431,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.27456,
+      "lon": 150.54982,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.29014,
+      "lon": 150.56084,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.3135,
+      "lon": 150.57738,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.34464,
+      "lon": 150.59945,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.39135,
+      "lon": 150.63259,
+      "depth_m": 116.0
+    }
+  ]
+}

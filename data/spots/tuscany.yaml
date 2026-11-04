@@ -1,0 +1,37 @@
+# Rosa spot database - Tuscany (seeded 2026-11-04). The Tyrrhenian's north-east shore, Forte dei
+# Marmi to Ansedonia plus Elba: Versilia beaches and the Livorno reefs on libeccio (SW) and
+# mistral (W-NW) wind swell, short period, best Oct-Apr; offshore is E-NE.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Italy"
+
+defaults: &tus
+  timezone: Europe/Rome
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [180, 320]
+  ideal:
+    wind_dir: [30, 120]
+    size_m: [0.6, 1.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-04 - tuscany, 16 spots (web-search flow; coordinates from OSM / Photon,
+  # every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: forte-dei-marmi, name: "Forte dei Marmi Pontile", town: "Forte dei Marmi", lat: 43.9556, lon: 10.1635, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, break_type: beach, <<: *tus }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: lido-di-camaiore, name: "Lido di Camaiore Pontile", town: "Lido di Camaiore", lat: 43.8917, lon: 10.2222, offshore_direction: 65, swell_window: [180, 310], offshore_km: 5.0, break_type: beach, <<: *tus }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: tito-del-molo, name: "Tito del Molo", town: "Viareggio", lat: 43.8645, lon: 10.2399, offshore_direction: 65, swell_window: [180, 310], offshore_km: 5.0, break_type: beach, <<: *tus }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: marina-di-pisa, name: "Marina di Pisa", town: "Marina di Pisa", lat: 43.6720, lon: 10.2721, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, break_type: reef, <<: *tus }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: tre-ponti-livorno, name: "Tre Ponti", town: "Livorno", lat: 43.5095, lon: 10.3181, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, break_type: reef, <<: *tus }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: il-sale, name: "Il Sale", town: "Livorno", lat: 43.4985, lon: 10.3209, offshore_direction: 80, swell_window: [195, 325], offshore_km: 5.0, break_type: reef, <<: *tus }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: calafuria, name: "Calafuria", town: "Livorno", lat: 43.4711, lon: 10.3343, offshore_direction: 55, swell_window: [170, 300], offshore_km: 5.0, break_type: reef, <<: *tus }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: garagolo, name: "Garagolo", town: "Castiglioncello", lat: 43.3985, lon: 10.4255, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, break_type: reef, <<: *tus }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: lillatro, name: "Lillatro", town: "Rosignano Solvay", lat: 43.3819, lon: 10.4306, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, break_type: reef, <<: *tus }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: san-vincenzo, name: "San Vincenzo", town: "San Vincenzo", lat: 43.0976, lon: 10.5376, offshore_direction: 80, swell_window: [195, 325], offshore_km: 5.0, break_type: beach, <<: *tus }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: baratti, name: "Baratti", town: "Baratti", lat: 42.9941, lon: 10.5123, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, break_type: beach, <<: *tus }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: carbonifera, name: "Carbonifera", town: "Follonica", lat: 42.9482, lon: 10.6823, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, break_type: beach, <<: *tus }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: laconella, name: "Laconella", town: "Lacona", lat: 42.7567, lon: 10.2963, offshore_direction: 5, swell_window: [120, 250], offshore_km: 5.0, break_type: beach, <<: *tus }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: margidore, name: "Margidore", town: "Lacona", lat: 42.7604, lon: 10.3190, offshore_direction: 322, swell_window: [77, 207], offshore_km: 5.0, break_type: beach, <<: *tus }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: rocchette, name: "Rocchette", town: "Castiglione della Pescaia", lat: 42.7735, lon: 10.7905, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, break_type: reef, <<: *tus }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: ansedonia, name: "Ansedonia", town: "Ansedonia", lat: 42.4167, lon: 11.2790, offshore_direction: 10, swell_window: [125, 255], offshore_km: 5.0, break_type: point, <<: *tus }  # sat-verified 2026-11-04 (websearch-seeded)

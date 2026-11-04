@@ -1,0 +1,28 @@
+# Rosa spot database - Malaysia (seeded 2026-11-04). The east coast of the peninsula, Terengganu to
+# Johor plus Tioman: NE monsoon wind swell from the South China Sea, Nov-Mar only - flat the rest of
+# the year. Short period; onshore NE wind most days, glassy early mornings.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Malaysia"
+
+defaults: &my
+  timezone: Asia/Kuala_Lumpur
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [0, 140]
+  ideal:
+    wind_dir: [200, 290]
+    size_m: [0.5, 1.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-04 - malaysia, 7 spots (web-search flow; coordinates from OSM / Photon,
+  # every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: cherating-point, name: "Cherating Point", town: "Cherating", lat: 4.1237, lon: 103.3989, offshore_direction: 310, swell_window: [65, 195], offshore_km: 5.0, break_type: point, <<: *my }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: teluk-cempedak, name: "Teluk Cempedak", town: "Kuantan", lat: 3.8092, lon: 103.3732, offshore_direction: 265, swell_window: [20, 150], offshore_km: 5.0, break_type: beach, <<: *my }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: balok, name: "Pantai Balok", town: "Kampung Balok", lat: 3.9250, lon: 103.3742, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, break_type: beach, <<: *my }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: batu-burok, name: "Batu Burok", town: "Kuala Terengganu", lat: 5.3125, lon: 103.1616, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, break_type: beach, <<: *my }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: monica-bay, name: "Monica Bay (Teluk Mak Nik)", town: "Kemaman", lat: 4.2005, lon: 103.4408, offshore_direction: 255, swell_window: [10, 140], offshore_km: 5.0, break_type: beach, <<: *my }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: juara, name: "Juara", town: "Juara Village", lat: 2.7880, lon: 104.2037, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, break_type: beach, <<: *my }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: desaru, name: "Desaru", town: "Desaru", lat: 1.5478, lon: 104.2630, offshore_direction: 235, swell_window: [350, 120], offshore_km: 5.0, break_type: beach, <<: *my }  # sat-verified 2026-11-04 (websearch-seeded)

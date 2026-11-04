@@ -34,3 +34,14 @@ spots:
   - { id: roaring-beach, name: "Roaring Beach", town: "Nubeena", lat: -43.0883, lon: 147.6733, offshore_direction: 34, swell_window: [149, 279], offshore_km: 5.0, <<: *tas }  # sat-verified 2026-09-03 (websearch-seeded)
   - { id: shipstern-bluff, name: "Shipstern Bluff", town: "Port Arthur", lat: -43.2093, lon: 147.7510, offshore_direction: 42, swell_window: [157, 287], offshore_km: 5.0, <<: *tas }  # sat-verified 2026-09-03 (websearch-seeded)
   - { id: cloudy-bay, name: "Cloudy Bay", town: "Bruny Island", lat: -43.4376, lon: 147.2218, offshore_direction: 4, swell_window: [119, 249], offshore_km: 5.0, <<: *tas }  # sat-verified 2026-09-03 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-04 - tasmania-nw, 8 spots (web-search flow; coordinates from OSM / Nominatim /
+  # Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: ann-bay, name: "Ann Bay", town: "Marrawah", lat: -40.8868, lon: 144.6987, offshore_direction: 110, swell_window: [225, 355], offshore_km: 5.0, break_type: beach, <<: *tas }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: green-point-au, name: "Green Point", town: "Marrawah", lat: -40.9078, lon: 144.6537, offshore_direction: 80, swell_window: [195, 325], offshore_km: 5.0, break_type: point, <<: *tas }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: nettley-bay, name: "Nettley Bay", town: "Marrawah", lat: -40.9300, lon: 144.6282, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: beach, <<: *tas }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: west-point, name: "West Point", town: "Marrawah", lat: -40.9459, lon: 144.6128, offshore_direction: 50, swell_window: [165, 295], offshore_km: 5.0, break_type: reef, <<: *tas }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: mawson-bay, name: "Mawson Bay", town: "Marrawah", lat: -40.9623, lon: 144.6303, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, break_type: beach, <<: *tas }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: bluff-hill-point, name: "Bluff Hill Point", town: "Arthur River", lat: -41.0065, lon: 144.6082, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, break_type: reef, <<: *tas }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: arthur-river, name: "Arthur River", town: "Arthur River", lat: -41.0497, lon: 144.6542, offshore_direction: 80, swell_window: [195, 325], offshore_km: 5.0, break_type: beach, <<: *tas }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: sundown-point, name: "Sundown Point", town: "Nelson Bay", lat: -41.1210, lon: 144.6650, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, break_type: reef, <<: *tas }  # sat-verified 2026-11-04 (websearch-seeded)

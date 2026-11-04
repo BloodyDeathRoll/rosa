@@ -1,0 +1,72 @@
+{
+  "spot": "teluk-cempedak",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    3.8092,
+    103.3732
+  ],
+  "bearing_seaward_deg": 85.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 12.0,
+  "mean_slope_m_per_km": 0.62,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 3.8094,
+      "lon": 103.37544,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 3.80959,
+      "lon": 103.37769,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 3.80998,
+      "lon": 103.38218,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 3.81077,
+      "lon": 103.39116,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 3.81155,
+      "lon": 103.40014,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 3.81312,
+      "lon": 103.41809,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 3.81547,
+      "lon": 103.44503,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 3.8186,
+      "lon": 103.48095,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 3.82329,
+      "lon": 103.53482,
+      "depth_m": 12.0
+    }
+  ]
+}

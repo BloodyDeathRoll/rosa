@@ -1,0 +1,24 @@
+# Rosa spot database - Dakhla (seeded 2026-11-04). The Atlantic side of the Dakhla peninsula: long
+# right-hand points on N-NW North Atlantic groundswell (Oct-Apr) with the near-constant N trade wind,
+# which blows side-offshore down the west-facing points. The lagoon side is kite water, not surf.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Western Sahara"
+
+defaults: &dak
+  timezone: Africa/El_Aaiun
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [250, 10]
+  ideal:
+    wind_dir: [60, 150]
+    size_m: [0.8, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-11-04 - dakhla, 3 spots (web-search flow; coordinates from OSM / Photon,
+  # every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: foum-labouir, name: "Foum Labouir", town: "Dakhla", lat: 23.7672, lon: -15.9250, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, break_type: point, <<: *dak }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: lassarga, name: "Lassarga", town: "Lasarka", lat: 23.6328, lon: -15.9980, offshore_direction: 30, swell_window: [145, 275], offshore_km: 5.0, break_type: point, <<: *dak }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: pointe-de-l-or, name: "Pointe de l'Or", town: "PK 25", lat: 23.9219, lon: -15.8046, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, break_type: point, <<: *dak }  # sat-verified 2026-11-04 (websearch-seeded)

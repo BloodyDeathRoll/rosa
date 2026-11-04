@@ -1,0 +1,72 @@
+{
+  "spot": "racecourse-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.3797,
+    150.4633
+  ],
+  "bearing_seaward_deg": 125.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 129.0,
+  "mean_slope_m_per_km": 7.66,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.38099,
+      "lon": 150.46556,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.38228,
+      "lon": 150.46782,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.38486,
+      "lon": 150.47234,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.39002,
+      "lon": 150.48137,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.39517,
+      "lon": 150.49041,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.40548,
+      "lon": 150.50849,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.42094,
+      "lon": 150.53562,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.44155,
+      "lon": 150.57181,
+      "depth_m": 116.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.47244,
+      "lon": 150.62612,
+      "depth_m": 129.0
+    }
+  ]
+}

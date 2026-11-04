@@ -1,0 +1,72 @@
+{
+  "spot": "nettley-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -40.93,
+    144.6282
+  ],
+  "bearing_seaward_deg": 250.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 61.0,
+  "mean_slope_m_per_km": 3.38,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -40.93077,
+      "lon": 144.6254,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -40.93154,
+      "lon": 144.62261,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -40.93308,
+      "lon": 144.61701,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -40.93615,
+      "lon": 144.60583,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -40.93922,
+      "lon": 144.59464,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -40.94537,
+      "lon": 144.57226,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -40.95457,
+      "lon": 144.53868,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -40.96683,
+      "lon": 144.4939,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -40.98519,
+      "lon": 144.42669,
+      "depth_m": 61.0
+    }
+  ]
+}

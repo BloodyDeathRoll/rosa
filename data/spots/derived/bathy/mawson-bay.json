@@ -1,0 +1,72 @@
+{
+  "spot": "mawson-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -40.9623,
+    144.6303
+  ],
+  "bearing_seaward_deg": 265.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 60.0,
+  "mean_slope_m_per_km": 3.27,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -40.9625,
+      "lon": 144.62733,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -40.96269,
+      "lon": 144.62437,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -40.96308,
+      "lon": 144.61844,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -40.96387,
+      "lon": 144.60657,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -40.96465,
+      "lon": 144.59471,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -40.9662,
+      "lon": 144.57098,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -40.96853,
+      "lon": 144.53538,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -40.97162,
+      "lon": 144.48791,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -40.97621,
+      "lon": 144.4167,
+      "depth_m": 60.0
+    }
+  ]
+}

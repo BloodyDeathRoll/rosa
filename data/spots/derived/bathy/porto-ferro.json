@@ -1,0 +1,72 @@
+{
+  "spot": "porto-ferro",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    40.6892,
+    8.2003
+  ],
+  "bearing_seaward_deg": 218.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 117.0,
+  "mean_slope_m_per_km": 6.54,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.68743,
+      "lon": 8.19847,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.68566,
+      "lon": 8.19665,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.68211,
+      "lon": 8.193,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.67503,
+      "lon": 8.1857,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.66794,
+      "lon": 8.1784,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.65376,
+      "lon": 8.16381,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.63249,
+      "lon": 8.14193,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.60413,
+      "lon": 8.11279,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.56156,
+      "lon": 8.06912,
+      "depth_m": 117.0
+    }
+  ]
+}

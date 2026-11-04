@@ -1,0 +1,72 @@
+{
+  "spot": "one-mile-beach-anna-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -32.7726,
+    152.1184
+  ],
+  "bearing_seaward_deg": 140.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 144.0,
+  "mean_slope_m_per_km": 8.62,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.77432,
+      "lon": 152.12012,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.77604,
+      "lon": 152.12184,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -32.77949,
+      "lon": 152.12528,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.78638,
+      "lon": 152.13215,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -32.79327,
+      "lon": 152.13903,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.80704,
+      "lon": 152.15279,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -32.8277,
+      "lon": 152.17343,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -32.85524,
+      "lon": 152.20098,
+      "depth_m": 122.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -32.89654,
+      "lon": 152.24232,
+      "depth_m": 144.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "west-bay-ki",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.8859,
+    136.551
+  ],
+  "bearing_seaward_deg": 260.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 109.0,
+  "mean_slope_m_per_km": 5.75,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.88629,
+      "lon": 136.54827,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.88668,
+      "lon": 136.54553,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.88746,
+      "lon": 136.54007,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.88902,
+      "lon": 136.52914,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.89058,
+      "lon": 136.5182,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.8937,
+      "lon": 136.49634,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.89836,
+      "lon": 136.46353,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.90457,
+      "lon": 136.41979,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.91385,
+      "lon": 136.35416,
+      "depth_m": 109.0
+    }
+  ]
+}

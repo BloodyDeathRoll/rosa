@@ -1,0 +1,72 @@
+{
+  "spot": "rainbow-beach-bonny-hills",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -31.5885,
+    152.8402
+  ],
+  "bearing_seaward_deg": 95.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 90.0,
+  "mean_slope_m_per_km": 5.07,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -31.5887,
+      "lon": 152.84283,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -31.58889,
+      "lon": 152.84546,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -31.58928,
+      "lon": 152.85072,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -31.59007,
+      "lon": 152.86123,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -31.59085,
+      "lon": 152.87175,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -31.59241,
+      "lon": 152.89279,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -31.59474,
+      "lon": 152.92434,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -31.59784,
+      "lon": 152.96642,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -31.60247,
+      "lon": 153.02954,
+      "depth_m": 90.0
+    }
+  ]
+}

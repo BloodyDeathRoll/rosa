@@ -1,0 +1,72 @@
+{
+  "spot": "north-wollongong",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.4119,
+    150.9024
+  ],
+  "bearing_seaward_deg": 95.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 118.0,
+  "mean_slope_m_per_km": 6.59,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.4121,
+      "lon": 150.90511,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.41229,
+      "lon": 150.90783,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.41268,
+      "lon": 150.91326,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.41347,
+      "lon": 150.92412,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.41425,
+      "lon": 150.93498,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.41581,
+      "lon": 150.9567,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.41814,
+      "lon": 150.98928,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.42124,
+      "lon": 151.03273,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.42585,
+      "lon": 151.0979,
+      "depth_m": 118.0
+    }
+  ]
+}

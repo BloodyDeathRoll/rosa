@@ -1,0 +1,72 @@
+{
+  "spot": "varazze",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    44.3579,
+    8.5768
+  ],
+  "bearing_seaward_deg": 165.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 826.0,
+  "mean_slope_m_per_km": 46.48,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 44.35573,
+      "lon": 8.57761,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 44.35356,
+      "lon": 8.57843,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 44.34921,
+      "lon": 8.58005,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 44.34053,
+      "lon": 8.58331,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 44.33184,
+      "lon": 8.58656,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 44.31447,
+      "lon": 8.59307,
+      "depth_m": 131.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 44.2884,
+      "lon": 8.60281,
+      "depth_m": 304.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 44.25365,
+      "lon": 8.6158,
+      "depth_m": 566.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 44.20152,
+      "lon": 8.63524,
+      "depth_m": 826.0
+    }
+  ]
+}

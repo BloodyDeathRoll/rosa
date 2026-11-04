@@ -1,0 +1,28 @@
+# Rosa spot database - Lazio (seeded 2026-11-04). The central Tyrrhenian coast, Santa Marinella
+# to Gaeta: Banzai and the Santa Severa reefs, the Fregene and Ostia beaches and Gaeta's coves on
+# libeccio (SW) and mistral (W) wind swell, short period, best Oct-Apr; offshore is NE-E.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Italy"
+
+defaults: &laz
+  timezone: Europe/Rome
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [170, 300]
+  ideal:
+    wind_dir: [20, 110]
+    size_m: [0.6, 1.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-04 - lazio, 7 spots (web-search flow; coordinates from OSM / Photon,
+  # every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: la-roccetta, name: "La Roccetta", town: "Santa Marinella", lat: 42.0377, lon: 11.8784, offshore_direction: 355, swell_window: [110, 240], offshore_km: 5.0, break_type: beach, <<: *laz }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: banzai, name: "Banzai", town: "Santa Marinella", lat: 42.0344, lon: 11.9212, offshore_direction: 35, swell_window: [150, 280], offshore_km: 5.0, break_type: reef, <<: *laz }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: santa-severa, name: "Santa Severa", town: "Santa Severa", lat: 42.0131, lon: 11.9656, offshore_direction: 55, swell_window: [170, 300], offshore_km: 5.0, break_type: reef, <<: *laz }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: fregene, name: "Fregene", town: "Fregene", lat: 41.8535, lon: 12.1905, offshore_direction: 65, swell_window: [180, 310], offshore_km: 5.0, break_type: beach, <<: *laz }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: ostia, name: "Lido di Ostia", town: "Lido di Ostia", lat: 41.7284, lon: 12.2763, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, break_type: beach, <<: *laz }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: sant-agostino, name: "Sant'Agostino", town: "Gaeta", lat: 41.2319, lon: 13.4948, offshore_direction: 35, swell_window: [150, 280], offshore_km: 5.0, break_type: beach, <<: *laz }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: serapo, name: "Serapo", town: "Gaeta", lat: 41.2104, lon: 13.5632, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, break_type: beach, <<: *laz }  # sat-verified 2026-11-04 (websearch-seeded)

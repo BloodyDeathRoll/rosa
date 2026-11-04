@@ -1,0 +1,72 @@
+{
+  "spot": "catherine-hill-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.1516,
+    151.6309
+  ],
+  "bearing_seaward_deg": 110.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 107.0,
+  "mean_slope_m_per_km": 5.97,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.15237,
+      "lon": 151.63342,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.15314,
+      "lon": 151.63595,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.15468,
+      "lon": 151.64099,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.15775,
+      "lon": 151.65109,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.16082,
+      "lon": 151.66118,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.16697,
+      "lon": 151.68138,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.17618,
+      "lon": 151.71167,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.18845,
+      "lon": 151.75208,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.20683,
+      "lon": 151.8127,
+      "depth_m": 107.0
+    }
+  ]
+}

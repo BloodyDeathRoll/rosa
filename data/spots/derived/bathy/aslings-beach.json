@@ -1,0 +1,72 @@
+{
+  "spot": "aslings-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -37.0523,
+    149.9159
+  ],
+  "bearing_seaward_deg": 125.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 79.0,
+  "mean_slope_m_per_km": 4.17,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -37.05359,
+      "lon": 149.91821,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -37.05488,
+      "lon": 149.92052,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -37.05746,
+      "lon": 149.92513,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -37.06262,
+      "lon": 149.93436,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -37.06777,
+      "lon": 149.9436,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -37.07808,
+      "lon": 149.96207,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -37.09354,
+      "lon": 149.98978,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -37.11415,
+      "lon": 150.02676,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -37.14503,
+      "lon": 150.08225,
+      "depth_m": 79.0
+    }
+  ]
+}

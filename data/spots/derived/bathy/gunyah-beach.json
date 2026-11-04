@@ -1,0 +1,72 @@
+{
+  "spot": "gunyah-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.6919,
+    135.3892
+  ],
+  "bearing_seaward_deg": 205.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 55.0,
+  "mean_slope_m_per_km": 2.87,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.69394,
+      "lon": 135.38804,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.69598,
+      "lon": 135.38689,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.70005,
+      "lon": 135.38458,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.7082,
+      "lon": 135.37995,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.71635,
+      "lon": 135.37533,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.73265,
+      "lon": 135.36608,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.7571,
+      "lon": 135.35219,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.78969,
+      "lon": 135.33366,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.83858,
+      "lon": 135.30585,
+      "depth_m": 55.0
+    }
+  ]
+}

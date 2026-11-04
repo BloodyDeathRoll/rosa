@@ -1,0 +1,72 @@
+{
+  "spot": "santa-severa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.0131,
+    11.9656
+  ],
+  "bearing_seaward_deg": 235.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 122.0,
+  "mean_slope_m_per_km": 6.82,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.01181,
+      "lon": 11.96312,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.01052,
+      "lon": 11.96064,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.00794,
+      "lon": 11.95569,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.00278,
+      "lon": 11.94577,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.99762,
+      "lon": 11.93586,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.9873,
+      "lon": 11.91604,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.97181,
+      "lon": 11.88633,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.95114,
+      "lon": 11.84674,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.92011,
+      "lon": 11.78739,
+      "depth_m": 122.0
+    }
+  ]
+}

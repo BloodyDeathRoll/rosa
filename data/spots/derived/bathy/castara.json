@@ -1,0 +1,72 @@
+{
+  "spot": "castara",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    11.2808,
+    -60.6959
+  ],
+  "bearing_seaward_deg": 280.0,
+  "nearshore_depth_m": -17.0,
+  "offshore_depth_m": 126.0,
+  "mean_slope_m_per_km": 8.06,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.28119,
+      "lon": -60.69816,
+      "depth_m": -17.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.28158,
+      "lon": -60.70042,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.28236,
+      "lon": -60.70493,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.28392,
+      "lon": -60.71396,
+      "depth_m": 84.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.28548,
+      "lon": -60.72299,
+      "depth_m": 102.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.2886,
+      "lon": -60.74106,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.29328,
+      "lon": -60.76815,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.29952,
+      "lon": -60.80428,
+      "depth_m": 102.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.30887,
+      "lon": -60.85847,
+      "depth_m": 126.0
+    }
+  ]
+}

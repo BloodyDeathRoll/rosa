@@ -1,0 +1,72 @@
+{
+  "spot": "tre-ponti-livorno",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.5095,
+    10.3181
+  ],
+  "bearing_seaward_deg": 255.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 68.0,
+  "mean_slope_m_per_km": 3.61,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.50892,
+      "lon": 10.31511,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.50834,
+      "lon": 10.31211,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.50717,
+      "lon": 10.30612,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.50484,
+      "lon": 10.29415,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.50251,
+      "lon": 10.28217,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.49785,
+      "lon": 10.25822,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.49084,
+      "lon": 10.22231,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.48148,
+      "lon": 10.17444,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.4674,
+      "lon": 10.10266,
+      "depth_m": 68.0
+    }
+  ]
+}

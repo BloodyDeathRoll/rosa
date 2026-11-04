@@ -1,0 +1,72 @@
+{
+  "spot": "funtanamare",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    39.2877,
+    8.4359
+  ],
+  "bearing_seaward_deg": 285.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 148.0,
+  "mean_slope_m_per_km": 8.62,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 39.28828,
+      "lon": 8.43309,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 39.28886,
+      "lon": 8.43029,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 39.29003,
+      "lon": 8.42468,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 39.29235,
+      "lon": 8.41345,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 39.29468,
+      "lon": 8.40223,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 39.29932,
+      "lon": 8.37977,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 39.30629,
+      "lon": 8.34609,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 39.31555,
+      "lon": 8.30116,
+      "depth_m": 140.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 39.32942,
+      "lon": 8.23376,
+      "depth_m": 148.0
+    }
+  ]
+}

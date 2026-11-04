@@ -1,0 +1,72 @@
+{
+  "spot": "seal-rocks",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -32.4446,
+    152.5272
+  ],
+  "bearing_seaward_deg": 155.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 117.0,
+  "mean_slope_m_per_km": 6.54,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.44664,
+      "lon": 152.52833,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.44868,
+      "lon": 152.52945,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -32.45275,
+      "lon": 152.5317,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.4609,
+      "lon": 152.53621,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -32.46905,
+      "lon": 152.54071,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.48535,
+      "lon": 152.54973,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -32.5098,
+      "lon": 152.56326,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -32.5424,
+      "lon": 152.5813,
+      "depth_m": 114.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -32.59128,
+      "lon": 152.6084,
+      "depth_m": 117.0
+    }
+  ]
+}

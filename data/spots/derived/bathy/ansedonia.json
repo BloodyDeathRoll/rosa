@@ -1,0 +1,72 @@
+{
+  "spot": "ansedonia",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.4167,
+    11.279
+  ],
+  "bearing_seaward_deg": 190.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 117.0,
+  "mean_slope_m_per_km": 6.59,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.41449,
+      "lon": 11.27847,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.41227,
+      "lon": 11.27794,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.40784,
+      "lon": 11.27688,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.39899,
+      "lon": 11.27477,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.39013,
+      "lon": 11.27266,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.37242,
+      "lon": 11.26843,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.34585,
+      "lon": 11.2621,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.31042,
+      "lon": 11.25366,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.25728,
+      "lon": 11.24102,
+      "depth_m": 117.0
+    }
+  ]
+}

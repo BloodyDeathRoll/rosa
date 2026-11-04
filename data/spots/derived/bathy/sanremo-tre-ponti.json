@@ -1,0 +1,72 @@
+{
+  "spot": "sanremo-tre-ponti",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.8223,
+    7.8127
+  ],
+  "bearing_seaward_deg": 200.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 1551.0,
+  "mean_slope_m_per_km": 87.21,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.82019,
+      "lon": 7.81163,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.81807,
+      "lon": 7.81057,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.81385,
+      "lon": 7.80844,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.8054,
+      "lon": 7.80418,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.79695,
+      "lon": 7.79992,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.78004,
+      "lon": 7.7914,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.75469,
+      "lon": 7.77863,
+      "depth_m": 235.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.72088,
+      "lon": 7.76163,
+      "depth_m": 566.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.67016,
+      "lon": 7.73616,
+      "depth_m": 1551.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "iluka-bluff",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -29.3951,
+    153.3726
+  ],
+  "bearing_seaward_deg": 50.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 46.0,
+  "mean_slope_m_per_km": 2.54,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -29.39365,
+      "lon": 153.37458,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -29.39221,
+      "lon": 153.37655,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -29.38932,
+      "lon": 153.38051,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -29.38354,
+      "lon": 153.38841,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -29.37776,
+      "lon": 153.39632,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -29.36619,
+      "lon": 153.41212,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -29.34884,
+      "lon": 153.43583,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -29.3257,
+      "lon": 153.46742,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -29.29097,
+      "lon": 153.51478,
+      "depth_m": 46.0
+    }
+  ]
+}

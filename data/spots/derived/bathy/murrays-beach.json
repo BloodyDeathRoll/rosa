@@ -1,0 +1,72 @@
+{
+  "spot": "murrays-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -30.3616,
+    153.1055
+  ],
+  "bearing_seaward_deg": 115.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 84.0,
+  "mean_slope_m_per_km": 4.62,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -30.36255,
+      "lon": 153.10786,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -30.3635,
+      "lon": 153.11022,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -30.3654,
+      "lon": 153.11495,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -30.3692,
+      "lon": 153.12439,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -30.373,
+      "lon": 153.13384,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -30.38059,
+      "lon": 153.15274,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -30.39198,
+      "lon": 153.18109,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -30.40716,
+      "lon": 153.21891,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -30.4299,
+      "lon": 153.27565,
+      "depth_m": 84.0
+    }
+  ]
+}

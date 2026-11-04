@@ -1,0 +1,72 @@
+{
+  "spot": "werri-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.7367,
+    150.8342
+  ],
+  "bearing_seaward_deg": 100.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 131.0,
+  "mean_slope_m_per_km": 7.77,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.73709,
+      "lon": 150.83689,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.73748,
+      "lon": 150.83959,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.73826,
+      "lon": 150.84498,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.73982,
+      "lon": 150.85576,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.74138,
+      "lon": 150.86653,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.7445,
+      "lon": 150.88809,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.74916,
+      "lon": 150.92043,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.75537,
+      "lon": 150.96356,
+      "depth_m": 109.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.76466,
+      "lon": 151.02826,
+      "depth_m": 131.0
+    }
+  ]
+}

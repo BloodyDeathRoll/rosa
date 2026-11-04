@@ -1,0 +1,72 @@
+{
+  "spot": "tito-del-molo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.8645,
+    10.2399
+  ],
+  "bearing_seaward_deg": 245.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 34.0,
+  "mean_slope_m_per_km": 1.63,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.86355,
+      "lon": 10.23707,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.8626,
+      "lon": 10.23425,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.8607,
+      "lon": 10.2286,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.8569,
+      "lon": 10.21729,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.85309,
+      "lon": 10.20599,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.84548,
+      "lon": 10.18339,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.83406,
+      "lon": 10.14951,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.81881,
+      "lon": 10.10435,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.79591,
+      "lon": 10.03665,
+      "depth_m": 34.0
+    }
+  ]
+}

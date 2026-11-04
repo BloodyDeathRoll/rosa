@@ -1,0 +1,72 @@
+{
+  "spot": "newcastle-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -32.9302,
+    151.7866
+  ],
+  "bearing_seaward_deg": 155.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 109.0,
+  "mean_slope_m_per_km": 6.65,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.93224,
+      "lon": 151.78773,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.93428,
+      "lon": 151.78886,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -32.93835,
+      "lon": 151.79113,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.9465,
+      "lon": 151.79566,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -32.95465,
+      "lon": 151.80019,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.97095,
+      "lon": 151.80925,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -32.9954,
+      "lon": 151.82285,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.028,
+      "lon": 151.841,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.07688,
+      "lon": 151.86824,
+      "depth_m": 109.0
+    }
+  ]
+}

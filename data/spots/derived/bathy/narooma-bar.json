@@ -1,0 +1,72 @@
+{
+  "spot": "narooma-bar",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.2097,
+    150.1348
+  ],
+  "bearing_seaward_deg": 90.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 123.0,
+  "mean_slope_m_per_km": 6.48,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.2097,
+      "lon": 150.13759,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.2097,
+      "lon": 150.14037,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.2097,
+      "lon": 150.14595,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.2097,
+      "lon": 150.15709,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.2097,
+      "lon": 150.16824,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.20969,
+      "lon": 150.19053,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.20967,
+      "lon": 150.22397,
+      "depth_m": 84.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.20963,
+      "lon": 150.26855,
+      "depth_m": 113.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.20953,
+      "lon": 150.33543,
+      "depth_m": 123.0
+    }
+  ]
+}

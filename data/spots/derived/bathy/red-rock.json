@@ -1,0 +1,72 @@
+{
+  "spot": "red-rock",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -29.9837,
+    153.2318
+  ],
+  "bearing_seaward_deg": 120.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 73.0,
+  "mean_slope_m_per_km": 4.06,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -29.98482,
+      "lon": 153.23405,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -29.98595,
+      "lon": 153.2363,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -29.9882,
+      "lon": 153.24079,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -29.99269,
+      "lon": 153.24979,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -29.99719,
+      "lon": 153.25878,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -30.00618,
+      "lon": 153.27677,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -30.01965,
+      "lon": 153.30376,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -30.03762,
+      "lon": 153.33976,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -30.06454,
+      "lon": 153.39378,
+      "depth_m": 73.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "la-speranza",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    40.4954,
+    8.3695
+  ],
+  "bearing_seaward_deg": 230.0,
+  "nearshore_depth_m": -22.0,
+  "offshore_depth_m": 121.0,
+  "mean_slope_m_per_km": 8.06,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.49395,
+      "lon": 8.36724,
+      "depth_m": -22.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.49251,
+      "lon": 8.36497,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.48962,
+      "lon": 8.36044,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.48384,
+      "lon": 8.35138,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.47805,
+      "lon": 8.34233,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.46649,
+      "lon": 8.32422,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.44913,
+      "lon": 8.29708,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.42598,
+      "lon": 8.2609,
+      "depth_m": 110.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.39123,
+      "lon": 8.20669,
+      "depth_m": 121.0
+    }
+  ]
+}

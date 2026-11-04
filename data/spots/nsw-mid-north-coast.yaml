@@ -1,0 +1,91 @@
+# Rosa spot database - NSW Mid North Coast (seeded 2026-11-04). Angourie and Yamba down through
+# Crescent Head, South West Rocks, Coffs Harbour, Port Macquarie, Forster and Seal Rocks to
+# Newcastle: the right-hand points of the Tasman coast on S-SE groundswell (biggest in winter) and
+# NE windswell in summer, between the byron-bay and sydney boxes. Offshore is W.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Australia"
+region: "NSW Mid North Coast"
+
+defaults: &mnc
+  timezone: Australia/Sydney
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [25, 155]
+  ideal:
+    wind_dir: [225, 315]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-04 - nsw-mid-north, 68 spots (web-search flow; coordinates from OSM / Nominatim /
+  # Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: evans-head, name: "Evans Head", town: "Evans Head", lat: -29.1115, lon: 153.4346, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: iluka-bluff, name: "Iluka Bluff", town: "Iluka", lat: -29.3951, lon: 153.3726, offshore_direction: 230, swell_window: [345, 115], offshore_km: 5.0, break_type: point, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: turners-beach, name: "Turners Beach", town: "Yamba", lat: -29.4297, lon: 153.3640, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: yamba-main-beach, name: "Yamba Main Beach", town: "Yamba", lat: -29.4354, lon: 153.3647, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: pippi-beach, name: "Pippi Beach", town: "Yamba", lat: -29.4455, lon: 153.3656, offshore_direction: 295, swell_window: [50, 180], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: spooky-beach, name: "Spooky Beach", town: "Angourie", lat: -29.4774, lon: 153.3610, offshore_direction: 250, swell_window: [5, 135], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: angourie-point, name: "Angourie Point", town: "Angourie", lat: -29.4823, lon: 153.3670, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, break_type: point, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: angourie-back-beach, name: "Angourie Back Beach", town: "Angourie", lat: -29.4892, lon: 153.3617, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: brooms-head, name: "Brooms Head", town: "Brooms Head", lat: -29.6085, lon: 153.3401, offshore_direction: 210, swell_window: [325, 95], offshore_km: 5.0, break_type: point, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: sandon, name: "Sandon", town: "Sandon", lat: -29.6740, lon: 153.3332, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, break_type: point, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: minnie-water, name: "Minnie Water", town: "Minnie Water", lat: -29.7707, lon: 153.2985, offshore_direction: 250, swell_window: [5, 135], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: wooli-beach, name: "Wooli Beach", town: "Wooli", lat: -29.8410, lon: 153.2787, offshore_direction: 295, swell_window: [50, 180], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: red-rock, name: "Red Rock", town: "Red Rock", lat: -29.9837, lon: 153.2318, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: arrawarra, name: "Arrawarra", town: "Arrawarra Headland", lat: -30.0578, lon: 153.2041, offshore_direction: 210, swell_window: [325, 95], offshore_km: 5.0, break_type: point, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: mullaway, name: "Mullaway", town: "Mullaway", lat: -30.0740, lon: 153.2033, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: woolgoolga-back-beach, name: "Woolgoolga Back Beach", town: "Woolgoolga", lat: -30.1211, lon: 153.2055, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: emerald-beach, name: "Emerald Beach", town: "Emerald Beach", lat: -30.1690, lon: 153.1905, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: moonee-beach, name: "Moonee Beach", town: "Moonee Beach", lat: -30.1921, lon: 153.1716, offshore_direction: 305, swell_window: [60, 190], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: korora, name: "Korora", town: "Korora", lat: -30.2604, lon: 153.1387, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: diggers-beach, name: "Diggers Beach", town: "Korora", lat: -30.2740, lon: 153.1432, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: park-beach-au, name: "Park Beach", town: "Coffs Harbour", lat: -30.2893, lon: 153.1398, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: murrays-beach, name: "Murrays Beach", town: "Sawtell", lat: -30.3616, lon: 153.1055, offshore_direction: 295, swell_window: [50, 180], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: sawtell, name: "Sawtell", town: "Sawtell", lat: -30.3722, lon: 153.1034, offshore_direction: 265, swell_window: [20, 150], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: valla-beach, name: "Valla Beach", town: "Valla Beach", lat: -30.5971, lon: 153.0141, offshore_direction: 285, swell_window: [40, 170], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: nambucca-main-beach, name: "Nambucca Main Beach", town: "Nambucca Heads", lat: -30.6334, lon: 153.0142, offshore_direction: 265, swell_window: [20, 150], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: scotts-head, name: "Scotts Head", town: "Scotts Head", lat: -30.7440, lon: 152.9963, offshore_direction: 200, swell_window: [315, 85], offshore_km: 5.0, break_type: point, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: grassy-head, name: "Grassy Head", town: "Grassy Head", lat: -30.7930, lon: 152.9992, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, break_type: point, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: back-beach-swr, name: "Back Beach", town: "South West Rocks", lat: -30.8776, lon: 153.0323, offshore_direction: 235, swell_window: [350, 120], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: gap-beach, name: "Gap Beach", town: "Arakoon", lat: -30.9029, lon: 153.0814, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: north-smoky, name: "North Smoky", town: "Arakoon", lat: -30.9176, lon: 153.0861, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: hat-head, name: "Hat Head", town: "Hat Head", lat: -31.0511, lon: 153.0487, offshore_direction: 220, swell_window: [335, 105], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: killick-beach, name: "Killick Beach", town: "Mcguires Crossing", lat: -31.1324, lon: 152.9999, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: crescent-head, name: "Crescent Head", town: "Crescent Head", lat: -31.1864, lon: 152.9806, offshore_direction: 272, swell_window: [27, 157], offshore_km: 5.0, break_type: point, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: goolawah-beach, name: "Goolawah Beach", town: "Crescent Head", lat: -31.2173, lon: 152.9646, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: big-hill, name: "Big Hill", town: "Limeburners Creek", lat: -31.2788, lon: 152.9688, offshore_direction: 210, swell_window: [325, 95], offshore_km: 5.0, break_type: point, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: point-plomer, name: "Point Plomer", town: "Limeburners Creek", lat: -31.3114, lon: 152.9728, offshore_direction: 200, swell_window: [315, 85], offshore_km: 5.0, break_type: point, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: town-beach-port-macquarie, name: "Town Beach", town: "Port Macquarie", lat: -31.4291, lon: 152.9204, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: flynns-beach, name: "Flynns Beach", town: "Port Macquarie", lat: -31.4424, lon: 152.9268, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: lighthouse-beach-port-macquarie, name: "Lighthouse Beach", town: "Port Macquarie", lat: -31.4771, lon: 152.9337, offshore_direction: 320, swell_window: [75, 205], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: lake-cathie, name: "Lake Cathie", town: "Lake Cathie", lat: -31.5568, lon: 152.8542, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: rainbow-beach-bonny-hills, name: "Rainbow Beach", town: "Bonny Hills", lat: -31.5885, lon: 152.8402, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: north-haven, name: "North Haven", town: "North Haven", lat: -31.6344, lon: 152.8352, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: diamond-head, name: "Diamond Head", town: "Diamond Head", lat: -31.7170, lon: 152.7963, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, break_type: point, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: crowdy-head, name: "Crowdy Head", town: "Crowdy Head", lat: -31.8416, lon: 152.7439, offshore_direction: 258, swell_window: [13, 143], offshore_km: 5.0, break_type: point, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: harrington, name: "Harrington", town: "Harrington", lat: -31.8598, lon: 152.7222, offshore_direction: 325, swell_window: [80, 210], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: old-bar, name: "Old Bar", town: "Old Bar", lat: -31.9751, lon: 152.5877, offshore_direction: 310, swell_window: [65, 195], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: saltwater-point, name: "Saltwater", town: "Wallabi Point", lat: -32.0098, lon: 152.5675, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, break_type: point, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: black-head, name: "Black Head", town: "Black Head", lat: -32.0655, lon: 152.5435, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: pebbly-beach-forster, name: "Pebbly Beach", town: "Forster", lat: -32.1790, lon: 152.5180, offshore_direction: 200, swell_window: [315, 85], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: one-mile-beach-forster, name: "One Mile Beach", town: "Forster", lat: -32.1902, lon: 152.5366, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: burgess-beach, name: "Burgess Beach", town: "Forster", lat: -32.1999, lon: 152.5424, offshore_direction: 255, swell_window: [10, 140], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: elizabeth-beach, name: "Elizabeth Beach", town: "Elizabeth Beach", lat: -32.3299, lon: 152.5377, offshore_direction: 236, swell_window: [351, 121], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: boomerang-beach, name: "Boomerang Beach", town: "Boomerang Beach", lat: -32.3452, lon: 152.5411, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: blueys-beach, name: "Blueys Beach", town: "Blueys Beach", lat: -32.3527, lon: 152.5367, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: seal-rocks, name: "Seal Rocks", town: "Seal Rocks", lat: -32.4446, lon: 152.5272, offshore_direction: 335, swell_window: [90, 220], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: treachery-beach, name: "Treachery Beach", town: "Seal Rocks", lat: -32.4547, lon: 152.5080, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: zenith-beach, name: "Zenith Beach", town: "Shoal Bay", lat: -32.7201, lon: 152.1846, offshore_direction: 265, swell_window: [20, 150], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: box-beach, name: "Box Beach", town: "Shoal Bay", lat: -32.7319, lon: 152.1827, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: samurai-beach, name: "Samurai Beach", town: "One Mile", lat: -32.7662, lon: 152.1262, offshore_direction: 302, swell_window: [57, 187], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: one-mile-beach-anna-bay, name: "One Mile Beach", town: "One Mile", lat: -32.7726, lon: 152.1184, offshore_direction: 320, swell_window: [75, 205], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: nobbys-beach, name: "Nobbys Beach", town: "Newcastle", lat: -32.9223, lon: 151.7944, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: newcastle-beach, name: "Newcastle Beach", town: "Newcastle", lat: -32.9302, lon: 151.7866, offshore_direction: 335, swell_window: [90, 220], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: bar-beach, name: "Bar Beach", town: "Bar Beach", lat: -32.9419, lon: 151.7676, offshore_direction: 320, swell_window: [75, 205], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: merewether, name: "Merewether", town: "Merewether", lat: -32.9490, lon: 151.7571, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: redhead-beach, name: "Redhead Beach", town: "Redhead", lat: -33.0152, lon: 151.7190, offshore_direction: 325, swell_window: [80, 210], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: swansea-heads, name: "Swansea Heads", town: "Swansea Heads", lat: -33.0936, lon: 151.6610, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: caves-beach, name: "Caves Beach", town: "Caves Beach", lat: -33.1104, lon: 151.6477, offshore_direction: 295, swell_window: [50, 180], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: catherine-hill-bay, name: "Catherine Hill Bay", town: "Catherine Hill Bay", lat: -33.1516, lon: 151.6309, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, break_type: beach, <<: *mnc }  # sat-verified 2026-11-04 (websearch-seeded)

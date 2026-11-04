@@ -1,0 +1,72 @@
+{
+  "spot": "zenith-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -32.7201,
+    152.1846
+  ],
+  "bearing_seaward_deg": 85.0,
+  "nearshore_depth_m": -30.0,
+  "offshore_depth_m": 101.0,
+  "mean_slope_m_per_km": 7.38,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.7199,
+      "lon": 152.18726,
+      "depth_m": -30.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.71971,
+      "lon": 152.18992,
+      "depth_m": -35.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -32.71932,
+      "lon": 152.19525,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.71853,
+      "lon": 152.2059,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -32.71774,
+      "lon": 152.21655,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.71617,
+      "lon": 152.23784,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -32.7138,
+      "lon": 152.26978,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -32.71063,
+      "lon": 152.31237,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -32.70585,
+      "lon": 152.37625,
+      "depth_m": 101.0
+    }
+  ]
+}

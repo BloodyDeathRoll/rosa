@@ -1,0 +1,72 @@
+{
+  "spot": "fregene",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.8535,
+    12.1905
+  ],
+  "bearing_seaward_deg": 245.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 140.0,
+  "mean_slope_m_per_km": 8.0,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.85255,
+      "lon": 12.18776,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.8516,
+      "lon": 12.18503,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.8497,
+      "lon": 12.17956,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.8459,
+      "lon": 12.16862,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.84209,
+      "lon": 12.15768,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.83448,
+      "lon": 12.1358,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.82306,
+      "lon": 12.103,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.80782,
+      "lon": 12.05928,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.78492,
+      "lon": 11.99374,
+      "depth_m": 140.0
+    }
+  ]
+}

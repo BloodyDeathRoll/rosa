@@ -1,0 +1,72 @@
+{
+  "spot": "malua-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.7929,
+    150.2312
+  ],
+  "bearing_seaward_deg": 100.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 128.0,
+  "mean_slope_m_per_km": 7.55,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.79329,
+      "lon": 150.23393,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.79368,
+      "lon": 150.23666,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.79446,
+      "lon": 150.24212,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.79602,
+      "lon": 150.25304,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.79758,
+      "lon": 150.26396,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.8007,
+      "lon": 150.2858,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.80536,
+      "lon": 150.31856,
+      "depth_m": 94.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.81157,
+      "lon": 150.36226,
+      "depth_m": 117.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.82085,
+      "lon": 150.42781,
+      "depth_m": 128.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "goolawah-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -31.2173,
+    152.9646
+  ],
+  "bearing_seaward_deg": 110.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 111.0,
+  "mean_slope_m_per_km": 6.2,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -31.21807,
+      "lon": 152.96707,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -31.21884,
+      "lon": 152.96954,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -31.22038,
+      "lon": 152.97448,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -31.22345,
+      "lon": 152.98436,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -31.22652,
+      "lon": 152.99425,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -31.23267,
+      "lon": 153.01402,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -31.24188,
+      "lon": 153.04367,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -31.25416,
+      "lon": 153.08323,
+      "depth_m": 84.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -31.27254,
+      "lon": 153.14257,
+      "depth_m": 111.0
+    }
+  ]
+}

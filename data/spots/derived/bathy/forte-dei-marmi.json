@@ -1,0 +1,72 @@
+{
+  "spot": "forte-dei-marmi",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.9556,
+    10.1635
+  ],
+  "bearing_seaward_deg": 240.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 33.0,
+  "mean_slope_m_per_km": 1.8,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.95448,
+      "lon": 10.1608,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.95335,
+      "lon": 10.15809,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.9511,
+      "lon": 10.15268,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.9466,
+      "lon": 10.14187,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.94211,
+      "lon": 10.13105,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.9331,
+      "lon": 10.10943,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.91959,
+      "lon": 10.077,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.90157,
+      "lon": 10.03379,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.8745,
+      "lon": 9.96902,
+      "depth_m": 33.0
+    }
+  ]
+}

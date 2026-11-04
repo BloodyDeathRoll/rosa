@@ -1,0 +1,72 @@
+{
+  "spot": "apple-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.402,
+    -64.678
+  ],
+  "bearing_seaward_deg": 320.0,
+  "nearshore_depth_m": 16.0,
+  "offshore_depth_m": 51.0,
+  "mean_slope_m_per_km": 1.97,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.40372,
+      "lon": -64.67952,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.40544,
+      "lon": -64.68105,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.40889,
+      "lon": -64.68409,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.41578,
+      "lon": -64.69019,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.42267,
+      "lon": -64.69628,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.43644,
+      "lon": -64.70847,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.45711,
+      "lon": -64.72675,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.48466,
+      "lon": -64.75114,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.52597,
+      "lon": -64.78774,
+      "depth_m": 51.0
+    }
+  ]
+}

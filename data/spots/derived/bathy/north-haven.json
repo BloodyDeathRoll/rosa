@@ -1,0 +1,72 @@
+{
+  "spot": "north-haven",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -31.6344,
+    152.8352
+  ],
+  "bearing_seaward_deg": 100.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 94.0,
+  "mean_slope_m_per_km": 5.24,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -31.63479,
+      "lon": 152.8378,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -31.63518,
+      "lon": 152.8404,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -31.63596,
+      "lon": 152.8456,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -31.63752,
+      "lon": 152.85601,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -31.63908,
+      "lon": 152.86641,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -31.6422,
+      "lon": 152.88722,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -31.64687,
+      "lon": 152.91843,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -31.65308,
+      "lon": 152.96005,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -31.66237,
+      "lon": 153.0225,
+      "depth_m": 94.0
+    }
+  ]
+}

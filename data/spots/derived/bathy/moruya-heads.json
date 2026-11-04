@@ -1,0 +1,72 @@
+{
+  "spot": "moruya-heads",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.9211,
+    150.1573
+  ],
+  "bearing_seaward_deg": 95.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 119.0,
+  "mean_slope_m_per_km": 7.32,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.9213,
+      "lon": 150.16007,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.92149,
+      "lon": 150.16283,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.92188,
+      "lon": 150.16836,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.92267,
+      "lon": 150.17943,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.92345,
+      "lon": 150.19049,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.92501,
+      "lon": 150.21262,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.92734,
+      "lon": 150.24581,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.93043,
+      "lon": 150.29007,
+      "depth_m": 108.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.93504,
+      "lon": 150.35647,
+      "depth_m": 119.0
+    }
+  ]
+}

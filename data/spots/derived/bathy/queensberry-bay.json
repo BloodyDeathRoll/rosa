@@ -1,0 +1,72 @@
+{
+  "spot": "queensberry-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -32.883,
+    28.1012
+  ],
+  "bearing_seaward_deg": 105.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 94.0,
+  "mean_slope_m_per_km": 5.24,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.88358,
+      "lon": 28.10379,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.88416,
+      "lon": 28.10637,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -32.88533,
+      "lon": 28.11154,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.88765,
+      "lon": 28.12189,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -32.88998,
+      "lon": 28.13223,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.89463,
+      "lon": 28.15293,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -32.90159,
+      "lon": 28.18397,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -32.91087,
+      "lon": 28.22537,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -32.92476,
+      "lon": 28.28748,
+      "depth_m": 94.0
+    }
+  ]
+}

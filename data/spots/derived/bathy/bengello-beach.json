@@ -1,0 +1,72 @@
+{
+  "spot": "bengello-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.8778,
+    150.1564
+  ],
+  "bearing_seaward_deg": 115.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 118.0,
+  "mean_slope_m_per_km": 6.59,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.87875,
+      "lon": 150.15891,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.8797,
+      "lon": 150.16143,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.8816,
+      "lon": 150.16646,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.8854,
+      "lon": 150.17652,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.8892,
+      "lon": 150.18658,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.89679,
+      "lon": 150.20671,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.90818,
+      "lon": 150.2369,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.92335,
+      "lon": 150.27718,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.94608,
+      "lon": 150.33762,
+      "depth_m": 118.0
+    }
+  ]
+}

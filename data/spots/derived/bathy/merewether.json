@@ -1,0 +1,72 @@
+{
+  "spot": "merewether",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -32.949,
+    151.7571
+  ],
+  "bearing_seaward_deg": 110.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 110.0,
+  "mean_slope_m_per_km": 6.7,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.94977,
+      "lon": 151.75962,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.95054,
+      "lon": 151.76214,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -32.95208,
+      "lon": 151.76717,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.95515,
+      "lon": 151.77724,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -32.95822,
+      "lon": 151.78732,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.96437,
+      "lon": 151.80746,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -32.97358,
+      "lon": 151.83769,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -32.98585,
+      "lon": 151.878,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.00423,
+      "lon": 151.93849,
+      "depth_m": 110.0
+    }
+  ]
+}

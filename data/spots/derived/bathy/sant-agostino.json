@@ -1,0 +1,72 @@
+{
+  "spot": "sant-agostino",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.2319,
+    13.4948
+  ],
+  "bearing_seaward_deg": 215.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 109.0,
+  "mean_slope_m_per_km": 6.25,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.23006,
+      "lon": 13.49309,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.22822,
+      "lon": 13.49137,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.22453,
+      "lon": 13.48794,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.21717,
+      "lon": 13.48109,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.2098,
+      "lon": 13.47423,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.19506,
+      "lon": 13.46052,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.17295,
+      "lon": 13.43998,
+      "depth_m": 95.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.14347,
+      "lon": 13.4126,
+      "depth_m": 99.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.09923,
+      "lon": 13.37159,
+      "depth_m": 109.0
+    }
+  ]
+}

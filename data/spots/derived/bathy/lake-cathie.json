@@ -1,0 +1,72 @@
+{
+  "spot": "lake-cathie",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -31.5568,
+    152.8542
+  ],
+  "bearing_seaward_deg": 120.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 89.0,
+  "mean_slope_m_per_km": 5.41,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -31.55792,
+      "lon": 152.85649,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -31.55905,
+      "lon": 152.85877,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -31.5613,
+      "lon": 152.86334,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -31.56579,
+      "lon": 152.87248,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -31.57029,
+      "lon": 152.88162,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -31.57927,
+      "lon": 152.89991,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -31.59275,
+      "lon": 152.92735,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -31.61071,
+      "lon": 152.96394,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -31.63763,
+      "lon": 153.01886,
+      "depth_m": 89.0
+    }
+  ]
+}

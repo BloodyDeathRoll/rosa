@@ -42,3 +42,17 @@ spots:
   - { id: sandkasteel, name: "Sandkasteel", town: "Jeffreys Bay", lat: -34.0451, lon: 24.9284, offshore_direction: 267, swell_window: [22, 152], offshore_km: 5.0, <<: *sae }  # sat-verified 2026-09-03 (osm-seeded)
   - { id: kitchen-windows, name: "Kitchen Windows", town: "Jeffreys Bay", lat: -34.0604, lon: 24.9273, offshore_direction: 278, swell_window: [33, 163], offshore_km: 5.0, <<: *sae }  # sat-verified 2026-09-03 (osm-seeded)
   - { id: seal-point, name: "Seal Point", town: "Cape St Francis", lat: -34.2135, lon: 24.8345, offshore_direction: 53, swell_window: [168, 298], offshore_km: 5.0, <<: *sae }  # sat-verified 2026-09-03 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-04 - east-london, 11 spots (web-search flow; coordinates from OSM / Photon,
+  # every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: nahoon-reef, name: "Nahoon Reef", town: "East London", lat: -32.9969, lon: 27.9532, offshore_direction: 295, swell_window: [50, 180], offshore_km: 5.0, break_type: reef, <<: *sae }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: nahoon-corner, name: "Nahoon Corner", town: "East London", lat: -32.9934, lon: 27.9501, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, break_type: beach, <<: *sae }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: nahoon-beach, name: "Nahoon Beach", town: "East London", lat: -32.9881, lon: 27.9514, offshore_direction: 305, swell_window: [60, 190], offshore_km: 5.0, break_type: beach, <<: *sae }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: eastern-beach-el, name: "Eastern Beach", town: "East London", lat: -33.0070, lon: 27.9279, offshore_direction: 320, swell_window: [75, 205], offshore_km: 5.0, break_type: beach, <<: *sae }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: orient-beach, name: "Orient Beach", town: "East London", lat: -33.0248, lon: 27.9163, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, break_type: beach, <<: *sae }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: bonza-bay, name: "Bonza Bay", town: "East London", lat: -32.9761, lon: 27.9661, offshore_direction: 305, swell_window: [60, 190], offshore_km: 5.0, break_type: beach, <<: *sae }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: gonubie-point, name: "Gonubie Point", town: "Gonubie", lat: -32.9415, lon: 28.0366, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, break_type: point, <<: *sae }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: igoda, name: "Igoda River Mouth", town: "Winterstrand", lat: -33.1019, lon: 27.7763, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, break_type: beach, <<: *sae }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: kidds-beach, name: "Kidd's Beach", town: "Kidd's Beach", lat: -33.1468, lon: 27.7029, offshore_direction: 310, swell_window: [65, 195], offshore_km: 5.0, break_type: beach, <<: *sae }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: yellow-sands, name: "Yellow Sands", town: "Gonubie", lat: -32.9063, lon: 28.0782, offshore_direction: 278, swell_window: [33, 163], offshore_km: 5.0, break_type: beach, <<: *sae }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: queensberry-bay, name: "Queensberry Bay", town: "Queensberry Bay", lat: -32.8830, lon: 28.1012, offshore_direction: 285, swell_window: [40, 170], offshore_km: 5.0, break_type: point, <<: *sae }  # sat-verified 2026-11-04 (websearch-seeded)

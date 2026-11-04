@@ -1,0 +1,72 @@
+{
+  "spot": "capoons-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.3995,
+    -64.6808
+  ],
+  "bearing_seaward_deg": 335.0,
+  "nearshore_depth_m": 16.0,
+  "offshore_depth_m": 52.0,
+  "mean_slope_m_per_km": 2.03,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.40154,
+      "lon": -64.6818,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.40358,
+      "lon": -64.6828,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.40765,
+      "lon": -64.68481,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.4158,
+      "lon": -64.68881,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.42395,
+      "lon": -64.69282,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.44025,
+      "lon": -64.70083,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.4647,
+      "lon": -64.71286,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.4973,
+      "lon": -64.72889,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.5462,
+      "lon": -64.75296,
+      "depth_m": 52.0
+    }
+  ]
+}

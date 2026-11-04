@@ -1,0 +1,26 @@
+# Rosa spot database - British Virgin Islands (seeded 2026-11-04). Tortola's north shore - Cane Garden
+# Bay, Apple Bay / Bomba's, Josiah's Bay - on the same N-NE North Atlantic winter groundswell as
+# Puerto Rico's Rincon, 100 km west (Nov-Mar); flat most of the summer. Offshore is S-SE.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "British Virgin Islands"
+
+defaults: &bvi
+  timezone: America/Tortola
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [280, 80]
+  ideal:
+    wind_dir: [120, 220]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-04 - bvi, 5 spots (web-search flow; coordinates from OSM / Photon,
+  # every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: cane-garden-bay, name: "Cane Garden Bay", town: "Road Town", lat: 18.4295, lon: -64.6622, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, break_type: reef, <<: *bvi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: apple-bay, name: "Apple Bay", town: "Road Town", lat: 18.4020, lon: -64.6780, offshore_direction: 140, swell_window: [255, 25], offshore_km: 5.0, break_type: reef, <<: *bvi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: capoons-bay, name: "Capoons Bay (Bomba's)", town: "Road Town", lat: 18.3995, lon: -64.6808, offshore_direction: 155, swell_window: [270, 40], offshore_km: 5.0, break_type: reef, <<: *bvi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: long-bay-tortola, name: "Long Bay", town: "Road Town", lat: 18.3976, lon: -64.6894, offshore_direction: 175, swell_window: [290, 60], offshore_km: 5.0, break_type: beach, <<: *bvi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: josiahs-bay, name: "Josiah's Bay", town: "Road Town", lat: 18.4464, lon: -64.5900, offshore_direction: 160, swell_window: [275, 45], offshore_km: 5.0, break_type: beach, <<: *bvi }  # sat-verified 2026-11-04 (websearch-seeded)

@@ -1,0 +1,72 @@
+{
+  "spot": "evans-head",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -29.1115,
+    153.4346
+  ],
+  "bearing_seaward_deg": 80.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 51.0,
+  "mean_slope_m_per_km": 3.21,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -29.11111,
+      "lon": 153.43713,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -29.11072,
+      "lon": 153.43967,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -29.10994,
+      "lon": 153.44474,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -29.10838,
+      "lon": 153.45487,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -29.10681,
+      "lon": 153.46501,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -29.10368,
+      "lon": 153.48528,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -29.09898,
+      "lon": 153.51569,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -29.09271,
+      "lon": 153.55622,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -29.08327,
+      "lon": 153.61702,
+      "depth_m": 51.0
+    }
+  ]
+}

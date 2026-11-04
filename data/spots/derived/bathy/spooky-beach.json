@@ -1,0 +1,72 @@
+{
+  "spot": "spooky-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -29.4774,
+    153.361
+  ],
+  "bearing_seaward_deg": 70.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 56.0,
+  "mean_slope_m_per_km": 3.1,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -29.47663,
+      "lon": 153.36343,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -29.47586,
+      "lon": 153.36585,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -29.47432,
+      "lon": 153.37071,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -29.47125,
+      "lon": 153.38041,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -29.46817,
+      "lon": 153.39012,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -29.46201,
+      "lon": 153.40953,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -29.45277,
+      "lon": 153.43864,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -29.44044,
+      "lon": 153.47745,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -29.42192,
+      "lon": 153.53564,
+      "depth_m": 56.0
+    }
+  ]
+}

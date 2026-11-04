@@ -1,0 +1,72 @@
+{
+  "spot": "gonubie-point",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -32.9415,
+    28.0366
+  ],
+  "bearing_seaward_deg": 120.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 98.0,
+  "mean_slope_m_per_km": 5.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.94262,
+      "lon": 28.03892,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.94375,
+      "lon": 28.04124,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -32.946,
+      "lon": 28.04588,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.95049,
+      "lon": 28.05516,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -32.95499,
+      "lon": 28.06445,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.96397,
+      "lon": 28.08301,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -32.97745,
+      "lon": 28.11087,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -32.99541,
+      "lon": 28.14803,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.02233,
+      "lon": 28.2038,
+      "depth_m": 98.0
+    }
+  ]
+}

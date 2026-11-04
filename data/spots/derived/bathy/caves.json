@@ -1,0 +1,72 @@
+{
+  "spot": "caves",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -32.0937,
+    132.979
+  ],
+  "bearing_seaward_deg": 260.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 54.0,
+  "mean_slope_m_per_km": 2.76,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.09409,
+      "lon": 132.97639,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.09448,
+      "lon": 132.97377,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -32.09526,
+      "lon": 132.96855,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.09682,
+      "lon": 132.95809,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -32.09838,
+      "lon": 132.94764,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.1015,
+      "lon": 132.92672,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -32.10617,
+      "lon": 132.89536,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -32.11238,
+      "lon": 132.85352,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -32.12167,
+      "lon": 132.79077,
+      "depth_m": 54.0
+    }
+  ]
+}

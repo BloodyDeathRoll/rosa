@@ -1,0 +1,72 @@
+{
+  "spot": "brou-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.1344,
+    150.125
+  ],
+  "bearing_seaward_deg": 100.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 116.0,
+  "mean_slope_m_per_km": 6.48,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.13479,
+      "lon": 150.12774,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.13518,
+      "lon": 150.13048,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.13596,
+      "lon": 150.13597,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.13752,
+      "lon": 150.14693,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.13908,
+      "lon": 150.1579,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.1422,
+      "lon": 150.17984,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.14686,
+      "lon": 150.21274,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.15307,
+      "lon": 150.25662,
+      "depth_m": 103.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.16235,
+      "lon": 150.32246,
+      "depth_m": 116.0
+    }
+  ]
+}

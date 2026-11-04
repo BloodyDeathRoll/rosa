@@ -1,0 +1,72 @@
+{
+  "spot": "nahoon-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -32.9881,
+    27.9514
+  ],
+  "bearing_seaward_deg": 125.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 90.0,
+  "mean_slope_m_per_km": 5.52,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.98939,
+      "lon": 27.9536,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.99068,
+      "lon": 27.95579,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -32.99326,
+      "lon": 27.96018,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.99842,
+      "lon": 27.96897,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.00357,
+      "lon": 27.97775,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.01388,
+      "lon": 27.99533,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.02935,
+      "lon": 28.02169,
+      "depth_m": 83.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.04996,
+      "lon": 28.05687,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.08085,
+      "lon": 28.10966,
+      "depth_m": 90.0
+    }
+  ]
+}

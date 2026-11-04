@@ -1,0 +1,72 @@
+{
+  "spot": "tuross-head",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.0635,
+    150.1413
+  ],
+  "bearing_seaward_deg": 110.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 111.0,
+  "mean_slope_m_per_km": 6.31,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.06427,
+      "lon": 150.14391,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.06504,
+      "lon": 150.14653,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.06658,
+      "lon": 150.15175,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.06965,
+      "lon": 150.16221,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.07272,
+      "lon": 150.17267,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.07887,
+      "lon": 150.19358,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.08808,
+      "lon": 150.22496,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.10034,
+      "lon": 150.26681,
+      "depth_m": 111.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.11872,
+      "lon": 150.32961,
+      "depth_m": 111.0
+    }
+  ]
+}

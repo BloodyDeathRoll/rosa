@@ -43,6 +43,9 @@ BASINS: dict[str, tuple[str, ...]] = {
     # Sicily sits between the Tyrrhenian (north coast, NW mistral swell), the Strait of
     # Sicily (south coast, SW-S) and the Ionian (east coast, SE-E): its own frame
     "sicily": ("Sicily",),
+    # mainland Italy's Tyrrhenian / Ligurian coast and Sardinia: one western-Mediterranean frame
+    # on the same mistral (NW) and libeccio (SW) wind swell; Sicily keeps its own
+    "tyrrhenian": ("Liguria", "Tuscany", "Lazio", "Sardinia"),
     # Algeria's north-facing coast: Mistral and Gulf of Lion storms from the NW, a sea of
     # its own between Spain and Sardinia
     "algeria": ("Algeria",),
@@ -89,8 +92,9 @@ BASINS: dict[str, tuple[str, ...]] = {
     ),
     # the Canaries: 100 km off Morocco, but its own frame - the north shores face the
     # open North Atlantic and Morocco's box would have to stretch 700 km south-west.
-    # Madeira, ~450 km north, takes the same open North Atlantic swell
-    "canaries": ("Canary Islands", "Madeira"),
+    # Madeira, ~450 km north, takes the same open North Atlantic swell; Dakhla's points,
+    # ~450 km south-west of Gran Canaria, the same NW groundswell under the N trade
+    "canaries": ("Canary Islands", "Madeira", "Dakhla"),
     # the North Sea / Pentland Firth coasts face the other way
     "north-sea": (
         "North East England",
@@ -137,6 +141,9 @@ BASINS: dict[str, tuple[str, ...]] = {
     # south): its own frame rather than stretching ryukyu or philippines over it
     "taiwan": ("Taiwan",),
     "philippines": ("Philippines",),
+    # the east coast of Peninsular Malaysia: NE monsoon wind swell off the South China Sea, Nov-Mar;
+    # the Philippines box would have to stretch 2,000 km south-west
+    "malaysia": ("Malaysia",),
     "california": ("California",),
     # Oregon + Washington share one Pacific Northwest frame: 900 km of one coastline;
     # Vancouver Island's west coast (Tofino, Jordan River) continues it north
@@ -194,12 +201,13 @@ BASINS: dict[str, tuple[str, ...]] = {
     "ecuador": ("Ecuador", "Colombia Pacific"),
     # the southern Caribbean: NE trade windswell and the winter N swells on the Colombian
     # and Venezuelan coasts, Cartagena to the Paria peninsula; Barbados, the Atlantic edge
-    # of the Lesser Antilles, takes the same trade swell
-    "caribbean-south": ("Colombia Caribbean", "Venezuela", "Barbados"),
+    # of the Lesser Antilles, takes the same trade swell; Tobago sits between them
+    "caribbean-south": ("Colombia Caribbean", "Venezuela", "Barbados", "Tobago"),
     # the northern Caribbean: Hispaniola's north coast faces the open North Atlantic winter
     # swell, its south coast the Caribbean - a frame of its own; Puerto Rico's Rincon and
-    # Isabela coasts sit 130 km east on the same winter swell
-    "caribbean-north": ("Dominican Republic", "Puerto Rico"),
+    # Isabela coasts sit 130 km east on the same winter swell, Tortola's north shore 100 km
+    # further east
+    "caribbean-north": ("Dominican Republic", "Puerto Rico", "British Virgin Islands"),
     # the Galapagos, 900 km offshore: its own small frame rather than stretching Ecuador's
     "galapagos": ("Galapagos",),
     # Chile in two frames: the desert north (Arica to Antofagasta) takes the same S-SW
@@ -212,7 +220,16 @@ BASINS: dict[str, tuple[str, ...]] = {
     "argentina-uruguay": ("Uruguay", "Mar del Plata", "Patagonia Argentina"),
     "maldives": ("Maldives",),
     # Sydney + Byron Bay share one east-Australian frame: same Tasman/Coral Sea swell
-    "australia-east": ("Sydney", "Byron Bay", "Gold Coast", "Sunshine Coast"),
+    # the NSW Mid North Coast (Angourie to Newcastle) and South Coast (Illawarra to Eden) fill
+    # the coast between and below them on the same swell
+    "australia-east": (
+        "Sydney",
+        "Byron Bay",
+        "Gold Coast",
+        "Sunshine Coast",
+        "NSW Mid North Coast",
+        "NSW South Coast",
+    ),
     # Bass Strait: Southern Ocean swell from the SW, a different frame from the east coast
     "australia-south": ("Victoria", "South Australia", "Tasmania", "WA South", "Esperance"),
     # Perth + Margaret River share one Indian Ocean frame: the same SW groundswell
@@ -233,6 +250,8 @@ BASINS: dict[str, tuple[str, ...]] = {
         "Simeulue",
         "Nias",
         "Krui",
+        # Phuket and Khao Lak, 500 km NE of Aceh up the Andaman Sea: the same SW monsoon swell
+        "Thailand",
     ),
     "french-polynesia": ("French Polynesia",),
     "fiji": ("Fiji",),

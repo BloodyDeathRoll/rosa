@@ -1,0 +1,72 @@
+{
+  "spot": "la-roccetta",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.0377,
+    11.8784
+  ],
+  "bearing_seaward_deg": 175.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 113.0,
+  "mean_slope_m_per_km": 5.97,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.03546,
+      "lon": 11.87866,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.03322,
+      "lon": 11.87893,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.02874,
+      "lon": 11.87946,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.01978,
+      "lon": 11.88051,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.01082,
+      "lon": 11.88156,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.9929,
+      "lon": 11.88367,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.96603,
+      "lon": 11.88683,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.93019,
+      "lon": 11.89104,
+      "depth_m": 76.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.87644,
+      "lon": 11.89735,
+      "depth_m": 113.0
+    }
+  ]
+}

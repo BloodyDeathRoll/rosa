@@ -1,0 +1,72 @@
+{
+  "spot": "yamba-main-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -29.4354,
+    153.3647
+  ],
+  "bearing_seaward_deg": 90.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 59.0,
+  "mean_slope_m_per_km": 3.27,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -29.4354,
+      "lon": 153.36728,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -29.4354,
+      "lon": 153.36986,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -29.4354,
+      "lon": 153.37503,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -29.4354,
+      "lon": 153.38535,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -29.4354,
+      "lon": 153.39568,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -29.43539,
+      "lon": 153.41633,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -29.43537,
+      "lon": 153.44731,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -29.43534,
+      "lon": 153.48861,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -29.43527,
+      "lon": 153.55057,
+      "depth_m": 59.0
+    }
+  ]
+}

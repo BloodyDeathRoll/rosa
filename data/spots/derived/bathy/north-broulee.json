@@ -1,0 +1,72 @@
+{
+  "spot": "north-broulee",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.8484,
+    150.1779
+  ],
+  "bearing_seaward_deg": 90.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 122.0,
+  "mean_slope_m_per_km": 7.15,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.8484,
+      "lon": 150.18067,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.8484,
+      "lon": 150.18345,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.8484,
+      "lon": 150.18899,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.8484,
+      "lon": 150.20009,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.8484,
+      "lon": 150.21118,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.84839,
+      "lon": 150.23337,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.84837,
+      "lon": 150.26666,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.84833,
+      "lon": 150.31104,
+      "depth_m": 105.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.84823,
+      "lon": 150.37761,
+      "depth_m": 122.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "park-beach-au",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -30.2893,
+    153.1398
+  ],
+  "bearing_seaward_deg": 95.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 86.0,
+  "mean_slope_m_per_km": 4.79,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -30.2895,
+      "lon": 153.14239,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -30.28969,
+      "lon": 153.14499,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -30.29008,
+      "lon": 153.15018,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -30.29087,
+      "lon": 153.16055,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -30.29165,
+      "lon": 153.17093,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -30.29321,
+      "lon": 153.19168,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -30.29554,
+      "lon": 153.22281,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -30.29865,
+      "lon": 153.26432,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -30.30328,
+      "lon": 153.32658,
+      "depth_m": 86.0
+    }
+  ]
+}

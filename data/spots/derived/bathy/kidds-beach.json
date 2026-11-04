@@ -1,0 +1,72 @@
+{
+  "spot": "kidds-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.1468,
+    27.7029
+  ],
+  "bearing_seaward_deg": 130.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 102.0,
+  "mean_slope_m_per_km": 5.52,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.14825,
+      "lon": 27.70496,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.14969,
+      "lon": 27.70701,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.15258,
+      "lon": 27.71113,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.15836,
+      "lon": 27.71936,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.16414,
+      "lon": 27.72759,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.1757,
+      "lon": 27.74405,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.19303,
+      "lon": 27.76876,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.21613,
+      "lon": 27.80172,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.25077,
+      "lon": 27.85118,
+      "depth_m": 102.0
+    }
+  ]
+}

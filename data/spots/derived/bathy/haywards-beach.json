@@ -1,0 +1,72 @@
+{
+  "spot": "haywards-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.3945,
+    150.0682
+  ],
+  "bearing_seaward_deg": 115.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 126.0,
+  "mean_slope_m_per_km": 7.77,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.39545,
+      "lon": 150.07073,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.3964,
+      "lon": 150.07326,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.3983,
+      "lon": 150.07833,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.4021,
+      "lon": 150.08845,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.4059,
+      "lon": 150.09858,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.41349,
+      "lon": 150.11884,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.42488,
+      "lon": 150.14924,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.44005,
+      "lon": 150.18978,
+      "depth_m": 103.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.46277,
+      "lon": 150.25062,
+      "depth_m": 126.0
+    }
+  ]
+}

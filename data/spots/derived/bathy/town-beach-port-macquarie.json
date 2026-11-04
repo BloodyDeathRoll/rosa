@@ -1,0 +1,72 @@
+{
+  "spot": "town-beach-port-macquarie",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -31.4291,
+    152.9204
+  ],
+  "bearing_seaward_deg": 60.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 94.0,
+  "mean_slope_m_per_km": 5.18,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -31.42798,
+      "lon": 152.92268,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -31.42685,
+      "lon": 152.92496,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -31.4246,
+      "lon": 152.92953,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -31.42011,
+      "lon": 152.93865,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -31.41561,
+      "lon": 152.94778,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -31.40661,
+      "lon": 152.96603,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -31.39311,
+      "lon": 152.99339,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -31.37509,
+      "lon": 153.02987,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -31.34806,
+      "lon": 153.08455,
+      "depth_m": 94.0
+    }
+  ]
+}

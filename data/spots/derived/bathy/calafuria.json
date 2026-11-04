@@ -1,0 +1,72 @@
+{
+  "spot": "calafuria",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.4711,
+    10.3343
+  ],
+  "bearing_seaward_deg": 235.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 120.0,
+  "mean_slope_m_per_km": 6.59,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.46981,
+      "lon": 10.33176,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.46852,
+      "lon": 10.32922,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.46594,
+      "lon": 10.32415,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.46078,
+      "lon": 10.314,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.45562,
+      "lon": 10.30385,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.4453,
+      "lon": 10.28357,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.4298,
+      "lon": 10.25315,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.40914,
+      "lon": 10.21261,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.37811,
+      "lon": 10.15186,
+      "depth_m": 120.0
+    }
+  ]
+}

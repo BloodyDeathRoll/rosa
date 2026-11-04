@@ -1,0 +1,72 @@
+{
+  "spot": "arthur-river",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.0497,
+    144.6542
+  ],
+  "bearing_seaward_deg": 260.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 84.0,
+  "mean_slope_m_per_km": 4.62,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.05009,
+      "lon": 144.65126,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.05048,
+      "lon": 144.64833,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.05126,
+      "lon": 144.64246,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.05282,
+      "lon": 144.63071,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.05438,
+      "lon": 144.61897,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.05749,
+      "lon": 144.59547,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.06216,
+      "lon": 144.56023,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.06835,
+      "lon": 144.51323,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.07762,
+      "lon": 144.44272,
+      "depth_m": 84.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "valla-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -30.5971,
+    153.0141
+  ],
+  "bearing_seaward_deg": 105.0,
+  "nearshore_depth_m": -16.0,
+  "offshore_depth_m": 74.0,
+  "mean_slope_m_per_km": 5.07,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -30.59768,
+      "lon": 153.01662,
+      "depth_m": -16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -30.59826,
+      "lon": 153.01915,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -30.59943,
+      "lon": 153.02419,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -30.60175,
+      "lon": 153.03428,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -30.60408,
+      "lon": 153.04438,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -30.60873,
+      "lon": 153.06457,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -30.6157,
+      "lon": 153.09485,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -30.62498,
+      "lon": 153.13524,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -30.63887,
+      "lon": 153.19583,
+      "depth_m": 74.0
+    }
+  ]
+}

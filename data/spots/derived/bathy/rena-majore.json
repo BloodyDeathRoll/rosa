@@ -1,0 +1,72 @@
+{
+  "spot": "rena-majore",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.1686,
+    9.1685
+  ],
+  "bearing_seaward_deg": 300.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 78.0,
+  "mean_slope_m_per_km": 4.45,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.16972,
+      "lon": 9.16591,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.17085,
+      "lon": 9.16333,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.1731,
+      "lon": 9.15815,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.17759,
+      "lon": 9.1478,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.18209,
+      "lon": 9.13746,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.19107,
+      "lon": 9.11675,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.20454,
+      "lon": 9.08569,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.22249,
+      "lon": 9.04424,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.24939,
+      "lon": 8.98204,
+      "depth_m": 78.0
+    }
+  ]
+}

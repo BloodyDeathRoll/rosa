@@ -1,0 +1,72 @@
+{
+  "spot": "blueys-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -32.3527,
+    152.5367
+  ],
+  "bearing_seaward_deg": 120.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 101.0,
+  "mean_slope_m_per_km": 6.25,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.35382,
+      "lon": 152.539,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.35495,
+      "lon": 152.54131,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -32.3572,
+      "lon": 152.54592,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.36169,
+      "lon": 152.55514,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -32.36619,
+      "lon": 152.56436,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.37517,
+      "lon": 152.58281,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -32.38865,
+      "lon": 152.61049,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -32.40661,
+      "lon": 152.6474,
+      "depth_m": 101.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -32.43353,
+      "lon": 152.7028,
+      "depth_m": 101.0
+    }
+  ]
+}

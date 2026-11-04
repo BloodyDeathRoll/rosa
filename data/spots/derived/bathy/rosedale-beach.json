@@ -1,0 +1,72 @@
+{
+  "spot": "rosedale-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.8137,
+    150.2266
+  ],
+  "bearing_seaward_deg": 95.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 125.0,
+  "mean_slope_m_per_km": 7.27,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.8139,
+      "lon": 150.22936,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.81409,
+      "lon": 150.23212,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.81448,
+      "lon": 150.23765,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.81527,
+      "lon": 150.2487,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.81605,
+      "lon": 150.25974,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.81761,
+      "lon": 150.28184,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.81994,
+      "lon": 150.31499,
+      "depth_m": 96.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.82303,
+      "lon": 150.35919,
+      "depth_m": 119.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.82764,
+      "lon": 150.4255,
+      "depth_m": 125.0
+    }
+  ]
+}
