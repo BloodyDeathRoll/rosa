@@ -222,7 +222,39 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-10-29, DB = 3593 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-11-04, DB = 3613 spots, ALL sat-verified)
+
+**Famous-break gap pass, 3593 -> 3602 (2026-11-04).** A hand-written list of ~470 well-known breaks
+was matched against every DB name (accent-folded tokens), every miss geocoded with Nominatim and
+measured to the nearest committed spot (Google still `REQUEST_DENIED`). ~75 misses were the same
+break under another name (Hossegor = La Nord/La Sud, Byron Bay = The Pass/Clarkes, Noosa = First
+Point, Lower Trestles = `lowers`). Singles in existing regions were placed off a pyosmium name search
+of the local extract plus a z14 read and confirmed at z16: **Santa Rosalillita, Stoners Point,
+Chacala (mexico), Johanna (victoria), Dungeons (south-africa-west - the breaking ring is on the
+tile), Telescopes (mentawai, NW Sipora, the long left up the reef), Mandiri (krui), Habushiura
+(japan, Niijima), Salani (samoa, the right on the E side of the pass).** Santa Rosalillita carries a
+hand `shore_normal` 180 (its wind normal crosses the bay; 150-210 all reach open water).
+- **Then 11 operator-supplied pins, 3602 -> 3613** (user-verified, each rendered at z16): Cottons
+  (San Clemente), Gaviota Pier, and Hollister Ranch's Agua Caliente, Alegria, Sacate (lat sent as
+  4.464542, read as 34.464542; then moved 0.65 km N from the kelp onto the surf line at the operator's request), Drakes and San Augustine;
+  Las Islitas (Matanchen Bay - the pin on the SW point reaches open water at 204 deg, closing
+  OPEN-ITEMS 18) and Punta Blanca (Seven Sisters, id `seven-sisters` - `punta-blanca` is the
+  Canaries spot); Honky's (S tip of Thanburudhoo, 175 m from `sultans`, kept on the operator's call);
+  Safi. Moved: `lowers` 0.5 km SE onto the operator's Trestles pin (renamed Lower Trestles),
+  `hash-point` 0.4 km W (renamed Mysteries (Hash Point)).
+- Surf-guide coordinates (mondo.surf, surf-forecast) appeared in search results; they are
+  competitor spot data and were NOT used - pins come from OSM names and the tile.
+
+**Gap queue (famous breaks, whole areas with zero spots):** Puerto Rico (Rincon, Tres Palmas, Domes,
+Maria's, Gas Chambers, Jobos, Wilderness, Middles); Hawaii's Big Island (Honolii, Richardson's,
+Banyans, Lyman's, Kahaluu, Pine Trees, Hapuna, Waipio); Canada (Tofino: Chesterman, Cox Bay, Long
+Beach; Nova Scotia: Lawrencetown, Martinique Beach); mainland Italy and Sardinia (Varazze, Levanto,
+Santa Marinella, Banzai, Capo Mannu); far-west South Australia (Cactus, Caves at Penong, Point
+Sinclair, Elliston, Streaky Bay); Kangaroo Island (Pennington Bay); NW Tasmania (Marrawah); NSW mid
+and south coast (Angourie, Crescent Head, Merimbula); East London (Nahoon Reef); Dakhla; Tobago
+(Mount Irvine); Tortola (Cane Garden Bay); Malaysia and Thailand (Cherating, Phuket). Ireland is
+excluded by operator decision.
+
 
 **Azores 27, Madeira 25, Sumatra 28, Sumba 9 + Rote 5, 3499 -> 3593 (2026-10-29, second pass).** Four
 parallel subagents, web flow end to end, Google still down; a 10-pin coordinator re-render was all on the

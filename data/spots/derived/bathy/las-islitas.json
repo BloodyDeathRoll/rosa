@@ -1,0 +1,72 @@
+{
+  "spot": "las-islitas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    21.5134,
+    -105.248
+  ],
+  "bearing_seaward_deg": 204.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 23.0,
+  "mean_slope_m_per_km": 1.13,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 21.51135,
+      "lon": -105.24898,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 21.50929,
+      "lon": -105.24997,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 21.50518,
+      "lon": -105.25193,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 21.49697,
+      "lon": -105.25586,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 21.48875,
+      "lon": -105.25979,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 21.47232,
+      "lon": -105.26765,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 21.44767,
+      "lon": -105.27944,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 21.4148,
+      "lon": -105.29515,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.3655,
+      "lon": -105.3187,
+      "depth_m": 23.0
+    }
+  ]
+}

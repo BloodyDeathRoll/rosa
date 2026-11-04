@@ -1,0 +1,72 @@
+{
+  "spot": "telescopes",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -2.0665,
+    99.543
+  ],
+  "bearing_seaward_deg": 270.0,
+  "nearshore_depth_m": 25.0,
+  "offshore_depth_m": 147.0,
+  "mean_slope_m_per_km": 6.87,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -2.0665,
+      "lon": 99.54075,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -2.0665,
+      "lon": 99.5385,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -2.0665,
+      "lon": 99.534,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -2.0665,
+      "lon": 99.525,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -2.0665,
+      "lon": 99.516,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -2.0665,
+      "lon": 99.498,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -2.0665,
+      "lon": 99.47101,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -2.0665,
+      "lon": 99.43501,
+      "depth_m": 101.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -2.06649,
+      "lon": 99.38102,
+      "depth_m": 147.0
+    }
+  ]
+}

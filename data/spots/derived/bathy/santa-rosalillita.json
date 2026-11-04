@@ -1,0 +1,72 @@
+{
+  "spot": "santa-rosalillita",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    28.658,
+    -114.2464
+  ],
+  "bearing_seaward_deg": 180.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 74.0,
+  "mean_slope_m_per_km": 4.73,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 28.65575,
+      "lon": -114.2464,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 28.6535,
+      "lon": -114.2464,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 28.64901,
+      "lon": -114.2464,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 28.64001,
+      "lon": -114.2464,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 28.63102,
+      "lon": -114.2464,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 28.61303,
+      "lon": -114.2464,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 28.58605,
+      "lon": -114.2464,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 28.55008,
+      "lon": -114.2464,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 28.49612,
+      "lon": -114.2464,
+      "depth_m": 74.0
+    }
+  ]
+}

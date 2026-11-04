@@ -1,0 +1,72 @@
+{
+  "spot": "alegria",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.4675,
+    -120.2716
+  ],
+  "bearing_seaward_deg": 185.0,
+  "nearshore_depth_m": -25.0,
+  "offshore_depth_m": 394.0,
+  "mean_slope_m_per_km": 23.61,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.46526,
+      "lon": -120.27184,
+      "depth_m": -25.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.46302,
+      "lon": -120.27208,
+      "depth_m": -25.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.45854,
+      "lon": -120.27255,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.44958,
+      "lon": -120.2735,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.44062,
+      "lon": -120.27445,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.4227,
+      "lon": -120.27635,
+      "depth_m": 152.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.39583,
+      "lon": -120.2792,
+      "depth_m": 255.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.35999,
+      "lon": -120.28299,
+      "depth_m": 312.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.30624,
+      "lon": -120.28868,
+      "depth_m": 394.0
+    }
+  ]
+}

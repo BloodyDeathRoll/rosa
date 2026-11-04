@@ -87,3 +87,12 @@ spots:
   - { id: chipehua,          name: "Chipehua", town: "Chipehua",          lat: 16.0364, lon: -95.3762, offshore_direction: 249, swell_window: [4, 134], offshore_km: 5.0, <<: *mx }  # sat-verified 2026-08-15 (east-facing bay, unlike the rest of the coast)
   - { id: punta-chivo,       name: "Punta Chivo", town: "Salina Cruz",       lat: 16.1078, lon: -95.2785, offshore_direction: 307, swell_window: [62, 192], offshore_km: 5.0, break_type: point, <<: *mx }  # sat-verified 2026-08-16 (Salina Cruz sand right point)
   - { id: punta-conejo,      name: "Punta Conejo", town: "Salina Cruz",      lat: 16.1334, lon: -95.2496, offshore_direction: 320, swell_window: [75, 205], offshore_km: 5.0, break_type: point, <<: *mx }  # sat-verified 2026-08-15 (Salina Cruz)
+
+  # ==== SEEDED 2026-11-04 - famous-break gap pass (web flow; OSM name search + ESRI z14/z16 render, every pin judged on the tile)
+  - { id: santa-rosalillita, name: "Santa Rosalillita", town: "Santa Rosalillita", lat: 28.6580, lon: -114.2464, offshore_direction: 300, swell_window: [115, 245], offshore_km: 5.0, shore_normal: 180, break_type: point, <<: *mx }  # sat-verified 2026-11-04 (websearch-seeded; right point at the W end of Bahia Santa Rosalillita, swell lines wrapping in; shore_normal 180 by hand - the wind normal (seaward 120) crosses the bay to its E shore, 150-210 all reach open water)
+  - { id: stoners-point, name: "Stoners Point", town: "San Blas", lat: 21.5268, lon: -105.2826, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, break_type: point, <<: *mx }  # sat-verified 2026-11-04 (websearch-seeded; N end of Playa El Borrego by Stoner's Surf Camp (OSM))
+  - { id: chacala, name: "Chacala", town: "Chacala", lat: 21.1620, lon: -105.2247, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, <<: *mx }  # sat-verified 2026-11-04 (websearch-seeded; Chacala bay beach)
+
+  # ==== ADDED 2026-11-04 - operator-supplied pins (famous-break gap pass)
+  - { id: las-islitas, name: "Las Islitas", town: "San Blas", lat: 21.5134, lon: -105.2480, offshore_direction: 24, swell_window: [139, 269], offshore_km: 5.0, <<: *mx }  # user-verified 2026-11-04 (operator-supplied pin, sat-checked; Matanchen Bay - OPEN-ITEMS 18)
+  - { id: seven-sisters, name: "Punta Blanca (Seven Sisters)", town: "Seven Sisters", lat: 29.0994, lon: -114.7019, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, <<: *mx }  # user-verified 2026-11-04 (operator-supplied pin, sat-checked; no OSM place within 25 km, town is the area name)

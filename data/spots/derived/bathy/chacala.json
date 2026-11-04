@@ -1,0 +1,72 @@
+{
+  "spot": "chacala",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    21.162,
+    -105.2247
+  ],
+  "bearing_seaward_deg": 265.0,
+  "nearshore_depth_m": -40.0,
+  "offshore_depth_m": 74.0,
+  "mean_slope_m_per_km": 6.42,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 21.1618,
+      "lon": -105.2271,
+      "depth_m": -40.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 21.16161,
+      "lon": -105.2295,
+      "depth_m": -30.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 21.16122,
+      "lon": -105.23431,
+      "depth_m": -19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 21.16043,
+      "lon": -105.24391,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 21.15965,
+      "lon": -105.25352,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 21.15807,
+      "lon": -105.27273,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 21.15571,
+      "lon": -105.30155,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 21.15256,
+      "lon": -105.33997,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.1478,
+      "lon": -105.39761,
+      "depth_m": 74.0
+    }
+  ]
+}

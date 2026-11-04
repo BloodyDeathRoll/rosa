@@ -54,3 +54,6 @@ spots:
   - { id: summerland-vic, name: "Summerland", town: "Summerlands", lat: -38.5107, lon: 145.1576, offshore_direction: 10, swell_window: [125, 255], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
   - { id: woolamai, name: "Woolamai", town: "Cape Woolamai", lat: -38.5409, lon: 145.3324, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
   - { id: lorne-point, name: "Lorne Point", town: "Lorne", lat: -38.5460, lon: 143.9867, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-09-02 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-04 - famous-break gap pass (web flow; OSM name search + ESRI z14/z16 render, every pin judged on the tile)
+  - { id: johanna, name: "Johanna", town: "Johanna", lat: -38.7647, lon: 143.3774, offshore_direction: 35, swell_window: [150, 280], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-11-04 (websearch-seeded; Johanna Beach, open-ocean beach break)

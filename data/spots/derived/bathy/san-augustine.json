@@ -1,0 +1,72 @@
+{
+  "spot": "san-augustine",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.4563,
+    -120.358
+  ],
+  "bearing_seaward_deg": 185.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 372.0,
+  "mean_slope_m_per_km": 20.28,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.45406,
+      "lon": -120.35824,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.45182,
+      "lon": -120.35848,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.44734,
+      "lon": -120.35895,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.43838,
+      "lon": -120.3599,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.42942,
+      "lon": -120.36085,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.4115,
+      "lon": -120.36275,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.38463,
+      "lon": -120.3656,
+      "depth_m": 189.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.34879,
+      "lon": -120.36939,
+      "depth_m": 282.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.29504,
+      "lon": -120.37508,
+      "depth_m": 372.0
+    }
+  ]
+}

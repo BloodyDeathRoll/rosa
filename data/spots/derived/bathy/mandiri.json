@@ -1,0 +1,72 @@
+{
+  "spot": "mandiri",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -5.2687,
+    103.9969
+  ],
+  "bearing_seaward_deg": 225.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 733.0,
+  "mean_slope_m_per_km": 40.96,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -5.27029,
+      "lon": 103.9953,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -5.27188,
+      "lon": 103.99371,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -5.27506,
+      "lon": 103.99051,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -5.28142,
+      "lon": 103.98413,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -5.28778,
+      "lon": 103.97774,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -5.30049,
+      "lon": 103.96497,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -5.31957,
+      "lon": 103.94581,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -5.34501,
+      "lon": 103.92026,
+      "depth_m": 175.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -5.38315,
+      "lon": 103.88193,
+      "depth_m": 733.0
+    }
+  ]
+}

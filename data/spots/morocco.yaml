@@ -54,7 +54,7 @@ spots:
   - { id: killer-point, name: "Killer Point", town: "Taghazout", lat: 30.5502, lon: -9.7399, offshore_direction: 10, swell_window: [125, 255], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
   - { id: la-source, name: "La Source", town: "Taghazout", lat: 30.5495, lon: -9.7322, offshore_direction: 42, swell_window: [157, 287], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
   - { id: anchor, name: "Anchor Point", town: "Taghazout", lat: 30.5458, lon: -9.7251, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (osm-seeded)
-  - { id: hash-point, name: "Hash Point", town: "Taghazout", lat: 30.5449, lon: -9.7110, offshore_direction: 33, swell_window: [148, 278], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+  - { id: hash-point, name: "Mysteries (Hash Point)", town: "Taghazout", lat: 30.5451, lon: -9.7153, offshore_direction: 33, swell_window: [148, 278], offshore_km: 5.0, <<: *ma }  # user-verified 2026-11-04 (operator-supplied pin "Mysteries (Hash point)", sat-checked; was 30.5449 -9.7110, 0.4 km E)
   - { id: panorama, name: "Panorama", town: "Taghazout", lat: 30.5432, lon: -9.7079, offshore_direction: 37, swell_window: [152, 282], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
   - { id: k17, name: "K17", town: "Tamraght", lat: 30.5235, lon: -9.6917, offshore_direction: 69, swell_window: [184, 314], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
   - { id: cro-cro, name: "Cro Cro", town: "Tamraght", lat: 30.5118, lon: -9.6878, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded; shore normal re-aimed by hand off the tile - the nearest coastline candidate handed it an inner shore)
@@ -67,3 +67,6 @@ spots:
   - { id: mirleft, name: "Mirleft", town: "Mirleft", lat: 29.5785, lon: -10.0481, offshore_direction: 63, swell_window: [178, 308], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
   - { id: legzira, name: "Legzira", town: "Legzira", lat: 29.4441, lon: -10.1176, offshore_direction: 114, swell_window: [229, 359], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
   - { id: sidi-ifni, name: "Sidi Ifni", town: "Sidi Ifni", lat: 29.3834, lon: -10.1748, offshore_direction: 131, swell_window: [246, 16], offshore_km: 5.0, <<: *ma }  # sat-verified 2026-08-27 (websearch-seeded)
+
+  # ==== ADDED 2026-11-04 - operator-supplied pins (famous-break gap pass)
+  - { id: safi, name: "Safi", town: "Safi", lat: 32.3171, lon: -9.2590, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, <<: *ma }  # user-verified 2026-11-04 (operator-supplied pin, sat-checked)

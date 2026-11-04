@@ -114,3 +114,6 @@ spots:
   - { id: witsands, name: "Witsands", town: "Scarborough", lat: -34.1791, lon: 18.3556, offshore_direction: 34, swell_window: [149, 279], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
   - { id: kanon, name: "Kanon", town: "Kanon", lat: -34.3325, lon: 21.9058, offshore_direction: 254, swell_window: [9, 139], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
   - { id: platboom, name: "Platboom", town: "Cape Point", lat: -34.3379, lon: 18.4525, offshore_direction: 18, swell_window: [133, 263], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-09-29 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-04 - famous-break gap pass (web flow; OSM name search + ESRI z14/z16 render, every pin judged on the tile)
+  - { id: dungeons, name: "Dungeons", town: "Hout Bay", lat: -34.0710, lon: 18.3331, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, <<: *saw }  # sat-verified 2026-11-04 (websearch-seeded; big-wave reef off The Sentinel, Hout Bay - the breaking ring is on the tile)

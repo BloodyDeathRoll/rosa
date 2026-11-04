@@ -1,0 +1,72 @@
+{
+  "spot": "salani",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -14.0435,
+    -171.6109
+  ],
+  "bearing_seaward_deg": 190.0,
+  "nearshore_depth_m": -22.0,
+  "offshore_depth_m": 2654.0,
+  "mean_slope_m_per_km": 150.76,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -14.04571,
+      "lon": -171.6113,
+      "depth_m": -22.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -14.04793,
+      "lon": -171.6117,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -14.05236,
+      "lon": -171.61251,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -14.06121,
+      "lon": -171.61412,
+      "depth_m": 208.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -14.07007,
+      "lon": -171.61573,
+      "depth_m": 452.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -14.08778,
+      "lon": -171.61895,
+      "depth_m": 1157.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -14.11435,
+      "lon": -171.62378,
+      "depth_m": 1798.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -14.14978,
+      "lon": -171.63023,
+      "depth_m": 2271.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -14.20292,
+      "lon": -171.6399,
+      "depth_m": 2654.0
+    }
+  ]
+}

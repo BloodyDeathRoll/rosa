@@ -154,3 +154,6 @@ spots:
   - { id: shirako, name: "Shirako", town: "Shirako", lat: 35.4483, lon: 140.4060, offshore_direction: 310, swell_window: [65, 195], offshore_km: 5.0, <<: *jp }  # sat-verified 2026-09-29 (websearch-seeded)
   - { id: hitotsumatsu, name: "Hitotsumatsu", town: "Chosei", lat: 35.4128, lon: 140.3951, offshore_direction: 287, swell_window: [42, 172], offshore_km: 5.0, <<: *jp }  # sat-verified 2026-09-29 (websearch-seeded)
   - { id: torami, name: "Torami", town: "Ichinomiya", lat: 35.3467, lon: 140.3936, offshore_direction: 264, swell_window: [19, 149], offshore_km: 5.0, <<: *jp }  # sat-verified 2026-09-29 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-04 - famous-break gap pass (web flow; OSM name search + ESRI z14/z16 render, every pin judged on the tile)
+  - { id: habushiura, name: "Habushiura", town: "Niijima", lat: 34.3760, lon: 139.2765, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, <<: *jp }  # sat-verified 2026-11-04 (websearch-seeded; Niijima east coast, OSM 羽伏浦海岸)

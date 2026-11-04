@@ -1,0 +1,72 @@
+{
+  "spot": "agua-caliente",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.4662,
+    -120.2521
+  ],
+  "bearing_seaward_deg": 185.0,
+  "nearshore_depth_m": -32.0,
+  "offshore_depth_m": 411.0,
+  "mean_slope_m_per_km": 24.96,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.46396,
+      "lon": -120.25234,
+      "depth_m": -32.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.46172,
+      "lon": -120.25258,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.45724,
+      "lon": -120.25305,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.44828,
+      "lon": -120.254,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.43932,
+      "lon": -120.25495,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.4214,
+      "lon": -120.25685,
+      "depth_m": 128.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.39453,
+      "lon": -120.2597,
+      "depth_m": 279.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.35869,
+      "lon": -120.26349,
+      "depth_m": 331.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.30494,
+      "lon": -120.26918,
+      "depth_m": 411.0
+    }
+  ]
+}
