@@ -1,0 +1,72 @@
+{
+  "spot": "marina-di-pisciotta",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    40.1087,
+    15.222
+  ],
+  "bearing_seaward_deg": 242.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 213.0,
+  "mean_slope_m_per_km": 11.32,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.10764,
+      "lon": 15.2194,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.10659,
+      "lon": 15.21681,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.10448,
+      "lon": 15.21162,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.10025,
+      "lon": 15.20124,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.09603,
+      "lon": 15.19086,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.08758,
+      "lon": 15.17011,
+      "depth_m": 98.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.07489,
+      "lon": 15.13898,
+      "depth_m": 115.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.05797,
+      "lon": 15.09751,
+      "depth_m": 137.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.03255,
+      "lon": 15.03533,
+      "depth_m": 213.0
+    }
+  ]
+}

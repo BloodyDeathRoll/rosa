@@ -1,0 +1,35 @@
+# Rosa spot database - Calabria (seeded 2026-11-04). The Tyrrhenian coast (Scalea to Zambrone) on W-SW mistral and
+# libeccio swell, and the Ionian coast (Bova Marina round Capo Spartivento to Soverato) on S-SE
+# scirocco and E levante swell; short-period wind swell on both, best Oct-Apr.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Italy"
+
+defaults: &cal
+  timezone: Europe/Rome
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [90, 300]
+  ideal:
+    wind_dir: [270, 90]
+    size_m: [0.6, 1.5]
+
+spots:
+  # ==== SEEDED 2026-11-04 - calabria, 15 spots (web-search flow; coordinates from OSM / Nominatim / Photon,
+  # every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: scalea, name: "Scalea", town: "Scalea", lat: 39.8120, lon: 15.7867, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, break_type: beach, <<: *cal }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: fuscaldo-marina, name: "Fuscaldo Marina", town: "Fuscaldo", lat: 39.4135, lon: 16.0083, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: beach, <<: *cal }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: amantea, name: "Amantea", town: "Amantea", lat: 39.1332, lon: 16.0673, offshore_direction: 78, swell_window: [193, 323], offshore_km: 5.0, break_type: beach, <<: *cal }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: capo-suvero, name: "Capo Suvero", town: "Gizzeria", lat: 38.9498, lon: 16.1587, offshore_direction: 50, swell_window: [165, 295], offshore_km: 5.0, break_type: point, <<: *cal }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: zambrone, name: "Zambrone", town: "Zambrone", lat: 38.7079, lon: 15.9668, offshore_direction: 118, swell_window: [233, 3], offshore_km: 5.0, break_type: beach, <<: *cal }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: bova-marina, name: "Bova Marina", town: "Bova Marina", lat: 37.9294, lon: 15.9175, offshore_direction: 1, swell_window: [116, 246], offshore_km: 5.0, break_type: beach, <<: *cal }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: le-serre, name: "Le Serre", town: "Spropoli", lat: 37.9235, lon: 16.0383, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, break_type: beach, <<: *cal }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: capo-spartivento, name: "Capo Spartivento", town: "Palizzi", lat: 37.9248, lon: 16.0639, offshore_direction: 324, swell_window: [79, 209], offshore_km: 5.0, break_type: point, <<: *cal }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: brancaleone, name: "Brancaleone", town: "Brancaleone", lat: 37.9485, lon: 16.0888, offshore_direction: 296, swell_window: [51, 181], offshore_km: 5.0, break_type: beach, <<: *cal }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: capo-bruzzano, name: "Capo Bruzzano", town: "Africo Nuovo", lat: 38.0402, lon: 16.1448, offshore_direction: 269, swell_window: [24, 154], offshore_km: 5.0, break_type: point, <<: *cal }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: condojanni, name: "Condojanni", town: "Marina di Sant'Ilario dello Ionio", lat: 38.1981, lon: 16.2302, offshore_direction: 308, swell_window: [63, 193], offshore_km: 5.0, break_type: beach, <<: *cal }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: roccella, name: "Roccella Ionica", town: "Roccella Ionica", lat: 38.3205, lon: 16.4060, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, break_type: beach, <<: *cal }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: soverato, name: "Soverato", town: "Soverato", lat: 38.6881, lon: 16.5573, offshore_direction: 258, swell_window: [13, 143], offshore_km: 5.0, break_type: beach, <<: *cal }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: copanello, name: "Copanello", town: "Copanello", lat: 38.7686, lon: 16.5684, offshore_direction: 295, swell_window: [50, 180], offshore_km: 5.0, break_type: beach, <<: *cal }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: squillace-lido, name: "Squillace Lido", town: "Squillace", lat: 38.7763, lon: 16.5748, offshore_direction: 293, swell_window: [48, 178], offshore_km: 5.0, break_type: beach, <<: *cal }  # sat-verified 2026-11-04 (websearch-seeded)

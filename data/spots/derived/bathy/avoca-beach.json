@@ -1,0 +1,72 @@
+{
+  "spot": "avoca-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.4665,
+    151.4356
+  ],
+  "bearing_seaward_deg": 90.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 88.0,
+  "mean_slope_m_per_km": 5.35,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.4665,
+      "lon": 151.4383,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.4665,
+      "lon": 151.44099,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.4665,
+      "lon": 151.44638,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.4665,
+      "lon": 151.45716,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.4665,
+      "lon": 151.46794,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.46649,
+      "lon": 151.4895,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.46647,
+      "lon": 151.52184,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.46643,
+      "lon": 151.56497,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.46635,
+      "lon": 151.62965,
+      "depth_m": 88.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "copanello",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.7686,
+    16.5684
+  ],
+  "bearing_seaward_deg": 115.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 867.0,
+  "mean_slope_m_per_km": 49.07,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.76765,
+      "lon": 16.57101,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.7667,
+      "lon": 16.57363,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.7648,
+      "lon": 16.57885,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.761,
+      "lon": 16.58931,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.75719,
+      "lon": 16.59976,
+      "depth_m": 102.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.74958,
+      "lon": 16.62065,
+      "depth_m": 337.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.73816,
+      "lon": 16.65199,
+      "depth_m": 714.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.72292,
+      "lon": 16.69377,
+      "depth_m": 789.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.70004,
+      "lon": 16.75639,
+      "depth_m": 867.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "amantea",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    39.1332,
+    16.0673
+  ],
+  "bearing_seaward_deg": 258.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 681.0,
+  "mean_slope_m_per_km": 38.03,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 39.13273,
+      "lon": 16.06446,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 39.13226,
+      "lon": 16.06163,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 39.13133,
+      "lon": 16.05596,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 39.12946,
+      "lon": 16.04462,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 39.12759,
+      "lon": 16.03328,
+      "depth_m": 101.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 39.12384,
+      "lon": 16.0106,
+      "depth_m": 245.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 39.11821,
+      "lon": 15.97659,
+      "depth_m": 562.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 39.11068,
+      "lon": 15.93126,
+      "depth_m": 637.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 39.09937,
+      "lon": 15.86327,
+      "depth_m": 681.0
+    }
+  ]
+}

@@ -45,7 +45,11 @@ BASINS: dict[str, tuple[str, ...]] = {
     "sicily": ("Sicily",),
     # mainland Italy's Tyrrhenian / Ligurian coast and Sardinia: one western-Mediterranean frame
     # on the same mistral (NW) and libeccio (SW) wind swell; Sicily keeps its own
-    "tyrrhenian": ("Liguria", "Tuscany", "Lazio", "Sardinia"),
+    "tyrrhenian": ("Liguria", "Tuscany", "Lazio", "Sardinia", "Campania"),
+    # southern Italy east of Campania: the Gulf of Taranto, the Ionian and the southern Adriatic
+    # (scirocco SE, levante E, bora N-NE wind swell); Calabria's and Basilicata's short Tyrrhenian
+    # stretch rides in the same frame
+    "southern-italy": ("Basilicata", "Calabria", "Puglia"),
     # Algeria's north-facing coast: Mistral and Gulf of Lion storms from the NW, a sea of
     # its own between Spain and Sardinia
     "algeria": ("Algeria",),
@@ -229,6 +233,7 @@ BASINS: dict[str, tuple[str, ...]] = {
         "Sunshine Coast",
         "NSW Mid North Coast",
         "NSW South Coast",
+        "NSW Central Coast",
     ),
     # Bass Strait: Southern Ocean swell from the SW, a different frame from the east coast
     "australia-south": ("Victoria", "South Australia", "Tasmania", "WA South", "Esperance"),

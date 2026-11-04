@@ -1,0 +1,72 @@
+{
+  "spot": "condojanni",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.1981,
+    16.2302
+  ],
+  "bearing_seaward_deg": 128.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 1166.0,
+  "mean_slope_m_per_km": 65.97,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.19672,
+      "lon": 16.23245,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.19533,
+      "lon": 16.23471,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.19256,
+      "lon": 16.23922,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.18703,
+      "lon": 16.24823,
+      "depth_m": 102.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.18149,
+      "lon": 16.25725,
+      "depth_m": 227.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.17041,
+      "lon": 16.27527,
+      "depth_m": 628.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.15378,
+      "lon": 16.3023,
+      "depth_m": 890.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.13161,
+      "lon": 16.33831,
+      "depth_m": 989.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.09833,
+      "lon": 16.3923,
+      "depth_m": 1166.0
+    }
+  ]
+}

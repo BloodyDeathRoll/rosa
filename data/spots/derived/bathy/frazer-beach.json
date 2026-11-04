@@ -1,0 +1,72 @@
+{
+  "spot": "frazer-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.1882,
+    151.6231
+  ],
+  "bearing_seaward_deg": 115.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 101.0,
+  "mean_slope_m_per_km": 5.63,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.18915,
+      "lon": 151.62553,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.1901,
+      "lon": 151.62797,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.192,
+      "lon": 151.63284,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.1958,
+      "lon": 151.64258,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.1996,
+      "lon": 151.65232,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.20719,
+      "lon": 151.67181,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.21858,
+      "lon": 151.70104,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.23375,
+      "lon": 151.74003,
+      "depth_m": 83.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.25649,
+      "lon": 151.79854,
+      "depth_m": 101.0
+    }
+  ]
+}

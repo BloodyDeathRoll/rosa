@@ -1,0 +1,72 @@
+{
+  "spot": "rosa-marina",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    40.7989,
+    17.5576
+  ],
+  "bearing_seaward_deg": 27.0,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 112.0,
+  "mean_slope_m_per_km": 5.69,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.8009,
+      "lon": 17.55895,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.80291,
+      "lon": 17.5603,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.80691,
+      "lon": 17.56299,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.81493,
+      "lon": 17.56839,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.82294,
+      "lon": 17.57379,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.83896,
+      "lon": 17.58458,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.863,
+      "lon": 17.60079,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.89504,
+      "lon": 17.62241,
+      "depth_m": 94.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.94309,
+      "lon": 17.65489,
+      "depth_m": 112.0
+    }
+  ]
+}

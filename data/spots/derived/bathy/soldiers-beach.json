@@ -1,0 +1,72 @@
+{
+  "spot": "soldiers-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.2928,
+    151.5634
+  ],
+  "bearing_seaward_deg": 105.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 109.0,
+  "mean_slope_m_per_km": 6.7,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.29338,
+      "lon": 151.566,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.29396,
+      "lon": 151.5686,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.29513,
+      "lon": 151.57379,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.29745,
+      "lon": 151.58419,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.29978,
+      "lon": 151.59458,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.30443,
+      "lon": 151.61537,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.31139,
+      "lon": 151.64656,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.32067,
+      "lon": 151.68815,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.33456,
+      "lon": 151.75055,
+      "depth_m": 109.0
+    }
+  ]
+}

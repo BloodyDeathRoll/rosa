@@ -1,0 +1,72 @@
+{
+  "spot": "torre-cavallo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    40.6414,
+    18.0224
+  ],
+  "bearing_seaward_deg": 47.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 123.0,
+  "mean_slope_m_per_km": 6.82,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.64293,
+      "lon": 18.02457,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.64447,
+      "lon": 18.02673,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.64753,
+      "lon": 18.03107,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.65367,
+      "lon": 18.03974,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.6598,
+      "lon": 18.04841,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.67206,
+      "lon": 18.06576,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.69045,
+      "lon": 18.09179,
+      "depth_m": 98.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.71495,
+      "lon": 18.12653,
+      "depth_m": 121.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.7517,
+      "lon": 18.17868,
+      "depth_m": 123.0
+    }
+  ]
+}

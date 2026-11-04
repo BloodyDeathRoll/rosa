@@ -1,0 +1,72 @@
+{
+  "spot": "roccella",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.3205,
+    16.406
+  ],
+  "bearing_seaward_deg": 150.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 1362.0,
+  "mean_slope_m_per_km": 76.79,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.31855,
+      "lon": 16.40743,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.31661,
+      "lon": 16.40887,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.31271,
+      "lon": 16.41173,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.30492,
+      "lon": 16.41746,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.29713,
+      "lon": 16.42319,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.28155,
+      "lon": 16.43464,
+      "depth_m": 83.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.25818,
+      "lon": 16.45181,
+      "depth_m": 519.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.22702,
+      "lon": 16.47469,
+      "depth_m": 1071.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.18026,
+      "lon": 16.50897,
+      "depth_m": 1362.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "birdie-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.2057,
+    151.6072
+  ],
+  "bearing_seaward_deg": 140.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 97.0,
+  "mean_slope_m_per_km": 5.69,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.20742,
+      "lon": 151.60893,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.20914,
+      "lon": 151.61065,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.21259,
+      "lon": 151.61411,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.21948,
+      "lon": 151.62102,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.22637,
+      "lon": 151.62793,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.24014,
+      "lon": 151.64176,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.2608,
+      "lon": 151.66251,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.28834,
+      "lon": 151.69018,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.32964,
+      "lon": 151.73174,
+      "depth_m": 97.0
+    }
+  ]
+}

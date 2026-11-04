@@ -1,0 +1,72 @@
+{
+  "spot": "paestum",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    40.4209,
+    14.9844
+  ],
+  "bearing_seaward_deg": 249.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 136.0,
+  "mean_slope_m_per_km": 7.49,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.42009,
+      "lon": 14.98164,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.41929,
+      "lon": 14.97889,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.41768,
+      "lon": 14.97337,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.41445,
+      "lon": 14.96235,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.41123,
+      "lon": 14.95132,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.40477,
+      "lon": 14.92927,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.39508,
+      "lon": 14.89621,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.38215,
+      "lon": 14.85214,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.36272,
+      "lon": 14.78606,
+      "depth_m": 136.0
+    }
+  ]
+}

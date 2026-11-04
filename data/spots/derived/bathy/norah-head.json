@@ -1,0 +1,72 @@
+{
+  "spot": "norah-head",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.2863,
+    151.5713
+  ],
+  "bearing_seaward_deg": 110.0,
+  "nearshore_depth_m": -19.0,
+  "offshore_depth_m": 108.0,
+  "mean_slope_m_per_km": 7.15,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.28707,
+      "lon": 151.57383,
+      "depth_m": -19.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.28784,
+      "lon": 151.57635,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.28938,
+      "lon": 151.58141,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.29245,
+      "lon": 151.59152,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.29552,
+      "lon": 151.60163,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.30167,
+      "lon": 151.62186,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.31088,
+      "lon": 151.6522,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.32315,
+      "lon": 151.69266,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.34153,
+      "lon": 151.75338,
+      "depth_m": 108.0
+    }
+  ]
+}

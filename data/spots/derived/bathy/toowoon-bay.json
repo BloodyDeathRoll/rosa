@@ -1,0 +1,72 @@
+{
+  "spot": "toowoon-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.3599,
+    151.5027
+  ],
+  "bearing_seaward_deg": 80.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 73.0,
+  "mean_slope_m_per_km": 3.94,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.35951,
+      "lon": 151.50535,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.35912,
+      "lon": 151.508,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.35834,
+      "lon": 151.5133,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.35677,
+      "lon": 151.52391,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.35521,
+      "lon": 151.53451,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.35208,
+      "lon": 151.55571,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.34738,
+      "lon": 151.58752,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.3411,
+      "lon": 151.62992,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.33164,
+      "lon": 151.69351,
+      "depth_m": 73.0
+    }
+  ]
+}

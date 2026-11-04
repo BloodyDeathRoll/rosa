@@ -1,0 +1,47 @@
+# Rosa spot database - NSW Central Coast (seeded 2026-11-04). Broken Bay's north shore (Pearl Beach,
+# Killcare) up through Avoca, Terrigal, The Entrance and Norah Head to the Lake Macquarie coast and
+# Newcastle's southern beaches: E-SE-facing beaches and reefs on S-SE groundswell and E swell from
+# Tasman lows. Offshore is W. Fills the gap between the Sydney and NSW Mid North Coast boxes.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Australia"
+region: "NSW Central Coast"
+
+defaults: &ncc
+  timezone: Australia/Sydney
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [45, 175]
+  ideal:
+    wind_dir: [225, 315]
+    size_m: [0.8, 2.5]
+
+spots:
+  # ==== SEEDED 2026-11-04 - nsw-central-coast, 25 spots (web-search flow; coordinates from OSM / Nominatim /
+  # Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: pearl-beach, name: "Pearl Beach", town: "Pearl Beach", lat: -33.5420, lon: 151.3084, offshore_direction: 285, swell_window: [40, 170], offshore_km: 5.0, break_type: beach, <<: *ncc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: killcare, name: "Killcare", town: "Killcare", lat: -33.5327, lon: 151.3598, offshore_direction: 325, swell_window: [80, 210], offshore_km: 5.0, break_type: beach, <<: *ncc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: putty-beach, name: "Putty Beach", town: "Killcare", lat: -33.5300, lon: 151.3666, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, break_type: beach, <<: *ncc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: umina-ocean-beach, name: "Umina Ocean Beach", town: "Umina Beach", lat: -33.5254, lon: 151.3228, offshore_direction: 350, swell_window: [105, 235], offshore_km: 5.0, break_type: beach, <<: *ncc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: macmasters-beach, name: "MacMasters Beach", town: "MacMasters Beach", lat: -33.5000, lon: 151.4253, offshore_direction: 285, swell_window: [40, 170], offshore_km: 5.0, break_type: beach, <<: *ncc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: copacabana-central-coast, name: "Copacabana", town: "Copacabana", lat: -33.4914, lon: 151.4328, offshore_direction: 350, swell_window: [105, 235], offshore_km: 5.0, break_type: beach, <<: *ncc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: avoca-beach, name: "Avoca Beach", town: "Avoca Beach", lat: -33.4665, lon: 151.4356, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, break_type: beach, <<: *ncc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: north-avoca, name: "North Avoca", town: "North Avoca", lat: -33.4604, lon: 151.4386, offshore_direction: 295, swell_window: [50, 180], offshore_km: 5.0, break_type: beach, <<: *ncc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: terrigal-haven, name: "Terrigal Haven", town: "Terrigal", lat: -33.4473, lon: 151.4492, offshore_direction: 250, swell_window: [5, 135], offshore_km: 5.0, break_type: point, <<: *ncc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: terrigal-beach, name: "Terrigal Beach", town: "Terrigal", lat: -33.4432, lon: 151.4439, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, break_type: beach, <<: *ncc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: wamberal, name: "Wamberal", town: "Wamberal", lat: -33.4300, lon: 151.4497, offshore_direction: 310, swell_window: [65, 195], offshore_km: 5.0, break_type: beach, <<: *ncc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: forresters-beach, name: "Forresters Beach", town: "Forresters Beach", lat: -33.4121, lon: 151.4671, offshore_direction: 310, swell_window: [65, 195], offshore_km: 5.0, break_type: beach, <<: *ncc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: shelly-beach-central-coast, name: "Shelly Beach", town: "Shelly Beach", lat: -33.3716, lon: 151.4904, offshore_direction: 305, swell_window: [60, 190], offshore_km: 5.0, break_type: beach, <<: *ncc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: toowoon-bay, name: "Toowoon Bay", town: "Toowoon Bay", lat: -33.3599, lon: 151.5027, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, break_type: reef, <<: *ncc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: north-entrance, name: "North Entrance", town: "The Entrance North", lat: -33.3207, lon: 151.5194, offshore_direction: 310, swell_window: [65, 195], offshore_km: 5.0, break_type: beach, <<: *ncc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: soldiers-beach, name: "Soldiers Beach", town: "Norah Head", lat: -33.2928, lon: 151.5634, offshore_direction: 285, swell_window: [40, 170], offshore_km: 5.0, break_type: beach, <<: *ncc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: norah-head, name: "Norah Head", town: "Norah Head", lat: -33.2863, lon: 151.5713, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, break_type: beach, <<: *ncc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: jenny-dixon, name: "Jenny Dixon Beach", town: "Noraville", lat: -33.2708, lon: 151.5639, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, break_type: beach, <<: *ncc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: lakes-beach, name: "Lakes Beach", town: "Budgewoi", lat: -33.2544, lon: 151.5635, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, break_type: beach, <<: *ncc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: birdie-beach, name: "Birdie Beach", town: "Budgewoi", lat: -33.2057, lon: 151.6072, offshore_direction: 320, swell_window: [75, 205], offshore_km: 5.0, break_type: beach, <<: *ncc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: frazer-beach, name: "Frazer Beach", town: "Frazer Park", lat: -33.1882, lon: 151.6231, offshore_direction: 295, swell_window: [50, 180], offshore_km: 5.0, break_type: beach, <<: *ncc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: blacksmiths-beach, name: "Blacksmiths Beach", town: "Blacksmiths", lat: -33.0733, lon: 151.6575, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, break_type: beach, <<: *ncc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: dudley-beach, name: "Dudley Beach", town: "Dudley", lat: -32.9763, lon: 151.7285, offshore_direction: 298, swell_window: [53, 183], offshore_km: 5.0, break_type: beach, <<: *ncc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: leggy-point, name: "Leggy Point", town: "Dudley", lat: -32.9668, lon: 151.7382, offshore_direction: 285, swell_window: [40, 170], offshore_km: 5.0, break_type: reef, <<: *ncc }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: dixon-park, name: "Dixon Park", town: "Merewether", lat: -32.9456, lon: 151.7617, offshore_direction: 325, swell_window: [80, 210], offshore_km: 5.0, break_type: beach, <<: *ncc }  # sat-verified 2026-11-04 (websearch-seeded)

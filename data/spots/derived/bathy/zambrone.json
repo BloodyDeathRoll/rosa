@@ -1,0 +1,72 @@
+{
+  "spot": "zambrone",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.7079,
+    15.9668
+  ],
+  "bearing_seaward_deg": 298.0,
+  "nearshore_depth_m": 19.0,
+  "offshore_depth_m": 691.0,
+  "mean_slope_m_per_km": 37.86,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.70896,
+      "lon": 15.96426,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.71001,
+      "lon": 15.96171,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.71212,
+      "lon": 15.95662,
+      "depth_m": 84.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.71634,
+      "lon": 15.94645,
+      "depth_m": 124.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.72056,
+      "lon": 15.93627,
+      "depth_m": 219.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.729,
+      "lon": 15.91591,
+      "depth_m": 374.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.74165,
+      "lon": 15.88536,
+      "depth_m": 475.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.7585,
+      "lon": 15.84461,
+      "depth_m": 735.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.78375,
+      "lon": 15.78344,
+      "depth_m": 691.0
+    }
+  ]
+}

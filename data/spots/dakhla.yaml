@@ -4,7 +4,7 @@
 # Every spot carries offshore_km along its own seaward normal; break_type per spot.
 # Defaults are TODO calibrate.
 
-country: "Western Sahara"
+country: "Morocco"
 
 defaults: &dak
   timezone: Africa/El_Aaiun

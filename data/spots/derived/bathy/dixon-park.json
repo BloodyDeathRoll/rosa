@@ -1,0 +1,72 @@
+{
+  "spot": "dixon-park",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -32.9456,
+    151.7617
+  ],
+  "bearing_seaward_deg": 145.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 111.0,
+  "mean_slope_m_per_km": 6.2,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.94744,
+      "lon": 151.76324,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.94928,
+      "lon": 151.76477,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -32.95297,
+      "lon": 151.76785,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.96033,
+      "lon": 151.774,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -32.9677,
+      "lon": 151.78014,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.98243,
+      "lon": 151.79245,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.00452,
+      "lon": 151.81091,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.03398,
+      "lon": 151.83554,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.07815,
+      "lon": 151.87251,
+      "depth_m": 111.0
+    }
+  ]
+}

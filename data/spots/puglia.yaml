@@ -1,0 +1,33 @@
+# Rosa spot database - Puglia (seeded 2026-11-04). The Gulf of Taranto (Gandoli, Porto Cesareo) on S-SW swell, the
+# Salento Adriatic (Otranto, San Foca, Brindisi, Monopoli, Molfetta) on N-NE bora and E-SE
+# scirocco swell, and the Gargano on N bora swell; short-period wind swell, best Oct-Apr.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Italy"
+
+defaults: &pug
+  timezone: Europe/Rome
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [0, 240]
+  ideal:
+    wind_dir: [180, 300]
+    size_m: [0.6, 1.5]
+
+spots:
+  # ==== SEEDED 2026-11-04 - puglia, 13 spots (web-search flow; coordinates from OSM / Nominatim / Photon,
+  # every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: gandoli, name: "Gandoli", town: "Leporano", lat: 40.3795, lon: 17.2984, offshore_direction: 35, swell_window: [150, 280], offshore_km: 5.0, break_type: beach, <<: *pug }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: marina-di-lizzano, name: "Marina di Lizzano", town: "Marina di Lizzano", lat: 40.3257, lon: 17.4520, offshore_direction: 35, swell_window: [150, 280], offshore_km: 5.0, break_type: beach, <<: *pug }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: porto-cesareo, name: "Porto Cesareo", town: "Porto Cesareo", lat: 40.2727, lon: 17.8778, offshore_direction: 26, swell_window: [141, 271], offshore_km: 5.0, break_type: beach, <<: *pug }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: alimini, name: "Alimini", town: "Otranto", lat: 40.2138, lon: 18.4595, offshore_direction: 276, swell_window: [31, 161], offshore_km: 5.0, break_type: beach, <<: *pug }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: torre-dell-orso, name: "Torre dell'Orso", town: "Torre dell'Orso", lat: 40.2709, lon: 18.4319, offshore_direction: 235, swell_window: [350, 120], offshore_km: 5.0, break_type: beach, <<: *pug }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: san-foca, name: "Li Marangi", town: "San Foca", lat: 40.2983, lon: 18.4091, offshore_direction: 229, swell_window: [344, 114], offshore_km: 5.0, break_type: beach, <<: *pug }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: torre-cavallo, name: "Torre Cavallo", town: "Brindisi", lat: 40.6414, lon: 18.0224, offshore_direction: 227, swell_window: [342, 112], offshore_km: 5.0, break_type: point, <<: *pug }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: rosa-marina, name: "Rosa Marina", town: "Rosa Marina di Ostuni", lat: 40.7989, lon: 17.5576, offshore_direction: 207, swell_window: [322, 92], offshore_km: 5.0, break_type: beach, <<: *pug }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: capitolo, name: "Capitolo", town: "Monopoli", lat: 40.9105, lon: 17.3459, offshore_direction: 241, swell_window: [356, 126], offshore_km: 5.0, break_type: reef, <<: *pug }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: melma, name: "Melma", town: "Molfetta", lat: 41.2158, lon: 16.5744, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, break_type: reef, <<: *pug }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: pizzomunno, name: "Pizzomunno", town: "Vieste", lat: 41.8790, lon: 16.1774, offshore_direction: 303, swell_window: [58, 188], offshore_km: 5.0, break_type: beach, <<: *pug }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: peschici, name: "Il Molo (Peschici)", town: "Peschici", lat: 41.9488, lon: 16.0077, offshore_direction: 176, swell_window: [291, 61], offshore_km: 5.0, break_type: beach, <<: *pug }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: san-menaio, name: "San Menaio", town: "Vico del Gargano", lat: 41.9369, lon: 15.9487, offshore_direction: 167, swell_window: [282, 52], offshore_km: 5.0, break_type: beach, <<: *pug }  # sat-verified 2026-11-04 (websearch-seeded)

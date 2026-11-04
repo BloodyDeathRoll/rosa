@@ -1,0 +1,72 @@
+{
+  "spot": "pearl-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.542,
+    151.3084
+  ],
+  "bearing_seaward_deg": 105.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 66.0,
+  "mean_slope_m_per_km": 4.28,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.54258,
+      "lon": 151.31101,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.54316,
+      "lon": 151.31361,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.54433,
+      "lon": 151.31882,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.54665,
+      "lon": 151.32925,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.54898,
+      "lon": 151.33967,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.55363,
+      "lon": 151.36052,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.56059,
+      "lon": 151.3918,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.56987,
+      "lon": 151.43351,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.58376,
+      "lon": 151.49609,
+      "depth_m": 66.0
+    }
+  ]
+}

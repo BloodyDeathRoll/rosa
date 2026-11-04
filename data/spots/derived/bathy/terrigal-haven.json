@@ -1,0 +1,72 @@
+{
+  "spot": "terrigal-haven",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.4473,
+    151.4492
+  ],
+  "bearing_seaward_deg": 70.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 69.0,
+  "mean_slope_m_per_km": 3.61,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.44653,
+      "lon": 151.45173,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.44576,
+      "lon": 151.45426,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.44422,
+      "lon": 151.45933,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.44115,
+      "lon": 151.46945,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.43807,
+      "lon": 151.47958,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.43191,
+      "lon": 151.49983,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.42267,
+      "lon": 151.5302,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.41033,
+      "lon": 151.57069,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.3918,
+      "lon": 151.63139,
+      "depth_m": 69.0
+    }
+  ]
+}

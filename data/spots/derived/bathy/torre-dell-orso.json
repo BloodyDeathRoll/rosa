@@ -1,0 +1,72 @@
+{
+  "spot": "torre-dell-orso",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    40.2709,
+    18.4319
+  ],
+  "bearing_seaward_deg": 55.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 221.0,
+  "mean_slope_m_per_km": 11.94,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.27219,
+      "lon": 18.43431,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.27348,
+      "lon": 18.43673,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.27606,
+      "lon": 18.44156,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.28121,
+      "lon": 18.45121,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.28637,
+      "lon": 18.46087,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.29668,
+      "lon": 18.48019,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.31214,
+      "lon": 18.50919,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.33274,
+      "lon": 18.54787,
+      "depth_m": 110.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.36362,
+      "lon": 18.60593,
+      "depth_m": 221.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "torregaveta",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    40.8103,
+    14.0442
+  ],
+  "bearing_seaward_deg": 280.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 450.0,
+  "mean_slope_m_per_km": 24.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.81069,
+      "lon": 14.04127,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.81108,
+      "lon": 14.03835,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.81186,
+      "lon": 14.0325,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.81342,
+      "lon": 14.0208,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.81498,
+      "lon": 14.00909,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.81809,
+      "lon": 13.98569,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.82276,
+      "lon": 13.95057,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.82895,
+      "lon": 13.90374,
+      "depth_m": 120.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.83822,
+      "lon": 13.83348,
+      "depth_m": 450.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "fiumicello",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    39.9977,
+    15.6993
+  ],
+  "bearing_seaward_deg": 220.0,
+  "nearshore_depth_m": -27.0,
+  "offshore_depth_m": 774.0,
+  "mean_slope_m_per_km": 45.13,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 39.99598,
+      "lon": 15.69741,
+      "depth_m": -27.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 39.99426,
+      "lon": 15.69553,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 39.99081,
+      "lon": 15.69175,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 39.98392,
+      "lon": 15.68421,
+      "depth_m": 96.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 39.97703,
+      "lon": 15.67667,
+      "depth_m": 319.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 39.96325,
+      "lon": 15.66159,
+      "depth_m": 539.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 39.94257,
+      "lon": 15.63898,
+      "depth_m": 679.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 39.91499,
+      "lon": 15.60886,
+      "depth_m": 752.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 39.87362,
+      "lon": 15.56372,
+      "depth_m": 774.0
+    }
+  ]
+}

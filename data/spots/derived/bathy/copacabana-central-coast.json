@@ -1,0 +1,72 @@
+{
+  "spot": "copacabana-central-coast",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.4914,
+    151.4328
+  ],
+  "bearing_seaward_deg": 170.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 79.0,
+  "mean_slope_m_per_km": 5.01,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.49361,
+      "lon": 151.43327,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.49583,
+      "lon": 151.43374,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.50026,
+      "lon": 151.43467,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.50911,
+      "lon": 151.43655,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.51797,
+      "lon": 151.43842,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.53568,
+      "lon": 151.44217,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.56225,
+      "lon": 151.44779,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.59768,
+      "lon": 151.4553,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.65081,
+      "lon": 151.46657,
+      "depth_m": 79.0
+    }
+  ]
+}

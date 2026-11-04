@@ -1,0 +1,72 @@
+{
+  "spot": "peschici",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.9488,
+    16.0077
+  ],
+  "bearing_seaward_deg": 356.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 104.0,
+  "mean_slope_m_per_km": 5.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.95104,
+      "lon": 16.00749,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.95329,
+      "lon": 16.00728,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.95777,
+      "lon": 16.00686,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.96674,
+      "lon": 16.00601,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.97571,
+      "lon": 16.00517,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.99366,
+      "lon": 16.00348,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.02057,
+      "lon": 16.00094,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.05646,
+      "lon": 15.99756,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.11028,
+      "lon": 15.99248,
+      "depth_m": 104.0
+    }
+  ]
+}

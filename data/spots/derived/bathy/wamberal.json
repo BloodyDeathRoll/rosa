@@ -1,0 +1,72 @@
+{
+  "spot": "wamberal",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.43,
+    151.4497
+  ],
+  "bearing_seaward_deg": 130.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 105.0,
+  "mean_slope_m_per_km": 5.86,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.43145,
+      "lon": 151.45176,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.43289,
+      "lon": 151.45383,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.43578,
+      "lon": 151.45796,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.44156,
+      "lon": 151.46621,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.44734,
+      "lon": 151.47447,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.4589,
+      "lon": 151.49099,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.47623,
+      "lon": 151.51577,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.49933,
+      "lon": 151.54884,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.53396,
+      "lon": 151.59847,
+      "depth_m": 105.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "north-avoca",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.4604,
+    151.4386
+  ],
+  "bearing_seaward_deg": 115.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 111.0,
+  "mean_slope_m_per_km": 6.76,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.46135,
+      "lon": 151.44104,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.4623,
+      "lon": 151.44348,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.4642,
+      "lon": 151.44837,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.468,
+      "lon": 151.45814,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.4718,
+      "lon": 151.46791,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.47939,
+      "lon": 151.48746,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.49078,
+      "lon": 151.51679,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.50595,
+      "lon": 151.5559,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.52869,
+      "lon": 151.61459,
+      "depth_m": 111.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "alimini",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    40.2138,
+    18.4595
+  ],
+  "bearing_seaward_deg": 96.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 150.0,
+  "mean_slope_m_per_km": 8.62,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.21356,
+      "lon": 18.46243,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.21333,
+      "lon": 18.46536,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.21286,
+      "lon": 18.47121,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.21192,
+      "lon": 18.48292,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.21097,
+      "lon": 18.49464,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.20909,
+      "lon": 18.51806,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.20624,
+      "lon": 18.55319,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.20243,
+      "lon": 18.60002,
+      "depth_m": 96.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.19669,
+      "lon": 18.67027,
+      "depth_m": 150.0
+    }
+  ]
+}

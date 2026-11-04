@@ -1,0 +1,72 @@
+{
+  "spot": "bova-marina",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.9294,
+    15.9175
+  ],
+  "bearing_seaward_deg": 181.0,
+  "nearshore_depth_m": 21.0,
+  "offshore_depth_m": 1622.0,
+  "mean_slope_m_per_km": 90.2,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.92715,
+      "lon": 15.91745,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.9249,
+      "lon": 15.9174,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.92041,
+      "lon": 15.9173,
+      "depth_m": 128.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.91142,
+      "lon": 15.9171,
+      "depth_m": 264.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.90242,
+      "lon": 15.9169,
+      "depth_m": 431.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.88444,
+      "lon": 15.91651,
+      "depth_m": 714.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.85747,
+      "lon": 15.91591,
+      "depth_m": 1093.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.8215,
+      "lon": 15.91512,
+      "depth_m": 1413.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.76755,
+      "lon": 15.91393,
+      "depth_m": 1622.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "la-pietra",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    40.802,
+    14.1731
+  ],
+  "bearing_seaward_deg": 255.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 70.0,
+  "mean_slope_m_per_km": 3.61,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.80142,
+      "lon": 14.17023,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.80084,
+      "lon": 14.16736,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.79967,
+      "lon": 14.16162,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.79734,
+      "lon": 14.15015,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.79501,
+      "lon": 14.13868,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.79035,
+      "lon": 14.11573,
+      "depth_m": 99.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.78334,
+      "lon": 14.08132,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.77399,
+      "lon": 14.03545,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.75992,
+      "lon": 13.96667,
+      "depth_m": 70.0
+    }
+  ]
+}

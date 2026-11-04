@@ -1,0 +1,72 @@
+{
+  "spot": "fuscaldo-marina",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    39.4135,
+    16.0083
+  ],
+  "bearing_seaward_deg": 250.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 722.0,
+  "mean_slope_m_per_km": 40.68,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 39.41273,
+      "lon": 16.00557,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 39.41196,
+      "lon": 16.00283,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 39.41042,
+      "lon": 15.99736,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 39.40735,
+      "lon": 15.98643,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 39.40427,
+      "lon": 15.97549,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 39.39811,
+      "lon": 15.95362,
+      "depth_m": 114.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 39.38886,
+      "lon": 15.92082,
+      "depth_m": 386.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 39.37652,
+      "lon": 15.87711,
+      "depth_m": 591.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 39.35797,
+      "lon": 15.81156,
+      "depth_m": 722.0
+    }
+  ]
+}

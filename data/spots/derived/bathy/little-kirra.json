@@ -1,0 +1,72 @@
+{
+  "spot": "little-kirra",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -28.1636,
+    153.5304
+  ],
+  "bearing_seaward_deg": 20.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 52.0,
+  "mean_slope_m_per_km": 2.82,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -28.16149,
+      "lon": 153.53127,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -28.15937,
+      "lon": 153.53214,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -28.15515,
+      "lon": 153.53389,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -28.1467,
+      "lon": 153.53738,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -28.13825,
+      "lon": 153.54086,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -28.12134,
+      "lon": 153.54784,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -28.09599,
+      "lon": 153.55829,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -28.06218,
+      "lon": 153.57223,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -28.01147,
+      "lon": 153.59311,
+      "depth_m": 52.0
+    }
+  ]
+}

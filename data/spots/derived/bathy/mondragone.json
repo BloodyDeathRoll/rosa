@@ -1,0 +1,72 @@
+{
+  "spot": "mondragone",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.1054,
+    13.8825
+  ],
+  "bearing_seaward_deg": 238.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 114.0,
+  "mean_slope_m_per_km": 6.65,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.10421,
+      "lon": 13.87997,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.10302,
+      "lon": 13.87744,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.10063,
+      "lon": 13.87238,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.09587,
+      "lon": 13.86226,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.0911,
+      "lon": 13.85214,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.08156,
+      "lon": 13.83191,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.06725,
+      "lon": 13.80157,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.04815,
+      "lon": 13.76115,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.01947,
+      "lon": 13.70055,
+      "depth_m": 114.0
+    }
+  ]
+}

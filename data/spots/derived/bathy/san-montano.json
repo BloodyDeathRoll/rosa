@@ -1,0 +1,72 @@
+{
+  "spot": "san-montano",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    40.7569,
+    13.8772
+  ],
+  "bearing_seaward_deg": 354.0,
+  "nearshore_depth_m": 63.0,
+  "offshore_depth_m": 87.0,
+  "mean_slope_m_per_km": 1.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.75914,
+      "lon": 13.87689,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.76137,
+      "lon": 13.87658,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.76584,
+      "lon": 13.87596,
+      "depth_m": 90.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.77479,
+      "lon": 13.87472,
+      "depth_m": 134.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.78373,
+      "lon": 13.87348,
+      "depth_m": 249.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.80162,
+      "lon": 13.87099,
+      "depth_m": 163.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.82845,
+      "lon": 13.86726,
+      "depth_m": 337.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.86423,
+      "lon": 13.86228,
+      "depth_m": 190.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.91789,
+      "lon": 13.85481,
+      "depth_m": 87.0
+    }
+  ]
+}

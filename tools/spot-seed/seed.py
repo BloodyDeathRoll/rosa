@@ -514,6 +514,10 @@ REGIONS = {
     "tuscany": (42.35, 10.05, 44.00, 11.40),
     "lazio": (41.15, 11.70, 42.40, 13.80),
     "sardinia": (38.85, 8.10, 41.30, 9.85),
+    "campania": (39.95, 13.76, 41.21, 15.38),
+    "basilicata": (39.90, 15.60, 40.46, 16.94),
+    "calabria": (37.82, 15.69, 39.91, 16.67),
+    "puglia": (40.11, 15.85, 42.05, 18.56),
     "dakhla": (23.40, -16.20, 24.10, -15.60),
     "tobago": (11.10, -60.90, 11.40, -60.45),
     "british-virgin-islands": (18.35, -64.75, 18.50, -64.50),
@@ -521,6 +525,7 @@ REGIONS = {
     "thailand": (7.70, 98.15, 8.85, 98.45),
     "nsw-mid-north-coast": (-33.25, 151.60, -29.00, 153.50),
     "nsw-south-coast": (-37.15, 149.85, -34.20, 151.05),
+    "nsw-central-coast": (-33.60, 151.20, -32.90, 151.80),
     # Guatemala's Pacific coast: Ocos and Tilapa on the Mexican border through Champerico,
     # El Paredon, Sipacate, Puerto San Jose, Iztapa and Monterrico to Las Lisas
     "guatemala": (13.70, -92.25, 14.60, -90.08),

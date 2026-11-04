@@ -1,0 +1,72 @@
+{
+  "spot": "san-menaio",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.9369,
+    15.9487
+  ],
+  "bearing_seaward_deg": 347.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 94.0,
+  "mean_slope_m_per_km": 5.07,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.93909,
+      "lon": 15.94802,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.94128,
+      "lon": 15.94734,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.94566,
+      "lon": 15.94598,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.95443,
+      "lon": 15.94326,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.96319,
+      "lon": 15.94054,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.98071,
+      "lon": 15.93509,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.007,
+      "lon": 15.92692,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.04205,
+      "lon": 15.91601,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.09462,
+      "lon": 15.89963,
+      "depth_m": 94.0
+    }
+  ]
+}

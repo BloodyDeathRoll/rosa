@@ -1,0 +1,72 @@
+{
+  "spot": "dudley-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -32.9763,
+    151.7285
+  ],
+  "bearing_seaward_deg": 118.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 115.0,
+  "mean_slope_m_per_km": 7.04,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -32.97736,
+      "lon": 151.73087,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -32.97841,
+      "lon": 151.73323,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -32.98052,
+      "lon": 151.73797,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -32.98474,
+      "lon": 151.74743,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -32.98896,
+      "lon": 151.7569,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -32.9974,
+      "lon": 151.77584,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.01005,
+      "lon": 151.80425,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.02691,
+      "lon": 151.84215,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.05218,
+      "lon": 151.89902,
+      "depth_m": 115.0
+    }
+  ]
+}

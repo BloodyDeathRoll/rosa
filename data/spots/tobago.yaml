@@ -23,3 +23,6 @@ spots:
   - { id: stonehaven-bay, name: "Stonehaven Bay (Grafton)", town: "Black Rock", lat: 11.2030, lon: -60.7870, offshore_direction: 140, swell_window: [255, 25], offshore_km: 5.0, break_type: beach, <<: *tob }  # sat-verified 2026-11-04 (websearch-seeded)
   - { id: castara, name: "Castara", town: "Castara", lat: 11.2808, lon: -60.6959, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, break_type: beach, <<: *tob }  # sat-verified 2026-11-04 (websearch-seeded)
   - { id: bacolet, name: "Bacolet", town: "Scarborough", lat: 11.1746, lon: -60.7131, offshore_direction: 315, swell_window: [70, 200], offshore_km: 5.0, break_type: beach, <<: *tob }  # sat-verified 2026-11-04 (websearch-seeded)
+
+  # ==== USER-VERIFIED 2026-11-04 - pin supplied by the user, sat-checked
+  - { id: pigeon-point, name: "Pigeon Point", town: "Crown Point", lat: 11.1737, lon: -60.8385, offshore_direction: 170, swell_window: [285, 55], offshore_km: 5.0, break_type: reef, <<: *tob }  # user-verified 2026-11-04 (user pin, sat-checked)

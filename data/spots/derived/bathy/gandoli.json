@@ -1,0 +1,72 @@
+{
+  "spot": "gandoli",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    40.3795,
+    17.2984
+  ],
+  "bearing_seaward_deg": 215.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 938.0,
+  "mean_slope_m_per_km": 52.34,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.37766,
+      "lon": 17.29671,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.37582,
+      "lon": 17.29501,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.37213,
+      "lon": 17.29163,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.36477,
+      "lon": 17.28486,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.3574,
+      "lon": 17.27809,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.34266,
+      "lon": 17.26456,
+      "depth_m": 182.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.32055,
+      "lon": 17.24428,
+      "depth_m": 300.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.29107,
+      "lon": 17.21725,
+      "depth_m": 469.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.24683,
+      "lon": 17.17675,
+      "depth_m": 938.0
+    }
+  ]
+}

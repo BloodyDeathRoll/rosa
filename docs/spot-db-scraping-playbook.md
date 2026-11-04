@@ -222,7 +222,7 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-11-04, DB = 3931 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-11-04, DB = 4000 spots, ALL sat-verified)
 
 **Famous-break gap pass, 3593 -> 3602 (2026-11-04).** A hand-written list of ~470 well-known breaks
 was matched against every DB name (accent-folded tokens), every miss geocoded with Nominatim and
@@ -280,9 +280,23 @@ Crowdy Head, Bawley Point - had its normal pointed into the bay instead of open 
   Castles, Caves - nearest OSM place is "Kevin"), Elliston / Port Lincoln / Kangaroo Island where
   nothing lies within 12 km.
 
-**Gap queue (famous breaks, whole areas with zero spots):** the NSW Central Coast (Terrigal,
-Avoca, Catherine Hill Bay, Swansea - between the mid-north and sydney boxes); Campania, Puglia and
-Calabria if ever judged worth it. Ireland is excluded by operator decision.
+**NSW Central Coast 25, southern Italy 41, three operator pins, 3931 -> 4000 (2026-11-04, third pass).**
+Two subagents, web flow, every pin re-checked by the coordinator on a contact sheet.
+- **nsw-central-coast** (new region on `australia-east`): Pearl Beach to Dixon Park. `terrigal-haven`
+  re-aimed 20 -> 70 deg (the N ray crossed Wamberal's beach, offshore depth -3 m); `dudley-beach`
+  118 deg. Ten beaches keep 1-3 GEBCO land cells at the shoreline with deep water beyond (the
+  documented non-disqualifying case).
+- **campania** (joins `tyrrhenian`), **basilicata, calabria, puglia** (new `southern-italy` basin):
+  the Phlegraean coast, Ischia, Cilento, Calabria's two coasts, the Gulf of Taranto, Salento and the
+  Gargano. Dropped: Tombino (Bari - guides give only a 4 km stretch), Pizzo and Capo Miseno (cliff, no
+  break locatable), Salerno Santa Teresa (harbour wall), Le Castella / Capo Rizzuto / Ciro (kite and
+  windsurf sources only). No surf source names a break at Polignano, Torre Canne, Leuca, Gallipoli or
+  Tropea / Capo Vaticano.
+- **Operator pins:** Blackfellows (Elliston), Little Kirra (Gold Coast, 0.4 km W of `kirra`), Pigeon
+  Point (Tobago). Dakhla's country set to "Morocco" by operator decision.
+
+**Gap queue (famous breaks, whole areas with zero spots):** empty - the famous-break list is closed.
+Next is the unnamed-coastline frontier. Ireland is excluded by operator decision.
 
 
 **Azores 27, Madeira 25, Sumatra 28, Sumba 9 + Rote 5, 3499 -> 3593 (2026-10-29, second pass).** Four

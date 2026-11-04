@@ -1,0 +1,72 @@
+{
+  "spot": "forresters-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.4121,
+    151.4671
+  ],
+  "bearing_seaward_deg": 130.0,
+  "nearshore_depth_m": -13.0,
+  "offshore_depth_m": 104.0,
+  "mean_slope_m_per_km": 6.59,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.41355,
+      "lon": 151.46916,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.41499,
+      "lon": 151.47123,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.41788,
+      "lon": 151.47535,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.42366,
+      "lon": 151.48361,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.42944,
+      "lon": 151.49186,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.441,
+      "lon": 151.50838,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.45833,
+      "lon": 151.53316,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.48143,
+      "lon": 151.56622,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.51606,
+      "lon": 151.61584,
+      "depth_m": 104.0
+    }
+  ]
+}

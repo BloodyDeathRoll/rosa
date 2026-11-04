@@ -1,0 +1,72 @@
+{
+  "spot": "blacksmiths-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.0733,
+    151.6575
+  ],
+  "bearing_seaward_deg": 95.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 105.0,
+  "mean_slope_m_per_km": 6.14,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.0735,
+      "lon": 151.66017,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.07369,
+      "lon": 151.66285,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.07408,
+      "lon": 151.66819,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.07487,
+      "lon": 151.67888,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.07565,
+      "lon": 151.68957,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.07721,
+      "lon": 151.71096,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.07954,
+      "lon": 151.74304,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.08264,
+      "lon": 151.78581,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.08726,
+      "lon": 151.84997,
+      "depth_m": 105.0
+    }
+  ]
+}

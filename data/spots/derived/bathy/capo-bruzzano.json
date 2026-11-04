@@ -1,0 +1,72 @@
+{
+  "spot": "capo-bruzzano",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.0402,
+    16.1448
+  ],
+  "bearing_seaward_deg": 89.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 1250.0,
+  "mean_slope_m_per_km": 70.37,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.04024,
+      "lon": 16.14765,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.04028,
+      "lon": 16.15051,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.04036,
+      "lon": 16.15622,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.04051,
+      "lon": 16.16763,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.04067,
+      "lon": 16.17905,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.04097,
+      "lon": 16.20189,
+      "depth_m": 211.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.04142,
+      "lon": 16.23614,
+      "depth_m": 634.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.042,
+      "lon": 16.28181,
+      "depth_m": 984.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.04285,
+      "lon": 16.35031,
+      "depth_m": 1250.0
+    }
+  ]
+}

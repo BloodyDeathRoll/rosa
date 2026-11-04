@@ -1,0 +1,72 @@
+{
+  "spot": "squillace-lido",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.7763,
+    16.5748
+  ],
+  "bearing_seaward_deg": 113.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 819.0,
+  "mean_slope_m_per_km": 46.14,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.77542,
+      "lon": 16.57745,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.77454,
+      "lon": 16.58011,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.77279,
+      "lon": 16.58542,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.76927,
+      "lon": 16.59604,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.76575,
+      "lon": 16.60665,
+      "depth_m": 117.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.75872,
+      "lon": 16.62788,
+      "depth_m": 446.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.74816,
+      "lon": 16.65972,
+      "depth_m": 617.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.73406,
+      "lon": 16.70215,
+      "depth_m": 755.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.71289,
+      "lon": 16.76577,
+      "depth_m": 819.0
+    }
+  ]
+}

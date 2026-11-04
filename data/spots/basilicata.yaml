@@ -1,0 +1,22 @@
+# Rosa spot database - Basilicata (seeded 2026-11-04). Maratea on the Tyrrhenian side and the Metaponto-Policoro
+# beaches on the Gulf of Taranto: SW wind swell on one coast, S-SE scirocco swell on the other.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Italy"
+
+defaults: &bas
+  timezone: Europe/Rome
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [90, 240]
+  ideal:
+    wind_dir: [280, 20]
+    size_m: [0.6, 1.5]
+
+spots:
+  # ==== SEEDED 2026-11-04 - basilicata, 3 spots (web-search flow; coordinates from OSM / Nominatim / Photon,
+  # every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: fiumicello, name: "Fiumicello", town: "Maratea", lat: 39.9977, lon: 15.6993, offshore_direction: 40, swell_window: [155, 285], offshore_km: 5.0, break_type: beach, <<: *bas }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: policoro, name: "Lido di Policoro", town: "Policoro", lat: 40.1864, lon: 16.7173, offshore_direction: 294, swell_window: [49, 179], offshore_km: 5.0, break_type: beach, <<: *bas }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: metaponto, name: "Lido di Metaponto", town: "Lido di Metaponto", lat: 40.3606, lon: 16.8381, offshore_direction: 306, swell_window: [61, 191], offshore_km: 5.0, break_type: beach, <<: *bas }  # sat-verified 2026-11-04 (websearch-seeded)

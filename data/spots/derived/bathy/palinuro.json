@@ -1,0 +1,72 @@
+{
+  "spot": "palinuro",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    40.054,
+    15.2824
+  ],
+  "bearing_seaward_deg": 261.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 194.0,
+  "mean_slope_m_per_km": 10.82,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.05365,
+      "lon": 15.2795,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.0533,
+      "lon": 15.2766,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.05259,
+      "lon": 15.2708,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.05118,
+      "lon": 15.25919,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.04977,
+      "lon": 15.24759,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.04695,
+      "lon": 15.22438,
+      "depth_m": 94.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.04271,
+      "lon": 15.18958,
+      "depth_m": 123.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.03703,
+      "lon": 15.14318,
+      "depth_m": 151.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.02849,
+      "lon": 15.0736,
+      "depth_m": 194.0
+    }
+  ]
+}

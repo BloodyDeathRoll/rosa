@@ -1,0 +1,72 @@
+{
+  "spot": "le-serre",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.9235,
+    16.0383
+  ],
+  "bearing_seaward_deg": 180.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 1551.0,
+  "mean_slope_m_per_km": 87.83,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.92125,
+      "lon": 16.0383,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.919,
+      "lon": 16.0383,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.91451,
+      "lon": 16.0383,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.90551,
+      "lon": 16.0383,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.89652,
+      "lon": 16.0383,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.87853,
+      "lon": 16.0383,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.85155,
+      "lon": 16.0383,
+      "depth_m": 574.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.81558,
+      "lon": 16.0383,
+      "depth_m": 1247.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.76162,
+      "lon": 16.0383,
+      "depth_m": 1551.0
+    }
+  ]
+}

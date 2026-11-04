@@ -1,0 +1,72 @@
+{
+  "spot": "acciaroli",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    40.1831,
+    15.0242
+  ],
+  "bearing_seaward_deg": 267.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 138.0,
+  "mean_slope_m_per_km": 8.17,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 40.18298,
+      "lon": 15.02126,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 40.18286,
+      "lon": 15.01832,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 40.18263,
+      "lon": 15.01244,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 40.18216,
+      "lon": 15.00069,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 40.18168,
+      "lon": 14.98893,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 40.18073,
+      "lon": 14.96543,
+      "depth_m": 99.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 40.1793,
+      "lon": 14.93016,
+      "depth_m": 105.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 40.17737,
+      "lon": 14.88315,
+      "depth_m": 121.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 40.17444,
+      "lon": 14.81263,
+      "depth_m": 138.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "macmasters-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.5,
+    151.4253
+  ],
+  "bearing_seaward_deg": 105.0,
+  "nearshore_depth_m": -48.0,
+  "offshore_depth_m": 114.0,
+  "mean_slope_m_per_km": 9.13,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.50058,
+      "lon": 151.4279,
+      "depth_m": -48.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.50116,
+      "lon": 151.43051,
+      "depth_m": -43.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.50233,
+      "lon": 151.43572,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.50465,
+      "lon": 151.44614,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.50698,
+      "lon": 151.45655,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.51163,
+      "lon": 151.47739,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.51859,
+      "lon": 151.50866,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.52787,
+      "lon": 151.55035,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.54176,
+      "lon": 151.6129,
+      "depth_m": 114.0
+    }
+  ]
+}

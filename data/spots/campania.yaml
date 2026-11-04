@@ -1,0 +1,30 @@
+# Rosa spot database - Campania (seeded 2026-11-04). The southern Tyrrhenian coast, Mondragone to Palinuro: the
+# Phlegraean beaches, Ischia, Salerno and the Cilento on libeccio (SW) and mistral (W-NW) wind swell,
+# short period, best Oct-Apr; offshore is NE-E.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Italy"
+
+defaults: &cmp
+  timezone: Europe/Rome
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [170, 300]
+  ideal:
+    wind_dir: [20, 110]
+    size_m: [0.6, 1.5]
+
+spots:
+  # ==== SEEDED 2026-11-04 - campania, 10 spots (web-search flow; coordinates from OSM / Nominatim / Photon,
+  # every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: mondragone, name: "Mondragone", town: "Mondragone", lat: 41.1054, lon: 13.8825, offshore_direction: 58, swell_window: [173, 303], offshore_km: 5.0, break_type: beach, <<: *cmp }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: torregaveta, name: "Torregaveta", town: "Torregaveta", lat: 40.8103, lon: 14.0442, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, break_type: beach, <<: *cmp }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: la-pietra, name: "La Pietra", town: "Napoli", lat: 40.8020, lon: 14.1731, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, break_type: beach, <<: *cmp }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: san-montano, name: "San Montano", town: "Lacco Ameno", lat: 40.7569, lon: 13.8772, offshore_direction: 174, swell_window: [289, 59], offshore_km: 5.0, break_type: beach, <<: *cmp }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: citara, name: "Citara", town: "Forio", lat: 40.7174, lon: 13.8609, offshore_direction: 105, swell_window: [220, 350], offshore_km: 5.0, break_type: beach, <<: *cmp }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: irno, name: "Irno", town: "Salerno", lat: 40.6725, lon: 14.7733, offshore_direction: 15, swell_window: [130, 260], offshore_km: 5.0, break_type: beach, <<: *cmp }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: paestum, name: "Paestum", town: "Paestum", lat: 40.4209, lon: 14.9844, offshore_direction: 69, swell_window: [184, 314], offshore_km: 5.0, break_type: beach, <<: *cmp }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: acciaroli, name: "Acciaroli", town: "Acciaroli", lat: 40.1831, lon: 15.0242, offshore_direction: 87, swell_window: [202, 332], offshore_km: 5.0, break_type: beach, <<: *cmp }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: marina-di-pisciotta, name: "Marina di Pisciotta", town: "Marina di Pisciotta", lat: 40.1087, lon: 15.2220, offshore_direction: 62, swell_window: [177, 307], offshore_km: 5.0, break_type: beach, <<: *cmp }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: palinuro, name: "Palinuro (Le Dune)", town: "Palinuro", lat: 40.0540, lon: 15.2824, offshore_direction: 81, swell_window: [196, 326], offshore_km: 5.0, break_type: beach, <<: *cmp }  # sat-verified 2026-11-04 (websearch-seeded)

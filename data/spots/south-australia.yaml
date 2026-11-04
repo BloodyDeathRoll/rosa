@@ -63,3 +63,6 @@ spots:
   - { id: vivonne-bay, name: "Vivonne Bay", town: "Vivonne Bay", lat: -35.9796, lon: 137.1863, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, break_type: beach, <<: *sa }  # sat-verified 2026-11-04 (websearch-seeded)
   - { id: destrees-bay, name: "D'Estrees Bay", town: "Point Tinline", lat: -35.9836, lon: 137.6155, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, break_type: beach, <<: *sa }  # sat-verified 2026-11-04 (websearch-seeded)
   - { id: pennington-bay, name: "Pennington Bay", town: "Sapphiretown", lat: -35.8540, lon: 137.7411, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, break_type: beach, <<: *sa }  # sat-verified 2026-11-04 (websearch-seeded)
+
+  # ==== USER-VERIFIED 2026-11-04 - pin supplied by the user, sat-checked
+  - { id: blackfellows, name: "Blackfellows", town: "Elliston", lat: -33.6200, lon: 134.8320, offshore_direction: 135, swell_window: [250, 20], offshore_km: 5.0, break_type: reef, <<: *sa }  # user-verified 2026-11-04 (user pin, sat-checked)

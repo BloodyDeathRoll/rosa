@@ -44,3 +44,6 @@ spots:
   - { id: rainbow-bay, name: "Rainbow Bay", town: "Coolangatta", lat: -28.1641, lon: 153.5468, offshore_direction: 190, swell_window: [305, 75], offshore_km: 5.0, <<: *gc }  # sat-verified 2026-09-02 (websearch-seeded)
   - { id: greenmount, name: "Greenmount", town: "Coolangatta", lat: -28.1656, lon: 153.5436, offshore_direction: 200, swell_window: [315, 85], offshore_km: 5.0, <<: *gc }  # sat-verified 2026-09-02 (websearch-seeded)
   - { id: kirra, name: "Kirra", town: "Kirra", lat: -28.1663, lon: 153.5333, offshore_direction: 197, swell_window: [312, 82], offshore_km: 5.0, <<: *gc }  # sat-verified 2026-09-02 (websearch-seeded)
+
+  # ==== USER-VERIFIED 2026-11-04 - pin supplied by the user, sat-checked
+  - { id: little-kirra, name: "Little Kirra", town: "Kirra", lat: -28.1636, lon: 153.5304, offshore_direction: 200, swell_window: [315, 85], offshore_km: 5.0, break_type: beach, <<: *gc }  # user-verified 2026-11-04 (user pin, sat-checked)

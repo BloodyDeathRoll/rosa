@@ -1,0 +1,72 @@
+{
+  "spot": "shelly-beach-central-coast",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -33.3716,
+    151.4904
+  ],
+  "bearing_seaward_deg": 125.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 97.0,
+  "mean_slope_m_per_km": 5.97,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -33.37289,
+      "lon": 151.49261,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -33.37418,
+      "lon": 151.49481,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -33.37676,
+      "lon": 151.49922,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -33.38192,
+      "lon": 151.50804,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -33.38707,
+      "lon": 151.51687,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -33.39738,
+      "lon": 151.53452,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -33.41285,
+      "lon": 151.561,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -33.43345,
+      "lon": 151.59633,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -33.46435,
+      "lon": 151.64935,
+      "depth_m": 97.0
+    }
+  ]
+}
