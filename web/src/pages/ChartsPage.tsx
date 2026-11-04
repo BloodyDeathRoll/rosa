@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "preact/hooks";
 import type { Map as MLMap } from "maplibre-gl";
 import { loadMaplibre } from "../maplibre";
 import {
+  fetchIndex,
   fetchSwellBasin,
   fetchSwellIndex,
   fetchWorldMeta,
@@ -10,7 +11,11 @@ import {
   type SwellIndex,
   type WorldMeta,
 } from "../api";
-import { getPosition } from "../geo";
+import { getPosition, type LatLon } from "../geo";
+import { CompassNorthIcon, MinusIcon, PlusIcon, SearchIcon } from "../components/icons";
+import { ShareButton } from "../components/parts";
+import { MapSearch } from "./MapPage";
+import type { IndexEntry } from "../types";
 import { signalReady } from "../splash";
 
 /** Charts tab: animated basin wave fields (SwellMap v0.2), Surfline-style - a
@@ -289,6 +294,10 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
   const [playing, setPlaying] = useState(false);
   const [tick, setTick] = useState(0); // bumped when an async world frame lands
   const [error, setError] = useState<string | null>(null);
+  const [bearing, setBearing] = useState(0);
+  const [pos, setPos] = useState<LatLon | null>(null);
+  const [spots, setSpots] = useState<[string, IndexEntry][] | null>(null);
+  const [searching, setSearching] = useState(false);
 
   // Map + index once. The splash lifts as soon as we know what there is to show.
   useEffect(() => {
@@ -310,6 +319,7 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
         await import("maplibre-gl/dist/maplibre-gl.css");
         if (disposed || !wrapRef.current) return;
         if (!worldR.ok) throw new Error("world chart not published");
+        setPos(at);
         setIndex(idxR.v ?? {});
         setWorld(worldR.v);
         const m = new maplibregl.Map({
@@ -334,6 +344,8 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
         );
         // the floor follows the container (rotation, split screen, desktop resize)
         m.on("resize", () => m.setMinZoom(minZoomFor(m.getContainer().clientHeight)));
+        // the north fab counter-rotates with the map and resets it on tap
+        m.on("rotate", () => setBearing(m.getBearing()));
         mapRef.current = m;
         setBasinName(WORLD);
       } catch {
@@ -695,6 +707,23 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
     deckObs.current.observe(el);
   };
 
+  // the spot list loads on the first search, not with the chart
+  const openSearch = () => {
+    setSearching(true);
+    if (!spots)
+      fetchIndex().then(
+        (idx) => setSpots(Object.entries(idx.spots).sort(([, a], [, b]) => b.lat - a.lat)),
+        () => {},
+      );
+  };
+  const pick = (id: string) => {
+    setSearching(false);
+    const e = spots?.find(([k]) => k === id)?.[1];
+    const m = mapRef.current;
+    // coastal scale: the wave field is a ~25 km grid, a street zoom shows one cell
+    if (e && m) m.easeTo({ center: [e.lon, e.lat], zoom: Math.max(m.getZoom(), 6), duration: 600 });
+  };
+
   const t = timeline[frame];
   const ramp = RAMPS[variable][theme];
 
@@ -705,6 +734,29 @@ export function ChartsPage({ theme }: { theme: "light" | "dark" }) {
         <canvas class="swell-canvas" ref={canvasRef} aria-hidden="true" />
 
         {error && <p class="swell-note">{error}</p>}
+
+        <ShareButton class="map-fab share" path="/charts" />
+        <button class="map-fab search" onClick={openSearch} aria-label="Search spots">
+          <SearchIcon />
+        </button>
+        <button
+          class="map-fab north"
+          style={`--brg:${-bearing}deg`}
+          onClick={() => mapRef.current?.resetNorth()}
+          aria-label="Point north"
+        >
+          <CompassNorthIcon />
+        </button>
+        {/* Wide screens only (CSS): zoom without a wheel or a pinch. */}
+        <button class="map-fab zoom-in" onClick={() => mapRef.current?.zoomIn()} aria-label="Zoom in">
+          <PlusIcon />
+        </button>
+        <button class="map-fab zoom-out" onClick={() => mapRef.current?.zoomOut()} aria-label="Zoom out">
+          <MinusIcon />
+        </button>
+        {searching && (
+          <MapSearch spots={spots ?? []} pos={pos} onPick={pick} onClose={() => setSearching(false)} />
+        )}
 
         {(isWorld ? world !== null : basins.length > 0) && t && (
           <div class={`charts-deck${playing ? " playing" : ""}`} ref={deckRef}>

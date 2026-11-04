@@ -73,7 +73,6 @@ export function setPendingArea(region: string): void {
 /** maplibre-gl is ~290 KB gz plus a ~150 KB gz worker - loaded only when the Map tab opens. */
 export function MapPage({ theme }: { theme: Theme }) {
   const wrapRef = useRef<HTMLDivElement>(null);
-  const searchRef = useRef<HTMLInputElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MLMap | null>(null);
 
@@ -97,7 +96,6 @@ export function MapPage({ theme }: { theme: Theme }) {
   const [bearing, setBearing] = useState(0);
   const ensureYouRef = useRef<((p: LatLon) => void) | null>(null);
   const [searching, setSearching] = useState(false);
-  const [query, setQuery] = useState("");
 
   // Swim mode: pins take the swim colour and the shore-break figure. The map's
   // handlers are bound once, so they read the mode from a ref; readings arrive as
@@ -399,11 +397,6 @@ export function MapPage({ theme }: { theme: Theme }) {
       ?.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
   }, [focus, visible]);
 
-  // focus the field when search opens
-  useEffect(() => {
-    if (searching) searchRef.current?.focus();
-  }, [searching]);
-
   // As the carousel scrolls, whichever card is nearest center becomes the focus.
   const onCardsScroll = () => {
     if (scrollRafRef.current) return;
@@ -480,25 +473,11 @@ export function MapPage({ theme }: { theme: Theme }) {
     pos ? Math.round(distanceKm(pos, { lat: e.lat, lon: e.lon })) : null;
   const focusIdx = focus ? visible.indexOf(focus) : -1;
 
-  const q = query.trim().toLowerCase();
-  const results = q
-    ? spots.filter(
-        ([id, e]) =>
-          e.name.toLowerCase().includes(q) ||
-          (e.region ?? "").toLowerCase().includes(q) ||
-          (e.town ?? "").toLowerCase().includes(q) ||
-          id.includes(q)
-      )
-    : [];
-  const closeSearch = () => {
-    setSearching(false);
-    setQuery("");
-  };
   // Pick from search: zoom the (still-mounted) map into the spot; moveend then
   // rebuilds the carousel around it and its neighbours.
   const pick = (id: string) => {
     const e = byId.get(id);
-    closeSearch();
+    setSearching(false);
     if (!e) return;
     focusRef.current = id;
     setFocus(id);
@@ -572,36 +551,7 @@ export function MapPage({ theme }: { theme: Theme }) {
 
         {/* Search layers over the live map so easeTo/pick keep working. */}
         {searching && (
-          <div class="map-search">
-            <header class="search-head">
-              <button class="spot-back" onClick={closeSearch} aria-label="Close search">
-                <ChevronLeftIcon />
-              </button>
-              <div class="search-box grow">
-                <SearchIcon size={16} stroke={1.5} />
-                <input
-                  ref={searchRef}
-                  placeholder="Search spots"
-                  aria-label="Search spots"
-                  value={query}
-                  onInput={(e) => setQuery((e.target as HTMLInputElement).value)}
-                />
-              </div>
-            </header>
-            <div class="map-locations">
-              {q ? (
-                results.length ? (
-                  results.map(([id, e]) => (
-                    <MapRow key={id} id={id} entry={e} dist={dist(e)} onSelect={() => pick(id)} />
-                  ))
-                ) : (
-                  <p class="search-empty">No spots match “{query}”.</p>
-                )
-              ) : (
-                <p class="search-empty">Search for a spot - the map opens to it.</p>
-              )}
-            </div>
-          </div>
+          <MapSearch spots={spots} pos={pos} onPick={pick} onClose={() => setSearching(false)} />
         )}
       </div>
     </main>
@@ -840,6 +790,68 @@ export function MapCard({
 }
 
 /** Compact spot row used only in the search overlay - frames the spot. */
+/** Spot search layered over a live map (Map and Charts), so the pick can ease the
+    still-mounted map to the spot. */
+export function MapSearch({
+  spots,
+  pos,
+  onPick,
+  onClose,
+}: {
+  spots: Entry[];
+  pos: LatLon | null;
+  onPick: (id: string) => void;
+  onClose: () => void;
+}) {
+  const [query, setQuery] = useState("");
+  const searchRef = useRef<HTMLInputElement>(null);
+  useEffect(() => searchRef.current?.focus(), []);
+  const q = query.trim().toLowerCase();
+  const results = q
+    ? spots.filter(
+        ([id, e]) =>
+          e.name.toLowerCase().includes(q) ||
+          (e.region ?? "").toLowerCase().includes(q) ||
+          (e.town ?? "").toLowerCase().includes(q) ||
+          id.includes(q)
+      )
+    : [];
+  const dist = (e: IndexEntry) =>
+    pos ? Math.round(distanceKm(pos, { lat: e.lat, lon: e.lon })) : null;
+  return (
+    <div class="map-search">
+      <header class="search-head">
+        <button class="spot-back" onClick={onClose} aria-label="Close search">
+          <ChevronLeftIcon />
+        </button>
+        <div class="search-box grow">
+          <SearchIcon size={16} stroke={1.5} />
+          <input
+            ref={searchRef}
+            placeholder="Search spots"
+            aria-label="Search spots"
+            value={query}
+            onInput={(e) => setQuery((e.target as HTMLInputElement).value)}
+          />
+        </div>
+      </header>
+      <div class="map-locations">
+        {q ? (
+          results.length ? (
+            results.map(([id, e]) => (
+              <MapRow key={id} id={id} entry={e} dist={dist(e)} onSelect={() => onPick(id)} />
+            ))
+          ) : (
+            <p class="search-empty">No spots match “{query}”.</p>
+          )
+        ) : (
+          <p class="search-empty">Search for a spot - the map opens to it.</p>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function MapRow({
   id,
   entry,
