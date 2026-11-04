@@ -1,0 +1,72 @@
+{
+  "spot": "kennington-cove",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    45.8784,
+    -60.058
+  ],
+  "bearing_seaward_deg": 160.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 96.0,
+  "mean_slope_m_per_km": 5.52,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 45.87629,
+      "lon": -60.0569,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 45.87417,
+      "lon": -60.05579,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 45.86995,
+      "lon": -60.05358,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 45.8615,
+      "lon": -60.04917,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 45.85305,
+      "lon": -60.04475,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 45.83614,
+      "lon": -60.03593,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 45.81079,
+      "lon": -60.0227,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 45.77698,
+      "lon": -60.00508,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 45.72626,
+      "lon": -59.97869,
+      "depth_m": 96.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "melmerby-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    45.6548,
+    -62.4984
+  ],
+  "bearing_seaward_deg": 25.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 23.0,
+  "mean_slope_m_per_km": 1.24,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 45.65684,
+      "lon": -62.49704,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 45.65888,
+      "lon": -62.49568,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 45.66295,
+      "lon": -62.49296,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 45.6711,
+      "lon": -62.48752,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 45.67925,
+      "lon": -62.48208,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 45.69555,
+      "lon": -62.47119,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 45.72,
+      "lon": -62.45485,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 45.75259,
+      "lon": -62.43304,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 45.80147,
+      "lon": -62.40027,
+      "depth_m": 23.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "laupahoehoe",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    19.9937,
+    -155.2395
+  ],
+  "bearing_seaward_deg": 70.0,
+  "nearshore_depth_m": 91.0,
+  "offshore_depth_m": 2316.0,
+  "mean_slope_m_per_km": 125.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 19.99447,
+      "lon": -155.23725,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 19.99524,
+      "lon": -155.235,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 19.99678,
+      "lon": -155.23051,
+      "depth_m": 130.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 19.99985,
+      "lon": -155.22151,
+      "depth_m": 159.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 20.00293,
+      "lon": -155.21252,
+      "depth_m": 205.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 20.00907,
+      "lon": -155.19453,
+      "depth_m": 298.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 20.01829,
+      "lon": -155.16755,
+      "depth_m": 358.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 20.03058,
+      "lon": -155.13156,
+      "depth_m": 1343.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 20.04899,
+      "lon": -155.07757,
+      "depth_m": 2316.0
+    }
+  ]
+}

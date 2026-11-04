@@ -1,0 +1,72 @@
+{
+  "spot": "florencia-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    48.9954,
+    -125.6315
+  ],
+  "bearing_seaward_deg": 235.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 48.0,
+  "mean_slope_m_per_km": 3.1,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 48.99411,
+      "lon": -125.63431,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 48.99282,
+      "lon": -125.63711,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 48.99024,
+      "lon": -125.64273,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 48.98508,
+      "lon": -125.65395,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 48.97992,
+      "lon": -125.66517,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 48.96959,
+      "lon": -125.68761,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 48.9541,
+      "lon": -125.72125,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 48.93342,
+      "lon": -125.76607,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 48.90237,
+      "lon": -125.83322,
+      "depth_m": 48.0
+    }
+  ]
+}

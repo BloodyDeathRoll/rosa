@@ -1,0 +1,72 @@
+{
+  "spot": "north-chesterman",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    49.1171,
+    -125.8962
+  ],
+  "bearing_seaward_deg": 255.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 60.0,
+  "mean_slope_m_per_km": 3.04,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 49.11652,
+      "lon": -125.89952,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 49.11594,
+      "lon": -125.90284,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 49.11477,
+      "lon": -125.90947,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 49.11244,
+      "lon": -125.92274,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 49.11011,
+      "lon": -125.93601,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 49.10544,
+      "lon": -125.96254,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 49.09843,
+      "lon": -126.00234,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 49.08906,
+      "lon": -126.05537,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 49.07496,
+      "lon": -126.13489,
+      "depth_m": 60.0
+    }
+  ]
+}

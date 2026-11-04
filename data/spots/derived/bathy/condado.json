@@ -1,0 +1,72 @@
+{
+  "spot": "condado",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.4594,
+    -66.0748
+  ],
+  "bearing_seaward_deg": 10.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 1183.0,
+  "mean_slope_m_per_km": 66.59,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.46161,
+      "lon": -66.07439,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.46383,
+      "lon": -66.07398,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.46826,
+      "lon": -66.07315,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.47711,
+      "lon": -66.07151,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.48597,
+      "lon": -66.06986,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.50368,
+      "lon": -66.06657,
+      "depth_m": 452.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.53025,
+      "lon": -66.06162,
+      "depth_m": 645.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.56568,
+      "lon": -66.05503,
+      "depth_m": 941.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.61882,
+      "lon": -66.04514,
+      "depth_m": 1183.0
+    }
+  ]
+}

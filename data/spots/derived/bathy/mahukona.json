@@ -1,0 +1,72 @@
+{
+  "spot": "mahukona",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    20.1821,
+    -155.9019
+  ],
+  "bearing_seaward_deg": 260.0,
+  "nearshore_depth_m": 47.0,
+  "offshore_depth_m": 1039.0,
+  "mean_slope_m_per_km": 55.89,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 20.18171,
+      "lon": -155.90426,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 20.18132,
+      "lon": -155.90662,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 20.18054,
+      "lon": -155.91134,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 20.17898,
+      "lon": -155.92077,
+      "depth_m": 143.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 20.17741,
+      "lon": -155.93021,
+      "depth_m": 204.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 20.17429,
+      "lon": -155.94908,
+      "depth_m": 368.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 20.16959,
+      "lon": -155.97738,
+      "depth_m": 572.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 20.16332,
+      "lon": -156.01512,
+      "depth_m": 777.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 20.15391,
+      "lon": -156.07172,
+      "depth_m": 1039.0
+    }
+  ]
+}

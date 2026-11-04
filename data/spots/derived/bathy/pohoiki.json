@@ -1,0 +1,72 @@
+{
+  "spot": "pohoiki",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    19.4559,
+    -154.8435
+  ],
+  "bearing_seaward_deg": 130.0,
+  "nearshore_depth_m": 85.0,
+  "offshore_depth_m": 3694.0,
+  "mean_slope_m_per_km": 203.32,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 19.45445,
+      "lon": -154.84167,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 19.45301,
+      "lon": -154.83985,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 19.45012,
+      "lon": -154.83619,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 19.44434,
+      "lon": -154.82889,
+      "depth_m": 720.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 19.43856,
+      "lon": -154.82158,
+      "depth_m": 957.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 19.42699,
+      "lon": -154.80697,
+      "depth_m": 1486.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 19.40964,
+      "lon": -154.78507,
+      "depth_m": 1993.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 19.38651,
+      "lon": -154.75586,
+      "depth_m": 2838.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 19.3518,
+      "lon": -154.71207,
+      "depth_m": 3694.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "leleiwi",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    19.7362,
+    -155.0034
+  ],
+  "bearing_seaward_deg": 20.0,
+  "nearshore_depth_m": 46.0,
+  "offshore_depth_m": 451.0,
+  "mean_slope_m_per_km": 22.82,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 19.73831,
+      "lon": -155.00258,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 19.74043,
+      "lon": -155.00177,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 19.74465,
+      "lon": -155.00013,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 19.7531,
+      "lon": -154.99686,
+      "depth_m": 110.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 19.76155,
+      "lon": -154.99359,
+      "depth_m": 133.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 19.77845,
+      "lon": -154.98706,
+      "depth_m": 329.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 19.8038,
+      "lon": -154.97725,
+      "depth_m": 347.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 19.83761,
+      "lon": -154.96416,
+      "depth_m": 348.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 19.88831,
+      "lon": -154.94452,
+      "depth_m": 451.0
+    }
+  ]
+}

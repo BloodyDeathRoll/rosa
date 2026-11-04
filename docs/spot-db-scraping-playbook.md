@@ -222,7 +222,7 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-11-04, DB = 3613 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-11-04, DB = 3706 spots, ALL sat-verified)
 
 **Famous-break gap pass, 3593 -> 3602 (2026-11-04).** A hand-written list of ~470 well-known breaks
 was matched against every DB name (accent-folded tokens), every miss geocoded with Nominatim and
@@ -245,10 +245,23 @@ hand `shore_normal` 180 (its wind normal crosses the bay; 150-210 all reach open
 - Surf-guide coordinates (mondo.surf, surf-forecast) appeared in search results; they are
   competitor spot data and were NOT used - pins come from OSM names and the tile.
 
-**Gap queue (famous breaks, whole areas with zero spots):** Puerto Rico (Rincon, Tres Palmas, Domes,
-Maria's, Gas Chambers, Jobos, Wilderness, Middles); Hawaii's Big Island (Honolii, Richardson's,
-Banyans, Lyman's, Kahaluu, Pine Trees, Hapuna, Waipio); Canada (Tofino: Chesterman, Cox Bay, Long
-Beach; Nova Scotia: Lawrencetown, Martinique Beach); mainland Italy and Sardinia (Varazze, Levanto,
+**Big Island 25, Puerto Rico 35, Vancouver Island 13, Nova Scotia 20, 3613 -> 3706 (2026-11-04).**
+Three parallel subagents (discovery + render + judge only, no repo edits) wrote final JSONs; the
+coordinator re-rendered all 93 pins on contact sheets, emitted the YAML, cut bathy + tide and
+re-aimed two Puerto Rico normals (Gas Chambers 226, El Cocal 158) inside the eye-read error.
+- **Extracts:** `north-america/us/puerto-rico` (the first download hung - check the size against
+  the server), `north-america/canada/{british-columbia,nova-scotia}`.
+- **Dropped:** PR - Indicators, Dogman's, Little Malibu, Antonio's, Middles, Margara, Aviones,
+  Inches, Table Rock, Bridges (no OSM or geocoder hit), The Room and Kokomo (OSM surf nodes on car
+  parks), five flat-water names, Sardinera (OSM name in the wrong town). Big Island - Kehena,
+  Miloli'i, Ho'okena, Napo'opo'o, Old Airport, Kings Landing, South Point / Green Sand. BC -
+  Lennard Island, Botanical Beach, Sombrio Point (one Sombrio kept). NS - Minutes, Lawrencetown
+  Reef, Backyards, Caldwells Cove (unlocatable), Silver Sands (folded into Moose), Sandy Cove,
+  the Fundy-side names.
+- GEBCO reads 2-3 shoreline land samples on every bearing at nine PR spots and Keokea / Hakalau
+  (steep volcanic coves); all end in deep water - the documented non-disqualifying case.
+
+**Gap queue (famous breaks, whole areas with zero spots):** mainland Italy and Sardinia (Varazze, Levanto,
 Santa Marinella, Banzai, Capo Mannu); far-west South Australia (Cactus, Caves at Penong, Point
 Sinclair, Elliston, Streaky Bay); Kangaroo Island (Pennington Bay); NW Tasmania (Marrawah); NSW mid
 and south coast (Angourie, Crescent Head, Merimbula); East London (Nahoon Reef); Dakhla; Tobago

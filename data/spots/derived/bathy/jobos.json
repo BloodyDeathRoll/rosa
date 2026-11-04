@@ -1,0 +1,72 @@
+{
+  "spot": "jobos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.5147,
+    -67.0774
+  ],
+  "bearing_seaward_deg": 355.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 1162.0,
+  "mean_slope_m_per_km": 65.18,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.51694,
+      "lon": -67.07761,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.51918,
+      "lon": -67.07781,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.52366,
+      "lon": -67.07823,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.53262,
+      "lon": -67.07905,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.54158,
+      "lon": -67.07988,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.55949,
+      "lon": -67.08153,
+      "depth_m": 112.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.58637,
+      "lon": -67.08402,
+      "depth_m": 262.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.62221,
+      "lon": -67.08733,
+      "depth_m": 519.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.67596,
+      "lon": -67.09229,
+      "depth_m": 1162.0
+    }
+  ]
+}

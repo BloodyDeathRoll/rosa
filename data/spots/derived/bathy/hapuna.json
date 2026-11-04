@@ -1,0 +1,72 @@
+{
+  "spot": "hapuna",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    19.9929,
+    -155.8259
+  ],
+  "bearing_seaward_deg": 265.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 432.0,
+  "mean_slope_m_per_km": 23.89,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 19.9927,
+      "lon": -155.82828,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 19.99251,
+      "lon": -155.83067,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 19.99212,
+      "lon": -155.83543,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 19.99133,
+      "lon": -155.84497,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 19.99055,
+      "lon": -155.8545,
+      "depth_m": 134.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 19.98897,
+      "lon": -155.87357,
+      "depth_m": 193.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 19.98661,
+      "lon": -155.90217,
+      "depth_m": 320.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 19.98346,
+      "lon": -155.9403,
+      "depth_m": 412.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 19.97871,
+      "lon": -155.99749,
+      "depth_m": 432.0
+    }
+  ]
+}

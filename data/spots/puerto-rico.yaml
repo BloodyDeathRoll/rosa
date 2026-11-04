@@ -1,0 +1,59 @@
+# Rosa spot database - Puerto Rico (seeded 2026-11-04). The north-west corner carries the surf:
+# Rincon, Aguada, Aguadilla and Isabela on open North Atlantic winter swell (Oct-Apr), then the
+# north coast east to San Juan and Luquillo on the same swell and the trade windswell; the
+# south-east tip (Punta Tuna) takes Caribbean and tropical swell.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Puerto Rico"
+
+defaults: &pr
+  timezone: America/Puerto_Rico
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [270, 90]
+  ideal:
+    wind_dir: [90, 200]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-04 - puerto-rico, 35 spots: web flow, names from surf guides, pins from
+  # OSM (© OpenStreetMap contributors, ODbL) / Photon and moved onto the break on ESRI z16 tiles
+  # (every pin rendered and judged). swell_window = seaward +/-65 deg, TODO calibrate. Rincon
+  # round the north-west corner, east along the north coast, then the south-east.
+  - { id: tres-palmas, name: "Tres Palmas", town: "Rincón", lat: 18.3491, lon: -67.2672, offshore_direction: 65, swell_window: [180, 310], offshore_km: 5.0, break_type: reef, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: steps-pr, name: "Steps", town: "Rincón", lat: 18.3489, lon: -67.2638, offshore_direction: 65, swell_window: [180, 310], offshore_km: 5.0, break_type: reef, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: marias, name: "Maria's", town: "Rincón", lat: 18.3567, lon: -67.2692, offshore_direction: 80, swell_window: [195, 325], offshore_km: 5.0, break_type: reef, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: domes, name: "Domes", town: "Rincón", lat: 18.3641, lon: -67.2705, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, break_type: reef, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: spanish-wall, name: "Spanish Wall", town: "Rincón", lat: 18.3664, lon: -67.2689, offshore_direction: 135, swell_window: [250, 20], offshore_km: 5.0, break_type: reef, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: pools, name: "Pools", town: "Rincón", lat: 18.3689, lon: -67.2634, offshore_direction: 160, swell_window: [275, 45], offshore_km: 5.0, break_type: reef, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: sandy-beach-pr, name: "Sandy Beach", town: "Rincón", lat: 18.3710, lon: -67.2561, offshore_direction: 165, swell_window: [280, 50], offshore_km: 5.0, break_type: reef, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: pico-de-piedra, name: "Pico de Piedra", town: "Aguada", lat: 18.3843, lon: -67.2123, offshore_direction: 140, swell_window: [255, 25], offshore_km: 5.0, break_type: beach, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: espinar, name: "Espinar", town: "Aguada", lat: 18.3915, lon: -67.1974, offshore_direction: 140, swell_window: [255, 25], offshore_km: 5.0, break_type: beach, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: crash-boat, name: "Crash Boat", town: "Aguadilla", lat: 18.4585, lon: -67.1642, offshore_direction: 65, swell_window: [180, 310], offshore_km: 5.0, break_type: beach, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: gas-chambers, name: "Gas Chambers", town: "Aguadilla", lat: 18.4610, lon: -67.1660, offshore_direction: 46, swell_window: [161, 291], offshore_km: 5.0, break_type: reef, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: pena-blanca, name: "Peña Blanca", town: "Aguadilla", lat: 18.4722, lon: -67.1692, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, break_type: reef, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: wilderness-pr, name: "Wilderness", town: "Aguadilla", lat: 18.4836, lon: -67.1667, offshore_direction: 110, swell_window: [225, 355], offshore_km: 5.0, break_type: reef, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: borinquen, name: "Borinquen", town: "Aguadilla", lat: 18.4911, lon: -67.1547, offshore_direction: 140, swell_window: [255, 25], offshore_km: 5.0, break_type: beach, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: surfers-beach, name: "Surfer's Beach", town: "Aguadilla", lat: 18.5054, lon: -67.1418, offshore_direction: 145, swell_window: [260, 30], offshore_km: 5.0, break_type: reef, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: survival, name: "Survival", town: "Aguadilla", lat: 18.5087, lon: -67.1316, offshore_direction: 160, swell_window: [275, 45], offshore_km: 5.0, break_type: beach, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: shacks, name: "Shacks", town: "Isabela", lat: 18.5155, lon: -67.1019, offshore_direction: 170, swell_window: [285, 55], offshore_km: 5.0, break_type: reef, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: jobos, name: "Jobos", town: "Isabela", lat: 18.5147, lon: -67.0774, offshore_direction: 175, swell_window: [290, 60], offshore_km: 5.0, break_type: point, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: montones, name: "Montones", town: "Isabela", lat: 18.5140, lon: -67.0646, offshore_direction: 180, swell_window: [295, 65], offshore_km: 5.0, break_type: reef, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: pastillo, name: "Pastillo", town: "Isabela", lat: 18.4931, lon: -66.9792, offshore_direction: 190, swell_window: [305, 75], offshore_km: 5.0, break_type: beach, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: puerto-hermina, name: "Puerto Hermina", town: "Quebradillas", lat: 18.4834, lon: -66.9015, offshore_direction: 175, swell_window: [290, 60], offshore_km: 5.0, break_type: beach, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: penon-brusi, name: "Peñón Brusi", town: "Camuy", lat: 18.4903, lon: -66.8559, offshore_direction: 180, swell_window: [295, 65], offshore_km: 5.0, break_type: reef, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: poza-del-obispo, name: "Poza del Obispo", town: "Arecibo", lat: 18.4815, lon: -66.6967, offshore_direction: 185, swell_window: [300, 70], offshore_km: 5.0, break_type: beach, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: caza-y-pesca, name: "Caza y Pesca", town: "Arecibo", lat: 18.4811, lon: -66.6844, offshore_direction: 160, swell_window: [275, 45], offshore_km: 5.0, break_type: beach, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: los-tubos, name: "Los Tubos", town: "Manatí", lat: 18.4692, lon: -66.4582, offshore_direction: 170, swell_window: [285, 55], offshore_km: 5.0, break_type: beach, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: kikita, name: "Kikita", town: "Dorado", lat: 18.4770, lon: -66.2594, offshore_direction: 195, swell_window: [310, 80], offshore_km: 5.0, break_type: reef, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: la-ocho, name: "La Ocho", town: "San Juan", lat: 18.4693, lon: -66.0922, offshore_direction: 180, swell_window: [295, 65], offshore_km: 5.0, break_type: reef, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: fiji, name: "Fiji", town: "San Juan", lat: 18.4693, lon: -66.0898, offshore_direction: 180, swell_window: [295, 65], offshore_km: 5.0, break_type: reef, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: condado, name: "Condado", town: "San Juan", lat: 18.4594, lon: -66.0748, offshore_direction: 190, swell_window: [305, 75], offshore_km: 5.0, break_type: reef, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: parque-del-indio, name: "Parque del Indio", town: "San Juan", lat: 18.4546, lon: -66.0621, offshore_direction: 190, swell_window: [305, 75], offshore_km: 5.0, break_type: beach, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: punta-las-marias, name: "Punta Las Marías", town: "San Juan", lat: 18.4543, lon: -66.0400, offshore_direction: 150, swell_window: [265, 35], offshore_km: 5.0, break_type: reef, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: pine-grove, name: "Pine Grove", town: "Carolina", lat: 18.4445, lon: -66.0118, offshore_direction: 170, swell_window: [285, 55], offshore_km: 5.0, break_type: beach, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: la-pared, name: "La Pared", town: "Luquillo", lat: 18.3773, lon: -65.7151, offshore_direction: 230, swell_window: [345, 115], offshore_km: 5.0, break_type: beach, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: el-cocal-pr, name: "El Cocal", town: "Yabucoa", lat: 18.0148, lon: -65.8455, offshore_direction: 338, swell_window: [93, 223], offshore_km: 5.0, break_type: beach, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: punta-tuna, name: "Punta Tuna", town: "Maunabo", lat: 17.9957, lon: -65.8799, offshore_direction: 305, swell_window: [60, 190], offshore_km: 5.0, break_type: beach, <<: *pr }  # sat-verified 2026-11-04 (websearch-seeded)

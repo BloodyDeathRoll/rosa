@@ -1,0 +1,72 @@
+{
+  "spot": "sandy-beach-pr",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.371,
+    -67.2561
+  ],
+  "bearing_seaward_deg": 345.0,
+  "nearshore_depth_m": -24.0,
+  "offshore_depth_m": 2383.0,
+  "mean_slope_m_per_km": 135.61,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.37317,
+      "lon": -67.25671,
+      "depth_m": -24.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.37534,
+      "lon": -67.25733,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.37969,
+      "lon": -67.25855,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.38837,
+      "lon": -67.26101,
+      "depth_m": 106.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.39706,
+      "lon": -67.26346,
+      "depth_m": 253.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.41443,
+      "lon": -67.26837,
+      "depth_m": 534.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.44049,
+      "lon": -67.27573,
+      "depth_m": 1021.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.47524,
+      "lon": -67.28555,
+      "depth_m": 1624.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.52736,
+      "lon": -67.30029,
+      "depth_m": 2383.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "tres-palmas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.3491,
+    -67.2672
+  ],
+  "bearing_seaward_deg": 245.0,
+  "nearshore_depth_m": 22.0,
+  "offshore_depth_m": 498.0,
+  "mean_slope_m_per_km": 26.82,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.34815,
+      "lon": -67.26935,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.3472,
+      "lon": -67.27149,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.3453,
+      "lon": -67.27579,
+      "depth_m": 194.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.3415,
+      "lon": -67.28437,
+      "depth_m": 537.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.3377,
+      "lon": -67.29296,
+      "depth_m": 605.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.33009,
+      "lon": -67.31013,
+      "depth_m": 657.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.31868,
+      "lon": -67.33589,
+      "depth_m": 694.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.30346,
+      "lon": -67.37022,
+      "depth_m": 729.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.28063,
+      "lon": -67.42171,
+      "depth_m": 498.0
+    }
+  ]
+}

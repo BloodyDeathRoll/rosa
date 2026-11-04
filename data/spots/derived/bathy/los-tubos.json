@@ -1,0 +1,72 @@
+{
+  "spot": "los-tubos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.4692,
+    -66.4582
+  ],
+  "bearing_seaward_deg": 350.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 1372.0,
+  "mean_slope_m_per_km": 76.79,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.47141,
+      "lon": -66.45861,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.47363,
+      "lon": -66.45902,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.47806,
+      "lon": -66.45985,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.48691,
+      "lon": -66.46149,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.49577,
+      "lon": -66.46314,
+      "depth_m": 115.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.51348,
+      "lon": -66.46643,
+      "depth_m": 239.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.54005,
+      "lon": -66.47138,
+      "depth_m": 483.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.57548,
+      "lon": -66.47797,
+      "depth_m": 864.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.62862,
+      "lon": -66.48786,
+      "depth_m": 1372.0
+    }
+  ]
+}

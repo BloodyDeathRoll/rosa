@@ -1,0 +1,72 @@
+{
+  "spot": "poza-del-obispo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.4815,
+    -66.6967
+  ],
+  "bearing_seaward_deg": 5.0,
+  "nearshore_depth_m": 21.0,
+  "offshore_depth_m": 1549.0,
+  "mean_slope_m_per_km": 86.08,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.48374,
+      "lon": -66.69649,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.48598,
+      "lon": -66.69629,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.49046,
+      "lon": -66.69587,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.49942,
+      "lon": -66.69505,
+      "depth_m": 116.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.50838,
+      "lon": -66.69422,
+      "depth_m": 323.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.52629,
+      "lon": -66.69257,
+      "depth_m": 470.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.55317,
+      "lon": -66.69009,
+      "depth_m": 686.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.58901,
+      "lon": -66.68678,
+      "depth_m": 1092.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.64276,
+      "lon": -66.68181,
+      "depth_m": 1549.0
+    }
+  ]
+}

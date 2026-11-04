@@ -507,6 +507,9 @@ REGIONS = {
     # Point, Brandons) and the west coast reefs; the island only exists inside Geofabrik's
     # whole central-america extract, so barbados.osm.pbf is a local bbox cut of it
     "barbados": (13.03, -59.67, 13.34, -59.41),
+    "puerto-rico": (17.85, -67.35, 18.55, -65.55),
+    "vancouver-island": (48.35, -126.10, 49.25, -124.00),
+    "nova-scotia": (43.35, -66.35, 46.95, -59.70),
     # Guatemala's Pacific coast: Ocos and Tilapa on the Mexican border through Champerico,
     # El Paredon, Sipacate, Puerto San Jose, Iztapa and Monterrico to Las Lisas
     "guatemala": (13.70, -92.25, 14.60, -90.08),

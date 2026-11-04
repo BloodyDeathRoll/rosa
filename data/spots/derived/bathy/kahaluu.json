@@ -1,0 +1,72 @@
+{
+  "spot": "kahaluu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    19.5806,
+    -155.9691
+  ],
+  "bearing_seaward_deg": 265.0,
+  "nearshore_depth_m": 27.0,
+  "offshore_depth_m": 2802.0,
+  "mean_slope_m_per_km": 156.34,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 19.5804,
+      "lon": -155.97148,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 19.58021,
+      "lon": -155.97385,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 19.57982,
+      "lon": -155.97861,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 19.57903,
+      "lon": -155.98812,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 19.57825,
+      "lon": -155.99763,
+      "depth_m": 113.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 19.57667,
+      "lon": -156.01664,
+      "depth_m": 804.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 19.57431,
+      "lon": -156.04517,
+      "depth_m": 1535.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 19.57116,
+      "lon": -156.0832,
+      "depth_m": 2116.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 19.56641,
+      "lon": -156.14024,
+      "depth_m": 2802.0
+    }
+  ]
+}

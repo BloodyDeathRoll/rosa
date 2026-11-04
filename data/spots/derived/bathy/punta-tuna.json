@@ -1,0 +1,72 @@
+{
+  "spot": "punta-tuna",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    17.9957,
+    -65.8799
+  ],
+  "bearing_seaward_deg": 125.0,
+  "nearshore_depth_m": -32.0,
+  "offshore_depth_m": 1995.0,
+  "mean_slope_m_per_km": 114.2,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 17.99441,
+      "lon": -65.87796,
+      "depth_m": -32.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 17.99312,
+      "lon": -65.87603,
+      "depth_m": -32.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 17.99054,
+      "lon": -65.87215,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 17.98538,
+      "lon": -65.86441,
+      "depth_m": 222.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 17.98022,
+      "lon": -65.85666,
+      "depth_m": 596.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 17.9699,
+      "lon": -65.84118,
+      "depth_m": 977.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 17.95442,
+      "lon": -65.81795,
+      "depth_m": 1686.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 17.93378,
+      "lon": -65.78698,
+      "depth_m": 1885.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 17.9028,
+      "lon": -65.74055,
+      "depth_m": 1995.0
+    }
+  ]
+}

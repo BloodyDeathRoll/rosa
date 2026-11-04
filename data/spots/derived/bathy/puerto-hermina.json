@@ -1,0 +1,72 @@
+{
+  "spot": "puerto-hermina",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.4834,
+    -66.9015
+  ],
+  "bearing_seaward_deg": 355.0,
+  "nearshore_depth_m": -27.0,
+  "offshore_depth_m": 1456.0,
+  "mean_slope_m_per_km": 83.55,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.48564,
+      "lon": -66.90171,
+      "depth_m": -27.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.48788,
+      "lon": -66.90191,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.49236,
+      "lon": -66.90233,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.50132,
+      "lon": -66.90315,
+      "depth_m": 135.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.51028,
+      "lon": -66.90398,
+      "depth_m": 307.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.52819,
+      "lon": -66.90563,
+      "depth_m": 409.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.55507,
+      "lon": -66.90811,
+      "depth_m": 592.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.59091,
+      "lon": -66.91142,
+      "depth_m": 883.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.64466,
+      "lon": -66.91639,
+      "depth_m": 1456.0
+    }
+  ]
+}

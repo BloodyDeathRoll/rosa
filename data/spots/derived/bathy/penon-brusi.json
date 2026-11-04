@@ -1,0 +1,72 @@
+{
+  "spot": "penon-brusi",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.4903,
+    -66.8559
+  ],
+  "bearing_seaward_deg": 0.0,
+  "nearshore_depth_m": 61.0,
+  "offshore_depth_m": 1410.0,
+  "mean_slope_m_per_km": 76.0,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.49255,
+      "lon": -66.8559,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.4948,
+      "lon": -66.8559,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.49929,
+      "lon": -66.8559,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.50829,
+      "lon": -66.8559,
+      "depth_m": 123.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.51728,
+      "lon": -66.8559,
+      "depth_m": 271.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.53527,
+      "lon": -66.8559,
+      "depth_m": 502.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.56225,
+      "lon": -66.8559,
+      "depth_m": 646.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.59822,
+      "lon": -66.8559,
+      "depth_m": 995.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.65218,
+      "lon": -66.8559,
+      "depth_m": 1410.0
+    }
+  ]
+}

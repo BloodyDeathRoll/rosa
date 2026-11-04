@@ -1,0 +1,72 @@
+{
+  "spot": "cox-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    49.1019,
+    -125.8756
+  ],
+  "bearing_seaward_deg": 265.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 57.0,
+  "mean_slope_m_per_km": 2.99,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 49.1017,
+      "lon": -125.87902,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 49.10151,
+      "lon": -125.88244,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 49.10112,
+      "lon": -125.88928,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 49.10033,
+      "lon": -125.90297,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 49.09954,
+      "lon": -125.91665,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 49.09796,
+      "lon": -125.94401,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 49.09558,
+      "lon": -125.98506,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 49.09238,
+      "lon": -126.03977,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 49.08753,
+      "lon": -126.12184,
+      "depth_m": 57.0
+    }
+  ]
+}

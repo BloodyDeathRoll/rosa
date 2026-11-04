@@ -1,0 +1,72 @@
+{
+  "spot": "martinique-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    44.6916,
+    -63.1213
+  ],
+  "bearing_seaward_deg": 190.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 65.0,
+  "mean_slope_m_per_km": 3.66,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 44.68939,
+      "lon": -63.12185,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 44.68717,
+      "lon": -63.1224,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 44.68274,
+      "lon": -63.1235,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 44.67389,
+      "lon": -63.12569,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 44.66503,
+      "lon": -63.12789,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 44.64732,
+      "lon": -63.13228,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 44.62075,
+      "lon": -63.13885,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 44.58532,
+      "lon": -63.14761,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 44.53217,
+      "lon": -63.16073,
+      "depth_m": 65.0
+    }
+  ]
+}

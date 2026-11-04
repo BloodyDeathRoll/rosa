@@ -1,0 +1,72 @@
+{
+  "spot": "mavillette-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    44.0836,
+    -66.1873
+  ],
+  "bearing_seaward_deg": 235.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 60.0,
+  "mean_slope_m_per_km": 3.15,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 44.08231,
+      "lon": -66.18986,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 44.08102,
+      "lon": -66.19243,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 44.07844,
+      "lon": -66.19755,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 44.07328,
+      "lon": -66.20781,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 44.06812,
+      "lon": -66.21806,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 44.0578,
+      "lon": -66.23856,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 44.0423,
+      "lon": -66.26929,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 44.02163,
+      "lon": -66.31024,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.9906,
+      "lon": -66.37161,
+      "depth_m": 60.0
+    }
+  ]
+}

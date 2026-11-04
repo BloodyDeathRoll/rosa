@@ -1,0 +1,72 @@
+{
+  "spot": "punta-las-marias",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.4543,
+    -66.04
+  ],
+  "bearing_seaward_deg": 330.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 993.0,
+  "mean_slope_m_per_km": 55.89,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.45625,
+      "lon": -66.04119,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.45819,
+      "lon": -66.04237,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.46209,
+      "lon": -66.04474,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.46988,
+      "lon": -66.04948,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.47766,
+      "lon": -66.05422,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.49324,
+      "lon": -66.06371,
+      "depth_m": 363.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.5166,
+      "lon": -66.07794,
+      "depth_m": 450.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.54775,
+      "lon": -66.09692,
+      "depth_m": 839.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.59447,
+      "lon": -66.1254,
+      "depth_m": 993.0
+    }
+  ]
+}

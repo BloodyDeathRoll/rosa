@@ -1,0 +1,72 @@
+{
+  "spot": "mackenzie-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    49.1325,
+    -125.9056
+  ],
+  "bearing_seaward_deg": 240.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 59.0,
+  "mean_slope_m_per_km": 3.1,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 49.13138,
+      "lon": -125.90858,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 49.13025,
+      "lon": -125.91155,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 49.128,
+      "lon": -125.9175,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 49.1235,
+      "lon": -125.9294,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 49.119,
+      "lon": -125.9413,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 49.11,
+      "lon": -125.96509,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 49.09649,
+      "lon": -126.00076,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 49.07845,
+      "lon": -126.04828,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 49.05136,
+      "lon": -126.11951,
+      "depth_m": 59.0
+    }
+  ]
+}

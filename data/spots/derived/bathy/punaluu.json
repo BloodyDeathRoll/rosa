@@ -1,0 +1,72 @@
+{
+  "spot": "punaluu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    19.1348,
+    -155.5036
+  ],
+  "bearing_seaward_deg": 135.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 1787.0,
+  "mean_slope_m_per_km": 100.45,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 19.13321,
+      "lon": -155.50192,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 19.13162,
+      "lon": -155.50023,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 19.12844,
+      "lon": -155.49687,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 19.12208,
+      "lon": -155.49014,
+      "depth_m": 218.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 19.11572,
+      "lon": -155.48341,
+      "depth_m": 457.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 19.103,
+      "lon": -155.46995,
+      "depth_m": 812.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 19.08392,
+      "lon": -155.44977,
+      "depth_m": 925.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 19.05847,
+      "lon": -155.42286,
+      "depth_m": 1265.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 19.0203,
+      "lon": -155.38252,
+      "depth_m": 1787.0
+    }
+  ]
+}

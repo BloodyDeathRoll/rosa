@@ -1,0 +1,72 @@
+{
+  "spot": "pena-blanca",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.4722,
+    -67.1692
+  ],
+  "bearing_seaward_deg": 270.0,
+  "nearshore_depth_m": 56.0,
+  "offshore_depth_m": 1825.0,
+  "mean_slope_m_per_km": 99.66,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.4722,
+      "lon": -67.17157,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.4722,
+      "lon": -67.17394,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.4722,
+      "lon": -67.17868,
+      "depth_m": 120.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.4722,
+      "lon": -67.18816,
+      "depth_m": 374.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.4722,
+      "lon": -67.19765,
+      "depth_m": 405.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.47219,
+      "lon": -67.21661,
+      "depth_m": 537.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.47218,
+      "lon": -67.24505,
+      "depth_m": 958.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.47217,
+      "lon": -67.28298,
+      "depth_m": 1520.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.47212,
+      "lon": -67.33987,
+      "depth_m": 1825.0
+    }
+  ]
+}

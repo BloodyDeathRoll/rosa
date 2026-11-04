@@ -1,0 +1,72 @@
+{
+  "spot": "caza-y-pesca",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.4811,
+    -66.6844
+  ],
+  "bearing_seaward_deg": 340.0,
+  "nearshore_depth_m": -14.0,
+  "offshore_depth_m": 1292.0,
+  "mean_slope_m_per_km": 73.58,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.48321,
+      "lon": -66.68521,
+      "depth_m": -14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.48533,
+      "lon": -66.68602,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.48955,
+      "lon": -66.68764,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.498,
+      "lon": -66.69089,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.50645,
+      "lon": -66.69413,
+      "depth_m": 273.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.52335,
+      "lon": -66.70062,
+      "depth_m": 583.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.54871,
+      "lon": -66.71036,
+      "depth_m": 832.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.58251,
+      "lon": -66.72334,
+      "depth_m": 950.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.63321,
+      "lon": -66.74283,
+      "depth_m": 1292.0
+    }
+  ]
+}

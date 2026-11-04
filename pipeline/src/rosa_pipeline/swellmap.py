@@ -138,8 +138,9 @@ BASINS: dict[str, tuple[str, ...]] = {
     "taiwan": ("Taiwan",),
     "philippines": ("Philippines",),
     "california": ("California",),
-    # Oregon + Washington share one Pacific Northwest frame: 900 km of one coastline
-    "pacific-northwest": ("Oregon", "Washington"),
+    # Oregon + Washington share one Pacific Northwest frame: 900 km of one coastline;
+    # Vancouver Island's west coast (Tofino, Jordan River) continues it north
+    "pacific-northwest": ("Oregon", "Washington", "Vancouver Island"),
     "hawaii": ("Hawaii",),
     "morocco": ("Morocco",),
     # the West African Atlantic: the same NW groundswell that lights Morocco, arriving
@@ -175,6 +176,8 @@ BASINS: dict[str, tuple[str, ...]] = {
         "Maine",
         # Virginia Beach sits between the Outer Banks and New Jersey on the same seaboard
         "Virginia",
+        # Nova Scotia's Atlantic shore continues the seaboard past Maine
+        "Nova Scotia",
     ),
     # the Gulf of Mexico: local windswell off winter fronts and tropical-storm swell; the
     # Florida panhandle, the Gulf side of the peninsula and the Texas coast share one closed basin
@@ -194,8 +197,9 @@ BASINS: dict[str, tuple[str, ...]] = {
     # of the Lesser Antilles, takes the same trade swell
     "caribbean-south": ("Colombia Caribbean", "Venezuela", "Barbados"),
     # the northern Caribbean: Hispaniola's north coast faces the open North Atlantic winter
-    # swell, its south coast the Caribbean - a frame of its own (Puerto Rico will join it)
-    "caribbean-north": ("Dominican Republic",),
+    # swell, its south coast the Caribbean - a frame of its own; Puerto Rico's Rincon and
+    # Isabela coasts sit 130 km east on the same winter swell
+    "caribbean-north": ("Dominican Republic", "Puerto Rico"),
     # the Galapagos, 900 km offshore: its own small frame rather than stretching Ecuador's
     "galapagos": ("Galapagos",),
     # Chile in two frames: the desert north (Arica to Antofagasta) takes the same S-SW

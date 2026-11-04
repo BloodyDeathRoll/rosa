@@ -107,3 +107,33 @@ spots:
   - { id: kalama-park, name: "Kalama Park", town: "Kihei", lat: 20.7314, lon: -156.4529, offshore_direction: 54, swell_window: [169, 299], offshore_km: 5.0, <<: *hi }  # sat-verified 2026-09-02 (websearch-seeded)
   - { id: the-cove, name: "The Cove", town: "Kihei", lat: 20.7273, lon: -156.4499, offshore_direction: 71, swell_window: [186, 316], offshore_km: 5.0, <<: *hi }  # sat-verified 2026-09-02 (websearch-seeded)
   - { id: big-beach, name: "Big Beach", town: "Makena", lat: 20.6315, lon: -156.4472, offshore_direction: 31, swell_window: [146, 276], offshore_km: 5.0, <<: *hi }  # sat-verified 2026-09-02 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-04 - Hawaii Island (the Big Island), 25 spots: web flow, names from surf guides,
+  # pins from OSM / Nominatim and moved onto the break on ESRI z16 tiles (every pin rendered and
+  # judged). Pohoiki sits on the post-2018 black-sand beach (the Bowls/Shacks OSM nodes are under
+  # the new lava). swell_window = seaward +/-65 deg, TODO calibrate. Clockwise from Hilo.
+  - { id: hilo-bayfront, name: "Hilo Bayfront", town: "Hilo", lat: 19.7249, lon: -155.0841, offshore_direction: 210, swell_window: [325, 95], offshore_km: 5.0, break_type: beach, <<: *hi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: richardsons, name: "Richardson's", town: "Hilo", lat: 19.7360, lon: -155.0151, offshore_direction: 170, swell_window: [285, 55], offshore_km: 5.0, break_type: reef, <<: *hi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: leleiwi, name: "Leleiwi", town: "Hilo", lat: 19.7362, lon: -155.0034, offshore_direction: 200, swell_window: [315, 85], offshore_km: 5.0, break_type: reef, <<: *hi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: pohoiki, name: "Pohoiki", town: "Koaʻe", lat: 19.4559, lon: -154.8435, offshore_direction: 310, swell_window: [65, 195], offshore_km: 5.0, break_type: beach, <<: *hi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: punaluu, name: "Punaluu", town: "Pāhala", lat: 19.1348, lon: -155.5036, offshore_direction: 315, swell_window: [70, 200], offshore_km: 5.0, break_type: reef, <<: *hi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: kawa, name: "Kawa", town: "Nā‘ālehu", lat: 19.1104, lon: -155.5255, offshore_direction: 295, swell_window: [50, 180], offshore_km: 5.0, break_type: reef, <<: *hi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: kahaluu, name: "Kahaluu", town: "Kailua-Kona", lat: 19.5806, lon: -155.9691, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, break_type: reef, <<: *hi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: magic-sands, name: "Magic Sands", town: "Kailua-Kona", lat: 19.5943, lon: -155.9721, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: beach, <<: *hi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: lymans, name: "Lyman's", town: "Kailua-Kona", lat: 19.6008, lon: -155.9770, offshore_direction: 80, swell_window: [195, 325], offshore_km: 5.0, break_type: point, <<: *hi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: banyans, name: "Banyans", town: "Kailua-Kona", lat: 19.6065, lon: -155.9774, offshore_direction: 65, swell_window: [180, 310], offshore_km: 5.0, break_type: reef, <<: *hi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: honls, name: "Honl's", town: "Kailua-Kona", lat: 19.6282, lon: -155.9887, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: reef, <<: *hi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: pine-trees-bi, name: "Pine Trees", town: "Kailua-Kona", lat: 19.6955, lon: -156.0459, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, break_type: reef, <<: *hi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: mahaiula, name: "Mahaiula", town: "Mahaiula", lat: 19.7826, lon: -156.0430, offshore_direction: 110, swell_window: [225, 355], offshore_km: 5.0, break_type: reef, <<: *hi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: kua-bay, name: "Kua Bay", town: "Makalawena", lat: 19.8102, lon: -156.0069, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: beach, <<: *hi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: a-bay, name: "A-Bay", town: "Waikoloa", lat: 19.9152, lon: -155.8878, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, break_type: reef, <<: *hi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: hapuna, name: "Hapuna", town: "Puakō", lat: 19.9929, lon: -155.8259, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, break_type: beach, <<: *hi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: kawaihae, name: "Kawaihae", town: "Kawaihae", lat: 20.0304, lon: -155.8304, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, break_type: reef, <<: *hi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: mahukona, name: "Mahukona", town: "Hawi", lat: 20.1821, lon: -155.9019, offshore_direction: 80, swell_window: [195, 325], offshore_km: 5.0, break_type: reef, <<: *hi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: keokea, name: "Keokea", town: "Kapaʻau", lat: 20.2280, lon: -155.7470, offshore_direction: 170, swell_window: [285, 55], offshore_km: 5.0, break_type: reef, <<: *hi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: pololu, name: "Pololu", town: "Kapaʻau", lat: 20.2029, lon: -155.7294, offshore_direction: 225, swell_window: [340, 110], offshore_km: 5.0, break_type: beach, <<: *hi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: waipio, name: "Waipio", town: "Kukuihaele", lat: 20.1205, lon: -155.5896, offshore_direction: 195, swell_window: [310, 80], offshore_km: 5.0, break_type: beach, <<: *hi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: laupahoehoe, name: "Laupahoehoe", town: "Laupāhoehoe", lat: 19.9937, lon: -155.2395, offshore_direction: 250, swell_window: [5, 135], offshore_km: 5.0, break_type: point, <<: *hi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: hakalau, name: "Hakalau", town: "Hakalau", lat: 19.9002, lon: -155.1286, offshore_direction: 225, swell_window: [340, 110], offshore_km: 5.0, break_type: beach, <<: *hi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: kolekole, name: "Kolekole", town: "Honomū", lat: 19.8827, lon: -155.1190, offshore_direction: 245, swell_window: [0, 130], offshore_km: 5.0, break_type: beach, <<: *hi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: honolii, name: "Honolii", town: "Hilo", lat: 19.7559, lon: -155.0906, offshore_direction: 265, swell_window: [20, 150], offshore_km: 5.0, break_type: beach, <<: *hi }  # sat-verified 2026-11-04 (websearch-seeded)

@@ -1,0 +1,43 @@
+# Rosa spot database - Nova Scotia (seeded 2026-11-04). The Atlantic shore from Yarmouth to
+# Cape Breton takes North Atlantic groundswell and, Aug-Oct, hurricane swell; Lawrencetown and
+# the Eastern Shore are the core, the South Shore (Hirtle's to Summerville) and Cape Breton
+# (Ingonish, Inverness on the Gulf side) the rest.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Canada"
+
+defaults: &ns
+  timezone: America/Halifax
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [90, 230]
+  ideal:
+    wind_dir: [270, 30]
+    size_m: [0.6, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-04 - nova-scotia, 20 spots: web flow, names from surf guides, pins from OSM
+  # (© OpenStreetMap contributors, ODbL) / Nominatim and moved onto the break on ESRI z16 tiles
+  # (every pin rendered and judged). swell_window = seaward +/-65 deg, TODO calibrate. Along the coast, north-east to south-west.
+  - { id: melmerby-beach, name: "Melmerby Beach", town: "Melmerby Beach", lat: 45.6548, lon: -62.4984, offshore_direction: 205, swell_window: [320, 90], offshore_km: 5.0, break_type: beach, <<: *ns }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: inverness, name: "Inverness Beach", town: "Inverness", lat: 46.2382, lon: -61.3078, offshore_direction: 125, swell_window: [240, 10], offshore_km: 5.0, break_type: beach, <<: *ns }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: ingonish-beach, name: "Ingonish Beach", town: "Ingonish Beach", lat: 46.6489, lon: -60.3906, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, break_type: beach, <<: *ns }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: kennington-cove, name: "Kennington Cove", town: "Louisbourg", lat: 45.8784, lon: -60.0580, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, break_type: beach, <<: *ns }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: point-michaud, name: "Point Michaud", town: "Point Michaud", lat: 45.5843, lon: -60.6884, offshore_direction: 285, swell_window: [40, 170], offshore_km: 5.0, break_type: beach, <<: *ns }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: clam-harbour, name: "Clam Harbour Beach", town: "Clam Harbour", lat: 44.7217, lon: -62.8849, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, break_type: beach, <<: *ns }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: martinique-beach, name: "Martinique Beach", town: "West Petpeswick", lat: 44.6916, lon: -63.1213, offshore_direction: 10, swell_window: [125, 255], offshore_km: 5.0, break_type: beach, <<: *ns }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: lawrencetown-left-point, name: "Lawrencetown Left Point", town: "Lawrencetown", lat: 44.6393, lon: -63.3253, offshore_direction: 35, swell_window: [150, 280], offshore_km: 5.0, break_type: point, <<: *ns }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: lawrencetown-beach, name: "Lawrencetown Beach", town: "Lawrencetown", lat: 44.6436, lon: -63.3353, offshore_direction: 15, swell_window: [130, 260], offshore_km: 5.0, break_type: beach, <<: *ns }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: lawrencetown-right-point, name: "Lawrencetown Right Point", town: "Lawrencetown", lat: 44.6416, lon: -63.3520, offshore_direction: 350, swell_window: [105, 235], offshore_km: 5.0, break_type: point, <<: *ns }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: rainbow-haven, name: "Rainbow Haven", town: "Cow Bay", lat: 44.6438, lon: -63.4204, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, break_type: beach, <<: *ns }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: osborne-head, name: "Osborne", town: "Cow Bay", lat: 44.6112, lon: -63.4213, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, break_type: point, <<: *ns }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: moose, name: "Moose", town: "Cow Bay", lat: 44.6141, lon: -63.4324, offshore_direction: 10, swell_window: [125, 255], offshore_km: 5.0, break_type: beach, <<: *ns }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: hirtles-beach, name: "Hirtle's Beach", town: "Kingsburg", lat: 44.2642, lon: -64.2740, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, break_type: beach, <<: *ns }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: broad-cove, name: "Broad Cove", town: "Broad Cove", lat: 44.1788, lon: -64.4698, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, break_type: point, <<: *ns }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: cherry-hill, name: "Cherry Hill Beach", town: "Cherry Hill", lat: 44.1428, lon: -64.5114, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, break_type: beach, <<: *ns }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: western-head, name: "Western Head", town: "Western Head", lat: 43.9895, lon: -64.6617, offshore_direction: 315, swell_window: [70, 200], offshore_km: 5.0, break_type: point, <<: *ns }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: white-point, name: "White Point Beach", town: "White Point", lat: 43.9619, lon: -64.7374, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, break_type: beach, <<: *ns }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: summerville-beach, name: "Summerville Beach", town: "Summerville Centre", lat: 43.9502, lon: -64.8175, offshore_direction: 305, swell_window: [60, 190], offshore_km: 5.0, break_type: beach, <<: *ns }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: mavillette-beach, name: "Mavillette Beach", town: "Mavillette", lat: 44.0836, lon: -66.1873, offshore_direction: 55, swell_window: [170, 300], offshore_km: 5.0, break_type: beach, <<: *ns }  # sat-verified 2026-11-04 (websearch-seeded)

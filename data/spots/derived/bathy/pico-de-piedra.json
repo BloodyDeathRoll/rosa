@@ -1,0 +1,72 @@
+{
+  "spot": "pico-de-piedra",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.3843,
+    -67.2123
+  ],
+  "bearing_seaward_deg": 320.0,
+  "nearshore_depth_m": 35.0,
+  "offshore_depth_m": 2231.0,
+  "mean_slope_m_per_km": 123.72,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.38602,
+      "lon": -67.21382,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.38774,
+      "lon": -67.21535,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.39119,
+      "lon": -67.21839,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.39808,
+      "lon": -67.22448,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.40497,
+      "lon": -67.23058,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.41874,
+      "lon": -67.24276,
+      "depth_m": 389.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.43941,
+      "lon": -67.26105,
+      "depth_m": 956.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.46696,
+      "lon": -67.28543,
+      "depth_m": 1488.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.50827,
+      "lon": -67.32203,
+      "depth_m": 2231.0
+    }
+  ]
+}

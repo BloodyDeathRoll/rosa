@@ -1,0 +1,72 @@
+{
+  "spot": "incinerator-rock",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    49.0701,
+    -125.7663
+  ],
+  "bearing_seaward_deg": 195.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 44.0,
+  "mean_slope_m_per_km": 2.54,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 49.06793,
+      "lon": -125.76719,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 49.06576,
+      "lon": -125.76808,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 49.06141,
+      "lon": -125.76985,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 49.05273,
+      "lon": -125.7734,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 49.04404,
+      "lon": -125.77695,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 49.02666,
+      "lon": -125.78405,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 49.0006,
+      "lon": -125.79468,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 48.96585,
+      "lon": -125.80885,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 48.91372,
+      "lon": -125.83005,
+      "depth_m": 44.0
+    }
+  ]
+}

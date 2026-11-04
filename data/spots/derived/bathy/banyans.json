@@ -1,0 +1,72 @@
+{
+  "spot": "banyans",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    19.6065,
+    -155.9774
+  ],
+  "bearing_seaward_deg": 245.0,
+  "nearshore_depth_m": 14.0,
+  "offshore_depth_m": 2798.0,
+  "mean_slope_m_per_km": 156.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 19.60555,
+      "lon": -155.97956,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 19.6046,
+      "lon": -155.98173,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 19.6027,
+      "lon": -155.98605,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 19.5989,
+      "lon": -155.9947,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 19.5951,
+      "lon": -156.00335,
+      "depth_m": 108.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 19.58749,
+      "lon": -156.02066,
+      "depth_m": 775.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 19.57608,
+      "lon": -156.04661,
+      "depth_m": 1542.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 19.56086,
+      "lon": -156.0812,
+      "depth_m": 2128.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 19.53802,
+      "lon": -156.13307,
+      "depth_m": 2798.0
+    }
+  ]
+}

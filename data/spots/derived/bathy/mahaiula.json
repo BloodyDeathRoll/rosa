@@ -1,0 +1,72 @@
+{
+  "spot": "mahaiula",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    19.7826,
+    -156.043
+  ],
+  "bearing_seaward_deg": 290.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 2617.0,
+  "mean_slope_m_per_km": 146.76,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 19.78337,
+      "lon": -156.04525,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 19.78414,
+      "lon": -156.04749,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 19.78568,
+      "lon": -156.05198,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 19.78875,
+      "lon": -156.06096,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 19.79183,
+      "lon": -156.06994,
+      "depth_m": 102.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 19.79797,
+      "lon": -156.08791,
+      "depth_m": 124.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 19.80719,
+      "lon": -156.11486,
+      "depth_m": 379.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 19.81948,
+      "lon": -156.1508,
+      "depth_m": 1635.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 19.83789,
+      "lon": -156.20471,
+      "depth_m": 2617.0
+    }
+  ]
+}

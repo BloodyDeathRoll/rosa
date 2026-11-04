@@ -1,0 +1,72 @@
+{
+  "spot": "jordan-river",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    48.4202,
+    -124.057
+  ],
+  "bearing_seaward_deg": 195.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 186.0,
+  "mean_slope_m_per_km": 10.25,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 48.41803,
+      "lon": -124.05788,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 48.41586,
+      "lon": -124.05875,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 48.41151,
+      "lon": -124.06051,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 48.40283,
+      "lon": -124.06401,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 48.39414,
+      "lon": -124.06752,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 48.37676,
+      "lon": -124.07452,
+      "depth_m": 125.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 48.3507,
+      "lon": -124.08502,
+      "depth_m": 155.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 48.31595,
+      "lon": -124.099,
+      "depth_m": 187.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 48.26382,
+      "lon": -124.11994,
+      "depth_m": 186.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "honolii",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    19.7559,
+    -155.0906
+  ],
+  "bearing_seaward_deg": 85.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 1767.0,
+  "mean_slope_m_per_km": 99.49,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 19.7561,
+      "lon": -155.08822,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 19.75629,
+      "lon": -155.08584,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 19.75668,
+      "lon": -155.08108,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 19.75747,
+      "lon": -155.07156,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 19.75825,
+      "lon": -155.06204,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 19.75981,
+      "lon": -155.043,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 19.76215,
+      "lon": -155.01444,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 19.76527,
+      "lon": -154.97636,
+      "depth_m": 317.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 19.76993,
+      "lon": -154.91924,
+      "depth_m": 1767.0
+    }
+  ]
+}

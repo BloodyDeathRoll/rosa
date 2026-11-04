@@ -1,0 +1,72 @@
+{
+  "spot": "parque-del-indio",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.4546,
+    -66.0621
+  ],
+  "bearing_seaward_deg": 10.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 1261.0,
+  "mean_slope_m_per_km": 70.99,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.45681,
+      "lon": -66.06169,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.45903,
+      "lon": -66.06128,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.46346,
+      "lon": -66.06045,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.47231,
+      "lon": -66.05881,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.48117,
+      "lon": -66.05716,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.49888,
+      "lon": -66.05387,
+      "depth_m": 279.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.52545,
+      "lon": -66.04892,
+      "depth_m": 660.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.56088,
+      "lon": -66.04233,
+      "depth_m": 712.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.61402,
+      "lon": -66.03244,
+      "depth_m": 1261.0
+    }
+  ]
+}

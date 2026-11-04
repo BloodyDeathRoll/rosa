@@ -1,0 +1,72 @@
+{
+  "spot": "hakalau",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    19.9002,
+    -155.1286
+  ],
+  "bearing_seaward_deg": 45.0,
+  "nearshore_depth_m": -35.0,
+  "offshore_depth_m": 2252.0,
+  "mean_slope_m_per_km": 128.85,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 19.90179,
+      "lon": -155.12691,
+      "depth_m": -35.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 19.90338,
+      "lon": -155.12522,
+      "depth_m": -35.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 19.90656,
+      "lon": -155.12184,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 19.91292,
+      "lon": -155.11507,
+      "depth_m": 139.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 19.91928,
+      "lon": -155.10831,
+      "depth_m": 191.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 19.93199,
+      "lon": -155.09478,
+      "depth_m": 278.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 19.95107,
+      "lon": -155.07448,
+      "depth_m": 339.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 19.97649,
+      "lon": -155.0474,
+      "depth_m": 384.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 20.01462,
+      "lon": -155.00678,
+      "depth_m": 2252.0
+    }
+  ]
+}

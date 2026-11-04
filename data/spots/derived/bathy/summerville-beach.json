@@ -1,0 +1,72 @@
+{
+  "spot": "summerville-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.9502,
+    -64.8175
+  ],
+  "bearing_seaward_deg": 125.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 59.0,
+  "mean_slope_m_per_km": 3.27,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.94891,
+      "lon": -64.81494,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.94762,
+      "lon": -64.81238,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.94504,
+      "lon": -64.80727,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.93988,
+      "lon": -64.79704,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.93472,
+      "lon": -64.78681,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.9244,
+      "lon": -64.76636,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.9089,
+      "lon": -64.7357,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.88823,
+      "lon": -64.69484,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.8572,
+      "lon": -64.6336,
+      "depth_m": 59.0
+    }
+  ]
+}

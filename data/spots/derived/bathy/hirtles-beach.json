@@ -1,0 +1,72 @@
+{
+  "spot": "hirtles-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    44.2642,
+    -64.274
+  ],
+  "bearing_seaward_deg": 150.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 97.0,
+  "mean_slope_m_per_km": 5.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 44.26225,
+      "lon": -64.27243,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 44.26031,
+      "lon": -64.27086,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 44.25641,
+      "lon": -64.26772,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 44.24862,
+      "lon": -64.26145,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 44.24083,
+      "lon": -64.25517,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 44.22525,
+      "lon": -64.24263,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 44.20188,
+      "lon": -64.22382,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 44.17072,
+      "lon": -64.19877,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 44.12395,
+      "lon": -64.16125,
+      "depth_m": 97.0
+    }
+  ]
+}

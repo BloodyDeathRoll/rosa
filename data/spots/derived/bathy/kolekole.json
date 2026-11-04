@@ -1,0 +1,72 @@
+{
+  "spot": "kolekole",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    19.8827,
+    -155.119
+  ],
+  "bearing_seaward_deg": 65.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 1112.0,
+  "mean_slope_m_per_km": 62.76,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 19.88365,
+      "lon": -155.11683,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 19.8846,
+      "lon": -155.11467,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 19.8865,
+      "lon": -155.11033,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 19.8903,
+      "lon": -155.10166,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 19.8941,
+      "lon": -155.093,
+      "depth_m": 147.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 19.9017,
+      "lon": -155.07566,
+      "depth_m": 240.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 19.91309,
+      "lon": -155.04965,
+      "depth_m": 330.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 19.92828,
+      "lon": -155.01496,
+      "depth_m": 354.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 19.95104,
+      "lon": -154.96292,
+      "depth_m": 1112.0
+    }
+  ]
+}

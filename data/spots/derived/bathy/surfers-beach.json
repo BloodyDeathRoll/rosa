@@ -1,0 +1,72 @@
+{
+  "spot": "surfers-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.5054,
+    -67.1418
+  ],
+  "bearing_seaward_deg": 325.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 849.0,
+  "mean_slope_m_per_km": 47.94,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.50724,
+      "lon": -67.14316,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.50908,
+      "lon": -67.14452,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.51277,
+      "lon": -67.14724,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.52013,
+      "lon": -67.15268,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.5275,
+      "lon": -67.15812,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.54223,
+      "lon": -67.169,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.56433,
+      "lon": -67.18533,
+      "depth_m": 170.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.59379,
+      "lon": -67.20711,
+      "depth_m": 403.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.63798,
+      "lon": -67.23979,
+      "depth_m": 849.0
+    }
+  ]
+}

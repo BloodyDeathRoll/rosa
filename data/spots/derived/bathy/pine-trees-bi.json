@@ -1,0 +1,72 @@
+{
+  "spot": "pine-trees-bi",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    19.6955,
+    -156.0459
+  ],
+  "bearing_seaward_deg": 240.0,
+  "nearshore_depth_m": 61.0,
+  "offshore_depth_m": 3674.0,
+  "mean_slope_m_per_km": 203.55,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 19.69438,
+      "lon": -156.04797,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 19.69325,
+      "lon": -156.05004,
+      "depth_m": 155.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 19.691,
+      "lon": -156.05417,
+      "depth_m": 518.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 19.68651,
+      "lon": -156.06244,
+      "depth_m": 849.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 19.68201,
+      "lon": -156.07071,
+      "depth_m": 1258.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 19.67301,
+      "lon": -156.08726,
+      "depth_m": 1808.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 19.65952,
+      "lon": -156.11206,
+      "depth_m": 2204.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 19.64151,
+      "lon": -156.14513,
+      "depth_m": 2809.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 19.6145,
+      "lon": -156.19473,
+      "depth_m": 3674.0
+    }
+  ]
+}

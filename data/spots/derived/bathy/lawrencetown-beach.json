@@ -1,0 +1,72 @@
+{
+  "spot": "lawrencetown-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    44.6436,
+    -63.3353
+  ],
+  "bearing_seaward_deg": 195.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 57.0,
+  "mean_slope_m_per_km": 3.04,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 44.64143,
+      "lon": -63.33612,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 44.63926,
+      "lon": -63.33694,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 44.63491,
+      "lon": -63.33857,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 44.62623,
+      "lon": -63.34184,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 44.61754,
+      "lon": -63.34511,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 44.60016,
+      "lon": -63.35165,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 44.5741,
+      "lon": -63.36144,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 44.53935,
+      "lon": -63.37449,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 44.48722,
+      "lon": -63.39403,
+      "depth_m": 57.0
+    }
+  ]
+}

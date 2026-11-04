@@ -1,0 +1,72 @@
+{
+  "spot": "keokea",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    20.228,
+    -155.747
+  ],
+  "bearing_seaward_deg": 350.0,
+  "nearshore_depth_m": -20.0,
+  "offshore_depth_m": 829.0,
+  "mean_slope_m_per_km": 47.83,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 20.23021,
+      "lon": -155.74742,
+      "depth_m": -20.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 20.23243,
+      "lon": -155.74783,
+      "depth_m": -20.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 20.23686,
+      "lon": -155.74866,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 20.24571,
+      "lon": -155.75033,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 20.25457,
+      "lon": -155.75199,
+      "depth_m": 125.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 20.27228,
+      "lon": -155.75532,
+      "depth_m": 198.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 20.29885,
+      "lon": -155.76032,
+      "depth_m": 307.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 20.33428,
+      "lon": -155.76699,
+      "depth_m": 575.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 20.38742,
+      "lon": -155.77699,
+      "depth_m": 829.0
+    }
+  ]
+}

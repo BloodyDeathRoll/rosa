@@ -1,0 +1,72 @@
+{
+  "spot": "wickaninnish",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    49.0202,
+    -125.6777
+  ],
+  "bearing_seaward_deg": 250.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 51.0,
+  "mean_slope_m_per_km": 2.76,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 49.01943,
+      "lon": -125.68092,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 49.01866,
+      "lon": -125.68414,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 49.01712,
+      "lon": -125.69059,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 49.01405,
+      "lon": -125.70347,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 49.01097,
+      "lon": -125.71635,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 49.0048,
+      "lon": -125.74211,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 48.99555,
+      "lon": -125.78074,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 48.98319,
+      "lon": -125.83222,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 48.9646,
+      "lon": -125.9094,
+      "depth_m": 51.0
+    }
+  ]
+}

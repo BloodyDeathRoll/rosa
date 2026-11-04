@@ -1,0 +1,72 @@
+{
+  "spot": "ingonish-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    46.6489,
+    -60.3906
+  ],
+  "bearing_seaward_deg": 95.0,
+  "nearshore_depth_m": 18.0,
+  "offshore_depth_m": 122.0,
+  "mean_slope_m_per_km": 5.86,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.6487,
+      "lon": -60.38734,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.64851,
+      "lon": -60.38407,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.64812,
+      "lon": -60.37755,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 46.64733,
+      "lon": -60.3645,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 46.64654,
+      "lon": -60.35145,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.64496,
+      "lon": -60.32535,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.64258,
+      "lon": -60.28621,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.63939,
+      "lon": -60.23402,
+      "depth_m": 122.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.63455,
+      "lon": -60.15575,
+      "depth_m": 122.0
+    }
+  ]
+}

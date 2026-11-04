@@ -1,0 +1,36 @@
+# Rosa spot database - Vancouver Island, British Columbia (seeded 2026-11-04). The west coast
+# (Tofino, Long Beach, Ucluelet) faces the open North Pacific: W-NW groundswell Oct-Apr, cold
+# water, sand beaches between rocky points. The Juan de Fuca side (Sombrio, Jordan River,
+# Sooke) only works on a big W swell wrapping up the strait.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Canada"
+
+defaults: &vi
+  timezone: America/Vancouver
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [180, 320]
+  ideal:
+    wind_dir: [0, 120]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-04 - vancouver-island, 13 spots: web flow, names from surf guides, pins from OSM
+  # (© OpenStreetMap contributors, ODbL) / Nominatim and moved onto the break on ESRI z16 tiles
+  # (every pin rendered and judged). swell_window = seaward +/-65 deg, TODO calibrate. North to south.
+  - { id: mackenzie-beach, name: "MacKenzie Beach", town: "Tofino", lat: 49.1325, lon: -125.9056, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, break_type: beach, <<: *vi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: north-chesterman, name: "North Chesterman", town: "Tofino", lat: 49.1171, lon: -125.8962, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, break_type: beach, <<: *vi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: south-chesterman, name: "South Chesterman", town: "Tofino", lat: 49.1106, lon: -125.8880, offshore_direction: 15, swell_window: [130, 260], offshore_km: 5.0, break_type: beach, <<: *vi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: rosie-bay, name: "Rosie Bay", town: "Tofino", lat: 49.1091, lon: -125.8815, offshore_direction: 55, swell_window: [170, 300], offshore_km: 5.0, break_type: reef, <<: *vi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: cox-bay, name: "Cox Bay", town: "Tofino", lat: 49.1019, lon: -125.8756, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, break_type: beach, <<: *vi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: incinerator-rock, name: "Incinerator Rock", town: "Tofino", lat: 49.0701, lon: -125.7663, offshore_direction: 15, swell_window: [130, 260], offshore_km: 5.0, break_type: beach, <<: *vi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: combers, name: "Combers Beach", town: "Tofino", lat: 49.0426, lon: -125.7077, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, break_type: beach, <<: *vi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: wickaninnish, name: "Wickaninnish Beach", town: "Ucluelet", lat: 49.0202, lon: -125.6777, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: beach, <<: *vi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: florencia-bay, name: "Florencia Bay", town: "Ucluelet", lat: 48.9954, lon: -125.6315, offshore_direction: 55, swell_window: [170, 300], offshore_km: 5.0, break_type: beach, <<: *vi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: sombrio-beach, name: "Sombrio Beach", town: "Port Renfrew", lat: 48.4940, lon: -124.2980, offshore_direction: 35, swell_window: [150, 280], offshore_km: 5.0, break_type: point, <<: *vi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: china-beach, name: "China Beach", town: "Jordan River", lat: 48.4334, lon: -124.0938, offshore_direction: 35, swell_window: [150, 280], offshore_km: 5.0, break_type: beach, <<: *vi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: jordan-river, name: "Jordan River", town: "Jordan River", lat: 48.4202, lon: -124.0570, offshore_direction: 15, swell_window: [130, 260], offshore_km: 5.0, break_type: point, <<: *vi }  # sat-verified 2026-11-04 (websearch-seeded)
+  - { id: gordons-beach, name: "Gordon's Beach", town: "Sooke", lat: 48.3709, lon: -123.8374, offshore_direction: 35, swell_window: [150, 280], offshore_km: 5.0, break_type: beach, <<: *vi }  # sat-verified 2026-11-04 (websearch-seeded)
