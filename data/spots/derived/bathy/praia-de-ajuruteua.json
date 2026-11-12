@@ -1,0 +1,72 @@
+{
+  "spot": "praia-de-ajuruteua",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -0.8285,
+    -46.603
+  ],
+  "bearing_seaward_deg": 61.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 12.0,
+  "mean_slope_m_per_km": 0.85,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -0.82741,
+      "lon": -46.60103,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -0.82632,
+      "lon": -46.59907,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -0.82414,
+      "lon": -46.59513,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -0.81978,
+      "lon": -46.58727,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -0.81542,
+      "lon": -46.5794,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -0.8067,
+      "lon": -46.56367,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -0.79362,
+      "lon": -46.54007,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -0.77618,
+      "lon": -46.5086,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -0.75002,
+      "lon": -46.46141,
+      "depth_m": 12.0
+    }
+  ]
+}

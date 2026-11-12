@@ -1,0 +1,72 @@
+{
+  "spot": "les-salines",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    16.2528,
+    -61.1852
+  ],
+  "bearing_seaward_deg": 39.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 2820.0,
+  "mean_slope_m_per_km": 158.48,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 16.25455,
+      "lon": -61.18373,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 16.25629,
+      "lon": -61.18225,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 16.25979,
+      "lon": -61.1793,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 16.26678,
+      "lon": -61.17341,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 16.27377,
+      "lon": -61.16751,
+      "depth_m": 205.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.28774,
+      "lon": -61.15572,
+      "depth_m": 820.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.30871,
+      "lon": -61.13802,
+      "depth_m": 1042.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.33666,
+      "lon": -61.11443,
+      "depth_m": 1115.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.37858,
+      "lon": -61.07902,
+      "depth_m": 2820.0
+    }
+  ]
+}

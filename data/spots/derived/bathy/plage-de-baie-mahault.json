@@ -1,0 +1,72 @@
+{
+  "spot": "plage-de-baie-mahault",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    16.3271,
+    -61.0151
+  ],
+  "bearing_seaward_deg": 196.0,
+  "nearshore_depth_m": 22.0,
+  "offshore_depth_m": 510.0,
+  "mean_slope_m_per_km": 27.49,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 16.32494,
+      "lon": -61.01575,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 16.32278,
+      "lon": -61.01639,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 16.31846,
+      "lon": -61.01768,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 16.30981,
+      "lon": -61.02027,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 16.30117,
+      "lon": -61.02285,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.28388,
+      "lon": -61.02801,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.25794,
+      "lon": -61.03576,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.22336,
+      "lon": -61.04608,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.17149,
+      "lon": -61.06156,
+      "depth_m": 510.0
+    }
+  ]
+}

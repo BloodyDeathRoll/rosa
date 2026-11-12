@@ -222,7 +222,7 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-11-12, DB = 4694 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-11-12, DB = 4750 spots, ALL sat-verified)
 
 **Famous-break gap pass, 3593 -> 3602 (2026-11-04).** A hand-written list of ~470 well-known breaks
 was matched against every DB name (accent-folded tokens), every miss geocoded with Nominatim and
@@ -381,6 +381,21 @@ every ray crosses ~1 km of tidal flat. New basins micronesia (Guam, Pohnpei) and
 - Leftover web pass: Mitchells Bay (Riverton), Moore Park Beach (Bundaberg), Pansukyan (Siargao).
   One source places Curio Bay's surf about 1.5 km SW of the DB `porpoise-bay` pin - unchecked.
 - Great Lakes logged as OPEN-ITEMS 44 (operator: skip for now).
+
+**Coastline pass Americas + Asia 56 - 4694 -> 4750 (2026-11-12, cont. 5).**
+- Same method on guadeloupe, martinique, jamaica, trinidad, delmarva, gulf-coast, queensland-central,
+  moreton-bay, maranhao, para, sabah, pakistan, oman. 64 at >= 0.65 after dropping Maryland Beach
+  (densifies Fenwick); the coordinator dropped 6 sheltered (Anse a l'Eau, La Feuillere, Manora,
+  Seaview, Kimihang, Merakit) and 2 whose every ray crosses GEBCO land or a 0 m shelf (Ponta d'Areia,
+  Cocos Beach). Elliot Heads ray re-aimed. The Oman beach OSM names only in Arabic (shatee Nos) is
+  "Nos Beach", id `hasik`, town Hasik ~20 km away.
+- **The seed.py boxes of these web-seeded regions are tight around the first pins** and miss open
+  coast: Jamaica (east end only), Trinidad (east coast), Delmarva (Assateague), Maranhao (east of
+  Sao Luis), Para (Salinopolis only), Pakistan (Pasni to Jiwani), Oman (Masirah to Dhofar),
+  queensland-central (K'gari's east beach; the Teewah strip 26.0-26.35 S is in no box), moreton-bay
+  (Stradbroke south of 27.5 S). The agent used wider boxes in its own gen.py; seed.py is unchanged.
+- No named OSM beach exists on the Louisiana shore, Moreton Island's ocean side, K'gari's 75 Mile
+  Beach or the Lencois Maranhenses, so a named-beach pass cannot reach them.
 
 **Gap queue (whole areas with zero spots, by box count 2026-11-12):** New Zealand is thin (17). Still
 empty: west Africa (Ivory Coast, Togo / Benin / Nigeria, Gabon, Sao Tome, Mauritania), Queensland north

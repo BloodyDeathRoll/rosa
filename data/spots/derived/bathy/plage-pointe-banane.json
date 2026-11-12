@@ -1,0 +1,72 @@
+{
+  "spot": "plage-pointe-banane",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    14.7125,
+    -60.9144
+  ],
+  "bearing_seaward_deg": 92.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 485.0,
+  "mean_slope_m_per_km": 26.76,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 14.71242,
+      "lon": -60.91208,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 14.71234,
+      "lon": -60.90975,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 14.71219,
+      "lon": -60.90511,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 14.71187,
+      "lon": -60.89582,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 14.71156,
+      "lon": -60.88652,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 14.71093,
+      "lon": -60.86794,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 14.70998,
+      "lon": -60.84006,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 14.70871,
+      "lon": -60.80289,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 14.70679,
+      "lon": -60.74714,
+      "depth_m": 485.0
+    }
+  ]
+}

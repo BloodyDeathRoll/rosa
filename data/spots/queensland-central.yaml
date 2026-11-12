@@ -29,3 +29,12 @@ spots:
 
   # ==== SEEDED 2026-11-12 - 1 more, leftover pass (web-search flow; OSM coordinate, rendered and judged at z16)
   - { id: moore-park-beach, name: "Moore Park Beach", town: "Moore Park", lat: -24.7145, lon: 152.2790, offshore_direction: 220, swell_window: [335, 105], offshore_km: 5.0, break_type: beach, <<: *qc }  # sat-verified 2026-11-12 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - queensland-central coastline pass, 6 more (primary flow: named OSM beaches
+  # more than 400 m from a DB pin, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: farnborough-beach, name: "Farnborough Beach", town: "Yeppoon", lat: -23.1131, lon: 150.7512, offshore_direction: 277, swell_window: [32, 162], offshore_km: 5.0, break_type: beach, <<: *qc }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: wreck-beach, name: "Wreck Beach", town: "Yeppoon", lat: -23.1622, lon: 150.9722, offshore_direction: 269, swell_window: [24, 154], offshore_km: 5.0, break_type: beach, <<: *qc }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: oaks-beach, name: "Oaks Beach", town: "Burnett Heads", lat: -24.7711, lon: 152.4186, offshore_direction: 235, swell_window: [350, 120], offshore_km: 5.0, break_type: reef, <<: *qc }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: elliot-heads-beach, name: "Elliot Heads Beach", town: "Elliott Heads", lat: -24.9225, lon: 152.4916, offshore_direction: 347, shore_normal: 100, swell_window: [35, 165], offshore_km: 5.0, break_type: beach, <<: *qc }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: coonarr-beach, name: "Coonarr Beach", town: "Coonarr", lat: -24.9517, lon: 152.4857, offshore_direction: 263, swell_window: [18, 148], offshore_km: 5.0, break_type: beach, <<: *qc }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: south-waddy-beach, name: "South Waddy Beach", town: "Orchid Beach", lat: -24.9757, lon: 153.3505, offshore_direction: 273, swell_window: [28, 158], offshore_km: 5.0, break_type: beach, <<: *qc }  # sat-verified 2026-11-12 (osm-seeded)

@@ -1,0 +1,72 @@
+{
+  "spot": "plage-de-grande-anse-des-salines",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    14.4036,
+    -60.8795
+  ],
+  "bearing_seaward_deg": 213.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 1366.0,
+  "mean_slope_m_per_km": 76.62,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 14.40171,
+      "lon": -60.88076,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 14.39983,
+      "lon": -60.88203,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 14.39606,
+      "lon": -60.88456,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 14.38852,
+      "lon": -60.88961,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 14.38097,
+      "lon": -60.89467,
+      "depth_m": 411.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 14.36589,
+      "lon": -60.90478,
+      "depth_m": 795.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 14.34326,
+      "lon": -60.91995,
+      "depth_m": 1020.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 14.31308,
+      "lon": -60.94016,
+      "depth_m": 1256.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 14.26782,
+      "lon": -60.97047,
+      "depth_m": 1366.0
+    }
+  ]
+}

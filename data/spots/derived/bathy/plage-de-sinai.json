@@ -1,0 +1,72 @@
+{
+  "spot": "plage-de-sinai",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    14.8701,
+    -61.1862
+  ],
+  "bearing_seaward_deg": 29.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 965.0,
+  "mean_slope_m_per_km": 53.92,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 14.87207,
+      "lon": -61.18507,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 14.87403,
+      "lon": -61.18394,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 14.87797,
+      "lon": -61.18169,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 14.88583,
+      "lon": -61.17718,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 14.8937,
+      "lon": -61.17267,
+      "depth_m": 431.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 14.90943,
+      "lon": -61.16364,
+      "depth_m": 412.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 14.93302,
+      "lon": -61.1501,
+      "depth_m": 333.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 14.96448,
+      "lon": -61.13204,
+      "depth_m": 475.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 15.01167,
+      "lon": -61.10495,
+      "depth_m": 965.0
+    }
+  ]
+}

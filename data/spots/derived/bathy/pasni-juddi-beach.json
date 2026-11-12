@@ -1,0 +1,72 @@
+{
+  "spot": "pasni-juddi-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    25.224,
+    63.505
+  ],
+  "bearing_seaward_deg": 150.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 1.52,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 25.22205,
+      "lon": 63.50624,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 25.22011,
+      "lon": 63.50749,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 25.21621,
+      "lon": 63.50997,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 25.20842,
+      "lon": 63.51494,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 25.20063,
+      "lon": 63.51991,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 25.18506,
+      "lon": 63.52984,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 25.16169,
+      "lon": 63.54474,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 25.13053,
+      "lon": 63.5646,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 25.08378,
+      "lon": 63.59437,
+      "depth_m": 20.0
+    }
+  ]
+}

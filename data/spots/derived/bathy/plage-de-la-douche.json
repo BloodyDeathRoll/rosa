@@ -1,0 +1,72 @@
+{
+  "spot": "plage-de-la-douche",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    16.2529,
+    -61.2301
+  ],
+  "bearing_seaward_deg": 209.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 614.0,
+  "mean_slope_m_per_km": 34.31,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 16.25093,
+      "lon": -61.23124,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 16.24897,
+      "lon": -61.23237,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 16.24503,
+      "lon": -61.23464,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 16.23717,
+      "lon": -61.23918,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 16.2293,
+      "lon": -61.24372,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.21357,
+      "lon": -61.2528,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.18997,
+      "lon": -61.26642,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.15851,
+      "lon": -61.28457,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.1113,
+      "lon": -61.31179,
+      "depth_m": 614.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "praia-do-calhau",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -2.4819,
+    -44.2533
+  ],
+  "bearing_seaward_deg": 6.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 10.0,
+  "mean_slope_m_per_km": 0.96,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -2.47966,
+      "lon": -44.25306,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -2.47743,
+      "lon": -44.25283,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -2.47296,
+      "lon": -44.25236,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -2.46401,
+      "lon": -44.25142,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -2.45507,
+      "lon": -44.25048,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -2.43718,
+      "lon": -44.2486,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -2.41035,
+      "lon": -44.24577,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -2.37457,
+      "lon": -44.24201,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -2.32091,
+      "lon": -44.23637,
+      "depth_m": 10.0
+    }
+  ]
+}

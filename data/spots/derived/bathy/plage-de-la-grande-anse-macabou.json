@@ -1,0 +1,72 @@
+{
+  "spot": "plage-de-la-grande-anse-macabou",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    14.4983,
+    -60.8236
+  ],
+  "bearing_seaward_deg": 85.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 1193.0,
+  "mean_slope_m_per_km": 67.32,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 14.4985,
+      "lon": -60.82129,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 14.49869,
+      "lon": -60.81897,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 14.49908,
+      "lon": -60.81435,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 14.49987,
+      "lon": -60.80509,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 14.50065,
+      "lon": -60.79584,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 14.50221,
+      "lon": -60.77733,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 14.50456,
+      "lon": -60.74957,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 14.50768,
+      "lon": -60.71255,
+      "depth_m": 642.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 14.51235,
+      "lon": -60.65702,
+      "depth_m": 1193.0
+    }
+  ]
+}

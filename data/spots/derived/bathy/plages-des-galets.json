@@ -1,0 +1,72 @@
+{
+  "spot": "plages-des-galets",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    15.9098,
+    -61.2005
+  ],
+  "bearing_seaward_deg": 118.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 950.0,
+  "mean_slope_m_per_km": 53.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 15.90874,
+      "lon": -61.19844,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 15.90769,
+      "lon": -61.19637,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 15.90558,
+      "lon": -61.19224,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 15.90136,
+      "lon": -61.18399,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 15.89713,
+      "lon": -61.17573,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 15.88869,
+      "lon": -61.15922,
+      "depth_m": 306.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 15.87601,
+      "lon": -61.13446,
+      "depth_m": 509.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 15.85911,
+      "lon": -61.10144,
+      "depth_m": 734.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 15.83375,
+      "lon": -61.05193,
+      "depth_m": 950.0
+    }
+  ]
+}

@@ -23,3 +23,11 @@ spots:
   - { id: mubarak-village, name: "Mubarak Village", town: "Karachi", lat: 24.8482, lon: 66.6593, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, break_type: beach, <<: *pk }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: french-beach, name: "French Beach", town: "Karachi", lat: 24.8397, lon: 66.8164, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, break_type: reef, <<: *pk }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: sandspit-karachi, name: "Sandspit", town: "Karachi", lat: 24.8292, lon: 66.9278, offshore_direction: 40, swell_window: [155, 285], offshore_km: 5.0, break_type: beach, <<: *pk }  # sat-verified 2026-11-12 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - pakistan coastline pass, 5 more (primary flow: named OSM beaches
+  # more than 400 m from a DB pin, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: sapat, name: "Sapat", town: "Sangal", lat: 25.4174, lon: 65.8372, offshore_direction: 354, swell_window: [109, 239], offshore_km: 5.0, break_type: beach, <<: *pk }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: pasni-juddi-beach, name: "Pasni Juddi Beach", town: "Pasni", lat: 25.2240, lon: 63.5050, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, break_type: point, <<: *pk }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: ganz-beach, name: "Ganz Beach", town: "Ganz", lat: 25.0974, lon: 61.8714, offshore_direction: 327, swell_window: [82, 212], offshore_km: 5.0, break_type: beach, <<: *pk }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: cape-mount-beach, name: "Cape Mount Beach", town: "Arbian", lat: 24.8474, lon: 66.7669, offshore_direction: 37, swell_window: [152, 282], offshore_km: 5.0, break_type: beach, <<: *pk }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: nathia-gali-beach, name: "Nathia Gali Beach", town: "Haji Muhammad Goth", lat: 24.8441, lon: 66.7364, offshore_direction: 318, swell_window: [73, 203], offshore_km: 5.0, break_type: reef, <<: *pk }  # sat-verified 2026-11-12 (osm-seeded)

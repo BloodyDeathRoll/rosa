@@ -1140,3 +1140,5 @@ SESSION (2026-11-12, cont. 2): **New Zealand 295, north Brazil + Guam/Pohnpei/Ea
 SESSION (2026-11-12, cont. 3): **North America 20, coastline pass 58, gap passes 11 - DB 4558 -> 4647.** Great Lakes not seedable: GFS-Wave has no wet nodes over the lakes (checked on a live file), 19 pins dropped. First primary coastline pass on web-seeded regions (named OSM beaches only). Puraran moved 4 km north onto Majestics. New basin gulf-of-alaska. Log: docs/spot-db-scraping-playbook.md section 5.
 
 SESSION (2026-11-12, cont. 4): **Coastline pass Europe + West Africa 43, leftover pass 3 - DB 4647 -> 4694.** New region gambia. Mediterranean coastline pins kept for exposure on flat summer imagery. Great Lakes logged as OPEN-ITEMS 44 by operator decision. Americas/Asia coastline pass still running. Log: docs/spot-db-scraping-playbook.md section 5.
+
+SESSION (2026-11-12, cont. 5): **Coastline pass Americas + Asia 56 - DB 4694 -> 4750.** Named OSM beaches on 13 web-seeded regions; 8 dropped on the tile or the bathy ray. Several seed.py boxes of web-seeded regions miss open coast (listed in the playbook log). Log: docs/spot-db-scraping-playbook.md section 5.

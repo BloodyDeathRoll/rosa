@@ -1,0 +1,72 @@
+{
+  "spot": "ras-madrakah-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.9822,
+    57.8124
+  ],
+  "bearing_seaward_deg": 157.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 102.0,
+  "mean_slope_m_per_km": 5.58,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.98013,
+      "lon": 57.81333,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.97806,
+      "lon": 57.81426,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.97392,
+      "lon": 57.81612,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.96564,
+      "lon": 57.81983,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.95736,
+      "lon": 57.82355,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.94081,
+      "lon": 57.83098,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.91597,
+      "lon": 57.84212,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.88286,
+      "lon": 57.85697,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.83318,
+      "lon": 57.87923,
+      "depth_m": 102.0
+    }
+  ]
+}

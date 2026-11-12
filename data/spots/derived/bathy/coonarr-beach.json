@@ -1,0 +1,72 @@
+{
+  "spot": "coonarr-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -24.9517,
+    152.4857
+  ],
+  "bearing_seaward_deg": 83.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 1.07,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -24.95143,
+      "lon": 152.48816,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -24.95115,
+      "lon": 152.49062,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -24.9506,
+      "lon": 152.49554,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -24.94951,
+      "lon": 152.50539,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -24.94841,
+      "lon": 152.51523,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -24.94621,
+      "lon": 152.53492,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -24.94291,
+      "lon": 152.56445,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -24.9385,
+      "lon": 152.60383,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -24.93187,
+      "lon": 152.66288,
+      "depth_m": 20.0
+    }
+  ]
+}

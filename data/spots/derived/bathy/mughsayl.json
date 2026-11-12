@@ -1,0 +1,72 @@
+{
+  "spot": "mughsayl",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    16.8834,
+    53.8001
+  ],
+  "bearing_seaward_deg": 170.0,
+  "nearshore_depth_m": -29.0,
+  "offshore_depth_m": 128.0,
+  "mean_slope_m_per_km": 8.85,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 16.88119,
+      "lon": 53.80051,
+      "depth_m": -29.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 16.87897,
+      "lon": 53.80092,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 16.87454,
+      "lon": 53.80173,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 16.86569,
+      "lon": 53.80336,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 16.85683,
+      "lon": 53.805,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.83912,
+      "lon": 53.80826,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.81255,
+      "lon": 53.81315,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.77712,
+      "lon": 53.81967,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.72398,
+      "lon": 53.82945,
+      "depth_m": 128.0
+    }
+  ]
+}

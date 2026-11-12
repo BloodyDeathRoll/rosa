@@ -1,0 +1,72 @@
+{
+  "spot": "kelambu-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    6.9838,
+    116.725
+  ],
+  "bearing_seaward_deg": 277.0,
+  "nearshore_depth_m": -13.0,
+  "offshore_depth_m": 51.0,
+  "mean_slope_m_per_km": 3.61,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 6.98407,
+      "lon": 116.72275,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 6.98435,
+      "lon": 116.7205,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 6.9849,
+      "lon": 116.71601,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 6.98599,
+      "lon": 116.70701,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 6.98709,
+      "lon": 116.69802,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 6.98928,
+      "lon": 116.68004,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 6.99256,
+      "lon": 116.65306,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 6.99694,
+      "lon": 116.61708,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 7.0035,
+      "lon": 116.56312,
+      "depth_m": 51.0
+    }
+  ]
+}

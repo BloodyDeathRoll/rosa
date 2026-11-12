@@ -1,0 +1,72 @@
+{
+  "spot": "plage-de-l-anse-a-la-barque",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    16.2423,
+    -61.3219
+  ],
+  "bearing_seaward_deg": 215.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 572.0,
+  "mean_slope_m_per_km": 31.94,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 16.24046,
+      "lon": -61.32324,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 16.23862,
+      "lon": -61.32459,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 16.23493,
+      "lon": -61.32727,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 16.22757,
+      "lon": -61.33264,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 16.2202,
+      "lon": -61.33802,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.20546,
+      "lon": -61.34876,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.18336,
+      "lon": -61.36487,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.15389,
+      "lon": -61.38634,
+      "depth_m": 433.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.10968,
+      "lon": -61.41854,
+      "depth_m": 572.0
+    }
+  ]
+}

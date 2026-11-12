@@ -22,3 +22,8 @@ spots:
   - { id: long-bay-jm, name: "Long Bay", town: "Long Bay", lat: 18.1056, lon: -76.3170, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, break_type: beach, <<: *jm }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: bull-bay, name: "Bull Bay (Copa)", town: "Bull Bay", lat: 17.9410, lon: -76.6882, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, break_type: reef, <<: *jm }  # sat-verified 2026-11-12 (osm-seeded)
   - { id: lighthouse-jm, name: "Lighthouse", town: "Port Royal", lat: 17.9282, lon: -76.7783, offshore_direction: 350, swell_window: [105, 235], offshore_km: 5.0, break_type: reef, <<: *jm }  # sat-verified 2026-11-12 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - jamaica coastline pass, 2 more (primary flow: named OSM beaches
+  # more than 400 m from a DB pin, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: callabash-bay-beach, name: "Callabash Bay Beach", town: "Treasure Beach", lat: 17.8743, lon: -77.7584, offshore_direction: 29, swell_window: [144, 274], offshore_km: 5.0, break_type: reef, <<: *jm }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: white-sand, name: "White Sand", town: "Leith Hall", lat: 17.8705, lon: -76.3330, offshore_direction: 297, swell_window: [52, 182], offshore_km: 5.0, break_type: reef, <<: *jm }  # sat-verified 2026-11-12 (osm-seeded)

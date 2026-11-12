@@ -1,0 +1,72 @@
+{
+  "spot": "la-foret-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.8167,
+    -60.9124
+  ],
+  "bearing_seaward_deg": 136.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 37.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.81508,
+      "lon": -60.91081,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.81347,
+      "lon": -60.90922,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.81023,
+      "lon": -60.90604,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.80376,
+      "lon": -60.89968,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.79729,
+      "lon": -60.89332,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.78435,
+      "lon": -60.8806,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.76494,
+      "lon": -60.86153,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.73906,
+      "lon": -60.8361,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.70023,
+      "lon": -60.79796,
+      "depth_m": 37.0
+    }
+  ]
+}

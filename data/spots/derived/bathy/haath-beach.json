@@ -1,0 +1,72 @@
+{
+  "spot": "haath-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    17.069,
+    55.0992
+  ],
+  "bearing_seaward_deg": 110.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 1272.0,
+  "mean_slope_m_per_km": 71.49,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 17.06823,
+      "lon": 55.10141,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 17.06746,
+      "lon": 55.10362,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 17.06592,
+      "lon": 55.10804,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 17.06285,
+      "lon": 55.11688,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 17.05977,
+      "lon": 55.12572,
+      "depth_m": 196.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 17.05362,
+      "lon": 55.1434,
+      "depth_m": 447.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 17.04438,
+      "lon": 55.16991,
+      "depth_m": 742.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 17.03206,
+      "lon": 55.20526,
+      "depth_m": 1116.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 17.01357,
+      "lon": 55.25828,
+      "depth_m": 1272.0
+    }
+  ]
+}

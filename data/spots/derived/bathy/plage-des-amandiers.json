@@ -1,0 +1,72 @@
+{
+  "spot": "plage-des-amandiers",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    16.3514,
+    -61.7233
+  ],
+  "bearing_seaward_deg": 27.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 416.0,
+  "mean_slope_m_per_km": 23.27,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 16.3534,
+      "lon": -61.72224,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 16.35541,
+      "lon": -61.72117,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 16.35941,
+      "lon": -61.71904,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 16.36743,
+      "lon": -61.71479,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 16.37544,
+      "lon": -61.71053,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.39146,
+      "lon": -61.70202,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.4155,
+      "lon": -61.68925,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.44755,
+      "lon": -61.67222,
+      "depth_m": 431.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.49562,
+      "lon": -61.64665,
+      "depth_m": 416.0
+    }
+  ]
+}

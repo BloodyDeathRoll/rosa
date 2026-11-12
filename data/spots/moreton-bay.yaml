@@ -23,3 +23,7 @@ spots:
   - { id: woorim, name: "Woorim", town: "Woorim", lat: -27.0700, lon: 153.2059, offshore_direction: 255, swell_window: [10, 140], offshore_km: 5.0, break_type: beach, <<: *mb }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: cylinder-beach, name: "Cylinder Beach", town: "Point Lookout", lat: -27.4249, lon: 153.5324, offshore_direction: 170, swell_window: [285, 55], offshore_km: 5.0, break_type: beach, <<: *mb }  # sat-verified 2026-11-12 (osm-seeded)
   - { id: point-lookout-main-beach, name: "Main Beach (Point Lookout)", town: "Point Lookout", lat: -27.4378, lon: 153.5432, offshore_direction: 315, swell_window: [70, 200], offshore_km: 5.0, break_type: beach, <<: *mb }  # sat-verified 2026-11-12 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - moreton-bay coastline pass, 1 more (primary flow: named OSM beaches
+  # more than 400 m from a DB pin, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: blue-lake-beach, name: "Blue Lake Beach", town: "North Stradbroke Island", lat: -27.5931, lon: 153.4775, offshore_direction: 274, swell_window: [29, 159], offshore_km: 5.0, break_type: beach, <<: *mb }  # sat-verified 2026-11-12 (osm-seeded)

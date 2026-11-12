@@ -1,0 +1,72 @@
+{
+  "spot": "praia-de-mangue-seco",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -2.4507,
+    -44.1605
+  ],
+  "bearing_seaward_deg": 318.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 2.2,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -2.44903,
+      "lon": -44.16201,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -2.44736,
+      "lon": -44.16351,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -2.44402,
+      "lon": -44.16652,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -2.43733,
+      "lon": -44.17255,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -2.43065,
+      "lon": -44.17857,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -2.41728,
+      "lon": -44.19061,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -2.39723,
+      "lon": -44.20868,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -2.3705,
+      "lon": -44.23277,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -2.3304,
+      "lon": -44.26891,
+      "depth_m": 35.0
+    }
+  ]
+}

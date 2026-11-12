@@ -22,3 +22,8 @@ spots:
   - { id: sabandar, name: "Sabandar", town: "Tuaran", lat: 6.1999, lon: 116.1765, offshore_direction: 115, swell_window: [230, 0], offshore_km: 5.0, break_type: beach, <<: *sbh }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: karambunai, name: "Karambunai", town: "Kota Kinabalu", lat: 6.1159, lon: 116.1075, offshore_direction: 160, swell_window: [275, 45], offshore_km: 5.0, break_type: beach, <<: *sbh }  # sat-verified 2026-11-12 (osm-seeded)
   - { id: tanjung-aru, name: "Tanjung Aru", town: "Kota Kinabalu", lat: 5.9506, lon: 116.0441, offshore_direction: 65, swell_window: [180, 310], offshore_km: 5.0, break_type: beach, <<: *sbh }  # sat-verified 2026-11-12 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - sabah coastline pass, 2 more (primary flow: named OSM beaches
+  # more than 400 m from a DB pin, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: bavang-jamal-beach, name: "Bavang Jamal Beach", town: "Bangau", lat: 6.9975, lon: 116.7298, offshore_direction: 99, swell_window: [214, 344], offshore_km: 5.0, break_type: beach, <<: *sbh }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: kelambu-beach, name: "Kelambu Beach", town: "Bangau", lat: 6.9838, lon: 116.7250, offshore_direction: 97, swell_window: [212, 342], offshore_km: 5.0, break_type: beach, <<: *sbh }  # sat-verified 2026-11-12 (osm-seeded)

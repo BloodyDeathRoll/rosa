@@ -1,0 +1,72 @@
+{
+  "spot": "plage-de-grande-anse",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    16.3198,
+    -61.7916
+  ],
+  "bearing_seaward_deg": 324.0,
+  "nearshore_depth_m": 16.0,
+  "offshore_depth_m": 1156.0,
+  "mean_slope_m_per_km": 64.23,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 16.32162,
+      "lon": -61.79298,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 16.32344,
+      "lon": -61.79435,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 16.32708,
+      "lon": -61.79711,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 16.33435,
+      "lon": -61.80262,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 16.34163,
+      "lon": -61.80813,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.35618,
+      "lon": -61.81915,
+      "depth_m": 400.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.378,
+      "lon": -61.83568,
+      "depth_m": 805.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.4071,
+      "lon": -61.85773,
+      "depth_m": 997.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.45074,
+      "lon": -61.89081,
+      "depth_m": 1156.0
+    }
+  ]
+}

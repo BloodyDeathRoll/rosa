@@ -1,0 +1,72 @@
+{
+  "spot": "praia-da-princesa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -0.5786,
+    -47.5803
+  ],
+  "bearing_seaward_deg": 358.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 26.0,
+  "mean_slope_m_per_km": 1.58,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -0.57635,
+      "lon": -47.58038,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -0.57411,
+      "lon": -47.58046,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -0.56961,
+      "lon": -47.58061,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -0.56062,
+      "lon": -47.58093,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -0.55164,
+      "lon": -47.58124,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -0.53366,
+      "lon": -47.58187,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -0.5067,
+      "lon": -47.58281,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -0.47075,
+      "lon": -47.58407,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -0.41682,
+      "lon": -47.58595,
+      "depth_m": 26.0
+    }
+  ]
+}

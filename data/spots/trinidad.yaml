@@ -26,3 +26,8 @@ spots:
   - { id: maracas, name: "Maracas Bay", town: "Maracas", lat: 10.7593, lon: -61.4400, offshore_direction: 200, swell_window: [315, 85], offshore_km: 5.0, break_type: beach, <<: *tt }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: sena-bay, name: "Sena Bay", town: "Rampanalgas", lat: 10.7273, lon: -60.9849, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, break_type: beach, <<: *tt }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: balandra, name: "Balandra", town: "Rampanalgas", lat: 10.7196, lon: -60.9922, offshore_direction: 315, swell_window: [70, 200], offshore_km: 5.0, break_type: beach, <<: *tt }  # sat-verified 2026-11-12 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - trinidad coastline pass, 2 more (primary flow: named OSM beaches
+  # more than 400 m from a DB pin, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: la-foret-beach, name: "La Forêt Beach", town: "Toco", lat: 10.8167, lon: -60.9124, offshore_direction: 316, swell_window: [71, 201], offshore_km: 5.0, break_type: reef, <<: *tt }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: manzanilla-beach, name: "Manzanilla Beach", town: "Manzanilla", lat: 10.5091, lon: -61.0427, offshore_direction: 289, swell_window: [44, 174], offshore_km: 5.0, break_type: beach, <<: *tt }  # sat-verified 2026-11-12 (osm-seeded)

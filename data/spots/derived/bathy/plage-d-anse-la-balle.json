@@ -1,0 +1,72 @@
+{
+  "spot": "plage-d-anse-la-balle",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    14.4567,
+    -60.8205
+  ],
+  "bearing_seaward_deg": 133.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 1501.0,
+  "mean_slope_m_per_km": 84.45,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 14.45517,
+      "lon": -60.8188,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 14.45363,
+      "lon": -60.8171,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 14.45057,
+      "lon": -60.81371,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 14.44443,
+      "lon": -60.80692,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 14.4383,
+      "lon": -60.80012,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 14.42603,
+      "lon": -60.78654,
+      "depth_m": 344.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 14.40763,
+      "lon": -60.76617,
+      "depth_m": 995.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 14.38309,
+      "lon": -60.73902,
+      "depth_m": 1276.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 14.34627,
+      "lon": -60.6983,
+      "depth_m": 1501.0
+    }
+  ]
+}

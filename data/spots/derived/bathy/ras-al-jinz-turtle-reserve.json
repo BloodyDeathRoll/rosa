@@ -1,0 +1,72 @@
+{
+  "spot": "ras-al-jinz-turtle-reserve",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    22.4186,
+    59.8311
+  ],
+  "bearing_seaward_deg": 147.0,
+  "nearshore_depth_m": -14.0,
+  "offshore_depth_m": 757.0,
+  "mean_slope_m_per_km": 43.44,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 22.41671,
+      "lon": 59.83242,
+      "depth_m": -14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 22.41483,
+      "lon": 59.83375,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 22.41106,
+      "lon": 59.8364,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 22.40351,
+      "lon": 59.8417,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 22.39597,
+      "lon": 59.84699,
+      "depth_m": 102.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 22.38089,
+      "lon": 59.85759,
+      "depth_m": 565.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 22.35826,
+      "lon": 59.87347,
+      "depth_m": 224.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 22.32808,
+      "lon": 59.89464,
+      "depth_m": 327.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 22.28281,
+      "lon": 59.92638,
+      "depth_m": 757.0
+    }
+  ]
+}

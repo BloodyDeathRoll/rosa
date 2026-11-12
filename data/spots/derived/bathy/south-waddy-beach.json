@@ -1,0 +1,72 @@
+{
+  "spot": "south-waddy-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -24.9757,
+    153.3505
+  ],
+  "bearing_seaward_deg": 93.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 54.0,
+  "mean_slope_m_per_km": 2.82,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -24.97582,
+      "lon": 153.35298,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -24.97594,
+      "lon": 153.35545,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -24.97617,
+      "lon": 153.36041,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -24.97664,
+      "lon": 153.37031,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -24.97711,
+      "lon": 153.38022,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -24.97805,
+      "lon": 153.40004,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -24.97944,
+      "lon": 153.42976,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -24.9813,
+      "lon": 153.46939,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -24.98407,
+      "lon": 153.52884,
+      "depth_m": 54.0
+    }
+  ]
+}

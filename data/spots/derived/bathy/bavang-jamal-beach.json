@@ -1,0 +1,72 @@
+{
+  "spot": "bavang-jamal-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    6.9975,
+    116.7298
+  ],
+  "bearing_seaward_deg": 279.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 47.0,
+  "mean_slope_m_per_km": 3.27,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 6.99785,
+      "lon": 116.72756,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 6.9982,
+      "lon": 116.72533,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 6.99891,
+      "lon": 116.72085,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 7.00031,
+      "lon": 116.7119,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 7.00172,
+      "lon": 116.70295,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 7.00453,
+      "lon": 116.68505,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 7.00875,
+      "lon": 116.65821,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 7.01437,
+      "lon": 116.62241,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 7.0228,
+      "lon": 116.56871,
+      "depth_m": 47.0
+    }
+  ]
+}

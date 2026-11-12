@@ -1,0 +1,72 @@
+{
+  "spot": "plage-de-nogent",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    16.3574,
+    -61.7358
+  ],
+  "bearing_seaward_deg": 17.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 527.0,
+  "mean_slope_m_per_km": 29.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 16.35955,
+      "lon": -61.73511,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 16.3617,
+      "lon": -61.73443,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 16.366,
+      "lon": -61.73306,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 16.3746,
+      "lon": -61.73032,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 16.3832,
+      "lon": -61.72758,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.4004,
+      "lon": -61.7221,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.4262,
+      "lon": -61.71387,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.4606,
+      "lon": -61.7029,
+      "depth_m": 470.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.5122,
+      "lon": -61.68644,
+      "depth_m": 527.0
+    }
+  ]
+}

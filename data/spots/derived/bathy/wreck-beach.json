@@ -1,0 +1,72 @@
+{
+  "spot": "wreck-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -23.1622,
+    150.9722
+  ],
+  "bearing_seaward_deg": 89.0,
+  "nearshore_depth_m": -17.0,
+  "offshore_depth_m": 10.0,
+  "mean_slope_m_per_km": 1.52,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 4,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.16216,
+      "lon": 150.97465,
+      "depth_m": -17.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.16212,
+      "lon": 150.97709,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.16204,
+      "lon": 150.98198,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.16188,
+      "lon": 150.99176,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.16173,
+      "lon": 151.00154,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.16141,
+      "lon": 151.0211,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.16093,
+      "lon": 151.05044,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.16027,
+      "lon": 151.08956,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.15928,
+      "lon": 151.14824,
+      "depth_m": 10.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "farnborough-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -23.1131,
+    150.7512
+  ],
+  "bearing_seaward_deg": 97.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 7.0,
+  "mean_slope_m_per_km": 1.07,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -23.11337,
+      "lon": 150.75363,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -23.11365,
+      "lon": 150.75605,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -23.1142,
+      "lon": 150.76091,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -23.11529,
+      "lon": 150.77061,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -23.11639,
+      "lon": 150.78032,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -23.11857,
+      "lon": 150.79973,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -23.12185,
+      "lon": 150.82885,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -23.12621,
+      "lon": 150.86767,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -23.13273,
+      "lon": 150.92592,
+      "depth_m": 7.0
+    }
+  ]
+}

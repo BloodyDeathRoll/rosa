@@ -1,0 +1,72 @@
+{
+  "spot": "plage-de-cosmy",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    14.7607,
+    -60.968
+  ],
+  "bearing_seaward_deg": 27.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 267.0,
+  "mean_slope_m_per_km": 14.7,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 14.7627,
+      "lon": -60.96694,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 14.76471,
+      "lon": -60.96589,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 14.76871,
+      "lon": -60.96378,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 14.77673,
+      "lon": -60.95956,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 14.78474,
+      "lon": -60.95533,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 14.80076,
+      "lon": -60.94689,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 14.8248,
+      "lon": -60.93421,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 14.85685,
+      "lon": -60.91731,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 14.90492,
+      "lon": -60.89195,
+      "depth_m": 267.0
+    }
+  ]
+}

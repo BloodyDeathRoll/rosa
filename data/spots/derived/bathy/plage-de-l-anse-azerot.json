@@ -1,0 +1,72 @@
+{
+  "spot": "plage-de-l-anse-azerot",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    14.7719,
+    -60.9807
+  ],
+  "bearing_seaward_deg": 32.0,
+  "nearshore_depth_m": -14.0,
+  "offshore_depth_m": 306.0,
+  "mean_slope_m_per_km": 18.03,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 14.77381,
+      "lon": -60.97947,
+      "depth_m": -14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 14.77571,
+      "lon": -60.97824,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 14.77953,
+      "lon": -60.97577,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 14.78715,
+      "lon": -60.97084,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 14.79478,
+      "lon": -60.96591,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 14.81003,
+      "lon": -60.95605,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 14.83291,
+      "lon": -60.94126,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 14.86341,
+      "lon": -60.92153,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 14.90916,
+      "lon": -60.89193,
+      "depth_m": 306.0
+    }
+  ]
+}

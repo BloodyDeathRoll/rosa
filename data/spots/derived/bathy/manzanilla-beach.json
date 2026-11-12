@@ -1,0 +1,72 @@
+{
+  "spot": "manzanilla-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.5091,
+    -61.0427
+  ],
+  "bearing_seaward_deg": 109.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 26.0,
+  "mean_slope_m_per_km": 1.63,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.50837,
+      "lon": -61.04054,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.50764,
+      "lon": -61.03838,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.50617,
+      "lon": -61.03405,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.50324,
+      "lon": -61.0254,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.50032,
+      "lon": -61.01676,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.49446,
+      "lon": -60.99946,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.48567,
+      "lon": -60.97352,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.47395,
+      "lon": -60.93893,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.45636,
+      "lon": -60.88706,
+      "depth_m": 26.0
+    }
+  ]
+}

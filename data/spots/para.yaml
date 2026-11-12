@@ -20,3 +20,8 @@ spots:
   # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
   - { id: atalaia-salinopolis, name: "Atalaia (Salinópolis)", town: "Salinópolis", lat: -0.5947, lon: -47.3059, offshore_direction: 185, swell_window: [300, 70], offshore_km: 5.0, break_type: beach, <<: *pa }  # sat-verified 2026-11-12 (osm-seeded)
   - { id: macarico, name: "Maçarico", town: "Salinópolis", lat: -0.6091, lon: -47.3622, offshore_direction: 225, shore_normal: 20, swell_window: [315, 85], offshore_km: 5.0, break_type: beach, <<: *pa }  # sat-verified 2026-11-12 (osm-seeded)
+
+  # ==== SEEDED 2026-11-12 - para coastline pass, 2 more (primary flow: named OSM beaches
+  # more than 400 m from a DB pin, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: praia-da-princesa, name: "Praia da Princesa", town: "Algodoal", lat: -0.5786, lon: -47.5803, offshore_direction: 178, swell_window: [293, 63], offshore_km: 5.0, break_type: beach, <<: *pa }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: praia-de-ajuruteua, name: "Praia de Ajuruteua", town: "Ajuruteua", lat: -0.8285, lon: -46.6030, offshore_direction: 241, swell_window: [356, 126], offshore_km: 5.0, break_type: beach, <<: *pa }  # sat-verified 2026-11-12 (osm-seeded)
