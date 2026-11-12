@@ -1,0 +1,72 @@
+{
+  "spot": "tawharanui",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.3682,
+    174.8343
+  ],
+  "bearing_seaward_deg": 22.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 52.0,
+  "mean_slope_m_per_km": 2.54,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.36612,
+      "lon": 174.83535,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.36403,
+      "lon": 174.83639,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.35986,
+      "lon": 174.83848,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.35152,
+      "lon": 174.84267,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.34318,
+      "lon": 174.84685,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.32651,
+      "lon": 174.85521,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.30149,
+      "lon": 174.86774,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.26813,
+      "lon": 174.88444,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.21809,
+      "lon": 174.90946,
+      "depth_m": 52.0
+    }
+  ]
+}

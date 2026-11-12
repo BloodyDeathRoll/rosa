@@ -1,0 +1,72 @@
+{
+  "spot": "the-wedge-new-plymouth",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.0568,
+    174.0524
+  ],
+  "bearing_seaward_deg": 6.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 83.0,
+  "mean_slope_m_per_km": 4.45,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.05456,
+      "lon": 174.0527,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.05233,
+      "lon": 174.05301,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.04786,
+      "lon": 174.05361,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.03891,
+      "lon": 174.05482,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.02997,
+      "lon": 174.05603,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.01208,
+      "lon": 174.05845,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.98525,
+      "lon": 174.06207,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.94947,
+      "lon": 174.0669,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.89581,
+      "lon": 174.07414,
+      "depth_m": 83.0
+    }
+  ]
+}

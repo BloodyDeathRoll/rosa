@@ -1,0 +1,72 @@
+{
+  "spot": "ricks-reef",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    13.4969,
+    144.7692
+  ],
+  "bearing_seaward_deg": 270.0,
+  "nearshore_depth_m": 116.0,
+  "offshore_depth_m": 1800.0,
+  "mean_slope_m_per_km": 94.87,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.4969,
+      "lon": 144.76689,
+      "depth_m": 116.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.4969,
+      "lon": 144.76458,
+      "depth_m": 251.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.4969,
+      "lon": 144.75995,
+      "depth_m": 328.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.4969,
+      "lon": 144.7507,
+      "depth_m": 426.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.4969,
+      "lon": 144.74145,
+      "depth_m": 509.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.4969,
+      "lon": 144.72296,
+      "depth_m": 566.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.49689,
+      "lon": 144.69521,
+      "depth_m": 837.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.49688,
+      "lon": 144.65822,
+      "depth_m": 1138.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.49685,
+      "lon": 144.60272,
+      "depth_m": 1800.0
+    }
+  ]
+}

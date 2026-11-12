@@ -1,0 +1,72 @@
+{
+  "spot": "orewa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.5875,
+    174.6979
+  ],
+  "bearing_seaward_deg": 70.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 34.0,
+  "mean_slope_m_per_km": 1.8,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.58673,
+      "lon": 174.70053,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.58596,
+      "lon": 174.70316,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.58442,
+      "lon": 174.70842,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.58135,
+      "lon": 174.71895,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.57827,
+      "lon": 174.72947,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.57211,
+      "lon": 174.75051,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.56286,
+      "lon": 174.78207,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.55052,
+      "lon": 174.82414,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.53198,
+      "lon": 174.88721,
+      "depth_m": 34.0
+    }
+  ]
+}

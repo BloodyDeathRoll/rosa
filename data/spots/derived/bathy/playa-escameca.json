@@ -1,0 +1,72 @@
+{
+  "spot": "playa-escameca",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    11.169,
+    -85.8087
+  ],
+  "bearing_seaward_deg": 245.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 85.0,
+  "mean_slope_m_per_km": 5.18,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.16805,
+      "lon": -85.81078,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.1671,
+      "lon": -85.81285,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.1652,
+      "lon": -85.81701,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.1614,
+      "lon": -85.82532,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.1576,
+      "lon": -85.83362,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.14999,
+      "lon": -85.85024,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.13859,
+      "lon": -85.87516,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.12338,
+      "lon": -85.90838,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.10055,
+      "lon": -85.95821,
+      "depth_m": 85.0
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+# Rosa spot database - Para (seeded 2026-11-12). Salinopolis on the Amazon delta's Atlantic edge: Atalaia and
+# Macarico. NE trade swell, best Dec-Apr; a big tidal range runs the breaks.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Brazil"
+
+defaults: &pa
+  timezone: America/Belem
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [308, 78]
+  ideal:
+    wind_dir: [148, 238]
+    size_m: [0.5, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - para, 2 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: atalaia-salinopolis, name: "Atalaia (Salinópolis)", town: "Salinópolis", lat: -0.5947, lon: -47.3059, offshore_direction: 185, swell_window: [300, 70], offshore_km: 5.0, break_type: beach, <<: *pa }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: macarico, name: "Maçarico", town: "Salinópolis", lat: -0.6091, lon: -47.3622, offshore_direction: 225, shore_normal: 20, swell_window: [315, 85], offshore_km: 5.0, break_type: beach, <<: *pa }  # sat-verified 2026-11-12 (osm-seeded)

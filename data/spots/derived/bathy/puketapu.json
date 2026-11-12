@@ -1,0 +1,72 @@
+{
+  "spot": "puketapu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.5208,
+    173.9256
+  ],
+  "bearing_seaward_deg": 196.0,
+  "nearshore_depth_m": -13.0,
+  "offshore_depth_m": 56.0,
+  "mean_slope_m_per_km": 3.89,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.52296,
+      "lon": 173.9248,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.52512,
+      "lon": 173.92399,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.52944,
+      "lon": 173.92239,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.53809,
+      "lon": 173.91917,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.54673,
+      "lon": 173.91596,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.56402,
+      "lon": 173.90952,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.58996,
+      "lon": 173.89987,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.62453,
+      "lon": 173.88698,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -39.67639,
+      "lon": 173.86763,
+      "depth_m": 56.0
+    }
+  ]
+}

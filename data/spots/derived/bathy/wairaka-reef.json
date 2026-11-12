@@ -1,0 +1,72 @@
+{
+  "spot": "wairaka-reef",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.0281,
+    174.8746
+  ],
+  "bearing_seaward_deg": 336.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 142.0,
+  "mean_slope_m_per_km": 7.32,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.02605,
+      "lon": 174.87339,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.02399,
+      "lon": 174.87218,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.01988,
+      "lon": 174.86975,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.01167,
+      "lon": 174.8649,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.00345,
+      "lon": 174.86006,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -40.98702,
+      "lon": 174.85037,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -40.96237,
+      "lon": 174.83585,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -40.9295,
+      "lon": 174.8165,
+      "depth_m": 102.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -40.88018,
+      "lon": 174.78752,
+      "depth_m": 142.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "stony-bay-te-awaiti",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.4989,
+    175.5514
+  ],
+  "bearing_seaward_deg": 159.0,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 375.0,
+  "mean_slope_m_per_km": 20.39,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.501,
+      "lon": 175.55248,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.5031,
+      "lon": 175.55355,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.5073,
+      "lon": 175.5557,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.51569,
+      "lon": 175.56001,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.52409,
+      "lon": 175.56431,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.54088,
+      "lon": 175.57293,
+      "depth_m": 145.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.56606,
+      "lon": 175.58586,
+      "depth_m": 241.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.59964,
+      "lon": 175.60312,
+      "depth_m": 566.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.65,
+      "lon": 175.62904,
+      "depth_m": 375.0
+    }
+  ]
+}

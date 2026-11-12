@@ -1,0 +1,72 @@
+{
+  "spot": "papamoa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -37.6963,
+    176.2866
+  ],
+  "bearing_seaward_deg": 29.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 62.0,
+  "mean_slope_m_per_km": 3.21,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -37.69433,
+      "lon": 176.28798,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -37.69237,
+      "lon": 176.28935,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -37.68843,
+      "lon": 176.29211,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -37.68057,
+      "lon": 176.29762,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -37.6727,
+      "lon": 176.30313,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -37.65697,
+      "lon": 176.31414,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -37.63337,
+      "lon": 176.33064,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -37.60189,
+      "lon": 176.35264,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -37.55468,
+      "lon": 176.38559,
+      "depth_m": 62.0
+    }
+  ]
+}

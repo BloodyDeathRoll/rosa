@@ -1,0 +1,72 @@
+{
+  "spot": "christmas-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -40.912,
+    176.2078
+  ],
+  "bearing_seaward_deg": 146.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 143.0,
+  "mean_slope_m_per_km": 8.28,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -40.91386,
+      "lon": 176.20946,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -40.91573,
+      "lon": 176.21113,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -40.91946,
+      "lon": 176.21446,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -40.92691,
+      "lon": 176.22111,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -40.93437,
+      "lon": 176.22777,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -40.94927,
+      "lon": 176.24109,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -40.97163,
+      "lon": 176.26108,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.00144,
+      "lon": 176.28776,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.04614,
+      "lon": 176.32783,
+      "depth_m": 143.0
+    }
+  ]
+}

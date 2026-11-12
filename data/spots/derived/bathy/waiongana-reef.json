@@ -1,0 +1,72 @@
+{
+  "spot": "waiongana-reef",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.993,
+    174.1804
+  ],
+  "bearing_seaward_deg": 325.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 86.0,
+  "mean_slope_m_per_km": 4.34,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.99116,
+      "lon": 174.17874,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.98932,
+      "lon": 174.17708,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.98563,
+      "lon": 174.17376,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.97827,
+      "lon": 174.16713,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.9709,
+      "lon": 174.1605,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.95616,
+      "lon": 174.14723,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.93405,
+      "lon": 174.12735,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.90457,
+      "lon": 174.10086,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.86034,
+      "lon": 174.06116,
+      "depth_m": 86.0
+    }
+  ]
+}

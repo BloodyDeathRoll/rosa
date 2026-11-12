@@ -1,0 +1,72 @@
+{
+  "spot": "matapouri-bar",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.5658,
+    174.5106
+  ],
+  "bearing_seaward_deg": 43.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 116.0,
+  "mean_slope_m_per_km": 6.76,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.56416,
+      "lon": 174.51248,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.56251,
+      "lon": 174.51437,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.55922,
+      "lon": 174.51814,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.55264,
+      "lon": 174.52568,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.54607,
+      "lon": 174.53321,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.53291,
+      "lon": 174.54828,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.51317,
+      "lon": 174.57088,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.48684,
+      "lon": 174.60099,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.44733,
+      "lon": 174.64612,
+      "depth_m": 116.0
+    }
+  ]
+}

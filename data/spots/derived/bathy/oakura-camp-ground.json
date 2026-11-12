@@ -1,0 +1,72 @@
+{
+  "spot": "oakura-camp-ground",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.1159,
+    173.9401
+  ],
+  "bearing_seaward_deg": 351.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 102.0,
+  "mean_slope_m_per_km": 5.52,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.11368,
+      "lon": 173.93965,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.11146,
+      "lon": 173.93919,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.10702,
+      "lon": 173.93829,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.09813,
+      "lon": 173.93647,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.08925,
+      "lon": 173.93466,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.07149,
+      "lon": 173.93104,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.04484,
+      "lon": 173.92561,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.00931,
+      "lon": 173.91837,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.95601,
+      "lon": 173.90754,
+      "depth_m": 102.0
+    }
+  ]
+}

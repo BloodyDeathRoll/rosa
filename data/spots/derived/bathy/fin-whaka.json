@@ -1,0 +1,72 @@
+{
+  "spot": "fin-whaka",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.2619,
+    173.7558
+  ],
+  "bearing_seaward_deg": 307.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 121.0,
+  "mean_slope_m_per_km": 6.42,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.26055,
+      "lon": 173.75348,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.25919,
+      "lon": 173.75116,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.25649,
+      "lon": 173.74652,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.25107,
+      "lon": 173.73725,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.24566,
+      "lon": 173.72798,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.23483,
+      "lon": 173.70944,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.21858,
+      "lon": 173.68164,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.1969,
+      "lon": 173.64459,
+      "depth_m": 112.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -39.16436,
+      "lon": 173.58906,
+      "depth_m": 121.0
+    }
+  ]
+}

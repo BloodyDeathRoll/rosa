@@ -1,0 +1,72 @@
+{
+  "spot": "nahpali",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    6.8718,
+    158.3554
+  ],
+  "bearing_seaward_deg": 150.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 2666.0,
+  "mean_slope_m_per_km": 149.86,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 6.86985,
+      "lon": 158.35653,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 6.86791,
+      "lon": 158.35766,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 6.86401,
+      "lon": 158.35993,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 6.85622,
+      "lon": 158.36446,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 6.84843,
+      "lon": 158.36899,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 6.83286,
+      "lon": 158.37804,
+      "depth_m": 185.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 6.80949,
+      "lon": 158.39163,
+      "depth_m": 786.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 6.77834,
+      "lon": 158.40974,
+      "depth_m": 2077.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 6.7316,
+      "lon": 158.4369,
+      "depth_m": 2666.0
+    }
+  ]
+}

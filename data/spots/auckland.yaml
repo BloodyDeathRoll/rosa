@@ -1,0 +1,54 @@
+# Rosa spot database - Auckland (seeded 2026-11-12).
+# the west coast black-sand beaches (Muriwai, Piha, Karekare), the Hibiscus Coast and the Mahurangi
+# and Rodney east coast. W-SW Tasman groundswell on the west, NE windswell and cyclone swell on the east.
+# Names and coordinates from the regional councils' coastal-plan surf break layers and the NZCPS 2010 schedule,
+# cross-read with surf guides and tourism boards.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "New Zealand"
+
+defaults: &akl
+  timezone: Pacific/Auckland
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [343, 113]
+  ideal:
+    wind_dir: [183, 273]
+    size_m: [0.6, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - auckland, 31 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: whangapoua-great-barrier, name: "Whangapoua (Great Barrier)", town: "Ōkiwi", lat: -36.1423, lon: 175.4339, offshore_direction: 200, swell_window: [315, 85], offshore_km: 5.0, break_type: beach, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: te-arai, name: "Te Arai", town: "Mangawhai", lat: -36.1473, lon: 174.6385, offshore_direction: 238, swell_window: [353, 123], offshore_km: 5.0, break_type: beach, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: forestry-pakiri-north, name: "Forestry (Pakiri North)", town: "Tomarata", lat: -36.1648, lon: 174.6535, offshore_direction: 252, swell_window: [7, 137], offshore_km: 5.0, break_type: beach, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: awana-bay, name: "Awana Bay", town: "Claris", lat: -36.2087, lon: 175.4810, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, break_type: beach, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: kaitoke-beach, name: "Kaitoke Beach", town: "Claris", lat: -36.2341, lon: 175.4780, offshore_direction: 269, swell_window: [24, 154], offshore_km: 5.0, break_type: beach, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: pakiri, name: "Pakiri", town: "Pākiri", lat: -36.2438, lon: 174.7283, offshore_direction: 220, swell_window: [335, 105], offshore_km: 5.0, break_type: beach, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: medlands-beach, name: "Medlands Beach", town: "Tryphena", lat: -36.2680, lon: 175.4975, offshore_direction: 205, swell_window: [320, 90], offshore_km: 5.0, break_type: beach, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: goat-island, name: "Goat Island", town: "Leigh", lat: -36.2698, lon: 174.7904, offshore_direction: 186, swell_window: [301, 71], offshore_km: 5.0, break_type: beach, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: boulders-leigh, name: "Boulders (Leigh)", town: "Leigh", lat: -36.2867, lon: 174.8170, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, break_type: reef, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: daniels-reef, name: "Daniels Reef", town: "Leigh", lat: -36.2979, lon: 174.8033, offshore_direction: 315, swell_window: [70, 200], offshore_km: 5.0, break_type: reef, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: omaha, name: "Omaha", town: "Ōmaha", lat: -36.3362, lon: 174.7803, offshore_direction: 261, swell_window: [16, 146], offshore_km: 5.0, break_type: beach, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: tawharanui, name: "Tawharanui", town: "Tāwharanui", lat: -36.3682, lon: 174.8343, offshore_direction: 202, swell_window: [317, 87], offshore_km: 5.0, break_type: beach, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: orewa, name: "Orewa", town: "Ōrewa", lat: -36.5875, lon: 174.6979, offshore_direction: 250, swell_window: [5, 135], offshore_km: 5.0, break_type: beach, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: red-beach, name: "Red Beach", town: "Hibiscus Coast", lat: -36.6079, lon: 174.7137, offshore_direction: 230, swell_window: [345, 115], offshore_km: 5.0, break_type: beach, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: long-bay-reef, name: "Long Bay Reef", town: "Ōkura", lat: -36.6938, lon: 174.7602, offshore_direction: 247, swell_window: [2, 132], offshore_km: 5.0, break_type: reef, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: rimmers-road, name: "Rimmers Road", town: "Parkhurst", lat: -36.7099, lon: 174.3467, offshore_direction: 62, swell_window: [177, 307], offshore_km: 5.0, break_type: beach, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: milford, name: "Milford", town: "Auckland", lat: -36.7704, lon: 174.7737, offshore_direction: 236, swell_window: [351, 121], offshore_km: 5.0, break_type: beach, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: palm-beach-waiheke, name: "Palm Beach", town: "Palm Beach", lat: -36.7787, lon: 175.0443, offshore_direction: 157, swell_window: [272, 42], offshore_km: 5.0, break_type: beach, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: oneills-reef-takapuna, name: "O'Neills Reef (Takapuna)", town: "Auckland", lat: -36.7799, lon: 174.7779, offshore_direction: 268, shore_normal: 43, swell_window: [338, 108], offshore_km: 5.0, break_type: reef, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: north-reef-takapuna, name: "North Reef (Takapuna)", town: "Auckland", lat: -36.7841, lon: 174.7769, offshore_direction: 271, shore_normal: 47, swell_window: [342, 112], offshore_km: 5.0, break_type: reef, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: onetangi, name: "Onetangi", town: "Onetangi", lat: -36.7866, lon: 175.0754, offshore_direction: 189, swell_window: [304, 74], offshore_km: 5.0, break_type: beach, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: takapuna, name: "Takapuna", town: "Auckland", lat: -36.7897, lon: 174.7788, offshore_direction: 233, swell_window: [348, 118], offshore_km: 5.0, break_type: beach, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: muriwai, name: "Muriwai", town: "Muriwai", lat: -36.8286, lon: 174.4245, offshore_direction: 81, swell_window: [196, 326], offshore_km: 5.0, break_type: beach, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: maori-bay, name: "Maori Bay", town: "Muriwai", lat: -36.8363, lon: 174.4251, offshore_direction: 71, swell_window: [186, 316], offshore_km: 5.0, break_type: beach, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: oneill-bay, name: "O'Neill Bay", town: "Te Henga / Bethells Beach", lat: -36.8860, lon: 174.4367, offshore_direction: 86, swell_window: [201, 331], offshore_km: 5.0, break_type: beach, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: bethells-beach-te-henga, name: "Bethells Beach (Te Henga)", town: "Te Henga / Bethells Beach", lat: -36.8959, lon: 174.4434, offshore_direction: 68, swell_window: [183, 313], offshore_km: 5.0, break_type: beach, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: anawhata, name: "Anawhata", town: "Te Henga / Bethells Beach", lat: -36.9198, lon: 174.4515, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, break_type: beach, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: whites-beach, name: "Whites Beach", town: "Piha", lat: -36.9310, lon: 174.4544, offshore_direction: 64, swell_window: [179, 309], offshore_km: 5.0, break_type: beach, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: karekare, name: "Karekare", town: "Karekare", lat: -36.9896, lon: 174.4725, offshore_direction: 79, swell_window: [194, 324], offshore_km: 5.0, break_type: beach, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: whatipu, name: "Whatipu", town: "Whatipu", lat: -37.0478, lon: 174.5054, offshore_direction: 329, shore_normal: 189, swell_window: [124, 254], offshore_km: 5.0, break_type: beach, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: karioitahi, name: "Karioitahi", town: "Karioitahi", lat: -37.2812, lon: 174.6528, offshore_direction: 69, swell_window: [184, 314], offshore_km: 5.0, break_type: beach, <<: *akl }  # sat-verified 2026-11-12 (websearch-seeded)

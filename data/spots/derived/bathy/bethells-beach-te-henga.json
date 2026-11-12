@@ -1,0 +1,72 @@
+{
+  "spot": "bethells-beach-te-henga",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.8959,
+    174.4434
+  ],
+  "bearing_seaward_deg": 248.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 65.0,
+  "mean_slope_m_per_km": 3.38,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.89674,
+      "lon": 174.44079,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.89758,
+      "lon": 174.43819,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.89927,
+      "lon": 174.43297,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.90264,
+      "lon": 174.42255,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.906,
+      "lon": 174.41212,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.91273,
+      "lon": 174.39126,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.92282,
+      "lon": 174.35996,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.93626,
+      "lon": 174.31822,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.95639,
+      "lon": 174.25557,
+      "depth_m": 65.0
+    }
+  ]
+}

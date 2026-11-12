@@ -1,0 +1,72 @@
+{
+  "spot": "playa-el-coco",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    11.1575,
+    -85.8032
+  ],
+  "bearing_seaward_deg": 245.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 86.0,
+  "mean_slope_m_per_km": 5.01,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.15655,
+      "lon": -85.80528,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.1556,
+      "lon": -85.80735,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.1537,
+      "lon": -85.81151,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.1499,
+      "lon": -85.81981,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.1461,
+      "lon": -85.82812,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.13849,
+      "lon": -85.84474,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.12709,
+      "lon": -85.86965,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.11188,
+      "lon": -85.90288,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.08905,
+      "lon": -85.9527,
+      "depth_m": 86.0
+    }
+  ]
+}

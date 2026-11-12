@@ -1,0 +1,25 @@
+# Rosa spot database - Easter Island (seeded 2026-11-12). Hanga Roa's reefs (Papa, Tahai), Papa Tangaroa on the south
+# coast, Anakena and Ovahe on the north: swell from every direction; the E trade is offshore on the west coast.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Chile"
+
+defaults: &rn
+  timezone: Pacific/Easter
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [213, 343]
+  ideal:
+    wind_dir: [53, 143]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - easter-island, 5 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: anakena, name: "Anakena", town: "La Pérouse", lat: -27.0730, lon: -109.3233, offshore_direction: 160, swell_window: [275, 45], offshore_km: 5.0, break_type: beach, <<: *rn }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: ovahe, name: "Ovahe", town: "La Pérouse", lat: -27.0738, lon: -109.3140, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, break_type: beach, <<: *rn }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: tahai, name: "Tahai", town: "Hanga Roa", lat: -27.1296, lon: -109.4259, offshore_direction: 115, swell_window: [230, 0], offshore_km: 5.0, break_type: reef, <<: *rn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: papa-pea, name: "Papa (Pea)", town: "Hanga Roa", lat: -27.1476, lon: -109.4329, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, break_type: reef, <<: *rn }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: papa-tangaroa, name: "Papa Tangaroa", town: "Hanga Roa", lat: -27.1693, lon: -109.3889, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, break_type: reef, <<: *rn }  # sat-verified 2026-11-12 (websearch-seeded)

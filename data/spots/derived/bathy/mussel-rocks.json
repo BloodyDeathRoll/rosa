@@ -1,0 +1,72 @@
+{
+  "spot": "mussel-rocks",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -37.766,
+    174.831
+  ],
+  "bearing_seaward_deg": 257.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 50.0,
+  "mean_slope_m_per_km": 2.48,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -37.76651,
+      "lon": 174.82823,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -37.76701,
+      "lon": 174.82546,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -37.76802,
+      "lon": 174.81991,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -37.77004,
+      "lon": 174.80883,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -37.77206,
+      "lon": 174.79774,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -37.7761,
+      "lon": 174.77557,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -37.78215,
+      "lon": 174.7423,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -37.7902,
+      "lon": 174.69794,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -37.80225,
+      "lon": 174.63138,
+      "depth_m": 50.0
+    }
+  ]
+}

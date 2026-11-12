@@ -1,0 +1,72 @@
+{
+  "spot": "whitianga",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.8251,
+    175.7031
+  ],
+  "bearing_seaward_deg": 73.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 74.0,
+  "mean_slope_m_per_km": 4.06,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.82444,
+      "lon": 175.70579,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.82379,
+      "lon": 175.70847,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.82247,
+      "lon": 175.71384,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.81984,
+      "lon": 175.72459,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.81721,
+      "lon": 175.73533,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.81194,
+      "lon": 175.75681,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.80403,
+      "lon": 175.78903,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.79348,
+      "lon": 175.83197,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.77762,
+      "lon": 175.89637,
+      "depth_m": 74.0
+    }
+  ]
+}

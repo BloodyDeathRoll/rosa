@@ -1,0 +1,72 @@
+{
+  "spot": "anakena",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -27.073,
+    -109.3233
+  ],
+  "bearing_seaward_deg": 340.0,
+  "nearshore_depth_m": -14.0,
+  "offshore_depth_m": 2803.0,
+  "mean_slope_m_per_km": 158.7,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -27.07089,
+      "lon": -109.32416,
+      "depth_m": -14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -27.06877,
+      "lon": -109.32503,
+      "depth_m": 210.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -27.06455,
+      "lon": -109.32675,
+      "depth_m": 459.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -27.0561,
+      "lon": -109.33021,
+      "depth_m": 667.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -27.04765,
+      "lon": -109.33366,
+      "depth_m": 826.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -27.03074,
+      "lon": -109.34057,
+      "depth_m": 1024.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -27.00539,
+      "lon": -109.35092,
+      "depth_m": 1427.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -26.97158,
+      "lon": -109.36471,
+      "depth_m": 2187.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -26.92087,
+      "lon": -109.38539,
+      "depth_m": 2803.0
+    }
+  ]
+}

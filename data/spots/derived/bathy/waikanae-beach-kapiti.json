@@ -1,0 +1,72 @@
+{
+  "spot": "waikanae-beach-kapiti",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -40.8558,
+    175.0301
+  ],
+  "bearing_seaward_deg": 313.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 100.0,
+  "mean_slope_m_per_km": 5.52,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -40.85427,
+      "lon": 175.02793,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -40.85273,
+      "lon": 175.02575,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -40.84967,
+      "lon": 175.0214,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -40.84353,
+      "lon": 175.01271,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -40.8374,
+      "lon": 175.00402,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -40.82513,
+      "lon": 174.98664,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -40.80671,
+      "lon": 174.96058,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -40.78215,
+      "lon": 174.92587,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -40.74529,
+      "lon": 174.87383,
+      "depth_m": 100.0
+    }
+  ]
+}

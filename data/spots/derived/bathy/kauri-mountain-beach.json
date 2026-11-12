@@ -1,0 +1,72 @@
+{
+  "spot": "kauri-mountain-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.7887,
+    174.5521
+  ],
+  "bearing_seaward_deg": 97.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 100.0,
+  "mean_slope_m_per_km": 5.52,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.78897,
+      "lon": 174.55485,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.78925,
+      "lon": 174.5576,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.7898,
+      "lon": 174.5631,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.79089,
+      "lon": 174.57411,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.79198,
+      "lon": 174.58511,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.79417,
+      "lon": 174.60712,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.79744,
+      "lon": 174.64014,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.80178,
+      "lon": 174.68417,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.80827,
+      "lon": 174.75022,
+      "depth_m": 100.0
+    }
+  ]
+}

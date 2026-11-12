@@ -1,0 +1,72 @@
+{
+  "spot": "tolaga-bay-wharf",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.3825,
+    178.3184
+  ],
+  "bearing_seaward_deg": 31.0,
+  "nearshore_depth_m": -27.0,
+  "offshore_depth_m": 40.0,
+  "mean_slope_m_per_km": 3.77,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.38057,
+      "lon": 178.31988,
+      "depth_m": -27.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.37865,
+      "lon": 178.32135,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.37479,
+      "lon": 178.32431,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.36708,
+      "lon": 178.33022,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.35937,
+      "lon": 178.33612,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.34395,
+      "lon": 178.34793,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.32082,
+      "lon": 178.36563,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.28997,
+      "lon": 178.38922,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.2437,
+      "lon": 178.42456,
+      "depth_m": 40.0
+    }
+  ]
+}

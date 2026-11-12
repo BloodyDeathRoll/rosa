@@ -1,0 +1,72 @@
+{
+  "spot": "the-bluff-te-kao",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.6853,
+    172.8931
+  ],
+  "bearing_seaward_deg": 241.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 89.0,
+  "mean_slope_m_per_km": 4.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.68639,
+      "lon": 172.89071,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.68748,
+      "lon": 172.88832,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.68966,
+      "lon": 172.88353,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.69402,
+      "lon": 172.87397,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.69838,
+      "lon": 172.8644,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.70709,
+      "lon": 172.84526,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.72016,
+      "lon": 172.81654,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.73757,
+      "lon": 172.77824,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.76366,
+      "lon": 172.72076,
+      "depth_m": 89.0
+    }
+  ]
+}

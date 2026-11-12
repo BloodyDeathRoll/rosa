@@ -1,0 +1,72 @@
+{
+  "spot": "kahutara",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -42.4353,
+    173.5891
+  ],
+  "bearing_seaward_deg": 110.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 793.0,
+  "mean_slope_m_per_km": 44.23,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -42.43607,
+      "lon": 173.59196,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -42.43684,
+      "lon": 173.59483,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -42.43838,
+      "lon": 173.60055,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -42.44145,
+      "lon": 173.612,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -42.44452,
+      "lon": 173.62346,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -42.45067,
+      "lon": 173.64637,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -42.45987,
+      "lon": 173.68074,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -42.47213,
+      "lon": 173.72659,
+      "depth_m": 109.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -42.49048,
+      "lon": 173.79539,
+      "depth_m": 793.0
+    }
+  ]
+}

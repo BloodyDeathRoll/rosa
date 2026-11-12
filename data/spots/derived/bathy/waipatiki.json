@@ -1,0 +1,72 @@
+{
+  "spot": "waipatiki",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.3017,
+    176.9756
+  ],
+  "bearing_seaward_deg": 132.0,
+  "nearshore_depth_m": -31.0,
+  "offshore_depth_m": 45.0,
+  "mean_slope_m_per_km": 4.28,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.3032,
+      "lon": 176.97776,
+      "depth_m": -31.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.30471,
+      "lon": 176.97992,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.30772,
+      "lon": 176.98424,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.31373,
+      "lon": 176.99288,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.31975,
+      "lon": 177.00152,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.33178,
+      "lon": 177.0188,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.34982,
+      "lon": 177.04474,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.37387,
+      "lon": 177.07935,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -39.40991,
+      "lon": 177.1313,
+      "depth_m": 45.0
+    }
+  ]
+}

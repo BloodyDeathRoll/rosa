@@ -1,0 +1,72 @@
+{
+  "spot": "tom-bowling-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.4238,
+    172.9753
+  ],
+  "bearing_seaward_deg": 336.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 109.0,
+  "mean_slope_m_per_km": 5.8,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.42175,
+      "lon": 172.97419,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.41969,
+      "lon": 172.97308,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.41558,
+      "lon": 172.97087,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.40737,
+      "lon": 172.96643,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.39915,
+      "lon": 172.962,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.38272,
+      "lon": 172.95314,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.35807,
+      "lon": 172.93985,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.3252,
+      "lon": 172.92215,
+      "depth_m": 102.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.27589,
+      "lon": 172.89562,
+      "depth_m": 109.0
+    }
+  ]
+}

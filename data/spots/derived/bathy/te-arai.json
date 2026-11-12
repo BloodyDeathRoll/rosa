@@ -1,0 +1,72 @@
+{
+  "spot": "te-arai",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.1473,
+    174.6385
+  ],
+  "bearing_seaward_deg": 58.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 59.0,
+  "mean_slope_m_per_km": 3.32,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.14611,
+      "lon": 174.64086,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.14492,
+      "lon": 174.64322,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.14253,
+      "lon": 174.64794,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.13777,
+      "lon": 174.65739,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.133,
+      "lon": 174.66683,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.12346,
+      "lon": 174.68571,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.10915,
+      "lon": 174.71402,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.09006,
+      "lon": 174.75175,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.0614,
+      "lon": 174.80832,
+      "depth_m": 59.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "karitane",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -45.6398,
+    170.6739
+  ],
+  "bearing_seaward_deg": 78.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 42.0,
+  "mean_slope_m_per_km": 2.08,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -45.63933,
+      "lon": 170.67705,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -45.63886,
+      "lon": 170.68019,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -45.63793,
+      "lon": 170.68648,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -45.63606,
+      "lon": 170.69906,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -45.63418,
+      "lon": 170.71164,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -45.63043,
+      "lon": 170.7368,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -45.6248,
+      "lon": 170.77453,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -45.61726,
+      "lon": 170.82482,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -45.60592,
+      "lon": 170.90023,
+      "depth_m": 42.0
+    }
+  ]
+}

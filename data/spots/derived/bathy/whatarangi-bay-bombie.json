@@ -1,0 +1,72 @@
+{
+  "spot": "whatarangi-bay-bombie",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.4713,
+    175.2094
+  ],
+  "bearing_seaward_deg": 293.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 22.0,
+  "mean_slope_m_per_km": 0.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.47042,
+      "lon": 175.20664,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.46954,
+      "lon": 175.20388,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.46779,
+      "lon": 175.19835,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.46427,
+      "lon": 175.18731,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.46075,
+      "lon": 175.17626,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.45372,
+      "lon": 175.15417,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.44315,
+      "lon": 175.12105,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.42906,
+      "lon": 175.07691,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.40788,
+      "lon": 175.01073,
+      "depth_m": 22.0
+    }
+  ]
+}

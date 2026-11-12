@@ -1,0 +1,72 @@
+{
+  "spot": "south-new-brighton",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -43.5293,
+    172.7409
+  ],
+  "bearing_seaward_deg": 72.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 24.0,
+  "mean_slope_m_per_km": 1.35,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -43.52861,
+      "lon": 172.74385,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -43.52791,
+      "lon": 172.7468,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -43.52652,
+      "lon": 172.7527,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -43.52374,
+      "lon": 172.76449,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -43.52096,
+      "lon": 172.77629,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -43.51539,
+      "lon": 172.79987,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -43.50703,
+      "lon": 172.83524,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -43.49586,
+      "lon": 172.88238,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -43.47908,
+      "lon": 172.95307,
+      "depth_m": 24.0
+    }
+  ]
+}

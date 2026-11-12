@@ -1,0 +1,72 @@
+{
+  "spot": "papa-tangaroa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -27.1693,
+    -109.3889
+  ],
+  "bearing_seaward_deg": 180.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 2740.0,
+  "mean_slope_m_per_km": 154.7,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -27.17155,
+      "lon": -109.3889,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -27.1738,
+      "lon": -109.3889,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -27.17829,
+      "lon": -109.3889,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -27.18729,
+      "lon": -109.3889,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -27.19628,
+      "lon": -109.3889,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -27.21427,
+      "lon": -109.3889,
+      "depth_m": 164.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -27.24125,
+      "lon": -109.3889,
+      "depth_m": 650.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -27.27722,
+      "lon": -109.3889,
+      "depth_m": 1591.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -27.33118,
+      "lon": -109.3889,
+      "depth_m": 2740.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "rings-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.7278,
+    175.6894
+  ],
+  "bearing_seaward_deg": 1.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 54.0,
+  "mean_slope_m_per_km": 2.93,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.72555,
+      "lon": 175.68945,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.7233,
+      "lon": 175.6895,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.71881,
+      "lon": 175.6896,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.70982,
+      "lon": 175.68979,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.70082,
+      "lon": 175.68999,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.68284,
+      "lon": 175.69038,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.65587,
+      "lon": 175.69097,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.6199,
+      "lon": 175.69175,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.56595,
+      "lon": 175.69292,
+      "depth_m": 54.0
+    }
+  ]
+}

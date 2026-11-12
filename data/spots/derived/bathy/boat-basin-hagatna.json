@@ -1,0 +1,72 @@
+{
+  "spot": "boat-basin-hagatna",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    13.4826,
+    144.7522
+  ],
+  "bearing_seaward_deg": 0.0,
+  "nearshore_depth_m": 102.0,
+  "offshore_depth_m": 827.0,
+  "mean_slope_m_per_km": 40.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.48485,
+      "lon": 144.7522,
+      "depth_m": 102.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.4871,
+      "lon": 144.7522,
+      "depth_m": 102.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.49159,
+      "lon": 144.7522,
+      "depth_m": 236.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.50059,
+      "lon": 144.7522,
+      "depth_m": 458.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.50958,
+      "lon": 144.7522,
+      "depth_m": 522.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.52757,
+      "lon": 144.7522,
+      "depth_m": 729.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.55455,
+      "lon": 144.7522,
+      "depth_m": 759.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.59052,
+      "lon": 144.7522,
+      "depth_m": 828.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.64448,
+      "lon": 144.7522,
+      "depth_m": 827.0
+    }
+  ]
+}

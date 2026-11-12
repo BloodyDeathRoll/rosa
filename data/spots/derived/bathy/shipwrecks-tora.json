@@ -1,0 +1,72 @@
+{
+  "spot": "shipwrecks-tora",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.5248,
+    175.5015
+  ],
+  "bearing_seaward_deg": 114.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 738.0,
+  "mean_slope_m_per_km": 40.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.52571,
+      "lon": 175.50424,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.52663,
+      "lon": 175.50699,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.52846,
+      "lon": 175.51247,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.53211,
+      "lon": 175.52345,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.53577,
+      "lon": 175.53443,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.54308,
+      "lon": 175.55638,
+      "depth_m": 123.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.55403,
+      "lon": 175.58933,
+      "depth_m": 202.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.56862,
+      "lon": 175.63327,
+      "depth_m": 442.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.59047,
+      "lon": 175.69923,
+      "depth_m": 738.0
+    }
+  ]
+}

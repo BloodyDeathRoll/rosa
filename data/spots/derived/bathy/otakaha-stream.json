@@ -1,0 +1,72 @@
+{
+  "spot": "otakaha-stream",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.5515,
+    175.2186
+  ],
+  "bearing_seaward_deg": 252.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 587.0,
+  "mean_slope_m_per_km": 32.68,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.55219,
+      "lon": 175.21574,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.55289,
+      "lon": 175.21289,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.55428,
+      "lon": 175.20717,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.55706,
+      "lon": 175.19574,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.55983,
+      "lon": 175.18431,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.56538,
+      "lon": 175.16144,
+      "depth_m": 76.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.5737,
+      "lon": 175.12714,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.58477,
+      "lon": 175.08138,
+      "depth_m": 115.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.60134,
+      "lon": 175.01272,
+      "depth_m": 587.0
+    }
+  ]
+}

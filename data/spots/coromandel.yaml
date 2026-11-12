@@ -1,0 +1,41 @@
+# Rosa spot database - Coromandel (seeded 2026-11-12).
+# the peninsula's east coast beaches and reefs from New Chums to Whangamata and Waihi Beach.
+# NE-E Pacific swell and summer cyclone swell; offshore in the prevailing westerly.
+# Names and coordinates from the regional councils' coastal-plan surf break layers and the NZCPS 2010 schedule,
+# cross-read with surf guides and tourism boards.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "New Zealand"
+
+defaults: &cmd
+  timezone: Pacific/Auckland
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [348, 118]
+  ideal:
+    wind_dir: [188, 278]
+    size_m: [0.6, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - coromandel, 18 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: waikawau-bay, name: "Waikawau Bay", town: "Waikawau", lat: -36.6003, lon: 175.5289, offshore_direction: 221, swell_window: [336, 106], offshore_km: 5.0, break_type: beach, <<: *cmd }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: new-chums, name: "New Chums", town: "Whangapoua", lat: -36.6981, lon: 175.6060, offshore_direction: 235, shore_normal: 81, swell_window: [16, 146], offshore_km: 5.0, break_type: beach, <<: *cmd }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: otama, name: "Otama", town: "Ōtama", lat: -36.7059, lon: 175.7593, offshore_direction: 168, swell_window: [283, 53], offshore_km: 5.0, break_type: beach, <<: *cmd }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: whangapoua-coromandel, name: "Whangapoua (Coromandel)", town: "Whangapoua", lat: -36.7080, lon: 175.6096, offshore_direction: 257, swell_window: [12, 142], offshore_km: 5.0, break_type: beach, <<: *cmd }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: opito, name: "Opito", town: "Ōpito", lat: -36.7170, lon: 175.7972, offshore_direction: 228, swell_window: [343, 113], offshore_km: 5.0, break_type: beach, <<: *cmd }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: kuaotunu, name: "Kuaotunu", town: "Kūaotunu", lat: -36.7241, lon: 175.7193, offshore_direction: 165, swell_window: [280, 50], offshore_km: 5.0, break_type: beach, <<: *cmd }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: matarangi, name: "Matarangi", town: "Matarangi", lat: -36.7254, lon: 175.6509, offshore_direction: 194, swell_window: [309, 79], offshore_km: 5.0, break_type: beach, <<: *cmd }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: rings-beach, name: "Rings", town: "Rings Beach", lat: -36.7278, lon: 175.6894, offshore_direction: 181, swell_window: [296, 66], offshore_km: 5.0, break_type: beach, <<: *cmd }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: whitianga, name: "Whitianga", town: "Whitianga", lat: -36.8251, lon: 175.7031, offshore_direction: 253, swell_window: [8, 138], offshore_km: 5.0, break_type: beach, <<: *cmd }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: hahei, name: "Hahei", town: "Hahei", lat: -36.8399, lon: 175.8092, offshore_direction: 214, swell_window: [329, 99], offshore_km: 5.0, break_type: beach, <<: *cmd }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: hot-water-beach, name: "Hot Water Beach", town: "Hot Water Beach", lat: -36.8841, lon: 175.8212, offshore_direction: 241, swell_window: [356, 126], offshore_km: 5.0, break_type: beach, <<: *cmd }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: sailors-grave, name: "Sailors Grave", town: "Pumpkin Hill", lat: -36.9660, lon: 175.8461, offshore_direction: 237, swell_window: [352, 122], offshore_km: 5.0, break_type: beach, <<: *cmd }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: tairua, name: "Tairua", town: "Tairua", lat: -36.9915, lon: 175.8584, offshore_direction: 252, swell_window: [7, 137], offshore_km: 5.0, break_type: beach, <<: *cmd }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: pauanui, name: "Pauanui", town: "Pauanui", lat: -37.0161, lon: 175.8683, offshore_direction: 250, swell_window: [5, 135], offshore_km: 5.0, break_type: beach, <<: *cmd }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: opoutere, name: "Opoutere", town: "Ohui", lat: -37.0946, lon: 175.8858, offshore_direction: 269, swell_window: [24, 154], offshore_km: 5.0, break_type: beach, <<: *cmd }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: whangamata-bar, name: "Whangamata Bar", town: "Whangamatā", lat: -37.2154, lon: 175.8882, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, break_type: beach, <<: *cmd }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: whiritoa, name: "Whiritoa", town: "Whiritoa", lat: -37.2844, lon: 175.9041, offshore_direction: 244, swell_window: [359, 129], offshore_km: 5.0, break_type: beach, <<: *cmd }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: homunga, name: "Homunga", town: "Waihī Beach", lat: -37.3612, lon: 175.9379, offshore_direction: 276, swell_window: [31, 161], offshore_km: 5.0, break_type: beach, <<: *cmd }  # sat-verified 2026-11-12 (websearch-seeded)

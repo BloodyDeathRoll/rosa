@@ -1,0 +1,72 @@
+{
+  "spot": "titches-hongoeka",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.0655,
+    174.8382
+  ],
+  "bearing_seaward_deg": 303.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 192.0,
+  "mean_slope_m_per_km": 10.42,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.06428,
+      "lon": 174.8357,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.06305,
+      "lon": 174.8332,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.0606,
+      "lon": 174.8282,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.0557,
+      "lon": 174.8182,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.0508,
+      "lon": 174.8082,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.041,
+      "lon": 174.7882,
+      "depth_m": 98.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.02629,
+      "lon": 174.75822,
+      "depth_m": 129.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.00666,
+      "lon": 174.71826,
+      "depth_m": 188.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -40.9772,
+      "lon": 174.65838,
+      "depth_m": 192.0
+    }
+  ]
+}

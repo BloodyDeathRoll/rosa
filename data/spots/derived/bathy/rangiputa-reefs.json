@@ -1,0 +1,72 @@
+{
+  "spot": "rangiputa-reefs",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.8709,
+    173.2883
+  ],
+  "bearing_seaward_deg": 331.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 45.0,
+  "mean_slope_m_per_km": 2.37,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.86893,
+      "lon": 173.28697,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.86697,
+      "lon": 173.28564,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.86303,
+      "lon": 173.28299,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.85517,
+      "lon": 173.27767,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.8473,
+      "lon": 173.27236,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.83157,
+      "lon": 173.26174,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.80797,
+      "lon": 173.24582,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.7765,
+      "lon": 173.2246,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.72928,
+      "lon": 173.19281,
+      "depth_m": 45.0
+    }
+  ]
+}

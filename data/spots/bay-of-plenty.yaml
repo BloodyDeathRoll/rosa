@@ -1,0 +1,35 @@
+# Rosa spot database - Bay of Plenty (seeded 2026-11-12).
+# Matakana Island, Papamoa, Maketu, Whakatane and Ohope east to Opotiki.
+# N-NE Pacific and cyclone swell into a wide open bay; offshore in a southerly.
+# Names and coordinates from the regional councils' coastal-plan surf break layers and the NZCPS 2010 schedule,
+# cross-read with surf guides and tourism boards.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "New Zealand"
+
+defaults: &bop
+  timezone: Pacific/Auckland
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [324, 94]
+  ideal:
+    wind_dir: [164, 254]
+    size_m: [0.6, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - bay-of-plenty, 12 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: orokawa-bay, name: "Orokawa Bay", town: "Waihī Beach", lat: -37.3836, lon: 175.9386, offshore_direction: 242, swell_window: [357, 127], offshore_km: 5.0, break_type: beach, <<: *bop }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: waihi-beach-north-end, name: "Waihi Beach (North End)", town: "Waihī Beach", lat: -37.3971, lon: 175.9388, offshore_direction: 274, swell_window: [29, 159], offshore_km: 5.0, break_type: beach, <<: *bop }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: bowentown, name: "Bowentown", town: "Pios Beach", lat: -37.4638, lon: 175.9903, offshore_direction: 263, swell_window: [18, 148], offshore_km: 5.0, break_type: beach, <<: *bop }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: omanu, name: "Omanu", town: "Mount Maunganui", lat: -37.6619, lon: 176.2205, offshore_direction: 221, swell_window: [336, 106], offshore_km: 5.0, break_type: beach, <<: *bop }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: papamoa, name: "Papamoa", town: "Pāpāmoa", lat: -37.6963, lon: 176.2866, offshore_direction: 209, swell_window: [324, 94], offshore_km: 5.0, break_type: beach, <<: *bop }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: maketu, name: "Maketu", town: "Maketu", lat: -37.7540, lon: 176.4561, offshore_direction: 147, swell_window: [262, 32], offshore_km: 5.0, break_type: beach, <<: *bop }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: pukehina-beach, name: "Pukehina Beach", town: "Pukehina Beach", lat: -37.7793, lon: 176.5123, offshore_direction: 218, swell_window: [333, 103], offshore_km: 5.0, break_type: beach, <<: *bop }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: thornton-beach, name: "Thornton Beach", town: "Thornton", lat: -37.9070, lon: 176.8718, offshore_direction: 197, swell_window: [312, 82], offshore_km: 5.0, break_type: beach, <<: *bop }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: coastlands, name: "Coastlands", town: "Coastlands", lat: -37.9341, lon: 176.9779, offshore_direction: 208, swell_window: [323, 93], offshore_km: 5.0, break_type: beach, <<: *bop }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: whakatane-heads, name: "Whakatane Heads", town: "Whakatāne", lat: -37.9417, lon: 177.0123, offshore_direction: 139, swell_window: [254, 24], offshore_km: 5.0, break_type: beach, <<: *bop }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: ohope-west-end, name: "Ohope (West End)", town: "Ōhope", lat: -37.9626, lon: 177.0346, offshore_direction: 207, swell_window: [322, 92], offshore_km: 5.0, break_type: beach, <<: *bop }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: waiotahi-beach, name: "Waiotahi Beach", town: "Waiotahe", lat: -37.9911, lon: 177.2503, offshore_direction: 175, swell_window: [290, 60], offshore_km: 5.0, break_type: beach, <<: *bop }  # sat-verified 2026-11-12 (websearch-seeded)

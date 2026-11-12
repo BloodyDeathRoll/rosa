@@ -1,0 +1,72 @@
+{
+  "spot": "mangamaunu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -42.2972,
+    173.7497
+  ],
+  "bearing_seaward_deg": 115.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 743.0,
+  "mean_slope_m_per_km": 42.37,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -42.29815,
+      "lon": 173.75245,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -42.2991,
+      "lon": 173.75521,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -42.301,
+      "lon": 173.76072,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -42.3048,
+      "lon": 173.77174,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -42.3086,
+      "lon": 173.78276,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -42.31619,
+      "lon": 173.80481,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -42.32757,
+      "lon": 173.8379,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -42.34273,
+      "lon": 173.88203,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -42.36544,
+      "lon": 173.94826,
+      "depth_m": 743.0
+    }
+  ]
+}

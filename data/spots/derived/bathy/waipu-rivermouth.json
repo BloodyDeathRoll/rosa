@@ -1,0 +1,72 @@
+{
+  "spot": "waipu-rivermouth",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.992,
+    174.4831
+  ],
+  "bearing_seaward_deg": 89.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 44.0,
+  "mean_slope_m_per_km": 2.59,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.99196,
+      "lon": 174.48588,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.99192,
+      "lon": 174.48866,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.99184,
+      "lon": 174.49421,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.99168,
+      "lon": 174.50533,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.99152,
+      "lon": 174.51644,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.9912,
+      "lon": 174.53867,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.99071,
+      "lon": 174.57201,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.99004,
+      "lon": 174.61646,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.98901,
+      "lon": 174.68313,
+      "depth_m": 44.0
+    }
+  ]
+}

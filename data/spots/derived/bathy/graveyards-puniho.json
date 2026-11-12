@@ -1,0 +1,72 @@
+{
+  "spot": "graveyards-puniho",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.1882,
+    173.797
+  ],
+  "bearing_seaward_deg": 316.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 124.0,
+  "mean_slope_m_per_km": 6.54,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.18658,
+      "lon": 173.79499,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.18497,
+      "lon": 173.79297,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.18173,
+      "lon": 173.78894,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.17526,
+      "lon": 173.78088,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.16879,
+      "lon": 173.77283,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.15585,
+      "lon": 173.75672,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.13643,
+      "lon": 173.73257,
+      "depth_m": 109.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.11053,
+      "lon": 173.70039,
+      "depth_m": 120.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -39.07167,
+      "lon": 173.65216,
+      "depth_m": 124.0
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+# Rosa spot database - Haiti (seeded 2026-11-12). Kabic by Jacmel on the south coast: Caribbean swell, best Nov-Mar.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Haiti"
+
+defaults: &ht
+  timezone: America/Port-au-Prince
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [120, 250]
+  ideal:
+    wind_dir: [320, 50]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - haiti, 1 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: kabic, name: "Kabic", town: "Cayes-Jacmel", lat: 18.2343, lon: -72.3755, offshore_direction: 5, swell_window: [120, 250], offshore_km: 5.0, break_type: beach, <<: *ht }  # sat-verified 2026-11-12 (websearch-seeded)

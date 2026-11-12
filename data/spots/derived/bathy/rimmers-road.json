@@ -1,0 +1,72 @@
+{
+  "spot": "rimmers-road",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.7099,
+    174.3467
+  ],
+  "bearing_seaward_deg": 242.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 63.0,
+  "mean_slope_m_per_km": 3.32,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.71096,
+      "lon": 174.34422,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.71201,
+      "lon": 174.34175,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.71412,
+      "lon": 174.33679,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.71834,
+      "lon": 174.32689,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.72256,
+      "lon": 174.31698,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.731,
+      "lon": 174.29716,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.74365,
+      "lon": 174.26743,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.76051,
+      "lon": 174.22776,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.78576,
+      "lon": 174.16823,
+      "depth_m": 63.0
+    }
+  ]
+}

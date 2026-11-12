@@ -1,0 +1,72 @@
+{
+  "spot": "frog-town",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.7149,
+    174.5336
+  ],
+  "bearing_seaward_deg": 2.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 42.0,
+  "mean_slope_m_per_km": 2.37,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.71265,
+      "lon": 174.5337,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.71041,
+      "lon": 174.53379,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.70591,
+      "lon": 174.53399,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.69692,
+      "lon": 174.53437,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.68794,
+      "lon": 174.53476,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.66996,
+      "lon": 174.53553,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.643,
+      "lon": 174.53669,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.60705,
+      "lon": 174.53823,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.55312,
+      "lon": 174.54054,
+      "depth_m": 42.0
+    }
+  ]
+}

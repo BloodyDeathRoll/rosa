@@ -1,0 +1,72 @@
+{
+  "spot": "otaki-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -40.7444,
+    175.1093
+  ],
+  "bearing_seaward_deg": 295.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 96.0,
+  "mean_slope_m_per_km": 5.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -40.74345,
+      "lon": 175.10661,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -40.7425,
+      "lon": 175.10392,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -40.7406,
+      "lon": 175.09854,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -40.7368,
+      "lon": 175.08779,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -40.73299,
+      "lon": 175.07703,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -40.72538,
+      "lon": 175.05553,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -40.71396,
+      "lon": 175.02327,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -40.69872,
+      "lon": 174.98029,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -40.67583,
+      "lon": 174.91585,
+      "depth_m": 96.0
+    }
+  ]
+}

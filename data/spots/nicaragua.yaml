@@ -46,3 +46,13 @@ spots:
   # ==== WEB-SEARCH-SEEDED (2026-07-24) - surf-guide discovery, Google/Nominatim/Photon
   # geocode cross-checked + ESRI sat-verified. Locations verified; params TODO-tune. ====
   - { id: manzanillo, name: "Manzanillo (Tola)", town: "Guacalito de la Isla", lat: 11.3705, lon: -86.0093, offshore_direction: 50, offshore_bearing: 230.0, offshore_km: 5.0, <<: *nic }  # websearch-seeded 2026-07-24 (geocoded+sat-verified) - TODO verify
+
+  # ==== SEEDED 2026-11-12 - 7 more (web-search flow; coordinates from OSM / Nominatim / Photon, every pin
+  # rendered and judged at z16)
+  - { id: jiquilillo, name: "Jiquilillo", town: "Jiquilillo", lat: 12.7235, lon: -87.4363, offshore_direction: 50, swell_window: [165, 295], offshore_km: 5.0, break_type: beach, <<: *nic }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: poneloya, name: "Poneloya", town: "Poneloya", lat: 12.3772, lon: -87.0435, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, break_type: beach, <<: *nic }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: las-penitas, name: "Las Peñitas", town: "Las Peñitas", lat: 12.3589, lon: -87.0225, offshore_direction: 30, swell_window: [145, 275], offshore_km: 5.0, break_type: beach, <<: *nic }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: salinas-grandes, name: "Salinas Grandes", town: "Salinas Grandes", lat: 12.2578, lon: -86.8589, offshore_direction: 25, swell_window: [140, 270], offshore_km: 5.0, break_type: beach, <<: *nic }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: playa-amarillo, name: "Playa Amarillo", town: "El Gigante", lat: 11.3986, lon: -86.0385, offshore_direction: 55, swell_window: [170, 300], offshore_km: 5.0, break_type: beach, <<: *nic }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: playa-escameca, name: "Playa Escameca", town: "El Coco", lat: 11.1690, lon: -85.8087, offshore_direction: 65, swell_window: [180, 310], offshore_km: 5.0, break_type: beach, <<: *nic }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: playa-el-coco, name: "Playa El Coco", town: "El Coco", lat: 11.1575, lon: -85.8032, offshore_direction: 65, swell_window: [180, 310], offshore_km: 5.0, break_type: beach, <<: *nic }  # sat-verified 2026-11-12 (websearch-seeded)

@@ -1,0 +1,72 @@
+{
+  "spot": "tokerau-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.9192,
+    173.3731
+  ],
+  "bearing_seaward_deg": 75.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 92.0,
+  "mean_slope_m_per_km": 5.13,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.91862,
+      "lon": 173.37575,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.91804,
+      "lon": 173.3784,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.91687,
+      "lon": 173.38369,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.91454,
+      "lon": 173.39429,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.91221,
+      "lon": 173.40488,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.90755,
+      "lon": 173.42606,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.90055,
+      "lon": 173.45783,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.8912,
+      "lon": 173.50019,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.87715,
+      "lon": 173.5637,
+      "depth_m": 92.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "the-gap-castlepoint",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -40.9075,
+    176.2213
+  ],
+  "bearing_seaward_deg": 128.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 166.0,
+  "mean_slope_m_per_km": 9.3,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -40.90888,
+      "lon": 176.22364,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -40.91027,
+      "lon": 176.22599,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -40.91304,
+      "lon": 176.23068,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -40.91857,
+      "lon": 176.24006,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -40.92411,
+      "lon": 176.24944,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -40.93517,
+      "lon": 176.2682,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -40.95177,
+      "lon": 176.29637,
+      "depth_m": 94.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -40.97389,
+      "lon": 176.33394,
+      "depth_m": 119.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.00704,
+      "lon": 176.39034,
+      "depth_m": 166.0
+    }
+  ]
+}

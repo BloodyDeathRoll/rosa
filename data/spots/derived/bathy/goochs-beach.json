@@ -1,0 +1,72 @@
+{
+  "spot": "goochs-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -42.4166,
+    173.6763
+  ],
+  "bearing_seaward_deg": 221.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 18.0,
+  "mean_slope_m_per_km": 0.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -42.4183,
+      "lon": 173.6743,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -42.41999,
+      "lon": 173.6723,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -42.42339,
+      "lon": 173.66831,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -42.43017,
+      "lon": 173.66031,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -42.43696,
+      "lon": 173.65232,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -42.45053,
+      "lon": 173.63632,
+      "depth_m": 174.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -42.47088,
+      "lon": 173.61231,
+      "depth_m": 727.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -42.49801,
+      "lon": 173.58027,
+      "depth_m": 541.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -42.53868,
+      "lon": 173.53217,
+      "depth_m": 18.0
+    }
+  ]
+}

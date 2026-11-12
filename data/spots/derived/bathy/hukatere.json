@@ -1,0 +1,72 @@
+{
+  "spot": "hukatere",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.8982,
+    173.0838
+  ],
+  "bearing_seaward_deg": 237.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 58.0,
+  "mean_slope_m_per_km": 3.49,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.89942,
+      "lon": 173.0815,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.90065,
+      "lon": 173.0792,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.9031,
+      "lon": 173.0746,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.90799,
+      "lon": 173.06541,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.91289,
+      "lon": 173.05621,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.92268,
+      "lon": 173.03781,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.93736,
+      "lon": 173.0102,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.95693,
+      "lon": 172.97337,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.98625,
+      "lon": 172.91809,
+      "depth_m": 58.0
+    }
+  ]
+}

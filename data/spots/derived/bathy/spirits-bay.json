@@ -1,0 +1,72 @@
+{
+  "spot": "spirits-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.4467,
+    172.8315
+  ],
+  "bearing_seaward_deg": 332.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 82.0,
+  "mean_slope_m_per_km": 4.11,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.44471,
+      "lon": 172.83022,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.44273,
+      "lon": 172.82894,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.43876,
+      "lon": 172.82638,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.43082,
+      "lon": 172.82126,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.42288,
+      "lon": 172.81614,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.40699,
+      "lon": 172.80591,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.38317,
+      "lon": 172.79057,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.3514,
+      "lon": 172.77013,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.30374,
+      "lon": 172.7395,
+      "depth_m": 82.0
+    }
+  ]
+}

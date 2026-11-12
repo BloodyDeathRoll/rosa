@@ -1,0 +1,72 @@
+{
+  "spot": "whites-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.931,
+    174.4544
+  ],
+  "bearing_seaward_deg": 244.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 71.0,
+  "mean_slope_m_per_km": 4.68,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.93199,
+      "lon": 174.45187,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.93297,
+      "lon": 174.44934,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.93494,
+      "lon": 174.44429,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.93888,
+      "lon": 174.43417,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.94282,
+      "lon": 174.42406,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.9507,
+      "lon": 174.40383,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.96251,
+      "lon": 174.37347,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.97825,
+      "lon": 174.33298,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -37.00182,
+      "lon": 174.27222,
+      "depth_m": 71.0
+    }
+  ]
+}

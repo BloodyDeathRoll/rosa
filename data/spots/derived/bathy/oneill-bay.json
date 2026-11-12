@@ -1,0 +1,72 @@
+{
+  "spot": "oneill-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.886,
+    174.4367
+  ],
+  "bearing_seaward_deg": 266.0,
+  "nearshore_depth_m": -17.0,
+  "offshore_depth_m": 62.0,
+  "mean_slope_m_per_km": 4.45,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.88616,
+      "lon": 174.4339,
+      "depth_m": -17.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.88631,
+      "lon": 174.43109,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.88663,
+      "lon": 174.42548,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.88725,
+      "lon": 174.41427,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.88788,
+      "lon": 174.40305,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.88912,
+      "lon": 174.38062,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.89098,
+      "lon": 174.34696,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.89345,
+      "lon": 174.30209,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.89712,
+      "lon": 174.23477,
+      "depth_m": 62.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "waihi-beach-north-end",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -37.3971,
+    175.9388
+  ],
+  "bearing_seaward_deg": 94.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 50.0,
+  "mean_slope_m_per_km": 3.44,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -37.39726,
+      "lon": 175.94162,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -37.39741,
+      "lon": 175.94445,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -37.39773,
+      "lon": 175.95009,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -37.39835,
+      "lon": 175.96139,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -37.39898,
+      "lon": 175.97268,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -37.40022,
+      "lon": 175.99526,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -37.40208,
+      "lon": 176.02915,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -37.40455,
+      "lon": 176.07432,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -37.40822,
+      "lon": 176.1421,
+      "depth_m": 50.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "kaitoke-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.2341,
+    175.478
+  ],
+  "bearing_seaward_deg": 89.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 109.0,
+  "mean_slope_m_per_km": 6.03,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.23406,
+      "lon": 175.48079,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.23402,
+      "lon": 175.48357,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.23394,
+      "lon": 175.48915,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.23378,
+      "lon": 175.5003,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.23362,
+      "lon": 175.51144,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.2333,
+      "lon": 175.53374,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.23281,
+      "lon": 175.56718,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.23214,
+      "lon": 175.61177,
+      "depth_m": 90.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.23111,
+      "lon": 175.67865,
+      "depth_m": 109.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "gnarlies-mangatoetoe",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.5702,
+    175.4384
+  ],
+  "bearing_seaward_deg": 148.0,
+  "nearshore_depth_m": 15.0,
+  "offshore_depth_m": 1316.0,
+  "mean_slope_m_per_km": 73.3,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.57211,
+      "lon": 175.43999,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.57401,
+      "lon": 175.44159,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.57783,
+      "lon": 175.44477,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.58545,
+      "lon": 175.45114,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.59308,
+      "lon": 175.45752,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.60833,
+      "lon": 175.47027,
+      "depth_m": 96.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.6312,
+      "lon": 175.48941,
+      "depth_m": 268.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.66169,
+      "lon": 175.51495,
+      "depth_m": 516.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.70742,
+      "lon": 175.5533,
+      "depth_m": 1316.0
+    }
+  ]
+}

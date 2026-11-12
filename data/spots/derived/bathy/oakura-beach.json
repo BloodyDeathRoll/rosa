@@ -1,0 +1,72 @@
+{
+  "spot": "oakura-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.1131,
+    173.9494
+  ],
+  "bearing_seaward_deg": 325.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 116.0,
+  "mean_slope_m_per_km": 6.2,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.11126,
+      "lon": 173.94774,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.10942,
+      "lon": 173.94608,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.10573,
+      "lon": 173.94275,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.09837,
+      "lon": 173.93611,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.091,
+      "lon": 173.92946,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.07626,
+      "lon": 173.91618,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.05415,
+      "lon": 173.89626,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.02467,
+      "lon": 173.86972,
+      "depth_m": 107.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.98044,
+      "lon": 173.82996,
+      "depth_m": 116.0
+    }
+  ]
+}

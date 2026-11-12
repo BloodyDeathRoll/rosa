@@ -1,0 +1,72 @@
+{
+  "spot": "guanabo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    23.1716,
+    -82.1343
+  ],
+  "bearing_seaward_deg": 340.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 1590.0,
+  "mean_slope_m_per_km": 89.86,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 23.17371,
+      "lon": -82.13514,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 23.17583,
+      "lon": -82.13597,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 23.18005,
+      "lon": -82.13765,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 23.1885,
+      "lon": -82.14099,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 23.19695,
+      "lon": -82.14434,
+      "depth_m": 145.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 23.21385,
+      "lon": -82.15103,
+      "depth_m": 503.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 23.2392,
+      "lon": -82.16108,
+      "depth_m": 1049.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 23.27301,
+      "lon": -82.17448,
+      "depth_m": 1423.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 23.3237,
+      "lon": -82.19459,
+      "depth_m": 1590.0
+    }
+  ]
+}

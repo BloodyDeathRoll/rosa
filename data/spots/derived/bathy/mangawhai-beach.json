@@ -1,0 +1,72 @@
+{
+  "spot": "mangawhai-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.0793,
+    174.5985
+  ],
+  "bearing_seaward_deg": 92.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 55.0,
+  "mean_slope_m_per_km": 2.93,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.07938,
+      "lon": 174.60128,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.07946,
+      "lon": 174.60406,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.07961,
+      "lon": 174.60962,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.07993,
+      "lon": 174.62074,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.08024,
+      "lon": 174.63186,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.08086,
+      "lon": 174.6541,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.08178,
+      "lon": 174.68747,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.08299,
+      "lon": 174.73195,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.08478,
+      "lon": 174.79869,
+      "depth_m": 55.0
+    }
+  ]
+}

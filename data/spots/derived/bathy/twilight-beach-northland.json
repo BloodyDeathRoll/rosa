@@ -1,0 +1,72 @@
+{
+  "spot": "twilight-beach-northland",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.4905,
+    172.6883
+  ],
+  "bearing_seaward_deg": 219.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 26.0,
+  "mean_slope_m_per_km": 1.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.49225,
+      "lon": 172.68658,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.49399,
+      "lon": 172.68487,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.49749,
+      "lon": 172.68143,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.50448,
+      "lon": 172.67456,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.51147,
+      "lon": 172.66769,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.52544,
+      "lon": 172.65395,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.5464,
+      "lon": 172.63333,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.57434,
+      "lon": 172.60582,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.61624,
+      "lon": 172.56451,
+      "depth_m": 26.0
+    }
+  ]
+}

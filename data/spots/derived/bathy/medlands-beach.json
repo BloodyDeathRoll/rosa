@@ -1,0 +1,72 @@
+{
+  "spot": "medlands-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.268,
+    175.4975
+  ],
+  "bearing_seaward_deg": 25.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 96.0,
+  "mean_slope_m_per_km": 5.18,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.26596,
+      "lon": 175.49868,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.26392,
+      "lon": 175.49986,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.25985,
+      "lon": 175.50221,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.2517,
+      "lon": 175.50693,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.24355,
+      "lon": 175.51164,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.22724,
+      "lon": 175.52106,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.20279,
+      "lon": 175.53518,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.17018,
+      "lon": 175.554,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.12126,
+      "lon": 175.58219,
+      "depth_m": 96.0
+    }
+  ]
+}

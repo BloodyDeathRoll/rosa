@@ -1,0 +1,72 @@
+{
+  "spot": "stevos-porirua",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.1219,
+    174.7988
+  ],
+  "bearing_seaward_deg": 323.0,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 186.0,
+  "mean_slope_m_per_km": 9.86,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.1201,
+      "lon": 174.797,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.11831,
+      "lon": 174.79521,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.11472,
+      "lon": 174.79162,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.10753,
+      "lon": 174.78443,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.10035,
+      "lon": 174.77725,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.08598,
+      "lon": 174.7629,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.06443,
+      "lon": 174.74137,
+      "depth_m": 156.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.03568,
+      "lon": 174.7127,
+      "depth_m": 204.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -40.99255,
+      "lon": 174.66973,
+      "depth_m": 186.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "albatross-point",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.1204,
+    174.7117
+  ],
+  "bearing_seaward_deg": 11.0,
+  "nearshore_depth_m": -53.0,
+  "offshore_depth_m": 27.0,
+  "mean_slope_m_per_km": 4.51,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.11819,
+      "lon": 174.71225,
+      "depth_m": -53.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.11599,
+      "lon": 174.71279,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.11157,
+      "lon": 174.71388,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.10274,
+      "lon": 174.71606,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.09392,
+      "lon": 174.71824,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.07626,
+      "lon": 174.7226,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.04977,
+      "lon": 174.72913,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.01446,
+      "lon": 174.73784,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -37.96149,
+      "lon": 174.75088,
+      "depth_m": 27.0
+    }
+  ]
+}

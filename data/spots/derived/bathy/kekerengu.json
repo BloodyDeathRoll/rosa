@@ -1,0 +1,72 @@
+{
+  "spot": "kekerengu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -42.0019,
+    174.0116
+  ],
+  "bearing_seaward_deg": 112.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 109.0,
+  "mean_slope_m_per_km": 6.59,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -42.00274,
+      "lon": 174.01441,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -42.00358,
+      "lon": 174.01721,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -42.00527,
+      "lon": 174.02282,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -42.00864,
+      "lon": 174.03404,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -42.012,
+      "lon": 174.04527,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -42.01873,
+      "lon": 174.06772,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -42.02882,
+      "lon": 174.1014,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -42.04225,
+      "lon": 174.14633,
+      "depth_m": 100.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -42.06236,
+      "lon": 174.21376,
+      "depth_m": 109.0
+    }
+  ]
+}

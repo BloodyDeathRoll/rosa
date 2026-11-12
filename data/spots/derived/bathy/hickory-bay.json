@@ -1,0 +1,72 @@
+{
+  "spot": "hickory-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -43.7766,
+    173.1078
+  ],
+  "bearing_seaward_deg": 126.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 75.0,
+  "mean_slope_m_per_km": 4.73,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -43.77792,
+      "lon": 173.11032,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -43.77924,
+      "lon": 173.11284,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -43.78189,
+      "lon": 173.11788,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -43.78717,
+      "lon": 173.12796,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -43.79245,
+      "lon": 173.13804,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -43.80302,
+      "lon": 173.1582,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -43.81886,
+      "lon": 173.18847,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -43.83997,
+      "lon": 173.22885,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -43.87161,
+      "lon": 173.28947,
+      "depth_m": 75.0
+    }
+  ]
+}

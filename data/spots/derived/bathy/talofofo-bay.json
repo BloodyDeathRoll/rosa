@@ -1,0 +1,72 @@
+{
+  "spot": "talofofo-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    13.3378,
+    144.7685
+  ],
+  "bearing_seaward_deg": 80.0,
+  "nearshore_depth_m": -40.0,
+  "offshore_depth_m": 1195.0,
+  "mean_slope_m_per_km": 69.58,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.33819,
+      "lon": 144.77078,
+      "depth_m": -40.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.33858,
+      "lon": 144.77305,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.33936,
+      "lon": 144.7776,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.34092,
+      "lon": 144.7867,
+      "depth_m": 99.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.34248,
+      "lon": 144.79581,
+      "depth_m": 297.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.3456,
+      "lon": 144.81401,
+      "depth_m": 552.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.35028,
+      "lon": 144.84132,
+      "depth_m": 687.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.35652,
+      "lon": 144.87773,
+      "depth_m": 873.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.36586,
+      "lon": 144.93236,
+      "depth_m": 1195.0
+    }
+  ]
+}

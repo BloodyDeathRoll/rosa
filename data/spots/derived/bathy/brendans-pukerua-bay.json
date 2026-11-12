@@ -1,0 +1,72 @@
+{
+  "spot": "brendans-pukerua-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.0261,
+    174.8991
+  ],
+  "bearing_seaward_deg": 322.0,
+  "nearshore_depth_m": 23.0,
+  "offshore_depth_m": 149.0,
+  "mean_slope_m_per_km": 7.1,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.02433,
+      "lon": 174.89727,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.02256,
+      "lon": 174.89543,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.01901,
+      "lon": 174.89176,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.01193,
+      "lon": 174.88442,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.00484,
+      "lon": 174.87709,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -40.99066,
+      "lon": 174.86242,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -40.96939,
+      "lon": 174.84044,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -40.94103,
+      "lon": 174.81114,
+      "depth_m": 103.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -40.89846,
+      "lon": 174.76725,
+      "depth_m": 149.0
+    }
+  ]
+}

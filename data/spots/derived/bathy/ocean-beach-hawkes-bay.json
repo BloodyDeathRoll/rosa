@@ -1,0 +1,72 @@
+{
+  "spot": "ocean-beach-hawkes-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.7424,
+    177.0123
+  ],
+  "bearing_seaward_deg": 103.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 136.0,
+  "mean_slope_m_per_km": 7.49,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.74291,
+      "lon": 177.01515,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.74341,
+      "lon": 177.018,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.74442,
+      "lon": 177.0237,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.74644,
+      "lon": 177.03509,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.74846,
+      "lon": 177.04649,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.7525,
+      "lon": 177.06929,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.75855,
+      "lon": 177.10349,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.7666,
+      "lon": 177.1491,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -39.77863,
+      "lon": 177.21754,
+      "depth_m": 136.0
+    }
+  ]
+}

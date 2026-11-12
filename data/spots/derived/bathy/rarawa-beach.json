@@ -1,0 +1,72 @@
+{
+  "spot": "rarawa-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.7181,
+    173.0817
+  ],
+  "bearing_seaward_deg": 39.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 118.0,
+  "mean_slope_m_per_km": 6.25,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.71635,
+      "lon": 173.08342,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.71461,
+      "lon": 173.08514,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.71111,
+      "lon": 173.08858,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.70412,
+      "lon": 173.09547,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.69713,
+      "lon": 173.10235,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.68315,
+      "lon": 173.11611,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.66218,
+      "lon": 173.13675,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.6342,
+      "lon": 173.16424,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.59223,
+      "lon": 173.20545,
+      "depth_m": 118.0
+    }
+  ]
+}

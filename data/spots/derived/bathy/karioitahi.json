@@ -1,0 +1,72 @@
+{
+  "spot": "karioitahi",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -37.2812,
+    174.6528
+  ],
+  "bearing_seaward_deg": 249.0,
+  "nearshore_depth_m": -49.0,
+  "offshore_depth_m": 52.0,
+  "mean_slope_m_per_km": 5.69,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -37.28201,
+      "lon": 174.65016,
+      "depth_m": -49.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -37.28281,
+      "lon": 174.64752,
+      "depth_m": -26.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -37.28442,
+      "lon": 174.64225,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -37.28764,
+      "lon": 174.63169,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -37.29086,
+      "lon": 174.62114,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -37.2973,
+      "lon": 174.60003,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -37.30695,
+      "lon": 174.56836,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -37.31981,
+      "lon": 174.52611,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -37.33906,
+      "lon": 174.46272,
+      "depth_m": 52.0
+    }
+  ]
+}

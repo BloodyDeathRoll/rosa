@@ -1,0 +1,72 @@
+{
+  "spot": "playa-amarillo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    11.3986,
+    -86.0385
+  ],
+  "bearing_seaward_deg": 235.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 82.0,
+  "mean_slope_m_per_km": 5.3,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.39731,
+      "lon": -86.04038,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.39602,
+      "lon": -86.04226,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.39344,
+      "lon": -86.04601,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.38828,
+      "lon": -86.05353,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.38312,
+      "lon": -86.06104,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.37281,
+      "lon": -86.07607,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.35733,
+      "lon": -86.09861,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.33669,
+      "lon": -86.12866,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.30572,
+      "lon": -86.17373,
+      "depth_m": 82.0
+    }
+  ]
+}

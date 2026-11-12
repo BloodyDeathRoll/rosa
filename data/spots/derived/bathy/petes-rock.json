@@ -1,0 +1,72 @@
+{
+  "spot": "petes-rock",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.1052,
+    174.83
+  ],
+  "bearing_seaward_deg": 4.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 76.0,
+  "mean_slope_m_per_km": 3.89,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.10296,
+      "lon": 174.83021,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.10071,
+      "lon": 174.83042,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.09623,
+      "lon": 174.83083,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.08726,
+      "lon": 174.83166,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.07829,
+      "lon": 174.8325,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.06034,
+      "lon": 174.83416,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.03343,
+      "lon": 174.83665,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -40.99754,
+      "lon": 174.83997,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -40.94372,
+      "lon": 174.84495,
+      "depth_m": 76.0
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+# Rosa spot database - Guam (seeded 2026-11-12). Hagatna's Boat Basin and Rick's Reef on the west reef (N-NW winter
+# and typhoon swell), Talofofo Bay on the east coast (E trade swell).
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Guam"
+
+defaults: &gu
+  timezone: Pacific/Guam
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [294, 64]
+  ideal:
+    wind_dir: [134, 224]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - guam, 3 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: ricks-reef, name: "Rick's Reef", town: "Tamuning", lat: 13.4969, lon: 144.7692, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, break_type: reef, <<: *gu }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: boat-basin-hagatna, name: "Boat Basin (Hagåtña)", town: "Hagåtña", lat: 13.4826, lon: 144.7522, offshore_direction: 180, swell_window: [295, 65], offshore_km: 5.0, break_type: reef, <<: *gu }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: talofofo-bay, name: "Talofofo Bay", town: "Talofofo", lat: 13.3378, lon: 144.7685, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, break_type: beach, <<: *gu }  # sat-verified 2026-11-12 (websearch-seeded)

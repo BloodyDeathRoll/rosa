@@ -1,0 +1,72 @@
+{
+  "spot": "maori-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.8363,
+    174.4251
+  ],
+  "bearing_seaward_deg": 251.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 61.0,
+  "mean_slope_m_per_km": 3.27,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.83703,
+      "lon": 174.42244,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.83776,
+      "lon": 174.41979,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.83923,
+      "lon": 174.41448,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.84215,
+      "lon": 174.40385,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.84508,
+      "lon": 174.39322,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.85093,
+      "lon": 174.37197,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.85969,
+      "lon": 174.34008,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.87137,
+      "lon": 174.29755,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.88885,
+      "lon": 174.23373,
+      "depth_m": 61.0
+    }
+  ]
+}

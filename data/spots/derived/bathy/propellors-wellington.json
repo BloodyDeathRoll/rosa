@@ -1,0 +1,72 @@
+{
+  "spot": "propellors-wellington",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.3447,
+    174.8224
+  ],
+  "bearing_seaward_deg": 157.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 453.0,
+  "mean_slope_m_per_km": 25.18,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.34677,
+      "lon": 174.82357,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.34884,
+      "lon": 174.82474,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.35298,
+      "lon": 174.82708,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.36126,
+      "lon": 174.83176,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.36953,
+      "lon": 174.83645,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.38609,
+      "lon": 174.84582,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.41092,
+      "lon": 174.85988,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.44403,
+      "lon": 174.87865,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.49368,
+      "lon": 174.90684,
+      "depth_m": 453.0
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+# Rosa spot database - South Island (seeded 2026-11-12).
+# Kaikoura's reefs (Mangamaunu, Kahutara), Christchurch's beaches, Dunedin and the Otago
+# Peninsula, Southland and the West Coast. S-SE Southern Ocean swell on the east, W-SW on the west.
+# Names and coordinates from the regional councils' coastal-plan surf break layers and the NZCPS 2010 schedule,
+# cross-read with surf guides and tourism boards.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "New Zealand"
+
+defaults: &sinz
+  timezone: Pacific/Auckland
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [51, 181]
+  ideal:
+    wind_dir: [251, 341]
+    size_m: [0.6, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - south-island, 24 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: tauranga-bay, name: "Tauranga Bay", town: "Tauranga Bay", lat: -41.7684, lon: 171.4594, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: beach, <<: *sinz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: ward-beach, name: "Ward Beach", town: "Ward", lat: -41.8455, lon: 174.1836, offshore_direction: 301, swell_window: [56, 186], offshore_km: 5.0, break_type: beach, <<: *sinz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: kekerengu, name: "Kekerengu", town: "Kekerengu", lat: -42.0019, lon: 174.0116, offshore_direction: 292, swell_window: [47, 177], offshore_km: 5.0, break_type: beach, <<: *sinz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: okiwi-bay, name: "Okiwi Bay", town: "Clarence", lat: -42.2190, lon: 173.8601, offshore_direction: 318, swell_window: [73, 203], offshore_km: 5.0, break_type: beach, <<: *sinz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: mangamaunu, name: "Mangamaunu", town: "Kaikōura", lat: -42.2972, lon: 173.7497, offshore_direction: 295, swell_window: [50, 180], offshore_km: 5.0, break_type: point, <<: *sinz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: goochs-beach, name: "Gooch's Beach", town: "Kaikōura", lat: -42.4166, lon: 173.6763, offshore_direction: 41, swell_window: [156, 286], offshore_km: 5.0, break_type: beach, <<: *sinz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: kahutara, name: "Kahutara", town: "Peketa", lat: -42.4353, lon: 173.5891, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, break_type: point, <<: *sinz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: oaro, name: "Oaro", town: "Oaro", lat: -42.5152, lon: 173.5075, offshore_direction: 282, swell_window: [37, 167], offshore_km: 5.0, break_type: beach, <<: *sinz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: gore-bay, name: "Gore Bay", town: "Gore Bay", lat: -42.8548, lon: 173.3126, offshore_direction: 293, swell_window: [48, 178], offshore_km: 5.0, break_type: beach, <<: *sinz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: waimairi-beach, name: "Waimairi Beach", town: "Spencerville", lat: -43.4857, lon: 172.7245, offshore_direction: 257, swell_window: [12, 142], offshore_km: 5.0, break_type: beach, <<: *sinz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: north-beach-christchurch, name: "North Beach", town: "Christchurch", lat: -43.4908, lon: 172.7262, offshore_direction: 256, swell_window: [11, 141], offshore_km: 5.0, break_type: beach, <<: *sinz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: new-brighton-christchurch, name: "New Brighton", town: "Christchurch", lat: -43.5053, lon: 172.7313, offshore_direction: 255, swell_window: [10, 140], offshore_km: 5.0, break_type: beach, <<: *sinz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: south-new-brighton, name: "South New Brighton", town: "Lyttelton", lat: -43.5293, lon: 172.7409, offshore_direction: 252, swell_window: [7, 137], offshore_km: 5.0, break_type: beach, <<: *sinz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: southshore, name: "Southshore", town: "Lyttelton", lat: -43.5497, lon: 172.7516, offshore_direction: 255, swell_window: [10, 140], offshore_km: 5.0, break_type: beach, <<: *sinz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: hickory-bay, name: "Hickory Bay", town: "Le Bons Bay", lat: -43.7766, lon: 173.1078, offshore_direction: 306, swell_window: [61, 191], offshore_km: 5.0, break_type: beach, <<: *sinz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: magnet-bay, name: "Magnet Bay", town: "Birdlings Flat", lat: -43.8421, lon: 172.7396, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, break_type: point, <<: *sinz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: karitane, name: "Karitane", town: "Karitāne", lat: -45.6398, lon: 170.6739, offshore_direction: 258, swell_window: [13, 143], offshore_km: 5.0, break_type: point, <<: *sinz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: whareakeake-murderers, name: "Whareakeake (Murderers)", town: "Long Beach", lat: -45.7627, lon: 170.6699, offshore_direction: 170, shore_normal: 33, swell_window: [328, 98], offshore_km: 5.0, break_type: point, <<: *sinz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: aramoana-the-spit, name: "Aramoana (The Spit)", town: "Aramoana", lat: -45.7752, lon: 170.7081, offshore_direction: 241, swell_window: [356, 126], offshore_km: 5.0, break_type: beach, <<: *sinz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: smaills-beach, name: "Smaills Beach", town: "Highcliff", lat: -45.9071, lon: 170.5617, offshore_direction: 15, swell_window: [130, 260], offshore_km: 5.0, break_type: beach, <<: *sinz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: st-kilda-dunedin, name: "St Kilda", town: "Dunedin", lat: -45.9089, lon: 170.5120, offshore_direction: 354, swell_window: [109, 239], offshore_km: 5.0, break_type: beach, <<: *sinz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: blackhead-dunedin, name: "Blackhead (Dunedin)", town: "Westwood", lat: -45.9237, lon: 170.4434, offshore_direction: 355, swell_window: [110, 240], offshore_km: 5.0, break_type: beach, <<: *sinz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: kaka-point, name: "Kaka Point", town: "Kākā Point", lat: -46.3833, lon: 169.7847, offshore_direction: 272, swell_window: [27, 157], offshore_km: 5.0, break_type: beach, <<: *sinz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: porpoise-bay, name: "Porpoise Bay", town: "Curio Bay", lat: -46.6453, lon: 169.1148, offshore_direction: 328, swell_window: [83, 213], offshore_km: 5.0, break_type: beach, <<: *sinz }  # sat-verified 2026-11-12 (websearch-seeded)

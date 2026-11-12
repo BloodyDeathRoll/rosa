@@ -1,0 +1,72 @@
+{
+  "spot": "rahotu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.3312,
+    173.7646
+  ],
+  "bearing_seaward_deg": 251.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 110.0,
+  "mean_slope_m_per_km": 6.08,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.33193,
+      "lon": 173.76185,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.33266,
+      "lon": 173.7591,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.33413,
+      "lon": 173.75361,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.33705,
+      "lon": 173.74261,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.33998,
+      "lon": 173.73162,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.34583,
+      "lon": 173.70962,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.35459,
+      "lon": 173.67662,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.36626,
+      "lon": 173.63261,
+      "depth_m": 103.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -39.38373,
+      "lon": 173.56657,
+      "depth_m": 110.0
+    }
+  ]
+}

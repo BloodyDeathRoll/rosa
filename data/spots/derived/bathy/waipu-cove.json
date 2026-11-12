@@ -1,0 +1,72 @@
+{
+  "spot": "waipu-cove",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.0271,
+    174.5063
+  ],
+  "bearing_seaward_deg": 45.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 44.0,
+  "mean_slope_m_per_km": 2.7,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.02551,
+      "lon": 174.50827,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.02392,
+      "lon": 174.51023,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.02074,
+      "lon": 174.51416,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.01438,
+      "lon": 174.52202,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.00802,
+      "lon": 174.52988,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.9953,
+      "lon": 174.5456,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.97621,
+      "lon": 174.56916,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.95075,
+      "lon": 174.60057,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.91255,
+      "lon": 174.64763,
+      "depth_m": 44.0
+    }
+  ]
+}

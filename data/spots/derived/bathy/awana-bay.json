@@ -1,0 +1,72 @@
+{
+  "spot": "awana-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.2087,
+    175.481
+  ],
+  "bearing_seaward_deg": 80.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 119.0,
+  "mean_slope_m_per_km": 7.15,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.20831,
+      "lon": 175.48374,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.20792,
+      "lon": 175.48649,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.20714,
+      "lon": 175.49198,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.20557,
+      "lon": 175.50295,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.20401,
+      "lon": 175.51393,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.20088,
+      "lon": 175.53588,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.19617,
+      "lon": 175.5688,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.18989,
+      "lon": 175.61269,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.18043,
+      "lon": 175.6785,
+      "depth_m": 119.0
+    }
+  ]
+}

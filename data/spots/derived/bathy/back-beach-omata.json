@@ -1,0 +1,72 @@
+{
+  "spot": "back-beach-omata",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.0695,
+    174.0164
+  ],
+  "bearing_seaward_deg": 294.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 115.0,
+  "mean_slope_m_per_km": 6.14,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.06859,
+      "lon": 174.01375,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.06767,
+      "lon": 174.01111,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.06584,
+      "lon": 174.00582,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.06218,
+      "lon": 173.99524,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.05852,
+      "lon": 173.98466,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.0512,
+      "lon": 173.9635,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.04021,
+      "lon": 173.93178,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.02554,
+      "lon": 173.88949,
+      "depth_m": 101.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -39.0035,
+      "lon": 173.8261,
+      "depth_m": 115.0
+    }
+  ]
+}

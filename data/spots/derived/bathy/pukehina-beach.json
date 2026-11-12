@@ -1,0 +1,72 @@
+{
+  "spot": "pukehina-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -37.7793,
+    176.5123
+  ],
+  "bearing_seaward_deg": 38.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 91.0,
+  "mean_slope_m_per_km": 4.96,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -37.77753,
+      "lon": 176.51405,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -37.77576,
+      "lon": 176.5158,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -37.77221,
+      "lon": 176.5193,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -37.76513,
+      "lon": 176.52631,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -37.75804,
+      "lon": 176.53331,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -37.74386,
+      "lon": 176.54731,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -37.72259,
+      "lon": 176.5683,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -37.69423,
+      "lon": 176.59627,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -37.65167,
+      "lon": 176.63818,
+      "depth_m": 91.0
+    }
+  ]
+}

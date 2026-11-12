@@ -1,0 +1,72 @@
+{
+  "spot": "pagua-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    15.5189,
+    -61.2733
+  ],
+  "bearing_seaward_deg": 45.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 717.0,
+  "mean_slope_m_per_km": 40.0,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 15.52049,
+      "lon": -61.27165,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 15.52208,
+      "lon": -61.27,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 15.52526,
+      "lon": -61.2667,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 15.53162,
+      "lon": -61.2601,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 15.53798,
+      "lon": -61.2535,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 15.55069,
+      "lon": -61.2403,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 15.56977,
+      "lon": -61.22049,
+      "depth_m": 131.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 15.5952,
+      "lon": -61.19407,
+      "depth_m": 518.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 15.63333,
+      "lon": -61.15444,
+      "depth_m": 717.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "greenmeadows-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.492,
+    173.8893
+  ],
+  "bearing_seaward_deg": 226.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 82.0,
+  "mean_slope_m_per_km": 4.56,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.49356,
+      "lon": 173.8872,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.49512,
+      "lon": 173.88511,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.49825,
+      "lon": 173.88092,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.50449,
+      "lon": 173.87253,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.51074,
+      "lon": 173.86414,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.52323,
+      "lon": 173.84737,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.54196,
+      "lon": 173.82219,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.56692,
+      "lon": 173.7886,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -39.60435,
+      "lon": 173.73816,
+      "depth_m": 82.0
+    }
+  ]
+}

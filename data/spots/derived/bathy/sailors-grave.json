@@ -1,0 +1,72 @@
+{
+  "spot": "sailors-grave",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.966,
+    175.8461
+  ],
+  "bearing_seaward_deg": 57.0,
+  "nearshore_depth_m": -39.0,
+  "offshore_depth_m": 93.0,
+  "mean_slope_m_per_km": 7.44,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.96478,
+      "lon": 175.84846,
+      "depth_m": -39.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.96355,
+      "lon": 175.85082,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.9611,
+      "lon": 175.85554,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.9562,
+      "lon": 175.86498,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.9513,
+      "lon": 175.87441,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.9415,
+      "lon": 175.89328,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.92679,
+      "lon": 175.92158,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.90717,
+      "lon": 175.95929,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.87771,
+      "lon": 176.01582,
+      "depth_m": 93.0
+    }
+  ]
+}

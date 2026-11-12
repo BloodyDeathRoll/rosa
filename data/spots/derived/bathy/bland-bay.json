@@ -1,0 +1,72 @@
+{
+  "spot": "bland-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.3373,
+    174.353
+  ],
+  "bearing_seaward_deg": 92.0,
+  "nearshore_depth_m": -18.0,
+  "offshore_depth_m": 126.0,
+  "mean_slope_m_per_km": 8.11,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.33738,
+      "lon": 174.35575,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.33746,
+      "lon": 174.35851,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.33761,
+      "lon": 174.36402,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.33793,
+      "lon": 174.37504,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.33824,
+      "lon": 174.38605,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.33886,
+      "lon": 174.40809,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.33978,
+      "lon": 174.44114,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.34099,
+      "lon": 174.48522,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.34279,
+      "lon": 174.55133,
+      "depth_m": 126.0
+    }
+  ]
+}

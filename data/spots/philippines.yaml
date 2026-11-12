@@ -51,7 +51,7 @@ spots:
   - { id: puraran,            name: "Puraran (Catanduanes)", town: "Guinsaanan",    lat: 13.656, lon: 124.4045, offshore_direction: 260, offshore_bearing: 85.8, offshore_km: 6.01, swell_window: [35, 170], <<: *phe }  # sat-verified 2026-07-23 ("Majestics" - hollow right; Baras E coast)
   # ---- Visayas / Mindanao Pacific ----
   - { id: calicoan-abcd,      name: "ABCD (Calicoan, Guiuan)", town: "Ngolos",  lat: 10.979, lon: 125.778, offshore_direction: 310, swell_window: [40, 160], offshore_bearing: 112.3, offshore_km: 8.5, <<: *phe }  # sat-verified 2026-07-23
-  - { id: pacifico,           name: "Pacifico (Siargao)", town: "Consolacion",       lat: 9.8715, lon: 126.1165, offshore_direction: 250, swell_window: [20, 160],  offshore_bearing: 70.7, offshore_km: 6.21, <<: *phe }  # sat-verified 2026-07-23 (quieter N-Siargao reef)
+  - { id: pacifico,           name: "Pacifico (Siargao)", town: "Pacifico",       lat: 9.9448, lon: 126.1039, offshore_direction: 250, swell_window: [20, 160],  offshore_bearing: 70.7, offshore_km: 6.21, <<: *phe }  # sat-verified 2026-07-23 (quieter N-Siargao reef)  [moved 2026-11-12: 8 km north onto the OSM surf node at Pacifico village, breaking reef on the tile]
   - { id: cloud-9,            name: "Cloud 9 (Siargao)", town: "Catangnan",        lat: 9.815, lon: 126.169, offshore_direction: 270, swell_window: [0, 180], offshore_bearing: 94.1, offshore_km: 7.8, <<: *phe }  # sat-verified 2026-07-23 (the PH wave; boardwalk tower)
   - { id: lanuza,             name: "Lanuza (Doot Poktoy)", town: "Lanuza",     lat: 9.2355, lon: 126.06, offshore_direction: 190, swell_window: [350, 120], offshore_bearing: 10.3, offshore_km: 6.16, break_type: point, <<: *phe }  # sat-verified 2026-07-23 (Surigao del Sur left point)
 
@@ -90,3 +90,8 @@ spots:
   - { id: cemetery, name: "Cemetery", town: "General Luna", lat: 9.7842, lon: 126.1731, offshore_direction: 268, swell_window: [23, 153], offshore_km: 5.0, <<: *phe }  # sat-verified 2026-09-29 (websearch-seeded)
   - { id: daku, name: "Daku", town: "General Luna", lat: 9.7412, lon: 126.1726, offshore_direction: 267, swell_window: [22, 152], offshore_km: 5.0, <<: *phe }  # sat-verified 2026-09-29 (websearch-seeded)
   - { id: dahican, name: "Dahican", town: "Mati", lat: 6.9243, lon: 126.2811, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, <<: *phe }  # sat-verified 2026-09-29 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - 2 more (web-search flow; coordinates from OSM / Nominatim / Photon, every pin
+  # rendered and judged at z16)
+  - { id: taboc, name: "Taboc", town: "Taboc", lat: 16.6923, lon: 120.3364, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, break_type: beach, <<: *phw }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: burgos-siargao, name: "Burgos (Siargao)", town: "Burgos", lat: 10.0185, lon: 126.0797, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, break_type: reef, <<: *phe }  # sat-verified 2026-11-12 (websearch-seeded)

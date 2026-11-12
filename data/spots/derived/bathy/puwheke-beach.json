@@ -1,0 +1,72 @@
+{
+  "spot": "puwheke-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.8611,
+    173.315
+  ],
+  "bearing_seaward_deg": 353.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 80.0,
+  "mean_slope_m_per_km": 4.51,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.85887,
+      "lon": 173.31467,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.85664,
+      "lon": 173.31433,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.85217,
+      "lon": 173.31366,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.84325,
+      "lon": 173.31233,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.83432,
+      "lon": 173.31099,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.81647,
+      "lon": 173.30833,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.78969,
+      "lon": 173.30432,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.75398,
+      "lon": 173.29899,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.70043,
+      "lon": 173.291,
+      "depth_m": 80.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "kina-road-rahotu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.3953,
+    173.7819
+  ],
+  "bearing_seaward_deg": 248.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 111.0,
+  "mean_slope_m_per_km": 6.14,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.39614,
+      "lon": 173.7792,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.39698,
+      "lon": 173.7765,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.39867,
+      "lon": 173.77111,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.40204,
+      "lon": 173.76032,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.4054,
+      "lon": 173.74953,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.41213,
+      "lon": 173.72794,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.42222,
+      "lon": 173.69555,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.43566,
+      "lon": 173.65235,
+      "depth_m": 107.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -39.45578,
+      "lon": 173.58751,
+      "depth_m": 111.0
+    }
+  ]
+}

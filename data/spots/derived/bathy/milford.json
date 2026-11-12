@@ -1,0 +1,72 @@
+{
+  "spot": "milford",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.7704,
+    174.7737
+  ],
+  "bearing_seaward_deg": 56.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 28.0,
+  "mean_slope_m_per_km": 1.3,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.76914,
+      "lon": 174.77603,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.76789,
+      "lon": 174.77835,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.76537,
+      "lon": 174.78301,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.76034,
+      "lon": 174.79231,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.75531,
+      "lon": 174.80162,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.74525,
+      "lon": 174.82022,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.73015,
+      "lon": 174.84812,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.71,
+      "lon": 174.8853,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.67976,
+      "lon": 174.94104,
+      "depth_m": 28.0
+    }
+  ]
+}

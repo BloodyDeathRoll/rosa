@@ -1,0 +1,72 @@
+{
+  "spot": "wind-wand-new-plymouth",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.0555,
+    174.0715
+  ],
+  "bearing_seaward_deg": 349.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 90.0,
+  "mean_slope_m_per_km": 4.79,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.05329,
+      "lon": 174.07095,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.05109,
+      "lon": 174.0704,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.04667,
+      "lon": 174.06929,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.03784,
+      "lon": 174.06708,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.02902,
+      "lon": 174.06487,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.01136,
+      "lon": 174.06046,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.98487,
+      "lon": 174.05384,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.94956,
+      "lon": 174.04502,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.89659,
+      "lon": 174.03181,
+      "depth_m": 90.0
+    }
+  ]
+}

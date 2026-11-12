@@ -1,0 +1,72 @@
+{
+  "spot": "te-paki",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.5494,
+    172.7567
+  ],
+  "bearing_seaward_deg": 225.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 51.0,
+  "mean_slope_m_per_km": 2.82,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.55099,
+      "lon": 172.75477,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.55258,
+      "lon": 172.75284,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.55576,
+      "lon": 172.74898,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.56212,
+      "lon": 172.74126,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.56848,
+      "lon": 172.73353,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.58119,
+      "lon": 172.71808,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.60026,
+      "lon": 172.6949,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.62567,
+      "lon": 172.66397,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.66379,
+      "lon": 172.61753,
+      "depth_m": 51.0
+    }
+  ]
+}

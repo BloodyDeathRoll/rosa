@@ -1,0 +1,72 @@
+{
+  "spot": "dolphin-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.5722,
+    175.4319
+  ],
+  "bearing_seaward_deg": 164.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 1138.0,
+  "mean_slope_m_per_km": 64.39,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.57436,
+      "lon": 175.43273,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.57652,
+      "lon": 175.43356,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.58084,
+      "lon": 175.43521,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.58949,
+      "lon": 175.43853,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.59813,
+      "lon": 175.44184,
+      "depth_m": 83.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.61542,
+      "lon": 175.44848,
+      "depth_m": 127.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.64136,
+      "lon": 175.45844,
+      "depth_m": 291.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.67593,
+      "lon": 175.47173,
+      "depth_m": 617.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.72779,
+      "lon": 175.49169,
+      "depth_m": 1138.0
+    }
+  ]
+}

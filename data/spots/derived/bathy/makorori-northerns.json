@@ -1,0 +1,72 @@
+{
+  "spot": "makorori-northerns",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.6503,
+    178.1317
+  ],
+  "bearing_seaward_deg": 188.0,
+  "nearshore_depth_m": -17.0,
+  "offshore_depth_m": 45.0,
+  "mean_slope_m_per_km": 3.49,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.65253,
+      "lon": 178.1313,
+      "depth_m": -17.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.65475,
+      "lon": 178.1309,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.65921,
+      "lon": 178.1301,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.66811,
+      "lon": 178.12849,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.67702,
+      "lon": 178.12689,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.69483,
+      "lon": 178.12368,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.72154,
+      "lon": 178.11887,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.75717,
+      "lon": 178.11244,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.8106,
+      "lon": 178.10279,
+      "depth_m": 45.0
+    }
+  ]
+}

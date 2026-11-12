@@ -35,7 +35,20 @@ from .spots import load_spots
 
 # One basin box can serve several spot regions (Costa Rica + Nicaragua share a coast).
 BASINS: dict[str, tuple[str, ...]] = {
-    "new-zealand": ("New Zealand",),
+    # the ten NZ regions seeded 2026-11-12 from the councils' surf break layers share the frame
+    "new-zealand": (
+        "New Zealand",
+        "Northland",
+        "Auckland",
+        "Coromandel",
+        "Waikato",
+        "Bay Of Plenty",
+        "Gisborne",
+        "Hawkes Bay",
+        "Taranaki",
+        "Wellington",
+        "South Island",
+    ),
     "israel": ("Israel",),
     # Cyprus sits in the same Levantine wind-swell sea as Israel but 300 km north-west;
     # its own frame keeps Israel's box as it is
@@ -101,6 +114,9 @@ BASINS: dict[str, tuple[str, ...]] = {
         "Fernando de Noronha",
         "Rio Grande do Norte",
         "Ceara",
+        # Maranhao and Para (seeded 2026-11-12) continue the N-NE trade-swell coast west
+        "Maranhao",
+        "Para",
     ),
     # Cadiz joins Portugal: the Gulf of Cadiz is inside Portugal's padded frame already,
     # and it takes the same W-SW Atlantic swell as the Algarve
@@ -263,6 +279,9 @@ BASINS: dict[str, tuple[str, ...]] = {
         "Trinidad",
         "Curacao",
         "Martinique",
+        # Saint Lucia and Dominica either side of Martinique (seeded 2026-11-12)
+        "Saint Lucia",
+        "Dominica",
     ),
     # the northern Caribbean: Hispaniola's north coast faces the open North Atlantic winter
     # swell, its south coast the Caribbean - a frame of its own; Puerto Rico's Rincon and
@@ -280,11 +299,18 @@ BASINS: dict[str, tuple[str, ...]] = {
         "Antigua",
         "Guadeloupe",
         "Jamaica",
+        # Haiti and Cuba share Hispaniola's sea and winter N swell (seeded 2026-11-12)
+        "Haiti",
+        "Cuba",
     ),
     # Bermuda, 1,000 km off Cape Hatteras: its own small frame
     "bermuda": ("Bermuda",),
     # the Galapagos, 900 km offshore: its own small frame rather than stretching Ecuador's
     "galapagos": ("Galapagos",),
+    # Easter Island, 3,500 km off Chile: its own small frame
+    "easter-island": ("Easter Island",),
+    # Micronesia: Guam and Pohnpei on the same N-NE North Pacific winter swell
+    "micronesia": ("Guam", "Pohnpei"),
     # Chile in two frames: the desert north (Arica to Antofagasta) takes the same S-SW
     # Southern Ocean groundswell arriving from much further away than it does in the
     # south, and one box over 24 deg of latitude would drown the detail in sea room

@@ -1,0 +1,72 @@
+{
+  "spot": "kai-iwi-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.888,
+    174.9041
+  ],
+  "bearing_seaward_deg": 209.0,
+  "nearshore_depth_m": -16.0,
+  "offshore_depth_m": 37.0,
+  "mean_slope_m_per_km": 2.99,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.88997,
+      "lon": 174.90268,
+      "depth_m": -16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.89193,
+      "lon": 174.90126,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.89587,
+      "lon": 174.89842,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.90373,
+      "lon": 174.89273,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.9116,
+      "lon": 174.88705,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.92732,
+      "lon": 174.87567,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.95092,
+      "lon": 174.8586,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.98237,
+      "lon": 174.83582,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -40.02954,
+      "lon": 174.80161,
+      "depth_m": 37.0
+    }
+  ]
+}

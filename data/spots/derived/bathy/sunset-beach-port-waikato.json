@@ -1,0 +1,72 @@
+{
+  "spot": "sunset-beach-port-waikato",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -37.3967,
+    174.7098
+  ],
+  "bearing_seaward_deg": 309.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -37.39529,
+      "lon": 174.7076,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -37.39387,
+      "lon": 174.7054,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -37.39104,
+      "lon": 174.701,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -37.38538,
+      "lon": 174.69221,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -37.37972,
+      "lon": 174.68341,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -37.36839,
+      "lon": 174.66583,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -37.3514,
+      "lon": 174.63946,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -37.32874,
+      "lon": 174.60433,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -37.29472,
+      "lon": 174.55166,
+      "depth_m": 35.0
+    }
+  ]
+}

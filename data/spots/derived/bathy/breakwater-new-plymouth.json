@@ -1,0 +1,72 @@
+{
+  "spot": "breakwater-new-plymouth",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.0511,
+    174.0426
+  ],
+  "bearing_seaward_deg": 338.0,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 97.0,
+  "mean_slope_m_per_km": 4.73,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.04902,
+      "lon": 174.04152,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.04693,
+      "lon": 174.04043,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.04276,
+      "lon": 174.03826,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.03442,
+      "lon": 174.03393,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.02608,
+      "lon": 174.02959,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.00941,
+      "lon": 174.02092,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.98439,
+      "lon": 174.00793,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.95103,
+      "lon": 173.99062,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.90098,
+      "lon": 173.96468,
+      "depth_m": 97.0
+    }
+  ]
+}

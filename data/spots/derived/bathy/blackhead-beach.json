@@ -1,0 +1,72 @@
+{
+  "spot": "blackhead-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -40.1693,
+    176.8284
+  ],
+  "bearing_seaward_deg": 108.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 195.0,
+  "mean_slope_m_per_km": 11.38,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -40.16999,
+      "lon": 176.8312,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -40.17069,
+      "lon": 176.834,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -40.17208,
+      "lon": 176.83959,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -40.17486,
+      "lon": 176.85079,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -40.17763,
+      "lon": 176.86198,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -40.18318,
+      "lon": 176.88438,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -40.1915,
+      "lon": 176.91797,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -40.20257,
+      "lon": 176.96278,
+      "depth_m": 121.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -40.21915,
+      "lon": 177.03002,
+      "depth_m": 195.0
+    }
+  ]
+}

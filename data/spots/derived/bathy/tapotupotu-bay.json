@@ -1,0 +1,72 @@
+{
+  "spot": "tapotupotu-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.4352,
+    172.7147
+  ],
+  "bearing_seaward_deg": 18.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 78.0,
+  "mean_slope_m_per_km": 4.17,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.43306,
+      "lon": 172.71554,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.43092,
+      "lon": 172.71638,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.42665,
+      "lon": 172.71807,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.41809,
+      "lon": 172.72144,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.40954,
+      "lon": 172.72481,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.39243,
+      "lon": 172.73154,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.36677,
+      "lon": 172.74163,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.33256,
+      "lon": 172.75508,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.28123,
+      "lon": 172.77524,
+      "depth_m": 78.0
+    }
+  ]
+}

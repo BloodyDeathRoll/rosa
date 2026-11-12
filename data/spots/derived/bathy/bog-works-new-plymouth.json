@@ -1,0 +1,72 @@
+{
+  "spot": "bog-works-new-plymouth",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.0495,
+    174.0791
+  ],
+  "bearing_seaward_deg": 334.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 93.0,
+  "mean_slope_m_per_km": 5.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.04748,
+      "lon": 174.07783,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.04546,
+      "lon": 174.07656,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.04142,
+      "lon": 174.07402,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.03333,
+      "lon": 174.06895,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.02525,
+      "lon": 174.06388,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.00908,
+      "lon": 174.05373,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.98483,
+      "lon": 174.03853,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.95249,
+      "lon": 174.01827,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.90397,
+      "lon": 173.98791,
+      "depth_m": 93.0
+    }
+  ]
+}

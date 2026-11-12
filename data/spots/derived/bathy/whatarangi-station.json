@@ -1,0 +1,72 @@
+{
+  "spot": "whatarangi-station",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.4677,
+    175.2104
+  ],
+  "bearing_seaward_deg": 299.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 14.0,
+  "mean_slope_m_per_km": 0.34,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.46661,
+      "lon": 175.20778,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.46552,
+      "lon": 175.20515,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.46334,
+      "lon": 175.1999,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.45898,
+      "lon": 175.18941,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.45462,
+      "lon": 175.17892,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.44589,
+      "lon": 175.15793,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.43279,
+      "lon": 175.12647,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.41531,
+      "lon": 175.08454,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.38907,
+      "lon": 175.02168,
+      "depth_m": 14.0
+    }
+  ]
+}

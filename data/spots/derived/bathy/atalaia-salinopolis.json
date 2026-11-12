@@ -1,0 +1,72 @@
+{
+  "spot": "atalaia-salinopolis",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -0.5947,
+    -47.3059
+  ],
+  "bearing_seaward_deg": 5.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 26.0,
+  "mean_slope_m_per_km": 1.58,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -0.59246,
+      "lon": -47.3057,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -0.59022,
+      "lon": -47.30551,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -0.58574,
+      "lon": -47.30512,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -0.57678,
+      "lon": -47.30433,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -0.56782,
+      "lon": -47.30355,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -0.54991,
+      "lon": -47.30198,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -0.52303,
+      "lon": -47.29963,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -0.48719,
+      "lon": -47.29649,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -0.43344,
+      "lon": -47.29179,
+      "depth_m": 26.0
+    }
+  ]
+}

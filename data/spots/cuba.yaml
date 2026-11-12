@@ -1,0 +1,25 @@
+# Rosa spot database - Cuba (seeded 2026-11-12). Havana's north coast (La Setenta, Guanabo) on winter NE swell from
+# US East Coast storms; Boca de Yumuri near Baracoa on NE groundswell Dec-Mar; Mar Verde by Santiago on SE-S
+# hurricane swell Aug-Nov.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Cuba"
+
+defaults: &cu
+  timezone: America/Havana
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [249, 19]
+  ideal:
+    wind_dir: [89, 179]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - cuba, 4 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: guanabo, name: "Guanabo", town: "Guanabo", lat: 23.1716, lon: -82.1343, offshore_direction: 160, swell_window: [275, 45], offshore_km: 5.0, break_type: beach, <<: *cu }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: la-setenta, name: "La Setenta (Calle 70)", town: "Havana", lat: 23.1153, lon: -82.4392, offshore_direction: 140, swell_window: [255, 25], offshore_km: 5.0, break_type: reef, <<: *cu }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: boca-de-yumuri, name: "Boca de Yumuri", town: "Boca de Yumuri", lat: 20.3020, lon: -74.2974, offshore_direction: 140, swell_window: [255, 25], offshore_km: 5.0, break_type: point, <<: *cu }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: mar-verde, name: "Playa Mar Verde", town: "Santiago de Cuba", lat: 19.9657, lon: -75.9431, offshore_direction: 355, swell_window: [110, 240], offshore_km: 5.0, break_type: beach, <<: *cu }  # sat-verified 2026-11-12 (osm-seeded)

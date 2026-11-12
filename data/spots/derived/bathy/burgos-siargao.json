@@ -1,0 +1,72 @@
+{
+  "spot": "burgos-siargao",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.0185,
+    126.0797
+  ],
+  "bearing_seaward_deg": 80.0,
+  "nearshore_depth_m": 123.0,
+  "offshore_depth_m": 3336.0,
+  "mean_slope_m_per_km": 181.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.01889,
+      "lon": 126.08195,
+      "depth_m": 123.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.01928,
+      "lon": 126.0842,
+      "depth_m": 125.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.02006,
+      "lon": 126.08869,
+      "depth_m": 173.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.02162,
+      "lon": 126.09769,
+      "depth_m": 423.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.02318,
+      "lon": 126.10668,
+      "depth_m": 622.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.02631,
+      "lon": 126.12467,
+      "depth_m": 865.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.03099,
+      "lon": 126.15165,
+      "depth_m": 1092.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.03722,
+      "lon": 126.18763,
+      "depth_m": 2409.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.04657,
+      "lon": 126.2416,
+      "depth_m": 3336.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "slipperies-whakataki",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -40.8683,
+    176.2385
+  ],
+  "bearing_seaward_deg": 137.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 152.0,
+  "mean_slope_m_per_km": 8.45,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -40.86994,
+      "lon": 176.24053,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -40.87159,
+      "lon": 176.24256,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -40.87488,
+      "lon": 176.24661,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -40.88145,
+      "lon": 176.25472,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -40.88803,
+      "lon": 176.26284,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -40.90118,
+      "lon": 176.27907,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -40.9209,
+      "lon": 176.30344,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -40.94719,
+      "lon": 176.33594,
+      "depth_m": 113.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -40.9866,
+      "lon": 176.38475,
+      "depth_m": 152.0
+    }
+  ]
+}

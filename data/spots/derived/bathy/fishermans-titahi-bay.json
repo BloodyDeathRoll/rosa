@@ -1,0 +1,72 @@
+{
+  "spot": "fishermans-titahi-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.0994,
+    174.8317
+  ],
+  "bearing_seaward_deg": 333.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 151.0,
+  "mean_slope_m_per_km": 7.83,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.0974,
+      "lon": 174.83035,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.09539,
+      "lon": 174.82899,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.09139,
+      "lon": 174.82628,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.08337,
+      "lon": 174.82087,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.07536,
+      "lon": 174.81545,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.05933,
+      "lon": 174.80463,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.03529,
+      "lon": 174.7884,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.00323,
+      "lon": 174.76678,
+      "depth_m": 128.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -40.95512,
+      "lon": 174.73439,
+      "depth_m": 151.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "dribbles-wainuiomata",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.4177,
+    174.8909
+  ],
+  "bearing_seaward_deg": 204.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 321.0,
+  "mean_slope_m_per_km": 17.86,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.41975,
+      "lon": 174.88968,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.42181,
+      "lon": 174.88846,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.42592,
+      "lon": 174.88602,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.43413,
+      "lon": 174.88114,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.44235,
+      "lon": 174.87626,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.45878,
+      "lon": 174.8665,
+      "depth_m": 106.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.48342,
+      "lon": 174.85184,
+      "depth_m": 532.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.51627,
+      "lon": 174.83228,
+      "depth_m": 243.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.56555,
+      "lon": 174.8029,
+      "depth_m": 321.0
+    }
+  ]
+}

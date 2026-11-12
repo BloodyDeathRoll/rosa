@@ -1,0 +1,72 @@
+{
+  "spot": "aramoana-the-spit",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -45.7752,
+    170.7081
+  ],
+  "bearing_seaward_deg": 61.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 58.0,
+  "mean_slope_m_per_km": 3.04,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -45.77411,
+      "lon": 170.71092,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -45.77302,
+      "lon": 170.71374,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -45.77084,
+      "lon": 170.71938,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -45.76648,
+      "lon": 170.73065,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -45.76212,
+      "lon": 170.74192,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -45.75339,
+      "lon": 170.76446,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -45.74028,
+      "lon": 170.79826,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -45.7228,
+      "lon": 170.8433,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -45.69654,
+      "lon": 170.91081,
+      "depth_m": 58.0
+    }
+  ]
+}

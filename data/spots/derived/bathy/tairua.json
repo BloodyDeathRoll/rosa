@@ -1,0 +1,72 @@
+{
+  "spot": "tairua",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.9915,
+    175.8584
+  ],
+  "bearing_seaward_deg": 72.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 69.0,
+  "mean_slope_m_per_km": 3.77,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.99081,
+      "lon": 175.86108,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.99011,
+      "lon": 175.86375,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.98872,
+      "lon": 175.86911,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.98594,
+      "lon": 175.87982,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.98316,
+      "lon": 175.89052,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.97759,
+      "lon": 175.91193,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.96924,
+      "lon": 175.94404,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.95808,
+      "lon": 175.98684,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.94132,
+      "lon": 176.05102,
+      "depth_m": 69.0
+    }
+  ]
+}

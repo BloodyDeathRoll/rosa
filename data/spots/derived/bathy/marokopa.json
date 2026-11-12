@@ -1,0 +1,72 @@
+{
+  "spot": "marokopa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.3043,
+    174.7123
+  ],
+  "bearing_seaward_deg": 269.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 58.0,
+  "mean_slope_m_per_km": 3.1,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.30434,
+      "lon": 174.70944,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.30438,
+      "lon": 174.70657,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.30446,
+      "lon": 174.70084,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.30461,
+      "lon": 174.68938,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.30477,
+      "lon": 174.67792,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.30507,
+      "lon": 174.65501,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.30552,
+      "lon": 174.62063,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.3061,
+      "lon": 174.57479,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.30694,
+      "lon": 174.50604,
+      "depth_m": 58.0
+    }
+  ]
+}

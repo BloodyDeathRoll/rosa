@@ -1,0 +1,72 @@
+{
+  "spot": "tai-road-opunake",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.4116,
+    173.7891
+  ],
+  "bearing_seaward_deg": 247.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 111.0,
+  "mean_slope_m_per_km": 5.75,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.41248,
+      "lon": 173.78642,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.41336,
+      "lon": 173.78374,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.41511,
+      "lon": 173.77838,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.41863,
+      "lon": 173.76767,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.42214,
+      "lon": 173.75695,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.42916,
+      "lon": 173.73551,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.43968,
+      "lon": 173.70335,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.4537,
+      "lon": 173.66044,
+      "depth_m": 105.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -39.47469,
+      "lon": 173.59606,
+      "depth_m": 111.0
+    }
+  ]
+}

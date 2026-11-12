@@ -1,0 +1,72 @@
+{
+  "spot": "whangamata-bar",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -37.2154,
+    175.8882
+  ],
+  "bearing_seaward_deg": 110.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 72.0,
+  "mean_slope_m_per_km": 3.77,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -37.21617,
+      "lon": 175.89085,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -37.21694,
+      "lon": 175.89351,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -37.21848,
+      "lon": 175.89881,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -37.22155,
+      "lon": 175.90943,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -37.22462,
+      "lon": 175.92004,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -37.23077,
+      "lon": 175.94127,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -37.23998,
+      "lon": 175.97312,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -37.25224,
+      "lon": 176.0156,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -37.27061,
+      "lon": 176.07935,
+      "depth_m": 72.0
+    }
+  ]
+}

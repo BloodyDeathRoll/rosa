@@ -1,0 +1,72 @@
+{
+  "spot": "greenmeadows",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.4907,
+    173.8839
+  ],
+  "bearing_seaward_deg": 216.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 78.0,
+  "mean_slope_m_per_km": 4.23,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.49252,
+      "lon": 173.88219,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.49434,
+      "lon": 173.88047,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.49798,
+      "lon": 173.87705,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.50525,
+      "lon": 173.8702,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.51253,
+      "lon": 173.86334,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.52707,
+      "lon": 173.84963,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.54889,
+      "lon": 173.82906,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.57798,
+      "lon": 173.8016,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -39.6216,
+      "lon": 173.76037,
+      "depth_m": 78.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "opoutama",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.062,
+    177.8512
+  ],
+  "bearing_seaward_deg": 209.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 36.0,
+  "mean_slope_m_per_km": 1.86,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.06397,
+      "lon": 177.8498,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.06593,
+      "lon": 177.84839,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.06987,
+      "lon": 177.84558,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.07773,
+      "lon": 177.83997,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.0856,
+      "lon": 177.83435,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.10132,
+      "lon": 177.82311,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.12492,
+      "lon": 177.80624,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.15637,
+      "lon": 177.78373,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -39.20354,
+      "lon": 177.74992,
+      "depth_m": 36.0
+    }
+  ]
+}

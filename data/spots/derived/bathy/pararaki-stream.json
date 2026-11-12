@@ -1,0 +1,72 @@
+{
+  "spot": "pararaki-stream",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.5339,
+    175.2056
+  ],
+  "bearing_seaward_deg": 222.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 495.0,
+  "mean_slope_m_per_km": 27.38,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.53557,
+      "lon": 175.20359,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.53724,
+      "lon": 175.20158,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.54058,
+      "lon": 175.19756,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.54727,
+      "lon": 175.18952,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.55395,
+      "lon": 175.18148,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.56731,
+      "lon": 175.16538,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.58735,
+      "lon": 175.14124,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.61406,
+      "lon": 175.10901,
+      "depth_m": 112.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.65411,
+      "lon": 175.06063,
+      "depth_m": 495.0
+    }
+  ]
+}

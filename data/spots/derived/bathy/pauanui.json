@@ -1,0 +1,72 @@
+{
+  "spot": "pauanui",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -37.0161,
+    175.8683
+  ],
+  "bearing_seaward_deg": 70.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 17.0,
+  "mean_slope_m_per_km": 0.73,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -37.01533,
+      "lon": 175.87095,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -37.01456,
+      "lon": 175.87359,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -37.01302,
+      "lon": 175.87888,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -37.00995,
+      "lon": 175.88947,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -37.00687,
+      "lon": 175.90005,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -37.00071,
+      "lon": 175.92121,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.99146,
+      "lon": 175.95294,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.97912,
+      "lon": 175.99524,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.96058,
+      "lon": 176.05867,
+      "depth_m": 17.0
+    }
+  ]
+}

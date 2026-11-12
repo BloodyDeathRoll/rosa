@@ -1,0 +1,72 @@
+{
+  "spot": "rosalie-dominica",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    15.3738,
+    -61.2513
+  ],
+  "bearing_seaward_deg": 90.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 1108.0,
+  "mean_slope_m_per_km": 62.2,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 15.3738,
+      "lon": -61.24897,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 15.3738,
+      "lon": -61.24664,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 15.3738,
+      "lon": -61.24197,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 15.3738,
+      "lon": -61.23265,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 15.3738,
+      "lon": -61.22332,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 15.3738,
+      "lon": -61.20467,
+      "depth_m": 239.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 15.37379,
+      "lon": -61.17668,
+      "depth_m": 703.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 15.37377,
+      "lon": -61.13938,
+      "depth_m": 958.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 15.37374,
+      "lon": -61.08341,
+      "depth_m": 1108.0
+    }
+  ]
+}

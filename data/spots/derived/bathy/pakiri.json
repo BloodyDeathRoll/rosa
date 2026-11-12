@@ -1,0 +1,72 @@
+{
+  "spot": "pakiri",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.2438,
+    174.7283
+  ],
+  "bearing_seaward_deg": 40.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 56.0,
+  "mean_slope_m_per_km": 2.93,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.24208,
+      "lon": 174.73009,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.24036,
+      "lon": 174.73188,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.23691,
+      "lon": 174.73547,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.23002,
+      "lon": 174.74263,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.22313,
+      "lon": 174.7498,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.20935,
+      "lon": 174.76412,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.18867,
+      "lon": 174.7856,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.1611,
+      "lon": 174.81422,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.11973,
+      "lon": 174.85711,
+      "depth_m": 56.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "kaka-street-ahipara",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.1621,
+    173.1508
+  ],
+  "bearing_seaward_deg": 310.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 48.0,
+  "mean_slope_m_per_km": 2.48,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.16065,
+      "lon": 173.14869,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.15921,
+      "lon": 173.14659,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.15632,
+      "lon": 173.14237,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.15054,
+      "lon": 173.13395,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.14476,
+      "lon": 173.12552,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.13319,
+      "lon": 173.10868,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.11584,
+      "lon": 173.08342,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.09269,
+      "lon": 173.04976,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.05795,
+      "lon": 172.99931,
+      "depth_m": 48.0
+    }
+  ]
+}

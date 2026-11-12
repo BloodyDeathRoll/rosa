@@ -1,0 +1,72 @@
+{
+  "spot": "oneills-reef-takapuna",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.7799,
+    174.7779
+  ],
+  "bearing_seaward_deg": 43.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 1.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.77826,
+      "lon": 174.77981,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.77661,
+      "lon": 174.78173,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.77332,
+      "lon": 174.78556,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.76674,
+      "lon": 174.79321,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.76017,
+      "lon": 174.80087,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.74701,
+      "lon": 174.81617,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.72727,
+      "lon": 174.83912,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.70094,
+      "lon": 174.8697,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.66143,
+      "lon": 174.91553,
+      "depth_m": 30.0
+    }
+  ]
+}

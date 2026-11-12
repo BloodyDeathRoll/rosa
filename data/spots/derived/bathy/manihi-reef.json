@@ -1,0 +1,72 @@
+{
+  "spot": "manihi-reef",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.3711,
+    173.7694
+  ],
+  "bearing_seaward_deg": 250.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 110.0,
+  "mean_slope_m_per_km": 6.03,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.37187,
+      "lon": 173.76667,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.37264,
+      "lon": 173.76393,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.37418,
+      "lon": 173.75847,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.37725,
+      "lon": 173.74753,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.38032,
+      "lon": 173.7366,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.38647,
+      "lon": 173.71473,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.39567,
+      "lon": 173.68192,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.40794,
+      "lon": 173.63815,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -39.4263,
+      "lon": 173.57247,
+      "depth_m": 110.0
+    }
+  ]
+}

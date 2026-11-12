@@ -1,0 +1,72 @@
+{
+  "spot": "gore-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -42.8548,
+    173.3126
+  ],
+  "bearing_seaward_deg": 113.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 87.0,
+  "mean_slope_m_per_km": 5.35,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -42.85568,
+      "lon": 173.31542,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -42.85656,
+      "lon": 173.31825,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -42.85831,
+      "lon": 173.32389,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -42.86183,
+      "lon": 173.33519,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -42.86534,
+      "lon": 173.34648,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -42.87236,
+      "lon": 173.36908,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -42.88288,
+      "lon": 173.40298,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -42.89689,
+      "lon": 173.4482,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -42.91787,
+      "lon": 173.51607,
+      "depth_m": 87.0
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+# Rosa spot database - Northland (seeded 2026-11-12).
+# the Far North's Ahipara and Shipwreck Bay, the west coast down to Kaipara and the east coast bays
+# from Karikari to Mangawhai. W-SW Tasman groundswell on the west, NE-E Pacific and cyclone swell on the east.
+# Names and coordinates from the regional councils' coastal-plan surf break layers and the NZCPS 2010 schedule,
+# cross-read with surf guides and tourism boards.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "New Zealand"
+
+defaults: &nlnz
+  timezone: Pacific/Auckland
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [337, 107]
+  ideal:
+    wind_dir: [177, 267]
+    size_m: [0.6, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - northland, 65 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: tom-bowling-bay, name: "Tom Bowling Bay", town: "Te Hāpua", lat: -34.4238, lon: 172.9753, offshore_direction: 156, swell_window: [271, 41], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: tapotupotu-bay, name: "Tapotupotu Bay", town: "Waitiki Landing", lat: -34.4352, lon: 172.7147, offshore_direction: 198, swell_window: [313, 83], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: spirits-bay, name: "Spirits Bay", town: "Waitiki Landing", lat: -34.4467, lon: 172.8315, offshore_direction: 152, swell_window: [267, 37], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: te-werahi, name: "Te Werahi", town: "Waitiki Landing", lat: -34.4536, lon: 172.6750, offshore_direction: 107, swell_window: [222, 352], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: twilight-beach-northland, name: "Twilight Beach", town: "Waitiki Landing", lat: -34.4905, lon: 172.6883, offshore_direction: 39, swell_window: [154, 284], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: scott-point, name: "Scott Point", town: "Waitiki Landing", lat: -34.5284, lon: 172.7246, offshore_direction: 351, swell_window: [106, 236], offshore_km: 5.0, break_type: point, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: te-paki, name: "Te Paki", town: "Waitiki Landing", lat: -34.5494, lon: 172.7567, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: great-exhibition-bay, name: "Great Exhibition Bay", town: "Te Kao", lat: -34.6009, lon: 173.0054, offshore_direction: 257, swell_window: [12, 142], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: the-bluff-te-kao, name: "The Bluff", town: "Te Kao", lat: -34.6853, lon: 172.8931, offshore_direction: 61, swell_window: [176, 306], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: rarawa-beach, name: "Rarawa Beach", town: "Ngataki", lat: -34.7181, lon: 173.0817, offshore_direction: 219, swell_window: [334, 104], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: henderson-bay, name: "Henderson Bay", town: "Waihopo", lat: -34.7555, lon: 173.1268, offshore_direction: 233, swell_window: [348, 118], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: karikari-beach, name: "Karikari Beach", town: "Whatuwhiwhi", lat: -34.8540, lon: 173.3469, offshore_direction: 163, swell_window: [278, 48], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: puwheke-beach, name: "Puwheke Beach", town: "Rangiputa", lat: -34.8611, lon: 173.3150, offshore_direction: 173, swell_window: [288, 58], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: rangiputa-reefs, name: "Rangiputa Reefs", town: "Rangiputa", lat: -34.8709, lon: 173.2883, offshore_direction: 89, shore_normal: 331, swell_window: [266, 36], offshore_km: 5.0, break_type: reef, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: hukatere, name: "Hukatere", town: "Raio", lat: -34.8982, lon: 173.0838, offshore_direction: 57, swell_window: [172, 302], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: tokerau-beach, name: "Tokerau Beach", town: "Tokerau Beach", lat: -34.9192, lon: 173.3731, offshore_direction: 255, swell_window: [10, 140], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: paradise-bay-taemaro, name: "Paradise Bay", town: "Taemaro", lat: -34.9644, lon: 173.6432, offshore_direction: 217, swell_window: [332, 102], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: taipa, name: "Taipa", town: "Taipa", lat: -34.9919, lon: 173.4660, offshore_direction: 227, shore_normal: 21, swell_window: [316, 86], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: taupo-bay-beach, name: "Taupo Bay Beach", town: "Taupō Bay", lat: -34.9928, lon: 173.7105, offshore_direction: 251, swell_window: [6, 136], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: taupo-bay-point, name: "Taupo Bay Point", town: "Taupō Bay", lat: -34.9967, lon: 173.7176, offshore_direction: 187, swell_window: [302, 72], offshore_km: 5.0, break_type: point, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: matauri-bay, name: "Matauri Bay", town: "Mātauri Bay", lat: -35.0325, lon: 173.9153, offshore_direction: 298, swell_window: [53, 183], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: waipapakauri-ramp, name: "Waipapakauri Ramp", town: "Waipapakauri Beach", lat: -35.0386, lon: 173.1673, offshore_direction: 74, swell_window: [189, 319], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: takou-bay, name: "Takou Bay", town: "Tākou Bay", lat: -35.0961, lon: 173.9404, offshore_direction: 262, swell_window: [17, 147], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: tapuaetahi-reefs, name: "Tapuaetahi Reefs", town: "Te Ti Mangonui", lat: -35.1193, lon: 173.9796, offshore_direction: 211, swell_window: [326, 96], offshore_km: 5.0, break_type: reef, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: kaka-street-ahipara, name: "Kaka Street", town: "Ahipara", lat: -35.1621, lon: 173.1508, offshore_direction: 130, swell_window: [245, 15], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: blue-house-ahipara, name: "Blue House", town: "Ahipara", lat: -35.1653, lon: 173.0748, offshore_direction: 188, swell_window: [303, 73], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: supertubes-ahipara, name: "Supertubes", town: "Ahipara", lat: -35.1701, lon: 173.0942, offshore_direction: 206, shore_normal: 348, swell_window: [283, 53], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: tasman-heights, name: "Tasman Heights", town: "Ahipara", lat: -35.1728, lon: 173.1403, offshore_direction: 137, swell_window: [252, 22], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: shipwreck-bay, name: "Shipwreck Bay", town: "Ahipara", lat: -35.1739, lon: 173.1149, offshore_direction: 222, shore_normal: 342, swell_window: [277, 47], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: seaweed-pickers, name: "Seaweed Pickers", town: "Ahipara", lat: -35.1764, lon: 173.0577, offshore_direction: 116, swell_window: [231, 1], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: paripari, name: "Paripari", town: "Ahipara", lat: -35.1765, lon: 173.1350, offshore_direction: 144, swell_window: [259, 29], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: the-box-ahipara, name: "The Box", town: "Ahipara", lat: -35.1974, lon: 173.0615, offshore_direction: 31, swell_window: [146, 276], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: tanutanu, name: "Tanutanu", town: "Ahipara", lat: -35.2180, lon: 173.0888, offshore_direction: 46, swell_window: [161, 291], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: long-beach-russell, name: "Long Beach (Russell)", town: "Kororāreka / Russell", lat: -35.2589, lon: 174.1358, offshore_direction: 206, swell_window: [321, 91], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: elliot-bay, name: "Elliot Bay", town: "Ngaiotonga", lat: -35.2730, lon: 174.2904, offshore_direction: 293, swell_window: [48, 178], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: bland-bay, name: "Bland Bay", town: "Tuparehuia", lat: -35.3373, lon: 174.3530, offshore_direction: 272, swell_window: [27, 157], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: oakura-bay-northland, name: "Oakura Bay (Northland)", town: "Ōakura", lat: -35.3900, lon: 174.3447, offshore_direction: 249, swell_window: [4, 134], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: mitimiti, name: "Mitimiti", town: "Mitimiti", lat: -35.4288, lon: 173.2706, offshore_direction: 53, swell_window: [168, 298], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: teal-bay, name: "Teal Bay", town: "Teal Bay", lat: -35.4336, lon: 174.3630, offshore_direction: 264, swell_window: [19, 149], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: okupe-beach, name: "Okupe Beach", town: "Teal Bay", lat: -35.4385, lon: 174.4291, offshore_direction: 289, swell_window: [44, 174], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: mimiwhangata, name: "Mimiwhangata", town: "Teal Bay", lat: -35.4396, lon: 174.4175, offshore_direction: 155, swell_window: [270, 40], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: pareparea-bay, name: "Pareparea Bay", town: "Whananaki", lat: -35.4614, lon: 174.4357, offshore_direction: 220, swell_window: [335, 105], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: moureeses-bay, name: "Moureeses Bay", town: "Whananaki", lat: -35.4824, lon: 174.4523, offshore_direction: 257, swell_window: [12, 142], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: grahams-whananaki-south, name: "Grahams", town: "Whananaki South", lat: -35.5263, lon: 174.4620, offshore_direction: 282, swell_window: [37, 167], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: sandy-bay-northland, name: "Sandy Bay", town: "Woolleys Bay", lat: -35.5563, lon: 174.4746, offshore_direction: 211, swell_window: [326, 96], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: matapouri-bar, name: "Matapouri Bar", town: "Matapouri", lat: -35.5658, lon: 174.5106, offshore_direction: 223, swell_window: [338, 108], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: waimamaku, name: "Waimamaku", town: "Waiotemarama", lat: -35.5984, lon: 173.4166, offshore_direction: 52, swell_window: [167, 297], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: kawerua, name: "Kawerua", town: "Waipōua Settlement", lat: -35.6308, lon: 173.4405, offshore_direction: 83, swell_window: [198, 328], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: ngunguru-bar, name: "Ngunguru Bar", town: "Ngunguru", lat: -35.6348, lon: 174.5189, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: horahora-bar, name: "Horahora Bar", town: "Ngunguru", lat: -35.6669, lon: 174.5084, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: pataua-beach, name: "Pataua Beach", town: "Pataua North", lat: -35.7091, lon: 174.5219, offshore_direction: 265, swell_window: [20, 150], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: pataua-bar, name: "Pataua Bar", town: "Pataua South", lat: -35.7126, lon: 174.5258, offshore_direction: 234, swell_window: [349, 119], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: frog-town, name: "Frog Town", town: "Pataua South", lat: -35.7149, lon: 174.5336, offshore_direction: 182, swell_window: [297, 67], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: kauri-mountain-beach, name: "Kauri Mountain Beach", town: "McLeod Bay", lat: -35.7887, lon: 174.5521, offshore_direction: 277, swell_window: [32, 162], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: ocean-beach-whangarei-heads, name: "Ocean Beach (Whangarei Heads)", town: "Ocean Beach", lat: -35.8337, lon: 174.5709, offshore_direction: 238, swell_window: [353, 123], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: omamari, name: "Omamari", town: "Omamari", lat: -35.8684, lon: 173.6650, offshore_direction: 52, swell_window: [167, 297], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: ruakaka, name: "Ruakaka", town: "Ruakākā", lat: -35.8830, lon: 174.4681, offshore_direction: 285, swell_window: [40, 170], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: baylys-beach, name: "Baylys Beach", town: "Baylys Beach", lat: -35.9533, lon: 173.7427, offshore_direction: 54, swell_window: [169, 299], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: waipu-rivermouth, name: "Waipu Rivermouth", town: "Waipū", lat: -35.9920, lon: 174.4831, offshore_direction: 269, swell_window: [24, 154], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: waipu-cove, name: "Waipu Cove", town: "Waipū Cove", lat: -36.0271, lon: 174.5063, offshore_direction: 225, swell_window: [340, 110], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: langs-beach, name: "Langs Beach", town: "Langs Beach", lat: -36.0453, lon: 174.5345, offshore_direction: 219, swell_window: [334, 104], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: mangawhai-beach, name: "Mangawhai Beach", town: "Mangawhai Heads", lat: -36.0793, lon: 174.5985, offshore_direction: 272, swell_window: [27, 157], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: glinks-gully, name: "Glinks Gully", town: "Glinks Gully", lat: -36.0834, lon: 173.8572, offshore_direction: 55, swell_window: [170, 300], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: mangawhai-bar, name: "Mangawhai Bar", town: "Mangawhai Heads", lat: -36.0854, lon: 174.5990, offshore_direction: 228, swell_window: [343, 113], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: midges-pouto, name: "Midges", town: "Pouto", lat: -36.3833, lon: 174.1603, offshore_direction: 328, shore_normal: 212, swell_window: [147, 277], offshore_km: 5.0, break_type: beach, <<: *nlnz }  # sat-verified 2026-11-12 (websearch-seeded)

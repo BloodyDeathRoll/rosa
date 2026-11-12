@@ -1,0 +1,23 @@
+# Rosa spot database - Maranhao (seeded 2026-11-12). Sao Luis's ocean beaches (Olho d'Agua, Sao Marcos) and Travosa
+# by the Lencois: N-NE swell on a macrotidal, wind-blown coast; the waves go at low tide.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Brazil"
+
+defaults: &ma
+  timezone: America/Fortaleza
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [296, 66]
+  ideal:
+    wind_dir: [136, 226]
+    size_m: [0.5, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - maranhao, 3 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: travosa, name: "Travosa", town: "Travosa", lat: -2.3473, lon: -43.2782, offshore_direction: 198, swell_window: [313, 83], offshore_km: 5.0, break_type: beach, <<: *ma }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: olho-dagua-sao-luis, name: "Olho d'Água (São Luís)", town: "São Luís", lat: -2.4780, lon: -44.2275, offshore_direction: 167, swell_window: [282, 52], offshore_km: 5.0, break_type: beach, <<: *ma }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: sao-marcos-sao-luis, name: "São Marcos (São Luís)", town: "São Luís", lat: -2.4869, lon: -44.2802, offshore_direction: 177, swell_window: [292, 62], offshore_km: 5.0, break_type: beach, <<: *ma }  # sat-verified 2026-11-12 (osm-seeded)

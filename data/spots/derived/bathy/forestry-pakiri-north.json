@@ -1,0 +1,72 @@
+{
+  "spot": "forestry-pakiri-north",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.1648,
+    174.6535
+  ],
+  "bearing_seaward_deg": 72.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 54.0,
+  "mean_slope_m_per_km": 2.93,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.16411,
+      "lon": 174.65615,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.16341,
+      "lon": 174.6588,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.16202,
+      "lon": 174.66409,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.15924,
+      "lon": 174.67469,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.15646,
+      "lon": 174.68528,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.15089,
+      "lon": 174.70646,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.14254,
+      "lon": 174.73823,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.13138,
+      "lon": 174.78058,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.11463,
+      "lon": 174.84408,
+      "depth_m": 54.0
+    }
+  ]
+}

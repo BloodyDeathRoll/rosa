@@ -1,0 +1,72 @@
+{
+  "spot": "the-spit-wairarapa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.5866,
+    175.3618
+  ],
+  "bearing_seaward_deg": 127.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 737.0,
+  "mean_slope_m_per_km": 41.24,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.58795,
+      "lon": 175.3642,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.58931,
+      "lon": 175.3666,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.59201,
+      "lon": 175.3714,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.59742,
+      "lon": 175.38101,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.60283,
+      "lon": 175.39062,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.61365,
+      "lon": 175.40983,
+      "depth_m": 117.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.62987,
+      "lon": 175.43867,
+      "depth_m": 244.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.65149,
+      "lon": 175.47715,
+      "depth_m": 350.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.68389,
+      "lon": 175.53491,
+      "depth_m": 737.0
+    }
+  ]
+}

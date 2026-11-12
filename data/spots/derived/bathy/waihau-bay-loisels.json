@@ -1,0 +1,72 @@
+{
+  "spot": "waihau-bay-loisels",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.4445,
+    178.3011
+  ],
+  "bearing_seaward_deg": 125.0,
+  "nearshore_depth_m": -20.0,
+  "offshore_depth_m": 101.0,
+  "mean_slope_m_per_km": 6.82,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.44579,
+      "lon": 178.30345,
+      "depth_m": -20.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.44708,
+      "lon": 178.3058,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.44966,
+      "lon": 178.31051,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.45482,
+      "lon": 178.31991,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.45997,
+      "lon": 178.32932,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.47028,
+      "lon": 178.34815,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.48574,
+      "lon": 178.37639,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.50635,
+      "lon": 178.41407,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.53723,
+      "lon": 178.47062,
+      "depth_m": 101.0
+    }
+  ]
+}

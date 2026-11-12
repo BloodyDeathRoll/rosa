@@ -1,0 +1,72 @@
+{
+  "spot": "wainui-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.6785,
+    178.0817
+  ],
+  "bearing_seaward_deg": 131.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 55.0,
+  "mean_slope_m_per_km": 2.76,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.67997,
+      "lon": 178.08387,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.68145,
+      "lon": 178.08605,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.6844,
+      "lon": 178.09039,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.6903,
+      "lon": 178.09909,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.6962,
+      "lon": 178.10779,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.70799,
+      "lon": 178.12519,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.72568,
+      "lon": 178.1513,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.74925,
+      "lon": 178.18613,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.7846,
+      "lon": 178.23843,
+      "depth_m": 55.0
+    }
+  ]
+}

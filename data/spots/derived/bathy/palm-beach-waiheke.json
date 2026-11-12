@@ -1,0 +1,72 @@
+{
+  "spot": "palm-beach-waiheke",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.7787,
+    175.0443
+  ],
+  "bearing_seaward_deg": 337.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 1.75,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.77663,
+      "lon": 175.0432,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.77456,
+      "lon": 175.04211,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.77042,
+      "lon": 175.03991,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.76214,
+      "lon": 175.03553,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.75386,
+      "lon": 175.03114,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.73731,
+      "lon": 175.02238,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.71247,
+      "lon": 175.00923,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.67935,
+      "lon": 174.99172,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.62966,
+      "lon": 174.96548,
+      "depth_m": 35.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "batches-whangaimoana",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.4579,
+    175.2179
+  ],
+  "bearing_seaward_deg": 287.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 34.0,
+  "mean_slope_m_per_km": 1.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.45724,
+      "lon": 175.21503,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.45659,
+      "lon": 175.21216,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.45527,
+      "lon": 175.20642,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.45264,
+      "lon": 175.19495,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.45001,
+      "lon": 175.18348,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.44474,
+      "lon": 175.16053,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.43683,
+      "lon": 175.12613,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.42627,
+      "lon": 175.08026,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.41039,
+      "lon": 175.01149,
+      "depth_m": 34.0
+    }
+  ]
+}

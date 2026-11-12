@@ -1,0 +1,72 @@
+{
+  "spot": "waimamaku",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.5984,
+    173.4166
+  ],
+  "bearing_seaward_deg": 232.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 162.0,
+  "mean_slope_m_per_km": 9.75,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.59978,
+      "lon": 173.41442,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.60117,
+      "lon": 173.41224,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.60394,
+      "lon": 173.40788,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.60947,
+      "lon": 173.39917,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.61501,
+      "lon": 173.39045,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.62608,
+      "lon": 173.37301,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.64267,
+      "lon": 173.34684,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.6648,
+      "lon": 173.31193,
+      "depth_m": 108.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.69796,
+      "lon": 173.25952,
+      "depth_m": 162.0
+    }
+  ]
+}

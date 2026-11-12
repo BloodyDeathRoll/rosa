@@ -1,0 +1,72 @@
+{
+  "spot": "bowentown",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -37.4638,
+    175.9903
+  ],
+  "bearing_seaward_deg": 83.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 54.0,
+  "mean_slope_m_per_km": 3.04,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -37.46353,
+      "lon": 175.99311,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -37.46325,
+      "lon": 175.99592,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -37.4627,
+      "lon": 176.00155,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -37.46161,
+      "lon": 176.01279,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -37.46051,
+      "lon": 176.02404,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -37.45831,
+      "lon": 176.04652,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -37.455,
+      "lon": 176.08026,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -37.45057,
+      "lon": 176.12523,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -37.4439,
+      "lon": 176.19267,
+      "depth_m": 54.0
+    }
+  ]
+}

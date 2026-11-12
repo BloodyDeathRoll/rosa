@@ -1,0 +1,72 @@
+{
+  "spot": "salinas-grandes",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    12.2578,
+    -86.8589
+  ],
+  "bearing_seaward_deg": 205.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 49.0,
+  "mean_slope_m_per_km": 2.65,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 12.25576,
+      "lon": -86.85987,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 12.25372,
+      "lon": -86.86084,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 12.24965,
+      "lon": -86.86279,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 12.2415,
+      "lon": -86.86668,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 12.23335,
+      "lon": -86.87057,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 12.21705,
+      "lon": -86.87834,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 12.19259,
+      "lon": -86.89001,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 12.15999,
+      "lon": -86.90556,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 12.11108,
+      "lon": -86.92887,
+      "depth_m": 49.0
+    }
+  ]
+}

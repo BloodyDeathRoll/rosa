@@ -1,0 +1,30 @@
+# Rosa spot database - Gisborne and the East Cape (seeded 2026-11-12).
+# Wainui, Makorori and the coast north of the city.
+# E-SE Pacific swell; offshore in the prevailing westerly.
+# Names and coordinates from the regional councils' coastal-plan surf break layers and the NZCPS 2010 schedule,
+# cross-read with surf guides and tourism boards.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "New Zealand"
+
+defaults: &gis
+  timezone: Pacific/Auckland
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [83, 213]
+  ideal:
+    wind_dir: [283, 13]
+    size_m: [0.6, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - gisborne, 7 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: tolaga-bay-wharf, name: "Tolaga Bay Wharf", town: "Tolaga Bay", lat: -38.3825, lon: 178.3184, offshore_direction: 191, shore_normal: 31, swell_window: [326, 96], offshore_km: 5.0, break_type: beach, <<: *gis }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: waihau-bay-loisels, name: "Waihau Bay (Loisels)", town: "Hauiti", lat: -38.4445, lon: 178.3011, offshore_direction: 305, swell_window: [60, 190], offshore_km: 5.0, break_type: beach, <<: *gis }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: makorori-northerns, name: "Makorori Northerns", town: "Makorori", lat: -38.6503, lon: 178.1317, offshore_direction: 8, swell_window: [123, 253], offshore_km: 5.0, break_type: beach, <<: *gis }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: makorori-point, name: "Makorori Point", town: "Makorori", lat: -38.6661, lon: 178.1044, offshore_direction: 316, swell_window: [71, 201], offshore_km: 5.0, break_type: point, <<: *gis }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: midway-beach-gizzy-pipe, name: "Midway Beach (Gizzy Pipe)", town: "Gisborne", lat: -38.6748, lon: 177.9906, offshore_direction: 339, swell_window: [94, 224], offshore_km: 5.0, break_type: beach, <<: *gis }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: wainui-beach, name: "Wainui Beach", town: "Gisborne", lat: -38.6785, lon: 178.0817, offshore_direction: 311, swell_window: [66, 196], offshore_km: 5.0, break_type: beach, <<: *gis }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: sponge-bay, name: "Sponge Bay", town: "Gisborne", lat: -38.6999, lon: 178.0592, offshore_direction: 17, swell_window: [132, 262], offshore_km: 5.0, break_type: reef, <<: *gis }  # sat-verified 2026-11-12 (websearch-seeded)

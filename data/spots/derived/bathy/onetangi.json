@@ -1,0 +1,72 @@
+{
+  "spot": "onetangi",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.7866,
+    175.0754
+  ],
+  "bearing_seaward_deg": 9.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 44.0,
+  "mean_slope_m_per_km": 2.25,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.78438,
+      "lon": 175.07584,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.78216,
+      "lon": 175.07628,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.77772,
+      "lon": 175.07716,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.76883,
+      "lon": 175.07891,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.75995,
+      "lon": 175.08067,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.74219,
+      "lon": 175.08418,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.71554,
+      "lon": 175.08944,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.68001,
+      "lon": 175.09645,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.62671,
+      "lon": 175.10695,
+      "depth_m": 44.0
+    }
+  ]
+}

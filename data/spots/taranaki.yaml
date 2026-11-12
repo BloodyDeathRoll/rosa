@@ -1,0 +1,87 @@
+# Rosa spot database - Taranaki (seeded 2026-11-12).
+# the Surf Highway 45 reefs and points round the cape from New Plymouth to Opunake and Patea.
+# W-SW Tasman groundswell from every angle the cape turns; some break offshore of the shore pin.
+# Names and coordinates from the regional councils' coastal-plan surf break layers and the NZCPS 2010 schedule,
+# cross-read with surf guides and tourism boards.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "New Zealand"
+
+defaults: &tki
+  timezone: Pacific/Auckland
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [221, 351]
+  ideal:
+    wind_dir: [61, 151]
+    size_m: [0.6, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - taranaki, 64 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: oats-waitara, name: "Oats", town: "Waitara", lat: -38.9835, lon: 174.2431, offshore_direction: 169, swell_window: [284, 54], offshore_km: 5.0, break_type: beach, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: east-beach-waitara, name: "East Beach", town: "Waitara", lat: -38.9863, lon: 174.2361, offshore_direction: 150, swell_window: [265, 35], offshore_km: 5.0, break_type: beach, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: boilers-waitara, name: "Boilers", town: "Waitara", lat: -38.9865, lon: 174.2266, offshore_direction: 169, swell_window: [284, 54], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: secrets-brixton, name: "Secrets", town: "Brixton", lat: -38.9889, lon: 174.1908, offshore_direction: 148, swell_window: [263, 33], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: waiongana-reef, name: "Waiongana Reef", town: "Brixton", lat: -38.9930, lon: 174.1804, offshore_direction: 145, swell_window: [260, 30], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: dread-rock, name: "Dread Rock", town: "Brixton", lat: -38.9973, lon: 174.1780, offshore_direction: 129, swell_window: [244, 14], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: bell-block-reef, name: "Bell Block Reef", town: "Sentry Hill", lat: -39.0151, lon: 174.1443, offshore_direction: 177, swell_window: [292, 62], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: secret-sandys, name: "Secret Sandy's", town: "New Plymouth", lat: -39.0285, lon: 174.1244, offshore_direction: 137, swell_window: [252, 22], offshore_km: 5.0, break_type: beach, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: waiwhakaiho-reef, name: "Waiwhakaiho Reef", town: "New Plymouth", lat: -39.0330, lon: 174.1063, offshore_direction: 152, swell_window: [267, 37], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: the-groyne-new-plymouth, name: "The Groyne", town: "New Plymouth", lat: -39.0377, lon: 174.1027, offshore_direction: 139, swell_window: [254, 24], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: the-gap-fitzroy, name: "The Gap (Fitzroy)", town: "New Plymouth", lat: -39.0462, lon: 174.0944, offshore_direction: 141, swell_window: [256, 26], offshore_km: 5.0, break_type: beach, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: boulder-bay, name: "Boulder Bay", town: "New Plymouth", lat: -39.0492, lon: 174.0860, offshore_direction: 161, swell_window: [276, 46], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: bog-works-new-plymouth, name: "Bog Works", town: "New Plymouth", lat: -39.0495, lon: 174.0791, offshore_direction: 154, swell_window: [269, 39], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: breakwater-new-plymouth, name: "Breakwater", town: "New Plymouth", lat: -39.0511, lon: 174.0426, offshore_direction: 158, swell_window: [273, 43], offshore_km: 5.0, break_type: beach, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: wind-wand-new-plymouth, name: "Wind Wand", town: "New Plymouth", lat: -39.0555, lon: 174.0715, offshore_direction: 169, swell_window: [284, 54], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: belt-road-right, name: "Belt Road Right", town: "New Plymouth", lat: -39.0555, lon: 174.0570, offshore_direction: 160, swell_window: [275, 45], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: the-wedge-new-plymouth, name: "The Wedge", town: "New Plymouth", lat: -39.0568, lon: 174.0524, offshore_direction: 186, swell_window: [301, 71], offshore_km: 5.0, break_type: beach, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: back-beach-omata, name: "Back Beach", town: "Omata", lat: -39.0695, lon: 174.0164, offshore_direction: 114, swell_window: [229, 359], offshore_km: 5.0, break_type: beach, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: oakura-river-mouth, name: "Oakura River Mouth", town: "Ōakura", lat: -39.1097, lon: 173.9556, offshore_direction: 141, swell_window: [256, 26], offshore_km: 5.0, break_type: beach, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: oakura-beach, name: "Oakura Beach", town: "Ōakura", lat: -39.1131, lon: 173.9494, offshore_direction: 145, swell_window: [260, 30], offshore_km: 5.0, break_type: beach, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: oakura-camp-ground, name: "Oakura Camp Ground", town: "Ōakura", lat: -39.1159, lon: 173.9401, offshore_direction: 171, swell_window: [286, 56], offshore_km: 5.0, break_type: beach, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: ahu-ahu, name: "Ahu Ahu", town: "Ōakura", lat: -39.1170, lon: 173.9258, offshore_direction: 169, swell_window: [284, 54], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: weld-road, name: "Weld Road", town: "Ōakura", lat: -39.1174, lon: 173.9210, offshore_direction: 181, swell_window: [296, 66], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: rifle-range-okato, name: "Rifle Range", town: "Ōkato", lat: -39.1503, lon: 173.8496, offshore_direction: 151, swell_window: [266, 36], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: kumara-patch, name: "Kumara Patch", town: "Puniho", lat: -39.1686, lon: 173.8221, offshore_direction: 155, swell_window: [270, 40], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: lupins-puniho, name: "Lupins", town: "Puniho", lat: -39.1725, lon: 173.8177, offshore_direction: 125, swell_window: [240, 10], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: komene-road-beach, name: "Komene Road Beach", town: "Puniho", lat: -39.1791, lon: 173.8162, offshore_direction: 122, swell_window: [237, 7], offshore_km: 5.0, break_type: beach, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: punihos, name: "Punihos", town: "Puniho", lat: -39.1851, lon: 173.8041, offshore_direction: 149, swell_window: [264, 34], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: graveyards-puniho, name: "Graveyards", town: "Puniho", lat: -39.1882, lon: 173.7970, offshore_direction: 136, swell_window: [251, 21], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: rocky-lefts-puniho, name: "Rocky Lefts", town: "Puniho", lat: -39.1915, lon: 173.7921, offshore_direction: 122, swell_window: [237, 7], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: rocky-rights-puniho, name: "Rocky Rights", town: "Puniho", lat: -39.1949, lon: 173.7904, offshore_direction: 121, swell_window: [236, 6], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: sluggos, name: "Sluggo's", town: "Puniho", lat: -39.2004, lon: 173.7874, offshore_direction: 117, swell_window: [232, 2], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: back-of-stent, name: "Back of Stent", town: "Puniho", lat: -39.2159, lon: 173.7768, offshore_direction: 104, swell_window: [219, 349], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: farmhouse-stent, name: "Farmhouse Stent", town: "Puniho", lat: -39.2252, lon: 173.7729, offshore_direction: 114, swell_window: [229, 359], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: bayly-road-north, name: "Bayly Road North", town: "Pungarehu", lat: -39.2396, lon: 173.7711, offshore_direction: 93, swell_window: [208, 338], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: bayly-road, name: "Bayly Road", town: "Pungarehu", lat: -39.2440, lon: 173.7734, offshore_direction: 101, swell_window: [216, 346], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: fin-whaka, name: "Fin Whaka", town: "Pungarehu", lat: -39.2619, lon: 173.7558, offshore_direction: 127, swell_window: [242, 12], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: crushers-pungarehu, name: "Crushers", town: "Pungarehu", lat: -39.2707, lon: 173.7528, offshore_direction: 112, swell_window: [227, 357], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: sundays-pungarehu, name: "Sundays", town: "Pungarehu", lat: -39.2835, lon: 173.7492, offshore_direction: 84, swell_window: [199, 329], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: rahotu, name: "Rahotu", town: "Rahotu", lat: -39.3312, lon: 173.7646, offshore_direction: 71, swell_window: [186, 316], offshore_km: 5.0, break_type: beach, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: manihi-reef, name: "Manihi Reef", town: "Rahotu", lat: -39.3711, lon: 173.7694, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: far-toos, name: "Far Toos", town: "Rahotu", lat: -39.3922, lon: 173.7779, offshore_direction: 66, swell_window: [181, 311], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: kina-road-rahotu, name: "Kina Road", town: "Rahotu", lat: -39.3953, lon: 173.7819, offshore_direction: 68, swell_window: [183, 313], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: oaonui-beach, name: "Oaonui Beach", town: "Rahotu", lat: -39.3987, lon: 173.7862, offshore_direction: 62, swell_window: [177, 307], offshore_km: 5.0, break_type: beach, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: kina-point, name: "Kina Point", town: "Rahotu", lat: -39.3992, lon: 173.7816, offshore_direction: 62, swell_window: [177, 307], offshore_km: 5.0, break_type: point, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: tai-road-opunake, name: "Tai Road", town: "Ōpunake", lat: -39.4116, lon: 173.7891, offshore_direction: 67, swell_window: [182, 312], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: arawhata-road-point, name: "Arawhata Road Point", town: "Ōpunake", lat: -39.4224, lon: 173.8004, offshore_direction: 27, swell_window: [142, 272], offshore_km: 5.0, break_type: point, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: pohutakawas, name: "Pohutakawas", town: "Ōpunake", lat: -39.4363, lon: 173.8246, offshore_direction: 49, swell_window: [164, 294], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: stepladders, name: "Stepladders", town: "Ōpunake", lat: -39.4475, lon: 173.8301, offshore_direction: 40, swell_window: [155, 285], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: cemetery-point, name: "Cemetery Point", town: "Ōpunake", lat: -39.4534, lon: 173.8449, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, break_type: point, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: opunake, name: "Opunake", town: "Ōpunake", lat: -39.4590, lon: 173.8522, offshore_direction: 41, swell_window: [156, 286], offshore_km: 5.0, break_type: beach, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: the-dump-opunake, name: "The Dump", town: "Ōpunake", lat: -39.4655, lon: 173.8575, offshore_direction: 50, swell_window: [165, 295], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: sky-williams, name: "Sky Williams", town: "Ōpunake", lat: -39.4683, lon: 173.8623, offshore_direction: 51, swell_window: [166, 296], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: greenmeadows, name: "Greenmeadows", town: "Ōpunake", lat: -39.4907, lon: 173.8839, offshore_direction: 36, swell_window: [151, 281], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: greenmeadows-beach, name: "Greenmeadows Beach", town: "Pihama", lat: -39.4920, lon: 173.8893, offshore_direction: 46, swell_window: [161, 291], offshore_km: 5.0, break_type: beach, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: puketapu, name: "Puketapu", town: "Pihama", lat: -39.5208, lon: 173.9256, offshore_direction: 16, swell_window: [131, 261], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: south-point-pihama, name: "South Point", town: "Pihama", lat: -39.5407, lon: 173.9507, offshore_direction: 18, swell_window: [133, 263], offshore_km: 5.0, break_type: point, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: kaupokonui-beach, name: "Kaupokonui Beach", town: "Manaia", lat: -39.5677, lon: 174.0586, offshore_direction: 42, swell_window: [157, 287], offshore_km: 5.0, break_type: beach, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: ohawe-beach, name: "Ohawe Beach", town: "Ohawe", lat: -39.5879, lon: 174.1945, offshore_direction: 7, swell_window: [122, 252], offshore_km: 5.0, break_type: beach, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: patea-river-south-side, name: "Patea River South Side", town: "Pātea", lat: -39.7735, lon: 174.4898, offshore_direction: 29, swell_window: [144, 274], offshore_km: 5.0, break_type: beach, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: inside-fences, name: "Inside Fences", town: "Waiinu Beach", lat: -39.8658, lon: 174.7691, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, break_type: reef, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: fences, name: "Fences", town: "Waiinu Beach", lat: -39.8681, lon: 174.7610, offshore_direction: 359, swell_window: [114, 244], offshore_km: 5.0, break_type: point, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: kai-iwi-beach, name: "Kai Iwi Beach", town: "Kai Iwi Beach", lat: -39.8880, lon: 174.9041, offshore_direction: 29, swell_window: [144, 274], offshore_km: 5.0, break_type: beach, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: castlecliff, name: "Castlecliff", town: "Whanganui", lat: -39.9392, lon: 174.9758, offshore_direction: 61, swell_window: [176, 306], offshore_km: 5.0, break_type: beach, <<: *tki }  # sat-verified 2026-11-12 (websearch-seeded)

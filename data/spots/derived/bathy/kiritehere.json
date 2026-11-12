@@ -1,0 +1,72 @@
+{
+  "spot": "kiritehere",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.3247,
+    174.707
+  ],
+  "bearing_seaward_deg": 317.0,
+  "nearshore_depth_m": -13.0,
+  "offshore_depth_m": 54.0,
+  "mean_slope_m_per_km": 3.77,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.32306,
+      "lon": 174.70505,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.32141,
+      "lon": 174.70309,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.31812,
+      "lon": 174.69918,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.31154,
+      "lon": 174.69137,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.30497,
+      "lon": 174.68355,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.29181,
+      "lon": 174.66793,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.27207,
+      "lon": 174.6445,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.24574,
+      "lon": 174.61329,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.20623,
+      "lon": 174.5665,
+      "depth_m": 54.0
+    }
+  ]
+}

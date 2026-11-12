@@ -1,0 +1,72 @@
+{
+  "spot": "kaupokonui-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.5677,
+    174.0586
+  ],
+  "bearing_seaward_deg": 222.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 50.0,
+  "mean_slope_m_per_km": 2.93,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.56937,
+      "lon": 174.05665,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.57104,
+      "lon": 174.0547,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.57438,
+      "lon": 174.05079,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.58107,
+      "lon": 174.04298,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.58775,
+      "lon": 174.03517,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.60111,
+      "lon": 174.01955,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.62115,
+      "lon": 173.9961,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.64786,
+      "lon": 173.96482,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -39.68791,
+      "lon": 173.91784,
+      "depth_m": 50.0
+    }
+  ]
+}

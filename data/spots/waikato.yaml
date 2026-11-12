@@ -1,0 +1,35 @@
+# Rosa spot database - Waikato west coast (seeded 2026-11-12).
+# Raglan's neighbours north and south, Aotea to Marokopa and Port Waikato.
+# W-SW Tasman groundswell; offshore in an easterly.
+# Names and coordinates from the regional councils' coastal-plan surf break layers and the NZCPS 2010 schedule,
+# cross-read with surf guides and tourism boards.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "New Zealand"
+
+defaults: &wkt
+  timezone: Pacific/Auckland
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [221, 351]
+  ideal:
+    wind_dir: [61, 151]
+    size_m: [0.6, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - waikato, 12 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: sunset-beach-port-waikato, name: "Sunset Beach (Port Waikato)", town: "Port Waikato", lat: -37.3967, lon: 174.7098, offshore_direction: 95, shore_normal: 309, swell_window: [244, 14], offshore_km: 5.0, break_type: beach, <<: *wkt }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: te-akau, name: "Te Akau", town: "Rangipu", lat: -37.7181, lon: 174.8194, offshore_direction: 74, swell_window: [189, 319], offshore_km: 5.0, break_type: beach, <<: *wkt }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: mussel-rocks, name: "Mussel Rocks", town: "Rangipu", lat: -37.7660, lon: 174.8310, offshore_direction: 77, swell_window: [192, 322], offshore_km: 5.0, break_type: beach, <<: *wkt }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: raglan-bar, name: "Raglan Bar", town: "Rangipu", lat: -37.8086, lon: 174.8342, offshore_direction: 133, swell_window: [248, 18], offshore_km: 5.0, break_type: beach, <<: *wkt }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: whale-bay, name: "Whale Bay", town: "Rangipu", lat: -37.8240, lon: 174.7985, offshore_direction: 175, swell_window: [290, 60], offshore_km: 5.0, break_type: point, <<: *wkt }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: ruapuke, name: "Ruapuke", town: "Makaka", lat: -37.8993, lon: 174.7666, offshore_direction: 74, swell_window: [189, 319], offshore_km: 5.0, break_type: beach, <<: *wkt }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: aotea-reef, name: "Aotea Reef", town: "Aotea", lat: -37.9942, lon: 174.7684, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, break_type: reef, <<: *wkt }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: albatross-point, name: "Albatross Point", town: "Taharoa", lat: -38.1204, lon: 174.7117, offshore_direction: 191, swell_window: [306, 76], offshore_km: 5.0, break_type: point, <<: *wkt }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: marokopa, name: "Marokopa", town: "Marokopa", lat: -38.3043, lon: 174.7123, offshore_direction: 89, swell_window: [204, 334], offshore_km: 5.0, break_type: beach, <<: *wkt }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: kiritehere, name: "Kiritehere", town: "Marokopa", lat: -38.3247, lon: 174.7070, offshore_direction: 137, swell_window: [252, 22], offshore_km: 5.0, break_type: beach, <<: *wkt }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: awakino, name: "Awakino", town: "Awakino", lat: -38.6654, lon: 174.6187, offshore_direction: 97, swell_window: [212, 342], offshore_km: 5.0, break_type: beach, <<: *wkt }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: mokau, name: "Mokau", town: "Mōkau", lat: -38.6979, lon: 174.6162, offshore_direction: 81, swell_window: [196, 326], offshore_km: 5.0, break_type: beach, <<: *wkt }  # sat-verified 2026-11-12 (websearch-seeded)

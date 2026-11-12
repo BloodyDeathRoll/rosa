@@ -1,0 +1,72 @@
+{
+  "spot": "waipapakauri-ramp",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.0386,
+    173.1673
+  ],
+  "bearing_seaward_deg": 254.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 52.0,
+  "mean_slope_m_per_km": 2.82,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.03922,
+      "lon": 173.16466,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.03984,
+      "lon": 173.16202,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.04108,
+      "lon": 173.15674,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.04356,
+      "lon": 173.14618,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.04603,
+      "lon": 173.13562,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.05098,
+      "lon": 173.1145,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.0584,
+      "lon": 173.08281,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.06828,
+      "lon": 173.04055,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.08307,
+      "lon": 172.97715,
+      "depth_m": 52.0
+    }
+  ]
+}

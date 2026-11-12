@@ -222,7 +222,7 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-11-12, DB = 4227 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-11-12, DB = 4558 spots, ALL sat-verified)
 
 **Famous-break gap pass, 3593 -> 3602 (2026-11-04).** A hand-written list of ~470 well-known breaks
 was matched against every DB name (accent-folded tokens), every miss geocoded with Nominatim and
@@ -335,6 +335,20 @@ Keppel), Double Island Point (10 deg: 45 deg put the beach's offshore wind 90 de
 failed test_offshore_wind_comes_from_the_land) and Cape Three Points (headland). **New Zealand's
 subagent died on a usage limit** after 345 renders with no final list
 (tools/spot-seed/work/new-zealand/, chunk*.json) - NZ is still at 17 and is the next pass.
+
+**New Zealand 295, north Brazil + Pacific 18, Caribbean islands 9, Nicaragua + Philippines 9 - 4227 -> 4558 (2026-11-12, cont. 2).**
+Five subagents. New Zealand was finished from the dead agent's work: names and points come from the
+regional councils' coastal-plan surf break layers (Northland, Auckland, Waikato, Taranaki Schedule 8A,
+GWRC Schedule K, Bay of Plenty surf break study) and the NZCPS 2010 Schedule 1 - public government
+data, not competitor data; licence not yet checked (NZ government GIS is usually CC-BY, which would
+need a credit line). 299 at >= 0.65; the coordinator re-read a random 24 on contact sheets, not all.
+About a fifth sit a few hundred metres offshore at the council's mapped reef or point. Ten new regions
+(northland, auckland, coromandel, waikato, bay-of-plenty, gisborne, hawkes-bay, taranaki, wellington,
+south-island) all in the new-zealand basin. 23 rays crossed land: 4 pins dropped (Whananaki Bar,
+Rangaunu Harbour Bar, both Kapiti Island points - no open arc or inside a harbour), 19 re-aimed to the
+middle of the widest wet arc (scratchpad arc.py logic: rays wet past the shoreline cell). Pacifico
+(Siargao) moved 8 km north onto the OSM surf node at Pacifico village. Farol Velho (Para) dropped:
+every ray crosses ~1 km of tidal flat. New basins micronesia (Guam, Pohnpei) and easter-island.
 
 **Gap queue (whole areas with zero spots, by box count 2026-11-12):** New Zealand is thin (17). Still
 empty: west Africa (Ivory Coast, Togo / Benin / Nigeria, Gabon, Sao Tome, Mauritania), Queensland north

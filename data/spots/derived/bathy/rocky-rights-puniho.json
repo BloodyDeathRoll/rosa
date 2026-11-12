@@ -1,0 +1,72 @@
+{
+  "spot": "rocky-rights-puniho",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.1949,
+    173.7904
+  ],
+  "bearing_seaward_deg": 301.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 125.0,
+  "mean_slope_m_per_km": 6.82,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.19374,
+      "lon": 173.78791,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.19258,
+      "lon": 173.78543,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.19027,
+      "lon": 173.78045,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.18563,
+      "lon": 173.77051,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.181,
+      "lon": 173.76057,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.17173,
+      "lon": 173.74068,
+      "depth_m": 76.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.15782,
+      "lon": 173.71087,
+      "depth_m": 106.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.13926,
+      "lon": 173.67113,
+      "depth_m": 119.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -39.11139,
+      "lon": 173.61157,
+      "depth_m": 125.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "sandy-bay-northland",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.5563,
+    174.4746
+  ],
+  "bearing_seaward_deg": 31.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 110.0,
+  "mean_slope_m_per_km": 6.14,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.55437,
+      "lon": 174.47602,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.55245,
+      "lon": 174.47745,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.54859,
+      "lon": 174.48029,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.54088,
+      "lon": 174.48598,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.53317,
+      "lon": 174.49168,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.51775,
+      "lon": 174.50305,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.49462,
+      "lon": 174.52011,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.46378,
+      "lon": 174.54284,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.4175,
+      "lon": 174.5769,
+      "depth_m": 110.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "windies-ngawi",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.5829,
+    175.2257
+  ],
+  "bearing_seaward_deg": 226.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 941.0,
+  "mean_slope_m_per_km": 52.68,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.58446,
+      "lon": 175.22354,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.58602,
+      "lon": 175.22138,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.58915,
+      "lon": 175.21705,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.59539,
+      "lon": 175.2084,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.60164,
+      "lon": 175.19975,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.61413,
+      "lon": 175.18244,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.63286,
+      "lon": 175.15646,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.65782,
+      "lon": 175.1218,
+      "depth_m": 117.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.69524,
+      "lon": 175.06975,
+      "depth_m": 941.0
+    }
+  ]
+}

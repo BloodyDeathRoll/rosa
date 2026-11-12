@@ -1,0 +1,72 @@
+{
+  "spot": "oakura-river-mouth",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.1097,
+    173.9556
+  ],
+  "bearing_seaward_deg": 321.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 118.0,
+  "mean_slope_m_per_km": 6.25,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.10795,
+      "lon": 173.95378,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.10621,
+      "lon": 173.95195,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.10271,
+      "lon": 173.94831,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.09572,
+      "lon": 173.94102,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.08873,
+      "lon": 173.93372,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.07475,
+      "lon": 173.91915,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.05377,
+      "lon": 173.8973,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.0258,
+      "lon": 173.86818,
+      "depth_m": 106.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.98382,
+      "lon": 173.82454,
+      "depth_m": 118.0
+    }
+  ]
+}

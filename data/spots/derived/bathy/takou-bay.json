@@ -1,0 +1,72 @@
+{
+  "spot": "takou-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.0961,
+    173.9404
+  ],
+  "bearing_seaward_deg": 82.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 102.0,
+  "mean_slope_m_per_km": 5.58,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.09579,
+      "lon": 173.94312,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.09547,
+      "lon": 173.94584,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.09485,
+      "lon": 173.95128,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.09359,
+      "lon": 173.96217,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.09234,
+      "lon": 173.97305,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.08983,
+      "lon": 173.99482,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.08606,
+      "lon": 174.02747,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.08101,
+      "lon": 174.07099,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.07341,
+      "lon": 174.13627,
+      "depth_m": 102.0
+    }
+  ]
+}

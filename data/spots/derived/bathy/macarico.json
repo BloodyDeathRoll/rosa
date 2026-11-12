@@ -1,0 +1,72 @@
+{
+  "spot": "macarico",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -0.6091,
+    -47.3622
+  ],
+  "bearing_seaward_deg": 20.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 27.0,
+  "mean_slope_m_per_km": 1.13,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -0.60699,
+      "lon": -47.36143,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -0.60487,
+      "lon": -47.36066,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -0.60065,
+      "lon": -47.35912,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -0.5922,
+      "lon": -47.35605,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -0.58375,
+      "lon": -47.35297,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -0.56685,
+      "lon": -47.34682,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -0.54149,
+      "lon": -47.33759,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -0.50769,
+      "lon": -47.32529,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -0.45698,
+      "lon": -47.30683,
+      "depth_m": 27.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "boca-de-yumuri",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    20.302,
+    -74.2974
+  ],
+  "bearing_seaward_deg": 320.0,
+  "nearshore_depth_m": -18.0,
+  "offshore_depth_m": 772.0,
+  "mean_slope_m_per_km": 44.51,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 20.30372,
+      "lon": -74.29894,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 20.30544,
+      "lon": -74.30048,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 20.30889,
+      "lon": -74.30356,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 20.31578,
+      "lon": -74.30973,
+      "depth_m": 130.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 20.32267,
+      "lon": -74.31589,
+      "depth_m": 257.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 20.33644,
+      "lon": -74.32822,
+      "depth_m": 451.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 20.35711,
+      "lon": -74.34673,
+      "depth_m": 526.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 20.38465,
+      "lon": -74.3714,
+      "depth_m": 598.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 20.42597,
+      "lon": -74.40843,
+      "depth_m": 772.0
+    }
+  ]
+}

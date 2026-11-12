@@ -1,0 +1,23 @@
+# Rosa spot database - Dominica (seeded 2026-11-12). Pagua Bay and Rosalie on the Atlantic east coast (E trade
+# windswell, winter N swell), Scotts Head at the south tip (needs summer S swell).
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Dominica"
+
+defaults: &dm
+  timezone: America/Dominica
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [35, 165]
+  ideal:
+    wind_dir: [235, 325]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - dominica, 3 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: pagua-bay, name: "Pagua Bay", town: "Marigot", lat: 15.5189, lon: -61.2733, offshore_direction: 225, swell_window: [340, 110], offshore_km: 5.0, break_type: beach, <<: *dm }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: rosalie-dominica, name: "Rosalie River Mouth", town: "Rosalie", lat: 15.3738, lon: -61.2513, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, break_type: beach, <<: *dm }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: scotts-head-dominica, name: "Scotts Head", town: "Scotts Head", lat: 15.2115, lon: -61.3681, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, break_type: reef, <<: *dm }  # sat-verified 2026-11-12 (websearch-seeded)

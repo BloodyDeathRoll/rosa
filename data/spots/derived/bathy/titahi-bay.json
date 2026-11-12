@@ -1,0 +1,72 @@
+{
+  "spot": "titahi-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.1061,
+    174.8355
+  ],
+  "bearing_seaward_deg": 334.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 159.0,
+  "mean_slope_m_per_km": 8.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.10408,
+      "lon": 174.83419,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.10206,
+      "lon": 174.83288,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.09802,
+      "lon": 174.83027,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.08993,
+      "lon": 174.82504,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.08185,
+      "lon": 174.81981,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.06568,
+      "lon": 174.80936,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.04143,
+      "lon": 174.79368,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.00909,
+      "lon": 174.77281,
+      "depth_m": 120.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -40.96057,
+      "lon": 174.74153,
+      "depth_m": 159.0
+    }
+  ]
+}

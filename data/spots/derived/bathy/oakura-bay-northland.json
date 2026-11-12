@@ -1,0 +1,72 @@
+{
+  "spot": "oakura-bay-northland",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.39,
+    174.3447
+  ],
+  "bearing_seaward_deg": 69.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 120.0,
+  "mean_slope_m_per_km": 6.7,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.38919,
+      "lon": 174.34727,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.38839,
+      "lon": 174.34985,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.38678,
+      "lon": 174.355,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.38355,
+      "lon": 174.3653,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.38033,
+      "lon": 174.37559,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.37387,
+      "lon": 174.39618,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.36419,
+      "lon": 174.42706,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.35126,
+      "lon": 174.46823,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.33185,
+      "lon": 174.52994,
+      "depth_m": 120.0
+    }
+  ]
+}

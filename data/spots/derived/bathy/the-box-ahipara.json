@@ -1,0 +1,72 @@
+{
+  "spot": "the-box-ahipara",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.1974,
+    173.0615
+  ],
+  "bearing_seaward_deg": 211.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 142.0,
+  "mean_slope_m_per_km": 8.45,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.19933,
+      "lon": 173.06008,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.20125,
+      "lon": 173.05867,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.20511,
+      "lon": 173.05583,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.21282,
+      "lon": 173.05016,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.22052,
+      "lon": 173.04449,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.23594,
+      "lon": 173.03315,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.25906,
+      "lon": 173.01612,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.28989,
+      "lon": 172.9934,
+      "depth_m": 83.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.33611,
+      "lon": 172.9593,
+      "depth_m": 142.0
+    }
+  ]
+}

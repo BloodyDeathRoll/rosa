@@ -1,0 +1,72 @@
+{
+  "spot": "the-desert-mangatoetoe",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.5955,
+    175.3458
+  ],
+  "bearing_seaward_deg": 160.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 999.0,
+  "mean_slope_m_per_km": 55.72,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.59761,
+      "lon": 175.34683,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.59973,
+      "lon": 175.34786,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.60395,
+      "lon": 175.34991,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.6124,
+      "lon": 175.35403,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.62085,
+      "lon": 175.35814,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.63775,
+      "lon": 175.36638,
+      "depth_m": 339.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.6631,
+      "lon": 175.37874,
+      "depth_m": 500.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.6969,
+      "lon": 175.39523,
+      "depth_m": 812.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.74759,
+      "lon": 175.42001,
+      "depth_m": 999.0
+    }
+  ]
+}

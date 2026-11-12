@@ -1,0 +1,72 @@
+{
+  "spot": "midway-beach-gizzy-pipe",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.6748,
+    177.9906
+  ],
+  "bearing_seaward_deg": 159.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 45.0,
+  "mean_slope_m_per_km": 2.48,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.6769,
+      "lon": 177.99163,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.679,
+      "lon": 177.99266,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.6832,
+      "lon": 177.99473,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.69159,
+      "lon": 177.99886,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.69999,
+      "lon": 178.00299,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.71678,
+      "lon": 178.01125,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.74196,
+      "lon": 178.02366,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.77554,
+      "lon": 178.04021,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.8259,
+      "lon": 178.06506,
+      "depth_m": 45.0
+    }
+  ]
+}

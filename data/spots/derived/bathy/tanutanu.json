@@ -1,0 +1,72 @@
+{
+  "spot": "tanutanu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.218,
+    173.0888
+  ],
+  "bearing_seaward_deg": 226.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 148.0,
+  "mean_slope_m_per_km": 8.28,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.21956,
+      "lon": 173.08682,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.22112,
+      "lon": 173.08484,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.22425,
+      "lon": 173.08088,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.23049,
+      "lon": 173.07296,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.23674,
+      "lon": 173.06504,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.24923,
+      "lon": 173.04919,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.26796,
+      "lon": 173.02541,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.29293,
+      "lon": 172.99369,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.33037,
+      "lon": 172.94607,
+      "depth_m": 148.0
+    }
+  ]
+}

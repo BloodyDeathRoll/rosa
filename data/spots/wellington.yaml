@@ -1,0 +1,74 @@
+# Rosa spot database - Wellington (seeded 2026-11-12).
+# the south coast (Lyall Bay, Houghton Bay), Kapiti and Titahi Bay, and the Wairarapa coast from
+# Palliser to Castlepoint. S Cook Strait swell on the south coast, E-SE Pacific swell on the Wairarapa.
+# Names and coordinates from the regional councils' coastal-plan surf break layers and the NZCPS 2010 schedule,
+# cross-read with surf guides and tourism boards.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "New Zealand"
+
+defaults: &wgtn
+  timezone: Pacific/Auckland
+  height_coeff: 1.0
+  break_type: point
+  swell_window: [138, 268]
+  ideal:
+    wind_dir: [338, 68]
+    size_m: [0.6, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - wellington, 51 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: otaki-beach, name: "Ōtaki Beach", town: "Ōtaki Beach", lat: -40.7444, lon: 175.1093, offshore_direction: 115, swell_window: [230, 0], offshore_km: 5.0, break_type: beach, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: waikanae-beach-kapiti, name: "Waikanae Beach (Kāpiti)", town: "Peka Peka", lat: -40.8558, lon: 175.0301, offshore_direction: 133, swell_window: [248, 18], offshore_km: 5.0, break_type: beach, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: slipperies-whakataki, name: "Slipperies (Whakataki)", town: "Castlepoint", lat: -40.8683, lon: 176.2385, offshore_direction: 317, swell_window: [72, 202], offshore_km: 5.0, break_type: reef, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: the-gap-castlepoint, name: "The Gap (Castlepoint)", town: "Castlepoint", lat: -40.9075, lon: 176.2213, offshore_direction: 308, swell_window: [63, 193], offshore_km: 5.0, break_type: beach, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: christmas-bay, name: "Christmas Bay", town: "Castlepoint", lat: -40.9120, lon: 176.2078, offshore_direction: 326, swell_window: [81, 211], offshore_km: 5.0, break_type: beach, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: paekakariki, name: "Paekākāriki", town: "Paekākāriki", lat: -40.9869, lon: 174.9498, offshore_direction: 119, swell_window: [234, 4], offshore_km: 5.0, break_type: beach, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: brendans-pukerua-bay, name: "Brendans", town: "Paekākāriki Hill", lat: -41.0261, lon: 174.8991, offshore_direction: 142, swell_window: [257, 27], offshore_km: 5.0, break_type: reef, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: wairaka-point, name: "Wairaka Point", town: "Hongoeka", lat: -41.0266, lon: 174.8864, offshore_direction: 173, swell_window: [288, 58], offshore_km: 5.0, break_type: point, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: wairaka-reef, name: "Wairaka Reef", town: "Hongoeka", lat: -41.0281, lon: 174.8746, offshore_direction: 156, swell_window: [271, 41], offshore_km: 5.0, break_type: reef, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: titches-hongoeka, name: "Titches", town: "Hongoeka", lat: -41.0655, lon: 174.8382, offshore_direction: 56, shore_normal: 303, swell_window: [238, 8], offshore_km: 5.0, break_type: point, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: pa-point-hongoeka, name: "Pā Point", town: "Hongoeka", lat: -41.0671, lon: 174.8469, offshore_direction: 14, shore_normal: 265, swell_window: [200, 330], offshore_km: 5.0, break_type: point, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: hongoeka-bay, name: "Hongoeka Bay", town: "Hongoeka", lat: -41.0682, lon: 174.8516, offshore_direction: 42, swell_window: [157, 287], offshore_km: 5.0, break_type: beach, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: plimmerton, name: "Plimmerton", town: "Hongoeka", lat: -41.0867, lon: 174.8632, offshore_direction: 71, swell_window: [186, 316], offshore_km: 5.0, break_type: reef, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: riversdale, name: "Riversdale", town: "Riversdale Beach", lat: -41.0934, lon: 176.0722, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, break_type: beach, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: fishermans-titahi-bay, name: "Fishermans (Titahi Bay)", town: "Colonial Knob", lat: -41.0994, lon: 174.8317, offshore_direction: 101, shore_normal: 333, swell_window: [268, 38], offshore_km: 5.0, break_type: point, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: petes-rock, name: "Pete's Rock", town: "Colonial Knob", lat: -41.1052, lon: 174.8300, offshore_direction: 184, swell_window: [299, 69], offshore_km: 5.0, break_type: point, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: titahi-bay, name: "Titahi Bay", town: "Porirua", lat: -41.1061, lon: 174.8355, offshore_direction: 118, shore_normal: 334, swell_window: [269, 39], offshore_km: 5.0, break_type: beach, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: stevos-porirua, name: "Stevos", town: "Colonial Knob", lat: -41.1219, lon: 174.7988, offshore_direction: 143, swell_window: [258, 28], offshore_km: 5.0, break_type: point, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: uruti-point, name: "Uruti Point", town: "Riversdale Beach", lat: -41.1355, lon: 176.0522, offshore_direction: 312, swell_window: [67, 197], offshore_km: 5.0, break_type: beach, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: butterfish-rock, name: "Butterfish Rock", town: "Wellington", lat: -41.3322, lon: 174.8313, offshore_direction: 331, shore_normal: 185, swell_window: [120, 250], offshore_km: 5.0, break_type: reef, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: houghton-bay, name: "Houghton Bay", town: "Wellington", lat: -41.3440, lon: 174.7850, offshore_direction: 358, swell_window: [113, 243], offshore_km: 5.0, break_type: reef, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: propellors-wellington, name: "Propellors", town: "Wellington", lat: -41.3447, lon: 174.8224, offshore_direction: 337, swell_window: [92, 222], offshore_km: 5.0, break_type: point, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: moa-point, name: "Moa Point", town: "Wellington", lat: -41.3466, lon: 174.8108, offshore_direction: 21, swell_window: [136, 266], offshore_km: 5.0, break_type: point, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: rat-island, name: "Rat Island", town: "Wellington", lat: -41.3491, lon: 174.7699, offshore_direction: 321, swell_window: [76, 206], offshore_km: 5.0, break_type: reef, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: lake-ferry, name: "Lake Ferry", town: "Lake Ferry", lat: -41.3977, lon: 175.1404, offshore_direction: 26, swell_window: [141, 271], offshore_km: 5.0, break_type: beach, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: wainuiomata-river, name: "Wainuiomata River", town: "Wellington", lat: -41.4141, lon: 174.8776, offshore_direction: 17, swell_window: [132, 262], offshore_km: 5.0, break_type: reef, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: dribbles-wainuiomata, name: "Dribbles", town: "Wellington", lat: -41.4177, lon: 174.8909, offshore_direction: 24, swell_window: [139, 269], offshore_km: 5.0, break_type: reef, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: orongorongo-river, name: "Orongorongo River", town: "Wellington", lat: -41.4224, lon: 174.9029, offshore_direction: 51, swell_window: [166, 296], offshore_km: 5.0, break_type: point, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: batches-whangaimoana, name: "Batches", town: "Whāngaimoana", lat: -41.4579, lon: 175.2179, offshore_direction: 107, swell_window: [222, 352], offshore_km: 5.0, break_type: beach, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: whatarangi-station, name: "Whatarangi Station", town: "Whāngaimoana", lat: -41.4677, lon: 175.2104, offshore_direction: 119, swell_window: [234, 4], offshore_km: 5.0, break_type: point, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: whatarangi-bay-bombie, name: "Whatarangi Bay Bombie", town: "Whāngaimoana", lat: -41.4713, lon: 175.2094, offshore_direction: 113, swell_window: [228, 358], offshore_km: 5.0, break_type: reef, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: whatarangi-point, name: "Whatarangi Point", town: "Whāngaimoana", lat: -41.4753, lon: 175.2063, offshore_direction: 104, swell_window: [219, 349], offshore_km: 5.0, break_type: point, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: stony-bay-te-awaiti, name: "Stony Bay (Te Awaiti)", town: "Tuturumuri", lat: -41.4989, lon: 175.5514, offshore_direction: 339, swell_window: [94, 224], offshore_km: 5.0, break_type: reef, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: tora-pit, name: "Tora Pit", town: "Tuturumuri", lat: -41.5100, lon: 175.5150, offshore_direction: 326, swell_window: [81, 211], offshore_km: 5.0, break_type: reef, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: tora-tora, name: "Tora Tora", town: "Tuturumuri", lat: -41.5150, lon: 175.5078, offshore_direction: 292, swell_window: [47, 177], offshore_km: 5.0, break_type: point, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: humenga-point, name: "Humenga Point", town: "Ngāwī", lat: -41.5229, lon: 175.1942, offshore_direction: 99, swell_window: [214, 344], offshore_km: 5.0, break_type: point, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: shipwrecks-tora, name: "Shipwrecks (Tora)", town: "Tuturumuri", lat: -41.5248, lon: 175.5015, offshore_direction: 294, swell_window: [49, 179], offshore_km: 5.0, break_type: reef, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: god-squad-tora, name: "God Squad", town: "Tuturumuri", lat: -41.5283, lon: 175.5003, offshore_direction: 304, swell_window: [59, 189], offshore_km: 5.0, break_type: reef, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: pararaki-stream, name: "Pararaki Stream", town: "Ngāwī", lat: -41.5339, lon: 175.2056, offshore_direction: 42, swell_window: [157, 287], offshore_km: 5.0, break_type: beach, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: humenga-lodge, name: "Humenga Lodge", town: "Ngāwī", lat: -41.5474, lon: 175.2166, offshore_direction: 80, swell_window: [195, 325], offshore_km: 5.0, break_type: point, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: otakaha-stream, name: "Otakaha Stream", town: "Ngāwī", lat: -41.5515, lon: 175.2186, offshore_direction: 72, swell_window: [187, 317], offshore_km: 5.0, break_type: beach, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: dee-dees, name: "Dee Dees", town: "Ngāwī", lat: -41.5554, lon: 175.2195, offshore_direction: 86, swell_window: [201, 331], offshore_km: 5.0, break_type: reef, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: ning-nong, name: "Ning Nong", town: "Ngāwī", lat: -41.5640, lon: 175.2195, offshore_direction: 83, swell_window: [198, 328], offshore_km: 5.0, break_type: point, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: gnarlies-mangatoetoe, name: "Gnarlies", town: "Mangatoetoe", lat: -41.5702, lon: 175.4384, offshore_direction: 328, swell_window: [83, 213], offshore_km: 5.0, break_type: reef, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: white-rock-point, name: "White Rock Point", town: "Mangatoetoe", lat: -41.5704, lon: 175.4250, offshore_direction: 11, swell_window: [126, 256], offshore_km: 5.0, break_type: point, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: dolphin-bay, name: "Dolphin Bay", town: "Mangatoetoe", lat: -41.5722, lon: 175.4319, offshore_direction: 344, swell_window: [99, 229], offshore_km: 5.0, break_type: beach, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: windies-ngawi, name: "Windies", town: "Ngāwī", lat: -41.5829, lon: 175.2257, offshore_direction: 46, swell_window: [161, 291], offshore_km: 5.0, break_type: point, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: the-spit-wairarapa, name: "The Spit (Wairarapa)", town: "Mangatoetoe", lat: -41.5866, lon: 175.3618, offshore_direction: 307, swell_window: [62, 192], offshore_km: 5.0, break_type: point, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: seconds-mangatoetoe, name: "Seconds", town: "Mangatoetoe", lat: -41.5882, lon: 175.3558, offshore_direction: 302, swell_window: [57, 187], offshore_km: 5.0, break_type: point, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: the-desert-mangatoetoe, name: "The Desert", town: "Mangatoetoe", lat: -41.5955, lon: 175.3458, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, break_type: point, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: schnappes, name: "Schnappes", town: "Mangatoetoe", lat: -41.6047, lon: 175.3306, offshore_direction: 311, swell_window: [66, 196], offshore_km: 5.0, break_type: reef, <<: *wgtn }  # sat-verified 2026-11-12 (websearch-seeded)

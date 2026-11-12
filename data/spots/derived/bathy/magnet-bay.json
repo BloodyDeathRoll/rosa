@@ -1,0 +1,72 @@
+{
+  "spot": "magnet-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -43.8421,
+    172.7396
+  ],
+  "bearing_seaward_deg": 225.0,
+  "nearshore_depth_m": 14.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 0.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -43.84369,
+      "lon": 172.7374,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -43.84528,
+      "lon": 172.73519,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -43.84846,
+      "lon": 172.73078,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -43.85482,
+      "lon": 172.72196,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -43.86117,
+      "lon": 172.71314,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -43.87389,
+      "lon": 172.69549,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -43.89295,
+      "lon": 172.66901,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -43.91836,
+      "lon": 172.63366,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -43.95645,
+      "lon": 172.58059,
+      "depth_m": 30.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "olho-dagua-sao-luis",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -2.478,
+    -44.2275
+  ],
+  "bearing_seaward_deg": 347.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 36.0,
+  "mean_slope_m_per_km": 2.25,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -2.47581,
+      "lon": -44.22801,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -2.47362,
+      "lon": -44.22851,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -2.46924,
+      "lon": -44.22952,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -2.46047,
+      "lon": -44.23155,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -2.45171,
+      "lon": -44.23357,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -2.43419,
+      "lon": -44.23762,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -2.4079,
+      "lon": -44.2437,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -2.37285,
+      "lon": -44.2518,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -2.32027,
+      "lon": -44.26394,
+      "depth_m": 36.0
+    }
+  ]
+}

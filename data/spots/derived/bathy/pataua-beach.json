@@ -1,0 +1,72 @@
+{
+  "spot": "pataua-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.7091,
+    174.5219
+  ],
+  "bearing_seaward_deg": 85.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 113.0,
+  "mean_slope_m_per_km": 6.42,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.7089,
+      "lon": 174.52466,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.70871,
+      "lon": 174.52742,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.70832,
+      "lon": 174.53293,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.70753,
+      "lon": 174.54397,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.70674,
+      "lon": 174.555,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.70517,
+      "lon": 174.57706,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.7028,
+      "lon": 174.61016,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.69962,
+      "lon": 174.65428,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.69483,
+      "lon": 174.72046,
+      "depth_m": 113.0
+    }
+  ]
+}

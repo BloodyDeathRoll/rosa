@@ -1,0 +1,72 @@
+{
+  "spot": "las-penitas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    12.3589,
+    -87.0225
+  ],
+  "bearing_seaward_deg": 210.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 53.0,
+  "mean_slope_m_per_km": 2.87,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 12.35695,
+      "lon": -87.02365,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 12.35501,
+      "lon": -87.0248,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 12.35111,
+      "lon": -87.0271,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 12.34332,
+      "lon": -87.03171,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 12.33553,
+      "lon": -87.03631,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 12.31996,
+      "lon": -87.04551,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 12.29659,
+      "lon": -87.05932,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 12.26543,
+      "lon": -87.07772,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 12.2187,
+      "lon": -87.10531,
+      "depth_m": 53.0
+    }
+  ]
+}

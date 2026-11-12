@@ -1,0 +1,72 @@
+{
+  "spot": "porpoise-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -46.6453,
+    169.1148
+  ],
+  "bearing_seaward_deg": 148.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 90.0,
+  "mean_slope_m_per_km": 4.96,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -46.64721,
+      "lon": 169.11654,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -46.64911,
+      "lon": 169.11827,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -46.65293,
+      "lon": 169.12174,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -46.66055,
+      "lon": 169.12869,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -46.66818,
+      "lon": 169.13563,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -46.68343,
+      "lon": 169.14953,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -46.7063,
+      "lon": 169.1704,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -46.73679,
+      "lon": 169.19824,
+      "depth_m": 83.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -46.78251,
+      "lon": 169.24007,
+      "depth_m": 90.0
+    }
+  ]
+}

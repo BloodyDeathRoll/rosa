@@ -1,0 +1,72 @@
+{
+  "spot": "jiquilillo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    12.7235,
+    -87.4363
+  ],
+  "bearing_seaward_deg": 230.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 43.0,
+  "mean_slope_m_per_km": 2.76,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 12.72205,
+      "lon": -87.43807,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 12.72061,
+      "lon": -87.43983,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 12.71772,
+      "lon": -87.44336,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 12.71194,
+      "lon": -87.45042,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 12.70616,
+      "lon": -87.45749,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 12.69459,
+      "lon": -87.47161,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 12.67725,
+      "lon": -87.49279,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 12.65412,
+      "lon": -87.52103,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 12.61942,
+      "lon": -87.56338,
+      "depth_m": 43.0
+    }
+  ]
+}

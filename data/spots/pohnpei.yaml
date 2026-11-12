@@ -1,0 +1,25 @@
+# Rosa spot database - Pohnpei (seeded 2026-11-12). Reef passes round the barrier reef: P-Pass (Palikir), Mwahnd,
+# Nahpali, Nan Madol, Nahlap. N-NE North Pacific swell, Oct-Mar.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Micronesia"
+
+defaults: &pni
+  timezone: Pacific/Pohnpei
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [1, 131]
+  ideal:
+    wind_dir: [201, 291]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - pohnpei, 5 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: mwahnd-pass, name: "Mwahnd Pass", town: "Kolonia", lat: 7.0186, lon: 158.2934, offshore_direction: 195, swell_window: [310, 80], offshore_km: 5.0, break_type: reef, <<: *pni }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: p-pass, name: "P-Pass (Palikir Pass)", town: "Kolonia", lat: 6.9841, lon: 158.1294, offshore_direction: 135, swell_window: [250, 20], offshore_km: 5.0, break_type: reef, <<: *pni }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: nahpali, name: "Nahpali", town: "Tamworohi", lat: 6.8718, lon: 158.3554, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, break_type: reef, <<: *pni }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: nan-madol, name: "Nan Madol", town: "Tamworohi", lat: 6.8384, lon: 158.3387, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, break_type: reef, <<: *pni }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: nahlap, name: "Nahlap", town: "Kipar", lat: 6.7824, lon: 158.1560, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, break_type: reef, <<: *pni }  # sat-verified 2026-11-12 (websearch-seeded)

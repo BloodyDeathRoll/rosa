@@ -1,0 +1,72 @@
+{
+  "spot": "tasman-heights",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.1728,
+    173.1403
+  ],
+  "bearing_seaward_deg": 317.0,
+  "nearshore_depth_m": -51.0,
+  "offshore_depth_m": 47.0,
+  "mean_slope_m_per_km": 5.52,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.17116,
+      "lon": 173.13842,
+      "depth_m": -51.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.16951,
+      "lon": 173.13655,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.16622,
+      "lon": 173.1328,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.15964,
+      "lon": 173.1253,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.15307,
+      "lon": 173.1178,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.13991,
+      "lon": 173.1028,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.12017,
+      "lon": 173.08031,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.09384,
+      "lon": 173.05035,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.05434,
+      "lon": 173.00544,
+      "depth_m": 47.0
+    }
+  ]
+}

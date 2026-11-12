@@ -1,0 +1,72 @@
+{
+  "spot": "south-point-pihama",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.5407,
+    173.9507
+  ],
+  "bearing_seaward_deg": 198.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 55.0,
+  "mean_slope_m_per_km": 3.04,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.54284,
+      "lon": 173.9498,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.54498,
+      "lon": 173.9489,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.54925,
+      "lon": 173.9471,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.55781,
+      "lon": 173.94349,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.56636,
+      "lon": 173.93988,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.58346,
+      "lon": 173.93267,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.60912,
+      "lon": 173.92184,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.64333,
+      "lon": 173.90739,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -39.69464,
+      "lon": 173.88569,
+      "depth_m": 55.0
+    }
+  ]
+}

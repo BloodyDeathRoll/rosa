@@ -1,0 +1,72 @@
+{
+  "spot": "sao-marcos-sao-luis",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -2.4869,
+    -44.2802
+  ],
+  "bearing_seaward_deg": 357.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 40.0,
+  "mean_slope_m_per_km": 2.65,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -2.48465,
+      "lon": -44.28032,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -2.48241,
+      "lon": -44.28044,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -2.47792,
+      "lon": -44.28067,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -2.46894,
+      "lon": -44.28114,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -2.45996,
+      "lon": -44.28161,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -2.442,
+      "lon": -44.28256,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -2.41505,
+      "lon": -44.28397,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -2.37913,
+      "lon": -44.28585,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -2.32524,
+      "lon": -44.28868,
+      "depth_m": 40.0
+    }
+  ]
+}

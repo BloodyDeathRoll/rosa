@@ -1,0 +1,72 @@
+{
+  "spot": "mwahnd-pass",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    7.0186,
+    158.2934
+  ],
+  "bearing_seaward_deg": 15.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 3391.0,
+  "mean_slope_m_per_km": 190.82,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 7.02077,
+      "lon": 158.29399,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 7.02294,
+      "lon": 158.29457,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 7.02729,
+      "lon": 158.29575,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 7.03597,
+      "lon": 158.29809,
+      "depth_m": 720.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 7.04466,
+      "lon": 158.30044,
+      "depth_m": 1554.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 7.06203,
+      "lon": 158.30513,
+      "depth_m": 1466.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 7.08809,
+      "lon": 158.31216,
+      "depth_m": 2061.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 7.12284,
+      "lon": 158.32155,
+      "depth_m": 2766.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 7.17496,
+      "lon": 158.33563,
+      "depth_m": 3391.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "pareparea-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.4614,
+    174.4357
+  ],
+  "bearing_seaward_deg": 40.0,
+  "nearshore_depth_m": -19.0,
+  "offshore_depth_m": 131.0,
+  "mean_slope_m_per_km": 8.45,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.45968,
+      "lon": 174.43747,
+      "depth_m": -19.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.45796,
+      "lon": 174.43925,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.45451,
+      "lon": 174.4428,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.44762,
+      "lon": 174.44989,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.44073,
+      "lon": 174.45699,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.42695,
+      "lon": 174.47117,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.40627,
+      "lon": 174.49244,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.3787,
+      "lon": 174.52078,
+      "depth_m": 99.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.33733,
+      "lon": 174.56325,
+      "depth_m": 131.0
+    }
+  ]
+}

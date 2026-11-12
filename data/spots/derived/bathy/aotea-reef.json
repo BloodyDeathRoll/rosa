@@ -1,0 +1,72 @@
+{
+  "spot": "aotea-reef",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -37.9942,
+    174.7684
+  ],
+  "bearing_seaward_deg": 265.0,
+  "nearshore_depth_m": 18.0,
+  "offshore_depth_m": 60.0,
+  "mean_slope_m_per_km": 2.37,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -37.9944,
+      "lon": 174.76556,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -37.99459,
+      "lon": 174.76272,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -37.99498,
+      "lon": 174.75703,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -37.99577,
+      "lon": 174.74566,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -37.99655,
+      "lon": 174.73429,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -37.99811,
+      "lon": 174.71156,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.00044,
+      "lon": 174.67745,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.00353,
+      "lon": 174.63196,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.00813,
+      "lon": 174.56373,
+      "depth_m": 60.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "castlecliff",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.9392,
+    174.9758
+  ],
+  "bearing_seaward_deg": 241.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 2.08,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.94029,
+      "lon": 174.97324,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.94138,
+      "lon": 174.97067,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.94356,
+      "lon": 174.96554,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.94792,
+      "lon": 174.95528,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.95228,
+      "lon": 174.94502,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.96099,
+      "lon": 174.92449,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.97405,
+      "lon": 174.89369,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.99145,
+      "lon": 174.8526,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -40.01753,
+      "lon": 174.79093,
+      "depth_m": 35.0
+    }
+  ]
+}

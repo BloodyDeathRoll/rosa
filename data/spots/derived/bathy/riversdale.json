@@ -1,0 +1,72 @@
+{
+  "spot": "riversdale",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.0934,
+    176.0722
+  ],
+  "bearing_seaward_deg": 110.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 122.0,
+  "mean_slope_m_per_km": 6.82,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.09417,
+      "lon": 176.075,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.09494,
+      "lon": 176.07781,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.09648,
+      "lon": 176.08341,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.09955,
+      "lon": 176.09463,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.10262,
+      "lon": 176.10584,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.10877,
+      "lon": 176.12828,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.11797,
+      "lon": 176.16194,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.13023,
+      "lon": 176.20684,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.14859,
+      "lon": 176.27421,
+      "depth_m": 122.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "patea-river-south-side",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.7735,
+    174.4898
+  ],
+  "bearing_seaward_deg": 209.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 41.0,
+  "mean_slope_m_per_km": 2.25,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.77547,
+      "lon": 174.48838,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.77743,
+      "lon": 174.48696,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.78137,
+      "lon": 174.48413,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.78923,
+      "lon": 174.47845,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.7971,
+      "lon": 174.47278,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.81282,
+      "lon": 174.46142,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.83642,
+      "lon": 174.44438,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.86787,
+      "lon": 174.42163,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -39.91504,
+      "lon": 174.38748,
+      "depth_m": 41.0
+    }
+  ]
+}

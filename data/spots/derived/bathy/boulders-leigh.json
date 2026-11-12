@@ -1,0 +1,72 @@
+{
+  "spot": "boulders-leigh",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.2867,
+    174.817
+  ],
+  "bearing_seaward_deg": 90.0,
+  "nearshore_depth_m": -22.0,
+  "offshore_depth_m": 50.0,
+  "mean_slope_m_per_km": 4.06,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.2867,
+      "lon": 174.81979,
+      "depth_m": -22.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.2867,
+      "lon": 174.82258,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.2867,
+      "lon": 174.82816,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.2867,
+      "lon": 174.83931,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.2867,
+      "lon": 174.85047,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.28669,
+      "lon": 174.87278,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.28667,
+      "lon": 174.90626,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.28663,
+      "lon": 174.95088,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.28653,
+      "lon": 175.01782,
+      "depth_m": 50.0
+    }
+  ]
+}

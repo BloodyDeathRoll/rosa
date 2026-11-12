@@ -1,0 +1,72 @@
+{
+  "spot": "takapuna",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.7897,
+    174.7788
+  ],
+  "bearing_seaward_deg": 53.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 26.0,
+  "mean_slope_m_per_km": 1.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.78835,
+      "lon": 174.78104,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.78699,
+      "lon": 174.78328,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.78429,
+      "lon": 174.78777,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.77887,
+      "lon": 174.79673,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.77346,
+      "lon": 174.8057,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.76263,
+      "lon": 174.82363,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.74638,
+      "lon": 174.85051,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.7247,
+      "lon": 174.88633,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.69217,
+      "lon": 174.94003,
+      "depth_m": 26.0
+    }
+  ]
+}

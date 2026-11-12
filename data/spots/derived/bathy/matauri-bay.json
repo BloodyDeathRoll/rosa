@@ -1,0 +1,72 @@
+{
+  "spot": "matauri-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.0325,
+    173.9153
+  ],
+  "bearing_seaward_deg": 118.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.03356,
+      "lon": 173.91772,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.03461,
+      "lon": 173.92015,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.03672,
+      "lon": 173.925,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.04094,
+      "lon": 173.9347,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.04516,
+      "lon": 173.9444,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.0536,
+      "lon": 173.9638,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.06625,
+      "lon": 173.99291,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.08311,
+      "lon": 174.03174,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.10837,
+      "lon": 174.09002,
+      "depth_m": 35.0
+    }
+  ]
+}

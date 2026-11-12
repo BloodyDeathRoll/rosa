@@ -1,0 +1,72 @@
+{
+  "spot": "long-bay-reef",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.6938,
+    174.7602
+  ],
+  "bearing_seaward_deg": 67.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 1.63,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.69292,
+      "lon": 174.76278,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.69204,
+      "lon": 174.76536,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.69029,
+      "lon": 174.77052,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.68677,
+      "lon": 174.78085,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.68325,
+      "lon": 174.79117,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.67622,
+      "lon": 174.81181,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.66566,
+      "lon": 174.84276,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.65157,
+      "lon": 174.88402,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.63041,
+      "lon": 174.94588,
+      "depth_m": 35.0
+    }
+  ]
+}

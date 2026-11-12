@@ -68,6 +68,17 @@ OVERPASS = [
 # non-surf northern lagoons); others cover the mapped coast.
 REGIONS = {
     "new-zealand": (-47.30, 166.35, -34.40, 178.60),
+    # NZ regions seeded 2026-11-12 (council surf break layers): pin extents + 0.05 deg
+    "northland": (-36.43, 172.62, -34.37, 174.65),
+    "auckland": (-37.33, 174.30, -36.09, 175.55),
+    "coromandel": (-37.41, 175.48, -36.55, 175.99),
+    "waikato": (-38.75, 174.57, -37.35, 174.88),
+    "bay-of-plenty": (-38.04, 175.89, -37.33, 177.30),
+    "gisborne": (-38.75, 177.94, -38.33, 178.37),
+    "hawkes-bay": (-40.22, 176.78, -38.97, 177.94),
+    "taranaki": (-39.99, 173.70, -38.93, 175.03),
+    "wellington": (-41.65, 174.72, -40.69, 176.29),
+    "south-island": (-46.70, 169.06, -41.72, 174.23),
     "sri-lanka": (5.85, 79.60, 7.05, 81.95),
     # ---- mainland India (2026-10-29), one box per surfed state on Geofabrik's zone extracts
     # (asia/india/{western,southern,eastern}-zone; Goa on western, Odisha on eastern, the rest
@@ -484,6 +495,10 @@ REGIONS = {
     "rio-grande-do-norte": (-6.50, -38.00, -4.80, -34.95),
     # Ceara: Fortaleza, Paracuru, Taiba and Jericoacoara on the north-facing trade coast
     "ceara": (-4.90, -41.40, -2.70, -37.20),
+    # Maranhao: Sao Luis's ocean beaches and Travosa
+    "maranhao": (-2.60, -44.40, -2.30, -43.20),
+    # Para: Salinopolis
+    "para": (-0.65, -47.45, -0.55, -47.25),
     # the Brazilian north-east gaps closed 2026-09-16, all three on the nordeste extract
     # Paraiba: Joao Pessoa's city beaches (Cabo Branco, Bessa) and Tambaba south of it.
     # The N edge is the Rio Guaju, the PB/RN border - at -6.00 the box overran into Rio
@@ -560,6 +575,14 @@ REGIONS = {
     "guadeloupe": (15.90, -61.86, 16.57, -61.12),
     "iran": (25.17, 60.65, 25.37, 60.85),
     "jamaica": (17.83, -76.88, 18.26, -76.22),
+    # Cuba: Havana's north coast east to Guanabo; Baracoa; Santiago
+    "cuba": (19.90, -82.50, 23.25, -74.20),
+    # Haiti: Jacmel's south coast
+    "haiti": (18.15, -72.60, 18.30, -72.30),
+    # Dominica: Pagua Bay, Rosalie, Scotts Head
+    "dominica": (15.18, -61.42, 15.55, -61.22),
+    # Saint Lucia: Cas en Bas on the north-east coast
+    "saint-lucia": (14.05, -60.96, 14.12, -60.90),
     "languedoc": (43.29, 3.57, 43.64, 4.07),
     "lebanon": (33.55, 35.31, 34.35, 35.76),
     "loire-atlantique": (47.09, -2.60, 47.38, -2.06),
@@ -591,6 +614,12 @@ REGIONS = {
     # the Galapagos: San Cristobal (Carola, El Canon, Loberia, Tongo Reef, Manglecito, Punta
     # Pitt) and Santa Cruz (Tortuga Bay, Cerro Gallina, Seymour Norte) - 900 km off Ecuador
     "galapagos": (-1.10, -90.65, -0.30, -89.15),
+    # Easter Island: the whole island
+    "easter-island": (-27.21, -109.47, -27.05, -109.21),
+    # Guam: the west reef (Hagatna) and Talofofo
+    "guam": (13.24, 144.61, 13.66, 144.96),
+    # Pohnpei: the barrier-reef passes
+    "pohnpei": (6.72, 158.08, 7.06, 158.40),
     # ---- the south-west Atlantic. Uruguay and Argentina face E-SE into the same swell
     # Uruguay: Montevideo east through Punta del Este, La Paloma and Punta del Diablo
     "uruguay": (-35.10, -56.60, -33.60, -53.10),

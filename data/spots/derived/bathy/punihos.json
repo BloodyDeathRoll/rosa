@@ -1,0 +1,72 @@
+{
+  "spot": "punihos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.1851,
+    173.8041
+  ],
+  "bearing_seaward_deg": 329.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 122.0,
+  "mean_slope_m_per_km": 6.54,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.18317,
+      "lon": 173.80261,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.18125,
+      "lon": 173.80111,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.17739,
+      "lon": 173.79812,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.16968,
+      "lon": 173.79215,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.16197,
+      "lon": 173.78618,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.14655,
+      "lon": 173.77424,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.12342,
+      "lon": 173.75634,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.09257,
+      "lon": 173.73249,
+      "depth_m": 118.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -39.04629,
+      "lon": 173.69675,
+      "depth_m": 122.0
+    }
+  ]
+}

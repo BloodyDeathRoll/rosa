@@ -1,0 +1,72 @@
+{
+  "spot": "cemetery-point",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.4534,
+    173.8449
+  ],
+  "bearing_seaward_deg": 240.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 102.0,
+  "mean_slope_m_per_km": 5.69,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.45452,
+      "lon": 173.84238,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.45565,
+      "lon": 173.83986,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.4579,
+      "lon": 173.83481,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.46239,
+      "lon": 173.82472,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.46689,
+      "lon": 173.81463,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.47587,
+      "lon": 173.79445,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.48934,
+      "lon": 173.76416,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.5073,
+      "lon": 173.72377,
+      "depth_m": 83.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -39.5342,
+      "lon": 173.66313,
+      "depth_m": 102.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "taupo-bay-point",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.9967,
+    173.7176
+  ],
+  "bearing_seaward_deg": 7.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 112.0,
+  "mean_slope_m_per_km": 5.97,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.99447,
+      "lon": 173.71793,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.99224,
+      "lon": 173.71827,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.98777,
+      "lon": 173.71894,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.97885,
+      "lon": 173.72028,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.96992,
+      "lon": 173.72161,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.95207,
+      "lon": 173.72429,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.92529,
+      "lon": 173.72829,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.88958,
+      "lon": 173.73363,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.83603,
+      "lon": 173.74164,
+      "depth_m": 112.0
+    }
+  ]
+}

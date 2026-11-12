@@ -1,0 +1,72 @@
+{
+  "spot": "lake-ferry",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.3977,
+    175.1404
+  ],
+  "bearing_seaward_deg": 206.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 104.0,
+  "mean_slope_m_per_km": 5.8,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.39972,
+      "lon": 175.13909,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.40174,
+      "lon": 175.13777,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.40578,
+      "lon": 175.13514,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.41387,
+      "lon": 175.12989,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.42195,
+      "lon": 175.12463,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.43811,
+      "lon": 175.11411,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.46236,
+      "lon": 175.09831,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.49468,
+      "lon": 175.07724,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.54316,
+      "lon": 175.04559,
+      "depth_m": 104.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "paradise-bay-taemaro",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -34.9644,
+    173.6432
+  ],
+  "bearing_seaward_deg": 37.0,
+  "nearshore_depth_m": -20.0,
+  "offshore_depth_m": 124.0,
+  "mean_slope_m_per_km": 8.11,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -34.9626,
+      "lon": 173.64485,
+      "depth_m": -20.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -34.96081,
+      "lon": 173.6465,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -34.95722,
+      "lon": 173.6498,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -34.95003,
+      "lon": 173.65641,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -34.94285,
+      "lon": 173.66301,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -34.92848,
+      "lon": 173.67621,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -34.90693,
+      "lon": 173.696,
+      "depth_m": 72.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -34.87819,
+      "lon": 173.72237,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -34.83506,
+      "lon": 173.76189,
+      "depth_m": 124.0
+    }
+  ]
+}

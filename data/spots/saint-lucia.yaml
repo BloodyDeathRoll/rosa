@@ -1,0 +1,21 @@
+# Rosa spot database - Saint Lucia (seeded 2026-11-12). Cas en Bas on the north-east Atlantic coast:
+# year-round E trade windswell, N swell wrap in winter.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Saint Lucia"
+
+defaults: &lc
+  timezone: America/St_Lucia
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [30, 160]
+  ideal:
+    wind_dir: [230, 320]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - saint-lucia, 1 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: cas-en-bas, name: "Cas en Bas", town: "Gros Islet", lat: 14.0891, lon: -60.9276, offshore_direction: 275, shore_normal: 120, swell_window: [55, 185], offshore_km: 5.0, break_type: beach, <<: *lc }  # sat-verified 2026-11-12 (osm-seeded)

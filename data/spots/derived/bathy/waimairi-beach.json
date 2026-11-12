@@ -1,0 +1,72 @@
+{
+  "spot": "waimairi-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -43.4857,
+    172.7245
+  ],
+  "bearing_seaward_deg": 77.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 25.0,
+  "mean_slope_m_per_km": 1.24,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -43.48519,
+      "lon": 172.72752,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -43.48469,
+      "lon": 172.73054,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -43.48368,
+      "lon": 172.73658,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -43.48165,
+      "lon": 172.74865,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -43.47963,
+      "lon": 172.76073,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -43.47557,
+      "lon": 172.78488,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -43.46948,
+      "lon": 172.82109,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -43.46133,
+      "lon": 172.86937,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -43.44908,
+      "lon": 172.94176,
+      "depth_m": 25.0
+    }
+  ]
+}

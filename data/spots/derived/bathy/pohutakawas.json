@@ -1,0 +1,72 @@
+{
+  "spot": "pohutakawas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.4363,
+    173.8246
+  ],
+  "bearing_seaward_deg": 229.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 101.0,
+  "mean_slope_m_per_km": 5.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.43777,
+      "lon": 173.8224,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.43925,
+      "lon": 173.82021,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.4422,
+      "lon": 173.81581,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.4481,
+      "lon": 173.80702,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.454,
+      "lon": 173.79823,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.46579,
+      "lon": 173.78064,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.48348,
+      "lon": 173.75425,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.50705,
+      "lon": 173.71904,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -39.54239,
+      "lon": 173.66617,
+      "depth_m": 101.0
+    }
+  ]
+}

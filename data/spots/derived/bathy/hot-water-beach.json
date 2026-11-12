@@ -1,0 +1,72 @@
+{
+  "spot": "hot-water-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -36.8841,
+    175.8212
+  ],
+  "bearing_seaward_deg": 61.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 108.0,
+  "mean_slope_m_per_km": 5.8,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -36.88301,
+      "lon": 175.82366,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -36.88192,
+      "lon": 175.82612,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -36.87974,
+      "lon": 175.83103,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -36.87538,
+      "lon": 175.84087,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -36.87102,
+      "lon": 175.8507,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -36.86229,
+      "lon": 175.87036,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -36.84919,
+      "lon": 175.89984,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -36.83172,
+      "lon": 175.93913,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -36.80549,
+      "lon": 175.99803,
+      "depth_m": 108.0
+    }
+  ]
+}

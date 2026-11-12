@@ -1,0 +1,72 @@
+{
+  "spot": "supertubes-ahipara",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.1701,
+    173.0942
+  ],
+  "bearing_seaward_deg": 348.0,
+  "nearshore_depth_m": -48.0,
+  "offshore_depth_m": 40.0,
+  "mean_slope_m_per_km": 4.96,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.1679,
+      "lon": 173.09363,
+      "depth_m": -48.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.1657,
+      "lon": 173.09306,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.1613,
+      "lon": 173.09191,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.15251,
+      "lon": 173.08963,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.14371,
+      "lon": 173.08734,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.12612,
+      "lon": 173.08277,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.09973,
+      "lon": 173.07592,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.06454,
+      "lon": 173.06679,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.01175,
+      "lon": 173.05311,
+      "depth_m": 40.0
+    }
+  ]
+}

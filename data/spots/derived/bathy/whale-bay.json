@@ -1,0 +1,72 @@
+{
+  "spot": "whale-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -37.824,
+    174.7985
+  ],
+  "bearing_seaward_deg": 355.0,
+  "nearshore_depth_m": -70.0,
+  "offshore_depth_m": 12.0,
+  "mean_slope_m_per_km": 4.62,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -37.82176,
+      "lon": 174.79825,
+      "depth_m": -70.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -37.81952,
+      "lon": 174.798,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -37.81504,
+      "lon": 174.79751,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -37.80608,
+      "lon": 174.79652,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -37.79712,
+      "lon": 174.79552,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -37.7792,
+      "lon": 174.79354,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -37.75233,
+      "lon": 174.79057,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -37.71649,
+      "lon": 174.78661,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -37.66274,
+      "lon": 174.78068,
+      "depth_m": 12.0
+    }
+  ]
+}

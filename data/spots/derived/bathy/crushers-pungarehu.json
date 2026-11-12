@@ -1,0 +1,72 @@
+{
+  "spot": "crushers-pungarehu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.2707,
+    173.7528
+  ],
+  "bearing_seaward_deg": 292.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 120.0,
+  "mean_slope_m_per_km": 6.7,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.26986,
+      "lon": 173.75011,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.26902,
+      "lon": 173.74741,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.26733,
+      "lon": 173.74203,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.26396,
+      "lon": 173.73126,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.26059,
+      "lon": 173.72049,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.25384,
+      "lon": 173.69896,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.24372,
+      "lon": 173.66667,
+      "depth_m": 94.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.2302,
+      "lon": 173.62363,
+      "depth_m": 111.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -39.2099,
+      "lon": 173.55909,
+      "depth_m": 120.0
+    }
+  ]
+}

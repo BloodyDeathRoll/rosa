@@ -1,0 +1,72 @@
+{
+  "spot": "elliot-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -35.273,
+    174.2904
+  ],
+  "bearing_seaward_deg": 113.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 92.0,
+  "mean_slope_m_per_km": 5.63,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -35.27388,
+      "lon": 174.29293,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -35.27476,
+      "lon": 174.29547,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -35.27651,
+      "lon": 174.30054,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -35.28003,
+      "lon": 174.31068,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -35.28354,
+      "lon": 174.32082,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -35.29056,
+      "lon": 174.34111,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -35.30108,
+      "lon": 174.37155,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -35.31511,
+      "lon": 174.41214,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -35.33611,
+      "lon": 174.47306,
+      "depth_m": 92.0
+    }
+  ]
+}
