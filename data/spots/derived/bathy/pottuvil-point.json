@@ -2,71 +2,71 @@
   "spot": "pottuvil-point",
   "source": "gebco2024 via local grid",
   "origin": [
-    6.9051,
-    81.8453
+    6.8989,
+    81.8463
   ],
-  "bearing_seaward_deg": 95.0,
+  "bearing_seaward_deg": 60.0,
   "nearshore_depth_m": 5.0,
-  "offshore_depth_m": 1.0,
-  "mean_slope_m_per_km": -0.23,
+  "offshore_depth_m": 63.0,
+  "mean_slope_m_per_km": 3.27,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 2,
-  "deepest_is_reference": false,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": 6.9049,
-      "lon": 81.84756,
+      "lat": 6.90002,
+      "lon": 81.84826,
       "depth_m": 5.0
     },
     {
       "dist_km": 0.5,
-      "lat": 6.90471,
-      "lon": 81.84981,
-      "depth_m": 5.0
+      "lat": 6.90115,
+      "lon": 81.85022,
+      "depth_m": 7.0
     },
     {
       "dist_km": 1.0,
-      "lat": 6.90432,
-      "lon": 81.85432,
-      "depth_m": 9.0
+      "lat": 6.9034,
+      "lon": 81.85415,
+      "depth_m": 7.0
     },
     {
       "dist_km": 2.0,
-      "lat": 6.90353,
-      "lon": 81.86335,
+      "lat": 6.90789,
+      "lon": 81.86199,
       "depth_m": 10.0
     },
     {
       "dist_km": 3.0,
-      "lat": 6.90275,
-      "lon": 81.87237,
-      "depth_m": 12.0
+      "lat": 6.91239,
+      "lon": 81.86984,
+      "depth_m": 11.0
     },
     {
       "dist_km": 5.0,
-      "lat": 6.90118,
-      "lon": 81.89042,
-      "depth_m": 14.0
+      "lat": 6.92138,
+      "lon": 81.88553,
+      "depth_m": 15.0
     },
     {
       "dist_km": 8.0,
-      "lat": 6.89882,
-      "lon": 81.91749,
-      "depth_m": 13.0
+      "lat": 6.93487,
+      "lon": 81.90907,
+      "depth_m": 20.0
     },
     {
       "dist_km": 12.0,
-      "lat": 6.89568,
-      "lon": 81.95359,
-      "depth_m": 1.0
+      "lat": 6.95285,
+      "lon": 81.94045,
+      "depth_m": 55.0
     },
     {
       "dist_km": 18.0,
-      "lat": 6.89096,
-      "lon": 82.00774,
-      "depth_m": 1.0
+      "lat": 6.97982,
+      "lon": 81.98754,
+      "depth_m": 63.0
     }
   ]
 }

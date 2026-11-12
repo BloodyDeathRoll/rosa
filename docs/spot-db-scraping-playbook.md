@@ -483,10 +483,14 @@ OPEN-ITEMS 45).
   sourced), Nungwi / Jambiani's outer reef, Bazaruto, Lajao / Sororoca, San Clemente del Tuyu, most Mentawai names
   (placed only relative to resorts). Retry with a fresh search budget: Sidi Mghait, Punta Tur, Punta Balcones,
   Ponta Backdoor (Tofo, OSM-tagged, 0.6), 365s (Kommetjie), Westbrook and the KZN South Coast.
-- Agents flagged existing pins (reported, see the session log): rifles (Mentawai, operators put it on Karangmajat
-  ~16 km SE), pottuvil-point, coxos, crazy, la-pastora, sanur-reef / hyatt-reef, bay-of-plenty / north-beach,
-  panic-point (= Pico Point), santa-maria-del-mar (= Playa Santa Rosa), bank-vaults, libanona; and two Peniche
-  spots sharing "Praia da Baia".
+- Agents flagged existing pins; the coordinator rendered old vs proposed at z15. **Moved:** `rifles` 14 km from
+  Masokut's NW tip (a sheltered channel) onto Karangmajat's E reef (Kandui Resort + 3 operators; long right on the
+  tile), shore_normal 90; `pottuvil-point` 0.7 km S from Whiskey Point's beach onto the boulder point,
+  shore_normal 60 (90-120 ends on a 1 m GEBCO shoal). **Not moved, tile does not settle it:** coxos and crazy
+  (Mafra council's Coxos / Cave / Crazy Left coordinates disagree with the DB and with OSM), libanona (OSM's Plage
+  Libanona is 350 m from the new plage-monseigneur), bay-of-plenty / north-beach (Durban beachfront order),
+  sanur-reef / hyatt-reef, bank-vaults, panic-point (= Pico Point), santa-maria-del-mar (= Playa Santa Rosa).
+  la-pastora's tile shows a right point - kept. Two Peniche spots share "Praia da Baia".
 
 **Gap queue (whole areas with zero spots, by box count 2026-11-12):** New Zealand is thin (17). Still
 empty: west Africa (Ivory Coast, Togo / Benin / Nigeria, Gabon, Sao Tome, Mauritania), Queensland north

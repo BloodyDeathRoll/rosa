@@ -24,7 +24,7 @@ spots:
   # tools/spot-seed/work/mentawai/judge.json). offshore_direction is the nearest coastline
   # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
   # place nodes (tools/spot-seed/towns.py). North to south.
-  - { id: rifles, name: "Rifles", town: "Playgrounds", lat: -1.7914, lon: 99.2546, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, <<: *mtw }  # sat-verified 2026-09-03 (websearch-seeded)
+  - { id: rifles, name: "Rifles", town: "Playgrounds", lat: -1.9211, lon: 99.3189, offshore_direction: 270, shore_normal: 90, swell_window: [175, 305], offshore_km: 5.0, <<: *mtw }  # sat-verified 2026-11-12: moved 14 km from Masokut's NW tip onto Karangmajat's E reef (Kandui Resort + 3 operators: same island as Kandui, opposite side; long right on the z16 tile)
   - { id: ebay, name: "Ebay", town: "Nyang Nyang", lat: -1.8260, lon: 99.2574, offshore_direction: 58, swell_window: [173, 303], offshore_km: 5.0, <<: *mtw }  # sat-verified 2026-09-03 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: Playgrounds channel / Sipora shelf]
   - { id: bengbengs, name: "Bengbengs", town: "Nyang Nyang", lat: -1.8295, lon: 99.2533, offshore_direction: 30, swell_window: [145, 275], offshore_km: 5.0, <<: *mtw }  # sat-verified 2026-09-03 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: Playgrounds channel / Sipora shelf]
   - { id: pitstops, name: "Pitstops", town: "Nyang Nyang", lat: -1.8321, lon: 99.2527, offshore_direction: 30, swell_window: [145, 275], offshore_km: 5.0, <<: *mtw }  # sat-verified 2026-09-03 (websearch-seeded)  [normal re-aimed by GEBCO arc sweep: Playgrounds channel / Sipora shelf]

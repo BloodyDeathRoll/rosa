@@ -2,71 +2,71 @@
   "spot": "rifles",
   "source": "gebco2024 via local grid",
   "origin": [
-    -1.7914,
-    99.2546
+    -1.9211,
+    99.3189
   ],
-  "bearing_seaward_deg": 240.0,
-  "nearshore_depth_m": 18.0,
-  "offshore_depth_m": 140.0,
-  "mean_slope_m_per_km": 6.87,
+  "bearing_seaward_deg": 90.0,
+  "nearshore_depth_m": 32.0,
+  "offshore_depth_m": 91.0,
+  "mean_slope_m_per_km": 3.32,
   "land_samples": 0,
   "missing_samples": 0,
-  "non_monotone_samples": 4,
+  "non_monotone_samples": 0,
   "deepest_is_reference": true,
   "samples": [
     {
       "dist_km": 0.25,
-      "lat": -1.79252,
-      "lon": 99.25265,
-      "depth_m": 18.0
+      "lat": -1.9211,
+      "lon": 99.32115,
+      "depth_m": 32.0
     },
     {
       "dist_km": 0.5,
-      "lat": -1.79365,
-      "lon": 99.2507,
-      "depth_m": 18.0
+      "lat": -1.9211,
+      "lon": 99.3234,
+      "depth_m": 32.0
     },
     {
       "dist_km": 1.0,
-      "lat": -1.7959,
-      "lon": 99.24681,
-      "depth_m": 15.0
+      "lat": -1.9211,
+      "lon": 99.3279,
+      "depth_m": 38.0
     },
     {
       "dist_km": 2.0,
-      "lat": -1.80039,
-      "lon": 99.23902,
-      "depth_m": 14.0
+      "lat": -1.9211,
+      "lon": 99.3369,
+      "depth_m": 56.0
     },
     {
       "dist_km": 3.0,
-      "lat": -1.80489,
-      "lon": 99.23122,
-      "depth_m": 11.0
+      "lat": -1.9211,
+      "lon": 99.34589,
+      "depth_m": 68.0
     },
     {
       "dist_km": 5.0,
-      "lat": -1.81388,
-      "lon": 99.21564,
-      "depth_m": 6.0
+      "lat": -1.9211,
+      "lon": 99.36389,
+      "depth_m": 69.0
     },
     {
       "dist_km": 8.0,
-      "lat": -1.82737,
-      "lon": 99.19226,
-      "depth_m": 18.0
+      "lat": -1.9211,
+      "lon": 99.39089,
+      "depth_m": 78.0
     },
     {
       "dist_km": 12.0,
-      "lat": -1.84536,
-      "lon": 99.16109,
-      "depth_m": 86.0
+      "lat": -1.9211,
+      "lon": 99.42688,
+      "depth_m": 89.0
     },
     {
       "dist_km": 18.0,
-      "lat": -1.87233,
-      "lon": 99.11433,
-      "depth_m": 140.0
+      "lat": -1.92109,
+      "lon": 99.48087,
+      "depth_m": 91.0
     }
   ]
 }
