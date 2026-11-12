@@ -1,0 +1,72 @@
+{
+  "spot": "waiho-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -43.2979,
+    170.0439
+  ],
+  "bearing_seaward_deg": 298.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 167.0,
+  "mean_slope_m_per_km": 9.86,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -43.29684,
+      "lon": 170.04117,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -43.29579,
+      "lon": 170.03845,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -43.29368,
+      "lon": 170.03299,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -43.28945,
+      "lon": 170.02208,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -43.28523,
+      "lon": 170.01118,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -43.27678,
+      "lon": 169.98937,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -43.26409,
+      "lon": 169.95667,
+      "depth_m": 83.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -43.24716,
+      "lon": 169.91308,
+      "depth_m": 122.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -43.22174,
+      "lon": 169.84776,
+      "depth_m": 167.0
+    }
+  ]
+}

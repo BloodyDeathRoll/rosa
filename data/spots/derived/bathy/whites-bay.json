@@ -1,0 +1,72 @@
+{
+  "spot": "whites-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.3866,
+    174.0583
+  ],
+  "bearing_seaward_deg": 170.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 11.0,
+  "mean_slope_m_per_km": 0.96,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.38881,
+      "lon": 174.05882,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.39103,
+      "lon": 174.05934,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.39546,
+      "lon": 174.06038,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.40431,
+      "lon": 174.06246,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.41317,
+      "lon": 174.06455,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.43088,
+      "lon": 174.06871,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.45745,
+      "lon": 174.07497,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.49288,
+      "lon": 174.08332,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.54601,
+      "lon": 174.09586,
+      "depth_m": 11.0
+    }
+  ]
+}

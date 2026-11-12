@@ -1,0 +1,72 @@
+{
+  "spot": "marfells-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.7255,
+    174.2064
+  ],
+  "bearing_seaward_deg": 41.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 72.0,
+  "mean_slope_m_per_km": 3.72,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.7238,
+      "lon": 174.20838,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.72211,
+      "lon": 174.21035,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.71871,
+      "lon": 174.2143,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.71192,
+      "lon": 174.22221,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.70514,
+      "lon": 174.23011,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.69156,
+      "lon": 174.24591,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.67118,
+      "lon": 174.26959,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.64401,
+      "lon": 174.30114,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.60324,
+      "lon": 174.34843,
+      "depth_m": 72.0
+    }
+  ]
+}

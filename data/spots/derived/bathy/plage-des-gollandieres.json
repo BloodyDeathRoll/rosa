@@ -1,0 +1,72 @@
+{
+  "spot": "plage-des-gollandieres",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    46.18,
+    -1.4011
+  ],
+  "bearing_seaward_deg": 203.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 19.0,
+  "mean_slope_m_per_km": 1.13,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.17793,
+      "lon": -1.40237,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.17586,
+      "lon": -1.40364,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.17172,
+      "lon": -1.40617,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 46.16344,
+      "lon": -1.41125,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 46.15516,
+      "lon": -1.41632,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.13861,
+      "lon": -1.42646,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.11377,
+      "lon": -1.44165,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.08064,
+      "lon": -1.46189,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.03095,
+      "lon": -1.4922,
+      "depth_m": 19.0
+    }
+  ]
+}

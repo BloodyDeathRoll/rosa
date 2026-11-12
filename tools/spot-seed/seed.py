@@ -373,6 +373,14 @@ REGIONS = {
     # Matagorda, Port Aransas, Corpus Christi's Padre Island and South Padre (Central time).
     # Galveston Bay, the Laguna Madre and the back bays are inside the box and carry no swell.
     "texas": (25.90, -97.60, 29.80, -93.80),
+    # Gulf Coast: Alabama (Orange Beach to Dauphin Island) and Louisiana (Grand Isle, Holly Beach)
+    "gulf-coast": (29.20, -93.55, 30.32, -87.50),
+    # Delmarva: Cape Henlopen to Ocean City Inlet
+    "delmarva": (38.28, -75.13, 38.80, -75.00),
+    # Alaska: Yakutat, Kodiak, Sitka
+    "alaska": (57.00, -152.45, 59.55, -135.30),
+    # Haida Gwaii: Graham Island's north beach
+    "haida-gwaii": (53.95, -132.10, 54.10, -131.90),
     # ---- Spain. One box per autonomous community, each on its own Geofabrik extract
     # (europe/spain/<community>); the Mediterranean coast is barely surfed and is left out.
     # The Basque coast from Hondarribia west past Zarautz, Mundaka and Sopelana to Muskiz.

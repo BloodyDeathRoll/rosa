@@ -1,0 +1,72 @@
+{
+  "spot": "boulder-beach-pukehiki",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -45.8972,
+    170.6134
+  ],
+  "bearing_seaward_deg": 182.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 59.0,
+  "mean_slope_m_per_km": 4.0,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -45.89945,
+      "lon": 170.61329,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -45.90169,
+      "lon": 170.61317,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -45.90619,
+      "lon": 170.61295,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -45.91518,
+      "lon": 170.6125,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -45.92416,
+      "lon": 170.61205,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -45.94214,
+      "lon": 170.61114,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -45.9691,
+      "lon": 170.60979,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -46.00505,
+      "lon": 170.60798,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -46.05898,
+      "lon": 170.60526,
+      "depth_m": 59.0
+    }
+  ]
+}

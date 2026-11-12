@@ -1,0 +1,72 @@
+{
+  "spot": "la-palmyre",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    45.6667,
+    -1.1451
+  ],
+  "bearing_seaward_deg": 230.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 16.0,
+  "mean_slope_m_per_km": 0.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 45.66525,
+      "lon": -1.14756,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 45.66381,
+      "lon": -1.15003,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 45.66092,
+      "lon": -1.15496,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 45.65514,
+      "lon": -1.16481,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 45.64935,
+      "lon": -1.17467,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 45.63779,
+      "lon": -1.19437,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 45.62043,
+      "lon": -1.2239,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 45.59727,
+      "lon": -1.26325,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 45.56251,
+      "lon": -1.32222,
+      "depth_m": 16.0
+    }
+  ]
+}

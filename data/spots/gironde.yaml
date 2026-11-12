@@ -35,3 +35,9 @@ spots:
   - { id: le-truc-vert, name: "Le Truc Vert", town: "Lege-Cap-Ferret", lat: 44.7153, lon: -1.2534, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, break_type: beach, <<: *gir }  # sat-verified 2026-11-12 (osm-seeded)
   - { id: la-garonne-cap-ferret, name: "La Garonne", town: "Lege-Cap-Ferret", lat: 44.6980, lon: -1.2562, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, break_type: beach, <<: *gir }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: l-horizon, name: "L'Horizon (Cap Ferret)", town: "Lege-Cap-Ferret", lat: 44.6549, lon: -1.2615, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, break_type: beach, <<: *gir }  # sat-verified 2026-11-12 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - gironde coastline pass, 3 more (primary flow: named OSM beaches
+  # more than 400 m from a DB pin, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: plage-centrale-d-hourtin, name: "Plage centrale d'Hourtin", town: "Le Pouch", lat: 45.1393, lon: -1.1854, offshore_direction: 91, swell_window: [206, 336], offshore_km: 5.0, break_type: beach, <<: *gir }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: plage-de-la-cantine-nord, name: "Plage de La Cantine Nord", town: "Le Porge", lat: 44.9199, lon: -1.2139, offshore_direction: 84, swell_window: [199, 329], offshore_km: 5.0, break_type: beach, <<: *gir }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: plage-de-la-torchere, name: "Plage de la Torchère", town: "Arcachon", lat: 44.6745, lon: -1.2575, offshore_direction: 101, swell_window: [216, 346], offshore_km: 5.0, break_type: beach, <<: *gir }  # sat-verified 2026-11-12 (osm-seeded)

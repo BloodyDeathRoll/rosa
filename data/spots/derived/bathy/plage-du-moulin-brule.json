@@ -1,0 +1,72 @@
+{
+  "spot": "plage-du-moulin-brule",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    46.2029,
+    -1.4643
+  ],
+  "bearing_seaward_deg": 188.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 17.0,
+  "mean_slope_m_per_km": 1.13,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.20067,
+      "lon": -1.46475,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.19845,
+      "lon": -1.4652,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.19399,
+      "lon": -1.46611,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 46.18509,
+      "lon": -1.46792,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 46.17618,
+      "lon": -1.46972,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.15837,
+      "lon": -1.47333,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.13165,
+      "lon": -1.47875,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.09603,
+      "lon": -1.48596,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.04259,
+      "lon": -1.49676,
+      "depth_m": 17.0
+    }
+  ]
+}

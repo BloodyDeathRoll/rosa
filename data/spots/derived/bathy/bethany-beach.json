@@ -1,0 +1,72 @@
+{
+  "spot": "bethany-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.538,
+    -75.0533
+  ],
+  "bearing_seaward_deg": 95.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 22.0,
+  "mean_slope_m_per_km": 1.46,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.5378,
+      "lon": -75.05044,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.53761,
+      "lon": -75.04757,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.53722,
+      "lon": -75.04185,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.53643,
+      "lon": -75.03039,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.53564,
+      "lon": -75.01894,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.53407,
+      "lon": -74.99603,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.53169,
+      "lon": -74.96168,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.52851,
+      "lon": -74.91587,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.52371,
+      "lon": -74.84718,
+      "depth_m": 22.0
+    }
+  ]
+}

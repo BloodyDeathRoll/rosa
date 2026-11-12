@@ -1,0 +1,72 @@
+{
+  "spot": "cannon-beach-yakutat",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    59.4916,
+    -139.7296
+  ],
+  "bearing_seaward_deg": 220.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 181.0,
+  "mean_slope_m_per_km": 9.86,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 59.48988,
+      "lon": -139.73245,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 59.48816,
+      "lon": -139.73529,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 59.48471,
+      "lon": -139.74098,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 59.47782,
+      "lon": -139.75236,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 59.47093,
+      "lon": -139.76374,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 59.45714,
+      "lon": -139.78648,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 59.43645,
+      "lon": -139.82055,
+      "depth_m": 124.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 59.40886,
+      "lon": -139.86591,
+      "depth_m": 159.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 59.36743,
+      "lon": -139.93381,
+      "depth_m": 181.0
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+# Rosa spot database - Gulf Coast (seeded 2026-11-12). Alabama (Orange Beach, Gulf Shores, Dauphin Island) and
+# Louisiana (Grand Isle, Holly Beach): small wind swell off winter fronts and tropical storms.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "United States"
+
+defaults: &gc
+  timezone: America/Chicago
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [100, 230]
+  ideal:
+    wind_dir: [300, 30]
+    size_m: [0.4, 1.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - gulf-coast, 6 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: alabama-point, name: "Alabama Point", town: "Orange Beach", lat: 30.2727, lon: -87.5530, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, break_type: beach, <<: *gc }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: cotton-bayou, name: "Cotton Bayou", town: "Orange Beach", lat: 30.2690, lon: -87.5799, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, break_type: beach, <<: *gc }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: dauphin-island-west-end, name: "Dauphin Island West End", town: "Dauphin Island", lat: 30.2489, lon: -88.1922, offshore_direction: 355, swell_window: [110, 240], offshore_km: 5.0, break_type: beach, <<: *gc }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: little-lagoon-pass, name: "Little Lagoon Pass", town: "Gulf Shores", lat: 30.2405, lon: -87.7378, offshore_direction: 350, swell_window: [105, 235], offshore_km: 5.0, break_type: beach, <<: *gc }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: holly-beach, name: "Holly Beach", town: "Holly Beach", lat: 29.7690, lon: -93.4593, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, break_type: beach, <<: *gc }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: grand-isle, name: "Grand Isle", town: "Grand Isle", lat: 29.2564, lon: -89.9506, offshore_direction: 315, swell_window: [70, 200], offshore_km: 5.0, break_type: beach, <<: *gc }  # sat-verified 2026-11-12 (websearch-seeded)

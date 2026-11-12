@@ -1,0 +1,72 @@
+{
+  "spot": "surat-bay-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -46.4773,
+    169.7328
+  ],
+  "bearing_seaward_deg": 167.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 114.0,
+  "mean_slope_m_per_km": 6.37,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -46.47949,
+      "lon": 169.73353,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -46.48168,
+      "lon": 169.73427,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -46.48606,
+      "lon": 169.73574,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -46.49483,
+      "lon": 169.73868,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -46.50359,
+      "lon": 169.74162,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -46.52111,
+      "lon": 169.7475,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -46.5474,
+      "lon": 169.75633,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -46.58245,
+      "lon": 169.76812,
+      "depth_m": 104.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -46.63502,
+      "lon": 169.78583,
+      "depth_m": 114.0
+    }
+  ]
+}

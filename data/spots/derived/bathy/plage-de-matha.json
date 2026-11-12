@@ -1,0 +1,72 @@
+{
+  "spot": "plage-de-matha",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    45.908,
+    -1.3148
+  ],
+  "bearing_seaward_deg": 237.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 29.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 45.90678,
+      "lon": -1.31751,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 45.90555,
+      "lon": -1.32022,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 45.9031,
+      "lon": -1.32564,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 45.8982,
+      "lon": -1.33648,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 45.8933,
+      "lon": -1.34731,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 45.8835,
+      "lon": -1.36897,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 45.86878,
+      "lon": -1.40146,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 45.84915,
+      "lon": -1.44474,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 45.81967,
+      "lon": -1.5096,
+      "depth_m": 29.0
+    }
+  ]
+}

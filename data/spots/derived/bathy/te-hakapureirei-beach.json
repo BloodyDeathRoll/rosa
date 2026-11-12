@@ -1,0 +1,72 @@
+{
+  "spot": "te-hakapureirei-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -45.2322,
+    170.869
+  ],
+  "bearing_seaward_deg": 133.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 37.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -45.23373,
+      "lon": 170.87133,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -45.23527,
+      "lon": 170.87367,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -45.23833,
+      "lon": 170.87834,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -45.24447,
+      "lon": 170.88768,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -45.2506,
+      "lon": 170.89703,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -45.26286,
+      "lon": 170.91572,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -45.28124,
+      "lon": 170.94378,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -45.30575,
+      "lon": 170.98122,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -45.34248,
+      "lon": 171.03744,
+      "depth_m": 37.0
+    }
+  ]
+}

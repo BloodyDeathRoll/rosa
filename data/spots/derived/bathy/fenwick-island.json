@@ -1,0 +1,72 @@
+{
+  "spot": "fenwick-island",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.4677,
+    -75.0487
+  ],
+  "bearing_seaward_deg": 95.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 0.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.4675,
+      "lon": -75.04584,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.46731,
+      "lon": -75.04298,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.46692,
+      "lon": -75.03726,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.46613,
+      "lon": -75.02582,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.46534,
+      "lon": -75.01437,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.46377,
+      "lon": -74.99149,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.46139,
+      "lon": -74.95717,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.45821,
+      "lon": -74.91141,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.45341,
+      "lon": -74.84278,
+      "depth_m": 20.0
+    }
+  ]
+}

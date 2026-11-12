@@ -222,7 +222,7 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-11-12, DB = 4558 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-11-12, DB = 4647 spots, ALL sat-verified)
 
 **Famous-break gap pass, 3593 -> 3602 (2026-11-04).** A hand-written list of ~470 well-known breaks
 was matched against every DB name (accent-folded tokens), every miss geocoded with Nominatim and
@@ -349,6 +349,25 @@ Rangaunu Harbour Bar, both Kapiti Island points - no open arc or inside a harbou
 middle of the widest wet arc (scratchpad arc.py logic: rays wet past the shoreline cell). Pacifico
 (Siargao) moved 8 km north onto the OSM surf node at Pacifico village. Farol Velho (Para) dropped:
 every ray crosses ~1 km of tidal flat. New basins micronesia (Guam, Pohnpei) and easter-island.
+
+**North America 20, coastline pass 58, gap passes 11, Puraran moved - 4558 -> 4647 (2026-11-12, cont. 3).**
+- **Great Lakes: not seedable.** GFS-Wave's global 0p25 grid has 0 wet nodes over the lakes (checked
+  on a live 06Z file: 0 of 1566 in a box over Superior to Ontario; a Delmarva box had 12 of 20), so
+  a lake spot gets no wave rows. 19 sourced lake pins were dropped. Covering them needs NOAA's
+  Great Lakes wave model (GLW), which the pipeline does not read.
+- North America kept delmarva 9, gulf-coast 6 (Alabama, Louisiana), alaska 4, haida-gwaii 1.
+  New basin gulf-of-alaska (Alaska, Haida Gwaii); Delmarva joins us-east, Gulf Coast gulf-of-mexico.
+- **First primary (coastline) pass on web-seeded regions:** seed.py's OSM surf-tag hits gave 1
+  candidate, so the agent took one candidate per named OSM beach, screened sheltered coasts by
+  bearing, rendered and judged the rest. 58 kept (South Island 24, Charente-Maritime 11, Vietnam
+  11, Vendee 9, Gironde 3). About 4,900 UNNAMED coastline candidates were not looked at. OSM
+  "Plage centrale d'Hourtin" sits 9 km south of the DB `hourtin` pin - one of them is wrong, unchecked.
+- Gap passes: Meatworks (Kaikoura), Blacks Beach (Mahia), Patiti Point and Jack's Point (Timaru),
+  Whites Bay, Nine Mile (Greymouth), Pipikaretu, Saltstein; Locso-on, Lalawigan, Llorente (Samar).
+  Puraran moved 4 km north onto Majestics (the old pin was a cove south of it).
+- Rays re-aimed: Notre-Dame-de-Monts, Canot de Sauvetage. Dropped: Plage des Jacinthes (Re blocks
+  every bearing), Purakaunui (pin in the dunes of a sheltered inlet), Sabang and Bato (Borongan:
+  river mouths in a sheltered bay).
 
 **Gap queue (whole areas with zero spots, by box count 2026-11-12):** New Zealand is thin (17). Still
 empty: west Africa (Ivory Coast, Togo / Benin / Nigeria, Gabon, Sao Tome, Mauritania), Queensland north

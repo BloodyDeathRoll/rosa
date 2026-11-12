@@ -30,3 +30,17 @@ spots:
   - { id: ham-tien, name: "Ham Tien (Mui Ne Main Beach)", town: "Mui Ne", lat: 10.9518, lon: 108.2141, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, break_type: beach, <<: *vn }  # sat-verified 2026-11-12 (osm-seeded)
   - { id: little-buddha, name: "Little Buddha", town: "Phan Thiet", lat: 10.9360, lon: 108.1839, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, break_type: point, <<: *vn }  # sat-verified 2026-11-12 (osm-seeded)
   - { id: back-beach-vung-tau, name: "Back Beach (Bai Sau)", town: "Vung Tau", lat: 10.3373, lon: 107.0930, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, break_type: beach, <<: *vn }  # sat-verified 2026-11-12 (osm-seeded)
+
+  # ==== SEEDED 2026-11-12 - vietnam coastline pass, 11 more (primary flow: named OSM beaches
+  # more than 400 m from a DB pin, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: my-an-beach, name: "My An Beach", town: "Da Nang", lat: 16.0260, lon: 108.2597, offshore_direction: 245, swell_window: [0, 130], offshore_km: 5.0, break_type: beach, <<: *vn }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: tan-tra-beach, name: "Tân Trà Beach", town: "Da Nang", lat: 15.9835, lon: 108.2804, offshore_direction: 243, swell_window: [358, 128], offshore_km: 5.0, break_type: beach, <<: *vn }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: bai-bien-binh-minh, name: "Bãi biển Bình Minh", town: "Trà Đóa 2", lat: 15.7791, lon: 108.4309, offshore_direction: 241, swell_window: [356, 126], offshore_km: 5.0, break_type: beach, <<: *vn }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: my-khe-beach, name: "My Khe Beach", town: "Cổ Luỹ", lat: 15.1911, lon: 108.8960, offshore_direction: 283, swell_window: [38, 168], offshore_km: 5.0, break_type: beach, <<: *vn }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: cat-chanh-beach, name: "Cat Chanh beach", town: "Cát Tiến", lat: 13.9296, lon: 109.2486, offshore_direction: 247, swell_window: [2, 132], offshore_km: 5.0, break_type: beach, <<: *vn }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: quy-nhon-beach, name: "Quy Nhon Beach", town: "Quy Nhon", lat: 13.7639, lon: 109.2266, offshore_direction: 320, swell_window: [75, 205], offshore_km: 5.0, break_type: beach, <<: *vn }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: bai-suoi-o-song-lo, name: "Bãi Suối Ồ - Sông Lô", town: "Khu 1", lat: 10.5674, lon: 107.5704, offshore_direction: 323, swell_window: [78, 208], offshore_km: 5.0, break_type: beach, <<: *vn }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: bai-tam-gio-bien, name: "Bãi tắm Gió Biển", town: "Hồ Tràm", lat: 10.4693, lon: 107.4302, offshore_direction: 349, swell_window: [104, 234], offshore_km: 5.0, break_type: beach, <<: *vn }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: bai-tam-mo-ong, name: "Bãi tắm Mộ Ông", town: "Phước Hải", lat: 10.4303, lon: 107.3016, offshore_direction: 309, swell_window: [64, 194], offshore_km: 5.0, break_type: beach, <<: *vn }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: long-hai-beach, name: "Long Hai Beach", town: "Long Hai", lat: 10.3858, lon: 107.2338, offshore_direction: 26, swell_window: [141, 271], offshore_km: 5.0, break_type: beach, <<: *vn }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: bai-tam-long-cung, name: "Bãi tắm Long Cung", town: "Long Hai", lat: 10.3730, lon: 107.1276, offshore_direction: 326, swell_window: [81, 211], offshore_km: 5.0, break_type: beach, <<: *vn }  # sat-verified 2026-11-12 (osm-seeded)

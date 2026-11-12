@@ -32,3 +32,7 @@ spots:
   - { id: ocean-beach-hawkes-bay, name: "Ocean Beach (Hawke's Bay)", town: "Ocean Beach", lat: -39.7424, lon: 177.0123, offshore_direction: 283, swell_window: [38, 168], offshore_km: 5.0, break_type: beach, <<: *hkb }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: waimarama, name: "Waimārama", town: "Waimārama", lat: -39.8148, lon: 176.9947, offshore_direction: 261, swell_window: [16, 146], offshore_km: 5.0, break_type: beach, <<: *hkb }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: blackhead-beach, name: "Blackhead Beach", town: "Blackhead", lat: -40.1693, lon: 176.8284, offshore_direction: 288, swell_window: [43, 173], offshore_km: 5.0, break_type: beach, <<: *hkb }  # sat-verified 2026-11-12 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - 1 more, gap pass (web-search flow; coordinates from OSM, every pin
+  # rendered and judged at z16)
+  - { id: blacks-beach-mahia, name: "Blacks Beach", town: "Waikōkopu", lat: -39.0678, lon: 177.7988, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, break_type: reef, <<: *hkb }  # sat-verified 2026-11-12 (websearch-seeded)

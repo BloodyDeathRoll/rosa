@@ -1,0 +1,72 @@
+{
+  "spot": "plage-de-la-cantine-nord",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    44.9199,
+    -1.2139
+  ],
+  "bearing_seaward_deg": 264.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 42.0,
+  "mean_slope_m_per_km": 2.14,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 44.91966,
+      "lon": -1.21706,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 44.91943,
+      "lon": -1.22022,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 44.91896,
+      "lon": -1.22653,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 44.91802,
+      "lon": -1.23916,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 44.91707,
+      "lon": -1.25179,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 44.91518,
+      "lon": -1.27705,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 44.91234,
+      "lon": -1.31493,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 44.90852,
+      "lon": -1.36544,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 44.90275,
+      "lon": -1.44119,
+      "depth_m": 42.0
+    }
+  ]
+}

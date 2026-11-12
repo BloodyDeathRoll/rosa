@@ -1,0 +1,72 @@
+{
+  "spot": "hunt-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -43.532,
+    169.7026
+  ],
+  "bearing_seaward_deg": 302.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 95.0,
+  "mean_slope_m_per_km": 5.86,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -43.53081,
+      "lon": 169.69997,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -43.52962,
+      "lon": 169.69734,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -43.52723,
+      "lon": 169.69208,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -43.52247,
+      "lon": 169.68156,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -43.5177,
+      "lon": 169.67105,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -43.50816,
+      "lon": 169.65002,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -43.49384,
+      "lon": 169.6185,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -43.47474,
+      "lon": 169.57648,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -43.44606,
+      "lon": 169.51351,
+      "depth_m": 95.0
+    }
+  ]
+}

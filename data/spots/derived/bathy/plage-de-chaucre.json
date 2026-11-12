@@ -1,0 +1,72 @@
+{
+  "spot": "plage-de-chaucre",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    45.9815,
+    -1.3948
+  ],
+  "bearing_seaward_deg": 308.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 19.0,
+  "mean_slope_m_per_km": 1.18,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 45.98288,
+      "lon": -1.39735,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 45.98427,
+      "lon": -1.3999,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 45.98704,
+      "lon": -1.405,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 45.99257,
+      "lon": -1.4152,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 45.99811,
+      "lon": -1.4254,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.00917,
+      "lon": -1.44582,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.02577,
+      "lon": -1.47645,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.04788,
+      "lon": -1.51733,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.08101,
+      "lon": -1.5787,
+      "depth_m": 19.0
+    }
+  ]
+}

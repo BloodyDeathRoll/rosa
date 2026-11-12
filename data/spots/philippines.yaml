@@ -48,7 +48,7 @@ spots:
   - { id: sabang-baler,       name: "Sabang Beach (Baler)", town: "Sabang",     lat: 15.762, lon: 121.567, offshore_direction: 230, swell_window: [355, 85], offshore_bearing: 46.7, offshore_km: 7.79, break_type: beach, <<: *phe }  # sat-verified 2026-07-23 (NE-opening bay)
   - { id: cemento,            name: "Cemento Reef (Baler)", town: "Diguisit",     lat: 15.7501, lon: 121.6368, offshore_direction: 220, swell_window: [310, 130],  offshore_bearing: 52.1, offshore_km: 7.22, <<: *phe }  # sat-verified 2026-07-23 (shallow right reef)
   - { id: bagasbas,           name: "Bagasbas (Daet)", town: "Bagasbas",          lat: 14.134, lon: 122.9855, offshore_direction: 210, swell_window: [325, 120], offshore_bearing: 30.8, offshore_km: 7.25, break_type: beach, <<: *phe }  # sat-verified 2026-07-23 (mellow N-facing beachbreak)
-  - { id: puraran,            name: "Puraran (Catanduanes)", town: "Guinsaanan",    lat: 13.656, lon: 124.4045, offshore_direction: 260, offshore_bearing: 85.8, offshore_km: 6.01, swell_window: [35, 170], <<: *phe }  # sat-verified 2026-07-23 ("Majestics" - hollow right; Baras E coast)
+  - { id: puraran,            name: "Puraran (Catanduanes)", town: "Puraran",    lat: 13.6920, lon: 124.3956, offshore_direction: 205, offshore_bearing: 25.0, offshore_km: 6.0, swell_window: [320, 90], <<: *phe }  # sat-verified 2026-07-23 ("Majestics" - hollow right; Baras E coast)  [moved 2026-11-12: 4 km north onto the breaking reef in front of OSM Puraran Beach; the old pin sat in a cove south of it]
   # ---- Visayas / Mindanao Pacific ----
   - { id: calicoan-abcd,      name: "ABCD (Calicoan, Guiuan)", town: "Ngolos",  lat: 10.979, lon: 125.778, offshore_direction: 310, swell_window: [40, 160], offshore_bearing: 112.3, offshore_km: 8.5, <<: *phe }  # sat-verified 2026-07-23
   - { id: pacifico,           name: "Pacifico (Siargao)", town: "Pacifico",       lat: 9.9448, lon: 126.1039, offshore_direction: 250, swell_window: [20, 160],  offshore_bearing: 70.7, offshore_km: 6.21, <<: *phe }  # sat-verified 2026-07-23 (quieter N-Siargao reef)  [moved 2026-11-12: 8 km north onto the OSM surf node at Pacifico village, breaking reef on the tile]
@@ -95,3 +95,9 @@ spots:
   # rendered and judged at z16)
   - { id: taboc, name: "Taboc", town: "Taboc", lat: 16.6923, lon: 120.3364, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, break_type: beach, <<: *phw }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: burgos-siargao, name: "Burgos (Siargao)", town: "Burgos", lat: 10.0185, lon: 126.0797, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, break_type: reef, <<: *phe }  # sat-verified 2026-11-12 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - 3 more on Eastern Samar (web-search flow; coordinates from OSM / Nominatim / Photon,
+  # every pin rendered and judged at z16)
+  - { id: lalawigan, name: "Lalawigan", town: "Borongan", lat: 11.5875, lon: 125.4730, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, break_type: beach, <<: *phe }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: locso-on, name: "Locso-on", town: "Borongan", lat: 11.5724, lon: 125.4679, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, break_type: reef, <<: *phe }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: llorente, name: "Llorente", town: "Llorente", lat: 11.4161, lon: 125.5483, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, break_type: beach, <<: *phe }  # sat-verified 2026-11-12 (websearch-seeded)

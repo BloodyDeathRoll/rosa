@@ -1,0 +1,72 @@
+{
+  "spot": "allans-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -45.8761,
+    170.6974
+  ],
+  "bearing_seaward_deg": 157.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 104.0,
+  "mean_slope_m_per_km": 6.42,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -45.87817,
+      "lon": 170.69866,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -45.88024,
+      "lon": 170.69992,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -45.88438,
+      "lon": 170.70245,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -45.89266,
+      "lon": 170.7075,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -45.90093,
+      "lon": 170.71255,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -45.91749,
+      "lon": 170.72265,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -45.94232,
+      "lon": 170.73783,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -45.97542,
+      "lon": 170.75807,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -46.02507,
+      "lon": 170.78849,
+      "depth_m": 104.0
+    }
+  ]
+}

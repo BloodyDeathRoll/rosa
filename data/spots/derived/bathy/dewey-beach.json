@@ -1,0 +1,72 @@
+{
+  "spot": "dewey-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.6912,
+    -75.0712
+  ],
+  "bearing_seaward_deg": 95.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 26.0,
+  "mean_slope_m_per_km": 1.18,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.691,
+      "lon": -75.06833,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.69081,
+      "lon": -75.06546,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.69042,
+      "lon": -75.05972,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.68963,
+      "lon": -75.04824,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.68884,
+      "lon": -75.03677,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.68727,
+      "lon": -75.01381,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.68489,
+      "lon": -74.97938,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.68171,
+      "lon": -74.93348,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.67691,
+      "lon": -74.86463,
+      "depth_m": 26.0
+    }
+  ]
+}

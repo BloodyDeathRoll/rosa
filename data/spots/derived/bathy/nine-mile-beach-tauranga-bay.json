@@ -1,0 +1,72 @@
+{
+  "spot": "nine-mile-beach-tauranga-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.8295,
+    171.4591
+  ],
+  "bearing_seaward_deg": 273.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 139.0,
+  "mean_slope_m_per_km": 7.61,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.82938,
+      "lon": 171.45609,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.82926,
+      "lon": 171.45307,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.82903,
+      "lon": 171.44705,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.82856,
+      "lon": 171.43499,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.82808,
+      "lon": 171.42294,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.82713,
+      "lon": 171.39884,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.82569,
+      "lon": 171.36268,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.82376,
+      "lon": 171.31448,
+      "depth_m": 93.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.82082,
+      "lon": 171.24218,
+      "depth_m": 139.0
+    }
+  ]
+}

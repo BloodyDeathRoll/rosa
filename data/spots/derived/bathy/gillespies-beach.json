@@ -1,0 +1,72 @@
+{
+  "spot": "gillespies-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -43.4159,
+    169.8175
+  ],
+  "bearing_seaward_deg": 316.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 296.0,
+  "mean_slope_m_per_km": 16.23,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -43.41428,
+      "lon": 169.81535,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -43.41267,
+      "lon": 169.8132,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -43.40943,
+      "lon": 169.8089,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -43.40296,
+      "lon": 169.8003,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -43.39649,
+      "lon": 169.79171,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -43.38355,
+      "lon": 169.77452,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -43.36413,
+      "lon": 169.74876,
+      "depth_m": 195.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -43.33822,
+      "lon": 169.71443,
+      "depth_m": 349.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -43.29935,
+      "lon": 169.66299,
+      "depth_m": 296.0
+    }
+  ]
+}

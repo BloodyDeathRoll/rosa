@@ -1,0 +1,72 @@
+{
+  "spot": "plage-des-goffineaux",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    46.4088,
+    -1.59
+  ],
+  "bearing_seaward_deg": 205.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 18.0,
+  "mean_slope_m_per_km": 1.13,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.40676,
+      "lon": -1.59138,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.40472,
+      "lon": -1.59276,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.40065,
+      "lon": -1.59551,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 46.3925,
+      "lon": -1.60102,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 46.38435,
+      "lon": -1.60653,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.36804,
+      "lon": -1.61754,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.34359,
+      "lon": -1.63404,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.31097,
+      "lon": -1.65603,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.26205,
+      "lon": -1.68895,
+      "depth_m": 18.0
+    }
+  ]
+}

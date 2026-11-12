@@ -1,0 +1,72 @@
+{
+  "spot": "alabama-point",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    30.2727,
+    -87.553
+  ],
+  "bearing_seaward_deg": 165.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 23.0,
+  "mean_slope_m_per_km": 1.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 30.27053,
+      "lon": -87.55233,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 30.26836,
+      "lon": -87.55165,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 30.26401,
+      "lon": -87.55031,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 30.25533,
+      "lon": -87.54761,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 30.24664,
+      "lon": -87.54492,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 30.22927,
+      "lon": -87.53953,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 30.2032,
+      "lon": -87.53145,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 30.16845,
+      "lon": -87.52069,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 30.11633,
+      "lon": -87.50456,
+      "depth_m": 23.0
+    }
+  ]
+}

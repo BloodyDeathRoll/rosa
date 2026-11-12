@@ -244,6 +244,8 @@ BASINS: dict[str, tuple[str, ...]] = {
         "Outer Banks",
         "New Jersey",
         "Long Island",
+        # Delaware and Ocean City MD (seeded 2026-11-12), between the Outer Banks and New Jersey
+        "Delmarva",
         "Rhode Island",
         "Massachusetts",
         "New Hampshire",
@@ -255,7 +257,8 @@ BASINS: dict[str, tuple[str, ...]] = {
     ),
     # the Gulf of Mexico: local windswell off winter fronts and tropical-storm swell; the
     # Florida panhandle, the Gulf side of the peninsula and the Texas coast share one closed basin
-    "gulf-of-mexico": ("Florida Panhandle", "Florida Gulf", "Texas"),
+    # Alabama and Louisiana (Gulf Coast, seeded 2026-11-12) fill the gap between them
+    "gulf-of-mexico": ("Florida Panhandle", "Florida Gulf", "Texas", "Gulf Coast"),
     # Pointe-Noire and Sao Tome (seeded 2026-11-12) take the same SW swell further up the coast
     "angola": ("Angola", "Congo", "Sao Tome"),
     # the south-east Atlantic: Southern Ocean SW groundswell up the Cape and Namibian
@@ -305,6 +308,8 @@ BASINS: dict[str, tuple[str, ...]] = {
     ),
     # Bermuda, 1,000 km off Cape Hatteras: its own small frame
     "bermuda": ("Bermuda",),
+    # the Gulf of Alaska: Yakutat, Kodiak, Sitka and Haida Gwaii on the same North Pacific storms
+    "gulf-of-alaska": ("Alaska", "Haida Gwaii"),
     # the Galapagos, 900 km offshore: its own small frame rather than stretching Ecuador's
     "galapagos": ("Galapagos",),
     # Easter Island, 3,500 km off Chile: its own small frame

@@ -1,0 +1,72 @@
+{
+  "spot": "plage-des-oncheres",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    46.918,
+    -2.1716
+  ],
+  "bearing_seaward_deg": 255.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 22.0,
+  "mean_slope_m_per_km": 1.18,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.91742,
+      "lon": -2.17478,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.91684,
+      "lon": -2.17796,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.91567,
+      "lon": -2.18432,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 46.91334,
+      "lon": -2.19703,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 46.91101,
+      "lon": -2.20975,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.90634,
+      "lon": -2.23517,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.89933,
+      "lon": -2.27331,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.88997,
+      "lon": -2.32413,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.87588,
+      "lon": -2.40034,
+      "depth_m": 22.0
+    }
+  ]
+}

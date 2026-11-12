@@ -1,0 +1,72 @@
+{
+  "spot": "sea-lion-cove-sitka",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    57.3027,
+    -135.8272
+  ],
+  "bearing_seaward_deg": 275.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 152.0,
+  "mean_slope_m_per_km": 8.39,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 57.3029,
+      "lon": -135.83135,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 57.30309,
+      "lon": -135.83549,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 57.30348,
+      "lon": -135.84378,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 57.30426,
+      "lon": -135.86037,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 57.30504,
+      "lon": -135.87696,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 57.30659,
+      "lon": -135.91013,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 57.3089,
+      "lon": -135.9599,
+      "depth_m": 115.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 57.31195,
+      "lon": -136.02626,
+      "depth_m": 112.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 57.31645,
+      "lon": -136.12583,
+      "depth_m": 152.0
+    }
+  ]
+}

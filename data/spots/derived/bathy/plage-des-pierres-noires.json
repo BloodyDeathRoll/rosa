@@ -1,0 +1,72 @@
+{
+  "spot": "plage-des-pierres-noires",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    46.5452,
+    -1.829
+  ],
+  "bearing_seaward_deg": 255.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 33.0,
+  "mean_slope_m_per_km": 1.75,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.54462,
+      "lon": -1.83216,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.54404,
+      "lon": -1.83531,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.54287,
+      "lon": -1.84163,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 46.54054,
+      "lon": -1.85426,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 46.53821,
+      "lon": -1.86689,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.53354,
+      "lon": -1.89214,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.52653,
+      "lon": -1.93001,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.51717,
+      "lon": -1.98048,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.50308,
+      "lon": -2.05617,
+      "depth_m": 33.0
+    }
+  ]
+}

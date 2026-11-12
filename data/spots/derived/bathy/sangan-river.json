@@ -1,0 +1,72 @@
+{
+  "spot": "sangan-river",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    54.0302,
+    -131.9856
+  ],
+  "bearing_seaward_deg": 355.0,
+  "nearshore_depth_m": -4.0,
+  "offshore_depth_m": 90.0,
+  "mean_slope_m_per_km": 5.3,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 54.03244,
+      "lon": -131.98593,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 54.03468,
+      "lon": -131.98627,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 54.03916,
+      "lon": -131.98693,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 54.04812,
+      "lon": -131.98827,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 54.05708,
+      "lon": -131.98961,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 54.07499,
+      "lon": -131.99228,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 54.10187,
+      "lon": -131.99629,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 54.13771,
+      "lon": -132.00166,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 54.19146,
+      "lon": -132.00971,
+      "depth_m": 90.0
+    }
+  ]
+}

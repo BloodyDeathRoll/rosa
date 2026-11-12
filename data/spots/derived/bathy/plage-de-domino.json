@@ -1,0 +1,72 @@
+{
+  "spot": "plage-de-domino",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    45.9676,
+    -1.3891
+  ],
+  "bearing_seaward_deg": 245.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 1.92,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 45.96665,
+      "lon": -1.39203,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 45.9657,
+      "lon": -1.39496,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 45.9638,
+      "lon": -1.40083,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 45.96,
+      "lon": -1.41255,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 45.95619,
+      "lon": -1.42427,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 45.94858,
+      "lon": -1.44771,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 45.93716,
+      "lon": -1.48286,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 45.92191,
+      "lon": -1.5297,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 45.89899,
+      "lon": -1.59991,
+      "depth_m": 35.0
+    }
+  ]
+}

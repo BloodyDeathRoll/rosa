@@ -1,0 +1,72 @@
+{
+  "spot": "sandy-beach-sitka",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    57.0757,
+    -135.3737
+  ],
+  "bearing_seaward_deg": 230.0,
+  "nearshore_depth_m": 29.0,
+  "offshore_depth_m": 62.0,
+  "mean_slope_m_per_km": 1.86,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 4,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 57.07425,
+      "lon": -135.37687,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 57.07281,
+      "lon": -135.38004,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 57.06992,
+      "lon": -135.38637,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 57.06414,
+      "lon": -135.39904,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 57.05835,
+      "lon": -135.41171,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 57.04678,
+      "lon": -135.43703,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 57.02941,
+      "lon": -135.47497,
+      "depth_m": 102.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 57.00624,
+      "lon": -135.52551,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 56.97144,
+      "lon": -135.60121,
+      "depth_m": 62.0
+    }
+  ]
+}

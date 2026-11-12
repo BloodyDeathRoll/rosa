@@ -1,0 +1,72 @@
+{
+  "spot": "plage-de-l-ecuissiere",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    45.8856,
+    -1.2763
+  ],
+  "bearing_seaward_deg": 219.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 26.0,
+  "mean_slope_m_per_km": 1.75,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 45.88385,
+      "lon": -1.27833,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 45.88211,
+      "lon": -1.28037,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 45.87861,
+      "lon": -1.28443,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 45.87162,
+      "lon": -1.29256,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 45.86463,
+      "lon": -1.30068,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 45.85065,
+      "lon": -1.31693,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 45.82967,
+      "lon": -1.34128,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 45.80169,
+      "lon": -1.37372,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 45.7597,
+      "lon": -1.42232,
+      "depth_m": 26.0
+    }
+  ]
+}

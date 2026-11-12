@@ -1,0 +1,72 @@
+{
+  "spot": "lalawigan",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    11.5875,
+    125.473
+  ],
+  "bearing_seaward_deg": 110.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 1047.0,
+  "mean_slope_m_per_km": 58.48,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 11.58673,
+      "lon": 125.47516,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 11.58596,
+      "lon": 125.47731,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 11.58442,
+      "lon": 125.48163,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 11.58135,
+      "lon": 125.49025,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 11.57827,
+      "lon": 125.49888,
+      "depth_m": 163.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 11.57212,
+      "lon": 125.51613,
+      "depth_m": 291.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 11.56288,
+      "lon": 125.54201,
+      "depth_m": 458.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 11.55057,
+      "lon": 125.57651,
+      "depth_m": 640.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 11.53209,
+      "lon": 125.62825,
+      "depth_m": 1047.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "kararo-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -42.4682,
+    171.1851
+  ],
+  "bearing_seaward_deg": 290.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 117.0,
+  "mean_slope_m_per_km": 6.42,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -42.46743,
+      "lon": 171.18224,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -42.46666,
+      "lon": 171.17937,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -42.46512,
+      "lon": 171.17364,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -42.46205,
+      "lon": 171.16219,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -42.45897,
+      "lon": 171.15074,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -42.45281,
+      "lon": 171.12783,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -42.44356,
+      "lon": 171.09348,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -42.43121,
+      "lon": 171.0477,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -42.41265,
+      "lon": 170.97907,
+      "depth_m": 117.0
+    }
+  ]
+}

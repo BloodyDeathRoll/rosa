@@ -1,0 +1,72 @@
+{
+  "spot": "tan-tra-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    15.9835,
+    108.2804
+  ],
+  "bearing_seaward_deg": 63.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 2.2,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 15.98452,
+      "lon": 108.28248,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 15.98554,
+      "lon": 108.28457,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 15.98758,
+      "lon": 108.28874,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 15.99167,
+      "lon": 108.29707,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 15.99575,
+      "lon": 108.30541,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.00391,
+      "lon": 108.32208,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.01615,
+      "lon": 108.34709,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.03247,
+      "lon": 108.38045,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.05694,
+      "lon": 108.43049,
+      "depth_m": 30.0
+    }
+  ]
+}

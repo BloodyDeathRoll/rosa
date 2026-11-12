@@ -1,0 +1,29 @@
+# Rosa spot database - Delmarva (seeded 2026-11-12). Delaware's beaches from Cape Henlopen to Fenwick Island and
+# Ocean City Inlet in Maryland: short-period Atlantic beach breaks off sandbars and jetties, best on SE swell.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "United States"
+
+defaults: &dmv
+  timezone: America/New_York
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [32, 162]
+  ideal:
+    wind_dir: [232, 322]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - delmarva, 9 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: herring-point, name: "Herring Point", town: "Lewes", lat: 38.7657, lon: -75.0814, offshore_direction: 265, swell_window: [20, 150], offshore_km: 5.0, break_type: beach, <<: *dmv }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: gordons-pond, name: "Gordons Pond", town: "Rehoboth Beach", lat: 38.7539, lon: -75.0809, offshore_direction: 265, swell_window: [20, 150], offshore_km: 5.0, break_type: beach, <<: *dmv }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: rehoboth-beach, name: "Rehoboth Beach", town: "Rehoboth Beach", lat: 38.7161, lon: -75.0749, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, break_type: beach, <<: *dmv }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: dewey-beach, name: "Dewey Beach", town: "Dewey Beach", lat: 38.6912, lon: -75.0712, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, break_type: beach, <<: *dmv }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: indian-river-inlet-north, name: "Indian River Inlet (North Side)", town: "Bethany Beach", lat: 38.6103, lon: -75.0622, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, break_type: beach, <<: *dmv }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: indian-river-inlet-south, name: "Indian River Inlet (South Side)", town: "Bethany Beach", lat: 38.6061, lon: -75.0602, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, break_type: beach, <<: *dmv }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: bethany-beach, name: "Bethany Beach", town: "Bethany Beach", lat: 38.5380, lon: -75.0533, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, break_type: beach, <<: *dmv }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: fenwick-island, name: "Fenwick Island", town: "Fenwick Island", lat: 38.4677, lon: -75.0487, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, break_type: beach, <<: *dmv }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: ocean-city-inlet, name: "Ocean City Inlet", town: "Ocean City", lat: 38.3262, lon: -75.0846, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, break_type: beach, <<: *dmv }  # sat-verified 2026-11-12 (websearch-seeded)

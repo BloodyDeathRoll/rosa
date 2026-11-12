@@ -1,0 +1,72 @@
+{
+  "spot": "pakiroa-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -42.1459,
+    171.3223
+  ],
+  "bearing_seaward_deg": 289.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 114.0,
+  "mean_slope_m_per_km": 5.97,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -42.14517,
+      "lon": 171.31943,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -42.14444,
+      "lon": 171.31657,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -42.14297,
+      "lon": 171.31083,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -42.14004,
+      "lon": 171.29936,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -42.13711,
+      "lon": 171.2879,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -42.13125,
+      "lon": 171.26497,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -42.12244,
+      "lon": 171.23059,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -42.11068,
+      "lon": 171.18475,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -42.09301,
+      "lon": 171.11604,
+      "depth_m": 114.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "bai-bien-binh-minh",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    15.7791,
+    108.4309
+  ],
+  "bearing_seaward_deg": 61.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 2.25,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 15.78019,
+      "lon": 108.43294,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 15.78128,
+      "lon": 108.43499,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 15.78346,
+      "lon": 108.43907,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 15.78782,
+      "lon": 108.44725,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 15.79218,
+      "lon": 108.45542,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 15.8009,
+      "lon": 108.47177,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 15.81397,
+      "lon": 108.4963,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 15.8314,
+      "lon": 108.52901,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 15.85753,
+      "lon": 108.57808,
+      "depth_m": 30.0
+    }
+  ]
+}

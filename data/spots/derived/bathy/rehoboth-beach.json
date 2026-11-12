@@ -1,0 +1,72 @@
+{
+  "spot": "rehoboth-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.7161,
+    -75.0749
+  ],
+  "bearing_seaward_deg": 95.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 17.0,
+  "mean_slope_m_per_km": 0.56,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.7159,
+      "lon": -75.07203,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.71571,
+      "lon": -75.06916,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.71532,
+      "lon": -75.06342,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.71453,
+      "lon": -75.05194,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.71374,
+      "lon": -75.04045,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.71217,
+      "lon": -75.01749,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.70979,
+      "lon": -74.98305,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.70661,
+      "lon": -74.93713,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.70181,
+      "lon": -74.86826,
+      "depth_m": 17.0
+    }
+  ]
+}

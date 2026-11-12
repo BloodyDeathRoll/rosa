@@ -1,0 +1,72 @@
+{
+  "spot": "punakaiki-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -42.1015,
+    171.3362
+  ],
+  "bearing_seaward_deg": 285.0,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 117.0,
+  "mean_slope_m_per_km": 5.86,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -42.10092,
+      "lon": 171.33327,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -42.10034,
+      "lon": 171.33035,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -42.09917,
+      "lon": 171.32449,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -42.09684,
+      "lon": 171.31279,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -42.09451,
+      "lon": 171.30108,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -42.08985,
+      "lon": 171.27767,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -42.08284,
+      "lon": 171.24256,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -42.07348,
+      "lon": 171.19577,
+      "depth_m": 80.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -42.05941,
+      "lon": 171.1256,
+      "depth_m": 117.0
+    }
+  ]
+}

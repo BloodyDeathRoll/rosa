@@ -1,0 +1,72 @@
+{
+  "spot": "les-becs",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    46.7555,
+    -2.0311
+  ],
+  "bearing_seaward_deg": 223.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 29.0,
+  "mean_slope_m_per_km": 1.52,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.75386,
+      "lon": -2.03334,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.75221,
+      "lon": -2.03558,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.74892,
+      "lon": -2.04005,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 46.74234,
+      "lon": -2.049,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 46.73577,
+      "lon": -2.05795,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.72261,
+      "lon": -2.07583,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.70286,
+      "lon": -2.10265,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.67652,
+      "lon": -2.13837,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.637,
+      "lon": -2.19189,
+      "depth_m": 29.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "grand-isle",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    29.2564,
+    -89.9506
+  ],
+  "bearing_seaward_deg": 135.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 19.0,
+  "mean_slope_m_per_km": 0.96,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 29.25481,
+      "lon": -89.94878,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 29.25322,
+      "lon": -89.94696,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 29.25004,
+      "lon": -89.94331,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 29.24368,
+      "lon": -89.93602,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 29.23732,
+      "lon": -89.92874,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 29.2246,
+      "lon": -89.91417,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 29.20551,
+      "lon": -89.89232,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 29.18006,
+      "lon": -89.8632,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 29.14187,
+      "lon": -89.81955,
+      "depth_m": 19.0
+    }
+  ]
+}

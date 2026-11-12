@@ -1,0 +1,72 @@
+{
+  "spot": "blacks-beach-mahia",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -39.0678,
+    177.7988
+  ],
+  "bearing_seaward_deg": 200.0,
+  "nearshore_depth_m": -22.0,
+  "offshore_depth_m": 38.0,
+  "mean_slope_m_per_km": 3.38,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -39.06991,
+      "lon": 177.79781,
+      "depth_m": -22.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -39.07203,
+      "lon": 177.79682,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -39.07625,
+      "lon": 177.79484,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -39.0847,
+      "lon": 177.79087,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -39.09315,
+      "lon": 177.78691,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -39.11005,
+      "lon": 177.77898,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -39.1354,
+      "lon": 177.76708,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -39.1692,
+      "lon": 177.75119,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -39.21989,
+      "lon": 177.72734,
+      "depth_m": 38.0
+    }
+  ]
+}

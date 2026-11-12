@@ -1,0 +1,21 @@
+# Rosa spot database - Haida Gwaii (seeded 2026-11-12). The Sangan River mouth on Graham Island's north beach:
+# open North Pacific swell, Oct-Mar; up to 7 m of tide.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Canada"
+
+defaults: &hg
+  timezone: America/Vancouver
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [290, 60]
+  ideal:
+    wind_dir: [130, 220]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - haida-gwaii, 1 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: sangan-river, name: "Sangan River (North Beach)", town: "Masset", lat: 54.0302, lon: -131.9856, offshore_direction: 175, swell_window: [290, 60], offshore_km: 5.0, break_type: beach, <<: *hg }  # sat-verified 2026-11-12 (websearch-seeded)

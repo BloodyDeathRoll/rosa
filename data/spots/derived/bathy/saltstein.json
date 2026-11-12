@@ -1,0 +1,72 @@
+{
+  "spot": "saltstein",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    58.9694,
+    9.8338
+  ],
+  "bearing_seaward_deg": 190.0,
+  "nearshore_depth_m": 19.0,
+  "offshore_depth_m": 348.0,
+  "mean_slope_m_per_km": 18.54,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 58.96719,
+      "lon": 9.83304,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 58.96497,
+      "lon": 9.83229,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 58.96054,
+      "lon": 9.83077,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 58.95169,
+      "lon": 9.82774,
+      "depth_m": 183.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 58.94283,
+      "lon": 9.82472,
+      "depth_m": 251.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 58.92512,
+      "lon": 9.81867,
+      "depth_m": 256.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 58.89855,
+      "lon": 9.80961,
+      "depth_m": 195.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 58.86312,
+      "lon": 9.79756,
+      "depth_m": 163.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 58.80997,
+      "lon": 9.77952,
+      "depth_m": 348.0
+    }
+  ]
+}

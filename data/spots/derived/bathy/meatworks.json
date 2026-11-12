@@ -1,0 +1,72 @@
+{
+  "spot": "meatworks",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -42.3197,
+    173.7507
+  ],
+  "bearing_seaward_deg": 120.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 748.0,
+  "mean_slope_m_per_km": 42.54,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -42.32082,
+      "lon": 173.75333,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -42.32195,
+      "lon": 173.75597,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -42.3242,
+      "lon": 173.76123,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -42.32869,
+      "lon": 173.77177,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -42.33319,
+      "lon": 173.78231,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -42.34217,
+      "lon": 173.80339,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -42.35564,
+      "lon": 173.83501,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -42.37359,
+      "lon": 173.87721,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -42.40048,
+      "lon": 173.94054,
+      "depth_m": 748.0
+    }
+  ]
+}

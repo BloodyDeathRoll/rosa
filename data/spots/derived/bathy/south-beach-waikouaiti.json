@@ -1,0 +1,72 @@
+{
+  "spot": "south-beach-waikouaiti",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -45.5337,
+    170.7561
+  ],
+  "bearing_seaward_deg": 125.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 52.0,
+  "mean_slope_m_per_km": 2.82,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -45.53499,
+      "lon": 170.75873,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -45.53628,
+      "lon": 170.76136,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -45.53886,
+      "lon": 170.76662,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -45.54401,
+      "lon": 170.77714,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -45.54917,
+      "lon": 170.78766,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -45.55948,
+      "lon": 170.80871,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -45.57494,
+      "lon": 170.84029,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -45.59553,
+      "lon": 170.88244,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -45.62639,
+      "lon": 170.94571,
+      "depth_m": 52.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "plage-de-la-paree",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    46.6274,
+    -1.8754
+  ],
+  "bearing_seaward_deg": 249.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 2.08,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.62659,
+      "lon": -1.87846,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.62579,
+      "lon": -1.88151,
+      "depth_m": -4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.62418,
+      "lon": -1.88762,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 46.62095,
+      "lon": -1.89985,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 46.61773,
+      "lon": -1.91207,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.61127,
+      "lon": -1.93651,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.60158,
+      "lon": -1.97316,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.58863,
+      "lon": -2.022,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.56918,
+      "lon": -2.09523,
+      "depth_m": 30.0
+    }
+  ]
+}

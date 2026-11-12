@@ -1,0 +1,72 @@
+{
+  "spot": "indian-river-inlet-north",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.6103,
+    -75.0622
+  ],
+  "bearing_seaward_deg": 100.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 23.0,
+  "mean_slope_m_per_km": 0.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.60991,
+      "lon": -75.05937,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.60952,
+      "lon": -75.05653,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.60874,
+      "lon": -75.05087,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.60717,
+      "lon": -75.03953,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.60561,
+      "lon": -75.0282,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.60248,
+      "lon": -75.00554,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.59777,
+      "lon": -74.97154,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.59148,
+      "lon": -74.92623,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.58201,
+      "lon": -74.85827,
+      "depth_m": 23.0
+    }
+  ]
+}

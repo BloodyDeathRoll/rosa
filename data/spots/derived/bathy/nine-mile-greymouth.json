@@ -1,0 +1,72 @@
+{
+  "spot": "nine-mile-greymouth",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -42.3487,
+    171.256
+  ],
+  "bearing_seaward_deg": 290.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 100.0,
+  "mean_slope_m_per_km": 5.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -42.34793,
+      "lon": 171.25314,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -42.34716,
+      "lon": 171.25028,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -42.34562,
+      "lon": 171.24457,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -42.34255,
+      "lon": 171.23313,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -42.33947,
+      "lon": 171.2217,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -42.33331,
+      "lon": 171.19884,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -42.32406,
+      "lon": 171.16456,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -42.31171,
+      "lon": 171.11887,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -42.29315,
+      "lon": 171.05036,
+      "depth_m": 100.0
+    }
+  ]
+}

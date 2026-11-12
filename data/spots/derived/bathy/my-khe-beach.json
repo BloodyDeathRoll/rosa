@@ -1,0 +1,72 @@
+{
+  "spot": "my-khe-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    15.1911,
+    108.896
+  ],
+  "bearing_seaward_deg": 103.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 68.0,
+  "mean_slope_m_per_km": 4.39,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 15.19059,
+      "lon": 108.89827,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 15.19009,
+      "lon": 108.90054,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 15.18908,
+      "lon": 108.90508,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 15.18705,
+      "lon": 108.91416,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 15.18503,
+      "lon": 108.92324,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 15.18098,
+      "lon": 108.9414,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 15.1749,
+      "lon": 108.96863,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 15.1668,
+      "lon": 109.00495,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 15.15463,
+      "lon": 109.05941,
+      "depth_m": 68.0
+    }
+  ]
+}

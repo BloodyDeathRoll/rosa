@@ -1,0 +1,72 @@
+{
+  "spot": "grande-plage-de-sion",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    46.715,
+    -1.9793
+  ],
+  "bearing_seaward_deg": 272.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 12.0,
+  "mean_slope_m_per_km": 0.96,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.71508,
+      "lon": -1.98258,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.71516,
+      "lon": -1.98585,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.71531,
+      "lon": -1.99241,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 46.71562,
+      "lon": -2.00552,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 46.71593,
+      "lon": -2.01863,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.71655,
+      "lon": -2.04485,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.71746,
+      "lon": -2.08417,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.71866,
+      "lon": -2.13662,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.72041,
+      "lon": -2.21528,
+      "depth_m": 12.0
+    }
+  ]
+}

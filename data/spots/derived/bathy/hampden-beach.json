@@ -1,0 +1,72 @@
+{
+  "spot": "hampden-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -45.3307,
+    170.8248
+  ],
+  "bearing_seaward_deg": 93.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 39.0,
+  "mean_slope_m_per_km": 2.76,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -45.33082,
+      "lon": 170.82799,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -45.33094,
+      "lon": 170.83119,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -45.33117,
+      "lon": 170.83757,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -45.33164,
+      "lon": 170.85035,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -45.33211,
+      "lon": 170.86313,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -45.33304,
+      "lon": 170.88868,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -45.33442,
+      "lon": 170.92701,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -45.33625,
+      "lon": 170.97811,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -45.33894,
+      "lon": 171.05478,
+      "depth_m": 39.0
+    }
+  ]
+}

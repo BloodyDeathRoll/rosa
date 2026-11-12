@@ -1,0 +1,72 @@
+{
+  "spot": "wallace-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -46.6223,
+    169.2849
+  ],
+  "bearing_seaward_deg": 202.0,
+  "nearshore_depth_m": -46.0,
+  "offshore_depth_m": 91.0,
+  "mean_slope_m_per_km": 7.72,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -46.62438,
+      "lon": 169.28367,
+      "depth_m": -46.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -46.62647,
+      "lon": 169.28245,
+      "depth_m": -32.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -46.63064,
+      "lon": 169.27999,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -46.63898,
+      "lon": 169.27509,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -46.64731,
+      "lon": 169.27018,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -46.66399,
+      "lon": 169.26036,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -46.689,
+      "lon": 169.24561,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -46.72235,
+      "lon": 169.22593,
+      "depth_m": 84.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -46.77236,
+      "lon": 169.19636,
+      "depth_m": 91.0
+    }
+  ]
+}

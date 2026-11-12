@@ -1,0 +1,72 @@
+{
+  "spot": "murphy-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -43.7123,
+    169.2313
+  ],
+  "bearing_seaward_deg": 357.0,
+  "nearshore_depth_m": -51.0,
+  "offshore_depth_m": 140.0,
+  "mean_slope_m_per_km": 10.76,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -43.71005,
+      "lon": 169.23114,
+      "depth_m": -51.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -43.70781,
+      "lon": 169.23097,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -43.70332,
+      "lon": 169.23065,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -43.69434,
+      "lon": 169.23,
+      "depth_m": 70.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -43.68536,
+      "lon": 169.22935,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -43.6674,
+      "lon": 169.22805,
+      "depth_m": 115.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -43.64045,
+      "lon": 169.2261,
+      "depth_m": 117.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -43.60453,
+      "lon": 169.2235,
+      "depth_m": 112.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -43.55064,
+      "lon": 169.21961,
+      "depth_m": 140.0
+    }
+  ]
+}

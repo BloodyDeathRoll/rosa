@@ -45,3 +45,7 @@ spots:
   - { id: farstadsanden, name: "Farstadsanden", town: "Farstad", lat: 62.9831, lon: 7.1533, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, <<: *nos }  # sat-verified 2026-11-12 (osm-seeded)
   - { id: stavasanden, name: "Stavasanden", town: "Åkrehamn", lat: 59.2327, lon: 5.1835, offshore_direction: 155, swell_window: [270, 40], offshore_km: 5.0, <<: *nos }  # sat-verified 2026-11-12 (osm-seeded)
   - { id: sele, name: "Sele", town: "Sele", lat: 58.8133, lon: 5.5454, offshore_direction: 65, swell_window: [180, 310], offshore_km: 5.0, <<: *nos }  # sat-verified 2026-11-12 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - 1 more, gap pass (web-search flow; coordinates from OSM, every pin
+  # rendered and judged at z16)
+  - { id: saltstein, name: "Saltstein", town: "Værvågen", lat: 58.9694, lon: 9.8338, offshore_direction: 10, swell_window: [125, 255], offshore_km: 5.0, break_type: reef, <<: *nos }  # sat-verified 2026-11-12 (osm-seeded)

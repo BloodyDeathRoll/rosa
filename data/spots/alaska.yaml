@@ -1,0 +1,24 @@
+# Rosa spot database - Alaska (seeded 2026-11-12). Yakutat's Cannon Beach, Kodiak's Fossil Beach and Sitka:
+# exposed Gulf of Alaska swell, best in spring and fall.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "United States"
+
+defaults: &ak
+  timezone: America/Anchorage
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [171, 301]
+  ideal:
+    wind_dir: [11, 101]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - alaska, 4 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: cannon-beach-yakutat, name: "Cannon Beach (Yakutat)", town: "Yakutat", lat: 59.4916, lon: -139.7296, offshore_direction: 40, swell_window: [155, 285], offshore_km: 5.0, break_type: beach, <<: *ak }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: fossil-beach-kodiak, name: "Fossil Beach (Kodiak)", town: "Kodiak", lat: 57.4271, lon: -152.3541, offshore_direction: 40, swell_window: [155, 285], offshore_km: 5.0, break_type: beach, <<: *ak }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: sea-lion-cove-sitka, name: "Sea Lion Cove", town: "Sitka", lat: 57.3027, lon: -135.8272, offshore_direction: 95, swell_window: [210, 340], offshore_km: 5.0, break_type: beach, <<: *ak }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: sandy-beach-sitka, name: "Sandy Beach (Sitka)", town: "Sitka", lat: 57.0757, lon: -135.3737, offshore_direction: 50, swell_window: [165, 295], offshore_km: 5.0, break_type: beach, <<: *ak }  # sat-verified 2026-11-12 (osm-seeded)

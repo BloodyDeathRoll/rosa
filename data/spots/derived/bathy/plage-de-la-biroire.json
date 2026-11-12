@@ -1,0 +1,72 @@
+{
+  "spot": "plage-de-la-biroire",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    45.9368,
+    -1.3652
+  ],
+  "bearing_seaward_deg": 229.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 32.0,
+  "mean_slope_m_per_km": 1.8,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 45.93532,
+      "lon": -1.36764,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 45.93385,
+      "lon": -1.37008,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 45.9309,
+      "lon": -1.37496,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 45.925,
+      "lon": -1.38471,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 45.9191,
+      "lon": -1.39447,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 45.90729,
+      "lon": -1.41397,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 45.88957,
+      "lon": -1.44321,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 45.86594,
+      "lon": -1.48216,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 45.83046,
+      "lon": -1.54054,
+      "depth_m": 32.0
+    }
+  ]
+}
