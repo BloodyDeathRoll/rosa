@@ -1,0 +1,72 @@
+{
+  "spot": "okinohama",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    32.8205,
+    132.9513
+  ],
+  "bearing_seaward_deg": 95.0,
+  "nearshore_depth_m": -13.0,
+  "offshore_depth_m": 131.0,
+  "mean_slope_m_per_km": 8.11,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.8203,
+      "lon": 132.95397,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.82011,
+      "lon": 132.95663,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.81972,
+      "lon": 132.96196,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.81893,
+      "lon": 132.97262,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.81814,
+      "lon": 132.98328,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.81657,
+      "lon": 133.0046,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.8142,
+      "lon": 133.03658,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.81103,
+      "lon": 133.07922,
+      "depth_m": 103.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.80625,
+      "lon": 133.14316,
+      "depth_m": 131.0
+    }
+  ]
+}

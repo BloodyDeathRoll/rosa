@@ -1,0 +1,28 @@
+# Rosa spot database - Gulf of St Lawrence (seeded 2026-11-12, gap batch). The Magdalen Islands (local surf spots listed by the islands' tourism board) and Perce: Gulf of St Lawrence wind swell, autumn storms.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+region: Gulf of St Lawrence
+country: "Canada"
+
+defaults: &gsl
+  timezone: America/Halifax
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [66, 196]
+  ideal:
+    wind_dir: [266, 356]
+    size_m: [0.5, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - gap batch, 6 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap-americas/). North to south.
+  - { id: perce, name: "Percé", town: "Percé", lat: 48.5191, lon: -64.2147, offshore_direction: 300, shore_normal: 80, swell_window: [55, 185], offshore_km: 5.0, break_type: beach, timezone: America/Toronto, <<: *gsl }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: grande-echouerie, name: "Grande Échouerie", town: "Old-Harry", lat: 47.5965, lon: -61.4560, offshore_direction: 312, swell_window: [67, 197], offshore_km: 5.0, break_type: beach, <<: *gsl }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.75)
+  - { id: la-cormorandiere, name: "La Cormorandière", town: "Dune-du-Sud", lat: 47.4807, lon: -61.7185, offshore_direction: 311, swell_window: [66, 196], offshore_km: 5.0, break_type: beach, <<: *gsl }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: dune-du-nord, name: "Dune du Nord", town: "Fatima", lat: 47.4197, lon: -61.8921, offshore_direction: 166, swell_window: [281, 51], offshore_km: 5.0, break_type: beach, <<: *gsl }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: cap-alright, name: "Cap Alright", town: "L'Échouerie", lat: 47.3930, lon: -61.7728, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, break_type: beach, <<: *gsl }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
+  - { id: plage-millerand, name: "Millerand", town: "L'Anse-à-la-Cabane", lat: 47.2187, lon: -61.9890, offshore_direction: 15, swell_window: [130, 260], offshore_km: 5.0, break_type: beach, <<: *gsl }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)

@@ -137,3 +137,13 @@ spots:
   - { id: hakalau, name: "Hakalau", town: "Hakalau", lat: 19.9002, lon: -155.1286, offshore_direction: 225, swell_window: [340, 110], offshore_km: 5.0, break_type: beach, <<: *hi }  # sat-verified 2026-11-04 (websearch-seeded)
   - { id: kolekole, name: "Kolekole", town: "Honomū", lat: 19.8827, lon: -155.1190, offshore_direction: 245, swell_window: [0, 130], offshore_km: 5.0, break_type: beach, <<: *hi }  # sat-verified 2026-11-04 (websearch-seeded)
   - { id: honolii, name: "Honolii", town: "Hilo", lat: 19.7559, lon: -155.0906, offshore_direction: 265, swell_window: [20, 150], offshore_km: 5.0, break_type: beach, <<: *hi }  # sat-verified 2026-11-04 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - gap batch, 5 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap-pacific/). North to south.
+  - { id: kepuhi-beach, name: "Kepuhi Beach", town: "Maunaloa", lat: 21.1852, lon: -157.2490, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, break_type: beach, <<: *hi }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.75)
+  - { id: halawa-bay, name: "Halawa", town: "Halawa", lat: 21.1597, lon: -156.7365, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, break_type: beach, <<: *hi }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: kaiolohia-shipwreck-beach, name: "Shipwreck Beach", town: "Lanai City", lat: 20.9122, lon: -156.8938, offshore_direction: 205, shore_normal: 45, swell_window: [320, 90], offshore_km: 5.0, break_type: reef, <<: *hi }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
+  - { id: lopa-beach, name: "Lopa", town: "Lōpā", lat: 20.8065, lon: -156.8060, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, break_type: beach, <<: *hi }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: hulopoe-bay, name: "Hulopoe Bay", town: "Lanai City", lat: 20.7388, lon: -156.8937, offshore_direction: 30, swell_window: [145, 275], offshore_km: 5.0, break_type: beach, <<: *hi }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)

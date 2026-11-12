@@ -61,3 +61,10 @@ spots:
   - { id: pucatrihue, name: "Pucatrihue", town: "Pucatrihue", lat: -40.5416, lon: -73.7168, offshore_direction: 116, swell_window: [231, 1], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
   - { id: maicolpue, name: "Maicolpué", town: "Maicolpué", lat: -40.5954, lon: -73.736, offshore_direction: 94, swell_window: [209, 339], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
   - { id: tril-tril, name: "Tril Tril", town: "Maicolpué", lat: -40.6162, lon: -73.754, offshore_direction: 114, swell_window: [229, 359], offshore_km: 5.0, <<: *cls }  # sat-verified 2026-09-16 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - gap batch, 2 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap-americas/). North to south.
+  - { id: mar-brava-carelmapu, name: "Mar Brava", town: "Carelmapu", lat: -41.7375, lon: -73.7318, offshore_direction: 136, swell_window: [251, 21], offshore_km: 5.0, break_type: beach, <<: *cls }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.75)
+  - { id: faro-corona, name: "Faro Corona", town: "Ancud", lat: -41.7813, lon: -73.8797, offshore_direction: 190, swell_window: [305, 75], offshore_km: 5.0, break_type: reef, <<: *cls }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)

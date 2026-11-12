@@ -683,6 +683,25 @@ REGIONS = {
     "zhejiang": (29.60, 121.80, 30.85, 123.00),
     # Shandong: Qingdao's beaches (Shilaoren, Laoshan, Huangdao) and Weihai
     "shandong": (35.70, 119.90, 37.60, 122.60),
+    # gap batch 2026-11-12b
+    # Kamchatka: Khalaktyrsky Beach, Avacha Gulf's open Pacific shore
+    "kamchatka": (52.70, 158.60, 53.30, 159.30),
+    # Newfoundland: the Avalon's south shore (St. Vincent's)
+    "newfoundland": (46.55, -53.90, 46.95, -53.40),
+    # Gulf of St Lawrence: the Magdalen Islands and Perce
+    "gulf-of-st-lawrence": (47.15, -64.40, 48.60, -61.35),
+    # Seychelles: Mahe's south and east coasts
+    "seychelles": (-4.85, 55.38, -4.52, 55.56),
+    # Tanzania: Dar es Salaam's Msasani peninsula (Coco Beach)
+    "tanzania": (-6.85, 39.20, -6.70, 39.35),
+    # Bangladesh: Cox's Bazar south to Inani
+    "bangladesh": (21.10, 91.90, 21.50, 92.10),
+    # Poland: the Baltic coast, Kolobrzeg east to the Hel peninsula
+    "poland": (54.10, 15.30, 54.90, 18.85),
+    # Lithuania: Klaipeda and Palanga
+    "lithuania": (55.65, 20.95, 55.95, 21.15),
+    # Latvia: Liepaja north to Pavilosta
+    "latvia": (56.45, 20.90, 56.95, 21.25),
 }
 
 

@@ -1,0 +1,72 @@
+{
+  "spot": "sandy-point-waratah-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.8293,
+    146.1163
+  ],
+  "bearing_seaward_deg": 210.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 61.0,
+  "mean_slope_m_per_km": 3.32,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.83125,
+      "lon": 146.11486,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.83319,
+      "lon": 146.11341,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.83709,
+      "lon": 146.11053,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.84488,
+      "lon": 146.10475,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.85266,
+      "lon": 146.09898,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.86824,
+      "lon": 146.08742,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.8916,
+      "lon": 146.07008,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.92274,
+      "lon": 146.04694,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.96944,
+      "lon": 146.0122,
+      "depth_m": 61.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "dune-du-nord",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    47.4197,
+    -61.8921
+  ],
+  "bearing_seaward_deg": 346.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 34.0,
+  "mean_slope_m_per_km": 1.8,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 47.42188,
+      "lon": -61.8929,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 47.42406,
+      "lon": -61.89371,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 47.42843,
+      "lon": -61.89532,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 47.43715,
+      "lon": -61.89853,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 47.44588,
+      "lon": -61.90175,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 47.46333,
+      "lon": -61.90819,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 47.48951,
+      "lon": -61.91786,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 47.52441,
+      "lon": -61.93076,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 47.57675,
+      "lon": -61.95015,
+      "depth_m": 34.0
+    }
+  ]
+}

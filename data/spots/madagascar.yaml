@@ -26,3 +26,9 @@ spots:
   - { id: lavanono, name: "Lavanono", town: "Lavanono", lat: -25.4280, lon: 44.9370, offshore_direction: 110, swell_window: [225, 355], offshore_km: 5.0, <<: *mad }  # sat-verified 2026-09-04 (websearch-seeded)
   - { id: baie-maxime, name: "Baie Maxime", town: "Mahambo", lat: -17.4852, lon: 49.4755, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, <<: *mad }  # sat-verified 2026-09-04 (websearch-seeded)
   - { id: libanona, name: "Libanona", town: "Fort Dauphin", lat: -25.0360, lon: 46.9830, offshore_direction: 320, swell_window: [75, 205], offshore_km: 5.0, <<: *mad }  # sat-verified 2026-09-04 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - gap batch, 1 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap-indian/). North to south.
+  - { id: plage-monseigneur, name: "Plage Monseigneur", town: "Fort Dauphin", lat: -25.0362, lon: 46.9986, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, break_type: reef, <<: *mad }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)

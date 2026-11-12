@@ -1,0 +1,72 @@
+{
+  "spot": "malindi-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -3.2069,
+    40.1242
+  ],
+  "bearing_seaward_deg": 80.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 214.0,
+  "mean_slope_m_per_km": 11.83,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -3.20651,
+      "lon": 40.12642,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -3.20612,
+      "lon": 40.12864,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -3.20534,
+      "lon": 40.13307,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -3.20378,
+      "lon": 40.14194,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -3.20221,
+      "lon": 40.15081,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -3.19909,
+      "lon": 40.16855,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -3.1944,
+      "lon": 40.19516,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -3.18815,
+      "lon": 40.23064,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -3.17878,
+      "lon": 40.28386,
+      "depth_m": 214.0
+    }
+  ]
+}

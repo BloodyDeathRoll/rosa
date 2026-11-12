@@ -1,0 +1,25 @@
+# Rosa spot database - Seychelles (seeded 2026-11-12, gap batch). Mahe's south and east coasts: SE trade-wind swell May-Oct, reef-fringed beaches.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Seychelles"
+
+defaults: &sey
+  timezone: Indian/Mahe
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [82, 212]
+  ideal:
+    wind_dir: [282, 12]
+    size_m: [0.5, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - gap batch, 4 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap-indian/). North to south.
+  - { id: carana-beach, name: "Carana Beach", town: "Machabee", lat: -4.5680, lon: 55.4574, offshore_direction: 250, swell_window: [5, 135], offshore_km: 5.0, break_type: beach, <<: *sey }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: grand-anse-mahe, name: "Grand Anse", town: "Barbarons", lat: -4.6786, lon: 55.4483, offshore_direction: 40, swell_window: [155, 285], offshore_km: 5.0, break_type: beach, <<: *sey }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.75)
+  - { id: anse-bougainville, name: "Anse Bougainville", town: "Anse Royale", lat: -4.7607, lon: 55.5192, offshore_direction: 255, swell_window: [10, 140], offshore_km: 5.0, break_type: reef, <<: *sey }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: anse-intendance, name: "Anse Intendance", town: "Quatre Bornes", lat: -4.7845, lon: 55.4994, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, break_type: beach, <<: *sey }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.8)

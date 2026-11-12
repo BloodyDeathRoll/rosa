@@ -1,0 +1,72 @@
+{
+  "spot": "lopa-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    20.8065,
+    -156.806
+  ],
+  "bearing_seaward_deg": 100.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 73.0,
+  "mean_slope_m_per_km": 3.94,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 20.80611,
+      "lon": -156.80363,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 20.80572,
+      "lon": -156.80126,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 20.80494,
+      "lon": -156.79653,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 20.80338,
+      "lon": -156.78705,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 20.80181,
+      "lon": -156.77758,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 20.79869,
+      "lon": -156.75863,
+      "depth_m": 90.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 20.79399,
+      "lon": -156.73021,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 20.78772,
+      "lon": -156.69232,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 20.77831,
+      "lon": -156.63549,
+      "depth_m": 73.0
+    }
+  ]
+}

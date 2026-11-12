@@ -1,0 +1,72 @@
+{
+  "spot": "woodside-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.5521,
+    146.9782
+  ],
+  "bearing_seaward_deg": 140.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 1.75,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.55382,
+      "lon": 146.98005,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.55554,
+      "lon": 146.9819,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.55899,
+      "lon": 146.98559,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.56588,
+      "lon": 146.99299,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.57277,
+      "lon": 147.00038,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.58654,
+      "lon": 147.01518,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.6072,
+      "lon": 147.03738,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.63474,
+      "lon": 147.067,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.67603,
+      "lon": 147.11148,
+      "depth_m": 35.0
+    }
+  ]
+}

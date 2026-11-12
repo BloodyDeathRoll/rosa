@@ -1,0 +1,72 @@
+{
+  "spot": "first-surf-beach-cape-paterson",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.677,
+    145.61
+  ],
+  "bearing_seaward_deg": 160.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 73.0,
+  "mean_slope_m_per_km": 4.79,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.67911,
+      "lon": 145.61099,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.68123,
+      "lon": 145.61197,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.68545,
+      "lon": 145.61394,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.6939,
+      "lon": 145.61788,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.70235,
+      "lon": 145.62182,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.71925,
+      "lon": 145.62971,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.7446,
+      "lon": 145.64155,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.7784,
+      "lon": 145.65735,
+      "depth_m": 68.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.82909,
+      "lon": 145.68107,
+      "depth_m": 73.0
+    }
+  ]
+}

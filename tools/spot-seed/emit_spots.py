@@ -173,6 +173,15 @@ CFG = {
     "fujian": ("fj", True, None, 5.0),
     "zhejiang": ("zj", True, None, 5.0),
     "shandong": ("sd", True, None, 5.0),
+    "kamchatka": ("kam", True, None, 5.0),
+    "newfoundland": ("nl", True, None, 5.0),
+    "gulf-of-st-lawrence": ("gsl", True, None, 5.0),
+    "seychelles": ("sey", True, None, 5.0),
+    "tanzania": ("tz", True, None, 5.0),
+    "bangladesh": ("bd", True, None, 5.0),
+    "poland": ("pl", True, None, 5.0),
+    "lithuania": ("lt", True, None, 5.0),
+    "latvia": ("lv", True, None, 5.0),
 }
 DROP_NAME = re.compile(r"kizakiham", re.I)  # dup of existing kisakihama (z/s spelling)
 GENERIC = re.compile(r"^(surf(ing)?\s*spot|spot\s*(de\s*)?surf|sport\s*de\s*surf)$", re.I)

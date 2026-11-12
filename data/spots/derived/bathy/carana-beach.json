@@ -1,0 +1,72 @@
+{
+  "spot": "carana-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -4.568,
+    55.4574
+  ],
+  "bearing_seaward_deg": 70.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 1.63,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -4.56723,
+      "lon": 55.45952,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -4.56646,
+      "lon": 55.46164,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -4.56492,
+      "lon": 55.46588,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -4.56185,
+      "lon": 55.47436,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -4.55877,
+      "lon": 55.48283,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -4.55262,
+      "lon": 55.49979,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -4.54339,
+      "lon": 55.52522,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -4.53108,
+      "lon": 55.55913,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -4.51262,
+      "lon": 55.60999,
+      "depth_m": 35.0
+    }
+  ]
+}

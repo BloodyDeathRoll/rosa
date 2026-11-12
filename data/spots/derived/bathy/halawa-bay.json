@@ -1,0 +1,72 @@
+{
+  "spot": "halawa-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    21.1597,
+    -156.7365
+  ],
+  "bearing_seaward_deg": 60.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 505.0,
+  "mean_slope_m_per_km": 28.34,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 21.16082,
+      "lon": -156.73441,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 21.16195,
+      "lon": -156.73232,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 21.1642,
+      "lon": -156.72815,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 21.16869,
+      "lon": -156.7198,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 21.17319,
+      "lon": -156.71144,
+      "depth_m": 79.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 21.18218,
+      "lon": -156.69474,
+      "depth_m": 130.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 21.19566,
+      "lon": -156.66967,
+      "depth_m": 241.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 21.21363,
+      "lon": -156.63625,
+      "depth_m": 414.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.24057,
+      "lon": -156.58609,
+      "depth_m": 505.0
+    }
+  ]
+}

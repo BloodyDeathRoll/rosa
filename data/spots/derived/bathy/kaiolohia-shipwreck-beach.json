@@ -1,0 +1,72 @@
+{
+  "spot": "kaiolohia-shipwreck-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    20.9122,
+    -156.8938
+  ],
+  "bearing_seaward_deg": 45.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 239.0,
+  "mean_slope_m_per_km": 12.96,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 20.91379,
+      "lon": -156.8921,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 20.91538,
+      "lon": -156.8904,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 20.91856,
+      "lon": -156.88699,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 20.92492,
+      "lon": -156.88018,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 20.93128,
+      "lon": -156.87337,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 20.94399,
+      "lon": -156.85975,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 20.96306,
+      "lon": -156.83932,
+      "depth_m": 84.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 20.98849,
+      "lon": -156.81207,
+      "depth_m": 235.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.02662,
+      "lon": -156.77117,
+      "depth_m": 239.0
+    }
+  ]
+}

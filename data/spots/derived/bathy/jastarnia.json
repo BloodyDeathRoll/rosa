@@ -1,0 +1,72 @@
+{
+  "spot": "jastarnia",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    54.705,
+    18.6756
+  ],
+  "bearing_seaward_deg": 30.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 93.0,
+  "mean_slope_m_per_km": 5.07,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 54.70695,
+      "lon": 18.67755,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 54.70889,
+      "lon": 18.67949,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 54.71279,
+      "lon": 18.68338,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 54.72058,
+      "lon": 18.69117,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 54.72836,
+      "lon": 18.69896,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 54.74394,
+      "lon": 18.71455,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 54.76729,
+      "lon": 18.73796,
+      "depth_m": 63.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 54.79842,
+      "lon": 18.76921,
+      "depth_m": 84.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 54.84511,
+      "lon": 18.81617,
+      "depth_m": 93.0
+    }
+  ]
+}

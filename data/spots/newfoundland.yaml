@@ -1,0 +1,22 @@
+# Rosa spot database - Canada (seeded 2026-11-12, gap batch). St. Vincent's on the Avalon's south shore: steep beach open to North Atlantic swell.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Canada"
+
+defaults: &nl
+  timezone: America/St_Johns
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [163, 293]
+  ideal:
+    wind_dir: [3, 93]
+    size_m: [0.5, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - gap batch, 1 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap-americas/). North to south.
+  - { id: st-vincents-beach, name: "St. Vincent's Beach", town: "St. Vincent's", lat: 46.7891, lon: -53.6374, offshore_direction: 48, swell_window: [163, 293], offshore_km: 5.0, break_type: beach, <<: *nl }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)

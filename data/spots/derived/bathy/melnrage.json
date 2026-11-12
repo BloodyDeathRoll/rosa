@@ -1,0 +1,72 @@
+{
+  "spot": "melnrage",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    55.7311,
+    21.084
+  ],
+  "bearing_seaward_deg": 280.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 39.0,
+  "mean_slope_m_per_km": 2.08,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 55.73149,
+      "lon": 21.08007,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 55.73188,
+      "lon": 21.07614,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 55.73266,
+      "lon": 21.06827,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 55.73422,
+      "lon": 21.05254,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 55.73578,
+      "lon": 21.03681,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 55.73888,
+      "lon": 21.00534,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 55.74353,
+      "lon": 20.95813,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 55.7497,
+      "lon": 20.89516,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 55.75888,
+      "lon": 20.80068,
+      "depth_m": 39.0
+    }
+  ]
+}

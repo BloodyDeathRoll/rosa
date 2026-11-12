@@ -145,6 +145,9 @@ BASINS: dict[str, tuple[str, ...]] = {
     # Madeira, ~450 km north, takes the same open North Atlantic swell; Dakhla's points,
     # ~450 km south-west of Gran Canaria, the same NW groundswell under the N trade
     "canaries": ("Canary Islands", "Madeira", "Dakhla"),
+    # the southern Baltic (seeded 2026-11-12): Poland, Lithuania, Latvia, W-N storm wind swell;
+    # the North Sea frame would have to stretch 900 km east over Denmark and Sweden
+    "baltic": ("Poland", "Lithuania", "Latvia"),
     # the North Sea / Pentland Firth coasts face the other way
     "north-sea": (
         "North East England",
@@ -182,7 +185,8 @@ BASINS: dict[str, tuple[str, ...]] = {
     # in the Bay of Bengal - one box over both would swallow the whole subcontinent
     "arabian-sea": ("Goa", "Karnataka", "Kerala", "Maharashtra"),
     # Myanmar's Ngwe Saung and Little Andaman sit on the east side of the same bay
-    "bay-of-bengal": ("Tamil Nadu", "Andhra Pradesh", "Odisha", "Myanmar", "Andaman"),
+    # Cox's Bazar (Bangladesh, seeded 2026-11-12) sits at the head of the same bay
+    "bay-of-bengal": ("Tamil Nadu", "Andhra Pradesh", "Odisha", "Myanmar", "Andaman", "Bangladesh"),
     # the north-west Arabian Sea: Oman's east coast, the Makran coast of Iran and Pakistan and
     # Karachi take the same SW monsoon swell; Dubai's Gulf wind swell rides in the frame
     "gulf-of-oman": ("Oman", "Pakistan", "Iran", "United Arab Emirates"),
@@ -232,6 +236,9 @@ BASINS: dict[str, tuple[str, ...]] = {
         "Reunion",
         "Kenya",
         "Zanzibar",
+        # Dar es Salaam and the Seychelles (seeded 2026-11-12) sit inside the Kenya-Mauritius box
+        "Tanzania",
+        "Seychelles",
     ),
     # the US east coast: North Atlantic groundswell and, Aug-Oct, hurricane swell
     # tracking up the seaboard; one frame from Florida to New England
@@ -256,6 +263,9 @@ BASINS: dict[str, tuple[str, ...]] = {
         "Virginia",
         # Nova Scotia's Atlantic shore continues the seaboard past Maine
         "Nova Scotia",
+        # Newfoundland, the Magdalen Islands and Perce (seeded 2026-11-12) extend it north-east
+        "Newfoundland",
+        "Gulf of St Lawrence",
     ),
     # the Gulf of Mexico: local windswell off winter fronts and tropical-storm swell; the
     # Florida panhandle, the Gulf side of the peninsula and the Texas coast share one closed basin
@@ -312,6 +322,8 @@ BASINS: dict[str, tuple[str, ...]] = {
     "bermuda": ("Bermuda",),
     # the Gulf of Alaska: Yakutat, Kodiak, Sitka and Haida Gwaii on the same North Pacific storms
     "gulf-of-alaska": ("Alaska", "Haida Gwaii"),
+    # Kamchatka (seeded 2026-11-12), across the North Pacific from Alaska: its own small frame
+    "kamchatka": ("Kamchatka",),
     # the Galapagos, 900 km offshore: its own small frame rather than stretching Ecuador's
     "galapagos": ("Galapagos",),
     # Easter Island, 3,500 km off Chile: its own small frame

@@ -1,0 +1,72 @@
+{
+  "spot": "pavilosta",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    56.8917,
+    21.1748
+  ],
+  "bearing_seaward_deg": 330.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 1.58,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 56.89365,
+      "lon": 21.17274,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 56.89559,
+      "lon": 21.17068,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 56.89949,
+      "lon": 21.16657,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 56.90728,
+      "lon": 21.15833,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 56.91506,
+      "lon": 21.15009,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 56.93063,
+      "lon": 21.1336,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 56.95399,
+      "lon": 21.10883,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 56.98512,
+      "lon": 21.07577,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 57.0318,
+      "lon": 21.02606,
+      "depth_m": 30.0
+    }
+  ]
+}

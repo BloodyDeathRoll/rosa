@@ -1,0 +1,72 @@
+{
+  "spot": "salmon-rocks",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -37.8117,
+    148.7264
+  ],
+  "bearing_seaward_deg": 245.0,
+  "nearshore_depth_m": 15.0,
+  "offshore_depth_m": 41.0,
+  "mean_slope_m_per_km": 1.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -37.81265,
+      "lon": 148.72382,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -37.8136,
+      "lon": 148.72124,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -37.8155,
+      "lon": 148.71608,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -37.8193,
+      "lon": 148.70576,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -37.8231,
+      "lon": 148.69544,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -37.83069,
+      "lon": 148.6748,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -37.84208,
+      "lon": 148.64383,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -37.85724,
+      "lon": 148.60252,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -37.87997,
+      "lon": 148.54052,
+      "depth_m": 41.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "ukibuchi",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    33.0345,
+    133.0323
+  ],
+  "bearing_seaward_deg": 150.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 106.0,
+  "mean_slope_m_per_km": 5.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.03255,
+      "lon": 133.03364,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.03061,
+      "lon": 133.03498,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.02671,
+      "lon": 133.03766,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.01892,
+      "lon": 133.04303,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.01113,
+      "lon": 133.04839,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.99556,
+      "lon": 133.05911,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.97219,
+      "lon": 133.07518,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.94102,
+      "lon": 133.0966,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.89427,
+      "lon": 133.12869,
+      "depth_m": 106.0
+    }
+  ]
+}

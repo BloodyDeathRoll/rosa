@@ -1,0 +1,72 @@
+{
+  "spot": "mar-brava-carelmapu",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -41.7375,
+    -73.7318
+  ],
+  "bearing_seaward_deg": 316.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 58.0,
+  "mean_slope_m_per_km": 2.7,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -41.73588,
+      "lon": -73.73389,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -41.73427,
+      "lon": -73.73599,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -41.73103,
+      "lon": -73.74017,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -41.72456,
+      "lon": -73.74854,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -41.71809,
+      "lon": -73.75691,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -41.70515,
+      "lon": -73.77364,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -41.68573,
+      "lon": -73.79872,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -41.65983,
+      "lon": -73.83214,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -41.62096,
+      "lon": -73.88222,
+      "depth_m": 58.0
+    }
+  ]
+}

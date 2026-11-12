@@ -1,0 +1,72 @@
+{
+  "spot": "plage-monseigneur",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -25.0362,
+    46.9986
+  ],
+  "bearing_seaward_deg": 90.0,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 71.0,
+  "mean_slope_m_per_km": 3.38,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -25.0362,
+      "lon": 47.00108,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -25.0362,
+      "lon": 47.00356,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -25.0362,
+      "lon": 47.00853,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -25.0362,
+      "lon": 47.01845,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -25.0362,
+      "lon": 47.02838,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -25.03619,
+      "lon": 47.04823,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -25.03618,
+      "lon": 47.07801,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -25.03615,
+      "lon": 47.11771,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -25.03609,
+      "lon": 47.17726,
+      "depth_m": 71.0
+    }
+  ]
+}

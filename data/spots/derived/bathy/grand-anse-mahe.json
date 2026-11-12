@@ -1,0 +1,72 @@
+{
+  "spot": "grand-anse-mahe",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -4.6786,
+    55.4483
+  ],
+  "bearing_seaward_deg": 220.0,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 1.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -4.68032,
+      "lon": 55.44685,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -4.68204,
+      "lon": 55.4454,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -4.68549,
+      "lon": 55.4425,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -4.69238,
+      "lon": 55.4367,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -4.69927,
+      "lon": 55.4309,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -4.71305,
+      "lon": 55.4193,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -4.73371,
+      "lon": 55.4019,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -4.76127,
+      "lon": 55.37869,
+      "depth_m": 55.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -4.8026,
+      "lon": 55.34388,
+      "depth_m": 35.0
+    }
+  ]
+}

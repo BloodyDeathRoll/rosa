@@ -157,3 +157,12 @@ spots:
 
   # ==== SEEDED 2026-11-04 - famous-break gap pass (web flow; OSM name search + ESRI z14/z16 render, every pin judged on the tile)
   - { id: habushiura, name: "Habushiura", town: "Niijima", lat: 34.3760, lon: 139.2765, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, <<: *jp }  # sat-verified 2026-11-04 (websearch-seeded; Niijima east coast, OSM 羽伏浦海岸)
+
+  # ==== SEEDED 2026-11-12 - gap batch, 4 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap-pacific/). North to south.
+  - { id: nino-beach, name: "Nino Beach", town: "Kochi", lat: 33.4648, lon: 133.4941, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, break_type: beach, <<: *jp }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
+  - { id: ukibuchi, name: "Ukibuchi", town: "Kuroshio", lat: 33.0345, lon: 133.0323, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, break_type: beach, <<: *jp }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
+  - { id: irino, name: "Irino", town: "Kuroshio", lat: 33.0182, lon: 133.0143, offshore_direction: 305, swell_window: [60, 190], offshore_km: 5.0, break_type: beach, <<: *jp }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.8)
+  - { id: okinohama, name: "Okinohama", town: "Tosashimizu", lat: 32.8205, lon: 132.9513, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, break_type: beach, <<: *jp }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.8)

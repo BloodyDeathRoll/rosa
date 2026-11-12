@@ -57,3 +57,22 @@ spots:
 
   # ==== SEEDED 2026-11-04 - famous-break gap pass (web flow; OSM name search + ESRI z14/z16 render, every pin judged on the tile)
   - { id: johanna, name: "Johanna", town: "Johanna", lat: -38.7647, lon: 143.3774, offshore_direction: 35, swell_window: [150, 280], offshore_km: 5.0, <<: *vic }  # sat-verified 2026-11-04 (websearch-seeded; Johanna Beach, open-ocean beach break)
+
+  # ==== SEEDED 2026-11-12 - gap batch, 14 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap-pacific/). North to south.
+  - { id: bastion-point, name: "Bastion Point", town: "Mallacoota", lat: -37.5739, lon: 149.7646, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, break_type: beach, <<: *vic }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.75)
+  - { id: pearl-point, name: "Pearl Point", town: "Bemm River", lat: -37.7899, lon: 148.8802, offshore_direction: 5, swell_window: [120, 250], offshore_km: 5.0, break_type: reef, <<: *vic }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: salmon-rocks, name: "Salmon Rocks", town: "Marlo", lat: -37.8117, lon: 148.7264, offshore_direction: 65, swell_window: [180, 310], offshore_km: 5.0, break_type: reef, <<: *vic }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
+  - { id: red-bluff-lake-tyers, name: "Red Bluff", town: "Lake Tyers Beach", lat: -37.8675, lon: 148.0621, offshore_direction: 355, swell_window: [110, 240], offshore_km: 5.0, break_type: reef, <<: *vic }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.75)
+  - { id: lakes-entrance, name: "Lakes Entrance", town: "Lakes Entrance", lat: -37.8838, lon: 147.9951, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, break_type: beach, <<: *vic }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.75)
+  - { id: seaspray, name: "Seaspray", town: "Seaspray", lat: -38.3803, lon: 147.1880, offshore_direction: 325, swell_window: [80, 210], offshore_km: 5.0, break_type: beach, <<: *vic }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: woodside-beach, name: "Woodside Beach", town: "Woodside Beach", lat: -38.5521, lon: 146.9782, offshore_direction: 320, swell_window: [75, 205], offshore_km: 5.0, break_type: beach, <<: *vic }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: kilcunda, name: "Kilcunda", town: "Kilcunda", lat: -38.5534, lon: 145.4784, offshore_direction: 25, swell_window: [140, 270], offshore_km: 5.0, break_type: beach, <<: *vic }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.75)
+  - { id: inverloch-surf-beach, name: "Inverloch Surf Beach", town: "Inverloch", lat: -38.6467, lon: 145.7020, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, break_type: beach, <<: *vic }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.8)
+  - { id: first-surf-beach-cape-paterson, name: "First Surf Beach", town: "Cape Paterson", lat: -38.6770, lon: 145.6100, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, break_type: beach, <<: *vic }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.75)
+  - { id: venus-bay, name: "Venus Bay", town: "Venus Bay", lat: -38.7060, lon: 145.8110, offshore_direction: 55, swell_window: [170, 300], offshore_km: 5.0, break_type: beach, <<: *vic }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.8)
+  - { id: sandy-point-waratah-bay, name: "Sandy Point", town: "Sandy Point", lat: -38.8293, lon: 146.1163, offshore_direction: 30, swell_window: [145, 275], offshore_km: 5.0, break_type: beach, <<: *vic }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: squeaky-beach, name: "Squeaky Beach", town: "Tidal River", lat: -39.0245, lon: 146.3043, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: beach, <<: *vic }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.75)
+  - { id: norman-beach-tidal-river, name: "Norman Beach", town: "Tidal River", lat: -39.0343, lon: 146.3188, offshore_direction: 35, swell_window: [150, 280], offshore_km: 5.0, break_type: beach, <<: *vic }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)

@@ -1,0 +1,72 @@
+{
+  "spot": "inverloch-surf-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -38.6467,
+    145.702
+  ],
+  "bearing_seaward_deg": 180.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 71.0,
+  "mean_slope_m_per_km": 4.56,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -38.64895,
+      "lon": 145.702,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -38.6512,
+      "lon": 145.702,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -38.65569,
+      "lon": 145.702,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -38.66469,
+      "lon": 145.702,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -38.67368,
+      "lon": 145.702,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -38.69167,
+      "lon": 145.702,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -38.71865,
+      "lon": 145.702,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -38.75462,
+      "lon": 145.702,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -38.80858,
+      "lon": 145.702,
+      "depth_m": 71.0
+    }
+  ]
+}

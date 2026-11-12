@@ -1,0 +1,22 @@
+# Rosa spot database - Lithuania (seeded 2026-11-12, gap batch). Melnrage by Klaipeda: Baltic wind swell from W-NW storms.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Lithuania"
+
+defaults: &lt
+  timezone: Europe/Vilnius
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [215, 345]
+  ideal:
+    wind_dir: [55, 145]
+    size_m: [0.5, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - gap batch, 1 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap-europe/). North to south.
+  - { id: melnrage, name: "Melnragė", town: "Klaipėda", lat: 55.7311, lon: 21.0840, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, break_type: beach, <<: *lt }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.8)

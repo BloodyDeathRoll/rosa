@@ -259,6 +259,12 @@ REGION_PBF = {
     "Murcia": "murcia",
     "Andalusia": "andalusia",
     "Balearic Islands": "balearic-islands",
+    # gap batch 2026-11-12b (Poland, Lithuania, Latvia, Kamchatka: no local extract yet)
+    "Newfoundland": "newfoundland-and-labrador-latest",
+    "Gulf of St Lawrence": "quebec-latest",
+    "Seychelles": "seychelles-latest",
+    "Tanzania": "tanzania-latest",
+    "Bangladesh": "bangladesh-latest",
 }
 
 

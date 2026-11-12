@@ -1,0 +1,72 @@
+{
+  "spot": "liepaja-north-pier",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    56.558,
+    20.9995
+  ],
+  "bearing_seaward_deg": 285.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 31.0,
+  "mean_slope_m_per_km": 1.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 56.55858,
+      "lon": 20.99556,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 56.55916,
+      "lon": 20.99162,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 56.56033,
+      "lon": 20.98374,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 56.56265,
+      "lon": 20.96797,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 56.56497,
+      "lon": 20.9522,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 56.56961,
+      "lon": 20.92066,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 56.57656,
+      "lon": 20.87334,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 56.58579,
+      "lon": 20.81021,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 56.59957,
+      "lon": 20.71546,
+      "depth_m": 31.0
+    }
+  ]
+}

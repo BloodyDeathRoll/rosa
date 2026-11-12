@@ -1,0 +1,72 @@
+{
+  "spot": "watamu-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -3.3509,
+    40.0247
+  ],
+  "bearing_seaward_deg": 120.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 127.0,
+  "mean_slope_m_per_km": 6.99,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -3.35202,
+      "lon": 40.02665,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -3.35315,
+      "lon": 40.0286,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -3.3554,
+      "lon": 40.0325,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -3.35989,
+      "lon": 40.0403,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -3.36439,
+      "lon": 40.04811,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -3.37338,
+      "lon": 40.06371,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -3.38687,
+      "lon": 40.08712,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -3.40485,
+      "lon": 40.11833,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -3.43183,
+      "lon": 40.16514,
+      "depth_m": 127.0
+    }
+  ]
+}

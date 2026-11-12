@@ -1,0 +1,72 @@
+{
+  "spot": "puerto-arista",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    15.9296,
+    -93.8073
+  ],
+  "bearing_seaward_deg": 209.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 48.0,
+  "mean_slope_m_per_km": 2.7,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 15.92763,
+      "lon": -93.80843,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 15.92567,
+      "lon": -93.80957,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 15.92173,
+      "lon": -93.81183,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 15.91387,
+      "lon": -93.81637,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 15.906,
+      "lon": -93.8209,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 15.89027,
+      "lon": -93.82997,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 15.86667,
+      "lon": -93.84356,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 15.83521,
+      "lon": -93.86168,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 15.788,
+      "lon": -93.88886,
+      "depth_m": 48.0
+    }
+  ]
+}

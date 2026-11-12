@@ -1,0 +1,72 @@
+{
+  "spot": "kepuhi-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    21.1852,
+    -157.249
+  ],
+  "bearing_seaward_deg": 280.0,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 514.0,
+  "mean_slope_m_per_km": 28.23,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 21.18559,
+      "lon": -157.25137,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 21.18598,
+      "lon": -157.25375,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 21.18676,
+      "lon": -157.2585,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 21.18832,
+      "lon": -157.268,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 21.18988,
+      "lon": -157.2775,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 21.193,
+      "lon": -157.2965,
+      "depth_m": 116.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 21.19768,
+      "lon": -157.32499,
+      "depth_m": 180.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 21.2039,
+      "lon": -157.363,
+      "depth_m": 356.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 21.21322,
+      "lon": -157.42001,
+      "depth_m": 514.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "playa-linda-chiapas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    14.6691,
+    -92.379
+  ],
+  "bearing_seaward_deg": 218.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 1.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 14.66733,
+      "lon": -92.38043,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 14.66556,
+      "lon": -92.38186,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 14.66201,
+      "lon": -92.38472,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 14.65493,
+      "lon": -92.39045,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 14.64784,
+      "lon": -92.39617,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 14.63366,
+      "lon": -92.40761,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 14.6124,
+      "lon": -92.42477,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 14.58405,
+      "lon": -92.44765,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 14.54152,
+      "lon": -92.48196,
+      "depth_m": 30.0
+    }
+  ]
+}

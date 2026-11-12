@@ -1,0 +1,72 @@
+{
+  "spot": "nino-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    33.4648,
+    133.4941
+  ],
+  "bearing_seaward_deg": 160.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 103.0,
+  "mean_slope_m_per_km": 5.63,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.46269,
+      "lon": 133.49502,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.46057,
+      "lon": 133.49594,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.45635,
+      "lon": 133.49779,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.4479,
+      "lon": 133.50147,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.43945,
+      "lon": 133.50516,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.42254,
+      "lon": 133.51253,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.39719,
+      "lon": 133.52357,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.36338,
+      "lon": 133.53829,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.31267,
+      "lon": 133.56035,
+      "depth_m": 103.0
+    }
+  ]
+}

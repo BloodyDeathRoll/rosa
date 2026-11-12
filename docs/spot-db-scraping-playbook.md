@@ -222,7 +222,7 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-11-12, DB = 4750 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-11-12, DB = 4805 spots, ALL sat-verified)
 
 **Famous-break gap pass, 3593 -> 3602 (2026-11-04).** A hand-written list of ~470 well-known breaks
 was matched against every DB name (accent-folded tokens), every miss geocoded with Nominatim and
@@ -396,6 +396,28 @@ every ray crosses ~1 km of tidal flat. New basins micronesia (Guam, Pohnpei) and
   (Stradbroke south of 27.5 S). The agent used wider boxes in its own gen.py; seed.py is unchanged.
 - No named OSM beach exists on the Louisiana shore, Moreton Island's ocean side, K'gari's 75 Mile
   Beach or the Lencois Maranhenses, so a named-beach pass cannot reach them.
+
+**Gap batch: Gippsland, Molokai/Lanai, Shikoku, Kamchatka, Chiloe, Chiapas, Atlantic Canada, East Africa,
+Bangladesh, Seychelles, Baltic - 4750 -> 4805 (2026-11-12, cont. 6).** A box count over known surf coasts found
+these with 0-3 spots. Four subagents (web flow, brief `tools/spot-seed/work/BRIEF-2026-11-12b.md`, batches
+gap-pacific / gap-americas / gap-indian / gap-europe); 61 returned at >= 0.65, 4 below it (Palanga, Plaja Modern,
+2 Mai, Batumi) left out. The coordinator re-read every tile on contact sheets and dropped Anse a Damasse (rocky
+cove, no surf) and Anse Leslie (harbour bay beside Cap-aux-Meules).
+- Appended: victoria 14 (Gippsland), hawaii 5 (Molokai, Lanai), japan 4 (Kochi), mexico 4 (Chiapas),
+  chile-south 2 (Carelmapu, Faro Corona), kenya 2, madagascar 1. New regions: kamchatka, newfoundland,
+  gulf-of-st-lawrence (Magdalen Islands + Perce, Perce on America/Toronto), seychelles, tanzania, bangladesh,
+  poland, lithuania, latvia. New basins `baltic` and `kamchatka`; Newfoundland and the Gulf join us-east,
+  Tanzania and Seychelles east-africa, Bangladesh bay-of-bengal.
+- GFS-Wave 0p25 has wet nodes at every new area (live file, 2026-11-12: Polish coast 38/80, Lithuania-Latvia
+  22/28, Kamchatka 8/20, Magdalen 20/20, Perce 7/9, Cox's Bazar 10/12, Mahe 9/9, Dar 3/6, Molokai 14/16).
+- Hand `shore_normal`: perce 80 (the 120 deg ray crossed Bonaventure Island at 5 km), kaiolohia-shipwreck-beach
+  45 (the 25 deg ray ended on Molokai's shore at 18 km, offshore depth 1 m). El Zapotal, Laboni Point and Puerto
+  Arista keep one GEBCO land cell at 0.5 km on flat coasts, deep water beyond.
+- Nothing sourced (non-competitor): Cucao, Pumillahue, Lance Cove, Middle Cove, Ferryland, Bukhta Zhirovaya,
+  Polihua, Papohaku, Kobuleti, Ureki; Romania and Georgia stay empty. The agent's note: DB `libanona`
+  (madagascar) may sit on Plage Ankoba, 1.2 km west of OSM's Plage Libanona - unchecked.
+- Extracts downloaded: `seychelles-latest`, `newfoundland-and-labrador-latest`, `quebec-latest`. Poland,
+  Lithuania, Latvia and Kamchatka pins came from Nominatim; no local extract, so towns.py has no entry for them.
 
 **Gap queue (whole areas with zero spots, by box count 2026-11-12):** New Zealand is thin (17). Still
 empty: west Africa (Ivory Coast, Togo / Benin / Nigeria, Gabon, Sao Tome, Mauritania), Queensland north

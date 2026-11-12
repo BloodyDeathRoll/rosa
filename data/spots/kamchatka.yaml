@@ -1,0 +1,22 @@
+# Rosa spot database - Russia (seeded 2026-11-12, gap batch). Khalaktyrsky Beach by Petropavlovsk-Kamchatsky: open North Pacific beach break.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Russia"
+
+defaults: &kam
+  timezone: Asia/Kamchatka
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [65, 195]
+  ideal:
+    wind_dir: [265, 355]
+    size_m: [0.5, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - gap batch, 1 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap-pacific/). North to south.
+  - { id: khalaktyrsky-beach, name: "Khalaktyrsky Beach", town: "Petropavlovsk-Kamchatsky", lat: 52.9939, lon: 158.8558, offshore_direction: 310, swell_window: [65, 195], offshore_km: 5.0, break_type: beach, <<: *kam }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.75)

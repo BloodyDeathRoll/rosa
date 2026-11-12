@@ -22,3 +22,10 @@ spots:
   # candidate's shore normal; swell_window = seaward +/-65 deg, TODO calibrate; towns from OSM
   # place nodes (tools/spot-seed/towns.py). North to south.
   - { id: diani, name: "Diani", town: "Diani Beach", lat: -4.2798, lon: 39.6010, offshore_direction: 298, swell_window: [53, 183], offshore_km: 5.0, <<: *ken }  # sat-verified 2026-09-03 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - gap batch, 2 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap-indian/). North to south.
+  - { id: malindi-beach, name: "Malindi Beach", town: "Malindi", lat: -3.2069, lon: 40.1242, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, break_type: beach, <<: *ken }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
+  - { id: watamu-beach, name: "Watamu", town: "Watamu", lat: -3.3509, lon: 40.0247, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, break_type: reef, <<: *ken }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)

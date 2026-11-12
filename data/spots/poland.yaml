@@ -1,0 +1,27 @@
+# Rosa spot database - Poland (seeded 2026-11-12, gap batch). The Polish Baltic: Hel peninsula, Leba, Kolobrzeg. Short-period N-NW wind swell, autumn-winter storms.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Poland"
+
+defaults: &pl
+  timezone: Europe/Warsaw
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [325, 95]
+  ideal:
+    wind_dir: [165, 255]
+    size_m: [0.5, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - gap batch, 6 spots (web flow: names from tourism boards, councils,
+  # news and prose guides, never competitor listings; pins on named OSM features (© OpenStreetMap
+  # contributors, ODbL) or Nominatim / Photon, every pin rendered and judged at z16, re-read by the
+  # coordinator on contact sheets; tools/spot-seed/work/gap-europe/). North to south.
+  - { id: debki, name: "Dębki", town: "Dębki", lat: 54.8335, lon: 18.0628, offshore_direction: 175, swell_window: [290, 60], offshore_km: 5.0, break_type: rivermouth, <<: *pl }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
+  - { id: wladyslawowo-harbour, name: "Władysławowo Harbour", town: "Władysławowo", lat: 54.7940, lon: 18.4215, offshore_direction: 215, swell_window: [330, 100], offshore_km: 5.0, break_type: beach, <<: *pl }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.8)
+  - { id: leba, name: "Łeba", town: "Łeba", lat: 54.7692, lon: 17.5565, offshore_direction: 180, swell_window: [295, 65], offshore_km: 5.0, break_type: beach, <<: *pl }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: chalupy, name: "Chałupy", town: "Chałupy", lat: 54.7607, lon: 18.5133, offshore_direction: 210, swell_window: [325, 95], offshore_km: 5.0, break_type: beach, <<: *pl }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.7)
+  - { id: jastarnia, name: "Jastarnia", town: "Jastarnia", lat: 54.7050, lon: 18.6756, offshore_direction: 210, swell_window: [325, 95], offshore_km: 5.0, break_type: beach, <<: *pl }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.65)
+  - { id: kolobrzeg, name: "Kołobrzeg", town: "Kołobrzeg", lat: 54.1879, lon: 15.5560, offshore_direction: 180, swell_window: [295, 65], offshore_km: 5.0, break_type: beach, <<: *pl }  # sat-verified 2026-11-12 (websearch-seeded, conf 0.75)
