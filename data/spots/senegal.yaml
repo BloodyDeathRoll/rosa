@@ -29,3 +29,7 @@ spots:
   - { id: ouakam, name: "Ouakam", town: "Ouakam", lat: 14.7145, lon: -17.4918, offshore_direction: 61, swell_window: [176, 306], offshore_km: 5.0, <<: *sen }  # sat-verified 2026-09-03 (websearch-seeded)
   - { id: la-somone, name: "La Somone", town: "Somone", lat: 14.4918, lon: -17.0879, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, <<: *sen }  # sat-verified 2026-09-03 (websearch-seeded)
   - { id: cap-skirring, name: "Cap Skirring", town: "Cap Skirring", lat: 12.3822, lon: -16.7445, offshore_direction: 55, swell_window: [170, 300], offshore_km: 5.0, <<: *sen }  # sat-verified 2026-09-03 (websearch-seeded) normal re-aimed 2026-09-17 to seaward 235 (far end of the old ray sat on a reef/another coast - OPEN-ITEMS 15)
+
+  # ==== SEEDED 2026-11-12 - senegal coastline pass, 1 more (primary flow: named OSM beaches
+  # more than 400 m from a DB pin, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: plage-des-mamelles, name: "Plage des mamelles", town: "Dakar", lat: 14.7238, lon: -17.5036, offshore_direction: 88, swell_window: [203, 333], offshore_km: 5.0, break_type: reef, <<: *sen }  # sat-verified 2026-11-12 (osm-seeded)

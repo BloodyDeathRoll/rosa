@@ -1,0 +1,72 @@
+{
+  "spot": "korle-gorhno-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    5.5281,
+    -0.2294
+  ],
+  "bearing_seaward_deg": 170.0,
+  "nearshore_depth_m": -11.0,
+  "offshore_depth_m": 48.0,
+  "mean_slope_m_per_km": 3.32,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 5.52589,
+      "lon": -0.22901,
+      "depth_m": -11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 5.52367,
+      "lon": -0.22862,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 5.51924,
+      "lon": -0.22783,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 5.51039,
+      "lon": -0.22626,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 5.50153,
+      "lon": -0.22469,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 5.48382,
+      "lon": -0.22156,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 5.45725,
+      "lon": -0.21685,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 5.42182,
+      "lon": -0.21058,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 5.36868,
+      "lon": -0.20117,
+      "depth_m": 48.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "lumbley-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    8.4715,
+    -13.2825
+  ],
+  "bearing_seaward_deg": 248.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 12.0,
+  "mean_slope_m_per_km": 0.28,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 8.47066,
+      "lon": -13.28461,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 8.46982,
+      "lon": -13.28672,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 8.46813,
+      "lon": -13.29093,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 8.46476,
+      "lon": -13.29936,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 8.46139,
+      "lon": -13.30779,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 8.45465,
+      "lon": -13.32465,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 8.44454,
+      "lon": -13.34994,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 8.43106,
+      "lon": -13.38365,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 8.41083,
+      "lon": -13.43422,
+      "depth_m": 12.0
+    }
+  ]
+}

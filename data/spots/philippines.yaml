@@ -101,3 +101,6 @@ spots:
   - { id: lalawigan, name: "Lalawigan", town: "Borongan", lat: 11.5875, lon: 125.4730, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, break_type: beach, <<: *phe }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: locso-on, name: "Locso-on", town: "Borongan", lat: 11.5724, lon: 125.4679, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, break_type: reef, <<: *phe }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: llorente, name: "Llorente", town: "Llorente", lat: 11.4161, lon: 125.5483, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, break_type: beach, <<: *phe }  # sat-verified 2026-11-12 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - 1 more, leftover pass (web-search flow; OSM coordinate, rendered and judged at z16)
+  - { id: pansukyan, name: "Pansukyan Reef", town: "Daku", lat: 9.7346, lon: 126.1392, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, break_type: reef, <<: *phe }  # sat-verified 2026-11-12 (websearch-seeded)

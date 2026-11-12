@@ -23,3 +23,9 @@ spots:
   - { id: palavas-coquilles, name: "Palavas - Les Coquilles", town: "Palavas-les-Flots", lat: 43.5248, lon: 3.9287, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, break_type: beach, <<: *lng }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: le-prevost, name: "Le Prévost", town: "Palavas-les-Flots", lat: 43.5178, lon: 3.9087, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, break_type: beach, <<: *lng }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: le-lazaret, name: "Le Lazaret", town: "Sète", lat: 43.3920, lon: 3.6731, offshore_direction: 10, swell_window: [125, 255], offshore_km: 5.0, break_type: beach, <<: *lng }  # sat-verified 2026-11-12 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - languedoc coastline pass, 3 more (primary flow: named OSM beaches
+  # more than 400 m from a DB pin, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: grand-travers, name: "Grand Travers", town: "La Grande-Motte", lat: 43.5572, lon: 4.0457, offshore_direction: 355, swell_window: [110, 240], offshore_km: 5.0, break_type: beach, <<: *lng }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: plage-de-maguelone, name: "Plage de Maguelone", town: "Villeneuve-lès-Maguelone", lat: 43.5059, lon: 3.8850, offshore_direction: 322, swell_window: [77, 207], offshore_km: 5.0, break_type: beach, <<: *lng }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: plage-jalabert, name: "Plage Jalabert", town: "Mèze", lat: 43.3571, lon: 3.6044, offshore_direction: 309, swell_window: [64, 194], offshore_km: 5.0, break_type: beach, <<: *lng }  # sat-verified 2026-11-12 (osm-seeded)

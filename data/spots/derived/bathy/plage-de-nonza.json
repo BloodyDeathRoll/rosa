@@ -1,0 +1,72 @@
+{
+  "spot": "plage-de-nonza",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.7934,
+    9.3429
+  ],
+  "bearing_seaward_deg": 272.0,
+  "nearshore_depth_m": 18.0,
+  "offshore_depth_m": 146.0,
+  "mean_slope_m_per_km": 7.21,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.79348,
+      "lon": 9.33984,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.79356,
+      "lon": 9.33678,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.79371,
+      "lon": 9.33065,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.79403,
+      "lon": 9.3184,
+      "depth_m": 169.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.79434,
+      "lon": 9.30616,
+      "depth_m": 398.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.79495,
+      "lon": 9.28166,
+      "depth_m": 733.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.79587,
+      "lon": 9.24491,
+      "depth_m": 719.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.79707,
+      "lon": 9.19591,
+      "depth_m": 247.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.79884,
+      "lon": 9.12242,
+      "depth_m": 146.0
+    }
+  ]
+}

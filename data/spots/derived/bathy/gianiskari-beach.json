@@ -1,0 +1,72 @@
+{
+  "spot": "gianiskari-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.1792,
+    21.3651
+  ],
+  "bearing_seaward_deg": 259.0,
+  "nearshore_depth_m": 14.0,
+  "offshore_depth_m": 77.0,
+  "mean_slope_m_per_km": 3.55,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.17877,
+      "lon": 21.36229,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.17834,
+      "lon": 21.35948,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.17748,
+      "lon": 21.35387,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.17577,
+      "lon": 21.34264,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.17405,
+      "lon": 21.33141,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.17061,
+      "lon": 21.30895,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.16544,
+      "lon": 21.27527,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.15853,
+      "lon": 21.23037,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.14814,
+      "lon": 21.16304,
+      "depth_m": 77.0
+    }
+  ]
+}

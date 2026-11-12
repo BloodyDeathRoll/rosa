@@ -1,0 +1,72 @@
+{
+  "spot": "tavronitis",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.5352,
+    23.8113
+  ],
+  "bearing_seaward_deg": 14.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 402.0,
+  "mean_slope_m_per_km": 22.76,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.53738,
+      "lon": 23.81197,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.53956,
+      "lon": 23.81264,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.54393,
+      "lon": 23.81397,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.55265,
+      "lon": 23.81665,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.56138,
+      "lon": 23.81932,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.57883,
+      "lon": 23.82468,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.60501,
+      "lon": 23.83271,
+      "depth_m": 102.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.63991,
+      "lon": 23.84342,
+      "depth_m": 150.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.69226,
+      "lon": 23.85952,
+      "depth_m": 402.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "vounaki",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.3314,
+    21.6967
+  ],
+  "bearing_seaward_deg": 260.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 756.0,
+  "mean_slope_m_per_km": 42.03,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.33101,
+      "lon": 21.69392,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.33062,
+      "lon": 21.69113,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.32984,
+      "lon": 21.68556,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.32827,
+      "lon": 21.67442,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.32671,
+      "lon": 21.66329,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.32358,
+      "lon": 21.64101,
+      "depth_m": 114.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.31887,
+      "lon": 21.60761,
+      "depth_m": 300.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.31259,
+      "lon": 21.56307,
+      "depth_m": 403.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.30312,
+      "lon": 21.49628,
+      "depth_m": 756.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "plage-de-tenutella",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.7076,
+    8.8286
+  ],
+  "bearing_seaward_deg": 225.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 492.0,
+  "mean_slope_m_per_km": 27.38,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.70601,
+      "lon": 8.82647,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.70442,
+      "lon": 8.82434,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.70124,
+      "lon": 8.82008,
+      "depth_m": 111.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.69488,
+      "lon": 8.81157,
+      "depth_m": 322.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.68852,
+      "lon": 8.80305,
+      "depth_m": 298.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.6758,
+      "lon": 8.78603,
+      "depth_m": 603.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.65671,
+      "lon": 8.76051,
+      "depth_m": 353.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.63124,
+      "lon": 8.7265,
+      "depth_m": 341.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.59303,
+      "lon": 8.67555,
+      "depth_m": 492.0
+    }
+  ]
+}

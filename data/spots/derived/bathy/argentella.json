@@ -1,0 +1,72 @@
+{
+  "spot": "argentella",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.4707,
+    8.6796
+  ],
+  "bearing_seaward_deg": 255.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 1142.0,
+  "mean_slope_m_per_km": 63.89,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.47012,
+      "lon": 8.67666,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.46954,
+      "lon": 8.67371,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.46837,
+      "lon": 8.66782,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.46604,
+      "lon": 8.65605,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.46371,
+      "lon": 8.64427,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.45905,
+      "lon": 8.62073,
+      "depth_m": 372.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.45204,
+      "lon": 8.58541,
+      "depth_m": 665.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.44268,
+      "lon": 8.53834,
+      "depth_m": 233.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.42861,
+      "lon": 8.46776,
+      "depth_m": 1142.0
+    }
+  ]
+}

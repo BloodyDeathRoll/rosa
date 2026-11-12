@@ -1,0 +1,72 @@
+{
+  "spot": "plage-de-cavaliere",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.1514,
+    6.4315
+  ],
+  "bearing_seaward_deg": 191.0,
+  "nearshore_depth_m": 14.0,
+  "offshore_depth_m": 16.0,
+  "mean_slope_m_per_km": 0.11,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.14919,
+      "lon": 6.43091,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.14699,
+      "lon": 6.43032,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.14257,
+      "lon": 6.42915,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.13374,
+      "lon": 6.4268,
+      "depth_m": 112.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.12492,
+      "lon": 6.42445,
+      "depth_m": 209.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.10726,
+      "lon": 6.41975,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.08077,
+      "lon": 6.4127,
+      "depth_m": 150.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.04546,
+      "lon": 6.40332,
+      "depth_m": 92.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.99249,
+      "lon": 6.38927,
+      "depth_m": 16.0
+    }
+  ]
+}

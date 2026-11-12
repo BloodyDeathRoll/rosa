@@ -1,0 +1,72 @@
+{
+  "spot": "avithos-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.1013,
+    20.5394
+  ],
+  "bearing_seaward_deg": 222.0,
+  "nearshore_depth_m": -18.0,
+  "offshore_depth_m": 1069.0,
+  "mean_slope_m_per_km": 61.24,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.09963,
+      "lon": 20.53749,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.09796,
+      "lon": 20.53558,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.09462,
+      "lon": 20.53175,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.08793,
+      "lon": 20.52411,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.08125,
+      "lon": 20.51647,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.06788,
+      "lon": 20.50118,
+      "depth_m": 95.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.04782,
+      "lon": 20.47827,
+      "depth_m": 195.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.02107,
+      "lon": 20.44774,
+      "depth_m": 348.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.98092,
+      "lon": 20.40198,
+      "depth_m": 1069.0
+    }
+  ]
+}

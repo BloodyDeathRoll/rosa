@@ -81,3 +81,6 @@ spots:
   - { id: patiti-point, name: "Patiti Point", town: "Timaru", lat: -44.4121, lon: 171.2657, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, break_type: point, <<: *sinz }  # sat-verified 2026-11-12 (osm-seeded)
   - { id: jacks-point-timaru, name: "Jack's Point", town: "Scarborough", lat: -44.4428, lon: 171.2613, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, break_type: point, <<: *sinz }  # sat-verified 2026-11-12 (osm-seeded)
   - { id: pipikaretu-beach, name: "Pipikaretu Beach", town: "Harington Point", lat: -45.8013, lon: 170.7440, offshore_direction: 250, swell_window: [5, 135], offshore_km: 5.0, break_type: beach, <<: *sinz }  # sat-verified 2026-11-12 (osm-seeded)
+
+  # ==== SEEDED 2026-11-12 - 1 more, leftover pass (web-search flow; OSM coordinate, rendered and judged at z16)
+  - { id: mitchells-bay, name: "Mitchells Bay", town: "Riverton / Aparima", lat: -46.3715, lon: 168.0297, offshore_direction: 250, shore_normal: 130, swell_window: [65, 195], offshore_km: 5.0, break_type: point, <<: *sinz }  # sat-verified 2026-11-12 (osm-seeded)

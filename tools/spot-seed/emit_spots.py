@@ -90,6 +90,7 @@ CFG = {
     "para": ("pa", True, None, 5.0),
     "pohnpei": ("pni", True, None, 5.0),
     "congo": ("cg", True, None, 5.0),
+    "gambia": ("gm", True, None, 5.0),
     "ivory-coast": ("ci", True, None, 5.0),
     "nigeria": ("ng", True, None, 5.0),
     "sao-tome": ("st", True, None, 5.0),

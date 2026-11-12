@@ -1,0 +1,72 @@
+{
+  "spot": "john-obey-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    8.2517,
+    -13.1658
+  ],
+  "bearing_seaward_deg": 252.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 22.0,
+  "mean_slope_m_per_km": 1.75,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 8.25101,
+      "lon": -13.16796,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 8.25031,
+      "lon": -13.17012,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 8.24892,
+      "lon": -13.17444,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 8.24614,
+      "lon": -13.18308,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 8.24336,
+      "lon": -13.19173,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 8.2378,
+      "lon": -13.20901,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 8.22946,
+      "lon": -13.23494,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 8.21834,
+      "lon": -13.2695,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 8.20165,
+      "lon": -13.32135,
+      "depth_m": 22.0
+    }
+  ]
+}

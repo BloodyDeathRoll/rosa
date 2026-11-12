@@ -1,0 +1,72 @@
+{
+  "spot": "plage-de-pardigon",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.1867,
+    6.5504
+  ],
+  "bearing_seaward_deg": 152.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 121.0,
+  "mean_slope_m_per_km": 6.65,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.18471,
+      "lon": 6.55185,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.18273,
+      "lon": 6.5533,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.17876,
+      "lon": 6.55619,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.17082,
+      "lon": 6.56198,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.16288,
+      "lon": 6.56776,
+      "depth_m": 140.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.14699,
+      "lon": 6.57933,
+      "depth_m": 276.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.12317,
+      "lon": 6.59668,
+      "depth_m": 530.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.09139,
+      "lon": 6.61978,
+      "depth_m": 1137.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.04372,
+      "lon": 6.65439,
+      "depth_m": 121.0
+    }
+  ]
+}

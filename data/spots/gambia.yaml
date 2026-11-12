@@ -1,0 +1,23 @@
+# Rosa spot database - Gambia (seeded 2026-11-12, coastline pass). Kotu and Senegambia by Serrekunda and
+# Tesito near Kartong: weak NW swell wrapping in from the Atlantic, small beach break.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Gambia"
+
+defaults: &gm
+  timezone: Africa/Banjul
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [226, 356]
+  ideal:
+    wind_dir: [66, 156]
+    size_m: [0.5, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - gambia, 3 spots (coastline pass; named OSM beaches,
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: kotu-beach, name: "Kotu Beach", town: "Serrekunda", lat: 13.4615, lon: -16.7091, offshore_direction: 141, swell_window: [256, 26], offshore_km: 5.0, break_type: beach, <<: *gm }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: senegambia-beach, name: "Senegambia Beach", town: "Serrekunda", lat: 13.4423, lon: -16.7258, offshore_direction: 115, swell_window: [230, 0], offshore_km: 5.0, break_type: beach, <<: *gm }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: tesito-beach, name: "Tesito Beach", town: "Kartong", lat: 13.0965, lon: -16.7692, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, break_type: beach, <<: *gm }  # sat-verified 2026-11-12 (osm-seeded)

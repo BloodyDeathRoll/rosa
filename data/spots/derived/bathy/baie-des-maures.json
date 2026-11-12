@@ -1,0 +1,72 @@
+{
+  "spot": "baie-des-maures",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    47.2582,
+    -2.427
+  ],
+  "bearing_seaward_deg": 185.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 21.0,
+  "mean_slope_m_per_km": 0.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 47.25596,
+      "lon": -2.42729,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 47.25372,
+      "lon": -2.42758,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 47.24924,
+      "lon": -2.42815,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 47.24028,
+      "lon": -2.42931,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 47.23132,
+      "lon": -2.43046,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 47.2134,
+      "lon": -2.43277,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 47.18653,
+      "lon": -2.43623,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 47.15069,
+      "lon": -2.44083,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 47.09694,
+      "lon": -2.44772,
+      "depth_m": 21.0
+    }
+  ]
+}

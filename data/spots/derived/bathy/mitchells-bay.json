@@ -1,0 +1,72 @@
+{
+  "spot": "mitchells-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -46.3715,
+    168.0297
+  ],
+  "bearing_seaward_deg": 130.0,
+  "nearshore_depth_m": -12.0,
+  "offshore_depth_m": 12.0,
+  "mean_slope_m_per_km": 1.35,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -46.37295,
+      "lon": 168.0322,
+      "depth_m": -12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -46.37439,
+      "lon": 168.03469,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -46.37728,
+      "lon": 168.03969,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -46.38306,
+      "lon": 168.04967,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -46.38884,
+      "lon": 168.05966,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -46.40039,
+      "lon": 168.07965,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -46.41772,
+      "lon": 168.10964,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -46.44081,
+      "lon": 168.14967,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -46.47541,
+      "lon": 168.20977,
+      "depth_m": 12.0
+    }
+  ]
+}

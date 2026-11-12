@@ -1,0 +1,72 @@
+{
+  "spot": "plage-des-mamelles",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    14.7238,
+    -17.5036
+  ],
+  "bearing_seaward_deg": 268.0,
+  "nearshore_depth_m": -19.0,
+  "offshore_depth_m": 695.0,
+  "mean_slope_m_per_km": 40.23,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 14.72372,
+      "lon": -17.50592,
+      "depth_m": -19.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 14.72364,
+      "lon": -17.50825,
+      "depth_m": -19.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 14.72349,
+      "lon": -17.51289,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 14.72317,
+      "lon": -17.52219,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 14.72286,
+      "lon": -17.53148,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 14.72223,
+      "lon": -17.55006,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 14.72128,
+      "lon": -17.57794,
+      "depth_m": 74.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 14.72001,
+      "lon": -17.61511,
+      "depth_m": 165.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 14.71809,
+      "lon": -17.67087,
+      "depth_m": 695.0
+    }
+  ]
+}

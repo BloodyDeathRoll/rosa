@@ -20,3 +20,9 @@ spots:
   # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
   - { id: river-no-2, name: "River No. 2", town: "Tokeh", lat: 8.3353, lon: -13.2055, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, break_type: beach, <<: *sl }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: bureh, name: "Bureh Beach", town: "Bureh Town", lat: 8.2029, lon: -13.1591, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, break_type: point, <<: *sl }  # sat-verified 2026-11-12 (osm-seeded)
+
+  # ==== SEEDED 2026-11-12 - sierra-leone coastline pass, 3 more (primary flow: named OSM beaches
+  # more than 400 m from a DB pin, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: lumbley-beach, name: "Lumbley Beach", town: "Freetown", lat: 8.4715, lon: -13.2825, offshore_direction: 68, swell_window: [183, 313], offshore_km: 5.0, break_type: beach, <<: *sl }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: sussex-beach, name: "Sussex beach", town: "Bammbatuk", lat: 8.3482, lon: -13.2343, offshore_direction: 76, shore_normal: 211, swell_window: [146, 276], offshore_km: 5.0, break_type: point, <<: *sl }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: john-obey-beach, name: "John Obey Beach", town: "John Obey", lat: 8.2517, lon: -13.1658, offshore_direction: 72, swell_window: [187, 317], offshore_km: 5.0, break_type: beach, <<: *sl }  # sat-verified 2026-11-12 (osm-seeded)

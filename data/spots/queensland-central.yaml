@@ -26,3 +26,6 @@ spots:
   - { id: springs-beach, name: "Springs Beach", town: "Agnes Water", lat: -24.2306, lon: 151.9312, offshore_direction: 225, swell_window: [340, 110], offshore_km: 5.0, break_type: beach, <<: *qc }  # sat-verified 2026-11-12 (osm-seeded)
   - { id: nielson-park, name: "Nielson Park", town: "Bargara", lat: -24.8058, lon: 152.4576, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, break_type: point, <<: *qc }  # sat-verified 2026-11-12 (osm-seeded)
   - { id: double-island-point, name: "Double Island Point", town: "Rainbow Beach", lat: -25.9291, lon: 153.1825, offshore_direction: 135, shore_normal: 10, swell_window: [305, 75], offshore_km: 5.0, break_type: point, <<: *qc }  # sat-verified 2026-11-12 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - 1 more, leftover pass (web-search flow; OSM coordinate, rendered and judged at z16)
+  - { id: moore-park-beach, name: "Moore Park Beach", town: "Moore Park", lat: -24.7145, lon: 152.2790, offshore_direction: 220, swell_window: [335, 105], offshore_km: 5.0, break_type: beach, <<: *qc }  # sat-verified 2026-11-12 (websearch-seeded)

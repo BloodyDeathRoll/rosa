@@ -1,0 +1,72 @@
+{
+  "spot": "egremni",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.6376,
+    20.5582
+  ],
+  "bearing_seaward_deg": 269.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 2232.0,
+  "mean_slope_m_per_km": 125.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.63756,
+      "lon": 20.55532,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.63752,
+      "lon": 20.55244,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.63744,
+      "lon": 20.54669,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.63728,
+      "lon": 20.53518,
+      "depth_m": 196.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.63712,
+      "lon": 20.52367,
+      "depth_m": 342.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.6368,
+      "lon": 20.50064,
+      "depth_m": 496.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.63631,
+      "lon": 20.46611,
+      "depth_m": 795.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.63564,
+      "lon": 20.42006,
+      "depth_m": 1424.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.63459,
+      "lon": 20.351,
+      "depth_m": 2232.0
+    }
+  ]
+}

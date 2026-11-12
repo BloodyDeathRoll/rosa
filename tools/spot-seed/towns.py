@@ -187,6 +187,7 @@ REGION_PBF = {
     "Reunion": "reunion",
     "Liberia": "liberia",
     "Sierra Leone": "sierra-leone-latest",
+    "Gambia": "senegal-and-gambia-latest",
     "Ivory Coast": "ivory-coast-latest",
     "Sao Tome": "sao-tome-and-principe-latest",
     "Congo": "congo-brazzaville-latest",

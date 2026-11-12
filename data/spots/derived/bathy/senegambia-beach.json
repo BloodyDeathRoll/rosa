@@ -1,0 +1,72 @@
+{
+  "spot": "senegambia-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    13.4423,
+    -16.7258
+  ],
+  "bearing_seaward_deg": 295.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 4.0,
+  "mean_slope_m_per_km": 0.62,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.44325,
+      "lon": -16.7279,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.4442,
+      "lon": -16.72999,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.4461,
+      "lon": -16.73418,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.4499,
+      "lon": -16.74256,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.4537,
+      "lon": -16.75094,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.4613,
+      "lon": -16.7677,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.4727,
+      "lon": -16.79285,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.48789,
+      "lon": -16.82638,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.51067,
+      "lon": -16.87669,
+      "depth_m": 4.0
+    }
+  ]
+}

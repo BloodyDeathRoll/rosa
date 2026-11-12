@@ -212,6 +212,8 @@ BASINS: dict[str, tuple[str, ...]] = {
     # Sierra Leone, Ivory Coast and Lagos (seeded 2026-11-12) fill the same coast
     "west-africa": (
         "Senegal",
+        # Gambia (seeded 2026-11-12) sits inside Senegal's coast
+        "Gambia",
         "Cape Verde",
         "Ghana",
         "Liberia",

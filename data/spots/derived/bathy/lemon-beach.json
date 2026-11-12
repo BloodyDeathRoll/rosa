@@ -1,0 +1,72 @@
+{
+  "spot": "lemon-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    5.0764,
+    -1.3731
+  ],
+  "bearing_seaward_deg": 139.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 31.0,
+  "mean_slope_m_per_km": 1.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 5.0747,
+      "lon": -1.37162,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 5.07301,
+      "lon": -1.37014,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 5.06961,
+      "lon": -1.36718,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 5.06283,
+      "lon": -1.36125,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 5.05604,
+      "lon": -1.35533,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 5.04246,
+      "lon": -1.34349,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 5.0221,
+      "lon": -1.32572,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 4.99495,
+      "lon": -1.30203,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 4.95422,
+      "lon": -1.2665,
+      "depth_m": 31.0
+    }
+  ]
+}

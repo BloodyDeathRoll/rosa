@@ -222,7 +222,7 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-11-12, DB = 4647 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-11-12, DB = 4694 spots, ALL sat-verified)
 
 **Famous-break gap pass, 3593 -> 3602 (2026-11-04).** A hand-written list of ~470 well-known breaks
 was matched against every DB name (accent-folded tokens), every miss geocoded with Nominatim and
@@ -368,6 +368,19 @@ every ray crosses ~1 km of tidal flat. New basins micronesia (Guam, Pohnpei) and
 - Rays re-aimed: Notre-Dame-de-Monts, Canot de Sauvetage. Dropped: Plage des Jacinthes (Re blocks
   every bearing), Purakaunui (pin in the dunes of a sheltered inlet), Sabang and Bato (Borongan:
   river mouths in a sheltered bay).
+
+**Coastline pass Europe + West Africa 43, leftover pass 3 - 4647 -> 4694 (2026-11-12, cont. 4).**
+- Same named-OSM-beach method as cont. 3 on loire-atlantique, provence, corsica, languedoc, greece
+  (Ionian and western Crete only: 35 of 1155 named candidates rendered), sierra-leone, ivory-coast,
+  ghana, senegal. 54 at >= 0.65; the coordinator dropped 9 inside harbours, canals or enclosed bays
+  (Vridi, Kpone Paradise, Lakka, Plage de l'Entree, Rayolet, Frejus, La Bocca, Lampes, Stomio) and
+  Sandele (GEBCO reads 0 m on every bearing). **The Mediterranean pins were kept for exposure, not
+  for surf seen on the tile** - the imagery is mostly flat summer days.
+- The senegal seed.py box reaches into The Gambia: its 4 pins became a new `gambia` region (3 after
+  Sandele), in the west-africa basin.
+- Leftover web pass: Mitchells Bay (Riverton), Moore Park Beach (Bundaberg), Pansukyan (Siargao).
+  One source places Curio Bay's surf about 1.5 km SW of the DB `porpoise-bay` pin - unchecked.
+- Great Lakes logged as OPEN-ITEMS 44 (operator: skip for now).
 
 **Gap queue (whole areas with zero spots, by box count 2026-11-12):** New Zealand is thin (17). Still
 empty: west Africa (Ivory Coast, Togo / Benin / Nigeria, Gabon, Sao Tome, Mauritania), Queensland north

@@ -151,7 +151,7 @@ def test_every_committed_spot_picks_the_same_oisst_cell_as_before():
     lons = np.arange(0.125, 360.0, 0.25)
     reach = int(NEAREST_MAX_DEG / 0.25)
     spots = load_spots(Path(__file__).resolve().parents[2] / "data" / "spots")
-    assert len(spots) == 4647
+    assert len(spots) == 4694
 
     near_seam = []
     for s in spots.values():
@@ -184,6 +184,7 @@ def test_every_committed_spot_picks_the_same_oisst_cell_as_before():
         "camber-sands",
         "cap-ivi",
         "cayton-bay",
+        "coconut-beach-bortianor",
         "courseulles-sur-mer",
         "deauville",
         "derecha-de-la-cala",
@@ -197,10 +198,12 @@ def test_every_committed_spot_picks_the_same_oisst_cell_as_before():
         "etretat",
         "fairlight",
         "fecamp",
+        "glefe-beach",
         "hastings",
         "hayling-island",
         "hot-pipe",
         "kokrobite",
+        "korle-gorhno-beach",
         "la-calita",
         "la-manga",
         "la-mata",
@@ -215,6 +218,7 @@ def test_every_committed_spot_picks_the_same_oisst_cell_as_before():
         "luc-sur-mer",
         "malva-rosa",
         "miami-platja",
+        "nighty-beach",
         "oliva-beach",
         "pico-madrid",
         "platja-de-lampolla",

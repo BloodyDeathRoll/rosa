@@ -1,0 +1,72 @@
+{
+  "spot": "plage-jalabert",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.3571,
+    3.6044
+  ],
+  "bearing_seaward_deg": 129.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 76.0,
+  "mean_slope_m_per_km": 4.17,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.35569,
+      "lon": 3.6068,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.35427,
+      "lon": 3.60921,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.35144,
+      "lon": 3.61401,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.34578,
+      "lon": 3.62362,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.34012,
+      "lon": 3.63323,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.32879,
+      "lon": 3.65244,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.3118,
+      "lon": 3.68124,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.28913,
+      "lon": 3.71962,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.2551,
+      "lon": 3.77713,
+      "depth_m": 76.0
+    }
+  ]
+}

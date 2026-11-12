@@ -1,0 +1,72 @@
+{
+  "spot": "sussex-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    8.3482,
+    -13.2343
+  ],
+  "bearing_seaward_deg": 211.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 24.0,
+  "mean_slope_m_per_km": 1.52,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 8.34627,
+      "lon": -13.23547,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 8.34435,
+      "lon": -13.23664,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 8.34049,
+      "lon": -13.23898,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 8.33278,
+      "lon": -13.24366,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 8.32507,
+      "lon": -13.24834,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 8.30966,
+      "lon": -13.2577,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 8.28653,
+      "lon": -13.27175,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 8.25569,
+      "lon": -13.29046,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 8.20943,
+      "lon": -13.31854,
+      "depth_m": 24.0
+    }
+  ]
+}

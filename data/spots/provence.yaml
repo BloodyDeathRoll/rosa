@@ -32,3 +32,9 @@ spots:
   - { id: les-lecques, name: "Les Lecques", town: "Saint-Cyr-sur-Mer", lat: 43.1774, lon: 5.6904, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, break_type: beach, <<: *prv }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: brutal-beach, name: "Brutal Beach", town: "Six-Fours-les-Plages", lat: 43.1084, lon: 5.8132, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, break_type: beach, <<: *prv }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: les-sablettes, name: "Les Sablettes", town: "La Seyne-sur-Mer", lat: 43.0783, lon: 5.8908, offshore_direction: 350, swell_window: [105, 235], offshore_km: 5.0, break_type: beach, <<: *prv }  # sat-verified 2026-11-12 (osm-seeded)
+
+  # ==== SEEDED 2026-11-12 - provence coastline pass, 3 more (primary flow: named OSM beaches
+  # more than 400 m from a DB pin, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: plage-de-pampelonne, name: "Plage de Pampelonne", town: "Ramatuelle", lat: 43.2278, lon: 6.6625, offshore_direction: 272, swell_window: [27, 157], offshore_km: 5.0, break_type: beach, <<: *prv }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: plage-de-pardigon, name: "Plage de Pardigon", town: "Cavalaire-sur-Mer", lat: 43.1867, lon: 6.5504, offshore_direction: 332, swell_window: [87, 217], offshore_km: 5.0, break_type: beach, <<: *prv }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: plage-de-cavaliere, name: "Plage de Cavalière", town: "Cap Nègre", lat: 43.1514, lon: 6.4315, offshore_direction: 11, swell_window: [126, 256], offshore_km: 5.0, break_type: beach, <<: *prv }  # sat-verified 2026-11-12 (osm-seeded)

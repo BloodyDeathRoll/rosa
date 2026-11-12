@@ -1,0 +1,72 @@
+{
+  "spot": "plage-de-pampelonne",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.2278,
+    6.6625
+  ],
+  "bearing_seaward_deg": 92.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 1140.0,
+  "mean_slope_m_per_km": 64.0,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.22772,
+      "lon": 6.66558,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.22764,
+      "lon": 6.66867,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.22749,
+      "lon": 6.67483,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.22717,
+      "lon": 6.68717,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.22685,
+      "lon": 6.6995,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.22621,
+      "lon": 6.72417,
+      "depth_m": 187.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.22525,
+      "lon": 6.76118,
+      "depth_m": 482.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.22394,
+      "lon": 6.81051,
+      "depth_m": 431.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.22194,
+      "lon": 6.88451,
+      "depth_m": 1140.0
+    }
+  ]
+}

@@ -26,3 +26,12 @@ spots:
   - { id: capo-di-feno, name: "Capo di Feno", town: "Ajaccio", lat: 41.9374, lon: 8.6226, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: beach, <<: *cor }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: ruppione, name: "Ruppione", town: "Pietrosella", lat: 41.8324, lon: 8.7841, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: beach, <<: *cor }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: cupabia, name: "Cupabia", town: "Serra-di-Ferro", lat: 41.7373, lon: 8.7829, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, break_type: beach, <<: *cor }  # sat-verified 2026-11-12 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - corsica coastline pass, 6 more (primary flow: named OSM beaches
+  # more than 400 m from a DB pin, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: plage-de-nonza, name: "Plage de Nonza", town: "Nonza", lat: 42.7934, lon: 9.3429, offshore_direction: 92, swell_window: [207, 337], offshore_km: 5.0, break_type: beach, <<: *cor }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: argentella, name: "Argentella", town: "L'Argentella", lat: 42.4707, lon: 8.6796, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, break_type: beach, <<: *cor }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: delta-du-fango-beach, name: "Delta du Fango Beach", town: "Galéria", lat: 42.4247, lon: 8.6615, offshore_direction: 112, swell_window: [227, 357], offshore_km: 5.0, break_type: beach, <<: *cor }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: plage-du-peru, name: "Plage du Peru", town: "Frimicaghiola", lat: 42.1449, lon: 8.5935, offshore_direction: 62, swell_window: [177, 307], offshore_km: 5.0, break_type: beach, <<: *cor }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: plage-du-liamone, name: "Plage du Liamone", town: "Tiuccia", lat: 42.0728, lon: 8.7198, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: beach, <<: *cor }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: plage-de-tenutella, name: "Plage de Tenutella", town: "Olmeto Plage", lat: 41.7076, lon: 8.8286, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, break_type: beach, <<: *cor }  # sat-verified 2026-11-12 (osm-seeded)

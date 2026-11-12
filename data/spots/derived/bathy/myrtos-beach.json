@@ -1,0 +1,72 @@
+{
+  "spot": "myrtos-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.344,
+    20.5364
+  ],
+  "bearing_seaward_deg": 302.0,
+  "nearshore_depth_m": -77.0,
+  "offshore_depth_m": 2787.0,
+  "mean_slope_m_per_km": 161.35,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.34519,
+      "lon": 20.53397,
+      "depth_m": -77.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.34638,
+      "lon": 20.53154,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.34877,
+      "lon": 20.52668,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.35353,
+      "lon": 20.51695,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.35829,
+      "lon": 20.50722,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.36782,
+      "lon": 20.48776,
+      "depth_m": 127.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.3821,
+      "lon": 20.45857,
+      "depth_m": 343.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.40113,
+      "lon": 20.41962,
+      "depth_m": 821.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.42965,
+      "lon": 20.36116,
+      "depth_m": 2787.0
+    }
+  ]
+}

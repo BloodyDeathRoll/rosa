@@ -1,0 +1,72 @@
+{
+  "spot": "delta-du-fango-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.4247,
+    8.6615
+  ],
+  "bearing_seaward_deg": 292.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 1982.0,
+  "mean_slope_m_per_km": 111.15,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.42554,
+      "lon": 8.65868,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.42638,
+      "lon": 8.65585,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.42807,
+      "lon": 8.6502,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.43144,
+      "lon": 8.63891,
+      "depth_m": 69.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.4348,
+      "lon": 8.62761,
+      "depth_m": 76.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.44153,
+      "lon": 8.605,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.45162,
+      "lon": 8.57109,
+      "depth_m": 732.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.46505,
+      "lon": 8.52586,
+      "depth_m": 498.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.48516,
+      "lon": 8.45797,
+      "depth_m": 1982.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "pefkoulia",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.8071,
+    20.6317
+  ],
+  "bearing_seaward_deg": 280.0,
+  "nearshore_depth_m": 23.0,
+  "offshore_depth_m": 663.0,
+  "mean_slope_m_per_km": 36.06,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.80749,
+      "lon": 20.62886,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.80788,
+      "lon": 20.62602,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.80866,
+      "lon": 20.62033,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.81022,
+      "lon": 20.60897,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.81178,
+      "lon": 20.5976,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.81489,
+      "lon": 20.57487,
+      "depth_m": 177.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.81956,
+      "lon": 20.54076,
+      "depth_m": 323.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.82576,
+      "lon": 20.49528,
+      "depth_m": 511.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.83503,
+      "lon": 20.42704,
+      "depth_m": 663.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "nighty-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    5.6067,
+    -0.0586
+  ],
+  "bearing_seaward_deg": 174.0,
+  "nearshore_depth_m": -13.0,
+  "offshore_depth_m": 49.0,
+  "mean_slope_m_per_km": 3.49,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 5.60446,
+      "lon": -0.05836,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 5.60223,
+      "lon": -0.05813,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 5.59776,
+      "lon": -0.05766,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 5.58881,
+      "lon": -0.05671,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 5.57987,
+      "lon": -0.05577,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 5.56198,
+      "lon": -0.05388,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 5.53515,
+      "lon": -0.05104,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 5.49937,
+      "lon": -0.04727,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 5.44571,
+      "lon": -0.0416,
+      "depth_m": 49.0
+    }
+  ]
+}

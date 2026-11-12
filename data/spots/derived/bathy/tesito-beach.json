@@ -1,0 +1,72 @@
+{
+  "spot": "tesito-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    13.0965,
+    -16.7692
+  ],
+  "bearing_seaward_deg": 280.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 16.0,
+  "mean_slope_m_per_km": 1.24,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.09689,
+      "lon": -16.77147,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.09728,
+      "lon": -16.77375,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.09806,
+      "lon": -16.77829,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.09962,
+      "lon": -16.78739,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.10118,
+      "lon": -16.79648,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.1043,
+      "lon": -16.81467,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.10898,
+      "lon": -16.84195,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.11522,
+      "lon": -16.87833,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.12456,
+      "lon": -16.93289,
+      "depth_m": 16.0
+    }
+  ]
+}

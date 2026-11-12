@@ -1,0 +1,72 @@
+{
+  "spot": "glefe-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    5.5205,
+    -0.2665
+  ],
+  "bearing_seaward_deg": 169.0,
+  "nearshore_depth_m": -5.0,
+  "offshore_depth_m": 46.0,
+  "mean_slope_m_per_km": 2.87,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 5.51829,
+      "lon": -0.26607,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 5.51609,
+      "lon": -0.26564,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 5.51167,
+      "lon": -0.26478,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 5.50284,
+      "lon": -0.26305,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 5.49402,
+      "lon": -0.26133,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 5.47636,
+      "lon": -0.25788,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 5.44988,
+      "lon": -0.25271,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 5.41456,
+      "lon": -0.24582,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 5.3616,
+      "lon": -0.23548,
+      "depth_m": 46.0
+    }
+  ]
+}

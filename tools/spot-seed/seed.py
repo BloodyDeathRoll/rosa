@@ -307,6 +307,8 @@ REGIONS = {
     "liberia": (6.10, -11.55, 6.95, -10.55),
     # Sierra Leone: the Freetown Peninsula (River No. 2, Bureh)
     "sierra-leone": (8.10, -13.35, 8.50, -13.05),
+    # Gambia: Kotu and Senegambia south to Kartong
+    "gambia": (13.05, -16.85, 13.50, -16.65),
     # Ivory Coast: Sassandra (Grand Drewin) east to Assinie
     "ivory-coast": (4.80, -6.30, 5.30, -3.10),
     # Nigeria: the Lagos harbour mouth (Tarkwa Bay, Lighthouse Beach)

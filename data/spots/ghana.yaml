@@ -30,3 +30,13 @@ spots:
   - { id: senya-beraku, name: "Senya Beraku", town: "Senya Beraku", lat: 5.3865, lon: -0.4885, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, break_type: point, <<: *gt }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: dixcove, name: "Dixcove (Fort Metal Cross)", town: "Dixcove", lat: 4.7929, lon: -1.9442, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, break_type: reef, <<: *gt }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: cape-three-points, name: "Cape Three Points", town: "Cape Three Points", lat: 4.7453, lon: -2.0848, offshore_direction: 300, shore_normal: 160, swell_window: [95, 225], offshore_km: 5.0, break_type: reef, <<: *gt }  # sat-verified 2026-11-12 (osm-seeded)
+
+  # ==== SEEDED 2026-11-12 - ghana coastline pass, 7 more (primary flow: named OSM beaches
+  # more than 400 m from a DB pin, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: nighty-beach, name: "Nighty Beach", town: "Nungua", lat: 5.6067, lon: -0.0586, offshore_direction: 354, swell_window: [109, 239], offshore_km: 5.0, break_type: beach, <<: *gt }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: korle-gorhno-beach, name: "Korle Gorhno Beach", town: "Accra", lat: 5.5281, lon: -0.2294, offshore_direction: 350, swell_window: [105, 235], offshore_km: 5.0, break_type: beach, <<: *gt }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: glefe-beach, name: "Glefe Beach", town: "Pambros Village", lat: 5.5205, lon: -0.2665, offshore_direction: 349, swell_window: [104, 234], offshore_km: 5.0, break_type: beach, <<: *gt }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: coconut-beach-bortianor, name: "Coconut Beach", town: "Bortianor", lat: 5.5029, lon: -0.3410, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, break_type: beach, <<: *gt }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: cape-coast, name: "Cape Coast", town: "Cape Coast", lat: 5.0992, lon: -1.3008, offshore_direction: 355, swell_window: [110, 240], offshore_km: 5.0, break_type: beach, <<: *gt }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: lemon-beach, name: "Lemon Beach", town: "Elmina", lat: 5.0764, lon: -1.3731, offshore_direction: 319, swell_window: [74, 204], offshore_km: 5.0, break_type: reef, <<: *gt }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: last-hour-beach, name: "Last Hour Beach", town: "Takoradi", lat: 4.8782, lon: -1.7550, offshore_direction: 9, swell_window: [124, 254], offshore_km: 5.0, break_type: reef, <<: *gt }  # sat-verified 2026-11-12 (osm-seeded)

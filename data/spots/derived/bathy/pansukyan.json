@@ -1,0 +1,72 @@
+{
+  "spot": "pansukyan",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    9.7346,
+    126.1392
+  ],
+  "bearing_seaward_deg": 100.0,
+  "nearshore_depth_m": 52.0,
+  "offshore_depth_m": 1397.0,
+  "mean_slope_m_per_km": 75.77,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 9.73421,
+      "lon": 126.14145,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 9.73382,
+      "lon": 126.14369,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 9.73304,
+      "lon": 126.14819,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 9.73148,
+      "lon": 126.15717,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 9.72991,
+      "lon": 126.16616,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 9.72679,
+      "lon": 126.18413,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 9.7221,
+      "lon": 126.21108,
+      "depth_m": 145.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 9.71584,
+      "lon": 126.24703,
+      "depth_m": 871.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 9.70645,
+      "lon": 126.30093,
+      "depth_m": 1397.0
+    }
+  ]
+}

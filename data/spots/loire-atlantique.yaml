@@ -22,3 +22,8 @@ spots:
   - { id: la-govelle, name: "La Govelle", town: "Batz-sur-Mer", lat: 47.2663, lon: -2.4566, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, break_type: reef, <<: *la }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: la-courance, name: "La Courance", town: "Saint-Nazaire", lat: 47.2394, lon: -2.2724, offshore_direction: 5, swell_window: [120, 250], offshore_km: 5.0, break_type: beach, <<: *la }  # sat-verified 2026-11-12 (websearch-seeded)
   - { id: gohaud, name: "Gohaud", town: "Saint-Michel-Chef-Chef", lat: 47.1913, lon: -2.1617, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, break_type: beach, <<: *la }  # sat-verified 2026-11-12 (websearch-seeded)
+
+  # ==== SEEDED 2026-11-12 - loire-atlantique coastline pass, 2 more (primary flow: named OSM beaches
+  # more than 400 m from a DB pin, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: pen-bron, name: "Pen Bron", town: "Le Petit Traict", lat: 47.3238, lon: -2.5034, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, break_type: beach, <<: *la }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: baie-des-maures, name: "Baie des Maures", town: "Le Pouliguen", lat: 47.2582, lon: -2.4270, offshore_direction: 5, swell_window: [120, 250], offshore_km: 5.0, break_type: reef, <<: *la }  # sat-verified 2026-11-12 (osm-seeded)

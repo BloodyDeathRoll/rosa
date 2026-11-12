@@ -1,0 +1,72 @@
+{
+  "spot": "plage-du-peru",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.1449,
+    8.5935
+  ],
+  "bearing_seaward_deg": 242.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 1798.0,
+  "mean_slope_m_per_km": 100.79,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.14384,
+      "lon": 8.59082,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.14279,
+      "lon": 8.58815,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.14068,
+      "lon": 8.58279,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.13645,
+      "lon": 8.57208,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.13223,
+      "lon": 8.56138,
+      "depth_m": 65.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.12378,
+      "lon": 8.53997,
+      "depth_m": 109.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.11109,
+      "lon": 8.50787,
+      "depth_m": 915.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.09416,
+      "lon": 8.46509,
+      "depth_m": 1308.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.06874,
+      "lon": 8.40096,
+      "depth_m": 1798.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "kotu-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    13.4615,
+    -16.7091
+  ],
+  "bearing_seaward_deg": 321.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 4.0,
+  "mean_slope_m_per_km": 0.28,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 13.46325,
+      "lon": -16.71055,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 13.46499,
+      "lon": -16.71201,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 13.46849,
+      "lon": -16.71492,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 13.47548,
+      "lon": -16.72074,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 13.48247,
+      "lon": -16.72656,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 13.49644,
+      "lon": -16.7382,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 13.51741,
+      "lon": -16.75567,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 13.54536,
+      "lon": -16.77896,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 13.58728,
+      "lon": -16.81391,
+      "depth_m": 4.0
+    }
+  ]
+}

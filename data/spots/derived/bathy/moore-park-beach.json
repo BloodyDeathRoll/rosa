@@ -1,0 +1,72 @@
+{
+  "spot": "moore-park-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -24.7145,
+    152.279
+  ],
+  "bearing_seaward_deg": 40.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 16.0,
+  "mean_slope_m_per_km": 0.73,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -24.71278,
+      "lon": 152.28059,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -24.71106,
+      "lon": 152.28218,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -24.70761,
+      "lon": 152.28536,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -24.70072,
+      "lon": 152.29173,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -24.69383,
+      "lon": 152.29809,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -24.68005,
+      "lon": 152.31081,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -24.65938,
+      "lon": 152.32989,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -24.63181,
+      "lon": 152.35531,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -24.59045,
+      "lon": 152.39343,
+      "depth_m": 16.0
+    }
+  ]
+}

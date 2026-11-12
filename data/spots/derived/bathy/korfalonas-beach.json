@@ -1,0 +1,72 @@
+{
+  "spot": "korfalonas-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.4992,
+    23.6775
+  ],
+  "bearing_seaward_deg": 351.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 628.0,
+  "mean_slope_m_per_km": 34.99,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.50142,
+      "lon": 23.67707,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.50364,
+      "lon": 23.67664,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.50808,
+      "lon": 23.67577,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.51696,
+      "lon": 23.67404,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.52585,
+      "lon": 23.67231,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.54361,
+      "lon": 23.66885,
+      "depth_m": 76.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.57026,
+      "lon": 23.66366,
+      "depth_m": 140.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.60579,
+      "lon": 23.65674,
+      "depth_m": 441.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.65908,
+      "lon": 23.64633,
+      "depth_m": 628.0
+    }
+  ]
+}
