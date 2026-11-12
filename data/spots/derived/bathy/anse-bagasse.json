@@ -1,0 +1,72 @@
+{
+  "spot": "anse-bagasse",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    14.8743,
+    -61.1757
+  ],
+  "bearing_seaward_deg": 0.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 590.0,
+  "mean_slope_m_per_km": 32.79,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 14.87655,
+      "lon": -61.1757,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 14.8788,
+      "lon": -61.1757,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 14.88329,
+      "lon": -61.1757,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 14.89229,
+      "lon": -61.1757,
+      "depth_m": 348.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 14.90128,
+      "lon": -61.1757,
+      "depth_m": 511.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 14.91927,
+      "lon": -61.1757,
+      "depth_m": 669.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 14.94625,
+      "lon": -61.1757,
+      "depth_m": 814.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 14.98222,
+      "lon": -61.1757,
+      "depth_m": 1130.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 15.03618,
+      "lon": -61.1757,
+      "depth_m": 590.0
+    }
+  ]
+}

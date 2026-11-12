@@ -1,0 +1,20 @@
+# Rosa spot database - Egypt (seeded 2026-11-12). Shatby, Alexandria: NW-N wind swell, winter best.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Egypt"
+
+defaults: &eg
+  timezone: Africa/Cairo
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [265, 35]
+  ideal:
+    wind_dir: [105, 195]
+    size_m: [0.5, 1.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - egypt, 1 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: shatby, name: "Shatby", town: "Alexandria", lat: 31.2123, lon: 29.9159, offshore_direction: 150, swell_window: [265, 35], offshore_km: 5.0, break_type: beach, <<: *eg }  # sat-verified 2026-11-12 (osm-seeded)

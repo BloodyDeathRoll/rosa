@@ -1,0 +1,23 @@
+# Rosa spot database - Saint Barthelemy (seeded 2026-11-12). N-NE winter swell at Lorient and Anse des Cayes,
+# E-SE trade swell at Toiny.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Saint Barthelemy"
+
+defaults: &bl
+  timezone: America/St_Barthelemy
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [347, 117]
+  ideal:
+    wind_dir: [187, 277]
+    size_m: [0.8, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - saint-barthelemy, 3 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: anse-des-cayes, name: "Anse des Cayes", town: "Anse des Cayes", lat: 17.9125, lon: -62.8445, offshore_direction: 230, swell_window: [345, 115], offshore_km: 5.0, break_type: reef, <<: *bl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: lorient, name: "Lorient", town: "Lorient", lat: 17.9076, lon: -62.8218, offshore_direction: 160, swell_window: [275, 45], offshore_km: 5.0, break_type: reef, <<: *bl }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: toiny, name: "Toiny", town: "Toiny", lat: 17.8970, lon: -62.7985, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, break_type: reef, <<: *bl }  # sat-verified 2026-11-12 (websearch-seeded)

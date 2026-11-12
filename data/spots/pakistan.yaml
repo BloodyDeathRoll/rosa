@@ -1,0 +1,25 @@
+# Rosa spot database - Pakistan (seeded 2026-11-12). The Karachi beaches and the Makran coast:
+# SW monsoon swell off the Arabian Sea, May-Oct.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Pakistan"
+
+defaults: &pk
+  timezone: Asia/Karachi
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [147, 277]
+  ideal:
+    wind_dir: [347, 77]
+    size_m: [0.8, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - pakistan, 5 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: kund-malir, name: "Kund Malir", town: "Kund Malir", lat: 25.3919, lon: 65.4602, offshore_direction: 5, swell_window: [120, 250], offshore_km: 5.0, break_type: beach, <<: *pk }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: hawkes-bay, name: "Hawke's Bay", town: "Karachi", lat: 24.8616, lon: 66.8511, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, break_type: beach, <<: *pk }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: mubarak-village, name: "Mubarak Village", town: "Karachi", lat: 24.8482, lon: 66.6593, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, break_type: beach, <<: *pk }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: french-beach, name: "French Beach", town: "Karachi", lat: 24.8397, lon: 66.8164, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, break_type: reef, <<: *pk }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: sandspit-karachi, name: "Sandspit", town: "Karachi", lat: 24.8292, lon: 66.9278, offshore_direction: 40, swell_window: [155, 285], offshore_km: 5.0, break_type: beach, <<: *pk }  # sat-verified 2026-11-12 (websearch-seeded)

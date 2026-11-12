@@ -1,0 +1,72 @@
+{
+  "spot": "baie-aux-prunes",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.0666,
+    -63.1489
+  ],
+  "bearing_seaward_deg": 310.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 407.0,
+  "mean_slope_m_per_km": 22.59,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.06805,
+      "lon": -63.15071,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.06949,
+      "lon": -63.15252,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.07238,
+      "lon": -63.15615,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.07816,
+      "lon": -63.16339,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.08394,
+      "lon": -63.17064,
+      "depth_m": 299.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.0955,
+      "lon": -63.18514,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.11284,
+      "lon": -63.20689,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.13595,
+      "lon": -63.23589,
+      "depth_m": 159.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.17061,
+      "lon": -63.27941,
+      "depth_m": 407.0
+    }
+  ]
+}

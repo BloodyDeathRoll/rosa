@@ -1,0 +1,72 @@
+{
+  "spot": "lozari",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.6417,
+    9.0166
+  ],
+  "bearing_seaward_deg": 330.0,
+  "nearshore_depth_m": 11.0,
+  "offshore_depth_m": 1102.0,
+  "mean_slope_m_per_km": 61.46,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.64365,
+      "lon": 9.01507,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.64559,
+      "lon": 9.01354,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.64949,
+      "lon": 9.01049,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.65728,
+      "lon": 9.00437,
+      "depth_m": 51.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.66506,
+      "lon": 8.99825,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.68064,
+      "lon": 8.98602,
+      "depth_m": 326.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.704,
+      "lon": 8.96765,
+      "depth_m": 260.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.73514,
+      "lon": 8.94314,
+      "depth_m": 518.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.78184,
+      "lon": 8.90632,
+      "depth_m": 1102.0
+    }
+  ]
+}

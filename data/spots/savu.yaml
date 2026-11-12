@@ -1,0 +1,21 @@
+# Rosa spot database - Savu (seeded 2026-11-12), Nusa Tenggara Timur. Raijua, west of Savu island:
+# SW Indian Ocean groundswell, May-Oct, with the SE trade offshore.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Indonesia"
+
+defaults: &svu
+  timezone: Asia/Makassar
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [190, 320]
+  ideal:
+    wind_dir: [30, 120]
+    size_m: [1.0, 3.0]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - savu, 1 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: raijua, name: "Raijua", town: "Padajiri", lat: -10.6355, lon: 121.5171, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, break_type: reef, <<: *svu }  # sat-verified 2026-11-12 (websearch-seeded)

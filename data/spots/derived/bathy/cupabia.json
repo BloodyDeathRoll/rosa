@@ -1,0 +1,72 @@
+{
+  "spot": "cupabia",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    41.7373,
+    8.7829
+  ],
+  "bearing_seaward_deg": 240.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 967.0,
+  "mean_slope_m_per_km": 54.25,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 41.73618,
+      "lon": 8.78029,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 41.73505,
+      "lon": 8.77768,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 41.7328,
+      "lon": 8.77246,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 41.7283,
+      "lon": 8.76203,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 41.72381,
+      "lon": 8.75159,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 41.71481,
+      "lon": 8.73073,
+      "depth_m": 168.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 41.7013,
+      "lon": 8.69945,
+      "depth_m": 263.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 41.68327,
+      "lon": 8.65776,
+      "depth_m": 560.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 41.65621,
+      "lon": 8.59527,
+      "depth_m": 967.0
+    }
+  ]
+}

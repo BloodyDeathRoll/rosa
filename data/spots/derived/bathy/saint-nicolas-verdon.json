@@ -1,0 +1,72 @@
+{
+  "spot": "saint-nicolas-verdon",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    45.5697,
+    -1.0804
+  ],
+  "bearing_seaward_deg": 280.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 12.0,
+  "mean_slope_m_per_km": 0.39,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 45.57009,
+      "lon": -1.08356,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 45.57048,
+      "lon": -1.08673,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 45.57126,
+      "lon": -1.09305,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 45.57282,
+      "lon": -1.1057,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 45.57438,
+      "lon": -1.11836,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 45.57749,
+      "lon": -1.14367,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 45.58215,
+      "lon": -1.18163,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 45.58834,
+      "lon": -1.23227,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 45.59758,
+      "lon": -1.30824,
+      "depth_m": 12.0
+    }
+  ]
+}

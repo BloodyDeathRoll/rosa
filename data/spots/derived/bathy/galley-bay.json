@@ -1,0 +1,72 @@
+{
+  "spot": "galley-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    17.1218,
+    -61.8922
+  ],
+  "bearing_seaward_deg": 315.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 28.0,
+  "mean_slope_m_per_km": 1.13,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 17.12339,
+      "lon": -61.89386,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 17.12498,
+      "lon": -61.89553,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 17.12816,
+      "lon": -61.89885,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 17.13452,
+      "lon": -61.90551,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 17.14088,
+      "lon": -61.91216,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 17.15359,
+      "lon": -61.92548,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 17.17267,
+      "lon": -61.94545,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 17.19809,
+      "lon": -61.97208,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 17.23623,
+      "lon": -62.01205,
+      "depth_m": 28.0
+    }
+  ]
+}

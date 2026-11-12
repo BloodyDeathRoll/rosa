@@ -1,0 +1,72 @@
+{
+  "spot": "kathisma",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    38.7762,
+    20.5997
+  ],
+  "bearing_seaward_deg": 275.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 1135.0,
+  "mean_slope_m_per_km": 63.49,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 38.7764,
+      "lon": 20.59683,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 38.77659,
+      "lon": 20.59395,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 38.77698,
+      "lon": 20.58821,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 38.77777,
+      "lon": 20.57672,
+      "depth_m": 110.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 38.77855,
+      "lon": 20.56522,
+      "depth_m": 123.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 38.7801,
+      "lon": 20.54224,
+      "depth_m": 215.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 38.78243,
+      "lon": 20.50776,
+      "depth_m": 499.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 38.78552,
+      "lon": 20.46178,
+      "depth_m": 790.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 38.79013,
+      "lon": 20.39281,
+      "depth_m": 1135.0
+    }
+  ]
+}

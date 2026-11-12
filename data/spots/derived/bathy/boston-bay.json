@@ -1,0 +1,72 @@
+{
+  "spot": "boston-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.1584,
+    -76.3553
+  ],
+  "bearing_seaward_deg": 70.0,
+  "nearshore_depth_m": 18.0,
+  "offshore_depth_m": 1373.0,
+  "mean_slope_m_per_km": 76.34,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.15917,
+      "lon": -76.35308,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.15994,
+      "lon": -76.35085,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.16148,
+      "lon": -76.34641,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.16455,
+      "lon": -76.33751,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.16763,
+      "lon": -76.32862,
+      "depth_m": 223.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.17377,
+      "lon": -76.31083,
+      "depth_m": 686.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.18299,
+      "lon": -76.28414,
+      "depth_m": 1464.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.19528,
+      "lon": -76.24855,
+      "depth_m": 1834.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.2137,
+      "lon": -76.19516,
+      "depth_m": 1373.0
+    }
+  ]
+}

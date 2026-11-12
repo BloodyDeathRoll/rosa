@@ -1,0 +1,72 @@
+{
+  "spot": "petites-cayes",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.1226,
+    -63.0311
+  ],
+  "bearing_seaward_deg": 0.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 41.0,
+  "mean_slope_m_per_km": 2.03,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.12485,
+      "lon": -63.0311,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.1271,
+      "lon": -63.0311,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.13159,
+      "lon": -63.0311,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.14059,
+      "lon": -63.0311,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.14958,
+      "lon": -63.0311,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.16757,
+      "lon": -63.0311,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.19455,
+      "lon": -63.0311,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.23052,
+      "lon": -63.0311,
+      "depth_m": -40.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.28448,
+      "lon": -63.0311,
+      "depth_m": 41.0
+    }
+  ]
+}

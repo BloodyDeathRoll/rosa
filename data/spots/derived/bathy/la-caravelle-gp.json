@@ -1,0 +1,72 @@
+{
+  "spot": "la-caravelle-gp",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    16.2157,
+    -61.394
+  ],
+  "bearing_seaward_deg": 180.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 483.0,
+  "mean_slope_m_per_km": 27.1,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 16.21345,
+      "lon": -61.394,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 16.2112,
+      "lon": -61.394,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 16.20671,
+      "lon": -61.394,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 16.19771,
+      "lon": -61.394,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 16.18872,
+      "lon": -61.394,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.17073,
+      "lon": -61.394,
+      "depth_m": 253.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.14375,
+      "lon": -61.394,
+      "depth_m": 480.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.10778,
+      "lon": -61.394,
+      "depth_m": 625.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.05382,
+      "lon": -61.394,
+      "depth_m": 483.0
+    }
+  ]
+}

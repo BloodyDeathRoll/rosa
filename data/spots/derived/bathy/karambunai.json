@@ -1,0 +1,72 @@
+{
+  "spot": "karambunai",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    6.1159,
+    116.1075
+  ],
+  "bearing_seaward_deg": 340.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 45.0,
+  "mean_slope_m_per_km": 2.37,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 6.11801,
+      "lon": 116.10673,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 6.12013,
+      "lon": 116.10595,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 6.12435,
+      "lon": 116.10441,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 6.1328,
+      "lon": 116.10131,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 6.14125,
+      "lon": 116.09822,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 6.15815,
+      "lon": 116.09203,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 6.18351,
+      "lon": 116.08275,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 6.21731,
+      "lon": 116.07037,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 6.26801,
+      "lon": 116.0518,
+      "depth_m": 45.0
+    }
+  ]
+}

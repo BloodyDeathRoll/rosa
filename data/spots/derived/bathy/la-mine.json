@@ -1,0 +1,72 @@
+{
+  "spot": "la-mine",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    46.4146,
+    -1.6275
+  ],
+  "bearing_seaward_deg": 200.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 22.0,
+  "mean_slope_m_per_km": 1.18,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.41249,
+      "lon": -1.62862,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.41037,
+      "lon": -1.62973,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.40615,
+      "lon": -1.63196,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 46.3977,
+      "lon": -1.63642,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 46.38925,
+      "lon": -1.64088,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.37234,
+      "lon": -1.64979,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.34699,
+      "lon": -1.66315,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.31318,
+      "lon": -1.68094,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.26246,
+      "lon": -1.70758,
+      "depth_m": 22.0
+    }
+  ]
+}

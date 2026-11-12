@@ -1,0 +1,72 @@
+{
+  "spot": "lamone",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    44.5263,
+    12.2804
+  ],
+  "bearing_seaward_deg": 80.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 25.0,
+  "mean_slope_m_per_km": 1.24,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 44.52669,
+      "lon": 12.28351,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 44.52708,
+      "lon": 12.28661,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 44.52786,
+      "lon": 12.29282,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 44.52942,
+      "lon": 12.30525,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 44.53098,
+      "lon": 12.31767,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 44.53409,
+      "lon": 12.34252,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 44.53875,
+      "lon": 12.3798,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 44.54494,
+      "lon": 12.42952,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 44.55419,
+      "lon": 12.50412,
+      "depth_m": 25.0
+    }
+  ]
+}

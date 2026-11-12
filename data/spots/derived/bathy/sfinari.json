@@ -1,0 +1,72 @@
+{
+  "spot": "sfinari",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.4186,
+    23.5634
+  ],
+  "bearing_seaward_deg": 300.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 1488.0,
+  "mean_slope_m_per_km": 83.15,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.41972,
+      "lon": 23.56101,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.42085,
+      "lon": 23.55862,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.4231,
+      "lon": 23.55384,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.42759,
+      "lon": 23.54428,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.43209,
+      "lon": 23.53472,
+      "depth_m": 643.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.44107,
+      "lon": 23.5156,
+      "depth_m": 1236.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.45455,
+      "lon": 23.48691,
+      "depth_m": 1635.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.4725,
+      "lon": 23.44864,
+      "depth_m": 2153.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.49942,
+      "lon": 23.3912,
+      "depth_m": 1488.0
+    }
+  ]
+}

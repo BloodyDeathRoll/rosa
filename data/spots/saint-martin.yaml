@@ -1,0 +1,24 @@
+# Rosa spot database - Saint Martin (seeded 2026-11-12), both sides of the island (Mullet Bay is on the Dutch
+# side): E wind swell on the east reefs year-round, N-NW swell Nov-Mar on the west bays.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Saint Martin"
+
+defaults: &sxm
+  timezone: America/Marigot
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [266, 36]
+  ideal:
+    wind_dir: [106, 196]
+    size_m: [0.8, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - saint-martin, 4 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: petites-cayes, name: "Petites Cayes", town: "Cul-de-Sac", lat: 18.1226, lon: -63.0311, offshore_direction: 180, swell_window: [295, 65], offshore_km: 5.0, break_type: beach, <<: *sxm }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: le-galion, name: "Le Galion", town: "Orient Bay", lat: 18.0753, lon: -63.0141, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, break_type: reef, <<: *sxm }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: baie-aux-prunes, name: "Baie aux Prunes", town: "Terres Basses", lat: 18.0666, lon: -63.1489, offshore_direction: 130, swell_window: [245, 15], offshore_km: 5.0, break_type: point, <<: *sxm }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: mullet-bay, name: "Mullet Bay", town: "Cupecoy", lat: 18.0456, lon: -63.1255, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, break_type: beach, <<: *sxm }  # sat-verified 2026-11-12 (websearch-seeded)

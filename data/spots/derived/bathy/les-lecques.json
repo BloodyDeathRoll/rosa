@@ -1,0 +1,72 @@
+{
+  "spot": "les-lecques",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.1774,
+    5.6904
+  ],
+  "bearing_seaward_deg": 225.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 128.0,
+  "mean_slope_m_per_km": 6.76,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.17581,
+      "lon": 5.68822,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.17422,
+      "lon": 5.68604,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.17104,
+      "lon": 5.68168,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.16468,
+      "lon": 5.67296,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.15832,
+      "lon": 5.66425,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.1456,
+      "lon": 5.64682,
+      "depth_m": 82.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.12651,
+      "lon": 5.6207,
+      "depth_m": 96.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.10104,
+      "lon": 5.58589,
+      "depth_m": 131.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.06283,
+      "lon": 5.53373,
+      "depth_m": 128.0
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+# Rosa spot database - Sabah (seeded 2026-11-12). Kota Kinabalu to the Tip of Borneo: NE monsoon swell
+# Nov-Mar (Tanjung Aru works on the SW monsoon, May-Sep); small and fickle.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Malaysia"
+
+defaults: &sbh
+  timezone: Asia/Kuching
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [222, 352]
+  ideal:
+    wind_dir: [62, 152]
+    size_m: [0.5, 1.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - sabah, 4 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: tip-of-borneo, name: "Tip of Borneo", town: "Kudat", lat: 7.0292, lon: 116.7455, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, break_type: beach, <<: *sbh }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: sabandar, name: "Sabandar", town: "Tuaran", lat: 6.1999, lon: 116.1765, offshore_direction: 115, swell_window: [230, 0], offshore_km: 5.0, break_type: beach, <<: *sbh }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: karambunai, name: "Karambunai", town: "Kota Kinabalu", lat: 6.1159, lon: 116.1075, offshore_direction: 160, swell_window: [275, 45], offshore_km: 5.0, break_type: beach, <<: *sbh }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: tanjung-aru, name: "Tanjung Aru", town: "Kota Kinabalu", lat: 5.9506, lon: 116.0441, offshore_direction: 65, swell_window: [180, 310], offshore_km: 5.0, break_type: beach, <<: *sbh }  # sat-verified 2026-11-12 (websearch-seeded)

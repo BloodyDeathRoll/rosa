@@ -1,0 +1,72 @@
+{
+  "spot": "colonel-reef",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    34.2498,
+    35.6573
+  ],
+  "bearing_seaward_deg": 270.0,
+  "nearshore_depth_m": -20.0,
+  "offshore_depth_m": 1705.0,
+  "mean_slope_m_per_km": 97.18,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 34.2498,
+      "lon": 35.65458,
+      "depth_m": -20.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 34.2498,
+      "lon": 35.65186,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 34.2498,
+      "lon": 35.64642,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 34.2498,
+      "lon": 35.63554,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 34.2498,
+      "lon": 35.62466,
+      "depth_m": 153.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.24979,
+      "lon": 35.6029,
+      "depth_m": 464.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.24977,
+      "lon": 35.57026,
+      "depth_m": 1113.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.24973,
+      "lon": 35.52674,
+      "depth_m": 1583.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.24964,
+      "lon": 35.46146,
+      "depth_m": 1705.0
+    }
+  ]
+}

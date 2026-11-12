@@ -1,0 +1,72 @@
+{
+  "spot": "carcans",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    45.0829,
+    -1.194
+  ],
+  "bearing_seaward_deg": 275.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 41.0,
+  "mean_slope_m_per_km": 2.31,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 45.0831,
+      "lon": -1.19717,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 45.08329,
+      "lon": -1.20034,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 45.08368,
+      "lon": -1.20669,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 45.08446,
+      "lon": -1.21938,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 45.08525,
+      "lon": -1.23207,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 45.0868,
+      "lon": -1.25745,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 45.08913,
+      "lon": -1.29552,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 45.0922,
+      "lon": -1.34628,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 45.09678,
+      "lon": -1.42244,
+      "depth_m": 41.0
+    }
+  ]
+}

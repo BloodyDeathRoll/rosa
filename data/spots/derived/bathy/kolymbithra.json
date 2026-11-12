@@ -1,0 +1,72 @@
+{
+  "spot": "kolymbithra",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.6304,
+    25.1413
+  ],
+  "bearing_seaward_deg": 10.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 350.0,
+  "mean_slope_m_per_km": 19.61,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.63261,
+      "lon": 25.14179,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.63483,
+      "lon": 25.14229,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.63926,
+      "lon": 25.14327,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.64811,
+      "lon": 25.14524,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.65697,
+      "lon": 25.14722,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.67468,
+      "lon": 25.15117,
+      "depth_m": 124.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.70125,
+      "lon": 25.15709,
+      "depth_m": 278.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.73668,
+      "lon": 25.165,
+      "depth_m": 329.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.78981,
+      "lon": 25.17687,
+      "depth_m": 350.0
+    }
+  ]
+}

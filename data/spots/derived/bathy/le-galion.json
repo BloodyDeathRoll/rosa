@@ -1,0 +1,72 @@
+{
+  "spot": "le-galion",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    18.0753,
+    -63.0141
+  ],
+  "bearing_seaward_deg": 90.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 41.0,
+  "mean_slope_m_per_km": 2.2,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 18.0753,
+      "lon": -63.01173,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 18.0753,
+      "lon": -63.00937,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 18.0753,
+      "lon": -63.00464,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 18.0753,
+      "lon": -62.99518,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 18.0753,
+      "lon": -62.98572,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 18.07529,
+      "lon": -62.9668,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 18.07529,
+      "lon": -62.93842,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 18.07527,
+      "lon": -62.90058,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 18.07523,
+      "lon": -62.84382,
+      "depth_m": 41.0
+    }
+  ]
+}

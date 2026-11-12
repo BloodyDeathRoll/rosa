@@ -1,0 +1,72 @@
+{
+  "spot": "nha-trang-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    12.2203,
+    109.2054
+  ],
+  "bearing_seaward_deg": 50.0,
+  "nearshore_depth_m": -8.0,
+  "offshore_depth_m": 35.0,
+  "mean_slope_m_per_km": 2.42,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 12.22175,
+      "lon": 109.20716,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 12.22319,
+      "lon": 109.20892,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 12.22608,
+      "lon": 109.21245,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 12.23186,
+      "lon": 109.2195,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 12.23764,
+      "lon": 109.22655,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 12.2492,
+      "lon": 109.24065,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 12.26654,
+      "lon": 109.2618,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 12.28966,
+      "lon": 109.29001,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 12.32432,
+      "lon": 109.33233,
+      "depth_m": 35.0
+    }
+  ]
+}

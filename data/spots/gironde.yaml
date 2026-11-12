@@ -1,0 +1,37 @@
+# Rosa spot database - Gironde (seeded 2026-11-12). The Medoc coast, Le Verdon to Cap Ferret: exposed W-facing
+# beach break on shifting bars, best autumn to spring on an E wind. Lacanau, Le Porge and Le Grand Crohot
+# are in landes.yaml (seeded earlier).
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "France"
+
+defaults: &gir
+  timezone: Europe/Paris
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [210, 340]
+  ideal:
+    wind_dir: [50, 140]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - gironde, 16 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: saint-nicolas-verdon, name: "Saint-Nicolas", town: "Le Verdon-sur-Mer", lat: 45.5697, lon: -1.0804, offshore_direction: 140, shore_normal: 280, swell_window: [215, 345], offshore_km: 5.0, break_type: beach, <<: *gir }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: soulac, name: "Soulac", town: "Soulac-sur-Mer", lat: 45.5122, lon: -1.1338, offshore_direction: 110, swell_window: [225, 355], offshore_km: 5.0, break_type: beach, <<: *gir }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: l-amelie, name: "L'Amelie", town: "Soulac-sur-Mer", lat: 45.4814, lon: -1.1528, offshore_direction: 95, swell_window: [210, 340], offshore_km: 5.0, break_type: beach, <<: *gir }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: le-gurp, name: "Le Gurp", town: "Grayan-et-l'Hopital", lat: 45.4342, lon: -1.1551, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, break_type: beach, <<: *gir }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: vensac-ocean, name: "Vensac-Ocean", town: "Vensac", lat: 45.3890, lon: -1.1612, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, break_type: beach, <<: *gir }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: montalivet, name: "Montalivet", town: "Vendays-Montalivet", lat: 45.3777, lon: -1.1594, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, break_type: beach, <<: *gir }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: le-pin-sec, name: "Le Pin Sec", town: "Naujac-sur-Mer", lat: 45.2687, lon: -1.1678, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, break_type: beach, <<: *gir }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: hourtin, name: "Hourtin", town: "Hourtin", lat: 45.2229, lon: -1.1746, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, break_type: beach, <<: *gir }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: carcans, name: "Carcans", town: "Carcans", lat: 45.0829, lon: -1.1940, offshore_direction: 95, swell_window: [210, 340], offshore_km: 5.0, break_type: beach, <<: *gir }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: lacanau-la-nord, name: "Lacanau La Nord", town: "Lacanau-Ocean", lat: 45.0091, lon: -1.2017, offshore_direction: 95, swell_window: [210, 340], offshore_km: 5.0, break_type: beach, <<: *gir }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: lacanau-super-sud, name: "Lacanau Super Sud", town: "Lacanau-Ocean", lat: 44.9791, lon: -1.2067, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, break_type: beach, <<: *gir }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: le-lion, name: "Le Lion", town: "Lacanau-Ocean", lat: 44.9628, lon: -1.2091, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, break_type: beach, <<: *gir }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: la-jenny, name: "La Jenny", town: "Le Porge", lat: 44.8554, lon: -1.2259, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, break_type: beach, <<: *gir }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: le-truc-vert, name: "Le Truc Vert", town: "Lege-Cap-Ferret", lat: 44.7153, lon: -1.2534, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, break_type: beach, <<: *gir }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: la-garonne-cap-ferret, name: "La Garonne", town: "Lege-Cap-Ferret", lat: 44.6980, lon: -1.2562, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, break_type: beach, <<: *gir }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: l-horizon, name: "L'Horizon (Cap Ferret)", town: "Lege-Cap-Ferret", lat: 44.6549, lon: -1.2615, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, break_type: beach, <<: *gir }  # sat-verified 2026-11-12 (websearch-seeded)

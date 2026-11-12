@@ -1,0 +1,72 @@
+{
+  "spot": "le-lion",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    44.9628,
+    -1.2091
+  ],
+  "bearing_seaward_deg": 270.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 43.0,
+  "mean_slope_m_per_km": 2.82,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 44.9628,
+      "lon": -1.21228,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 44.9628,
+      "lon": -1.21546,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 44.9628,
+      "lon": -1.22181,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 44.9628,
+      "lon": -1.23452,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 44.96279,
+      "lon": -1.24723,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 44.96278,
+      "lon": -1.27265,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 44.96275,
+      "lon": -1.31078,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 44.9627,
+      "lon": -1.36162,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 44.96257,
+      "lon": -1.43788,
+      "depth_m": 43.0
+    }
+  ]
+}

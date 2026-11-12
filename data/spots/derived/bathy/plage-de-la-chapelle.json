@@ -1,0 +1,72 @@
+{
+  "spot": "plage-de-la-chapelle",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    16.4716,
+    -61.5129
+  ],
+  "bearing_seaward_deg": 350.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 73.0,
+  "mean_slope_m_per_km": 3.94,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 16.47381,
+      "lon": -61.51331,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 16.47603,
+      "lon": -61.51371,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 16.48046,
+      "lon": -61.51453,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 16.48931,
+      "lon": -61.51616,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 16.49817,
+      "lon": -61.51779,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.51588,
+      "lon": -61.52104,
+      "depth_m": 256.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.54245,
+      "lon": -61.52593,
+      "depth_m": 438.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.57788,
+      "lon": -61.53245,
+      "depth_m": 445.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.63102,
+      "lon": -61.54224,
+      "depth_m": 73.0
+    }
+  ]
+}

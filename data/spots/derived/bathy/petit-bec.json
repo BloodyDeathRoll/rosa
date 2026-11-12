@@ -1,0 +1,72 @@
+{
+  "spot": "petit-bec",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    46.253,
+    -1.5226
+  ],
+  "bearing_seaward_deg": 315.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 18.0,
+  "mean_slope_m_per_km": 0.9,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.25459,
+      "lon": -1.5249,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.25618,
+      "lon": -1.5272,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.25936,
+      "lon": -1.5318,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 46.26572,
+      "lon": -1.541,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 46.27207,
+      "lon": -1.5502,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.28479,
+      "lon": -1.56861,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.30385,
+      "lon": -1.59624,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.32926,
+      "lon": -1.63311,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.36735,
+      "lon": -1.68848,
+      "depth_m": 18.0
+    }
+  ]
+}

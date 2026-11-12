@@ -1,0 +1,72 @@
+{
+  "spot": "canalino",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    44.2809,
+    12.3546
+  ],
+  "bearing_seaward_deg": 70.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 22.0,
+  "mean_slope_m_per_km": 1.13,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 44.28167,
+      "lon": 12.35755,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 44.28244,
+      "lon": 12.3605,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 44.28398,
+      "lon": 12.3664,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 44.28705,
+      "lon": 12.37821,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 44.29012,
+      "lon": 12.39002,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 44.29626,
+      "lon": 12.41364,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 44.30547,
+      "lon": 12.44907,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 44.31772,
+      "lon": 12.49634,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 44.33607,
+      "lon": 12.56727,
+      "depth_m": 22.0
+    }
+  ]
+}

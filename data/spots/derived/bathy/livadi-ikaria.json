@@ -1,0 +1,72 @@
+{
+  "spot": "livadi-ikaria",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.6309,
+    26.0914
+  ],
+  "bearing_seaward_deg": 10.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 882.0,
+  "mean_slope_m_per_km": 49.63,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.63311,
+      "lon": 26.09189,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.63533,
+      "lon": 26.09239,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.63976,
+      "lon": 26.09337,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.64861,
+      "lon": 26.09534,
+      "depth_m": 54.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.65747,
+      "lon": 26.09732,
+      "depth_m": 81.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.67518,
+      "lon": 26.10127,
+      "depth_m": 541.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.70175,
+      "lon": 26.10719,
+      "depth_m": 1088.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.73718,
+      "lon": 26.1151,
+      "depth_m": 1144.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.79031,
+      "lon": 26.12697,
+      "depth_m": 882.0
+    }
+  ]
+}

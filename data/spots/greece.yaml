@@ -1,0 +1,38 @@
+# Rosa spot database - Greece (seeded 2026-11-12). Crete's west and south coasts, the Ionian (Lefkada, Messinia),
+# Tinos and Ikaria in the Aegean, Karpathos and Attica: W-NW winter storm swell on the west-facing coasts,
+# N meltemi wind swell in the Aegean. Breaks face every way; swell_window is per spot.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Greece"
+
+defaults: &gr
+  timezone: Europe/Athens
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [220, 350]
+  ideal:
+    wind_dir: [60, 150]
+    size_m: [0.5, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - greece, 17 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: kathisma, name: "Kathisma", town: "Agios Nikitas", lat: 38.7762, lon: 20.5997, offshore_direction: 95, swell_window: [210, 340], offshore_km: 5.0, break_type: beach, <<: *gr }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: varkiza, name: "Varkiza", town: "Varkiza", lat: 37.8202, lon: 23.8096, offshore_direction: 5, swell_window: [120, 250], offshore_km: 5.0, break_type: beach, <<: *gr }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: livadi-ikaria, name: "Livadi (Ikaria)", town: "Armenistis", lat: 37.6309, lon: 26.0914, offshore_direction: 190, swell_window: [305, 75], offshore_km: 5.0, break_type: beach, <<: *gr }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: messakti, name: "Messakti", town: "Armenistis", lat: 37.6306, lon: 26.0976, offshore_direction: 180, swell_window: [295, 65], offshore_km: 5.0, break_type: beach, <<: *gr }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: kolymbithra, name: "Kolymbithra", town: "Tinos", lat: 37.6304, lon: 25.1413, offshore_direction: 190, swell_window: [305, 75], offshore_km: 5.0, break_type: beach, <<: *gr }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: livada-tinos, name: "Livada", town: "Steni", lat: 37.6102, lon: 25.2372, offshore_direction: 200, swell_window: [315, 85], offshore_km: 5.0, break_type: beach, <<: *gr }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: lagouvardos, name: "Lagouvardos", town: "Marathopoli", lat: 37.0905, lon: 21.5823, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, break_type: beach, <<: *gr }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: chrissi-akti-chania, name: "Chrissi Akti (Golden Beach)", town: "Chania", lat: 35.5125, lon: 23.9900, offshore_direction: 210, swell_window: [325, 95], offshore_km: 5.0, break_type: beach, <<: *gr }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: falasarna, name: "Falasarna", town: "Falasarna", lat: 35.4923, lon: 23.5798, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, break_type: beach, <<: *gr }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: agios-nikolaos-arkasa, name: "Agios Nikolaos (Arkasa)", town: "Arkasa", lat: 35.4734, lon: 27.1123, offshore_direction: 55, shore_normal: 280, swell_window: [215, 345], offshore_km: 5.0, break_type: beach, <<: *gr }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: sfinari, name: "Sfinari", town: "Sfinari", lat: 35.4186, lon: 23.5634, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, break_type: beach, <<: *gr }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: arina, name: "Arina", town: "Kokkini Hani", lat: 35.3318, lon: 25.2406, offshore_direction: 165, swell_window: [280, 50], offshore_km: 5.0, break_type: beach, <<: *gr }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: pachia-ammos-paleochora, name: "Pachia Ammos (Paleochora)", town: "Paleochora", lat: 35.2320, lon: 23.6784, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: beach, <<: *gr }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: agia-galini, name: "Agia Galini", town: "Agia Galini", lat: 35.0979, lon: 24.6931, offshore_direction: 355, swell_window: [110, 240], offshore_km: 5.0, break_type: rivermouth, <<: *gr }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: kokkinos-pyrgos, name: "Kokkinos Pyrgos", town: "Tympaki", lat: 35.0845, lon: 24.7341, offshore_direction: 50, swell_window: [165, 295], offshore_km: 5.0, break_type: beach, <<: *gr }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: makrigialos, name: "Makrigialos", town: "Makrigialos", lat: 35.0377, lon: 25.9864, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, break_type: beach, <<: *gr }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: kommos, name: "Kommos", town: "Pitsidia", lat: 35.0139, lon: 24.7600, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, break_type: beach, <<: *gr }  # sat-verified 2026-11-12 (osm-seeded)

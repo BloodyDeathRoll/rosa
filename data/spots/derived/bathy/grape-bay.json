@@ -1,0 +1,72 @@
+{
+  "spot": "grape-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    32.2817,
+    -64.7675
+  ],
+  "bearing_seaward_deg": 135.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 2754.0,
+  "mean_slope_m_per_km": 155.21,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.28011,
+      "lon": -64.76562,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.27852,
+      "lon": -64.76374,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.27534,
+      "lon": -64.75998,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.26898,
+      "lon": -64.75246,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.26262,
+      "lon": -64.74494,
+      "depth_m": 106.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.2499,
+      "lon": -64.7299,
+      "depth_m": 999.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.23081,
+      "lon": -64.70736,
+      "depth_m": 1631.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.20536,
+      "lon": -64.67731,
+      "depth_m": 2061.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.16716,
+      "lon": -64.63228,
+      "depth_m": 2754.0
+    }
+  ]
+}

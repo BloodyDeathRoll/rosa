@@ -1,0 +1,21 @@
+# Rosa spot database - Timor-Leste (seeded 2026-11-12). Cristo Rei, on Dili's north coast: short-period
+# NW monsoon wind swell, Dec-Mar (season is TODO verify - no source states it).
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Timor-Leste"
+
+defaults: &tl
+  timezone: Asia/Dili
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [205, 335]
+  ideal:
+    wind_dir: [45, 135]
+    size_m: [0.5, 1.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - timor-leste, 1 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: cristo-rei, name: "Cristo Rei", town: "Dili", lat: -8.5228, lon: 125.6090, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, break_type: reef, <<: *tl }  # sat-verified 2026-11-12 (websearch-seeded)

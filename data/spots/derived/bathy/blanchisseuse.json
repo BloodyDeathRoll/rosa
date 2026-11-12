@@ -1,0 +1,72 @@
+{
+  "spot": "blanchisseuse",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.7967,
+    -61.3028
+  ],
+  "bearing_seaward_deg": 0.0,
+  "nearshore_depth_m": -53.0,
+  "offshore_depth_m": 64.0,
+  "mean_slope_m_per_km": 6.59,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.79895,
+      "lon": -61.3028,
+      "depth_m": -53.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.8012,
+      "lon": -61.3028,
+      "depth_m": -33.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.80569,
+      "lon": -61.3028,
+      "depth_m": -13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.81469,
+      "lon": -61.3028,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.82368,
+      "lon": -61.3028,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.84167,
+      "lon": -61.3028,
+      "depth_m": 42.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.86865,
+      "lon": -61.3028,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.90462,
+      "lon": -61.3028,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.95858,
+      "lon": -61.3028,
+      "depth_m": 64.0
+    }
+  ]
+}

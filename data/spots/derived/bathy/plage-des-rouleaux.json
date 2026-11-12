@@ -1,0 +1,72 @@
+{
+  "spot": "plage-des-rouleaux",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    16.2735,
+    -61.2433
+  ],
+  "bearing_seaward_deg": 50.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 2988.0,
+  "mean_slope_m_per_km": 168.11,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 16.27495,
+      "lon": -61.24151,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 16.27639,
+      "lon": -61.23971,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 16.27928,
+      "lon": -61.23612,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 16.28506,
+      "lon": -61.22895,
+      "depth_m": 261.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 16.29084,
+      "lon": -61.22177,
+      "depth_m": 384.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.3024,
+      "lon": -61.20741,
+      "depth_m": 496.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.31974,
+      "lon": -61.18587,
+      "depth_m": 1031.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.34285,
+      "lon": -61.15715,
+      "depth_m": 1947.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.37751,
+      "lon": -61.11405,
+      "depth_m": 2988.0
+    }
+  ]
+}

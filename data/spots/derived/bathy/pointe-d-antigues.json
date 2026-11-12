@@ -1,0 +1,72 @@
+{
+  "spot": "pointe-d-antigues",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    16.4374,
+    -61.5411
+  ],
+  "bearing_seaward_deg": 280.0,
+  "nearshore_depth_m": 18.0,
+  "offshore_depth_m": 485.0,
+  "mean_slope_m_per_km": 26.31,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 16.43779,
+      "lon": -61.54341,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 16.43818,
+      "lon": -61.54572,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 16.43896,
+      "lon": -61.55033,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 16.44052,
+      "lon": -61.55957,
+      "depth_m": 212.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 16.44208,
+      "lon": -61.5688,
+      "depth_m": 254.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.4452,
+      "lon": -61.58727,
+      "depth_m": 290.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.44988,
+      "lon": -61.61498,
+      "depth_m": 324.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.45611,
+      "lon": -61.65192,
+      "depth_m": 397.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.46544,
+      "lon": -61.70734,
+      "depth_m": 485.0
+    }
+  ]
+}

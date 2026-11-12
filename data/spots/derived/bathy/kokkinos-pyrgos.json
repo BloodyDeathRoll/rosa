@@ -1,0 +1,72 @@
+{
+  "spot": "kokkinos-pyrgos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.0845,
+    24.7341
+  ],
+  "bearing_seaward_deg": 230.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 416.0,
+  "mean_slope_m_per_km": 23.1,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.08305,
+      "lon": 24.732,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.08161,
+      "lon": 24.72989,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.07872,
+      "lon": 24.72568,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.07294,
+      "lon": 24.71726,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.06716,
+      "lon": 24.70885,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.05559,
+      "lon": 24.69202,
+      "depth_m": 91.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.03824,
+      "lon": 24.66679,
+      "depth_m": 164.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.01509,
+      "lon": 24.63316,
+      "depth_m": 227.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.98035,
+      "lon": 24.58275,
+      "depth_m": 416.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "petit-havre",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    16.2088,
+    -61.4263
+  ],
+  "bearing_seaward_deg": 200.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 356.0,
+  "mean_slope_m_per_km": 19.55,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 16.20669,
+      "lon": -61.4271,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 16.20457,
+      "lon": -61.4279,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 16.20035,
+      "lon": -61.4295,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 16.1919,
+      "lon": -61.43271,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 16.18345,
+      "lon": -61.43591,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.16655,
+      "lon": -61.44231,
+      "depth_m": 284.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.14119,
+      "lon": -61.45192,
+      "depth_m": 430.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.10739,
+      "lon": -61.46472,
+      "depth_m": 445.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.05668,
+      "lon": -61.48391,
+      "depth_m": 356.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "plage-de-cluny",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    16.3544,
+    -61.7572
+  ],
+  "bearing_seaward_deg": 350.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 782.0,
+  "mean_slope_m_per_km": 43.77,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 16.35661,
+      "lon": -61.75761,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 16.35883,
+      "lon": -61.75801,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 16.36326,
+      "lon": -61.75883,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 16.37211,
+      "lon": -61.76046,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 16.38097,
+      "lon": -61.76208,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.39868,
+      "lon": -61.76534,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.42525,
+      "lon": -61.77022,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.46068,
+      "lon": -61.77674,
+      "depth_m": 417.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.51382,
+      "lon": -61.78652,
+      "depth_m": 782.0
+    }
+  ]
+}

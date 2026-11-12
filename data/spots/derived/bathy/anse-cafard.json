@@ -1,0 +1,72 @@
+{
+  "spot": "anse-cafard",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    14.4693,
+    -61.0457
+  ],
+  "bearing_seaward_deg": 120.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 478.0,
+  "mean_slope_m_per_km": 26.7,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 14.46818,
+      "lon": -61.04369,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 14.46705,
+      "lon": -61.04168,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 14.4648,
+      "lon": -61.03766,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 14.46031,
+      "lon": -61.02961,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 14.45581,
+      "lon": -61.02157,
+      "depth_m": 264.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 14.44681,
+      "lon": -61.00549,
+      "depth_m": 378.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 14.43332,
+      "lon": -60.98136,
+      "depth_m": 497.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 14.41532,
+      "lon": -60.9492,
+      "depth_m": 775.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 14.38832,
+      "lon": -60.90097,
+      "depth_m": 478.0
+    }
+  ]
+}

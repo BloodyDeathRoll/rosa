@@ -39,13 +39,30 @@ BASINS: dict[str, tuple[str, ...]] = {
     "israel": ("Israel",),
     # Cyprus sits in the same Levantine wind-swell sea as Israel but 300 km north-west;
     # its own frame keeps Israel's box as it is
-    "cyprus": ("Cyprus",),
+    # Lebanon, Alanya on Turkey's south coast and Alexandria (seeded 2026-11-12) ring the same sea
+    "cyprus": ("Cyprus", "Lebanon", "Turkey Med", "Egypt"),
+    # Greece: the Ionian, Crete and the Aegean in one frame
+    "greece": ("Greece",),
+    # the western Black Sea: Istanbul's north coast and Sozopol, short N-NE wind swell
+    "black-sea": ("Turkey Black Sea", "Bulgaria"),
     # Sicily sits between the Tyrrhenian (north coast, NW mistral swell), the Strait of
     # Sicily (south coast, SW-S) and the Ionian (east coast, SE-E): its own frame
-    "sicily": ("Sicily",),
+    # Malta, 90 km south of Sicily, rides in the same frame
+    "sicily": ("Sicily", "Malta"),
     # mainland Italy's Tyrrhenian / Ligurian coast and Sardinia: one western-Mediterranean frame
     # on the same mistral (NW) and libeccio (SW) wind swell; Sicily keeps its own
-    "tyrrhenian": ("Liguria", "Tuscany", "Lazio", "Sardinia", "Campania"),
+    # Provence and Corsica (seeded 2026-11-12) continue it west and across the Ligurian Sea
+    "tyrrhenian": (
+        "Liguria",
+        "Tuscany",
+        "Lazio",
+        "Sardinia",
+        "Campania",
+        "Provence",
+        "Corsica",
+    ),
+    # the northern and central Adriatic, Ravenna to Ancona: bora (NE) and scirocco (SE) wind swell
+    "adriatic": ("Emilia Romagna", "Marche"),
     # southern Italy east of Campania: the Gulf of Taranto, the Ionian and the southern Adriatic
     # (scirocco SE, levante E, bora N-NE wind swell); Calabria's and Basilicata's short Tyrrhenian
     # stretch rides in the same frame
@@ -55,7 +72,15 @@ BASINS: dict[str, tuple[str, ...]] = {
     "algeria": ("Algeria",),
     # the Spanish Mediterranean: the north shore of the same western Mediterranean that
     # Algeria faces (Levante and Gulf of Lion wind swell); Algeria keeps its own frame
-    "western-med": ("Catalonia", "Valencia", "Murcia", "Andalusia", "Balearic Islands"),
+    # Languedoc is the Gulf of Lion shore of the same sea
+    "western-med": (
+        "Catalonia",
+        "Valencia",
+        "Murcia",
+        "Andalusia",
+        "Balearic Islands",
+        "Languedoc",
+    ),
     # Brazil in two frames: the south and south-east (Rio Grande do Sul to Espirito Santo)
     # takes Southern Ocean groundswell from the S-SE; the north-east (Bahia to Ceara, plus
     # Noronha) the SE trade swell and, in the north, North Atlantic groundswell
@@ -84,6 +109,11 @@ BASINS: dict[str, tuple[str, ...]] = {
     # north-facing coast (Basque Country to Galicia) is the bay's southern shore
     "biscay-celtic": (
         "Landes",
+        # the coast between Brittany and the Landes, seeded 2026-11-12
+        "Loire Atlantique",
+        "Vendee",
+        "Charente Maritime",
+        "Gironde",
         "Brittany",
         "Normandy",
         "Cornwall Devon",
@@ -133,8 +163,12 @@ BASINS: dict[str, tuple[str, ...]] = {
     # India's two coasts face opposite seas: the west coast takes the SW monsoon and
     # Southern Ocean swell up the Arabian Sea, the east coast S-SE swell and cyclone swell
     # in the Bay of Bengal - one box over both would swallow the whole subcontinent
-    "arabian-sea": ("Goa", "Karnataka", "Kerala"),
-    "bay-of-bengal": ("Tamil Nadu", "Andhra Pradesh", "Odisha"),
+    "arabian-sea": ("Goa", "Karnataka", "Kerala", "Maharashtra"),
+    # Myanmar's Ngwe Saung and Little Andaman sit on the east side of the same bay
+    "bay-of-bengal": ("Tamil Nadu", "Andhra Pradesh", "Odisha", "Myanmar", "Andaman"),
+    # the north-west Arabian Sea: Oman's east coast, the Makran coast of Iran and Pakistan and
+    # Karachi take the same SW monsoon swell; Dubai's Gulf wind swell rides in the frame
+    "gulf-of-oman": ("Oman", "Pakistan", "Iran", "United Arab Emirates"),
     # Hokkaido joins Honshu's frame: the same NE Pacific / Sea of Japan swell, and the
     # padded Honshu box already reaches 44 N
     "japan": ("Japan", "Hokkaido"),
@@ -147,7 +181,8 @@ BASINS: dict[str, tuple[str, ...]] = {
     "philippines": ("Philippines",),
     # the east coast of Peninsular Malaysia: NE monsoon wind swell off the South China Sea, Nov-Mar;
     # the Philippines box would have to stretch 2,000 km south-west
-    "malaysia": ("Malaysia",),
+    # Sabah and Brunei face the same sea from Borneo's north-west coast
+    "malaysia": ("Malaysia", "Sabah", "Brunei"),
     "california": ("California",),
     # Oregon + Washington share one Pacific Northwest frame: 900 km of one coastline;
     # Vancouver Island's west coast (Tofino, Jordan River) continues it north
@@ -174,6 +209,8 @@ BASINS: dict[str, tuple[str, ...]] = {
     # tracking up the seaboard; one frame from Florida to New England
     "us-east": (
         "South Florida",
+        # Eleuthera and Abaco face the same Atlantic 300 km east of Florida
+        "Bahamas",
         "Florida Space Coast",
         "Florida Northeast",
         "Georgia",
@@ -206,12 +243,35 @@ BASINS: dict[str, tuple[str, ...]] = {
     # the southern Caribbean: NE trade windswell and the winter N swells on the Colombian
     # and Venezuelan coasts, Cartagena to the Paria peninsula; Barbados, the Atlantic edge
     # of the Lesser Antilles, takes the same trade swell; Tobago sits between them
-    "caribbean-south": ("Colombia Caribbean", "Venezuela", "Barbados", "Tobago"),
+    # Trinidad, Curacao and Martinique (seeded 2026-11-12) sit in the same frame
+    "caribbean-south": (
+        "Colombia Caribbean",
+        "Venezuela",
+        "Barbados",
+        "Tobago",
+        "Trinidad",
+        "Curacao",
+        "Martinique",
+    ),
     # the northern Caribbean: Hispaniola's north coast faces the open North Atlantic winter
     # swell, its south coast the Caribbean - a frame of its own; Puerto Rico's Rincon and
     # Isabela coasts sit 130 km east on the same winter swell, Tortola's north shore 100 km
     # further east
-    "caribbean-north": ("Dominican Republic", "Puerto Rico", "British Virgin Islands"),
+    # further east; the northern Lesser Antilles down to Guadeloupe continue it, and Jamaica
+    # sits west of Hispaniola in the same sea (seeded 2026-11-12)
+    "caribbean-north": (
+        "Dominican Republic",
+        "Puerto Rico",
+        "British Virgin Islands",
+        "Us Virgin Islands",
+        "Saint Martin",
+        "Saint Barthelemy",
+        "Antigua",
+        "Guadeloupe",
+        "Jamaica",
+    ),
+    # Bermuda, 1,000 km off Cape Hatteras: its own small frame
+    "bermuda": ("Bermuda",),
     # the Galapagos, 900 km offshore: its own small frame rather than stretching Ecuador's
     "galapagos": ("Galapagos",),
     # Chile in two frames: the desert north (Arica to Antofagasta) takes the same S-SW
@@ -257,13 +317,18 @@ BASINS: dict[str, tuple[str, ...]] = {
         "Krui",
         # Phuket and Khao Lak, 500 km NE of Aceh up the Andaman Sea: the same SW monsoon swell
         "Thailand",
+        # Raijua (Savu Sea) and Dili, east of Rote on the same arc
+        "Savu",
+        "Timor Leste",
     ),
     "french-polynesia": ("French Polynesia",),
     "fiji": ("Fiji",),
     # Melanesia, seeded 2026-09-21: PNG's two clusters sit ~1,300 km apart on the same
     # north coast and ~2,000 km from Vanuatu/New Caledonia - each gets its own frame
     # rather than one box that would swallow most of the Coral Sea
-    "papua-new-guinea": ("Papua New Guinea",),
+    # Indonesian Papua's north coast (Jayapura is 30 km from Vanimo) and Morotai take the same
+    # N Pacific swell
+    "papua-new-guinea": ("Papua New Guinea", "Papua", "Maluku"),
     "vanuatu": ("Vanuatu",),
     "new-caledonia": ("New Caledonia",),
     "solomon-islands": ("Solomon Islands",),
@@ -275,7 +340,8 @@ BASINS: dict[str, tuple[str, ...]] = {
     "tonga": ("Tonga",),
     # the northern South China Sea: Hainan, the Guangdong coast and Hong Kong share the NE
     # monsoon swell in winter and the SW monsoon / typhoon swell in summer
-    "south-china-sea": ("Hainan", "Guangdong", "Hong Kong"),
+    # Vietnam faces the same sea from the west
+    "south-china-sea": ("Hainan", "Guangdong", "Hong Kong", "Vietnam"),
     # Fujian north through Zhoushan to Qingdao: the Taiwan Strait and East China Sea coast,
     # NE monsoon swell down the strait and typhoon swell tracking north in summer
     "east-china-sea": ("Fujian", "Zhejiang", "Shandong"),

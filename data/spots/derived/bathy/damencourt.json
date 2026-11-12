@@ -1,0 +1,72 @@
+{
+  "spot": "damencourt",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    16.3363,
+    -61.3621
+  ],
+  "bearing_seaward_deg": 0.0,
+  "nearshore_depth_m": 18.0,
+  "offshore_depth_m": 733.0,
+  "mean_slope_m_per_km": 40.28,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 16.33855,
+      "lon": -61.3621,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 16.3408,
+      "lon": -61.3621,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 16.34529,
+      "lon": -61.3621,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 16.35429,
+      "lon": -61.3621,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 16.36328,
+      "lon": -61.3621,
+      "depth_m": 458.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.38127,
+      "lon": -61.3621,
+      "depth_m": 521.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.40825,
+      "lon": -61.3621,
+      "depth_m": 670.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.44422,
+      "lon": -61.3621,
+      "depth_m": 512.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.49818,
+      "lon": -61.3621,
+      "depth_m": 733.0
+    }
+  ]
+}

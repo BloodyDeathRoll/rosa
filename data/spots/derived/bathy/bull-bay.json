@@ -1,0 +1,72 @@
+{
+  "spot": "bull-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    17.941,
+    -76.6882
+  ],
+  "bearing_seaward_deg": 200.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 591.0,
+  "mean_slope_m_per_km": 32.62,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 17.93889,
+      "lon": -76.68901,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 17.93677,
+      "lon": -76.68982,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 17.93255,
+      "lon": -76.69143,
+      "depth_m": 85.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 17.9241,
+      "lon": -76.69467,
+      "depth_m": 208.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 17.91565,
+      "lon": -76.6979,
+      "depth_m": 334.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 17.89875,
+      "lon": -76.70436,
+      "depth_m": 541.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 17.87339,
+      "lon": -76.71405,
+      "depth_m": 282.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 17.83959,
+      "lon": -76.72697,
+      "depth_m": 750.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 17.78888,
+      "lon": -76.74635,
+      "depth_m": 591.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "anse-a-la-gourde",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    16.2595,
+    -61.2155
+  ],
+  "bearing_seaward_deg": 20.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 3135.0,
+  "mean_slope_m_per_km": 176.56,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 16.26161,
+      "lon": -61.2147,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 16.26373,
+      "lon": -61.2139,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 16.26795,
+      "lon": -61.2123,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 16.2764,
+      "lon": -61.20909,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 16.28485,
+      "lon": -61.20589,
+      "depth_m": 150.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.30175,
+      "lon": -61.19948,
+      "depth_m": 650.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.32711,
+      "lon": -61.18986,
+      "depth_m": 1233.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.36091,
+      "lon": -61.17703,
+      "depth_m": 2034.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.41161,
+      "lon": -61.15778,
+      "depth_m": 3135.0
+    }
+  ]
+}

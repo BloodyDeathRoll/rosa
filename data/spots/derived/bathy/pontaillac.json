@@ -1,0 +1,72 @@
+{
+  "spot": "pontaillac",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    45.6261,
+    -1.052
+  ],
+  "bearing_seaward_deg": 225.0,
+  "nearshore_depth_m": 13.0,
+  "offshore_depth_m": 9.0,
+  "mean_slope_m_per_km": -0.23,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 4,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 45.62451,
+      "lon": -1.05427,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 45.62292,
+      "lon": -1.05655,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 45.61974,
+      "lon": -1.06109,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 45.61338,
+      "lon": -1.07018,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 45.60702,
+      "lon": -1.07927,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 45.5943,
+      "lon": -1.09744,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 45.5752,
+      "lon": -1.12468,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 45.54974,
+      "lon": -1.16097,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 45.51152,
+      "lon": -1.21534,
+      "depth_m": 9.0
+    }
+  ]
+}

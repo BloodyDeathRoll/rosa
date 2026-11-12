@@ -1,0 +1,72 @@
+{
+  "spot": "les-huttes",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    46.0072,
+    -1.3922
+  ],
+  "bearing_seaward_deg": 245.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 34.0,
+  "mean_slope_m_per_km": 1.97,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.00625,
+      "lon": -1.39513,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.0053,
+      "lon": -1.39807,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.0034,
+      "lon": -1.40393,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 45.9996,
+      "lon": -1.41567,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 45.99579,
+      "lon": -1.4274,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 45.98818,
+      "lon": -1.45085,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 45.97676,
+      "lon": -1.48603,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 45.96151,
+      "lon": -1.5329,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 45.93859,
+      "lon": -1.60316,
+      "depth_m": 34.0
+    }
+  ]
+}

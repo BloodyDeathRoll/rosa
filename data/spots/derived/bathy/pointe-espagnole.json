@@ -1,0 +1,72 @@
+{
+  "spot": "pointe-espagnole",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    45.78,
+    -1.2431
+  ],
+  "bearing_seaward_deg": 275.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 28.0,
+  "mean_slope_m_per_km": 1.24,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 45.7802,
+      "lon": -1.24631,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 45.78039,
+      "lon": -1.24952,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 45.78078,
+      "lon": -1.25595,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 45.78156,
+      "lon": -1.26879,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 45.78234,
+      "lon": -1.28164,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 45.7839,
+      "lon": -1.30733,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 45.78622,
+      "lon": -1.34588,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 45.7893,
+      "lon": -1.39728,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 45.79388,
+      "lon": -1.47439,
+      "depth_m": 28.0
+    }
+  ]
+}

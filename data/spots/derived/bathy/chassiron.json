@@ -1,0 +1,72 @@
+{
+  "spot": "chassiron",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    46.0472,
+    -1.4126
+  ],
+  "bearing_seaward_deg": 275.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 25.0,
+  "mean_slope_m_per_km": 1.41,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.0474,
+      "lon": -1.41583,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.04759,
+      "lon": -1.41905,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.04798,
+      "lon": -1.42551,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 46.04876,
+      "lon": -1.43842,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 46.04954,
+      "lon": -1.45133,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.0511,
+      "lon": -1.47714,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.05342,
+      "lon": -1.51588,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.0565,
+      "lon": -1.56752,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.06107,
+      "lon": -1.645,
+      "depth_m": 25.0
+    }
+  ]
+}

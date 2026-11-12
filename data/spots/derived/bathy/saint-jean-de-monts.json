@@ -1,0 +1,72 @@
+{
+  "spot": "saint-jean-de-monts",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    46.7856,
+    -2.0844
+  ],
+  "bearing_seaward_deg": 220.0,
+  "nearshore_depth_m": -3.0,
+  "offshore_depth_m": 28.0,
+  "mean_slope_m_per_km": 1.75,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.78388,
+      "lon": -2.08651,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.78216,
+      "lon": -2.08862,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.77871,
+      "lon": -2.09284,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 46.77182,
+      "lon": -2.10128,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 46.76493,
+      "lon": -2.10972,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.75115,
+      "lon": -2.12658,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.73047,
+      "lon": -2.15187,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.70289,
+      "lon": -2.18555,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.66149,
+      "lon": -2.23601,
+      "depth_m": 28.0
+    }
+  ]
+}

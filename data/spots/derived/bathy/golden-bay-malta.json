@@ -1,0 +1,72 @@
+{
+  "spot": "golden-bay-malta",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.9339,
+    14.3441
+  ],
+  "bearing_seaward_deg": 265.0,
+  "nearshore_depth_m": -18.0,
+  "offshore_depth_m": 340.0,
+  "mean_slope_m_per_km": 20.17,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.9337,
+      "lon": 14.34133,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.93351,
+      "lon": 14.33857,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.93312,
+      "lon": 14.33304,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.93233,
+      "lon": 14.32197,
+      "depth_m": 86.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.93154,
+      "lon": 14.31091,
+      "depth_m": 147.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.92997,
+      "lon": 14.28878,
+      "depth_m": 183.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.9276,
+      "lon": 14.25559,
+      "depth_m": 191.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.92442,
+      "lon": 14.21134,
+      "depth_m": 204.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.91963,
+      "lon": 14.14497,
+      "depth_m": 340.0
+    }
+  ]
+}

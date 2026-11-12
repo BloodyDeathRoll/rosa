@@ -1,0 +1,25 @@
+# Rosa spot database - Languedoc (seeded 2026-11-12). Sete, Palavas and Carnon on the Gulf of Lion:
+# short-period SE-E marin wind swell, cleaned up by the offshore tramontane and mistral.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "France"
+
+defaults: &lng
+  timezone: Europe/Paris
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [95, 225]
+  ideal:
+    wind_dir: [295, 25]
+    size_m: [0.5, 1.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - languedoc, 5 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: carnon-roquilles, name: "Carnon - Les Roquilles", town: "Carnon-Plage", lat: 43.5401, lon: 3.9681, offshore_direction: 335, swell_window: [90, 220], offshore_km: 5.0, break_type: beach, <<: *lng }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: palavas-hotel-de-ville, name: "Palavas - La Mairie", town: "Palavas-les-Flots", lat: 43.5275, lon: 3.9345, offshore_direction: 320, swell_window: [75, 205], offshore_km: 5.0, break_type: jetty, <<: *lng }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: palavas-coquilles, name: "Palavas - Les Coquilles", town: "Palavas-les-Flots", lat: 43.5248, lon: 3.9287, offshore_direction: 345, swell_window: [100, 230], offshore_km: 5.0, break_type: beach, <<: *lng }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: le-prevost, name: "Le Prévost", town: "Palavas-les-Flots", lat: 43.5178, lon: 3.9087, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, break_type: beach, <<: *lng }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: le-lazaret, name: "Le Lazaret", town: "Sète", lat: 43.3920, lon: 3.6731, offshore_direction: 10, swell_window: [125, 255], offshore_km: 5.0, break_type: beach, <<: *lng }  # sat-verified 2026-11-12 (websearch-seeded)

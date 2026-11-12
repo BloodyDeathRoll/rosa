@@ -1,0 +1,21 @@
+# Rosa spot database - Bermuda (seeded 2026-11-12). The south shore: hurricane swell Aug-Oct, otherwise storm wind swell.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Bermuda"
+
+defaults: &bm
+  timezone: Atlantic/Bermuda
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [82, 212]
+  ideal:
+    wind_dir: [282, 12]
+    size_m: [0.8, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - bermuda, 2 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: grape-bay, name: "Grape Bay", town: "Paget", lat: 32.2817, lon: -64.7675, offshore_direction: 315, swell_window: [70, 200], offshore_km: 5.0, break_type: beach, <<: *bm }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: horseshoe-bay, name: "Horseshoe Bay", town: "Southampton", lat: 32.2519, lon: -64.8215, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, break_type: beach, <<: *bm }  # sat-verified 2026-11-12 (websearch-seeded)

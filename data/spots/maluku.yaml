@@ -1,0 +1,21 @@
+# Rosa spot database - Maluku (seeded 2026-11-12). Morotai's north cape: N-NE Pacific swell in the
+# north monsoon, Nov-Mar.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Indonesia"
+
+defaults: &mlk
+  timezone: Asia/Jayapura
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [260, 30]
+  ideal:
+    wind_dir: [100, 190]
+    size_m: [1.0, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - maluku, 1 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: tanjung-sopi, name: "Tanjung Sopi", town: "Sopi", lat: 2.6469, lon: 128.5605, offshore_direction: 145, swell_window: [260, 30], offshore_km: 5.0, break_type: reef, <<: *mlk }  # sat-verified 2026-11-12 (websearch-seeded)

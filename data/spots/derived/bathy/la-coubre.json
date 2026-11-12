@@ -1,0 +1,72 @@
+{
+  "spot": "la-coubre",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    45.696,
+    -1.237
+  ],
+  "bearing_seaward_deg": 265.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 32.0,
+  "mean_slope_m_per_km": 1.75,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 45.6958,
+      "lon": -1.24021,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 45.69561,
+      "lon": -1.24341,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 45.69522,
+      "lon": -1.24983,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 45.69443,
+      "lon": -1.26265,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 45.69364,
+      "lon": -1.27548,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 45.69206,
+      "lon": -1.30113,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 45.68968,
+      "lon": -1.3396,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 45.68649,
+      "lon": -1.39089,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 45.68166,
+      "lon": -1.46782,
+      "depth_m": 32.0
+    }
+  ]
+}

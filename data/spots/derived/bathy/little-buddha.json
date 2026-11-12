@@ -1,0 +1,72 @@
+{
+  "spot": "little-buddha",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.936,
+    108.1839
+  ],
+  "bearing_seaward_deg": 180.0,
+  "nearshore_depth_m": -16.0,
+  "offshore_depth_m": 18.0,
+  "mean_slope_m_per_km": 1.92,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.93375,
+      "lon": 108.1839,
+      "depth_m": -16.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.9315,
+      "lon": 108.1839,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.92701,
+      "lon": 108.1839,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.91801,
+      "lon": 108.1839,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.90902,
+      "lon": 108.1839,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.89103,
+      "lon": 108.1839,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.86405,
+      "lon": 108.1839,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.82808,
+      "lon": 108.1839,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.77412,
+      "lon": 108.1839,
+      "depth_m": 18.0
+    }
+  ]
+}

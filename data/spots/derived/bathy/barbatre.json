@@ -1,0 +1,72 @@
+{
+  "spot": "barbatre",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    46.9428,
+    -2.1906
+  ],
+  "bearing_seaward_deg": 230.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 1.07,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.94135,
+      "lon": -2.19312,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.93991,
+      "lon": -2.19565,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.93702,
+      "lon": -2.20069,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 46.93124,
+      "lon": -2.21078,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 46.92545,
+      "lon": -2.22086,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.91389,
+      "lon": -2.24103,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.89653,
+      "lon": -2.27126,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.87337,
+      "lon": -2.31153,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.8386,
+      "lon": -2.37188,
+      "depth_m": 20.0
+    }
+  ]
+}

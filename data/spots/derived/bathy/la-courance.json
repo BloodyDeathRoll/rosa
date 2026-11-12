@@ -1,0 +1,72 @@
+{
+  "spot": "la-courance",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    47.2394,
+    -2.2724
+  ],
+  "bearing_seaward_deg": 185.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 17.0,
+  "mean_slope_m_per_km": 0.85,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 47.23716,
+      "lon": -2.27269,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 47.23492,
+      "lon": -2.27298,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 47.23044,
+      "lon": -2.27355,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 47.22148,
+      "lon": -2.27471,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 47.21252,
+      "lon": -2.27586,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 47.1946,
+      "lon": -2.27817,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 47.16773,
+      "lon": -2.28162,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 47.13189,
+      "lon": -2.28623,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 47.07814,
+      "lon": -2.29312,
+      "depth_m": 17.0
+    }
+  ]
+}

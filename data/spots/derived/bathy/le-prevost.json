@@ -1,0 +1,72 @@
+{
+  "spot": "le-prevost",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.5178,
+    3.9087
+  ],
+  "bearing_seaward_deg": 150.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 57.0,
+  "mean_slope_m_per_km": 2.93,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.51585,
+      "lon": 3.91025,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.51391,
+      "lon": 3.9118,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.51001,
+      "lon": 3.9149,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.50222,
+      "lon": 3.9211,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.49443,
+      "lon": 3.9273,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.47885,
+      "lon": 3.93968,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.45548,
+      "lon": 3.95826,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.42432,
+      "lon": 3.983,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.37756,
+      "lon": 4.02006,
+      "depth_m": 57.0
+    }
+  ]
+}

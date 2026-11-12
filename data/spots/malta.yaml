@@ -1,0 +1,21 @@
+# Rosa spot database - Malta (seeded 2026-11-12). Ghajn Tuffieha and Golden Bay on the west coast: NW mistral swell.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Malta"
+
+defaults: &mt
+  timezone: Europe/Malta
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [210, 340]
+  ideal:
+    wind_dir: [50, 140]
+    size_m: [0.5, 1.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - malta, 2 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: golden-bay-malta, name: "Golden Bay", town: "Mellieħa", lat: 35.9339, lon: 14.3441, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, break_type: beach, <<: *mt }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: ghajn-tuffieha, name: "Għajn Tuffieħa", town: "Mġarr", lat: 35.9291, lon: 14.3448, offshore_direction: 105, swell_window: [220, 350], offshore_km: 5.0, break_type: beach, <<: *mt }  # sat-verified 2026-11-12 (websearch-seeded)

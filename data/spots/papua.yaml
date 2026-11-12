@@ -1,0 +1,23 @@
+# Rosa spot database - Papua (seeded 2026-11-12). Manokwari and Jayapura on Indonesian New Guinea's
+# north coast: N Pacific swell, Oct-Mar, peak Nov-Feb.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Indonesia"
+
+defaults: &ppa
+  timezone: Asia/Jayapura
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [313, 83]
+  ideal:
+    wind_dir: [153, 243]
+    size_m: [1.0, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - papua, 3 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: amban, name: "Amban", town: "Manokwari", lat: -0.8145, lon: 134.0785, offshore_direction: 195, swell_window: [310, 80], offshore_km: 5.0, break_type: beach, <<: *ppa }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: cape-bakaro, name: "Cape Bakaro", town: "Manokwari", lat: -0.8613, lon: 134.1336, offshore_direction: 195, swell_window: [310, 80], offshore_km: 5.0, break_type: point, <<: *ppa }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: holtekamp, name: "Holtekamp", town: "Jayapura", lat: -2.6244, lon: 140.7492, offshore_direction: 205, swell_window: [320, 90], offshore_km: 5.0, break_type: beach, <<: *ppa }  # sat-verified 2026-11-12 (osm-seeded)

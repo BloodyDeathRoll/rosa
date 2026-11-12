@@ -1,0 +1,24 @@
+# Rosa spot database - Bahamas (seeded 2026-11-12). Eleuthera (Gregory Town) and Elbow Cay, Abaco: N-NE Atlantic
+# winter swell and autumn hurricane swell on the ocean side.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Bahamas"
+
+defaults: &bs
+  timezone: America/Nassau
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [15, 145]
+  ideal:
+    wind_dir: [215, 305]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - bahamas, 4 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: rush-reef, name: "Rush Reef", town: "Hope Town", lat: 26.5133, lon: -76.9715, offshore_direction: 290, swell_window: [45, 175], offshore_km: 5.0, break_type: reef, <<: *bs }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: garbanzo, name: "Garbanzo", town: "Hope Town", lat: 26.5071, lon: -76.9749, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, break_type: reef, <<: *bs }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: holiday-beach, name: "Holiday Beach", town: "Gregory Town", lat: 25.4058, lon: -76.5519, offshore_direction: 225, swell_window: [340, 110], offshore_km: 5.0, break_type: reef, <<: *bs }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: surfers-beach-eleuthera, name: "Surfer's Beach", town: "Gregory Town", lat: 25.3821, lon: -76.5257, offshore_direction: 225, swell_window: [340, 110], offshore_km: 5.0, break_type: reef, <<: *bs }  # sat-verified 2026-11-12 (websearch-seeded)

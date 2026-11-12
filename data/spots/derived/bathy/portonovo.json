@@ -1,0 +1,72 @@
+{
+  "spot": "portonovo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.5655,
+    13.5909
+  ],
+  "bearing_seaward_deg": 350.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 29.0,
+  "mean_slope_m_per_km": 1.18,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.56771,
+      "lon": 13.59036,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.56993,
+      "lon": 13.58982,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.57436,
+      "lon": 13.58874,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.58321,
+      "lon": 13.58659,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.59207,
+      "lon": 13.58443,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.60978,
+      "lon": 13.58012,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.63635,
+      "lon": 13.57364,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.67178,
+      "lon": 13.56499,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.72491,
+      "lon": 13.552,
+      "depth_m": 29.0
+    }
+  ]
+}

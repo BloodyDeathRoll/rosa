@@ -1,0 +1,24 @@
+# Rosa spot database - Loire-Atlantique (seeded 2026-11-12). Batz-sur-Mer to the Loire mouth: sheltered by
+# Belle-Ile and the Loire shoals, so it needs solid W-SW winter swell (swell character TODO verify).
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "France"
+
+defaults: &la
+  timezone: Europe/Paris
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [157, 287]
+  ideal:
+    wind_dir: [357, 87]
+    size_m: [0.8, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - loire-atlantique, 4 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: plage-valentin, name: "Plage Valentin", town: "Batz-sur-Mer", lat: 47.2798, lon: -2.4978, offshore_direction: 35, swell_window: [150, 280], offshore_km: 5.0, break_type: beach, <<: *la }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: la-govelle, name: "La Govelle", town: "Batz-sur-Mer", lat: 47.2663, lon: -2.4566, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, break_type: reef, <<: *la }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: la-courance, name: "La Courance", town: "Saint-Nazaire", lat: 47.2394, lon: -2.2724, offshore_direction: 5, swell_window: [120, 250], offshore_km: 5.0, break_type: beach, <<: *la }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: gohaud, name: "Gohaud", town: "Saint-Michel-Chef-Chef", lat: 47.1913, lon: -2.1617, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, break_type: beach, <<: *la }  # sat-verified 2026-11-12 (websearch-seeded)

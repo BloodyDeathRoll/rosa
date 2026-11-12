@@ -1,0 +1,72 @@
+{
+  "spot": "la-pergola",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    46.1897,
+    -1.4326
+  ],
+  "bearing_seaward_deg": 215.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 1.18,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.18786,
+      "lon": -1.43446,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.18602,
+      "lon": -1.43633,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.18233,
+      "lon": -1.44005,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 46.17497,
+      "lon": -1.4475,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 46.1676,
+      "lon": -1.45494,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.15286,
+      "lon": -1.46983,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.13075,
+      "lon": -1.49215,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.10126,
+      "lon": -1.52187,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.05702,
+      "lon": -1.5664,
+      "depth_m": 20.0
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+# Rosa spot database - Oman (seeded 2026-11-12). The Arabian Sea coast south of Ras al Hadd:
+# SW monsoon (khareef) swell May-Sep, small NE wind swell in winter.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Oman"
+
+defaults: &om
+  timezone: Asia/Muscat
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [32, 162]
+  ideal:
+    wind_dir: [232, 322]
+    size_m: [0.8, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - oman, 2 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: ras-al-hadd, name: "Ras al Hadd", town: "Ras al Hadd", lat: 22.5025, lon: 59.8055, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, break_type: beach, <<: *om }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: al-ashkharah, name: "Al Ashkharah", town: "Al Ashkharah", lat: 21.8379, lon: 59.5728, offshore_direction: 315, swell_window: [70, 200], offshore_km: 5.0, break_type: beach, <<: *om }  # sat-verified 2026-11-12 (websearch-seeded)

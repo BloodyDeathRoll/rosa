@@ -1,0 +1,32 @@
+# Rosa spot database - Guadeloupe (seeded 2026-11-12). Le Moule, Port-Louis and Anse-Bertrand on Grande-Terre,
+# plus the south coast: winter N-NE Atlantic swell (Oct-Mar) and year-round E trade wind swell.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Guadeloupe"
+
+defaults: &gp
+  timezone: America/Guadeloupe
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [290, 60]
+  ideal:
+    wind_dir: [130, 220]
+    size_m: [0.8, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - guadeloupe, 12 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: plage-de-la-chapelle, name: "Plage de la Chapelle", town: "Anse-Bertrand", lat: 16.4716, lon: -61.5129, offshore_direction: 170, swell_window: [285, 55], offshore_km: 5.0, break_type: reef, <<: *gp }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: pointe-d-antigues, name: "Pointe d'Antigues", town: "Port-Louis", lat: 16.4374, lon: -61.5411, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, break_type: reef, <<: *gp }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: anse-du-souffleur, name: "Anse du Souffleur", town: "Port-Louis", lat: 16.4237, lon: -61.5333, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, break_type: reef, <<: *gp }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: plage-de-cluny, name: "Plage de Cluny", town: "Sainte-Rose", lat: 16.3544, lon: -61.7572, offshore_direction: 170, swell_window: [285, 55], offshore_km: 5.0, break_type: beach, <<: *gp }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: damencourt, name: "Damencourt", town: "Le Moule", lat: 16.3363, lon: -61.3621, offshore_direction: 180, swell_window: [295, 65], offshore_km: 5.0, break_type: reef, <<: *gp }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: anse-salabouelle, name: "Anse Salabouelle", town: "Le Moule", lat: 16.3254, lon: -61.3048, offshore_direction: 185, swell_window: [300, 70], offshore_km: 5.0, break_type: reef, <<: *gp }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: plage-des-rouleaux, name: "Plage des Rouleaux", town: "Saint-Francois", lat: 16.2735, lon: -61.2433, offshore_direction: 230, swell_window: [345, 115], offshore_km: 5.0, break_type: beach, <<: *gp }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: anse-a-la-gourde, name: "Anse a la Gourde", town: "Saint-Francois", lat: 16.2595, lon: -61.2155, offshore_direction: 200, swell_window: [315, 85], offshore_km: 5.0, break_type: reef, <<: *gp }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: le-helleux, name: "Le Helleux", town: "Sainte-Anne", lat: 16.2416, lon: -61.3394, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, break_type: reef, <<: *gp }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: la-caravelle-gp, name: "La Caravelle (Digue)", town: "Sainte-Anne", lat: 16.2157, lon: -61.3940, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, break_type: reef, <<: *gp }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: petit-havre, name: "Petit-Havre", town: "Le Gosier", lat: 16.2088, lon: -61.4263, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, break_type: reef, <<: *gp }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: bananier, name: "Bananier", town: "Capesterre-Belle-Eau", lat: 15.9997, lon: -61.6030, offshore_direction: 310, swell_window: [65, 195], offshore_km: 5.0, break_type: beach, <<: *gp }  # sat-verified 2026-11-12 (websearch-seeded)

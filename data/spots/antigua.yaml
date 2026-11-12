@@ -1,0 +1,20 @@
+# Rosa spot database - Antigua (seeded 2026-11-12). Galley Bay on the west coast: N swell in winter.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Antigua and Barbuda"
+
+defaults: &ag
+  timezone: America/Antigua
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [250, 20]
+  ideal:
+    wind_dir: [90, 180]
+    size_m: [0.8, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - antigua, 1 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: galley-bay, name: "Galley Bay", town: "Five Islands", lat: 17.1218, lon: -61.8922, offshore_direction: 135, swell_window: [250, 20], offshore_km: 5.0, break_type: reef, <<: *ag }  # sat-verified 2026-11-12 (websearch-seeded)

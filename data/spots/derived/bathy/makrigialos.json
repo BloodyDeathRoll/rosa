@@ -1,0 +1,72 @@
+{
+  "spot": "makrigialos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.0377,
+    25.9864
+  ],
+  "bearing_seaward_deg": 200.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 619.0,
+  "mean_slope_m_per_km": 34.76,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.03559,
+      "lon": 25.98546,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.03347,
+      "lon": 25.98452,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.02925,
+      "lon": 25.98264,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.0208,
+      "lon": 25.97889,
+      "depth_m": 90.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.01235,
+      "lon": 25.97513,
+      "depth_m": 143.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 34.99544,
+      "lon": 25.96763,
+      "depth_m": 434.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 34.97009,
+      "lon": 25.95637,
+      "depth_m": 782.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 34.93628,
+      "lon": 25.94138,
+      "depth_m": 695.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 34.88557,
+      "lon": 25.91891,
+      "depth_m": 619.0
+    }
+  ]
+}

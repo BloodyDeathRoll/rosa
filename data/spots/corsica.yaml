@@ -1,0 +1,28 @@
+# Rosa spot database - Corsica (seeded 2026-11-12). The west coast (Ajaccio) and the Balagne (Algajola, Lozari),
+# plus Farinole on Cap Corse: W-NW mistral and libeccio swell.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "France"
+
+defaults: &cor
+  timezone: Europe/Paris
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [217, 347]
+  ideal:
+    wind_dir: [57, 147]
+    size_m: [0.6, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - corsica, 8 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: farinole, name: "Farinole", town: "Farinole", lat: 42.7346, lon: 9.3445, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, break_type: beach, <<: *cor }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: ostriconi, name: "Ostriconi", town: "Palasca", lat: 42.6624, lon: 9.0610, offshore_direction: 110, swell_window: [225, 355], offshore_km: 5.0, break_type: beach, <<: *cor }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: lozari, name: "Lozari", town: "Belgodère", lat: 42.6417, lon: 9.0166, offshore_direction: 150, swell_window: [265, 35], offshore_km: 5.0, break_type: beach, <<: *cor }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: algajola, name: "Algajola", town: "Algajola", lat: 42.6101, lon: 8.8715, offshore_direction: 140, swell_window: [255, 25], offshore_km: 5.0, break_type: beach, <<: *cor }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: sainte-restitude, name: "Sainte-Restitude", town: "Lumio", lat: 42.5695, lon: 8.8041, offshore_direction: 120, swell_window: [235, 5], offshore_km: 5.0, break_type: rivermouth, <<: *cor }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: capo-di-feno, name: "Capo di Feno", town: "Ajaccio", lat: 41.9374, lon: 8.6226, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: beach, <<: *cor }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: ruppione, name: "Ruppione", town: "Pietrosella", lat: 41.8324, lon: 8.7841, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: beach, <<: *cor }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: cupabia, name: "Cupabia", town: "Serra-di-Ferro", lat: 41.7373, lon: 8.7829, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, break_type: beach, <<: *cor }  # sat-verified 2026-11-12 (websearch-seeded)

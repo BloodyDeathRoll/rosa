@@ -1,0 +1,72 @@
+{
+  "spot": "porto-corsini",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    44.4982,
+    12.2861
+  ],
+  "bearing_seaward_deg": 75.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 26.0,
+  "mean_slope_m_per_km": 1.35,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 44.49878,
+      "lon": 12.28914,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 44.49936,
+      "lon": 12.29219,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 44.50053,
+      "lon": 12.29828,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 44.50285,
+      "lon": 12.31046,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 44.50518,
+      "lon": 12.32264,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 44.50982,
+      "lon": 12.34701,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 44.51678,
+      "lon": 12.38356,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 44.52604,
+      "lon": 12.43231,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 44.53989,
+      "lon": 12.50547,
+      "depth_m": 26.0
+    }
+  ]
+}

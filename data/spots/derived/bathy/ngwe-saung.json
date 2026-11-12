@@ -1,0 +1,72 @@
+{
+  "spot": "ngwe-saung",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    16.86,
+    94.3861
+  ],
+  "bearing_seaward_deg": 235.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 45.0,
+  "mean_slope_m_per_km": 3.1,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 16.85871,
+      "lon": 94.38418,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 16.85742,
+      "lon": 94.38225,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 16.85484,
+      "lon": 94.3784,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 16.84968,
+      "lon": 94.37071,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 16.84452,
+      "lon": 94.36301,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.8342,
+      "lon": 94.34762,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.81872,
+      "lon": 94.32453,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.79808,
+      "lon": 94.29376,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.7671,
+      "lon": 94.24761,
+      "depth_m": 45.0
+    }
+  ]
+}

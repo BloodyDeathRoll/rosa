@@ -1,0 +1,72 @@
+{
+  "spot": "gazagnaire",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.5395,
+    7.0394
+  ],
+  "bearing_seaward_deg": 100.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 963.0,
+  "mean_slope_m_per_km": 54.08,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.53911,
+      "lon": 7.04245,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.53872,
+      "lon": 7.04551,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.53794,
+      "lon": 7.05162,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.53637,
+      "lon": 7.06383,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.53481,
+      "lon": 7.07605,
+      "depth_m": 73.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.53168,
+      "lon": 7.10048,
+      "depth_m": 201.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.52697,
+      "lon": 7.13712,
+      "depth_m": 319.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.52067,
+      "lon": 7.18597,
+      "depth_m": 683.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.51118,
+      "lon": 7.25921,
+      "depth_m": 963.0
+    }
+  ]
+}

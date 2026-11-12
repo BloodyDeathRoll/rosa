@@ -1,0 +1,72 @@
+{
+  "spot": "rock-island-rimini",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    44.0796,
+    12.5757
+  ],
+  "bearing_seaward_deg": 50.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 23.0,
+  "mean_slope_m_per_km": 1.01,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 44.08105,
+      "lon": 12.5781,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 44.08249,
+      "lon": 12.5805,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 44.08538,
+      "lon": 12.58529,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 44.09116,
+      "lon": 12.59488,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 44.09694,
+      "lon": 12.60448,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 44.10849,
+      "lon": 12.62367,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 44.12582,
+      "lon": 12.65248,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 44.14891,
+      "lon": 12.69091,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 44.18352,
+      "lon": 12.74862,
+      "depth_m": 23.0
+    }
+  ]
+}

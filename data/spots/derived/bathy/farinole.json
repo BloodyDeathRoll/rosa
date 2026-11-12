@@ -1,0 +1,72 @@
+{
+  "spot": "farinole",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.7346,
+    9.3445
+  ],
+  "bearing_seaward_deg": 280.0,
+  "nearshore_depth_m": 14.0,
+  "offshore_depth_m": 46.0,
+  "mean_slope_m_per_km": 1.8,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.73499,
+      "lon": 9.34149,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.73538,
+      "lon": 9.33847,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.73616,
+      "lon": 9.33244,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.73772,
+      "lon": 9.32038,
+      "depth_m": 102.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.73928,
+      "lon": 9.30832,
+      "depth_m": 134.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.74239,
+      "lon": 9.2842,
+      "depth_m": 144.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.74705,
+      "lon": 9.24802,
+      "depth_m": 87.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.75325,
+      "lon": 9.19976,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.7625,
+      "lon": 9.12736,
+      "depth_m": 46.0
+    }
+  ]
+}

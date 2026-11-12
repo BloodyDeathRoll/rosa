@@ -1,0 +1,72 @@
+{
+  "spot": "anse-salabouelle",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    16.3254,
+    -61.3048
+  ],
+  "bearing_seaward_deg": 5.0,
+  "nearshore_depth_m": -2.0,
+  "offshore_depth_m": 2237.0,
+  "mean_slope_m_per_km": 126.14,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 16.32764,
+      "lon": -61.3046,
+      "depth_m": -2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 16.32988,
+      "lon": -61.30439,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 16.33436,
+      "lon": -61.30398,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 16.34332,
+      "lon": -61.30317,
+      "depth_m": 40.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 16.35228,
+      "lon": -61.30235,
+      "depth_m": 170.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.37019,
+      "lon": -61.30072,
+      "depth_m": 789.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.39707,
+      "lon": -61.29826,
+      "depth_m": 1110.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.43291,
+      "lon": -61.29499,
+      "depth_m": 1597.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.48666,
+      "lon": -61.29009,
+      "depth_m": 2237.0
+    }
+  ]
+}

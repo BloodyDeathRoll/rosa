@@ -1,0 +1,72 @@
+{
+  "spot": "les-arnettes",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.3359,
+    5.0306
+  ],
+  "bearing_seaward_deg": 225.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 100.0,
+  "mean_slope_m_per_km": 5.07,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.33431,
+      "lon": 5.02841,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.33272,
+      "lon": 5.02623,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.32954,
+      "lon": 5.02186,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.32318,
+      "lon": 5.01312,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.31682,
+      "lon": 5.00438,
+      "depth_m": 57.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.3041,
+      "lon": 4.98691,
+      "depth_m": 71.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.28501,
+      "lon": 4.96071,
+      "depth_m": 78.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.25954,
+      "lon": 4.92582,
+      "depth_m": 89.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.22133,
+      "lon": 4.87352,
+      "depth_m": 100.0
+    }
+  ]
+}

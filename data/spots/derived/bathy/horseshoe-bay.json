@@ -1,0 +1,72 @@
+{
+  "spot": "horseshoe-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    32.2519,
+    -64.8215
+  ],
+  "bearing_seaward_deg": 160.0,
+  "nearshore_depth_m": 12.0,
+  "offshore_depth_m": 3291.0,
+  "mean_slope_m_per_km": 184.73,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 32.24979,
+      "lon": -64.82059,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 32.24767,
+      "lon": -64.81968,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 32.24345,
+      "lon": -64.81786,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 32.235,
+      "lon": -64.81423,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 32.22655,
+      "lon": -64.81059,
+      "depth_m": 205.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 32.20964,
+      "lon": -64.80332,
+      "depth_m": 1129.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 32.18429,
+      "lon": -64.79243,
+      "depth_m": 1847.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 32.15048,
+      "lon": -64.7779,
+      "depth_m": 2531.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 32.09977,
+      "lon": -64.75614,
+      "depth_m": 3291.0
+    }
+  ]
+}

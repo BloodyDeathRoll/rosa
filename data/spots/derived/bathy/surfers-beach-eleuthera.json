@@ -1,0 +1,72 @@
+{
+  "spot": "surfers-beach-eleuthera",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    25.3821,
+    -76.5257
+  ],
+  "bearing_seaward_deg": 45.0,
+  "nearshore_depth_m": 9.0,
+  "offshore_depth_m": 4238.0,
+  "mean_slope_m_per_km": 238.25,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 25.38369,
+      "lon": -76.52394,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 25.38528,
+      "lon": -76.52218,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 25.38846,
+      "lon": -76.51866,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 25.39482,
+      "lon": -76.51162,
+      "depth_m": 58.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 25.40118,
+      "lon": -76.50458,
+      "depth_m": 224.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 25.41389,
+      "lon": -76.4905,
+      "depth_m": 1064.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 25.43296,
+      "lon": -76.46937,
+      "depth_m": 2292.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 25.45839,
+      "lon": -76.44118,
+      "depth_m": 3073.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 25.49651,
+      "lon": -76.39888,
+      "depth_m": 4238.0
+    }
+  ]
+}

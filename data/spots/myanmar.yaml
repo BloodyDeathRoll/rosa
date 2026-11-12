@@ -1,0 +1,21 @@
+# Rosa spot database - Myanmar (seeded 2026-11-12). Ngwe Saung on the Bay of Bengal: SW swell,
+# biggest May-Jun before the rains.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Myanmar"
+
+defaults: &mm
+  timezone: Asia/Yangon
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [170, 300]
+  ideal:
+    wind_dir: [10, 100]
+    size_m: [0.6, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - myanmar, 1 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: ngwe-saung, name: "Ngwe Saung", town: "Ngwe Saung", lat: 16.8600, lon: 94.3861, offshore_direction: 55, swell_window: [170, 300], offshore_km: 5.0, break_type: beach, <<: *mm }  # sat-verified 2026-11-12 (websearch-seeded)

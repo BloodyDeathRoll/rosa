@@ -1,0 +1,72 @@
+{
+  "spot": "ghajn-tuffieha",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.9291,
+    14.3448
+  ],
+  "bearing_seaward_deg": 285.0,
+  "nearshore_depth_m": -18.0,
+  "offshore_depth_m": 241.0,
+  "mean_slope_m_per_km": 14.59,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.92968,
+      "lon": 14.34212,
+      "depth_m": -18.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.93026,
+      "lon": 14.33944,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.93143,
+      "lon": 14.33407,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.93375,
+      "lon": 14.32334,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.93608,
+      "lon": 14.31261,
+      "depth_m": 143.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.94073,
+      "lon": 14.29115,
+      "depth_m": 181.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.94769,
+      "lon": 14.25896,
+      "depth_m": 191.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.95696,
+      "lon": 14.21602,
+      "depth_m": 210.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.97084,
+      "lon": 14.1516,
+      "depth_m": 241.0
+    }
+  ]
+}

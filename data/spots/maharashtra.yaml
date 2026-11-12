@@ -1,0 +1,23 @@
+# Rosa spot database - Maharashtra (seeded 2026-11-12). The Konkan coast, Virar to Devgad: SW monsoon
+# swell Jun-Sep is big and messy; the surfable shoulders are Sep-Nov and Mar-May.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "India"
+
+defaults: &mh
+  timezone: Asia/Kolkata
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [182, 312]
+  ideal:
+    wind_dir: [22, 112]
+    size_m: [0.6, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - maharashtra, 3 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: rajodi, name: "Rajodi Beach", town: "Virar", lat: 19.4355, lon: 72.7538, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: beach, <<: *mh }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: ganpatipule, name: "Ganpatipule", town: "Ganpatipule", lat: 17.1467, lon: 73.2654, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, break_type: beach, <<: *mh }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: devgad, name: "Devgad Beach", town: "Devgad", lat: 16.3737, lon: 73.3716, offshore_direction: 55, swell_window: [170, 300], offshore_km: 5.0, break_type: beach, <<: *mh }  # sat-verified 2026-11-12 (websearch-seeded)

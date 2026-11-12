@@ -1,0 +1,72 @@
+{
+  "spot": "holtekamp",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -2.6244,
+    140.7492
+  ],
+  "bearing_seaward_deg": 25.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 830.0,
+  "mean_slope_m_per_km": 46.7,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -2.62236,
+      "lon": 140.75015,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -2.62032,
+      "lon": 140.7511,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -2.61625,
+      "lon": 140.753,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -2.6081,
+      "lon": 140.75681,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -2.59995,
+      "lon": 140.76061,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -2.58365,
+      "lon": 140.76822,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -2.55919,
+      "lon": 140.77964,
+      "depth_m": 108.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -2.52659,
+      "lon": 140.79485,
+      "depth_m": 329.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -2.47769,
+      "lon": 140.81768,
+      "depth_m": 830.0
+    }
+  ]
+}

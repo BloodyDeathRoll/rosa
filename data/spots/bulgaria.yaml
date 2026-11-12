@@ -1,0 +1,20 @@
+# Rosa spot database - Bulgaria (seeded 2026-11-12). Harmani beach, Sozopol: E-NE Black Sea wind swell.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Bulgaria"
+
+defaults: &bg
+  timezone: Europe/Sofia
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [355, 125]
+  ideal:
+    wind_dir: [195, 285]
+    size_m: [0.5, 1.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - bulgaria, 1 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: harmani, name: "Harmani", town: "Sozopol", lat: 42.4133, lon: 27.7014, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, break_type: beach, <<: *bg }  # sat-verified 2026-11-12 (websearch-seeded)

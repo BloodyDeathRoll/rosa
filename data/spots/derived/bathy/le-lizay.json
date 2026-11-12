@@ -1,0 +1,72 @@
+{
+  "spot": "le-lizay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    46.2576,
+    -1.5136
+  ],
+  "bearing_seaward_deg": 315.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 17.0,
+  "mean_slope_m_per_km": 0.73,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.25919,
+      "lon": -1.5159,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.26078,
+      "lon": -1.5182,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.26396,
+      "lon": -1.5228,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 46.27032,
+      "lon": -1.532,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 46.27667,
+      "lon": -1.5412,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.28939,
+      "lon": -1.55961,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.30845,
+      "lon": -1.58725,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.33386,
+      "lon": -1.62412,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.37194,
+      "lon": -1.6795,
+      "depth_m": 17.0
+    }
+  ]
+}

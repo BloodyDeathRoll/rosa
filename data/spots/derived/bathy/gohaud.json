@@ -1,0 +1,72 @@
+{
+  "spot": "gohaud",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    47.1913,
+    -2.1617
+  ],
+  "bearing_seaward_deg": 265.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 16.0,
+  "mean_slope_m_per_km": 1.24,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 47.1911,
+      "lon": -2.165,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 47.19091,
+      "lon": -2.16829,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 47.19052,
+      "lon": -2.17488,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 47.18973,
+      "lon": -2.18807,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 47.18894,
+      "lon": -2.20125,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 47.18736,
+      "lon": -2.22761,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 47.18498,
+      "lon": -2.26716,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 47.18179,
+      "lon": -2.31988,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 47.17695,
+      "lon": -2.39894,
+      "depth_m": 16.0
+    }
+  ]
+}

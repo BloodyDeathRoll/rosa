@@ -222,7 +222,7 @@ the fix on the committed profile, not on the sweep**.
 - Keep the primary and secondary flows **both** running on a region - they find different
   spots (primary = comprehensive coastline incl. unnamed Tier-B; secondary = famous named).
 
-## 5. Session log & queue (as of 2026-11-04, DB = 4000 spots, ALL sat-verified)
+## 5. Session log & queue (as of 2026-11-12, DB = 4200 spots, ALL sat-verified)
 
 **Famous-break gap pass, 3593 -> 3602 (2026-11-04).** A hand-written list of ~470 well-known breaks
 was matched against every DB name (accent-folded tokens), every miss geocoded with Nominatim and
@@ -295,8 +295,38 @@ Two subagents, web flow, every pin re-checked by the coordinator on a contact sh
 - **Operator pins:** Blackfellows (Elliston), Little Kirra (Gold Coast, 0.4 km W of `kirra`), Pigeon
   Point (Tobago). Dakhla's country set to "Morocco" by operator decision.
 
-**Gap queue (famous breaks, whole areas with zero spots):** empty - the famous-break list is closed.
-Next is the unnamed-coastline frontier. Ireland is excluded by operator decision.
+**Zero-spot areas: Asia 37, France Atlantic 52, Caribbean 48, Mediterranean 63 - 4000 -> 4200 (2026-11-12).**
+The 2026-11-04 "closed" queue was closed against a 470-name list; a box count over the DB still found
+whole coasts with no spot. Seven subagents (web flow: discovery + render + judge, no repo edits), every
+pin re-read by the coordinator on contact sheets. 41 new region files: greece 17, charente-maritime 16, gironde 16, vendee 16, provence 14, guadeloupe 12, vietnam 12, corsica 8, martinique 8, trinidad 8, emilia-romagna 6, languedoc 5, pakistan 5, bahamas 4, jamaica 4, loire-atlantique 4, sabah 4, saint-martin 4, lebanon 3, maharashtra 3, papua 3, saint-barthelemy 3, bermuda 2, malta 2, marche 2, oman 2, turkey-black-sea 2, turkey-med 2, andaman 1, antigua 1, brunei 1, bulgaria 1, curacao 1, egypt 1, iran 1, maluku 1, myanmar 1, savu 1, timor-leste 1, united-arab-emirates 1, us-virgin-islands 1.
+- **Coordinator cut, 129 of 329 agent pins dropped.** Kept only confidence >= 0.65 (Mediterranean) or a
+  located take-off, and never a break whose ONLY evidence is a competitor listing's name
+  (surf-forecast, wannasurf, surf-report). That removed Bangladesh, Tunisia, Abruzzo, Molise, Veneto
+  and Romania whole, and Cap Saint-Louis and Dili Rock. The agents had already dropped Kumari
+  Point, Tim's Reef and Kelibia as unlocatable without competitor coordinates.
+- **Nothing locatable:** West Timor, Sulawesi, Sarawak, Labuan, Kalimantan, Cambodia, Muscat, Grenada,
+  Aruba / Bonaire. **Barely searched:** St Lucia, Dominica, St Vincent, Cuba, Haiti, Cayman, Croatia,
+  Albania, Montenegro, Libya, Syria, Georgia.
+- **`shore_normal` set by hand on 7 sheltered spots** (the bathy ray crossed land over a bay; the beach's
+  own `offshore_direction` is kept for wind): nam-o 40, le-phare-la-tranche 255, saint-nicolas-verdon 280,
+  soubregeon 320, le-lizay 315, pointe-rouge 280, agios-nikolaos-arkasa 280. Each was picked from the
+  middle of the open arc in a 10-deg GEBCO sweep, not the argmax. **Re-cut `tide --spot` after any
+  re-aim** - the sample point moves and `test_committed_tide_constants_match_their_spots` fails.
+- **Extracts:** `asia/{gcc-states,pakistan,iran,myanmar,bangladesh,vietnam,east-timor}`,
+  `europe/france/{pays-de-la-loire,poitou-charentes,languedoc-roussillon,provence-alpes-cote-d-azur,corse}`,
+  `europe/italy/nord-est`, `europe/{malta,greece,turkey,bulgaria,romania}`, `asia/lebanon`,
+  `africa/{egypt,tunisia}`. `central-america` covers the Lesser Antilles, Jamaica, Trinidad, the Bahamas
+  and Curacao. The Andamans are in `india-southern-zone`. **Bermuda has no Geofabrik extract.**
+- **Towns are the agents' labels** (the name people search), not `towns.py` output. Google stayed
+  `REQUEST_DENIED`; Nominatim returned nothing for whole batches, so many pins rest on Photon or the
+  local extract plus the tile.
+- New basins: `gulf-of-oman`, `adriatic`, `greece`, `black-sea`, `bermuda`. Lebanon, Alanya and
+  Alexandria joined `cyprus`; Provence and Corsica `tyrrhenian`; Languedoc `western-med`; Malta `sicily`.
+
+**Gap queue (whole areas with zero spots, by box count 2026-11-12):** New Zealand is thin (17). Still
+empty: west Africa (Ivory Coast, Togo / Benin / Nigeria, Gabon, Sao Tome, Mauritania), Queensland north
+of the Sunshine Coast, west Norway, north Brazil, Micronesia, Easter Island, Delaware / Maryland, the
+Great Lakes, Alaska, Haida Gwaii. Ireland is excluded by operator decision.
 
 
 **Azores 27, Madeira 25, Sumatra 28, Sumba 9 + Rote 5, 3499 -> 3593 (2026-10-29, second pass).** Four

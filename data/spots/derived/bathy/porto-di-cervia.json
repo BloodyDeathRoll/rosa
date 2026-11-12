@@ -1,0 +1,72 @@
+{
+  "spot": "porto-di-cervia",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    44.2694,
+    12.3588
+  ],
+  "bearing_seaward_deg": 65.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 21.0,
+  "mean_slope_m_per_km": 1.07,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 44.27035,
+      "lon": 12.36165,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 44.2713,
+      "lon": 12.36449,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 44.2732,
+      "lon": 12.37018,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 44.277,
+      "lon": 12.38157,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 44.2808,
+      "lon": 12.39295,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 44.28839,
+      "lon": 12.41573,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 44.29977,
+      "lon": 12.44991,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 44.31493,
+      "lon": 12.4955,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 44.33763,
+      "lon": 12.56392,
+      "depth_m": 21.0
+    }
+  ]
+}

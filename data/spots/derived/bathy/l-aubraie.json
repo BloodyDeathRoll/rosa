@@ -1,0 +1,72 @@
+{
+  "spot": "l-aubraie",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    46.5121,
+    -1.8189
+  ],
+  "bearing_seaward_deg": 265.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 33.0,
+  "mean_slope_m_per_km": 1.63,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.5119,
+      "lon": -1.82215,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.51171,
+      "lon": -1.82541,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.51132,
+      "lon": -1.83192,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 46.51053,
+      "lon": -1.84494,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 46.50974,
+      "lon": -1.85795,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.50816,
+      "lon": -1.88399,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.50578,
+      "lon": -1.92303,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.50259,
+      "lon": -1.97509,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.49775,
+      "lon": -2.05316,
+      "depth_m": 33.0
+    }
+  ]
+}

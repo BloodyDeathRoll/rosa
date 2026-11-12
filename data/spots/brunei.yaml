@@ -1,0 +1,21 @@
+# Rosa spot database - Brunei (seeded 2026-11-12). NE monsoon wind swell off the South China Sea,
+# Nov-Mar; low, unreliable beach breaks.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Brunei"
+
+defaults: &bn
+  timezone: Asia/Brunei
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [280, 50]
+  ideal:
+    wind_dir: [120, 210]
+    size_m: [0.5, 1.2]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - brunei, 1 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: tungku, name: "Pantai Tungku", town: "Jerudong", lat: 4.9809, lon: 114.8875, offshore_direction: 165, swell_window: [280, 50], offshore_km: 5.0, break_type: beach, <<: *bn }  # sat-verified 2026-11-12 (websearch-seeded)

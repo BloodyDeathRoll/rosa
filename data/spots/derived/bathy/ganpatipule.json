@@ -1,0 +1,72 @@
+{
+  "spot": "ganpatipule",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    17.1467,
+    73.2654
+  ],
+  "bearing_seaward_deg": 255.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 34.0,
+  "mean_slope_m_per_km": 1.63,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 17.14612,
+      "lon": 73.26313,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 17.14554,
+      "lon": 73.26085,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 17.14437,
+      "lon": 73.25631,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 17.14204,
+      "lon": 73.24722,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 17.13972,
+      "lon": 73.23813,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 17.13506,
+      "lon": 73.21995,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 17.12807,
+      "lon": 73.19268,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 17.11874,
+      "lon": 73.15633,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 17.10474,
+      "lon": 73.1018,
+      "depth_m": 34.0
+    }
+  ]
+}

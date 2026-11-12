@@ -1,0 +1,72 @@
+{
+  "spot": "grignon",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    46.2036,
+    -1.5353
+  ],
+  "bearing_seaward_deg": 250.0,
+  "nearshore_depth_m": -0.0,
+  "offshore_depth_m": 30.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.20283,
+      "lon": -1.53835,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.20206,
+      "lon": -1.54141,
+      "depth_m": -0.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.20052,
+      "lon": -1.54751,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 46.19745,
+      "lon": -1.55972,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 46.19437,
+      "lon": -1.57193,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.1882,
+      "lon": -1.59634,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.17895,
+      "lon": -1.63294,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.1666,
+      "lon": -1.68173,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.14802,
+      "lon": -1.75487,
+      "depth_m": 30.0
+    }
+  ]
+}

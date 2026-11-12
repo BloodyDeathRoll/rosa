@@ -1,0 +1,72 @@
+{
+  "spot": "sauveterre",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    46.5657,
+    -1.8405
+  ],
+  "bearing_seaward_deg": 260.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 32.0,
+  "mean_slope_m_per_km": 1.69,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.56531,
+      "lon": -1.84372,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.56492,
+      "lon": -1.84694,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.56414,
+      "lon": -1.85338,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 46.56257,
+      "lon": -1.86626,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 46.56101,
+      "lon": -1.87914,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.55787,
+      "lon": -1.9049,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.55316,
+      "lon": -1.94353,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.54686,
+      "lon": -1.99503,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.53736,
+      "lon": -2.07225,
+      "depth_m": 32.0
+    }
+  ]
+}

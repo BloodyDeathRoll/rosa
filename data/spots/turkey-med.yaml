@@ -1,0 +1,21 @@
+# Rosa spot database - Turkey, Mediterranean coast (seeded 2026-11-12). Alanya: S-SW storm swell, Dec-Apr.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Turkey"
+
+defaults: &trm
+  timezone: Europe/Istanbul
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [148, 278]
+  ideal:
+    wind_dir: [348, 78]
+    size_m: [0.5, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - turkey-med, 2 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: damlatas, name: "Damlatas", town: "Alanya", lat: 36.5418, lon: 31.9882, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, break_type: beach, <<: *trm }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: keykubat, name: "Keykubat", town: "Alanya", lat: 36.5393, lon: 32.0249, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, break_type: beach, <<: *trm }  # sat-verified 2026-11-12 (websearch-seeded)

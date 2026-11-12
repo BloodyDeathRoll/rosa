@@ -1,0 +1,72 @@
+{
+  "spot": "sunset-beach-dubai",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    25.1481,
+    55.1939
+  ],
+  "bearing_seaward_deg": 310.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 1.07,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 25.14955,
+      "lon": 55.192,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 25.15099,
+      "lon": 55.19009,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 25.15388,
+      "lon": 55.18629,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 25.15966,
+      "lon": 55.17868,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 25.16544,
+      "lon": 55.17107,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 25.177,
+      "lon": 55.15584,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 25.19433,
+      "lon": 55.13299,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 25.21744,
+      "lon": 55.10252,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 25.25209,
+      "lon": 55.05679,
+      "depth_m": 20.0
+    }
+  ]
+}

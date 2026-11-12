@@ -1,0 +1,32 @@
+# Rosa spot database - Vietnam (seeded 2026-11-12). Da Nang and Hoi An, Nha Trang, Mui Ne and Vung Tau:
+# NE monsoon wind swell and E typhoon swell off the South China Sea, Sep-Mar; mostly small beach breaks.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Vietnam"
+
+defaults: &vn
+  timezone: Asia/Ho_Chi_Minh
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [28, 158]
+  ideal:
+    wind_dir: [228, 318]
+    size_m: [0.5, 1.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - vietnam, 12 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: nam-o, name: "Nam O Point", town: "Da Nang", lat: 16.1165, lon: 108.1316, offshore_direction: 270, shore_normal: 40, swell_window: [335, 105], offshore_km: 5.0, break_type: point, <<: *vn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: man-thai, name: "Man Thai", town: "Da Nang", lat: 16.0854, lon: 108.2488, offshore_direction: 285, swell_window: [40, 170], offshore_km: 5.0, break_type: beach, <<: *vn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: my-khe, name: "My Khe", town: "Da Nang", lat: 16.0526, lon: 108.2488, offshore_direction: 255, swell_window: [10, 140], offshore_km: 5.0, break_type: beach, <<: *vn }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: non-nuoc, name: "Non Nuoc", town: "Da Nang", lat: 16.0054, lon: 108.2690, offshore_direction: 245, swell_window: [0, 130], offshore_km: 5.0, break_type: beach, <<: *vn }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: an-bang, name: "An Bang", town: "Hoi An", lat: 15.9146, lon: 108.3397, offshore_direction: 215, swell_window: [330, 100], offshore_km: 5.0, break_type: beach, <<: *vn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: hon-chong, name: "Hon Chong", town: "Nha Trang", lat: 12.2748, lon: 109.2029, offshore_direction: 270, swell_window: [25, 155], offshore_km: 5.0, break_type: reef, <<: *vn }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: nha-trang-beach, name: "Nha Trang Beach", town: "Nha Trang", lat: 12.2203, lon: 109.2054, offshore_direction: 230, swell_window: [345, 115], offshore_km: 5.0, break_type: beach, <<: *vn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: bai-dai, name: "Bai Dai", town: "Cam Ranh", lat: 12.0796, lon: 109.1976, offshore_direction: 255, swell_window: [10, 140], offshore_km: 5.0, break_type: beach, <<: *vn }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: suoi-nuoc, name: "Suoi Nuoc", town: "Mui Ne", lat: 10.9846, lon: 108.3434, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, break_type: beach, <<: *vn }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: ham-tien, name: "Ham Tien (Mui Ne Main Beach)", town: "Mui Ne", lat: 10.9518, lon: 108.2141, offshore_direction: 340, swell_window: [95, 225], offshore_km: 5.0, break_type: beach, <<: *vn }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: little-buddha, name: "Little Buddha", town: "Phan Thiet", lat: 10.9360, lon: 108.1839, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, break_type: point, <<: *vn }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: back-beach-vung-tau, name: "Back Beach (Bai Sau)", town: "Vung Tau", lat: 10.3373, lon: 107.0930, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, break_type: beach, <<: *vn }  # sat-verified 2026-11-12 (osm-seeded)

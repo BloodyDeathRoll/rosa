@@ -1,0 +1,72 @@
+{
+  "spot": "palm-beach-cannes",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.5352,
+    7.0383
+  ],
+  "bearing_seaward_deg": 160.0,
+  "nearshore_depth_m": 4.0,
+  "offshore_depth_m": 1414.0,
+  "mean_slope_m_per_km": 79.44,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.53309,
+      "lon": 7.03936,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.53097,
+      "lon": 7.04042,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.52675,
+      "lon": 7.04254,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.5183,
+      "lon": 7.04678,
+      "depth_m": -22.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.50985,
+      "lon": 7.05102,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.49294,
+      "lon": 7.0595,
+      "depth_m": 153.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.46759,
+      "lon": 7.0722,
+      "depth_m": 758.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.43378,
+      "lon": 7.08913,
+      "depth_m": 1368.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.38306,
+      "lon": 7.11448,
+      "depth_m": 1414.0
+    }
+  ]
+}

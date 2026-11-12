@@ -1,0 +1,20 @@
+# Rosa spot database - US Virgin Islands (seeded 2026-11-12). Hull Bay on St Thomas' north shore: N swell in winter.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "US Virgin Islands"
+
+defaults: &vi2
+  timezone: America/St_Thomas
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [275, 45]
+  ideal:
+    wind_dir: [115, 205]
+    size_m: [0.8, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - us-virgin-islands, 1 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: hull-bay, name: "Hull Bay", town: "Charlotte Amalie", lat: 18.3700, lon: -64.9560, offshore_direction: 160, swell_window: [275, 45], offshore_km: 5.0, break_type: reef, <<: *vi2 }  # sat-verified 2026-11-12 (websearch-seeded)

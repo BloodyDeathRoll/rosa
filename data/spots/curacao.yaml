@@ -1,0 +1,20 @@
+# Rosa spot database - Curacao (seeded 2026-11-12). Playa Kanoa on the north coast: trade wind swell.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Curacao"
+
+defaults: &cw
+  timezone: America/Curacao
+  height_coeff: 1.0
+  break_type: reef
+  swell_window: [295, 65]
+  ideal:
+    wind_dir: [135, 225]
+    size_m: [0.8, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - curacao, 1 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: playa-kanoa, name: "Playa Kanoa", town: "Willemstad", lat: 12.1753, lon: -68.8662, offshore_direction: 180, swell_window: [295, 65], offshore_km: 5.0, break_type: reef, <<: *cw }  # sat-verified 2026-11-12 (websearch-seeded)

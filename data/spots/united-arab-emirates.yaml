@@ -1,0 +1,21 @@
+# Rosa spot database - United Arab Emirates (seeded 2026-11-12). Dubai's Gulf coast: short-period
+# wind swell from the winter shamal (NW), Oct-Jun; flat in summer.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "United Arab Emirates"
+
+defaults: &ae
+  timezone: Asia/Dubai
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [245, 15]
+  ideal:
+    wind_dir: [85, 175]
+    size_m: [0.5, 1.2]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - united-arab-emirates, 1 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: sunset-beach-dubai, name: "Sunset Beach", town: "Dubai", lat: 25.1481, lon: 55.1939, offshore_direction: 130, swell_window: [245, 15], offshore_km: 5.0, break_type: beach, <<: *ae }  # sat-verified 2026-11-12 (websearch-seeded)

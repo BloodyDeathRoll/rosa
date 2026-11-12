@@ -1,0 +1,72 @@
+{
+  "spot": "playa-kanoa",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    12.1753,
+    -68.8662
+  ],
+  "bearing_seaward_deg": 0.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 1739.0,
+  "mean_slope_m_per_km": 98.31,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 12.17755,
+      "lon": -68.8662,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 12.1798,
+      "lon": -68.8662,
+      "depth_m": 143.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 12.18429,
+      "lon": -68.8662,
+      "depth_m": 215.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 12.19329,
+      "lon": -68.8662,
+      "depth_m": 366.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 12.20228,
+      "lon": -68.8662,
+      "depth_m": 486.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 12.22027,
+      "lon": -68.8662,
+      "depth_m": 810.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 12.24725,
+      "lon": -68.8662,
+      "depth_m": 1329.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 12.28322,
+      "lon": -68.8662,
+      "depth_m": 1615.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 12.33718,
+      "lon": -68.8662,
+      "depth_m": 1739.0
+    }
+  ]
+}

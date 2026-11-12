@@ -1,0 +1,21 @@
+# Rosa spot database - Iran (seeded 2026-11-12). Ramin, on the Makran coast east of Chabahar:
+# SW monsoon swell off the Arabian Sea, Jun-Sep.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Iran"
+
+defaults: &ir
+  timezone: Asia/Tehran
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [115, 245]
+  ideal:
+    wind_dir: [315, 45]
+    size_m: [0.8, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - iran, 1 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: ramin, name: "Ramin", town: "Chabahar", lat: 25.2689, lon: 60.7492, offshore_direction: 0, swell_window: [115, 245], offshore_km: 5.0, break_type: beach, <<: *ir }  # sat-verified 2026-11-12 (websearch-seeded)

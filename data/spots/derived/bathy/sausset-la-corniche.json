@@ -1,0 +1,72 @@
+{
+  "spot": "sausset-la-corniche",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.3288,
+    5.1206
+  ],
+  "bearing_seaward_deg": 180.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 105.0,
+  "mean_slope_m_per_km": 5.58,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.32655,
+      "lon": 5.1206,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.3243,
+      "lon": 5.1206,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.31981,
+      "lon": 5.1206,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.31081,
+      "lon": 5.1206,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.30182,
+      "lon": 5.1206,
+      "depth_m": 61.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.28383,
+      "lon": 5.1206,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.25685,
+      "lon": 5.1206,
+      "depth_m": 94.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.22088,
+      "lon": 5.1206,
+      "depth_m": 97.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.16692,
+      "lon": 5.1206,
+      "depth_m": 105.0
+    }
+  ]
+}

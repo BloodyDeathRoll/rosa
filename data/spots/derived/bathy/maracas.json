@@ -1,0 +1,72 @@
+{
+  "spot": "maracas",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.7593,
+    -61.44
+  ],
+  "bearing_seaward_deg": 20.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 81.0,
+  "mean_slope_m_per_km": 4.51,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.76141,
+      "lon": -61.43922,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.76353,
+      "lon": -61.43843,
+      "depth_m": 33.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.76775,
+      "lon": -61.43687,
+      "depth_m": 37.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.7762,
+      "lon": -61.43374,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.78465,
+      "lon": -61.43061,
+      "depth_m": 56.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.80155,
+      "lon": -61.42434,
+      "depth_m": 47.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.82691,
+      "lon": -61.41495,
+      "depth_m": 52.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.86071,
+      "lon": -61.40242,
+      "depth_m": 62.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.91141,
+      "lon": -61.38362,
+      "depth_m": 81.0
+    }
+  ]
+}

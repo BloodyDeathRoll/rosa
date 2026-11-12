@@ -1,0 +1,72 @@
+{
+  "spot": "kund-malir",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    25.3919,
+    65.4602
+  ],
+  "bearing_seaward_deg": 185.0,
+  "nearshore_depth_m": -9.0,
+  "offshore_depth_m": 20.0,
+  "mean_slope_m_per_km": 1.63,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 25.38966,
+      "lon": 65.45998,
+      "depth_m": -9.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 25.38742,
+      "lon": 65.45977,
+      "depth_m": -8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 25.38294,
+      "lon": 65.45933,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 25.37398,
+      "lon": 65.45847,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 25.36502,
+      "lon": 65.4576,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 25.34711,
+      "lon": 65.45586,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 25.32023,
+      "lon": 65.45326,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 25.28439,
+      "lon": 65.4498,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 25.23064,
+      "lon": 65.4446,
+      "depth_m": 20.0
+    }
+  ]
+}

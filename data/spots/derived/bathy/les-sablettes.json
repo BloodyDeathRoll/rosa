@@ -1,0 +1,72 @@
+{
+  "spot": "les-sablettes",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.0783,
+    5.8908
+  ],
+  "bearing_seaward_deg": 170.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 1806.0,
+  "mean_slope_m_per_km": 101.58,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.07609,
+      "lon": 5.89133,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.07387,
+      "lon": 5.89187,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.06944,
+      "lon": 5.89294,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.06059,
+      "lon": 5.89507,
+      "depth_m": 46.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.05173,
+      "lon": 5.89721,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.03402,
+      "lon": 5.90148,
+      "depth_m": 114.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.00745,
+      "lon": 5.90788,
+      "depth_m": 675.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.97202,
+      "lon": 5.91641,
+      "depth_m": 659.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.91888,
+      "lon": 5.92918,
+      "depth_m": 1806.0
+    }
+  ]
+}

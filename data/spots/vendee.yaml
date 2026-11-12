@@ -1,0 +1,36 @@
+# Rosa spot database - Vendee (seeded 2026-11-12). Noirmoutier and Ile d'Yeu to La Tranche-sur-Mer:
+# W-NW groundswell autumn to spring, offshore on an E wind; reefs at La Sauzaie and L'Aubraie.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "France"
+
+defaults: &ven
+  timezone: Europe/Paris
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [161, 291]
+  ideal:
+    wind_dir: [1, 91]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - vendee, 16 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: barbatre, name: "Barbatre (Plage du Midi)", town: "Barbatre", lat: 46.9428, lon: -2.1906, offshore_direction: 50, swell_window: [165, 295], offshore_km: 5.0, break_type: beach, <<: *ven }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: saint-jean-de-monts, name: "Saint-Jean-de-Monts (Estacade)", town: "Saint-Jean-de-Monts", lat: 46.7856, lon: -2.0844, offshore_direction: 40, swell_window: [155, 285], offshore_km: 5.0, break_type: beach, <<: *ven }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: les-demoiselles, name: "Les Demoiselles", town: "Saint-Hilaire-de-Riez", lat: 46.7744, lon: -2.0613, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, break_type: beach, <<: *ven }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: les-vieilles, name: "Les Vieilles", town: "L'Ile-d'Yeu", lat: 46.6949, lon: -2.3124, offshore_direction: 330, swell_window: [85, 215], offshore_km: 5.0, break_type: beach, <<: *ven }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: saint-gilles-croix-de-vie, name: "Saint-Gilles-Croix-de-Vie (Grande Plage)", town: "Saint-Gilles-Croix-de-Vie", lat: 46.6852, lon: -1.9354, offshore_direction: 50, swell_window: [165, 295], offshore_km: 5.0, break_type: beach, <<: *ven }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: la-sauzaie, name: "La Sauzaie", town: "Bretignolles-sur-Mer", lat: 46.6456, lon: -1.9017, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, break_type: reef, <<: *ven }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: les-dunes-bretignolles, name: "Les Dunes", town: "Bretignolles-sur-Mer", lat: 46.5999, lon: -1.8530, offshore_direction: 75, swell_window: [190, 320], offshore_km: 5.0, break_type: beach, <<: *ven }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: sauveterre, name: "Sauveterre", town: "Les Sables-d'Olonne", lat: 46.5657, lon: -1.8405, offshore_direction: 80, swell_window: [195, 325], offshore_km: 5.0, break_type: beach, <<: *ven }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: l-aubraie, name: "L'Aubraie", town: "Les Sables-d'Olonne", lat: 46.5121, lon: -1.8189, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, break_type: reef, <<: *ven }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: les-sables-d-olonne, name: "Les Sables d'Olonne (Grande Plage)", town: "Les Sables-d'Olonne", lat: 46.4927, lon: -1.7844, offshore_direction: 10, swell_window: [125, 255], offshore_km: 5.0, break_type: beach, <<: *ven }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: tanchet, name: "Tanchet", town: "Les Sables-d'Olonne", lat: 46.4805, lon: -1.7631, offshore_direction: 55, swell_window: [170, 300], offshore_km: 5.0, break_type: beach, <<: *ven }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: la-mine, name: "La Mine", town: "Jard-sur-Mer", lat: 46.4146, lon: -1.6275, offshore_direction: 20, swell_window: [135, 265], offshore_km: 5.0, break_type: reef, <<: *ven }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: le-rocher-longeville, name: "Le Rocher", town: "Longeville-sur-Mer", lat: 46.4000, lon: -1.5080, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, break_type: beach, <<: *ven }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: bud-bud, name: "Bud Bud (Les Conches)", town: "Longeville-sur-Mer", lat: 46.3877, lon: -1.4947, offshore_direction: 60, swell_window: [175, 305], offshore_km: 5.0, break_type: beach, <<: *ven }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: la-terriere, name: "La Terriere", town: "La Tranche-sur-Mer", lat: 46.3596, lon: -1.4776, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: beach, <<: *ven }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: le-phare-la-tranche, name: "Le Phare (La Tranche)", town: "La Tranche-sur-Mer", lat: 46.3420, lon: -1.4621, offshore_direction: 5, shore_normal: 255, swell_window: [190, 320], offshore_km: 5.0, break_type: reef, <<: *ven }  # sat-verified 2026-11-12 (websearch-seeded)

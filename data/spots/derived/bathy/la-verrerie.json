@@ -1,0 +1,72 @@
+{
+  "spot": "la-verrerie",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.2361,
+    5.36
+  ],
+  "bearing_seaward_deg": 290.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 63.0,
+  "mean_slope_m_per_km": 3.1,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.23687,
+      "lon": 5.3571,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.23764,
+      "lon": 5.3542,
+      "depth_m": 13.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.23918,
+      "lon": 5.3484,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.24225,
+      "lon": 5.3368,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.24532,
+      "lon": 5.3252,
+      "depth_m": 36.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.25146,
+      "lon": 5.30199,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.26067,
+      "lon": 5.26716,
+      "depth_m": 67.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.27293,
+      "lon": 5.22072,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.29128,
+      "lon": 5.15102,
+      "depth_m": 63.0
+    }
+  ]
+}

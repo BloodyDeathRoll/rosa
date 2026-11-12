@@ -1,0 +1,72 @@
+{
+  "spot": "anse-du-souffleur",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    16.4237,
+    -61.5333
+  ],
+  "bearing_seaward_deg": 270.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 25.0,
+  "mean_slope_m_per_km": 1.24,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 16.4237,
+      "lon": -61.53564,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 16.4237,
+      "lon": -61.53799,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 16.4237,
+      "lon": -61.54268,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 16.4237,
+      "lon": -61.55205,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 16.4237,
+      "lon": -61.56143,
+      "depth_m": 242.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 16.42369,
+      "lon": -61.58018,
+      "depth_m": 271.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 16.42369,
+      "lon": -61.60831,
+      "depth_m": 301.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 16.42367,
+      "lon": -61.64581,
+      "depth_m": 325.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 16.42363,
+      "lon": -61.70206,
+      "depth_m": 25.0
+    }
+  ]
+}

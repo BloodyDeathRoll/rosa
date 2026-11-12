@@ -1,0 +1,21 @@
+# Rosa spot database - Andaman (seeded 2026-11-12). Little Andaman's east coast: SW Indian Ocean
+# groundswell wrapping the island, best Mar-May before the monsoon.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "India"
+
+defaults: &an
+  timezone: Asia/Kolkata
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [35, 165]
+  ideal:
+    wind_dir: [235, 325]
+    size_m: [0.8, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - andaman, 1 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: butler-bay, name: "Butler Bay", town: "Hut Bay", lat: 10.6705, lon: 92.5762, offshore_direction: 280, swell_window: [35, 165], offshore_km: 5.0, break_type: beach, <<: *an }  # sat-verified 2026-11-12 (websearch-seeded)

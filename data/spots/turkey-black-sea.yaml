@@ -1,0 +1,22 @@
+# Rosa spot database - Turkey, Black Sea coast (seeded 2026-11-12). Kilyos and Sile near Istanbul: N Black Sea
+# wind swell, short and choppy, best autumn to winter.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Turkey"
+
+defaults: &trb
+  timezone: Europe/Istanbul
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [320, 90]
+  ideal:
+    wind_dir: [160, 250]
+    size_m: [0.5, 1.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - turkey-black-sea, 2 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: kilyos, name: "Kilyos", town: "Kilyos", lat: 41.2458, lon: 29.0299, offshore_direction: 170, swell_window: [285, 55], offshore_km: 5.0, break_type: beach, <<: *trb }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: aglayankaya, name: "Aglayankaya", town: "Sile", lat: 41.1758, lon: 29.6243, offshore_direction: 240, swell_window: [355, 125], offshore_km: 5.0, break_type: beach, <<: *trb }  # sat-verified 2026-11-12 (websearch-seeded)

@@ -1,0 +1,72 @@
+{
+  "spot": "jonas-beach",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    33.6527,
+    35.4141
+  ],
+  "bearing_seaward_deg": 315.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 1461.0,
+  "mean_slope_m_per_km": 81.92,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 33.65429,
+      "lon": 35.41219,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 33.65588,
+      "lon": 35.41028,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 33.65906,
+      "lon": 35.40646,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 33.66542,
+      "lon": 35.39882,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 33.67178,
+      "lon": 35.39118,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 33.68449,
+      "lon": 35.37589,
+      "depth_m": 191.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 33.70356,
+      "lon": 35.35295,
+      "depth_m": 486.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 33.72898,
+      "lon": 35.32235,
+      "depth_m": 606.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 33.76709,
+      "lon": 35.27641,
+      "depth_m": 1461.0
+    }
+  ]
+}

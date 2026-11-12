@@ -1,0 +1,72 @@
+{
+  "spot": "anse-trabaud",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    14.41,
+    -60.8498
+  ],
+  "bearing_seaward_deg": 130.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 1324.0,
+  "mean_slope_m_per_km": 74.48,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 14.40855,
+      "lon": -60.84802,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 14.40711,
+      "lon": -60.84624,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 14.40422,
+      "lon": -60.84269,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 14.39844,
+      "lon": -60.83557,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 14.39266,
+      "lon": -60.82846,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 14.38109,
+      "lon": -60.81424,
+      "depth_m": 467.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 14.36375,
+      "lon": -60.79291,
+      "depth_m": 944.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 14.34062,
+      "lon": -60.76447,
+      "depth_m": 1191.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 14.30591,
+      "lon": -60.72183,
+      "depth_m": 1324.0
+    }
+  ]
+}

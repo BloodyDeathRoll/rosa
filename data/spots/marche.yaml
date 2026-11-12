@@ -1,0 +1,21 @@
+# Rosa spot database - Marche (seeded 2026-11-12). Fano and Portonovo on the Adriatic: bora and scirocco wind swell.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Italy"
+
+defaults: &mar
+  timezone: Europe/Rome
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [312, 82]
+  ideal:
+    wind_dir: [152, 242]
+    size_m: [0.5, 1.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - marche, 2 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: fano-sassonia, name: "Fano - Sassonia", town: "Fano", lat: 43.8471, lon: 13.0257, offshore_direction: 225, swell_window: [340, 110], offshore_km: 5.0, break_type: beach, <<: *mar }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: portonovo, name: "Portonovo", town: "Ancona", lat: 43.5655, lon: 13.5909, offshore_direction: 170, swell_window: [285, 55], offshore_km: 5.0, break_type: point, <<: *mar }  # sat-verified 2026-11-12 (websearch-seeded)

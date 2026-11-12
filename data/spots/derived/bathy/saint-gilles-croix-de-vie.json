@@ -1,0 +1,72 @@
+{
+  "spot": "saint-gilles-croix-de-vie",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    46.6852,
+    -1.9354
+  ],
+  "bearing_seaward_deg": 230.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 24.0,
+  "mean_slope_m_per_km": 1.3,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.68375,
+      "lon": -1.93791,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.68231,
+      "lon": -1.94042,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.67942,
+      "lon": -1.94544,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 46.67364,
+      "lon": -1.95548,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 46.66785,
+      "lon": -1.96552,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.65629,
+      "lon": -1.98559,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.63893,
+      "lon": -2.01567,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.61577,
+      "lon": -2.05575,
+      "depth_m": 26.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.58101,
+      "lon": -2.11582,
+      "depth_m": 24.0
+    }
+  ]
+}

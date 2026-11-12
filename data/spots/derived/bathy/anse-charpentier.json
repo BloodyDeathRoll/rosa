@@ -1,0 +1,72 @@
+{
+  "spot": "anse-charpentier",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    14.8089,
+    -61.0173
+  ],
+  "bearing_seaward_deg": 45.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 329.0,
+  "mean_slope_m_per_km": 18.25,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 14.81049,
+      "lon": -61.01566,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 14.81208,
+      "lon": -61.01401,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 14.81526,
+      "lon": -61.01072,
+      "depth_m": 22.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 14.82162,
+      "lon": -61.00414,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 14.82798,
+      "lon": -60.99757,
+      "depth_m": 49.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 14.84069,
+      "lon": -60.98441,
+      "depth_m": 60.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 14.85977,
+      "lon": -60.96467,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 14.8852,
+      "lon": -60.93834,
+      "depth_m": 64.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 14.92333,
+      "lon": -60.89884,
+      "depth_m": 329.0
+    }
+  ]
+}

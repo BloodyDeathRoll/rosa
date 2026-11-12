@@ -1,0 +1,72 @@
+{
+  "spot": "pointe-rouge",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.2447,
+    5.3708
+  ],
+  "bearing_seaward_deg": 280.0,
+  "nearshore_depth_m": -6.0,
+  "offshore_depth_m": 74.0,
+  "mean_slope_m_per_km": 4.51,
+  "land_samples": 2,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.24509,
+      "lon": 5.36776,
+      "depth_m": -6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.24548,
+      "lon": 5.36472,
+      "depth_m": -3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.24626,
+      "lon": 5.35864,
+      "depth_m": 15.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.24782,
+      "lon": 5.34648,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.24938,
+      "lon": 5.33432,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.25249,
+      "lon": 5.31,
+      "depth_m": 45.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.25715,
+      "lon": 5.27351,
+      "depth_m": 66.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.26335,
+      "lon": 5.22485,
+      "depth_m": 75.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.2726,
+      "lon": 5.15185,
+      "depth_m": 74.0
+    }
+  ]
+}

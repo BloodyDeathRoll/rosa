@@ -1,0 +1,72 @@
+{
+  "spot": "algajola",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    42.6101,
+    8.8715
+  ],
+  "bearing_seaward_deg": 320.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 1472.0,
+  "mean_slope_m_per_km": 82.48,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 42.61182,
+      "lon": 8.86954,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 42.61354,
+      "lon": 8.86757,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 42.61699,
+      "lon": 8.86364,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 42.62388,
+      "lon": 8.85579,
+      "depth_m": 48.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 42.63077,
+      "lon": 8.84793,
+      "depth_m": 43.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 42.64454,
+      "lon": 8.83221,
+      "depth_m": 77.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 42.6652,
+      "lon": 8.80861,
+      "depth_m": 119.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 42.69273,
+      "lon": 8.77712,
+      "depth_m": 414.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 42.73402,
+      "lon": 8.72984,
+      "depth_m": 1472.0
+    }
+  ]
+}

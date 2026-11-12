@@ -1,0 +1,72 @@
+{
+  "spot": "les-demoiselles",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    46.7744,
+    -2.0613
+  ],
+  "bearing_seaward_deg": 225.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 29.0,
+  "mean_slope_m_per_km": 1.58,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.77281,
+      "lon": -2.06362,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.77122,
+      "lon": -2.06594,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.76804,
+      "lon": -2.07058,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 46.76168,
+      "lon": -2.07987,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 46.75532,
+      "lon": -2.08915,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.74259,
+      "lon": -2.1077,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.7235,
+      "lon": -2.13551,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.69804,
+      "lon": -2.17256,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.65981,
+      "lon": -2.22808,
+      "depth_m": 29.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "cape-bakaro",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    -0.8613,
+    134.1336
+  ],
+  "bearing_seaward_deg": 15.0,
+  "nearshore_depth_m": 8.0,
+  "offshore_depth_m": 2342.0,
+  "mean_slope_m_per_km": 131.49,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 3,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": -0.85913,
+      "lon": 134.13418,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": -0.85696,
+      "lon": 134.13476,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": -0.85261,
+      "lon": 134.13593,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": -0.84393,
+      "lon": 134.13826,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": -0.83524,
+      "lon": 134.14058,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": -0.81787,
+      "lon": 134.14524,
+      "depth_m": 205.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": -0.79181,
+      "lon": 134.15222,
+      "depth_m": 757.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": -0.75706,
+      "lon": 134.16153,
+      "depth_m": 1612.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": -0.70494,
+      "lon": 134.1755,
+      "depth_m": 2342.0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "spot": "tanjung-sopi",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    2.6469,
+    128.5605
+  ],
+  "bearing_seaward_deg": 325.0,
+  "nearshore_depth_m": 221.0,
+  "offshore_depth_m": 1115.0,
+  "mean_slope_m_per_km": 50.37,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 2.64874,
+      "lon": 128.55921,
+      "depth_m": 221.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 2.65058,
+      "lon": 128.55792,
+      "depth_m": 225.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 2.65427,
+      "lon": 128.55534,
+      "depth_m": 246.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 2.66163,
+      "lon": 128.55017,
+      "depth_m": 306.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 2.669,
+      "lon": 128.54501,
+      "depth_m": 464.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 2.68373,
+      "lon": 128.53468,
+      "depth_m": 621.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 2.70583,
+      "lon": 128.51919,
+      "depth_m": 665.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 2.7353,
+      "lon": 128.49853,
+      "depth_m": 357.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 2.7795,
+      "lon": 128.46754,
+      "depth_m": 1115.0
+    }
+  ]
+}

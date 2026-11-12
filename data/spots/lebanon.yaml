@@ -1,0 +1,22 @@
+# Rosa spot database - Lebanon (seeded 2026-11-12). Batroun, Jbeil and Jiyeh: W Levantine wind swell from winter lows.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Lebanon"
+
+defaults: &lb
+  timezone: Asia/Beirut
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [213, 343]
+  ideal:
+    wind_dir: [53, 143]
+    size_m: [0.5, 1.8]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - lebanon, 3 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: colonel-reef, name: "Colonel (Batroun)", town: "Batroun", lat: 34.2498, lon: 35.6573, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, break_type: reef, <<: *lb }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: jbeil, name: "Jbeil (Byblos)", town: "Jbeil", lat: 34.1158, lon: 35.6477, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: beach, <<: *lb }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: jonas-beach, name: "Jonas Beach (Jiyeh)", town: "Jiyeh", lat: 33.6527, lon: 35.4141, offshore_direction: 135, swell_window: [250, 20], offshore_km: 5.0, break_type: beach, <<: *lb }  # sat-verified 2026-11-12 (osm-seeded)

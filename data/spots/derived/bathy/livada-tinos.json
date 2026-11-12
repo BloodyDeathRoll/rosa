@@ -1,0 +1,72 @@
+{
+  "spot": "livada-tinos",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    37.6102,
+    25.2372
+  ],
+  "bearing_seaward_deg": 20.0,
+  "nearshore_depth_m": 2.0,
+  "offshore_depth_m": 327.0,
+  "mean_slope_m_per_km": 18.31,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 37.61231,
+      "lon": 25.23817,
+      "depth_m": 2.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 37.61443,
+      "lon": 25.23914,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 37.61865,
+      "lon": 25.24108,
+      "depth_m": -24.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 37.6271,
+      "lon": 25.24497,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 37.63555,
+      "lon": 25.24885,
+      "depth_m": 124.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 37.65245,
+      "lon": 25.25662,
+      "depth_m": 135.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 37.6778,
+      "lon": 25.26829,
+      "depth_m": 297.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 37.7116,
+      "lon": 25.28386,
+      "depth_m": 356.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 37.76229,
+      "lon": 25.30723,
+      "depth_m": 327.0
+    }
+  ]
+}

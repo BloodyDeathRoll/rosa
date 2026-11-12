@@ -1,0 +1,72 @@
+{
+  "spot": "tip-of-borneo",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    7.0292,
+    116.7455
+  ],
+  "bearing_seaward_deg": 270.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 46.0,
+  "mean_slope_m_per_km": 2.2,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 7.0292,
+      "lon": 116.74323,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 7.0292,
+      "lon": 116.74097,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 7.0292,
+      "lon": 116.73644,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 7.0292,
+      "lon": 116.72738,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 7.0292,
+      "lon": 116.71832,
+      "depth_m": 31.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 7.0292,
+      "lon": 116.70019,
+      "depth_m": 38.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 7.02919,
+      "lon": 116.67301,
+      "depth_m": 39.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 7.02919,
+      "lon": 116.63676,
+      "depth_m": 44.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 7.02917,
+      "lon": 116.5824,
+      "depth_m": 46.0
+    }
+  ]
+}

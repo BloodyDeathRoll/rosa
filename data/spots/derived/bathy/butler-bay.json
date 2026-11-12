@@ -1,0 +1,72 @@
+{
+  "spot": "butler-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.6705,
+    92.5762
+  ],
+  "bearing_seaward_deg": 100.0,
+  "nearshore_depth_m": -17.0,
+  "offshore_depth_m": 271.0,
+  "mean_slope_m_per_km": 16.23,
+  "land_samples": 3,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.67011,
+      "lon": 92.57845,
+      "depth_m": -17.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.66972,
+      "lon": 92.58071,
+      "depth_m": -15.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.66894,
+      "lon": 92.58521,
+      "depth_m": -5.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.66738,
+      "lon": 92.59422,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.66581,
+      "lon": 92.60324,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.66269,
+      "lon": 92.62126,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.658,
+      "lon": 92.6483,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.65174,
+      "lon": 92.68434,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.64235,
+      "lon": 92.73841,
+      "depth_m": 271.0
+    }
+  ]
+}

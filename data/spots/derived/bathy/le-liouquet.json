@@ -1,0 +1,72 @@
+{
+  "spot": "le-liouquet",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.1821,
+    5.667
+  ],
+  "bearing_seaward_deg": 200.0,
+  "nearshore_depth_m": 1.0,
+  "offshore_depth_m": 124.0,
+  "mean_slope_m_per_km": 6.93,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.17999,
+      "lon": 5.66595,
+      "depth_m": 1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.17787,
+      "lon": 5.66489,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.17365,
+      "lon": 5.66278,
+      "depth_m": 29.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.1652,
+      "lon": 5.65857,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.15675,
+      "lon": 5.65435,
+      "depth_m": 59.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.13984,
+      "lon": 5.64592,
+      "depth_m": 88.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.11449,
+      "lon": 5.63329,
+      "depth_m": 106.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.08068,
+      "lon": 5.61647,
+      "depth_m": 126.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.02996,
+      "lon": 5.59126,
+      "depth_m": 124.0
+    }
+  ]
+}

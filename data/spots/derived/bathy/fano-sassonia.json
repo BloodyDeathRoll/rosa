@@ -1,0 +1,72 @@
+{
+  "spot": "fano-sassonia",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    43.8471,
+    13.0257
+  ],
+  "bearing_seaward_deg": 45.0,
+  "nearshore_depth_m": 5.0,
+  "offshore_depth_m": 33.0,
+  "mean_slope_m_per_km": 1.58,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 43.84869,
+      "lon": 13.0279,
+      "depth_m": 5.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 43.85028,
+      "lon": 13.03011,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 43.85346,
+      "lon": 13.03452,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 43.85982,
+      "lon": 13.04334,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 43.86617,
+      "lon": 13.05216,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 43.87889,
+      "lon": 13.06981,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 43.89795,
+      "lon": 13.0963,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 43.92336,
+      "lon": 13.13165,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 43.96145,
+      "lon": 13.18472,
+      "depth_m": 33.0
+    }
+  ]
+}

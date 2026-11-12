@@ -1,0 +1,72 @@
+{
+  "spot": "la-garonne-cap-ferret",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    44.698,
+    -1.2562
+  ],
+  "bearing_seaward_deg": 265.0,
+  "nearshore_depth_m": 7.0,
+  "offshore_depth_m": 57.0,
+  "mean_slope_m_per_km": 2.82,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 44.6978,
+      "lon": -1.25935,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 44.69761,
+      "lon": -1.2625,
+      "depth_m": 11.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 44.69722,
+      "lon": -1.2688,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 44.69643,
+      "lon": -1.28141,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 44.69564,
+      "lon": -1.29401,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 44.69406,
+      "lon": -1.31921,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 44.69169,
+      "lon": -1.35702,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 44.68849,
+      "lon": -1.40742,
+      "depth_m": 41.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 44.68367,
+      "lon": -1.48301,
+      "depth_m": 57.0
+    }
+  ]
+}

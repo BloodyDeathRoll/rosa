@@ -1,0 +1,36 @@
+# Rosa spot database - Charente-Maritime (seeded 2026-11-12). Ile de Re, Ile d'Oleron and the Cote Sauvage
+# to Royan: the islands filter the swell; west Oleron and the Cote Sauvage are open W-facing beach break.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "France"
+
+defaults: &chm
+  timezone: Europe/Paris
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [193, 323]
+  ideal:
+    wind_dir: [33, 123]
+    size_m: [0.8, 2.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - charente-maritime, 16 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: le-lizay, name: "Le Lizay", town: "Les Portes-en-Re", lat: 46.2576, lon: -1.5136, offshore_direction: 155, shore_normal: 315, swell_window: [250, 20], offshore_km: 5.0, break_type: reef, <<: *chm }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: petit-bec, name: "Petit Bec", town: "Les Portes-en-Re", lat: 46.2530, lon: -1.5226, offshore_direction: 135, swell_window: [250, 20], offshore_km: 5.0, break_type: beach, <<: *chm }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: grignon, name: "Grignon", town: "Ars-en-Re", lat: 46.2036, lon: -1.5353, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: reef, <<: *chm }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: la-pergola, name: "La Pergola", town: "La Couarde-sur-Mer", lat: 46.1897, lon: -1.4326, offshore_direction: 35, swell_window: [150, 280], offshore_km: 5.0, break_type: beach, <<: *chm }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: gouillaud, name: "Gouillaud", town: "Le Bois-Plage-en-Re", lat: 46.1690, lon: -1.3758, offshore_direction: 35, swell_window: [150, 280], offshore_km: 5.0, break_type: beach, <<: *chm }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: gros-jonc, name: "Gros Jonc", town: "Le Bois-Plage-en-Re", lat: 46.1671, lon: -1.3725, offshore_direction: 35, swell_window: [150, 280], offshore_km: 5.0, break_type: beach, <<: *chm }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: les-grenettes, name: "Les Grenettes", town: "Sainte-Marie-de-Re", lat: 46.1614, lon: -1.3634, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, break_type: beach, <<: *chm }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: chassiron, name: "Chassiron", town: "Saint-Denis-d'Oleron", lat: 46.0472, lon: -1.4126, offshore_direction: 95, swell_window: [210, 340], offshore_km: 5.0, break_type: reef, <<: *chm }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: soubregeon, name: "Saint-Denis (Soubregeon)", town: "Saint-Denis-d'Oleron", lat: 46.0414, lon: -1.3801, offshore_direction: 200, shore_normal: 320, swell_window: [255, 25], offshore_km: 5.0, break_type: point, <<: *chm }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: les-huttes, name: "Les Huttes", town: "Saint-Denis-d'Oleron", lat: 46.0072, lon: -1.3922, offshore_direction: 65, swell_window: [180, 310], offshore_km: 5.0, break_type: beach, <<: *chm }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: vert-bois, name: "Vert Bois", town: "Dolus-d'Oleron", lat: 45.8687, lon: -1.2597, offshore_direction: 70, swell_window: [185, 315], offshore_km: 5.0, break_type: beach, <<: *chm }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: saint-trojan, name: "Saint-Trojan (Grande Plage)", town: "Saint-Trojan-les-Bains", lat: 45.8415, lon: -1.2504, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, break_type: beach, <<: *chm }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: pointe-espagnole, name: "Pointe Espagnole", town: "La Tremblade", lat: 45.7800, lon: -1.2431, offshore_direction: 95, swell_window: [210, 340], offshore_km: 5.0, break_type: beach, <<: *chm }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: la-bouverie, name: "La Bouverie", town: "La Tremblade", lat: 45.7314, lon: -1.2407, offshore_direction: 90, swell_window: [205, 335], offshore_km: 5.0, break_type: beach, <<: *chm }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: la-coubre, name: "La Coubre", town: "La Tremblade", lat: 45.6960, lon: -1.2370, offshore_direction: 85, swell_window: [200, 330], offshore_km: 5.0, break_type: beach, <<: *chm }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: pontaillac, name: "Pontaillac", town: "Royan", lat: 45.6261, lon: -1.0520, offshore_direction: 45, swell_window: [160, 290], offshore_km: 5.0, break_type: beach, <<: *chm }  # sat-verified 2026-11-12 (websearch-seeded)

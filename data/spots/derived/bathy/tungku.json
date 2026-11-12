@@ -1,0 +1,72 @@
+{
+  "spot": "tungku",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    4.9809,
+    114.8875
+  ],
+  "bearing_seaward_deg": 345.0,
+  "nearshore_depth_m": -10.0,
+  "offshore_depth_m": 29.0,
+  "mean_slope_m_per_km": 2.2,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 4.98307,
+      "lon": 114.88692,
+      "depth_m": -10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 4.98524,
+      "lon": 114.88633,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 4.98959,
+      "lon": 114.88516,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 4.99827,
+      "lon": 114.88283,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 5.00696,
+      "lon": 114.88049,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 5.02433,
+      "lon": 114.87582,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 5.05039,
+      "lon": 114.86881,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 5.08514,
+      "lon": 114.85946,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 5.13726,
+      "lon": 114.84543,
+      "depth_m": 29.0
+    }
+  ]
+}

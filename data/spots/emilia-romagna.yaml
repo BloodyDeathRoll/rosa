@@ -1,0 +1,26 @@
+# Rosa spot database - Emilia-Romagna (seeded 2026-11-12). Ravenna to Rimini on the northern Adriatic:
+# NE bora and SE scirocco wind swell, short period, breaks keyed to jetties and river mouths.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Italy"
+
+defaults: &emr
+  timezone: Europe/Rome
+  height_coeff: 1.0
+  break_type: jetty
+  swell_window: [8, 138]
+  ideal:
+    wind_dir: [208, 298]
+    size_m: [0.5, 1.5]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - emilia-romagna, 6 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: lamone, name: "Lamone - Boca Barranca", town: "Marina Romea", lat: 44.5263, lon: 12.2804, offshore_direction: 260, swell_window: [15, 145], offshore_km: 5.0, break_type: rivermouth, <<: *emr }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: porto-corsini, name: "Porto Corsini - Diga Nord", town: "Porto Corsini", lat: 44.4982, lon: 12.2861, offshore_direction: 255, swell_window: [10, 140], offshore_km: 5.0, break_type: jetty, <<: *emr }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: marina-di-ravenna, name: "Marina di Ravenna - Diga Sud", town: "Marina di Ravenna", lat: 44.4862, lon: 12.2864, offshore_direction: 275, swell_window: [30, 160], offshore_km: 5.0, break_type: jetty, <<: *emr }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: canalino, name: "Canalino", town: "Milano Marittima", lat: 44.2809, lon: 12.3546, offshore_direction: 250, swell_window: [5, 135], offshore_km: 5.0, break_type: jetty, <<: *emr }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: porto-di-cervia, name: "Porto di Cervia", town: "Cervia", lat: 44.2694, lon: 12.3588, offshore_direction: 245, swell_window: [0, 130], offshore_km: 5.0, break_type: jetty, <<: *emr }  # sat-verified 2026-11-12 (osm-seeded)
+  - { id: rock-island-rimini, name: "Rock Island", town: "Rimini", lat: 44.0796, lon: 12.5757, offshore_direction: 230, swell_window: [345, 115], offshore_km: 5.0, break_type: jetty, <<: *emr }  # sat-verified 2026-11-12 (osm-seeded)

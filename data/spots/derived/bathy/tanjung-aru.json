@@ -1,0 +1,72 @@
+{
+  "spot": "tanjung-aru",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    5.9506,
+    116.0441
+  ],
+  "bearing_seaward_deg": 245.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 31.0,
+  "mean_slope_m_per_km": 2.14,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 1,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 5.94965,
+      "lon": 116.04205,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 5.9487,
+      "lon": 116.04,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 5.9468,
+      "lon": 116.03591,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 5.943,
+      "lon": 116.02771,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 5.9392,
+      "lon": 116.01952,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 5.9316,
+      "lon": 116.00313,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 5.92019,
+      "lon": 115.97855,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 5.90498,
+      "lon": 115.94577,
+      "depth_m": 32.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 5.88217,
+      "lon": 115.89661,
+      "depth_m": 31.0
+    }
+  ]
+}

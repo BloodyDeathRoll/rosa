@@ -1,0 +1,72 @@
+{
+  "spot": "le-rocher-longeville",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    46.4,
+    -1.508
+  ],
+  "bearing_seaward_deg": 225.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 12.0,
+  "mean_slope_m_per_km": 0.73,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": false,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.39841,
+      "lon": -1.51031,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.39682,
+      "lon": -1.51261,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.39364,
+      "lon": -1.51722,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 46.38728,
+      "lon": -1.52644,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 46.38092,
+      "lon": -1.53565,
+      "depth_m": 4.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.36819,
+      "lon": -1.55408,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.3491,
+      "lon": -1.5817,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.32364,
+      "lon": -1.6185,
+      "depth_m": 28.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.28542,
+      "lon": -1.67364,
+      "depth_m": 12.0
+    }
+  ]
+}

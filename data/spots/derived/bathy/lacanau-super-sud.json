@@ -1,0 +1,72 @@
+{
+  "spot": "lacanau-super-sud",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    44.9791,
+    -1.2067
+  ],
+  "bearing_seaward_deg": 270.0,
+  "nearshore_depth_m": 6.0,
+  "offshore_depth_m": 42.0,
+  "mean_slope_m_per_km": 2.03,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 44.9791,
+      "lon": -1.20988,
+      "depth_m": 6.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 44.9791,
+      "lon": -1.21306,
+      "depth_m": 8.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 44.9791,
+      "lon": -1.21941,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 44.9791,
+      "lon": -1.23213,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 44.97909,
+      "lon": -1.24484,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 44.97908,
+      "lon": -1.27027,
+      "depth_m": 24.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 44.97905,
+      "lon": -1.30841,
+      "depth_m": 27.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 44.979,
+      "lon": -1.35926,
+      "depth_m": 30.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 44.97887,
+      "lon": -1.43555,
+      "depth_m": 42.0
+    }
+  ]
+}

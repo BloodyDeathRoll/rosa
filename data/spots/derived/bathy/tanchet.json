@@ -1,0 +1,72 @@
+{
+  "spot": "tanchet",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    46.4805,
+    -1.7631
+  ],
+  "bearing_seaward_deg": 235.0,
+  "nearshore_depth_m": -1.0,
+  "offshore_depth_m": 31.0,
+  "mean_slope_m_per_km": 1.8,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.47921,
+      "lon": -1.76577,
+      "depth_m": -1.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.47792,
+      "lon": -1.76845,
+      "depth_m": 7.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.47534,
+      "lon": -1.7738,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 46.47018,
+      "lon": -1.78449,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 46.46502,
+      "lon": -1.79519,
+      "depth_m": 17.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.4547,
+      "lon": -1.81657,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.4392,
+      "lon": -1.84862,
+      "depth_m": 21.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.41853,
+      "lon": -1.89133,
+      "depth_m": 25.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.38749,
+      "lon": -1.95534,
+      "depth_m": 31.0
+    }
+  ]
+}

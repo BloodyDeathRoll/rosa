@@ -1,0 +1,72 @@
+{
+  "spot": "salybia-bay",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    10.8356,
+    -60.9222
+  ],
+  "bearing_seaward_deg": 10.0,
+  "nearshore_depth_m": 10.0,
+  "offshore_depth_m": 106.0,
+  "mean_slope_m_per_km": 5.41,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 2,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 10.83781,
+      "lon": -60.9218,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 10.84003,
+      "lon": -60.9214,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 10.84446,
+      "lon": -60.92061,
+      "depth_m": 12.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 10.85331,
+      "lon": -60.91902,
+      "depth_m": 10.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 10.86217,
+      "lon": -60.91743,
+      "depth_m": 23.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 10.87988,
+      "lon": -60.91425,
+      "depth_m": 50.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 10.90645,
+      "lon": -60.90948,
+      "depth_m": 34.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 10.94188,
+      "lon": -60.90311,
+      "depth_m": 76.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 10.99502,
+      "lon": -60.89356,
+      "depth_m": 106.0
+    }
+  ]
+}

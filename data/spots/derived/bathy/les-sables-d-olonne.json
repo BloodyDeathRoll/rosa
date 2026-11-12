@@ -1,0 +1,72 @@
+{
+  "spot": "les-sables-d-olonne",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    46.4927,
+    -1.7844
+  ],
+  "bearing_seaward_deg": 190.0,
+  "nearshore_depth_m": 3.0,
+  "offshore_depth_m": 24.0,
+  "mean_slope_m_per_km": 1.18,
+  "land_samples": 0,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 46.49049,
+      "lon": -1.78497,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 46.48827,
+      "lon": -1.78553,
+      "depth_m": 3.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 46.48384,
+      "lon": -1.78667,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 46.47499,
+      "lon": -1.78894,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 46.46613,
+      "lon": -1.7912,
+      "depth_m": 16.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 46.44842,
+      "lon": -1.79573,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 46.42185,
+      "lon": -1.80252,
+      "depth_m": 19.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 46.38642,
+      "lon": -1.81157,
+      "depth_m": 20.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 46.33327,
+      "lon": -1.82511,
+      "depth_m": 24.0
+    }
+  ]
+}

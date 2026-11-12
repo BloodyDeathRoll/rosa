@@ -1,0 +1,72 @@
+{
+  "spot": "chrissi-akti-chania",
+  "source": "gebco2024 via local grid",
+  "origin": [
+    35.5125,
+    23.99
+  ],
+  "bearing_seaward_deg": 30.0,
+  "nearshore_depth_m": -7.0,
+  "offshore_depth_m": 316.0,
+  "mean_slope_m_per_km": 18.2,
+  "land_samples": 1,
+  "missing_samples": 0,
+  "non_monotone_samples": 0,
+  "deepest_is_reference": true,
+  "samples": [
+    {
+      "dist_km": 0.25,
+      "lat": 35.51445,
+      "lon": 23.99138,
+      "depth_m": -7.0
+    },
+    {
+      "dist_km": 0.5,
+      "lat": 35.51639,
+      "lon": 23.99276,
+      "depth_m": 9.0
+    },
+    {
+      "dist_km": 1.0,
+      "lat": 35.52029,
+      "lon": 23.99552,
+      "depth_m": 14.0
+    },
+    {
+      "dist_km": 2.0,
+      "lat": 35.52808,
+      "lon": 24.00105,
+      "depth_m": 18.0
+    },
+    {
+      "dist_km": 3.0,
+      "lat": 35.53586,
+      "lon": 24.00658,
+      "depth_m": 35.0
+    },
+    {
+      "dist_km": 5.0,
+      "lat": 35.55144,
+      "lon": 24.01763,
+      "depth_m": 53.0
+    },
+    {
+      "dist_km": 8.0,
+      "lat": 35.5748,
+      "lon": 24.03423,
+      "depth_m": 84.0
+    },
+    {
+      "dist_km": 12.0,
+      "lat": 35.60594,
+      "lon": 24.05637,
+      "depth_m": 123.0
+    },
+    {
+      "dist_km": 18.0,
+      "lat": 35.65265,
+      "lon": 24.08961,
+      "depth_m": 316.0
+    }
+  ]
+}

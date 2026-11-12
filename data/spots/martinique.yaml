@@ -1,0 +1,28 @@
+# Rosa spot database - Martinique (seeded 2026-11-12). Tartane and the Atlantic and north coasts: N swell
+# Nov-Mar, trade wind swell at Tartane; the south coast needs SE swell.
+# Every spot carries offshore_km along its own seaward normal; break_type per spot.
+# Defaults are TODO calibrate.
+
+country: "Martinique"
+
+defaults: &mq
+  timezone: America/Martinique
+  height_coeff: 1.0
+  break_type: beach
+  swell_window: [318, 88]
+  ideal:
+    wind_dir: [158, 248]
+    size_m: [0.8, 2.0]
+
+spots:
+
+  # ==== SEEDED 2026-11-12 - martinique, 8 spots (web-search flow; coordinates from OSM /
+  # Nominatim / Photon, every pin rendered and judged at z16; © OpenStreetMap contributors, ODbL)
+  - { id: anse-bagasse, name: "Bagasse", town: "Grand'Riviere", lat: 14.8743, lon: -61.1757, offshore_direction: 180, swell_window: [295, 65], offshore_km: 5.0, break_type: reef, <<: *mq }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: basse-pointe, name: "Basse-Pointe", town: "Basse-Pointe", lat: 14.8699, lon: -61.1184, offshore_direction: 200, swell_window: [315, 85], offshore_km: 5.0, break_type: reef, <<: *mq }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: anse-couleuvre, name: "Anse Couleuvre", town: "Le Precheur", lat: 14.8426, lon: -61.2192, offshore_direction: 100, swell_window: [215, 345], offshore_km: 5.0, break_type: beach, <<: *mq }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: anse-charpentier, name: "Anse Charpentier", town: "Sainte-Marie", lat: 14.8089, lon: -61.0173, offshore_direction: 225, swell_window: [340, 110], offshore_km: 5.0, break_type: beach, <<: *mq }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: anse-bonneville, name: "Anse Bonneville", town: "Tartane", lat: 14.7699, lon: -60.8995, offshore_direction: 170, swell_window: [285, 55], offshore_km: 5.0, break_type: reef, <<: *mq }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: anse-l-etang, name: "Anse l'Etang", town: "Tartane", lat: 14.7664, lon: -60.9050, offshore_direction: 180, swell_window: [295, 65], offshore_km: 5.0, break_type: reef, <<: *mq }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: anse-cafard, name: "Anse Cafard", town: "Le Diamant", lat: 14.4693, lon: -61.0457, offshore_direction: 300, swell_window: [55, 185], offshore_km: 5.0, break_type: beach, <<: *mq }  # sat-verified 2026-11-12 (websearch-seeded)
+  - { id: anse-trabaud, name: "Anse Trabaud", town: "Sainte-Anne", lat: 14.4100, lon: -60.8498, offshore_direction: 310, swell_window: [65, 195], offshore_km: 5.0, break_type: beach, <<: *mq }  # sat-verified 2026-11-12 (websearch-seeded)
